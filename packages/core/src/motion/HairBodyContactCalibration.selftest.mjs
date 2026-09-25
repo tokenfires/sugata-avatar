@@ -42,6 +42,8 @@ try {
         const result = await select( input ); assert.equal( result.enabled, true, result.reason );
         assert.equal( result.calibration, C ); assert.deepEqual( result.bodyIndices, new Uint32Array( body.geometry.index.array ) );
         assert.notEqual( result.bodyIndices, body.geometry.index.array );
+        assert.deepEqual( result.dynamicsSettings, { drag: 1.2 } );
+        assert.equal( Object.isFrozen( result.dynamicsSettings ), true );
         const anatomy = JSON.parse( fs.readFileSync( path.join( root, 'tools/critic/fixtures/portrait-anatomy-v1.json' ) ) );
         const a = anatomy.bakes.find( b => b.bake === 'g050' ); assert.deepEqual( C.sourceTriangleIds, a.neckPatchTriangleIds );
         assert.equal( C.sourceTriangleIds.length, 1872 ); assert.equal( C.body.hashes.skinWeight, a.hashes.runtimeWeightFloat32 );
@@ -55,6 +57,7 @@ try {
         const result = await select( { style: 'bob01', bake: 'figure_g025', body: body025, groom: groom025 } );
         assert.equal( result.enabled, true, result.reason );
         assert.equal( result.calibration.id, 'bob01-g025-composed-neck-v1' );
+        assert.deepEqual( result.dynamicsSettings, { drag: 1.2 } );
         assert.equal( result.calibration.sourceTriangleIds.length, 1872 );
         assert.equal( result.calibration.activeChains.length, 496 );
         assert.notEqual( result.calibration.body.inverseBindSha256, C.body.inverseBindSha256 );

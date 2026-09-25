@@ -1,0 +1,442 @@
+
+alive.html toggles — http://localhost:5194/alive.html?bare&freeze&seed=1
+
+--- are the instruments usable at all? -------------------------------------
+
+PASS  the fingerprint is the same on two loads of the same url, so a difference below means something
+        20 entities, all reproducible
+PASS  the frame-subject walk is the same on two loads of the same url
+        196 properties across the renderer, the scene and the camera, all reproducible — so a property that moves below moved because a toggle moved it
+PASS  the walk reaches every subject a confound has been routed through, so "nothing moved" means something
+        196 properties, of which 48 on the camera. renderer.toneMappingExposure=1 (a renderer scalar), renderer.shadowMap.enabled=true (a nested configuration bag), scene.backgroundIntensity=1 (the scene rather than the renderer), camera.filmOffset=0 (THE THIRD SUBJECT), camera.position=Vector3(0.189119,1.477779,0.889733) (a value object on it, read as numbers rather than as object:Vector3), camera.layers.mask=1 (a configuration bag whose class is NOT Object), drawingBufferSize.x=1800 (the resize scratch vector, read as numbers), renderParticipants.clients=set(0) (the live render-owner set, including its size), renderParticipants.failedImage=false (whether cached scene output is available)
+PASS  every object the Stage holds is either walked or excused, so the SUBJECT list is closed too
+        17 members: renderer + scene + camera + drawingBufferSize + renderParticipants walked, the other 12 excused in UNWALKED_SUBJECTS
+PASS  every excused subject is one the Stage actually holds
+        all 12 excuses correspond to a live member
+
+        ⚠️  KNOWN OPEN HOLE: 7 post-stack members (renderPipeline, scenePass, gbuffer, temporal, grade, velocityGain, depthGain) are identity-checked
+            here and NOT walked. Their state is covered only by shadingFingerprint's 19-field
+            `pipeline` row, which is the same shape of instrument this file exists because of.
+            Measured at this commit: no post-boot confound can be planted on the Grade, because
+            every uniform it owns is either carried by that row or rewritten every frame. That
+            is a coincidence and the next check is what keeps it one.
+            (stage.ambientOcclusion is an eighth post-stack member and is counted separately,
+            because the pipeline row carries its describe() WHOLE rather than a field or two.)
+
+PASS  the Grade owns exactly the uniforms this file knows something covers
+        8 uniforms, each one either in the fingerprint's pipeline row or written every frame: bloomRadius, bloomStrength, bloomThreshold, exposure, grainFrame, grainSigmaCodes, saturation, vignette
+
+        ⚠️  KNOWN OPEN HOLE: 4 of the occlusion node's uniforms (thickness, distanceFallOff, distanceExponent, _temporalDirection)
+            are not reported by describe(), so nothing here would see a confound planted on one.
+            No url key drives any of them today; the next check is what keeps that true.
+
+PASS  the occlusion node owns exactly the uniforms this file has classified
+        8 uniforms, 4 of them carried by describe() and therefore by the fingerprint's pipeline row: _temporalDirection, distanceExponent, distanceFallOff, packedNormalDefect, radius, samples, scale, thickness
+PASS  every exclusion the walk declares is a property that actually exists
+        2 per-frame exclusions and 2 uuids, all present on the baseline and all recorded as markers rather than silently skipped
+PASS  the page's own renderState() walks the same properties this file does
+        both walks report the same 196 property paths
+PASS  ?bare&freeze&seed=1&aa=msaa&grade=0 renders the same bytes twice, so "these two plates differ" can fail
+        two loads byte-identical at 3080386 bytes
+PASS  every subsystem is live on the shipped plate, so a zero downstream means something
+        11 subsystems; all live except multisampleSamples (MSAA is mutually exclusive with the temporal resolve, which ships on)
+PASS  multisampleSamples is zero at baseline for the stated reason, not because it is broken
+        multisampleSamples = 0 — MSAA is mutually exclusive with the temporal resolve, which ships on
+
+        baseline census: {"skinMaterial":1,"eyeMaterial":2,"eyeOcclusion":4,"cardShading":2,"shadowCastingLights":1,"skinCavityStrength":1,"temporalResolve":1,"grade":1,"ambientOcclusion":{"quality":"low","samples":8,"radius":0.035,"resolutionScale":0.5,"strength":1,"bentNormal":true,"specularOcclusion":true,"ambientSpecular":true,"specularF0":0.04,"defect":"none","view":"off","skyColour":"b9c4ea","groundColour":"5a4038","intensity":0.5609999999999999,"hemisphereLightsInScene":0},"hair":null,"multisampleSamples":0}
+        fingerprint entities: mesh:backdrop, mesh:ground, light:key, light:key-shadow, light:fill, light:rim, light:kicker, mesh:Human, mesh:Humancornea, mesh:Humaneyebrow001, mesh:Humaneyelashes01, mesh:Humanhigh-poly, mesh:Humanteeth_base, mesh:Humantongue01, mesh:eyeOcclusion.left, mesh:eyeLacrimal.left, mesh:eyeOcclusion.right, mesh:eyeLacrimal.right, pipeline, nodesWalked
+
+
+--- one toggle, one subsystem ----------------------------------------------
+
+PASS  ?skin=0 changes exactly mesh:Human
+        the other 19 entities hold their signatures
+PASS  ?skin=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?skin=0 switches skinMaterial OFF
+        skinMaterial 1 -> 0
+PASS  ?eyes=0 changes exactly mesh:Humancornea + mesh:Humanhigh-poly
+        the other 18 entities hold their signatures
+PASS  ?eyes=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?eyes=0 switches eyeMaterial OFF
+        eyeMaterial 2 -> 0
+PASS  ?eyeocc=0 changes exactly mesh:eyeOcclusion.left + mesh:eyeOcclusion.right + mesh:eyeLacrimal.left + mesh:eyeLacrimal.right
+        the other 16 entities hold their signatures
+PASS  ?eyeocc=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?eyeocc=0 switches eyeOcclusion OFF
+        eyeOcclusion 4 -> 0
+PASS  ?cards=0 changes exactly mesh:Humaneyebrow001 + mesh:Humaneyelashes01
+        the other 18 entities hold their signatures
+PASS  ?cards=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?cards=0 switches cardShading OFF
+        cardShading 2 -> 0
+PASS  ?cavity=0 changes exactly mesh:Human
+        the other 19 entities hold their signatures
+PASS  ?cavity=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?cavity=0 switches skinCavityStrength OFF
+        skinCavityStrength 1 -> 0
+PASS  ?specaa=0 changes exactly mesh:Human
+        the other 19 entities hold their signatures
+PASS  ?specaa=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?ground=0 changes exactly mesh:ground
+        the other 19 entities hold their signatures
+PASS  ?ground=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?backdrop=0x11151f changes exactly mesh:backdrop
+        the other 19 entities hold their signatures
+PASS  ?backdrop=0x11151f moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?shadows=0 changes exactly light:key + light:key-shadow
+        the other 18 entities hold their signatures
+PASS  ?shadows=0 moves renderer.shadowMap.enabled + scene.children
+        the other 194 properties of the renderer, the scene and the camera hold their values
+PASS  ?shadows=0 switches shadowCastingLights OFF
+        shadowCastingLights 1 -> 0
+PASS  ?ov=rim.irradiance:0 changes exactly light:rim
+        the other 19 entities hold their signatures
+PASS  ?ov=rim.irradiance:0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?aa=off changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?aa=off moves camera.view + camera.view.enabled + camera.view.fullWidth + camera.view.fullHeight + camera.view.width + camera.view.height + excluded:camera.view.offsetX + excluded:camera.view.offsetY + stage.temporal
+        the other 187 properties of the renderer, the scene and the camera hold their values
+PASS  ?aa=off switches temporalResolve OFF
+        temporalResolve 1 -> 0
+PASS  ?grade=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?grade=0 moves stage.grade
+        the other 195 properties of the renderer, the scene and the camera hold their values
+PASS  ?grade=0 switches grade OFF
+        grade 1 -> 0
+PASS  ?morphvel=off changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?morphvel=off moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?gsharp=none changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?gsharp=none moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?sharp=0.2 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?sharp=0.2 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?scale=1 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?scale=1 moves camera.view.fullWidth + camera.view.fullHeight + camera.view.width + camera.view.height
+        the other 192 properties of the renderer, the scene and the camera hold their values
+PASS  ?gtao=0 changes exactly light:ambient + pipeline
+        the other 18 entities hold their signatures
+PASS  ?gtao=0 moves scene.children + stage.ambientOcclusion
+        the other 194 properties of the renderer, the scene and the camera hold their values
+PASS  ?gtaoq=high changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?gtaoq=high moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?bentnormal=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?bentnormal=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?specocc=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?specocc=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?ambspec=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?ambspec=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?gtaoradius=0.06 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?gtaoradius=0.06 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?gtaostrength=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?gtaostrength=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?gtaoview=ao changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?gtaoview=ao moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?tone=agx changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?tone=agx moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?exposure=1.1 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?exposure=1.1 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?bloom=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?bloom=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?thresh=0.9 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?thresh=0.9 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?grain=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?grain=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?vignette=0 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?vignette=0 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?sat=1 changes exactly pipeline
+        the other 19 entities hold their signatures
+PASS  ?sat=1 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?frame=body changes exactly light:key + light:key-shadow + light:fill + light:rim + light:kicker
+        the other 15 entities hold their signatures
+PASS  ?frame=body moves camera.matrix + camera.matrixWorld + camera.matrixWorldInverse + camera.position
+        the other 192 properties of the renderer, the scene and the camera hold their values
+PASS  ?height=0.3 changes exactly light:key + light:key-shadow + light:fill + light:rim + light:kicker
+        the other 15 entities hold their signatures
+PASS  ?height=0.3 moves camera.matrix + camera.matrixWorld + camera.matrixWorldInverse + camera.position
+        the other 192 properties of the renderer, the scene and the camera hold their values
+PASS  ?pose=bind changes exactly light:key + light:key-shadow + light:fill + light:rim + light:kicker
+        the other 15 entities hold their signatures
+PASS  ?pose=bind moves camera.matrix + camera.matrixWorld + camera.matrixWorldInverse + camera.position
+        the other 192 properties of the renderer, the scene and the camera hold their values
+PASS  ?gender=1 changes exactly light:key + light:key-shadow + light:fill + light:rim + light:kicker + mesh:Humancornea
+        the other 14 entities hold their signatures
+PASS  ?gender=1 moves camera.matrix + camera.matrixWorld + camera.matrixWorldInverse + camera.position
+        the other 192 properties of the renderer, the scene and the camera hold their values
+PASS  ?seed=42 changes exactly NOTHING
+        the other 20 entities hold their signatures
+PASS  ?seed=42 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?preroll=0.1 changes exactly NOTHING
+        the other 20 entities hold their signatures
+PASS  ?preroll=0.1 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?arousal=0.8 changes exactly NOTHING
+        the other 20 entities hold their signatures
+PASS  ?arousal=0.8 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?load=0.4 changes exactly NOTHING
+        the other 20 entities hold their signatures
+PASS  ?load=0.4 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+PASS  ?attention=0.9 changes exactly NOTHING
+        the other 20 entities hold their signatures
+PASS  ?attention=0.9 moves NO frame-subject state
+        the other 196 properties of the renderer, the scene and the camera hold their values
+
+--- the anti-aliasing mode switch -------------------------------------------
+
+PASS  ?aa=msaa turns multisampleSamples ON
+        multisampleSamples 0 -> 4
+PASS  ?aa=msaa turns temporalResolve OFF, because the two cannot coexist
+        temporalResolve 1 -> 0
+PASS  ?aa=msaa changes exactly mesh:Humaneyebrow001 + mesh:Humaneyelashes01 + pipeline
+        the pipeline and the two alpha-to-coverage cards, which is the documented coupling
+PASS  ?aa=msaa moves renderer._samples + renderer.get:samples + camera.view + camera.view.enabled + camera.view.fullWidth + camera.view.fullHeight + camera.view.width + camera.view.height + excluded:camera.view.offsetX + excluded:camera.view.offsetY + stage.temporal and nothing else on the renderer
+        renderer._samples 0 -> 4, and the other 185 properties hold
+PASS  with ?wear absent the wardrobe is never built, on ANY plate this file loads
+        43 plates, sugata.wardrobe null on every one — no manifest fetch, no hide-mask body, nothing added to the scene
+PASS  and the same check SEES a wardrobe when ?wear IS present, so the nulls above mean inert and not absent
+        ?wear= built the wardrobe and wore [] — the decency floor, which is empty until 9.8 lands
+PASS  with ?hair absent the groom is never loaded, on ANY plate this file loads
+        43 plates, census.hair null on every one — no GLB fetched, no sheets, nothing added to the figure
+PASS  and the same check SEES a groom when ?hair IS present, so the nulls above mean inert and not absent
+        ?hair=1 put the figure_g050 groom on the page: 1 mesh, 1 of them wearing HairMaterial, oit 'stochastic'
+PASS  and the arm it runs is HairOIT.js's own recommendation, not whatever the material was left in
+        oit 'stochastic' = HAIR_OIT_DEFAULT_MODE, read off stage.hairOITMode rather than echoed back from the url
+PASS  and the groom it puts there is SIMULATED — punch-list 6.6's solver is on the plate a judge captures
+        496 chains x 17 rings = 8432 particles at a 0.008333 s substep, 1 renderer.compute() call last frame
+PASS  ...and it is being STEPPED, which is the half a constructed-but-unstepped solver would also pass
+        197 -> 257 fixed steps over 500 ms of rAF. A solver built and never driven reads identically to this one in the census shape, in the material node graph and in the entity fingerprint.
+PASS  and ?hairmotion=0 takes the solver away, so the A/B toggle is a control and not a label
+        the groom is still there (1 shaded mesh, oit 'stochastic') and census.hair.motion is null — a RIGID groom, which is what every plate captured off this page before punch-list 6.6 contained
+
+--- is the gate looking at every toggle the page has? -----------------------
+
+PASS  every url key the page read is classified in this file
+        73 keys observed, all of them either gated or listed in UNGATED with a reason
+PASS  every key this file classifies is one the page actually reads
+        all 73 observable classified keys were observed
+PASS  ?clockdefect is not consulted on any plate this file loads, as declared
+        read only inside the `?capture` branch, and this file drives the free-running clock. alive-capture-determinism.selftest.mjs is what exercises it.
+PASS  ?trace is not consulted on any plate this file loads, as declared
+        `?bare` short-circuits the read, so no plate this file loads ever consults it. It also has nothing to change on such a plate: bare has already hidden the strip chart.
+
+--- pairwise independence, in pixels ---------------------------------------
+
+PASS  ?skin=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?skin=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?eyes=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?eyes=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?eyeocc=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?eyeocc=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?cards=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?cards=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?shadows=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?shadows=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?cavity=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?cavity=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?specaa=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?specaa=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?gtao=0 renders the same bytes twice
+        reproducible, so a pair containing it can fail
+PASS  ?gtao=0 moves pixels on the forward path, so a pair containing it can fail
+        differs from the base plate
+PASS  ?eyes=0 still changes the render when ?skin=0 is already on
+        the two plates differ
+PASS  ?skin=0 still changes the render when ?eyes=0 is already on
+        the two plates differ
+PASS  ?eyeocc=0 still changes the render when ?skin=0 is already on
+        the two plates differ
+PASS  ?skin=0 still changes the render when ?eyeocc=0 is already on
+        the two plates differ
+PASS  ?cards=0 still changes the render when ?skin=0 is already on
+        the two plates differ
+PASS  ?skin=0 still changes the render when ?cards=0 is already on
+        the two plates differ
+PASS  ?shadows=0 still changes the render when ?skin=0 is already on
+        the two plates differ
+PASS  ?skin=0 still changes the render when ?shadows=0 is already on
+        the two plates differ
+PASS  ?skin=0 absorbs ?cavity=0, as declared
+        the cavity term lives in the skin shader, so ?skin=0 leaves nothing to carry it
+PASS  ?skin=0 still changes the render when ?cavity=0 is already on
+        the two plates differ
+PASS  ?skin=0 absorbs ?specaa=0, as declared
+        the specular-AA filter is a node on the skin roughness node, so ?skin=0 takes it too
+PASS  ?skin=0 still changes the render when ?specaa=0 is already on
+        the two plates differ
+PASS  ?gtao=0 still changes the render when ?skin=0 is already on
+        the two plates differ
+PASS  ?skin=0 still changes the render when ?gtao=0 is already on
+        the two plates differ
+PASS  ?eyeocc=0 still changes the render when ?eyes=0 is already on
+        the two plates differ
+PASS  ?eyes=0 still changes the render when ?eyeocc=0 is already on
+        the two plates differ
+PASS  ?cards=0 still changes the render when ?eyes=0 is already on
+        the two plates differ
+PASS  ?eyes=0 still changes the render when ?cards=0 is already on
+        the two plates differ
+PASS  ?shadows=0 still changes the render when ?eyes=0 is already on
+        the two plates differ
+PASS  ?eyes=0 still changes the render when ?shadows=0 is already on
+        the two plates differ
+PASS  ?cavity=0 still changes the render when ?eyes=0 is already on
+        the two plates differ
+PASS  ?eyes=0 still changes the render when ?cavity=0 is already on
+        the two plates differ
+PASS  ?specaa=0 still changes the render when ?eyes=0 is already on
+        the two plates differ
+PASS  ?eyes=0 still changes the render when ?specaa=0 is already on
+        the two plates differ
+PASS  ?gtao=0 still changes the render when ?eyes=0 is already on
+        the two plates differ
+PASS  ?eyes=0 still changes the render when ?gtao=0 is already on
+        the two plates differ
+PASS  ?cards=0 still changes the render when ?eyeocc=0 is already on
+        the two plates differ
+PASS  ?eyeocc=0 still changes the render when ?cards=0 is already on
+        the two plates differ
+PASS  ?shadows=0 still changes the render when ?eyeocc=0 is already on
+        the two plates differ
+PASS  ?eyeocc=0 still changes the render when ?shadows=0 is already on
+        the two plates differ
+PASS  ?cavity=0 still changes the render when ?eyeocc=0 is already on
+        the two plates differ
+PASS  ?eyeocc=0 still changes the render when ?cavity=0 is already on
+        the two plates differ
+PASS  ?specaa=0 still changes the render when ?eyeocc=0 is already on
+        the two plates differ
+PASS  ?eyeocc=0 still changes the render when ?specaa=0 is already on
+        the two plates differ
+PASS  ?gtao=0 still changes the render when ?eyeocc=0 is already on
+        the two plates differ
+PASS  ?eyeocc=0 still changes the render when ?gtao=0 is already on
+        the two plates differ
+PASS  ?shadows=0 still changes the render when ?cards=0 is already on
+        the two plates differ
+PASS  ?cards=0 still changes the render when ?shadows=0 is already on
+        the two plates differ
+PASS  ?cavity=0 still changes the render when ?cards=0 is already on
+        the two plates differ
+PASS  ?cards=0 still changes the render when ?cavity=0 is already on
+        the two plates differ
+PASS  ?specaa=0 still changes the render when ?cards=0 is already on
+        the two plates differ
+PASS  ?cards=0 still changes the render when ?specaa=0 is already on
+        the two plates differ
+PASS  ?gtao=0 still changes the render when ?cards=0 is already on
+        the two plates differ
+PASS  ?cards=0 still changes the render when ?gtao=0 is already on
+        the two plates differ
+PASS  ?cavity=0 still changes the render when ?shadows=0 is already on
+        the two plates differ
+PASS  ?shadows=0 still changes the render when ?cavity=0 is already on
+        the two plates differ
+PASS  ?specaa=0 still changes the render when ?shadows=0 is already on
+        the two plates differ
+PASS  ?shadows=0 still changes the render when ?specaa=0 is already on
+        the two plates differ
+PASS  ?gtao=0 still changes the render when ?shadows=0 is already on
+        the two plates differ
+PASS  ?shadows=0 still changes the render when ?gtao=0 is already on
+        the two plates differ
+PASS  ?specaa=0 still changes the render when ?cavity=0 is already on
+        the two plates differ
+PASS  ?cavity=0 still changes the render when ?specaa=0 is already on
+        the two plates differ
+PASS  ?gtao=0 still changes the render when ?cavity=0 is already on
+        the two plates differ
+PASS  ?cavity=0 still changes the render when ?gtao=0 is already on
+        the two plates differ
+PASS  ?gtao=0 still changes the render when ?specaa=0 is already on
+        the two plates differ
+PASS  ?specaa=0 still changes the render when ?gtao=0 is already on
+        the two plates differ
+
+--- the one toggle that is out of the sweep, and why ------------------------
+
+PASS  ?ground=0 changes nothing at PORTRAIT framing, which is why it is out of the sweep
+        byte-identical to the portrait base — the floor is not in a head-and-shoulders frame
+PASS  ?ground=0 DOES move pixels at ?frame=body, so it is out of frame rather than broken
+        the contact term is visible once the floor is in shot
+
+--- the WebGL2 fallback tier renders on the flags every plate uses ----------
+
+PASS  W1 ?webgl builds a figure and exposes the capture hook, on ?bare with no other flags
+        window.sugata.session.figure and window.__SUGATA_STEP__ both present
+PASS  W2 …and it really is the WebGL2 backend, not WebGPU ignoring the flag
+        backend.isWebGLBackend = true
+PASS  W3 …with ?aa downgraded to msaa rather than left on a resolve WebGL2 cannot feed
+        renderer.samples 4 (4 = the forward MSAA target), stage.temporal absent
+PASS  W4 …onto a canvas the page actually sized, not the untouched 300x150 default
+        4320000 drawing-buffer pixels; 45000 would be the 300x150 default
+
+--- ?gputime=1 buys a GPU timestamp, and the default plate pays nothing ------
+
+PASS  T1 the shipped plate does NOT pay for a timestamp — no feature requested, nothing to resolve
+        backend.trackTimestamp false, resolveTimestampsAsync undefined, info.render.timestamp 0
+PASS  T2 …and ?gputime=1 asks the ADAPTER for it, which is the half that cannot be done later
+        backend.trackTimestamp false -> true on WebGPUBackend. This is the one property the flag moves, and instrument 5 cannot see it: `backend` holds objects, so the walk records it by constructor name
+PASS  T3 …and a render timestamp actually RESOLVES, so the 3.10 quality table is a table of measurements
+        resolveTimestampsAsync('render') = 7.131349999999999 ms, and info.render.timestamp agrees
+
+PASS: 197/197 checks green
+

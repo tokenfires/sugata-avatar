@@ -389,6 +389,7 @@ const RECIPES = [
     //
     // It carries garments rather than `?wear=` alone because `dress()` adds a fetch per garment
     // inside the window the fix closes, so the empty request exercises the shorter half of it.
+    { name: 'hair=1 (groom)', query: 'hair=1', resolve: true },
     { name: 'wear=female_casualsuit01,shoes01 (dressed)',
         query: 'wear=female_casualsuit01,shoes01', resolve: true }
 ];

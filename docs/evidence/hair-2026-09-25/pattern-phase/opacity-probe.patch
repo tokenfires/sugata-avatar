@@ -1,0 +1,20 @@
+--- a/opacity.mjs
++++ b/opacity.mjs
+@@ -1,0 +2 @@
++import { install } from './candidate.mjs';
+@@ -93 +94 @@
+-const REPO_ROOT = path.resolve(HERE, '..', '..');
++const REPO_ROOT = path.resolve(HERE, '..', '..', '..');
+@@ -318,0 +320 @@
++      fs.writeFileSync(path.join(options.out, view.name+'-measurements.json'), JSON.stringify(measured,null,2)+'\n');
+@@ -974 +976,4 @@
+-
++  page.on('console', message => { if (message.type()==='error' && !message.text().startsWith('Failed to load resource')) problems.push(message.text()); });
++  page.on('response', response => { if (response.status()>=400 && !response.url().endsWith('/favicon.ico')) problems.push(response.status()+' '+response.url()); });
++
++  const check = await install(page, parseArguments(process.argv.slice(2)).out);
+@@ -983,0 +989,2 @@
++  await check();
++  page.__patternProblems = problems;
+@@ -999,0 +1007 @@
++  if (page.__patternProblems?.length) throw Error(page.__patternProblems.join('\n'));

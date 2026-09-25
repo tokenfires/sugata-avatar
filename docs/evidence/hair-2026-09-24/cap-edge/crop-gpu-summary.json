@@ -1,0 +1,666 @@
+{
+  "style": "crop01",
+  "arms": {
+    "baseline": {
+      "input": "assets/hair/crop01/g050.glb",
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+      "loads": [
+        "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+        "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a"
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "clock": {
+            "draws": 3,
+            "frameId": 3,
+            "time": 0.016666666666666666,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.9979941756034003,
+              0.035858970381131394,
+              -0.052170479952047814,
+              0,
+              -0.03658924800644995,
+              0.9992442647622903,
+              -0.01311045046463749,
+              0,
+              0.05166093522709706,
+              0.014992991296029434,
+              0.9985520525913779,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 2,
+            "worstSegmentErrorMm": 5.929067095969409e-05,
+            "worstSegmentRelative": 0.01002436672709007,
+            "segments": 6144,
+            "maxDisplacementMm": 0.0408699590104943,
+            "maxTipDisplacementMm": 0.0408699590104943,
+            "meanTipDisplacementMm": 0.030762756919837823,
+            "deepestPenetrationMm": 0,
+            "colliderContacts": 0,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 0.06527757524198895,
+            "maxSpeedMetresPerSecond": 0.005028204715038494,
+            "nonFinite": 0
+          },
+          "positionsSha256": "b50e348c6a363d813e0b31593883c3f30dcf0184d8199c068b04c22f8e35c656",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "ca402f42958d3303a69aee7c50fcc1e50acf3b273e72abc5d1c33dfb567f5767",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 60,
+          "clock": {
+            "draws": 62,
+            "frameId": 62,
+            "time": 1.0000000000000013,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.8698314171476669,
+              -0.06944564772604332,
+              0.4884368567788282,
+              0,
+              0.16524853743352774,
+              0.9738650749308967,
+              -0.15581882951481435,
+              0,
+              -0.4648507459500201,
+              0.21624954617760844,
+              0.8585742595181511,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 120,
+            "worstSegmentErrorMm": 5.839067258178732e-05,
+            "worstSegmentRelative": 0.006754190310346958,
+            "segments": 6144,
+            "maxDisplacementMm": 28.10059900294509,
+            "maxTipDisplacementMm": 28.10059900294509,
+            "meanTipDisplacementMm": 10.067952129321876,
+            "deepestPenetrationMm": 3.6959987209650436e-05,
+            "colliderContacts": 5,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 435.1721032031781,
+            "maxSpeedMetresPerSecond": 0.49418718235967335,
+            "nonFinite": 0
+          },
+          "positionsSha256": "b6a9132ab90891238c8a0da3e48142e1c19754cd9fffac66f7e54c3b5e23a24f",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "03d1d79cbc87d36ff17caaae6529ebb1a7dbe35470ccd8b71e7ab50af0afc04c",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 120,
+          "clock": {
+            "draws": 122,
+            "frameId": 122,
+            "time": 1.9999999999999978,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.6774677786220304,
+              -0.11324229802620184,
+              -0.726782963487016,
+              0,
+              0.12064117382850727,
+              0.9918037448852828,
+              -0.04208088176554792,
+              0,
+              0.7255915447550392,
+              -0.05917154198378613,
+              0.6855767960975613,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 240,
+            "worstSegmentErrorMm": 8.61471507215654e-05,
+            "worstSegmentRelative": 0.008263159250128287,
+            "segments": 6144,
+            "maxDisplacementMm": 39.84915517352965,
+            "maxTipDisplacementMm": 39.84915517352965,
+            "meanTipDisplacementMm": 10.77484622382993,
+            "deepestPenetrationMm": 4.302053294158448e-05,
+            "colliderContacts": 16,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 249.50833079149766,
+            "maxSpeedMetresPerSecond": 0.8724721282619581,
+            "nonFinite": 0
+          },
+          "positionsSha256": "e385c073c707052d84c0765d8e0c8c48bd808ad253c5dc2ef909d5c852abd122",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "a67e283cd78c9a87792d53bbdbbf96ce267e984d344eec1af985b2f199c628cd",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 180,
+          "clock": {
+            "draws": 182,
+            "frameId": 182,
+            "time": 2.9999999999999942,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.6948618975235783,
+              -0.11324248619964916,
+              0.7101710961686931,
+              0,
+              0.03648896936495679,
+              0.9918037233396426,
+              0.1224486875427113,
+              0,
+              -0.7182168708795551,
+              -0.05917154299498675,
+              0.6932987512352757,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 360,
+            "worstSegmentErrorMm": 9.454599216593765e-05,
+            "worstSegmentRelative": 0.00783920463738119,
+            "segments": 6144,
+            "maxDisplacementMm": 30.34197310081981,
+            "maxTipDisplacementMm": 30.34197310081981,
+            "meanTipDisplacementMm": 6.335327990778035,
+            "deepestPenetrationMm": 2.473204173403243e-05,
+            "colliderContacts": 12,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 474.3782461323985,
+            "maxSpeedMetresPerSecond": 0.8098958923747313,
+            "nonFinite": 0
+          },
+          "positionsSha256": "bf1a0dfd6d735179d9a6e105ad9a26e37aa432d2f6bd000815035309f41b799b",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "f207f4989cf819ca85eda5919626246eb542ad63ea627bec9e184ea356c83ded",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 240,
+          "clock": {
+            "draws": 242,
+            "frameId": 242,
+            "time": 3.9999999999999907,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.8813352396862743,
+              -0.06944552256154424,
+              -0.4673601059452417,
+              0,
+              -0.04166214717214839,
+              0.9738650837642235,
+              -0.22327300441151482,
+              0,
+              0.47065109275239947,
+              0.2162495465921922,
+              0.8554083962961423,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 480,
+            "worstSegmentErrorMm": 5.921927259200724e-05,
+            "worstSegmentRelative": 0.008794656702153361,
+            "segments": 6144,
+            "maxDisplacementMm": 38.65857899258812,
+            "maxTipDisplacementMm": 38.65857899258812,
+            "meanTipDisplacementMm": 10.870387502466968,
+            "deepestPenetrationMm": 0,
+            "colliderContacts": 0,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 850.7403439983115,
+            "maxSpeedMetresPerSecond": 0.8229955168999692,
+            "nonFinite": 0
+          },
+          "positionsSha256": "ba7798fc4215b2e944e0645f1e23534859003c4be4e2d47797f247f5876c6863",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "eda2a0ba491c7bdac993cd8f52ef21d84faa530573f8d9cac9c9fdc9224e85d9",
+          "velocitiesFloatCount": 19584
+        }
+      ]
+    },
+    "candidate": {
+      "input": "tmp/hair-sep24/cap-edge/one-mm/hair/crop01/g050.glb",
+      "sha256": "eef7443d2a4e3716c419163244be5ad988b9043c228dbbbc31cffd29878f758a",
+      "loads": [
+        "eef7443d2a4e3716c419163244be5ad988b9043c228dbbbc31cffd29878f758a",
+        "eef7443d2a4e3716c419163244be5ad988b9043c228dbbbc31cffd29878f758a"
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "clock": {
+            "draws": 3,
+            "frameId": 3,
+            "time": 0.016666666666666666,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.9979941756034003,
+              0.035858970381131394,
+              -0.052170479952047814,
+              0,
+              -0.03658924800644995,
+              0.9992442647622903,
+              -0.01311045046463749,
+              0,
+              0.05166093522709706,
+              0.014992991296029434,
+              0.9985520525913779,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 2,
+            "worstSegmentErrorMm": 5.929067095969409e-05,
+            "worstSegmentRelative": 0.01002436672709007,
+            "segments": 6144,
+            "maxDisplacementMm": 0.0408699590104943,
+            "maxTipDisplacementMm": 0.0408699590104943,
+            "meanTipDisplacementMm": 0.030762756919837823,
+            "deepestPenetrationMm": 0,
+            "colliderContacts": 0,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 0.06527757524198895,
+            "maxSpeedMetresPerSecond": 0.005028204715038494,
+            "nonFinite": 0
+          },
+          "positionsSha256": "b50e348c6a363d813e0b31593883c3f30dcf0184d8199c068b04c22f8e35c656",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "ca402f42958d3303a69aee7c50fcc1e50acf3b273e72abc5d1c33dfb567f5767",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 60,
+          "clock": {
+            "draws": 62,
+            "frameId": 62,
+            "time": 1.0000000000000013,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.8698314171476669,
+              -0.06944564772604332,
+              0.4884368567788282,
+              0,
+              0.16524853743352774,
+              0.9738650749308967,
+              -0.15581882951481435,
+              0,
+              -0.4648507459500201,
+              0.21624954617760844,
+              0.8585742595181511,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 120,
+            "worstSegmentErrorMm": 5.839067258178732e-05,
+            "worstSegmentRelative": 0.006754190310346958,
+            "segments": 6144,
+            "maxDisplacementMm": 28.10059900294509,
+            "maxTipDisplacementMm": 28.10059900294509,
+            "meanTipDisplacementMm": 10.067952129321876,
+            "deepestPenetrationMm": 3.6959987209650436e-05,
+            "colliderContacts": 5,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 435.1721032031781,
+            "maxSpeedMetresPerSecond": 0.49418718235967335,
+            "nonFinite": 0
+          },
+          "positionsSha256": "b6a9132ab90891238c8a0da3e48142e1c19754cd9fffac66f7e54c3b5e23a24f",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "03d1d79cbc87d36ff17caaae6529ebb1a7dbe35470ccd8b71e7ab50af0afc04c",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 120,
+          "clock": {
+            "draws": 122,
+            "frameId": 122,
+            "time": 1.9999999999999978,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.6774677786220304,
+              -0.11324229802620184,
+              -0.726782963487016,
+              0,
+              0.12064117382850727,
+              0.9918037448852828,
+              -0.04208088176554792,
+              0,
+              0.7255915447550392,
+              -0.05917154198378613,
+              0.6855767960975613,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 240,
+            "worstSegmentErrorMm": 8.61471507215654e-05,
+            "worstSegmentRelative": 0.008263159250128287,
+            "segments": 6144,
+            "maxDisplacementMm": 39.84915517352965,
+            "maxTipDisplacementMm": 39.84915517352965,
+            "meanTipDisplacementMm": 10.77484622382993,
+            "deepestPenetrationMm": 4.302053294158448e-05,
+            "colliderContacts": 16,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 249.50833079149766,
+            "maxSpeedMetresPerSecond": 0.8724721282619581,
+            "nonFinite": 0
+          },
+          "positionsSha256": "e385c073c707052d84c0765d8e0c8c48bd808ad253c5dc2ef909d5c852abd122",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "a67e283cd78c9a87792d53bbdbbf96ce267e984d344eec1af985b2f199c628cd",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 180,
+          "clock": {
+            "draws": 182,
+            "frameId": 182,
+            "time": 2.9999999999999942,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.6948618975235783,
+              -0.11324248619964916,
+              0.7101710961686931,
+              0,
+              0.03648896936495679,
+              0.9918037233396426,
+              0.1224486875427113,
+              0,
+              -0.7182168708795551,
+              -0.05917154299498675,
+              0.6932987512352757,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 360,
+            "worstSegmentErrorMm": 9.454599216593765e-05,
+            "worstSegmentRelative": 0.00783920463738119,
+            "segments": 6144,
+            "maxDisplacementMm": 30.34197310081981,
+            "maxTipDisplacementMm": 30.34197310081981,
+            "meanTipDisplacementMm": 6.335327990778035,
+            "deepestPenetrationMm": 2.473204173403243e-05,
+            "colliderContacts": 12,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 474.3782461323985,
+            "maxSpeedMetresPerSecond": 0.8098958923747313,
+            "nonFinite": 0
+          },
+          "positionsSha256": "bf1a0dfd6d735179d9a6e105ad9a26e37aa432d2f6bd000815035309f41b799b",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "f207f4989cf819ca85eda5919626246eb542ad63ea627bec9e184ea356c83ded",
+          "velocitiesFloatCount": 19584
+        },
+        {
+          "frame": 240,
+          "clock": {
+            "draws": 242,
+            "frameId": 242,
+            "time": 3.9999999999999907,
+            "deltaTime": 0.016666666666666666
+          },
+          "view": {
+            "centre": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ],
+            "camera": [
+              0.5098371308282968,
+              1.6184079582534805,
+              0.6535132664488782
+            ],
+            "head": [
+              0.8813352396862743,
+              -0.06944552256154424,
+              -0.4673601059452417,
+              0,
+              -0.04166214717214839,
+              0.9738650837642235,
+              -0.22327300441151482,
+              0,
+              0.47065109275239947,
+              0.2162495465921922,
+              0.8554083962961423,
+              0,
+              0,
+              1.5145777779363472,
+              0.04400548424229105,
+              1
+            ]
+          },
+          "measurement": {
+            "particles": 6528,
+            "chains": 384,
+            "steps": 480,
+            "worstSegmentErrorMm": 5.921927259200724e-05,
+            "worstSegmentRelative": 0.008794656702153361,
+            "segments": 6144,
+            "maxDisplacementMm": 38.65857899258812,
+            "maxTipDisplacementMm": 38.65857899258812,
+            "meanTipDisplacementMm": 10.870387502466968,
+            "deepestPenetrationMm": 0,
+            "colliderContacts": 0,
+            "skullRadiusMm": 78.13428559990885,
+            "kineticEnergy": 850.7403439983115,
+            "maxSpeedMetresPerSecond": 0.8229955168999692,
+            "nonFinite": 0
+          },
+          "positionsSha256": "ba7798fc4215b2e944e0645f1e23534859003c4be4e2d47797f247f5876c6863",
+          "positionsFloatCount": 19584,
+          "velocitiesSha256": "eda2a0ba491c7bdac993cd8f52ef21d84faa530573f8d9cac9c9fdc9224e85d9",
+          "velocitiesFloatCount": 19584
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "scope": "hair.html PBR stills and four-second shake; not public Avatar material or full-body contact qualification",
+  "facePixelControl": {
+    "rect": [
+      240,
+      540,
+      140,
+      70
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "changed": 0
+      },
+      {
+        "frame": 60,
+        "changed": 0
+      },
+      {
+        "frame": 120,
+        "changed": 0
+      },
+      {
+        "frame": 180,
+        "changed": 0
+      },
+      {
+        "frame": 240,
+        "changed": 0
+      }
+    ],
+    "wrongFrameChanged": 9797
+  },
+  "identicalCardDynamics": true,
+  "rawReportSha256": "bf6aa60d47f696506d1e1b470e22df084896087cd444343ca300a4986534c2ae",
+  "sourceSha256": {
+    "packages/testbed/src/hair.js": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd",
+    "packages/testbed/src/hair-capture-clock.selftest.mjs": "62806078d5d5df9df9430d7bd0c6f02b5a8f9bcc9c0e85fbe2d812cd07226563"
+  },
+  "baseCommit": "7f77a6c",
+  "tree": "modified hair.js capture clock, including reset handling; shipped assets unchanged"
+}

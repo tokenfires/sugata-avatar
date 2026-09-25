@@ -1,0 +1,31 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: frame6 centers
++ actual - expected
+
+  {
+    length: 25296,
++   sha256: 'a79e5516bac457beb8409c418dabd5a89fad10cc7873c70988f2033c9a743c88'
+-   sha256: '6f1e1ccf1ddab384798ea20ec35f2603a1af0065308f8c7603485346d2488d75'
+  }
+
+    at file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs:36:264
+    at check (file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs:23:25)
+    at file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs:35:2 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: {
+    length: 25296,
+    sha256: 'a79e5516bac457beb8409c418dabd5a89fad10cc7873c70988f2033c9a743c88'
+  },
+  expected: {
+    length: 25296,
+    sha256: '6f1e1ccf1ddab384798ea20ec35f2603a1af0065308f8c7603485346d2488d75'
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.13.1

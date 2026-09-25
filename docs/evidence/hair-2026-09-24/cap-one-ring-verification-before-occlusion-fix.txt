@@ -1,0 +1,42 @@
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/tmp/hair-sep24/cap1/hair/crop01/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,101,576 bytes
+groom           : crop01 — Men's short back-and-sides with length on top, faded through the cut field.
+geometry        : 13,780 verts, 13,552 triangles
+
+--- assertions on the cards ---
+  ok   cards             384 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 632/632 triangles
+  FAIL cards gather      tips gather at 0.919 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.977, 7.5 mm between tips vs 7.7 mm between roots, over a tip cloud 1.130x the roots' own spread
+  --   cut line          a card's tip sits 7.2 mm off its 5 nearest tips in height, on 39.2 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 1.24 mm of ridge running down the head against a floor of 2.69 mm, which is this groom's OWN 3.80 mm of envelope relief over root 2 — at 0.106 vertical coherence, 14 ridges over 10 bands
+  --   shell thickness   the groom spans 5.02 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 7.45), over 818 bins — and 3.59 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         386 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   384 of 384 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   384 of 384 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   24 of 24 locks carry cards, 8–31 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     384 of 384 in [0,1]; p10/p50/p90 0.054/0.243/0.567 at 46.2 mm a unit
+  ok   re-derived index  367 of 384 cards (95.57%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.089 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_crop01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 384 card roots sit 14.3 mm from the nearest of 257 cranium vertices at p50 and 31.7 mm at p90, against a cranium radius of 95.3 mm
+  ok   clearance         nearest signed approach 3.501 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    99.31% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  FAIL no bald patch     largest connected exposed patch 50.6 mm² at (-0.070, 1.555, 0.041) over 13 sample(s) (ceiling 50 mm²)
+  FAIL no skin on show   worst of 5 judge views is 'side' at 97.6 mm² of bare cranium at (0.070, 1.556, 0.044) (ceiling 60 mm², within 400 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'front' at p50 7 cards crossed per ray (p90 11, over 431 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+FAIL — 4 problem(s) across 1 file(s).

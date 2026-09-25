@@ -1,0 +1,180 @@
+[
+  {
+    "arm": "stochastic",
+    "path": {
+      "stageHairOITMode": "stochastic",
+      "weightedOITPass": "false",
+      "temporalAA": "taau",
+      "resolutionScale": "0.66",
+      "multisampled": "false",
+      "rendererSamples": "0",
+      "materialAlphaToCoverage": "false",
+      "materialAlphaTest": "0",
+      "materialAlphaHash": "false",
+      "materialTransparent": "false",
+      "materialDepthWrite": "true",
+      "hasAlphaTestNode": "true",
+      "hasColorNode": "true"
+    },
+    "width": 900,
+    "height": 1200,
+    "summary": {
+      "tips": {
+        "pixels": 10593,
+        "speckle": 0.07117908052487491,
+        "rms": 4.248871001081187,
+        "grid": {
+          "score": 0.11616838748528724,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "curtain": {
+        "pixels": 53250,
+        "speckle": 0.19228169014084506,
+        "rms": 7.573431251521941,
+        "grid": {
+          "score": 0.049373003709402674,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "mass": {
+        "pixels": 192722,
+        "speckle": 0.10699349321821068,
+        "rms": 5.830506754474864,
+        "grid": {
+          "score": 0.07760186745855524,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "skin": {
+        "pixels": 385376,
+        "speckle": 0.006853047413435191,
+        "rms": 1.653110376196515,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      },
+      "backdrop": {
+        "pixels": 221592,
+        "speckle": 0.003113830824217481,
+        "rms": 1.4025417094812362,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      }
+    },
+    "worst": [
+      {
+        "x": 480,
+        "y": 992,
+        "rms": 11.487104170826358,
+        "grid": {
+          "score": 0.6027075797311324,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 6.923364752918151,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 512,
+        "y": 992,
+        "rms": 10.084736940586096,
+        "grid": {
+          "score": 0.6108374098160954,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 6.160134591464304,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 0,
+        "y": 992,
+        "rms": 10.594493939201424,
+        "grid": {
+          "score": 0.5323496119266355,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 5.63997473709297,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 32,
+        "y": 992,
+        "rms": 8.556385036065846,
+        "grid": {
+          "score": 0.47097142802576,
+          "lag": 5,
+          "axis": "y"
+        },
+        "score": 4.029812879174175,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 64,
+        "y": 992,
+        "rms": 7.454430664725542,
+        "grid": {
+          "score": 0.5130975310916801,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 3.824849969764787,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 128,
+        "y": 256,
+        "rms": 11.245521468034195,
+        "grid": {
+          "score": 0.3123744100397579,
+          "lag": 5,
+          "axis": "y"
+        },
+        "score": 3.512813134166614,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 544,
+        "y": 992,
+        "rms": 7.575733853516255,
+        "grid": {
+          "score": 0.44944602441847586,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 3.404883462515341,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 256,
+        "y": 288,
+        "rms": 10.971130070701593,
+        "grid": {
+          "score": 0.3039818310701607,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 3.3350242078007715,
+        "hairShare": 1,
+        "figureShare": 1
+      }
+    ]
+  }
+]

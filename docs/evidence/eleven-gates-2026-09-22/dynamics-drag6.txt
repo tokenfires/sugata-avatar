@@ -1,0 +1,97 @@
+
+HairDynamics — http://localhost:5197/src/hair.html?motion=1&head=impulse&capture
+120 frames of shake at 1/60, then 360 held, then 15 more for the quiescence pair
+
+--- the forward run --------------------------------------------------------
+
+PASS  V  edge readback contains finite world-space card vertices, without the scalp caps
+        {"vertexCount":16864,"expectedVertexCount":16864,"vertexBase":652,"expectedVertexBase":652,"space":"world","stride":4,"stepsAgree":true,"midpointErrorMm":0.00000416500117164066,"widthErrorMm":0.00011360118322076285,"nonFinite":0}
+PASS  V  rebuilt edge midpoints agree with simulated centerlines (correct buffer/stride/space)
+        0.000004 mm
+PASS  V  rebuilt card widths preserve the authored ring widths during motion
+        0.000114 mm
+PASS  G  the solver found the groom — 496 chains of 17 rings
+        8432 particles over 7936 segments, skull sphere 76.2 mm
+PASS  F  nothing in the buffer is non-finite
+        0 non-finite components at the peak, 0 after settling
+PASS  I  inextensible — the worst segment is within 0.01 mm of its own rest length
+        0.000105 mm over 7936 segments — and the rest length is stored PER SEGMENT because this groom's rings are not uniformly spaced (median 38.91% spread within a card)
+PASS  M  it moves — the mean tip lags the rigid pose by more than 5 mm
+        21.13 mm peak, measured against where the head transform ALONE would have put each tip — so the head turning is subtracted out and what is left is the simulation
+PASS  P  no penetration — nothing is more than 0.05 mm inside the skull
+        0.000 mm deepest, against a 76.2 mm sphere fitted to the groom's own roots
+PASS  P2 ...over a mask that CONTAINED contacts, so the zero above is a resolved collision
+        10 particles resting exactly on the collider at the peak. Zero here would mean P measured a collider that never ran.
+PASS  S  it settles — the worst tip moves under 0.5 mm in the quarter second after 6 s of held head
+        0.0258 mm, having peaked at 21.13 mm of mean tip lag during the shake
+PASS  S2 ...and that is a settle rather than a stillness, because M moved on this same run
+        peak 21.13 mm -> quiescent 0.0258 mm, a factor of 818
+
+--- E: with the head STILL, the solver is the identity ----------------------
+
+PASS  E  head still for 5 s — every particle is within 0.01 mm of the authored pose
+        0.000121 mm worst, kinetic energy 2.98e-11. This is what makes the A/B toggle a CONTROL: with the solver on and nothing moving, the plate is the plate without it.
+
+--- D: the same motion at two frame rates -----------------------------------
+
+PASS  D  60 Hz and 120 Hz reach the same pose at t = 2 s, within 3 mm
+        0.5155 mm mean / 1.9557 mm worst over 294 tips, on a signal of 13.45 mm of mean tip lag
+PASS  D2 ...and both rates were actually simulating, so D is not comparing two still grooms
+        13.45 mm at 60 Hz, 13.67 mm at 120 Hz
+
+--- Z: two independent page loads of the same URL ---------------------------
+
+PASS  Z  two fresh loads, same URL, same step sequence — the same tips
+        0.000000 mm worst tip difference. The solver draws no random number and reads no wall clock, so a capture driver that supplies a fixed step reproduces frame for frame — provided it calls reset() when it takes over.
+
+--- X: what it costs, on the COMPUTE pool -----------------------------------
+
+PASS  X  the whole solver costs under 0.25 ms of COMPUTE a frame
+        p50 0.02412 ms over 120 frames — 0.15% of a 16.6 ms budget. The amortised dispatch arithmetic, 64 copies of the frame's dispatches inside ONE pass, is 0.01785 ms a frame, so the remainder is the pass opening. Timestamp resolution here is 0.000001 ms — fine enough that these are durations rather than tick counts. (p95 0.03275 ms, worst 0.03396 ms — REPORTED, and bounded by NOTHING in this file. Xb says why p50 is the honest statistic; it does not put a ceiling on the tail, and R20 measured that no ceiling on it would hold — see Xb's header for the control that was tried and withdrawn. The absence is stated so it is not read as a clean bill.)
+PASS  Xb ...and p50 is the honest statistic because the WORK is identical on every frame
+        the 120 frames ran 2 substeps, and the claim holds only while that is ONE number — the same kernels over the same chain count on every frame. The amortised arithmetic reads 0.01785 ms against a p50 of 0.02412 ms, so a single frame is that arithmetic plus one pass opening and nothing else the solver controls. (DIAGNOSTIC, asserted by nothing: on the slowest 12 frames by COMPUTE — median 0.03275 ms against 0.02412 ms on the other 108 — the RENDER pool reads 0.26794 against 0.16303 ms, 1.64x. See this clause's header for why that number is printed and not gated.)
+PASS  X2 ...and it is submitted as ONE compute call a frame, counted rather than timed
+        the solver made 1 renderer.compute() call this frame. Research doc §0.3: every substep plus the rebuild go into one `renderer.compute( array )`, because the pass opening is 93% of the ungrouped cost.
+
+--- rejection proofs: one mechanism per clause ------------------------------
+
+PASS    I  hairdefect=noftl breaks inextensibility
+        7839.202 mm of segment error against 0.000105 mm green — the FTL projection is the only line removed; prediction, gravity, the shape constraint and the colliders all run.
+PASS    M  hairdefect=kinematic stops the hair moving, and M sees it
+        0.720 mm against 21.13 mm green. The solver still runs and the head still turns — so a green M here would mean M was measuring the head transform rather than the simulation.
+PASS    M2 ...and it leaves inextensibility green, so the two clauses are independent
+        0.000101 mm of segment error
+PASS    P  hairdefect=nocollide lets the groom into the skull
+        3.446 mm deep against 0.000 mm green. This is the number that says the 10 contacts in the forward run were doing work.
+PASS    P2 ...and it leaves inextensibility green — the collider slides ALONG the length sphere
+        0.000065 mm with the collider off against 0.000105 mm with it on. Both green is the claim: resolving the collider onto the circle where the two constraint spheres meet satisfies BOTH exactly, which is what TressFX and the spike trade away.
+PASS    S  hairdefect=novelocity stops it settling
+        66.287 mm of tip travel a quarter second after 6 s of held head, against 0.0258 mm green. PBD eq 13 is the one line removed.
+PASS    S2 ...and it leaves inextensibility green, so S is not reading a blow-up
+        0.000113 mm of segment error
+PASS    E  hairdefect=fullgravity makes the authored pose stop being the equilibrium
+        26.116 mm of sag with the head STILL, against 0.000121 mm green. The groom already carries gravity — hair_cards.py:1123 — so the simulation applies the CHANGE in it, and this defect applies the whole 9.81 on top.
+PASS    D  hairstep=perframe makes the trajectory depend on the frame rate
+        16.141 mm mean / 29.732 mm worst between 60 Hz and 120 Hz, against 0.5155 mm fixed-step. LEARNINGS §1.13, in one measurement.
+PASS    D2 ...and it is a DIFFERENT motion, not merely a shifted one
+        mean tip lag 81.34 mm per-frame against 13.45 mm fixed-step at the same 60 Hz — a bigger step is a softer solver, so the defect changes the look as well as the reproducibility.
+PASS    X2 hairsubmit=perkernel opens three passes a frame, and the count sees it
+        3 renderer.compute() calls a frame against 1 one-pass — two solve substeps and the rebuild, each in its own call.
+      (the same pair by TIME, not a check: p50 0.02875 / p95 0.03654 ms per-kernel against 0.02412 / 0.03275 one-pass, and amortised 0.01794 against 0.01785. Research doc §0.3 puts the pass opening at 30.8–54.1 µs, and the two arms here differed by 4.7x on one run of this file and by 1.2x on another — same tree, same machine, minutes apart. The direction is always right and the magnitude is weather, which is why the COUNT above is the check and this line is printed rather than asserted.)
+
+--- A: the ACCEPTANCE PAGE, which is the only page a judge captures ---------
+
+PASS  A1 the solver is ON alive.html — the page a judge captures runs punch-list 6.6
+        496 chains x 17 rings = 8432 particles, 1 renderer.compute() call a frame, oit 'stochastic'
+PASS  A2 ...and the groom MOVES behind the shipped idle stack — mean tip lag over 1 mm
+        2.4239 mm peak mean / 9.6882 mm peak worst tip over 496 chains, measured against where the head transform ALONE would have put each tip — so head idle, gaze and sway are subtracted out and what is left is the simulation. Nothing on this page drives the head on purpose: it is `MotionStack` doing what it does on every plate. ⚠️ geometry.attributes.position.version reads 0 throughout, and always will — see this block's header.
+PASS  A3 ...and the same instrument reads under 0.1 mm on a ?freeze plate, so A2 is measuring the head and not the meter
+        0.003194 mm worst against 9.6882 mm moving, a factor of 3034. The solver ran on both — same substeps, same dispatch — and the head is the only difference between them.
+PASS  A4 the capture epoch reaches the solver: 60 steps at 1/60 leave it at exactly 120 substeps, on two loads that booted at different rAF epochs
+        hairSteps 120 and 120 against an oracle of 120 (1/60 − 1/120 − 1/120 is exactly zero in binary), from boot epochs 15 and 108. The two loads booted at different epochs, so `reset()` at the takeover is what makes the counts equal rather than luck.
+PASS  A5 ...and they reach the same pose, tip for tip
+        0.00000000 mm worst tip difference over 496 tips, on a run carrying 1.066 mm of mean tip lag — so the pair is reproducible AND was simulating, which is the pairing §1.3 asks for.
+PASS  A6 ?hairmotion is a CONTROL: on a still plate it moves under 0.50% of samples
+        2923 of 1080000 samples (0.2706%) differ, worst 48/255, on a groom whose particles sit 0.003194 mm from the rigid pose. NOT zero: the coverage test is a step function and the two paths reach the same vertex by different arithmetic. Two loads of the ON plate are byte-identical, so this is the toggle and not the weather.
+
+35/35 checks green in 29s

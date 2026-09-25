@@ -1,0 +1,253 @@
+{
+  "arm": "copy-lock",
+  "routes": [
+    {
+      "url": "http://localhost:50827/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_addons_tsl_display_TAAUNode__js.js?v=da487242",
+      "arm": "copy-lock",
+      "beforeSHA256": "38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f",
+      "afterSHA256": "a5a449b4200e96b900041f8ac23eec464cb3c7e0864869b17687dd899f91c53e"
+    }
+  ],
+  "snapshots": [
+    {
+      "label": "startup",
+      "stats": {
+        "backend": "webgpu",
+        "deferred": true,
+        "msaa": false,
+        "temporalAA": "taau",
+        "ambientOcclusion": "low",
+        "hairOIT": "stochastic",
+        "morphVelocity": "exact",
+        "graded": false,
+        "resolutionScale": 0.66,
+        "fps": 0,
+        "frameMs": 0.5,
+        "dpr": 1,
+        "drawCalls": 5,
+        "triangles": 7
+      },
+      "frameId": 1,
+      "captureTime": 0,
+      "owner": "TAAUNode",
+      "hairMaterialType": "HairNodeMaterial",
+      "phase": 0,
+      "defect": null,
+      "hasInner": false,
+      "targets": [
+        {
+          "name": "color",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0.001117706298828125,
+            "finiteMax": 4.56640625,
+            "redFinite": 1080000,
+            "redMean": 0.3343608318240554,
+            "redZeros": 0
+          }
+        },
+        {
+          "name": "historyColor",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0.001117706298828125,
+            "finiteMax": 4.56640625,
+            "redFinite": 1080000,
+            "redMean": 0.3343608318240554,
+            "redZeros": 0
+          }
+        },
+        {
+          "name": "lock",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0,
+            "finiteMax": 0.0192108154296875,
+            "redFinite": 1080000,
+            "redMean": 0.000002991781963242425,
+            "redZeros": 1019242
+          }
+        },
+        {
+          "name": "historyLock",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0,
+            "finiteMax": 0.0192108154296875,
+            "redFinite": 1080000,
+            "redMean": 0.000002991781963242425,
+            "redZeros": 1019242
+          }
+        }
+      ],
+      "copies": {
+        "historyColor": 0,
+        "historyLock": 0
+      }
+    },
+    {
+      "label": "/Users/robault/GitHub/sugata-avatar/tmp/hair-sep25/lock-runtime/copy-lock-tips/stochastic.png",
+      "stats": {
+        "backend": "webgpu",
+        "deferred": true,
+        "msaa": false,
+        "temporalAA": "taau",
+        "ambientOcclusion": "low",
+        "hairOIT": "stochastic",
+        "morphVelocity": "exact",
+        "graded": false,
+        "resolutionScale": 0.66,
+        "fps": 0,
+        "frameMs": 0.5,
+        "dpr": 1,
+        "drawCalls": 5,
+        "triangles": 7
+      },
+      "frameId": 25,
+      "captureTime": 0,
+      "owner": "TAAUNode",
+      "hairMaterialType": "HairNodeMaterial",
+      "phase": 0,
+      "defect": null,
+      "hasInner": false,
+      "targets": [
+        {
+          "name": "color",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0.0014324188232421875,
+            "finiteMax": 2.06640625,
+            "redFinite": 1080000,
+            "redMean": 0.33290785609881085,
+            "redZeros": 0
+          }
+        },
+        {
+          "name": "historyColor",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0.0014324188232421875,
+            "finiteMax": 2.06640625,
+            "redFinite": 1080000,
+            "redMean": 0.33290785609881085,
+            "redZeros": 0
+          }
+        },
+        {
+          "name": "lock",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0,
+            "finiteMax": 1,
+            "redFinite": 1080000,
+            "redMean": 0.2111800609175254,
+            "redZeros": 142508
+          }
+        },
+        {
+          "name": "historyLock",
+          "width": 900,
+          "height": 1200,
+          "attachments": 2,
+          "type": 1016,
+          "gpuFormat": "rgba16float",
+          "strideBytes": 7424,
+          "paddingBytes": 224,
+          "values": {
+            "pixels": 1080000,
+            "components": 4320000,
+            "nan": 0,
+            "infinity": 0,
+            "nonfinitePixels": 0,
+            "finiteMin": 0,
+            "finiteMax": 1,
+            "redFinite": 1080000,
+            "redMean": 0.2111800609175254,
+            "redZeros": 142508
+          }
+        }
+      ],
+      "copies": {
+        "historyColor": 0,
+        "historyLock": 0
+      }
+    }
+  ]
+}

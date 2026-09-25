@@ -1507,12 +1507,12 @@ export class Sway extends Layer {
          * And it would make an avatar that has just shifted its weight refuse to express an
          * emotion, which is a coupling no source supports and nobody asked for.
          *
-         * 🚩 IT READS NO RIG GEOMETRY, which is the honest statement of the punch-list claim that
-         * "the base of support is already modelled". Medio-laterally it is: `resolvePostureLimits`
-         * takes the half-stance off the ankles. Fore-and-aft this file reads no vertex, ever, and
-         * measures 34.000 mm on all five bakes whose rear footprints run from 44.60 to 65.37 mm.
+         * Forward travel keeps this amplitude bound. `resolvePostureLimits` additionally
+         * derives a smaller rear rail from skinned foot geometry, reserving support for the
+         * other composing channels. The toe-parking test independently checks that rail.
          */
         this.affectBiasLimit = POSTURE_OFFSET_MEAN_SHIFTS * ANTERO_POSTERIOR_SETTINGS.shiftAmplitude;
+        this.affectBiasRearLimit = this.affectBiasLimit;
 
         /** Whether the clamp above bound on the frame just run. Reported so a gate can print it. */
         this.affectBiasClamped = false;
@@ -1777,7 +1777,7 @@ export class Sway extends Layer {
 
         const limited = this.defects.affectBiasUnclamped === true
             ? wanted
-            : Math.min( Math.max( wanted, -this.affectBiasLimit ), this.affectBiasLimit );
+            : Math.min( Math.max( wanted, -this.affectBiasRearLimit ), this.affectBiasLimit );
 
         this.affectBiasClamped = limited !== wanted;
         this.affectCentreOfPressureBias = limited;
@@ -1967,7 +1967,7 @@ export class Sway extends Layer {
 
         const total = axis.shiftCurrent + fidget + drift;
 
-        axis.displacement = Math.min( Math.max( total, -axis.limit ), axis.limit );
+        axis.displacement = Math.min( Math.max( total, -( axis.backwardLimit ?? axis.limit ) ), axis.limit );
 
     }
 
@@ -2018,7 +2018,7 @@ export class Sway extends Layer {
         // A shift moves to a NEW region, so it is drawn as a signed displacement away from where
         // the stance already is rather than as an absolute position.
         axis.shiftTarget += amplitude;
-        axis.shiftTarget = Math.min( Math.max( axis.shiftTarget, -axis.limit ), axis.limit );
+        axis.shiftTarget = Math.min( Math.max( axis.shiftTarget, -( axis.backwardLimit ?? axis.limit ) ), axis.limit );
 
         this.eventCounts.shift ++;
 
@@ -2249,9 +2249,12 @@ export class Sway extends Layer {
      */
     resolvePostureLimits() {
 
+        this.affectBiasRearLimit = this.affectBiasLimit;
+
         for ( const axis of [ this.medioLateral, this.anteroPosterior ] ) {
 
             axis.limit = POSTURE_OFFSET_MEAN_SHIFTS * axis.settings.shiftAmplitude;
+            axis.backwardLimit = axis.limit;
 
         }
 
@@ -2259,6 +2262,38 @@ export class Sway extends Layer {
 
         const [ left, right ] = this.feet;
         const halfStance = Math.abs( left.joint.restPosition.x - right.joint.restPosition.x ) / 2;
+
+        // The heel, not the ankle-to-toe lever, bounds a rearward shift. Reserve
+        // half of that measured support for the other composing motion channels
+        // (quiet balance and expressive trunk lean). Forward travel keeps its
+        // existing amplitude bound. A rig without skinned feet keeps the fallback.
+        let root = left.joint.bone;
+        while ( root?.parent ) root = root.parent;
+        const ankleZ = ( left.joint.restPosition.z + right.joint.restPosition.z ) / 2;
+        const ankleY = Math.min( left.joint.restPosition.y, right.joint.restPosition.y );
+        const point = new Vector3();
+        let rear = Infinity;
+        root?.traverse( object => {
+            if ( !object.isSkinnedMesh || !object.skeleton.bones.includes( left.joint.bone ) ) return;
+            const positions = object.geometry?.attributes?.position;
+            if ( !positions ) return;
+            for ( let i = 0; i < positions.count; i++ ) {
+                point.fromBufferAttribute( positions, i );
+                object.applyBoneTransform( i, point );
+                point.applyMatrix4( object.matrixWorld );
+                if ( point.y <= ankleY ) rear = Math.min( rear, point.z );
+            }
+        } );
+        const rearSupport = ankleZ - rear;
+        if ( Number.isFinite( rearSupport ) && rearSupport > 0.005 ) {
+            this.anteroPosterior.backwardLimit = Math.min( this.anteroPosterior.limit, rearSupport / 2 );
+            // A separate rearward rail for the optional affect command. Reserve
+            // seven eighths for the other channels instead of spending the whole
+            // rear footprint on a second independently clamped signal. A quarter
+            // footprint still parks the toes in the independent saturation probe.
+            this.affectBiasRearLimit = Math.min( this.affectBiasLimit, rearSupport / 8 );
+        }
+
 
         // A figure standing with its ankles touching keeps the shift-anchored clamp rather than
         // being pinned to nothing: half a centimetre of stance is a bad read, not a narrow stance.
@@ -3333,6 +3368,7 @@ function createAxisState( settings, limit, schedules = {} ) {
 
     return {
         settings,
+        backwardLimit: schedules.backwardLimit ?? limit,
         limit,             // metres, read off the rig's base of support at bind
         displacement: 0,   // metres, this frame
         shiftTarget: 0,    // where the stance is heading

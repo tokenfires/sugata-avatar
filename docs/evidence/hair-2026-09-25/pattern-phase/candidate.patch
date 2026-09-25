@@ -1,0 +1,19 @@
+--- a/packages/core/src/render/HairOIT.js
++++ b/packages/core/src/render/HairOIT.js
+@@ -824 +824 @@
+-export function hairDitherThresholdNode( offset ) {
++export function hairDitherThresholdNode(offset, inner) {
+@@ -829 +829 @@
+-    return interleavedGradientNoise( screenCoordinate.xy ).add( offset ).fract().clamp( 1e-6, 1 );
++    return float(52.9829189).mul(screenCoordinate.xy.dot(vec4(0.06711056, 0.00583715, 0, 0).xy).add(inner).fract()).fract().add(offset).fract().clamp(1e-6, 1);
+@@ -1129 +1129,6 @@
+-        material.alphaTestNode = hairDitherThresholdNode( material.hairDitherOffset );
++        material.hairDitherInnerOffset = uniform(0).setGroup(renderGroup).onRenderUpdate((frame) => {
++      const index = (material.hairDitherStep === 'frozen-dither' ? 0 : frame.frameId) + material.hairDitherPhase;
++      const value = index * 0.41421356237309515;
++      return value - Math.floor(value);
++    });
++    material.alphaTestNode = hairDitherThresholdNode(material.hairDitherOffset, material.hairDitherInnerOffset);
+@@ -1346,0 +1352,2 @@
++
++globalThis.__patternPhaseArm = "candidate";

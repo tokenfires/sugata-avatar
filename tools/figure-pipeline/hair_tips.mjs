@@ -715,7 +715,12 @@ async function installProbe(page, defect) {
       coveragePath: () => {
         const renderer = stage.renderer;
         return {
-          hairOITMode: stage.hairOIT?.mode ?? '(no hairOIT on the stage)',
+          // Only weighted OIT owns stage.hairOIT. Its absence does not mean the stochastic,
+          // hash or cutout path is absent; those run through the material and depth buffer.
+          stageHairOITMode: stage.hairOITMode ?? '(unavailable)',
+          weightedOITPass: String(stage.hairOIT !== null && stage.hairOIT !== undefined),
+          temporalAA: stage.stats.temporalAA,
+          resolutionScale: String(stage.resolutionScale),
           multisampled: String(globalThis.sugata.session?.multisampled),
           rendererSamples: String(renderer.samples ?? '(unset)'),
           materialAlphaToCoverage: String(hair.material.alphaToCoverage),

@@ -1,0 +1,60 @@
+
+--- 1. docs/OPEN-REQUESTS.md, adjudicated against the tree at HEAD 872fb12 ----------------------
+
+    91 entries — 0 OPEN, 77 APPLIED, 14 REJECTED
+    current round R33 opened at d54a6ce, HEAD is 9 commits past it
+
+ok    every ledger entry adjudicates against the real file it names   no violations
+ok    the ledger declares a current round pinned to a real commit   R33 @ d54a6ce
+ok    entry count is at or above the coverage floor   91 >= 68
+
+--- 2. the red proofs — mutate the live ledger, and name the clause that must catch it ----------
+
+ok    the OPEN mutation baseline adjudicates even when the backlog is empty
+    mutation                                                  clause            caught
+    ----------------------------------------------------------------------------------------------------
+    APPLIED, but the change is not in the file                APPLIED-ABSENT    yes   REQ-001: claims APPLIED, but verify does not match packages/testbed/src/alive.js at HEAD
+    APPLIED with a verify that matches anything               APPLIED-VACUOUS   yes   REQ-001: verify already matched packages/testbed/src/alive.js at filed-at 82260d4, so it does not discrim
+    OPEN, but the change is already in the file               OPEN-STALE        yes   REQ-001: status is OPEN, but verify MATCHES packages/testbed/src/alive.js at HEAD — the change is present
+    OPEN and carried past its round                           EXPIRED           yes   REQ-020: filed in R32 and still OPEN in R33. Apply it or reject it with a written reason — a request does
+    REJECTED with a one-word reason                           REASON            yes   REQ-020: rejection reason is 10 characters, floor is 40
+    the entries are reformatted out of the parser's reach     COVERAGE          yes   -: 0 entries parsed, floor is 68. Either the ledger shrank without entries being resolved, or a rew
+    a round declared at a commit that is not in this history  ROUNDS            yes   R99: 0000000 is not a commit reachable from HEAD
+    APPLIED at a filed-at naming no object, with a vacuous verify  FILED-AT          yes   REQ-002: deadbee does not resolve to a commit in this repository. This is the commit the anti-rubber-stam
+    APPLIED at a filed-at that is a real object of the wrong type  FILED-AT          yes   REQ-002: 9e4f8cb0ffac0480cac3fe0186279d4dccf0310d does not resolve to a commit in this repository. This i
+    APPLIED at a real commit this history does not descend from  FILED-AT          yes   REQ-002: 380fe491b573d4feff6f2dc46b414bbe97de75df is a commit, but HEAD does not descend from it, so its
+    filed-at is a moving reference rather than an immutable sha  FILED-AT          yes   REQ-020: "HEAD" is not a 7-to-40 character hex sha. This is the commit the anti-rubber-stamp clause reads
+    APPLIED whose target did not exist at filed-at, taking the free pass silently  PRE-IMAGE         yes   REQ-003: tools/run-selftests.sh does not exist at filed-at 2ec7db9, so the anti-rubber-stamp clause passe
+    pre-image declared absent on an entry whose file was right there  PRE-IMAGE         yes   REQ-001: declares pre-image absent, but packages/testbed/src/alive.js is present at filed-at 82260d4 — th
+    two entries carrying the same id                          SCHEMA            yes   REQ-001: duplicate id
+    verify points at a file that does not exist at HEAD       TARGET            yes   REQ-001: packages/testbed/src/this-file-does-not-exist.js does not exist at HEAD
+    an OPEN entry anchored to code that is no longer there    ANCHOR            yes   REQ-020: anchor does not match tools/critic/regions.lighting-portrait.json at HEAD — the request points a
+    REJECTED, but the change is in the file                   REJECTED-STALE    yes   REQ-020: status is REJECTED, but verify MATCHES tools/critic/regions.lighting-portrait.json at HEAD — the
+
+ok    RED: "APPLIED, but the change is not in the file" is caught by APPLIED-ABSENT   REQ-001: claims APPLIED, but verify does not match packages/testbed/src/alive.js at HEAD
+ok    RED: "APPLIED with a verify that matches anything" is caught by APPLIED-VACUOUS   REQ-001: verify already matched packages/testbed/src/alive.js at filed-at 82260d4, so it does not discrim
+ok    RED: "OPEN, but the change is already in the file" is caught by OPEN-STALE   REQ-001: status is OPEN, but verify MATCHES packages/testbed/src/alive.js at HEAD — the change is present
+ok    RED: "OPEN and carried past its round" is caught by EXPIRED   REQ-020: filed in R32 and still OPEN in R33. Apply it or reject it with a written reason — a request does
+ok    RED: "REJECTED with a one-word reason" is caught by REASON   REQ-020: rejection reason is 10 characters, floor is 40
+ok    RED: "the entries are reformatted out of the parser's reach" is caught by COVERAGE   -: 0 entries parsed, floor is 68. Either the ledger shrank without entries being resolved, or a rew
+ok    RED: "a round declared at a commit that is not in this history" is caught by ROUNDS   R99: 0000000 is not a commit reachable from HEAD
+ok    RED: "APPLIED at a filed-at naming no object, with a vacuous verify" is caught by FILED-AT   REQ-002: deadbee does not resolve to a commit in this repository. This is the commit the anti-rubber-stam
+ok    RED: "APPLIED at a filed-at that is a real object of the wrong type" is caught by FILED-AT   REQ-002: 9e4f8cb0ffac0480cac3fe0186279d4dccf0310d does not resolve to a commit in this repository. This i
+ok    RED: "APPLIED at a real commit this history does not descend from" is caught by FILED-AT   REQ-002: 380fe491b573d4feff6f2dc46b414bbe97de75df is a commit, but HEAD does not descend from it, so its
+ok    RED: "filed-at is a moving reference rather than an immutable sha" is caught by FILED-AT   REQ-020: "HEAD" is not a 7-to-40 character hex sha. This is the commit the anti-rubber-stamp clause reads
+ok    RED: "APPLIED whose target did not exist at filed-at, taking the free pass silently" is caught by PRE-IMAGE   REQ-003: tools/run-selftests.sh does not exist at filed-at 2ec7db9, so the anti-rubber-stamp clause passe
+ok    RED: "pre-image declared absent on an entry whose file was right there" is caught by PRE-IMAGE   REQ-001: declares pre-image absent, but packages/testbed/src/alive.js is present at filed-at 82260d4 — th
+ok    RED: "two entries carrying the same id" is caught by SCHEMA   REQ-001: duplicate id
+ok    RED: "verify points at a file that does not exist at HEAD" is caught by TARGET   REQ-001: packages/testbed/src/this-file-does-not-exist.js does not exist at HEAD
+ok    RED: "an OPEN entry anchored to code that is no longer there" is caught by ANCHOR   REQ-020: anchor does not match tools/critic/regions.lighting-portrait.json at HEAD — the request points a
+ok    RED: "REJECTED, but the change is in the file" is caught by REJECTED-STALE   REQ-020: status is REJECTED, but verify MATCHES tools/critic/regions.lighting-portrait.json at HEAD — the
+ok    the clause vocabulary read from this file is fully expanded — exactly one clause is built at runtime, and it is the STALE pair   1 runtime-built form(s): ${ status }-STALE
+ok    every clause a red proof declares actually exists in the adjudicator, so the scan cannot pass by under-reading the source   17 proofs, every clause found in source
+ok    every clause the adjudicator can emit has a red proof behind it, so no clause is decorative   17 proofs cover all 13 clauses
+ok    FILED-AT is proved red four DIFFERENT ways — not a pin, no object, wrong object type, and right object off this history   4 mechanisms
+ok    PRE-IMAGE is proved red BOTH ways and tells them apart — an undeclared absence and a declared absence that is not one ask for opposite edits   undeclared: absence, false-declaration: presence
+ok    FILED-AT tells the four mechanisms APART — one shape failure, two resolution failures and one ancestry failure, not one verdict wearing four hats   not-a-pin: shape, no-object: resolution, wrong-type: resolution, off-history: ancestry
+
+--- 3. summary ----------------------------------------------------------------------------------
+
+PASS: 27/27 checks green

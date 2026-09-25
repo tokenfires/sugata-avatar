@@ -1,0 +1,18 @@
+PASS: nine actual Apple/Metal WebGPU cases x 512 frames, three native RGBA16F buffers each frame.
+PASS: 3623878656 full-frame components and 693633024 ROI components classified; zero nonfinite.
+PASS: native color matches copied history bit-for-bit and ordinary RGBA8 pixels within one code value.
+PASS: all nine prior frame traces, per-pixel temporal means and 27 checkpoint images reproduce exactly.
+PASS: six final-pilot and six initial-pilot cases reproduce all common first-24 traces and images.
+OBSERVED: native history lock remains zero; resolve has one attachment, history two. Wiring effect is not tested.
+taau-shared-half-p0 native tail 0.4812187774448979 RGBA8 tail 0.48126948533319597 max quant error 0
+taau-shared-half-p977 native tail 0.4812282041019323 RGBA8 tail 0.48127487323054213 max quant error 0
+taau-temporal-half-p0 native tail 0.0298579603648027 RGBA8 tail 0.029850929629664364 max quant error 0
+taau-temporal-half-p977 native tail 0.031807214319403046 RGBA8 tail 0.03179575052677321 max quant error 0
+taau-swapped-distinct-half-p0 native tail 0.1187497312171867 RGBA8 tail 0.11874926728503901 max quant error 0
+taau-swapped-distinct-half-p977 native tail 0.11896312639718028 RGBA8 tail 0.11896197443821277 max quant error 0
+taau-opaque-pair-p0 native tail 0.0 RGBA8 tail 0 max quant error 0
+taau-empty-p0 native tail 0.9999995474912683 RGBA8 tail 1 max quant error 0
+taau-blend-half-p0 native tail 0.24999988565639575 RGBA8 tail 0.2509803921568623 max quant error 0
+No NaN or infinity reproduced in sampled native resolve/color-history/lock buffers. The dark bias exists before RGBA8 conversion; no denominator guard is justified by this audit.
+PASS: binary16 decode sentinels, planted nonfinite/ROI counter checks, JavaScript syntax and Python compilation.
+PASS: README/checkpoint numbers match the native audit summary.

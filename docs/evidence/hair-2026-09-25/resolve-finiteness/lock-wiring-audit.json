@@ -1,0 +1,44 @@
+{
+  "source": "node_modules/three/examples/jsm/tsl/display/TAAUNode.js",
+  "sourceSHA256": "ddc9d1eaa318dd45629799c48af6f7388b31edd9ad5e6648a4004fdead48d250",
+  "installedThreeVersion": "0.185.1",
+  "observedTopology": {
+    "resolveAttachments": 1,
+    "historyAttachments": 2,
+    "historyLockRange": [
+      0,
+      0
+    ]
+  },
+  "sourceLines": [
+    {
+      "line": 160,
+      "text": "this._historyRenderTarget = new RenderTarget( 1, 1, { depthBuffer: false, type: HalfFloatType, count: 2 } );"
+    },
+    {
+      "line": 171,
+      "text": "this._resolveRenderTarget = new RenderTarget( 1, 1, { depthBuffer: false, type: HalfFloatType } );"
+    },
+    {
+      "line": 462,
+      "text": "renderer.copyTextureToTexture( this._resolveRenderTarget.texture, this._historyRenderTarget.texture );"
+    },
+    {
+      "line": 627,
+      "text": "const lockNode = texture( this._historyRenderTarget.textures[ 1 ] );"
+    },
+    {
+      "line": 643,
+      "text": "const outputNode = outputStruct( colorOutput, lockOutput );"
+    },
+    {
+      "line": 749,
+      "text": "const lock = max( gatedThinFeature, lockNode.r.mul( decay ) ).saturate();"
+    },
+    {
+      "line": 758,
+      "text": "lockOutput.assign( lock );"
+    }
+  ],
+  "scope": "Read-only attachment-delivery observation. A two-attachment resolve and copying lock history has not been tested; no effect on opacity, noise or motion is claimed."
+}

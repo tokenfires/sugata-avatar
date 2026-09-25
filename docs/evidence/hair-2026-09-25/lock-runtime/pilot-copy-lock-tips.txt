@@ -1,0 +1,43 @@
+http://localhost:50376/alive.html?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0&hairoit=stochastic
+ACTUAL PIPELINE {"arm":"copy-lock","routes":[{"url":"http://localhost:50376/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_addons_tsl_display_TAAUNode__js.js?v=da487242","arm":"copy-lock","beforeSHA256":"38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f","afterSHA256":"a5a449b4200e96b900041f8ac23eec464cb3c7e0864869b17687dd899f91c53e"}],"stats":{"backend":"webgpu","deferred":true,"msaa":false,"temporalAA":"taau","ambientOcclusion":"low","hairOIT":"stochastic","morphVelocity":"exact","graded":false,"resolutionScale":0.66,"fps":0,"frameMs":0.4000000059604645,"dpr":1,"drawCalls":5,"triangles":7},"attachments":[["color",2],["historyColor",2],["lock",2],["historyLock",2]]}
+
+=== ?hairoit=stochastic ===
+  coverage path as the page built it:
+    stageHairOITMode       stochastic
+    weightedOITPass        false
+    temporalAA             taau
+    resolutionScale        0.66
+    multisampled           false
+    rendererSamples        0
+    materialAlphaToCoverage false
+    materialAlphaTest      0
+    materialAlphaHash      false
+    materialTransparent    false
+    materialDepthWrite     true
+    hasAlphaTestNode       true
+    hasColorNode           true
+  region                 px      speckle    rms cv    grid (lag, axis)
+    tips           10593      7.60%     4.288    0.1223 (5, y)
+    curtain        53250     19.18%     7.456    0.0644 (5, y)
+    mass          192722     10.83%     5.755    0.0892 (5, y)
+    skin          385376      0.69%     1.651    0.0000 (0, none)
+    backdrop      221592      0.31%     1.402    0.0000 (0, none)
+  worst 32 px tiles by rms x grid — regular AND visible:
+    ( 480, 992)  score   6.99  rms  11.583  hair 100%  figure 100%  grid 0.6033 (3, x)
+    ( 512, 992)  score   6.24  rms  10.188  hair 100%  figure 100%  grid 0.6124 (3, x)
+    (   0, 992)  score   5.73  rms  10.719  hair 100%  figure 100%  grid 0.5342 (3, x)
+    (  32, 992)  score   4.11  rms   8.677  hair 100%  figure 100%  grid 0.4741 (5, y)
+    (  64, 992)  score   3.90  rms   7.543  hair 100%  figure 100%  grid 0.5164 (3, x)
+    ( 512, 960)  score   3.64  rms  10.603  hair 100%  figure 100%  grid 0.3436 (5, y)
+    ( 128, 256)  score   3.57  rms  11.236  hair 100%  figure 100%  grid 0.3178 (5, y)
+    ( 544, 992)  score   3.44  rms   7.605  hair 100%  figure 100%  grid 0.4524 (3, x)
+  ok   L1 above the floor  tips rms 4.288 against the empty backdrop's 1.402 (needs 1.5x)
+  FAIL T1 the tips        speckle 7.60% over 10,593 px (ceiling 3.00%)
+  FAIL T2 the cheek       speckle 19.18% where the groom is 1-2 cards deep over the figure, over 53,250 px (ceiling 3.00%)
+
+  --   T1 is satisfiable: NO ARM IN THIS RUN clears the ceiling — re-run with --arms including blend before trusting it
+
+FAIL stochastic leaves 7.60% of the tip fringe disagreeing with its own neighbourhood by more than 8 cv, past the 3.00% ceiling — that is the confetti a critic named
+FAIL stochastic leaves 19.18% of the hair-over-skin curtain as pixels disagreeing with their neighbourhood — the circuit-board mottle on the cheek
+
+FAIL — 2 clause(s) red.

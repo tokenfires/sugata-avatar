@@ -1,0 +1,78 @@
+quoted-numbers.selftest.mjs — the claim checker against inputs whose answer is arithmetic
+
+  ok    §A extractNumbers finds exactly the numerals a reader would count, in order
+  ok    §A2 the forms prose actually uses: grouped thousands, exponents, ranges, section refs
+  ok    §B numberInterval reads the LITERAL, so a trailing zero narrows the interval
+  ok    §C 🎯 the five true numbers of CHECKPOINT §8 all AGREE with what the producer prints
+        nearest miss 7.5 vs 6.95: |Δ| 0.550 against allowed 0.055 — 10.0x
+  ok    §C2 🎯 all five of the WRONG numbers FAIL, and the narrowest miss is 55x its own interval
+  ok    §C3 the rule is NOT equality and NOT a fixed tolerance — both would be wrong here
+  ok    §D an absolute tolerance widens the rule, and only by what it says
+  ok    §D2 🎯 ±#n takes the tolerance from the PRODUCER's own printed scatter
+  ok    §E a well-formed tag parses into its four parts
+  ok    §E2 a malformed tag is REPORTED, never skipped — an unparsed tag looks exactly like a checked one
+  ok    §E3 the producer is `node <repo .mjs>` and nothing else — this text becomes a process
+  ok    §E4 the marker must LEAD its line, so a file can document the convention without claiming it
+  ok    §F an ORPHAN tag is red: the number must appear in the prose of its own block
+  ok    §F2 a number binds only as a WHOLE numeral — 0.110 does not hide inside 0.1102
+  ok    §F3 the block is the binding scope: a gap of one source line ends it
+  ok    §G the scanner finds every comment a reader would, and the count is hand-checked
+  ok    §G2 a regex character class carrying a backtick does NOT open a string
+  ok    §G3 regexAllowedAfter separates a regex from a division, keyword exceptions included
+  ok    §G4 nested `${ }` holes close the INNER template, not the outer one
+  ok    §G5 countFile keeps tag machinery OUT of the untagged prose count
+  ok    §H an AMBIGUOUS selector is refused rather than guessed
+  ok    §H2 a selector that matches nothing, and an index past the end of the line, are both red
+  ok    §H3 a producer that exits red still has its numbers read, and the exit is reported
+  ok    §H4 the whole path end to end: a wrong claim against a real producer line is caught
+        45 tags in 4 files, producers run in 25.0s
+        · packages/core/src/material/HairMaterial.js:1049  74.75 == 74.75
+        · packages/core/src/material/HairMaterial.js:693  0.174533 == 0.174533
+        · packages/core/src/material/HairMaterial.js:694  0.349066 == 0.349066
+        · packages/core/src/material/HairMaterial.js:695  0.261799 == 0.261799
+        · packages/core/src/material/HairMaterial.js:696  5.000 == 5.0000
+        · packages/core/src/material/HairMaterial.js:697  7.4485 == 7.4485
+        · packages/core/src/material/HairMaterial.js:698  1.4897 == 1.4897
+        · packages/core/src/material/HairMaterial.js:1010  71.36 == 71.36
+        · packages/core/src/material/HairMaterial.js:1011  4.7507 == 4.7507
+        · packages/core/src/material/HairMaterial.js:1012  4.0654 == 4.0654
+        · packages/core/src/material/HairMaterial.js:1013  1.4478 == 1.4478
+        · packages/core/src/material/HairMaterial.js:1014  1.4449 == 1.4449
+        · packages/core/src/material/HairMaterial.js:1461  230,277 == 230277
+        · packages/core/src/material/HairMaterial.js:1462  57.40 == 57.40
+        · packages/core/src/material/HairMaterial.js:1463  11.49 == 11.49
+        · packages/core/src/material/HairMaterial.js:1464  2.020 == 2.020
+        · packages/core/src/material/HairMaterial.js:1465  2.829 == 2.830
+        · packages/core/src/material/HairMaterial.js:1466  2.804 == 2.804
+        · packages/core/src/material/HairMaterial.js:1467  6.02 == 6.02
+        · packages/core/src/material/HairMaterial.js:1468  4.67 == 4.67
+        · packages/core/src/material/HairMaterial.js:1469  4.61 == 4.61
+        · packages/core/src/material/HairMaterial.js:1470  0.5649 == 0.5649
+        · packages/core/src/material/HairMaterial.js:1471  0.2542 == 0.2542
+        · packages/core/src/material/HairMaterial.js:1472  0.2844 == 0.2844
+        · packages/core/src/material/HairMaterial.js:1473  0.09658 == 0.09658
+        · packages/core/src/material/HairMaterial.js:1474  0.9763 == 0.9763
+        · packages/core/src/material/HairMaterial.js:1475  38.8 == 38.8
+        · packages/core/src/material/HairMaterial.js:1476  0.9 == 0.9
+        · packages/core/src/material/HairMaterial.js:2428  1.0927 == 1.0927
+        · packages/core/src/material/HairMaterial.js:2429  1927.5 == 1927.5
+        · packages/core/src/material/HairMaterial.js:2467  9.210340 == 9.210340
+        · packages/core/src/material/HairMaterial.js:2468  3.07 == 3.07
+        · packages/core/src/physics/SpringBones.js:94  8.41 == 8.4128
+        · packages/core/src/physics/SpringBones.js:95  1.92 == 1.9186
+        · packages/core/src/physics/SpringBones.js:96  6.42 == 6.4154
+        · packages/core/src/physics/SpringBones.js:1378  58.3 == 58.3
+        · tools/critic/band-power.mjs:90  0.0049 == 0.004851
+        · tools/critic/band-power.mjs:91  0.0125 == 0.012517
+        · tools/critic/band-power.mjs:92  0.0980 == 0.097971
+        · tools/critic/lock-coherence.mjs:173  0.1715 == 0.1723
+        · tools/critic/lock-coherence.mjs:124  0.830304 == 0.830304
+        · tools/critic/lock-coherence.mjs:125  0.119454 == 0.119454
+        · tools/critic/lock-coherence.mjs:126  6.9508 == 6.95
+        · tools/critic/lock-coherence.mjs:127  0.014152 == 0.014152
+        · tools/critic/lock-coherence.mjs:128  54.6314 == 54.63
+        REACH: 45 tagged of 33709 numerals in comment prose across 353 files — 0.133%
+        and 12306 numerals in string literals are out of reach entirely (scanner disagreement 5 missed / 0 invented)
+  ok    §Z 🎯 every tagged claim in the tree verifies against the command it names
+
+25 passed, 0 failed

@@ -1,0 +1,20 @@
+--- a/tips.mjs
++++ b/tips.mjs
+@@ -109 +109 @@
+-const REPO_ROOT = path.resolve(HERE, '..', '..');
++const REPO_ROOT = path.resolve(HERE, '..', '..', '..');
+@@ -267,0 +268 @@
++  fs.writeFileSync(path.join(options.out,'measurements.json'),JSON.stringify(measured,null,2)+'\n');
+@@ -836,0 +838,2 @@
++  page.on('console', message => {if(message.type()==='error' && !message.text().startsWith('Failed to load resource')) problems.push(message.text());});
++  page.on('response', response => {if(response.status()>=400&&!response.url().endsWith('/favicon.ico')) problems.push(response.status()+' '+response.url());});
+@@ -838,0 +842 @@
++  if(process.env.COVERAGE_SCALE) url += '&scale=' + encodeURIComponent(process.env.COVERAGE_SCALE);
+@@ -846,0 +851,5 @@
++  const actual = await page.evaluate(() => ({scale:sugata.stage.resolutionScale,aa:sugata.stage.stats.temporalAA,backend:sugata.stage.renderer.backend?.isWebGPUBackend,report:sugata.stage.stats}));
++  if(process.env.COVERAGE_SCALE && actual.scale !== Number(process.env.COVERAGE_SCALE)) throw Error('Resolution scale did not apply');
++  if(!actual.backend || actual.aa !== 'taau') throw Error('Expected real WebGPU TAAU');
++  console.log('ACTUAL PIPELINE ' + JSON.stringify(actual));
++  page.__coverageProblems = problems;
+@@ -857,0 +867 @@
++  if(page.__coverageProblems?.length) throw Error(page.__coverageProblems.join('\n'));

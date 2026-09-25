@@ -750,6 +750,7 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
 
   if (quiet !== true) process.stdout.write('\n');
 
+  const subsystems = await page.evaluate(() => globalThis.sugata?.subsystems?.() ?? globalThis.avatar?.report?.() ?? null);
   await context.close();
 
   // Two samples are the minimum a temporal σ can be taken over; below that the clip is a still and
@@ -770,6 +771,7 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
 
   return {
     environment,
+    subsystems,
     frameCount,
     deltaSeconds,
     digests,
@@ -981,6 +983,7 @@ async function capturePlate(browser, pageUrl, options) {
   const loads = [];
   const pngs = [];
   let environment = null;
+  let subsystems = null;
   const pageErrors = [];
 
   for (let load = 1; load <= options.plateLoads; load += 1) {
@@ -996,6 +999,7 @@ async function capturePlate(browser, pageUrl, options) {
       }
     }
 
+    if (subsystems === null) subsystems = await opened.page.evaluate(() => globalThis.sugata?.subsystems?.() ?? globalThis.avatar?.report?.() ?? null);
     const png = await opened.page.screenshot({ timeout: SCREENSHOT_TIMEOUT_MS });
     await opened.context.close();
 
@@ -1047,6 +1051,7 @@ async function capturePlate(browser, pageUrl, options) {
     fps: options.fps,
     loads,
     environment,
+    subsystems,
     pageErrors,
     png: referencePng,
     reproducibility: {
@@ -1093,6 +1098,7 @@ function writePlate(plate, options, outputDirectory, pageUrl, elapsedSeconds) {
       pixelHeight: options.height * options.dpr,
     },
     environment: plate.environment,
+    subsystems: plate.subsystems,
     // Whether the three loads are even OF one build. This tool's own vite freezes the tree at
     // launch and ignores every later edit, so the loads are one build by construction; an
     // external --url server usually has the watcher on, and in a fan-out a load can be of code
@@ -1747,6 +1753,7 @@ function buildManifest({ options, seed, pageUrl, capture, reproducibility, postu
       pixelHeight: options.height * options.dpr,
     },
     environment: capture.environment,
+    subsystems: capture.subsystems,
     source: sourceFingerprint(),
     // 🚩 READ THIS BEFORE `determinism.distinctFrames`. Distinct frames is a statement about
     // BYTES; this is the statement about the PICTURE, and on a page carrying film grain they

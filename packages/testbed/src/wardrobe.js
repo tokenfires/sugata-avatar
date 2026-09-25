@@ -839,7 +839,7 @@ function applyHemBreak( figure, wardrobe, breakage ) {
     for ( const [ id, mesh ] of wardrobe.wornMeshes ) {
 
         rememberShadowFlags( mesh );
-        if ( breakage === 'garment-cast' ) mesh.castShadow = false;
+        if ( breakage === 'garment-cast' || breakage === 'garment-shadows' ) mesh.castShadow = false;
 
         const geometry = mesh.geometry;
 
@@ -1004,8 +1004,8 @@ async function stageShadowProbe( { stage, figure, wardrobe }, request ) {
     for ( const mesh of worn ) {
 
         rememberShadowFlags( mesh );
-        if ( breakage === 'garment-cast' ) mesh.castShadow = false;
-        if ( breakage === 'garment-receive' ) mesh.receiveShadow = false;
+        if ( breakage === 'garment-cast' || breakage === 'garment-shadows' ) mesh.castShadow = false;
+        if ( breakage === 'garment-receive' || breakage === 'garment-shadows' ) mesh.receiveShadow = false;
 
         // 🎯 9.7's own toggle. The AO map is a different mechanism from the shadow map — baked
         // contact darkening in the cloth's own folds rather than a cast shadow — and its gate has

@@ -1,0 +1,2271 @@
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g000.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,567,676 bytes (11,448,588 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.546 mm proud of a sphere fitted to the sclera (R 15.120 mm, RMS 0.174 mm), 3.15x noise, needs 3x (0.521 mm)
+  ok   left anterior chamber: the corneal apex sits 2.400 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.549 mm proud of a sphere fitted to the sclera (R 15.110 mm, RMS 0.173 mm), 3.17x noise, needs 3x (0.520 mm)
+  ok   right anterior chamber: the corneal apex sits 2.402 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.162 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 1.532 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 33.7 mm per unit weight, so teeth first show at jawOpen ≈ 0.0454
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g025.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,568,008 bytes (11,448,588 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.629 mm proud of a sphere fitted to the sclera (R 15.214 mm, RMS 0.187 mm), 3.36x noise, needs 3x (0.562 mm)
+  ok   left anterior chamber: the corneal apex sits 2.364 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.638 mm proud of a sphere fitted to the sclera (R 15.202 mm, RMS 0.187 mm), 3.41x noise, needs 3x (0.561 mm)
+  ok   right anterior chamber: the corneal apex sits 2.366 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.144 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 1.416 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 34.8 mm per unit weight, so teeth first show at jawOpen ≈ 0.0407
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g050.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,567,392 bytes (11,448,588 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.680 mm proud of a sphere fitted to the sclera (R 15.308 mm, RMS 0.202 mm), 3.37x noise, needs 3x (0.606 mm)
+  ok   left anterior chamber: the corneal apex sits 2.291 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.688 mm proud of a sphere fitted to the sclera (R 15.295 mm, RMS 0.202 mm), 3.41x noise, needs 3x (0.606 mm)
+  ok   right anterior chamber: the corneal apex sits 2.292 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.022 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 1.279 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 32.9 mm per unit weight, so teeth first show at jawOpen ≈ 0.0389
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g075.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,567,816 bytes (11,448,588 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.769 mm proud of a sphere fitted to the sclera (R 15.408 mm, RMS 0.221 mm), 3.48x noise, needs 3x (0.663 mm)
+  ok   left anterior chamber: the corneal apex sits 2.219 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.779 mm proud of a sphere fitted to the sclera (R 15.395 mm, RMS 0.221 mm), 3.53x noise, needs 3x (0.663 mm)
+  ok   right anterior chamber: the corneal apex sits 2.219 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.046 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 1.142 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 34.8 mm per unit weight, so teeth first show at jawOpen ≈ 0.0328
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g100.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,567,784 bytes (11,448,588 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.784 mm proud of a sphere fitted to the sclera (R 15.512 mm, RMS 0.240 mm), 3.27x noise, needs 3x (0.719 mm)
+  ok   left anterior chamber: the corneal apex sits 2.150 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.808 mm proud of a sphere fitted to the sclera (R 15.498 mm, RMS 0.240 mm), 3.37x noise, needs 3x (0.720 mm)
+  ok   right anterior chamber: the corneal apex sits 2.150 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.005 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 0.978 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 34.8 mm per unit weight, so teeth first show at jawOpen ≈ 0.0281
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g000.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,917,060 bytes (11,796,996 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on hide masks (punch-list 9.2) ---
+  ok   _hide_female_casualsuit01            2738 of 14517 verts (18.9%)   [female_casualsuit01]
+  ok   _hide_female_elegantsuit01           2536 of 14517 verts (17.5%)   [female_elegantsuit01]
+  ok   _hide_shoes01                        2574 of 14517 verts (17.7%)   [shoes01]
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.546 mm proud of a sphere fitted to the sclera (R 15.120 mm, RMS 0.174 mm), 3.15x noise, needs 3x (0.521 mm)
+  ok   left anterior chamber: the corneal apex sits 2.400 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.549 mm proud of a sphere fitted to the sclera (R 15.110 mm, RMS 0.173 mm), 3.17x noise, needs 3x (0.520 mm)
+  ok   right anterior chamber: the corneal apex sits 2.402 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.162 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 1.532 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 33.7 mm per unit weight, so teeth first show at jawOpen ≈ 0.0454
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,916,776 bytes (11,796,996 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on hide masks (punch-list 9.2) ---
+  ok   _hide_female_casualsuit01            2738 of 14517 verts (18.9%)   [female_casualsuit01]
+  ok   _hide_female_elegantsuit01           2536 of 14517 verts (17.5%)   [female_elegantsuit01]
+  ok   _hide_shoes01                        2574 of 14517 verts (17.7%)   [shoes01]
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.680 mm proud of a sphere fitted to the sclera (R 15.308 mm, RMS 0.202 mm), 3.37x noise, needs 3x (0.606 mm)
+  ok   left anterior chamber: the corneal apex sits 2.291 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.688 mm proud of a sphere fitted to the sclera (R 15.295 mm, RMS 0.202 mm), 3.41x noise, needs 3x (0.606 mm)
+  ok   right anterior chamber: the corneal apex sits 2.292 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.022 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 1.279 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 32.9 mm per unit weight, so teeth first show at jawOpen ≈ 0.0389
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g100.glb
+==============================================================================
+glTF version    : 2
+file size       : 11,917,172 bytes (11,796,996 binary)
+generator       : Khronos glTF Blender I/O v5.2.39
+meshes          : 7
+
+--- GLB container (parsed directly from the JSON chunk) ---
+  base.001                   14517 verts    89 morph targets   89 names
+  cornea                       524 verts     8 morph targets   8 names
+  eyebrow001                   124 verts    49 morph targets   49 names
+  eyelashes01                  250 verts    27 morph targets   27 names
+  high-poly                    552 verts     8 morph targets   8 names
+  teeth_base                  4494 verts    27 morph targets   27 names
+  tongue01                     253 verts    28 morph targets   28 names
+
+Body mesh: base.001
+  vertex count       : 14,517
+  morph target count : 89
+
+  morph target names:
+      0. aa_02
+      1. aa_ah_ax_01
+      2. ao_03
+      3. aw_09
+      4. ay_11
+      5. d_t_n_19
+      6. er_05
+      7. ey_eh_uh_04
+      8. f_v_18
+      9. h_12
+     10. k_g_ng_20
+     11. l_14
+     12. ow_08
+     13. oy_10
+     14. p_b_m_21
+     15. r_13
+     16. sh_ch_jh_zh_16
+     17. sil_00
+     18. s_z_15
+     19. th_dh_17
+     20. w_uw_07
+     21. y_iy_ih_ix_06
+     22. viseme_aa
+     23. viseme_CH
+     24. viseme_DD
+     25. viseme_E
+     26. viseme_FF
+     27. viseme_I
+     28. viseme_kk
+     29. viseme_nn
+     30. viseme_O
+     31. viseme_PP
+     32. viseme_RR
+     33. viseme_sil
+     34. viseme_SS
+     35. viseme_TH
+     36. viseme_U
+     37. browDownLeft
+     38. browDownRight
+     39. browInnerUp
+     40. browOuterUpLeft
+     41. browOuterUpRight
+     42. cheekPuff
+     43. cheekSquintLeft
+     44. cheekSquintRight
+     45. eyeBlinkLeft
+     46. eyeBlinkRight
+     47. eyeLookDownLeft
+     48. eyeLookDownRight
+     49. eyeLookInLeft
+     50. eyeLookInRight
+     51. eyeLookOutLeft
+     52. eyeLookOutRight
+     53. eyeLookUpLeft
+     54. eyeLookUpRight
+     55. eyeSquintLeft
+     56. eyeSquintRight
+     57. eyeWideLeft
+     58. eyeWideRight
+     59. jawForward
+     60. jawLeft
+     61. jawOpen
+     62. jawRight
+     63. mouthClose
+     64. mouthDimpleLeft
+     65. mouthDimpleRight
+     66. mouthFrownLeft
+     67. mouthFrownRight
+     68. mouthFunnel
+     69. mouthLeft
+     70. mouthLowerDownLeft
+     71. mouthLowerDownRight
+     72. mouthPressLeft
+     73. mouthPressRight
+     74. mouthPucker
+     75. mouthRight
+     76. mouthRollLower
+     77. mouthRollUpper
+     78. mouthShrugLower
+     79. mouthShrugUpper
+     80. mouthSmileLeft
+     81. mouthSmileRight
+     82. mouthStretchLeft
+     83. mouthStretchRight
+     84. mouthUpperUpLeft
+     85. mouthUpperUpRight
+     86. noseSneerLeft
+     87. noseSneerRight
+     88. tongueOut
+
+--- assertions against the container ---
+  OK   ARKit-52: all 52 present
+  OK   OVR visemes: all 15 present
+
+--- assertions after three.js GLTFLoader.parse() ---
+  three.js mesh      : Human
+  morphTargetDict    : 89 entries
+  OK   ARKit-52 in three.js: all 52 present
+  OK   OVR visemes in three.js: all 15 present
+
+meshes carrying morphs in three.js: 7
+  Human                    89 morphs
+  Humancornea              8 morphs
+  Humaneyebrow001          49 morphs
+  Humaneyelashes01         27 morphs
+  Humanhigh-poly           8 morphs
+  Humanteeth_base          27 morphs
+  Humantongue01            28 morphs
+
+--- assertions on face parts ---
+  ok   teeth      teeth_base              27 morphs, 'jawOpen' present
+  ok   tongue     tongue01                28 morphs, 'tongueOut' present
+  ok   eyelashes  eyelashes01             27 morphs, 'eyeBlinkLeft' present
+  ok   eyebrows   eyebrow001              49 morphs, 'browInnerUp' present
+  ok   eyes       high-poly                8 morphs, 'eyeLookUpLeft' present
+  ok   cornea     cornea                   8 morphs, 'eyeLookUpLeft' present
+
+--- assertions on skinning ---
+  ok   Human                    JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.cornea             JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyebrow001         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.eyelashes01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.high-poly          JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.teeth_base         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   Human.tongue01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.body                   OPAQUE backface culled
+  ok   Human.cornea                 OPAQUE backface culled
+  ok   Human.eyebrow001             MASK   doubleSided
+  ok   Human.eyelashes01            MASK   doubleSided
+  ok   Human.high-poly              OPAQUE backface culled
+  ok   Human.teeth_base             OPAQUE backface culled
+  ok   Human.tongue01               OPAQUE backface culled
+  ok   Human                    three.js: opaque, depth-writing
+  ok   Humancornea              three.js: opaque, depth-writing
+  ok   Humaneyebrow001          three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humaneyelashes01         three.js: opaque, depth-writing, alphaTest 0.5
+  ok   Humanhigh-poly           three.js: opaque, depth-writing
+  ok   Humanteeth_base          three.js: opaque, depth-writing
+  ok   Humantongue01            three.js: opaque, depth-writing
+
+--- assertions on hide masks (punch-list 9.2) ---
+  ok   _hide_female_casualsuit01            2738 of 14517 verts (18.9%)   [female_casualsuit01]
+  ok   _hide_female_elegantsuit01           2536 of 14517 verts (17.5%)   [female_elegantsuit01]
+  ok   _hide_shoes01                        2574 of 14517 verts (17.7%)   [shoes01]
+
+--- assertions on eye geometry ---
+  ok   left corneal dome: the front 15° cap sits 0.784 mm proud of a sphere fitted to the sclera (R 15.512 mm, RMS 0.240 mm), 3.27x noise, needs 3x (0.719 mm)
+  ok   left anterior chamber: the corneal apex sits 2.150 mm in front of the globe's, needs 0.5 mm
+  ok   right corneal dome: the front 15° cap sits 0.808 mm proud of a sphere fitted to the sclera (R 15.498 mm, RMS 0.240 mm), 3.37x noise, needs 3x (0.720 mm)
+  ok   right anterior chamber: the corneal apex sits 2.150 mm in front of the globe's, needs 0.5 mm
+  ok   cornea material 'Human.cornea': transmission 1, needs >= 0.9 — otherwise the clear shell renders as an opaque dome over the iris
+  ok   cornea material IOR 1.333299994468689, needs 1.333–1.4
+
+--- assertions on the lip seal ---
+  ok   neutral mouth is shut at the midline: lip aperture 0.005 mm with every morph at zero, needs <= 0.4 mm
+  ok   upper teeth are covered: the front biting edge sits 0.978 mm above the lip seam, needs >= 0.5 mm — below that the teeth are flush with the lip line and any jaw motion at all exposes them
+  note jawOpen drops the lower lip 34.8 mm per unit weight, so teeth first show at jawOpen ≈ 0.0281
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/fedora01/g000.glb   [garment fragment]
+==============================================================================
+file size       : 7,639,028 bytes
+  fedora                          696 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     fedora01 — layer HEADWEAR, OPAQUE, clo unrated
+
+--- assertions on skinning ---
+  ok   Human.fedora01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.fedora01               OPAQUE backface culled   [manifest: fedora01]
+  ok   fedora01                     occlusion absent, as declared   [9.7]
+  ok   Humanfedora01            three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/fedora01/g050.glb   [garment fragment]
+==============================================================================
+file size       : 7,638,760 bytes
+  fedora                          696 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     fedora01 — layer HEADWEAR, OPAQUE, clo unrated
+
+--- assertions on skinning ---
+  ok   Human.fedora01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.fedora01               OPAQUE backface culled   [manifest: fedora01]
+  ok   fedora01                     occlusion absent, as declared   [9.7]
+  ok   Humanfedora01            three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/fedora01/g100.glb   [garment fragment]
+==============================================================================
+file size       : 7,639,144 bytes
+  fedora                          696 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     fedora01 — layer HEADWEAR, OPAQUE, clo unrated
+
+--- assertions on skinning ---
+  ok   Human.fedora01           JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.fedora01               OPAQUE backface culled   [manifest: fedora01]
+  ok   fedora01                     occlusion absent, as declared   [9.7]
+  ok   Humanfedora01            three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g000.glb   [garment fragment]
+==============================================================================
+file size       : 11,084,956 bytes
+  female_casualsuit01            2377 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     female_casualsuit01 — layer BASE, OPAQUE, clo 0.4
+
+--- assertions on skinning ---
+  ok   Human.female_casualsuit01 JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.female_casualsuit01    OPAQUE backface culled   [manifest: female_casualsuit01]
+  ok   female_casualsuit01          occlusion texture 1   [9.7]
+  ok   Humanfemale_casualsuit01 three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb   [garment fragment]
+==============================================================================
+file size       : 11,084,628 bytes
+  female_casualsuit01            2377 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     female_casualsuit01 — layer BASE, OPAQUE, clo 0.4
+
+--- assertions on skinning ---
+  ok   Human.female_casualsuit01 JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.female_casualsuit01    OPAQUE backface culled   [manifest: female_casualsuit01]
+  ok   female_casualsuit01          occlusion texture 1   [9.7]
+  ok   Humanfemale_casualsuit01 three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g100.glb   [garment fragment]
+==============================================================================
+file size       : 11,085,068 bytes
+  female_casualsuit01            2377 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     female_casualsuit01 — layer BASE, OPAQUE, clo 0.4
+
+--- assertions on skinning ---
+  ok   Human.female_casualsuit01 JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.female_casualsuit01    OPAQUE backface culled   [manifest: female_casualsuit01]
+  ok   female_casualsuit01          occlusion texture 1   [9.7]
+  ok   Humanfemale_casualsuit01 three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_elegantsuit01/g000.glb   [garment fragment]
+==============================================================================
+file size       : 5,066,800 bytes
+  female_elegantsuit01           2424 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     female_elegantsuit01 — layer BASE, OPAQUE, clo 0.61
+
+--- assertions on skinning ---
+  ok   Human.female_elegantsuit01 JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.female_elegantsuit01   OPAQUE backface culled   [manifest: female_elegantsuit01]
+  ok   female_elegantsuit01         occlusion texture 1   [9.7]
+  ok   Humanfemale_elegantsuit01 three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_elegantsuit01/g050.glb   [garment fragment]
+==============================================================================
+file size       : 5,066,532 bytes
+  female_elegantsuit01           2424 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     female_elegantsuit01 — layer BASE, OPAQUE, clo 0.61
+
+--- assertions on skinning ---
+  ok   Human.female_elegantsuit01 JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.female_elegantsuit01   OPAQUE backface culled   [manifest: female_elegantsuit01]
+  ok   female_elegantsuit01         occlusion texture 1   [9.7]
+  ok   Humanfemale_elegantsuit01 three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_elegantsuit01/g100.glb   [garment fragment]
+==============================================================================
+file size       : 5,066,912 bytes
+  female_elegantsuit01           2424 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     female_elegantsuit01 — layer BASE, OPAQUE, clo 0.61
+
+--- assertions on skinning ---
+  ok   Human.female_elegantsuit01 JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.female_elegantsuit01   OPAQUE backface culled   [manifest: female_elegantsuit01]
+  ok   female_elegantsuit01         occlusion texture 1   [9.7]
+  ok   Humanfemale_elegantsuit01 three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_boxer_brief/g000.glb   [garment fragment]
+==============================================================================
+file size       : 524,752 bytes
+  foundation_boxer_brief         6730 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_boxer_brief — layer FOUNDATION, OPAQUE, clo 0.04
+
+--- assertions on skinning ---
+  ok   Human.foundation_boxer_brief JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_boxer_brief       OPAQUE backface culled   [manifest: foundation_boxer_brief]
+  ok   Humanfoundation_boxer_brief three.js: opaque, depth-writing
+  ok   rolled hem        816 boundary edges, 1632 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_boxer_brief/g050.glb   [garment fragment]
+==============================================================================
+file size       : 529,836 bytes
+  foundation_boxer_brief         6798 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_boxer_brief — layer FOUNDATION, OPAQUE, clo 0.04
+
+--- assertions on skinning ---
+  ok   Human.foundation_boxer_brief JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_boxer_brief       OPAQUE backface culled   [manifest: foundation_boxer_brief]
+  ok   Humanfoundation_boxer_brief three.js: opaque, depth-writing
+  ok   rolled hem        780 boundary edges, 1560 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_boxer_brief/g100.glb   [garment fragment]
+==============================================================================
+file size       : 543,264 bytes
+  foundation_boxer_brief         6967 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_boxer_brief — layer FOUNDATION, OPAQUE, clo 0.04
+
+--- assertions on skinning ---
+  ok   Human.foundation_boxer_brief JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_boxer_brief       OPAQUE backface culled   [manifest: foundation_boxer_brief]
+  ok   Humanfoundation_boxer_brief three.js: opaque, depth-writing
+  ok   rolled hem        738 boundary edges, 1476 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g000.glb   [garment fragment]
+==============================================================================
+file size       : 956,028 bytes
+  foundation_bra                12490 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_bra — layer FOUNDATION, OPAQUE, clo 0.01
+
+--- assertions on skinning ---
+  ok   Human.foundation_bra     JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_bra               OPAQUE backface culled   [manifest: foundation_bra]
+  ok   Humanfoundation_bra      three.js: opaque, depth-writing
+  ok   rolled hem        1928 boundary edges, 3856 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb   [garment fragment]
+==============================================================================
+file size       : 921,176 bytes
+  foundation_bra                12030 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_bra — layer FOUNDATION, OPAQUE, clo 0.01
+
+--- assertions on skinning ---
+  ok   Human.foundation_bra     JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_bra               OPAQUE backface culled   [manifest: foundation_bra]
+  ok   Humanfoundation_bra      three.js: opaque, depth-writing
+  ok   rolled hem        1872 boundary edges, 3744 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g100.glb   [garment fragment]
+==============================================================================
+file size       : 898,036 bytes
+  foundation_bra                11719 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_bra — layer FOUNDATION, OPAQUE, clo 0.01
+
+--- assertions on skinning ---
+  ok   Human.foundation_bra     JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_bra               OPAQUE backface culled   [manifest: foundation_bra]
+  ok   Humanfoundation_bra      three.js: opaque, depth-writing
+  ok   rolled hem        1854 boundary edges, 3708 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g000.glb   [garment fragment]
+==============================================================================
+file size       : 527,888 bytes
+  foundation_briefs              6784 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_briefs — layer FOUNDATION, OPAQUE, clo 0.03
+
+--- assertions on skinning ---
+  ok   Human.foundation_briefs  JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_briefs            OPAQUE backface culled   [manifest: foundation_briefs]
+  ok   Humanfoundation_briefs   three.js: opaque, depth-writing
+  ok   rolled hem        1012 boundary edges, 2024 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb   [garment fragment]
+==============================================================================
+file size       : 529,028 bytes
+  foundation_briefs              6802 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_briefs — layer FOUNDATION, OPAQUE, clo 0.03
+
+--- assertions on skinning ---
+  ok   Human.foundation_briefs  JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_briefs            OPAQUE backface culled   [manifest: foundation_briefs]
+  ok   Humanfoundation_briefs   three.js: opaque, depth-writing
+  ok   rolled hem        1000 boundary edges, 2000 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g100.glb   [garment fragment]
+==============================================================================
+file size       : 543,280 bytes
+  foundation_briefs              6985 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_briefs — layer FOUNDATION, OPAQUE, clo 0.03
+
+--- assertions on skinning ---
+  ok   Human.foundation_briefs  JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_briefs            OPAQUE backface culled   [manifest: foundation_briefs]
+  ok   Humanfoundation_briefs   three.js: opaque, depth-writing
+  ok   rolled hem        1006 boundary edges, 2012 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_vest/g000.glb   [garment fragment]
+==============================================================================
+file size       : 1,199,336 bytes
+  foundation_vest               15698 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_vest — layer FOUNDATION, OPAQUE, clo 0.08
+
+--- assertions on skinning ---
+  ok   Human.foundation_vest    JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_vest              OPAQUE backface culled   [manifest: foundation_vest]
+  ok   Humanfoundation_vest     three.js: opaque, depth-writing
+  ok   rolled hem        1948 boundary edges, 3896 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_vest/g050.glb   [garment fragment]
+==============================================================================
+file size       : 1,180,828 bytes
+  foundation_vest               15455 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_vest — layer FOUNDATION, OPAQUE, clo 0.08
+
+--- assertions on skinning ---
+  ok   Human.foundation_vest    JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_vest              OPAQUE backface culled   [manifest: foundation_vest]
+  ok   Humanfoundation_vest     three.js: opaque, depth-writing
+  ok   rolled hem        1904 boundary edges, 3808 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_vest/g100.glb   [garment fragment]
+==============================================================================
+file size       : 1,166,188 bytes
+  foundation_vest               15254 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     foundation_vest — layer FOUNDATION, OPAQUE, clo 0.08
+
+--- assertions on skinning ---
+  ok   Human.foundation_vest    JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   foundation_vest              OPAQUE backface culled   [manifest: foundation_vest]
+  ok   Humanfoundation_vest     three.js: opaque, depth-writing
+  ok   rolled hem        1864 boundary edges, 3728 band tris, median depth 1.200 mm (floor 0.6, one extruded quad per edge)
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g000.glb   [garment fragment]
+==============================================================================
+file size       : 2,345,868 bytes
+  shoes01                        1846 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     shoes01 — layer FOOTWEAR, OPAQUE, clo 0.02
+
+--- assertions on skinning ---
+  ok   Human.shoes01            JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.shoes01                OPAQUE backface culled   [manifest: shoes01]
+  ok   shoes01                      occlusion absent, as declared   [9.7]
+  ok   Humanshoes01             three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb   [garment fragment]
+==============================================================================
+file size       : 2,345,604 bytes
+  shoes01                        1846 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     shoes01 — layer FOOTWEAR, OPAQUE, clo 0.02
+
+--- assertions on skinning ---
+  ok   Human.shoes01            JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.shoes01                OPAQUE backface culled   [manifest: shoes01]
+  ok   shoes01                      occlusion absent, as declared   [9.7]
+  ok   Humanshoes01             three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g100.glb   [garment fragment]
+==============================================================================
+file size       : 2,345,984 bytes
+  shoes01                        1846 verts
+
+--- assertions on the fragment ---
+  ok   manifest entry     shoes01 — layer FOOTWEAR, OPAQUE, clo 0.02
+
+--- assertions on skinning ---
+  ok   Human.shoes01            JOINTS_0 + WEIGHTS_0, skin 0
+
+--- assertions on materials ---
+  ok   Human.shoes01                OPAQUE backface culled   [manifest: shoes01]
+  ok   shoes01                      occlusion absent, as declared   [9.7]
+  ok   Humanshoes01             three.js: opaque, depth-writing
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/bob01/g000.glb   [hair groom]
+==============================================================================
+file size       : 3,346,148 bytes
+groom           : bob01 — Side-parted, face-framing, roughly to the collarbone. The default groom.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.742 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.876, 7.3 mm between tips vs 8.3 mm between roots, over a tip cloud 1.394x the roots' own spread
+  --   cut line          a card's tip sits 6.3 mm off its 5 nearest tips in height, on 212.1 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 3.27 mm of ridge running down the head against a floor of 4.78 mm, which is this groom's OWN 6.76 mm of envelope relief over root 2 — at 0.234 vertical coherence, 24 ridges over 10 bands
+  --   shell thickness   the groom spans 11.93 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 18.40), over 958 bins — and 5.91 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   16 of 16 locks carry cards, 18–44 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.052/0.248/0.577 at 54.4 mm a unit
+  ok   re-derived index  476 of 496 cards (95.97%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.089 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_bob01         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.5 mm from the nearest of 237 cranium vertices at p50 and 33.3 mm at p90, against a cranium radius of 92.1 mm
+  ok   clearance         nearest signed approach 3.503 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    100.00% of 4878 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 0.0 mm² over 0 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'none' at 0.0 mm² of bare cranium (ceiling 60 mm², within 517 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 17 cards crossed per ray (p90 27, over 1125 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/bob01/g025.glb   [hair groom]
+==============================================================================
+file size       : 3,346,472 bytes
+groom           : bob01 — Side-parted, face-framing, roughly to the collarbone. The default groom.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.736 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.876, 7.4 mm between tips vs 8.4 mm between roots, over a tip cloud 1.417x the roots' own spread
+  --   cut line          a card's tip sits 6.3 mm off its 5 nearest tips in height, on 213.7 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 3.10 mm of ridge running down the head against a floor of 4.99 mm, which is this groom's OWN 7.06 mm of envelope relief over root 2 — at 0.192 vertical coherence, 26 ridges over 10 bands
+  --   shell thickness   the groom spans 11.55 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 17.22), over 960 bins — and 6.34 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   16 of 16 locks carry cards, 19–44 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.043/0.245/0.581 at 55.5 mm a unit
+  ok   re-derived index  478 of 496 cards (96.37%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.088 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_bob01         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.7 mm from the nearest of 245 cranium vertices at p50 and 35.0 mm at p90, against a cranium radius of 92.7 mm
+  ok   clearance         nearest signed approach 3.502 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    100.00% of 5032 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 0.0 mm² over 0 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'front' at 5.8 mm² of bare cranium at (0.041, 1.597, 0.097) (ceiling 60 mm², within 536 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 15 cards crossed per ray (p90 25, over 1189 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/bob01/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,346,728 bytes
+groom           : bob01 — Side-parted, face-framing, roughly to the collarbone. The default groom.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.707 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.855, 7.3 mm between tips vs 8.5 mm between roots, over a tip cloud 1.465x the roots' own spread
+  --   cut line          a card's tip sits 6.2 mm off its 5 nearest tips in height, on 215.7 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 2.70 mm of ridge running down the head against a floor of 4.99 mm, which is this groom's OWN 7.06 mm of envelope relief over root 2 — at 0.146 vertical coherence, 18 ridges over 10 bands
+  --   shell thickness   the groom spans 11.57 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 17.21), over 952 bins — and 6.52 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   16 of 16 locks carry cards, 19–50 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.046/0.245/0.554 at 56.6 mm a unit
+  ok   re-derived index  477 of 496 cards (96.17%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.087 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_bob01         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.7 mm from the nearest of 257 cranium vertices at p50 and 34.2 mm at p90, against a cranium radius of 95.3 mm
+  FAIL clearance         nearest signed approach 2.516 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    100.00% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 0.0 mm² over 0 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'none' at 0.0 mm² of bare cranium (ceiling 60 mm², within 582 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 15 cards crossed per ray (p90 26, over 1245 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/bob01/g075.glb   [hair groom]
+==============================================================================
+file size       : 3,346,284 bytes
+groom           : bob01 — Side-parted, face-framing, roughly to the collarbone. The default groom.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.719 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.839, 7.4 mm between tips vs 8.8 mm between roots, over a tip cloud 1.361x the roots' own spread
+  --   cut line          a card's tip sits 6.4 mm off its 5 nearest tips in height, on 217.2 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 3.74 mm of ridge running down the head against a floor of 4.99 mm, which is this groom's OWN 7.05 mm of envelope relief over root 2 — at 0.282 vertical coherence, 20 ridges over 10 bands
+  --   shell thickness   the groom spans 10.29 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 13.17), over 959 bins — and 5.98 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   16 of 16 locks carry cards, 17–64 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.047/0.278/0.628 at 57.9 mm a unit
+  ok   re-derived index  481 of 496 cards (96.98%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.083 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_bob01         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.5 mm from the nearest of 263 cranium vertices at p50 and 34.4 mm at p90, against a cranium radius of 99.1 mm
+  ok   clearance         nearest signed approach 3.502 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    100.00% of 5592 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 0.0 mm² over 0 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'none' at 0.0 mm² of bare cranium (ceiling 60 mm², within 520 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 13 cards crossed per ray (p90 23, over 1299 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/bob01/g100.glb   [hair groom]
+==============================================================================
+file size       : 3,346,252 bytes
+groom           : bob01 — Side-parted, face-framing, roughly to the collarbone. The default groom.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.716 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.866, 7.8 mm between tips vs 9.0 mm between roots, over a tip cloud 1.463x the roots' own spread
+  --   cut line          a card's tip sits 6.5 mm off its 5 nearest tips in height, on 220.4 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 4.71 mm of ridge running down the head against a floor of 5.82 mm, which is this groom's OWN 8.24 mm of envelope relief over root 2 — at 0.327 vertical coherence, 21 ridges over 10 bands
+  --   shell thickness   the groom spans 10.44 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 13.38), over 990 bins — and 6.76 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   16 of 16 locks carry cards, 18–63 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.036/0.225/0.496 at 59.2 mm a unit
+  ok   re-derived index  473 of 496 cards (95.36%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.086 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_bob01         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.5 mm from the nearest of 277 cranium vertices at p50 and 33.9 mm at p90, against a cranium radius of 101.7 mm
+  ok   clearance         nearest signed approach 3.505 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    99.97% of 5884 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 3.0 mm² at (-0.077, 1.623, 0.041) over 1 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'top' at 5.9 mm² of bare cranium at (0.043, 1.692, 0.115) (ceiling 60 mm², within 536 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 14 cards crossed per ray (p90 23, over 1366 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,347,176 bytes
+groom           : bob02 — Chin-length graduated bob: tapered nape, released front curtains and a refined jaw-length hem on g050. Run hair_fall.mjs, hair_hem.mjs, then hair_tail_release.mjs after export; see tools/figure-pipeline/README.md.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.754 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.790, 6.7 mm between tips vs 8.5 mm between roots, over a tip cloud 1.098x the roots' own spread
+  --   cut line          a card's tip sits 5.9 mm off its 5 nearest tips in height, on 142.9 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 2.74 mm of ridge running down the head against a floor of 3.77 mm, which is this groom's OWN 5.34 mm of envelope relief over root 2 — at 0.263 vertical coherence, 24 ridges over 10 bands
+  --   shell thickness   the groom spans 8.82 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 10.84), over 1044 bins — and 4.58 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   16 of 16 locks carry cards, 19–50 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.046/0.245/0.554 at 56.6 mm a unit
+  ok   re-derived index  477 of 496 cards (96.17%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.087 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_bob02         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.7 mm from the nearest of 257 cranium vertices at p50 and 33.9 mm at p90, against a cranium radius of 95.3 mm
+  ok   clearance         nearest signed approach 3.510 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    100.00% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 0.0 mm² over 0 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'none' at 0.0 mm² of bare cranium (ceiling 60 mm², within 400 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 15 cards crossed per ray (p90 25, over 1245 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/crop01/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,096,380 bytes
+groom           : crop01 — Men's short back-and-sides with length on top, faded through the cut field.
+geometry        : 13,708 verts, 13,416 triangles
+
+--- assertions on the cards ---
+  ok   cards             384 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  FAIL cards gather      tips gather at 0.919 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.977, 7.5 mm between tips vs 7.7 mm between roots, over a tip cloud 1.130x the roots' own spread
+  --   cut line          a card's tip sits 7.2 mm off its 5 nearest tips in height, on 39.2 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 1.18 mm of ridge running down the head against a floor of 2.64 mm, which is this groom's OWN 3.73 mm of envelope relief over root 2 — at 0.100 vertical coherence, 15 ridges over 10 bands
+  --   shell thickness   the groom spans 5.02 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 7.32), over 811 bins — and 3.54 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         386 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   384 of 384 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   384 of 384 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   24 of 24 locks carry cards, 8–31 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     384 of 384 in [0,1]; p10/p50/p90 0.054/0.243/0.567 at 46.2 mm a unit
+  ok   re-derived index  367 of 384 cards (95.57%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.089 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_crop01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 384 card roots sit 14.3 mm from the nearest of 257 cranium vertices at p50 and 31.7 mm at p90, against a cranium radius of 95.3 mm
+  ok   clearance         nearest signed approach 3.501 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    98.91% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  FAIL no bald patch     largest connected exposed patch 109.7 mm² at (0.070, 1.559, 0.046) over 23 sample(s) (ceiling 50 mm²)
+  FAIL no skin on show   worst of 5 judge views is 'side' at 158.4 mm² of bare cranium at (0.070, 1.557, 0.046) (ceiling 60 mm², within 400 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'front' at p50 7 cards crossed per ray (p90 11, over 431 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/lob01/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,345,988 bytes
+groom           : lob01 — Shoulder-length graduated cut with a centre part.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.766 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.991, 8.4 mm between tips vs 8.5 mm between roots, over a tip cloud 1.675x the roots' own spread
+  --   cut line          a card's tip sits 8.1 mm off its 5 nearest tips in height, on 261.4 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 4.38 mm of ridge running down the head against a floor of 5.95 mm, which is this groom's OWN 8.42 mm of envelope relief over root 2 — at 0.270 vertical coherence, 22 ridges over 10 bands
+  --   shell thickness   the groom spans 12.16 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 17.11), over 902 bins — and 7.19 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   18 of 18 locks carry cards, 19–38 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.045/0.263/0.547 at 53.4 mm a unit
+  ok   re-derived index  475 of 496 cards (95.77%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.093 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_lob01         JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.7 mm from the nearest of 257 cranium vertices at p50 and 34.0 mm at p90, against a cranium radius of 95.3 mm
+  ok   clearance         nearest signed approach 3.508 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    100.00% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 0.0 mm² over 0 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'none' at 0.0 mm² of bare cranium (ceiling 60 mm², within 608 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 15 cards crossed per ray (p90 25, over 1245 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/long01/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,345,760 bytes
+groom           : long01 — Long and straight, past the shoulderblades.
+geometry        : 17,516 verts, 17,000 triangles
+
+--- assertions on the cards ---
+  ok   cards             496 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  ok   cards gather      tips gather at 0.708 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 1.031, 8.8 mm between tips vs 8.5 mm between roots, over a tip cloud 2.119x the roots' own spread
+  --   cut line          a card's tip sits 6.7 mm off its 5 nearest tips in height, on 354.1 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 2.36 mm of ridge running down the head against a floor of 5.29 mm, which is this groom's OWN 7.48 mm of envelope relief over root 2 — at 0.100 vertical coherence, 20 ridges over 10 bands
+  --   shell thickness   the groom spans 15.78 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 27.37), over 820 bins — and 7.10 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         498 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   496 of 496 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   496 of 496 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   14 of 14 locks carry cards, 19–52 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     496 of 496 in [0,1]; p10/p50/p90 0.045/0.248/0.646 at 60.5 mm a unit
+  ok   re-derived index  475 of 496 cards (95.77%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.080 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_long01        JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 496 card roots sit 18.7 mm from the nearest of 257 cranium vertices at p50 and 34.3 mm at p90, against a cranium radius of 95.3 mm
+  ok   clearance         nearest signed approach 3.508 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    100.00% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 0.0 mm² over 0 sample(s) (ceiling 50 mm²)
+  ok   no skin on show   worst of 5 judge views is 'none' at 0.0 mm² of bare cranium (ceiling 60 mm², within 836 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'three-quarter' at p50 14 cards crossed per ray (p90 25, over 1245 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/pixie01/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,109,904 bytes
+groom           : pixie01 — Very short, textured, with a side-swept fringe.
+geometry        : 13,912 verts, 13,608 triangles
+
+--- assertions on the cards ---
+  ok   cards             390 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  FAIL cards gather      tips gather at 0.881 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.935, 7.2 mm between tips vs 7.7 mm between roots, over a tip cloud 1.127x the roots' own spread
+  --   cut line          a card's tip sits 7.1 mm off its 5 nearest tips in height, on 36.4 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 1.16 mm of ridge running down the head against a floor of 2.99 mm, which is this groom's OWN 4.23 mm of envelope relief over root 2 — at 0.076 vertical coherence, 14 ridges over 10 bands
+  --   shell thickness   the groom spans 5.04 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 7.56), over 871 bins — and 4.06 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         392 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   390 of 390 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   390 of 390 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   26 of 26 locks carry cards, 5–38 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     390 of 390 in [0,1]; p10/p50/p90 0.040/0.245/0.572 at 44.4 mm a unit
+  ok   re-derived index  376 of 390 cards (96.41%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.085 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_pixie01       JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 390 card roots sit 13.7 mm from the nearest of 257 cranium vertices at p50 and 29.7 mm at p90, against a cranium radius of 95.3 mm
+  ok   clearance         nearest signed approach 3.505 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    98.55% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  FAIL no bald patch     largest connected exposed patch 128.1 mm² at (-0.070, 1.558, 0.040) over 28 sample(s) (ceiling 50 mm²)
+  FAIL no skin on show   worst of 5 judge views is 'side' at 182.5 mm² of bare cranium at (0.070, 1.557, 0.042) (ceiling 60 mm², within 400 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'top' at p50 6 cards crossed per ray (p90 12, over 2147 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+/Users/robault/GitHub/sugata-avatar/assets/hair/quiff01/g050.glb   [hair groom]
+==============================================================================
+file size       : 3,105,068 bytes
+groom           : quiff01 — Men's short sides with real length on top, swept up and back.
+geometry        : 13,844 verts, 13,544 triangles
+
+--- assertions on the cards ---
+  ok   cards             388 quad-strip components, 17 rings each (floor 100)
+  ok   scalp cap         2 non-ribbon component(s), 564/564 triangles
+  FAIL cards gather      tips gather at 0.921 of the spacing their own cloud's size accounts for (ceiling 0.81) — raw ratio 0.834, 7.1 mm between tips vs 8.5 mm between roots, over a tip cloud 0.820x the roots' own spread
+  --   cut line          a card's tip sits 5.9 mm off its 5 nearest tips in height, on 76.8 mm of mean root-to-tip travel (reported, not gated — the layer stack is graduated on purpose)
+  FAIL locks not a shell 0.20 mm of ridge running down the head against a floor of 3.05 mm, which is this groom's OWN 4.31 mm of envelope relief over root 2 — at 0.002 vertical coherence, 20 ridges over 10 bands
+  --   shell thickness   the groom spans 8.21 mm of radius between its p50 and p85 inside one 3°x30 mm bin (worst band 11.96), over 817 bins — and 4.30 mm of the relief above is SCATTER rather than ridge (reported — this is what a lock has to be louder than)
+  ok   UV bounds         390 components, all within [0,1]
+  ok   one strip a card  0 card(s) straddle an atlas strip boundary (8 strips)
+  ok   axis-aligned UV   388 of 388 cards sit on exactly two u columns — the groom exports no TANGENT and the strand direction is this UV's bitangent
+
+--- assertions on the lock channel (R25) ---
+  ok   one lock a card   388 of 388 cards carry a CONSTANT TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise
+  ok   every lock used   20 of 20 locks carry cards, 12–31 each (a build that wrote one index everywhere reads 1 here)
+  ok   edge distance     388 of 388 in [0,1]; p10/p50/p90 0.045/0.234/0.552 at 50.7 mm a unit
+  ok   re-derived index  372 of 388 cards (95.88%) put their exported root nearest the centre they claim (floor 90%)
+  ok   re-derived edge   p90 |emitted − re-derived| = 0.089 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+  ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+  ok   border is hair    worst strip 7 boundary sd 4.361 px over 907 rows (floor 3 px)
+  ok   material          MASK, cutoff 0.5, double sided
+
+--- assertions on skinning ---
+  ok   Human.hair_quiff01       JOINTS_0 + WEIGHTS_0, skin 0
+  ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+  ok   groom on the head 388 card roots sit 16.5 mm from the nearest of 257 cranium vertices at p50 and 33.9 mm at p90, against a cranium radius of 95.3 mm
+  ok   clearance         nearest signed approach 3.508 mm, 0 vertices inside the body (floor 3 mm)
+  ok   scalp coverage    98.87% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+  ok   no bald patch     largest connected exposed patch 44.3 mm² at (0.038, 1.628, 0.106) over 9 sample(s) (ceiling 50 mm²)
+  FAIL no skin on show   worst of 5 judge views is 'front' at 770.3 mm² of bare cranium at (0.001, 1.631, 0.106) (ceiling 60 mm², within 400 mm of the sample)
+  ok   cards deep        deepest of 5 judge views is 'back' at p50 11 cards crossed per ray (p90 19, over 1682 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+  --   roster            22 of 22 clauses ran, 0 stood down with a reason
+
+==============================================================================
+FAIL — 20 problem(s) across 43 file(s).

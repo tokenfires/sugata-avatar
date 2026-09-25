@@ -1,0 +1,13 @@
+{
+  "scope": "Combined full run at 1dd2acc plus focused follow-ups at bc5fcce; not a second full run",
+  "coveredGatePaths": 126,
+  "remainingRed": [
+    "packages/core/src/material/HairMaterial.selftest.mjs",
+    "tools/figure-pipeline/hair_opacity.mjs",
+    "tools/figure-pipeline/hair_tips.mjs",
+    "tools/figure-pipeline/verify_glb.mjs"
+  ],
+  "undeclaredRed": 0,
+  "staleDeclarations": 0,
+  "source": "selftests-final.txt, followups-final.txt, hair-tips-final.txt"
+}

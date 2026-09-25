@@ -1,0 +1,448 @@
+{
+  "baseCommit": "4f12a97333662a214ba7d1d28526295b2a920830",
+  "sourceSHA256": {
+    "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "packages/core/src/render/GBuffer.js": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774",
+    "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7"
+  },
+  "finding": "The current threshold correlates overlapping layers in this fixture; a second equal-alpha card adds no opacity.",
+  "cases": 38,
+  "framesPerCase": 128,
+  "repeatedCasesExact": 34,
+  "geometryMask": {
+    "pixels": 12544,
+    "bounds": {
+      "x0": 72,
+      "x1": 184,
+      "y0": 72,
+      "y1": 184
+    }
+  },
+  "exactEquivalence": [
+    {
+      "mode": "off",
+      "a": "quarter",
+      "b": "quarter-pair",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "half",
+      "b": "half-pair",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "three-quarter",
+      "b": "three-quarter-pair",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "half-pair",
+      "b": "half-reversed",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "half-pair",
+      "b": "half-merged",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "half-merged",
+      "b": "half-merged-reversed",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "quarter",
+      "b": "quarter-pair",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "half",
+      "b": "half-pair",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "three-quarter",
+      "b": "three-quarter-pair",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "half-pair",
+      "b": "half-reversed",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "half-pair",
+      "b": "half-merged",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "half-merged",
+      "b": "half-merged-reversed",
+      "exact": true
+    }
+  ],
+  "rows": [
+    {
+      "name": "off-empty",
+      "independentTransmission": 1,
+      "sharedThresholdPrediction": 1,
+      "temporalMean": 1,
+      "finalMean": 1,
+      "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "off-zero",
+      "independentTransmission": 1,
+      "sharedThresholdPrediction": 1,
+      "temporalMean": 1,
+      "finalMean": 1,
+      "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "off-quarter",
+      "independentTransmission": 0.75,
+      "sharedThresholdPrediction": 0.75,
+      "temporalMean": 0.7499937719228316,
+      "finalMean": 0.7500797193877551,
+      "imageSHA256": "95f73e272c4a832ea8dc632bc8cfebba1e3446c83d092bf5e9cbd4566f3a791a",
+      "pixelMeansSHA256": "b14c5bb8f48ffba525a3263e9a1ec3268c7f782038cc462945eabf76a1bb6fbe"
+    },
+    {
+      "name": "off-half",
+      "independentTransmission": 0.5,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.49999190349968103,
+      "finalMean": 0.5,
+      "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad",
+      "pixelMeansSHA256": "c14e068a104d6e93c05ad331160cdc8260e7d5114166a4604f0bcd5c7f575ff3"
+    },
+    {
+      "name": "off-three-quarter",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.2500043596540179,
+      "finalMean": 0.2503188775510204,
+      "imageSHA256": "229ff6b988475a0304581b44b9ec1294a97c348a8a0d35e711241797c980dcd2",
+      "pixelMeansSHA256": "6f3f66a526abc834a153a2c0524ef5d4f0c17899df00da4ff9a980257af36def"
+    },
+    {
+      "name": "off-opaque",
+      "independentTransmission": 0,
+      "sharedThresholdPrediction": 0,
+      "temporalMean": 0,
+      "finalMean": 0,
+      "imageSHA256": "9e93f0cb59ae23b2f30da576db2600fe0670596bd6effd152f25dea59eb33385",
+      "pixelMeansSHA256": "c7ed01f07cdc4b4dcc076f195492aa8e5c1807b4aaa7ed597c0ccb77981f9a04"
+    },
+    {
+      "name": "off-quarter-pair",
+      "independentTransmission": 0.5625,
+      "sharedThresholdPrediction": 0.75,
+      "temporalMean": 0.7499937719228316,
+      "finalMean": 0.7500797193877551,
+      "imageSHA256": "95f73e272c4a832ea8dc632bc8cfebba1e3446c83d092bf5e9cbd4566f3a791a",
+      "pixelMeansSHA256": "b14c5bb8f48ffba525a3263e9a1ec3268c7f782038cc462945eabf76a1bb6fbe"
+    },
+    {
+      "name": "off-half-pair",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.49999190349968103,
+      "finalMean": 0.5,
+      "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad",
+      "pixelMeansSHA256": "c14e068a104d6e93c05ad331160cdc8260e7d5114166a4604f0bcd5c7f575ff3"
+    },
+    {
+      "name": "off-three-quarter-pair",
+      "independentTransmission": 0.0625,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.2500043596540179,
+      "finalMean": 0.2503188775510204,
+      "imageSHA256": "229ff6b988475a0304581b44b9ec1294a97c348a8a0d35e711241797c980dcd2",
+      "pixelMeansSHA256": "6f3f66a526abc834a153a2c0524ef5d4f0c17899df00da4ff9a980257af36def"
+    },
+    {
+      "name": "off-mixed-pair",
+      "independentTransmission": 0.1875,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.2500043596540179,
+      "finalMean": 0.2503188775510204,
+      "imageSHA256": "26d51d8d0cd9a5e66a875b9681f49d1925c06c0d1af30fde5c23cee59e14f1df",
+      "pixelMeansSHA256": "6f3f66a526abc834a153a2c0524ef5d4f0c17899df00da4ff9a980257af36def"
+    },
+    {
+      "name": "off-half-reversed",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.49999190349968103,
+      "finalMean": 0.5,
+      "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad",
+      "pixelMeansSHA256": "c14e068a104d6e93c05ad331160cdc8260e7d5114166a4604f0bcd5c7f575ff3"
+    },
+    {
+      "name": "off-half-merged",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.49999190349968103,
+      "finalMean": 0.5,
+      "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad",
+      "pixelMeansSHA256": "c14e068a104d6e93c05ad331160cdc8260e7d5114166a4604f0bcd5c7f575ff3"
+    },
+    {
+      "name": "off-half-merged-reversed",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.49999190349968103,
+      "finalMean": 0.5,
+      "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad",
+      "pixelMeansSHA256": "c14e068a104d6e93c05ad331160cdc8260e7d5114166a4604f0bcd5c7f575ff3"
+    },
+    {
+      "name": "off-half-phase-one",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.1180339887498949,
+      "temporalMean": 0.11802517637914542,
+      "finalMean": 0.11790497448979592,
+      "imageSHA256": "6363cd8e4f613d4166f6821370b5794027c140fbe30d3a9863a5b434adc04ac9",
+      "pixelMeansSHA256": "9ba162bcbbd23d502bcd7ddfd8a91c3b9945b36fe6bd0c0975882186aed5f0a4"
+    },
+    {
+      "name": "off-half-phase-977",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.31920700864736773,
+      "temporalMean": 0.31920327945631377,
+      "finalMean": 0.3191964285714286,
+      "imageSHA256": "29eb49567e94cf4768f4a49806027cb4ef44f43a436372ebe627439444b798b8",
+      "pixelMeansSHA256": "5a6446f01882fb48a94e396003ac1278b3b0d2bf789598ffb8d0f8672fdcde44"
+    },
+    {
+      "name": "off-front-body",
+      "independentTransmission": 1,
+      "sharedThresholdPrediction": 1,
+      "temporalMean": 1,
+      "finalMean": 1,
+      "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "off-blend-half",
+      "independentTransmission": 0.5,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.5019607843137242,
+      "finalMean": 0.5019607843137255,
+      "imageSHA256": "a4747e51354ce2fbe679d61e830c9d59ef7c36b5f99ec51d2afa27de1511f1c6",
+      "pixelMeansSHA256": "8cc58b0f01bd9029da23ecd6c6ffbb385b90e96f65576d7eda8c5ba59bed80aa"
+    },
+    {
+      "name": "off-blend-half-pair",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.2509803921568621,
+      "finalMean": 0.25098039215686274,
+      "imageSHA256": "c01bd211f61ed71eb620f715c7d49c24fdbcc781a187b1faee3623ea01b8fd37",
+      "pixelMeansSHA256": "2c7cd3d5062f81635e628583e75dc0947def127905e4a26b8fe6f2057da6bd43"
+    },
+    {
+      "name": "off-blend-mixed-pair",
+      "independentTransmission": 0.1875,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.18823529411764667,
+      "finalMean": 0.18823529411764706,
+      "imageSHA256": "6fcba77889aedd3733763b57acbec50165e3448401823d964a6c3f26853d6b88",
+      "pixelMeansSHA256": "14e68e7dc1e5f98fe29690a6bcd036bcb5299497fd31578b701bb8b8ea2d18a1"
+    },
+    {
+      "name": "taau-empty",
+      "independentTransmission": 1,
+      "sharedThresholdPrediction": 1,
+      "temporalMean": 1,
+      "finalMean": 1,
+      "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "taau-zero",
+      "independentTransmission": 1,
+      "sharedThresholdPrediction": 1,
+      "temporalMean": 1,
+      "finalMean": 1,
+      "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "taau-quarter",
+      "independentTransmission": 0.75,
+      "sharedThresholdPrediction": 0.75,
+      "temporalMean": 0.736010063204969,
+      "finalMean": 0.7318843162264905,
+      "imageSHA256": "621c0dca4b4e78ddc29b8a09aea9f19c8ccea28ba9360105c9215e181976e7a5",
+      "pixelMeansSHA256": "ef905e0b4aaea62e52acdbce75af0d7ea8dbad3579ecd1e9642b5addcc8bb90e"
+    },
+    {
+      "name": "taau-half",
+      "independentTransmission": 0.5,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.4854659002272786,
+      "finalMean": 0.4816292141856743,
+      "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd",
+      "pixelMeansSHA256": "51b89584a47b4790c58c2cde418e3331ec55666f0c293b7b8272d66478ec1b1c"
+    },
+    {
+      "name": "taau-three-quarter",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.23413933200233214,
+      "finalMean": 0.22978191276510604,
+      "imageSHA256": "7862c5ee07f55b899be211c40e0571c19c98fc38960a8e33958176e2ed39c166",
+      "pixelMeansSHA256": "d523baf84625d0f3c71ab553426ede19d4ff8785056309fc4e8fd8983d8f0da6"
+    },
+    {
+      "name": "taau-opaque",
+      "independentTransmission": 0,
+      "sharedThresholdPrediction": 0,
+      "temporalMean": 0,
+      "finalMean": 0,
+      "imageSHA256": "b032f2e3b7a8e07d804d633a60ed1cfe29211659f7f3d4b2070eb9a747d70bb6",
+      "pixelMeansSHA256": "c7ed01f07cdc4b4dcc076f195492aa8e5c1807b4aaa7ed597c0ccb77981f9a04"
+    },
+    {
+      "name": "taau-quarter-pair",
+      "independentTransmission": 0.5625,
+      "sharedThresholdPrediction": 0.75,
+      "temporalMean": 0.736010063204969,
+      "finalMean": 0.7318843162264905,
+      "imageSHA256": "621c0dca4b4e78ddc29b8a09aea9f19c8ccea28ba9360105c9215e181976e7a5",
+      "pixelMeansSHA256": "ef905e0b4aaea62e52acdbce75af0d7ea8dbad3579ecd1e9642b5addcc8bb90e"
+    },
+    {
+      "name": "taau-half-pair",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.4854659002272786,
+      "finalMean": 0.4816292141856743,
+      "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd",
+      "pixelMeansSHA256": "51b89584a47b4790c58c2cde418e3331ec55666f0c293b7b8272d66478ec1b1c"
+    },
+    {
+      "name": "taau-three-quarter-pair",
+      "independentTransmission": 0.0625,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.23413933200233214,
+      "finalMean": 0.22978191276510604,
+      "imageSHA256": "7862c5ee07f55b899be211c40e0571c19c98fc38960a8e33958176e2ed39c166",
+      "pixelMeansSHA256": "d523baf84625d0f3c71ab553426ede19d4ff8785056309fc4e8fd8983d8f0da6"
+    },
+    {
+      "name": "taau-mixed-pair",
+      "independentTransmission": 0.1875,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.2342653614180047,
+      "finalMean": 0.23014299469787916,
+      "imageSHA256": "91610e15f8a1137f8d47680aad4f1ccd36ae3e7a251d72c18a9de0124a662890",
+      "pixelMeansSHA256": "a5b5804fc3facbfa5a0e9742cd766ec0b3463a64c127827ef336fb16171c437b"
+    },
+    {
+      "name": "taau-half-reversed",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.4854659002272786,
+      "finalMean": 0.4816292141856743,
+      "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd",
+      "pixelMeansSHA256": "51b89584a47b4790c58c2cde418e3331ec55666f0c293b7b8272d66478ec1b1c"
+    },
+    {
+      "name": "taau-half-merged",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.4854659002272786,
+      "finalMean": 0.4816292141856743,
+      "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd",
+      "pixelMeansSHA256": "51b89584a47b4790c58c2cde418e3331ec55666f0c293b7b8272d66478ec1b1c"
+    },
+    {
+      "name": "taau-half-merged-reversed",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.4854659002272786,
+      "finalMean": 0.4816292141856743,
+      "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd",
+      "pixelMeansSHA256": "51b89584a47b4790c58c2cde418e3331ec55666f0c293b7b8272d66478ec1b1c"
+    },
+    {
+      "name": "taau-half-phase-one",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.1180339887498949,
+      "temporalMean": 0.035469852003301314,
+      "finalMean": 0.02815438675470188,
+      "imageSHA256": "0602726c400826c41384200c7e6a47477ae59a2a23577ac65b871626255264ad",
+      "pixelMeansSHA256": "be3c84532ae571f677ba66a69933fcccbf28c68dae313a2daf2f6226a14762aa"
+    },
+    {
+      "name": "taau-half-phase-977",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.31920700864736773,
+      "temporalMean": 0.30353257513943066,
+      "finalMean": 0.29891237745098037,
+      "imageSHA256": "90c1ace21644f23fec65d523897ade7f9d8de511bfad38e366a9ef1210a1185e",
+      "pixelMeansSHA256": "4e0e4f9eda1fbb546d9a2ad33ceeac09c7bbca2b77ee143a8e329b2aabbdd22d"
+    },
+    {
+      "name": "taau-front-body",
+      "independentTransmission": 1,
+      "sharedThresholdPrediction": 1,
+      "temporalMean": 1,
+      "finalMean": 1,
+      "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "taau-blend-half",
+      "independentTransmission": 0.5,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.5019442151860732,
+      "finalMean": 0.5019607843137255,
+      "imageSHA256": "bda0cf2f95a6c533499f6c8af7099cf0c8ed4f25086a6266a8974d03816672d1",
+      "pixelMeansSHA256": "2eefba447214ac7564070ad0d24f34db4e52fc1ad2b0ea7ace14706df2aa8766"
+    },
+    {
+      "name": "taau-blend-half-pair",
+      "independentTransmission": 0.25,
+      "sharedThresholdPrediction": 0.5,
+      "temporalMean": 0.2509803921568621,
+      "finalMean": 0.25098039215686274,
+      "imageSHA256": "a9db66d09242d68d1d174e80008c5f51967f983b98fddbf00131759dc3d4dcb8",
+      "pixelMeansSHA256": "2c7cd3d5062f81635e628583e75dc0947def127905e4a26b8fe6f2057da6bd43"
+    },
+    {
+      "name": "taau-blend-mixed-pair",
+      "independentTransmission": 0.1875,
+      "sharedThresholdPrediction": 0.25,
+      "temporalMean": 0.18823529411764667,
+      "finalMean": 0.18823529411764706,
+      "imageSHA256": "a1e8044b64ba15b45c94f9832e4fee2470676bf6aa65289d0b2c0bd028a73511",
+      "pixelMeansSHA256": "14e68e7dc1e5f98fe29690a6bcd036bcb5299497fd31578b701bb8b8ea2d18a1"
+    }
+  ],
+  "limits": [
+    "Constant-alpha unlit cards through configureHairMaterial; not the real groom or fibre BSDF.",
+    "Linear RGBA8 output, no tone mapping, grade or AO; TAAU has its default scene scale.",
+    "Temporal mean includes all 128 frames; final mean is frame 128, not a claim of convergence.",
+    "A fixed per-material phase shift is not a general independent-layer estimator.",
+    "No renderer, asset, material, threshold or acceptance change; no all-motion, cost or full-suite result."
+  ]
+}

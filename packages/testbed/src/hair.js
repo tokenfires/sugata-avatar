@@ -270,6 +270,37 @@ async function main() {
     renderer.setSize( WIDTH, HEIGHT, false );
     await renderer.init();
 
+    // Capture steps can run faster than rAF. Three caches each skeleton's bone upload by
+    // nodeFrame.frameId, so a fresh CPU head pose alone does not give a fresh rendered body.
+    // Own the renderer clock as well as the solver clock, as the alive capture page does.
+    const captureFrame = query.has( 'capture' ) ? renderer._nodes?.nodeFrame : null;
+    let captureDraws = 0;
+    let captureSeconds = 0;
+    if ( query.has( 'capture' ) ) {
+
+        if ( typeof renderer._animation?.stop !== 'function' || typeof captureFrame?.update !== 'function' ) {
+
+            throw new Error( 'hair: capture requires the renderer frame clock.' );
+
+        }
+        renderer._animation.stop();
+        captureFrame.frameId = 0;
+        captureFrame.time = 0;
+        captureFrame.deltaTime = 0;
+        captureFrame.lastTime = undefined;
+
+    }
+    const beginCaptureFrame = ( deltaSeconds ) => {
+
+        if ( captureFrame === null ) return;
+        captureFrame.update();
+        captureDraws ++;
+        captureSeconds += deltaSeconds;
+        captureFrame.time = captureSeconds;
+        captureFrame.deltaTime = deltaSeconds;
+
+    };
+
     const backend = renderer.backend?.isWebGPUBackend ? 'WebGPU' : 'WebGL2';
 
     const scene = new Scene();
@@ -328,10 +359,18 @@ async function main() {
 
     function place() {
 
+        beginCaptureFrame( 0 );
         aimCamera();
         return renderer.renderAsync( scene, camera );
 
     }
+
+    // Publish capture controls only after the initial render has completed.
+    await place();
+    window.__HAIR_CLOCK__ = () => captureFrame === null ? null : ( {
+        draws: captureDraws, frameId: captureFrame.frameId,
+        time: captureFrame.time, deltaTime: captureFrame.deltaTime
+    } );
 
     /**
      * The hook a capture script drives the page through, because clicking a button and guessing
@@ -372,8 +411,6 @@ async function main() {
 
     }
 
-    place();
-
     // --- ?motion=1: the frame loop, the step hook and the measurement hook -----------------------
     //
     // Two frame paths, and they must not diverge — `alive.js`'s `trackFigure` is in the repo
@@ -391,6 +428,7 @@ async function main() {
         /** The deterministic clock a gate drives, in the shape `alive.js`'s `__SUGATA_STEP__` has. */
         window.__HAIR_STEP__ = async ( deltaSeconds ) => {
 
+            beginCaptureFrame( deltaSeconds );
             advance( deltaSeconds );
             aimCamera();
             await renderer.renderAsync( scene, camera );
@@ -404,7 +442,19 @@ async function main() {
         // globalStiffness.value = 0.02` is how the two chosen-not-sourced constants were swept.
         window.__HAIR__ = motion;
         window.__HAIR_MEASURE__ = () => motion.measure();
-        window.__HAIR_RESET__ = () => motion.reset();
+        window.__HAIR_RESET__ = () => {
+
+            motion.reset();
+            captureSeconds = 0;
+            if ( captureFrame !== null ) {
+
+                // Rewind simulation time without reusing a skeleton's cached frame ID.
+                captureFrame.time = 0;
+                captureFrame.deltaTime = 0;
+
+            }
+
+        };
         window.__HAIR_STATE__ = () => ( {
             ...motion.state(),
             // 🎯 The submission SHAPE, as an integer rather than as a duration. Research doc §0.3's

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/robault/GitHub/sugata-avatar/tmp/hair-sep25/resolve-ablations/initial-verify.py", line 54, in <module>
+    assert all(f['min']==f['max']==value for f in r['frames'])
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

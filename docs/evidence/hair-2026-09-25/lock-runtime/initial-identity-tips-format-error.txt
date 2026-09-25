@@ -1,0 +1,11 @@
+http://localhost:50189/alive.html?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0&hairoit=stochastic
+page.evaluate: Error: Expected tightly packed RGBA16F
+    at auditHalf (http://localhost:50189/@fs/Users/robault/GitHub/sugata-avatar/tmp/hair-sep25/lock-runtime/half-audit.mjs:11:79)
+    at eval (eval at evaluate (:303:30), <anonymous>:18:22)
+    at async <anonymous>:329:30
+    at page.__auditLock (/Users/robault/GitHub/sugata-avatar/tmp/hair-sep25/lock-runtime/candidate.mjs:21:28)
+    at /Users/robault/GitHub/sugata-avatar/tmp/hair-sep25/lock-runtime/candidate.mjs:63:16
+    at openPage (/Users/robault/GitHub/sugata-avatar/tmp/hair-sep25/lock-runtime/tips.mjs:857:9)
+    at async main (/Users/robault/GitHub/sugata-avatar/tmp/hair-sep25/lock-runtime/tips.mjs:260:20) {
+  log: []
+}

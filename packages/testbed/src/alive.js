@@ -1,3 +1,4 @@
+import { frameSubjectState } from './frame-subject-state.mjs';
 /**
  * alive — the Phase 2 acceptance page.
  *
@@ -381,7 +382,7 @@ import {
     createSkinMaterial,
     curvatureMapUrlFor
 } from '../../core/src/material/SkinMaterial.js';
-import { HAIR_DEFECTS, createHairMaterial } from '../../core/src/material/HairMaterial.js';
+import { HAIR_DEFECTS, createHairMaterial, applyHairMaterial } from '../../core/src/material/HairMaterial.js';
 import {
     buildRibbonGeometry,
     DEFAULT_RIBBON_WIDTH_METRES,
@@ -2013,7 +2014,14 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
     // AFTER the wardrobe, and only because that is the order that reads: the groom is skinned to
     // the head alone and no garment can move it, so the placement is order-independent. It is last
     // so that a hair failure cannot take the body off the page.
-    await attachHair( session, plan.figures[ 0 ].url, stage );
+    // Hair has its own asynchronous material/texture setup. Hold the complete
+    // figure until it finishes so boot frames cannot seed per-mesh render history.
+    if ( session.hairEnabled ) figure.root.visible = false;
+    try {
+        await attachHair( session, plan.figures[ 0 ].url, stage );
+    } finally {
+        figure.root.visible = true;
+    }
 
 }
 
@@ -2736,7 +2744,7 @@ async function attachHair( session, figureUrl, stage ) {
 
     if ( request.motion === true && ribbonGroom === null ) await attachHairDynamics( session, stage, skinned, material );
 
-    for ( const mesh of skinned ) mesh.material = material;
+    applyHairMaterial( session.figure.root, material, { meshes: skinned } );
 
     session.hairMaterial = material;
 
@@ -4069,215 +4077,6 @@ function shadingFingerprint( session, stage ) {
  *
  * @returns {Object<string,string>} property path -> value. Compared for equality, never parsed.
  */
-function frameSubjectState( stage ) {
-
-    const subjects = { renderer: stage.renderer, scene: stage.scene, camera: stage.camera };
-    const state = {};
-
-    const excludedReason = ( propertyPath ) => {
-
-        if ( propertyPath.endsWith( '.uuid' ) ) return 'a fresh uuid is minted per instance, every load';
-
-        // TAAU calls `setViewOffset` before each frame and `clearViewOffset` after it, leaving the
-        // last Halton sample behind. These two record which frame was read, not the configuration.
-        if ( propertyPath === 'camera.view.offsetX' || propertyPath === 'camera.view.offsetY' ) {
-
-            return 'the temporal resolve rewrites it every frame; it records the frame, not the configuration';
-
-        }
-
-        return null;
-
-    };
-
-    const roundedNumber = ( value ) => {
-
-        if ( Number.isFinite( value ) === false ) return String( value );
-
-        return String( Number( value.toFixed( 6 ) ) );
-
-    };
-
-    const describe = ( value ) => {
-
-        if ( value === null ) return 'null';
-        if ( typeof value === 'number' ) return roundedNumber( value );
-        if ( typeof value === 'boolean' || typeof value === 'string' ) return String( value );
-        if ( typeof value === 'function' ) return null;
-        if ( Array.isArray( value ) ) return `array(${ value.length })`;
-        if ( typeof value !== 'object' ) return String( value );
-
-        if ( value.isColor === true ) return `color:${ value.getHexString() }`;
-
-        if ( typeof value.toArray === 'function' ) {
-
-            try {
-
-                const numbers = value.toArray();
-
-                if ( Array.isArray( numbers ) ) {
-
-                    const described = numbers
-                        .map( ( entry ) => typeof entry === 'number' ? roundedNumber( entry ) : String( entry ) );
-
-                    return `${ value.constructor?.name ?? '?' }(${ described.join( ',' ) })`;
-
-                }
-
-            } catch {
-
-                // not a value object after all — fall through to the type name
-            }
-
-        }
-
-        return `object:${ value.constructor?.name ?? '?' }`;
-
-    };
-
-    /** A member carrying nothing but scalars is configuration; anything holding an object is machinery. */
-    const isConfigurationBag = ( value ) => {
-
-        if ( value === null || typeof value !== 'object' || Array.isArray( value ) ) return false;
-        if ( typeof value.toArray === 'function' ) return false;
-
-        for ( const key of Object.keys( value ) ) {
-
-            const inner = value[ key ];
-            if ( inner !== null && typeof inner === 'object' ) return false;
-
-        }
-
-        return true;
-
-    };
-
-    const record = ( propertyPath, value ) => {
-
-        if ( value === undefined ) return;
-
-        const reason = excludedReason( propertyPath );
-
-        if ( reason !== null ) {
-
-            state[ `excluded:${ propertyPath }` ] = reason;
-            return;
-
-        }
-
-        const described = describe( value );
-
-        if ( described !== null ) state[ propertyPath ] = described;
-
-    };
-
-    for ( const [ label, subject ] of Object.entries( subjects ) ) {
-
-        const seen = new Set();
-
-        for ( const key of Object.keys( subject ).sort() ) {
-
-            seen.add( key );
-
-            const propertyPath = `${ label }.${ key }`;
-            let value;
-
-            try {
-
-                value = subject[ key ];
-
-            } catch {
-
-                state[ propertyPath ] = 'threw';
-                continue;
-
-            }
-
-            record( propertyPath, value );
-
-            let bag = false;
-
-            try {
-
-                bag = isConfigurationBag( value );
-
-            } catch {
-
-                bag = false;
-
-            }
-
-            if ( bag === false ) continue;
-
-            for ( const inner of Object.keys( value ).sort() ) {
-
-                try {
-
-                    record( `${ propertyPath }.${ inner }`, value[ inner ] );
-
-                } catch {
-
-                    state[ `${ propertyPath }.${ inner }` ] = 'threw';
-
-                }
-
-            }
-
-        }
-
-        let prototype = Object.getPrototypeOf( subject );
-
-        while ( prototype !== null && prototype !== Object.prototype ) {
-
-            for ( const key of Object.getOwnPropertyNames( prototype ).sort() ) {
-
-                if ( seen.has( key ) ) continue;
-
-                const descriptor = Object.getOwnPropertyDescriptor( prototype, key );
-
-                if ( descriptor === undefined || typeof descriptor.get !== 'function' ) continue;
-
-                seen.add( key );
-
-                try {
-
-                    record( `${ label }.get:${ key }`, subject[ key ] );
-
-                } catch {
-
-                    state[ `${ label }.get:${ key }` ] = 'threw';
-
-                }
-
-            }
-
-            prototype = Object.getPrototypeOf( prototype );
-
-        }
-
-    }
-
-    // Not a property of any subject, and the one piece of render state that lives on the canvas:
-    // `?scale` is applied with `setSize`, so this is where a resolution confound would show.
-    const canvas = stage.renderer.domElement;
-
-    state[ 'renderer.canvasPixels' ] = `${ canvas.width }x${ canvas.height }`;
-
-    // THE SUBJECT LIST, CLOSED. Every object-valued member of the Stage, by identity, so a Stage
-    // that grows a member nobody walks is visible from outside rather than being a silent hole.
-    for ( const key of Object.keys( stage ).sort() ) {
-
-        const member = stage[ key ];
-
-        if ( member === null || typeof member !== 'object' ) continue;
-
-        state[ `stage.${ key }` ] = `object:${ member.constructor?.name ?? '?' }`;
-
-    }
-
-    return state;
-
-}
 
 /**
  * The alpha value below which a card texel is sheet background rather than painted fibre.

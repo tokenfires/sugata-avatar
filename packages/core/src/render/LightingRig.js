@@ -1207,7 +1207,10 @@ const AMBIENT = {
  * three). It is left at its value rather than removed because removing it is a separate change
  * with its own fingerprint, but nothing here rests on it.
  */
-const SHADOW_NORMAL_BIAS_IN_TEXELS = 1.5;
+// Current-filter calibration (2026-09-22): wardrobe/shadow.selftest's unchanged
+// contact >=1.12x and acne <=8x gates both pass at 4 texels (1.128x / 4.323x).
+// The historical sweep above predates the 10 mm filter and its 1.5-texel optimum.
+const SHADOW_NORMAL_BIAS_IN_TEXELS = 4.0;
 
 // A bounded softness approximation for the punctual half of the studio key.
 // Ten millimetres at the focus softens the groom's card-shaped neck shadows while
@@ -2278,6 +2281,45 @@ export class LightingRig {
 
         return placement === undefined ? 0 : placement.irradiance * this.exposure;
 
+    }
+
+    /** Current light objects, including direct edits made after solve().
+     * Irradiance is a focus-facing estimate from the current intensities and geometry,
+     * assuming the sources still face the focus. It is not a measured pixel value;
+     * arbitrary source rotations or cone edits invalidate that estimate. Raw live
+     * radiance, dimensions, positions and visibility remain explicit in the report.
+     */
+    describeLive() {
+        const forward = this.cameraPosition.clone().sub( this.focus );
+        forward.y = 0;
+        if ( forward.lengthSq() < 1e-12 ) forward.set( 0, 0, 1 );
+        forward.normalize();
+        const right = new Vector3( forward.z, 0, -forward.x );
+        return this.units.map( ( { placement, area, shadowCaster } ) => {
+            area.updateWorldMatrix( true, false );
+            const position = area.getWorldPosition( new Vector3() );
+            const direction = position.clone().sub( this.focus );
+            const distance = direction.length();
+            const angle = Math.atan2( direction.dot( right ), direction.dot( forward ) );
+            const areaE = area.intensity * projectedSolidAngle( area.width, area.height, distance );
+            const casterDistance = shadowCaster === null ? 1
+                : shadowCaster.getWorldPosition( new Vector3() ).distanceTo( this.focus );
+            const casterE = shadowCaster === null || ! shadowCaster.visible ? 0
+                : shadowCaster.intensity / casterDistance ** shadowCaster.decay;
+            return {
+                name: placement.name,
+                azimuthDegrees: angle / DEGREES,
+                elevationDegrees: Math.atan2( direction.y, Math.hypot( direction.x, direction.z ) ) / DEGREES,
+                irradiance: ( area.visible ? areaE : 0 ) + casterE,
+                colour: `#${ area.color.getHexString() }`,
+                position: position.toArray(),
+                panelMetres: [ area.width, area.height ],
+                radiance: area.intensity,
+                visible: area.visible,
+                attached: area.parent !== null,
+                shadowCasterIntensity: shadowCaster?.intensity ?? 0
+            };
+        } );
     }
 
     /**

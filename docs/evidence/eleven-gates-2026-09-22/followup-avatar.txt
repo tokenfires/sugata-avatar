@@ -1,0 +1,259 @@
+
+🚩 THIS GATE COVERS THE CONTRACT, NOT THE PICTURE. It runs under node, so it
+   cannot see whether the avatar renders, whether construction order matches alive.js,
+   whether dispose() frees GPU memory, or whether feel() moves a bone. Those were verified
+   by execution in a browser and recorded in the commit body. A green run here is not a
+   statement about the avatar.
+
+   FOUR THINGS THE SCENE, ALPHA AND HAIR CLAUSES SPECIFICALLY CANNOT SEE, so nobody reads
+   them as covered — every one is a BROWSERCHECK item:
+     1. Whether the alpha is actually CORRECT on the canvas. This file asserts that
+        Grade.compose carries and premultiplies it; it cannot compile a node graph, and it
+        has NOT verified that TAAUNode/TRAANode preserve .a through the temporal resolve.
+     2. Whether the premultiply matches the premultiplied canvas mode in a real composite.
+     3. C6's numeric half: eyes.keyLightDirectionUniform against a freshly derived key
+        direction after setLighting. Source text only here — it needs an eye material.
+     4. Whether the groom RENDERS: no canvas, no adapter, no GLB. The groom's rig mapping
+        was measured out-of-band (53 joints, 0 absent, all five bakes); the picture was not.
+
+PASS  SURFACE  Avatar is a class with a static create
+PASS  SURFACE  QUALITY_TIERS is frozen
+PASS  SURFACE  AVATAR_DEFAULTS is frozen
+PASS  SURFACE  every tier entry is frozen, not just the container
+        a frozen map of mutable objects is not a frozen table
+PASS  SURFACE  QUALITY_REQUESTS is auto plus exactly the tier names
+        auto, high, balanced, fallback
+PASS  SURFACE  FRAME_MODES is portrait and body
+PASS  🎯 VALIDATION  a missing canvas rejects, and the message shows the CALL that fixes it
+        Avatar.create: `canvas` is required and must be an HTMLCanvasElement — Avatar.create( { canvas: document.getElementById( "stage" ) } ).
+PASS  🎯 VALIDATION  passing the element ID as a string rejects rather than failing later
+        Avatar.create: `canvas` is required and must be an HTMLCanvasElement — Avatar.create( { canvas: document.getElementById( "stage" ) } ).
+PASS  🎯 VALIDATION  an unknown quality names the value AND the accepted set
+        Avatar.create: quality must be one of auto, high, balanced, fallback, got 'ultra'.
+PASS  VALIDATION  an unknown frame names the value and the accepted set
+        Avatar.create: frame must be one of portrait, body, got 'sideways'.
+PASS  VALIDATION  a non-numeric seed rejects — determinism is the seed's whole job
+        Avatar.create: seed must be a finite number, got one.
+PASS  🎯 VALIDATION  canvas is checked BEFORE quality, so the fatal argument reports first
+        Avatar.create: `canvas` is required and must be an HTMLCanvasElement — Avatar.create( { canvas: document.getElementById( "stage" ) } ).
+PASS  FRAMING  setFraming and step are on the prototype
+PASS  🎯 FRAMING  step is async — its whole contract is that the pixels are on the screen
+PASS  🎯 FRAMING  setFraming rejects an unknown mode, naming the value and the accepted set
+        Avatar.setFraming: mode must be one of portrait, body, got 'sideways'.
+PASS  🎯 FRAMING  setFraming checks liveness BEFORE it validates the mode
+PASS  TIERS  every tier declares the same switch set
+        a tier missing a key inherits whatever Stage defaults to, silently
+PASS  TIERS  MSAA and a temporal resolve are never both on — Stage throws on the pair
+        Stage.create throws on temporalAA !== off with antialias true (Stage.js:217)
+PASS  🎯 TIERS  fallback moves the ANTI-ALIASING DIAL AND NOTHING ELSE, so it stays attributable
+        identical on grade, occlusion, occlusionQuality, shadows
+PASS  🎯 TIERS  sharpness follows the AA dial — no RCAS on the tier with no temporal blur
+        fallback temporalAA=off gradeSharpness=undefined
+PASS  🎯 TIERS  balanced is high with the occlusion off — the +0.845 ms GTAO costs, given back
+        balanced must differ from high in occlusion alone, for the same attributability reason
+PASS  TIERS  all three tiers are distinct configurations
+        3 distinct
+PASS  URLS  a null base returns the url untouched
+PASS  URLS  an undefined base returns the url untouched
+PASS  🎯 URLS  a base rewrites the host and keeps the FILENAME, which is what a bake is keyed on
+        https://cdn.test/sugata/figures/figure_g050.glb
+PASS  🎯 URLS  a base with no trailing slash resolves the same as one with
+        https://cdn.test/sugata/figures/figure_g050.glb
+PASS  URLS  an empty folder puts the file at the base root
+PASS  ASSETS  figure_g000 keeps its emitted URL but uses canonical identity for skin maps
+        {"bakeName":"figure_g000","figureUrl":"https://app.test/assets/figure_g000-AbC123.glb","curvatureMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g000-curvature.png","cavityMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g000-cavity.png","regionMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g000-regions.png"}
+PASS  ASSETS  figure_g025 keeps its emitted URL but uses canonical identity for skin maps
+        {"bakeName":"figure_g025","figureUrl":"https://app.test/assets/figure_g025-AbC123.glb","curvatureMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g025-curvature.png","cavityMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g025-cavity.png","regionMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g025-regions.png"}
+PASS  ASSETS  figure_g050 keeps its emitted URL but uses canonical identity for skin maps
+        {"bakeName":"figure_g050","figureUrl":"https://app.test/assets/figure_g050-AbC123.glb","curvatureMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g050-curvature.png","cavityMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g050-cavity.png","regionMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g050-regions.png"}
+PASS  ASSETS  figure_g075 keeps its emitted URL but uses canonical identity for skin maps
+        {"bakeName":"figure_g075","figureUrl":"https://app.test/assets/figure_g075-AbC123.glb","curvatureMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g075-curvature.png","cavityMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g075-cavity.png","regionMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g075-regions.png"}
+PASS  ASSETS  figure_g100 keeps its emitted URL but uses canonical identity for skin maps
+        {"bakeName":"figure_g100","figureUrl":"https://app.test/assets/figure_g100-AbC123.glb","curvatureMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g100-curvature.png","cavityMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g100-cavity.png","regionMapUrl":"file:///Users/robault/GitHub/sugata-avatar/tools/lut-bake/out/figure_g100-regions.png"}
+PASS  ASSETS  external figure and all three skin maps use canonical filenames rather than build hashes
+PASS  ASSETS  the canonical selected bake also resolves the bob02 groom
+PASS  ASSETS  a requested gender cannot be mistaken for the selected baked gender
+PASS  HAIR  the public style list adds bob02 and keeps bob01 first for legacy boolean callers
+PASS  HAIR  disabling hair resolves no assets
+PASS  HAIR  bob01 retains its own g000 groom and both sidecars
+PASS  HAIR  bob01 retains its own g025 groom and both sidecars
+PASS  HAIR  bob01 retains its own g050 groom and both sidecars
+PASS  HAIR  bob01 retains its own g075 groom and both sidecars
+PASS  HAIR  bob01 retains its own g100 groom and both sidecars
+PASS  HAIR  bob02 resolves its own geometry AND maps, never bob01 assets under a new label
+PASS  HAIR  bob02 figure_g000 has no fallback geometry or texture fetches
+PASS  HAIR  bob02 figure_g025 has no fallback geometry or texture fetches
+PASS  HAIR  bob02 figure_g075 has no fallback geometry or texture fetches
+PASS  HAIR  bob02 figure_g100 has no fallback geometry or texture fetches
+PASS  HAIR  bob02 toString has no fallback geometry or texture fetches
+PASS  HAIR  external bob01 uses canonical filenames for the groom and both maps
+PASS  HAIR  external bob02 uses canonical filenames for the groom and both maps
+PASS  HAIR  root-relative external assets resolve against the host document
+PASS  HAIR  Avatar.create accepts bob02 and retains the requested identity
+PASS  HAIR  missing bob02 bake returns before touching the figure and reports why
+PASS  HAIR  an obsolete attach cannot clear a newer missing-bake report or start loading
+PASS  HAIR  true remains the bob01 alias after adding bob02
+PASS  HAIR  the report reads loaded style/bake from the attached groom rather than the request
+PASS  HAIR  retiring a groom clears its solver, material, bake metadata and unavailable reason
+PASS  HAIR  repeated retirement disposes geometry, materials and all four textures exactly once
+        {"geometry":1,"albedo":1,"normal":1,"source":1,"flow":1,"depth":1,"material":1}
+PASS  HAIR  disposal invalidates an identity load before it can fetch or resurrect a groom
+PASS  HAIR  disposal during the solver import returns without reading a disposed stage or geometry
+PASS  DEFAULTS  the documented default quality is a request the validator accepts
+        auto
+PASS  DEFAULTS  the documented default frame is a mode the validator accepts
+        portrait
+PASS  DEFAULTS  the default seed is finite, so the default avatar is reproducible
+        20260807
+PASS  🎯 DEFAULTS  the default seed is alive.js's 20260807, so traces are comparable
+        20260807
+PASS  DEFAULTS  gender defaults to the androgynous midpoint, which is R8's "combination"
+        0.5
+PASS  DEFAULTS  AVATAR_DEFAULTS declares 'lighting', so the default is readable rather than described
+        = "studio"
+PASS  DEFAULTS  AVATAR_DEFAULTS declares 'background', so the default is readable rather than described
+        = "studio"
+PASS  DEFAULTS  AVATAR_DEFAULTS declares 'hair', so the default is readable rather than described
+        = false
+PASS  🎯 DEFAULTS  every nested scene table is frozen too, not just its container
+        5 looks, 3 backgrounds
+PASS  🎯 DEFAULTS  lighting: studio resolves to ZERO rig overrides at both framings
+        an agent that says nothing gets the configuration every committed gate number is stated on
+PASS  🎯 DEFAULTS  background: studio is the three literals, declared ONCE, in render/Scene.js
+        #8080a / #70a0e / ground true — and Avatar.js imports them rather than keeping a second copy
+PASS  🎯 DEFAULTS  hair is OFF by default — style is explicit, and two mutations have no undo
+        HAIR_STYLES = [ bob01, bob02 ]
+PASS  DEFAULTS  the shipped ambient fraction of key is read off LightingRig, not copied
+        0.22
+PASS  🎯 LOOKS  the spill helper reproduces LightingRig.selftest.mjs's own shipped anchors
+        1.7862 / 2.5144 — if this is red every number below it means nothing
+PASS  LOOKS  A1  every look resolves against the 'portrait' preset's own authored table
+        studio, warm, cool, soft, dramatic
+PASS  LOOKS  A1  every look resolves against the 'body' preset's own authored table
+        studio, warm, cool, soft, dramatic
+PASS  LIVE SETTER changes the built light position
+        42 -> 51.99999999999999 degrees
+PASS  🎯 LOOKS  A1 RED PROOF  an unknown look, and an unknown light inside one, are both refused
+        Avatar: unknown look 'phantom'. Known: studio, warm, cool, soft, dramatic.
+PASS  🎯 LOOKS  A2  no look moves designedKeyToFill at 'portrait' — bit-equal to 1.3636
+        all 5 looks at 1.3636
+PASS  🎯 LOOKS  A2  no look moves designedKeyToFill at 'body' — bit-equal to 2.5000
+        all 5 looks at 2.5000
+PASS  🎯 LOOKS  A2 RED PROOF  a look that quarters the fill is caught at BOTH framings
+        portrait 5.4545 vs 1.3636, body 10.0000 vs 2.5000
+PASS  🎯 LOOKS  A3  every look clears behind:front <= 3.0 AND blue:red <= 4.5 at body framing
+        studio 1.7862/2.5144  warm 1.7862/2.3319  cool 1.7862/3.3409  soft 1.5018/2.2325  dramatic 1.7060/2.4218
+PASS  🎯 LOOKS  A3 RED PROOF  cool pushed to #b0c0ff and a rim at x4 are both rejected
+        #b0c0ff blue:red 6.2939 (renders 57.37% blue); rim x4 7.1449/7.8262
+PASS  LOOKS  A3  cool is the tightest look and sits under the gate's own MUST-PASS row
+        cool 3.3409 against #e8ecff's 3.4167 (which renders 0.058% blue, LESS than shipped) and the 4.5 ceiling
+PASS  🎯 LOOKS  A4  no look emits an ambient term — G6's window is ONE code value wide
+        shipped portrait 0.00420 / body 0.01597 against a 0.004–0.016 band; ?ambspec=0 -> 0.01989, out
+PASS  🎯 LOOKS  A4 RED PROOF  a look carrying ambientScale is refused by the deny-by-default walk
+        Avatar: look 'invalid' declares 'ambientScale', and a look may only declare fields and scales. A look must not move the ambient — G6's window is one code value wide (LightingRig.js:989-991), and it must not move key.irradiance or fill.irradiance, which is the G1 axis.
+PASS  🎯 LOOKS  a look re-resolved per framing differs by 27.27% on the rim — hence C5
+        soft@portrait rim 11.2000, soft@body rim 15.4000
+PASS  🎯 SCENE  B1  Avatar refuses key.irradiance: -3, naming the field AND the accepted set
+        Avatar: lighting.lights.key.irradiance is -3, outside [0, 1000] — a finite number.
+PASS  🎯 SCENE  B1 RED PROOF  LightingRig accepts key.irradiance: -3 in silence — key E -2.5500 — negative light
+        key E -2.5500 — negative light
+PASS  🎯 SCENE  B1  Avatar refuses fill.irradiance: 0, naming the field AND the accepted set
+        Avatar: lighting.lights.fill.irradiance is 0. The key and the fill are the two halves of the designed key:fill ratio — the G1 axis — so a zero in either takes it to 0 or Infinity. Accepted range ( 0, 1000 ]. An edge light may be 0; these two may not.
+PASS  🎯 SCENE  B1 RED PROOF  LightingRig accepts fill.irradiance: 0 in silence — designedKeyToFill Infinity
+        designedKeyToFill Infinity
+PASS  🎯 SCENE  B1  Avatar refuses key.shadowFraction: 2, naming the field AND the accepted set
+        Avatar: lighting.lights.key.shadowFraction is 2, outside [0, 0.999] — a finite number.
+PASS  🎯 SCENE  B1 RED PROOF  LightingRig accepts key.shadowFraction: 2 in silence — 1 - f negative -> panel radiance -3.9599
+        1 - f negative -> panel radiance -3.9599
+PASS  🎯 SCENE  B1  Avatar refuses key.widthInHeights: 0, naming the field AND the accepted set
+        Avatar: lighting.lights.key.widthInHeights is 0, outside [0.0001, 100] — a finite number.
+PASS  🎯 SCENE  B1 RED PROOF  LightingRig accepts key.widthInHeights: 0 in silence — panel radiance Infinity
+        panel radiance Infinity
+PASS  🎯 SCENE  B1  Avatar refuses key.distanceInHeights: 0, naming the field AND the accepted set
+        Avatar: lighting.lights.key.distanceInHeights is 0, outside [0.001, 100] — a finite number.
+PASS  🎯 SCENE  B1 RED PROOF  LightingRig accepts key.distanceInHeights: 0 in silence — NaN into the scene graph
+        NaN into the scene graph
+PASS  🎯 SCENE  B1  Avatar refuses an unknown light name, naming the field AND the accepted set
+        Avatar: lighting.lights names a light 'fifth'. Accepted: key, fill, rim, kicker. LightingRig drops an unknown name in silence.
+PASS  🎯 SCENE  B1 RED PROOF  LightingRig accepts an unknown light name in silence — silently dropped — 4 placements, no throw
+        silently dropped — 4 placements, no throw
+PASS  🎯 SCENE  B1  Avatar refuses an unknown field name, naming the field AND the accepted set
+        Avatar: lighting.lights.key has no field 'irradianceX'. Accepted: azimuthDegrees, elevationDegrees, distanceInHeights, widthInHeights, heightInHeights, irradiance, shadowFraction, colour. LightingRig merges an unknown field and ignores it, in silence.
+PASS  🎯 SCENE  B1 RED PROOF  LightingRig accepts an unknown field name in silence — silently merged and ignored
+        silently merged and ignored
+PASS  SCENE  B1  lighting.exposure outside its range is refused, and the bound 0.25 is printed
+        Avatar: lighting.exposure is 0.1, outside [0.25, 4] — a RELATIVE multiplier on the calibrated exposure; it cannot move any ratio but it does move G1 in the rendered frame (LightingRig.js:240-256).
+PASS  SCENE  B1  lighting.exposure outside its range is refused, and the bound 4 is printed
+        Avatar: lighting.exposure is 9, outside [0.25, 4] — a RELATIVE multiplier on the calibrated exposure; it cannot move any ratio but it does move G1 in the rendered frame (LightingRig.js:240-256).
+PASS  SCENE  B1  lighting.ambient outside its range is refused, and the bound 0.5 is printed
+        Avatar: lighting.ambient is 0.2, outside [0.5, 2] — a RELATIVE multiplier on the rig's ambient fraction of key. ⚠️ G6's window is one code value wide — shipped portrait 0.00420, body 0.01597, band 0.004–0.016.
+PASS  SCENE  B1  lighting.ambient outside its range is refused, and the bound 2 is printed
+        Avatar: lighting.ambient is 3, outside [0.5, 2] — a RELATIVE multiplier on the rig's ambient fraction of key. ⚠️ G6's window is one code value wide — shipped portrait 0.00420, body 0.01597, band 0.004–0.016.
+PASS  🎯 SCENE  B1  an unknown look names the value AND the five accepted looks
+        Avatar: lighting.look must be one of studio, warm, cool, soft, dramatic, got 'cinematic'.
+PASS  🎯 SCENE  B1  an unknown hair id names the value AND the styles that exist
+        Avatar: hair must be false or one of bob01, bob02, got 'pixie'.
+PASS  SCENE  B1  an unknown background names the value and the accepted presets
+        Avatar: background must be one of studio, transparent, void, a colour hex, or { colour, backdrop, ground }; got 'glass'.
+PASS  🎯 SCENE  B1  background { color } is refused rather than silently resolving to the default
+        Avatar: background has no option 'color'. Accepted: colour, backdrop, ground. This project spells it `colour`.
+PASS  SCENE  the escape hatch accepts a legal placement and freezes what it returns
+        {"rim":{"irradiance":20,"colour":995583}}
+PASS  🎯 REACH  C0  create() resolves lighting/background/hair through the exported functions this gate drives
+        failure #1: a gate on a path the product does not take is green while the product is broken
+PASS  🎯 REACH  C1  every scene.background write is GUARDED on the option — an isColor background forces alpha 1
+        2 write(s); Background.js:71-76 sets _clearColor.a = 1 for any isColor background
+PASS  🎯 REACH  C2  createHairMaterial has at least one CALL SITE in Avatar.js — all five read 0 before this round
+        measured 2026-08-17: 0 call sites in Avatar.js, alive.js, hair.js and stage.js
+PASS  🎯 REACH  C2  applyHairMaterial has at least one CALL SITE in Avatar.js — all five read 0 before this round
+        measured 2026-08-17: 0 call sites in Avatar.js, alive.js, hair.js and stage.js
+PASS  🎯 REACH  C2  configureHairMaterial has at least one CALL SITE in Avatar.js — all five read 0 before this round
+        measured 2026-08-17: 0 call sites in Avatar.js, alive.js, hair.js and stage.js
+PASS  🎯 REACH  C2  createHairDynamics has at least one CALL SITE in Avatar.js — all five read 0 before this round
+        measured 2026-08-17: 0 call sites in Avatar.js, alive.js, hair.js and stage.js
+PASS  🎯 REACH  C2  installHairVelocity has at least one CALL SITE in Avatar.js — all five read 0 before this round
+        measured 2026-08-17: 0 call sites in Avatar.js, alive.js, hair.js and stage.js
+PASS  🎯 REACH  C3  the hair path does NOT assign mesh.material directly — that is the defect that forced a second code path
+        alive.js:2504 skips the vertex collection and installHairEnvelope, which is why every live plate came back envelope.fitted false and ensureHairEnvelope had to be written
+PASS  🎯 REACH  C4  material.positionNode and installHairVelocity are in ONE function — a gate on either alone let this ship twice
+        omit the velocity half and the picture is RIGHT while the resolve is wrong: p90 259.9 px/frame reported against TAAUNode.maxVelocityLength 128, on a static groom
+PASS  REACH  C4  report() publishes hasHairVelocity's own answer rather than "we called it"
+        the WeakSet is what the prototype patch consults; a boolean set by hand is a claim
+PASS  🎯 REACH  C5  setFraming re-resolves the look BEFORE setPreset — resolve once and the body rim reads 11.2000 for 15.4000
+        setPreset re-runs resolvePlacements(), which re-merges overrides OVER the NEW framing's table
+PASS  🎯 REACH  C6  applyLighting RE-AIMS — LightingRig.override() calls solve() and never aimAt()
+        ⚠️ THE NUMERIC HALF OF THIS NEEDS AN EYE MATERIAL AND A GPU. Under node it is source text only; the measurement — eyes.keyLightDirectionUniform against a freshly derived key direction — is a BROWSERCHECK item and is NOT covered by a green run here.
+PASS  🎯 REACH  C7  setLighting pushes the ambient into GTAO — on the default tier it is a CREATE-TIME snapshot
+        GTAO.js:882 reads describeAmbient().intensity ONCE at build; without the push, setLighting({ exposure }) scales four lights and freezes the fifth
+PASS  🎯 REACH  C8  advanceFrame drives the hair solver — Avatar has ONE frame path and both callers come through it
+        alive.js needed trackFigure because ?capture bypasses stage.onFrame; here update(dt) and the stage callback are the same function
+PASS  🎯 ALPHA  E1  the transparent preset still RESOLVES to all three halves, so the target is named
+        the clear alpha is one write; the 8x6 m emissive card fills a portrait frame regardless of it; and the ground plane is a unit plane scaled to 12 subject heights, ~20 m square at body
+PASS  🔴 ALPHA  E1  a transparent canvas is REFUSED, and the refusal names the measured blocker
+        Avatar: background.colour: null (a transparent canvas) is not supported yet, and it is refused rather than presented as an opaque black rectangle. Measured 2026-08-17 in a GPU chromium: the TEMPORAL RESOLVE forces the frame alpha to 1, so no tier with one can present a transparent canvas — with the grade displaying its own alpha, tier fallback reads 41.63% at alpha 0 and tier high reads 100% at alpha 1. render/Grade.js already carries and premultiplies the alpha correctly; the repair is in the TAAU/TRAA resolve. Use background: { colour: 0x08080a } and composite against that, or a solid colour that matches your page.
+PASS  🔴 ALPHA  E1  and so is the long form, so the preset is not the only door
+        Avatar: background.colour: null (a transparent canvas) is not supported yet, and it is refused rather than presented as an opaque black rectangle. Measured 2026-08-17 in a GPU chromium: the TEMPORAL RESOLVE forces the frame alpha to 1, so no tier with one can present a transparent canvas — with the grade displaying its own alpha, tier fallback reads 41.63% at alpha 0 and tier high reads 100% at alpha 1. render/Grade.js already carries and premultiplies the alpha correctly; the repair is in the TAAU/TRAA resolve. Use background: { colour: 0x08080a } and composite against that, or a solid colour that matches your page.
+PASS  🎯 ALPHA  E1  backdrop: false IS supported — the card and the canvas alpha are different blockers
+        GTAO with nothing at background depth renders the whole frame black; balanced (occlusion off) renders it correctly. Isolated to the card: backdrop 0x000000 is fine, absent is not.
+PASS  🎯 ALPHA  E1  the blocker is NOTHING AT BACKGROUND DEPTH — the card AND the room decide it
+        an interior scene supplies its own geometry behind the figure, measured: kitchen renders on high at frame mean 112.07 with 0.00% black pixels, and ?noroom on the same tier is 0.00
+PASS  🔴 ALPHA  E1  create() refuses NOTHING AT BACKGROUND DEPTH on a tier that carries ground-truth occlusion
+        and `auto` resolves to balanced for it, which is a STRUCTURAL fact rather than a timing
+PASS  🎯 ALPHA  E1  resolveTier is asked the same question, from the same expression
+        the tier decision and the refusal must read ONE condition, or an interior resolves to balanced and is then told it may not have been
+PASS  🔴 ALPHA  E1  resolveTier sends an auto caller with no card to balanced
+        the one tier with occlusion: false is the only one that renders a card-less frame
+PASS  🎯 ALPHA  E1  the card is guarded on background.backdrop
+        an opaque plane 1.9 m behind the subject fills a portrait frame whatever the clear does
+PASS  🎯 ALPHA  E1  the ground plane is guarded on background.ground
+        ⚠️ ground: false is a DOCUMENTED DOWNGRADE — 60% of the light beside a sole comes from two RectAreaLights that cannot cast a shadow, so without the plane the figure floats
+PASS  🎯 ALPHA  E2  Grade.compose returns alpha 1 — the frame is OPAQUE BY CONTRACT, and carrying it was a regression
+        all three tiers ship the grade, so this is on every path an embedder can select
+PASS  🎯 ALPHA  E2  the grade still PREMULTIPLIES, so the arithmetic is right the day transparency lands
+        WebGPUBackend.js:349 configures the canvas premultiplied; an unpremultiplied edge fringes BRIGHT on a light host UI. Against alpha 1 the multiply is a no-op and bit-identical to the pre-change path, so it costs nothing to keep and would have to be rediscovered to re-add
+PASS  🎯 ALPHA  E3  the judging protocol is declared: composite over #08080a before running the critic
+        tools/critic/measure.mjs:1320-1327 already REFUSES a plate with >1% non-opaque pixels — "which makes the grade gates (G5, G6) meaningless". So a transparent capture is composited over the studio clear colour first, and the two plates are then compared on the same pixels. Declared now rather than when the option lands, so the rule and the option cannot arrive in different rounds.
+PASS  🔴 ALPHA  E4  this file cannot see the picture, and the picture is where both blockers were found
+        Every clause above is a resolver or a source predicate. The two defects that stopped transparency were found by RENDERING: the grade was made to display its own alpha and the plate read 41.63% at 0 on fallback against 100% at 1 on high, and the card was isolated by scaling it to 0.001 off-screen. Neither is reachable from node, and a green run here says nothing about either.
+
+138 passed, 0 failed

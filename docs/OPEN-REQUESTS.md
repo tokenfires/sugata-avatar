@@ -80,6 +80,7 @@ R9  3bfc5e7  2026-08-09  The lighting gate asserts the SET of things a light doe
 R10 3749d27  2026-08-09  The body was computing an emotion every frame and telling nobody
 R11 a90bca9  2026-08-09  The gate roster is quoted from the run that was clean at both ends
 R12 a20bfcb  2026-08-10  Forty gates pass on a tree that was clean at both ends, and one row was not a roster
+R33 d54a6ce  2026-09-22  Resume the eleven declared red gates and adjudicate the expired request ledger
 ```
 
 Rounds before R4 are not reconstructed. Resolved entries are pinned by their `filed-at` **commit**,
@@ -87,7 +88,9 @@ which is exact, and carry no round number — inventing one would be the same ti
 about. `filed-round` is required of OPEN entries only, because that is the field the expiry clause
 reads.
 
-### 🔴 THIS FENCE IS STALE, AND THAT IS WHY THE EXPIRY CLAUSE HAS NOT FIRED IN THREE ROUNDS
+### Historical audit of the formerly stale round fence
+
+Resolved by the September 22 R33 adjudication. The paragraphs below describe the older audit.
 
 Audited at HEAD `5937e2c`, and it is the largest finding of the R15 ledger pass. **The fence's
 newest declaration is R12 at `a20bfcb`, 2026-08-10, and the round reports have run past it without
@@ -1613,7 +1616,7 @@ which appears zero times in that file today.
 
 ```request
 id:          REQ-061
-status:      OPEN
+status:      REJECTED
 target:      docs/PUNCHLIST.md
 filed-by:    the R11 lighting agent (diffRequest 4 of 5)
 filed-round: R12
@@ -1647,6 +1650,7 @@ evidence:    Three toggles at 3840x5120, each excluding a suspect by execution r
              three.
 anchor:      docs/PUNCHLIST.md /Hair OIT/
 verify:      docs/PUNCHLIST.md /three orders of magnitude of headroom/
+reason:      Rejected the requested numerical wording: the current same-run unit-BSDF inversion and closed-form ceiling in HairMaterial.selftest show that the claimed three orders of magnitude of fibre headroom does not hold. Copying that historical diagnosis into the active punch list would reintroduce an unsupported assertion.
 ```
 
 ⚠️ **Filed rather than applied, and the reason is that it is a REASSIGNMENT and not a correction.**
@@ -1793,7 +1797,7 @@ clearance that halves at the extremes and a gate that enumerates half its own do
 
 ```request
 id:          REQ-062
-status:      OPEN
+status:      APPLIED
 target:      packages/testbed/src/wardrobe.js
 filed-by:    the R12 adversarial verifier, checking a claim in the shadowSide report
 filed-round: R12
@@ -2063,7 +2067,7 @@ reason:      REJECTED BY ITS OWN MEASUREMENT, not by an argument. The near-axis 
 
 ```request
 id:          REQ-065
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/render/GTAO.js
 filed-by:    the R14 hair-highlight agent (diffRequest 3 of 3)
 filed-round: R12
@@ -2099,6 +2103,7 @@ evidence:    Measured this session on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=
              `scene.backgroundNode` are all null. The entry's ⚠️ is correct and now measured.
 anchor:      packages/core/src/render/GTAO.js /ambientSpecular = true,/
 verify:      packages/core/src/render/GTAO.js /slide-47 environment path/
+reason:      Rejected this G-buffer-only prescription. The buffer carries a fake normal and one isotropic width, not the fibre tangent and per-lobe parameters required by the proposed hair environment model. A separate anisotropic environment design must carry those inputs and validate energy conservation; relabelling the current split-sum term would not implement slide 47.
 ```
 
 ## REQ-066 — a capture manifest cannot say which shadow cutoff its plate was taken at
@@ -2151,7 +2156,7 @@ simulated any more than it can say what cutoff it cast at.
 
 ```request
 id:          REQ-067
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/render/HairOIT.js
 filed-by:    the R14 hair-groom (messiness) agent
 filed-round: R12
@@ -2186,7 +2191,7 @@ evidence:    The groom has been 294 cards since punch-list 3.6 shipped the five-
              the overdraw this file's own arm is chosen against and is worth the OIT owner knowing.
              Filed rather than fixed: `packages/core/**` and `alive.js` are not this agent's files.
 anchor:      packages/core/src/render/HairOIT.js /254 cards, 7,224 triangles/
-verify:      packages/core/src/render/HairOIT.js /294 cards, 9,408 triangles/
+verify:      packages/core/src/render/HairOIT.js /live geometry census/
 ```
 
 🚩 **STILL OPEN, AND ITS OWN PRESCRIBED NUMBER WENT STALE WHILE THIS ROUND WAS RUNNING — which is
@@ -2382,7 +2387,7 @@ and both are now gated.
 
 ```request
 id:          REQ-070
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/material/HairMaterial.js
 filed-by:    the R15 hair-motion agent
 filed-round: R12
@@ -2437,7 +2442,7 @@ out of r185's source this round rather than assumed: `Renderer._getShadowNodes` 
 
 ```request
 id:          REQ-071
-status:      OPEN
+status:      APPLIED
 target:      tools/critic/capture.mjs
 filed-by:    the R16 hair-wiring agent
 filed-round: R12
@@ -2470,7 +2475,7 @@ verify:      tools/critic/capture.mjs /subsystems/
 
 ```request
 id:          REQ-072
-status:      OPEN
+status:      APPLIED
 target:      packages/testbed/src/alive-capture-determinism.selftest.mjs
 filed-by:    the R16 hair-wiring agent
 filed-round: R12
@@ -2507,7 +2512,7 @@ verify:      packages/testbed/src/alive-capture-determinism.selftest.mjs /hair=1
 
 ```request
 id:          REQ-073
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/render/HairOIT.js
 filed-by:    the R19 hair-curtain agent
 filed-round: R12
@@ -2573,13 +2578,14 @@ evidence:    Measured this round with `tools/figure-pipeline/hair_tips.mjs`, por
              and the hair testbed page. `HairOIT.js` is not its file.
 anchor:      packages/core/src/render/HairOIT.js /interleavedGradientNoise\( screenCoordinate\.xy \)/
 verify:      packages/core/src/render/HairOIT.js /HAIR_DITHER_BAND/
+reason:      Rejected the narrow threshold band: stochastic coverage must have acceptance probability equal to alpha. Confining thresholds around 0.5 changes that probability, makes dense strands opaque and removes thin wisps. The current temporal coverage is intentional; quality improvements belong in sampling and the atlas, not an undocumented remapping of alpha.
 ```
 
 ## REQ-074 — three liveness clauses in the opacity gate cannot fail, and the round that measured it says which
 
 ```request
 id:          REQ-074
-status:      OPEN
+status:      APPLIED
 target:      tools/figure-pipeline/hair_opacity.mjs
 filed-by:    the R19 gate-pinning agent
 filed-round: R12
@@ -2632,7 +2638,7 @@ verify:      tools/figure-pipeline/hair_opacity.mjs /maskshift/
 
 ```request
 id:          REQ-075
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/material/HairMaterial.selftest.mjs
 filed-by:    the R19 gate-pinning agent
 filed-round: R12
@@ -2683,7 +2689,7 @@ verify:      packages/core/src/material/HairMaterial.selftest.mjs /lobesRange > 
 
 ```request
 id:          REQ-076
-status:      OPEN
+status:      APPLIED
 target:      tools/run-selftests.sh
 filed-by:    the R19 gate-pinning agent
 filed-round: R12
@@ -2723,7 +2729,7 @@ evidence:    `tools/run-selftests.sh` collects `find . -name "*.selftest.mjs"` a
              Filed rather than done: this agent owns `packages/core/src/render/HairOIT.selftest.mjs`,
              `packages/core/src/render/HairShadow.selftest.mjs` and `docs/LEARNINGS.md`.
 anchor:      tools/run-selftests.sh /run_gate "tools\/figure-pipeline\/verify_glb.mjs"/
-verify:      tools/run-selftests.sh /hair_opacity/
+verify:      tools/run-selftests.sh /hair_opacity[\s\S]*hair_tips/
 ```
 
 ## REQ-077 — the groom can say where it IS and not where it WAS, so its motion vector is a pose error
@@ -3066,7 +3072,7 @@ reason:      REJECTED ON PLATES. The request fuses the violet outline (100% the 
 
 ```request
 id:          REQ-079
-status:      OPEN
+status:      APPLIED
 target:      docs/research/body-motion-numbers.md
 filed-by:    the 6.2(a) agent
 filed-round: R12
@@ -3095,7 +3101,7 @@ verify:      docs/research/body-motion-numbers.md /knee/
 
 ```request
 id:          REQ-080
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/motion/Sway.js
 filed-by:    the 6.2(a) agent
 filed-round: R12
@@ -3116,13 +3122,14 @@ evidence:    `MOTION_ORDER.POSTURE` is 100 and `SWAY` is 300, so Sway's leg delt
              ankle sliding.
 anchor:      packages/core/src/motion/Sway.js /MOTION_ORDER/
 verify:      packages/core/src/affect/PostureLayer.js /MEASURED LIMIT/
+reason:      Rejected an unconditional motion-order change while the standing knee amplitude remains unsourced and exactly zero. Posture currently precedes sway because the sway solver reads its frame-stamped affect command. The new written knee evidence boundary records that a future nonzero knee channel requires a composed foot-plant solve, rather than moving the whole posture layer now.
 ```
 
 ## REQ-081 — alive.js assigns the hair material directly and never calls applyHairMaterial
 
 ```request
 id:          REQ-081
-status:      OPEN
+status:      APPLIED
 target:      packages/testbed/src/alive.js
 filed-by:    the R28 hair agent
 filed-round: R12
@@ -3145,7 +3152,7 @@ verify:      packages/testbed/src/alive.js /applyHairMaterial/
 
 ```request
 id:          REQ-082
-status:      OPEN
+status:      REJECTED
 target:      tools/figure-pipeline/verify_glb.mjs
 filed-by:    the 6.5 IK agent
 filed-round: R12
@@ -3162,6 +3169,7 @@ evidence:    Measured on `figure_g050.glb`: 36 of 53 bones carry non-unit scale,
              it needs to stay measured rather than assumed.
 anchor:      tools/figure-pipeline/verify_glb.mjs /export/
 verify:      tools/figure-pipeline/verify_glb.mjs /boneScaleIsUnit/
+reason:      Rejected exact unit-scale validation as a GLB acceptance rule. The reported deviations are legal glTF transforms at a few parts per million, and the IK tests already measure their propagated error. Rejecting all non-unit bones would reject supported assets without fixing a demonstrated pose defect; solver-specific tolerances should remain measured.
 ```
 
 ## REQ-084 — the beat excursion is lateral abduction where co-speech beats are sagittal
@@ -3219,7 +3227,7 @@ verify:      packages/core/src/motion/Gesture.js /HANGING_LIMB_SAGITTAL_SIGN/
 
 ```request
 id:          REQ-085
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/render/HairOIT.selftest.mjs
 filed-by:    the R29 intermittent hunt
 filed-round: R12
@@ -3250,7 +3258,7 @@ verify:      packages/core/src/render/HairOIT.selftest.mjs /noise floor/
 
 ```request
 id:          REQ-086
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/motion/Sway.js
 filed-by:    the 6.9 adversarial pass
 filed-round: R12
@@ -3329,7 +3337,7 @@ verify:      tools/critic/violet.mjs /THE POPULATION IS THE BAND/
 
 ```request
 id:          REQ-088
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/Avatar.js
 filed-by:    the R30 runtime-API round
 filed-round: R12
@@ -3346,15 +3354,16 @@ evidence:    Both are module-scope `new URL( …, import.meta.url )` literals, s
              🚩 `AVATAR_DEFAULTS.hair`'s own reason #2 cites this asset weight as a reason the
              default is off, and the default does not avoid it. The stated justification for the
              default is therefore not delivered by the default.
-anchor:      packages/core/src/Avatar.js /const HAIR_BAKES/
+anchor:      packages/core/src/Avatar.js /HairAssets/
 verify:      packages/core/src/Avatar.js /emitted only when a groom is asked for/
+reason:      Rejected the proposed promise about emitted files: Vite emits statically reachable assets in dynamically imported modules too. HairAssets is already behind a dynamic import, which postpones runtime fetching but cannot guarantee a hair-free distribution. A separate build entry or explicit asset packaging policy is required for that promise; a comment claiming it would be false.
 ```
 
 ## REQ-089 — the Avatar gate proves call sites exist in source text, not that options reach the frame
 
 ```request
 id:          REQ-089
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/Avatar.selftest.mjs
 filed-by:    the R30 runtime-API round
 filed-round: R12
@@ -3384,7 +3393,7 @@ verify:      packages/core/src/Avatar.selftest.mjs /drives the LIVE setter path/
 
 ```request
 id:          REQ-090
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/Avatar.js
 filed-by:    the R30 runtime-API round
 filed-round: R12
@@ -3410,11 +3419,13 @@ verify:      packages/core/src/Avatar.js /read off the LIGHTS/
 
 ```request
 id:          REQ-091
-status:      OPEN
+status:      APPLIED
 target:      tools/critic/scene-probe.mjs
 filed-by:    the Phase 11.2/11.3 landing round
 filed-round: R12
 filed-at:    18a348a
+pre-image:   absent — the original filing commit predates scene-probe.mjs; its later pre-change
+             implementation is retained at d54a6ce, and the emitter was exercised against live beach captures.
 first-filed: 2026-08-18
 change:      Have `scene-probe.mjs` EMIT its rows as the markdown block the punch list carries —
              `--emit-markdown`, writing the table, the scene id, the recipe and the tree sha — and
@@ -3453,7 +3464,7 @@ verify:      tools/critic/scene-probe.mjs /emit-markdown/
 
 ```request
 id:          REQ-092
-status:      OPEN
+status:      APPLIED
 target:      tools/critic/scene-gates.mjs
 filed-by:    the Phase 11.4/11.7 landing round
 filed-round: R12

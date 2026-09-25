@@ -154,8 +154,10 @@ export const HAIR_DYNAMICS_DEFAULTS = {
     gravity: - 9.81,
 
     /** Per-second exponential velocity decay, applied as `exp( −drag·h )` so it is framerate
-     *  independent the way TressFX's `Integrate` is (research doc §4.1). ⚠️ CHOSEN. */
-    drag: 1.2
+     *  independent the way TressFX's `Integrate` is (research doc §4.1). Chosen damping:
+     *  the held-head settling gate measures 0.0258 mm at 6/s versus 3.1262 mm at
+     *  the former 1.2/s, while the driven peak stays above the unchanged liveness floor. */
+    drag: 6.0
 };
 
 /**

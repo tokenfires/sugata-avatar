@@ -1,0 +1,17 @@
+PASS 1 - tracked original and portable correction match runtime-normalized calibrated geometry
+PASS 2 - g025 portable composition selects its exact corresponding body without changing g050
+PASS 3 - unsupported styles and bakes never touch geometry
+PASS 4 - wardrobe masking requires canonical fullIndex and cannot change triangle ordinals
+PASS 5 - modified positions, normals, UVs, skin weights and joints cannot reuse a fixed mask
+PASS 6 - same-count reordered hair topology and bone order are rejected
+PASS 7 - incorrect inverse bind matrices are rejected
+PASS 8 - interleaved attributes hash component values and ignore unrelated padding
+PASS 9 - nonfinite, out-of-range, truncated and malformed geometry are refused
+PASS 10 - scale, shear, reflection and animated head scale cannot invalidate the world-width contract
+PASS 11 - original collision-producing groom cannot activate the corrected-rest calibration
+PASS 12 - body owner submits64 reset projections without velocity and16 per normal substep
+PASS 13 - failure constructing stage2 releases the first stage, shared surface and solver exactly once
+PASS 14 - body getter retirement prevents stale skin history or any GPU submission
+PASS 15 - a contact buffer deletion error does not prevent other stages or borrowed solver cleanup
+PASS 16 - a later nonrigid head pose retires contact before GPU submission
+16 contact calibration/owner groups passed (CPU; actual motion acceptance separate)

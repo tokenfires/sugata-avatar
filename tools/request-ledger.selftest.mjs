@@ -870,8 +870,21 @@ function commitOffTheHistory( sha ) {
 const applied = live.entries.filter( ( entry ) => entry.status === 'APPLIED' );
 
 const anApplied = applied[ 0 ];
-const anOpen = live.entries.find( ( entry ) => entry.status === 'OPEN' );
 const aRejected = live.entries.find( ( entry ) => entry.status === 'REJECTED' );
+const anOpen = live.entries.find( ( entry ) => entry.status === 'OPEN' ) ?? aRejected;
+
+// An empty OPEN backlog is legitimate. Re-open one real rejected entry only in the
+// mutation input: its verify is absent and its anchor exists, so this starts green
+// without inventing a request or leaving work unresolved merely to feed the test.
+function withOpenEntry( text ) {
+
+    return mutateField( mutateField( text, anOpen.id, 'status', 'OPEN' ),
+        anOpen.id, 'filed-round', `R${ live.current.number }` );
+
+}
+
+check( 'the OPEN mutation baseline adjudicates even when the backlog is empty',
+    adjudicate( withOpenEntry( ledgerText ) ).violations.length === 0 );
 
 /**
  * The FILED-AT proofs are filed against a DIFFERENT applied entry from RED 1–3 on purpose. The
@@ -948,7 +961,7 @@ redProof( 'OPEN, but the change is already in the file', 'OPEN-STALE',
 
 // RED 4 — the failure this whole file exists to stop: a request that outlives its round.
 redProof( 'OPEN and carried past its round', 'EXPIRED',
-    ( text ) => mutateField( text, anOpen.id, 'filed-round',
+    ( text ) => mutateField( withOpenEntry( text ), anOpen.id, 'filed-round',
         `R${ live.current.number - 1 }` ) );
 
 // RED 5 — a rejection with no argument in it. "no" is not a reason a successor can re-open.
@@ -1013,7 +1026,7 @@ const offThisHistory = redProof( 'APPLIED at a real commit this history does not
 // FILED-AT can possibly catch this one.
 const notAPinAtAll = redProof( 'filed-at is a moving reference rather than an immutable sha',
     'FILED-AT',
-    ( text ) => mutateField( text, anOpen.id, 'filed-at', 'HEAD' ) );
+    ( text ) => mutateField( withOpenEntry( text ), anOpen.id, 'filed-at', 'HEAD' ) );
 
 // --- PRE-IMAGE, the R9 hole one level down ------------------------------------------------------
 //
@@ -1075,7 +1088,7 @@ redProof( 'verify points at a file that does not exist at HEAD', 'TARGET',
 // The ledger's header tells the integrator to re-anchor rather than delete; this is what makes
 // that instruction reachable instead of advisory.
 redProof( 'an OPEN entry anchored to code that is no longer there', 'ANCHOR',
-    ( text ) => mutateField( text, anOpen.id, 'anchor',
+    ( text ) => mutateField( withOpenEntry( text ), anOpen.id, 'anchor',
         `${ anOpen.target } /ZZ_NO_SUCH_TOKEN_IN_ANY_FILE_ZZ/` ) );
 
 // RED 14 — RED 3's mirror on the other status: a change was REJECTED and is in the file anyway.

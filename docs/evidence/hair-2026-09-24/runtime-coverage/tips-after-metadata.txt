@@ -1,0 +1,108 @@
+http://localhost:61226/alive.html?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0&hairoit=stochastic
+http://localhost:61226/alive.html?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0&hairoit=cutout
+http://localhost:61226/alive.html?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0&hairoit=blend
+
+=== ?hairoit=stochastic ===
+  coverage path as the page built it:
+    stageHairOITMode       stochastic
+    weightedOITPass        false
+    temporalAA             taau
+    resolutionScale        0.66
+    multisampled           false
+    rendererSamples        0
+    materialAlphaToCoverage false
+    materialAlphaTest      0
+    materialAlphaHash      false
+    materialTransparent    false
+    materialDepthWrite     true
+    hasAlphaTestNode       true
+    hasColorNode           true
+  region                 px      speckle    rms cv    grid (lag, axis)
+    tips           10593      7.12%     4.249    0.1162 (5, y)
+    curtain        53250     19.23%     7.573    0.0494 (5, y)
+    mass          192722     10.70%     5.831    0.0776 (5, y)
+    skin          385376      0.69%     1.653    0.0000 (0, none)
+    backdrop      221592      0.31%     1.403    0.0000 (0, none)
+  worst 32 px tiles by rms x grid — regular AND visible:
+    ( 480, 992)  score   6.92  rms  11.487  hair 100%  figure 100%  grid 0.6027 (3, x)
+    ( 512, 992)  score   6.16  rms  10.085  hair 100%  figure 100%  grid 0.6108 (3, x)
+    (   0, 992)  score   5.64  rms  10.594  hair 100%  figure 100%  grid 0.5323 (3, x)
+    (  32, 992)  score   4.03  rms   8.556  hair 100%  figure 100%  grid 0.4710 (5, y)
+    (  64, 992)  score   3.82  rms   7.454  hair 100%  figure 100%  grid 0.5131 (3, x)
+    ( 128, 256)  score   3.51  rms  11.246  hair 100%  figure 100%  grid 0.3124 (5, y)
+    ( 544, 992)  score   3.40  rms   7.576  hair 100%  figure 100%  grid 0.4494 (3, x)
+    ( 256, 288)  score   3.34  rms  10.971  hair 100%  figure 100%  grid 0.3040 (3, x)
+  ok   L1 above the floor  tips rms 4.249 against the empty backdrop's 1.403 (needs 1.5x)
+  FAIL T1 the tips        speckle 7.12% over 10,593 px (ceiling 3.00%)
+  FAIL T2 the cheek       speckle 19.23% where the groom is 1-2 cards deep over the figure, over 53,250 px (ceiling 3.00%)
+
+=== ?hairoit=cutout ===
+  coverage path as the page built it:
+    stageHairOITMode       cutout
+    weightedOITPass        false
+    temporalAA             taau
+    resolutionScale        0.66
+    multisampled           false
+    rendererSamples        0
+    materialAlphaToCoverage false
+    materialAlphaTest      0.5
+    materialAlphaHash      false
+    materialTransparent    false
+    materialDepthWrite     true
+    hasAlphaTestNode       false
+    hasColorNode           true
+  region                 px      speckle    rms cv    grid (lag, axis)
+    tips           10593      6.21%     3.940    0.0791 (10, x)
+    curtain        53250     15.10%     7.345    0.0000 (0, none)
+    mass          192722      4.59%     4.163    0.0000 (0, none)
+    skin          385376      0.69%     1.650    0.0000 (0, none)
+    backdrop      221592      0.31%     1.403    0.0000 (0, none)
+  worst 32 px tiles by rms x grid — regular AND visible:
+    ( 416, 448)  score   2.91  rms   7.016  hair  53%  figure 100%  grid 0.4147 (4, x)
+    ( 416, 352)  score   2.17  rms   8.067  hair  59%  figure 100%  grid 0.2692 (4, x)
+    ( 128, 288)  score   2.15  rms   8.663  hair 100%  figure 100%  grid 0.2481 (11, y)
+    ( 448, 320)  score   2.11  rms   3.730  hair 100%  figure 100%  grid 0.5651 (2, x)
+    ( 608, 896)  score   2.06  rms  11.097  hair 100%  figure 100%  grid 0.1859 (6, x)
+    ( 512, 992)  score   1.98  rms   7.512  hair 100%  figure 100%  grid 0.2632 (7, x)
+    ( 256, 576)  score   1.89  rms   5.053  hair   0%  figure 100%  grid 0.3745 (4, y)
+    (  32, 992)  score   1.87  rms   6.761  hair 100%  figure 100%  grid 0.2766 (8, x)
+  ok   L1 above the floor  tips rms 3.940 against the empty backdrop's 1.403 (needs 1.5x)
+
+=== ?hairoit=blend ===
+  coverage path as the page built it:
+    stageHairOITMode       blend
+    weightedOITPass        false
+    temporalAA             taau
+    resolutionScale        0.66
+    multisampled           false
+    rendererSamples        0
+    materialAlphaToCoverage false
+    materialAlphaTest      0
+    materialAlphaHash      false
+    materialTransparent    true
+    materialDepthWrite     false
+    hasAlphaTestNode       false
+    hasColorNode           true
+  region                 px      speckle    rms cv    grid (lag, axis)
+    tips           10593      2.41%     3.141    0.0050 (5, x)
+    curtain        53250      7.22%     4.677    0.0000 (0, none)
+    mass          192722      1.37%     2.379    0.0000 (0, none)
+    skin          385376      0.68%     1.647    0.0000 (0, none)
+    backdrop      221592      0.31%     1.396    0.0000 (0, none)
+  worst 32 px tiles by rms x grid — regular AND visible:
+    ( 256, 576)  score   1.89  rms   5.053  hair   0%  figure 100%  grid 0.3745 (4, y)
+    ( 416, 416)  score   1.82  rms   3.296  hair  53%  figure 100%  grid 0.5512 (4, x)
+    ( 128, 288)  score   1.70  rms   8.194  hair 100%  figure 100%  grid 0.2071 (6, y)
+    ( 288, 576)  score   1.59  rms   3.872  hair   0%  figure 100%  grid 0.4098 (4, y)
+    ( 672, 768)  score   1.58  rms   3.299  hair  60%  figure   0%  grid 0.4797 (9, x)
+    ( 320, 288)  score   1.57  rms   8.744  hair  88%  figure 100%  grid 0.1797 (12, y)
+    ( 416, 384)  score   1.36  rms   3.887  hair  55%  figure 100%  grid 0.3509 (4, x)
+    (  96, 384)  score   1.24  rms   5.669  hair  82%  figure 100%  grid 0.2187 (9, x)
+  ok   L1 above the floor  tips rms 3.141 against the empty backdrop's 1.396 (needs 1.5x)
+
+  --   T1 is satisfiable: blend 2.41% under 3.00%
+
+FAIL stochastic leaves 7.12% of the tip fringe disagreeing with its own neighbourhood by more than 8 cv, past the 3.00% ceiling — that is the confetti a critic named
+FAIL stochastic leaves 19.23% of the hair-over-skin curtain as pixels disagreeing with their neighbourhood — the circuit-board mottle on the cheek
+
+FAIL — 2 clause(s) red.

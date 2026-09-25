@@ -1,0 +1,63 @@
+  sigma from the ray cast: 74.75 card crossings per metre, over 23739 pixel-light pairs
+  directional A/B fraction: 71.36 percent of the gated hair pixels moved
+  n toward the key, mean: 4.7507 then 4.0654 when the key moves
+  pedestal shape, shipped input: 1.4478
+  pedestal shape, envelope input: 1.4449
+  slide 39 luminance ratio over the whole range of Shadow: 1.0927
+  ok    A1 a unit sphere, from its own centre, spans [−1, 1]
+          got [-1,1]
+  ok    A2 an anisotropic ellipsoid exits at each of its own semi-axes
+          got 2, 3, 4
+  ok    A3 a ray that misses returns null rather than a NaN
+  ok    A4 a span entirely behind the fragment contributes zero
+          got 0
+  ok    A5 a fragment inside the ellipsoid contributes only the part in front of it
+          got 1
+  ok    B1 a diametral ray crosses the shell twice and the skull not at all
+          got 2, expected 2
+  ok    B2 a fragment on the envelope firing outward has zero path
+  ok    B3 an unfitted material's degenerate shell is EXACTLY zero in every direction
+          a single non-zero would mean the unapplied material shades on a NaN-adjacent path
+  ok    🔴 C1 the path length VARIES WITH LIGHT DIRECTION at a fixed fragment
+          min 0.558236 max 2.749221 — a spread of zero is what "a scalar in disguise" looks like, and it is what R27 measured
+  ok    🔴 C2 the path length VARIES WITH THE FRAGMENT at a fixed direction
+          values 1.9000, 1.4000, 1.0500, 1.2000
+  ok    🔴 C3 CONTROL: the sheet input the round replaces has EXACTLY zero directional spread
+          this is R27's finding as arithmetic — the shipped n is a texture read at uv() and no light appears in that expression
+  ok    D1 the fit recovers a known off-centre ellipsoid to 1e-6
+          centre [0.100000,1.500000,-0.200000] radii [0.090000,0.120000,0.100000]
+  ok    D2 a cloud that IS the surface fits with ~zero residual
+          residual 1.594e-15
+  ok    🔴 D3 the SAME cloud fitted WITHOUT mean-centring is not an ellipsoid
+          squared coefficients [-7.69e-1, -4.33e-1, -6.23e-1] — at least one must be non-positive, which is why fitEllipsoidValue centres first
+  ok    D4 a two-surface shell is recovered at its own two scales
+          recovered inner 0.8000 outer 1.2000, given 0.8 and 1.2
+  ok    D5 the shell's inner surface is inside its outer one on every axis
+  ok    E1 HAIR_ENVELOPE_EXTINCTION is the regression the run recorded
+          re-derived 74.7501 against the source's 74.75
+  ok    E2 the recorded envelope was fitted at the quantiles the source ships
+          record 0.02,0.98 against 0.02,0.98
+  ok    E3 the regression is pooled over the lights that carry the energy, not over all five
+          pooled over key, key-shadow, fill — CHECKPOINT §9 puts rim and kicker at 0.02-0.87% of a hair pixel
+  ok    E4 HAIR_DEFAULTS carries the measured extinction rather than a second number
+          defaults 74.75, constant 74.75
+  ok    🔴 E5 the one-token A/B moved a majority of the gate, so the term reads the light
+          160646 of 225126 pixels — the fixed-direction arm differs from the light-facing one in a single token
+  ok    🔴 E6 `n` toward the key changes when the key moves and the camera does not
+          mean 4.7507 -> 4.0654 over 7913 measured fragments
+  ok    ⚠️ E7 THE NEGATIVE: the geometric input changes the pedestal's SHAPE by under 2%
+          shipped 1.4478 vs envelope 1.4449 — -0.21%. Slide 39 spends Shadow on a unit-luminance chromaticity exponent, so a depth input recolours the pedestal and cannot lower it. If this clause ever goes red the FORM changed, not the input.
+  ok    ⚠️ E8 no arm puts a single pixel above 4x the R lobe's own mean
+          where R26 and R27 left it: mass-sheet 0.0000%, mass-env 0.0000%, mass-fix 0.0000%, mass-zinke27 0.0000%, mass-envz 0.0000%, mass-z27-matched 0.0000%, mass-envz-matched 0.0000%, mass-env-nmatched 0.0000%, mass-z27deep-matched 0.0000%
+  ok    F1 slide 39's chroma FACTOR has luminance exactly 1 at both ends of its exponent
+          Shadow = 1 gives 1.000000000000, Shadow = 0 gives 1.000000000000 — and this is NOT the term
+  ok    🔴 F2 THE CEILING: over the ENTIRE range of Shadow the term's luminance moves 1.09x
+          1.0927x, against R26 buying 1.19x of dynamic range from ONE lobe-width constant. No input, however correct, beats this bound inside slide 39's form — which is why R28's measured answer is 0.21% and why the FORM is the next lever, not the input.
+  ok    G1 every round-28 arm is in HAIR_DEFECTS, so ?hairdefect= reaches it unedited
+          missing none
+  ok    G2 the falsification arm is described AS a falsification, not as a feature
+  ok    G3 R27's zinke-transmittance arm still names the sheet as its input
+  ok    selected hair assignment leaves body material intact
+  ok    the supplied deformation node is installed before compilation
+
+  HairEnvelope: 31/31 clauses green

@@ -1,0 +1,70 @@
+[
+  {
+    "style": "crop01",
+    "arm": "baseline",
+    "baseline": {
+      "file": "assets/hair/crop01/g050.glb",
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+      "cards": 384,
+      "cardHash": "7e95338e3c50dbcff66ff1236aadc3c5ba2a4b241a91cea134b5f7948e227df6"
+    },
+    "result": {
+      "file": "tmp/hair-sep24/baseline/hair/crop01/g050.glb",
+      "sha256": "e3e83bdefe5031255934c9eb531618b87756514fa3180e2e378f1f3a0c5976cf",
+      "cards": 384,
+      "cardHash": "7e95338e3c50dbcff66ff1236aadc3c5ba2a4b241a91cea134b5f7948e227df6"
+    },
+    "identicalCardPayload": true
+  },
+  {
+    "style": "crop01",
+    "arm": "cap1",
+    "baseline": {
+      "file": "assets/hair/crop01/g050.glb",
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+      "cards": 384,
+      "cardHash": "7e95338e3c50dbcff66ff1236aadc3c5ba2a4b241a91cea134b5f7948e227df6"
+    },
+    "result": {
+      "file": "tmp/hair-sep24/cap1/hair/crop01/g050.glb",
+      "sha256": "a43c1ac3e771ac4fe870c4f44e7b706a8d65b73793b0cd8dd458b98df4dc10eb",
+      "cards": 384,
+      "cardHash": "7e95338e3c50dbcff66ff1236aadc3c5ba2a4b241a91cea134b5f7948e227df6"
+    },
+    "identicalCardPayload": true
+  },
+  {
+    "style": "crop01",
+    "arm": "cap2",
+    "baseline": {
+      "file": "assets/hair/crop01/g050.glb",
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+      "cards": 384,
+      "cardHash": "7e95338e3c50dbcff66ff1236aadc3c5ba2a4b241a91cea134b5f7948e227df6"
+    },
+    "result": {
+      "file": "tmp/hair-sep24/cap2/hair/crop01/g050.glb",
+      "sha256": "24a3f09340a64ea227d7b0da8ae1cc69d9ed4fd82fe7bbe03a7e3ab6bbd3b037",
+      "cards": 384,
+      "cardHash": "7e95338e3c50dbcff66ff1236aadc3c5ba2a4b241a91cea134b5f7948e227df6"
+    },
+    "identicalCardPayload": true
+  },
+  {
+    "style": "pixie01",
+    "arm": "cap2",
+    "baseline": {
+      "file": "assets/hair/pixie01/g050.glb",
+      "sha256": "427b42e3a020deaa27fc770c9c5b8bdfff847254e2078967e4d6bb3b1d8f15e7",
+      "cards": 390,
+      "cardHash": "447b9cb3e4fd1ecf3eeb382eb2a52da6cc90b85768ddb1e8ef84ba35e295fa07"
+    },
+    "result": {
+      "file": "tmp/hair-sep24/cap2/hair/pixie01/g050.glb",
+      "sha256": "bea64288623ef628bfd4a9171c9b482542495c88aebd8dcbb1748bfc55c3874b",
+      "cards": 390,
+      "cardHash": "447b9cb3e4fd1ecf3eeb382eb2a52da6cc90b85768ddb1e8ef84ba35e295fa07"
+    },
+    "identicalCardPayload": true
+  }
+]

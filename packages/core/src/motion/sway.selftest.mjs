@@ -7543,10 +7543,11 @@ function measureAffectBalance() {
     // the corrected docstring states the consequence in degrees. These clauses are that statement,
     // measured, so it cannot go stale the way the header's lever numbers did.
 
-    const toeAt = ( fullScaleMm ) => {
+    const toeAt = ( fullScaleMm, unclamped = false ) => {
 
         const traces = AFFECT_SEEDS.map(
-            ( seed ) => affectTrace( 'fear', seed, { freeze: 'weight', fullScaleMm } ) );
+            ( seed ) => affectTrace( 'fear', seed, { freeze: 'weight', fullScaleMm,
+                swayOptions: { defects: { affectBiasUnclamped: unclamped } } } ) );
 
         return {
             mean: traces.reduce( ( total, t ) => total + t.toeLiftMeanDegrees, 0 ) / traces.length,
@@ -7569,8 +7570,8 @@ function measureAffectBalance() {
     // So the scale is DERIVED from a probe rather than assumed: measure the bias this preset
     // realises per millimetre of full scale, then solve for the scale that reaches the rail. That
     // also survives a change to the prescription or the drive, which a hardcoded 193 would not.
-    const probe = affectTrace( 'fear', AFFECT_SEEDS[ 0 ], { freeze: 'weight', fullScaleMm: 100 } );
-    const biasPerMm = Math.abs( probe.finalBias ) / 100;
+    const probe = affectTrace( 'fear', AFFECT_SEEDS[ 0 ], { freeze: 'weight', fullScaleMm: 1 } );
+    const biasPerMm = Math.abs( probe.finalBias );
     const clampReachingFullScaleMm = Math.round( ( probe.limit / biasPerMm ) * 1.02 );
 
     const toeAtClamp = toeAt( clampReachingFullScaleMm );
@@ -7583,7 +7584,7 @@ function measureAffectBalance() {
 
     note( 'both-feet toe lift, fear, mean (deg)',
         `${ toeOff.mean.toFixed( 4 ) } / ${ toeDriven.mean.toFixed( 4 ) } / ${ toeAtClamp.mean.toFixed( 4 ) }`,
-        `at 0 / ${ UNSOURCED_GATE_COP_FULL_SCALE_MM } / 34 mm of affect full scale — the last is the ` +
+        `at 0 / ${ UNSOURCED_GATE_COP_FULL_SCALE_MM } / ${ probe.limit.toFixed( 2 ) } mm of affect bias — the last is the ` +
         'clamp. A REARWARD bias holds the forefoot lighter on BOTH feet at once' );
 
     gate( 'a rearward bias RAISES the fore-and-aft toe signal (ratio at the clamp)',
@@ -7624,7 +7625,7 @@ function measureAffectBalance() {
 
             const midBias = ( clean + parked ) / 2;
             const scale = midBias / biasPerMm;
-            const floor = toeAt( Math.round( scale ) ).floor;
+            const floor = toeAt( Math.round( scale ), true ).floor;
 
             if ( floor > 0 ) parked = midBias; else clean = midBias;
 
@@ -7640,11 +7641,10 @@ function measureAffectBalance() {
         'amplitude — ' +
         'past this the balance band can no longer carry the centre of pressure forward of neutral' );
 
-    gate( 'and the rail sits BEYOND that cliff, which is why it is too permissive rearward (mm)',
-        new Sway().affectBiasLimit * 1000 - parkingBiasMm, 0.001, Infinity,
+    gate( 'the geometry-derived rear rail stays BEFORE the independently measured parking cliff (mm)',
+        parkingBiasMm - probe.limit, 0.001, Infinity,
         'REQ-086: a symmetric rail on a base of support 3.3x to 3.7x deeper forward than back. ' +
-        'Recorded rather than repaired — narrowing the rear rail is a design change and the shipped ' +
-        'full scale is 0, so nothing is broken today' );
+        'The cliff is measured with the rail disabled; the shipped bound must stay short of it.' );
 
     // --- REACHABILITY. Correctness is not reachability ------------------------------------------
     //
@@ -8115,7 +8115,7 @@ function affectTrace( preset, seed, options = {} ) {
         toeLiftMeanDegrees: toeSum / frames,
         toeLiftFloorDegrees: toeFloor,
         finalBias: sway.affectCentreOfPressureBias * 1000,
-        limit: sway.affectBiasLimit * 1000,
+        limit: ( sway.affectCentreOfPressureBias < 0 ? sway.affectBiasRearLimit : sway.affectBiasLimit ) * 1000,
         clamped: sway.affectBiasClamped,
         approach: posture === null ? 0 : posture.prescription.approach,
         intensity: posture === null ? 0 : posture.prescription.intensity,

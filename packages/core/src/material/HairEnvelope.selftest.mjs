@@ -41,12 +41,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Group, Mesh, BoxGeometry, MeshBasicMaterial } from 'three';
+import { positionLocal } from 'three/tsl';
 
 import {
     HAIR_DEFAULTS,
     HAIR_DEFECTS,
     HAIR_ENVELOPE_EXTINCTION,
     HAIR_ENVELOPE_QUANTILES,
+    applyHairMaterial,
+    createHairMaterial,
     baseColourDerivation,
     ellipsoidSpanValue,
     fitEllipsoidValue,
@@ -458,6 +462,23 @@ const RECORD_PATH = path.join( REPO, 'tools', 'critic', 'hair-envelope.measured.
 }
 
 // ================================================================================================
+
+{
+    const root = new Group();
+    const geometry = new BoxGeometry();
+    const bodyMaterial = new MeshBasicMaterial();
+    const body = new Mesh( geometry, bodyMaterial );
+    const hair = new Mesh( geometry, bodyMaterial );
+    root.add( body, hair );
+    const material = await createHairMaterial( { positionNode: positionLocal } );
+    const assigned = applyHairMaterial( root, material, { meshes: [ hair ] } );
+    check( 'selected hair assignment leaves body material intact',
+        assigned.meshes === 1 && hair.material === material && body.material === bodyMaterial );
+    check( 'the supplied deformation node is installed before compilation', material.positionNode === positionLocal );
+    material.dispose();
+    bodyMaterial.dispose();
+    geometry.dispose();
+}
 
 const failed = checks.filter( ( c ) => c.pass === false );
 

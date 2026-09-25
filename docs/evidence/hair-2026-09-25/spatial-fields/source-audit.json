@@ -1,0 +1,10 @@
+{
+  "timing": "Post-capture read-only source inspection; no executable change.",
+  "sourceSHA256": {
+    "node_modules/three/examples/jsm/tsl/display/TAAUNode.js": "ddc9d1eaa318dd45629799c48af6f7388b31edd9ad5e6648a4004fdead48d250",
+    "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+  },
+  "hypothesis": "The thinFeature expression divides by meanLuma without a zero guard. Whether nonfinite floating resolve/history values arise in this black-card fixture is untested.",
+  "followup": "Inspect native floating-point TAAU resolve/history/lock buffers before modifying any arithmetic; RGBA8 output cannot establish finiteness.",
+  "defaultSharpening": "DEFAULT_SHARPNESS is null; fixture does not override it."
+}

@@ -56,26 +56,12 @@ import { erodeMask } from './hair-lightpath.mjs';
 export const FRINGE_RECT = { name: 'fringe rect §2.1', x0: 1480, y0: 540, x1: 1700, y1: 610 };
 
 /**
- * ⚠️ §2.1's FRINGE RECT IS NOT ALL HAIR, and this changes what its numbers mean. The contamination
- * is two patches of lit FOREHEAD SKIN showing through the fringe tips, and §2.1's own published p99
- * hex `#96757e` (R150 G117 B126) is that skin. So the rect's p95 — and therefore its p95/p50 of
- * 4.936 — is a skin-to-hair ratio wearing a hair-contrast label.
- *
- * 🔴 THE CONTAMINATION LIVES IN X, NOT IN Y, AND AN EARLIER VERSION OF THIS COMMENT HAD IT BACKWARDS.
- * It claimed "769 of the 771 lie below y = 570". Re-derived twice, independently: of the top 5% the
- * y-histogram in 10 px bands is {550: 2, 560: 58, 570: 97, 580: 141, 590: 192, 600: 280}, so only
- * **60 lie below y = 570 and 710 lie at or above it**. The x-histogram is where the structure is —
- * 616 in x ∈ [1520,1560], 140 in x ∈ [1660,1680], 14 in x ∈ [1640,1660].
- *
- * 🚩 SO `fringe rect, hair only` IS NOT SKIN-EXCLUDED AND MUST NOT BE QUOTED AS IF IT WERE. It cuts
- * the rect in Y — the axis the contamination does not live in — and keeps 60 of the contaminated
- * pixels rather than 2. It is a smaller rect, not a cleaner population. **The reference fringe has
- * no published hair-only dynamic range and this tool does not produce one**; cutting in X is the
- * repair and nobody has done it. `whole-hair` below is the mask to compare our groom against.
- *
- * @claim 60 :: node tools/critic/hair-reference.selftest.mjs :: fringe top-5% below y=570 #1
- * @claim 710 :: node tools/critic/hair-reference.selftest.mjs :: fringe top-5% at or above y=570 #1
- * @claim 616 :: node tools/critic/hair-reference.selftest.mjs :: fringe top-5% in x 1520-1560 #1
+ * The historical fringe rectangle includes forehead skin. Cutting it in Y does
+ * not make it hair-only; use the whole-hair polygon for comparison. The original
+ * numerical observations and their missing-input limits are archived in
+ * docs/evidence/hair-reference-claims-legacy.md. They are not current verified
+ * source claims. hair-reference.selftest.mjs can remeasure them when supplied
+ * the external reference plate; its operator controls run on every clone.
  */
 const FRINGE_HAIR_RECT = { name: 'fringe rect, hair only', x0: 1480, y0: 540, x1: 1700, y1: 570 };
 
@@ -372,15 +358,10 @@ function main() {
   //   3. the floor plate's radiance below HAIR_SHADED_MAX — a groom-mask pixel whose no-lobe,
   //      no-pedestal value is bright is a pixel where something BEHIND the groom resolved, and
   //      counting it measures the background's dynamic range and calls it hair's.
-  // 🔴 FILTER 3 IS WORTH 0.5719 -> 0.2854 ON THE SCATTER-0 ARM'S p95 (encoded luma, 257,215 px
-  // before and 235,564 after), re-derived here from `captures/hair-r27-pedestal/trapg-s0.png`.
-  // An earlier version of this comment said "0.5668 -> 0.1932 … the whole difference between
-  // reproducing §9.2 and not". **0.1932 is §9.2's PUBLISHED value, from a DIFFERENT CAPTURE**, and
-  // this filter does not land on it — it lands 47.7% above it. The filter matters and its size is
-  // real; what it cannot do is close a cross-capture gap, and hair.md §9.6 says in as many words
-  // that cross-session plates are not comparable on this build.
-  //
-  // @claim 0.2854 :: node tools/critic/hair-reference.selftest.mjs :: filter 3, scatter-0 p95 #1
+  // A bright no-lobe pixel belongs to resolved background, not to shaded hair.
+  // The old capture-specific effect size is archived with its provenance limits
+  // in docs/evidence/hair-reference-claims-legacy.md. Measure this capture's mask;
+  // a number from another capture cannot validate its lighting.
   const floor = readPlate(path.join(ours, 'floor.png'));
   const solid = new Uint8Array(groom.length);
   for (let k = 0; k < groom.length; k += 1) {

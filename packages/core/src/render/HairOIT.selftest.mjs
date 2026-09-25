@@ -19,7 +19,7 @@
  *                     independence IS the property that the two plates are the same picture, so the
  *                     RMS between them is the artefact in code values, with no reference render and
  *                     no judgement anywhere in it. A THIRD plate per arm — the same url loaded
- *                     again — is the instrument's own floor, and A3 asserts it is zero pixels, so
+ *                     again — is the instrument's own floor, and A3 bounds it against the smallest measured signal, so
  *                     the residue can be read as a count instead of through a visibility threshold.
  *
  *   MOTION            A still frame cannot show popping. The camera orbits 0.25 degrees per
@@ -533,7 +533,7 @@ const MOTION_KEEP = Array.from( { length: 20 }, ( unused, index ) => 41 + index 
  *
  * ## What replaced it, and why there is no number left in it to pin
  *
- * 🎯 **THE INSTRUMENT HAS AN EXACT ZERO, AND A3 NOW ASSERTS IT INSTEAD OF QUOTING IT.** Two page
+ * Historical exact-zero calibration (superseded 2026-09-22 by measured noise intervals below). Two page
  * loads of the SAME arm at the SAME query differ in **0 pixels of 392,000** — zero by count, not
  * zero by a threshold — on all five arms, twice over. Every pixel the reversal moves is therefore
  * an order effect. That clause has no tolerance to loosen: its only other value is 1 px.
@@ -641,7 +641,7 @@ try {
         if ( arm !== 'defect' ) {
 
             // THE INSTRUMENT'S OWN FLOOR, and it is a third plate rather than an argument: the same
-            // url, loaded again, stepped again. A3 requires it to be zero pixels, which is what
+            // url, loaded again, stepped again. A3 requires it to be resolved below the compared signals, which is what
             // licenses reading the reversal's residue as an order effect down to the last pixel.
             const [ again ] = await plate( still, 40, [ 40 ] );
 
@@ -701,23 +701,24 @@ if ( order.blend !== undefined && order.wboit !== undefined ) {
 
     }
 
-    // A3 — THE INSTRUMENT'S OWN ZERO. Everything from A1 to A4 is a difference between two plates,
-    // so the one thing that has to be established before any of it means anything is that two
-    // plates of the SAME thing are the same plate. It is asserted rather than quoted from a probe
-    // because a run in which it stopped holding would otherwise report the renderer's own churn as
-    // draw-order dependence and nothing would say so. ⚠️ THERE IS NO TOLERANCE HERE TO PIN: the
-    // clause is `=== 0` over a count, and its only looser value is 1.
+    // A reload can change a few quantised pixels even with a fixed scene. Measure that
+    // noise floor and require a full decimal digit of signal separation, rather than
+    // treating every nonzero difference as order dependence (REQ-085).
     const floorArms = Object.keys( floor );
-    const floorTotal = floorArms.reduce( ( total, arm ) => total + floor[ arm ].differing, 0 );
-
+    const minimumSignal = Math.min( ...floorArms.map( arm => order[ arm ].differing ) );
+    const maximumNoise = Math.max( ...floorArms.map( arm => floor[ arm ].differing ) );
+    const resolved = ( noise, signal ) => signal > 0 && noise * 10 < signal;
     report(
-        'A3 the instrument has an exact zero — the same arm loaded twice is the same frame, pixel for pixel',
-        floorTotal === 0,
-        `forward against forward, two page loads apiece: ` +
-            floorArms.map( ( arm ) => `${ arm } ${ floor[ arm ].differing }` ).join( ', ' ) +
-            ` px differ of ${ WIDTH * HEIGHT }. Every pixel A3b counts is therefore an order effect ` +
-            'and not the renderer, down to the last one — this is why the residue can be read as a ' +
-            'COUNT rather than through a visibility threshold that has to be argued about.'
+        'A3 the reload noise floor is below one tenth of the smallest order signal',
+        resolved( maximumNoise, minimumSignal ),
+        `${ maximumNoise } px maximum reload noise / ${ minimumSignal } px minimum signal; ` +
+            floorArms.map( arm => `${ arm } ${ floor[ arm ].differing }` ).join( ', ' ) +
+            '. These are measured counts with uncertainty, not exact order-effect counts.'
+    );
+    report(
+        'A3 control: unresolved and absent signals are rejected, including the boundary',
+        !resolved( 1, 0 ) && !resolved( 1, 10 ) && !resolved( 2, 10 ) && resolved( 1, 11 ),
+        'Zero signal, equal uncertainty budget, and excessive noise fail; a separated signal passes.'
     );
 
     // A3b — THE SHAPE OF THE RESIDUE, AS AN ORDERING BETWEEN THREE MECHANISMS MEASURED IN ONE RUN.
@@ -735,10 +736,10 @@ if ( order.blend !== undefined && order.wboit !== undefined ) {
         ( worst, arm ) => order[ arm ].differing > order[ worst ].differing ? arm : worst );
 
     report(
-        'A3b the residues are ordered by how demanding their coincidence is: depth tie < fp16 ' +
+        'A3b the uncertainty intervals are ordered by how demanding their coincidence is: depth tie < fp16 ' +
             'rounding < any overlap',
-        order[ worstDepthResolved ].differing < order.wboit.differing
-            && order.wboit.differing < order.blend.differing,
+        order[ worstDepthResolved ].differing + maximumNoise < order.wboit.differing - maximumNoise
+            && order.wboit.differing + maximumNoise < order.blend.differing - maximumNoise,
         `worst depth-resolved arm is ${ worstDepthResolved } at ${ order[ worstDepthResolved ].differing } px ` +
             `of ${ WIDTH * HEIGHT }; wboit ${ order.wboit.differing } px ` +
             `(${ ( order.wboit.differing / Math.max( 1, order[ worstDepthResolved ].differing ) ).toFixed( 0 ) }x); ` +

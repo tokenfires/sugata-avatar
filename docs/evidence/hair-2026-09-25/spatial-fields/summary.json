@@ -1,0 +1,3530 @@
+{
+  "baseCommit": "b60ed01be58550cd222a0c8d6b9b093f9f7a3849",
+  "sourceSHA256": {
+    "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "packages/core/src/render/GBuffer.js": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774",
+    "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "tmp/hair-sep25/spatial-fields/fixture.js": "eddec67c206c0f2af2976a3e796ce355259090b1e18f93c6cbd61373be80ae80",
+    "tmp/hair-sep25/spatial-fields/capture.mjs": "17a37e2e2f4641b90adfb5bb3ac37b7f79f1100d44d2593ff5f017e85cff6f18"
+  },
+  "verdict": "REJECT: spatial swaps remove coherent patch swings, but shared rates leave per-pixel temporal bias and both swapped arms remain too dark and noisier after TAAU.",
+  "cases": 64,
+  "framesPerCase": 512,
+  "sampleCounts": [
+    24,
+    128,
+    512
+  ],
+  "startingPhases": [
+    0,
+    977
+  ],
+  "pilotCasesWithExact128FrameTracesAndImages": 18,
+  "priorIdentity": [
+    {
+      "current": "off-shared-half-p0",
+      "previous": "off-shared-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-shared-half-p977",
+      "previous": "off-shared-half-p977",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-temporal-half-p0",
+      "previous": "off-distinct-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-temporal-half-p977",
+      "previous": "off-distinct-half-p977",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-merged-negative-p0",
+      "previous": "off-merged-negative-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-empty-p0",
+      "previous": "off-empty-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-zero-pair-p0",
+      "previous": "off-zero-pair-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-opaque-pair-p0",
+      "previous": "off-opaque-pair-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-front-body-p0",
+      "previous": "off-front-body-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-single-half-p0",
+      "previous": "off-single-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-blend-quarter-p0",
+      "previous": "off-blend-quarter-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-blend-half-p0",
+      "previous": "off-blend-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-blend-three-quarter-p0",
+      "previous": "off-blend-three-quarter-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "off-blend-mixed-p0",
+      "previous": "off-blend-mixed-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-shared-half-p0",
+      "previous": "taau-shared-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-shared-half-p977",
+      "previous": "taau-shared-half-p977",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-temporal-half-p0",
+      "previous": "taau-distinct-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-temporal-half-p977",
+      "previous": "taau-distinct-half-p977",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-merged-negative-p0",
+      "previous": "taau-merged-negative-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-empty-p0",
+      "previous": "taau-empty-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-zero-pair-p0",
+      "previous": "taau-zero-pair-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-opaque-pair-p0",
+      "previous": "taau-opaque-pair-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-front-body-p0",
+      "previous": "taau-front-body-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-single-half-p0",
+      "previous": "taau-single-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-blend-quarter-p0",
+      "previous": "taau-blend-quarter-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-blend-half-p0",
+      "previous": "taau-blend-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-blend-three-quarter-p0",
+      "previous": "taau-blend-three-quarter-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "current": "taau-blend-mixed-p0",
+      "previous": "taau-blend-mixed-p0",
+      "frames": 512,
+      "exact": true
+    }
+  ],
+  "equivalences": [
+    {
+      "mode": "off",
+      "a": "shared-half",
+      "b": "single-half",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "shared-half",
+      "b": "merged-negative",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "swapped-shared-half",
+      "b": "reversed-shared",
+      "exact": true
+    },
+    {
+      "mode": "off",
+      "a": "swapped-distinct-half",
+      "b": "reversed-distinct",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "shared-half",
+      "b": "single-half",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "shared-half",
+      "b": "merged-negative",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "swapped-shared-half",
+      "b": "reversed-shared",
+      "exact": true
+    },
+    {
+      "mode": "taau",
+      "a": "swapped-distinct-half",
+      "b": "reversed-distinct",
+      "exact": true
+    }
+  ],
+  "geometryMask": {
+    "pixels": 12544,
+    "bounds": {
+      "x0": 72,
+      "x1": 184,
+      "y0": 72,
+      "y1": 184
+    }
+  },
+  "rows": [
+    {
+      "name": "off-shared-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.499963461947279,
+          "tailFrames": 24,
+          "tailMean": 0.499963461947279,
+          "tailTemporalRMS": 0.8376110788463311,
+          "finalMean": 0.4999202806122449,
+          "spatialSD": 0.4999999936448192,
+          "imageSHA256": "380117b2ccaf51c72e81d0dd379e84a96356d43f0773f2099c99f9b81b50635a"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.49999190349968103,
+          "tailFrames": 64,
+          "tailMean": 0.4999887894610971,
+          "tailTemporalRMS": 0.8740335713930696,
+          "finalMean": 0.5,
+          "spatialSD": 0.5,
+          "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.49999922149035386,
+          "tailFrames": 64,
+          "tailMean": 0.5000199298469388,
+          "tailTemporalRMS": 0.8740349902663612,
+          "finalMean": 0.5008769132653061,
+          "spatialSD": 0.4999992310225338,
+          "imageSHA256": "47fb9d7f845ef17359ca41ea96e42d80f5cfad56d1e6af6f9e15cac8d4e1faf1"
+        }
+      ],
+      "frameMeanRange": [
+        0.49904336734693877,
+        0.5008769132653061
+      ],
+      "frameMeanSD": 0.00035384163526352676,
+      "pixelMeans": {
+        "mean": 0.499999221490354,
+        "min": 0.494140625,
+        "max": 0.505859375,
+        "p05": 0.498046875,
+        "p95": 0.501953125,
+        "spatialSD": 0.0017005108001775925,
+        "referenceRMS": 0.2500050049154308
+      },
+      "pixelMeansSHA256": "c8c778a1eb7a1d2a667420cd75bfd8fc26743f2f208211a2d5d6b1bc034f8f07"
+    },
+    {
+      "name": "off-shared-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.4999966783588435,
+          "tailFrames": 24,
+          "tailMean": 0.4999966783588435,
+          "tailTemporalRMS": 0.8376110674461876,
+          "finalMean": 0.5000797193877551,
+          "spatialSD": 0.49999999364481923,
+          "imageSHA256": "a1f635af067a3eef6485b32480a657e90463b6f3617037e51c44183094d513ae"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5000143245774872,
+          "tailFrames": 64,
+          "tailMean": 0.5000137017697702,
+          "tailTemporalRMS": 0.87403213158892,
+          "finalMean": 0.4995216836734694,
+          "spatialSD": 0.4999997712134394,
+          "imageSHA256": "a82b0696f9a897e4e009ac2f0fc8cf71197d2f0ae6bf05d5556fc4eb3e761bc4"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.50000186842315,
+          "tailFrames": 64,
+          "tailMean": 0.49997757892219374,
+          "tailTemporalRMS": 0.8740307074343214,
+          "finalMean": 0.4998405612244898,
+          "spatialSD": 0.49999997457927625,
+          "imageSHA256": "ea1e0e3936cfb43ec79a0310446dde30e63c6d3fa198686ab654bd4e15d00b5d"
+        }
+      ],
+      "frameMeanRange": [
+        0.49904336734693877,
+        0.5010363520408163
+      ],
+      "frameMeanSD": 0.00034908747544712285,
+      "pixelMeans": {
+        "mean": 0.5000018684231505,
+        "min": 0.494140625,
+        "max": 0.505859375,
+        "p05": 0.498046875,
+        "p95": 0.501953125,
+        "spatialSD": 0.0017070248345347422,
+        "referenceRMS": 0.2500076961792416
+      },
+      "pixelMeansSHA256": "a04f374e86c737a71c04f6ffbfcc9cf01d2ddb5e1b2e3633ee91ed85024d0a46"
+    },
+    {
+      "name": "off-temporal-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.24521019345238093,
+          "tailFrames": 24,
+          "tailMean": 0.24521019345238093,
+          "tailTemporalRMS": 0.6145566008472334,
+          "finalMean": 0.3917410714285714,
+          "spatialSD": 0.4881393288647887,
+          "imageSHA256": "ea8f7b57659a165d59d82871dd6834b12299e6520f88d9d1316e3fb6b63941d8"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2504029565927934,
+          "tailFrames": 64,
+          "tailMean": 0.2496200872927295,
+          "tailTemporalRMS": 0.6592519762893031,
+          "finalMean": 0.41079400510204084,
+          "spatialSD": 0.4919779369791549,
+          "imageSHA256": "bda6b9945cadf36280763e2b4ef575f42e99e3b994f2e2b36bc410de7ccf1292"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.24974013348014978,
+          "tailFrames": 64,
+          "tailMean": 0.24866719148596939,
+          "tailTemporalRMS": 0.658731948655603,
+          "finalMean": 0.1446109693877551,
+          "spatialSD": 0.3517081701076744,
+          "imageSHA256": "99a9981e2cce085d9be13c7590abc8608a4dd88a519a31e4854e18fca935c477"
+        }
+      ],
+      "frameMeanRange": [
+        0.0024713010204081634,
+        0.4998405612244898
+      ],
+      "frameMeanSD": 0.14413725146742726,
+      "pixelMeans": {
+        "mean": 0.24974013348014987,
+        "min": 0.23828125,
+        "max": 0.26171875,
+        "p05": 0.2421875,
+        "p95": 0.255859375,
+        "spatialSD": 0.004062970641050444,
+        "referenceRMS": 0.004071272655838327
+      },
+      "pixelMeansSHA256": "9c809b87695e1b906de4ff6e4f15ea16236dbcf979fa192dc31a1cc6c118718d"
+    },
+    {
+      "name": "off-temporal-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2533548575680272,
+          "tailFrames": 24,
+          "tailMean": 0.2533548575680272,
+          "tailTemporalRMS": 0.614891701176804,
+          "finalMean": 0.4754464285714286,
+          "spatialSD": 0.4993967582294683,
+          "imageSHA256": "049dd3b5ae2f064500158fa8a4081a2e8181c1a8ad63415491c25ca9ce41a0ff"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.25080155353156897,
+          "tailFrames": 64,
+          "tailMean": 0.25131910674426006,
+          "tailTemporalRMS": 0.6555569783779122,
+          "finalMean": 0.27798150510204084,
+          "spatialSD": 0.4480042275729604,
+          "imageSHA256": "7f96f2c147af91d86187e21ff559a4873582d839bcbc108a94430aecb9d4430a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.24964359828404,
+          "tailFrames": 64,
+          "tailMean": 0.24845170001594385,
+          "tailTemporalRMS": 0.6568222370969472,
+          "finalMean": 0.01132015306122449,
+          "spatialSD": 0.10579228325305651,
+          "imageSHA256": "3d407cf10f38c798d3eb3f2d2ee0f6a1cbb65a9cf7893ce0ed009cff904d4fa1"
+        }
+      ],
+      "frameMeanRange": [
+        0.0015146683673469387,
+        0.49928252551020413
+      ],
+      "frameMeanSD": 0.14441999304169123,
+      "pixelMeans": {
+        "mean": 0.24964359828404017,
+        "min": 0.23828125,
+        "max": 0.259765625,
+        "p05": 0.2421875,
+        "p95": 0.255859375,
+        "spatialSD": 0.004088056051707242,
+        "referenceRMS": 0.004103562411495567
+      },
+      "pixelMeansSHA256": "3a6de5cc4fefc4bff48c7dd159204e5b633b498a688ec468d926a8d88496d765"
+    },
+    {
+      "name": "off-swapped-shared-quarter-p0",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5626328656462586,
+          "tailFrames": 24,
+          "tailMean": 0.5626328656462586,
+          "tailTemporalRMS": 0.7574542928342259,
+          "finalMean": 0.5618622448979591,
+          "spatialSD": 0.49615830402824557,
+          "imageSHA256": "a11ae9769971de2317bed6fc80532700a4085ddeb0f099ae111540a283f479c6"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5625572983099488,
+          "tailFrames": 64,
+          "tailMean": 0.5624950175382653,
+          "tailTemporalRMS": 0.7905808934633668,
+          "finalMean": 0.5624202806122449,
+          "spatialSD": 0.4960884080164429,
+          "imageSHA256": "7e6efad6345ec4cf21d29c5d495d97f4eccee59d6845ee0200cce6b40c0ca4c1"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5625443750498246,
+          "tailFrames": 64,
+          "tailMean": 0.5625411053093115,
+          "tailTemporalRMS": 0.7906053496503074,
+          "finalMean": 0.5631377551020409,
+          "spatialSD": 0.49599760471263843,
+          "imageSHA256": "0f6f6ba334c4e8c0234f27bb1af820c73e8bbcfef44e1762b9c82e142af7fca9"
+        }
+      ],
+      "frameMeanRange": [
+        0.5609853316326531,
+        0.5639349489795917
+      ],
+      "frameMeanSD": 0.0005476670335000661,
+      "pixelMeans": {
+        "mean": 0.5625443750498246,
+        "min": 0.494140625,
+        "max": 0.75390625,
+        "p05": 0.498046875,
+        "p95": 0.724609375,
+        "spatialSD": 0.08114269296318251,
+        "referenceRMS": 0.08114270509702246
+      },
+      "pixelMeansSHA256": "13d067877fcd79c228efa6f9840b8db3b5db1e2fa341c89c09cd23ff37e16cef"
+    },
+    {
+      "name": "off-swapped-shared-quarter-p977",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.562573076105442,
+          "tailFrames": 24,
+          "tailMean": 0.562573076105442,
+          "tailTemporalRMS": 0.7574459022249632,
+          "finalMean": 0.5630580357142857,
+          "spatialSD": 0.4960077460401761,
+          "imageSHA256": "953486008f70b80a216d123c0e5b94dd136c0d6d941f0483574d0f4010a61ab3"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5625940439652423,
+          "tailFrames": 64,
+          "tailMean": 0.562533631616709,
+          "tailTemporalRMS": 0.7905738490176545,
+          "finalMean": 0.5623405612244898,
+          "spatialSD": 0.49609843219487765,
+          "imageSHA256": "578a0fe7440bfba4524b9157c9a988ec6abb5e1f49948cb75714772118fda988"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5625554298867984,
+          "tailFrames": 64,
+          "tailMean": 0.5625597895408164,
+          "tailTemporalRMS": 0.7904698635110698,
+          "finalMean": 0.5623405612244898,
+          "spatialSD": 0.49609843219487765,
+          "imageSHA256": "2121904bab43c32a7bb2d06dcb4d78d80d12a55d0553bcce4f27a6bfdcf49408"
+        }
+      ],
+      "frameMeanRange": [
+        0.5610650510204083,
+        0.564094387755102
+      ],
+      "frameMeanSD": 0.0005462385844737261,
+      "pixelMeans": {
+        "mean": 0.5625554298867985,
+        "min": 0.494140625,
+        "max": 0.75390625,
+        "p05": 0.498046875,
+        "p95": 0.724609375,
+        "spatialSD": 0.08116490561261219,
+        "referenceRMS": 0.08116492453995504
+      },
+      "pixelMeansSHA256": "d0b546a59ee1d29b8feef1e54a15bdf2edc203b48c85b6eb6375cee39e9a1f60"
+    },
+    {
+      "name": "off-swapped-shared-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2500531462585034,
+          "tailFrames": 24,
+          "tailMean": 0.2500531462585034,
+          "tailTemporalRMS": 0.658237720938787,
+          "finalMean": 0.2500797193877551,
+          "spatialSD": 0.43305871811879826,
+          "imageSHA256": "72336a95911b405347c3414938e83522ef195d45c4f6ce688ddbef438bb1729b"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2500510702327805,
+          "tailFrames": 64,
+          "tailMean": 0.2500336316167093,
+          "tailTemporalRMS": 0.6867764922933481,
+          "finalMean": 0.2500797193877551,
+          "spatialSD": 0.43305871811879826,
+          "imageSHA256": "59276e5bd3c700fa3db728816a1b852163002527633e5cd91c5d0dcf20fd8dd2"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2500554298867983,
+          "tailFrames": 64,
+          "tailMean": 0.2500635263871174,
+          "tailTemporalRMS": 0.6868045956284367,
+          "finalMean": 0.25095663265306123,
+          "spatialSD": 0.43356360684505996,
+          "imageSHA256": "bcf76f5bdfac84c7ec0de1d1ea42ca772d6ed458134942334b84038a05a43d33"
+        }
+      ],
+      "frameMeanRange": [
+        0.24856505102040816,
+        0.2515146683673469
+      ],
+      "frameMeanSD": 0.0004935966285138711,
+      "pixelMeans": {
+        "mean": 0.25005542988679846,
+        "min": 0,
+        "max": 0.50390625,
+        "p05": 0.021484375,
+        "p95": 0.474609375,
+        "spatialSD": 0.14478385121188306,
+        "referenceRMS": 0.14478386182243186
+      },
+      "pixelMeansSHA256": "fdbb6456da35cef444546629ab2808a3f055f775c3e525e7fbaf4fc42c4acc31"
+    },
+    {
+      "name": "off-swapped-shared-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2500597895408163,
+          "tailFrames": 24,
+          "tailMean": 0.2500597895408163,
+          "tailTemporalRMS": 0.6582764035661951,
+          "finalMean": 0.2499202806122449,
+          "spatialSD": 0.43296666609675816,
+          "imageSHA256": "b334f947695c4b026c97eccab27536b2dccd402c2704c0530e70f6eed25da163"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2500716228874361,
+          "tailFrames": 64,
+          "tailMean": 0.25006850884885207,
+          "tailTemporalRMS": 0.686802754824499,
+          "finalMean": 0.24952168367346939,
+          "spatialSD": 0.4327361933675371,
+          "imageSHA256": "aba789d498c3f66be4a447f6ea45ed09caea9c7a80907163488ad7c052dd5c66"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2500608794543209,
+          "tailFrames": 64,
+          "tailMean": 0.25005107023278067,
+          "tailTemporalRMS": 0.6867057674618257,
+          "finalMean": 0.2497608418367347,
+          "spatialSD": 0.43287453577421287,
+          "imageSHA256": "7a65cce621fac54960fca215ced6f313643403b32ca1c961dc83e5918d4460a2"
+        }
+      ],
+      "frameMeanRange": [
+        0.24848533163265304,
+        0.2515146683673469
+      ],
+      "frameMeanSD": 0.0004814255056995326,
+      "pixelMeans": {
+        "mean": 0.2500608794543208,
+        "min": 0,
+        "max": 0.50390625,
+        "p05": 0.021484375,
+        "p95": 0.474609375,
+        "spatialSD": 0.1447941333114382,
+        "referenceRMS": 0.1447941461099809
+      },
+      "pixelMeansSHA256": "7aa1e738b883186c5cd0c9fc6391b41ce6d5dfddaa17db3ff61cd2b96327d0e1"
+    },
+    {
+      "name": "off-swapped-shared-three-quarter-p0",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.0625265731292517,
+          "tailFrames": 24,
+          "tailMean": 0.0625265731292517,
+          "tailTemporalRMS": 0.33893420567676585,
+          "finalMean": 0.06178252551020408,
+          "spatialSD": 0.24076014008092175,
+          "imageSHA256": "625d67256d614026646891b9c5e72c0b29aaf9c58a12fe192d21d831b4152967"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.06249937719228316,
+          "tailFrames": 64,
+          "tailMean": 0.06250498246173468,
+          "tailTemporalRMS": 0.3535684799544071,
+          "finalMean": 0.0625,
+          "spatialSD": 0.24206145913796356,
+          "imageSHA256": "29a4ed2d89f28005b7512050422a4dd0c9a0469278613c0e02e9f85012eb5605"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.06252755924147006,
+          "tailFrames": 64,
+          "tailMean": 0.06244145607461735,
+          "tailTemporalRMS": 0.35336926936482854,
+          "finalMean": 0.06321747448979592,
+          "spatialSD": 0.24335370432546927,
+          "imageSHA256": "89642657c24e65f74744f2d6cbb8e80d208be38907c791ddac98bdd58ed75bcd"
+        }
+      ],
+      "frameMeanRange": [
+        0.061304209183673464,
+        0.06361607142857144
+      ],
+      "frameMeanSD": 0.00039127095536331774,
+      "pixelMeans": {
+        "mean": 0.06252755924147002,
+        "min": 0,
+        "max": 0.25390625,
+        "p05": 0,
+        "p95": 0.224609375,
+        "spatialSD": 0.08112705190897176,
+        "referenceRMS": 0.08112705658997367
+      },
+      "pixelMeansSHA256": "f9624339ed5f1fd22121f2611ef681191e531e66e0e24b0b111ae77c882fdb6e"
+    },
+    {
+      "name": "off-swapped-shared-three-quarter-p977",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.0626494738520408,
+          "tailFrames": 24,
+          "tailMean": 0.0626494738520408,
+          "tailTemporalRMS": 0.33919712771392646,
+          "finalMean": 0.0625797193877551,
+          "spatialSD": 0.2422054873637361,
+          "imageSHA256": "adb7ea7a3852be53bb1f287fea1f9036a89d3f8a34aa14c3ca0ae6e5965d5c92"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.06252055265465561,
+          "tailFrames": 64,
+          "tailMean": 0.062442701690051026,
+          "tailTemporalRMS": 0.35339766396422023,
+          "finalMean": 0.062420280612244895,
+          "spatialSD": 0.24191731889332252,
+          "imageSHA256": "2f696fa2a8b80f6fedbbd0e39ea6ea18c2306f29a8ae0b961d6913f11563f336"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.06254624347297516,
+          "tailFrames": 64,
+          "tailMean": 0.06251245615433673,
+          "tailTemporalRMS": 0.3535859825461614,
+          "finalMean": 0.0625,
+          "spatialSD": 0.24206145913796356,
+          "imageSHA256": "6a803618de0feb108f8eca250c25ba853bd53720d6d9299d15066047de18d4db"
+        }
+      ],
+      "frameMeanRange": [
+        0.061383928571428575,
+        0.06353635204081633
+      ],
+      "frameMeanSD": 0.000385049800600113,
+      "pixelMeans": {
+        "mean": 0.06254624347297513,
+        "min": 0,
+        "max": 0.25390625,
+        "p05": 0,
+        "p95": 0.224609375,
+        "spatialSD": 0.08113048446718885,
+        "referenceRMS": 0.08113049764632017
+      },
+      "pixelMeansSHA256": "082233268b88ee9ddfba4bd768c30ad687198b9ab681e87d03077f6a86079063"
+    },
+    {
+      "name": "off-swapped-shared-mixed-p0",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.18753985969387754,
+          "tailFrames": 24,
+          "tailMean": 0.18753985969387754,
+          "tailTemporalRMS": 0.5869489932640495,
+          "finalMean": 0.18670280612244897,
+          "spatialSD": 0.3896727708070609,
+          "imageSHA256": "12c04fd3db504d01a43955951cf8cf102644f1253209dc60070ea8cb7220a25c"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.1874993771922832,
+          "tailFrames": 64,
+          "tailMean": 0.18746761399872447,
+          "tailTemporalRMS": 0.6123245118760517,
+          "finalMean": 0.1874202806122449,
+          "spatialSD": 0.3902485349459653,
+          "imageSHA256": "27e4c5a4d1ea30006e00ea40d74682280a8b76461c7f04e2057a460e00fad71f"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.1875057609713809,
+          "tailFrames": 64,
+          "tailMean": 0.1874476841517857,
+          "tailTemporalRMS": 0.6122786596709751,
+          "finalMean": 0.1880580357142857,
+          "spatialSD": 0.3907585071595629,
+          "imageSHA256": "de5057546baa51037a7304dfd5f4a7797463ebd60afb92234ecc6a1c6f34a02f"
+        }
+      ],
+      "frameMeanRange": [
+        0.18630420918367346,
+        0.1885363520408163
+      ],
+      "frameMeanSD": 0.00039669793013849596,
+      "pixelMeans": {
+        "mean": 0.18750576097138075,
+        "min": 0,
+        "max": 0.25390625,
+        "p05": 0.0234375,
+        "p95": 0.251953125,
+        "spatialSD": 0.0810764657562609,
+        "referenceRMS": 0.08107646596093676
+      },
+      "pixelMeansSHA256": "4ade6b7e9bcdd04a907851dd185b4703f0147cd6aab428bcca05636819895451"
+    },
+    {
+      "name": "off-swapped-shared-mixed-p977",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.18762290072278912,
+          "tailFrames": 24,
+          "tailMean": 0.18762290072278912,
+          "tailTemporalRMS": 0.5870411900393133,
+          "finalMean": 0.1875797193877551,
+          "spatialSD": 0.39037618813417163,
+          "imageSHA256": "a6b35df04a70241d9eb66494bf00e01c98e697d63656ccf3835f26065bfdfe7f"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.18752802634725782,
+          "tailFrames": 64,
+          "tailMean": 0.1874551578443877,
+          "tailTemporalRMS": 0.6123082464572537,
+          "finalMean": 0.1872608418367347,
+          "spatialSD": 0.3901207748266325,
+          "imageSHA256": "f2cc6e4367dc632a3efef082a0a1ac2b23685bef7860f0129f097344ef5e3d8a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.18752397809709842,
+          "tailFrames": 64,
+          "tailMean": 0.1875236666932398,
+          "tailTemporalRMS": 0.6124129482498373,
+          "finalMean": 0.1874202806122449,
+          "spatialSD": 0.3902485349459653,
+          "imageSHA256": "c65ca4367e4a21010f4c95168f6ee40dc3ac4c34bc74d51c03aea64f1ac84c71"
+        }
+      ],
+      "frameMeanRange": [
+        0.18630420918367346,
+        0.18869579081632654
+      ],
+      "frameMeanSD": 0.0003950573720567245,
+      "pixelMeans": {
+        "mean": 0.18752397809709823,
+        "min": 0,
+        "max": 0.25390625,
+        "p05": 0.0234375,
+        "p95": 0.251953125,
+        "spatialSD": 0.08107122043837188,
+        "referenceRMS": 0.08107122398432275
+      },
+      "pixelMeansSHA256": "6d319070b05b153b948fdf2409686a5c0e158c048eb739fd4f3370f71cce2272"
+    },
+    {
+      "name": "off-swapped-distinct-quarter-p0",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5624701052295918,
+          "tailFrames": 24,
+          "tailMean": 0.5624701052295918,
+          "tailTemporalRMS": 0.7578494288164053,
+          "finalMean": 0.5623405612244898,
+          "spatialSD": 0.49609843219487765,
+          "imageSHA256": "027cbed62993c00c0660cd879bcee2150d39128ee0ea6ecdb9cdb4b8a93d1b35"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5625049824617347,
+          "tailFrames": 64,
+          "tailMean": 0.5624987543845664,
+          "tailTemporalRMS": 0.7905976347840661,
+          "finalMean": 0.5627391581632653,
+          "spatialSD": 0.4960481811608271,
+          "imageSHA256": "b4e18a534a1c0060c680b26280cfcc94ddb2d06691bfb1fcd8ab57b949f6740d"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5625026469327965,
+          "tailFrames": 64,
+          "tailMean": 0.562541105309311,
+          "tailTemporalRMS": 0.7905338128642834,
+          "finalMean": 0.5630580357142857,
+          "spatialSD": 0.4960077460401761,
+          "imageSHA256": "bdea622b6bd04feb0323a0702497b0008b13a1b7c2b62dd5908a95170c956a52"
+        }
+      ],
+      "frameMeanRange": [
+        0.5612244897959183,
+        0.5638552295918368
+      ],
+      "frameMeanSD": 0.00041618374247379055,
+      "pixelMeans": {
+        "mean": 0.5625026469327965,
+        "min": 0.552734375,
+        "max": 0.572265625,
+        "p05": 0.556640625,
+        "p95": 0.568359375,
+        "spatialSD": 0.0032182150695893312,
+        "referenceRMS": 0.0032182161581200686
+      },
+      "pixelMeansSHA256": "bbb291b03dc2c0f67db1c778a0eb89af61a3ed76334729c94ede7772d7637618"
+    },
+    {
+      "name": "off-swapped-distinct-quarter-p977",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5624236022534012,
+          "tailFrames": 24,
+          "tailMean": 0.5624236022534012,
+          "tailTemporalRMS": 0.7577338588306032,
+          "finalMean": 0.5626594387755102,
+          "spatialSD": 0.4960582573975945,
+          "imageSHA256": "261eeaee022cbff263b8359693e67fffa6e89ed6cc477720390012b632d89d10"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5625130789620537,
+          "tailFrames": 64,
+          "tailMean": 0.5625548070790815,
+          "tailTemporalRMS": 0.790546441803628,
+          "finalMean": 0.5617028061224489,
+          "spatialSD": 0.49617815723449127,
+          "imageSHA256": "af92dcaa9556f9873c97bb643b4083550e0f681ae9177ab1148a8cb237672a56"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5624998442980708,
+          "tailFrames": 64,
+          "tailMean": 0.5624850526147961,
+          "tailTemporalRMS": 0.7905960353264485,
+          "finalMean": 0.5622608418367347,
+          "spatialSD": 0.4961084433607043,
+          "imageSHA256": "2d7046b997f1a4f344c539468196ef67b076d35962add27b5edf21bbc7252d5a"
+        }
+      ],
+      "frameMeanRange": [
+        0.5613839285714285,
+        0.5637755102040817
+      ],
+      "frameMeanSD": 0.00042078944007064575,
+      "pixelMeans": {
+        "mean": 0.5624998442980708,
+        "min": 0.55078125,
+        "max": 0.572265625,
+        "p05": 0.556640625,
+        "p95": 0.568359375,
+        "spatialSD": 0.0032308536712009157,
+        "referenceRMS": 0.003230853674952725
+      },
+      "pixelMeansSHA256": "19af4545db2a77dbac024be8b9241e215ca5ec5deeb3f5194c5e9b398c9be5af"
+    },
+    {
+      "name": "off-swapped-distinct-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.25000996492346933,
+          "tailFrames": 24,
+          "tailMean": 0.25000996492346933,
+          "tailTemporalRMS": 0.6637782374151581,
+          "finalMean": 0.2503188775510204,
+          "spatialSD": 0.43319664944758945,
+          "imageSHA256": "bf738be7c843f3c66e17cd935eea747efb70c7a361f5ee87d49f3fff28ae1eaa"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.250007473692602,
+          "tailFrames": 64,
+          "tailMean": 0.250003736846301,
+          "tailTemporalRMS": 0.6926262754287221,
+          "finalMean": 0.24984056122448978,
+          "spatialSD": 0.432920610726172,
+          "imageSHA256": "e0be9d1646d3bc24a122e6f85761fc42f1b9add6b671ede67739fb7d6fe5879a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2500054495675224,
+          "tailFrames": 64,
+          "tailMean": 0.250014947385204,
+          "tailTemporalRMS": 0.6926639891767677,
+          "finalMean": 0.2510363520408163,
+          "spatialSD": 0.4336093887300593,
+          "imageSHA256": "0aab3de763f8ca3acd407b8236f9fecfb20c3b040ff1a9b712df4bd78fbc74ff"
+        }
+      ],
+      "frameMeanRange": [
+        0.2489636479591837,
+        0.2510363520408163
+      ],
+      "frameMeanSD": 0.000383659379602251,
+      "pixelMeans": {
+        "mean": 0.2500054495675223,
+        "min": 0.236328125,
+        "max": 0.263671875,
+        "p05": 0.244140625,
+        "p95": 0.255859375,
+        "spatialSD": 0.004084170880942555,
+        "referenceRMS": 0.004084174516658814
+      },
+      "pixelMeansSHA256": "d247553c3ee81865dd4a9cffbb714a7c722a5d7b9b538fa89dab902fec3b31ba"
+    },
+    {
+      "name": "off-swapped-distinct-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.24996014030612246,
+          "tailFrames": 24,
+          "tailMean": 0.24996014030612246,
+          "tailTemporalRMS": 0.6637591006263446,
+          "finalMean": 0.2496014030612245,
+          "spatialSD": 0.43278232710115677,
+          "imageSHA256": "ef76628daca3af6ffeacf4397d75837a9e9639baab41233332afb93d91b607a0"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2500149473852041,
+          "tailFrames": 64,
+          "tailMean": 0.2500249123086734,
+          "tailTemporalRMS": 0.6926838437116668,
+          "finalMean": 0.24952168367346939,
+          "spatialSD": 0.4327361933675371,
+          "imageSHA256": "aaa384c2425a94366a6d0ea59a96857b106c263f6093cf21c666a225b6b8d69e"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.24999999999999994,
+          "tailFrames": 64,
+          "tailMean": 0.24997757892219383,
+          "tailTemporalRMS": 0.692572307213665,
+          "finalMean": 0.2499202806122449,
+          "spatialSD": 0.43296666609675816,
+          "imageSHA256": "0e1491c4b7bf1810b23a1672f4c3cea0b9f321ee346198941c475ed75ea80dc6"
+        }
+      ],
+      "frameMeanRange": [
+        0.24880420918367346,
+        0.2511160714285714
+      ],
+      "frameMeanSD": 0.00036416308024995434,
+      "pixelMeans": {
+        "mean": 0.25,
+        "min": 0.23828125,
+        "max": 0.26171875,
+        "p05": 0.244140625,
+        "p95": 0.255859375,
+        "spatialSD": 0.00412053501522954,
+        "referenceRMS": 0.00412053501522954
+      },
+      "pixelMeansSHA256": "65723e6f79343560ea7d463d50055672890f7df0b0b75db7dbdc5561415cbe2f"
+    },
+    {
+      "name": "off-swapped-distinct-three-quarter-p0",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.062403672406462586,
+          "tailFrames": 24,
+          "tailMean": 0.062403672406462586,
+          "tailTemporalRMS": 0.3385538081670509,
+          "finalMean": 0.0623405612244898,
+          "spatialSD": 0.2417730664294628,
+          "imageSHA256": "43b332e276495e009c6a59ea0f0c382ec2fca80ad052f4f55f7fdbb280b436b2"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.062493771922831634,
+          "tailFrames": 64,
+          "tailMean": 0.06250871930803571,
+          "tailTemporalRMS": 0.35356329990990165,
+          "finalMean": 0.0628188775510204,
+          "spatialSD": 0.24263690192188472,
+          "imageSHA256": "4480495661de1c420fd32505c93105421fa4de281940d8d51afa49f496e0641c"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.06250093421157522,
+          "tailFrames": 64,
+          "tailMean": 0.06251992984693877,
+          "tailTemporalRMS": 0.353605740809115,
+          "finalMean": 0.06265943877551021,
+          "spatialSD": 0.2423494037703586,
+          "imageSHA256": "03b27145c0be5a0ac965733dd964df4be19ca174a02e7d488617205cfc577459"
+        }
+      ],
+      "frameMeanRange": [
+        0.06178252551020408,
+        0.06329719387755103
+      ],
+      "frameMeanSD": 0.0002942169956111542,
+      "pixelMeans": {
+        "mean": 0.06250093421157525,
+        "min": 0.0546875,
+        "max": 0.072265625,
+        "p05": 0.05859375,
+        "p95": 0.06640625,
+        "spatialSD": 0.0028785866622962693,
+        "referenceRMS": 0.002878586813889976
+      },
+      "pixelMeansSHA256": "66aaf222e533da67c2f1f210d86d0050967248476204b94fe8641b8ca30f971d"
+    },
+    {
+      "name": "off-swapped-distinct-three-quarter-p977",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.06249335671768707,
+          "tailFrames": 24,
+          "tailMean": 0.06249335671768707,
+          "tailTemporalRMS": 0.3387888402444585,
+          "finalMean": 0.062420280612244895,
+          "spatialSD": 0.24191731889332252,
+          "imageSHA256": "557d6a5feee0505a644944f52d1f0d2234d264416e047343e995c4874b81cf87"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.06248380699936225,
+          "tailFrames": 64,
+          "tailMean": 0.06248007015306122,
+          "tailTemporalRMS": 0.3535088723937457,
+          "finalMean": 0.062021683673469385,
+          "spatialSD": 0.24119493035256254,
+          "imageSHA256": "590f7e64a96bde6b228f1eacbb6b414692b79541eb6ba5346129802a7e02c512"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.062502958336655,
+          "tailFrames": 64,
+          "tailMean": 0.062503736846301,
+          "tailTemporalRMS": 0.3535703419684596,
+          "finalMean": 0.0625,
+          "spatialSD": 0.24206145913796356,
+          "imageSHA256": "14fe48f4c552a8bcc0ff2637a678575879a1162fae3d5033eafccb1b719aa57b"
+        }
+      ],
+      "frameMeanRange": [
+        0.06170280612244898,
+        0.06329719387755103
+      ],
+      "frameMeanSD": 0.0002795577300139443,
+      "pixelMeans": {
+        "mean": 0.06250295833665498,
+        "min": 0.0546875,
+        "max": 0.072265625,
+        "p05": 0.05859375,
+        "p95": 0.06640625,
+        "spatialSD": 0.0028679484168857806,
+        "referenceRMS": 0.00286794994267219
+      },
+      "pixelMeansSHA256": "99865a4fbb9dedba8a5b48122b42c6555cc998a2e326cd5b9aaf2b98fbb3e181"
+    },
+    {
+      "name": "off-swapped-distinct-mixed-p0",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.18737377763605442,
+          "tailFrames": 24,
+          "tailMean": 0.18737377763605442,
+          "tailTemporalRMS": 0.5866452198653976,
+          "finalMean": 0.1874202806122449,
+          "spatialSD": 0.3902485349459653,
+          "imageSHA256": "04616d1e3289a25a8a0471a7dc6109ab16fef2aa8434fc8804e3f39157d8b0f8"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.18749314911511483,
+          "tailFrames": 64,
+          "tailMean": 0.187496263153699,
+          "tailTemporalRMS": 0.6123753030042444,
+          "finalMean": 0.1872608418367347,
+          "spatialSD": 0.3901207748266325,
+          "imageSHA256": "b4e56630d293b429d687ae9f907b0cda815006bd4979b0293a397340a4e1b140"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.18750077850964605,
+          "tailFrames": 64,
+          "tailMean": 0.18751868423150514,
+          "tailTemporalRMS": 0.6123997713377701,
+          "finalMean": 0.1878985969387755,
+          "spatialSD": 0.39063117413644177,
+          "imageSHA256": "8bca4a3c78a80ed106dbc6e528fbadffd9ce1cdf20b3806d46f2fa2943a2e7ea"
+        }
+      ],
+      "frameMeanRange": [
+        0.18638392857142858,
+        0.18861607142857142
+      ],
+      "frameMeanSD": 0.0003634286822111112,
+      "pixelMeans": {
+        "mean": 0.18750077850964605,
+        "min": 0.177734375,
+        "max": 0.1953125,
+        "p05": 0.181640625,
+        "p95": 0.19140625,
+        "spatialSD": 0.003037974994772536,
+        "referenceRMS": 0.0030379750945227417
+      },
+      "pixelMeansSHA256": "bc4537e2e39f5a44e6e76c062ed1493451d2fa31307a7f335eda8bbce0c30287"
+    },
+    {
+      "name": "off-swapped-distinct-mixed-p977",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.18747010522959184,
+          "tailFrames": 24,
+          "tailMean": 0.18747010522959184,
+          "tailTemporalRMS": 0.5867944760318681,
+          "finalMean": 0.1875,
+          "spatialSD": 0.3903123748998999,
+          "imageSHA256": "b63de89c77ccdf03b80bfcb2e487256c9d427b1fbbc0a20b7d2054a7a7826a83"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.18750498246173458,
+          "tailFrames": 64,
+          "tailMean": 0.1875124561543367,
+          "tailTemporalRMS": 0.6123925995710312,
+          "finalMean": 0.1872608418367347,
+          "spatialSD": 0.3901207748266325,
+          "imageSHA256": "bc3faea63b6ad6418eefe2a00d60cf10c9cdd045cac3bdc1df0feb1efa3eff0c"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.1875040482501594,
+          "tailFrames": 64,
+          "tailMean": 0.1874875438456634,
+          "tailTemporalRMS": 0.6123540114735523,
+          "finalMean": 0.1875,
+          "spatialSD": 0.3903123748998999,
+          "imageSHA256": "e71458facd3e4a90e95998e5900ae6c41bd3b4d4b7ed822236d5416c38b7db5d"
+        }
+      ],
+      "frameMeanRange": [
+        0.18654336734693877,
+        0.18837691326530615
+      ],
+      "frameMeanSD": 0.0003581603324610685,
+      "pixelMeans": {
+        "mean": 0.18750404825015943,
+        "min": 0.177734375,
+        "max": 0.1953125,
+        "p05": 0.181640625,
+        "p95": 0.19140625,
+        "spatialSD": 0.0030651286582664603,
+        "referenceRMS": 0.003065131331616266
+      },
+      "pixelMeansSHA256": "6d1acd43533e74da8dafee9430b6825a194a9b0ec545dc111ca0d2605249215b"
+    },
+    {
+      "name": "off-reversed-shared-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2500531462585034,
+          "tailFrames": 24,
+          "tailMean": 0.2500531462585034,
+          "tailTemporalRMS": 0.658237720938787,
+          "finalMean": 0.2500797193877551,
+          "spatialSD": 0.43305871811879826,
+          "imageSHA256": "72336a95911b405347c3414938e83522ef195d45c4f6ce688ddbef438bb1729b"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2500510702327805,
+          "tailFrames": 64,
+          "tailMean": 0.2500336316167093,
+          "tailTemporalRMS": 0.6867764922933481,
+          "finalMean": 0.2500797193877551,
+          "spatialSD": 0.43305871811879826,
+          "imageSHA256": "59276e5bd3c700fa3db728816a1b852163002527633e5cd91c5d0dcf20fd8dd2"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2500554298867983,
+          "tailFrames": 64,
+          "tailMean": 0.2500635263871174,
+          "tailTemporalRMS": 0.6868045956284367,
+          "finalMean": 0.25095663265306123,
+          "spatialSD": 0.43356360684505996,
+          "imageSHA256": "bcf76f5bdfac84c7ec0de1d1ea42ca772d6ed458134942334b84038a05a43d33"
+        }
+      ],
+      "frameMeanRange": [
+        0.24856505102040816,
+        0.2515146683673469
+      ],
+      "frameMeanSD": 0.0004935966285138711,
+      "pixelMeans": {
+        "mean": 0.25005542988679846,
+        "min": 0,
+        "max": 0.50390625,
+        "p05": 0.021484375,
+        "p95": 0.474609375,
+        "spatialSD": 0.14478385121188306,
+        "referenceRMS": 0.14478386182243186
+      },
+      "pixelMeansSHA256": "fdbb6456da35cef444546629ab2808a3f055f775c3e525e7fbaf4fc42c4acc31"
+    },
+    {
+      "name": "off-reversed-distinct-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.25000996492346933,
+          "tailFrames": 24,
+          "tailMean": 0.25000996492346933,
+          "tailTemporalRMS": 0.6637782374151581,
+          "finalMean": 0.2503188775510204,
+          "spatialSD": 0.43319664944758945,
+          "imageSHA256": "bf738be7c843f3c66e17cd935eea747efb70c7a361f5ee87d49f3fff28ae1eaa"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.250007473692602,
+          "tailFrames": 64,
+          "tailMean": 0.250003736846301,
+          "tailTemporalRMS": 0.6926262754287221,
+          "finalMean": 0.24984056122448978,
+          "spatialSD": 0.432920610726172,
+          "imageSHA256": "e0be9d1646d3bc24a122e6f85761fc42f1b9add6b671ede67739fb7d6fe5879a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2500054495675224,
+          "tailFrames": 64,
+          "tailMean": 0.250014947385204,
+          "tailTemporalRMS": 0.6926639891767677,
+          "finalMean": 0.2510363520408163,
+          "spatialSD": 0.4336093887300593,
+          "imageSHA256": "0aab3de763f8ca3acd407b8236f9fecfb20c3b040ff1a9b712df4bd78fbc74ff"
+        }
+      ],
+      "frameMeanRange": [
+        0.2489636479591837,
+        0.2510363520408163
+      ],
+      "frameMeanSD": 0.000383659379602251,
+      "pixelMeans": {
+        "mean": 0.2500054495675223,
+        "min": 0.236328125,
+        "max": 0.263671875,
+        "p05": 0.244140625,
+        "p95": 0.255859375,
+        "spatialSD": 0.004084170880942555,
+        "referenceRMS": 0.004084174516658814
+      },
+      "pixelMeansSHA256": "d247553c3ee81865dd4a9cffbb714a7c722a5d7b9b538fa89dab902fec3b31ba"
+    },
+    {
+      "name": "off-merged-negative-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.499963461947279,
+          "tailFrames": 24,
+          "tailMean": 0.499963461947279,
+          "tailTemporalRMS": 0.8376110788463311,
+          "finalMean": 0.4999202806122449,
+          "spatialSD": 0.4999999936448192,
+          "imageSHA256": "380117b2ccaf51c72e81d0dd379e84a96356d43f0773f2099c99f9b81b50635a"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.49999190349968103,
+          "tailFrames": 64,
+          "tailMean": 0.4999887894610971,
+          "tailTemporalRMS": 0.8740335713930696,
+          "finalMean": 0.5,
+          "spatialSD": 0.5,
+          "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.49999922149035386,
+          "tailFrames": 64,
+          "tailMean": 0.5000199298469388,
+          "tailTemporalRMS": 0.8740349902663612,
+          "finalMean": 0.5008769132653061,
+          "spatialSD": 0.4999992310225338,
+          "imageSHA256": "47fb9d7f845ef17359ca41ea96e42d80f5cfad56d1e6af6f9e15cac8d4e1faf1"
+        }
+      ],
+      "frameMeanRange": [
+        0.49904336734693877,
+        0.5008769132653061
+      ],
+      "frameMeanSD": 0.00035384163526352676,
+      "pixelMeans": {
+        "mean": 0.499999221490354,
+        "min": 0.494140625,
+        "max": 0.505859375,
+        "p05": 0.498046875,
+        "p95": 0.501953125,
+        "spatialSD": 0.0017005108001775925,
+        "referenceRMS": 0.2500050049154308
+      },
+      "pixelMeansSHA256": "c8c778a1eb7a1d2a667420cd75bfd8fc26743f2f208211a2d5d6b1bc034f8f07"
+    },
+    {
+      "name": "off-empty-p0",
+      "independentTransmission": 1,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 1,
+          "tailFrames": 24,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 128,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 512,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        }
+      ],
+      "frameMeanRange": [
+        1,
+        1
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 1.0,
+        "min": 1,
+        "max": 1,
+        "p05": 1,
+        "p95": 1,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "off-zero-pair-p0",
+      "independentTransmission": 1,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 1,
+          "tailFrames": 24,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 128,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 512,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        }
+      ],
+      "frameMeanRange": [
+        1,
+        1
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 1.0,
+        "min": 1,
+        "max": 1,
+        "p05": 1,
+        "p95": 1,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "off-opaque-pair-p0",
+      "independentTransmission": 0,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0,
+          "tailFrames": 24,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "9e93f0cb59ae23b2f30da576db2600fe0670596bd6effd152f25dea59eb33385"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0,
+          "tailFrames": 64,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "9e93f0cb59ae23b2f30da576db2600fe0670596bd6effd152f25dea59eb33385"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0,
+          "tailFrames": 64,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "9e93f0cb59ae23b2f30da576db2600fe0670596bd6effd152f25dea59eb33385"
+        }
+      ],
+      "frameMeanRange": [
+        0,
+        0
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 0.0,
+        "min": 0,
+        "max": 0,
+        "p05": 0,
+        "p95": 0,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "c7ed01f07cdc4b4dcc076f195492aa8e5c1807b4aaa7ed597c0ccb77981f9a04"
+    },
+    {
+      "name": "off-front-body-p0",
+      "independentTransmission": 1,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 1,
+          "tailFrames": 24,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 128,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 512,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        }
+      ],
+      "frameMeanRange": [
+        1,
+        1
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 1.0,
+        "min": 1,
+        "max": 1,
+        "p05": 1,
+        "p95": 1,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "off-single-half-p0",
+      "independentTransmission": 0.5,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.499963461947279,
+          "tailFrames": 24,
+          "tailMean": 0.499963461947279,
+          "tailTemporalRMS": 0.8376110788463311,
+          "finalMean": 0.4999202806122449,
+          "spatialSD": 0.4999999936448192,
+          "imageSHA256": "380117b2ccaf51c72e81d0dd379e84a96356d43f0773f2099c99f9b81b50635a"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.49999190349968103,
+          "tailFrames": 64,
+          "tailMean": 0.4999887894610971,
+          "tailTemporalRMS": 0.8740335713930696,
+          "finalMean": 0.5,
+          "spatialSD": 0.5,
+          "imageSHA256": "2985e45fc5a0cf9bdc8339f8234d757d62d08a987b5cb1323e1e48d89eac5cad"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.49999922149035386,
+          "tailFrames": 64,
+          "tailMean": 0.5000199298469388,
+          "tailTemporalRMS": 0.8740349902663612,
+          "finalMean": 0.5008769132653061,
+          "spatialSD": 0.4999992310225338,
+          "imageSHA256": "47fb9d7f845ef17359ca41ea96e42d80f5cfad56d1e6af6f9e15cac8d4e1faf1"
+        }
+      ],
+      "frameMeanRange": [
+        0.49904336734693877,
+        0.5008769132653061
+      ],
+      "frameMeanSD": 0.00035384163526352676,
+      "pixelMeans": {
+        "mean": 0.499999221490354,
+        "min": 0.494140625,
+        "max": 0.505859375,
+        "p05": 0.498046875,
+        "p95": 0.501953125,
+        "spatialSD": 0.0017005108001775925,
+        "referenceRMS": 0.0017005109783820582
+      },
+      "pixelMeansSHA256": "c8c778a1eb7a1d2a667420cd75bfd8fc26743f2f208211a2d5d6b1bc034f8f07"
+    },
+    {
+      "name": "off-blend-quarter-p0",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5607843137254901,
+          "tailFrames": 24,
+          "tailMean": 0.5607843137254901,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.5607843137254902,
+          "spatialSD": 0,
+          "imageSHA256": "0ec303d168241b2dc9523c5a8449091d99f75940d99fc17d52d3d5dd79ebc960"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5607843137254913,
+          "tailFrames": 64,
+          "tailMean": 0.560784313725491,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.5607843137254902,
+          "spatialSD": 0,
+          "imageSHA256": "0ec303d168241b2dc9523c5a8449091d99f75940d99fc17d52d3d5dd79ebc960"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5607843137254916,
+          "tailFrames": 64,
+          "tailMean": 0.560784313725491,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.5607843137254902,
+          "spatialSD": 0,
+          "imageSHA256": "0ec303d168241b2dc9523c5a8449091d99f75940d99fc17d52d3d5dd79ebc960"
+        }
+      ],
+      "frameMeanRange": [
+        0.5607843137254902,
+        0.5607843137254902
+      ],
+      "frameMeanSD": 1.4432899320127035e-15,
+      "pixelMeans": {
+        "mean": 0.5607843137254916,
+        "min": 0.5607843137254916,
+        "max": 0.5607843137254916,
+        "p05": 0.5607843137254916,
+        "p95": 0.5607843137254916,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0017156862745083545
+      },
+      "pixelMeansSHA256": "885273f9d50ab2f50de216432967a030f25a496edb2f1b6cb094bb278878d87f"
+    },
+    {
+      "name": "off-blend-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.25098039215686274,
+          "tailFrames": 24,
+          "tailMean": 0.25098039215686274,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "c01bd211f61ed71eb620f715c7d49c24fdbcc781a187b1faee3623ea01b8fd37"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2509803921568621,
+          "tailFrames": 64,
+          "tailMean": 0.2509803921568623,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "c01bd211f61ed71eb620f715c7d49c24fdbcc781a187b1faee3623ea01b8fd37"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2509803921568619,
+          "tailFrames": 64,
+          "tailMean": 0.2509803921568623,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "c01bd211f61ed71eb620f715c7d49c24fdbcc781a187b1faee3623ea01b8fd37"
+        }
+      ],
+      "frameMeanRange": [
+        0.25098039215686274,
+        0.25098039215686274
+      ],
+      "frameMeanSD": 8.326672684688674e-16,
+      "pixelMeans": {
+        "mean": 0.2509803921568619,
+        "min": 0.2509803921568619,
+        "max": 0.2509803921568619,
+        "p05": 0.2509803921568619,
+        "p95": 0.2509803921568619,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.000980392156861909
+      },
+      "pixelMeansSHA256": "81b9f2a4e1af5b3c858c1137a8b63bfac3ee4f5912499dfe1411b471194a9ba2"
+    },
+    {
+      "name": "off-blend-three-quarter-p0",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.06274509803921569,
+          "tailFrames": 24,
+          "tailMean": 0.06274509803921569,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.06274509803921569,
+          "spatialSD": 0,
+          "imageSHA256": "a7aa5b5bf817c591fb2ceb71c8652c4a515f4edd61ae0e5a7edaf224b3e8a197"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.06274509803921552,
+          "tailFrames": 64,
+          "tailMean": 0.06274509803921557,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.06274509803921569,
+          "spatialSD": 0,
+          "imageSHA256": "a7aa5b5bf817c591fb2ceb71c8652c4a515f4edd61ae0e5a7edaf224b3e8a197"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.06274509803921548,
+          "tailFrames": 64,
+          "tailMean": 0.06274509803921557,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.06274509803921569,
+          "spatialSD": 0,
+          "imageSHA256": "a7aa5b5bf817c591fb2ceb71c8652c4a515f4edd61ae0e5a7edaf224b3e8a197"
+        }
+      ],
+      "frameMeanRange": [
+        0.06274509803921569,
+        0.06274509803921569
+      ],
+      "frameMeanSD": 2.0816681711721685e-16,
+      "pixelMeans": {
+        "mean": 0.06274509803921548,
+        "min": 0.06274509803921548,
+        "max": 0.06274509803921548,
+        "p05": 0.06274509803921548,
+        "p95": 0.06274509803921548,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.00024509803921547724
+      },
+      "pixelMeansSHA256": "c782fe93706d1c758e8d8859f40a8880845239d98b64f4db7be63c12fbf9bcff"
+    },
+    {
+      "name": "off-blend-mixed-p0",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.18823529411764717,
+          "tailFrames": 24,
+          "tailMean": 0.18823529411764717,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.18823529411764706,
+          "spatialSD": 0,
+          "imageSHA256": "6fcba77889aedd3733763b57acbec50165e3448401823d964a6c3f26853d6b88"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.18823529411764667,
+          "tailFrames": 64,
+          "tailMean": 0.18823529411764695,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.18823529411764706,
+          "spatialSD": 0,
+          "imageSHA256": "6fcba77889aedd3733763b57acbec50165e3448401823d964a6c3f26853d6b88"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.18823529411764647,
+          "tailFrames": 64,
+          "tailMean": 0.18823529411764695,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.18823529411764706,
+          "spatialSD": 0,
+          "imageSHA256": "6fcba77889aedd3733763b57acbec50165e3448401823d964a6c3f26853d6b88"
+        }
+      ],
+      "frameMeanRange": [
+        0.18823529411764706,
+        0.18823529411764706
+      ],
+      "frameMeanSD": 5.828670879282072e-16,
+      "pixelMeans": {
+        "mean": 0.18823529411764647,
+        "min": 0.18823529411764647,
+        "max": 0.18823529411764647,
+        "p05": 0.18823529411764647,
+        "p95": 0.18823529411764647,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0007352941176464733
+      },
+      "pixelMeansSHA256": "582b04bdd603c16a232d85c7a51f200b36246e007a8c2215b79acedbb4def935"
+    },
+    {
+      "name": "taau-shared-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.4934093689559156,
+          "tailFrames": 24,
+          "tailMean": 0.4934093689559156,
+          "tailTemporalRMS": 0.026974672117520446,
+          "finalMean": 0.4892979066626651,
+          "spatialSD": 0.013709357564498804,
+          "imageSHA256": "a336b4e486a5fa84c78f6d46407c7bd40e80ba7c72c1af11bab761887caa4e77"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.4854659002272786,
+          "tailFrames": 64,
+          "tailMean": 0.48228643996661186,
+          "tailTemporalRMS": 0.007968488686388142,
+          "finalMean": 0.4816292141856743,
+          "spatialSD": 0.008436978005936357,
+          "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.48234311119467305,
+          "tailFrames": 64,
+          "tailMean": 0.48126948533319597,
+          "tailTemporalRMS": 0.00798661505477123,
+          "finalMean": 0.48125093787515005,
+          "spatialSD": 0.008703106812746763,
+          "imageSHA256": "0968feb4a77487a822c11503fa91b299cc14446ebdc0d6d04b0c09ce083a9a77"
+        }
+      ],
+      "frameMeanRange": [
+        0.48114620848339335,
+        0.499313475390156
+      ],
+      "frameMeanSD": 0.0028502642130488454,
+      "pixelMeans": {
+        "mean": 0.4823431111946727,
+        "min": 0.47591145833333226,
+        "max": 0.4911075367647061,
+        "p05": 0.47844669117647026,
+        "p95": 0.48616727941176435,
+        "spatialSD": 0.002227864430669506,
+        "referenceRMS": 0.23235379209201962
+      },
+      "pixelMeansSHA256": "ba50192cca0adc41cd0536018c9c5e8e5d3454de6253a0adc3eb6265ca4cccb8"
+    },
+    {
+      "name": "taau-shared-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.4942913363261972,
+          "tailFrames": 24,
+          "tailMean": 0.4942913363261972,
+          "tailTemporalRMS": 0.02696679313818386,
+          "finalMean": 0.48983687224889955,
+          "spatialSD": 0.013757062704641361,
+          "imageSHA256": "4a6b10347fad10098dcd85cdc7d7e83c2ccc88beb1ff7a9802c4a76f413b4e2f"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.48575844888736747,
+          "tailFrames": 64,
+          "tailMean": 0.4823537569324605,
+          "tailTemporalRMS": 0.007964310537782003,
+          "finalMean": 0.48169830432172867,
+          "spatialSD": 0.008457056187313298,
+          "imageSHA256": "403df1ffd9dc33c5b0e48386c25b7c72e8f7df59b65fc61132aac28f407be4cf"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.48241619401666974,
+          "tailFrames": 64,
+          "tailMean": 0.48127487323054213,
+          "tailTemporalRMS": 0.00799021827312296,
+          "finalMean": 0.48128032462985193,
+          "spatialSD": 0.008696492399138065,
+          "imageSHA256": "5d9bd758d1dfba299dd4f86173868ecd980cc9d84ae4ced0281f06ef9e990041"
+        }
+      ],
+      "frameMeanRange": [
+        0.48115246098439374,
+        0.5005083283313325
+      ],
+      "frameMeanSD": 0.003053796633300863,
+      "pixelMeans": {
+        "mean": 0.4824161940166687,
+        "min": 0.47564338235294085,
+        "max": 0.4917738970588238,
+        "p05": 0.478492647058823,
+        "p95": 0.48623621323529354,
+        "spatialSD": 0.00222314295165314,
+        "referenceRMS": 0.2324268263470834
+      },
+      "pixelMeansSHA256": "cb2f8a3fd214eccb2a64fba28a882f3ec2baf8bb7675153a3cf0ea3dc9396da2"
+    },
+    {
+      "name": "taau-temporal-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.09560666714602507,
+          "tailFrames": 24,
+          "tailMean": 0.09560666714602507,
+          "tailTemporalRMS": 0.04964795549788872,
+          "finalMean": 0.01914484543817527,
+          "spatialSD": 0.014105045537152947,
+          "imageSHA256": "2f42b7dfeb3c557d4a70fb338802ef19f377f6084f478021562433df038a2c9c"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.04448344279117897,
+          "tailFrames": 64,
+          "tailMean": 0.03225576851834484,
+          "tailTemporalRMS": 0.016810985572955784,
+          "finalMean": 0.02862238645458183,
+          "spatialSD": 0.014092071095884959,
+          "imageSHA256": "46352e4272fd85947c098cf14efc1e374c4eb8f3ebaab5690d9f03b0c39ea2e3"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.03506689296812473,
+          "tailFrames": 64,
+          "tailMean": 0.029850929629664364,
+          "tailTemporalRMS": 0.015664208462296363,
+          "finalMean": 0.03500118797519008,
+          "spatialSD": 0.01242207943931417,
+          "imageSHA256": "539da4d4831e0ff6db736f551ac9d66bd283368ddf8f076cbbaa86d245a98ffd"
+        }
+      ],
+      "frameMeanRange": [
+        0.0006202480992396959,
+        0.2954863195278111
+      ],
+      "frameMeanSD": 0.026100458021828303,
+      "pixelMeans": {
+        "mean": 0.03506689296812465,
+        "min": 0.027772671568627373,
+        "max": 0.04309895833333321,
+        "p05": 0.031089154411764613,
+        "p95": 0.03914675245098028,
+        "spatialSD": 0.002425115508134727,
+        "referenceRMS": 0.21494678802811495
+      },
+      "pixelMeansSHA256": "7b35c45d96c7c2a22fad81c4f8c3af78ec0a58c4402a7e2f3ea25290a2c19460"
+    },
+    {
+      "name": "taau-temporal-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.0578585210125717,
+          "tailFrames": 24,
+          "tailMean": 0.0578585210125717,
+          "tailTemporalRMS": 0.034365020579198206,
+          "finalMean": 0.06301989545818328,
+          "spatialSD": 0.024087432251251005,
+          "imageSHA256": "0f0a855c6143f0fcd6db2817b7c3ec43ffde5003bed8b9273bb63bc826ac8591"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.0374889653126876,
+          "tailFrames": 64,
+          "tailMean": 0.03489196459833933,
+          "tailTemporalRMS": 0.01630968043158089,
+          "finalMean": 0.06383397108843537,
+          "spatialSD": 0.021028523892809767,
+          "imageSHA256": "c4c8c38598630bc5259fa7a8525d81c5ada08c77da6ce2195a8a385aebdfae72"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.03377837218871923,
+          "tailFrames": 64,
+          "tailMean": 0.03179575052677321,
+          "tailTemporalRMS": 0.016816489261225087,
+          "finalMean": 0.0038071478591436576,
+          "spatialSD": 0.011508018715907113,
+          "imageSHA256": "8c239984a75c068d176003324f2ee799fb46adb19b544a679a31db9393156ea2"
+        }
+      ],
+      "frameMeanRange": [
+        0.00039015606242497,
+        0.16354354241696678
+      ],
+      "frameMeanSD": 0.01730246673097458,
+      "pixelMeans": {
+        "mean": 0.03377837218871914,
+        "min": 0.028484987745097955,
+        "max": 0.04044883578431361,
+        "p05": 0.03115808823529402,
+        "p95": 0.03686427696078421,
+        "spatialSD": 0.0017317640297690399,
+        "referenceRMS": 0.21622856272938334
+      },
+      "pixelMeansSHA256": "2d3a9e11de1e5ffeeb0287e96e5f4363e05a8a250c49214d26b6af076351f3ff"
+    },
+    {
+      "name": "taau-swapped-shared-quarter-p0",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5522749203848205,
+          "tailFrames": 24,
+          "tailMean": 0.5522749203848205,
+          "tailTemporalRMS": 0.032919786313988064,
+          "finalMean": 0.5468784388755502,
+          "spatialSD": 0.021972493999314523,
+          "imageSHA256": "cfc07365ef561cea0e4f3d2198918ee5b69090c4768e0e7fb493df905fc19759"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5408139036864748,
+          "tailFrames": 64,
+          "tailMean": 0.5360720020430046,
+          "tailTemporalRMS": 0.00931263859884676,
+          "finalMean": 0.5351281137454982,
+          "spatialSD": 0.010354413005421451,
+          "imageSHA256": "f9813a8dee139d4196a72da858ccba94508c61af4093590fc66bef9a483745cf"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.53601642622381,
+          "tailFrames": 64,
+          "tailMean": 0.5343168957035939,
+          "tailTemporalRMS": 0.009288054556885248,
+          "finalMean": 0.5343603066226491,
+          "spatialSD": 0.009939459890609226,
+          "imageSHA256": "6601bb90c64fe50c0a3b81b367082e4eae74a12535caac7967445ba89f94c2b5"
+        }
+      ],
+      "frameMeanRange": [
+        0.5340830082032814,
+        0.5586981667667067
+      ],
+      "frameMeanSD": 0.004232400671729029,
+      "pixelMeans": {
+        "mean": 0.5360164262238097,
+        "min": 0.5193933823529411,
+        "max": 0.5572074142156881,
+        "p05": 0.5264399509803921,
+        "p95": 0.5446231617647056,
+        "spatialSD": 0.005551628459432641,
+        "referenceRMS": 0.02705919914761884
+      },
+      "pixelMeansSHA256": "c33651215d23622f0b60a0656ae771bec7678380473a1b98aa52d65a45dc6cc6"
+    },
+    {
+      "name": "taau-swapped-shared-quarter-p977",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5553323673219288,
+          "tailFrames": 24,
+          "tailMean": 0.5553323673219288,
+          "tailTemporalRMS": 0.032911325997284586,
+          "finalMean": 0.548922381452581,
+          "spatialSD": 0.021630645218723977,
+          "imageSHA256": "892c3a66b44644e36185cf98908e0dd8559cfcb0fe81b953ced788d7702e686b"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5418487561040043,
+          "tailFrames": 64,
+          "tailMean": 0.5362580725649636,
+          "tailTemporalRMS": 0.009316785803747176,
+          "finalMean": 0.5351127951180472,
+          "spatialSD": 0.010419075139843583,
+          "imageSHA256": "17328e35d1fe9c124f0f1b040ed83cf00fdc2d8220c4b1c040123c00f2f24d72"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5362894046778871,
+          "tailFrames": 64,
+          "tailMean": 0.5342937614498923,
+          "tailTemporalRMS": 0.009287141692257844,
+          "finalMean": 0.5344716011404562,
+          "spatialSD": 0.009945097579345294,
+          "imageSHA256": "45ebc88c23f784a49ea54624427be08bd33eb6f26560fca516b0a8c2f080fd03"
+        }
+      ],
+      "frameMeanRange": [
+        0.5340411164465787,
+        0.5630280237094838
+      ],
+      "frameMeanSD": 0.004949180284636854,
+      "pixelMeans": {
+        "mean": 0.5362894046778867,
+        "min": 0.5205346200980389,
+        "max": 0.5543428308823536,
+        "p05": 0.5268305759803926,
+        "p95": 0.544891237745098,
+        "spatialSD": 0.0055193273542327274,
+        "referenceRMS": 0.02678541173069347
+      },
+      "pixelMeansSHA256": "0751c39651f2e3e21bf3f07ae071e09d21a13d5786860f3fa34140547c3227d1"
+    },
+    {
+      "name": "taau-swapped-shared-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.19037691899676537,
+          "tailFrames": 24,
+          "tailMean": 0.19037691899676537,
+          "tailTemporalRMS": 0.0493084493944971,
+          "finalMean": 0.15810292867146858,
+          "spatialSD": 0.054108755644637456,
+          "imageSHA256": "37a079e2dca27f36798c7da32951692d171331a3fb2b536c8512fe8d2de4280e"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14282215083298944,
+          "tailFrames": 64,
+          "tailMean": 0.1269646628182523,
+          "tailTemporalRMS": 0.02470401120148772,
+          "finalMean": 0.12580532212885157,
+          "spatialSD": 0.048494625286404074,
+          "imageSHA256": "791ec62323fa3036927ee68a5c74f9ad59cdd6cf7363889038946446806ec18a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.1302161898695026,
+          "tailFrames": 64,
+          "tailMean": 0.12568442904505553,
+          "tailTemporalRMS": 0.024480835835270907,
+          "finalMean": 0.1258828531412565,
+          "spatialSD": 0.04806195205301093,
+          "imageSHA256": "a627ae9542afb269ae5f6fb7946ea982ebfe7575868a6044092ce00cdd5ae4c9"
+        }
+      ],
+      "frameMeanRange": [
+        0.1244891706682673,
+        0.2473170518207283
+      ],
+      "frameMeanSD": 0.015052784965172988,
+      "pixelMeans": {
+        "mean": 0.13021618986950292,
+        "min": 0.05467984068627435,
+        "max": 0.2282858455882358,
+        "p05": 0.0724417892156863,
+        "p95": 0.20350030637254954,
+        "spatialSD": 0.04044446027290005,
+        "referenceRMS": 0.12642751099402838
+      },
+      "pixelMeansSHA256": "ae7ca08d323c2ff54b231fe6b06895be7766d93f246427939bf6369894e6de8b"
+    },
+    {
+      "name": "taau-swapped-shared-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.19458390126884087,
+          "tailFrames": 24,
+          "tailMean": 0.19458390126884087,
+          "tailTemporalRMS": 0.04994007986429542,
+          "finalMean": 0.16042510754301723,
+          "spatialSD": 0.05432819589465462,
+          "imageSHA256": "2a495dff8349d40edb9454193a14251908982c62294560a0ecaf069383fc1020"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14379826393448003,
+          "tailFrames": 64,
+          "tailMean": 0.12750998837034816,
+          "tailTemporalRMS": 0.024677240990995455,
+          "finalMean": 0.126203293817527,
+          "spatialSD": 0.048944372826267415,
+          "imageSHA256": "b428a2432142c0cdd043311ada89063e9ebd1bf5aabfa336bd0abdfc20c136d9"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.13049063436409722,
+          "tailFrames": 64,
+          "tailMean": 0.12554728922819128,
+          "tailTemporalRMS": 0.024519770699469364,
+          "finalMean": 0.12575874099639855,
+          "spatialSD": 0.04742988173418374,
+          "imageSHA256": "d7e39f462ad0a6a1187c3adc7fd6a8099cebd53bda28a146fdc21764c4b3b896"
+        }
+      ],
+      "frameMeanRange": [
+        0.1238107743097239,
+        0.2515574979991997
+      ],
+      "frameMeanSD": 0.01590717835695755,
+      "pixelMeans": {
+        "mean": 0.13049063436409764,
+        "min": 0.052910539215686114,
+        "max": 0.22589613970588296,
+        "p05": 0.07273284313725487,
+        "p95": 0.20301776960784365,
+        "spatialSD": 0.04021564981764176,
+        "referenceRMS": 0.12609435738743818
+      },
+      "pixelMeansSHA256": "b3c1246cad71977fc9b505edec8ebdfabdaab77e875aaddd26d01e10c2f7d292"
+    },
+    {
+      "name": "taau-swapped-shared-three-quarter-p0",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.005974394966319861,
+          "tailFrames": 24,
+          "tailMean": 0.005974394966319861,
+          "tailTemporalRMS": 0.014696474307397121,
+          "finalMean": 0.0023725115046018407,
+          "spatialSD": 0.00446201644950977,
+          "imageSHA256": "1bf4b423a58575d459eb4093296134547be5e7083267b085626a0048cc7341c7"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.002971305709783914,
+          "tailFrames": 64,
+          "tailMean": 0.002280296884378751,
+          "tailTemporalRMS": 0.005274439253164286,
+          "finalMean": 0.0024409763905562224,
+          "spatialSD": 0.004474115663004143,
+          "imageSHA256": "68b81bc0a9daa6eb63fe636711608cce2253f0e0009ab918fd5e294f71a90991"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.002444190566851741,
+          "tailFrames": 64,
+          "tailMean": 0.002285548008265806,
+          "tailTemporalRMS": 0.005260917366133152,
+          "finalMean": 0.0028264430772308924,
+          "spatialSD": 0.004891290241395308,
+          "imageSHA256": "1c3b8ee35e6720962e6d081c133ff7b645881298293a8f3b6ec6019d179b38be"
+        }
+      ],
+      "frameMeanRange": [
+        0.0018991971788715487,
+        0.06034163665466187
+      ],
+      "frameMeanSD": 0.0027609064140567737,
+      "pixelMeans": {
+        "mean": 0.0024441905668517354,
+        "min": 0.0005821078431372544,
+        "max": 0.007827818627450966,
+        "p05": 0.0009037990196078423,
+        "p95": 0.004656862745098028,
+        "spatialSD": 0.0012770238123033305,
+        "referenceRMS": 0.06006938518486609
+      },
+      "pixelMeansSHA256": "981204d492dfe74e71fc61897de94884b8805fca6bda8c8741318473455dfbd5"
+    },
+    {
+      "name": "taau-swapped-shared-three-quarter-p977",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.006255692381119115,
+          "tailFrames": 24,
+          "tailMean": 0.006255692381119115,
+          "tailTemporalRMS": 0.015074439107716915,
+          "finalMean": 0.0024281587635054023,
+          "spatialSD": 0.0045255958035138755,
+          "imageSHA256": "9d9f4ce0335c15a0035b1582d94b032db53120f16baaf7924152a1bcc0a7fb86"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.00301824098780137,
+          "tailFrames": 64,
+          "tailMean": 0.0022784699817426975,
+          "tailTemporalRMS": 0.005271654811453675,
+          "finalMean": 0.002526635654261705,
+          "spatialSD": 0.00455704711182691,
+          "imageSHA256": "f272bee9a0df1c16d5769faa5f67954435ca9481a52d95704c737e1528988fcb"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.0024562199147237,
+          "tailFrames": 64,
+          "tailMean": 0.0022930363551670672,
+          "tailTemporalRMS": 0.005267571762233346,
+          "finalMean": 0.002808310824329732,
+          "spatialSD": 0.004936614788807784,
+          "imageSHA256": "e6eff4dfedcd34a89eafa9d656b33b1be243a711e8b157d90070ebfbe6a2b9b2"
+        }
+      ],
+      "frameMeanRange": [
+        0.0019007603041216487,
+        0.06302583533413365
+      ],
+      "frameMeanSD": 0.002904841238750368,
+      "pixelMeans": {
+        "mean": 0.0024562199147236965,
+        "min": 0.0006050857843137249,
+        "max": 0.0080346200980392,
+        "p05": 0.0009037990196078424,
+        "p95": 0.004664522058823521,
+        "spatialSD": 0.0012857040326836506,
+        "referenceRMS": 0.06005754375420862
+      },
+      "pixelMeansSHA256": "979f17fa5168ee153b236a877290f6e9ca22754e71f69310f6e48b09868c5c60"
+    },
+    {
+      "name": "taau-swapped-shared-mixed-p0",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.10337791366546617,
+          "tailFrames": 24,
+          "tailMean": 0.10337791366546617,
+          "tailTemporalRMS": 0.04515154071455057,
+          "finalMean": 0.06534332482993198,
+          "spatialSD": 0.03662542921406388,
+          "imageSHA256": "f3b527c40b61fb99a91453403704c3d265cf05839f5073fd7d2c8b3281d63be9"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.061399481667667045,
+          "tailFrames": 64,
+          "tailMean": 0.05028791790153563,
+          "tailTemporalRMS": 0.018351166951315858,
+          "finalMean": 0.04952668567426971,
+          "spatialSD": 0.027071697618059044,
+          "imageSHA256": "5cd511b00217edd5ef7c86bbdba52fa3f376131165eab83108f76244c9140513"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.05275118714477977,
+          "tailFrames": 64,
+          "tailMean": 0.05001241219143908,
+          "tailTemporalRMS": 0.01826240170451097,
+          "finalMean": 0.05028698979591836,
+          "spatialSD": 0.02617431745116613,
+          "imageSHA256": "a12651b3dcc92b632cd2be78c5dccb4e7d34de8717b719874adce277f3496ad0"
+        }
+      ],
+      "frameMeanRange": [
+        0.04846032162865146,
+        0.18507715586234494
+      ],
+      "frameMeanSD": 0.013513315508509594,
+      "pixelMeans": {
+        "mean": 0.0527511871447797,
+        "min": 0.020925245098039155,
+        "max": 0.08957567401960814,
+        "p05": 0.028010110294117565,
+        "p95": 0.07971813725490212,
+        "spatialSD": 0.015762725692545308,
+        "referenceRMS": 0.13566763094839393
+      },
+      "pixelMeansSHA256": "27b205688361d611c6a6cf3878d1ef3f52be7bddcaf13d0959526db99f092a06"
+    },
+    {
+      "name": "taau-swapped-shared-mixed-p977",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.1052978352799453,
+          "tailFrames": 24,
+          "tailMean": 0.1052978352799453,
+          "tailTemporalRMS": 0.045848426909896156,
+          "finalMean": 0.06578506402561025,
+          "spatialSD": 0.03610292130328869,
+          "imageSHA256": "67b0675ebb10b13108700f1001741d37adc79f5da7537eeaf7d0e3371b511e0c"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.06173575631424444,
+          "tailFrames": 64,
+          "tailMean": 0.05027112895939626,
+          "tailTemporalRMS": 0.018332401952134363,
+          "finalMean": 0.04959327480992397,
+          "spatialSD": 0.026879072555972664,
+          "imageSHA256": "dee7dc0ef2f6974d19ecc17f643cc5562cd874756ec472f9ad6a6d3ebd42d525"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.052868818425807845,
+          "tailFrames": 64,
+          "tailMean": 0.050034823499712354,
+          "tailTemporalRMS": 0.018258076105575945,
+          "finalMean": 0.050677145858343334,
+          "spatialSD": 0.025994804115253352,
+          "imageSHA256": "5560b80e10ed64cdafab9d79dced95a79967c3d049321befdc99a7bc70ecaa4f"
+        }
+      ],
+      "frameMeanRange": [
+        0.048231167466986795,
+        0.1882890656262505
+      ],
+      "frameMeanSD": 0.014048097700814955,
+      "pixelMeans": {
+        "mean": 0.052868818425807734,
+        "min": 0.02177542892156856,
+        "max": 0.0912990196078434,
+        "p05": 0.02799479166666658,
+        "p95": 0.07987132352941193,
+        "spatialSD": 0.015736818494278486,
+        "referenceRMS": 0.13554778680740232
+      },
+      "pixelMeansSHA256": "387b5de721d9a12ccf54f6dfcd13f96902b20048e7199d0a10d0eccf51665b40"
+    },
+    {
+      "name": "taau-swapped-distinct-quarter-p0",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5531518466761706,
+          "tailFrames": 24,
+          "tailMean": 0.5531518466761706,
+          "tailTemporalRMS": 0.033995457007453905,
+          "finalMean": 0.5474592962184873,
+          "spatialSD": 0.020294269385743094,
+          "imageSHA256": "2de0d56e2d7517a63e52bd562359e32d68e76a109367488576871e47943ff5d9"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5411550240213275,
+          "tailFrames": 64,
+          "tailMean": 0.5361534213294692,
+          "tailTemporalRMS": 0.00970297875321003,
+          "finalMean": 0.5350199454781912,
+          "spatialSD": 0.013801856841358338,
+          "imageSHA256": "9762a934955216508ea531c3b4caf66bbe1810446aacaf2b49a801e3f6daca55"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5361542346430764,
+          "tailFrames": 64,
+          "tailMean": 0.5344165644773534,
+          "tailTemporalRMS": 0.009726187973289807,
+          "finalMean": 0.5344519057623048,
+          "spatialSD": 0.014202892026711137,
+          "imageSHA256": "316e9be72a83999c8b2c7b7b2aa34fe187806e7b65488c44cad0c03744033590"
+        }
+      ],
+      "frameMeanRange": [
+        0.5342402586034414,
+        0.560452618547419
+      ],
+      "frameMeanSD": 0.004423723102636984,
+      "pixelMeans": {
+        "mean": 0.5361542346430761,
+        "min": 0.5245940563725487,
+        "max": 0.5537913602941181,
+        "p05": 0.5294806985294116,
+        "p95": 0.5429304534313729,
+        "spatialSD": 0.004175327524412667,
+        "referenceRMS": 0.026674570515346798
+      },
+      "pixelMeansSHA256": "2bf97f70352e311c1e4ad3fb916054a082d1080ec241ad437ce9b5fb3e7e564f"
+    },
+    {
+      "name": "taau-swapped-distinct-quarter-p977",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5555838481225824,
+          "tailFrames": 24,
+          "tailMean": 0.5555838481225824,
+          "tailTemporalRMS": 0.033764233724297876,
+          "finalMean": 0.5490665016006402,
+          "spatialSD": 0.02065951565050553,
+          "imageSHA256": "7f525c07ede9ace1de6017040d3723e9cc60a01fd12ba31220c6ca54724483bb"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5420687610981892,
+          "tailFrames": 64,
+          "tailMean": 0.5364338606536365,
+          "tailTemporalRMS": 0.009714240523662852,
+          "finalMean": 0.5351509353741497,
+          "spatialSD": 0.013802327272754362,
+          "imageSHA256": "500686b7406da80143d2a93470cc938a6dddb4e4923de2070db28008f6313812"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5363962864198422,
+          "tailFrames": 64,
+          "tailMean": 0.5344121339942227,
+          "tailTemporalRMS": 0.009724450571131027,
+          "finalMean": 0.5344506552621049,
+          "spatialSD": 0.014207305725136678,
+          "imageSHA256": "e31992e202d9567aecdcaa2bd9992a1a38ecaeb7d6718930b748048b9a6c1568"
+        }
+      ],
+      "frameMeanRange": [
+        0.5342696453581433,
+        0.5636601515606242
+      ],
+      "frameMeanSD": 0.004998763036476201,
+      "pixelMeans": {
+        "mean": 0.5363962864198415,
+        "min": 0.5243489583333333,
+        "max": 0.5547028186274517,
+        "p05": 0.5297411151960794,
+        "p95": 0.543137254901961,
+        "spatialSD": 0.004190169981667339,
+        "referenceRMS": 0.026437877886665125
+      },
+      "pixelMeansSHA256": "cc7bce46840d2f4f68328e0355188d0e0def82c4fd7784b7c84e274976831f57"
+    },
+    {
+      "name": "taau-swapped-distinct-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2022288733201613,
+          "tailFrames": 24,
+          "tailMean": 0.2022288733201613,
+          "tailTemporalRMS": 0.05350301171961333,
+          "finalMean": 0.16076743197278912,
+          "spatialSD": 0.05306318852371288,
+          "imageSHA256": "d1126cef7a37f555e3904a0c062d49836342a790876c01b0e5924521ba24003e"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14028543790563103,
+          "tailFrames": 64,
+          "tailMean": 0.1202724449154662,
+          "tailTemporalRMS": 0.02689240869083833,
+          "finalMean": 0.11821447328931574,
+          "spatialSD": 0.04269966792529802,
+          "imageSHA256": "abda7c47d3bb32090d4c14c2060f16f7c5212a8d0aa4c8a1226fbca73df9970a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.12399602663330961,
+          "tailFrames": 64,
+          "tailMean": 0.11874926728503901,
+          "tailTemporalRMS": 0.026708394009081426,
+          "finalMean": 0.11948373099239695,
+          "spatialSD": 0.043275319889109654,
+          "imageSHA256": "e917eb3fd0e38c67032b82c4d41a01161e030ce812a33207e7e94434d6d86428"
+        }
+      ],
+      "frameMeanRange": [
+        0.11622961684673869,
+        0.24794480292116847
+      ],
+      "frameMeanSD": 0.019030767949138924,
+      "pixelMeans": {
+        "mean": 0.12399602663331008,
+        "min": 0.10470281862745129,
+        "max": 0.1451746323529416,
+        "p05": 0.11299019607843178,
+        "p95": 0.13607536764705935,
+        "spatialSD": 0.007265434470480746,
+        "referenceRMS": 0.12621326333725133
+      },
+      "pixelMeansSHA256": "0135345b01952d71cc6364fc9945d89d4832d1f75d4c5019c651ab614792dc69"
+    },
+    {
+      "name": "taau-swapped-distinct-half-p977",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2043848789515806,
+          "tailFrames": 24,
+          "tailMean": 0.2043848789515806,
+          "tailTemporalRMS": 0.05388816571432777,
+          "finalMean": 0.16173969587835135,
+          "spatialSD": 0.05300382061224259,
+          "imageSHA256": "216bfd701b21e629c732ad0827ba0413425511effa56c74b7225b759423f1368"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14085123551373663,
+          "tailFrames": 64,
+          "tailMean": 0.12046675115358646,
+          "tailTemporalRMS": 0.026906962744242664,
+          "finalMean": 0.11862307422969187,
+          "spatialSD": 0.042374455089352614,
+          "imageSHA256": "cbc0c1d76b2c484dedb6e7a42305ddf3694bd1eb1db8485e06dac676dbf02ba9"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.12425225583397417,
+          "tailFrames": 64,
+          "tailMean": 0.11896197443821277,
+          "tailTemporalRMS": 0.026685362684009353,
+          "finalMean": 0.11955032012805122,
+          "spatialSD": 0.04328259812729814,
+          "imageSHA256": "2578f87d67fd29e608127213f92c0fee80253c819055132850b1d829414ddb3e"
+        }
+      ],
+      "frameMeanRange": [
+        0.11643532412965185,
+        0.2505252100840336
+      ],
+      "frameMeanSD": 0.019475106325108908,
+      "pixelMeans": {
+        "mean": 0.12425225583397471,
+        "min": 0.10488664215686311,
+        "max": 0.14503676470588295,
+        "p05": 0.11340379901960816,
+        "p95": 0.13622089460784365,
+        "spatialSD": 0.007184223256901436,
+        "referenceRMS": 0.12595280158316902
+      },
+      "pixelMeansSHA256": "329c2dbfc5eab4c6fc82a7d94d320a8b700976344d1bcfd539e5e7d41566e82b"
+    },
+    {
+      "name": "taau-swapped-distinct-three-quarter-p0",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.011466409480458852,
+          "tailFrames": 24,
+          "tailMean": 0.011466409480458852,
+          "tailTemporalRMS": 0.01865185357414419,
+          "finalMean": 0.0034126150460184073,
+          "spatialSD": 0.006058810519562399,
+          "imageSHA256": "e371101ebfa69c8ec9e0eb069b5f2b02a1fae9f8ba9a1d95101a3d9f8b40be34"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.005303161303583934,
+          "tailFrames": 64,
+          "tailMean": 0.003881738242171869,
+          "tailTemporalRMS": 0.005748282253035695,
+          "finalMean": 0.004249199679871949,
+          "spatialSD": 0.007401503954837358,
+          "imageSHA256": "dac5e17adc097e220386d1b023863138026f07cb4571cc44f1474a0963bc0ec6"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.004249307144732894,
+          "tailFrames": 64,
+          "tailMean": 0.0038937938456632655,
+          "tailTemporalRMS": 0.005772681651953732,
+          "finalMean": 0.0037405587234893957,
+          "spatialSD": 0.006479036366190216,
+          "imageSHA256": "379e80ae4fe9a7b0643f5f0ac3ea64a55075c83b522c0771deb6907815aa4c38"
+        }
+      ],
+      "frameMeanRange": [
+        0.003040903861544618,
+        0.062444665366146464
+      ],
+      "frameMeanSD": 0.003477505838317012,
+      "pixelMeans": {
+        "mean": 0.0042493071447328844,
+        "min": 0.0029335171568627403,
+        "max": 0.010171568627450967,
+        "p05": 0.00339307598039215,
+        "p95": 0.006303615196078419,
+        "spatialSD": 0.0009464516951773464,
+        "referenceRMS": 0.05825838127625905
+      },
+      "pixelMeansSHA256": "d7f2461e130a0e4fed0895822d10c572bc097fb32ed48121ee104e605641afd5"
+    },
+    {
+      "name": "taau-swapped-distinct-three-quarter-p977",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.011237346501100441,
+          "tailFrames": 24,
+          "tailMean": 0.011237346501100441,
+          "tailTemporalRMS": 0.018550841206989577,
+          "finalMean": 0.0034538815526210485,
+          "spatialSD": 0.006104256494116642,
+          "imageSHA256": "29258a96520e2c6f2482c64644c4fc8e70b378ea3ec2d55975d98fcb448490e0"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.005276317069796666,
+          "tailFrames": 64,
+          "tailMean": 0.003926853944702881,
+          "tailTemporalRMS": 0.005781523636778755,
+          "finalMean": 0.004223564425770308,
+          "spatialSD": 0.0075621829932775485,
+          "imageSHA256": "2c43ab37ae516bc99cc6937275f3b9fde067bb810af82f2557a84ca2b45dda23"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.0042372228432388526,
+          "tailFrames": 64,
+          "tailMean": 0.003907622619360244,
+          "tailTemporalRMS": 0.005778587337124227,
+          "finalMean": 0.003741809223689476,
+          "spatialSD": 0.0065254536873658965,
+          "imageSHA256": "9f43c542d6c65e9fcfffd4db6c76defa06ebf60474ee0eb26895327dd035d623"
+        }
+      ],
+      "frameMeanRange": [
+        0.003036527110844338,
+        0.06232555522208883
+      ],
+      "frameMeanSD": 0.003441782708802507,
+      "pixelMeans": {
+        "mean": 0.00423722284323885,
+        "min": 0.0028262867647058784,
+        "max": 0.010447303921568611,
+        "p05": 0.0033854166666666607,
+        "p95": 0.006265318627450967,
+        "spatialSD": 0.0009428629887297161,
+        "referenceRMS": 0.05827040580460999
+      },
+      "pixelMeansSHA256": "5562e664352f88d4b77c1f4241b740d9fe558a028434ac05e9bab0c806387592"
+    },
+    {
+      "name": "taau-swapped-distinct-mixed-p0",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.12665538871798723,
+          "tailFrames": 24,
+          "tailMean": 0.12665538871798723,
+          "tailTemporalRMS": 0.046091930594864404,
+          "finalMean": 0.08540072278911565,
+          "spatialSD": 0.045671475289465996,
+          "imageSHA256": "53fe73b8ef8f3a668e91830ab201a32795098339412e38cd7b3045a303cf06a0"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.07570164296187228,
+          "tailFrames": 64,
+          "tailMean": 0.061403970767994705,
+          "tailTemporalRMS": 0.019336907443007114,
+          "finalMean": 0.061323279311724696,
+          "spatialSD": 0.031164138137442832,
+          "imageSHA256": "9a31be3b30c65c92fc3acda398935f08a341d5e092ad800a41764438f30f9a94"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.06488214609574294,
+          "tailFrames": 64,
+          "tailMean": 0.06132944388692978,
+          "tailTemporalRMS": 0.019329700392643496,
+          "finalMean": 0.06205763555422169,
+          "spatialSD": 0.03217376576775859,
+          "imageSHA256": "85095805b8bd86a5027d71ffadcefbcfa4bdbff4ea2f12b8cc5e07d541311130"
+        }
+      ],
+      "frameMeanRange": [
+        0.058949829931972786,
+        0.18751344287715085
+      ],
+      "frameMeanSD": 0.015398700460238935,
+      "pixelMeans": {
+        "mean": 0.06488214609574287,
+        "min": 0.05149356617647043,
+        "max": 0.07905177696078454,
+        "p05": 0.05760569852941159,
+        "p95": 0.07254901960784321,
+        "spatialSD": 0.004609206084841165,
+        "referenceRMS": 0.12270445336995019
+      },
+      "pixelMeansSHA256": "895940ebadfd366c5328581983764b7a7903644490bcc00c8afcf57ff6e1e428"
+    },
+    {
+      "name": "taau-swapped-distinct-mixed-p977",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.12639676964535815,
+          "tailFrames": 24,
+          "tailMean": 0.12639676964535815,
+          "tailTemporalRMS": 0.04607170948384962,
+          "finalMean": 0.08525441426570628,
+          "spatialSD": 0.04569970567440484,
+          "imageSHA256": "57bbb9e7fece637bdd3aca6337707fe62d110d06e5f830b216f5f442f6b10bd8"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.07580354163149632,
+          "tailFrames": 64,
+          "tailMean": 0.06165348952080831,
+          "tailTemporalRMS": 0.019287389514664594,
+          "finalMean": 0.06179159163665466,
+          "spatialSD": 0.03191995530307408,
+          "imageSHA256": "ddf714d5a0cc424dc7332092f5b82bba3a8ba05fcc5e6c752d6b1028c369eb0c"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.06511711007645243,
+          "tailFrames": 64,
+          "tailMean": 0.06132160872161365,
+          "tailTemporalRMS": 0.019363836684480332,
+          "finalMean": 0.061797218887555024,
+          "spatialSD": 0.03260229134900583,
+          "imageSHA256": "5bdad5314e48dc17a4249b8bbc14aaccb02febc5c1eb9ec699552996f8621307"
+        }
+      ],
+      "frameMeanRange": [
+        0.059377188375350144,
+        0.18739964735894357
+      ],
+      "frameMeanSD": 0.015258958314803187,
+      "pixelMeans": {
+        "mean": 0.06511711007645235,
+        "min": 0.05032169117647044,
+        "max": 0.08044577205882372,
+        "p05": 0.05780484068627433,
+        "p95": 0.07290134803921582,
+        "spatialSD": 0.004644581186606125,
+        "referenceRMS": 0.12247099199581163
+      },
+      "pixelMeansSHA256": "62d4f1de691f0cda7c41723a404b950ba4f19337e3445c65c88db96775b6207b"
+    },
+    {
+      "name": "taau-reversed-shared-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.19037691899676537,
+          "tailFrames": 24,
+          "tailMean": 0.19037691899676537,
+          "tailTemporalRMS": 0.0493084493944971,
+          "finalMean": 0.15810292867146858,
+          "spatialSD": 0.054108755644637456,
+          "imageSHA256": "37a079e2dca27f36798c7da32951692d171331a3fb2b536c8512fe8d2de4280e"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14282215083298944,
+          "tailFrames": 64,
+          "tailMean": 0.1269646628182523,
+          "tailTemporalRMS": 0.02470401120148772,
+          "finalMean": 0.12580532212885157,
+          "spatialSD": 0.048494625286404074,
+          "imageSHA256": "791ec62323fa3036927ee68a5c74f9ad59cdd6cf7363889038946446806ec18a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.1302161898695026,
+          "tailFrames": 64,
+          "tailMean": 0.12568442904505553,
+          "tailTemporalRMS": 0.024480835835270907,
+          "finalMean": 0.1258828531412565,
+          "spatialSD": 0.04806195205301093,
+          "imageSHA256": "a627ae9542afb269ae5f6fb7946ea982ebfe7575868a6044092ce00cdd5ae4c9"
+        }
+      ],
+      "frameMeanRange": [
+        0.1244891706682673,
+        0.2473170518207283
+      ],
+      "frameMeanSD": 0.015052784965172988,
+      "pixelMeans": {
+        "mean": 0.13021618986950292,
+        "min": 0.05467984068627435,
+        "max": 0.2282858455882358,
+        "p05": 0.0724417892156863,
+        "p95": 0.20350030637254954,
+        "spatialSD": 0.04044446027290005,
+        "referenceRMS": 0.12642751099402838
+      },
+      "pixelMeansSHA256": "ae7ca08d323c2ff54b231fe6b06895be7766d93f246427939bf6369894e6de8b"
+    },
+    {
+      "name": "taau-reversed-distinct-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2022288733201613,
+          "tailFrames": 24,
+          "tailMean": 0.2022288733201613,
+          "tailTemporalRMS": 0.05350301171961333,
+          "finalMean": 0.16076743197278912,
+          "spatialSD": 0.05306318852371288,
+          "imageSHA256": "d1126cef7a37f555e3904a0c062d49836342a790876c01b0e5924521ba24003e"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14028543790563103,
+          "tailFrames": 64,
+          "tailMean": 0.1202724449154662,
+          "tailTemporalRMS": 0.02689240869083833,
+          "finalMean": 0.11821447328931574,
+          "spatialSD": 0.04269966792529802,
+          "imageSHA256": "abda7c47d3bb32090d4c14c2060f16f7c5212a8d0aa4c8a1226fbca73df9970a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.12399602663330961,
+          "tailFrames": 64,
+          "tailMean": 0.11874926728503901,
+          "tailTemporalRMS": 0.026708394009081426,
+          "finalMean": 0.11948373099239695,
+          "spatialSD": 0.043275319889109654,
+          "imageSHA256": "e917eb3fd0e38c67032b82c4d41a01161e030ce812a33207e7e94434d6d86428"
+        }
+      ],
+      "frameMeanRange": [
+        0.11622961684673869,
+        0.24794480292116847
+      ],
+      "frameMeanSD": 0.019030767949138924,
+      "pixelMeans": {
+        "mean": 0.12399602663331008,
+        "min": 0.10470281862745129,
+        "max": 0.1451746323529416,
+        "p05": 0.11299019607843178,
+        "p95": 0.13607536764705935,
+        "spatialSD": 0.007265434470480746,
+        "referenceRMS": 0.12621326333725133
+      },
+      "pixelMeansSHA256": "0135345b01952d71cc6364fc9945d89d4832d1f75d4c5019c651ab614792dc69"
+    },
+    {
+      "name": "taau-merged-negative-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.4934093689559156,
+          "tailFrames": 24,
+          "tailMean": 0.4934093689559156,
+          "tailTemporalRMS": 0.026974672117520446,
+          "finalMean": 0.4892979066626651,
+          "spatialSD": 0.013709357564498804,
+          "imageSHA256": "a336b4e486a5fa84c78f6d46407c7bd40e80ba7c72c1af11bab761887caa4e77"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.4854659002272786,
+          "tailFrames": 64,
+          "tailMean": 0.48228643996661186,
+          "tailTemporalRMS": 0.007968488686388142,
+          "finalMean": 0.4816292141856743,
+          "spatialSD": 0.008436978005936357,
+          "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.48234311119467305,
+          "tailFrames": 64,
+          "tailMean": 0.48126948533319597,
+          "tailTemporalRMS": 0.00798661505477123,
+          "finalMean": 0.48125093787515005,
+          "spatialSD": 0.008703106812746763,
+          "imageSHA256": "0968feb4a77487a822c11503fa91b299cc14446ebdc0d6d04b0c09ce083a9a77"
+        }
+      ],
+      "frameMeanRange": [
+        0.48114620848339335,
+        0.499313475390156
+      ],
+      "frameMeanSD": 0.0028502642130488454,
+      "pixelMeans": {
+        "mean": 0.4823431111946727,
+        "min": 0.47591145833333226,
+        "max": 0.4911075367647061,
+        "p05": 0.47844669117647026,
+        "p95": 0.48616727941176435,
+        "spatialSD": 0.002227864430669506,
+        "referenceRMS": 0.23235379209201962
+      },
+      "pixelMeansSHA256": "ba50192cca0adc41cd0536018c9c5e8e5d3454de6253a0adc3eb6265ca4cccb8"
+    },
+    {
+      "name": "taau-empty-p0",
+      "independentTransmission": 1,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 1,
+          "tailFrames": 24,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 128,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 512,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        }
+      ],
+      "frameMeanRange": [
+        1,
+        1
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 1.0,
+        "min": 1,
+        "max": 1,
+        "p05": 1,
+        "p95": 1,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "taau-zero-pair-p0",
+      "independentTransmission": 1,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 1,
+          "tailFrames": 24,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 128,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 512,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        }
+      ],
+      "frameMeanRange": [
+        1,
+        1
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 1.0,
+        "min": 1,
+        "max": 1,
+        "p05": 1,
+        "p95": 1,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "taau-opaque-pair-p0",
+      "independentTransmission": 0,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0,
+          "tailFrames": 24,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "78e5047c8cbb06f4bfc213a539f8daca59083373979f42eb10fdadc3af7589cb"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0,
+          "tailFrames": 64,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "b032f2e3b7a8e07d804d633a60ed1cfe29211659f7f3d4b2070eb9a747d70bb6"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0,
+          "tailFrames": 64,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "861fb60d82d7ab810bbef5243b4417eb7a6c144815a83e8b5defb51922706375"
+        }
+      ],
+      "frameMeanRange": [
+        0,
+        0
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 0.0,
+        "min": 0,
+        "max": 0,
+        "p05": 0,
+        "p95": 0,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "c7ed01f07cdc4b4dcc076f195492aa8e5c1807b4aaa7ed597c0ccb77981f9a04"
+    },
+    {
+      "name": "taau-front-body-p0",
+      "independentTransmission": 1,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 1,
+          "tailFrames": 24,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 128,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 512,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        }
+      ],
+      "frameMeanRange": [
+        1,
+        1
+      ],
+      "frameMeanSD": 0.0,
+      "pixelMeans": {
+        "mean": 1.0,
+        "min": 1,
+        "max": 1,
+        "p05": 1,
+        "p95": 1,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0
+      },
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4"
+    },
+    {
+      "name": "taau-single-half-p0",
+      "independentTransmission": 0.5,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.4934093689559156,
+          "tailFrames": 24,
+          "tailMean": 0.4934093689559156,
+          "tailTemporalRMS": 0.026974672117520446,
+          "finalMean": 0.4892979066626651,
+          "spatialSD": 0.013709357564498804,
+          "imageSHA256": "a336b4e486a5fa84c78f6d46407c7bd40e80ba7c72c1af11bab761887caa4e77"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.4854659002272786,
+          "tailFrames": 64,
+          "tailMean": 0.48228643996661186,
+          "tailTemporalRMS": 0.007968488686388142,
+          "finalMean": 0.4816292141856743,
+          "spatialSD": 0.008436978005936357,
+          "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.48234311119467305,
+          "tailFrames": 64,
+          "tailMean": 0.48126948533319597,
+          "tailTemporalRMS": 0.00798661505477123,
+          "finalMean": 0.48125093787515005,
+          "spatialSD": 0.008703106812746763,
+          "imageSHA256": "0968feb4a77487a822c11503fa91b299cc14446ebdc0d6d04b0c09ce083a9a77"
+        }
+      ],
+      "frameMeanRange": [
+        0.48114620848339335,
+        0.499313475390156
+      ],
+      "frameMeanSD": 0.0028502642130488454,
+      "pixelMeans": {
+        "mean": 0.4823431111946727,
+        "min": 0.47591145833333226,
+        "max": 0.4911075367647061,
+        "p05": 0.47844669117647026,
+        "p95": 0.48616727941176435,
+        "spatialSD": 0.002227864430669506,
+        "referenceRMS": 0.017796884620773813
+      },
+      "pixelMeansSHA256": "ba50192cca0adc41cd0536018c9c5e8e5d3454de6253a0adc3eb6265ca4cccb8"
+    },
+    {
+      "name": "taau-blend-quarter-p0",
+      "independentTransmission": 0.5625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.5607843137254901,
+          "tailFrames": 24,
+          "tailMean": 0.5607843137254901,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.5607843137254902,
+          "spatialSD": 0,
+          "imageSHA256": "d680d435b1f428887403dc7795624baf382878ac65a8cea2cc0e2ecee909720c"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.5607843137254913,
+          "tailFrames": 64,
+          "tailMean": 0.560784313725491,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.5607843137254902,
+          "spatialSD": 0,
+          "imageSHA256": "69d1268736c6eaa1e30a2650197c564c86ddfed3bdfc79343bb594bf1d77b106"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.5607843137254916,
+          "tailFrames": 64,
+          "tailMean": 0.560784313725491,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.5607843137254902,
+          "spatialSD": 0,
+          "imageSHA256": "a66f98b4982be523ae185dbbc86b6e7fef0c36b63aed4f92fdf50c3e0b1b7b4e"
+        }
+      ],
+      "frameMeanRange": [
+        0.5607843137254902,
+        0.5607843137254902
+      ],
+      "frameMeanSD": 1.4432899320127035e-15,
+      "pixelMeans": {
+        "mean": 0.5607843137254916,
+        "min": 0.5607843137254916,
+        "max": 0.5607843137254916,
+        "p05": 0.5607843137254916,
+        "p95": 0.5607843137254916,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0017156862745083545
+      },
+      "pixelMeansSHA256": "885273f9d50ab2f50de216432967a030f25a496edb2f1b6cb094bb278878d87f"
+    },
+    {
+      "name": "taau-blend-half-p0",
+      "independentTransmission": 0.25,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.25098039215686274,
+          "tailFrames": 24,
+          "tailMean": 0.25098039215686274,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "f6321910591252ab2f915d4244e0f296f358835f07cd655f4999dd06d471eb1c"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2509803921568621,
+          "tailFrames": 64,
+          "tailMean": 0.2509803921568623,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "a9db66d09242d68d1d174e80008c5f51967f983b98fddbf00131759dc3d4dcb8"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2509803921568619,
+          "tailFrames": 64,
+          "tailMean": 0.2509803921568623,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "de4ba8573f9b4f4abb8d39985a75f9a257d8488ba8458bfc440a522204a4e3f8"
+        }
+      ],
+      "frameMeanRange": [
+        0.25098039215686274,
+        0.25098039215686274
+      ],
+      "frameMeanSD": 8.326672684688674e-16,
+      "pixelMeans": {
+        "mean": 0.2509803921568619,
+        "min": 0.2509803921568619,
+        "max": 0.2509803921568619,
+        "p05": 0.2509803921568619,
+        "p95": 0.2509803921568619,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.000980392156861909
+      },
+      "pixelMeansSHA256": "81b9f2a4e1af5b3c858c1137a8b63bfac3ee4f5912499dfe1411b471194a9ba2"
+    },
+    {
+      "name": "taau-blend-three-quarter-p0",
+      "independentTransmission": 0.0625,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.06274509803921569,
+          "tailFrames": 24,
+          "tailMean": 0.06274509803921569,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.06274509803921569,
+          "spatialSD": 0,
+          "imageSHA256": "da6a2b39512c608fab3eec6c07278b6049753d8e194cf4813dc97d375984302a"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.06274509803921552,
+          "tailFrames": 64,
+          "tailMean": 0.06274509803921557,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.06274509803921569,
+          "spatialSD": 0,
+          "imageSHA256": "b9ad4e840717e1e26e756e7de99a0ad6519c027a6966fdf632040448b1745e16"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.06274509803921548,
+          "tailFrames": 64,
+          "tailMean": 0.06274509803921557,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.06274509803921569,
+          "spatialSD": 0,
+          "imageSHA256": "a0f98c536d787b364dc6c669e899994d8a82abff8be410501dad6ccdcda87ec2"
+        }
+      ],
+      "frameMeanRange": [
+        0.06274509803921569,
+        0.06274509803921569
+      ],
+      "frameMeanSD": 2.0816681711721685e-16,
+      "pixelMeans": {
+        "mean": 0.06274509803921548,
+        "min": 0.06274509803921548,
+        "max": 0.06274509803921548,
+        "p05": 0.06274509803921548,
+        "p95": 0.06274509803921548,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.00024509803921547724
+      },
+      "pixelMeansSHA256": "c782fe93706d1c758e8d8859f40a8880845239d98b64f4db7be63c12fbf9bcff"
+    },
+    {
+      "name": "taau-blend-mixed-p0",
+      "independentTransmission": 0.1875,
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.18823529411764717,
+          "tailFrames": 24,
+          "tailMean": 0.18823529411764717,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.18823529411764706,
+          "spatialSD": 0,
+          "imageSHA256": "09d1b677181f25e6b3f36406d44b998d0e196009b1e76210ac37acd79e2ef7f8"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.18823529411764667,
+          "tailFrames": 64,
+          "tailMean": 0.18823529411764695,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.18823529411764706,
+          "spatialSD": 0,
+          "imageSHA256": "a1e8044b64ba15b45c94f9832e4fee2470676bf6aa65289d0b2c0bd028a73511"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.18823529411764647,
+          "tailFrames": 64,
+          "tailMean": 0.18823529411764695,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.18823529411764706,
+          "spatialSD": 0,
+          "imageSHA256": "5c46cf9cad3cacda6175a7b6195113e16de83b3954be1f0ca2ee07370791654b"
+        }
+      ],
+      "frameMeanRange": [
+        0.18823529411764706,
+        0.18823529411764706
+      ],
+      "frameMeanSD": 5.828670879282072e-16,
+      "pixelMeans": {
+        "mean": 0.18823529411764647,
+        "min": 0.18823529411764647,
+        "max": 0.18823529411764647,
+        "p05": 0.18823529411764647,
+        "p95": 0.18823529411764647,
+        "spatialSD": 0.0,
+        "referenceRMS": 0.0007352941176464733
+      },
+      "pixelMeansSHA256": "582b04bdd603c16a232d85c7a51f200b36246e007a8c2215b79acedbb4def935"
+    }
+  ],
+  "limits": [
+    "Static constant-alpha basic materials; not real groom, fibre BSDF, motion or cost qualification.",
+    "Per-material two-card control; merged pair intentionally retains one spatial field.",
+    "Linear RGBA8 output; unfiltered scale 1 and TAAU scale .66 are different paths.",
+    "Spatial field is interleavedGradientNoise(screenCoordinate.xy) or .yx; identity reconstructs the production expression.",
+    "Whole-prefix means include startup; tails are last 64 frames, except 24-frame checkpoint.",
+    "tailTemporalRMS is mean consecutive-frame pixel RMS in linear 0..1 values; frame one contributes zero at n24.",
+    "Per-pixel distributions use 512-frame means; no independent-sampling or convergence theorem is claimed.",
+    "No specific TAAU internal cause established; no runtime, asset, threshold or calibration change."
+  ]
+}

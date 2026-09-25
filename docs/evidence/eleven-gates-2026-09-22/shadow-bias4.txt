@@ -1,0 +1,56 @@
+==============================================================================
+garment shadows, in rendered pixels — punch-list 3.9, wardrobe half
+==============================================================================
+
+http://localhost:5199/src/wardrobe.html   900x1600 dpr 1
+
+  ok   the library shaded every worn fragment to CAST, with no help from this gate — foundation_bra true, foundation_briefs true, female_casualsuit01 true, shoes01 true, fedora01 true
+  ok   the library shaded every worn fragment to RECEIVE — foundation_bra true, foundation_briefs true, female_casualsuit01 true, shoes01 true, fedora01 true
+  ok   the library set shadowSide on every worn material, so a tube casts from its NEAR wall — foundation_bra side 0 shadowSide 2, foundation_briefs side 0 shadowSide 2, female_casualsuit01 side 0 shadowSide 2, shoes01 side 0 shadowSide 2, fedora01 side 0 shadowSide 2
+
+--- the forehead under the fedora brim ---
+       box 222,140,27,27, 729 px, derived from the head bone
+       luma  hatted 0.47048   bareheaded 0.68868   no-cast 0.68868   no-receive 0.68868
+  ok   the box does not move between readings — 222,140,27,27 vs 222,140,27,27
+  ok   the box is on lit skin, and the decode did not go to zero — hatted 0.4705, bareheaded 0.6887, floor 0.15
+  ok   THE HEADLINE — the forehead is darker with the hat on than with it off — 31.68% against a 4% floor
+  ok   RED PROOF 1 — clearing castShadow on the fragments removes the darkening — 31.68% of the reading is the garment's shadow
+  ok   RED PROOF 1 — and with it cleared, hatted reads the same as bareheaded — 0.00% apart, which is the defect
+  ok   RED PROOF 2 — clearing receiveShadow on the BODY removes the same darkening — 31.68%
+  ok   the two breaks land on the same unshadowed value, so both measure the same shadow — 0.00% apart
+
+--- the jacket torso, with and without the baked AO map (9.7) ---
+       box 171,567,150,150, 22500 px
+       luma  AO on 0.26781   AO off 0.27026
+  ok   the torso box is on the jacket and lit — 0.2678 against a floor of 0.15
+  ok   9.7 — the recovered AO map darkens the jacket, and switching it off gives the light back — 0.91% against a 0.4% floor
+
+--- the thigh under the FOUNDATION hem, full-body framing (reported, not asserted) ---
+       box 304,811,44,44  worn: foundation_bra, foundation_briefs
+       luma  shadows on 0.56231   castShadow cleared 0.56231   darkening 0.00%
+       a 2.0 mm shell with a 1.2 mm rolled hem casts one to three pixels at this framing, with or without shadowSide. See the block above this reading in the source.
+
+--- the thigh below the elegant suit's skirt hem (a TUBE) ---
+       box 156,795,127,127, 16129 px, derived from the thigh bone -326 mm below its head
+       worn  foundation_bra, foundation_briefs, female_elegantsuit01, shoes01   against   foundation_bra, foundation_briefs
+       luma  skirted 0.40279   floor only 0.46412   no-cast 0.46412   no-receive 0.46412
+  ok   the eye did not move between the four readings, so nothing here is a parallax — 0.2362, 0.6092, 0.5452
+  ok   the box does not move between readings — 156,795,127,127  vs  156,795,127,127  vs  156,795,127,127  vs  156,795,127,127
+  ok   the box is on lit thigh, and the decode did not go to zero — floor only 0.4641, no-cast 0.4641, floor 0.15
+  ok   the box is pure skin: taking the skirt off and stopping it casting read the same — 0.00% apart
+  ok   THE HEADLINE — a TUBE casts: the thigh is darker under the skirt hem than without it — 13.21% against a 4% floor
+  ok   RED PROOF 1 — clearing castShadow on the fragments removes the darkening — 13.21% of the reading is the skirt's shadow
+  ok   RED PROOF 2 — clearing receiveShadow on the BODY removes the same darkening — 13.21%
+
+--- the shipped LightingRig, on alive.html: contact gained against acne paid ---
+       900x1600, contact band 26747 px, garment surface 264481 px
+       the rig produced 7.8493 mm of normal bias for this framing, unprompted
+       contact 255ths  rig 3.2642   at 20 mm 2.8877   at 0 3.7252
+       acne 255ths     rig 0.0317   at 20 mm 0.0065   at 0 0.6570
+  ok   RIG CONTACT: the probe is on lit skin beside real cloth — 26747 px of contact band and 264481 px of garment surface; the reference arm reads 2.8877 of 255 darkening, which is a shadow and not a decode that has gone to zero
+  ok   RIG CONTACT — the shipped bias finds more contact shadow than the 20 mm constant it replaced — 1.130x against a 1.12x floor (3.2642 of 255 against 2.8877). A revert to a 20 mm constant reads 1.000
+  ok   RIG ACNE — and pays no more than 8x the reference arm's high-frequency energy for it — 4.91x against a 8x ceiling (0.0317 of 255 against 0.0065)
+  ok   RED PROOF 3 — the acne ceiling is not vacuous: zero bias blows through it — 101.7x against the same 8x ceiling (0.6570 of 255), while its contact reading 3.7252 is the HIGHEST of the three — which is exactly why the contact clause alone would have shipped it
+
+==============================================================================
+PASS — 23 assertions.

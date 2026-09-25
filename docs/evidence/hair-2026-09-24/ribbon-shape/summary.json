@@ -1,0 +1,1527 @@
+{
+  "definitions": {
+    "foldedGuide": "At least one pair of adjacent segments, both >=0.1 mm, has negative dot product (>90 degrees). The length floor excludes near-zero Float32 steps; this is a diagnostic, not an acceptance gate.",
+    "frameFlip": "At least one pair of adjacent right-minus-left ribbon vectors differs by >90 degrees.",
+    "rootShift": "Euclidean movement of guide point zero during draw_into_lock, before ribbon widening and final vertex clearance.",
+    "widthArm": "Limit full root width to half of the post-clump arc length for mass, body, surface, flyaway, veil, fringe; preserve root and underlayer coverage cards. Keep guide, RNG draws and atlas strip unchanged.",
+    "closestArm": "Only draw_into_lock clearance: for an outside point use its normalized closest-point displacement instead of the interpolated shading normal. Existing inside/zero-distance fallback and three passes remain."
+  },
+  "arms": {
+    "baseline": {
+      "rawReportSha256": "a084b98c0a318a0c3e8d83a95eaa8d894828ed5594e3ec94128a592037f74991",
+      "assetSha256": "e3e83bdefe5031255934c9eb531618b87756514fa3180e2e378f1f3a0c5976cf",
+      "overall": {
+        "cards": 384,
+        "foldedGuideCards": {
+          "pointsBefore": 7,
+          "pointsBlend": 4,
+          "pointsAfter": 61
+        },
+        "frameFlipCards": {
+          "preClamp": 54,
+          "postClamp": 54
+        },
+        "rootShiftOver1mmCards": 314,
+        "medianGuideClearanceMaxShiftMm": 3.8105168977853854,
+        "ribbonAspectUnder1Cards": 122,
+        "ribbonAspectUnder2Cards": 291,
+        "medianPreClampArcMm": 38.16701897666506,
+        "medianPreClampRootWidthMm": 28.220712992080202,
+        "finalCornerShiftOver1mmCards": 146
+      },
+      "layers": {
+        "root": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 9
+          },
+          "frameFlipCards": {
+            "preClamp": 1,
+            "postClamp": 1
+          },
+          "rootShiftOver1mmCards": 53,
+          "medianGuideClearanceMaxShiftMm": 2.674769870288488,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 69,
+          "medianPreClampArcMm": 54.28122902984708,
+          "medianPreClampRootWidthMm": 37.232070809111136,
+          "finalCornerShiftOver1mmCards": 51
+        },
+        "mass": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 0,
+            "pointsAfter": 6
+          },
+          "frameFlipCards": {
+            "preClamp": 7,
+            "postClamp": 7
+          },
+          "rootShiftOver1mmCards": 56,
+          "medianGuideClearanceMaxShiftMm": 3.55446485712492,
+          "ribbonAspectUnder1Cards": 34,
+          "ribbonAspectUnder2Cards": 57,
+          "medianPreClampArcMm": 29.74831854599426,
+          "medianPreClampRootWidthMm": 30.6247877297113,
+          "finalCornerShiftOver1mmCards": 33
+        },
+        "underlayer": {
+          "cards": 52,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 4
+          },
+          "frameFlipCards": {
+            "preClamp": 6,
+            "postClamp": 6
+          },
+          "rootShiftOver1mmCards": 37,
+          "medianGuideClearanceMaxShiftMm": 3.1513895682432187,
+          "ribbonAspectUnder1Cards": 42,
+          "ribbonAspectUnder2Cards": 50,
+          "medianPreClampArcMm": 21.265672645635846,
+          "medianPreClampRootWidthMm": 30.303526910042024,
+          "finalCornerShiftOver1mmCards": 37
+        },
+        "body": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 1,
+            "pointsAfter": 12
+          },
+          "frameFlipCards": {
+            "preClamp": 9,
+            "postClamp": 9
+          },
+          "rootShiftOver1mmCards": 33,
+          "medianGuideClearanceMaxShiftMm": 4.135529444126547,
+          "ribbonAspectUnder1Cards": 15,
+          "ribbonAspectUnder2Cards": 32,
+          "medianPreClampArcMm": 31.284070378013666,
+          "medianPreClampRootWidthMm": 27.430474104796517,
+          "finalCornerShiftOver1mmCards": 15
+        },
+        "surface": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 2,
+            "pointsBlend": 2,
+            "pointsAfter": 8
+          },
+          "frameFlipCards": {
+            "preClamp": 9,
+            "postClamp": 9
+          },
+          "rootShiftOver1mmCards": 35,
+          "medianGuideClearanceMaxShiftMm": 5.2140755055287356,
+          "ribbonAspectUnder1Cards": 7,
+          "ribbonAspectUnder2Cards": 25,
+          "medianPreClampArcMm": 36.94584121059816,
+          "medianPreClampRootWidthMm": 24.163453904128907,
+          "finalCornerShiftOver1mmCards": 1
+        },
+        "flyaway": {
+          "cards": 24,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 9
+          },
+          "frameFlipCards": {
+            "preClamp": 4,
+            "postClamp": 4
+          },
+          "rootShiftOver1mmCards": 22,
+          "medianGuideClearanceMaxShiftMm": 5.507296867696534,
+          "ribbonAspectUnder1Cards": 3,
+          "ribbonAspectUnder2Cards": 6,
+          "medianPreClampArcMm": 40.55406206740504,
+          "medianPreClampRootWidthMm": 16.80224863081913,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "veil": {
+          "cards": 60,
+          "foldedGuideCards": {
+            "pointsBefore": 3,
+            "pointsBlend": 1,
+            "pointsAfter": 12
+          },
+          "frameFlipCards": {
+            "preClamp": 18,
+            "postClamp": 18
+          },
+          "rootShiftOver1mmCards": 52,
+          "medianGuideClearanceMaxShiftMm": 4.335008373440919,
+          "ribbonAspectUnder1Cards": 20,
+          "ribbonAspectUnder2Cards": 49,
+          "medianPreClampArcMm": 29.693618820357216,
+          "medianPreClampRootWidthMm": 25.554366955469987,
+          "finalCornerShiftOver1mmCards": 8
+        },
+        "fringe": {
+          "cards": 28,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 1
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 26,
+          "medianGuideClearanceMaxShiftMm": 3.9760337413502516,
+          "ribbonAspectUnder1Cards": 1,
+          "ribbonAspectUnder2Cards": 3,
+          "medianPreClampArcMm": 77.1652792039385,
+          "medianPreClampRootWidthMm": 26.56023656204183,
+          "finalCornerShiftOver1mmCards": 1
+        }
+      }
+    },
+    "closest": {
+      "rawReportSha256": "98266af7e8b2a9605a345c5bc502e41264f41dd834827734084386f42c886135",
+      "assetSha256": "946e0b7b0bea4f146db1139878870a34c1442c2774041281112b32bfd51039fa",
+      "overall": {
+        "cards": 384,
+        "foldedGuideCards": {
+          "pointsBefore": 7,
+          "pointsBlend": 4,
+          "pointsAfter": 5
+        },
+        "frameFlipCards": {
+          "preClamp": 4,
+          "postClamp": 4
+        },
+        "rootShiftOver1mmCards": 3,
+        "medianGuideClearanceMaxShiftMm": 0.617294835788577,
+        "ribbonAspectUnder1Cards": 139,
+        "ribbonAspectUnder2Cards": 300,
+        "medianPreClampArcMm": 34.34650810416663,
+        "medianPreClampRootWidthMm": 28.220695261706812,
+        "finalCornerShiftOver1mmCards": 109
+      },
+      "layers": {
+        "root": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.24489536140224516,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 69,
+          "medianPreClampArcMm": 53.19943312180624,
+          "medianPreClampRootWidthMm": 37.23205262461312,
+          "finalCornerShiftOver1mmCards": 48
+        },
+        "mass": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.6780196918751404,
+          "ribbonAspectUnder1Cards": 36,
+          "ribbonAspectUnder2Cards": 58,
+          "medianPreClampArcMm": 29.35700712034582,
+          "medianPreClampRootWidthMm": 30.62479787291654,
+          "finalCornerShiftOver1mmCards": 20
+        },
+        "underlayer": {
+          "cards": 52,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 1,
+            "postClamp": 1
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.5187076347499971,
+          "ribbonAspectUnder1Cards": 45,
+          "ribbonAspectUnder2Cards": 50,
+          "medianPreClampArcMm": 19.569175992295605,
+          "medianPreClampRootWidthMm": 30.303558671484325,
+          "finalCornerShiftOver1mmCards": 28
+        },
+        "body": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 1,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.9542008377270945,
+          "ribbonAspectUnder1Cards": 19,
+          "ribbonAspectUnder2Cards": 34,
+          "medianPreClampArcMm": 29.26714386881003,
+          "medianPreClampRootWidthMm": 27.430479174147436,
+          "finalCornerShiftOver1mmCards": 7
+        },
+        "surface": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 2,
+            "pointsBlend": 2,
+            "pointsAfter": 2
+          },
+          "frameFlipCards": {
+            "preClamp": 2,
+            "postClamp": 2
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.7548767180086611,
+          "ribbonAspectUnder1Cards": 9,
+          "ribbonAspectUnder2Cards": 26,
+          "medianPreClampArcMm": 33.21809887232928,
+          "medianPreClampRootWidthMm": 24.16344450588111,
+          "finalCornerShiftOver1mmCards": 1
+        },
+        "flyaway": {
+          "cards": 24,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 1,
+          "medianGuideClearanceMaxShiftMm": 1.616706137823794,
+          "ribbonAspectUnder1Cards": 2,
+          "ribbonAspectUnder2Cards": 9,
+          "medianPreClampArcMm": 37.064004834004365,
+          "medianPreClampRootWidthMm": 16.802245917625974,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "veil": {
+          "cards": 60,
+          "foldedGuideCards": {
+            "pointsBefore": 3,
+            "pointsBlend": 1,
+            "pointsAfter": 3
+          },
+          "frameFlipCards": {
+            "preClamp": 1,
+            "postClamp": 1
+          },
+          "rootShiftOver1mmCards": 2,
+          "medianGuideClearanceMaxShiftMm": 0.7854674202556974,
+          "ribbonAspectUnder1Cards": 27,
+          "ribbonAspectUnder2Cards": 51,
+          "medianPreClampArcMm": 26.59229454546776,
+          "medianPreClampRootWidthMm": 25.554356364142453,
+          "finalCornerShiftOver1mmCards": 4
+        },
+        "fringe": {
+          "cards": 28,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.7912576903420148,
+          "ribbonAspectUnder1Cards": 1,
+          "ribbonAspectUnder2Cards": 3,
+          "medianPreClampArcMm": 75.20977914905595,
+          "medianPreClampRootWidthMm": 26.560233654620866,
+          "finalCornerShiftOver1mmCards": 1
+        }
+      }
+    },
+    "slender": {
+      "rawReportSha256": "43c36d18ff23827ddd5e4c3b1c4704cac6427e2f8bad903e9dd10c7d62c9cbf3",
+      "assetSha256": "da7d431ff6c6377d681f8af949f36007c8c28f227125e91d6c5d5b4b0b34c275",
+      "overall": {
+        "cards": 384,
+        "foldedGuideCards": {
+          "pointsBefore": 7,
+          "pointsBlend": 4,
+          "pointsAfter": 61
+        },
+        "frameFlipCards": {
+          "preClamp": 54,
+          "postClamp": 54
+        },
+        "rootShiftOver1mmCards": 314,
+        "medianGuideClearanceMaxShiftMm": 3.8105168977853854,
+        "ribbonAspectUnder1Cards": 42,
+        "ribbonAspectUnder2Cards": 206,
+        "medianPreClampArcMm": 38.16701974054245,
+        "medianPreClampRootWidthMm": 21.985140011448344,
+        "finalCornerShiftOver1mmCards": 90
+      },
+      "layers": {
+        "root": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 9
+          },
+          "frameFlipCards": {
+            "preClamp": 1,
+            "postClamp": 1
+          },
+          "rootShiftOver1mmCards": 53,
+          "medianGuideClearanceMaxShiftMm": 2.674769870288488,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 69,
+          "medianPreClampArcMm": 54.28122902984708,
+          "medianPreClampRootWidthMm": 37.232070809111136,
+          "finalCornerShiftOver1mmCards": 51
+        },
+        "mass": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 0,
+            "pointsAfter": 6
+          },
+          "frameFlipCards": {
+            "preClamp": 7,
+            "postClamp": 7
+          },
+          "rootShiftOver1mmCards": 56,
+          "medianGuideClearanceMaxShiftMm": 3.55446485712492,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 32,
+          "medianPreClampArcMm": 29.748318562816863,
+          "medianPreClampRootWidthMm": 14.87416133052143,
+          "finalCornerShiftOver1mmCards": 2
+        },
+        "underlayer": {
+          "cards": 52,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 4
+          },
+          "frameFlipCards": {
+            "preClamp": 6,
+            "postClamp": 6
+          },
+          "rootShiftOver1mmCards": 37,
+          "medianGuideClearanceMaxShiftMm": 3.1513895682432187,
+          "ribbonAspectUnder1Cards": 42,
+          "ribbonAspectUnder2Cards": 50,
+          "medianPreClampArcMm": 21.265672645635846,
+          "medianPreClampRootWidthMm": 30.303526910042024,
+          "finalCornerShiftOver1mmCards": 37
+        },
+        "body": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 1,
+            "pointsAfter": 12
+          },
+          "frameFlipCards": {
+            "preClamp": 9,
+            "postClamp": 9
+          },
+          "rootShiftOver1mmCards": 33,
+          "medianGuideClearanceMaxShiftMm": 4.135529444126547,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 18,
+          "medianPreClampArcMm": 31.284070638494185,
+          "medianPreClampRootWidthMm": 15.642028633925282,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "surface": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 2,
+            "pointsBlend": 2,
+            "pointsAfter": 8
+          },
+          "frameFlipCards": {
+            "preClamp": 9,
+            "postClamp": 9
+          },
+          "rootShiftOver1mmCards": 35,
+          "medianGuideClearanceMaxShiftMm": 5.2140755055287356,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 10,
+          "medianPreClampArcMm": 36.945841723254205,
+          "medianPreClampRootWidthMm": 18.472900685961744,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "flyaway": {
+          "cards": 24,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 9
+          },
+          "frameFlipCards": {
+            "preClamp": 4,
+            "postClamp": 4
+          },
+          "rootShiftOver1mmCards": 22,
+          "medianGuideClearanceMaxShiftMm": 5.507296867696534,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 3,
+          "medianPreClampArcMm": 40.55406206740504,
+          "medianPreClampRootWidthMm": 15.472906542050621,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "veil": {
+          "cards": 60,
+          "foldedGuideCards": {
+            "pointsBefore": 3,
+            "pointsBlend": 1,
+            "pointsAfter": 12
+          },
+          "frameFlipCards": {
+            "preClamp": 18,
+            "postClamp": 18
+          },
+          "rootShiftOver1mmCards": 52,
+          "medianGuideClearanceMaxShiftMm": 4.335008373440919,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 23,
+          "medianPreClampArcMm": 29.693619581478114,
+          "medianPreClampRootWidthMm": 14.846828647047502,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "fringe": {
+          "cards": 28,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 1
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 26,
+          "medianGuideClearanceMaxShiftMm": 3.9760337413502516,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 1,
+          "medianPreClampArcMm": 77.1652792039385,
+          "medianPreClampRootWidthMm": 25.21147319263485,
+          "finalCornerShiftOver1mmCards": 0
+        }
+      }
+    },
+    "closest-slender": {
+      "rawReportSha256": "cf049ae4cf101cc93ffc6e12f9e3b9e707da8b9a7e380cc6b5d26ebaa61edded",
+      "assetSha256": "8518258dbec7134d11fe5153795632a0eb1571ff36d5bf70cb5b6e51933cb1ba",
+      "overall": {
+        "cards": 384,
+        "foldedGuideCards": {
+          "pointsBefore": 7,
+          "pointsBlend": 4,
+          "pointsAfter": 5
+        },
+        "frameFlipCards": {
+          "preClamp": 4,
+          "postClamp": 4
+        },
+        "rootShiftOver1mmCards": 3,
+        "medianGuideClearanceMaxShiftMm": 0.617294835788577,
+        "ribbonAspectUnder1Cards": 45,
+        "ribbonAspectUnder2Cards": 215,
+        "medianPreClampArcMm": 34.346508111291065,
+        "medianPreClampRootWidthMm": 21.305115769186195,
+        "finalCornerShiftOver1mmCards": 76
+      },
+      "layers": {
+        "root": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.24489536140224516,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 69,
+          "medianPreClampArcMm": 53.19943312180624,
+          "medianPreClampRootWidthMm": 37.23205262461312,
+          "finalCornerShiftOver1mmCards": 48
+        },
+        "mass": {
+          "cards": 70,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.6780196918751404,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 32,
+          "medianPreClampArcMm": 29.357007139514103,
+          "medianPreClampRootWidthMm": 14.678513781795647,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "underlayer": {
+          "cards": 52,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 1,
+            "postClamp": 1
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.5187076347499971,
+          "ribbonAspectUnder1Cards": 45,
+          "ribbonAspectUnder2Cards": 50,
+          "medianPreClampArcMm": 19.569175992295605,
+          "medianPreClampRootWidthMm": 30.303558671484325,
+          "finalCornerShiftOver1mmCards": 28
+        },
+        "body": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 1,
+            "pointsBlend": 1,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.9542008377270945,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 16,
+          "medianPreClampArcMm": 29.26714431611267,
+          "medianPreClampRootWidthMm": 14.633582649746028,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "surface": {
+          "cards": 40,
+          "foldedGuideCards": {
+            "pointsBefore": 2,
+            "pointsBlend": 2,
+            "pointsAfter": 2
+          },
+          "frameFlipCards": {
+            "preClamp": 2,
+            "postClamp": 2
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.7548767180086611,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 16,
+          "medianPreClampArcMm": 33.2180988179796,
+          "medianPreClampRootWidthMm": 16.60905550696301,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "flyaway": {
+          "cards": 24,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 1,
+          "medianGuideClearanceMaxShiftMm": 1.616706137823794,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 4,
+          "medianPreClampArcMm": 37.064004834004365,
+          "medianPreClampRootWidthMm": 14.819039295598436,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "veil": {
+          "cards": 60,
+          "foldedGuideCards": {
+            "pointsBefore": 3,
+            "pointsBlend": 1,
+            "pointsAfter": 3
+          },
+          "frameFlipCards": {
+            "preClamp": 1,
+            "postClamp": 1
+          },
+          "rootShiftOver1mmCards": 2,
+          "medianGuideClearanceMaxShiftMm": 0.7854674202556974,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 27,
+          "medianPreClampArcMm": 26.592294361889394,
+          "medianPreClampRootWidthMm": 13.296106565978587,
+          "finalCornerShiftOver1mmCards": 0
+        },
+        "fringe": {
+          "cards": 28,
+          "foldedGuideCards": {
+            "pointsBefore": 0,
+            "pointsBlend": 0,
+            "pointsAfter": 0
+          },
+          "frameFlipCards": {
+            "preClamp": 0,
+            "postClamp": 0
+          },
+          "rootShiftOver1mmCards": 0,
+          "medianGuideClearanceMaxShiftMm": 0.7912576903420148,
+          "ribbonAspectUnder1Cards": 0,
+          "ribbonAspectUnder2Cards": 1,
+          "medianPreClampArcMm": 75.20977914905595,
+          "medianPreClampRootWidthMm": 25.211489780431172,
+          "finalCornerShiftOver1mmCards": 0
+        }
+      }
+    }
+  },
+  "illustrativeCard": {
+    "index": 278,
+    "baseline": {
+      "layer": "flyaway",
+      "strip": 6,
+      "lock": 0.8958333333333334,
+      "guide": {
+        "before": {
+          "arcMm": 18.123845068646165,
+          "maxTurnDeg": 75.35242040703321
+        },
+        "blendOnly": {
+          "arcMm": 15.3638080471594,
+          "maxTurnDeg": 84.37972912896134
+        },
+        "after": {
+          "arcMm": 14.730521835744051,
+          "maxTurnDeg": 180.0
+        },
+        "beforeMeanLockAngleDeg": 73.44125236935744,
+        "afterMeanLockAngleDeg": 62.621022655674125,
+        "rootLockDistanceMm": 10.95236763012549,
+        "blendMaxShiftMm": 9.139886184101643,
+        "clearanceMaxShiftMm": 9.139886184101643,
+        "pointsBefore": [
+          [
+            0.006125201471149921,
+            0.05155697837471962,
+            1.6311968564987183
+          ],
+          [
+            0.00514056533575058,
+            0.051956791430711746,
+            1.6306558847427368
+          ],
+          [
+            0.004155928734689951,
+            0.052356600761413574,
+            1.6301149129867554
+          ],
+          [
+            0.0030702364165335894,
+            0.052647750824689865,
+            1.629807472229004
+          ],
+          [
+            0.0019000648753717542,
+            0.052848055958747864,
+            1.6296954154968262
+          ],
+          [
+            0.0007298933924175799,
+            0.05304836481809616,
+            1.6295832395553589
+          ],
+          [
+            -0.0003047078789677471,
+            0.05302875488996506,
+            1.6298092603683472
+          ],
+          [
+            -0.0003729995805770159,
+            0.05246778205037117,
+            1.6308131217956543
+          ],
+          [
+            -0.00032914531766436994,
+            0.051880061626434326,
+            1.631849765777588
+          ],
+          [
+            -0.000285291054751724,
+            0.05129234865307808,
+            1.6328864097595215
+          ],
+          [
+            -0.00023122061975300312,
+            0.05069667845964432,
+            1.633918046951294
+          ],
+          [
+            -0.00017438772192690521,
+            0.05009886622428894,
+            1.6349482536315918
+          ],
+          [
+            -0.00011755482410080731,
+            0.049501046538352966,
+            1.6359784603118896
+          ],
+          [
+            -6.072193355066702e-05,
+            0.04890322685241699,
+            1.637008786201477
+          ],
+          [
+            -3.889026629622094e-06,
+            0.048305410891771317,
+            1.638038992881775
+          ],
+          [
+            1.624209289730061e-05,
+            0.047698795795440674,
+            1.6390652656555176
+          ],
+          [
+            2.057539560951227e-08,
+            0.04748042672872543,
+            1.639444351196289
+          ]
+        ],
+        "pointsLock": [
+          [
+            0.010711810551583767,
+            0.055761486291885376,
+            1.6221835613250732
+          ],
+          [
+            0.010041195899248123,
+            0.05678684264421463,
+            1.6204243898391724
+          ],
+          [
+            0.009372984990477562,
+            0.057811371982097626,
+            1.6186639070510864
+          ],
+          [
+            0.008764561265707016,
+            0.05881538987159729,
+            1.6168701648712158
+          ],
+          [
+            0.008156136609613895,
+            0.05981941148638725,
+            1.6150765419006348
+          ],
+          [
+            0.006960595026612282,
+            0.06067531555891037,
+            1.6137269735336304
+          ],
+          [
+            0.004915039520710707,
+            0.06095675379037857,
+            1.6137051582336426
+          ],
+          [
+            0.0027938159182667732,
+            0.06109073385596275,
+            1.6139848232269287
+          ],
+          [
+            0.0006872623343952,
+            0.061145421117544174,
+            1.6143782138824463
+          ],
+          [
+            -0.0014305132208392024,
+            0.06108276546001434,
+            1.6144136190414429
+          ],
+          [
+            -0.003545450046658516,
+            0.06093727797269821,
+            1.6140984296798706
+          ],
+          [
+            -0.005666998215019703,
+            0.06079950928688049,
+            1.6138231754302979
+          ],
+          [
+            -0.007787276990711689,
+            0.06065080314874649,
+            1.6135441064834595
+          ],
+          [
+            -0.009906338527798653,
+            0.06049209088087082,
+            1.6132612228393555
+          ],
+          [
+            -0.012023746967315674,
+            0.0603204220533371,
+            1.6129734516143799
+          ],
+          [
+            -0.014139559119939804,
+            0.06013686954975128,
+            1.6126816272735596
+          ],
+          [
+            -0.016254397109150887,
+            0.05994607135653496,
+            1.6123871803283691
+          ]
+        ],
+        "pointsBlend": [
+          [
+            0.006125201471149921,
+            0.05155697837471962,
+            1.6311968564987183
+          ],
+          [
+            0.0051809800788760185,
+            0.0519966222345829,
+            1.6305714845657349
+          ],
+          [
+            0.004269471392035484,
+            0.05247531458735466,
+            1.6298656463623047
+          ],
+          [
+            0.0032888634596019983,
+            0.0528845489025116,
+            1.6293107271194458
+          ],
+          [
+            0.002259381813928485,
+            0.05324845761060715,
+            1.6288557052612305
+          ],
+          [
+            0.0012189813423901796,
+            0.053647056221961975,
+            1.6283385753631592
+          ],
+          [
+            0.00022416736464947462,
+            0.0538320355117321,
+            1.6281776428222656
+          ],
+          [
+            2.5155197363346815e-05,
+            0.05355192348361015,
+            1.628697395324707
+          ],
+          [
+            -0.00017508675227873027,
+            0.053284429013729095,
+            1.6292016506195068
+          ],
+          [
+            -0.0004899926716461778,
+            0.053042326122522354,
+            1.629584550857544
+          ],
+          [
+            -0.0009177744504995644,
+            0.05281805247068405,
+            1.6298123598098755
+          ],
+          [
+            -0.001474618911743164,
+            0.052631963044404984,
+            1.6299474239349365
+          ],
+          [
+            -0.002168364590033889,
+            0.05248238518834114,
+            1.6299797296524048
+          ],
+          [
+            -0.0030055204406380653,
+            0.05236943066120148,
+            1.6299059391021729
+          ],
+          [
+            -0.003992030397057533,
+            0.05229194462299347,
+            1.6297223567962646
+          ],
+          [
+            -0.0051568979397416115,
+            0.05224420502781868,
+            1.6294236183166504
+          ],
+          [
+            -0.0065017458982765675,
+            0.052466683089733124,
+            1.6286215782165527
+          ]
+        ],
+        "pointsAfter": [
+          [
+            0.00020011307788081467,
+            0.048599157482385635,
+            1.6374962329864502
+          ],
+          [
+            2.089086414969188e-08,
+            0.04935583472251892,
+            1.6362347602844238
+          ],
+          [
+            2.081406158538357e-08,
+            0.05018585920333862,
+            1.6347954273223877
+          ],
+          [
+            1.9935271211579675e-08,
+            0.05085425451397896,
+            1.6336277723312378
+          ],
+          [
+            1.9093073788667425e-08,
+            0.05141439288854599,
+            1.6326431035995483
+          ],
+          [
+            1.904664514995602e-08,
+            0.05205220729112625,
+            1.6315149068832397
+          ],
+          [
+            1.989548259473395e-08,
+            0.052278876304626465,
+            1.6311120986938477
+          ],
+          [
+            1.9081396018805208e-08,
+            0.05169554054737091,
+            1.6321467161178589
+          ],
+          [
+            2.0797040534148437e-08,
+            0.05112968385219574,
+            1.6331442594528198
+          ],
+          [
+            1.9677806051277003e-08,
+            0.050680212676525116,
+            1.6339327096939087
+          ],
+          [
+            1.9435871578821207e-08,
+            0.05037402734160423,
+            1.634467601776123
+          ],
+          [
+            2.0942875877949518e-08,
+            0.050166964530944824,
+            1.6348283290863037
+          ],
+          [
+            1.9089485547851837e-08,
+            0.05006733536720276,
+            1.6350017786026
+          ],
+          [
+            2.1137710248808617e-08,
+            0.05008438229560852,
+            1.634972095489502
+          ],
+          [
+            2.0025428426606595e-08,
+            0.05022111162543297,
+            1.6347341537475586
+          ],
+          [
+            1.973382346420749e-08,
+            0.05048413202166557,
+            1.6342754364013672
+          ],
+          [
+            -0.0010942700318992138,
+            0.05123483017086983,
+            1.6327311992645264
+          ]
+        ]
+      },
+      "original": {
+        "arcMm": 14.730521918295462,
+        "maxTurnDeg": 180.0,
+        "rootWidthMm": 18.5801670503954,
+        "tipWidthMm": 8.361088610565764,
+        "aspect": 0.7928089063107744,
+        "maxAcrossTurnDeg": 178.4809650286203
+      },
+      "preClamp": {
+        "arcMm": 14.730521918295462,
+        "maxTurnDeg": 180.0,
+        "rootWidthMm": 18.5801670503954,
+        "tipWidthMm": 8.361088610565764,
+        "aspect": 0.7928089063107744,
+        "maxAcrossTurnDeg": 178.4809650286203
+      },
+      "postClamp": {
+        "arcMm": 14.730521918295462,
+        "maxTurnDeg": 180.0,
+        "rootWidthMm": 18.5801670503954,
+        "tipWidthMm": 8.361088610565764,
+        "aspect": 0.7928089063107744,
+        "maxAcrossTurnDeg": 178.4809650286203
+      },
+      "clampMaxShiftMm": 0.0,
+      "clampMovedVertices": 0
+    },
+    "closest": {
+      "layer": "flyaway",
+      "strip": 6,
+      "lock": 0.8958333333333334,
+      "guide": {
+        "before": {
+          "arcMm": 18.123845068646165,
+          "maxTurnDeg": 75.35242040703321
+        },
+        "blendOnly": {
+          "arcMm": 15.3638080471594,
+          "maxTurnDeg": 84.37972912896134
+        },
+        "after": {
+          "arcMm": 15.386236578676511,
+          "maxTurnDeg": 84.20787624674117
+        },
+        "beforeMeanLockAngleDeg": 73.44125236935744,
+        "afterMeanLockAngleDeg": 27.87455442215424,
+        "rootLockDistanceMm": 10.95236763012549,
+        "blendMaxShiftMm": 13.581906384325105,
+        "clearanceMaxShiftMm": 0.3789164797408109,
+        "pointsBefore": [
+          [
+            0.006125201471149921,
+            0.05155697837471962,
+            1.6311968564987183
+          ],
+          [
+            0.00514056533575058,
+            0.051956791430711746,
+            1.6306558847427368
+          ],
+          [
+            0.004155928734689951,
+            0.052356600761413574,
+            1.6301149129867554
+          ],
+          [
+            0.0030702364165335894,
+            0.052647750824689865,
+            1.629807472229004
+          ],
+          [
+            0.0019000648753717542,
+            0.052848055958747864,
+            1.6296954154968262
+          ],
+          [
+            0.0007298933924175799,
+            0.05304836481809616,
+            1.6295832395553589
+          ],
+          [
+            -0.0003047078789677471,
+            0.05302875488996506,
+            1.6298092603683472
+          ],
+          [
+            -0.0003729995805770159,
+            0.05246778205037117,
+            1.6308131217956543
+          ],
+          [
+            -0.00032914531766436994,
+            0.051880061626434326,
+            1.631849765777588
+          ],
+          [
+            -0.000285291054751724,
+            0.05129234865307808,
+            1.6328864097595215
+          ],
+          [
+            -0.00023122061975300312,
+            0.05069667845964432,
+            1.633918046951294
+          ],
+          [
+            -0.00017438772192690521,
+            0.05009886622428894,
+            1.6349482536315918
+          ],
+          [
+            -0.00011755482410080731,
+            0.049501046538352966,
+            1.6359784603118896
+          ],
+          [
+            -6.072193355066702e-05,
+            0.04890322685241699,
+            1.637008786201477
+          ],
+          [
+            -3.889026629622094e-06,
+            0.048305410891771317,
+            1.638038992881775
+          ],
+          [
+            1.624209289730061e-05,
+            0.047698795795440674,
+            1.6390652656555176
+          ],
+          [
+            2.057539560951227e-08,
+            0.04748042672872543,
+            1.639444351196289
+          ]
+        ],
+        "pointsLock": [
+          [
+            0.010711810551583767,
+            0.055761486291885376,
+            1.6221835613250732
+          ],
+          [
+            0.010041195899248123,
+            0.05678684264421463,
+            1.6204243898391724
+          ],
+          [
+            0.009372984990477562,
+            0.057811371982097626,
+            1.6186639070510864
+          ],
+          [
+            0.008764561265707016,
+            0.05881538987159729,
+            1.6168701648712158
+          ],
+          [
+            0.008156136609613895,
+            0.05981941148638725,
+            1.6150765419006348
+          ],
+          [
+            0.006960595026612282,
+            0.06067531555891037,
+            1.6137269735336304
+          ],
+          [
+            0.004915039520710707,
+            0.06095675379037857,
+            1.6137051582336426
+          ],
+          [
+            0.0027938159182667732,
+            0.06109073385596275,
+            1.6139848232269287
+          ],
+          [
+            0.0006872623343952,
+            0.061145421117544174,
+            1.6143782138824463
+          ],
+          [
+            -0.0014305132208392024,
+            0.06108276546001434,
+            1.6144136190414429
+          ],
+          [
+            -0.003545450046658516,
+            0.06093727797269821,
+            1.6140984296798706
+          ],
+          [
+            -0.005666998215019703,
+            0.06079950928688049,
+            1.6138231754302979
+          ],
+          [
+            -0.007787276990711689,
+            0.06065080314874649,
+            1.6135441064834595
+          ],
+          [
+            -0.009906338527798653,
+            0.06049209088087082,
+            1.6132612228393555
+          ],
+          [
+            -0.012023746967315674,
+            0.0603204220533371,
+            1.6129734516143799
+          ],
+          [
+            -0.014139559119939804,
+            0.06013686954975128,
+            1.6126816272735596
+          ],
+          [
+            -0.016254397109150887,
+            0.05994607135653496,
+            1.6123871803283691
+          ]
+        ],
+        "pointsBlend": [
+          [
+            0.006125201471149921,
+            0.05155697837471962,
+            1.6311968564987183
+          ],
+          [
+            0.0051809800788760185,
+            0.0519966222345829,
+            1.6305714845657349
+          ],
+          [
+            0.004269471392035484,
+            0.05247531458735466,
+            1.6298656463623047
+          ],
+          [
+            0.0032888634596019983,
+            0.0528845489025116,
+            1.6293107271194458
+          ],
+          [
+            0.002259381813928485,
+            0.05324845761060715,
+            1.6288557052612305
+          ],
+          [
+            0.0012189813423901796,
+            0.053647056221961975,
+            1.6283385753631592
+          ],
+          [
+            0.00022416736464947462,
+            0.0538320355117321,
+            1.6281776428222656
+          ],
+          [
+            2.5155197363346815e-05,
+            0.05355192348361015,
+            1.628697395324707
+          ],
+          [
+            -0.00017508675227873027,
+            0.053284429013729095,
+            1.6292016506195068
+          ],
+          [
+            -0.0004899926716461778,
+            0.053042326122522354,
+            1.629584550857544
+          ],
+          [
+            -0.0009177744504995644,
+            0.05281805247068405,
+            1.6298123598098755
+          ],
+          [
+            -0.001474618911743164,
+            0.052631963044404984,
+            1.6299474239349365
+          ],
+          [
+            -0.002168364590033889,
+            0.05248238518834114,
+            1.6299797296524048
+          ],
+          [
+            -0.0030055204406380653,
+            0.05236943066120148,
+            1.6299059391021729
+          ],
+          [
+            -0.003992030397057533,
+            0.05229194462299347,
+            1.6297223567962646
+          ],
+          [
+            -0.0051568979397416115,
+            0.05224420502781868,
+            1.6294236183166504
+          ],
+          [
+            -0.0065017458982765675,
+            0.052466683089733124,
+            1.6286215782165527
+          ]
+        ],
+        "pointsAfter": [
+          [
+            0.006125525571405888,
+            0.05155913531780243,
+            1.6311980485916138
+          ],
+          [
+            0.005186085123568773,
+            0.05203057825565338,
+            1.6305899620056152
+          ],
+          [
+            0.004279324784874916,
+            0.0525408573448658,
+            1.6299012899398804
+          ],
+          [
+            0.003303220961242914,
+            0.052980050444602966,
+            1.6293625831604004
+          ],
+          [
+            0.0022757998667657375,
+            0.05337124317884445,
+            1.6289223432540894
+          ],
+          [
+            0.0012272289022803307,
+            0.05376199632883072,
+            1.6284010410308838
+          ],
+          [
+            0.00022511866700369865,
+            0.053904447704553604,
+            1.6282169818878174
+          ],
+          [
+            2.526123535062652e-05,
+            0.053623855113983154,
+            1.6287363767623901
+          ],
+          [
+            -0.000175767345353961,
+            0.0533507876098156,
+            1.6292376518249512
+          ],
+          [
+            -0.0004925222601741552,
+            0.05313031002879143,
+            1.6296323537826538
+          ],
+          [
+            -0.000925987318623811,
+            0.05296987295150757,
+            1.629894733428955
+          ],
+          [
+            -0.0014927847078070045,
+            0.05283988267183304,
+            1.6300603151321411
+          ],
+          [
+            -0.0022007632069289684,
+            0.05273304879665375,
+            1.6301158666610718
+          ],
+          [
+            -0.003046641359105706,
+            0.05264294892549515,
+            1.6300544738769531
+          ],
+          [
+            -0.00403644610196352,
+            0.05258738249540329,
+            1.6298828125
+          ],
+          [
+            -0.005205284804105759,
+            0.052566058933734894,
+            1.6295983791351318
+          ],
+          [
+            -0.00655137374997139,
+            0.05279678851366043,
+            1.628800868988037
+          ]
+        ]
+      },
+      "original": {
+        "arcMm": 15.386236532091393,
+        "maxTurnDeg": 84.20786766519231,
+        "rootWidthMm": 18.580165600258727,
+        "tipWidthMm": 8.361109985232243,
+        "aspect": 0.8281000752693582,
+        "maxAcrossTurnDeg": 53.84610509054188
+      },
+      "preClamp": {
+        "arcMm": 15.386236532091393,
+        "maxTurnDeg": 84.20786766519231,
+        "rootWidthMm": 18.580165600258727,
+        "tipWidthMm": 8.361109985232243,
+        "aspect": 0.8281000752693582,
+        "maxAcrossTurnDeg": 53.84610509054188
+      },
+      "postClamp": {
+        "arcMm": 15.386236532091393,
+        "maxTurnDeg": 84.20786766519231,
+        "rootWidthMm": 18.580165600258727,
+        "tipWidthMm": 8.361109985232243,
+        "aspect": 0.8281000752693582,
+        "maxAcrossTurnDeg": 53.84610509054188
+      },
+      "clampMaxShiftMm": 0.0,
+      "clampMovedVertices": 0
+    }
+  },
+  "sourceHashes": {
+    "tmp/hair-sep24/ribbon-shape/probe.py": "ec1c5821f7d100bf786bb324001df8ceb03b04012865a599e10d120138702b2a",
+    "tmp/hair-sep24/ribbon-shape/capture.mjs": "a562e6f0b741ad68e002309ff7f72a3804a4de6e89a08cbf1ef711aa8941a8ca",
+    "tmp/hair-sep24/ribbon-shape/projection-control.py": "0ed8fc7ebe069915ff8b3e5bea2d286957778ddf272c532c5807707cc7ea9013",
+    "tools/figure-pipeline/hair_cards.py": "65bf787e3ff48b595b2700012f517340fb7db7be55b6e797515560a5ba37c54a",
+    "tools/figure-pipeline/hair_geometry.mjs": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+    "tools/figure-pipeline/verify_glb.mjs": "ea811ea7a928c2d6738e797a8d764cce058fca78eb727cb47f7508ecdbf95cd9",
+    "packages/testbed/src/hair.js": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd"
+  }
+}

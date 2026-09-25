@@ -2608,13 +2608,8 @@ export class Avatar {
                     // to see that no light in the scene is delivering it.
                     ambientAttached: this.lights.describeAmbient().attached,
                     shadowsEnabled: this.lights.shadowsEnabled,
-                    placements: this.lights.placements.map( ( placement ) => ( {
-                        name: placement.name,
-                        azimuthDegrees: placement.azimuthDegrees,
-                        elevationDegrees: placement.elevationDegrees,
-                        irradiance: placement.irradiance,
-                        colour: `#${ new Color( placement.colour ).getHexString( SRGBColorSpace ) }`
-                    } ) )
+                    // Geometry and radiometry are read off the LIGHTS, after any live mutation.
+                    placements: this.lights.describeLive()
                 }
             },
 
@@ -3594,6 +3589,7 @@ export class Avatar {
         if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
 
         let contactFactory;
+        let contactDynamicsSettings;
         let contactUnavailableReason = null;
         if ( hairSelection?.hairStyle === 'bob01' ) {
 
@@ -3612,6 +3608,7 @@ export class Avatar {
                     const { createHairBodyContactFactory } = await import( './motion/HairBodyContact.js' );
                     if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
                     contactFactory = createHairBodyContactFactory( { body: figure.body, groomMesh: mesh, selection } );
+                    contactDynamicsSettings = selection.dynamicsSettings;
 
                 } else contactUnavailableReason = selection.reason;
 
@@ -3631,6 +3628,7 @@ export class Avatar {
         const dynamics = createHairDynamics( {
             renderer: this.stage.renderer,
             geometry: mesh.geometry,
+            settings: contactDynamicsSettings,
             contactFactory
         } );
 
@@ -4083,9 +4081,9 @@ function authoredPlacements( preset ) {
  * @param {'portrait'|'body'} preset
  * @returns {Object} `{ [lightName]: { field: value } }`, ready for `LightingRig`'s `overrides`.
  */
-export function resolveLook( look, preset ) {
+export function resolveLook( look, preset, catalogue = SCENE_LOOKS ) {
 
-    const entry = SCENE_LOOKS[ look ];
+    const entry = catalogue[ look ];
 
     if ( entry === undefined ) {
 

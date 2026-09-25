@@ -39,6 +39,7 @@
 //   node tools/critic/scene-probe.mjs --url-base … --out … --report --scene beach
 
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -173,6 +174,7 @@ async function runIbl(browser, urlBase, out, scene) {
       `noenv arm reports environment.attached=${noEnv.report.scene.environment?.attached}`
   );
 
+  const measured = [];
   for (const [label, rect] of Object.entries(PROBES)) {
     const { set, clipped, total } = usableRect(rect, base.png.width, [base.png, noEnv.png]);
     if (set.length < 30) {
@@ -181,6 +183,7 @@ async function runIbl(browser, urlBase, out, scene) {
     }
     const withEnv = probeLuminance(base.png, set);
     const without = probeLuminance(noEnv.png, set);
+    measured.push([label, rect.join(','), set.length, withEnv, without, (withEnv - without) / withEnv]);
     console.log(
       `    ${label.padEnd(14)} rect ${rect.join(',')}  ${set.length}/${total} usable (${clipped} clipped)\n` +
         `      total ${withEnv.toExponential(4)}   without env ${without.toExponential(4)}   ` +
@@ -194,6 +197,7 @@ async function runIbl(browser, urlBase, out, scene) {
     `    🔴 RED PROOF (frame): ${frameWith.toExponential(4)} → ${frameWithout.toExponential(4)}, ` +
       `${(((frameWith - frameWithout) / frameWith) * 100).toFixed(2)}% — removing the PMREM changes the frame`
   );
+  return { columns: ['probe', 'rect', 'pixels', 'total radiance', 'without environment', 'IBL fraction'], rows: measured };
 }
 
 /** 11.3: does the jaw underside track the ground's albedo, and stop when the ground leaves the bake? */
@@ -270,6 +274,8 @@ async function runGround(browser, urlBase, out, scene) {
     `    ⚠️ WHOLE-FRAME MEAN over the same sweep: ${frameSpan.toFixed(4)}x — this is what a ` +
       'statistic without the mask would have reported'
   );
+  return { columns: ['albedo', 'label', 'linear Y', 'jaw', 'jaw without ground', 'whole frame'],
+    rows: rows.map(r => [r.hex, r.label, r.linear, r.jaw, r.jawNull, r.frame]) };
 }
 
 /** `report()` for one arm, so a claim about the scene can be quoted rather than recalled. */
@@ -422,8 +428,27 @@ if (urlBase === null) {
   const { chromium } = await loadPlaywright();
   const browser = await chromium.launch({ headless: true, channel: 'chromium', args: GPU_FLAGS });
   try {
-    if (process.argv.includes('--ibl')) await runIbl(browser, urlBase, out, scene);
-    if (process.argv.includes('--ground')) await runGround(browser, urlBase, out, scene);
+    const measurements = [];
+    if (process.argv.includes('--ibl')) measurements.push(['IBL', await runIbl(browser, urlBase, out, scene)]);
+    if (process.argv.includes('--ground')) measurements.push(['Ground bounce', await runGround(browser, urlBase, out, scene)]);
+    if (process.argv.includes('--emit-markdown')) {
+      if (!measurements.length) throw new Error('--emit-markdown requires --ibl or --ground.');
+      const sha = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: REPO, encoding: 'utf8' }).trim();
+      const dirty = execFileSync('git', ['status', '--porcelain'], { cwd: REPO, encoding: 'utf8' }).trim() !== '';
+      const cell = value => String(typeof value === 'number' ? Number(value.toPrecision(8)) : value).replaceAll('|', '&#124;');
+      const blocks = measurements.map(([label, result]) => [
+        `### ${label}`, '', `| ${result.columns.join(' | ')} |`,
+        `| ${result.columns.map(() => '---').join(' | ')} |`,
+        ...result.rows.map(row => `| ${row.map(cell).join(' | ')} |`)
+      ].join('\n'));
+      const markdown = [`<!-- scene-probe:generated:start -->`,
+        `Scene: ${scene}. Tree: ${sha}${dirty ? ' (working tree modified)' : ''}.`,
+        `Recipe: ${WIDTH}x${HEIGHT}, portrait, frozen, seed 1, one step; ${urlBase}.`, '',
+        ...blocks, '<!-- scene-probe:generated:end -->', ''].join('\n');
+      fs.mkdirSync(out, { recursive: true });
+      fs.writeFileSync(path.join(out, `${scene}-photometry.md`), markdown);
+      console.log(markdown);
+    }
     if (process.argv.includes('--report')) await runReport(browser, urlBase, out, scene);
     if (process.argv.includes('--rects')) {
       const a = await arm(browser, urlBase, `scene=${scene}`, `${out}/${scene}-rects.png`);

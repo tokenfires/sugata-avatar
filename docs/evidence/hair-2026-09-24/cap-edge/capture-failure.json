@@ -1,0 +1,17 @@
+{
+  "baseCommit": "7f77a6c",
+  "rect": [
+    240,
+    540,
+    140,
+    70
+  ],
+  "frame": 1,
+  "changedFacePixels": 9755,
+  "totalFacePixels": 9800,
+  "identicalCameraAndHeadMatrices": true,
+  "identicalGpuCardPositionsAndVelocities": true,
+  "rawReportSha256": "f6370773ece260944519ff794f052997e1067d44d3c9281a8ecdab832954c59b",
+  "rawReportPostprocessError": "TypeError: Cannot read properties of undefined (reading '1556160')\n    at file:///Users/robault/GitHub/sugata-avatar/tmp/hair-sep24/cap-edge/capture.mjs:73:53\n    at Array.some (<anonymous>)\n    at faceDifference (file:///Users/robault/GitHub/sugata-avatar/tmp/hair-sep24/cap-edge/capture.mjs:73:39)\n    at file:///Users/robault/GitHub/sugata-avatar/tmp/hair-sep24/cap-edge/capture.mjs:78:11\n    at Array.map (<anonymous>)\n    at file:///Users/robault/GitHub/sugata-avatar/tmp/hair-sep24/cap-edge/capture.mjs:77:84",
+  "note": "Both captures completed. The original postprocessor used data instead of pixels for decoded PNGs; this independent audit corrected that property and confirmed the face mismatch. Awaiting startup alone did not fix later motion frames. Current clock regression supplies frozen and drifting clock rejection controls."
+}

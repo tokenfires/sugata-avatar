@@ -860,7 +860,7 @@ const READ_GEOMETRY = () => {
   };
 };
 
-async function arm(browser, urlBase, query, file, { hideFigure = false, hideEyes = false, readGeometry = false } = {}) {
+async function arm(browser, urlBase, query, file, { hideFigure = false, hideEyes = false, readGeometry = false, geometryMask = false } = {}) {
   const context = await browser.newContext({
     viewport: { width: WIDTH, height: HEIGHT },
     deviceScaleFactor: 1,
@@ -895,6 +895,7 @@ async function arm(browser, urlBase, query, file, { hideFigure = false, hideEyes
   // drawn. Measured: same code, same page, 293.1/147.9 for the two eye centres after the step and a
   // midpoint off the left of the canvas before it.
   const geometry = readGeometry ? await page.evaluate(READ_GEOMETRY) : null;
+  if (geometryMask) await page.evaluate(() => globalThis.__SUGATA_GEOMETRY_MASK__());
   fs.mkdirSync(path.dirname(file), { recursive: true });
   await page.screenshot({ path: file, animations: 'disabled' });
   await context.close();
@@ -1024,12 +1025,14 @@ function declaredKeySide(report) {
 async function runScene(browser, urlBase, out, scene, { overlays, label = scene, extra = '' }) {
   const query = `scene=${scene}&frame=portrait${extra}`;
   const lit = await arm(browser, urlBase, query, `${out}/${label}-lit.png`, { readGeometry: true });
-  const bg = await arm(browser, urlBase, query, `${out}/${label}-matte.png`, { hideFigure: true });
+  const bg = await arm(browser, urlBase, query, `${out}/${label}-matte.png`, { geometryMask: true });
   const noEyes = await arm(browser, urlBase, query, `${out}/${label}-noeyes.png`, { hideEyes: true });
 
   const w = lit.png.width;
   const h = lit.png.height;
-  const raw = buildSubjectMask(lit.png, bg.png, 2);
+  // An ID pass counts visible geometry. Bloom and changing background light cannot join the mask.
+  const raw = { mask: Uint8Array.from({ length: w * h }, (_, k) =>
+    Math.max(...bg.png.pixels.slice(k * 4, k * 4 + 3)) > 0.5 ? 1 : 0) };
   const component = largestComponent(raw.mask, w, h);
   const subjectPixels = [];
   for (let k = 0; k < w * h; k += 1) if (component.mask[k] === 1) subjectPixels.push(k);

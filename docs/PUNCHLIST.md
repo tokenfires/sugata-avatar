@@ -3234,3 +3234,28 @@ phase if ever); no baked lighting; and **no second lighting engine** — a scene
 - **No black lift** in the grade, despite "cinematic" instinct.
 - **MPFB2 is build-time only.** Its code is GPLv3; only its CC0 assets ship.
 - Reference imagery is copyright SHIFT UP / SIE. Gitignored. Never committed, never shipped.
+
+## Photometry refresh, September 22, 2026
+
+The generated rows below supersede the earlier chronological beach photometry.
+They describe this measured tree; they are not portable reference values.
+
+<!-- scene-probe:generated:start -->
+Scene: beach. Tree: d54a6ceda509b8f14f5d0793adfd6d4b6917c8f5 (working tree modified).
+Recipe: 900x1200, portrait, frozen, seed 1, one step; http://localhost:5265/@fs/Users/robault/GitHub/sugata-avatar/tools/critic/avatar-plate.html.
+
+### IBL
+
+| probe | rect | pixels | total radiance | without environment | IBL fraction |
+| --- | --- | --- | --- | --- | --- |
+| jaw-underside | 232,750,108,44 | 4752 | 0.25045943 | 0.15295981 | 0.38928309 |
+| forehead | 250,196,120,46 | 5520 | 0.59963983 | 0.44425318 | 0.2591333 |
+### Ground bounce
+
+| albedo | label | linear Y | jaw | jaw without ground | whole frame |
+| --- | --- | --- | --- | --- | --- |
+| 0x1a1a18 | near-black basalt | 0.010243489 | 0.19845217 | 0.40513531 | 0.3547239 |
+| 0x6b6459 | wet sand | 0.12961411 | 0.21669073 | 0.40513531 | 0.36036798 |
+| 0xa89f8d | dry sand (shipped) | 0.35044192 | 0.25045943 | 0.40513531 | 0.37083692 |
+| 0xe4dccb | white sand | 0.71992176 | 0.30687117 | 0.40513531 | 0.38839502 |
+<!-- scene-probe:generated:end -->

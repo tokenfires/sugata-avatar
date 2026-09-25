@@ -1,0 +1,853 @@
+{
+  "baseCommit": "9d5700e208987b2379e79930ee2a15dcda9c45b4",
+  "sourceSHA256": {
+    "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "packages/core/src/render/GBuffer.js": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774",
+    "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "tmp/hair-sep25/resolve-finiteness/fixture.js": "9beee01abc5c165599a9c4c0727ec68df185bf33baedfe46993352c5ecf50415",
+    "tmp/hair-sep25/resolve-finiteness/capture.mjs": "5a474f431049cde2236bfa04bdf0b76a0249c0aecbdb5fb8687b7417c9307123",
+    "tmp/hair-sep25/resolve-finiteness/half-audit.mjs": "99a11bc48efb43d6a40dfa32f9c0662f50ad3a572a15f51cebe32aae0e9c6bd4",
+    "node_modules/three/examples/jsm/tsl/display/TAAUNode.js": "ddc9d1eaa318dd45629799c48af6f7388b31edd9ad5e6648a4004fdead48d250"
+  },
+  "finding": "No NaN or infinity reproduced in sampled native resolve/color-history/lock buffers. The dark bias exists before RGBA8 conversion; no denominator guard is justified by this audit.",
+  "cases": 9,
+  "framesPerCase": 512,
+  "nativeBuffersPerFrame": 3,
+  "wholeFrameComponentsExamined": 3623878656,
+  "roiComponentsExamined": 693633024,
+  "nonfiniteComponents": 0,
+  "priorCasesWithExactFrameTracesPixelMeansAndImages": 9,
+  "pilotCasesWithExact24FrameTracesAndImages": 6,
+  "initialPilotCasesWithExactCommon24FrameTracesAndImages": 6,
+  "rows": [
+    {
+      "name": "taau-shared-half-p0",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.4811062326236647,
+        0.49931938307625906
+      ],
+      "nativeColorMeanLast64": 0.4812187774448979,
+      "rgba8MeanLast64": 0.48126948533319597,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "ba50192cca0adc41cd0536018c9c5e8e5d3454de6253a0adc3eb6265ca4cccb8",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.4934093689559156,
+          "tailFrames": 24,
+          "tailMean": 0.4934093689559156,
+          "tailTemporalRMS": 0.026974672117520446,
+          "finalMean": 0.4892979066626651,
+          "spatialSD": 0.013709357564498804,
+          "imageSHA256": "a336b4e486a5fa84c78f6d46407c7bd40e80ba7c72c1af11bab761887caa4e77"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.4854659002272786,
+          "tailFrames": 64,
+          "tailMean": 0.48228643996661186,
+          "tailTemporalRMS": 0.007968488686388142,
+          "finalMean": 0.4816292141856743,
+          "spatialSD": 0.008436978005936357,
+          "imageSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.48234311119467305,
+          "tailFrames": 64,
+          "tailMean": 0.48126948533319597,
+          "tailTemporalRMS": 0.00798661505477123,
+          "finalMean": 0.48125093787515005,
+          "spatialSD": 0.008703106812746763,
+          "imageSHA256": "0968feb4a77487a822c11503fa91b299cc14446ebdc0d6d04b0c09ce083a9a77"
+        }
+      ]
+    },
+    {
+      "name": "taau-shared-half-p977",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.4811088211682378,
+        0.5005144714092722
+      ],
+      "nativeColorMeanLast64": 0.4812282041019323,
+      "rgba8MeanLast64": 0.48127487323054213,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "cb2f8a3fd214eccb2a64fba28a882f3ec2baf8bb7675153a3cf0ea3dc9396da2",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.4942913363261972,
+          "tailFrames": 24,
+          "tailMean": 0.4942913363261972,
+          "tailTemporalRMS": 0.02696679313818386,
+          "finalMean": 0.48983687224889955,
+          "spatialSD": 0.013757062704641361,
+          "imageSHA256": "4a6b10347fad10098dcd85cdc7d7e83c2ccc88beb1ff7a9802c4a76f413b4e2f"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.48575844888736747,
+          "tailFrames": 64,
+          "tailMean": 0.4823537569324605,
+          "tailTemporalRMS": 0.007964310537782003,
+          "finalMean": 0.48169830432172867,
+          "spatialSD": 0.008457056187313298,
+          "imageSHA256": "403df1ffd9dc33c5b0e48386c25b7c72e8f7df59b65fc61132aac28f407be4cf"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.48241619401666974,
+          "tailFrames": 64,
+          "tailMean": 0.48127487323054213,
+          "tailTemporalRMS": 0.00799021827312296,
+          "finalMean": 0.48128032462985193,
+          "spatialSD": 0.008696492399138065,
+          "imageSHA256": "5d9bd758d1dfba299dd4f86173868ecd980cc9d84ae4ced0281f06ef9e990041"
+        }
+      ]
+    },
+    {
+      "name": "taau-temporal-half-p0",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.0006247708260328794,
+        0.29550225248712364
+      ],
+      "nativeColorMeanLast64": 0.0298579603648027,
+      "rgba8MeanLast64": 0.029850929629664364,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "7b35c45d96c7c2a22fad81c4f8c3af78ec0a58c4402a7e2f3ea25290a2c19460",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.09560666714602507,
+          "tailFrames": 24,
+          "tailMean": 0.09560666714602507,
+          "tailTemporalRMS": 0.04964795549788872,
+          "finalMean": 0.01914484543817527,
+          "spatialSD": 0.014105045537152947,
+          "imageSHA256": "2f42b7dfeb3c557d4a70fb338802ef19f377f6084f478021562433df038a2c9c"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.04448344279117897,
+          "tailFrames": 64,
+          "tailMean": 0.03225576851834484,
+          "tailTemporalRMS": 0.016810985572955784,
+          "finalMean": 0.02862238645458183,
+          "spatialSD": 0.014092071095884959,
+          "imageSHA256": "46352e4272fd85947c098cf14efc1e374c4eb8f3ebaab5690d9f03b0c39ea2e3"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.03506689296812473,
+          "tailFrames": 64,
+          "tailMean": 0.029850929629664364,
+          "tailTemporalRMS": 0.015664208462296363,
+          "finalMean": 0.03500118797519008,
+          "spatialSD": 0.01242207943931417,
+          "imageSHA256": "539da4d4831e0ff6db736f551ac9d66bd283368ddf8f076cbbaa86d245a98ffd"
+        }
+      ]
+    },
+    {
+      "name": "taau-temporal-half-p977",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.00039083654612150727,
+        0.16368150662592784
+      ],
+      "nativeColorMeanLast64": 0.031807214319403046,
+      "rgba8MeanLast64": 0.03179575052677321,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "2d3a9e11de1e5ffeeb0287e96e5f4363e05a8a250c49214d26b6af076351f3ff",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.0578585210125717,
+          "tailFrames": 24,
+          "tailMean": 0.0578585210125717,
+          "tailTemporalRMS": 0.034365020579198206,
+          "finalMean": 0.06301989545818328,
+          "spatialSD": 0.024087432251251005,
+          "imageSHA256": "0f0a855c6143f0fcd6db2817b7c3ec43ffde5003bed8b9273bb63bc826ac8591"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.0374889653126876,
+          "tailFrames": 64,
+          "tailMean": 0.03489196459833933,
+          "tailTemporalRMS": 0.01630968043158089,
+          "finalMean": 0.06383397108843537,
+          "spatialSD": 0.021028523892809767,
+          "imageSHA256": "c4c8c38598630bc5259fa7a8525d81c5ada08c77da6ce2195a8a385aebdfae72"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.03377837218871923,
+          "tailFrames": 64,
+          "tailMean": 0.03179575052677321,
+          "tailTemporalRMS": 0.016816489261225087,
+          "finalMean": 0.0038071478591436576,
+          "spatialSD": 0.011508018715907113,
+          "imageSHA256": "8c239984a75c068d176003324f2ee799fb46adb19b544a679a31db9393156ea2"
+        }
+      ]
+    },
+    {
+      "name": "taau-swapped-distinct-half-p0",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.1162373076658696,
+        0.2480298966806078
+      ],
+      "nativeColorMeanLast64": 0.1187497312171867,
+      "rgba8MeanLast64": 0.11874926728503901,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "0135345b01952d71cc6364fc9945d89d4832d1f75d4c5019c651ab614792dc69",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2022288733201613,
+          "tailFrames": 24,
+          "tailMean": 0.2022288733201613,
+          "tailTemporalRMS": 0.05350301171961333,
+          "finalMean": 0.16076743197278912,
+          "spatialSD": 0.05306318852371288,
+          "imageSHA256": "d1126cef7a37f555e3904a0c062d49836342a790876c01b0e5924521ba24003e"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14028543790563103,
+          "tailFrames": 64,
+          "tailMean": 0.1202724449154662,
+          "tailTemporalRMS": 0.02689240869083833,
+          "finalMean": 0.11821447328931574,
+          "spatialSD": 0.04269966792529802,
+          "imageSHA256": "abda7c47d3bb32090d4c14c2060f16f7c5212a8d0aa4c8a1226fbca73df9970a"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.12399602663330961,
+          "tailFrames": 64,
+          "tailMean": 0.11874926728503901,
+          "tailTemporalRMS": 0.026708394009081426,
+          "finalMean": 0.11948373099239695,
+          "spatialSD": 0.043275319889109654,
+          "imageSHA256": "e917eb3fd0e38c67032b82c4d41a01161e030ce812a33207e7e94434d6d86428"
+        }
+      ]
+    },
+    {
+      "name": "taau-swapped-distinct-half-p977",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.11644097520703715,
+        0.2505922271176336
+      ],
+      "nativeColorMeanLast64": 0.11896312639718028,
+      "rgba8MeanLast64": 0.11896197443821277,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "329c2dbfc5eab4c6fc82a7d94d320a8b700976344d1bcfd539e5e7d41566e82b",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.2043848789515806,
+          "tailFrames": 24,
+          "tailMean": 0.2043848789515806,
+          "tailTemporalRMS": 0.05388816571432777,
+          "finalMean": 0.16173969587835135,
+          "spatialSD": 0.05300382061224259,
+          "imageSHA256": "216bfd701b21e629c732ad0827ba0413425511effa56c74b7225b759423f1368"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.14085123551373663,
+          "tailFrames": 64,
+          "tailMean": 0.12046675115358646,
+          "tailTemporalRMS": 0.026906962744242664,
+          "finalMean": 0.11862307422969187,
+          "spatialSD": 0.042374455089352614,
+          "imageSHA256": "cbc0c1d76b2c484dedb6e7a42305ddf3694bd1eb1db8485e06dac676dbf02ba9"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.12425225583397417,
+          "tailFrames": 64,
+          "tailMean": 0.11896197443821277,
+          "tailTemporalRMS": 0.026685362684009353,
+          "finalMean": 0.11955032012805122,
+          "spatialSD": 0.04328259812729814,
+          "imageSHA256": "2578f87d67fd29e608127213f92c0fee80253c819055132850b1d829414ddb3e"
+        }
+      ]
+    },
+    {
+      "name": "taau-opaque-pair-p0",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0,
+        0
+      ],
+      "nativeColorMeanLast64": 0.0,
+      "rgba8MeanLast64": 0,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "c7ed01f07cdc4b4dcc076f195492aa8e5c1807b4aaa7ed597c0ccb77981f9a04",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0,
+          "tailFrames": 24,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "78e5047c8cbb06f4bfc213a539f8daca59083373979f42eb10fdadc3af7589cb"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0,
+          "tailFrames": 64,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "b032f2e3b7a8e07d804d633a60ed1cfe29211659f7f3d4b2070eb9a747d70bb6"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0,
+          "tailFrames": 64,
+          "tailMean": 0,
+          "tailTemporalRMS": 0,
+          "finalMean": 0,
+          "spatialSD": 0,
+          "imageSHA256": "861fb60d82d7ab810bbef5243b4417eb7a6c144815a83e8b5defb51922706375"
+        }
+      ]
+    },
+    {
+      "name": "taau-empty-p0",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.9999939276247608,
+        1
+      ],
+      "nativeColorMeanLast64": 0.9999995474912683,
+      "rgba8MeanLast64": 1,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "ef2f9e79b64aa202ed93b35a77292b99515569bfe03b7d75645af120c69f08c4",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 1,
+          "tailFrames": 24,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 128,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        },
+        {
+          "count": 512,
+          "temporalMean": 1,
+          "tailFrames": 64,
+          "tailMean": 1,
+          "tailTemporalRMS": 0,
+          "finalMean": 1,
+          "spatialSD": 0,
+          "imageSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622"
+        }
+      ]
+    },
+    {
+      "name": "taau-blend-half-p0",
+      "nativeMetadata": {
+        "owner": "TAAUNode",
+        "sharpenNode": false,
+        "targets": [
+          {
+            "name": "resolve",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 1,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyColor",
+            "index": 0,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          },
+          {
+            "name": "historyLock",
+            "index": 1,
+            "width": 256,
+            "height": 256,
+            "attachments": 2,
+            "textureType": 1016,
+            "textureFormat": 1023,
+            "colorSpace": "",
+            "gpuFormat": "rgba16float",
+            "typedArray": "Uint16Array"
+          }
+        ]
+      },
+      "maxNativeNonfiniteComponents": 0,
+      "nativeROIMeanRange": [
+        0.24999831647289042,
+        0.25
+      ],
+      "nativeColorMeanLast64": 0.24999988565639575,
+      "rgba8MeanLast64": 0.2509803921568623,
+      "maxQuantizationErrorCodeValues": 0,
+      "resolveHistoryBitDifferences": 0,
+      "historyLockRange": [
+        0,
+        0
+      ],
+      "pixelMeansSHA256": "81b9f2a4e1af5b3c858c1137a8b63bfac3ee4f5912499dfe1411b471194a9ba2",
+      "checkpoints": [
+        {
+          "count": 24,
+          "temporalMean": 0.25098039215686274,
+          "tailFrames": 24,
+          "tailMean": 0.25098039215686274,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "f6321910591252ab2f915d4244e0f296f358835f07cd655f4999dd06d471eb1c"
+        },
+        {
+          "count": 128,
+          "temporalMean": 0.2509803921568621,
+          "tailFrames": 64,
+          "tailMean": 0.2509803921568623,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "a9db66d09242d68d1d174e80008c5f51967f983b98fddbf00131759dc3d4dcb8"
+        },
+        {
+          "count": 512,
+          "temporalMean": 0.2509803921568619,
+          "tailFrames": 64,
+          "tailMean": 0.2509803921568623,
+          "tailTemporalRMS": 0,
+          "finalMean": 0.25098039215686274,
+          "spatialSD": 0,
+          "imageSHA256": "de4ba8573f9b4f4abb8d39985a75f9a257d8488ba8458bfc440a522204a4e3f8"
+        }
+      ]
+    }
+  ],
+  "observation": "Native resolve has one attachment; history has color and lock. Sampled history lock is identically zero. Source writes two output members but copies only resolved color to history; causal effect of changing this wiring is untested.",
+  "limits": [
+    "Native buffers only; no assertion about all intermediate shader expressions or other GPUs.",
+    "Static constant-alpha basic-material fixture, not real-groom or fibre-BSDF qualification.",
+    "RGBA16F readback decoded from Uint16 bit patterns; all four channels counted in whole-frame and fixed ROI.",
+    "Resolve/history comparison is after the renderer copies current color into history, not an independent capture.",
+    "No runtime, dependency, asset, threshold or calibration modification; no motion, cost, geometry, build or full-suite result."
+  ]
+}

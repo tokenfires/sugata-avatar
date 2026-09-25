@@ -1,0 +1,23 @@
+PASS: 48 actual Apple WebGPU cases x 512 frames, 144 plates, stable IDs and 109,182,976 raw ROI pixels match the CPU oracle.
+PASS: endpoint/depth/blend controls, 10 exact equivalences, 28 repeated pilots, 22 exact prior controls, native finite/copy checks and source hashes.
+off-shared-half-p0 {'temporalMean': 0.49999922149035386, 'tailMean': 0.5000199298469388, 'tailTemporalRMS': 0.8740349902663612} pixel mean SD 0.0017005108001777159
+off-shared-half-p977 {'temporalMean': 0.50000186842315, 'tailMean': 0.49997757892219374, 'tailTemporalRMS': 0.8740307074343214} pixel mean SD 0.001707024834535029
+off-counter-quarter-p0 {'temporalMean': 0.562644802794165, 'tailMean': 0.562553561463648, 'tailTemporalRMS': 0.7013569070752945} pixel mean SD 0.021664959622447633
+off-counter-quarter-p977 {'temporalMean': 0.5624688596141578, 'tailMean': 0.5622845085299748, 'tailTemporalRMS': 0.7016773666135857} pixel mean SD 0.02188932441410428
+off-counter-half-p0 {'temporalMean': 0.2501180220623406, 'tailMean': 0.2500411053093112, 'tailTemporalRMS': 0.6120161264778663} pixel mean SD 0.01895665155972489
+off-counter-half-p977 {'temporalMean': 0.2499492411710778, 'tailMean': 0.2499402104591836, 'tailTemporalRMS': 0.6119495066194812} pixel mean SD 0.01901077533732426
+off-counter-three-quarter-p0 {'temporalMean': 0.062459517498405566, 'tailMean': 0.06265321069834183, 'tailTemporalRMS': 0.34265083636716326} pixel mean SD 0.010663405174770664
+off-counter-three-quarter-p977 {'temporalMean': 0.06241374113121809, 'tailMean': 0.06246387715242347, 'tailTemporalRMS': 0.34209224251862497} pixel mean SD 0.010758616110572581
+off-counter-mixed-p0 {'temporalMean': 0.18739848234215536, 'tailMean': 0.187130052216199, 'tailTemporalRMS': 0.5518652802217713} pixel mean SD 0.017300373777870314
+off-counter-mixed-p977 {'temporalMean': 0.1874185678910235, 'tailMean': 0.18712382413903053, 'tailTemporalRMS': 0.5514674569557938} pixel mean SD 0.01721550207191074
+taau-shared-half-p0 {'temporalMean': 0.48234311119467305, 'tailMean': 0.48126948533319597, 'tailTemporalRMS': 0.00798661505477123} pixel mean SD 0.002227864430669501
+taau-shared-half-p977 {'temporalMean': 0.48241619401666974, 'tailMean': 0.48127487323054213, 'tailTemporalRMS': 0.00799021827312296} pixel mean SD 0.0022231429516531348
+taau-counter-quarter-p0 {'temporalMean': 0.5913549349183026, 'tailMean': 0.593941238604817, 'tailTemporalRMS': 0.0467238557306076} pixel mean SD 0.014486396221222874
+taau-counter-quarter-p977 {'temporalMean': 0.5925275371379017, 'tailMean': 0.5926606287046069, 'tailTemporalRMS': 0.04705502486909532} pixel mean SD 0.013693569853385424
+taau-counter-half-p0 {'temporalMean': 0.06329806641895042, 'tailMean': 0.06038484241352789, 'tailTemporalRMS': 0.026456096129437355} pixel mean SD 0.0061805617187516565
+taau-counter-half-p977 {'temporalMean': 0.06364207670372835, 'tailMean': 0.060036690457432956, 'tailTemporalRMS': 0.025892073613440675} pixel mean SD 0.006191133687382217
+taau-counter-three-quarter-p0 {'temporalMean': 0.0025876848542151234, 'tailMean': 0.0024179398321828726, 'tailTemporalRMS': 0.00551773071642706} pixel mean SD 0.0006206482542627456
+taau-counter-three-quarter-p977 {'temporalMean': 0.002606619429998564, 'tailMean': 0.002375378862482493, 'tailTemporalRMS': 0.005461620495919985} pixel mean SD 0.0005935113896577268
+taau-counter-mixed-p0 {'temporalMean': 0.025930474728954076, 'tailMean': 0.024227977323741996, 'tailTemporalRMS': 0.01662063362977568} pixel mean SD 0.0030568209115064394
+taau-counter-mixed-p977 {'temporalMean': 0.02586527530934247, 'tailMean': 0.02373612042473239, 'tailTemporalRMS': 0.016210570456051558} pixel mean SD 0.003027815798347675
+REJECT for groom/runtime promotion: counter IDs repair the raw two-card coverage mechanism but shipping TAAU remains strongly dark-biased and noisy.

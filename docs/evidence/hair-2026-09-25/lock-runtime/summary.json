@@ -1,0 +1,1516 @@
+{
+  "sourceHashes": {
+    "tools/figure-pipeline/hair_tips.mjs": "89f1e56e4bbaa039da55c3def990721544a15d8b127c72c63f4b76ff0d512378",
+    "tools/figure-pipeline/hair_opacity.mjs": "a67accf460e659fa1f4d758bd3396262b792e66f905b01f514221f923e41de05",
+    "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+    "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "packages/testbed/src/alive.js": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d",
+    "node_modules/three/examples/jsm/tsl/display/TAAUNode.js": "ddc9d1eaa318dd45629799c48af6f7388b31edd9ad5e6648a4004fdead48d250",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7"
+  },
+  "verdict": "Rejected for promotion: delivery works, T1 worsens; T1/T2/C4 remain red. No production change.",
+  "runs": {
+    "identity-tips": {
+      "route": {
+        "url": "http://localhost:50749/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_addons_tsl_display_TAAUNode__js.js?v=da487242",
+        "arm": "identity",
+        "beforeSHA256": "38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f",
+        "afterSHA256": "38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f"
+      },
+      "native": [
+        {
+          "frame": 1,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 25,
+          "lockMean": 0,
+          "lockMax": 0
+        }
+      ],
+      "measurements": {
+        "measurements.json": [
+          {
+            "arm": "stochastic",
+            "path": {
+              "stageHairOITMode": "stochastic",
+              "weightedOITPass": "false",
+              "temporalAA": "taau",
+              "resolutionScale": "0.66",
+              "multisampled": "false",
+              "rendererSamples": "0",
+              "materialAlphaToCoverage": "false",
+              "materialAlphaTest": "0",
+              "materialAlphaHash": "false",
+              "materialTransparent": "false",
+              "materialDepthWrite": "true",
+              "hasAlphaTestNode": "true",
+              "hasColorNode": "true"
+            },
+            "width": 900,
+            "height": 1200,
+            "summary": {
+              "tips": {
+                "pixels": 10593,
+                "speckle": 0.07117908052487491,
+                "rms": 4.248871001081187,
+                "grid": {
+                  "score": 0.11616838748528724,
+                  "lag": 5,
+                  "axis": "y"
+                }
+              },
+              "curtain": {
+                "pixels": 53250,
+                "speckle": 0.19228169014084506,
+                "rms": 7.573431251521941,
+                "grid": {
+                  "score": 0.049373003709402674,
+                  "lag": 5,
+                  "axis": "y"
+                }
+              },
+              "mass": {
+                "pixels": 192722,
+                "speckle": 0.10699349321821068,
+                "rms": 5.830506754474864,
+                "grid": {
+                  "score": 0.07760186745855524,
+                  "lag": 5,
+                  "axis": "y"
+                }
+              },
+              "skin": {
+                "pixels": 385376,
+                "speckle": 0.006853047413435191,
+                "rms": 1.653110376196515,
+                "grid": {
+                  "score": 0,
+                  "lag": 0,
+                  "axis": "none"
+                }
+              },
+              "backdrop": {
+                "pixels": 221592,
+                "speckle": 0.003113830824217481,
+                "rms": 1.4025417094812362,
+                "grid": {
+                  "score": 0,
+                  "lag": 0,
+                  "axis": "none"
+                }
+              }
+            },
+            "worst": [
+              {
+                "x": 480,
+                "y": 992,
+                "rms": 11.487104170826358,
+                "grid": {
+                  "score": 0.6027075797311324,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 6.923364752918151,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 512,
+                "y": 992,
+                "rms": 10.084736940586096,
+                "grid": {
+                  "score": 0.6108374098160954,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 6.160134591464304,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 0,
+                "y": 992,
+                "rms": 10.594493939201424,
+                "grid": {
+                  "score": 0.5323496119266355,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 5.63997473709297,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 32,
+                "y": 992,
+                "rms": 8.556385036065846,
+                "grid": {
+                  "score": 0.47097142802576,
+                  "lag": 5,
+                  "axis": "y"
+                },
+                "score": 4.029812879174175,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 64,
+                "y": 992,
+                "rms": 7.454430664725542,
+                "grid": {
+                  "score": 0.5130975310916801,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 3.824849969764787,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 128,
+                "y": 256,
+                "rms": 11.245521468034195,
+                "grid": {
+                  "score": 0.3123744100397579,
+                  "lag": 5,
+                  "axis": "y"
+                },
+                "score": 3.512813134166614,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 544,
+                "y": 992,
+                "rms": 7.575733853516255,
+                "grid": {
+                  "score": 0.44944602441847586,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 3.404883462515341,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 256,
+                "y": 288,
+                "rms": 10.971130070701593,
+                "grid": {
+                  "score": 0.3039818310701607,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 3.3350242078007715,
+                "hairShare": 1,
+                "figureShare": 1
+              }
+            ]
+          }
+        ]
+      },
+      "imageHashes": {
+        "stochastic-residual.png": "b21c7291ce6d1bd66f552e8c0eabaac06a507a1cf1b2e3e21b66b627a2b76d68",
+        "stochastic-worst-hair.png": "aec25e9c69b0f1427628c50b670f67d954e3a782b9140a2f689c3b73ff3b84be",
+        "stochastic.png": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75"
+      }
+    },
+    "identity-opacity": {
+      "route": {
+        "url": "http://localhost:50950/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_addons_tsl_display_TAAUNode__js.js?v=da487242",
+        "arm": "identity",
+        "beforeSHA256": "38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f",
+        "afterSHA256": "38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f"
+      },
+      "native": [
+        {
+          "frame": 1,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 25,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 49,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 73,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 97,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 121,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 145,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 169,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 193,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 217,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 241,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 265,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 289,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 313,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 337,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 361,
+          "lockMean": 0,
+          "lockMax": 0
+        },
+        {
+          "frame": 385,
+          "lockMean": 0,
+          "lockMax": 0
+        }
+      ],
+      "measurements": {
+        "portrait-measurements.json": {
+          "footprintPixels": 463189,
+          "all": {
+            "pixels": 463189,
+            "mean": 0.1676322863119688,
+            "median": 0.002933598123744942,
+            "p90": 0.88131990608189,
+            "overHalf": 0.16030605217308702
+          },
+          "mass": {
+            "pixels": 385178,
+            "mean": 0.06499563019583507,
+            "median": 0.0011817300506051663,
+            "p90": 0.19819188881643293,
+            "overHalf": 0.05688538805435409
+          },
+          "overFace": {
+            "pixels": 151248,
+            "mean": 0.13392435041198217,
+            "median": 0,
+            "p90": 0.7597889051716209,
+            "overHalf": 0.13066619062731408
+          },
+          "curtain": {
+            "pixels": 28700,
+            "mean": 0.5439298828459754,
+            "median": 0.5563578329231571,
+            "p90": 1.0561898663445135,
+            "overHalf": 0.5239024390243903
+          },
+          "curtainHidden": {
+            "pixels": 28700,
+            "mean": 0.9923389971795038,
+            "median": 1,
+            "p90": 1.0007613504871338,
+            "overHalf": 0.9989547038327526
+          },
+          "curtainByCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 14215,
+              "mean": 0.7143022435226807,
+              "impliedAlpha": 0.2856977564773193
+            },
+            {
+              "crossings": 2,
+              "pixels": 14485,
+              "mean": 0.37673325826749277,
+              "impliedAlpha": 0.3862139963574497
+            },
+            {
+              "crossings": 3,
+              "pixels": 13978,
+              "mean": 0.15267857404008117,
+              "impliedAlpha": 0.4655266789249488
+            },
+            {
+              "crossings": 4,
+              "pixels": 12813,
+              "mean": 0.0930031209827292,
+              "impliedAlpha": 0.4477644246796706
+            }
+          ],
+          "curtainByStrip": [
+            {
+              "strip": 1,
+              "pixels": 19357,
+              "share": 0.6744599303135889,
+              "mean": 0.5167706785310661
+            },
+            {
+              "strip": 2,
+              "pixels": 10403,
+              "share": 0.3624738675958188,
+              "mean": 0.4487512922169289
+            },
+            {
+              "strip": 6,
+              "pixels": 4009,
+              "share": 0.13968641114982577,
+              "mean": 0.7884752131382646
+            }
+          ],
+          "curtainNoInterior": {
+            "pixels": 9343,
+            "mean": 0.6001988240772362,
+            "median": 0.6317894110490395,
+            "p90": 1.0551931521003992,
+            "overHalf": 0.5579578293909879
+          },
+          "noInteriorByStrip": [
+            {
+              "strip": 2,
+              "pixels": 7577,
+              "share": 0.8109814834635556,
+              "mean": 0.5157680878463178
+            },
+            {
+              "strip": 6,
+              "pixels": 1783,
+              "share": 0.19083806058011346,
+              "mean": 0.9629855358972451
+            }
+          ],
+          "noInteriorByCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 4559,
+              "mean": 0.8242773802133366,
+              "impliedAlpha": 0.17572261978666337
+            },
+            {
+              "crossings": 2,
+              "pixels": 4784,
+              "mean": 0.386659079632314,
+              "impliedAlpha": 0.3781808304399791
+            }
+          ],
+          "faceBottom": 736,
+          "teethBottom": 674.6641845703125,
+          "outside": {
+            "pixels": 488352,
+            "mean": 1.0044821991059505,
+            "median": 1,
+            "p90": 1.0180607180460508,
+            "overHalf": 1
+          },
+          "hidden": {
+            "pixels": 463189,
+            "mean": 0.9950626595613309,
+            "median": 1,
+            "p90": 1,
+            "overHalf": 0.9998121717052866
+          },
+          "byCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 45799,
+              "mean": 0.7860065095799642,
+              "impliedAlpha": 0.2139934904200358
+            },
+            {
+              "crossings": 2,
+              "pixels": 32212,
+              "mean": 0.5157156365556704,
+              "impliedAlpha": 0.28186656075930394
+            },
+            {
+              "crossings": 3,
+              "pixels": 24360,
+              "mean": 0.29100917787064295,
+              "impliedAlpha": 0.3373224946537702
+            },
+            {
+              "crossings": 4,
+              "pixels": 23055,
+              "mean": 0.19253211909698617,
+              "impliedAlpha": 0.33759165090483423
+            }
+          ]
+        },
+        "rear34-measurements.json": {
+          "footprintPixels": 437708,
+          "all": {
+            "pixels": 437708,
+            "mean": 0.09021387140292415,
+            "median": -0.0003747121347447684,
+            "p90": 0.31861178300474413,
+            "overHalf": 0.0904507114331929
+          },
+          "mass": {
+            "pixels": 390543,
+            "mean": 0.01668634775870814,
+            "median": -0.0013688913579666612,
+            "p90": 0.012338700732266087,
+            "overHalf": 0.017693314180512773
+          },
+          "overFace": {
+            "pixels": 190936,
+            "mean": -0.009485311231163293,
+            "median": -0.005794476870456364,
+            "p90": 0.0007152758750776011,
+            "overHalf": 0.00001571207106046005
+          },
+          "curtain": {
+            "pixels": 0,
+            "mean": null,
+            "median": null,
+            "p90": null,
+            "overHalf": null
+          },
+          "curtainHidden": {
+            "pixels": 0,
+            "mean": null,
+            "median": null,
+            "p90": null,
+            "overHalf": null
+          },
+          "curtainByCrossing": [
+            {
+              "crossings": 3,
+              "pixels": 64,
+              "mean": -0.0096779921238335,
+              "impliedAlpha": 0.99
+            },
+            {
+              "crossings": 4,
+              "pixels": 972,
+              "mean": 0.0023469749170514976,
+              "impliedAlpha": 0.7798964171615721
+            }
+          ],
+          "curtainByStrip": [],
+          "curtainNoInterior": {
+            "pixels": 0,
+            "mean": null,
+            "median": null,
+            "p90": null,
+            "overHalf": null
+          },
+          "noInteriorByStrip": [],
+          "noInteriorByCrossing": [],
+          "faceBottom": 708,
+          "teethBottom": 665.184814453125,
+          "outside": {
+            "pixels": 602168,
+            "mean": 1.0030460589365697,
+            "median": 1,
+            "p90": 1.0153072439883237,
+            "overHalf": 1
+          },
+          "hidden": {
+            "pixels": 437708,
+            "mean": 0.9913319079281279,
+            "median": 0.9998389061785486,
+            "p90": 1,
+            "overHalf": 0.9997852449578257
+          },
+          "byCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 27294,
+              "mean": 0.7901867568611493,
+              "impliedAlpha": 0.20981324313885075
+            },
+            {
+              "crossings": 2,
+              "pixels": 19871,
+              "mean": 0.5738633973898549,
+              "impliedAlpha": 0.24246227988973712
+            },
+            {
+              "crossings": 3,
+              "pixels": 11580,
+              "mean": 0.40909829378864576,
+              "impliedAlpha": 0.2576491284690249
+            },
+            {
+              "crossings": 4,
+              "pixels": 10582,
+              "mean": 0.19755835935100485,
+              "impliedAlpha": 0.3333101355084307
+            }
+          ]
+        }
+      },
+      "imageHashes": {
+        "portrait-bald.png": "056351c60097ff6614ebc578aa9758ada15fb6b6bfcc949d864d949b72fbd652",
+        "portrait-curtain-nointerior.png": "d0e00425735d45db267cbab71f356acd05248728edd089aa9459106cd79d9029",
+        "portrait-curtain.png": "87f181e40608900c96581786263827ac363dcd02f1eb663e347f027695c9e08e",
+        "portrait-hair.png": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75",
+        "portrait-transmittance.png": "5e8d0449e1e3109bc6c3e9171d5586d91e31576c22eafce5ecb2204181739b83",
+        "rear34-bald.png": "56ca139ee1a811879e1ae5818759f50e02d5887d1a96f21af71f8b1b505a7b23",
+        "rear34-curtain-nointerior.png": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b",
+        "rear34-curtain.png": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b",
+        "rear34-hair.png": "f795187359684e81b6064f82d93db3ed222f598b1dc11bf4950599121827c571",
+        "rear34-transmittance.png": "8eaee49873e2abb24e3eb26ae2b01383ef44c227cd692b5cf80b8bde4d558c74"
+      }
+    },
+    "copy-lock-tips": {
+      "route": {
+        "url": "http://localhost:50827/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_addons_tsl_display_TAAUNode__js.js?v=da487242",
+        "arm": "copy-lock",
+        "beforeSHA256": "38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f",
+        "afterSHA256": "a5a449b4200e96b900041f8ac23eec464cb3c7e0864869b17687dd899f91c53e"
+      },
+      "native": [
+        {
+          "frame": 1,
+          "lockMean": 0.000002991781963242425,
+          "lockMax": 0.0192108154296875
+        },
+        {
+          "frame": 25,
+          "lockMean": 0.2111800609175254,
+          "lockMax": 1
+        }
+      ],
+      "measurements": {
+        "measurements.json": [
+          {
+            "arm": "stochastic",
+            "path": {
+              "stageHairOITMode": "stochastic",
+              "weightedOITPass": "false",
+              "temporalAA": "taau",
+              "resolutionScale": "0.66",
+              "multisampled": "false",
+              "rendererSamples": "0",
+              "materialAlphaToCoverage": "false",
+              "materialAlphaTest": "0",
+              "materialAlphaHash": "false",
+              "materialTransparent": "false",
+              "materialDepthWrite": "true",
+              "hasAlphaTestNode": "true",
+              "hasColorNode": "true"
+            },
+            "width": 900,
+            "height": 1200,
+            "summary": {
+              "tips": {
+                "pixels": 10593,
+                "speckle": 0.07599358066647786,
+                "rms": 4.287606947767648,
+                "grid": {
+                  "score": 0.12226091217920293,
+                  "lag": 5,
+                  "axis": "y"
+                }
+              },
+              "curtain": {
+                "pixels": 53250,
+                "speckle": 0.19175586854460094,
+                "rms": 7.455576737595904,
+                "grid": {
+                  "score": 0.06442577639825875,
+                  "lag": 5,
+                  "axis": "y"
+                }
+              },
+              "mass": {
+                "pixels": 192722,
+                "speckle": 0.10833220908873922,
+                "rms": 5.7548326346116525,
+                "grid": {
+                  "score": 0.08920760755626395,
+                  "lag": 5,
+                  "axis": "y"
+                }
+              },
+              "skin": {
+                "pixels": 385376,
+                "speckle": 0.006897160176035871,
+                "rms": 1.6506876429399908,
+                "grid": {
+                  "score": 0,
+                  "lag": 0,
+                  "axis": "none"
+                }
+              },
+              "backdrop": {
+                "pixels": 221592,
+                "speckle": 0.003113830824217481,
+                "rms": 1.4022232265524228,
+                "grid": {
+                  "score": 0,
+                  "lag": 0,
+                  "axis": "none"
+                }
+              }
+            },
+            "worst": [
+              {
+                "x": 480,
+                "y": 992,
+                "rms": 11.583042565149729,
+                "grid": {
+                  "score": 0.6032559498640649,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 6.9875393449552945,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 512,
+                "y": 992,
+                "rms": 10.188132149200497,
+                "grid": {
+                  "score": 0.6124280817651453,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 6.239498228904667,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 0,
+                "y": 992,
+                "rms": 10.718685605478917,
+                "grid": {
+                  "score": 0.534218405433783,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 5.72611913250499,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 32,
+                "y": 992,
+                "rms": 8.677237871252881,
+                "grid": {
+                  "score": 0.47413831068564566,
+                  "lag": 5,
+                  "axis": "y"
+                },
+                "score": 4.11421090569335,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 64,
+                "y": 992,
+                "rms": 7.542566805881189,
+                "grid": {
+                  "score": 0.5164369264996187,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 3.8952600191473277,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 512,
+                "y": 960,
+                "rms": 10.603352081116096,
+                "grid": {
+                  "score": 0.34355046983875287,
+                  "lag": 5,
+                  "axis": "y"
+                },
+                "score": 3.642786589333153,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 128,
+                "y": 256,
+                "rms": 11.236498805592806,
+                "grid": {
+                  "score": 0.3178451331807659,
+                  "lag": 5,
+                  "axis": "y"
+                },
+                "score": 3.5714664593491623,
+                "hairShare": 1,
+                "figureShare": 1
+              },
+              {
+                "x": 544,
+                "y": 992,
+                "rms": 7.605455958534726,
+                "grid": {
+                  "score": 0.45236001199388887,
+                  "lag": 3,
+                  "axis": "x"
+                },
+                "score": 3.4404041486217625,
+                "hairShare": 1,
+                "figureShare": 1
+              }
+            ]
+          }
+        ]
+      },
+      "imageHashes": {
+        "stochastic-residual.png": "04ecfcc0379d08f013a45eedb51bae7f5025562bfc002683f377b798f23b7569",
+        "stochastic-worst-hair.png": "c954107d6ff6d4b031c32a7c9a721af588d3f8ea36963df9b9b3a77194960fa8",
+        "stochastic.png": "4dd9f7124118dc4e4f930267f93914111da47c37ef86b7cbeeb2d758f84e9767"
+      }
+    },
+    "copy-lock-opacity": {
+      "route": {
+        "url": "http://localhost:51038/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_addons_tsl_display_TAAUNode__js.js?v=da487242",
+        "arm": "copy-lock",
+        "beforeSHA256": "38c73fe7f4af2854f2105df4aefab481bc93a67f63e475e74cb9bbcb89d8e13f",
+        "afterSHA256": "a5a449b4200e96b900041f8ac23eec464cb3c7e0864869b17687dd899f91c53e"
+      },
+      "native": [
+        {
+          "frame": 1,
+          "lockMean": 0.000002991781963242425,
+          "lockMax": 0.0192108154296875
+        },
+        {
+          "frame": 25,
+          "lockMean": 0.2111800609175254,
+          "lockMax": 1
+        },
+        {
+          "frame": 49,
+          "lockMean": 0.02422313763692423,
+          "lockMax": 1
+        },
+        {
+          "frame": 73,
+          "lockMean": 0.2114763874248222,
+          "lockMax": 1
+        },
+        {
+          "frame": 97,
+          "lockMean": 0.2059072720317377,
+          "lockMax": 1
+        },
+        {
+          "frame": 121,
+          "lockMean": 0.024484326639661082,
+          "lockMax": 1
+        },
+        {
+          "frame": 145,
+          "lockMean": 0.004489984792470932,
+          "lockMax": 1
+        },
+        {
+          "frame": 169,
+          "lockMean": 0.024093133576048746,
+          "lockMax": 1
+        },
+        {
+          "frame": 193,
+          "lockMean": 0.004330567749120571,
+          "lockMax": 1
+        },
+        {
+          "frame": 217,
+          "lockMean": 0.21826993574124795,
+          "lockMax": 1
+        },
+        {
+          "frame": 241,
+          "lockMean": 0.03038564659566791,
+          "lockMax": 1
+        },
+        {
+          "frame": 265,
+          "lockMean": 0.21940061068672825,
+          "lockMax": 1
+        },
+        {
+          "frame": 289,
+          "lockMean": 0.21438811255478196,
+          "lockMax": 1
+        },
+        {
+          "frame": 313,
+          "lockMean": 0.031158523607419598,
+          "lockMax": 1
+        },
+        {
+          "frame": 337,
+          "lockMean": 0.003371356618349199,
+          "lockMax": 1
+        },
+        {
+          "frame": 361,
+          "lockMean": 0.030701832618536772,
+          "lockMax": 1
+        },
+        {
+          "frame": 385,
+          "lockMean": 0.0033067509821719594,
+          "lockMax": 1
+        }
+      ],
+      "measurements": {
+        "portrait-measurements.json": {
+          "footprintPixels": 463189,
+          "all": {
+            "pixels": 463189,
+            "mean": 0.16394083345034713,
+            "median": 0.0030557917379309585,
+            "p90": 0.8670227907198866,
+            "overHalf": 0.1573634088892439
+          },
+          "mass": {
+            "pixels": 385178,
+            "mean": 0.062198868883106044,
+            "median": 0.00127542255073691,
+            "p90": 0.1829387335374046,
+            "overHalf": 0.05466823131123792
+          },
+          "overFace": {
+            "pixels": 151248,
+            "mean": 0.12656503762945234,
+            "median": -0.0006121254807485911,
+            "p90": 0.7338630686783368,
+            "overHalf": 0.12693721569872
+          },
+          "curtain": {
+            "pixels": 28700,
+            "mean": 0.5323723994248861,
+            "median": 0.5367065316460139,
+            "p90": 1.0559020935437884,
+            "overHalf": 0.5158536585365854
+          },
+          "curtainHidden": {
+            "pixels": 28700,
+            "mean": 0.9916532035722411,
+            "median": 1,
+            "p90": 1.0011592122050728,
+            "overHalf": 0.9991637630662021
+          },
+          "curtainByCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 14215,
+              "mean": 0.7048870935055319,
+              "impliedAlpha": 0.2951129064944681
+            },
+            {
+              "crossings": 2,
+              "pixels": 14485,
+              "mean": 0.36307337447795424,
+              "impliedAlpha": 0.3974442976139432
+            },
+            {
+              "crossings": 3,
+              "pixels": 13978,
+              "mean": 0.1336481274705067,
+              "impliedAlpha": 0.4887253115360589
+            },
+            {
+              "crossings": 4,
+              "pixels": 12813,
+              "mean": 0.07828658150330906,
+              "impliedAlpha": 0.47104121742065086
+            }
+          ],
+          "curtainByStrip": [
+            {
+              "strip": 1,
+              "pixels": 19357,
+              "share": 0.6744599303135889,
+              "mean": 0.5034443519826785
+            },
+            {
+              "strip": 2,
+              "pixels": 10403,
+              "share": 0.3624738675958188,
+              "mean": 0.4374995593956316
+            },
+            {
+              "strip": 6,
+              "pixels": 4009,
+              "share": 0.13968641114982577,
+              "mean": 0.7840497825507808
+            }
+          ],
+          "curtainNoInterior": {
+            "pixels": 9343,
+            "mean": 0.5923060625244075,
+            "median": 0.6057106698873301,
+            "p90": 1.054306758535505,
+            "overHalf": 0.5511077812265868
+          },
+          "noInteriorByStrip": [
+            {
+              "strip": 2,
+              "pixels": 7577,
+              "share": 0.8109814834635556,
+              "mean": 0.5072769445440595
+            },
+            {
+              "strip": 6,
+              "pixels": 1783,
+              "share": 0.19083806058011346,
+              "mean": 0.9577121139899792
+            }
+          ],
+          "noInteriorByCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 4559,
+              "mean": 0.8183128555832108,
+              "impliedAlpha": 0.18168714441678924
+            },
+            {
+              "crossings": 2,
+              "pixels": 4784,
+              "mean": 0.3769287695572032,
+              "impliedAlpha": 0.3860547503586307
+            }
+          ],
+          "faceBottom": 736,
+          "teethBottom": 674.6641845703125,
+          "outside": {
+            "pixels": 488352,
+            "mean": 1.004519502872283,
+            "median": 1,
+            "p90": 1.0180755129125834,
+            "overHalf": 1
+          },
+          "hidden": {
+            "pixels": 463189,
+            "mean": 0.9946540912405464,
+            "median": 1,
+            "p90": 1,
+            "overHalf": 0.999825125380784
+          },
+          "byCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 45799,
+              "mean": 0.7795336848540256,
+              "impliedAlpha": 0.22046631514597437
+            },
+            {
+              "crossings": 2,
+              "pixels": 32212,
+              "mean": 0.5052803785467268,
+              "impliedAlpha": 0.2891692335395669
+            },
+            {
+              "crossings": 3,
+              "pixels": 24360,
+              "mean": 0.27682033479597334,
+              "impliedAlpha": 0.34827257526726596
+            },
+            {
+              "crossings": 4,
+              "pixels": 23055,
+              "mean": 0.18177712451261777,
+              "impliedAlpha": 0.34704266139759454
+            }
+          ]
+        },
+        "rear34-measurements.json": {
+          "footprintPixels": 437708,
+          "all": {
+            "pixels": 437708,
+            "mean": 0.08832882510737827,
+            "median": -0.0007680828594700984,
+            "p90": 0.30124548951501456,
+            "overHalf": 0.08953229093368181
+          },
+          "mass": {
+            "pixels": 390543,
+            "mean": 0.015303177193625016,
+            "median": -0.0017546619135426268,
+            "p90": 0.012852408151578683,
+            "overHalf": 0.017263143879163115
+          },
+          "overFace": {
+            "pixels": 190936,
+            "mean": -0.011789199174082023,
+            "median": -0.007020454199445634,
+            "p90": 0,
+            "overHalf": 0.00000523735702015335
+          },
+          "curtain": {
+            "pixels": 0,
+            "mean": null,
+            "median": null,
+            "p90": null,
+            "overHalf": null
+          },
+          "curtainHidden": {
+            "pixels": 0,
+            "mean": null,
+            "median": null,
+            "p90": null,
+            "overHalf": null
+          },
+          "curtainByCrossing": [
+            {
+              "crossings": 3,
+              "pixels": 64,
+              "mean": -0.0029520263812622574,
+              "impliedAlpha": 0.99
+            },
+            {
+              "crossings": 4,
+              "pixels": 972,
+              "mean": 0.002812041808579483,
+              "impliedAlpha": 0.769720412231357
+            }
+          ],
+          "curtainByStrip": [],
+          "curtainNoInterior": {
+            "pixels": 0,
+            "mean": null,
+            "median": null,
+            "p90": null,
+            "overHalf": null
+          },
+          "noInteriorByStrip": [],
+          "noInteriorByCrossing": [],
+          "faceBottom": 708,
+          "teethBottom": 665.184814453125,
+          "outside": {
+            "pixels": 602168,
+            "mean": 1.0031048106816218,
+            "median": 1,
+            "p90": 1.015494938025108,
+            "overHalf": 1
+          },
+          "hidden": {
+            "pixels": 437708,
+            "mean": 0.9909931383467179,
+            "median": 0.9999069596388513,
+            "p90": 1,
+            "overHalf": 0.9997464062799858
+          },
+          "byCrossing": [
+            {
+              "crossings": 1,
+              "pixels": 27294,
+              "mean": 0.7837093600533631,
+              "impliedAlpha": 0.2162906399466369
+            },
+            {
+              "crossings": 2,
+              "pixels": 19871,
+              "mean": 0.5684223932400818,
+              "impliedAlpha": 0.24606207600354668
+            },
+            {
+              "crossings": 3,
+              "pixels": 11580,
+              "mean": 0.40326579364725773,
+              "impliedAlpha": 0.2611939183894386
+            },
+            {
+              "crossings": 4,
+              "pixels": 10582,
+              "mean": 0.1942136163776054,
+              "impliedAlpha": 0.33615006236742306
+            }
+          ]
+        }
+      },
+      "imageHashes": {
+        "portrait-bald.png": "36e496d2038d5790c058bf23422535151a9396f7d9449a5554e1cecd98d5e601",
+        "portrait-curtain-nointerior.png": "942d1319c4eea3ce6e2e38b029622b672dca684f82e2d9f6578cb43c97ca757c",
+        "portrait-curtain.png": "bbb372e3d6f3dc858bd64f8f5088e11d71431006f9c75d78e0b3ee30539897bf",
+        "portrait-hair.png": "4dd9f7124118dc4e4f930267f93914111da47c37ef86b7cbeeb2d758f84e9767",
+        "portrait-transmittance.png": "75a51a4c747603e7856aaae7c94d3927606e4ee1c90545028d19118e58c2eb40",
+        "rear34-bald.png": "978433b41835cb06e8c173b1d50fea252f161b7dac7e7da2d9fd4c8909baeb39",
+        "rear34-curtain-nointerior.png": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b",
+        "rear34-curtain.png": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b",
+        "rear34-hair.png": "35038e63fd5d39277001015fb9245a11546ecd1061e2cad8d85027c7f347076c",
+        "rear34-transmittance.png": "9039d5c9b6a3d64104657b7e3386a5a2a33bcdf7cff45c952db80f0d9cd30b24"
+      }
+    }
+  },
+  "baselineRepeats": [
+    {
+      "file": "identity-tips/stochastic-residual.png",
+      "baseline": "tmp/hair-sep25/pattern-phase/zero-tips/stochastic-residual.png",
+      "sha256": "b21c7291ce6d1bd66f552e8c0eabaac06a507a1cf1b2e3e21b66b627a2b76d68"
+    },
+    {
+      "file": "identity-tips/stochastic-worst-hair.png",
+      "baseline": "tmp/hair-sep25/pattern-phase/zero-tips/stochastic-worst-hair.png",
+      "sha256": "aec25e9c69b0f1427628c50b670f67d954e3a782b9140a2f689c3b73ff3b84be"
+    },
+    {
+      "file": "identity-tips/stochastic.png",
+      "baseline": "tmp/hair-sep25/pattern-phase/zero-tips/stochastic.png",
+      "sha256": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75"
+    },
+    {
+      "file": "identity-tips/measurements.json",
+      "baseline": "tmp/hair-sep25/pattern-phase/zero-tips/measurements.json",
+      "sha256": "110b2db2b494bcda23fc34c5b7f1b17794f8a91fa3d0d3563dfc51a6da989115"
+    },
+    {
+      "file": "identity-opacity/portrait-bald.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/portrait-bald.png",
+      "sha256": "056351c60097ff6614ebc578aa9758ada15fb6b6bfcc949d864d949b72fbd652"
+    },
+    {
+      "file": "identity-opacity/portrait-curtain-nointerior.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/portrait-curtain-nointerior.png",
+      "sha256": "d0e00425735d45db267cbab71f356acd05248728edd089aa9459106cd79d9029"
+    },
+    {
+      "file": "identity-opacity/portrait-curtain.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/portrait-curtain.png",
+      "sha256": "87f181e40608900c96581786263827ac363dcd02f1eb663e347f027695c9e08e"
+    },
+    {
+      "file": "identity-opacity/portrait-hair.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/portrait-hair.png",
+      "sha256": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75"
+    },
+    {
+      "file": "identity-opacity/portrait-transmittance.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/portrait-transmittance.png",
+      "sha256": "5e8d0449e1e3109bc6c3e9171d5586d91e31576c22eafce5ecb2204181739b83"
+    },
+    {
+      "file": "identity-opacity/rear34-bald.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/rear34-bald.png",
+      "sha256": "56ca139ee1a811879e1ae5818759f50e02d5887d1a96f21af71f8b1b505a7b23"
+    },
+    {
+      "file": "identity-opacity/rear34-curtain-nointerior.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/rear34-curtain-nointerior.png",
+      "sha256": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b"
+    },
+    {
+      "file": "identity-opacity/rear34-curtain.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/rear34-curtain.png",
+      "sha256": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b"
+    },
+    {
+      "file": "identity-opacity/rear34-hair.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/rear34-hair.png",
+      "sha256": "f795187359684e81b6064f82d93db3ed222f598b1dc11bf4950599121827c571"
+    },
+    {
+      "file": "identity-opacity/rear34-transmittance.png",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/rear34-transmittance.png",
+      "sha256": "8eaee49873e2abb24e3eb26ae2b01383ef44c227cd692b5cf80b8bde4d558c74"
+    },
+    {
+      "file": "identity-opacity/portrait-measurements.json",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/portrait-measurements.json",
+      "sha256": "f6a47de1300437542b26b269e8fb44278ca848136fc3eb9b144e0704385aeca4"
+    },
+    {
+      "file": "identity-opacity/rear34-measurements.json",
+      "baseline": "tmp/hair-sep24/runtime-coverage/baseline-opacity/rear34-measurements.json",
+      "sha256": "49c9f01d246ea70bb771f7285e50ba2fda78c046c786243b728151e12dbb2edb"
+    }
+  ],
+  "pilotRepeats": [
+    {
+      "file": "identity-tips/stochastic-residual.png",
+      "sha256": "b21c7291ce6d1bd66f552e8c0eabaac06a507a1cf1b2e3e21b66b627a2b76d68"
+    },
+    {
+      "file": "identity-tips/stochastic-worst-hair.png",
+      "sha256": "aec25e9c69b0f1427628c50b670f67d954e3a782b9140a2f689c3b73ff3b84be"
+    },
+    {
+      "file": "identity-tips/stochastic.png",
+      "sha256": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75"
+    },
+    {
+      "file": "identity-tips/measurements.json",
+      "sha256": "110b2db2b494bcda23fc34c5b7f1b17794f8a91fa3d0d3563dfc51a6da989115"
+    },
+    {
+      "file": "identity-opacity/portrait-bald.png",
+      "sha256": "056351c60097ff6614ebc578aa9758ada15fb6b6bfcc949d864d949b72fbd652"
+    },
+    {
+      "file": "identity-opacity/portrait-curtain-nointerior.png",
+      "sha256": "d0e00425735d45db267cbab71f356acd05248728edd089aa9459106cd79d9029"
+    },
+    {
+      "file": "identity-opacity/portrait-curtain.png",
+      "sha256": "87f181e40608900c96581786263827ac363dcd02f1eb663e347f027695c9e08e"
+    },
+    {
+      "file": "identity-opacity/portrait-hair.png",
+      "sha256": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75"
+    },
+    {
+      "file": "identity-opacity/portrait-transmittance.png",
+      "sha256": "5e8d0449e1e3109bc6c3e9171d5586d91e31576c22eafce5ecb2204181739b83"
+    },
+    {
+      "file": "identity-opacity/rear34-bald.png",
+      "sha256": "56ca139ee1a811879e1ae5818759f50e02d5887d1a96f21af71f8b1b505a7b23"
+    },
+    {
+      "file": "identity-opacity/rear34-curtain-nointerior.png",
+      "sha256": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b"
+    },
+    {
+      "file": "identity-opacity/rear34-curtain.png",
+      "sha256": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b"
+    },
+    {
+      "file": "identity-opacity/rear34-hair.png",
+      "sha256": "f795187359684e81b6064f82d93db3ed222f598b1dc11bf4950599121827c571"
+    },
+    {
+      "file": "identity-opacity/rear34-transmittance.png",
+      "sha256": "8eaee49873e2abb24e3eb26ae2b01383ef44c227cd692b5cf80b8bde4d558c74"
+    },
+    {
+      "file": "identity-opacity/portrait-measurements.json",
+      "sha256": "f6a47de1300437542b26b269e8fb44278ca848136fc3eb9b144e0704385aeca4"
+    },
+    {
+      "file": "identity-opacity/rear34-measurements.json",
+      "sha256": "49c9f01d246ea70bb771f7285e50ba2fda78c046c786243b728151e12dbb2edb"
+    },
+    {
+      "file": "copy-lock-tips/stochastic-residual.png",
+      "sha256": "04ecfcc0379d08f013a45eedb51bae7f5025562bfc002683f377b798f23b7569"
+    },
+    {
+      "file": "copy-lock-tips/stochastic-worst-hair.png",
+      "sha256": "c954107d6ff6d4b031c32a7c9a721af588d3f8ea36963df9b9b3a77194960fa8"
+    },
+    {
+      "file": "copy-lock-tips/stochastic.png",
+      "sha256": "4dd9f7124118dc4e4f930267f93914111da47c37ef86b7cbeeb2d758f84e9767"
+    },
+    {
+      "file": "copy-lock-tips/measurements.json",
+      "sha256": "beaa707c6c9cc764d6e42e85cc14c7e6b976f369697b51a1b174dbf2bec30f76"
+    },
+    {
+      "file": "copy-lock-opacity/portrait-bald.png",
+      "sha256": "36e496d2038d5790c058bf23422535151a9396f7d9449a5554e1cecd98d5e601"
+    },
+    {
+      "file": "copy-lock-opacity/portrait-curtain-nointerior.png",
+      "sha256": "942d1319c4eea3ce6e2e38b029622b672dca684f82e2d9f6578cb43c97ca757c"
+    },
+    {
+      "file": "copy-lock-opacity/portrait-curtain.png",
+      "sha256": "bbb372e3d6f3dc858bd64f8f5088e11d71431006f9c75d78e0b3ee30539897bf"
+    },
+    {
+      "file": "copy-lock-opacity/portrait-hair.png",
+      "sha256": "4dd9f7124118dc4e4f930267f93914111da47c37ef86b7cbeeb2d758f84e9767"
+    },
+    {
+      "file": "copy-lock-opacity/portrait-transmittance.png",
+      "sha256": "75a51a4c747603e7856aaae7c94d3927606e4ee1c90545028d19118e58c2eb40"
+    },
+    {
+      "file": "copy-lock-opacity/rear34-bald.png",
+      "sha256": "978433b41835cb06e8c173b1d50fea252f161b7dac7e7da2d9fd4c8909baeb39"
+    },
+    {
+      "file": "copy-lock-opacity/rear34-curtain-nointerior.png",
+      "sha256": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b"
+    },
+    {
+      "file": "copy-lock-opacity/rear34-curtain.png",
+      "sha256": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b"
+    },
+    {
+      "file": "copy-lock-opacity/rear34-hair.png",
+      "sha256": "35038e63fd5d39277001015fb9245a11546ecd1061e2cad8d85027c7f347076c"
+    },
+    {
+      "file": "copy-lock-opacity/rear34-transmittance.png",
+      "sha256": "9039d5c9b6a3d64104657b7e3386a5a2a33bcdf7cff45c952db80f0d9cd30b24"
+    },
+    {
+      "file": "copy-lock-opacity/portrait-measurements.json",
+      "sha256": "1b6cd7a4c1701eb8200af1349e89c3b6c345e57e597d100d889b45b5e24e3c6a"
+    },
+    {
+      "file": "copy-lock-opacity/rear34-measurements.json",
+      "sha256": "dac9f6ded7e8611466ac035de3be09a69ed6290230739aaf1fad9f4ff87c63ca"
+    }
+  ],
+  "maskComparisons": [
+    {
+      "probe": "tips",
+      "view": "stochastic",
+      "rasterSHA256": "49023e40ea38aacf436f9f0d689c05544d996b7c4324ac7454b02f8e54c7d50e",
+      "regionSHA256": "a2ab51ac823ff00604e8475a31307f5b2df369e5e2c57da0f74404053162117a",
+      "exactMembership": true
+    },
+    {
+      "probe": "opacity",
+      "view": "portrait",
+      "rasterSHA256": "44e5bcc69d6cc6b762247cc7c8c2ebb8b0afcb74e558ba96cfff9d685966ca5a",
+      "regionSHA256": "8e9a5c64aa63c546f5832f6aa867a4dea7244291bd39edf4513810fe5e220abf",
+      "exactMembership": true
+    },
+    {
+      "probe": "opacity",
+      "view": "rear34",
+      "rasterSHA256": "44cd4a3d609493881df6fad9a6b6c98edfd999f9e6c0cd184b6e001155809f06",
+      "regionSHA256": "34fe8f06f2cdbd9e4e58423ee15d87f84e91595f408214ecba668de6f8c4b858",
+      "exactMembership": true
+    }
+  ],
+  "imageComparisons": [
+    {
+      "probe": "tips",
+      "file": "stochastic.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 77671,
+          "rmsCodeValues": 0.934255827178661,
+          "maxCodeValues": 103
+        },
+        "tips": {
+          "pixels": 10593,
+          "changedPixels": 1522,
+          "rmsCodeValues": 0.700949893368275,
+          "maxCodeValues": 15
+        },
+        "curtain": {
+          "pixels": 53250,
+          "changedPixels": 6735,
+          "rmsCodeValues": 1.7450955195796487,
+          "maxCodeValues": 65
+        },
+        "mass": {
+          "pixels": 192722,
+          "changedPixels": 36216,
+          "rmsCodeValues": 1.8682336321641546,
+          "maxCodeValues": 77
+        },
+        "skin": {
+          "pixels": 385376,
+          "changedPixels": 1892,
+          "rmsCodeValues": 0.30740135358121706,
+          "maxCodeValues": 103
+        },
+        "backdrop": {
+          "pixels": 221592,
+          "changedPixels": 0,
+          "rmsCodeValues": 0,
+          "maxCodeValues": 0
+        },
+        "stable": {
+          "pixels": 1057543,
+          "changedPixels": 75559,
+          "rmsCodeValues": 0.9367123587493181,
+          "maxCodeValues": 103
+        },
+        "boundary": {
+          "pixels": 22457,
+          "changedPixels": 2112,
+          "rmsCodeValues": 0.8101821923936795,
+          "maxCodeValues": 47
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "portrait-hair.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 77671,
+          "rmsCodeValues": 0.934255827178661,
+          "maxCodeValues": 103
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "portrait-bald.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 16302,
+          "rmsCodeValues": 0.27888667551135854,
+          "maxCodeValues": 58
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "rear34-hair.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 81763,
+          "rmsCodeValues": 0.5601460347506831,
+          "maxCodeValues": 54
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "rear34-bald.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 36267,
+          "rmsCodeValues": 0.1793988590189022,
+          "maxCodeValues": 37
+        }
+      }
+    }
+  ]
+}
