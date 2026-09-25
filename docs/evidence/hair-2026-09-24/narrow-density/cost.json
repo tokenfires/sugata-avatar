@@ -1,0 +1,3206 @@
+{
+  "scope": "hair.html PBR crop01/g050, viewport 1400x1100, capture clock, four sequential pages; no all-scene performance claim",
+  "runs": [
+    {
+      "arm": "baseline",
+      "input": "assets/hair/crop01/g050.glb",
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+      "loads": [
+        "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a"
+      ],
+      "hud": "Renderer            : WebGPU\nGroom               : crop01 g050 — Men's short back-and-sides with length on top, faded through the cut field.\nFigure              : figure_g050.glb\n\ngeometry            : 0 verts, 0 triangles\nmaterial            : MASK, cutoff 0.5, double sided\nskinned to          : head\natlas               : 1024², 8 strips, cap strip 0\n\n!! THIS IS NOT THE HAIR SHADER. Punch-list 3.5 owns the\nanisotropic strand model and runs after this. What is drawn here is a plain\nPrincipled material with the generated albedo + normal sheets, so that the\nGEOMETRY can be judged without a shader in front of it.\n\nWhat to look for, in the order it goes wrong:\n  3/4    does a STRAIGHT line cross the brow, the lid or the cheekbone? That is a\n         card's own quad edge.\n  side   is the silhouette hair, or a helmet with ribbon edges? And does the mass\n         separate into LOCKS, or is every card going its own way? A fan reads as a mop.\n  top    does the scalp show between the cards? That is what the cap is for.\n  front  is the parting readable, and is hair across the EYES? A groom may cross the\n         temple and must not cross an eye — this page is a face.\n  front  and where the SIDE CURTAIN crosses the cheek, can you still read the eyebrow\n         arc, the lid crease, the nostril wing or the jawline THROUGH it? A curtain one\n         to two cards deep over skin is a window; hair_opacity.mjs C4 is that number.\n  front  and zoom the cheek where a card lies over skin: do the strand stripes read as\n         STRIPES, or as an axis-aligned dot pattern? That is the coverage decision, not\n         the atlas — hair_tips.mjs measures it and REQ-073 owns the fix.\n  back   do the ends land on a CUT LINE, or scatter over a hand's width? Scattered ends\n         are what three separate observers called \"messy\", \"stringy\" and \"unwashed\".\n\nThe numbers are gated elsewhere and none of them can answer any of the above:\n  node tools/figure-pipeline/verify_glb.mjs assets/hair/bob01/g050.glb\n\n?motion=1  DFTL on 384 chains × 17 rings = 6528 particles, 0.008333 s substep\nhead       shake, timestep fixed, defect none\nskull      sphere r=78.1 mm at the least-squares scalp centre (fit r=95.4 mm), nearest rest particle 78.1 mm\nA/B        drop ?motion=1 for the rigid control — same page, same framing.\n",
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "frames": [
+        {
+          "compute": 29.840465000000002,
+          "render": 171.68500699999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.035666,
+          "render": 4.4806550000000005,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.98897,
+          "render": 0.93468,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.851057,
+          "render": 8.257916,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044666,
+          "render": 0.672313,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033374,
+          "render": 0.166496,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.321448,
+          "render": 6.102437999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.668313,
+          "render": 1.486745,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.042207,
+          "render": 5.508373000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.998635,
+          "render": 1.291669,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032707,
+          "render": 0.10320499999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.735978,
+          "render": 3.5874729999999997,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.212368,
+          "render": 0.26532500000000003,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.074457,
+          "render": 3.4744360000000003,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.055748,
+          "render": 10.891169000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040999,
+          "render": 0.29695,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031082,
+          "render": 0.117705,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.478028,
+          "render": 2.933245,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.994429,
+          "render": 6.063356000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.058415,
+          "render": 1.462707,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.802183,
+          "render": 3.9606709999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.999719,
+          "render": 2.161936,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.440527,
+          "render": 0.29603199999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.456694,
+          "render": 3.118863,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.003302,
+          "render": 1.24092,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.22466,
+          "render": 0.370531,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.037874,
+          "render": 0.09953999999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.377572,
+          "render": 0.63798,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.983387,
+          "render": 2.6590429999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043915,
+          "render": 0.46773600000000004,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033041,
+          "render": 0.077622,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.666313,
+          "render": 2.834371,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.438069,
+          "render": 0.695187,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031082,
+          "render": 1.890775,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.612398,
+          "render": 1.68674,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.038291,
+          "render": 7.107368,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03679,
+          "render": 6.372973,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.067457,
+          "render": 0.368614,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.683854,
+          "render": 1.557577,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039582,
+          "render": 3.868632,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.319794,
+          "render": 0.38327999999999995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03904,
+          "render": 12.812443,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040707,
+          "render": 0.40990400000000005,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031333,
+          "render": 0.047582,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.579785,
+          "render": 5.779782,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031333,
+          "render": 2.732001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044291,
+          "render": 5.577246,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 2.69375,
+          "render": 0.276157,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.338198,
+          "render": 0.703104,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.611523,
+          "render": 4.095083,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.953861,
+          "render": 1.7434319999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.179706,
+          "render": 3.712486,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033791,
+          "render": 1.783015,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.041416,
+          "render": 0.6087,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.038333,
+          "render": 0.710656,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032375,
+          "render": 0.255246,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.213914,
+          "render": 5.252338,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.186315,
+          "render": 0.5697,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039958,
+          "render": 4.821885,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.258996,
+          "render": 0.086874,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.342494,
+          "render": 3.741193,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.553033,
+          "render": 0.371995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039208,
+          "render": 5.870244,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.035999,
+          "render": 0.097081,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.070415,
+          "render": 1.5126439999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.304538,
+          "render": 4.916842,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.971277,
+          "render": 0.767114,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.987027,
+          "render": 6.475567,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.046208,
+          "render": 0.9122349999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.035166,
+          "render": 0.059083,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039999,
+          "render": 0.394785,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.26898,
+          "render": 0.331913,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033958,
+          "render": 3.944147,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.058915,
+          "render": 2.808249,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.326495,
+          "render": 3.999523,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.500768,
+          "render": 1.2993139999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.583241,
+          "render": 0.761364,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.216997,
+          "render": 5.486083,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.048833,
+          "render": 1.4357280000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.21533,
+          "render": 1.620434,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.177455,
+          "render": 0.213163,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.093248,
+          "render": 0.281786,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.966861,
+          "render": 5.198838,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.042584,
+          "render": 0.46311800000000003,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032124,
+          "render": 0.10449900000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.422077,
+          "render": 5.913909,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.717822,
+          "render": 1.328979,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040374,
+          "render": 5.712705,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.13729,
+          "render": 0.096123,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.216747,
+          "render": 0.432328,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.136331,
+          "render": 5.54279,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040833,
+          "render": 4.208977000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.862695,
+          "render": 5.614124,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033332,
+          "render": 0.985568,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.000193,
+          "render": 6.927769,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.036417,
+          "render": 0.085665,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031582,
+          "render": 0.049457,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.444353,
+          "render": 3.3779890000000004,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032625,
+          "render": 0.194289,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.041874,
+          "render": 5.520291,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.011651,
+          "render": 1.7030569999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.255121,
+          "render": 0.32991099999999995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.271621,
+          "render": 4.0412289999999995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033542,
+          "render": 3.657196,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.047332,
+          "render": 4.923633,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.120789,
+          "render": 5.353543,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.120456,
+          "render": 0.253537,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.991859,
+          "render": 4.130853,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.042499,
+          "render": 0.355828,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032708,
+          "render": 0.05575,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.436062,
+          "render": 5.827452,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044125,
+          "render": 2.063886,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.041125,
+          "render": 3.2386589999999997,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.33237,
+          "render": 5.781578,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.475909,
+          "render": 1.873472,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.484644,
+          "render": 4.807845,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.492685,
+          "render": 0.160581,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033083,
+          "render": 1.812722,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 1.435686,
+          "render": 6.127822999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.038874,
+          "render": 0.112707,
+          "substeps": 2,
+          "computeCalls": 1
+        }
+      ],
+      "batch": [
+        {
+          "repeats": 64,
+          "totalMs": 18.552592,
+          "perFrameMs": 0.28988425
+        },
+        {
+          "repeats": 64,
+          "totalMs": 14.905647,
+          "perFrameMs": 0.232900734375
+        },
+        {
+          "repeats": 64,
+          "totalMs": 21.716627,
+          "perFrameMs": 0.339322296875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 7.828047,
+          "perFrameMs": 0.122313234375
+        },
+        {
+          "repeats": 64,
+          "totalMs": 14.477404,
+          "perFrameMs": 0.2262094375
+        },
+        {
+          "repeats": 64,
+          "totalMs": 19.482578,
+          "perFrameMs": 0.30441528125
+        },
+        {
+          "repeats": 64,
+          "totalMs": 12.730097,
+          "perFrameMs": 0.198907765625
+        },
+        {
+          "repeats": 64,
+          "totalMs": 14.260325,
+          "perFrameMs": 0.222817578125
+        }
+      ],
+      "compute": {
+        "min": 0.031082,
+        "p50": 0.179706,
+        "p95": 1.484644,
+        "max": 29.840465000000002
+      },
+      "render": {
+        "min": 0.047582,
+        "p50": 1.7030569999999998,
+        "p95": 6.927769,
+        "max": 171.68500699999998
+      },
+      "amortizedDispatch": {
+        "min": 0.122313234375,
+        "p50": 0.232900734375,
+        "p95": 0.339322296875,
+        "max": 0.339322296875
+      },
+      "computeBudgetPassed": true,
+      "computeQuantumMs": 0.000001
+    },
+    {
+      "arm": "double",
+      "input": "tmp/hair-sep24/narrow-density/double/hair/crop01/g050.glb",
+      "sha256": "dc8cac9ab998c149b7f7eed282a0d53d541822e446a022d39bace027ec1df2e7",
+      "loads": [
+        "dc8cac9ab998c149b7f7eed282a0d53d541822e446a022d39bace027ec1df2e7"
+      ],
+      "hud": "Renderer            : WebGPU\nGroom               : crop01 g050 — Men's short back-and-sides with length on top, faded through the cut field.\nFigure              : figure_g050.glb\n\ngeometry            : 0 verts, 0 triangles\nmaterial            : MASK, cutoff 0.5, double sided\nskinned to          : head\natlas               : 1024², 8 strips, cap strip 0\n\n!! THIS IS NOT THE HAIR SHADER. Punch-list 3.5 owns the\nanisotropic strand model and runs after this. What is drawn here is a plain\nPrincipled material with the generated albedo + normal sheets, so that the\nGEOMETRY can be judged without a shader in front of it.\n\nWhat to look for, in the order it goes wrong:\n  3/4    does a STRAIGHT line cross the brow, the lid or the cheekbone? That is a\n         card's own quad edge.\n  side   is the silhouette hair, or a helmet with ribbon edges? And does the mass\n         separate into LOCKS, or is every card going its own way? A fan reads as a mop.\n  top    does the scalp show between the cards? That is what the cap is for.\n  front  is the parting readable, and is hair across the EYES? A groom may cross the\n         temple and must not cross an eye — this page is a face.\n  front  and where the SIDE CURTAIN crosses the cheek, can you still read the eyebrow\n         arc, the lid crease, the nostril wing or the jawline THROUGH it? A curtain one\n         to two cards deep over skin is a window; hair_opacity.mjs C4 is that number.\n  front  and zoom the cheek where a card lies over skin: do the strand stripes read as\n         STRIPES, or as an axis-aligned dot pattern? That is the coverage decision, not\n         the atlas — hair_tips.mjs measures it and REQ-073 owns the fix.\n  back   do the ends land on a CUT LINE, or scatter over a hand's width? Scattered ends\n         are what three separate observers called \"messy\", \"stringy\" and \"unwashed\".\n\nThe numbers are gated elsewhere and none of them can answer any of the above:\n  node tools/figure-pipeline/verify_glb.mjs assets/hair/bob01/g050.glb\n\n?motion=1  DFTL on 768 chains × 17 rings = 13056 particles, 0.008333 s substep\nhead       shake, timestep fixed, defect none\nskull      sphere r=78.3 mm at the least-squares scalp centre (fit r=94.6 mm), nearest rest particle 78.3 mm\nA/B        drop ?motion=1 for the rigid control — same page, same framing.\n",
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "frames": [
+        {
+          "compute": 3.1849710000000004,
+          "render": 19.029006999999993,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.026456,
+          "render": 0.133243,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.025664,
+          "render": 0.1417,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.026207,
+          "render": 0.05678899999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.025749,
+          "render": 0.113285,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.025915,
+          "render": 0.099953,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.035665,
+          "render": 0.237403,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040248,
+          "render": 0.236569,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04083,
+          "render": 0.251317,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040664,
+          "render": 0.277734,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04029,
+          "render": 0.16103099999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040081,
+          "render": 0.271899,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.038581,
+          "render": 0.298023,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.038582,
+          "render": 0.300481,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039373,
+          "render": 0.31369,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04008,
+          "render": 0.322105,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040747,
+          "render": 0.122867,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.041373,
+          "render": 0.295982,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028373,
+          "render": 0.20778000000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.093494,
+          "render": 0.06833,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029207,
+          "render": 0.151825,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.026583,
+          "render": 0.155781,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02754,
+          "render": 0.116618,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.025873,
+          "render": 0.078578,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.025833,
+          "render": 0.154366,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.023831,
+          "render": 0.12240899999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024206,
+          "render": 0.10511799999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024499,
+          "render": 0.104494,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024541,
+          "render": 0.097661,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024623,
+          "render": 0.084204,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024123,
+          "render": 0.100702,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024624,
+          "render": 0.099411,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.023749,
+          "render": 0.11740999999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.023749,
+          "render": 0.105244,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.023957,
+          "render": 0.09941,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024208,
+          "render": 0.07112,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024206,
+          "render": 0.04833,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024499,
+          "render": 0.108368,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024041,
+          "render": 0.076287,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024999,
+          "render": 0.098659,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024208,
+          "render": 0.080954,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024208,
+          "render": 0.07874500000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024165,
+          "render": 0.07712,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024165,
+          "render": 0.060705999999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.023957,
+          "render": 0.12124399999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024124,
+          "render": 0.123328,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024874,
+          "render": 0.26382,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.026999,
+          "render": 0.14699399999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02454,
+          "render": 0.10962,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024457,
+          "render": 0.048997,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024499,
+          "render": 0.10662100000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024124,
+          "render": 0.09945300000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024374,
+          "render": 0.095663,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024041,
+          "render": 0.087413,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024041,
+          "render": 0.08924699999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024249,
+          "render": 0.11887,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02454,
+          "render": 0.048247,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024582,
+          "render": 0.055915000000000006,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.025374,
+          "render": 0.100579,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024541,
+          "render": 0.08999599999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024082,
+          "render": 0.090413,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024499,
+          "render": 0.099411,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024373,
+          "render": 0.048664,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024582,
+          "render": 0.100914,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02429,
+          "render": 0.09353600000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.023874,
+          "render": 0.10641300000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024248,
+          "render": 0.092661,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024708,
+          "render": 0.088037,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024707,
+          "render": 0.081663,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024999,
+          "render": 0.048998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024706,
+          "render": 0.11341199999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024333,
+          "render": 0.09153800000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.025208,
+          "render": 0.100246,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.094829,
+          "render": 0.04829,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.026999,
+          "render": 0.078121,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024166,
+          "render": 0.07699700000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024874,
+          "render": 0.076163,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024124,
+          "render": 0.09049499999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02479,
+          "render": 0.074539,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024624,
+          "render": 0.097078,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024874,
+          "render": 0.084245,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024624,
+          "render": 0.10937000000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.026332,
+          "render": 0.050248,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024666,
+          "render": 0.100744,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.024249,
+          "render": 0.122535,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.052207,
+          "render": 0.290611,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029789,
+          "render": 0.38594,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029957,
+          "render": 0.473227,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.026958,
+          "render": 0.658012,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029082,
+          "render": 0.083747,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029373,
+          "render": 0.270154,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029666,
+          "render": 0.462188,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02729,
+          "render": 0.5975969999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030289,
+          "render": 0.228699,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027124,
+          "render": 0.574766,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029374,
+          "render": 0.212282,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028166,
+          "render": 0.628971,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027832,
+          "render": 0.476436,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029581,
+          "render": 0.263905,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029957,
+          "render": 0.400065,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027873,
+          "render": 0.572848,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.066663,
+          "render": 0.107161,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.046165,
+          "render": 0.086121,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029916,
+          "render": 0.187284,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02929,
+          "render": 0.47506099999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029333,
+          "render": 0.43039799999999995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029206,
+          "render": 0.265031,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028998,
+          "render": 0.260738,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027333,
+          "render": 0.15291,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043248,
+          "render": 0.454854,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029874,
+          "render": 0.136702,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027416,
+          "render": 0.5628070000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028873,
+          "render": 0.674511,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029498,
+          "render": 0.43523,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029207,
+          "render": 0.22778,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02729,
+          "render": 0.148535,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039498,
+          "render": 0.13866,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.045081,
+          "render": 0.11053500000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029165,
+          "render": 0.125911,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029416,
+          "render": 0.169701,
+          "substeps": 2,
+          "computeCalls": 1
+        }
+      ],
+      "batch": [
+        {
+          "repeats": 64,
+          "totalMs": 1.553387,
+          "perFrameMs": 0.024271671875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.632201,
+          "perFrameMs": 0.025503140625
+        },
+        {
+          "repeats": 64,
+          "totalMs": 2.104518,
+          "perFrameMs": 0.03288309375
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.607243,
+          "perFrameMs": 0.025113171875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.613243,
+          "perFrameMs": 0.025206921875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.634075,
+          "perFrameMs": 0.025532421875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.720532,
+          "perFrameMs": 0.0268833125
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.578411,
+          "perFrameMs": 0.024662671875
+        }
+      ],
+      "compute": {
+        "min": 0.023749,
+        "p50": 0.025915,
+        "p95": 0.046165,
+        "max": 3.1849710000000004
+      },
+      "render": {
+        "min": 0.048247,
+        "p50": 0.11341199999999999,
+        "p95": 0.574766,
+        "max": 19.029006999999993
+      },
+      "amortizedDispatch": {
+        "min": 0.024271671875,
+        "p50": 0.025503140625,
+        "p95": 0.03288309375,
+        "max": 0.03288309375
+      },
+      "computeBudgetPassed": true,
+      "computeQuantumMs": 0.000001
+    },
+    {
+      "arm": "double",
+      "input": "tmp/hair-sep24/narrow-density/double/hair/crop01/g050.glb",
+      "sha256": "dc8cac9ab998c149b7f7eed282a0d53d541822e446a022d39bace027ec1df2e7",
+      "loads": [
+        "dc8cac9ab998c149b7f7eed282a0d53d541822e446a022d39bace027ec1df2e7"
+      ],
+      "hud": "Renderer            : WebGPU\nGroom               : crop01 g050 — Men's short back-and-sides with length on top, faded through the cut field.\nFigure              : figure_g050.glb\n\ngeometry            : 0 verts, 0 triangles\nmaterial            : MASK, cutoff 0.5, double sided\nskinned to          : head\natlas               : 1024², 8 strips, cap strip 0\n\n!! THIS IS NOT THE HAIR SHADER. Punch-list 3.5 owns the\nanisotropic strand model and runs after this. What is drawn here is a plain\nPrincipled material with the generated albedo + normal sheets, so that the\nGEOMETRY can be judged without a shader in front of it.\n\nWhat to look for, in the order it goes wrong:\n  3/4    does a STRAIGHT line cross the brow, the lid or the cheekbone? That is a\n         card's own quad edge.\n  side   is the silhouette hair, or a helmet with ribbon edges? And does the mass\n         separate into LOCKS, or is every card going its own way? A fan reads as a mop.\n  top    does the scalp show between the cards? That is what the cap is for.\n  front  is the parting readable, and is hair across the EYES? A groom may cross the\n         temple and must not cross an eye — this page is a face.\n  front  and where the SIDE CURTAIN crosses the cheek, can you still read the eyebrow\n         arc, the lid crease, the nostril wing or the jawline THROUGH it? A curtain one\n         to two cards deep over skin is a window; hair_opacity.mjs C4 is that number.\n  front  and zoom the cheek where a card lies over skin: do the strand stripes read as\n         STRIPES, or as an axis-aligned dot pattern? That is the coverage decision, not\n         the atlas — hair_tips.mjs measures it and REQ-073 owns the fix.\n  back   do the ends land on a CUT LINE, or scatter over a hand's width? Scattered ends\n         are what three separate observers called \"messy\", \"stringy\" and \"unwashed\".\n\nThe numbers are gated elsewhere and none of them can answer any of the above:\n  node tools/figure-pipeline/verify_glb.mjs assets/hair/bob01/g050.glb\n\n?motion=1  DFTL on 768 chains × 17 rings = 13056 particles, 0.008333 s substep\nhead       shake, timestep fixed, defect none\nskull      sphere r=78.3 mm at the least-squares scalp centre (fit r=94.6 mm), nearest rest particle 78.3 mm\nA/B        drop ?motion=1 for the rigid control — same page, same framing.\n",
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "frames": [
+        {
+          "compute": 2.664634,
+          "render": 12.940500000000004,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032831,
+          "render": 0.12007599999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043831,
+          "render": 2.527054,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031499,
+          "render": 0.21098699999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030165,
+          "render": 0.201029,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039747,
+          "render": 0.063412,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.089454,
+          "render": 0.785785,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03179,
+          "render": 0.152365,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032248,
+          "render": 0.19611299999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.091077,
+          "render": 0.087494,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030457,
+          "render": 0.320271,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031873,
+          "render": 0.086119,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.052456,
+          "render": 0.155406,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.08387,
+          "render": 0.362436,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044372,
+          "render": 0.270733,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030164,
+          "render": 0.21811199999999997,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028956,
+          "render": 0.18982,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.035873,
+          "render": 0.14757499999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030498,
+          "render": 0.085578,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031373,
+          "render": 0.381102,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030332,
+          "render": 0.184115,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031665,
+          "render": 0.334645,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032081,
+          "render": 0.292275,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.034582,
+          "render": 0.398476,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03104,
+          "render": 0.139076,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029957,
+          "render": 0.199321,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.07462,
+          "render": 0.133116,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.060538,
+          "render": 0.376478,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031207,
+          "render": 0.279899,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.048872,
+          "render": 0.275316,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031289,
+          "render": 0.11266,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03104,
+          "render": 0.062493999999999994,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.047163,
+          "render": 0.222486,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.136076,
+          "render": 0.23161,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.095994,
+          "render": 0.387018,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030289,
+          "render": 0.321981,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030206,
+          "render": 0.108117,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030041,
+          "render": 0.116953,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.054829,
+          "render": 0.147199,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.108035,
+          "render": 0.198988,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030289,
+          "render": 0.483512,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027748,
+          "render": 0.60563,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.119783,
+          "render": 0.144742,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027291,
+          "render": 0.083703,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043915,
+          "render": 0.14187,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032582,
+          "render": 0.286736,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031915,
+          "render": 0.07649700000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.101953,
+          "render": 0.333109,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031416,
+          "render": 0.19049100000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030166,
+          "render": 0.145452,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030623,
+          "render": 0.19603199999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.049789,
+          "render": 0.101995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.099204,
+          "render": 0.204117,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031082,
+          "render": 0.382649,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031248,
+          "render": 0.151869,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030331,
+          "render": 0.10991100000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.049748,
+          "render": 0.099455,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031373,
+          "render": 0.32161,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03104,
+          "render": 0.286613,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031415,
+          "render": 0.478354,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04729,
+          "render": 0.092121,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03104,
+          "render": 0.11391200000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.046957,
+          "render": 0.104037,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.106495,
+          "render": 0.167867,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030248,
+          "render": 0.086205,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031708,
+          "render": 0.121536,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030166,
+          "render": 0.111245,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031082,
+          "render": 0.089371,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.056039,
+          "render": 0.46801899999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030915,
+          "render": 0.23394700000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030416,
+          "render": 0.31869400000000003,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030791,
+          "render": 0.173534,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.046873,
+          "render": 0.230906,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043873,
+          "render": 0.380232,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030249,
+          "render": 0.289029,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.040956,
+          "render": 0.29786100000000004,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030623,
+          "render": 0.11541000000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030291,
+          "render": 0.32456799999999997,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.047456,
+          "render": 0.310235,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030249,
+          "render": 0.08607999999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031415,
+          "render": 0.22736499999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030582,
+          "render": 0.113619,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030582,
+          "render": 0.116953,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.05204,
+          "render": 0.084245,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.106621,
+          "render": 0.37415,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031707,
+          "render": 0.087954,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03929,
+          "render": 0.33535899999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031124,
+          "render": 0.136578,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.036374,
+          "render": 0.187324,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029832,
+          "render": 0.108161,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027499,
+          "render": 0.127202,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030289,
+          "render": 0.17428300000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028416,
+          "render": 0.273904,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.090954,
+          "render": 0.22065800000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028373,
+          "render": 0.07707800000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027874,
+          "render": 0.346067,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04804,
+          "render": 0.185909,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.060955,
+          "render": 0.416564,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031165,
+          "render": 0.209617,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.045748,
+          "render": 0.391065,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030248,
+          "render": 0.07395399999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029915,
+          "render": 0.130368,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.05583,
+          "render": 0.132326,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032873,
+          "render": 0.140618,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030791,
+          "render": 0.164617,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.041748,
+          "render": 0.107538,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.093621,
+          "render": 0.087538,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030624,
+          "render": 0.102288,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.042956,
+          "render": 0.218074,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031791,
+          "render": 0.28307,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029623,
+          "render": 0.33936,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031582,
+          "render": 0.211158,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.045165,
+          "render": 0.254865,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.050956,
+          "render": 0.060332,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031582,
+          "render": 0.274485,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04479,
+          "render": 0.210865,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044915,
+          "render": 0.137911,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043832,
+          "render": 0.30986199999999997,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030081,
+          "render": 0.152911,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044623,
+          "render": 0.258239,
+          "substeps": 2,
+          "computeCalls": 1
+        }
+      ],
+      "batch": [
+        {
+          "repeats": 64,
+          "totalMs": 1.908901,
+          "perFrameMs": 0.029826578125
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.797403,
+          "perFrameMs": 0.028084421875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.871693,
+          "perFrameMs": 0.029245203125
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.439706,
+          "perFrameMs": 0.02249540625
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.496789,
+          "perFrameMs": 0.023387328125
+        },
+        {
+          "repeats": 64,
+          "totalMs": 2.886829,
+          "perFrameMs": 0.045106703125
+        },
+        {
+          "repeats": 64,
+          "totalMs": 2.273973,
+          "perFrameMs": 0.035530828125
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.798529,
+          "perFrameMs": 0.028102015625
+        }
+      ],
+      "compute": {
+        "min": 0.027291,
+        "p50": 0.031708,
+        "p95": 0.106495,
+        "max": 2.664634
+      },
+      "render": {
+        "min": 0.060332,
+        "p50": 0.19603199999999998,
+        "p95": 0.478354,
+        "max": 12.940500000000004
+      },
+      "amortizedDispatch": {
+        "min": 0.02249540625,
+        "p50": 0.029245203125,
+        "p95": 0.045106703125,
+        "max": 0.045106703125
+      },
+      "computeBudgetPassed": true,
+      "computeQuantumMs": 0.000001
+    },
+    {
+      "arm": "baseline",
+      "input": "assets/hair/crop01/g050.glb",
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+      "loads": [
+        "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a"
+      ],
+      "hud": "Renderer            : WebGPU\nGroom               : crop01 g050 — Men's short back-and-sides with length on top, faded through the cut field.\nFigure              : figure_g050.glb\n\ngeometry            : 0 verts, 0 triangles\nmaterial            : MASK, cutoff 0.5, double sided\nskinned to          : head\natlas               : 1024², 8 strips, cap strip 0\n\n!! THIS IS NOT THE HAIR SHADER. Punch-list 3.5 owns the\nanisotropic strand model and runs after this. What is drawn here is a plain\nPrincipled material with the generated albedo + normal sheets, so that the\nGEOMETRY can be judged without a shader in front of it.\n\nWhat to look for, in the order it goes wrong:\n  3/4    does a STRAIGHT line cross the brow, the lid or the cheekbone? That is a\n         card's own quad edge.\n  side   is the silhouette hair, or a helmet with ribbon edges? And does the mass\n         separate into LOCKS, or is every card going its own way? A fan reads as a mop.\n  top    does the scalp show between the cards? That is what the cap is for.\n  front  is the parting readable, and is hair across the EYES? A groom may cross the\n         temple and must not cross an eye — this page is a face.\n  front  and where the SIDE CURTAIN crosses the cheek, can you still read the eyebrow\n         arc, the lid crease, the nostril wing or the jawline THROUGH it? A curtain one\n         to two cards deep over skin is a window; hair_opacity.mjs C4 is that number.\n  front  and zoom the cheek where a card lies over skin: do the strand stripes read as\n         STRIPES, or as an axis-aligned dot pattern? That is the coverage decision, not\n         the atlas — hair_tips.mjs measures it and REQ-073 owns the fix.\n  back   do the ends land on a CUT LINE, or scatter over a hand's width? Scattered ends\n         are what three separate observers called \"messy\", \"stringy\" and \"unwashed\".\n\nThe numbers are gated elsewhere and none of them can answer any of the above:\n  node tools/figure-pipeline/verify_glb.mjs assets/hair/bob01/g050.glb\n\n?motion=1  DFTL on 384 chains × 17 rings = 6528 particles, 0.008333 s substep\nhead       shake, timestep fixed, defect none\nskull      sphere r=78.1 mm at the least-squares scalp centre (fit r=95.4 mm), nearest rest particle 78.1 mm\nA/B        drop ?motion=1 for the rigid control — same page, same framing.\n",
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "frames": [
+        {
+          "compute": 2.229696000000001,
+          "render": 10.937997999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031832,
+          "render": 0.323272,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.033081,
+          "render": 0.156157,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043914,
+          "render": 0.23186099999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04529,
+          "render": 0.145325,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031164,
+          "render": 0.14899,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030706,
+          "render": 0.150408,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044997,
+          "render": 0.161866,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029123,
+          "render": 0.11124300000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.045539,
+          "render": 0.222404,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044832,
+          "render": 0.22515200000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030039,
+          "render": 0.280275,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031624,
+          "render": 0.088495,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.056789,
+          "render": 0.209822,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.047414,
+          "render": 0.245317,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.083245,
+          "render": 0.336564,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029581,
+          "render": 0.360853,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.047664,
+          "render": 0.250568,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02954,
+          "render": 0.09224299999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.055204,
+          "render": 0.168656,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043789,
+          "render": 0.28439800000000004,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029457,
+          "render": 0.132242,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029582,
+          "render": 0.112119,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043122,
+          "render": 0.21932100000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04333,
+          "render": 0.114576,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.100452,
+          "render": 0.20394800000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030415,
+          "render": 0.252235,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.048413,
+          "render": 0.156782,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029166,
+          "render": 0.101078,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03529,
+          "render": 0.168822,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028914,
+          "render": 0.061997,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.03004,
+          "render": 0.174282,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02854,
+          "render": 0.068163,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030415,
+          "render": 0.110578,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028248,
+          "render": 0.077121,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028458,
+          "render": 0.295607,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029873,
+          "render": 0.089369,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044248,
+          "render": 0.125409,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039789,
+          "render": 0.095077,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030123,
+          "render": 0.177532,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029457,
+          "render": 0.111203,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028916,
+          "render": 0.088455,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029915,
+          "render": 0.080956,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04354,
+          "render": 0.081829,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029999,
+          "render": 0.239238,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028874,
+          "render": 0.105912,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.045957,
+          "render": 0.299528,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.108579,
+          "render": 0.25527900000000003,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030623,
+          "render": 0.11599599999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029748,
+          "render": 0.190908,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032248,
+          "render": 0.10928600000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043623,
+          "render": 0.122995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029707,
+          "render": 0.330526,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.039706,
+          "render": 0.194408,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04629,
+          "render": 0.312694,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030289,
+          "render": 0.116786,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044748,
+          "render": 0.15566,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.061205,
+          "render": 0.126369,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04554,
+          "render": 0.24557299999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.046707,
+          "render": 0.34598399999999996,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030416,
+          "render": 0.12207699999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030081,
+          "render": 0.12370300000000001,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029665,
+          "render": 0.191992,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031041,
+          "render": 0.081205,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029583,
+          "render": 0.087078,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029624,
+          "render": 0.083413,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030124,
+          "render": 0.163325,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04654,
+          "render": 0.119954,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031249,
+          "render": 0.152701,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.04554,
+          "render": 0.40769,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028249,
+          "render": 0.144618,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.032207,
+          "render": 0.090829,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.068539,
+          "render": 0.095705,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029458,
+          "render": 0.082205,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031457,
+          "render": 0.096204,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.045832,
+          "render": 0.22824,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.048207,
+          "render": 0.079163,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031166,
+          "render": 0.39315,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029624,
+          "render": 0.077871,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.037457,
+          "render": 0.146287,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030289,
+          "render": 0.069164,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.035456,
+          "render": 0.10287,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.037416,
+          "render": 0.145952,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027999,
+          "render": 0.26703,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031123,
+          "render": 0.357067,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029457,
+          "render": 0.098704,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030414,
+          "render": 0.152909,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.052206,
+          "render": 0.125912,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.090996,
+          "render": 0.332318,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029291,
+          "render": 0.289153,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029499,
+          "render": 0.137368,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.09487,
+          "render": 0.086371,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.045998,
+          "render": 0.281987,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030999,
+          "render": 0.105411,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029666,
+          "render": 0.214698,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030499,
+          "render": 0.133828,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030083,
+          "render": 0.424064,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.047915,
+          "render": 0.258446,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.027499,
+          "render": 0.054873,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030332,
+          "render": 0.39215,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.028916,
+          "render": 0.158785,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030332,
+          "render": 0.122995,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.041331,
+          "render": 0.080496,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029749,
+          "render": 0.15457700000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043207,
+          "render": 0.19561699999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.02954,
+          "render": 0.101246,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044332,
+          "render": 0.162159,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044331,
+          "render": 0.105495,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043582,
+          "render": 0.300985,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.031415,
+          "render": 0.452105,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029665,
+          "render": 0.10528599999999999,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.046123,
+          "render": 0.19045,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.036332,
+          "render": 0.171201,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030332,
+          "render": 0.105203,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.043539,
+          "render": 0.120453,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.030458,
+          "render": 0.15932600000000002,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044748,
+          "render": 0.22228199999999998,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.044373,
+          "render": 0.373066,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.029207,
+          "render": 0.076538,
+          "substeps": 2,
+          "computeCalls": 1
+        },
+        {
+          "compute": 0.046998,
+          "render": 0.170368,
+          "substeps": 2,
+          "computeCalls": 1
+        }
+      ],
+      "batch": [
+        {
+          "repeats": 64,
+          "totalMs": 3.110739,
+          "perFrameMs": 0.048605296875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.427914,
+          "perFrameMs": 0.02231115625
+        },
+        {
+          "repeats": 64,
+          "totalMs": 2.655419,
+          "perFrameMs": 0.041490921875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.789278,
+          "perFrameMs": 0.02795746875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.780238,
+          "perFrameMs": 0.02781621875
+        },
+        {
+          "repeats": 64,
+          "totalMs": 2.217724,
+          "perFrameMs": 0.0346519375
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.709032,
+          "perFrameMs": 0.026703625
+        },
+        {
+          "repeats": 64,
+          "totalMs": 1.797278,
+          "perFrameMs": 0.02808246875
+        }
+      ],
+      "compute": {
+        "min": 0.027499,
+        "p50": 0.031415,
+        "p95": 0.083245,
+        "max": 2.229696000000001
+      },
+      "render": {
+        "min": 0.054873,
+        "p50": 0.152909,
+        "p95": 0.39215,
+        "max": 10.937997999999999
+      },
+      "amortizedDispatch": {
+        "min": 0.02231115625,
+        "p50": 0.02808246875,
+        "p95": 0.048605296875,
+        "max": 0.048605296875
+      },
+      "computeBudgetPassed": true,
+      "computeQuantumMs": 0.000001
+    }
+  ],
+  "errors": [],
+  "budget": {
+    "computeP50Ms": 0.25,
+    "source": "HairDynamics.selftest.mjs X; no existing render or tail budget"
+  }
+}

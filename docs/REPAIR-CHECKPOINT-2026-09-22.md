@@ -9,6 +9,8 @@ For the authorized September 24 continuation, read [the latest progress checkpoi
 Its fourth and fifth checkpoints isolate clearance-induced ribbon folds and visible generator
 layers, with exact crop candidates rejected after geometry, GPU and visual checks. The September 22
 measurements below remain historical.
+Robert subsequently authorized overnight continuation; the active window, crash recovery and
+latest experiment are recorded in [the overnight checkpoint](PROGRESS-2026-09-24-OVERNIGHT.md).
 
 ## Repairs and their focused evidence
 
