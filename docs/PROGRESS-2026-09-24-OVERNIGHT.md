@@ -246,25 +246,78 @@ No full suite, geometry, motion, build or cost run was needed after this rejecti
 read-only Blender mount remains available. Reproducible routes, native plates, raw reports and
 the rejection are saved in [pattern-phase evidence](evidence/hair-2026-09-25/pattern-phase/).
 
+## Fifth experiment: shared coverage decisions confirmed in a controlled fixture
+
+Starting from clean `4f12a97`, an isolated WebGPU fixture uses the actual
+`configureHairMaterial` coverage path with black, constant-alpha cards over an opaque white
+body plane. It confirms that overlapping cards share the screen-space threshold: adding a
+second equal-alpha layer does not add opacity. This is a verified mechanism in the fixture,
+not a measurement of its contribution to the real groom's C4 failure. The fixture uses basic
+node materials rather than the runtime fibre BSDF; accepted groom bytes remain unchanged.
+
+| Card alphas | Unfiltered 128-frame transmission | Shared-threshold prediction | Independent-layer reference |
+| --- | --- | --- | --- |
+| 0.25 + 0.25 | 0.749994 | 0.75 | 0.5625 |
+| 0.50 + 0.50 | 0.499992 | 0.50 | 0.2500 |
+| 0.75 + 0.75 | 0.250004 | 0.25 | 0.0625 |
+| 0.25 + 0.75 | 0.250004 | 0.25 | 0.1875 |
+
+The uniform-sampling prediction for the present rule is `1 - max(alpha1, alpha2)`; the
+independent-layer reference is `(1 - alpha1) * (1 - alpha2)`. Every equal-alpha pair exactly
+matches its single-card control in all 128 frame means, every per-pixel temporal mean and the
+final full image. Reversed mesh render order, a two-card single indexed mesh, and reversed
+triangle order retain that exact equality. This establishes more than a two-object artifact.
+
+The final run covers 38 cases across unfiltered forward rendering and TAAU at its default
+0.66 scene scale. Linear RGBA8 output omits transfer, tone mapping, grading and AO. The fixed
+mask contains 12,544 pixels in the projected quad intersection, eroded by eight pixels for
+resolve support. Zero-alpha, absent-card and opaque-body-in-front controls are uniformly 1;
+opaque cards are uniformly 0. Sorted-blend references match the analytic values within one
+8-bit quantization step. No appearance threshold was changed or added to excuse the defect.
+
+TAAU leaves equal-half single/pair output identical: mean 0.485466 over the 128 frames and
+0.481629 at frame 128, versus the blend pair's 0.250980. The unequal-alpha pair differs slightly
+from its single-card control after resolve; no exact claim is made for that case. These
+averages include startup history and are not proof of convergence.
+
+Two controls also demonstrate why a **fixed per-card phase offset** is not sufficient for
+independent compositing. Half-opacity pairs with phases 0/1 transmit 0.118025 without filtering,
+and phases 0/977 transmit 0.319203, rather than 0.25. Their shared-recurrence predictions are
+0.118034/0.319207. TAAU frame 128 reads 0.028154/0.298912, so the temporal resolve can further
+alter the result; a raw sampling improvement alone will not qualify a correction.
+
+A four-case pilot preceded the first 34-case run. Adding the phase controls prompted a serial
+repeat: all 34 original cases retain identical frame traces, per-pixel temporal means and
+final images. The final run adds four cases. All jobs have exited; actual Apple/Metal WebGPU,
+frame clocks, geometry masks, endpoint/depth/blend controls and source/asset hashes verify.
+Browser/console/HTTP checks are clean and script syntax passes. No runtime source, material,
+asset or threshold was changed, and no motion, geometry, cost, build or full-suite acceptance
+is claimed. The read-only Blender mount remains available overnight.
+
+The [layer-correlation evidence](evidence/hair-2026-09-25/layer-correlation/) archives the fixture,
+all 38 native linear diagnostic plates, every frame's measurements and offsets, source hashes,
+repeat proof and replay instructions. This is a concrete direction for a coverage correction;
+the four existing appearance/geometry gates remain red.
+
 ## Remaining work and next bounded step
 
-All four existing red gates remain: HairMaterial, GLB verification, opacity and tips. Preserve
-the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the rejected
-double-density crop, rest-position dither phase, scene-scale-one or inner-phase experiments.
+Preserve the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the
+rejected double-density crop, rest-position phase, scene-scale-one or inner-phase experiments.
+Do not mistake a fixed per-card phase for independent sampling: the new fixture disproves that
+as a general solution.
 
-The next bounded step should test **coverage correlation between overlapping cards** before
-trying more noise constants. `hairDitherThresholdNode` currently depends on screen coordinates
-and a shared frame offset, without a per-card discriminator. Source inspection therefore
-suggests that two fragments at one screen pixel can share the same coverage decision. That is
-a hypothesis about the curtain failure, not an established explanation of the groom's image.
+Next test **independently advancing per-card temporal sequences in the isolated layer fixture**.
+As a bounded mechanism control, the existing first-card golden step and a second-card
+`sqrt(2) - 1` step can test whether changing relative phase over time recovers the independent
+alpha-compositing reference. This is not a proposed general sampler for an arbitrary groom.
+Check multiple alpha pairs, sample counts, starting phases, shared-sequence rejection controls,
+unfiltered averages and TAAU separately. Retain endpoint, depth and reversed-order controls.
+Reject a sequence that trades the opacity bias for unstable or biased resolved output.
 
-Build an isolated actual WebGPU fixture using the existing `configureHairMaterial` path with
-one and two overlapping, constant-alpha cards. Compare against explicit independent-layer
-alpha compositing: two half-opacity layers transmit 0.25; a shared threshold predicts 0.5.
-Include zero/one-alpha endpoints, a single-card reference, reversed draw order, an opaque body
-behind the cards and a mask derived from their geometry. Inspect the unfiltered temporal
-average separately from default-scale TAAU so the resolve cannot be mistaken for the coverage
-rule. Keep the fixed bob untouched. Only after that mechanism is verified should a new
-per-card decorrelation candidate be designed and tested on the real groom with tips, opacity,
-phase/motion and visual checks. The earlier rest-position phase was rejected and is not that
-proof. Check the morning deadline first: 08:00 Pacific, with the final-wake rule above.
+Only a successful fixture result should lead to a groom candidate. First inspect existing
+card-topology/solver attributes for a stable per-card identifier; do not infer one from rest
+position or change shipped GLB geometry. A real-groom candidate must preserve contact calibration
+and pass relevant HairOIT phase/order/motion controls, independent opacity, tips and ordinary
+visual checks before promotion. HairMaterial and GLB verification remain separate unresolved
+work. Check the 08:00 Pacific deadline and final-wake rule before starting the next substantial
+step; the automation still pauses at the morning checkpoint.

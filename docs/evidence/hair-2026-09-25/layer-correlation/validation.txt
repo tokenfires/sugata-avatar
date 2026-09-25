@@ -1,0 +1,5 @@
+PASS: 38 actual WebGPU cases; endpoints, opaque-body depth and analytic blend references.
+PASS: 12 exact pair equivalences for all per-frame means, per-pixel means and final images.
+PASS: 34 repeated cases match every frame trace, per-pixel mean and final image exactly.
+PASS: geometry mask, capture clocks, shared uniforms, source/asset and image hashes.
+CONFIRMED in fixture: shared-threshold overlap differs from independent-layer compositing.
