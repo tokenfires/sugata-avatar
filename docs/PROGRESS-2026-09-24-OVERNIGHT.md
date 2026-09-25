@@ -385,6 +385,45 @@ fixture makes zero-luminance neighborhoods relevant, but no native floating-poin
 yet been inspected for nonfinite values. The existing RGBA8 plates cannot establish finiteness.
 Default sharpening is null, so there is no downstream sharpening pass in this fixture.
 
+## Eighth experiment: native floating-state audit — nonfinite hypothesis not reproduced
+
+Starting from clean `9d5700e`, nine fixture cases inspect native TAAU resolve, color-history and
+lock-history textures after every draw for 512 frames. The live owner is `TAAUNode`; all three
+readbacks are 256×256 RGBA16F, delivered as `Uint16Array` binary16 bit patterns. All four
+components are classified in the whole frame and fixed 12,544-pixel ROI. **No NaN or infinity
+is reproduced.** The source-level zero-denominator hypothesis does not justify a guard, and
+none is proposed or installed. This does not prove every intermediate shader expression finite.
+
+| Half-pair arm | Native last-64 ROI mean, phase 0 / 977 | Ordinary RGBA8 last-64 mean, phase 0 / 977 |
+| --- | --- | --- |
+| Original field, shared rates | 0.481219 / 0.481228 | 0.481269 / 0.481275 |
+| Original field, distinct rates | 0.029858 / 0.031807 | 0.029851 / 0.031796 |
+| Swapped field, distinct rates | 0.118750 / 0.118963 | 0.118749 / 0.118962 |
+
+The sorted-blend native mean is 0.249999886 against a 0.25 independent reference; its ordinary
+value is 0.250980392. The excess darkening already exists in native resolve state, before the
+RGBA8 conversion. Every native finite component rounds exactly to the observed ordinary byte.
+Color history matches resolve bit-for-bit after the renderer's copy, as expected; it is not an
+independent reference. Opaque ROI output is exactly zero, while absent-card native ROI means
+range from 0.999993928 to 1 and still quantize to exactly white. The verifier records those tiny
+native differences rather than claiming exact floating white.
+
+The decoder/counters pass planted NaN/infinity tests inside and outside a synthetic ROI. All
+nine prior 512-frame traces, per-pixel temporal means and 27 ordinary images reproduce exactly.
+Both six-case pilots reproduce their common first-24 traces and images; the second pilot adds
+the native-to-byte binding check before the final run. Format, source/asset, mask, live sequence,
+clock and browser/console/HTTP checks pass. All GPU jobs ran serially and have exited. No
+production source, dependency, asset, calibration or threshold changed; no full suite, geometry,
+motion, cost or build acceptance is claimed. The four red gates remain unresolved.
+
+The audit exposes a separate wiring observation: the live resolve target has one attachment,
+history has two, and sampled lock history is identically zero. The installed source emits both
+color and lock, samples previous lock, and copies only resolved color into history. This missing
+lock delivery is a concrete next diagnostic, but its contribution to darkening is untested.
+The [finiteness evidence](evidence/hair-2026-09-25/resolve-finiteness/) pins the observed topology
+and source lines alongside all per-frame native counts, ordinary images and repeat proof.
+The isolated read-only Blender mount remains available overnight.
+
 ## Remaining work and next bounded step
 
 Preserve the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the
@@ -392,20 +431,21 @@ rejected double-density crop, rest-position phase, scene-scale-one or inner-phas
 Fixed phases, distinct temporal rates alone, and swapped spatial fields (with either temporal
 choice) are now rejected in the controlled fixture. Do not rerun these candidates on the groom.
 
-Next **audit native floating-point TAAU state for nonfinite values** in the existing fixture.
-Use bounded shared-half, temporal-only half, swapped/distinct half, opaque and blend controls,
-including phases 0/977 where relevant. Read the resolve/history/lock buffers before conversion
-to RGBA8, decode their actual texture format, and record whole-frame and fixed-ROI finite counts
-with the live clock. Verify that the added readback preserves ordinary images exactly. Source
-access is available through the texture node's owner (`stage.temporal.node.passNode`); verify
-that object's actual identity and attachment formats instead of assuming them.
+Native-state finiteness has now been audited; do not repeat it as an open hypothesis or insert
+a speculative zero-denominator guard. Next **test the observed lock-history attachment wiring**
+as a bounded delivery diagnostic, separate from any claim of an opacity repair. Keep installed
+dependencies and production files unchanged: use an isolated served-source route with two
+resolve attachments and a copy from resolved lock into lock history. Retain an exact original
+route and a two-attachment/no-lock-copy control to separate emitting a lock from carrying it
+forward. Verify the route applied, actual attachments, native lock values, color/history copies,
+finiteness and ordinary images on the existing static fixture before any wider change.
 
-The source-level zero denominator is a hypothesis, not a demonstrated runtime defect. Only if
-nonfinite state is reproduced should an isolated, identity-controlled denominator guard be
-tested for causality. If native buffers are finite, record that result and do not promote a
-speculative guard or claim it explains the bias. Preserve resolve settings and avoid repeating
-rejected depth/disocclusion changes. A useful subsequent control would compare a sampler with
-known joint coverage against the unchanged resolve, but do not stack it into the finiteness audit.
+Start with the existing shared-half, swapped/distinct-half, opaque and blend controls and
+phases 0/977 where relevant; keep default TAAU scale, frame clock and output path. If delivery
+works, quantify its effect on independent coverage bias and static temporal noise without
+changing any acceptance threshold. A functioning lock is not automatically an appearance
+improvement. Do not revisit earlier rejected depth/disocclusion changes. The known-joint-coverage
+sampler control remains a useful later diagnostic if needed, but is not part of this wiring bite.
 
 Only a successful fixture result should lead to a groom candidate. First inspect existing
 card-topology/solver attributes for a stable per-card identifier; do not infer one from rest
