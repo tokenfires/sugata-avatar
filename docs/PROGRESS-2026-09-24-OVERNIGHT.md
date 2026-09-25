@@ -197,24 +197,74 @@ numbers 25/25 pass. The existing tip and opacity failures are explicitly retaine
 suite, geometry, motion, build or cost qualification was repeated for this diagnostic repair.
 All GPU jobs have exited; the isolated read-only Blender mount remains available overnight.
 
+## Fourth experiment: advance the spatial dither pattern — rejected
+
+Starting from clean `5606973`, one isolated candidate adds a temporal phase inside the inner
+`fract` of the screen-space interleaved-gradient expression. It retains the original outer
+golden step; the inner uniform advances by `sqrt(2) - 1`, computed in CPU doubles. Supported
+bob01/g050, runtime HairMaterial, TAAU scale 0.66 and all other controls stay fixed. The
+candidate is applied only to Vite's response, leaving production sources and assets untouched.
+
+A zero-inner-phase control uses the same rewritten expression and uniform wiring. All three
+tip images reproduce the previous shipping baseline byte-for-byte, and all CPU geometry-mask
+counts match between zero and candidate. The candidate changes rendered pixels, but the image
+retains the conspicuous stipple, transparent curtain and plate-like layers.
+
+| Measurement | Shipping / zero control | Candidate | Existing ceiling |
+| --- | --- | --- | --- |
+| 24-step tip speckle | 7.12% | 7.19% | 3% |
+| 24-step cheek speckle | 19.23% | 18.89% | 3% |
+| Portrait C4 transmission | 0.5439 | 0.5419 | 0.35 |
+| Portrait C3 mass transmission | 0.0650 | 0.0637 | 0.10 |
+| 128-step phase-pair RMS | 3.0944 code values | 4.4455 code values | 8 for C1 |
+
+The opacity probe's independent detached/hidden controls pass: candidate portrait L2/L3 are
+0.9951/0.9924, rear L2 is 0.9913. C4 is the sole opacity failure; rear C4 has zero eligible
+pixels and is not gated. Small reductions in cheek noise and transmission do not establish
+an acceptable image, and tip speckle gets slightly worse.
+
+CPU finite/range, zero-phase identity and frozen/phase checks pass. Sampled distribution and
+convergence get worse: the largest observed gap at 256 samples is 0.118120 versus 0.005025;
+the largest empirical CDF discrepancy at 4096 is 0.009754 versus 0.000695. These use seven
+screen seeds, two phases and three starting indices through one billion frames. They are
+double-precision diagnostics, not a proof of GPU precision or unbiasedness. The original
+outer-offset bound cannot be used to claim that the changed final threshold retains it.
+
+A focused actual WebGPU replay of HairOIT's 128-step phase controls holds the shipping
+hair-minus-bald mask fixed across all arms. Both C1 values pass, but candidate C2 and C3 fail
+their unchanged thresholds: frozen RMS 11.9974 is only 2.70× regular RMS, below the required
+3×; white-dither RMS 3.2596 is below the required 1.15× regular RMS. The frozen control pins
+both uniforms while preserving phase response. The white control changes only the outer
+sequence, retaining the candidate's inner phase; this is not evidence for white noise in
+general. Nine captures check live WebGPU/TAAU, applied routes and per-frame uniforms. This
+focused replay does not stand in for the full HairOIT order/motion suite.
+
+**Rejected.** There is no renderer, material, geometry or threshold change to promote. All GPU
+jobs ran serially and have exited. Script syntax, exact identity images, source/asset hashes
+and independent opacity controls verify; unexpected browser/console/HTTP errors were absent.
+No full suite, geometry, motion, build or cost run was needed after this rejection. The
+read-only Blender mount remains available. Reproducible routes, native plates, raw reports and
+the rejection are saved in [pattern-phase evidence](evidence/hair-2026-09-25/pattern-phase/).
+
 ## Remaining work and next bounded step
 
 All four existing red gates remain: HairMaterial, GLB verification, opacity and tips. Preserve
 the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the rejected
-double-density crop, rest-position dither phase, or scene-scale-one experiments.
+double-density crop, rest-position dither phase, scene-scale-one or inner-phase experiments.
 
-The next bounded hypothesis is whether changing the **spatial pattern over time**, rather than
-only adding a common temporal offset to a fixed screen pattern, reduces the runtime stipple.
-Inspect `HairOIT.js`'s `hairDitherThresholdNode`, its uniform update and existing selftests first.
-Keep supported bob01/g050, real HairMaterial, default scale 0.66 and all other controls fixed.
-An isolated candidate may add an independently advancing phase inside the inner `fract` of
-Three's screen-space interleaved-gradient expression, while retaining the current outer
-golden-step phase. This is an untested hypothesis, not a diagnosed cause or promised remedy.
+The next bounded step should test **coverage correlation between overlapping cards** before
+trying more noise constants. `hairDitherThresholdNode` currently depends on screen coordinates
+and a shared frame offset, without a per-card discriminator. Source inspection therefore
+suggests that two fragments at one screen pixel can share the same coverage decision. That is
+a hypothesis about the curtain failure, not an established explanation of the groom's image.
 
-Require a zero-inner-phase identity control, finite and distribution/convergence checks, the
-existing phase and frozen-dither controls, then serial actual GPU tips and independent opacity
-captures. Reject a tip gain that worsens the curtain or appearance. Any promising result must
-also pass the relevant runtime HairOIT tests and moving-image checks before promotion. Do not
-replace the real HairMaterial with `hairbsdf=0` as an equivalent coverage control: that path
-ignores these coverage options and cannot carry the simulated position node. Check the morning
-deadline before beginning; it remains 08:00 Pacific, with the final-wake rule above.
+Build an isolated actual WebGPU fixture using the existing `configureHairMaterial` path with
+one and two overlapping, constant-alpha cards. Compare against explicit independent-layer
+alpha compositing: two half-opacity layers transmit 0.25; a shared threshold predicts 0.5.
+Include zero/one-alpha endpoints, a single-card reference, reversed draw order, an opaque body
+behind the cards and a mask derived from their geometry. Inspect the unfiltered temporal
+average separately from default-scale TAAU so the resolve cannot be mistaken for the coverage
+rule. Keep the fixed bob untouched. Only after that mechanism is verified should a new
+per-card decorrelation candidate be designed and tested on the real groom with tips, opacity,
+phase/motion and visual checks. The earlier rest-position phase was rejected and is not that
+proof. Check the morning deadline first: 08:00 Pacific, with the final-wake rule above.

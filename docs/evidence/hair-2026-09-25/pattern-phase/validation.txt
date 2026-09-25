@@ -1,0 +1,5 @@
+PASS: all source and shipping asset hashes unchanged.
+PASS: zero-inner-phase route reproduces all three shipping images exactly.
+PASS: all geometry mask counts preserved; candidate affects rendered output.
+PASS: independent opacity controls and nine WebGPU/TAAU phase captures verified.
+REJECT: candidate remains red on T1/T2/C4 and focused C2/C3 controls.

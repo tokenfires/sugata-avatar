@@ -1,0 +1,770 @@
+{
+  "baseCommit": "5606973415cd372ae99f031dc54302531d132f1d",
+  "verdict": "Rejected: tip and opacity gates remain red; seed dependence increases and focused C2/C3 controls fail.",
+  "sourceSHA256": {
+    "tools/figure-pipeline/hair_tips.mjs": "89f1e56e4bbaa039da55c3def990721544a15d8b127c72c63f4b76ff0d512378",
+    "tools/figure-pipeline/hair_opacity.mjs": "a67accf460e659fa1f4d758bd3396262b792e66f905b01f514221f923e41de05",
+    "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+    "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "packages/testbed/src/alive.js": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d",
+    "node_modules/three/src/nodes/utils/PostProcessingUtils.js": "db431284e8bc521103829d8ddf000dd209562603bcc98dbae627d24342f426b7",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7"
+  },
+  "tips": {
+    "baseline": {
+      "tips": {
+        "pixels": 10593,
+        "speckle": 0.07117908052487491,
+        "rms": 4.248871001081187,
+        "grid": {
+          "score": 0.11616838748528724,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "curtain": {
+        "pixels": 53250,
+        "speckle": 0.19228169014084506,
+        "rms": 7.573431251521941,
+        "grid": {
+          "score": 0.049373003709402674,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "mass": {
+        "pixels": 192722,
+        "speckle": 0.10699349321821068,
+        "rms": 5.830506754474864,
+        "grid": {
+          "score": 0.07760186745855524,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "skin": {
+        "pixels": 385376,
+        "speckle": 0.006853047413435191,
+        "rms": 1.653110376196515,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      },
+      "backdrop": {
+        "pixels": 221592,
+        "speckle": 0.003113830824217481,
+        "rms": 1.4025417094812362,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      }
+    },
+    "candidate": {
+      "tips": {
+        "pixels": 10593,
+        "speckle": 0.07193429623336166,
+        "rms": 4.21868767825245,
+        "grid": {
+          "score": 0.06420413807091807,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "curtain": {
+        "pixels": 53250,
+        "speckle": 0.18890140845070422,
+        "rms": 7.493413716238098,
+        "grid": {
+          "score": 0.013301576490807265,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "mass": {
+        "pixels": 192722,
+        "speckle": 0.1089341123483567,
+        "rms": 5.919562395030402,
+        "grid": {
+          "score": 0.02509363237793455,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "skin": {
+        "pixels": 385376,
+        "speckle": 0.006840073071493814,
+        "rms": 1.6523754136925954,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      },
+      "backdrop": {
+        "pixels": 221592,
+        "speckle": 0.003113830824217481,
+        "rms": 1.4025837201759126,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      }
+    },
+    "steps": 24
+  },
+  "opacity": {
+    "baseline": {
+      "portrait": {
+        "footprintPixels": 463189,
+        "all": {
+          "pixels": 463189,
+          "mean": 0.1676322863119688,
+          "median": 0.002933598123744942,
+          "p90": 0.88131990608189,
+          "overHalf": 0.16030605217308702
+        },
+        "mass": {
+          "pixels": 385178,
+          "mean": 0.06499563019583507,
+          "median": 0.0011817300506051663,
+          "p90": 0.19819188881643293,
+          "overHalf": 0.05688538805435409
+        },
+        "overFace": {
+          "pixels": 151248,
+          "mean": 0.13392435041198217,
+          "median": 0,
+          "p90": 0.7597889051716209,
+          "overHalf": 0.13066619062731408
+        },
+        "curtain": {
+          "pixels": 28700,
+          "mean": 0.5439298828459754,
+          "median": 0.5563578329231571,
+          "p90": 1.0561898663445135,
+          "overHalf": 0.5239024390243903
+        },
+        "curtainHidden": {
+          "pixels": 28700,
+          "mean": 0.9923389971795038,
+          "median": 1,
+          "p90": 1.0007613504871338,
+          "overHalf": 0.9989547038327526
+        },
+        "curtainByCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 14215,
+            "mean": 0.7143022435226807,
+            "impliedAlpha": 0.2856977564773193
+          },
+          {
+            "crossings": 2,
+            "pixels": 14485,
+            "mean": 0.37673325826749277,
+            "impliedAlpha": 0.3862139963574497
+          },
+          {
+            "crossings": 3,
+            "pixels": 13978,
+            "mean": 0.15267857404008117,
+            "impliedAlpha": 0.4655266789249488
+          },
+          {
+            "crossings": 4,
+            "pixels": 12813,
+            "mean": 0.0930031209827292,
+            "impliedAlpha": 0.4477644246796706
+          }
+        ],
+        "curtainByStrip": [
+          {
+            "strip": 1,
+            "pixels": 19357,
+            "share": 0.6744599303135889,
+            "mean": 0.5167706785310661
+          },
+          {
+            "strip": 2,
+            "pixels": 10403,
+            "share": 0.3624738675958188,
+            "mean": 0.4487512922169289
+          },
+          {
+            "strip": 6,
+            "pixels": 4009,
+            "share": 0.13968641114982577,
+            "mean": 0.7884752131382646
+          }
+        ],
+        "curtainNoInterior": {
+          "pixels": 9343,
+          "mean": 0.6001988240772362,
+          "median": 0.6317894110490395,
+          "p90": 1.0551931521003992,
+          "overHalf": 0.5579578293909879
+        },
+        "noInteriorByStrip": [
+          {
+            "strip": 2,
+            "pixels": 7577,
+            "share": 0.8109814834635556,
+            "mean": 0.5157680878463178
+          },
+          {
+            "strip": 6,
+            "pixels": 1783,
+            "share": 0.19083806058011346,
+            "mean": 0.9629855358972451
+          }
+        ],
+        "noInteriorByCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 4559,
+            "mean": 0.8242773802133366,
+            "impliedAlpha": 0.17572261978666337
+          },
+          {
+            "crossings": 2,
+            "pixels": 4784,
+            "mean": 0.386659079632314,
+            "impliedAlpha": 0.3781808304399791
+          }
+        ],
+        "faceBottom": 736,
+        "teethBottom": 674.6641845703125,
+        "outside": {
+          "pixels": 488352,
+          "mean": 1.0044821991059505,
+          "median": 1,
+          "p90": 1.0180607180460508,
+          "overHalf": 1
+        },
+        "hidden": {
+          "pixels": 463189,
+          "mean": 0.9950626595613309,
+          "median": 1,
+          "p90": 1,
+          "overHalf": 0.9998121717052866
+        },
+        "byCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 45799,
+            "mean": 0.7860065095799642,
+            "impliedAlpha": 0.2139934904200358
+          },
+          {
+            "crossings": 2,
+            "pixels": 32212,
+            "mean": 0.5157156365556704,
+            "impliedAlpha": 0.28186656075930394
+          },
+          {
+            "crossings": 3,
+            "pixels": 24360,
+            "mean": 0.29100917787064295,
+            "impliedAlpha": 0.3373224946537702
+          },
+          {
+            "crossings": 4,
+            "pixels": 23055,
+            "mean": 0.19253211909698617,
+            "impliedAlpha": 0.33759165090483423
+          }
+        ]
+      },
+      "rear34": {
+        "footprintPixels": 437708,
+        "all": {
+          "pixels": 437708,
+          "mean": 0.09021387140292415,
+          "median": -0.0003747121347447684,
+          "p90": 0.31861178300474413,
+          "overHalf": 0.0904507114331929
+        },
+        "mass": {
+          "pixels": 390543,
+          "mean": 0.01668634775870814,
+          "median": -0.0013688913579666612,
+          "p90": 0.012338700732266087,
+          "overHalf": 0.017693314180512773
+        },
+        "overFace": {
+          "pixels": 190936,
+          "mean": -0.009485311231163293,
+          "median": -0.005794476870456364,
+          "p90": 0.0007152758750776011,
+          "overHalf": 1.571207106046005e-05
+        },
+        "curtain": {
+          "pixels": 0,
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "overHalf": null
+        },
+        "curtainHidden": {
+          "pixels": 0,
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "overHalf": null
+        },
+        "curtainByCrossing": [
+          {
+            "crossings": 3,
+            "pixels": 64,
+            "mean": -0.0096779921238335,
+            "impliedAlpha": 0.99
+          },
+          {
+            "crossings": 4,
+            "pixels": 972,
+            "mean": 0.0023469749170514976,
+            "impliedAlpha": 0.7798964171615721
+          }
+        ],
+        "curtainByStrip": [],
+        "curtainNoInterior": {
+          "pixels": 0,
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "overHalf": null
+        },
+        "noInteriorByStrip": [],
+        "noInteriorByCrossing": [],
+        "faceBottom": 708,
+        "teethBottom": 665.184814453125,
+        "outside": {
+          "pixels": 602168,
+          "mean": 1.0030460589365697,
+          "median": 1,
+          "p90": 1.0153072439883237,
+          "overHalf": 1
+        },
+        "hidden": {
+          "pixels": 437708,
+          "mean": 0.9913319079281279,
+          "median": 0.9998389061785486,
+          "p90": 1,
+          "overHalf": 0.9997852449578257
+        },
+        "byCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 27294,
+            "mean": 0.7901867568611493,
+            "impliedAlpha": 0.20981324313885075
+          },
+          {
+            "crossings": 2,
+            "pixels": 19871,
+            "mean": 0.5738633973898549,
+            "impliedAlpha": 0.24246227988973712
+          },
+          {
+            "crossings": 3,
+            "pixels": 11580,
+            "mean": 0.40909829378864576,
+            "impliedAlpha": 0.2576491284690249
+          },
+          {
+            "crossings": 4,
+            "pixels": 10582,
+            "mean": 0.19755835935100485,
+            "impliedAlpha": 0.3333101355084307
+          }
+        ]
+      }
+    },
+    "candidate": {
+      "portrait": {
+        "footprintPixels": 463189,
+        "all": {
+          "pixels": 463189,
+          "mean": 0.1662437314770019,
+          "median": 0.0027401875971213917,
+          "p90": 0.872512108542877,
+          "overHalf": 0.15962598420946958
+        },
+        "mass": {
+          "pixels": 385178,
+          "mean": 0.06369701993644156,
+          "median": 0.0010355883731229094,
+          "p90": 0.1956143823592055,
+          "overHalf": 0.05618441344001994
+        },
+        "overFace": {
+          "pixels": 151248,
+          "mean": 0.13200212767956668,
+          "median": -0.00013180974196427296,
+          "p90": 0.7557278793112066,
+          "overHalf": 0.1302959377975246
+        },
+        "curtain": {
+          "pixels": 28700,
+          "mean": 0.5418624352298439,
+          "median": 0.5498504967296319,
+          "p90": 1.0567218315603817,
+          "overHalf": 0.5219512195121951
+        },
+        "curtainHidden": {
+          "pixels": 28700,
+          "mean": 0.9924433722141468,
+          "median": 1,
+          "p90": 1.0007516868900648,
+          "overHalf": 0.9989895470383275
+        },
+        "curtainByCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 14215,
+            "mean": 0.7102547379234024,
+            "impliedAlpha": 0.28974526207659757
+          },
+          {
+            "crossings": 2,
+            "pixels": 14485,
+            "mean": 0.37660896040837255,
+            "impliedAlpha": 0.38631525975597814
+          },
+          {
+            "crossings": 3,
+            "pixels": 13978,
+            "mean": 0.14859279797457747,
+            "impliedAlpha": 0.47033746655040953
+          },
+          {
+            "crossings": 4,
+            "pixels": 12813,
+            "mean": 0.08705933350401085,
+            "impliedAlpha": 0.4568074129360472
+          }
+        ],
+        "curtainByStrip": [
+          {
+            "strip": 1,
+            "pixels": 19357,
+            "share": 0.6744599303135889,
+            "mean": 0.514393274736894
+          },
+          {
+            "strip": 2,
+            "pixels": 10403,
+            "share": 0.3624738675958188,
+            "mean": 0.4481097447611292
+          },
+          {
+            "strip": 6,
+            "pixels": 4009,
+            "share": 0.13968641114982577,
+            "mean": 0.7849348230846125
+          }
+        ],
+        "curtainNoInterior": {
+          "pixels": 9343,
+          "mean": 0.5987735493968125,
+          "median": 0.6302143359672006,
+          "p90": 1.0558025658232961,
+          "overHalf": 0.556994541367869
+        },
+        "noInteriorByStrip": [
+          {
+            "strip": 2,
+            "pixels": 7577,
+            "share": 0.8109814834635556,
+            "mean": 0.5153068125815905
+          },
+          {
+            "strip": 6,
+            "pixels": 1783,
+            "share": 0.19083806058011346,
+            "mean": 0.9573778504356976
+          }
+        ],
+        "noInteriorByCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 4559,
+            "mean": 0.8222244578026486,
+            "impliedAlpha": 0.17777554219735137
+          },
+          {
+            "crossings": 2,
+            "pixels": 4784,
+            "mean": 0.3858319332968515,
+            "impliedAlpha": 0.3788462885107652
+          }
+        ],
+        "faceBottom": 736,
+        "teethBottom": 674.6641845703125,
+        "outside": {
+          "pixels": 488352,
+          "mean": 1.0045186680160325,
+          "median": 1,
+          "p90": 1.0181123296995886,
+          "overHalf": 1
+        },
+        "hidden": {
+          "pixels": 463189,
+          "mean": 0.9950687664975645,
+          "median": 1,
+          "p90": 1,
+          "overHalf": 0.9998121717052866
+        },
+        "byCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 45799,
+            "mean": 0.7830346059715139,
+            "impliedAlpha": 0.21696539402848614
+          },
+          {
+            "crossings": 2,
+            "pixels": 32212,
+            "mean": 0.51550276527794,
+            "impliedAlpha": 0.2820147875631839
+          },
+          {
+            "crossings": 3,
+            "pixels": 24360,
+            "mean": 0.2879973652317289,
+            "impliedAlpha": 0.33961656407285223
+          },
+          {
+            "crossings": 4,
+            "pixels": 23055,
+            "mean": 0.18772688672574556,
+            "impliedAlpha": 0.34176401730870454
+          }
+        ]
+      },
+      "rear34": {
+        "footprintPixels": 437708,
+        "all": {
+          "pixels": 437708,
+          "mean": 0.08990552243711025,
+          "median": -0.000588260066053939,
+          "p90": 0.3177324551285033,
+          "overHalf": 0.09033648002778108
+        },
+        "mass": {
+          "pixels": 390543,
+          "mean": 0.016464524708106033,
+          "median": -0.0015119832787842073,
+          "p90": 0.011707901805659223,
+          "overHalf": 0.017647224505368167
+        },
+        "overFace": {
+          "pixels": 190936,
+          "mean": -0.00966800085250312,
+          "median": -0.005991558923593854,
+          "p90": 0.0005396079457562589,
+          "overHalf": 2.618678510076675e-05
+        },
+        "curtain": {
+          "pixels": 0,
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "overHalf": null
+        },
+        "curtainHidden": {
+          "pixels": 0,
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "overHalf": null
+        },
+        "curtainByCrossing": [
+          {
+            "crossings": 3,
+            "pixels": 64,
+            "mean": 0.014498664722117579,
+            "impliedAlpha": 0.7561575374046707
+          },
+          {
+            "crossings": 4,
+            "pixels": 972,
+            "mean": 0.0063856222092017545,
+            "impliedAlpha": 0.717316275173509
+          }
+        ],
+        "curtainByStrip": [],
+        "curtainNoInterior": {
+          "pixels": 0,
+          "mean": null,
+          "median": null,
+          "p90": null,
+          "overHalf": null
+        },
+        "noInteriorByStrip": [],
+        "noInteriorByCrossing": [],
+        "faceBottom": 708,
+        "teethBottom": 665.184814453125,
+        "outside": {
+          "pixels": 602168,
+          "mean": 1.0030487335651626,
+          "median": 1,
+          "p90": 1.0153099811183595,
+          "overHalf": 1
+        },
+        "hidden": {
+          "pixels": 437708,
+          "mean": 0.9913199571716061,
+          "median": 0.9998139192887506,
+          "p90": 1,
+          "overHalf": 0.999787529585934
+        },
+        "byCrossing": [
+          {
+            "crossings": 1,
+            "pixels": 27294,
+            "mean": 0.7891589200307613,
+            "impliedAlpha": 0.21084107996923873
+          },
+          {
+            "crossings": 2,
+            "pixels": 19871,
+            "mean": 0.5728427345631826,
+            "impliedAlpha": 0.2431362509915126
+          },
+          {
+            "crossings": 3,
+            "pixels": 11580,
+            "mean": 0.4057377078334025,
+            "impliedAlpha": 0.25968742944479983
+          },
+          {
+            "crossings": 4,
+            "pixels": 10582,
+            "mean": 0.19847934641704668,
+            "impliedAlpha": 0.3325344884525505
+          }
+        ]
+      }
+    },
+    "steps": 24
+  },
+  "zeroControlExactImages": 3,
+  "phaseControl": {
+    "frames": 128,
+    "phase": 977,
+    "checks": {
+      "baselineC1": true,
+      "candidateC1": true,
+      "candidateC2": false,
+      "candidateC3": false
+    },
+    "mask": {
+      "pixels": 596121,
+      "rule": "Existing C protocol: baseline hair minus bald >2 code values; fixed for all arms."
+    },
+    "baseline": {
+      "rms": 3.094388936562897,
+      "max": 95.18020436967907,
+      "overTwoPercent": 18.992452874500312
+    },
+    "candidate": {
+      "rms": 4.4455299621449855,
+      "max": 93.0706023264974,
+      "overTwoPercent": 27.65378169868198
+    },
+    "frozen-dither": {
+      "rms": 11.997438334137849,
+      "max": 130.0610037866011,
+      "overTwoPercent": 41.31124385820999
+    },
+    "white-dither": {
+      "rms": 3.259616948718838,
+      "max": 103.96520534203202,
+      "overTwoPercent": 19.430954453877654
+    }
+  },
+  "arithmeticSummary": [
+    {
+      "n": 16,
+      "baselineMaxGap": 0.09017002582550052,
+      "candidateMaxGap": 0.14445007664871667,
+      "baselineMaxKS": 0.10550847430469057,
+      "candidateMaxKS": 0.18266547363919017
+    },
+    {
+      "n": 24,
+      "baselineMaxGap": 0.05572819709777832,
+      "candidateMaxGap": 0.14326632348635115,
+      "baselineMaxKS": 0.0846751409713572,
+      "candidateMaxKS": 0.16798126350230846
+    },
+    {
+      "n": 64,
+      "baselineMaxGap": 0.02128624916076663,
+      "candidateMaxGap": 0.13614585293055725,
+      "baselineMaxKS": 0.0419516861776259,
+      "candidateMaxKS": 0.137301997219879
+    },
+    {
+      "n": 128,
+      "baselineMaxGap": 0.013155698776245117,
+      "candidateMaxGap": 0.1285557686298464,
+      "baselineMaxKS": 0.019441751434817522,
+      "candidateMaxKS": 0.12621484554790463
+    },
+    {
+      "n": 256,
+      "baselineMaxGap": 0.00502502918243411,
+      "candidateMaxGap": 0.11812005337756926,
+      "baselineMaxKS": 0.010604766800418108,
+      "candidateMaxKS": 0.11725411282385245
+    },
+    {
+      "n": 4096,
+      "baselineMaxGap": 0.00045311450958251953,
+      "candidateMaxGap": 0.0007123115544107606,
+      "baselineMaxKS": 0.0006954801582765846,
+      "candidateMaxKS": 0.00975411771807444
+    }
+  ],
+  "images": {
+    "candidate-opacity/portrait-bald.png": "2c4b74c9e677b32b045b845079957f272b0143c0a2e8f02571fba3eadb45572d",
+    "candidate-opacity/portrait-curtain-nointerior.png": "31045099b3dc718b414ed5563bf5edfd6f82c7f81d3078f363f50ca86ccc83a8",
+    "candidate-opacity/portrait-curtain.png": "365c24276196bd6596d284a299f9083cc57af8e099b3da6e1362571cde0b0ab3",
+    "candidate-opacity/portrait-hair.png": "aa6cbf9927fda41cb8c955312ee8b0d36ff63993f932c8da66dff21a2c1dc93a",
+    "candidate-opacity/portrait-transmittance.png": "4abb25e47777ca12040d52eb5b3168ccc1fe6a7a5e48d76ae5aebf4341be67de",
+    "candidate-opacity/rear34-bald.png": "a601f91a2376755f399c038fe4ad94ea8a4a81333ae3d3664e34f152b182b1ea",
+    "candidate-opacity/rear34-curtain-nointerior.png": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b",
+    "candidate-opacity/rear34-curtain.png": "bc18b65698296e27c55dce6ca5674dbf3e88dc67328aa09a8f185219e4d31a4b",
+    "candidate-opacity/rear34-hair.png": "d083f5e0b3742a5e3dd507546c38878fee129136a1c516d34dbbf2f849fdf05d",
+    "candidate-opacity/rear34-transmittance.png": "2f39245bac7007fd984a8d47230047a30c98ac46315deb4ac4ae6163bdf92017",
+    "candidate-tips/stochastic-residual.png": "58cb0dd557ad4b0ad18284880fd87c166a384b96e5c751da49215ce558c02d38",
+    "candidate-tips/stochastic-worst-hair.png": "2cb97853f7822ba80d50523b37e89e2dbb9f6f33d2ecb4ff6759d2512aa13a44",
+    "candidate-tips/stochastic.png": "aa6cbf9927fda41cb8c955312ee8b0d36ff63993f932c8da66dff21a2c1dc93a",
+    "phase-controls/bald-normal-0.png": "39de3f2095d65b58774b5969eba3407bad1d86f2448634a5add14edeb6ebcbf6",
+    "phase-controls/baseline-normal-0.png": "0347e75f3f83a0d6a06bf754db13014d4ffcb22bd56a8bbc8f0d61bbdee339c1",
+    "phase-controls/baseline-normal-977.png": "fba3cc833b22add6c11a726c4b0dd5e127ff5b1bd4e7449b67632414c57bfa92",
+    "phase-controls/candidate-frozen-dither-0.png": "01abf259ab1319af467ee251efec4be93f835297f3be20152cb623a9d208c6c7",
+    "phase-controls/candidate-frozen-dither-977.png": "70cb666ec4f6d5a66f0a1b0a352ab3000f085b7849b0024b34cec4d53d175f7b",
+    "phase-controls/candidate-normal-0.png": "a23b871c818e908427219a9e1edc46d817c6dd2576ec65256257734f22aad1c6",
+    "phase-controls/candidate-normal-977.png": "ccca5943766cca08e17de9b8c2f37d7b33e337497a615f35957dadd88bcc9aea",
+    "phase-controls/candidate-white-dither-0.png": "b4d55d6d8f8d7052ab729410987d6ab3417e54f25323f6ed4632d619c0d04078",
+    "phase-controls/candidate-white-dither-977.png": "8e941acc6d427cd294cb704e9f142eb8d613f9d8dc520184ba6b2bc481f5dfe4",
+    "zero-tips/stochastic-residual.png": "b21c7291ce6d1bd66f552e8c0eabaac06a507a1cf1b2e3e21b66b627a2b76d68",
+    "zero-tips/stochastic-worst-hair.png": "aec25e9c69b0f1427628c50b670f67d954e3a782b9140a2f689c3b73ff3b84be",
+    "zero-tips/stochastic.png": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75"
+  },
+  "limits": [
+    "Existing C thresholds on one fixed shipping mask, not the full HairOIT suite.",
+    "White defect changes the outer offset only; frozen defect freezes both offsets.",
+    "CPU arithmetic uses doubles and does not establish GPU precision or unbiased coverage.",
+    "Static 24/128-step runs only; no motion, geometry, build, cost or full-suite qualification."
+  ]
+}

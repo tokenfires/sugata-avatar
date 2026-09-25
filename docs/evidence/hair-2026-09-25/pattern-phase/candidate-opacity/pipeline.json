@@ -1,0 +1,32 @@
+{
+  "actual": {
+    "arm": "candidate",
+    "stats": {
+      "backend": "webgpu",
+      "deferred": true,
+      "msaa": false,
+      "temporalAA": "taau",
+      "ambientOcclusion": "low",
+      "hairOIT": "stochastic",
+      "morphVelocity": "exact",
+      "graded": false,
+      "resolutionScale": 0.66,
+      "fps": 0,
+      "frameMs": 0.4000000059604645,
+      "dpr": 1,
+      "drawCalls": 5,
+      "triangles": 7
+    },
+    "backend": true,
+    "hasInner": true,
+    "phase": 0,
+    "defect": null
+  },
+  "routes": [
+    {
+      "url": "http://localhost:63741/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/render/HairOIT.js",
+      "beforeSHA256": "12d214497744453036ec79f6a795c6c634fd20e0bc1d0808c3db1a64843e0f39",
+      "afterSHA256": "1c5b9259d1bb67e27d7b377577a0401874942e16d898dcc8822c5953afeaa7cd"
+    }
+  ]
+}

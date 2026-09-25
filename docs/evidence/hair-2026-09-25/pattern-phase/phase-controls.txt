@@ -1,0 +1,37 @@
+Captured bald-normal-0.png
+Captured baseline-normal-0.png
+Captured baseline-normal-977.png
+Captured candidate-normal-0.png
+Captured candidate-normal-977.png
+Captured candidate-frozen-dither-0.png
+Captured candidate-frozen-dither-977.png
+Captured candidate-white-dither-0.png
+Captured candidate-white-dither-977.png
+{
+  "baseline": {
+    "rms": 3.094388936562897,
+    "max": 95.18020436967907,
+    "overTwoPercent": 18.992452874500312
+  },
+  "candidate": {
+    "rms": 4.4455299621449855,
+    "max": 93.0706023264974,
+    "overTwoPercent": 27.65378169868198
+  },
+  "frozen": {
+    "rms": 11.997438334137849,
+    "max": 130.0610037866011,
+    "overTwoPercent": 41.31124385820999
+  },
+  "white": {
+    "rms": 3.259616948718838,
+    "max": 103.96520534203202,
+    "overTwoPercent": 19.430954453877654
+  },
+  "checks": {
+    "baselineC1": true,
+    "candidateC1": true,
+    "candidateC2": false,
+    "candidateC3": false
+  }
+}

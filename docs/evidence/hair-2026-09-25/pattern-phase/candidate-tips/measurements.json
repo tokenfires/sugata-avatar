@@ -1,0 +1,180 @@
+[
+  {
+    "arm": "stochastic",
+    "path": {
+      "stageHairOITMode": "stochastic",
+      "weightedOITPass": "false",
+      "temporalAA": "taau",
+      "resolutionScale": "0.66",
+      "multisampled": "false",
+      "rendererSamples": "0",
+      "materialAlphaToCoverage": "false",
+      "materialAlphaTest": "0",
+      "materialAlphaHash": "false",
+      "materialTransparent": "false",
+      "materialDepthWrite": "true",
+      "hasAlphaTestNode": "true",
+      "hasColorNode": "true"
+    },
+    "width": 900,
+    "height": 1200,
+    "summary": {
+      "tips": {
+        "pixels": 10593,
+        "speckle": 0.07193429623336166,
+        "rms": 4.21868767825245,
+        "grid": {
+          "score": 0.06420413807091807,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "curtain": {
+        "pixels": 53250,
+        "speckle": 0.18890140845070422,
+        "rms": 7.493413716238098,
+        "grid": {
+          "score": 0.013301576490807265,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "mass": {
+        "pixels": 192722,
+        "speckle": 0.1089341123483567,
+        "rms": 5.919562395030402,
+        "grid": {
+          "score": 0.02509363237793455,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "skin": {
+        "pixels": 385376,
+        "speckle": 0.006840073071493814,
+        "rms": 1.6523754136925954,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      },
+      "backdrop": {
+        "pixels": 221592,
+        "speckle": 0.003113830824217481,
+        "rms": 1.4025837201759126,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      }
+    },
+    "worst": [
+      {
+        "x": 480,
+        "y": 992,
+        "rms": 11.154213807655264,
+        "grid": {
+          "score": 0.5720332421712275,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 6.380581088264114,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 0,
+        "y": 992,
+        "rms": 10.511856027063361,
+        "grid": {
+          "score": 0.5833711157560201,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 6.132313179174598,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 512,
+        "y": 992,
+        "rms": 10.26442552317608,
+        "grid": {
+          "score": 0.5648626408746024,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 5.797990508081912,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 32,
+        "y": 992,
+        "rms": 8.40584584119977,
+        "grid": {
+          "score": 0.5390327201513512,
+          "lag": 11,
+          "axis": "x"
+        },
+        "score": 4.531025948954835,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 576,
+        "y": 928,
+        "rms": 8.871522557226596,
+        "grid": {
+          "score": 0.37308029453201175,
+          "lag": 11,
+          "axis": "x"
+        },
+        "score": 3.3097902485974844,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 64,
+        "y": 992,
+        "rms": 7.059489447511533,
+        "grid": {
+          "score": 0.46315665036245834,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 3.2696494857785634,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 32,
+        "y": 960,
+        "rms": 9.861579614063013,
+        "grid": {
+          "score": 0.3114940348082966,
+          "lag": 5,
+          "axis": "y"
+        },
+        "score": 3.0718232235677325,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 96,
+        "y": 224,
+        "rms": 8.32548890657342,
+        "grid": {
+          "score": 0.3668343205624569,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 3.054075066393133,
+        "hairShare": 1,
+        "figureShare": 1
+      }
+    ]
+  }
+]
