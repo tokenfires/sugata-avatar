@@ -1,0 +1,19 @@
+{
+  "reason": "Initial no-AA attribution overlapped the end of the initial root-cut motion capture. Final qualification uses fresh serial reruns, awaiting completion of root-cut before starting no-AA.",
+  "comparisons": [
+    {
+      "initial": "overlapped-no-aa-report.json",
+      "initialSha256": "9eb3e74690d2d59926f78903952fb23cbbb154efb03502d22c6812801c18a288",
+      "final": "no-aa/report.json",
+      "finalSha256": "9eb3e74690d2d59926f78903952fb23cbbb154efb03502d22c6812801c18a288",
+      "parsedReportsIdentical": true
+    },
+    {
+      "initial": "overlapped-root-cut-gpu.json",
+      "initialSha256": "9bf9b33e5025a723200cc4ec60d4b3daaaab9334b540b675b509134e9aff4e45",
+      "final": "root-cut-capture/crop01-gpu.json",
+      "finalSha256": "9bf9b33e5025a723200cc4ec60d4b3daaaab9334b540b675b509134e9aff4e45",
+      "parsedReportsIdentical": true
+    }
+  ]
+}

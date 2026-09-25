@@ -568,8 +568,10 @@ HAIR_STYLES["bob01"] = {
     #      individual card looks like.
     #
     # So `cut` is the drop below the hairline, as a fraction of the region's own height, that this
-    # layer is cut to (`None` for the coverage layer, which is never seen from outside and must not be
-    # shortened). And `clump` is how far this layer's cards are drawn into their lock by the tip.
+    # layer is cut to (`None` leaves the coverage layer uncut). Its intended role is interior
+    # coverage, but short styles can expose it at the ear and nape: crop01's tagged render does.
+    # Inspect layer visibility and coverage before shortening it; a hidden layer is not guaranteed.
+    # And `clump` is how far this layer's cards are drawn into their lock by the tip.
     #
     # ⚠️ **THE COVERAGE LAYER TAKES ALMOST NO CLUMP, AND THAT IS THE CONSTRAINT ON THE WHOLE IDEA.**
     # Clumping is cards moving TOGETHER, which is cards moving AWAY from somewhere else, and the

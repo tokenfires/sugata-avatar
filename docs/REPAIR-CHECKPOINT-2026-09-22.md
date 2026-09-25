@@ -6,8 +6,9 @@ as a partial repair, with the remaining appearance and groom work explicit. No g
 candidate or collar fit has been promoted. Final suite and follow-up evidence is recorded below.
 
 For the authorized September 24 continuation, read [the latest progress checkpoint](PROGRESS-2026-09-24.md).
-Its fourth checkpoint isolates clearance-induced ribbon folds and rejects three exact crop
-candidates after geometry, GPU and visual checks. The September 22 measurements below remain historical.
+Its fourth and fifth checkpoints isolate clearance-induced ribbon folds and visible generator
+layers, with exact crop candidates rejected after geometry, GPU and visual checks. The September 22
+measurements below remain historical.
 
 ## Repairs and their focused evidence
 
