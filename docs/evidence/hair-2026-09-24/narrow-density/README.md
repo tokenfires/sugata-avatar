@@ -63,3 +63,5 @@ Both verifier commands are expected to exit 1. Wait for each GPU command to exit
 the next. The abnormal amortization batches use separate pages after visual/motion capture, so
 they cannot contaminate its recorded states. No full runtime suite or production build was
 necessary for this experiment-only change. `manifest.json` hashes the tracked evidence.
+
+The archived request-ledger log has trailing whitespace normalized; its result text is unchanged.

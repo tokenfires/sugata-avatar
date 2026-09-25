@@ -22,7 +22,7 @@ ok    the OPEN mutation baseline adjudicates even when the backlog is empty
     a round declared at a commit that is not in this history  ROUNDS            yes   R99: 0000000 is not a commit reachable from HEAD
     APPLIED at a filed-at naming no object, with a vacuous verify  FILED-AT          yes   REQ-002: deadbee does not resolve to a commit in this repository. This is the commit the anti-rubber-stam
     APPLIED at a filed-at that is a real object of the wrong type  FILED-AT          yes   REQ-002: 9e4f8cb0ffac0480cac3fe0186279d4dccf0310d does not resolve to a commit in this repository. This i
-    APPLIED at a real commit this history does not descend from  FILED-AT          yes   REQ-002: 380fe491b573d4feff6f2dc46b414bbe97de75df is a commit, but HEAD does not descend from it, so its 
+    APPLIED at a real commit this history does not descend from  FILED-AT          yes   REQ-002: 380fe491b573d4feff6f2dc46b414bbe97de75df is a commit, but HEAD does not descend from it, so its
     filed-at is a moving reference rather than an immutable sha  FILED-AT          yes   REQ-020: "HEAD" is not a 7-to-40 character hex sha. This is the commit the anti-rubber-stamp clause reads
     APPLIED whose target did not exist at filed-at, taking the free pass silently  PRE-IMAGE         yes   REQ-003: tools/run-selftests.sh does not exist at filed-at 2ec7db9, so the anti-rubber-stamp clause passe
     pre-image declared absent on an entry whose file was right there  PRE-IMAGE         yes   REQ-001: declares pre-image absent, but packages/testbed/src/alive.js is present at filed-at 82260d4 — th
@@ -40,7 +40,7 @@ ok    RED: "the entries are reformatted out of the parser's reach" is caught by 
 ok    RED: "a round declared at a commit that is not in this history" is caught by ROUNDS   R99: 0000000 is not a commit reachable from HEAD
 ok    RED: "APPLIED at a filed-at naming no object, with a vacuous verify" is caught by FILED-AT   REQ-002: deadbee does not resolve to a commit in this repository. This is the commit the anti-rubber-stam
 ok    RED: "APPLIED at a filed-at that is a real object of the wrong type" is caught by FILED-AT   REQ-002: 9e4f8cb0ffac0480cac3fe0186279d4dccf0310d does not resolve to a commit in this repository. This i
-ok    RED: "APPLIED at a real commit this history does not descend from" is caught by FILED-AT   REQ-002: 380fe491b573d4feff6f2dc46b414bbe97de75df is a commit, but HEAD does not descend from it, so its 
+ok    RED: "APPLIED at a real commit this history does not descend from" is caught by FILED-AT   REQ-002: 380fe491b573d4feff6f2dc46b414bbe97de75df is a commit, but HEAD does not descend from it, so its
 ok    RED: "filed-at is a moving reference rather than an immutable sha" is caught by FILED-AT   REQ-020: "HEAD" is not a 7-to-40 character hex sha. This is the commit the anti-rubber-stamp clause reads
 ok    RED: "APPLIED whose target did not exist at filed-at, taking the free pass silently" is caught by PRE-IMAGE   REQ-003: tools/run-selftests.sh does not exist at filed-at 2ec7db9, so the anti-rubber-stamp clause passe
 ok    RED: "pre-image declared absent on an entry whose file was right there" is caught by PRE-IMAGE   REQ-001: declares pre-image absent, but packages/testbed/src/alive.js is present at filed-at 82260d4 — th
@@ -58,4 +58,3 @@ ok    FILED-AT tells the four mechanisms APART — one shape failure, two resolu
 --- 3. summary ----------------------------------------------------------------------------------
 
 PASS: 27/27 checks green
-
