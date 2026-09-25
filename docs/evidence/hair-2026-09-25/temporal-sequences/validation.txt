@@ -1,0 +1,16 @@
+PASS: 42 actual WebGPU cases x 512 frames; live rates, clock, mask, source and 126 image hashes.
+PASS: endpoints, opaque-body depth and all four independent sorted-blend references in both paths.
+PASS: six equivalences cover shared/single/merged rejection controls and candidate draw-order reversal.
+PASS: ten pilot cases reproduce all first 128 frame traces and both checkpoint images exactly.
+PASS: eighteen controls reproduce prior 128-frame means/ranges and entire final images exactly.
+{'name': 'off-distinct-quarter-p0', 'maxSpatialMeanPredictionError': 0.000956632653061229, 'frameMeanRange': [0.49904336734693877, 0.7501594387755102], 'frameMeanSD': 0.08040801025225545}
+{'name': 'off-distinct-quarter-p977', 'maxSpatialMeanPredictionError': 0.0012755102040816202, 'frameMeanRange': [0.4987244897959184, 0.7492028061224489], 'frameMeanSD': 0.08079802478852291}
+{'name': 'off-distinct-half-p0', 'maxSpatialMeanPredictionError': 0.0010305242162851336, 'frameMeanRange': [0.0024713010204081634, 0.4998405612244898], 'frameMeanSD': 0.14413725146742726}
+{'name': 'off-distinct-half-p977', 'maxSpatialMeanPredictionError': 0.000784156173903261, 'frameMeanRange': [0.0015146683673469387, 0.49928252551020413], 'frameMeanSD': 0.14441999304169123}
+{'name': 'off-distinct-three-quarter-p0', 'maxSpatialMeanPredictionError': 0.0007695901300436014, 'frameMeanRange': [0, 0.2497608418367347], 'frameMeanSD': 0.08039902901208888}
+{'name': 'off-distinct-three-quarter-p977', 'maxSpatialMeanPredictionError': 0.0008863773245143536, 'frameMeanRange': [0, 0.24920280612244897], 'frameMeanSD': 0.08079904357203768}
+{'name': 'off-distinct-mixed-p0', 'maxSpatialMeanPredictionError': 0.0007695901300436014, 'frameMeanRange': [0.001674107142857143, 0.2507174744897959], 'frameMeanSD': 0.08086185148601045}
+{'name': 'off-distinct-mixed-p977', 'maxSpatialMeanPredictionError': 0.0007971938775510334, 'frameMeanRange': [0.0027901785714285715, 0.2507174744897959], 'frameMeanSD': 0.08081957611271331}
+{'name': 'off-distinct-reversed-p0', 'maxSpatialMeanPredictionError': 0.0010305242162851336, 'frameMeanRange': [0.0024713010204081634, 0.4998405612244898], 'frameMeanSD': 0.14413725146742726}
+REJECT: distinct per-material temporal rates alone repair raw mean coverage but strongly bias TAAU and increase resolved half-pair temporal noise.
+PASS: capture/fixture JavaScript syntax and Python compilation; documented result table matches JSON.

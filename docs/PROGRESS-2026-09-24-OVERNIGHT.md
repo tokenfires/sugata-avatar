@@ -299,20 +299,65 @@ all 38 native linear diagnostic plates, every frame's measurements and offsets, 
 repeat proof and replay instructions. This is a concrete direction for a coverage correction;
 the four existing appearance/geometry gates remain red.
 
+## Sixth experiment: distinct temporal rates alone — rejected
+
+Starting from clean `671ee32`, the same isolated two-card fixture keeps the first material's
+golden temporal step and advances the second by `sqrt(2) - 1`. Both cards still use the same
+spatial field. This corrects the finite raw averages toward independent-layer transmission,
+but TAAU severely over-darkens three of the four alpha pairs. **Rejected; no groom or runtime
+change is promoted.** This is a two-material control, not a general sampler for a merged groom.
+
+| Card alphas | Independent reference | Raw 512-frame mean, phase 0 / 977 | TAAU last-64 mean, phase 0 / 977 |
+| --- | --- | --- | --- |
+| 0.25 + 0.25 | 0.5625 | 0.562290 / 0.562344 | 0.534144 / 0.534371 |
+| 0.50 + 0.50 | 0.2500 | 0.249740 / 0.249644 | 0.029851 / 0.031796 |
+| 0.75 + 0.75 | 0.0625 | 0.062289 / 0.062338 | 0.002024 / 0.001994 |
+| 0.25 + 0.75 | 0.1875 | 0.187089 / 0.187336 | 0.024966 / 0.022330 |
+
+The half-pair resolved mean over all 512 frames is only 0.035067 / 0.033778, versus a stable
+sorted-blend reference of 0.250980. Its last-64 consecutive-frame pixel RMS is
+0.015664 / 0.016816 in linear values, roughly twice the shared-sequence control. This is static
+temporal noise, not a motion test. Native plates show nearly black candidate patches with
+stipple and phase-dependent residual squares, rather than the reference's uniform gray.
+
+The raw frames also expose why changing rates alone leaves a problem. Their relative threshold
+offset is constant across the whole patch at any one frame. Half-pair transmission follows
+`abs(0.5 - fract(offset2 - offset1))` under a uniform spatial field. The phase-zero raw patch
+mean swings from 0.002471 to 0.499841, despite averaging near 0.25. Its largest discrepancy from
+that per-frame prediction is 0.001031. These measurements establish coherent coverage swings;
+the particular TAAU operation responsible for the resolved bias has not been isolated.
+
+The 42-case final run uses 512 draws per case with native images at 24, 128 and 512, across raw
+scale 1 and default TAAU scale 0.66. The fixed 12,544-pixel geometry mask, live sequences, frame
+clocks, source/asset hashes and browser/HTTP checks pass. Absent/zero/opaque/depth controls and
+four independent blend references pass in both paths. Candidate draw-order reversal preserves
+all measurements, per-pixel temporal means and images; the merged-pair rejection control retains
+the shared result. The ten-case pilot reproduces all 128 frame traces and both checkpoint
+images exactly. Eighteen preceding-fixture controls retain their 128-frame means/ranges and
+whole images. These successful instrument checks do not qualify the rejected candidate.
+
+All GPU jobs ran serially and have exited. No production source, material, groom, calibration
+or threshold changed, and no full suite, motion, geometry, cost or build acceptance is claimed.
+The [temporal-sequence evidence](evidence/hair-2026-09-25/temporal-sequences/) retains every frame,
+126 native plates, repeat proof, source hashes, verifier and replay instructions. The read-only
+Blender mount remains available; the four existing red gates remain unchanged.
+
 ## Remaining work and next bounded step
 
 Preserve the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the
 rejected double-density crop, rest-position phase, scene-scale-one or inner-phase experiments.
-Do not mistake a fixed per-card phase for independent sampling: the new fixture disproves that
-as a general solution.
+Do not mistake a fixed per-card phase or distinct temporal rates alone for independent sampling:
+both are now rejected in the controlled fixture. Do not rerun those candidates on the groom.
 
-Next test **independently advancing per-card temporal sequences in the isolated layer fixture**.
-As a bounded mechanism control, the existing first-card golden step and a second-card
-`sqrt(2) - 1` step can test whether changing relative phase over time recovers the independent
-alpha-compositing reference. This is not a proposed general sampler for an arbitrary groom.
-Check multiple alpha pairs, sample counts, starting phases, shared-sequence rejection controls,
-unfiltered averages and TAAU separately. Retain endpoint, depth and reversed-order controls.
-Reject a sequence that trades the opacity bias for unstable or biased resolved output.
+Next test **different spatial fields for the two cards in this isolated fixture**. A bounded
+control can swap the second card's screen x/y inputs to the existing spatial expression, first
+with the shared golden temporal rate and then with the distinct rates from the rejected arm.
+Do not assume a coordinate swap establishes independence; measure it. Retain an exact identity
+arm, all four alpha pairs, phases 0/977, samples 24/128/512, endpoints, body depth, reversed order
+and independent blend references. Measure per-frame patch swings, raw temporal means, TAAU bias
+and static temporal noise separately, then inspect native plates. Reject biased or unstable
+resolved output. Keep this entirely in the fixture; do not modify TAAU internals to accommodate
+a failing sampler or reapply previous rejected depth/disocclusion theories without new evidence.
 
 Only a successful fixture result should lead to a groom candidate. First inspect existing
 card-topology/solver attributes for a stable per-card identifier; do not infer one from rest
