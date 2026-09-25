@@ -502,32 +502,76 @@ dependencies and thresholds remain unchanged. No full suite, build, new geometry
 qualification was warranted or claimed. All four existing red gates remain open; the read-only
 Blender mount remains available until the morning checkpoint.
 
+## Eleventh experiment: stable counter-based card sampling — raw fix, resolved rejection
+
+Starting from clean `f4a7c03`, an isolated sampler hashes integer pixel coordinates, renderer
+frame counter and explicit Uint32 card IDs. The two IDs, 101/503, remain constant across each
+card's vertices and survive separate/merged geometry and reversed draw order. Shipping grooms,
+source, dependencies, materials, calibration and thresholds remain unchanged. **The candidate
+repairs the raw two-card mechanism but is rejected for groom/runtime promotion after TAAU.**
+
+| Phase-zero pair alpha | Independent transmission | Raw 512-frame mean | TAAU last-64 mean | TAAU last-64 pixel RMS |
+| --- | --- | --- | --- | --- |
+| 0.25 / 0.25 | 0.5625 | 0.562645 | 0.593941 | 0.046724 |
+| 0.5 / 0.5 | 0.25 | 0.250118 | 0.060385 | 0.026456 |
+| 0.75 / 0.75 | 0.0625 | 0.062460 | 0.002418 | 0.005518 |
+| 0.25 / 0.75 | 0.1875 | 0.187398 | 0.024228 | 0.016621 |
+
+The second phase reproduces the pattern: half-pair raw 0.249949 becomes resolved 0.060037.
+The shipping shared-field pair remains raw 0.499999 / resolved 0.481269, and independent blend
+stays 0.250980. The candidate's half-pair resolved temporal RMS rises from the shipping 0.007987
+to 0.026456. Quarter pairs become too bright while the others become too dark; this is not a
+uniform exposure error. Ordinary plates show mottled dark interiors, bright quarter-pair specks
+and almost-black three-quarter pairs. Removing diagonal bands does not qualify the image.
+
+Every sampled raw candidate ROI pixel matches an independent CPU integer calculation:
+109,182,976 comparisons across 17 raw cases, 512 frames and the fixed 12,544-pixel mask. Ten
+exact equivalences verify original shared/single behavior, candidate order/merge invariance and
+a duplicate-ID rejection control: giving both cards ID 101 restores the single-card output
+exactly. This demonstrates fixture ID delivery, not a universal sampling theorem or a groom
+identity implementation. Per-pixel finite-run distributions are preserved alongside global means.
+
+All 48 actual Apple WebGPU cases complete 512 frames; all 28 pilots repeat their first-24 traces
+and images, and 22 prior controls repeat their full traces and checkpoint images. Endpoint,
+body-depth and four independent blend references pass. At 72 TAAU checkpoints, native RGBA16F
+components are finite, color/history copies match exactly and original lock history stays zero.
+The lock-copy correction is not included. For the phase-zero half pair at frame 512, native
+transmission 0.058116 already contains the bias seen in the ordinary 0.058119 result.
+
+The [counter-coverage evidence](evidence/hair-2026-09-25/counter-coverage/) retains 144 final
+plates, complete frame/native records, source hashes, exact fixture/sampler, CPU oracle and
+replay checks. All GPU jobs exited serially; no full suite, build, real-groom, motion or cost
+acceptance was warranted or claimed. The four production gates stay red. The read-only Blender
+mount remains available until the morning checkpoint.
+
 ## Remaining work and next bounded step
 
 Preserve accepted geometry, shipping TAAU scale and all appearance thresholds. Do not repeat the
-rejected double-density crop, rest-position phase, scene-scale-one, inner-phase, distinct-rate
-or swapped-field candidates. Native finiteness and missing lock delivery have been audited;
-do not repeat these as open hypotheses or add a speculative denominator guard. The lock-copy
-runtime comparison is now complete and rejects promotion on static appearance. Do not spend the
-next bite on its motion qualification or stack it into another candidate.
+rejected double-density crop, rest-position phase, scale-one, inner-phase, distinct-rate,
+swapped-field or runtime lock-copy candidates. Native finiteness and missing lock delivery are
+already audited. The counter sampler has now passed its raw mechanism controls and failed after
+shipping TAAU; do not rerun it on the groom or promote it based on raw statistics.
 
-Next isolate a **counter-based per-card coverage sampler in the constant-alpha fixture**. This
-is a new mechanism control for the confirmed shared-threshold correlation, not a groom change.
-Use an explicit stable card ID attribute (constant across a card's vertices), pixel coordinates
-and renderer frame counter as integer-hash inputs. Avoid deriving identity from deformed or rest
-positions, triangle order, material draw order or a constant offset to the old golden sequence.
-Prove the assigned IDs survive separate/merged geometry and reversed order in the fixture.
-No production sampler or shipped geometry should change yet.
+Next **attribute the resolved bias to an internal accumulation stage**, using the now-verified
+constant-alpha counter fixture and exact original shared-field controls. Keep original TAAU
+arithmetic, depth/disocclusion rules, missing lock copy, scale 0.66 and all coverage inputs fixed.
+A bounded diagnostic route can add a third RGBA16F resolve attachment carrying one existing
+intermediate at a time: reconstructed current color, neighborhood mean, clipped history or
+locked history. Keep normal color and lock output in their original slots and continue copying
+only original color into history. This is observation, not a candidate renderer repair.
 
-Begin with a bounded raw-versus-shipping-TAAU pilot, original shared-field controls, two phases,
-absent/zero/opaque/depth controls and independent sorted-blend references. Keep the original
-TAAU module, scale 0.66, fixed geometry mask and zero-second frame clock. Check spatial and
-per-pixel temporal means, noise and ordinary whole-frame plates; a correct global average alone
-is not independence or quality. Only extend to the existing 512-frame comparison if the pilot
-is valid and the remaining window permits. Record negative results; do not tune thresholds to
-fit the candidate. Any groom use still requires a stable topology/solver identity design and
-its own geometry, real GPU and visual qualification. Preserve the broader HairMaterial and
-clearance/coverage/coherence backlog; do not revisit rejected depth/disocclusion changes.
+First require instrumented color traces and whole images to reproduce uninstrumented controls
+exactly; otherwise the diagnostic has changed the system and needs correction. With that control
+valid, compare intermediate spatial/temporal means and ordinary resolved output on half and
+quarter pairs plus original shared/endpoint/blend controls. Audit finite native values and
+readback formats, preserve fixed masks and phase clocks, and run serially. Begin with a short
+pilot; extend only if it answers where the bias first appears and the window permits. A source
+hypothesis about clipping or flicker weighting is not yet an established cause. Do not stack
+speculative guards, lock repair or altered resolve weights, and do not reopen rejected depth or
+disocclusion changes.
 
-Check the 08:00 Pacific deadline and final-wake rule before each substantial step. At the morning
-checkpoint, collect jobs, detach the isolated Blender mount and pause the automation.
+Keep the broader HairMaterial and clearance/coverage/coherence backlog explicit. Any future groom
+sampler still needs a stable topology/solver identity design and its own geometry, real GPU,
+visual and temporal qualification. Check the 08:00 Pacific deadline and final-wake rule before
+each substantial step. At the morning checkpoint, collect jobs, detach the isolated Blender
+mount and pause the automation.
