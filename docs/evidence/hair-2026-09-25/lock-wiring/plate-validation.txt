@@ -1,0 +1,45 @@
+PASS: all served modules equal their declared source patches; 21 full-image/ROI comparisons recorded.
+taau-shared-half-p0-n512 {
+  pixels: 65536,
+  changedPixels: 2828,
+  rmsCodeValues: 0.6545038152223599,
+  maxCodeValues: 10
+} {
+  pixels: 12544,
+  changedPixels: 4,
+  rmsCodeValues: 0.017857142857142856,
+  maxCodeValues: 1
+}
+taau-shared-half-p977-n512 {
+  pixels: 65536,
+  changedPixels: 2847,
+  rmsCodeValues: 0.6482845263836223,
+  maxCodeValues: 10
+} {
+  pixels: 12544,
+  changedPixels: 4,
+  rmsCodeValues: 0.017857142857142856,
+  maxCodeValues: 1
+}
+taau-swapped-distinct-half-p0-n512 {
+  pixels: 65536,
+  changedPixels: 18809,
+  rmsCodeValues: 4.4921705162722425,
+  maxCodeValues: 42
+} {
+  pixels: 12544,
+  changedPixels: 12544,
+  rmsCodeValues: 8.777035492739921,
+  maxCodeValues: 23
+}
+taau-swapped-distinct-half-p977-n512 {
+  pixels: 65536,
+  changedPixels: 18812,
+  rmsCodeValues: 4.463122686116541,
+  maxCodeValues: 44
+} {
+  pixels: 12544,
+  changedPixels: 12544,
+  rmsCodeValues: 8.740820622405039,
+  maxCodeValues: 24
+}

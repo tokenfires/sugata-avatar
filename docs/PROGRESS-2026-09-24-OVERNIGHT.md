@@ -424,6 +424,48 @@ The [finiteness evidence](evidence/hair-2026-09-25/resolve-finiteness/) pins the
 and source lines alongside all per-frame native counts, ordinary images and repeat proof.
 The isolated read-only Blender mount remains available overnight.
 
+## Ninth experiment: lock-history delivery confirmed; correction held
+
+Starting from clean `c55b923`, three served-source arms isolate the missing TAAU lock delivery:
+unchanged module bytes, a second resolve attachment without its history copy, and that attachment
+plus the copy. Installed dependencies and production files remain unchanged. Live render targets,
+served hashes and native RGBA16F readback verify the actual execution path.
+
+Adding the attachment emits positive locks but leaves lock history exactly zero. Copying it
+transfers the whole lock buffer bit-for-bit on every frame. The attachment-only arm preserves
+every original color measurement, per-pixel mean and image, so the paired copy isolates carrying
+the lock forward. **The delivery defect is confirmed. Its isolated correction is held for
+runtime qualification; it is not a shipping change or a qualified opacity repair.**
+
+| Half-pair configuration | Original last-64 transmission | Copied-lock last-64 transmission | Original pixel RMS | Copied-lock pixel RMS |
+| --- | --- | --- | --- | --- |
+| Shared field/rate, phase 0 | 0.481269 | 0.481267 | 0.007987 | 0.007987 |
+| Shared field/rate, phase 977 | 0.481275 | 0.481273 | 0.007990 | 0.007990 |
+| Swapped/distinct, phase 0 | 0.118749 | 0.151899 | 0.026708 | 0.019757 |
+| Swapped/distinct, phase 977 | 0.118962 | 0.152028 | 0.026685 | 0.019739 |
+
+The independent half-pair reference remains 0.25, with blend at 0.250980. Shared-field opacity
+bias persists. Swapped/distinct coverage becomes less dark/noisy, but still renders dark diagonal
+bands and fails to reproduce the reference. That sampler remains rejected. These RMS values are
+static temporal noise, not motion results, and no acceptance threshold changed.
+
+Visual inspection shows a nearly unchanged shared-field interior, but whole images differ:
+phase-zero frame 512 changes 2,828 pixels with RMS 0.654504 and maximum 10 code values, versus
+only four one-code changes inside the eroded ROI. The boundary changes require broader checks;
+an interior statistic cannot qualify this renderer-wide correction.
+
+All 21 actual Apple/Metal WebGPU cases complete 512 frames. Seven identity cases reproduce the
+preceding audit exactly; seven attachment-only color cases reproduce identity exactly. The
+18-case pilot reproduces every first-24 trace and image. Endpoint/blend references, native
+finiteness and copies, applied routes, source hashes, clock, masks and browser/console/HTTP checks
+pass. Source-patch equality, binary16 decoder checks and syntax pass. The
+[lock-wiring evidence](evidence/hair-2026-09-25/lock-wiring/) contains exact served modules,
+compressed complete traces, 63 ordinary plates and full-image/ROI differences.
+
+All GPU jobs have exited. No dependency, renderer source, asset, calibration or threshold was
+changed; no full suite, real-groom geometry, motion, build or cost qualification is claimed.
+The four existing red gates remain open. The read-only Blender mount remains available.
+
 ## Remaining work and next bounded step
 
 Preserve the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the
@@ -431,26 +473,23 @@ rejected double-density crop, rest-position phase, scene-scale-one or inner-phas
 Fixed phases, distinct temporal rates alone, and swapped spatial fields (with either temporal
 choice) are now rejected in the controlled fixture. Do not rerun these candidates on the groom.
 
-Native-state finiteness has now been audited; do not repeat it as an open hypothesis or insert
-a speculative zero-denominator guard. Next **test the observed lock-history attachment wiring**
-as a bounded delivery diagnostic, separate from any claim of an opacity repair. Keep installed
-dependencies and production files unchanged: use an isolated served-source route with two
-resolve attachments and a copy from resolved lock into lock history. Retain an exact original
-route and a two-attachment/no-lock-copy control to separate emitting a lock from carrying it
-forward. Verify the route applied, actual attachments, native lock values, color/history copies,
-finiteness and ordinary images on the existing static fixture before any wider change.
+Native-state finiteness and lock delivery are now audited; do not repeat them as open hypotheses
+or insert a speculative denominator guard. Next **qualify the isolated lock-copy correction on
+the shipping runtime groom**, using the archived `lock-wiring/route.mjs` with exact identity and
+`copy-lock` responses. This advances the confirmed delivery correction, not the rejected sampler.
+Keep accepted bob01/g050 geometry, shipping coverage rule, materials, calibration, clock and
+default TAAU scale 0.66 fixed. Do not stack swapped spatial fields or distinct card rates into it.
 
-Start with the existing shared-half, swapped/distinct-half, opaque and blend controls and
-phases 0/977 where relevant; keep default TAAU scale, frame clock and output path. If delivery
-works, quantify its effect on independent coverage bias and static temporal noise without
-changing any acceptance threshold. A functioning lock is not automatically an appearance
-improvement. Do not revisit earlier rejected depth/disocclusion changes. The known-joint-coverage
-sampler control remains a useful later diagnostic if needed, but is not part of this wiring bite.
+Start with serial tip and independent opacity probes plus ordinary plates. Verify the served
+route, live two-attachment resolve and lock-history delivery on the real runtime, and reproduce
+the identity baseline. Compare complete images, including body and boundaries, as well as the
+existing masks and detached/hidden controls. Explicitly retain any failures. Keep dependencies
+and renderer sources unchanged until this exact output has relevant qualification; the fixture's
+delivery proof does not establish motion quality, performance or general image quality.
 
-Only a successful fixture result should lead to a groom candidate. First inspect existing
-card-topology/solver attributes for a stable per-card identifier; do not infer one from rest
-position or change shipped GLB geometry. A real-groom candidate must preserve contact calibration
-and pass relevant HairOIT phase/order/motion controls, independent opacity, tips and ordinary
-visual checks before promotion. HairMaterial and GLB verification remain separate unresolved
-work. Check the 08:00 Pacific deadline and final-wake rule before starting the next substantial
-step; the automation still pauses at the morning checkpoint.
+If real-groom results warrant proceeding, the correction still needs relevant temporal-AA and
+HairOIT phase/order/motion checks before promotion. Preserve the broader four-gate backlog. Any
+future independent per-card sampler also needs a stable topology/solver identifier, without
+rest-position inference or shipped geometry changes, and its own fixture success before a groom
+candidate. Do not revisit rejected depth/disocclusion changes. Check the 08:00 Pacific deadline
+and final-wake rule before each substantial step; pause at the morning checkpoint.

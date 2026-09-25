@@ -1,0 +1,359 @@
+[
+  {
+    "name": "taau-shared-half-p0-n24",
+    "beforeSHA256": "a336b4e486a5fa84c78f6d46407c7bd40e80ba7c72c1af11bab761887caa4e77",
+    "afterSHA256": "4e8821eef8b37c4f75eaa38921cbc2e41cf013008925ecb94b8c183732e77b02",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 1777,
+      "rmsCodeValues": 0.5862108737276737,
+      "maxCodeValues": 13
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 1,
+      "rmsCodeValues": 0.008928571428571428,
+      "maxCodeValues": 1
+    }
+  },
+  {
+    "name": "taau-shared-half-p0-n128",
+    "beforeSHA256": "16c0903ad802dac58817e68fca8acc4d70833969a961ef0f6019b947bf9920fd",
+    "afterSHA256": "e1408c66f6893f1ed9ec5c15355f079001cf575d01170fcb07faed61e6068b59",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 2869,
+      "rmsCodeValues": 1.2350732301321499,
+      "maxCodeValues": 33
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-shared-half-p0-n512",
+    "beforeSHA256": "0968feb4a77487a822c11503fa91b299cc14446ebdc0d6d04b0c09ce083a9a77",
+    "afterSHA256": "39609beba9809034e0518d17c6126f889cbbdf77fd365f17299d1a40951fff33",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 2828,
+      "rmsCodeValues": 0.6545038152223599,
+      "maxCodeValues": 10
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 4,
+      "rmsCodeValues": 0.017857142857142856,
+      "maxCodeValues": 1
+    }
+  },
+  {
+    "name": "taau-shared-half-p977-n24",
+    "beforeSHA256": "4a6b10347fad10098dcd85cdc7d7e83c2ccc88beb1ff7a9802c4a76f413b4e2f",
+    "afterSHA256": "bff4beb4882a0c65492dd1bc39ef0554175f09c01efdbe1be6121ca4f325d8c7",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 1815,
+      "rmsCodeValues": 0.5787185508801429,
+      "maxCodeValues": 13
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 5,
+      "rmsCodeValues": 0.019964892656248123,
+      "maxCodeValues": 1
+    }
+  },
+  {
+    "name": "taau-shared-half-p977-n128",
+    "beforeSHA256": "403df1ffd9dc33c5b0e48386c25b7c72e8f7df59b65fc61132aac28f407be4cf",
+    "afterSHA256": "c481fa8f3c4ef0242ee400bc344d69824a1a3feea018824b1918f384758edf22",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 2919,
+      "rmsCodeValues": 1.222057061644039,
+      "maxCodeValues": 33
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 6,
+      "rmsCodeValues": 0.021870444131992663,
+      "maxCodeValues": 1
+    }
+  },
+  {
+    "name": "taau-shared-half-p977-n512",
+    "beforeSHA256": "5d9bd758d1dfba299dd4f86173868ecd980cc9d84ae4ced0281f06ef9e990041",
+    "afterSHA256": "f61df88ebf9776ba174a7a9097cd0c2bfccfabf54289170c143a0b758e435f73",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 2847,
+      "rmsCodeValues": 0.6482845263836223,
+      "maxCodeValues": 10
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 4,
+      "rmsCodeValues": 0.017857142857142856,
+      "maxCodeValues": 1
+    }
+  },
+  {
+    "name": "taau-swapped-distinct-half-p0-n24",
+    "beforeSHA256": "d1126cef7a37f555e3904a0c062d49836342a790876c01b0e5924521ba24003e",
+    "afterSHA256": "53347d98059b497a61b11550880efd8b3b520b7502328ba348e27844db686933",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 18257,
+      "rmsCodeValues": 4.428223275417933,
+      "maxCodeValues": 37
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 12533,
+      "rmsCodeValues": 8.90415858902858,
+      "maxCodeValues": 32
+    }
+  },
+  {
+    "name": "taau-swapped-distinct-half-p0-n128",
+    "beforeSHA256": "abda7c47d3bb32090d4c14c2060f16f7c5212a8d0aa4c8a1226fbca73df9970a",
+    "afterSHA256": "8b4be577bddf042caccd5cf9c7bb6f25d863a74735e23fef9620b926d4468008",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 18937,
+      "rmsCodeValues": 4.640412913398541,
+      "maxCodeValues": 48
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 12544,
+      "rmsCodeValues": 8.885794850633848,
+      "maxCodeValues": 22
+    }
+  },
+  {
+    "name": "taau-swapped-distinct-half-p0-n512",
+    "beforeSHA256": "e917eb3fd0e38c67032b82c4d41a01161e030ce812a33207e7e94434d6d86428",
+    "afterSHA256": "d9d5110c3409086e2fc21715c91ccfb2e14552068600e584d6b8f192dece39ba",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 18809,
+      "rmsCodeValues": 4.4921705162722425,
+      "maxCodeValues": 42
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 12544,
+      "rmsCodeValues": 8.777035492739921,
+      "maxCodeValues": 23
+    }
+  },
+  {
+    "name": "taau-swapped-distinct-half-p977-n24",
+    "beforeSHA256": "216bfd701b21e629c732ad0827ba0413425511effa56c74b7225b759423f1368",
+    "afterSHA256": "2d17d7ecc109d20de73cd254421362ceb24b2e8469fa9f5387e63764a9594bd6",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 18310,
+      "rmsCodeValues": 4.4370478010132555,
+      "maxCodeValues": 37
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 12536,
+      "rmsCodeValues": 8.986144734750134,
+      "maxCodeValues": 33
+    }
+  },
+  {
+    "name": "taau-swapped-distinct-half-p977-n128",
+    "beforeSHA256": "cbc0c1d76b2c484dedb6e7a42305ddf3694bd1eb1db8485e06dac676dbf02ba9",
+    "afterSHA256": "3e6dc6b51015fcbd7a32981d78f47eec2f44c785d6bb6d66f25627a2b6570cd5",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 18963,
+      "rmsCodeValues": 4.673380427393069,
+      "maxCodeValues": 48
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 12544,
+      "rmsCodeValues": 8.835857921225399,
+      "maxCodeValues": 22
+    }
+  },
+  {
+    "name": "taau-swapped-distinct-half-p977-n512",
+    "beforeSHA256": "2578f87d67fd29e608127213f92c0fee80253c819055132850b1d829414ddb3e",
+    "afterSHA256": "76b7d3277cd9f6ed18121b3533645d10042ed405e94212fb9f8262f73b595675",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 18812,
+      "rmsCodeValues": 4.463122686116541,
+      "maxCodeValues": 44
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 12544,
+      "rmsCodeValues": 8.740820622405039,
+      "maxCodeValues": 24
+    }
+  },
+  {
+    "name": "taau-opaque-pair-p0-n24",
+    "beforeSHA256": "78e5047c8cbb06f4bfc213a539f8daca59083373979f42eb10fdadc3af7589cb",
+    "afterSHA256": "b76b84a1023fe7068ea68e26adaef89a1aba22a61dbf7dd2c0b3e51e935f2c6a",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 2159,
+      "rmsCodeValues": 1.8175693520769365,
+      "maxCodeValues": 32
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-opaque-pair-p0-n128",
+    "beforeSHA256": "b032f2e3b7a8e07d804d633a60ed1cfe29211659f7f3d4b2070eb9a747d70bb6",
+    "afterSHA256": "52f4158b8c4893a65d240192ad77f47a3c06ab67012d8612c5458d0fdd8479dc",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 2029,
+      "rmsCodeValues": 3.8226603215030432,
+      "maxCodeValues": 75
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-opaque-pair-p0-n512",
+    "beforeSHA256": "861fb60d82d7ab810bbef5243b4417eb7a6c144815a83e8b5defb51922706375",
+    "afterSHA256": "5dbf4524b35049665cb416f463c0d0bccbb5e95e39332c2f34efd0828585c84e",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 2035,
+      "rmsCodeValues": 1.8468095641961166,
+      "maxCodeValues": 21
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-empty-p0-n24",
+    "beforeSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+    "afterSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-empty-p0-n128",
+    "beforeSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+    "afterSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-empty-p0-n512",
+    "beforeSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+    "afterSHA256": "cb11c310d80215f00aad6d08e30bfb00e4ac0849dc5314722bd4636cf4611622",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-blend-half-p0-n24",
+    "beforeSHA256": "f6321910591252ab2f915d4244e0f296f358835f07cd655f4999dd06d471eb1c",
+    "afterSHA256": "edd2b33b3e97470f31cbbae9023bb04914547f9fa645f34e75878a1c3b1f5979",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 3164,
+      "rmsCodeValues": 0.9905945012063778,
+      "maxCodeValues": 17
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-blend-half-p0-n128",
+    "beforeSHA256": "a9db66d09242d68d1d174e80008c5f51967f983b98fddbf00131759dc3d4dcb8",
+    "afterSHA256": "da19dd0bc9bd1cd96e0a8935b66c2f6b106c6685687538e0ce71e2fc54040a31",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 3551,
+      "rmsCodeValues": 1.4108431931384153,
+      "maxCodeValues": 18
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  },
+  {
+    "name": "taau-blend-half-p0-n512",
+    "beforeSHA256": "de4ba8573f9b4f4abb8d39985a75f9a257d8488ba8458bfc440a522204a4e3f8",
+    "afterSHA256": "e30edc47dbfa81d17858197592c9e9367c8a2be264b74d589bdd8f673ac9ca5f",
+    "whole": {
+      "pixels": 65536,
+      "changedPixels": 3293,
+      "rmsCodeValues": 0.9904635613722749,
+      "maxCodeValues": 11
+    },
+    "roi": {
+      "pixels": 12544,
+      "changedPixels": 0,
+      "rmsCodeValues": 0,
+      "maxCodeValues": 0
+    }
+  }
+]

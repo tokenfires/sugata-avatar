@@ -1,0 +1,20 @@
+PASS: 21 actual Apple/Metal WebGPU cases x 512 frames; applied routes, attachments, formats, copies and native finiteness.
+PASS: seven identity cases reproduce prior frame traces, per-pixel means and 21 images exactly.
+PASS: seven attachment-only cases reproduce all identity color measurements, per-pixel means and images exactly.
+PASS: emitted nonzero locks remain absent from history without the copy; copied lock/history match bit-for-bit.
+PASS: eighteen pilot cases repeat all first-24 traces and images; endpoints/blend references remain valid.
+identity-taau-shared-half-p0 tail 0.48126948533319597 RMS 0.00798661505477123 nativeLockTail 0.0
+identity-taau-shared-half-p977 tail 0.48127487323054213 RMS 0.00799021827312296 nativeLockTail 0.0
+identity-taau-swapped-distinct-half-p0 tail 0.11874926728503901 RMS 0.026708394009081426 nativeLockTail 0.0
+identity-taau-swapped-distinct-half-p977 tail 0.11896197443821277 RMS 0.026685362684009353 nativeLockTail 0.0
+attachment-only-taau-shared-half-p0 tail 0.48126948533319597 RMS 0.00798661505477123 nativeLockTail 0.0
+attachment-only-taau-shared-half-p977 tail 0.48127487323054213 RMS 0.00799021827312296 nativeLockTail 0.0
+attachment-only-taau-swapped-distinct-half-p0 tail 0.11874926728503901 RMS 0.026708394009081426 nativeLockTail 0.0
+attachment-only-taau-swapped-distinct-half-p977 tail 0.11896197443821277 RMS 0.026685362684009353 nativeLockTail 0.0
+copy-lock-taau-shared-half-p0 tail 0.48126741907700565 RMS 0.007986543118601929 nativeLockTail 0.8920921630853293
+copy-lock-taau-shared-half-p977 tail 0.4812731977556647 RMS 0.007989987451986995 nativeLockTail 0.891902316437692
+copy-lock-taau-swapped-distinct-half-p0 tail 0.1518994365324255 RMS 0.019756617008036128 nativeLockTail 0.9375761691100744
+copy-lock-taau-swapped-distinct-half-p977 tail 0.15202764211153214 RMS 0.019739109786548956 nativeLockTail 0.9379184568414882
+Missing lock delivery confirmed in this fixture: a second resolve attachment emits lock but leaves history zero until explicitly copied. Copying transfers exact bits and changes color/noise; broader runtime qualification remains pending.
+PASS: JavaScript source/served-module syntax, Python compilation and binary16 planted-nonfinite checks.
+PASS: documented tables match JSON; compressed traces round-trip to all 21/18 case records.
