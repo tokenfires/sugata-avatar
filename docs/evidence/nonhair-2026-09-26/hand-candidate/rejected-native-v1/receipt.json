@@ -1,0 +1,38 @@
+{
+  "completed": false,
+  "reportSHA256": "a4e1a615d375acebe07babc80f9d52c7f3cad83953b7176168e0c8f466869658",
+  "manifestSHA256": "affeb09a63c63fc7081505a42af9bd39b2cc3c4ba88a1863498a6507f75f7625",
+  "savedSteps": [
+    0,
+    1
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Unchanged morphs 2\n+ actual - expected\n... Skipped lines\n\n  [\n    0,\n    0,\n    0,\n    0,\n...\n    0.02284959736637787,\n+   0.035637853173662595,\n+   0.02920345409803575,\n+   0.0200837797458712,\n-   0.03563786409769739,\n-   0.029203472304760413,\n-   0.020083797952595864,\n    0,\n    0.24306411830159097,\n    0.23407735674129657,\n    0,\n    0,\n    0,\n    0,\n+   0.11816324356699243,\n-   0.11816344399243339,\n    0,\n    0,\n+   0.12230351138643855,\n+   0.0017459231275278114,\n+   0.0017459231275278114,\n-   0.12230371883449484,\n-   0.001746183223594414,\n-   0.001746183223594414,\n    0,\n    0,\n+   0.03303660271497898,\n+   0.03304187033991177,\n-   0.03303664525554063,\n-   0.0330419136652093,\n    0,\n    0,\n    0.013823929615442314,\n    0,\n    0,\n\n    at compareRetained (file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/retained-json-comparison.mjs:33:30)\n    at retained (file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-capture.mjs:72:30)\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-capture.mjs:77:75",
+  "errors": [],
+  "disposal": {
+    "completed": true,
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    },
+    "leaks": []
+  },
+  "sourceDirectory": "captures/hand-candidate-2026-09-26/candidate-primary-v1/",
+  "interpretation": "Protocol stopped at exact final morph equality step2. Native source-dependent gaze/facial cascade requires investigation. No fit result or candidate change."
+}

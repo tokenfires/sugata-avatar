@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "kind": "fixed-four-degree-rest-family-with-common-zero-native-cap",
+  "promotion": false,
+  "rationale": "docs/evidence/nonhair-2026-09-26/hand-candidate/feasibility/proposal-receipt-v1.json",
+  "geometryReceiptSHA256": "7128c95380d3b71d4a9efc2a711dc4a8fad02bd1bf68d70d24134928530a7010",
+  "algebraReceiptSHA256": "3aa3c7b6948ca36a27af8b16af3459311345d5353a3f1ed958247fb0aefa3a1d",
+  "sourceHashes": {
+    "packages/core/src/figure/RestPose.js": "c8e7892717d33e9f273fbb4f85d765f80b5a3efe09f09f6a4abc0ba5368bceb3",
+    "packages/core/src/figure/Skeleton.js": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+    "packages/core/src/motion/Sway.js": "00d99fe27a749fc491e0a5eaca4dbdbb13f5331f0a5265089ba5012d47fb84a6",
+    "packages/core/src/affect/PostureLayer.js": "9f72fb58dfdb1646934b61e75c6187fe4bfc7c1c642198842c9eb57dbe31470c",
+    "packages/core/src/motion/Gesture.js": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "packages/core/src/figure/poses/relaxed-standing.json": "917cead92c04fc339a0baedf07ca592293800dc670ba4f50686975a0439d345f",
+    "packages/core/src/figure/poses/weight-left.json": "79afa516a9b2048b9e315e359a0dbc47ec5413b3c9cb3dec60482dffa0e6d0b8",
+    "packages/core/src/figure/poses/weight-right.json": "a132916357c84a24e3c7a73e967987202bd9346fc3a2ebc2f8c62990efa761f4",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/inspect-family.mjs": "cef4bb14f93bc3f45fab35a57a8b4df24f97f355b4dd6f7e2690ec83aa1a8a1c",
+    "node_modules/three/src/math/Quaternion.js": "27de8858ac6ec90f0b830c8e1bc5c2c6d8f1328a9b9903fd73b24e0d25389d29",
+    "node_modules/three/src/math/Vector3.js": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/feasibility/summarize-feasibility.mjs": "142144903af6a418b0ba7cba8839390b42ff13853e4ff795bbad234cf4fc37da",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/feasibility/recorded-skinning.mjs": "75846a6adb0346e5ac1442cb570c7f68b90935960c6c01f51327184203b0a975",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/feasibility/proposal-receipt-v1.json": "7128c95380d3b71d4a9efc2a711dc4a8fad02bd1bf68d70d24134928530a7010",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/feasibility/rig-world-v1.json": "e0f273f5f76038951db2c1931062ff6d014ecddec071917034244c2425b8e948",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/author-family.mjs": "89213f1ddc9410750a45e952477b992b8e58e16aecddd968a01037f6d5070cb3"
+  },
+  "budget": {
+    "commonRadians": 0
+  },
+  "degrees": {
+    "left": 4,
+    "right": 4
+  },
+  "poseHashes": {
+    "relaxed-standing": "1a85e4bfcaa3c70466a9b168edbed40167c2961340d033865e51c063a8435f4c",
+    "weight-left": "099d3200cd282d15a46a16bc02412c2c844779248477d3131ecd9560c31a1482",
+    "weight-right": "db13a07fcab72d6cee8a58b96f67ca3c6a86b721f98751d0d3a8568c540b63c0"
+  },
+  "changes": [
+    {
+      "pose": "relaxed-standing",
+      "bone": "leftUpperArm",
+      "operation": "prepend",
+      "inserted": {
+        "axis": [
+          0.08402732606424637,
+          0.17751329146641903,
+          0.9805245738008054
+        ],
+        "degrees": 4,
+        "why": "Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."
+      },
+      "originalSpec": {
+        "euler": [
+          4,
+          -6,
+          -28.5
+        ],
+        "why": "z: 28.5 of adduction lands the humerus 10 degrees out from vertical. x: +4 hangs it slightly behind vertical, which is what brings the wrist back beside the hip. y: -6 is mild internal rotation — it is what turns the palm toward the thigh."
+      }
+    },
+    {
+      "pose": "relaxed-standing",
+      "bone": "rightUpperArm",
+      "operation": "prepend",
+      "inserted": {
+        "axis": [
+          0.1094513069402043,
+          -0.18714434443926153,
+          -0.9762158602243053
+        ],
+        "degrees": 4,
+        "why": "Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."
+      },
+      "originalSpec": {
+        "euler": [
+          4,
+          6,
+          27
+        ],
+        "why": "A degree and a half shy of the left's mirror, so the two arms do not hang at identical angles: 11.7 degrees out against the left's 10.1."
+      }
+    },
+    {
+      "pose": "weight-left",
+      "bone": "leftUpperArm",
+      "operation": "prepend",
+      "inserted": {
+        "axis": [
+          0.08402732606424637,
+          0.17751329146641903,
+          0.9805245738008054
+        ],
+        "degrees": 4,
+        "why": "Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."
+      },
+      "originalSpec": {
+        "euler": [
+          4,
+          -6,
+          -26.5
+        ],
+        "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it."
+      }
+    },
+    {
+      "pose": "weight-left",
+      "bone": "rightUpperArm",
+      "operation": "prepend",
+      "inserted": {
+        "axis": [
+          0.1094513069402043,
+          -0.18714434443926153,
+          -0.9762158602243053
+        ],
+        "degrees": 4,
+        "why": "Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."
+      },
+      "originalSpec": {
+        "euler": [
+          4,
+          6,
+          29
+        ],
+        "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one."
+      }
+    },
+    {
+      "pose": "weight-right",
+      "bone": "leftUpperArm",
+      "operation": "prepend",
+      "inserted": {
+        "axis": [
+          0.08402732606424637,
+          0.17751329146641903,
+          0.9805245738008054
+        ],
+        "degrees": 4,
+        "why": "Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."
+      },
+      "originalSpec": {
+        "euler": [
+          4,
+          -6,
+          -29
+        ],
+        "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one."
+      }
+    },
+    {
+      "pose": "weight-right",
+      "bone": "rightUpperArm",
+      "operation": "prepend",
+      "inserted": {
+        "axis": [
+          0.1094513069402043,
+          -0.18714434443926153,
+          -0.9762158602243053
+        ],
+        "degrees": 4,
+        "why": "Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."
+      },
+      "originalSpec": {
+        "euler": [
+          4,
+          6,
+          26.5
+        ],
+        "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it."
+      }
+    }
+  ],
+  "maxRelativeQuaternionComponentError": 2.220446049250313e-16,
+  "invariants": [
+    "Only six selected upper-arm specification fields change; original text outside those fields is retained.",
+    "Original selected specs remain after the inserted step; nonselected metadata/joints/hips offsets remain exact.",
+    "Upper-arm local and cumulative family deltas are preserved within reported arithmetic; distal absolute cumulative deltas are not claimed.",
+    "Current Sway-chain authored fields stay unchanged; native mass/stance caches must be remeasured."
+  ],
+  "limits": [
+    "No native candidate run yet. Geometry recommendation is a transformed-snapshot feasibility result.",
+    "Full distal clothing corridor is unproven, including proximal sleeve pairs; not a penetration or full-clearance verdict.",
+    "Cap zero changes genuine Posture telemetry and Gesture yield; not diagnostic B equivalence."
+  ]
+}

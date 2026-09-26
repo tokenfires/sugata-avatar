@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "completed": true,
+  "sourceHashes": {
+    "packages/core/src/figure/Figure.js": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da",
+    "packages/core/src/figure/Skeleton.js": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "tools/figure-pipeline/collar_capture_browser.mjs": "6a5c7a8584e2d5c653bdb6e9e44289350b0b229261c250f252dcf34aaccdf846",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/feasibility/verify-rig-world.mjs": "f034b03d865f41657a55aa07b0b268ed06f859b74280ecc358b5c4df112f5f50"
+  },
+  "sourceRootChain": [
+    {
+      "name": "Human.rig",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "Root",
+      "translation": [
+        0,
+        -0.000562518835067749,
+        6.100162863731384e-8
+      ],
+      "rotation": [
+        -0.7071067690849304,
+        0,
+        0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "sourceRootMatrix": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    3.422854177870249e-8,
+    -0.9999999657714582,
+    0,
+    0,
+    0.9999999657714582,
+    3.422854177870249e-8,
+    0,
+    0,
+    -0.000562518835067749,
+    6.100162863731384e-8,
+    1
+  ],
+  "checks": [
+    {
+      "arm": "A",
+      "step": 0,
+      "snapshotSHA256": "2731c2d61c812e07c6943768011637ce459536628644c3841508b66786b3463b",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "A",
+      "step": 455,
+      "snapshotSHA256": "afde6ceec372f63a3aa96317fc893c9ecf3e6f38063046e3d4631e2d5192a3c8",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "A",
+      "step": 637,
+      "snapshotSHA256": "a50ea467a77697bb4e6726c5f8bad2ed56a662302ec0aba1b9f574962051a314",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "A",
+      "step": 720,
+      "snapshotSHA256": "e38c298ee927fad1d53c429fed9c5245583e8ae1d1da03e822db1a2816617430",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "B",
+      "step": 0,
+      "snapshotSHA256": "2ea667d5ae95c125dd415f2b33f53d2749cf9c6ecde17a0de5c60b56593ef7cb",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "B",
+      "step": 455,
+      "snapshotSHA256": "3004625824a8a0216884f1b35cb89a1736acd5b8526f158ac56e02d27aab9f88",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "B",
+      "step": 637,
+      "snapshotSHA256": "2b2368c78ea970ea61ea9f169fa74c8858e1b7210109b127e51437bbaeef3c03",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "B",
+      "step": 720,
+      "snapshotSHA256": "1f525cf97ba2e67c6c599e02779a84c70602b500fb15f361c751ff7cfef86f05",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "C",
+      "step": 0,
+      "snapshotSHA256": "0a704e52a580f862bbc463cdddcbc201ecce51d1b3ba9341b32090af6f5f80ed",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "C",
+      "step": 455,
+      "snapshotSHA256": "96d39b2a7389fbd5222cee46dc15f1f9512b6f005b052e17b119ec5c5b6cb45b",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "C",
+      "step": 637,
+      "snapshotSHA256": "4814e2571b1175289bb2c497ace5c5496206200900c258c56377f765f56ac1a2",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    },
+    {
+      "arm": "C",
+      "step": 720,
+      "snapshotSHA256": "6c0c5d74412b7f0cbb9f90b674095936ec68e65cc4c165f6250d6497e5bca068",
+      "sourceRootWorldExact": true,
+      "sourceSceneToWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        0,
+        0,
+        0.9999999999999998,
+        0,
+        0,
+        -1.0842021724855044e-19,
+        0,
+        1
+      ],
+      "maximumIdentityRoundoff": 2.220446049250313e-16
+    }
+  ],
+  "inference": "Figure.root is gltf.scene and Avatar constructs normalized Skeleton from that root. Source scene group/Human.rig are identity; the unmapped Root world matrix exactly equals its full source ancestry in all12 retained snapshots. Thus recorded source normalized rig axes coincide with world axes; inverse-matrix residual below3e-16 is arithmetic roundoff, not a rotated frame.",
+  "limit": "This establishes axis alignment, not that applying world D after a recorded dynamic frame equals applying author E before new native owner bindings/updates."
+}

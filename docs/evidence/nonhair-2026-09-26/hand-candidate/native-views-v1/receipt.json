@@ -1,0 +1,41 @@
+{
+  "completed": true,
+  "reportSHA256": "23091b73c43edb4ede16ec640cd1b417535d71791eaa04580ef885b7f9be848c",
+  "gzipSHA256": "00e22a84b6d8e7c13044bf45f2bc6f2c224eef01a6d88a87b08fee12e37e9ab5",
+  "manifestSHA256": "560e2ad016622c66c9ae4f449a670bcfe72851bef449409fcac4c6eb5686b47e",
+  "primaryBinding": {
+    "directory": "captures/hand-candidate-2026-09-26/candidate-primary-v3",
+    "reportSHA256": "34305cf143306ae7818c159159e2eb7aa1514992da696cc8a27b948467b0b877",
+    "sealSHA256": "d618a3351565738fa2b95ffb0df6b760bc44ae8ce55a6da393910da3c687de8f",
+    "manifestSHA256": "a4bd27fcef48d9efb2cdcd71d7df3c2523d4e2b2416e6002a834c56efa382515"
+  },
+  "geometrySamples": 109,
+  "ownerStateSamples": 721,
+  "imageTimes": 244,
+  "images": 250,
+  "retirementCompleted": true,
+  "memory": {
+    "attributes": 0,
+    "attributesSize": 0,
+    "geometries": 0,
+    "indexAttributes": 0,
+    "indexAttributesSize": 0,
+    "indirectStorageAttributes": 0,
+    "indirectStorageAttributesSize": 0,
+    "programs": 0,
+    "programsSize": 0,
+    "readbackBuffers": 0,
+    "readbackBuffersSize": 0,
+    "renderTargets": 0,
+    "storageAttributes": 0,
+    "storageAttributesSize": 0,
+    "textures": 0,
+    "texturesSize": 0,
+    "uniformBuffers": 0,
+    "uniformBuffersSize": 0,
+    "total": 0
+  },
+  "errors": [],
+  "sourceDirectory": "captures/hand-candidate-2026-09-26/candidate-views-v1",
+  "scope": "Exact own-primary semantic/geometry replay and verified sampled PNG collection; appearance remains separately reviewed."
+}

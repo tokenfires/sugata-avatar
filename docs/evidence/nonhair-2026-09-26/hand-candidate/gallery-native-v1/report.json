@@ -1,0 +1,108 @@
+{
+  "completed": true,
+  "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/hand-candidate-2026-09-26/review-v1/index.html",
+  "sourceHashes": {
+    "index.html": "59cab02bd639eeeff93fb8bb148aee670d7e1cb8162113a5d9c5a716b7351482",
+    "review.mjs": "17520354b61c8d440096e50f3017d6b9949e5b9d5fcca2fe67f8f7d1ab1092ec",
+    "review.css": "410ac767dfc97dc56d9e0bffaed7ed7d0de65b45fc1f4fa769de84117237b923",
+    "review-manifest.json": "442a08f96fc684be5ada184a06e37a2e3fee56f4abdbe2d9db1f4b6b7a469435",
+    "receipt.json": "33319cbc32a32356a352c97cae81615ce016ab58ad498c1517645f3243b01660"
+  },
+  "checks": [
+    {
+      "name": "shared play/pause, exact marked step and independent close selector",
+      "passed": true,
+      "pausedSteps": [
+        "8",
+        "8"
+      ]
+    },
+    {
+      "name": "one failed PNG retains matched prior set; explicit retry and endpoint recover",
+      "passed": true
+    },
+    {
+      "name": "mobile document fits viewport with explicit horizontal comparisons and uncropped images",
+      "passed": true,
+      "measurements": {
+        "client": 390,
+        "scroll": 390,
+        "regions": [
+          {
+            "client": 358,
+            "scroll": 530,
+            "overflow": "auto"
+          },
+          {
+            "client": 358,
+            "scroll": 530,
+            "overflow": "auto"
+          }
+        ],
+        "images": [
+          {
+            "fit": "contain",
+            "width": 258,
+            "height": 314,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 258,
+            "height": 314,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          }
+        ]
+      }
+    }
+  ],
+  "images": [
+    {
+      "file": "desktop-start.png",
+      "sha256": "3e94bce9b6c078876c50eef7bc6659dc6a4c92fe1042e7ff6ea7b7e133450dff"
+    },
+    {
+      "file": "desktop-637.png",
+      "sha256": "edda663a97867ff2da77170357df1716eec6c1e3001a1ba9fb37eb951f454229"
+    },
+    {
+      "file": "mobile-first-control.png",
+      "sha256": "ff5b10190eb1704a01df763278d006a08c1c39fad63d5038e49ae7bbb46e774d"
+    },
+    {
+      "file": "mobile-second-control.png",
+      "sha256": "d7c9fa3d3f8abffffc58617b6c685a1a552252c986ca0ca58d73ff5e12747da7"
+    }
+  ],
+  "errors": []
+}

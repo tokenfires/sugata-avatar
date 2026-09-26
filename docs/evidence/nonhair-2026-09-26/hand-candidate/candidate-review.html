@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><link rel="icon" href="data:,"><link rel="stylesheet" href="./review.css"><title>Hand-placement candidate review</title></head>
+<body><main>
+<header><p class="eyebrow">Isolated candidate · same character and outfit</p><h1>Hand-placement candidate review</h1><p id="scope">Loading verified capture metadata…</p><p class="method">Native motion runs at 60 Hz. PNGs include 15 Hz sampling and extra irregular moments. Playback uses each recorded time interval, with no audio.</p></header>
+<section class="transport" aria-label="Synchronized full-body playback">
+<div class="playback"><button id="previous" disabled aria-label="Previous sampled frame">←</button><button id="play" disabled>Play</button><button id="next" disabled aria-label="Next sampled frame">→</button><output id="time" for="timeline">0.000 s</output><span id="detail"></span></div>
+<label class="sr-only" for="timeline">Common native simulation step</label><input id="timeline" type="range" min="0" max="720" step="1" value="0" disabled>
+<div class="markers"><button data-step="0">Initial · 0</button><button data-step="360">Angry starts · 360</button><button data-step="455">Angry centre · 455</button><button data-step="637">Angry centre · 637</button><button data-step="720">End · 720</button></div>
+<p id="status" role="status">Loading manifest…</p>
+</section>
+<section id="error" class="error" role="alert" hidden><strong>Review images are unavailable.</strong><p id="error-message"></p><button id="retry">Retry</button></section>
+<section class="comparison-scroll" aria-label="Two matched full-body controls" tabindex="0"><div id="comparison" class="comparison"></div></section>
+<p class="footnote">Both full-body images commit together at one step. Loading pauses playback. On a narrow screen, scroll the comparison sideways; each image remains uncropped.</p>
+<section class="close-section" aria-labelledby="close-title"><h2 id="close-title">Fixed hand and hip views</h2><p class="method">These separate close views remain at the selected marked step; they do not follow playback.</p>
+<div id="close-buttons" class="groups"><button data-close="0" aria-pressed="true">Initial · step 0</button><button data-close="455" aria-pressed="false">Angry · step 455</button><button data-close="637" aria-pressed="false">Angry · step 637</button></div>
+<p id="close-status" role="status">Loading initial close views…</p><section class="comparison-scroll" aria-label="Bilateral hand and hip views" tabindex="0"><div id="close-comparison" class="comparison"></div></section></section>
+<details><summary>Scope and capture binding</summary><p id="limit"></p><p id="binding" class="binding"></p></details>
+<noscript><p class="error">Enable JavaScript to load the local manifest and synchronized images.</p></noscript>
+</main><script type="module" src="./review.mjs"></script></body></html>

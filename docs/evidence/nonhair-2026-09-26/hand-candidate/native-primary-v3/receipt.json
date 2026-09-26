@@ -1,0 +1,66 @@
+{
+  "completed": true,
+  "reportSHA256": "34305cf143306ae7818c159159e2eb7aa1514992da696cc8a27b948467b0b877",
+  "gzipSHA256": "8702b46eeaa25ffcafaa9bc30dfd454da296eaa1e78de0a3a95eca5ac29ad890",
+  "manifestSHA256": "a4bd27fcef48d9efb2cdcd71d7df3c2523d4e2b2416e6002a834c56efa382515",
+  "sourceCount": 1586,
+  "geometrySamples": 109,
+  "ownerStateSamples": 721,
+  "gestureStatusDifferences": [
+    492,
+    593,
+    681
+  ],
+  "morphDifferenceFrames": 651,
+  "nativeGesture": {
+    "amplitude": 1,
+    "yieldToPosture": true,
+    "sagittalShare": 0.75,
+    "dominanceDrivesAmplitude": true
+  },
+  "budgetCalls": [
+    {
+      "index": 0,
+      "before": {
+        "leftUpperArm": 0,
+        "rightUpperArm": 0
+      },
+      "native": {
+        "leftUpperArm": 0.24748154376866854,
+        "rightUpperArm": 0.2782859612853101
+      },
+      "effective": {
+        "leftUpperArm": 0,
+        "rightUpperArm": 0
+      },
+      "stackFrame": 0,
+      "stackTime": 0
+    }
+  ],
+  "retirementCompleted": true,
+  "memory": {
+    "attributes": 0,
+    "attributesSize": 0,
+    "geometries": 0,
+    "indexAttributes": 0,
+    "indexAttributesSize": 0,
+    "indirectStorageAttributes": 0,
+    "indirectStorageAttributesSize": 0,
+    "programs": 0,
+    "programsSize": 0,
+    "readbackBuffers": 0,
+    "readbackBuffersSize": 0,
+    "renderTargets": 0,
+    "storageAttributes": 0,
+    "storageAttributesSize": 0,
+    "textures": 0,
+    "texturesSize": 0,
+    "uniformBuffers": 0,
+    "uniformBuffersSize": 0,
+    "total": 0
+  },
+  "leaks": [],
+  "errors": [],
+  "sourceDirectory": "captures/hand-candidate-2026-09-26/candidate-primary-v3",
+  "scope": "Complete native evidence collection; not geometry, appearance or promotion qualification."
+}

@@ -1,0 +1,342 @@
+{
+    "name": "weight-right",
+    "description": "Contrapposto with the weight over the right leg. The mirror of weight-left.",
+    "notes": [
+        "The sagittal mirror of weight-left, generated rather than retyped. Every angle, every comment and every reason lives in weight-left.json — read that file, then read left for right.",
+        "The mirror rule, for anyone editing this by hand: a rotation reflected across the sagittal plane keeps its x component and negates y and z. So an Euler triple (x, y, z) becomes (x, -y, -z), a measured axis (ax, ay, az) becomes (ax, -ay, -az) at the same angle, and the hips offset negates in x only.",
+        "Weight on the right leg therefore raises the RIGHT hip and drops the RIGHT shoulder.",
+        "STANCE WIDTH is the one thing here that is NOT mirrored, and it must not be. The narrowing that brings the heels to McIlroy and Maki's preferred 0.17 m is a correction to the FIGURE's bind pose, whose two ankles sit 12.5 mm off centre from each other, so it belongs to the left leg and the right leg rather than to the stance leg and the free leg. Every pose therefore carries the same per-leg adduction and external rotation; what is mirrored is the contrapposto delta on top of it, exactly as before. Measured after: heel centres 169.6 mm, included angle 15.17 degrees, outer-to-outer 298.7 mm."
+    ],
+    "hipsOffsetMetres": [
+        -0.0726,
+        -0.0018,
+        0
+    ],
+    "axes": {
+        "elbowExtendLeft": [
+            0.7449,
+            0.6647,
+            -0.0514
+        ],
+        "elbowExtendRight": [
+            0.7449,
+            -0.6647,
+            0.0514
+        ],
+        "fingerCurlLeft": [
+            0.386,
+            -0.415,
+            -0.826
+        ],
+        "fingerCurlRight": [
+            0.386,
+            0.415,
+            0.826
+        ],
+        "thumbCurlLeft": [
+            0.058,
+            0.896,
+            0.426
+        ],
+        "thumbCurlRight": [
+            0.058,
+            -0.896,
+            -0.426
+        ]
+    },
+    "bones": {
+        "hips": {
+            "euler": [
+                0,
+                4.9,
+                -5.5
+            ],
+            "why": "z: -5.5 drops the +X side and so raises the right (stance) crest. y: +4.9 takes the stance side very slightly back. 🚩 THE y IS NOT THE NEGATION OF weight-left's -2.5, AND THAT IS THE POINT. This file mirrors the contrapposto DELTA from relaxed-standing, not the absolute angle — its own notes say so — and relaxed-standing carries +1.2 of transverse rotation of its own. Mirroring the absolute gave a delta of +1.3 here against weight-left's -3.7, so the pelvis twisted less than a third as far one way as the other, and the free foot's turn-out went with it: measured, 2.91 degrees of released yaw on the right foot against 0.57 on the left, which is one foot articulating and one welded. 1.2 + 3.7 = 4.9 is the mirror of the delta and lands both at 2.9. See Sway.js's FREE_FOOT_YAW_RELEASE for what reads that yaw, and this file's notes for the rule. ⚠️ This bone is therefore in restpose.selftest.mjs's EXACT-mirror bucket while behaving like its DELTA-mirror bucket, and that check now reads 2.400 degrees on it. The delta bucket is the right home: Sway blends pose-minus-relaxed, so the delta is what a viewer sees, and the legs are already there for exactly this reason. The z is left absolute-mirrored on purpose — the legs' counter-rotations are authored against the absolute -5.5 roll, its delta residue is 1.2 degrees, and nothing measurable depends on it, where the y decides whether one foot articulates at all."
+        },
+        "spine": {
+            "euler": [
+                0.5,
+                -1.5,
+                7.5
+            ],
+            "why": "The lumbar counter-bend, and the largest single number in the pose. It over-corrects the pelvis's 5.5 degrees so the net trunk lean ends up toward the stance side rather than away from it."
+        },
+        "chest": {
+            "euler": [
+                0.8,
+                -0.8,
+                3
+            ],
+            "why": "Carries the bend up. Sharing it across three spine bones is what makes a curve rather than a hinge."
+        },
+        "upperChest": {
+            "euler": [
+                1.2,
+                0.8,
+                -2
+            ],
+            "why": "Turns the curve back — the top of the S. Accumulated roll at the chest lands near -3 degrees, which is what tips the shoulder line opposite to the hip line."
+        },
+        "neck": {
+            "euler": [
+                2.2,
+                -0.8,
+                -2
+            ],
+            "why": "Brings the head back toward vertical."
+        },
+        "head": {
+            "euler": [
+                -1.6,
+                0.7,
+                -1.2
+            ],
+            "why": "Levels the eyes. A contrapposto with a tilted horizon reads as a stumble."
+        },
+        "rightShoulder": {
+            "euler": [
+                0,
+                4,
+                3.4
+            ],
+            "why": "As relaxed-standing. The shoulder drop on this side comes from the spine, not from the clavicle."
+        },
+        "rightUpperArm": [
+            {"axis":[0.1094513069402043,-0.18714434443926153,-0.9762158602243053],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
+            {
+                "euler": [
+                    4,
+                    6,
+                    26.5
+                ],
+                "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it."
+            }
+        ],
+        "rightLowerArm": [
+            {
+                "axis": "elbowExtendRight",
+                "degrees": 30
+            },
+            {
+                "euler": [
+                    0,
+                    0,
+                    7
+                ]
+            }
+        ],
+        "rightHand": {
+            "euler": [
+                0,
+                0,
+                0
+            ]
+        },
+        "leftShoulder": {
+            "euler": [
+                0,
+                -4,
+                -2.6
+            ]
+        },
+        "leftUpperArm": [
+            {"axis":[0.08402732606424637,0.17751329146641903,0.9805245738008054],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
+            {
+                "euler": [
+                    4,
+                    -6,
+                    -29
+                ],
+                "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one."
+            }
+        ],
+        "leftLowerArm": [
+            {
+                "axis": "elbowExtendLeft",
+                "degrees": 29
+            },
+            {
+                "euler": [
+                    0,
+                    0,
+                    -6
+                ]
+            }
+        ],
+        "leftHand": {
+            "euler": [
+                0,
+                0,
+                0
+            ]
+        },
+        "rightIndexProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 8
+        },
+        "rightIndexIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 24
+        },
+        "rightIndexDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 10
+        },
+        "rightMiddleProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 5
+        },
+        "rightMiddleIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 34
+        },
+        "rightMiddleDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 13
+        },
+        "rightRingProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 12
+        },
+        "rightRingIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 38
+        },
+        "rightRingDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 16
+        },
+        "rightLittleProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 18
+        },
+        "rightLittleIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 45
+        },
+        "rightLittleDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 18
+        },
+        "rightThumbMetacarpal": {
+            "axis": "thumbCurlRight",
+            "degrees": 6
+        },
+        "rightThumbProximal": {
+            "axis": "thumbCurlRight",
+            "degrees": 12
+        },
+        "rightThumbDistal": {
+            "axis": "thumbCurlRight",
+            "degrees": 8
+        },
+        "leftIndexProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 9
+        },
+        "leftIndexIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 26
+        },
+        "leftIndexDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 11
+        },
+        "leftMiddleProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 6
+        },
+        "leftMiddleIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 36
+        },
+        "leftMiddleDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 14
+        },
+        "leftRingProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 13
+        },
+        "leftRingIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 40
+        },
+        "leftRingDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 17
+        },
+        "leftLittleProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 19
+        },
+        "leftLittleIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 47
+        },
+        "leftLittleDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 19
+        },
+        "leftThumbMetacarpal": {
+            "axis": "thumbCurlLeft",
+            "degrees": 7
+        },
+        "leftThumbProximal": {
+            "axis": "thumbCurlLeft",
+            "degrees": 13
+        },
+        "leftThumbDistal": {
+            "axis": "thumbCurlLeft",
+            "degrees": 9
+        },
+        "rightUpperLeg": {
+            "euler": [
+                0,
+                -11.56,
+                18.44
+            ],
+            "why": "Stance leg. Against relaxed-standing's [0, -9.06, 9.94] this is -2.5 of external rotation and +8.5 of adduction: the +8.5 undoes the pelvis's -5.5 roll and adds three degrees on top, which is what keeps the planted foot planted while the pelvis travels 40 mm over it. The absolute numbers carry the narrowed stance; the DELTA from relaxed-standing is the contrapposto."
+        },
+        "rightLowerLeg": {
+            "euler": [
+                0,
+                0,
+                0
+            ],
+            "why": "The stance knee stays where the bind pose has it. A knee carrying the load is close to straight."
+        },
+        "rightFoot": {
+            "euler": [
+                1.92,
+                0,
+                -10.04
+            ],
+            "why": "The stance foot's counter-rotation for the narrowed stance; see relaxed-standing."
+        },
+        "leftUpperLeg": {
+            "euler": [
+                -1.49,
+                -8.72,
+                2.96
+            ],
+            "why": "Free leg, SWIVELLED. The pre-swivel angles were [-4, 7.06, 3.71]. See weight-left.json's notes: the free limb is turned 16 degrees about its own hip-to-ankle axis, which moves the knee 14.3 mm toward the midline and moves nothing else, and which reads mostly as femoral axial rotation because that axis is near-vertical. 🚩 This one number is SOLVED HERE rather than mirrored, and it is the one place this file departs from its own generate-by-mirroring rule. A swivel is a rotation about a MEASURED axis, and the mirror of weight-left's axis is not this pose's axis — relaxed-standing's two legs are deliberately asymmetric and the pelvis differs too. Mirroring the delta left the free ankle 2.861 mm off where the pose had put it; solving in place leaves it 0.047 mm off, and the mirror gate reads 0.532 degrees either way, which is exactly what it read before the swivel existed. A 2.9 mm sole slide is the magnitude LEARNINGS 1.11b records as reading like a skating foot."
+        },
+        "leftLowerLeg": {
+            "euler": [
+                7.12,
+                8.95,
+                0.4
+            ],
+            "why": "Free knee softly flexed to 14.8 degrees total — unchanged by the swivel, which turns the leg as a rigid body. The y term is 9 degrees of tibial axial rotation about the knee-to-ankle axis, taking back the larger half of the foot rotation the swivel would otherwise hand to the floor. It moves neither the knee nor the ankle: both are on that axis."
+        },
+        "leftFoot": {
+            "euler": [
+                -6.71,
+                7.84,
+                6.2
+            ],
+            "why": "Levels the sole back toward the floor after the shank has swung, carries the narrowed stance's counter-rotation, and absorbs the last 6.5 degrees of the swivel as a yaw about the rig's vertical — the one rotation that maps the floor plane to itself, so the sole cannot tilt or lift."
+        }
+    }
+}

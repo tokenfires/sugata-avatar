@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {compareCandidateMorphs} from './candidate-morph-policy.mjs';
+const names=['eyeLookUpLeft','eyeBlinkLeft','browInnerUp','jawOpen'];
+const owner=(name,morphs)=>({name,status:'returned-output',raw:{morphs}});
+const baseline={morphs:[.1,.2,.3,.4],instrument:{owners:[owner('gaze',[['eyeLookUpLeft',.1]]),owner('facialIdle',[['eyeBlinkLeft',.1],['browInnerUp',.3]]),owner('blink',[['eyeBlinkLeft',.1]]),owner('speech',[['jawOpen',.4]])]}};
+const clone=()=>structuredClone(baseline),compare=x=>compareCandidateMorphs(x,baseline,names,{step:2});
+assert.deepEqual(compare(clone()),{step:2,owners:[],final:[]});
+let x=clone();x.instrument.owners[0].raw.morphs[0][1]+=.0000001;x.morphs[0]+=.0000001;assert.equal(compare(x).owners.length,1);assert.equal(compare(x).final.length,1);
+x=clone();x.instrument.owners[1].raw.morphs[0][1]+=.0000001;x.morphs[1]+=.0000001;assert.equal(compare(x).owners[0].owner,'facialIdle');
+x=clone();x.instrument.owners[2].raw.morphs[0][1]+=.0000001;x.morphs[1]+=.0000001;assert.throws(()=>compare(x),/Exact owner morph blink/);
+x=clone();x.instrument.owners[3].raw.morphs[0][1]+=.0000001;x.morphs[3]+=.0000001;assert.throws(()=>compare(x),/Exact owner morph speech/);
+x=clone();x.morphs[3]+=.0000001;assert.throws(()=>compare(x),/Exact final morph vector/);
+x=clone();x.instrument.owners[0].raw.morphs[0][1]=NaN;assert.throws(()=>compare(x));
+x=clone();x.instrument.owners[0].raw.morphs[0][0]='eyeLookDownLeft';assert.throws(()=>compare(x),/declarations/);
+x=clone();x.instrument.owners[0].name='otherGaze';assert.throws(()=>compare(x));
+x=clone();x.instrument.owners[0].raw.rotations=[['head',[0,0,0,1]]];assert.throws(()=>compare(x),/Exact non-morph output gaze/);
+console.log('PASS 10 focused morph-dependency admission cases; no magnitude tolerance.');

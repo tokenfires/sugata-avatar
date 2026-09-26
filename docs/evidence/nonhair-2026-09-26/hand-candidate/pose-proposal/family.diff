@@ -1,0 +1,108 @@
+--- accepted/relaxed-standing.json
++++ candidate/relaxed-standing.json
+@@ -47,7 +47,10 @@
+         "head": { "euler": [ -1.6, 0.5, -0.5 ], "why": "Levels the gaze back up after the neck's forward carry, leaving half a degree of tilt. Gaze composes on top of this, so it has to hand over a horizontal eye line." },
+ 
+         "leftShoulder": { "euler": [ 0, -4, -3 ], "why": "Protraction (y, tip forward) and depression (z, tip down). The bind pose squares the shoulders and holds them up; relaxed shoulders sit forward of the coronal plane and hang." },
+-        "leftUpperArm": { "euler": [ 4, -6, -28.5 ], "why": "z: 28.5 of adduction lands the humerus 10 degrees out from vertical. x: +4 hangs it slightly behind vertical, which is what brings the wrist back beside the hip. y: -6 is mild internal rotation — it is what turns the palm toward the thigh." },
++        "leftUpperArm": [
++            {"axis":[0.08402732606424637,0.17751329146641903,0.9805245738008054],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
++            { "euler": [ 4, -6, -28.5 ], "why": "z: 28.5 of adduction lands the humerus 10 degrees out from vertical. x: +4 hangs it slightly behind vertical, which is what brings the wrist back beside the hip. y: -6 is mild internal rotation — it is what turns the palm toward the thigh." }
++        ],
+         "leftLowerArm": [
+             { "axis": "elbowExtendLeft", "degrees": 30, "why": "Bind pose's 43.1 degrees of elbow flexion down to 13.1. Not to zero: a locked elbow reads rigid." },
+             { "euler": [ 0, 0, -7 ], "why": "Carrying angle. Converges the forearm back toward the midline so the wrist lands over the greater trochanter." }
+@@ -55,7 +58,10 @@
+         "leftHand": { "euler": [ 0, 0, 0 ], "why": "Neutral wrist. The forearm already lands the hand where a relaxed one sits, and a wrist angle here would only fight the finger curl." },
+ 
+         "rightShoulder": { "euler": [ 0, 4, 3 ], "why": "Mirror of the left. Rotations mirror across the sagittal plane as (x, -y, -z)." },
+-        "rightUpperArm": { "euler": [ 4, 6, 27.0 ], "why": "A degree and a half shy of the left's mirror, so the two arms do not hang at identical angles: 11.7 degrees out against the left's 10.1." },
++        "rightUpperArm": [
++            {"axis":[0.1094513069402043,-0.18714434443926153,-0.9762158602243053],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
++            { "euler": [ 4, 6, 27.0 ], "why": "A degree and a half shy of the left's mirror, so the two arms do not hang at identical angles: 11.7 degrees out against the left's 10.1." }
++        ],
+         "rightLowerArm": [
+             { "axis": "elbowExtendRight", "degrees": 29, "why": "A degree less extension than the left, for the same reason." },
+             { "euler": [ 0, 0, 6 ] }
+
+--- accepted/weight-left.json
++++ candidate/weight-left.json
+@@ -45,7 +45,10 @@
+         "head": { "euler": [ -1.6, -0.7, 1.2 ], "why": "Levels the eyes. A contrapposto with a tilted horizon reads as a stumble." },
+ 
+         "leftShoulder": { "euler": [ 0, -4, -3.4 ], "why": "As relaxed-standing. The shoulder drop on this side comes from the spine, not from the clavicle." },
+-        "leftUpperArm": { "euler": [ 4, -6, -26.5 ], "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it." },
++        "leftUpperArm": [
++            {"axis":[0.08402732606424637,0.17751329146641903,0.9805245738008054],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
++            { "euler": [ 4, -6, -26.5 ], "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it." }
++        ],
+         "leftLowerArm": [
+             { "axis": "elbowExtendLeft", "degrees": 30 },
+             { "euler": [ 0, 0, -7 ] }
+@@ -53,7 +56,10 @@
+         "leftHand": { "euler": [ 0, 0, 0 ] },
+ 
+         "rightShoulder": { "euler": [ 0, 4, 2.6 ] },
+-        "rightUpperArm": { "euler": [ 4, 6, 29.0 ], "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one." },
++        "rightUpperArm": [
++            {"axis":[0.1094513069402043,-0.18714434443926153,-0.9762158602243053],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
++            { "euler": [ 4, 6, 29.0 ], "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one." }
++        ],
+         "rightLowerArm": [
+             { "axis": "elbowExtendRight", "degrees": 29 },
+             { "euler": [ 0, 0, 6 ] }
+
+--- accepted/weight-right.json
++++ candidate/weight-right.json
+@@ -101,14 +101,17 @@
+             ],
+             "why": "As relaxed-standing. The shoulder drop on this side comes from the spine, not from the clavicle."
+         },
+-        "rightUpperArm": {
+-            "euler": [
+-                4,
+-                6,
+-                26.5
+-            ],
+-            "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it."
+-        },
++        "rightUpperArm": [
++            {"axis":[0.1094513069402043,-0.18714434443926153,-0.9762158602243053],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
++            {
++                "euler": [
++                    4,
++                    6,
++                    26.5
++                ],
++                "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it."
++            }
++        ],
+         "rightLowerArm": [
+             {
+                 "axis": "elbowExtendRight",
+@@ -136,14 +139,17 @@
+                 -2.6
+             ]
+         },
+-        "leftUpperArm": {
+-            "euler": [
+-                4,
+-                -6,
+-                -29
+-            ],
+-            "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one."
+-        },
++        "leftUpperArm": [
++            {"axis":[0.08402732606424637,0.17751329146641903,0.9805245738008054],"degrees":4,"why":"Isolated hand-clearance candidate: +4 degrees outward in relaxed rig-frontal space; geometry-derived four-degree bracket. Common right multiplier preserves the upper-arm family relation. Full distal clothing clearance remains unproven."},
++            {
++                "euler": [
++                    4,
++                    -6,
++                    -29
++                ],
++                "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one."
++            }
++        ],
+         "leftLowerArm": [
+             {
+                 "axis": "elbowExtendLeft",

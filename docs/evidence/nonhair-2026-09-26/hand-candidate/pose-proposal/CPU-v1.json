@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "completed": true,
+  "kind": "fixed-candidate-CPU-source-qualification",
+  "nativeCandidateRun": false,
+  "command": "node docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/CandidatePoseControl.selftest.mjs",
+  "node": "v24.13.1",
+  "groups": [
+    "fixed candidate family compiles exactly; expected consumers; native budgets reduced; descriptors restored before guarded use",
+    "missing/wrong family bytes, source pins and candidate cap rejected before construction",
+    "unknown/missing pose consumers and wrong posture owner reject and retire returned hosts",
+    "partial construction and run failures restore descriptors; native factory owns unreturned partial disposal",
+    "preexisting/foreign descriptor ownership is refused or retained, never silently overwritten",
+    "native construction bind count is observed; wrong initial-zero sequences and changed budgets fail closed",
+    "A guard prohibits capture-time rebind and disposes the candidate host",
+    "post-dress preparation cannot add steps, omit proof, or leave dirty channels",
+    "caught guard failure and early caller disposal cannot produce completed=true",
+    "wrapper-owned retirement runs once; pre-disposal failure falls back and post-disposal failure stays failed",
+    "fixed source family preserves nonselected data and rejects accepted bytes or any changed cap",
+    "stale upper-arm rest caches and stale Sway references reject before capture",
+    "native happy-to-angry output uses actual common cap and shared Gesture yield without filtering",
+    "caught forged telemetry and changed budget cannot finish as a completed candidate"
+  ],
+  "groupCount": 14,
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/AcceptedPoseControl.mjs": "b6cb711fb2509cfb0cc22a0c5e0337bf63f98ee1826f50368ae8a3ec0793d49d",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/AcceptedPoseControl.selftest.mjs": "106fd8aefc367ceb9b586ff09252fb78f3622fba4e1f84ddb0fef8ddc3d16eb1",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/CandidatePoseControl.mjs": "5cad56008a5f41ac40b7ce833fcb8d8c7f2cba60575520a706641a67a5cd9388",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/CandidatePoseControl.selftest.mjs": "aa7ca879bf43e09b3972ebd60aec6de7099c99e1538eff896b60592863120ae3",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/author-family.mjs": "89213f1ddc9410750a45e952477b992b8e58e16aecddd968a01037f6d5070cb3",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/authoring-v1.json": "8a0f28975092318f43809284b8e9aa5a4ae53f64f0378c59ea6db7db2086e1ab",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/family.diff": "6a2e0931f0295a35e6d81ab6c1a11e8c822504cbb290cf584b9b2eded76a31e2",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/control.diff": "1b2f4873095a68c59590dabf3d74b4a39057c7fa42be76ee14f97880af7cb0a6",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/family/relaxed-standing.json": "1a85e4bfcaa3c70466a9b168edbed40167c2961340d033865e51c063a8435f4c",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/family/weight-left.json": "099d3200cd282d15a46a16bc02412c2c844779248477d3131ecd9560c31a1482",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/family/weight-right.json": "db13a07fcab72d6cee8a58b96f67ca3c6a86b721f98751d0d3a8568c540b63c0"
+  },
+  "log": {
+    "file": "CPU-v1.log",
+    "sha256": "585cc3eb815168c299c74e70cfa51902b190f078974045137addf831a148ba1c"
+  },
+  "authoringCheck": {
+    "command": "node docs/evidence/nonhair-2026-09-26/hand-candidate/pose-proposal/author-family.mjs --check",
+    "passed": true,
+    "exactExistingOutputs": true
+  },
+  "trace": {
+    "inward": 264,
+    "outward": 429,
+    "gesturesWhileInward": 71,
+    "uniqueCheckedFrames": 720
+  },
+  "controlPreserved": {
+    "moduleSHA256": "b6cb711fb2509cfb0cc22a0c5e0337bf63f98ee1826f50368ae8a3ec0793d49d",
+    "testSHA256": "106fd8aefc367ceb9b586ff09252fb78f3622fba4e1f84ddb0fef8ddc3d16eb1"
+  },
+  "scope": "Native classes in a modeled CPU construction host; no Avatar.create, wardrobe loader, rendering, all-motion clearance or promotion claim.",
+  "initialObservation": "Before the first wrapped update, completedFrames0/frame null/samples null/owners null are explicit; posture state remains checkable but no sampled owner/yield claim is made.",
+  "limits": [
+    "Full native candidate evidence is pending.",
+    "Full distal/clothing corridor remains unproven; negative sufficient bounds are not penetration.",
+    "Current geometry-derived placement is not an exact prediction after native cache and Gesture yield changes."
+  ]
+}

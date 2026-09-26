@@ -1,0 +1,6 @@
+{
+  "attempt": "v3 audit first invocation, no output receipt written",
+  "scriptSHA256": "409d14143dc274398c59abe47670ed491d8c5304f677d187c9b3e693df69f6db",
+  "failure": "deepEqual(r.commands,a.commands) compared reporting envelopes with distinct schema; candidate omits A label/pad/sampling metadata",
+  "correction": "Compare every {step,actual} command payload exactly; native captures, sources and states unchanged. Metadata is not substituted for payload equality."
+}

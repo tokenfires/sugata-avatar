@@ -1,0 +1,13 @@
+# Native candidate owner review
+
+September 26, 2026. Signed: `/root/critic`.
+
+**Admit the completed trace as mechanically qualified evidence for geometry and visual review; do not promote the candidate from this audit.** `CRITIC-PRIMARY-v3.json` binds my independent selected native verification. The full owner audit is bound by `owner-comparison-v3.json` SHA `920c17c32ceaa66cd48c3d205eba283e17c4944f1078f306c6393fe139f77b7d`; I checked that receipt against the actual sealed primary and its current executed audit sources, and reviewed its implementation and interpretation without redundantly replaying the full audit.
+
+The seven changed owners and 52 changed palette bones are not concealed by the original 36-arm-descendant expectation. Native rest frames can affect BodyIdle/HandIdle, and Sway's whole-body measurements allow small head, torso and foot responses. Gaze's prior committed-head input and FacialIdle's eye-pitch input explain why an exact all-final-morph invariant was too strong. The report appropriately distinguishes this source dependency graph from measured causal decomposition of private caches. Root remains exact; sampled foot-joint displacements do not establish foot contact or slip quality.
+
+The narrow morph policy preserves other writers even where they share final channel names. The independent fold verifies actual native body readback with raw writer admission before weight, ordered addition and clamping; it does not invent a final epsilon. Gesture status changes at 492/593/681 are explained by the actual native yield and unchanged strict negligible-angle threshold. Null is retained as null, and these events are not described as extra movement caused by zero offsets. Equal-status frames do not pretend that post-frame affect telemetry was the earlier sampled input.
+
+The report keeps schedule, command, recorded PRNG and owner metadata invariants separate from changed raw rotations, downstream morphs and matrices. It also explicitly limits PRNG evidence to recorded state, and lifecycle evidence to one clean terminal retirement. This is an appropriate scope. No additional exemption, output filter, pose change or numerical tolerance is justified by this review.
+
+The numerical and rendered judgments remain separate. The candidate combines rest placement, a zero common inward allowance and native Gesture yield; hand displacement cannot be attributed to the four-degree rest edit alone. In particular, a zero selected intersection count does not prove that a hand lies outside the clothes. Complete hand boundary certificates and ordinary visible hand shape/gesture release are the next required evidence.

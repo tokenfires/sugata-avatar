@@ -1,0 +1,42 @@
+{
+  "completed": false,
+  "reportSHA256": "72533663f9f19b15a79114391f6559010fb4d35afdf1b71b603fc657a23bf02b",
+  "gzipSHA256": "dccbb3e22f8238fa7156e5a94eb03ced6511d43c37433e05e7e570d12ba70063",
+  "manifestSHA256": "fb4cbbb7ede347671b838287d2876ad41ec425fd1ffa209409d8e068135f3a8d",
+  "lastStep": 492,
+  "partialStateCount": 493,
+  "savedGeometry": 77,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    [\n      'attentionControl',\n      'no-returned-output'\n    ],\n...\n      'gesture',\n+     'returned-output'\n-     'no-returned-output'\n    ],\n    [\n      'attentionPose',\n      'no-returned-output'\n    ],\n\n    at compareCandidateMorphs (file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-morph-policy.mjs:10:71)\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-capture.mjs:83:22",
+  "errors": [],
+  "disposal": {
+    "completed": true,
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    },
+    "leaks": []
+  },
+  "sourceDirectory": "captures/hand-candidate-2026-09-26/candidate-primary-v2",
+  "independentThresholdProof": {
+    "file": "docs/evidence/nonhair-2026-09-26/hand-candidate/owner-audit/stopped-step492-v2.json",
+    "sha256": "0093c69172557c94fd4a330315b10238357e2a5a8893f06c1324642beda0e03b"
+  },
+  "interpretation": "Native Gesture fixed 0.05-degree cutoff lies between accepted and candidate outputs after truthful posture yield. Blanket owner return-status equality was invalid. This partial run proves no final fit or visual result."
+}

@@ -1,0 +1,36 @@
+# One changed-rest/native-budget trial
+
+The bounded proposal is four degrees of outward rest placement for each upper arm, with a common native inward posture cap of zero. Elbows, wrists, fingers, hips and the Sway chain retain their authored local specifications. The three canonical pose names refer to one explicitly experiment-bound family in a disposable page; accepted pose files and production behavior are unchanged.
+
+This choice is supported by a recorded-pose skinning counterfactual, not a prediction of fresh native motion. Exact zero change reproduces all twelve retained poses/five meshes. Four degrees produces positive selected body and complete positive-hand-support/clothing certificates at initial A0 and retained B455/637/720. The worst measured hand bound is 5.631879 mm. Three degrees remains unproven at the worst left-hand witness, while 3.5 degrees has only a 0.417262 mm bound. Four is the smallest tested whole-degree choice passing these samples; no monotonic interval, optimal angle or product clearance margin has been proved. The 3,389-face-per-side hand closure includes every incident face with any positive hand/finger weight, including boundaries, and contains the older 3,166-face region.
+
+The old B filter preserved counterfactual pre-filter posture telemetry. This trial instead reduces the native budget before initialization completes. Native Posture writes the actual clamped rotations and telemetry; native Gesture reads them, so its yield and final output may change. Both sides use the same cap because the current Gesture implementation reads the left posture spread as representative. The nonnegative, native-bounded cap condition and fresh cache bindings belong to the candidate wrapper's source/CPU admission.
+
+Root's new runtime imports the already verified native channel-preparation routine and original Showcase startup. It preserves the four pose consumers, source/asset response binding, one initial zero-time step, frame-1 dress/preparation boundary, historical capture setup, seeded happy/angry command prefix, 720 steps at 60 Hz, 109 numerical samples and 721 complete owner-state records. The original A observer is passthrough: every returned native owner output must equal its accumulated effective output. No suppression filter is selected.
+
+Before interpreting a capture, require the one frozen candidate family/cap, unchanged native sources and asset bytes, original visible configuration, fixed mesh/topology/body masks, rig identity/palette shape, finite positions/matrices, exact clocks/frame/commands/schedules, owner metadata and PRNG trajectories. All owner morph contributions remain exact except the source-declared eight Gaze eyeLook channels and nine FacialIdle lid/up-brow channels that follow committed head motion. Other owners remain exact even on those same channel names; the final-vector exception is only their 17-channel union. Gaze/FacialIdle non-morph output also remains exact. Every permitted difference is retained without a numerical tolerance. Camera/projection/view must remain equal at every numerical sample. Any unexpected divergence stops for source-level explanation. Expected pose/cache/posture/gesture/COM differences remain recorded in full; they are not hidden by copying control outputs.
+
+The first primary capture does not add screenshots or temporary cameras. Its geometry/owner/physical records support a separate audit of exactly which owners and bones changed. The postprocessor admits the explicit reviewed manifest, source archive, complete sample lists/states and successful native retirement before measuring the original crossing selections across 109 samples. All 109 numerical samples also receive fixed declared-body/full-distal and complete positive-hand-support/clothing corridor reports, because zero crossings can miss an enclosed hand. Six selected initial/happy/angry/return witnesses additionally retain complete distal/clothing and legacy-hand comparisons for the known sleeve relationship. A source-bound independent audit must explain altered native posture and gesture yield.
+
+Full distal/clothing exterior certificates still fail on proximal skin inside the sleeve. Preserve every failed face and do not substitute a hand-only pass for whole-clothing qualification. The declared body target also retains its documented mixed-torso coverage hole. Zero crossings do not establish clearance or exclude containment, and a failed conservative corridor is not proof of penetration. Numerical evidence cannot approve the ordinary appearance.
+
+Only after admitting this primary trace, capture a separate fresh matched visual replay with full-body and bilateral hand/hip views. It must match its own primary geometry and owner states, with camera-only draws preserving physical state. Review coherent hands, relaxed arm silhouette, elbow/wrist form, gesture intent, entry/release and foot/ground behavior. Sampled clips/stills have explicit limits; do not label them exhaustive motion or human-perceptual qualification. A failed candidate remains an experiment, with accepted defaults preserved. No reset/rebind/outfit/identity-reuse or broader body/style claim follows from a disposable trace.
+
+Root alone owns browser/GPU capture. The critic reviews source and native/rendered evidence independently. Complete or reject this coherent slice before extending it; no additional parameter sweep, asset promotion or dependency change follows automatically.
+
+The first native attempt correctly stopped at step2 under the original overstrong whole-morph equality rule. Changed native whole-body mass response reached Gaze through committed head rotation, then FacialIdle through shared gaze pitch. The independent audit and critic verified that dependency and the exact changed-owner set. V1 remains rejected as an incomplete capture with clean retirement; the candidate pose/cap is unchanged. V2 applies the owner-specific rule above and additionally preserves a direct failed semantic/partial-state record plus same-state physical/render counters if any future check stops. See CRITIQUE-MORPH-INVARIANT.md and rejected-native-v1/.
+
+## Native output-status dependency discovered in v2
+
+The v2 trace stopped at492 with493 retained states and77 geometry samples. Its frozen source
+and partial state are preserved; see rejected-native-v2/receipt.json and the independent
+owner-audit/stopped-step492-v2.json. Native Gesture applies its fixed0.05-degree negligible
+shoulder cutoff *after* calculating and reporting truthful posture yield. Accepted yield0.35
+produces0.02409473262643264degrees; candidate yield1 produces0.06884209321837896degrees.
+Therefore the accepted owner returns null while the candidate returns its native contribution.
+No numerical tolerance, pose/cap change, threshold adjustment or fabricated accepted output
+is justified. Admit only a Gesture status mismatch reproduced by the exact pinned native
+formula for both observed states, with fixed amplitude1 and unchanged native configuration
+proved by actual runtime readback plus the existing lifetime guard. All other owner statuses,
+schedules, PRNG state, metadata and nondependent morph contributions remain exact. A completed
+future replay is still collection evidence; full native geometry and visual review remain gates.

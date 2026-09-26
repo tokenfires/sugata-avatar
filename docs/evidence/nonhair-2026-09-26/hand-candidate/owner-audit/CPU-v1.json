@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "scope": "Pure comparator controls on four decoded native accepted records; no candidate result or native capture.",
+  "passed": 8,
+  "tests": [
+    "untouched native records give no changed owner or palette entry",
+    "nonselected owner change is surfaced with exact channel/range and both raw/effective",
+    "channel-map order changes are retained even when name/value map is equal",
+    "Root and final palette bone changes cannot be hidden by a36-bone arm subset",
+    "filtered output is rejected",
+    "PRNG and schedule changes are rejected independently",
+    "stale nonreturned contribution is rejected",
+    "nonzero inward native telemetry is rejected at commoncap0"
+  ],
+  "input": {
+    "reportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+    "statesSHA256": "0dc544679d01b3fe6973adf5740b576722659750fd58ec882040e0eadc3facc7",
+    "decodedSHA256": "4a87e6d19c4823649b28d2818bda9e5e532c69604ad24cae87f77509692c47f7"
+  },
+  "sourceHashes": {
+    "compare-owner-states.mjs": "eb1b60f4c8acda94e01c79618182b91f93c9a353b3a761fcefa099b4ff6c9c6b",
+    "compare-owner-states.selftest.mjs": "3f9abe3dd8cf072a4b53775a1b776de199a49e2440002d7555fd0e8b5ff3ab86"
+  }
+}

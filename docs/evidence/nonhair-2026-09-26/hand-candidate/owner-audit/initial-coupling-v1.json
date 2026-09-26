@@ -1,0 +1,1112 @@
+{
+  "version": 1,
+  "completed": true,
+  "failedAttemptOnly": true,
+  "inputReceiptSHA256": "9ba0cf99d2cb42053a5b11e51136c3c009cdade83f48fae610e212b528c5a75a",
+  "sourceHashes": {
+    "packages/core/src/figure/BodyMass.js": "c20eb94dc1bd3bad06ee89be4f815f2ad322870a619960e9b69b3c3b1efb0d22",
+    "packages/core/src/figure/Skeleton.js": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+  },
+  "auditSourceSHA256": "a3237b74e59ce5baa49423eab43eb33f36ec4faa76a3bfac6ea94ee86bc0ec59",
+  "values": [
+    {
+      "phase": "prepared-native-frame1",
+      "model": "Source-native BodyMass evaluated on exact retained native world matrices; not a captured Sway calibration cache.",
+      "reference": {
+        "mass": 1,
+        "centreOfMass": [
+          -0.02693901030412908,
+          0.9452074506638801,
+          0.03193882889907623
+        ],
+        "segments": [
+          {
+            "name": "headNeck",
+            "mass": 0.081,
+            "centre": [
+              -0.02962448571101889,
+              1.5521523760001013,
+              0.08704704192962773
+            ]
+          },
+          {
+            "name": "trunkLeft",
+            "mass": 0.2485,
+            "centre": [
+              0.10494270970170273,
+              1.0907742782688712,
+              0.020786691736319578
+            ]
+          },
+          {
+            "name": "trunkRight",
+            "mass": 0.2485,
+            "centre": [
+              -0.16505044206640634,
+              1.091995693451065,
+              0.025150954008454452
+            ]
+          },
+          {
+            "name": "upperArmLeft",
+            "mass": 0.028,
+            "centre": [
+              0.15976324566868194,
+              1.2105251193283955,
+              0.031301165144153834
+            ]
+          },
+          {
+            "name": "upperArmRight",
+            "mass": 0.028,
+            "centre": [
+              -0.2198777288724334,
+              1.211051733108272,
+              0.03778645436118526
+            ]
+          },
+          {
+            "name": "foreArmLeft",
+            "mass": 0.016,
+            "centre": [
+              0.19070751043901948,
+              0.9753126734778839,
+              0.03447389983368903
+            ]
+          },
+          {
+            "name": "foreArmRight",
+            "mass": 0.016,
+            "centre": [
+              -0.25484772503217645,
+              0.9767945244586008,
+              0.04755098458237063
+            ]
+          },
+          {
+            "name": "handLeft",
+            "mass": 0.006,
+            "centre": [
+              0.1887226278212419,
+              0.7743211723096154,
+              0.06244635748086409
+            ]
+          },
+          {
+            "name": "handRight",
+            "mass": 0.006,
+            "centre": [
+              -0.2562519848339473,
+              0.7772407096498085,
+              0.08274542423713169
+            ]
+          },
+          {
+            "name": "thighLeft",
+            "mass": 0.1,
+            "centre": [
+              0.07350929922051522,
+              0.6974200458455706,
+              0.016271115448702148
+            ]
+          },
+          {
+            "name": "thighRight",
+            "mass": 0.1,
+            "centre": [
+              -0.1244225721701109,
+              0.6998815914784542,
+              0.022631184149070734
+            ]
+          },
+          {
+            "name": "shankLeft",
+            "mass": 0.0465,
+            "centre": [
+              0.07463287072567755,
+              0.2981029296412353,
+              0.02744548754935264
+            ]
+          },
+          {
+            "name": "shankRight",
+            "mass": 0.0465,
+            "centre": [
+              -0.10125399465937966,
+              0.3013943511378515,
+              0.0384875594296189
+            ]
+          },
+          {
+            "name": "footLeft",
+            "mass": 0.0145,
+            "centre": [
+              0.08424406815090017,
+              0.036516151034355945,
+              0.07573780587345645
+            ]
+          },
+          {
+            "name": "footRight",
+            "mass": 0.0145,
+            "centre": [
+              -0.09519722716877577,
+              0.04008692619812018,
+              0.08966872542214027
+            ]
+          }
+        ]
+      },
+      "candidate": {
+        "mass": 1,
+        "centreOfMass": [
+          -0.0269359476594973,
+          0.9455128655134425,
+          0.031934291078478866
+        ],
+        "segments": [
+          {
+            "name": "headNeck",
+            "mass": 0.081,
+            "centre": [
+              -0.02962448571101889,
+              1.5521523760001013,
+              0.08704704192962773
+            ]
+          },
+          {
+            "name": "trunkLeft",
+            "mass": 0.2485,
+            "centre": [
+              0.10494270970170273,
+              1.0907742782688712,
+              0.020786691736319578
+            ]
+          },
+          {
+            "name": "trunkRight",
+            "mass": 0.2485,
+            "centre": [
+              -0.16505044206640634,
+              1.091995693451065,
+              0.025150954008454452
+            ]
+          },
+          {
+            "name": "upperArmLeft",
+            "mass": 0.028,
+            "centre": [
+              0.16691334754210307,
+              1.2122053437251064,
+              0.03127573506999596
+            ]
+          },
+          {
+            "name": "upperArmRight",
+            "mass": 0.028,
+            "centre": [
+              -0.22700600684304842,
+              1.2128425593626415,
+              0.03776297247670903
+            ]
+          },
+          {
+            "name": "foreArmLeft",
+            "mass": 0.016,
+            "centre": [
+              0.21418100522518224,
+              0.9797233237992113,
+              0.034399178096028805
+            ]
+          },
+          {
+            "name": "foreArmRight",
+            "mass": 0.016,
+            "centre": [
+              -0.27823173878898655,
+              0.9815950991266099,
+              0.047492297908586625
+            ]
+          },
+          {
+            "name": "handLeft",
+            "mass": 0.006,
+            "centre": [
+              0.22621181010479433,
+              0.7790771036064146,
+              0.06233619553449775
+            ]
+          },
+          {
+            "name": "handRight",
+            "mass": 0.006,
+            "centre": [
+              -0.29357118730357146,
+              0.782625750270109,
+              0.08268329432141434
+            ]
+          },
+          {
+            "name": "thighLeft",
+            "mass": 0.1,
+            "centre": [
+              0.07350929922051522,
+              0.6974200458455706,
+              0.016271115448702148
+            ]
+          },
+          {
+            "name": "thighRight",
+            "mass": 0.1,
+            "centre": [
+              -0.1244225721701109,
+              0.6998815914784542,
+              0.022631184149070734
+            ]
+          },
+          {
+            "name": "shankLeft",
+            "mass": 0.0465,
+            "centre": [
+              0.07463287072567755,
+              0.2981029296412353,
+              0.02744548754935264
+            ]
+          },
+          {
+            "name": "shankRight",
+            "mass": 0.0465,
+            "centre": [
+              -0.10125399465937966,
+              0.3013943511378515,
+              0.0384875594296189
+            ]
+          },
+          {
+            "name": "footLeft",
+            "mass": 0.0145,
+            "centre": [
+              0.08424406815090017,
+              0.036516151034355945,
+              0.07573780587345645
+            ]
+          },
+          {
+            "name": "footRight",
+            "mass": 0.0145,
+            "centre": [
+              -0.09519722716877577,
+              0.04008692619812018,
+              0.08966872542214027
+            ]
+          }
+        ]
+      },
+      "centreDeltaMetres": [
+        0.0000030626446317801037,
+        0.00030541484956236875,
+        -0.000004537820597366737
+      ],
+      "joints": {
+        "pelvis": {
+          "referencePosition": [
+            -0.0306,
+            0.8770863461263135,
+            0.01321665129638316
+          ],
+          "candidatePosition": [
+            -0.0306,
+            0.8770863461263135,
+            0.01321665129638316
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "spine_01": {
+          "referencePosition": [
+            -0.030576475297301158,
+            0.9565152007224962,
+            -0.02537907057594087
+          ],
+          "candidatePosition": [
+            -0.030576475297301158,
+            0.9565152007224962,
+            -0.02537907057594087
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "spine_03": {
+          "referencePosition": [
+            -0.030221938277008406,
+            1.0978283106287277,
+            -0.005778143626215626
+          ],
+          "candidatePosition": [
+            -0.030221938277008406,
+            1.0978283106287277,
+            -0.005778143626215626
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "neck_01": {
+          "referencePosition": [
+            -0.02934907414216735,
+            1.41575498127473,
+            0.02124133512756863
+          ],
+          "candidatePosition": [
+            -0.02934907414216735,
+            1.41575498127473,
+            0.02124133512756863
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "head": {
+          "referencePosition": [
+            -0.02954579669134702,
+            1.5131816917928524,
+            0.06824541141475371
+          ],
+          "candidatePosition": [
+            -0.02954579669134702,
+            1.5131816917928524,
+            0.06824541141475371
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "upperarm_l": {
+          "referencePosition": [
+            0.13930003422728218,
+            1.3137707379077066,
+            0.038690622589246576
+          ],
+          "candidatePosition": [
+            0.13930003422728218,
+            1.3137707379077066,
+            0.038690622589246576
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0.06776508835938277
+        },
+        "lowerarm_l": {
+          "referencePosition": [
+            0.18623400542315321,
+            1.0769688604322225,
+            0.021742325696832036
+          ],
+          "candidatePosition": [
+            0.20263332164659614,
+            1.080822586112752,
+            0.021683999838671763
+          ],
+          "translationDeltaMetres": [
+            0.016399316223442928,
+            0.0038537256805295517,
+            -0.00005832585816027344
+          ],
+          "translationDistanceMetres": 0.016846132378768176,
+          "maximumMatrixComponentDelta": 0.0689840880216152
+        },
+        "hand_l": {
+          "referencePosition": [
+            0.1966375054600515,
+            0.8405591233291093,
+            0.051350637643011086
+          ],
+          "candidatePosition": [
+            0.22948839973633128,
+            0.84570802259289,
+            0.05125418183252535
+          ],
+          "translationDeltaMetres": [
+            0.032850894276279796,
+            0.005148899263780704,
+            -0.00009645581048573632
+          ],
+          "translationDistanceMetres": 0.03325209349955654,
+          "maximumMatrixComponentDelta": 0.06650478468110929
+        },
+        "upperarm_r": {
+          "referencePosition": [
+            -0.1977988463092658,
+            1.314088392611374,
+            0.04316926153457288
+          ],
+          "candidatePosition": [
+            -0.1977988463092658,
+            1.314088392611374,
+            0.04316926153457288
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0.06755825251226527
+        },
+        "lowerarm_r": {
+          "referencePosition": [
+            -0.24843848521561349,
+            1.0777657790721493,
+            0.030823373522215945
+          ],
+          "candidatePosition": [
+            -0.26478774661610666,
+            1.0818731787381344,
+            0.03076951598901359
+          ],
+          "translationDeltaMetres": [
+            -0.01634926140049317,
+            0.0041073996659850565,
+            -0.0000538575332023547
+          ],
+          "translationDistanceMetres": 0.016857401371257453,
+          "maximumMatrixComponentDelta": 0.06859962210875412
+        },
+        "hand_r": {
+          "referencePosition": [
+            -0.2633436940913413,
+            0.8429489078778505,
+            0.06972479459234313
+          ],
+          "candidatePosition": [
+            -0.29605284469257154,
+            0.8486683424322636,
+            0.06965970649964856
+          ],
+          "translationDeltaMetres": [
+            -0.03270915060123025,
+            0.00571943455441315,
+            -0.00006508809269456517
+          ],
+          "translationDistanceMetres": 0.033205492032734395,
+          "maximumMatrixComponentDelta": 0.06612188411767123
+        },
+        "foot_l": {
+          "referencePosition": [
+            0.07109049203458842,
+            0.06732355324188588,
+            0.01912085275987696
+          ],
+          "candidatePosition": [
+            0.07109049203458842,
+            0.06732355324188588,
+            0.01912085275987696
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "foot_r": {
+          "referencePosition": [
+            -0.08442645224473315,
+            0.07112489482554729,
+            0.03267551272587514
+          ],
+          "candidatePosition": [
+            -0.08442645224473315,
+            0.07112489482554729,
+            0.03267551272587514
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        }
+      }
+    },
+    {
+      "phase": "retained-step0-native-frame2",
+      "model": "Source-native BodyMass evaluated on exact retained native world matrices; not a captured Sway calibration cache.",
+      "reference": {
+        "mass": 1,
+        "centreOfMass": [
+          -0.0269393235432943,
+          0.9452073437997278,
+          0.03193884837388791
+        ],
+        "segments": [
+          {
+            "name": "headNeck",
+            "mass": 0.081,
+            "centre": [
+              -0.02962448571101889,
+              1.5521523760001013,
+              0.08704704192962773
+            ]
+          },
+          {
+            "name": "trunkLeft",
+            "mass": 0.2485,
+            "centre": [
+              0.10494270970170273,
+              1.0907742782688712,
+              0.020786691736319578
+            ]
+          },
+          {
+            "name": "trunkRight",
+            "mass": 0.2485,
+            "centre": [
+              -0.16505044206640634,
+              1.091995693451065,
+              0.025150954008454452
+            ]
+          },
+          {
+            "name": "upperArmLeft",
+            "mass": 0.028,
+            "centre": [
+              0.15976324566868194,
+              1.2105251193283955,
+              0.031301165144153834
+            ]
+          },
+          {
+            "name": "upperArmRight",
+            "mass": 0.028,
+            "centre": [
+              -0.2198777288724334,
+              1.211051733108272,
+              0.03778645436118526
+            ]
+          },
+          {
+            "name": "foreArmLeft",
+            "mass": 0.016,
+            "centre": [
+              0.19070751043901948,
+              0.9753126734778839,
+              0.03447389983368903
+            ]
+          },
+          {
+            "name": "foreArmRight",
+            "mass": 0.016,
+            "centre": [
+              -0.25484772503217645,
+              0.9767945244586008,
+              0.04755098458237063
+            ]
+          },
+          {
+            "name": "handLeft",
+            "mass": 0.006,
+            "centre": [
+              0.18871653315589637,
+              0.7743237739833913,
+              0.062446200585521985
+            ]
+          },
+          {
+            "name": "handRight",
+            "mass": 0.006,
+            "centre": [
+              -0.2562980966961387,
+              0.777220297283971,
+              0.08274882693442084
+            ]
+          },
+          {
+            "name": "thighLeft",
+            "mass": 0.1,
+            "centre": [
+              0.07350929922051522,
+              0.6974200458455706,
+              0.016271115448702148
+            ]
+          },
+          {
+            "name": "thighRight",
+            "mass": 0.1,
+            "centre": [
+              -0.1244225721701109,
+              0.6998815914784542,
+              0.022631184149070734
+            ]
+          },
+          {
+            "name": "shankLeft",
+            "mass": 0.0465,
+            "centre": [
+              0.07463287072567755,
+              0.2981029296412353,
+              0.02744548754935264
+            ]
+          },
+          {
+            "name": "shankRight",
+            "mass": 0.0465,
+            "centre": [
+              -0.10125399465937966,
+              0.3013943511378515,
+              0.0384875594296189
+            ]
+          },
+          {
+            "name": "footLeft",
+            "mass": 0.0145,
+            "centre": [
+              0.08424406815090017,
+              0.036516151034355945,
+              0.07573780587345645
+            ]
+          },
+          {
+            "name": "footRight",
+            "mass": 0.0145,
+            "centre": [
+              -0.09519722716877577,
+              0.04008692619812018,
+              0.08966872542214027
+            ]
+          }
+        ]
+      },
+      "candidate": {
+        "mass": 1,
+        "centreOfMass": [
+          -0.026936269782124427,
+          0.9455127756578393,
+          0.03193431034605892
+        ],
+        "segments": [
+          {
+            "name": "headNeck",
+            "mass": 0.081,
+            "centre": [
+              -0.02962448571101889,
+              1.5521523760001013,
+              0.08704704192962773
+            ]
+          },
+          {
+            "name": "trunkLeft",
+            "mass": 0.2485,
+            "centre": [
+              0.10494270970170273,
+              1.0907742782688712,
+              0.020786691736319578
+            ]
+          },
+          {
+            "name": "trunkRight",
+            "mass": 0.2485,
+            "centre": [
+              -0.16505044206640634,
+              1.091995693451065,
+              0.025150954008454452
+            ]
+          },
+          {
+            "name": "upperArmLeft",
+            "mass": 0.028,
+            "centre": [
+              0.16691334754210307,
+              1.2122053437251064,
+              0.03127573506999596
+            ]
+          },
+          {
+            "name": "upperArmRight",
+            "mass": 0.028,
+            "centre": [
+              -0.22700600684304842,
+              1.2128425593626415,
+              0.03776297247670903
+            ]
+          },
+          {
+            "name": "foreArmLeft",
+            "mass": 0.016,
+            "centre": [
+              0.21418100522518224,
+              0.9797233237992113,
+              0.034399178096028805
+            ]
+          },
+          {
+            "name": "foreArmRight",
+            "mass": 0.016,
+            "centre": [
+              -0.27823173878898655,
+              0.9815950991266099,
+              0.047492297908586625
+            ]
+          },
+          {
+            "name": "handLeft",
+            "mass": 0.006,
+            "centre": [
+              0.22620554882416377,
+              0.7790792738341845,
+              0.06233603822931046
+            ]
+          },
+          {
+            "name": "handRight",
+            "mass": 0.006,
+            "centre": [
+              -0.2936186131274622,
+              0.7826086041084613,
+              0.08268666288994343
+            ]
+          },
+          {
+            "name": "thighLeft",
+            "mass": 0.1,
+            "centre": [
+              0.07350929922051522,
+              0.6974200458455706,
+              0.016271115448702148
+            ]
+          },
+          {
+            "name": "thighRight",
+            "mass": 0.1,
+            "centre": [
+              -0.1244225721701109,
+              0.6998815914784542,
+              0.022631184149070734
+            ]
+          },
+          {
+            "name": "shankLeft",
+            "mass": 0.0465,
+            "centre": [
+              0.07463287072567755,
+              0.2981029296412353,
+              0.02744548754935264
+            ]
+          },
+          {
+            "name": "shankRight",
+            "mass": 0.0465,
+            "centre": [
+              -0.10125399465937966,
+              0.3013943511378515,
+              0.0384875594296189
+            ]
+          },
+          {
+            "name": "footLeft",
+            "mass": 0.0145,
+            "centre": [
+              0.08424406815090017,
+              0.036516151034355945,
+              0.07573780587345645
+            ]
+          },
+          {
+            "name": "footRight",
+            "mass": 0.0145,
+            "centre": [
+              -0.09519722716877577,
+              0.04008692619812018,
+              0.08966872542214027
+            ]
+          }
+        ]
+      },
+      "centreDeltaMetres": [
+        0.0000030537611698730482,
+        0.0003054318581114934,
+        -0.000004538027828994429
+      ],
+      "joints": {
+        "pelvis": {
+          "referencePosition": [
+            -0.0306,
+            0.8770863461263135,
+            0.01321665129638316
+          ],
+          "candidatePosition": [
+            -0.0306,
+            0.8770863461263135,
+            0.01321665129638316
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "spine_01": {
+          "referencePosition": [
+            -0.030576475297301158,
+            0.9565152007224962,
+            -0.02537907057594087
+          ],
+          "candidatePosition": [
+            -0.030576475297301158,
+            0.9565152007224962,
+            -0.02537907057594087
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "spine_03": {
+          "referencePosition": [
+            -0.030221938277008406,
+            1.0978283106287277,
+            -0.005778143626215626
+          ],
+          "candidatePosition": [
+            -0.030221938277008406,
+            1.0978283106287277,
+            -0.005778143626215626
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "neck_01": {
+          "referencePosition": [
+            -0.02934907414216735,
+            1.41575498127473,
+            0.02124133512756863
+          ],
+          "candidatePosition": [
+            -0.02934907414216735,
+            1.41575498127473,
+            0.02124133512756863
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "head": {
+          "referencePosition": [
+            -0.02954579669134702,
+            1.5131816917928524,
+            0.06824541141475371
+          ],
+          "candidatePosition": [
+            -0.02954579669134702,
+            1.5131816917928524,
+            0.06824541141475371
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "upperarm_l": {
+          "referencePosition": [
+            0.13930003422728218,
+            1.3137707379077066,
+            0.038690622589246576
+          ],
+          "candidatePosition": [
+            0.13930003422728218,
+            1.3137707379077066,
+            0.038690622589246576
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0.06776508835938277
+        },
+        "lowerarm_l": {
+          "referencePosition": [
+            0.18623400542315321,
+            1.0769688604322225,
+            0.021742325696832036
+          ],
+          "candidatePosition": [
+            0.20263332164659614,
+            1.080822586112752,
+            0.021683999838671763
+          ],
+          "translationDeltaMetres": [
+            0.016399316223442928,
+            0.0038537256805295517,
+            -0.00005832585816027344
+          ],
+          "translationDistanceMetres": 0.016846132378768176,
+          "maximumMatrixComponentDelta": 0.0689840880216152
+        },
+        "hand_l": {
+          "referencePosition": [
+            0.1966375054600515,
+            0.8405591233291093,
+            0.051350637643011086
+          ],
+          "candidatePosition": [
+            0.22948839973633128,
+            0.84570802259289,
+            0.05125418183252535
+          ],
+          "translationDeltaMetres": [
+            0.032850894276279796,
+            0.005148899263780704,
+            -0.00009645581048573632
+          ],
+          "translationDistanceMetres": 0.03325209349955654,
+          "maximumMatrixComponentDelta": 0.06650478468110929
+        },
+        "upperarm_r": {
+          "referencePosition": [
+            -0.1977988463092658,
+            1.314088392611374,
+            0.04316926153457288
+          ],
+          "candidatePosition": [
+            -0.1977988463092658,
+            1.314088392611374,
+            0.04316926153457288
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0.06755825251226527
+        },
+        "lowerarm_r": {
+          "referencePosition": [
+            -0.24843848521561349,
+            1.0777657790721493,
+            0.030823373522215945
+          ],
+          "candidatePosition": [
+            -0.26478774661610666,
+            1.0818731787381344,
+            0.03076951598901359
+          ],
+          "translationDeltaMetres": [
+            -0.01634926140049317,
+            0.0041073996659850565,
+            -0.0000538575332023547
+          ],
+          "translationDistanceMetres": 0.016857401371257453,
+          "maximumMatrixComponentDelta": 0.06859962210875412
+        },
+        "hand_r": {
+          "referencePosition": [
+            -0.2633436940913413,
+            0.8429489078778505,
+            0.06972479459234313
+          ],
+          "candidatePosition": [
+            -0.29605284469257154,
+            0.8486683424322636,
+            0.06965970649964856
+          ],
+          "translationDeltaMetres": [
+            -0.03270915060123025,
+            0.00571943455441315,
+            -0.00006508809269456517
+          ],
+          "translationDistanceMetres": 0.033205492032734395,
+          "maximumMatrixComponentDelta": 0.06612188411767123
+        },
+        "foot_l": {
+          "referencePosition": [
+            0.07109049203458842,
+            0.06732355324188588,
+            0.01912085275987696
+          ],
+          "candidatePosition": [
+            0.07109049203458842,
+            0.06732355324188588,
+            0.01912085275987696
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        },
+        "foot_r": {
+          "referencePosition": [
+            -0.08442645224473315,
+            0.07112489482554729,
+            0.03267551272587514
+          ],
+          "candidatePosition": [
+            -0.08442645224473315,
+            0.07112489482554729,
+            0.03267551272587514
+          ],
+          "translationDeltaMetres": [
+            0,
+            0,
+            0
+          ],
+          "translationDistanceMetres": 0,
+          "maximumMatrixComponentDelta": 0
+        }
+      }
+    }
+  ],
+  "limit": "These are retained prepared/step0 matrices and a source model evaluation, not a reenactment of bind-time pendulum probes or a stored step1 head trace. COM lever/cache values and exact step1→step2 causal decomposition remain unrecorded."
+}

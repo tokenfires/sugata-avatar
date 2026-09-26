@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "scope": "Pure comparator controls on four decoded native accepted records; no candidate result or native capture.",
+  "passed": 14,
+  "tests": [
+    "untouched native records give no changed owner or palette entry",
+    "nonselected owner change is surfaced with exact channel/range and both raw/effective",
+    "channel-map order changes are retained even when name/value map is equal",
+    "Root and final palette bone changes cannot be hidden by a36-bone arm subset",
+    "filtered output is rejected",
+    "PRNG and schedule changes are rejected independently",
+    "stale nonreturned contribution is rejected",
+    "nonzero inward native telemetry is rejected at commoncap0",
+    "Gaze-only dependent eye channel change is admitted and its actual final fold checked",
+    "FacialIdle-dependent lid change admitted but mouth writer stays protected",
+    "Expression cannot borrow eyeWide exception owned by FacialIdle",
+    "Allowed owner change does not excuse an invented actual final vector",
+    "Gaze non-morph output and arbitrary status changes are rejected",
+    "Native fold uses raw epsilon before weight and preserves small cancellation residual"
+  ],
+  "input": {
+    "reportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+    "statesSHA256": "0dc544679d01b3fe6973adf5740b576722659750fd58ec882040e0eadc3facc7",
+    "decodedSHA256": "4a87e6d19c4823649b28d2818bda9e5e532c69604ad24cae87f77509692c47f7"
+  },
+  "sourceHashes": {
+    "compare-owner-states.mjs": "0ffe7db7b605b17672d4e0799e5a0e6eb995bf2aeedcb2e7fd8c444bc570e6c7",
+    "compare-owner-states.selftest.mjs": "303fbef9504e8e2b0e18573418c22ade8144c99cc5006f9cabe7019a637e0cc8",
+    "compare-morph-writers.mjs": "f397cfbb6abe12e7c6afb2cf5c9773c6f696b6d34872e0c79b6194e4e6b00491"
+  }
+}

@@ -1,0 +1,469 @@
+{
+  "reviewer": "/root/critic",
+  "completed": true,
+  "visualReportSHA256": "23091b73c43edb4ede16ec640cd1b417535d71791eaa04580ef885b7f9be848c",
+  "acceptedVisualReportSHA256": "5fc7296aae2c6f657fb1fac6b4c4830d87f0ce527ce5c06bbf17ee90a4a5e82b",
+  "geometryAnalysisSHA256": "5a9c1d60ef4499b0c90485f7c4fb12e6845b580a13ed96265e6bd7f5ffeed5e3",
+  "viewedAndHashVerifiedPNGs": [
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0000.png",
+      "sha256": "1ba1b0ff786826fc4ed34c4f2facb0240aa78194ec6c6d3dc430f889ebf46c51",
+      "step": 0,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/left-hand-hip-0000.png",
+      "sha256": "282babfd50710a4b4b6c22d16b28e5fa6c49ac5ab6360c0b5faa1bdb5f259194",
+      "step": 0,
+      "view": "left-hand-hip"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/right-hand-hip-0000.png",
+      "sha256": "35f1cbe45b0d0dd3e98c373fac93e0bb8ef8a6880f8432706a67ab06c3df8b26",
+      "step": 0,
+      "view": "right-hand-hip"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0098.png",
+      "sha256": "aac8a1d8ab9aab2a64fda3def76919fb17846d9976e4c2dd9645a0c7a115e3ee",
+      "step": 98,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0270.png",
+      "sha256": "4adc2a95eac183e7812ac4c80f058c73dec6f8fb602b09675fc0bf4fc3c5edf9",
+      "step": 270,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0455.png",
+      "sha256": "09c7096c38a76bcbb772cd1350a50c36b3058e77db63c95ef2b4efe74717d82b",
+      "step": 455,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/left-hand-hip-0455.png",
+      "sha256": "2214b641a81ca851fb73d050ee11ccd1c16eb6e0fd612386b23683a8ccee6823",
+      "step": 455,
+      "view": "left-hand-hip"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/right-hand-hip-0455.png",
+      "sha256": "2473055f7be51ebd40c5cf13b04294344e5a14cfd2ebc24390e0f8f94e5edeee",
+      "step": 455,
+      "view": "right-hand-hip"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0465.png",
+      "sha256": "392923733947f982986d1fc7d7de2df75e3496013ccd6ef342c44cceddc73586",
+      "step": 465,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0637.png",
+      "sha256": "51cf645f877d84617bfc0d3d6fa3d40c066e9ff47392511a76c72ba37b312d9e",
+      "step": 637,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/left-hand-hip-0637.png",
+      "sha256": "8b7caf3d2f323ba7a2ad8141a8846d8eef7496ea9e168eed0c451d06ef7e6f75",
+      "step": 637,
+      "view": "left-hand-hip"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/right-hand-hip-0637.png",
+      "sha256": "9d7d71885faf9ec455dd845c6515109bc3cece655e6c36f441b79620df487ad5",
+      "step": 637,
+      "view": "right-hand-hip"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0648.png",
+      "sha256": "b5cd15332164f8849d51a78bd3447762a82fdd73e86d92aa237554c4ab41d463",
+      "step": 648,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0684.png",
+      "sha256": "8b2e9a78fb53bd86a03c82e4df5ef850bc7ba7ef3973c9c0752a2c436b7b60c9",
+      "step": 684,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-attribution-2026-09-26/views-v4/A-views/front-full-body-0720.png",
+      "sha256": "ecb79dabee729bb1fd8963b1440ad215ada793527b63e44c3802e458d51daca1",
+      "step": 720,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0000.png",
+      "sha256": "fa5abae08e0d15d64542ecb8980372413a11b7e540d5667184eea95ed9922ecc",
+      "step": 0,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/left-hand-hip-0000.png",
+      "sha256": "05b345dcaa6a4905c94de0d34758e1edfc392ee86f52a3a2248f6a1c8bd5fd70",
+      "step": 0,
+      "view": "left-hand-hip"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/right-hand-hip-0000.png",
+      "sha256": "3a4da0271a213dbe60bb8cdc4bfcca2192b9c0c8468a634f50ceae1df6bcd64f",
+      "step": 0,
+      "view": "right-hand-hip"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0098.png",
+      "sha256": "90693b63a3b7cf5e04d8507775f576ebf163b2be6c73517e0bd855b1905ceda1",
+      "step": 98,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0270.png",
+      "sha256": "5d44931441bec2aa22cc9fef72ae0d59e34e892824a78f30e21cb7264ed875c3",
+      "step": 270,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0455.png",
+      "sha256": "dcf4bcde40fc1ef0c70da36c92a9e0fba5cc05ee7ac3adf2213c76544436f5ac",
+      "step": 455,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/left-hand-hip-0455.png",
+      "sha256": "051a4ca7e6c54cb9be91f344713a133a75bcc81cc1ae8bdc8f0b3f660b60c540",
+      "step": 455,
+      "view": "left-hand-hip"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/right-hand-hip-0455.png",
+      "sha256": "25609b3d88b7d3d0bc9da3247d44ad5910a3d52fadad0c5bb454a8b817072600",
+      "step": 455,
+      "view": "right-hand-hip"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0465.png",
+      "sha256": "2b55eb7d7e940dc8bdc81b64093211d23d73d9be300d8f7a611e77d43ef5130d",
+      "step": 465,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0637.png",
+      "sha256": "e8ac8933444b451438773b181ad79cddf2574a1bbcb9e9765f6d3dbff7fccf63",
+      "step": 637,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/left-hand-hip-0637.png",
+      "sha256": "d9696d1f51b637686223714900073ccf3abc3d240b3b112fcaf3e4131b478838",
+      "step": 637,
+      "view": "left-hand-hip"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/right-hand-hip-0637.png",
+      "sha256": "c9660bbe3c9b25e2533a640a6021cd38303fa9fa93c2e1b30d46e349450bd44e",
+      "step": 637,
+      "view": "right-hand-hip"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0648.png",
+      "sha256": "9f05142e0f06c1ceb72a400f8a1e58e6d629bcaa11d2e2ed701ea02b27a01032",
+      "step": 648,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0684.png",
+      "sha256": "6c7a17ac1eec1c880ca5138cc773bc9c2f1c2d8acf3678b57400545794d20d05",
+      "step": 684,
+      "view": "front-full-body"
+    },
+    {
+      "file": "captures/hand-candidate-2026-09-26/candidate-views-v1/front-full-body-0720.png",
+      "sha256": "09c28cdddeed7db4b912a1b4c3f3bfab4b94aa5904bbf31fc00b7a38b8981b35",
+      "step": 720,
+      "view": "front-full-body"
+    }
+  ],
+  "nativeBoundWitnesses": [
+    {
+      "side": "l",
+      "name": "allWornPositiveHandBoundary",
+      "step": 592,
+      "lowerBoundMetres": 0.000516831874847412,
+      "independentUnroundedWitnessBoundMetres": 0.0005168318748474121,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 16444,
+          "ids": [
+            9440,
+            9286,
+            9282
+          ],
+          "points": [
+            [
+              0.15271863341331482,
+              0.6772034168243408,
+              0.017227692529559135
+            ],
+            [
+              0.15184614062309265,
+              0.6771290302276611,
+              0.020345885306596756
+            ],
+            [
+              0.1508268266916275,
+              0.6784486770629883,
+              0.020591646432876587
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "female_casualsuit01",
+          "face": 2810,
+          "ids": [
+            1461,
+            2022,
+            2150
+          ],
+          "points": [
+            [
+              0.1351446509361267,
+              0.6438600420951843,
+              0.005611092783510685
+            ],
+            [
+              0.1399954855442047,
+              0.6971849799156189,
+              0.0038678543642163277
+            ],
+            [
+              0.1503099948167801,
+              0.6987721920013428,
+              0.04794596508145332
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.000516831874847412,
+          "y": -0.021643161773681644,
+          "z": -0.016723792068660263
+        },
+        "separationLowerBoundMetres": 0.000516831874847412
+      }
+    },
+    {
+      "side": "l",
+      "name": "declaredBodyDistal",
+      "step": 592,
+      "lowerBoundMetres": 0.004597410559654235,
+      "independentUnroundedWitnessBoundMetres": 0.004597410559654236,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 16632,
+          "ids": [
+            9438,
+            9313,
+            9404
+          ],
+          "points": [
+            [
+              0.152700737118721,
+              0.6827890276908875,
+              0.01631658710539341
+            ],
+            [
+              0.15102943778038025,
+              0.68387770652771,
+              0.021584194153547287
+            ],
+            [
+              0.1545741856098175,
+              0.6882838010787964,
+              0.021766388788819313
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "body",
+          "face": 25716,
+          "ids": [
+            14482,
+            12046,
+            12045
+          ],
+          "points": [
+            [
+              0.14252926409244537,
+              0.6890259981155396,
+              0.019648823887109756
+            ],
+            [
+              0.14394383132457733,
+              0.7183764576911926,
+              0.017662879079580307
+            ],
+            [
+              0.146432027220726,
+              0.7222589254379272,
+              0.04336538165807724
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.004597410559654235,
+          "y": 0.000742197036743164,
+          "z": -0.004103509709239007
+        },
+        "separationLowerBoundMetres": 0.004597410559654235
+      }
+    },
+    {
+      "side": "r",
+      "name": "allWornPositiveHandBoundary",
+      "step": 690,
+      "lowerBoundMetres": 0.02704823017120361,
+      "independentUnroundedWitnessBoundMetres": 0.027048230171203613,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 3206,
+          "ids": [
+            2206,
+            2216,
+            2049
+          ],
+          "points": [
+            [
+              -0.23817850649356842,
+              0.6747400760650635,
+              0.031186649575829506
+            ],
+            [
+              -0.23765996098518372,
+              0.6755629777908325,
+              0.03051474317908287
+            ],
+            [
+              -0.2362768054008484,
+              0.6761021018028259,
+              0.0344993956387043
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "female_casualsuit01",
+          "face": 2706,
+          "ids": [
+            1448,
+            2053,
+            2151
+          ],
+          "points": [
+            [
+              -0.20607301592826843,
+              0.7389000058174133,
+              0.0831042006611824
+            ],
+            [
+              -0.20922857522964478,
+              0.7406117916107178,
+              0.04358633607625961
+            ],
+            [
+              -0.20159661769866943,
+              0.696052074432373,
+              0.03948650136590004
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.02704823017120361,
+          "y": 0.019949972629547116,
+          "z": 0.004987105727195739
+        },
+        "separationLowerBoundMetres": 0.02704823017120361
+      }
+    },
+    {
+      "side": "r",
+      "name": "declaredBodyDistal",
+      "step": 493,
+      "lowerBoundMetres": 0.017469495534896847,
+      "independentUnroundedWitnessBoundMetres": 0.01746949553489685,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 2788,
+          "ids": [
+            1821,
+            1811,
+            1828
+          ],
+          "points": [
+            [
+              -0.18741390109062195,
+              1.1737098693847656,
+              0.09420213848352432
+            ],
+            [
+              -0.1879677176475525,
+              1.1667759418487549,
+              0.10649677366018295
+            ],
+            [
+              -0.19568128883838654,
+              1.1476811170578003,
+              0.101778045296669
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "body",
+          "face": 7394,
+          "ids": [
+            4320,
+            4335,
+            4336
+          ],
+          "points": [
+            [
+              -0.1699444055557251,
+              1.1511409282684326,
+              0.10592968016862869
+            ],
+            [
+              -0.16493426263332367,
+              1.133818507194519,
+              0.10286279767751694
+            ],
+            [
+              -0.16445443034172058,
+              1.1280970573425293,
+              0.1250269114971161
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.017469495534896847,
+          "y": -0.0034598112106323247,
+          "z": -0.003633975982666016
+        },
+        "separationLowerBoundMetres": 0.017469495534896847
+      }
+    }
+  ],
+  "all109": {
+    "selectedPairsZero": true,
+    "completeHandAllWornCertificates": true,
+    "declaredBodyDistalCertificates": true
+  },
+  "limits": [
+    "30 original still images directly inspected; continuous playback not independently viewed.",
+    "Recomputed all summary minima and four native witness face/coordinate/AABB bindings; did not rerun the full geometric operator.",
+    "Positive values are conservative lower bounds for declared sets, not necessarily tight global triangle distances or temporal robustness margins."
+  ]
+}

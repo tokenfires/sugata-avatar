@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "completed": true,
+  "kind": "exact-native-Gesture-return-status-exception",
+  "node": "v24.13.1",
+  "command": "node docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-gesture-status.selftest.mjs",
+  "groups": [
+    "exact stopped native492 inputs explain both return decisions without mutating raw/null evidence",
+    "all493 retained states keep every other owner status exact and admit only the proved492 difference",
+    "forged non-gesture owner status, metadata, disabled/errors and PRNG changes are denied",
+    "wrong yield, posture consistency, envelope, amplitude telemetry and next-double angles are denied",
+    "false Gesture return/no-return records are denied on both sides, never filled from the other trace",
+    "source drift, missing pins, schedule/clock drift and malformed native intervals are denied",
+    "actual native update and policy agree on adjacent representable times straddling the unchanged strict radian threshold"
+  ],
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-gesture-status.mjs": "a06be870a54dccdee5e858824acd3b4aac92b024e7b19a3bc70cd58a0829c8d8",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-gesture-status.selftest.mjs": "781ae3f478144eb249438c282ec0c3b0c580f39422564ce8504bde153c37b49d"
+  },
+  "sourceBindings": {
+    "packages/core/src/motion/Gesture.js": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.mjs": "614cf2db48236909337e696029cf0e4fbe743ab24c0631bb9f7998d685839f14"
+  },
+  "inputs": {
+    "candidate": {
+      "directory": "captures/hand-candidate-2026-09-26/candidate-primary-v2/",
+      "reportSHA256": "72533663f9f19b15a79114391f6559010fb4d35afdf1b71b603fc657a23bf02b",
+      "manifestSHA256": "fb4cbbb7ede347671b838287d2876ad41ec425fd1ffa209409d8e068135f3a8d",
+      "failureState": {
+        "step": 492,
+        "file": "failure-state.json.gz",
+        "sha256": "a2d06c4e72e494d3eaf539e687bbca45a8603fed93db7cc42d827b3460005d9d",
+        "decodedSHA256": "c93b1ce3fc18240343f56828d1999f5d7c724ffa1285582734d67ace9035c60f"
+      },
+      "partialStates": {
+        "file": "partial-states.json.gz",
+        "sha256": "905e334d756234e73590366b98343cb42a4400c55e7c1d7494a0a8b5e73ca011",
+        "decodedSHA256": "35183bdb732263f61e50ed5b5c265e55b1a7fcd8e91ff6518878f00bf89b804c",
+        "count": 493,
+        "partial": true
+      }
+    },
+    "reference": {
+      "directory": "captures/hand-attribution-2026-09-26/primary-v4/",
+      "reportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+      "sealSHA256": "bdc7965c78e3e0823c7ae76c0affe9298bde316bff9edc5b2ddf3b8db777577b",
+      "states": {
+        "file": "A-primary/states.json.gz",
+        "sha256": "0dc544679d01b3fe6973adf5740b576722659750fd58ec882040e0eadc3facc7",
+        "decodedSHA256": "4a87e6d19c4823649b28d2818bda9e5e532c69604ad24cae87f77509692c47f7",
+        "count": 721
+      }
+    }
+  },
+  "result": {
+    "actualFailure": {
+      "step": 492,
+      "changed": true,
+      "owner": "gesture",
+      "policy": "exact-native-radian-return-rule; all other owner statuses exact",
+      "actual": {
+        "observedStatus": "returned-output",
+        "predictedStatus": "returned-output",
+        "reason": "exact-native-negligible-angle-rule",
+        "utteranceTime": 2.199999999999997,
+        "activeInterval": {
+          "word": "closer",
+          "peakTime": 1.5,
+          "preparationStart": 0.9432126491796224,
+          "strokeStart": 1.3902502696495502,
+          "strokeEnd": 1.7702502696495501,
+          "endTime": 2.217287890119478,
+          "leadSeconds": 0.10974973035044969,
+          "preparationSeconds": 0.4470376204699278,
+          "strokeSeconds": 0.38,
+          "hand": "both",
+          "twoHanded": true
+        },
+        "activation": 0.004370926553547871,
+        "phase": "relax",
+        "yield": 1,
+        "extent": 1,
+        "amplitude": 1,
+        "scale": 0.006556389830321807,
+        "shoulderRadians": 0.0012015211906255725,
+        "elbowRadians": 0.0012615972501568511,
+        "observedShoulderDegrees": 0.06884209321837896,
+        "thresholdRadians": 0.0008726646259971648
+      },
+      "expected": {
+        "observedStatus": "no-returned-output",
+        "predictedStatus": "no-returned-output",
+        "reason": "exact-native-negligible-angle-rule",
+        "utteranceTime": 2.199999999999997,
+        "activeInterval": {
+          "word": "closer",
+          "peakTime": 1.5,
+          "preparationStart": 0.9432126491796224,
+          "strokeStart": 1.3902502696495502,
+          "strokeEnd": 1.7702502696495501,
+          "endTime": 2.217287890119478,
+          "leadSeconds": 0.10974973035044969,
+          "preparationSeconds": 0.4470376204699278,
+          "strokeSeconds": 0.38,
+          "hand": "both",
+          "twoHanded": true
+        },
+        "activation": 0.004370926553547871,
+        "phase": "relax",
+        "yield": 0.35,
+        "extent": 1,
+        "amplitude": 1,
+        "scale": 0.0022947364406126322,
+        "shoulderRadians": 0.00042053241671895046,
+        "elbowRadians": 0.0004415590375548979,
+        "observedShoulderDegrees": 0.02409473262643264,
+        "thresholdRadians": 0.0008726646259971648
+      },
+      "zeroSigns": [],
+      "sourceHashes": {
+        "packages/core/src/motion/Gesture.js": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea",
+        "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+        "docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.mjs": "614cf2db48236909337e696029cf0e4fbe743ab24c0631bb9f7998d685839f14"
+      },
+      "observedContributionsPreserved": true
+    },
+    "retainedStates": {
+      "compared": 493,
+      "changedSteps": [
+        492
+      ]
+    },
+    "adjacentBoundary": {
+      "belowTime": 0.9666178816406292,
+      "aboveTime": 0.9666178816406293,
+      "belowRadians": 0.0008726646259971638,
+      "aboveRadians": 0.000872664625997172,
+      "threshold": 0.0008726646259971648
+    }
+  },
+  "log": {
+    "file": "gesture-status-CPU-v1.log",
+    "sha256": "d9379e5760d9046560924597d687caeb85251d86daae56f46ca2a38fdd7fb372"
+  },
+  "scope": "Instrument comparison only; no pose/cap/wrapper/asset or GPU changes. Equal statuses retain the previous admission rule; only discrepancies receive full exact formula checks. Actual/null contribution records are never synthesized."
+}
