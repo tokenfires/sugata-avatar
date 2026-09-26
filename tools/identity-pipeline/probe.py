@@ -7,6 +7,7 @@ Usage:
 Dumps <label>.f64 (N*3 little-endian float64, Blender Z-up, object space) and <label>.json.
 """
 import argparse, json, os, struct, sys
+from pathlib import Path
 
 import bpy
 
