@@ -1,0 +1,2017 @@
+{
+  "startedAt": "2026-09-26T16:47:11.212Z",
+  "mode": "baseline",
+  "completed": true,
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/rooms/lifecycle-probe.mjs": "216c7b2b0b66cf14048d7c920bfcfae128c1869680ad60eefeeacf76f37a659e",
+    "packages/testbed/src/portrait.js": "659fa42bb1bd1988346532b929fcfcfc5f743491807f590be37fc8f415d4865f",
+    "packages/testbed/src/portrait.html": "50eece8f0b36e98d63e25df1075b607acb7a59a7275569ed749e593d7e7415d9",
+    "packages/testbed/src/showcase.js": "80f295a2175dca1178fa515707433bba7ce311f63a8d166a13ff2633f1887c89",
+    "packages/testbed/src/showcase.html": "a13118233d42db2ae4f3d687bda33a70d23cf370064eac58fca713169f58b4d6",
+    "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+    "packages/testbed/src/showcase-settings.mjs": "cd8f27aba2fce99bd7343b9fcf91e5ab4aeaeac4d70f117a3ddacc28c5a38d08",
+    "packages/testbed/src/viewer-scenes.mjs": "64bbbf3d21aa9100dc4c311b2ad6835e94d83bba1ebf0c1da25d4bfe8f44a810",
+    "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/render/Scene.js": "193cb5cfa682e0ed70d42573dd3b2221ceddf207629f2ed225c30100287cdfe4",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+  },
+  "cases": [
+    {
+      "name": "portrait-capture",
+      "kind": "portrait",
+      "captured": true,
+      "plates": [
+        {
+          "label": "before",
+          "file": "portrait-capture-before.png",
+          "sha256": "c7598cd582436a73d171fab963b2c6bf98dcffe59aa8785e1d0a9f011d01a64d"
+        },
+        {
+          "label": "restored",
+          "file": "portrait-capture-restored.png",
+          "sha256": "b0c98289e0edb158dd82780449803b741f1c8e5759485b8dcee33bfe5c411f3a"
+        }
+      ],
+      "intercepted": [
+        {
+          "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=kitchen&capture=lifecycle",
+          "status": 204
+        }
+      ],
+      "fixtureNetworkEvents": [
+        {
+          "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=kitchen&capture=lifecycle",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "initial": {
+        "documentId": "15a367c2-d071-48f4-8cea-3d268f19d3de",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=studio&capture=lifecycle",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": false,
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "expressions",
+            "disabled": false
+          },
+          {
+            "id": "attention-controls",
+            "disabled": false
+          },
+          {
+            "id": "hair-controls",
+            "disabled": false
+          },
+          {
+            "id": "scene-controls",
+            "disabled": false
+          },
+          {
+            "id": "light-controls",
+            "disabled": false
+          },
+          {
+            "id": "pause",
+            "disabled": false
+          },
+          {
+            "id": "reset-view",
+            "disabled": false
+          }
+        ],
+        "status": "Live portrait",
+        "attentionStatus": "Ready when you are",
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        },
+        "rendererMemory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 61,
+          "programsSize": 693552,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 59,
+          "texturesSize": 321546695,
+          "uniformBuffers": 127,
+          "uniformBuffersSize": 154624,
+          "total": 327050395
+        }
+      },
+      "pending": {
+        "documentId": "15a367c2-d071-48f4-8cea-3d268f19d3de",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=studio&capture=lifecycle",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": {
+            "yawDegrees": 14.905435339125626,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": false,
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "expressions",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "hair-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "light-controls",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          },
+          {
+            "id": "reset-view",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing room…",
+        "attentionStatus": "Looking toward this view",
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        },
+        "rendererMemory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 61,
+          "programsSize": 693552,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 59,
+          "texturesSize": 321546695,
+          "uniformBuffers": 127,
+          "uniformBuffersSize": 154624,
+          "total": 327050395
+        }
+      },
+      "hiddenAndRestored": {
+        "hidden": {
+          "raf": {
+            "requested": 0,
+            "invoked": 0,
+            "canceled": 0,
+            "pendingAnimate": 0
+          },
+          "disposed": false
+        },
+        "shown": {
+          "raf": {
+            "requested": 0,
+            "invoked": 0,
+            "canceled": 0,
+            "pendingAnimate": 0
+          },
+          "disposed": false
+        }
+      },
+      "restored": {
+        "documentId": "15a367c2-d071-48f4-8cea-3d268f19d3de",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=studio&capture=lifecycle",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": {
+            "yawDegrees": 14.905435339125626,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": false,
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "expressions",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "hair-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "light-controls",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          },
+          {
+            "id": "reset-view",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing room…",
+        "attentionStatus": "Looking toward this view",
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        },
+        "rendererMemory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 61,
+          "programsSize": 693552,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 59,
+          "texturesSize": 321546695,
+          "uniformBuffers": 127,
+          "uniformBuffersSize": 154624,
+          "total": 327050395
+        }
+      },
+      "restorationDefect": {
+        "disabledControls": [
+          {
+            "id": "expressions",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "hair-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "light-controls",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          },
+          {
+            "id": "reset-view",
+            "disabled": true
+          }
+        ],
+        "statusStuckPreparing": true
+      },
+      "retirement": {
+        "disposal": {
+          "disposed": true,
+          "leaked": []
+        },
+        "memory": {
+          "attributes": 0,
+          "attributesSize": 0,
+          "geometries": 0,
+          "indexAttributes": 0,
+          "indexAttributesSize": 0,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 0,
+          "programsSize": 0,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 0,
+          "storageAttributes": 0,
+          "storageAttributesSize": 0,
+          "textures": 0,
+          "texturesSize": 0,
+          "uniformBuffers": 0,
+          "uniformBuffersSize": 0,
+          "total": 0
+        },
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        }
+      },
+      "completed": true
+    },
+    {
+      "name": "portrait-live-paused",
+      "kind": "portrait",
+      "captured": false,
+      "plates": [
+        {
+          "label": "before",
+          "file": "portrait-live-paused-before.png",
+          "sha256": "0b3c91ac0b77486dbcf3c32b67ffb3fad44c02e970530500b1d7622abcb4b4e1"
+        },
+        {
+          "label": "restored",
+          "file": "portrait-live-paused-restored.png",
+          "sha256": "791d27016f97e47246cb1f3b57834de3e38a4b301ce3d47a8c8e74f2aff4fd44"
+        }
+      ],
+      "intercepted": [
+        {
+          "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=kitchen",
+          "status": 204
+        }
+      ],
+      "fixtureNetworkEvents": [
+        {
+          "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=kitchen",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "initial": {
+        "documentId": "6f711f8f-6081-457f-927f-f5e808d2579e",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=studio",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": true,
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "expressions",
+            "disabled": false
+          },
+          {
+            "id": "attention-controls",
+            "disabled": false
+          },
+          {
+            "id": "hair-controls",
+            "disabled": false
+          },
+          {
+            "id": "scene-controls",
+            "disabled": false
+          },
+          {
+            "id": "light-controls",
+            "disabled": false
+          },
+          {
+            "id": "pause",
+            "disabled": false
+          },
+          {
+            "id": "reset-view",
+            "disabled": false
+          }
+        ],
+        "status": "Motion paused · you can still explore",
+        "attentionStatus": "Resume motion to try attention.",
+        "raf": {
+          "requested": 7,
+          "invoked": 6,
+          "canceled": 0,
+          "pendingAnimate": 1
+        },
+        "rendererMemory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 61,
+          "programsSize": 693552,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 59,
+          "texturesSize": 321546695,
+          "uniformBuffers": 127,
+          "uniformBuffersSize": 154624,
+          "total": 327050395
+        }
+      },
+      "pending": {
+        "documentId": "6f711f8f-6081-457f-927f-f5e808d2579e",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=studio",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": true,
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "expressions",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "hair-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "light-controls",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          },
+          {
+            "id": "reset-view",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing room…",
+        "attentionStatus": "Resume motion to try attention.",
+        "raf": {
+          "requested": 18,
+          "invoked": 17,
+          "canceled": 0,
+          "pendingAnimate": 1
+        },
+        "rendererMemory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 61,
+          "programsSize": 693552,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 59,
+          "texturesSize": 321546695,
+          "uniformBuffers": 127,
+          "uniformBuffersSize": 154624,
+          "total": 327050395
+        }
+      },
+      "hiddenAndRestored": {
+        "hidden": {
+          "raf": {
+            "requested": 22,
+            "invoked": 21,
+            "canceled": 1,
+            "pendingAnimate": 0
+          },
+          "disposed": false
+        },
+        "shown": {
+          "raf": {
+            "requested": 23,
+            "invoked": 21,
+            "canceled": 1,
+            "pendingAnimate": 1
+          },
+          "disposed": false
+        }
+      },
+      "restored": {
+        "documentId": "6f711f8f-6081-457f-927f-f5e808d2579e",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/portrait.html?hair=bob02&bake=g050&scene=studio",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": true,
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "expressions",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "hair-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "light-controls",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          },
+          {
+            "id": "reset-view",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing room…",
+        "attentionStatus": "Resume motion to try attention.",
+        "raf": {
+          "requested": 23,
+          "invoked": 21,
+          "canceled": 1,
+          "pendingAnimate": 1
+        },
+        "rendererMemory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 61,
+          "programsSize": 693552,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 59,
+          "texturesSize": 321546695,
+          "uniformBuffers": 127,
+          "uniformBuffersSize": 154624,
+          "total": 327050395
+        }
+      },
+      "restorationDefect": {
+        "disabledControls": [
+          {
+            "id": "expressions",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "hair-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "light-controls",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          },
+          {
+            "id": "reset-view",
+            "disabled": true
+          }
+        ],
+        "statusStuckPreparing": true
+      },
+      "retirement": {
+        "disposal": {
+          "disposed": true,
+          "leaked": []
+        },
+        "memory": {
+          "attributes": 0,
+          "attributesSize": 0,
+          "geometries": 0,
+          "indexAttributes": 0,
+          "indexAttributesSize": 0,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 0,
+          "programsSize": 0,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 0,
+          "storageAttributes": 0,
+          "storageAttributesSize": 0,
+          "textures": 0,
+          "texturesSize": 0,
+          "uniformBuffers": 0,
+          "uniformBuffersSize": 0,
+          "total": 0
+        },
+        "raf": {
+          "requested": 29,
+          "invoked": 27,
+          "canceled": 2,
+          "pendingAnimate": 0
+        }
+      },
+      "completed": true
+    },
+    {
+      "name": "showcase-capture",
+      "kind": "showcase",
+      "captured": true,
+      "plates": [
+        {
+          "label": "before",
+          "file": "showcase-capture-before.png",
+          "sha256": "481b2fd8d4def7afac0f748c24e9e1fcf30c2d1079f3891e9270bec8fb258bd0"
+        },
+        {
+          "label": "restored",
+          "file": "showcase-capture-restored.png",
+          "sha256": "c4cdf653d66aeb2d8962ea96675a92c674107eeed291f507abab622f971bacd1"
+        }
+      ],
+      "intercepted": [
+        {
+          "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait&capture=lifecycle&scene=kitchen",
+          "status": 204
+        }
+      ],
+      "fixtureNetworkEvents": [
+        {
+          "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait&capture=lifecycle&scene=kitchen",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "initial": {
+        "documentId": "9ef97cb0-00cc-4237-a44f-674b1fd3ad9b",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait&capture=lifecycle",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": false,
+        "camera": {
+          "position": [
+            0.1891185392793377,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765343,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "0",
+            "disabled": false
+          },
+          {
+            "id": "90",
+            "disabled": false
+          },
+          {
+            "id": "180",
+            "disabled": false
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": false
+          },
+          {
+            "id": "style-controls",
+            "disabled": false
+          },
+          {
+            "id": "framing-controls",
+            "disabled": false
+          },
+          {
+            "id": "scene-controls",
+            "disabled": false
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": false
+          },
+          {
+            "id": "attention-controls",
+            "disabled": false
+          },
+          {
+            "id": "save-image",
+            "disabled": false
+          },
+          {
+            "id": "save",
+            "disabled": false
+          },
+          {
+            "id": "copy",
+            "disabled": false
+          },
+          {
+            "id": "open-settings",
+            "disabled": false
+          },
+          {
+            "id": "pause",
+            "disabled": false
+          }
+        ],
+        "status": "Live view",
+        "attentionStatus": "Ready when you are",
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        },
+        "rendererMemory": {
+          "attributes": 76,
+          "attributesSize": 4006052,
+          "geometries": 19,
+          "indexAttributes": 18,
+          "indexAttributesSize": 1230144,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 843748,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 64,
+          "texturesSize": 465880839,
+          "uniformBuffers": 154,
+          "uniformBuffersSize": 215904,
+          "total": 473426607
+        }
+      },
+      "pending": {
+        "documentId": "9ef97cb0-00cc-4237-a44f-674b1fd3ad9b",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait&capture=lifecycle",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": {
+            "yawDegrees": 14.905435339125622,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": false,
+        "camera": {
+          "position": [
+            0.1891185392793377,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765343,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "0",
+            "disabled": true
+          },
+          {
+            "id": "90",
+            "disabled": true
+          },
+          {
+            "id": "180",
+            "disabled": true
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": true
+          },
+          {
+            "id": "style-controls",
+            "disabled": true
+          },
+          {
+            "id": "framing-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "save-image",
+            "disabled": true
+          },
+          {
+            "id": "save",
+            "disabled": true
+          },
+          {
+            "id": "copy",
+            "disabled": true
+          },
+          {
+            "id": "open-settings",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing the scene…",
+        "attentionStatus": "Preparing attention",
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        },
+        "rendererMemory": {
+          "attributes": 76,
+          "attributesSize": 4006052,
+          "geometries": 19,
+          "indexAttributes": 18,
+          "indexAttributesSize": 1230144,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 843748,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 17,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 58,
+          "texturesSize": 457636603,
+          "uniformBuffers": 154,
+          "uniformBuffersSize": 215904,
+          "total": 465182371
+        }
+      },
+      "hiddenAndRestored": {
+        "hidden": {
+          "raf": {
+            "requested": 0,
+            "invoked": 0,
+            "canceled": 0,
+            "pendingAnimate": 0
+          },
+          "disposed": false
+        },
+        "shown": {
+          "raf": {
+            "requested": 0,
+            "invoked": 0,
+            "canceled": 0,
+            "pendingAnimate": 0
+          },
+          "disposed": false
+        }
+      },
+      "restored": {
+        "documentId": "9ef97cb0-00cc-4237-a44f-674b1fd3ad9b",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait&capture=lifecycle",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": {
+            "yawDegrees": 14.905435339125622,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": false,
+        "camera": {
+          "position": [
+            0.1891185392793377,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765343,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "0",
+            "disabled": true
+          },
+          {
+            "id": "90",
+            "disabled": true
+          },
+          {
+            "id": "180",
+            "disabled": true
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": true
+          },
+          {
+            "id": "style-controls",
+            "disabled": true
+          },
+          {
+            "id": "framing-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "save-image",
+            "disabled": true
+          },
+          {
+            "id": "save",
+            "disabled": true
+          },
+          {
+            "id": "copy",
+            "disabled": true
+          },
+          {
+            "id": "open-settings",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing the scene…",
+        "attentionStatus": "Preparing attention",
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        },
+        "rendererMemory": {
+          "attributes": 76,
+          "attributesSize": 4006052,
+          "geometries": 19,
+          "indexAttributes": 18,
+          "indexAttributesSize": 1230144,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 843748,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 17,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 58,
+          "texturesSize": 457636603,
+          "uniformBuffers": 154,
+          "uniformBuffersSize": 215904,
+          "total": 465182371
+        }
+      },
+      "restorationDefect": {
+        "disabledControls": [
+          {
+            "id": "0",
+            "disabled": true
+          },
+          {
+            "id": "90",
+            "disabled": true
+          },
+          {
+            "id": "180",
+            "disabled": true
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": true
+          },
+          {
+            "id": "style-controls",
+            "disabled": true
+          },
+          {
+            "id": "framing-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "save-image",
+            "disabled": true
+          },
+          {
+            "id": "save",
+            "disabled": true
+          },
+          {
+            "id": "copy",
+            "disabled": true
+          },
+          {
+            "id": "open-settings",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          }
+        ],
+        "statusStuckPreparing": true
+      },
+      "retirement": {
+        "disposal": {
+          "disposed": true,
+          "leaked": []
+        },
+        "memory": {
+          "attributes": 0,
+          "attributesSize": 0,
+          "geometries": 0,
+          "indexAttributes": 0,
+          "indexAttributesSize": 0,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 0,
+          "programsSize": 0,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 0,
+          "storageAttributes": 0,
+          "storageAttributesSize": 0,
+          "textures": 0,
+          "texturesSize": 0,
+          "uniformBuffers": 0,
+          "uniformBuffersSize": 0,
+          "total": 0
+        },
+        "raf": {
+          "requested": 0,
+          "invoked": 0,
+          "canceled": 0,
+          "pendingAnimate": 0
+        }
+      },
+      "completed": true
+    },
+    {
+      "name": "showcase-live-paused",
+      "kind": "showcase",
+      "captured": false,
+      "plates": [
+        {
+          "label": "before",
+          "file": "showcase-live-paused-before.png",
+          "sha256": "8caf4b83a322cbd6c24d9eb3c401c2ad44117bb706a4b310bec2151a314f4add"
+        },
+        {
+          "label": "restored",
+          "file": "showcase-live-paused-restored.png",
+          "sha256": "4a226ab9e3420bc0db46fa8e490b188e8740fca9a9ec9143d3e717615a648a38"
+        }
+      ],
+      "intercepted": [
+        {
+          "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait&scene=kitchen",
+          "status": 204
+        }
+      ],
+      "fixtureNetworkEvents": [
+        {
+          "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait&scene=kitchen",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "initial": {
+        "documentId": "258c92e5-201c-4eec-bd7d-c0e0ef0ac92f",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": true,
+        "camera": {
+          "position": [
+            0.1891185392793377,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765343,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "0",
+            "disabled": false
+          },
+          {
+            "id": "90",
+            "disabled": false
+          },
+          {
+            "id": "180",
+            "disabled": false
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": false
+          },
+          {
+            "id": "style-controls",
+            "disabled": false
+          },
+          {
+            "id": "framing-controls",
+            "disabled": false
+          },
+          {
+            "id": "scene-controls",
+            "disabled": false
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": false
+          },
+          {
+            "id": "attention-controls",
+            "disabled": false
+          },
+          {
+            "id": "save-image",
+            "disabled": false
+          },
+          {
+            "id": "save",
+            "disabled": false
+          },
+          {
+            "id": "copy",
+            "disabled": false
+          },
+          {
+            "id": "open-settings",
+            "disabled": false
+          },
+          {
+            "id": "pause",
+            "disabled": false
+          }
+        ],
+        "status": "Motion paused",
+        "attentionStatus": "Resume motion to try attention.",
+        "raf": {
+          "requested": 8,
+          "invoked": 7,
+          "canceled": 0,
+          "pendingAnimate": 1
+        },
+        "rendererMemory": {
+          "attributes": 76,
+          "attributesSize": 4006052,
+          "geometries": 19,
+          "indexAttributes": 18,
+          "indexAttributesSize": 1230144,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 843748,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 64,
+          "texturesSize": 465880839,
+          "uniformBuffers": 154,
+          "uniformBuffersSize": 215904,
+          "total": 473426607
+        }
+      },
+      "pending": {
+        "documentId": "258c92e5-201c-4eec-bd7d-c0e0ef0ac92f",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": true,
+        "camera": {
+          "position": [
+            0.1891185392793377,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765343,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "0",
+            "disabled": true
+          },
+          {
+            "id": "90",
+            "disabled": true
+          },
+          {
+            "id": "180",
+            "disabled": true
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": true
+          },
+          {
+            "id": "style-controls",
+            "disabled": true
+          },
+          {
+            "id": "framing-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "save-image",
+            "disabled": true
+          },
+          {
+            "id": "save",
+            "disabled": true
+          },
+          {
+            "id": "copy",
+            "disabled": true
+          },
+          {
+            "id": "open-settings",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing the scene…",
+        "attentionStatus": "Preparing attention",
+        "raf": {
+          "requested": 24,
+          "invoked": 23,
+          "canceled": 0,
+          "pendingAnimate": 1
+        },
+        "rendererMemory": {
+          "attributes": 76,
+          "attributesSize": 4006052,
+          "geometries": 19,
+          "indexAttributes": 18,
+          "indexAttributesSize": 1230144,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 843748,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 64,
+          "texturesSize": 465880839,
+          "uniformBuffers": 154,
+          "uniformBuffersSize": 215904,
+          "total": 473426607
+        }
+      },
+      "hiddenAndRestored": {
+        "hidden": {
+          "raf": {
+            "requested": 29,
+            "invoked": 28,
+            "canceled": 1,
+            "pendingAnimate": 0
+          },
+          "disposed": false
+        },
+        "shown": {
+          "raf": {
+            "requested": 30,
+            "invoked": 28,
+            "canceled": 1,
+            "pendingAnimate": 1
+          },
+          "disposed": false
+        }
+      },
+      "restored": {
+        "documentId": "258c92e5-201c-4eec-bd7d-c0e0ef0ac92f",
+        "ownerUnchanged": true,
+        "url": "http://localhost:5364/src/showcase.html?preset=casual&frame=portrait",
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "disposed": false,
+        "backend": "webgpu",
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "paused": true,
+        "camera": {
+          "position": [
+            0.1891185392793377,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765343,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1
+        },
+        "controls": [
+          {
+            "id": "0",
+            "disabled": true
+          },
+          {
+            "id": "90",
+            "disabled": true
+          },
+          {
+            "id": "180",
+            "disabled": true
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": true
+          },
+          {
+            "id": "style-controls",
+            "disabled": true
+          },
+          {
+            "id": "framing-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "save-image",
+            "disabled": true
+          },
+          {
+            "id": "save",
+            "disabled": true
+          },
+          {
+            "id": "copy",
+            "disabled": true
+          },
+          {
+            "id": "open-settings",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          }
+        ],
+        "status": "Preparing the scene…",
+        "attentionStatus": "Preparing attention",
+        "raf": {
+          "requested": 30,
+          "invoked": 28,
+          "canceled": 1,
+          "pendingAnimate": 1
+        },
+        "rendererMemory": {
+          "attributes": 76,
+          "attributesSize": 4006052,
+          "geometries": 19,
+          "indexAttributes": 18,
+          "indexAttributesSize": 1230144,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 843748,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 9,
+          "storageAttributesSize": 1249920,
+          "textures": 64,
+          "texturesSize": 465880839,
+          "uniformBuffers": 154,
+          "uniformBuffersSize": 215904,
+          "total": 473426607
+        }
+      },
+      "restorationDefect": {
+        "disabledControls": [
+          {
+            "id": "0",
+            "disabled": true
+          },
+          {
+            "id": "90",
+            "disabled": true
+          },
+          {
+            "id": "180",
+            "disabled": true
+          },
+          {
+            "id": "outfit-controls",
+            "disabled": true
+          },
+          {
+            "id": "style-controls",
+            "disabled": true
+          },
+          {
+            "id": "framing-controls",
+            "disabled": true
+          },
+          {
+            "id": "scene-controls",
+            "disabled": true
+          },
+          {
+            "id": "lighting-controls",
+            "disabled": true
+          },
+          {
+            "id": "attention-controls",
+            "disabled": true
+          },
+          {
+            "id": "save-image",
+            "disabled": true
+          },
+          {
+            "id": "save",
+            "disabled": true
+          },
+          {
+            "id": "copy",
+            "disabled": true
+          },
+          {
+            "id": "open-settings",
+            "disabled": true
+          },
+          {
+            "id": "pause",
+            "disabled": true
+          }
+        ],
+        "statusStuckPreparing": true
+      },
+      "retirement": {
+        "disposal": {
+          "disposed": true,
+          "leaked": []
+        },
+        "memory": {
+          "attributes": 0,
+          "attributesSize": 0,
+          "geometries": 0,
+          "indexAttributes": 0,
+          "indexAttributesSize": 0,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 0,
+          "programsSize": 0,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 0,
+          "storageAttributes": 0,
+          "storageAttributesSize": 0,
+          "textures": 0,
+          "texturesSize": 0,
+          "uniformBuffers": 0,
+          "uniformBuffersSize": 0,
+          "total": 0
+        },
+        "raf": {
+          "requested": 36,
+          "invoked": 34,
+          "canceled": 2,
+          "pendingAnimate": 0
+        }
+      },
+      "completed": true
+    }
+  ],
+  "errors": [],
+  "scope": "Real native pages and actual Room handlers. Target navigation receives204 to retain the old document, then PageTransitionEvent persisted:true fixtures exercise existing handlers. No actual BFcache admission/eviction or cross-browser lifecycle claim.",
+  "finalSourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/rooms/lifecycle-probe.mjs": "216c7b2b0b66cf14048d7c920bfcfae128c1869680ad60eefeeacf76f37a659e",
+    "packages/testbed/src/portrait.js": "659fa42bb1bd1988346532b929fcfcfc5f743491807f590be37fc8f415d4865f",
+    "packages/testbed/src/portrait.html": "50eece8f0b36e98d63e25df1075b607acb7a59a7275569ed749e593d7e7415d9",
+    "packages/testbed/src/showcase.js": "80f295a2175dca1178fa515707433bba7ce311f63a8d166a13ff2633f1887c89",
+    "packages/testbed/src/showcase.html": "a13118233d42db2ae4f3d687bda33a70d23cf370064eac58fca713169f58b4d6",
+    "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+    "packages/testbed/src/showcase-settings.mjs": "cd8f27aba2fce99bd7343b9fcf91e5ab4aeaeac4d70f117a3ddacc28c5a38d08",
+    "packages/testbed/src/viewer-scenes.mjs": "64bbbf3d21aa9100dc4c311b2ad6835e94d83bba1ebf0c1da25d4bfe8f44a810",
+    "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/render/Scene.js": "193cb5cfa682e0ed70d42573dd3b2221ceddf207629f2ed225c30100287cdfe4",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+  }
+}

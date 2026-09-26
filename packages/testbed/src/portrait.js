@@ -3,6 +3,7 @@ import { Avatar } from '../../core/src/Avatar.js';
 import { portraitSelection, validatePortraitHair } from './portrait-selection.mjs';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
+import { reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
 
 const params = new URLSearchParams( location.search );
 const hair = params.get( 'hair' ) ?? 'bob02';
@@ -18,10 +19,13 @@ let attention = null;
 let attentionError = null;
 let paused = reducedMotion;
 let easingExpression = false;
+let changingRoom = false;
+let failed = false;
 let frame = 0;
 let previousTime = null;
 
 function showFailure( reason ) {
+    failed = true;
     cancelAnimationFrame( frame );
     attention?.cancel( { immediate: true } );
     document.getElementById( 'loading' ).hidden = true;
@@ -74,14 +78,18 @@ document.addEventListener( 'visibilitychange', () => { previousTime = null; } );
 
 try {
     const selection = portraitSelection( params );
+    const scene = reviewSceneSelection( params );
     if ( params.getAll( 'hair' ).length > 1 ) throw new Error( 'Duplicate URL hair selection.' );
     validatePortraitHair( hair, selection.bake );
     if ( selection.bake !== 'g050' ) document.querySelector( '#hair-style option[value="bob02"]' ).disabled = true;
     document.getElementById( 'hair-style' ).value = hair;
     document.getElementById( 'portrait-name' ).textContent = hair === 'bob02'
         ? 'The chin-length bob' : 'The original long bob';
+    for ( const button of document.querySelectorAll( '[data-scene]' ) )
+        button.setAttribute( 'aria-pressed', String( button.dataset.scene === scene ) );
+    document.getElementById( 'light-controls' ).hidden = scene === 'kitchen';
     avatar = await Avatar.create( { canvas, identity: { gender: selection.gender }, hair,
-        autoStart: false, frame: 'portrait', lighting: 'studio', seed: 20260807 } );
+        autoStart: false, frame: 'portrait', ...optionsForReviewScene( scene ), seed: 20260807 } );
     attention = new AttentionAction( avatar );
     controls = new OrbitControls( avatar.stage.camera, canvas );
     controls.target.copy( avatar.focus );
@@ -130,6 +138,18 @@ try {
             button.setAttribute( 'aria-pressed', 'false' );
         updateExpressionStatus();
     } );
+    for ( const button of document.querySelectorAll( '[data-scene]' ) ) {
+        button.addEventListener( 'click', () => {
+            if ( button.dataset.scene === scene ) return;
+            const url = new URL( location.href );
+            url.searchParams.set( 'scene', button.dataset.scene );
+            attention.cancel( { immediate: true } );
+            changingRoom = true;
+            for ( const el of document.querySelectorAll( 'fieldset, #pause, #reset-view' ) ) el.disabled = true;
+            status.textContent = 'Preparing room…';
+            location.assign( url.href );
+        } );
+    }
     for ( const button of document.querySelectorAll( '[data-light]' ) ) {
         button.addEventListener( 'click', () => {
             avatar.setLighting( button.dataset.light );
@@ -193,8 +213,16 @@ addEventListener( 'pagehide', event => {
 } );
 
 addEventListener( 'pageshow', event => {
-    if ( event.persisted && avatar !== null && !captured ) {
-        previousTime = null;
+    if ( !event.persisted || avatar === null || avatar.disposed || failed ) return;
+    // A cached document keeps its Avatar and view, including the navigation's disabled UI.
+    if ( changingRoom ) {
+        changingRoom = false;
+        for ( const el of document.querySelectorAll( 'fieldset, #pause, #reset-view' ) ) el.disabled = false;
+        updatePause();
+    }
+    previousTime = null;
+    if ( !captured ) {
+        cancelAnimationFrame( frame );
         frame = requestAnimationFrame( animate );
     }
 } );

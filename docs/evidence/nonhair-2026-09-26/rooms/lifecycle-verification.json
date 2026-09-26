@@ -1,0 +1,150 @@
+{
+  "verifiedAt": "2026-09-26T16:52:17.285Z",
+  "runs": [
+    {
+      "name": "lifecycle-baseline",
+      "reportSHA256": "4ebbe669975a909b1eb58c38795f90598cb41a56ef2d73d873b317980a45e2cb",
+      "completed": true,
+      "verifiedSources": 16,
+      "verifiedImages": 8,
+      "unexpectedErrors": [],
+      "fixtureNavigationAborts": 4,
+      "cases": [
+        {
+          "name": "portrait-capture",
+          "statusBefore": "Preparing room…",
+          "statusAfter": "Preparing room…",
+          "disabledAfter": 7,
+          "ownerUnchanged": true,
+          "activeAnimate": 0,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 327050395,
+          "memoryTotalAfter": 327050395,
+          "retired": true,
+          "leaks": 0
+        },
+        {
+          "name": "portrait-live-paused",
+          "statusBefore": "Preparing room…",
+          "statusAfter": "Preparing room…",
+          "disabledAfter": 7,
+          "ownerUnchanged": true,
+          "activeAnimate": 1,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 327050395,
+          "memoryTotalAfter": 327050395,
+          "retired": true,
+          "leaks": 0
+        },
+        {
+          "name": "showcase-capture",
+          "statusBefore": "Preparing the scene…",
+          "statusAfter": "Preparing the scene…",
+          "disabledAfter": 14,
+          "ownerUnchanged": true,
+          "activeAnimate": 0,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 465182371,
+          "memoryTotalAfter": 465182371,
+          "retired": true,
+          "leaks": 0
+        },
+        {
+          "name": "showcase-live-paused",
+          "statusBefore": "Preparing the scene…",
+          "statusAfter": "Preparing the scene…",
+          "disabledAfter": 14,
+          "ownerUnchanged": true,
+          "activeAnimate": 1,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 473426607,
+          "memoryTotalAfter": 473426607,
+          "retired": true,
+          "leaks": 0
+        }
+      ]
+    },
+    {
+      "name": "lifecycle-fixed",
+      "reportSHA256": "1e54c7c147b18a39e45c1c59a7127d22247e42de2bd63a6e6b59723aa4e141ec",
+      "completed": true,
+      "verifiedSources": 16,
+      "verifiedImages": 10,
+      "unexpectedErrors": [],
+      "fixtureNavigationAborts": 5,
+      "cases": [
+        {
+          "name": "portrait-capture",
+          "statusBefore": "Preparing room…",
+          "statusAfter": "Live portrait",
+          "disabledAfter": 0,
+          "ownerUnchanged": true,
+          "clockDuringRestore": 0,
+          "activeAnimate": 0,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 318590515,
+          "memoryTotalAfter": 318590515,
+          "retired": true,
+          "leaks": 0
+        },
+        {
+          "name": "portrait-live-paused",
+          "statusBefore": "Preparing room…",
+          "statusAfter": "Motion paused · you can still explore",
+          "disabledAfter": 0,
+          "ownerUnchanged": true,
+          "clockDuringRestore": 0,
+          "activeAnimate": 1,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 327050395,
+          "memoryTotalAfter": 327050395,
+          "retired": true,
+          "leaks": 0
+        },
+        {
+          "name": "showcase-capture",
+          "statusBefore": "Preparing the scene…",
+          "statusAfter": "Live view",
+          "disabledAfter": 0,
+          "ownerUnchanged": true,
+          "clockDuringRestore": 0,
+          "activeAnimate": 0,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 473426607,
+          "memoryTotalAfter": 473426607,
+          "retired": true,
+          "leaks": 0
+        },
+        {
+          "name": "showcase-live-paused",
+          "statusBefore": "Preparing the scene…",
+          "statusAfter": "Motion paused",
+          "disabledAfter": 0,
+          "ownerUnchanged": true,
+          "clockDuringRestore": 0,
+          "activeAnimate": 1,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 473426607,
+          "memoryTotalAfter": 473426607,
+          "retired": true,
+          "leaks": 0
+        },
+        {
+          "name": "portrait-live-running",
+          "statusBefore": "Preparing room…",
+          "statusAfter": "Live portrait",
+          "disabledAfter": 0,
+          "ownerUnchanged": true,
+          "clockDuringRestore": 0.33349999999999996,
+          "clockAfterResume": 0.3842,
+          "activeAnimate": 1,
+          "rendererMemoryUnchangedAcrossRestore": true,
+          "memoryTotalBefore": 328241076,
+          "memoryTotalAfter": 328241076,
+          "retired": true,
+          "leaks": 0
+        }
+      ]
+    }
+  ]
+}

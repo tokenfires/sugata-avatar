@@ -3,12 +3,12 @@
  * page exposes separate from browser verification. The closure gate compares this list with
  * both the filesystem and vite.pages.config.js; adding a page still requires all three entries.
  */
-export const CATALOGUE_REVIEWED = '2026-09-13';
+export const CATALOGUE_REVIEWED = '2026-09-26';
 
 const SOURCE_REVIEW = {
     kind: 'source-reviewed',
-    date: CATALOGUE_REVIEWED,
-    detail: 'Source reviewed; browser behaviour has not been rechecked in this catalogue pass.'
+    date: '2026-09-13',
+    detail: 'Source reviewed on this date; browser behaviour has not been rechecked.'
 };
 
 const PREVIEW_REVIEW = {
@@ -26,29 +26,29 @@ export const PAGE_GROUPS = [
         pages: [
             {
                 path: 'src/portrait.html', name: 'Portrait', label: 'Current preview',
-                blurb: 'Compare both bobs, choose a mood, or invite a simple look or a small smile.',
+                blurb: 'Try moods and attention, compare two cuts, and move between Studio and Kitchen.',
                 boundary: 'Attention is experimental and works near the front view. Nuanced emotions, precise eye contact, broader identities, and final hair shape remain in development.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/portrait.js',
                 review: {
-                    kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Native measured eye focus now has an optional small smile, with matched silent and speech-shape samples, independent critique, repeat/release and page checks. Both bobs retain their qualified attention. Continuous speech quality, precise contact from all views and nuanced intent remain open.',
-                    evidence: 'docs/SMILE-INTEGRATION-2026-09-13.md'
+                    kind: 'previously-verified', date: '2026-09-26',
+                    detail: 'Studio/Kitchen switching, narrow-screen head framing and gradual expression release have native browser evidence. Room changes restore a fresh view. Attention and the optional smile retain their existing scope; nuanced intent, wider appearance and all-motion quality remain open.',
+                    evidence: 'docs/PROGRESS-2026-09-26.md'
                 },
-                gates: [ 'Avatar', 'AttentionAction', 'AttentionSmile' ]
+                gates: [ 'Avatar', 'AttentionAction', 'AttentionSmile', 'viewer-scenes' ]
             },
             {
                 path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',
-                blurb: 'Explore two outfits and three palettes, invite a look with an optional smile, and save an image or settings.',
+                blurb: 'Compare two outfits, three palettes and two rooms. Save an image or reopen a saved look.',
                 boundary: 'Two starting outfits on one body study, with experimental attention near the front view. Clothing fit and the larger wardrobe remain works in progress.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/showcase.js',
                 review: {
-                    kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'The optional smile passes native ownership, sampled speech composition, real page controls and held-smile PNG export checks. Both starting looks retain continuous attention recordings and colour choices. Upper fit, skirt layering, shoe/sock styling, facial nuance and additional bodies remain open.',
-                    evidence: 'docs/SMILE-INTEGRATION-2026-09-13.md'
+                    kind: 'previously-verified', date: '2026-09-26',
+                    detail: 'Saved JSON settings reopen the current supported look, including Studio or Kitchen, mixed outfits and Original fabrics. Native browser checks cover scene lighting, desktop/mobile controls and head framing. Upper fit, skirt layering, shoe/sock styling, facial nuance and additional bodies remain open.',
+                    evidence: 'docs/PROGRESS-2026-09-26.md'
                 },
-                gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu' ]
+                gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu', 'showcase-settings', 'showcase-scenes.gpu' ]
             }
         ]
     },

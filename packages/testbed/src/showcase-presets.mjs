@@ -1,5 +1,6 @@
 // Supported g050 wardrobe studies with authored colourways on the existing fitted garments.
 import { WARDROBE_STYLES } from '../../core/src/wardrobe/WardrobeStyleOptions.js';
+import { REVIEW_SCENES, reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
 export const SHOWCASE_PRESETS = Object.freeze([
     Object.freeze({ id: 'casual', number: '01', name: 'Everyday', hair: 'bob02', outfit: 'casual',
         description: 'A tonal tee, dark denim, and the chin-length bob.' }),
@@ -22,15 +23,17 @@ export function resolveShowcaseSelection(params) {
     for (const key of ['gender', 'bake', 'hair', 'foundation']) if (params.has(key))
         throw new Error('This lookbook supports its two authored g050 clothing studies only.');
     const preset = SHOWCASE_PRESETS.find(p => p.id === (params.get('preset') ?? 'casual'));
-    return { preset: preset.id, style: params.get('style') ?? 'ecru', outfit: params.get('outfit') ?? preset.outfit,
-        frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio' };
+    const selection = { preset: preset.id, style: params.get('style') ?? 'ecru', outfit: params.get('outfit') ?? preset.outfit,
+        frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio', scene: reviewSceneSelection(params) };
+    optionsForReviewScene(selection.scene, selection.light);
+    return selection;
 }
 export function optionsForShowcase(selection) {
     const preset = SHOWCASE_PRESETS.find(p => p.id === selection.preset);
     if (!preset || !SHOWCASE_OUTFITS[selection.outfit] || !choices.frame.includes(selection.frame) || !choices.light.includes(selection.light) || !choices.style.includes(selection.style))
         throw new Error('Unsupported showcase selection.');
     return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, frame: selection.frame,
-        quality: 'balanced', scene: 'studio', lighting: selection.light, seed: SHOWCASE_SEED,
+        quality: 'balanced', ...optionsForReviewScene(selection.scene ?? 'studio', selection.light), seed: SHOWCASE_SEED,
         pose: 'relaxed-standing', wardrobe: { ...(selection.style === 'original' ? {} : {style: selection.style}), outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
 }
 export function outfitFromReport(report) {
@@ -56,10 +59,10 @@ export function configurationFromReport(report) {
     if (report.wardrobe.state.worn.length !== actual.length || actual.some(id => !report.wardrobe.state.worn.includes(id)))
         throw new Error('The attached garments do not match the supported outfit.');
     if (!choices.frame.includes(report.framing?.mode) || !choices.light.includes(report.scene?.lighting?.look) ||
-        report.scene.id !== 'studio' || report.quality?.requested !== 'balanced' || !Number.isFinite(report.motion?.seed))
+        !REVIEW_SCENES.includes(report.scene.id) || report.quality?.requested !== 'balanced' || !Number.isFinite(report.motion?.seed))
         throw new Error('The current view is outside this lookbook’s supported configuration.');
     return { identity: { gender: report.identity.gender, mode: 'nearest' }, hair: report.hair.style,
-        frame: report.framing.mode, quality: report.quality.requested, scene: report.scene.id,
-        lighting: report.scene.lighting.look, seed: report.motion.seed, pose: 'relaxed-standing',
+        frame: report.framing.mode, quality: report.quality.requested,
+        ...optionsForReviewScene(report.scene.id, report.scene.lighting.look), seed: report.motion.seed, pose: 'relaxed-standing',
         wardrobe: { ...(appearance.style === 'original' ? {} : {style: appearance.style}), outfit: [...SHOWCASE_OUTFITS[outfit].garments], foundation: { TORSO: foundation.TORSO, HIPS: foundation.HIPS } } };
 }

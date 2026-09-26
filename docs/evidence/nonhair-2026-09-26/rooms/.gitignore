@@ -1,0 +1,4 @@
+# Exact asset copies remain in the local evidence archive; their hashes are in each report.
+# Avoid duplicating the same 26 MB asset set in both retained lifecycle source snapshots.
+lifecycle-baseline/source/assets/
+lifecycle-fixed/source/assets/

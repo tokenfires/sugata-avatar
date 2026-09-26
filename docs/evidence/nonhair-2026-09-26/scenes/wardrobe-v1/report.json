@@ -1,0 +1,1909 @@
+{
+  "date": "2026-09-26T16:37:32.413Z",
+  "production": true,
+  "sourceHashes": {
+    "packages/testbed/src/showcase.html": "a13118233d42db2ae4f3d687bda33a70d23cf370064eac58fca713169f58b4d6",
+    "packages/testbed/src/showcase.js": "80f295a2175dca1178fa515707433bba7ce311f63a8d166a13ff2633f1887c89",
+    "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+    "packages/testbed/src/showcase-settings.mjs": "cd8f27aba2fce99bd7343b9fcf91e5ab4aeaeac4d70f117a3ddacc28c5a38d08",
+    "packages/testbed/src/viewer-scenes.mjs": "64bbbf3d21aa9100dc4c311b2ad6835e94d83bba1ebf0c1da25d4bfe8f44a810",
+    "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+    "packages/testbed/src/showcase-scenes.gpu.selftest.mjs": "352d60dd41d1c5269134e9d21273edba83c7682fe0cad1c8f00c5eee6686d269",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/render/Scene.js": "193cb5cfa682e0ed70d42573dd3b2221ceddf207629f2ed225c30100287cdfe4",
+    "packages/core/src/render/InteriorEnvironment.js": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/female_elegantsuit01/g050.glb": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+  },
+  "checks": [
+    "existing Studio mixed warm portrait exports unchanged, with light controls and complete attached UI state",
+    "scene button preserves mixed look and framing, clears Studio light, starts fresh attention and uses native Kitchen exposure",
+    "unsupported explicit Kitchen lighting is refused accessibly with owner, complete look and URL retained",
+    "back-switch restores Studio controls and default light; actual downloaded Kitchen settings reopen with native lighting",
+    "fresh mobile file chooser restores Kitchen plus omitted Original style, mixed outfit, portrait framing and all pressed controls",
+    "mobile full-look framing and room switch preserve Original fabrics and expose usable Studio lighting controls",
+    "second authored study loads in Kitchen; legacy Studio warm settings restore from Kitchen with faithful scene and light",
+    "browser page, console and network errors are empty and all recorded source/asset hashes remain exact"
+  ],
+  "errors": [],
+  "screenshots": [
+    {
+      "file": "studio-warm-desktop.png",
+      "sha256": "4f3d9de4dc2a7f6a95a1e4a70fee903f0a7de5b080d6d31f2659e099ccea8bd1"
+    },
+    {
+      "file": "kitchen-mixed-desktop.png",
+      "sha256": "73f58ac43588565c34d6b158ae8e1ac686721dbed97a73f18c464a1e0731dfc6"
+    },
+    {
+      "file": "kitchen-invalid-settings-desktop.png",
+      "sha256": "9597f9bab3257247f17a4d1c73f119712c3bfa596f708f5ed3ee0dac14ccff9b"
+    },
+    {
+      "file": "kitchen-original-mobile.png",
+      "sha256": "44f23caef713625d7a0d090b0848fbc3f89999292da2908173944761c736c0c5"
+    },
+    {
+      "file": "kitchen-body-mobile.png",
+      "sha256": "967fbb094fe6af6509253c8b0fbd86f74e0ddc7329907db10665e4e25140bc8e"
+    },
+    {
+      "file": "studio-body-mobile.png",
+      "sha256": "7cd5b425194fcfb31adefa03ccf3c119e16cdc7712203658f46fccf13a6d3309"
+    },
+    {
+      "file": "kitchen-elegant-body-desktop.png",
+      "sha256": "79ee79895b647169bfc8018b03d0690865cbcbb90b9cf631a51413fb6bdbf042"
+    }
+  ],
+  "downloads": [
+    {
+      "file": "studio-warm-mixed.json",
+      "sha256": "eb9ab5f005b56525da06b65589961fa96f16bc2d64670139d0b2d92d5d80c69a"
+    },
+    {
+      "file": "kitchen-mixed.json",
+      "sha256": "96a221e33e24210406c67dde02507c91b373854734b2f1fe2e680299ed834635"
+    },
+    {
+      "file": "kitchen-original.json",
+      "sha256": "3cd1adb678f918b0a3ac07cfa3454f8db862617f6a4593a39a8f2c19a75a15bf"
+    }
+  ],
+  "states": {
+    "studio-warm-desktop": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "warm",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "charcoal",
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=charcoal&frame=portrait&light=warm&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "charcoal",
+        "frame": "portrait",
+        "light": "warm",
+        "scene": "studio"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": false,
+      "scene": {
+        "id": "studio",
+        "kind": "studio",
+        "background": "#08080a",
+        "backdrop": "#070a0e",
+        "ground": true,
+        "environment": null,
+        "groundMaterial": {
+          "albedo": "#968c34",
+          "roughness": 0.9
+        },
+        "lighting": {
+          "look": "warm",
+          "exposure": 0.85,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": true,
+          "designedKeyToFill": 1.3636363636363635,
+          "ambientAttached": true,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": 42,
+              "elevationDegrees": 18,
+              "irradiance": 2.55,
+              "colour": "#ffe3c0",
+              "position": [
+                0.8402076056488441,
+                1.8152256268749916,
+                0.6104465578574426
+              ],
+              "panelMetres": [
+                0.84,
+                1.176
+              ],
+              "radiance": 2.177923376237455,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 2.0000000000000004,
+              "irradiance": 1.8699999999999997,
+              "colour": "#f7cdb8",
+              "position": [
+                -0.6205545754536215,
+                1.511491982832165,
+                0.7395481446976281
+              ],
+              "panelMetres": [
+                1.764,
+                1.764
+              ],
+              "radiance": 1.168724717797948,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 25.999999999999982,
+              "irradiance": 13.600000000000001,
+              "colour": "#0f30ff",
+              "position": [
+                -0.13818639487271414,
+                1.64348336250382,
+                -0.31037172453736506
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.13083
+              ],
+              "radiance": 434.61237203641264,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -5.99999999999999,
+              "irradiance": 0.0714,
+              "colour": "#ffd7b0",
+              "position": [
+                0.01260953033377555,
+                1.4398038783124105,
+                -0.36108970441660326
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.12356400000000001
+              ],
+              "radiance": 2.2304184088931933,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "warm",
+        "exposure": 1,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {}
+      },
+      "nativeExposure": 1,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "kitchen-mixed-desktop": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "charcoal",
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=charcoal&frame=portrait&capture=&scene=kitchen",
+      "choices": {
+        "outfit": "elegant",
+        "style": "charcoal",
+        "frame": "portrait",
+        "light": "studio",
+        "scene": "kitchen"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": true,
+      "scene": {
+        "id": "kitchen",
+        "kind": "interior",
+        "background": "sky-pmrem",
+        "backdrop": null,
+        "ground": true,
+        "environment": {
+          "attached": true,
+          "kind": "interior",
+          "cubeSize": 256,
+          "bakes": 1,
+          "environmentIntensity": 0.24361185471668675,
+          "roomInFrame": true,
+          "liveFaces": 7,
+          "bakeFaces": 8,
+          "widthMetres": 4.2,
+          "depthMetres": 6.4,
+          "heightMetres": 2.6,
+          "windowAreaSquareMetres": 2.0999999999999996,
+          "windowAzimuthDegrees": -90,
+          "windowAdmittance": 1,
+          "windowTransmission": 0.86,
+          "interReflection": 0.04595619842434076,
+          "sunAmbientIrradiance": [
+            0.07712775406493703,
+            0.05336180132573205,
+            0.027723201000915968
+          ],
+          "fixtures": [
+            {
+              "kelvin": 2900,
+              "irradiance": 5
+            }
+          ],
+          "sunElevationDegrees": 15,
+          "sunAzimuthDegrees": -55,
+          "sunColour": 16767394,
+          "sunKelvin": 4042,
+          "sunIrradianceInSkyUnits": 7.748358618628155,
+          "keyIrradianceInRigUnits": 0.7957495745690517,
+          "skyToRigScale": 0.11941757584151311
+        },
+        "groundMaterial": {
+          "albedo": "#6b5443",
+          "roughness": 0.6
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 2.04,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": false,
+          "designedKeyToFill": 2.4113623471789447,
+          "ambientAttached": false,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": -67,
+              "elevationDegrees": 14.999999999999995,
+              "irradiance": 1.6233291321208658,
+              "colour": "#ffd9a2",
+              "position": [
+                -0.8640342058379566,
+                1.7604094662695016,
+                0.6050032641987771
+              ],
+              "panelMetres": [
+                0.84,
+                1.176
+              ],
+              "radiance": 1.386465280067958,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0.8710926975924193
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 2.0000000000000004,
+              "irradiance": 0.6731999999999998,
+              "colour": "#f2d2c6",
+              "position": [
+                -0.6205545754536215,
+                1.511491982832165,
+                0.7395481446976281
+              ],
+              "panelMetres": [
+                1.764,
+                1.764
+              ],
+              "radiance": 0.42074089840726125,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 25.999999999999982,
+              "irradiance": 0.6528000000000003,
+              "colour": "#0f30ff",
+              "position": [
+                -0.06909319743635707,
+                1.5606312157606845,
+                -0.15518586226868253
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.13083
+              ],
+              "radiance": 5.5338878719769395,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -6.000000000000025,
+              "irradiance": 0.014280000000000003,
+              "colour": "#ffd7b0",
+              "position": [
+                0.006304765166887775,
+                1.4587914736649796,
+                -0.18054485220830163
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.12356400000000001
+              ],
+              "radiance": 0.11816488102854758,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 2.4,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {
+          "fill": {
+            "irradiance": 0.15
+          },
+          "rim": {
+            "irradiance": 0.02,
+            "distanceInHeights": 0.5
+          },
+          "kicker": {
+            "irradiance": 0.1,
+            "distanceInHeights": 0.5
+          }
+        }
+      },
+      "nativeExposure": 2.4,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "studio-default-after-kitchen": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "studio",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "charcoal",
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=charcoal&frame=portrait&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "charcoal",
+        "frame": "portrait",
+        "light": "studio",
+        "scene": "studio"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": false,
+      "scene": {
+        "id": "studio",
+        "kind": "studio",
+        "background": "#08080a",
+        "backdrop": "#070a0e",
+        "ground": true,
+        "environment": null,
+        "groundMaterial": {
+          "albedo": "#968c34",
+          "roughness": 0.9
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 0.85,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": true,
+          "designedKeyToFill": 1.3636363636363635,
+          "ambientAttached": true,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": 42,
+              "elevationDegrees": 18,
+              "irradiance": 2.55,
+              "colour": "#ffeeda",
+              "position": [
+                0.8402076056488441,
+                1.8152256268749916,
+                0.6104465578574426
+              ],
+              "panelMetres": [
+                0.84,
+                1.176
+              ],
+              "radiance": 2.177923376237455,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 2.0000000000000004,
+              "irradiance": 1.8699999999999997,
+              "colour": "#f2d2c6",
+              "position": [
+                -0.6205545754536215,
+                1.511491982832165,
+                0.7395481446976281
+              ],
+              "panelMetres": [
+                1.764,
+                1.764
+              ],
+              "radiance": 1.168724717797948,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 25.999999999999982,
+              "irradiance": 13.600000000000001,
+              "colour": "#0f30ff",
+              "position": [
+                -0.13818639487271414,
+                1.64348336250382,
+                -0.31037172453736506
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.13083
+              ],
+              "radiance": 434.61237203641264,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -5.99999999999999,
+              "irradiance": 0.059500000000000004,
+              "colour": "#ffd7b0",
+              "position": [
+                0.01260953033377555,
+                1.4398038783124105,
+                -0.36108970441660326
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.12356400000000001
+              ],
+              "radiance": 1.8586820074109944,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 1,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {}
+      },
+      "nativeExposure": 1,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "reopened-kitchen-mixed": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "charcoal",
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=charcoal&frame=portrait&scene=kitchen&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "charcoal",
+        "frame": "portrait",
+        "light": "studio",
+        "scene": "kitchen"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": true,
+      "scene": {
+        "id": "kitchen",
+        "kind": "interior",
+        "background": "sky-pmrem",
+        "backdrop": null,
+        "ground": true,
+        "environment": {
+          "attached": true,
+          "kind": "interior",
+          "cubeSize": 256,
+          "bakes": 1,
+          "environmentIntensity": 0.24361185471668675,
+          "roomInFrame": true,
+          "liveFaces": 7,
+          "bakeFaces": 8,
+          "widthMetres": 4.2,
+          "depthMetres": 6.4,
+          "heightMetres": 2.6,
+          "windowAreaSquareMetres": 2.0999999999999996,
+          "windowAzimuthDegrees": -90,
+          "windowAdmittance": 1,
+          "windowTransmission": 0.86,
+          "interReflection": 0.04595619842434076,
+          "sunAmbientIrradiance": [
+            0.07712775406493703,
+            0.05336180132573205,
+            0.027723201000915968
+          ],
+          "fixtures": [
+            {
+              "kelvin": 2900,
+              "irradiance": 5
+            }
+          ],
+          "sunElevationDegrees": 15,
+          "sunAzimuthDegrees": -55,
+          "sunColour": 16767394,
+          "sunKelvin": 4042,
+          "sunIrradianceInSkyUnits": 7.748358618628155,
+          "keyIrradianceInRigUnits": 0.7957495745690517,
+          "skyToRigScale": 0.11941757584151311
+        },
+        "groundMaterial": {
+          "albedo": "#6b5443",
+          "roughness": 0.6
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 2.04,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": false,
+          "designedKeyToFill": 2.4113623471789447,
+          "ambientAttached": false,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": -67,
+              "elevationDegrees": 14.999999999999995,
+              "irradiance": 1.6233291321208658,
+              "colour": "#ffd9a2",
+              "position": [
+                -0.8640342058379566,
+                1.7604094662695016,
+                0.6050032641987771
+              ],
+              "panelMetres": [
+                0.84,
+                1.176
+              ],
+              "radiance": 1.386465280067958,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0.8710926975924193
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 2.0000000000000004,
+              "irradiance": 0.6731999999999998,
+              "colour": "#f2d2c6",
+              "position": [
+                -0.6205545754536215,
+                1.511491982832165,
+                0.7395481446976281
+              ],
+              "panelMetres": [
+                1.764,
+                1.764
+              ],
+              "radiance": 0.42074089840726125,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 25.999999999999982,
+              "irradiance": 0.6528000000000003,
+              "colour": "#0f30ff",
+              "position": [
+                -0.06909319743635707,
+                1.5606312157606845,
+                -0.15518586226868253
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.13083
+              ],
+              "radiance": 5.5338878719769395,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -6.000000000000025,
+              "irradiance": 0.014280000000000003,
+              "colour": "#ffd7b0",
+              "position": [
+                0.006304765166887775,
+                1.4587914736649796,
+                -0.18054485220830163
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.12356400000000001
+              ],
+              "radiance": 0.11816488102854758,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 2.4,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {
+          "fill": {
+            "irradiance": 0.15
+          },
+          "rim": {
+            "irradiance": 0.02,
+            "distanceInHeights": 0.5
+          },
+          "kicker": {
+            "irradiance": 0.1,
+            "distanceInHeights": 0.5
+          }
+        }
+      },
+      "nativeExposure": 2.4,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "kitchen-original-desktop": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=original&frame=portrait&scene=kitchen&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "original",
+        "frame": "portrait",
+        "light": "studio",
+        "scene": "kitchen"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": true,
+      "scene": {
+        "id": "kitchen",
+        "kind": "interior",
+        "background": "sky-pmrem",
+        "backdrop": null,
+        "ground": true,
+        "environment": {
+          "attached": true,
+          "kind": "interior",
+          "cubeSize": 256,
+          "bakes": 1,
+          "environmentIntensity": 0.24361185471668675,
+          "roomInFrame": true,
+          "liveFaces": 7,
+          "bakeFaces": 8,
+          "widthMetres": 4.2,
+          "depthMetres": 6.4,
+          "heightMetres": 2.6,
+          "windowAreaSquareMetres": 2.0999999999999996,
+          "windowAzimuthDegrees": -90,
+          "windowAdmittance": 1,
+          "windowTransmission": 0.86,
+          "interReflection": 0.04595619842434076,
+          "sunAmbientIrradiance": [
+            0.07712775406493703,
+            0.05336180132573205,
+            0.027723201000915968
+          ],
+          "fixtures": [
+            {
+              "kelvin": 2900,
+              "irradiance": 5
+            }
+          ],
+          "sunElevationDegrees": 15,
+          "sunAzimuthDegrees": -55,
+          "sunColour": 16767394,
+          "sunKelvin": 4042,
+          "sunIrradianceInSkyUnits": 7.748358618628155,
+          "keyIrradianceInRigUnits": 0.7957495745690517,
+          "skyToRigScale": 0.11941757584151311
+        },
+        "groundMaterial": {
+          "albedo": "#6b5443",
+          "roughness": 0.6
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 2.04,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": false,
+          "designedKeyToFill": 2.4113623471789447,
+          "ambientAttached": false,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": -67,
+              "elevationDegrees": 14.999999999999995,
+              "irradiance": 1.6233291321208658,
+              "colour": "#ffd9a2",
+              "position": [
+                -0.8640342058379566,
+                1.7604094662695016,
+                0.6050032641987771
+              ],
+              "panelMetres": [
+                0.84,
+                1.176
+              ],
+              "radiance": 1.386465280067958,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0.8710926975924193
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 2.0000000000000004,
+              "irradiance": 0.6731999999999998,
+              "colour": "#f2d2c6",
+              "position": [
+                -0.6205545754536215,
+                1.511491982832165,
+                0.7395481446976281
+              ],
+              "panelMetres": [
+                1.764,
+                1.764
+              ],
+              "radiance": 0.42074089840726125,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 25.999999999999982,
+              "irradiance": 0.6528000000000003,
+              "colour": "#0f30ff",
+              "position": [
+                -0.06909319743635707,
+                1.5606312157606845,
+                -0.15518586226868253
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.13083
+              ],
+              "radiance": 5.5338878719769395,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -6.000000000000025,
+              "irradiance": 0.014280000000000003,
+              "colour": "#ffd7b0",
+              "position": [
+                0.006304765166887775,
+                1.4587914736649796,
+                -0.18054485220830163
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.12356400000000001
+              ],
+              "radiance": 0.11816488102854758,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 2.4,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {
+          "fill": {
+            "irradiance": 0.15
+          },
+          "rim": {
+            "irradiance": 0.02,
+            "distanceInHeights": 0.5
+          },
+          "kicker": {
+            "irradiance": 0.1,
+            "distanceInHeights": 0.5
+          }
+        }
+      },
+      "nativeExposure": 2.4,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "reopened-kitchen-original-mobile": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=original&frame=portrait&scene=kitchen&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "original",
+        "frame": "portrait",
+        "light": "studio",
+        "scene": "kitchen"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": true,
+      "scene": {
+        "id": "kitchen",
+        "kind": "interior",
+        "background": "sky-pmrem",
+        "backdrop": null,
+        "ground": true,
+        "environment": {
+          "attached": true,
+          "kind": "interior",
+          "cubeSize": 256,
+          "bakes": 1,
+          "environmentIntensity": 0.24361185471668675,
+          "roomInFrame": true,
+          "liveFaces": 7,
+          "bakeFaces": 8,
+          "widthMetres": 4.2,
+          "depthMetres": 6.4,
+          "heightMetres": 2.6,
+          "windowAreaSquareMetres": 2.0999999999999996,
+          "windowAzimuthDegrees": -90,
+          "windowAdmittance": 1,
+          "windowTransmission": 0.86,
+          "interReflection": 0.04595619842434076,
+          "sunAmbientIrradiance": [
+            0.07712775406493703,
+            0.05336180132573205,
+            0.027723201000915968
+          ],
+          "fixtures": [
+            {
+              "kelvin": 2900,
+              "irradiance": 5
+            }
+          ],
+          "sunElevationDegrees": 15,
+          "sunAzimuthDegrees": -55,
+          "sunColour": 16767394,
+          "sunKelvin": 4042,
+          "sunIrradianceInSkyUnits": 7.748358618628155,
+          "keyIrradianceInRigUnits": 0.7957495745690517,
+          "skyToRigScale": 0.11941757584151311
+        },
+        "groundMaterial": {
+          "albedo": "#6b5443",
+          "roughness": 0.6
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 2.04,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": false,
+          "designedKeyToFill": 2.4113623471789447,
+          "ambientAttached": false,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": -67,
+              "elevationDegrees": 14.999999999999995,
+              "irradiance": 1.6233291321208658,
+              "colour": "#ffd9a2",
+              "position": [
+                -0.8640342058379566,
+                1.7604094662695016,
+                0.6050032641987771
+              ],
+              "panelMetres": [
+                0.84,
+                1.176
+              ],
+              "radiance": 1.386465280067958,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0.8710926975924193
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 2.0000000000000004,
+              "irradiance": 0.6731999999999998,
+              "colour": "#f2d2c6",
+              "position": [
+                -0.6205545754536215,
+                1.511491982832165,
+                0.7395481446976281
+              ],
+              "panelMetres": [
+                1.764,
+                1.764
+              ],
+              "radiance": 0.42074089840726125,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 25.999999999999982,
+              "irradiance": 0.6528000000000003,
+              "colour": "#0f30ff",
+              "position": [
+                -0.06909319743635707,
+                1.5606312157606845,
+                -0.15518586226868253
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.13083
+              ],
+              "radiance": 5.5338878719769395,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -6.000000000000025,
+              "irradiance": 0.014280000000000003,
+              "colour": "#ffd7b0",
+              "position": [
+                0.006304765166887775,
+                1.4587914736649796,
+                -0.18054485220830163
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.12356400000000001
+              ],
+              "radiance": 0.11816488102854758,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 2.4,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {
+          "fill": {
+            "irradiance": 0.15
+          },
+          "rim": {
+            "irradiance": 0.02,
+            "distanceInHeights": 0.5
+          },
+          "kicker": {
+            "irradiance": 0.1,
+            "distanceInHeights": 0.5
+          }
+        }
+      },
+      "nativeExposure": 2.4,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "kitchen-original-body-mobile": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=original&scene=kitchen&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "original",
+        "frame": "body",
+        "light": "studio",
+        "scene": "kitchen"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": true,
+      "scene": {
+        "id": "kitchen",
+        "kind": "interior",
+        "background": "sky-pmrem",
+        "backdrop": null,
+        "ground": true,
+        "environment": {
+          "attached": true,
+          "kind": "interior",
+          "cubeSize": 256,
+          "bakes": 1,
+          "environmentIntensity": 0.24361185471668675,
+          "roomInFrame": true,
+          "liveFaces": 7,
+          "bakeFaces": 8,
+          "widthMetres": 4.2,
+          "depthMetres": 6.4,
+          "heightMetres": 2.6,
+          "windowAreaSquareMetres": 2.0999999999999996,
+          "windowAzimuthDegrees": -90,
+          "windowAdmittance": 1,
+          "windowTransmission": 0.86,
+          "interReflection": 0.04595619842434076,
+          "sunAmbientIrradiance": [
+            0.07712775406493703,
+            0.05336180132573205,
+            0.027723201000915968
+          ],
+          "fixtures": [
+            {
+              "kelvin": 2900,
+              "irradiance": 5
+            }
+          ],
+          "sunElevationDegrees": 15,
+          "sunAzimuthDegrees": -55,
+          "sunColour": 16767394,
+          "sunKelvin": 4042,
+          "sunIrradianceInSkyUnits": 7.748358618628155,
+          "keyIrradianceInRigUnits": 0.7957495745690517,
+          "skyToRigScale": 0.11941757584151311
+        },
+        "groundMaterial": {
+          "albedo": "#6b5443",
+          "roughness": 0.6
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 2.04,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": false,
+          "designedKeyToFill": 4.4208309698280654,
+          "ambientAttached": false,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": -67,
+              "elevationDegrees": 14.999999999999995,
+              "irradiance": 1.6233291321208658,
+              "colour": "#ffd9a2",
+              "position": [
+                -3.823059226486474,
+                2.092073503966578,
+                2.676934889408011
+              ],
+              "panelMetres": [
+                3.716715991740387,
+                5.203402388436541
+              ],
+              "radiance": 1.3864652800679576,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 17.053933041778254
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 1.9999999999999996,
+              "irradiance": 0.36719999999999986,
+              "colour": "#f2d2c6",
+              "position": [
+                -2.745744183733502,
+                0.9906978000197658,
+                3.272250495309057
+              ],
+              "panelMetres": [
+                7.805103582654813,
+                7.805103582654813
+              ],
+              "radiance": 0.22949503549486974,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 40.000000000000014,
+              "irradiance": 0.8976000000000001,
+              "colour": "#0f30ff",
+              "position": [
+                -0.18818283549610082,
+                1.2297516404820708,
+                -0.42266556874181016
+              ],
+              "panelMetres": [
+                0.25886926882471795,
+                0.8628356174825308
+              ],
+              "radiance": 1.9674488999249113,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": 16.000000000000007,
+              "irradiance": 0.0204,
+              "colour": "#ffd7b0",
+              "position": [
+                0.02026159091007052,
+                1.0080052422436956,
+                -0.580216049215599
+              ],
+              "panelMetres": [
+                0.25886926882471795,
+                0.8197217119783423
+              ],
+              "radiance": 0.04608832747655593,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 2.4,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {
+          "fill": {
+            "irradiance": 0.15
+          },
+          "rim": {
+            "irradiance": 0.02,
+            "distanceInHeights": 0.5
+          },
+          "kicker": {
+            "irradiance": 0.1,
+            "distanceInHeights": 0.5
+          }
+        }
+      },
+      "nativeExposure": 2.4,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "studio-original-body-mobile": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "studio",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=original&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "original",
+        "frame": "body",
+        "light": "studio",
+        "scene": "studio"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": false,
+      "scene": {
+        "id": "studio",
+        "kind": "studio",
+        "background": "#08080a",
+        "backdrop": "#070a0e",
+        "ground": true,
+        "environment": null,
+        "groundMaterial": {
+          "albedo": "#968c34",
+          "roughness": 0.9
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 0.85,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": true,
+          "designedKeyToFill": 2.5,
+          "ambientAttached": true,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": 42,
+              "elevationDegrees": 18,
+              "irradiance": 2.5500000000000007,
+              "colour": "#ffeeda",
+              "position": [
+                3.717634576543999,
+                2.334616481023999,
+                2.7010196234424164
+              ],
+              "panelMetres": [
+                3.716715991740387,
+                5.203402388436541
+              ],
+              "radiance": 2.177923376237454,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 26.789101726843565
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 1.9999999999999996,
+              "irradiance": 1.0199999999999998,
+              "colour": "#f2d2c6",
+              "position": [
+                -2.745744183733502,
+                0.9906978000197658,
+                3.272250495309057
+              ],
+              "panelMetres": [
+                7.805103582654813,
+                7.805103582654813
+              ],
+              "radiance": 0.6374862097079717,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 40.00000000000001,
+              "irradiance": 18.7,
+              "colour": "#0f30ff",
+              "position": [
+                -0.37636567099220164,
+                1.6179737260669331,
+                -0.8453311374836203
+              ],
+              "panelMetres": [
+                0.25886926882471795,
+                0.8628356174825308
+              ],
+              "radiance": 133.2243374024246,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": 15.999999999999993,
+              "irradiance": 0.08499999999999999,
+              "colour": "#ffd7b0",
+              "position": [
+                0.04052318182014104,
+                1.1744809295901828,
+                -1.160432098431198
+              ],
+              "panelMetres": [
+                0.25886926882471795,
+                0.8197217119783423
+              ],
+              "radiance": 0.6328081849381876,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 1,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {}
+      },
+      "nativeExposure": 1,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "kitchen-elegant-body-desktop": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob01",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?scene=kitchen&preset=elegant&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "ecru",
+        "frame": "body",
+        "light": "studio",
+        "scene": "kitchen"
+      },
+      "preset": "elegant",
+      "cut": "Long bob",
+      "lightingHidden": true,
+      "scene": {
+        "id": "kitchen",
+        "kind": "interior",
+        "background": "sky-pmrem",
+        "backdrop": null,
+        "ground": true,
+        "environment": {
+          "attached": true,
+          "kind": "interior",
+          "cubeSize": 256,
+          "bakes": 1,
+          "environmentIntensity": 0.24361185471668675,
+          "roomInFrame": true,
+          "liveFaces": 7,
+          "bakeFaces": 8,
+          "widthMetres": 4.2,
+          "depthMetres": 6.4,
+          "heightMetres": 2.6,
+          "windowAreaSquareMetres": 2.0999999999999996,
+          "windowAzimuthDegrees": -90,
+          "windowAdmittance": 1,
+          "windowTransmission": 0.86,
+          "interReflection": 0.04595619842434076,
+          "sunAmbientIrradiance": [
+            0.07712775406493703,
+            0.05336180132573205,
+            0.027723201000915968
+          ],
+          "fixtures": [
+            {
+              "kelvin": 2900,
+              "irradiance": 5
+            }
+          ],
+          "sunElevationDegrees": 15,
+          "sunAzimuthDegrees": -55,
+          "sunColour": 16767394,
+          "sunKelvin": 4042,
+          "sunIrradianceInSkyUnits": 7.748358618628155,
+          "keyIrradianceInRigUnits": 0.7957495745690517,
+          "skyToRigScale": 0.11941757584151311
+        },
+        "groundMaterial": {
+          "albedo": "#6b5443",
+          "roughness": 0.6
+        },
+        "lighting": {
+          "look": "studio",
+          "exposure": 2.04,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": false,
+          "designedKeyToFill": 4.4208309698280654,
+          "ambientAttached": false,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": -67,
+              "elevationDegrees": 14.999999999999995,
+              "irradiance": 1.6233291321208658,
+              "colour": "#ffd9a2",
+              "position": [
+                -3.8230240808338287,
+                2.092054242166232,
+                2.6769102801570934
+              ],
+              "panelMetres": [
+                3.716681823708586,
+                5.20335455319202
+              ],
+              "radiance": 1.3864652800679576,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 17.053619487205133
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -51.99999999999999,
+              "elevationDegrees": 2,
+              "irradiance": 0.36719999999999997,
+              "colour": "#f2d2c6",
+              "position": [
+                -2.7457189419138968,
+                0.9906886632438128,
+                3.2722204132798596
+              ],
+              "panelMetres": [
+                7.805031829788031,
+                7.805031829788031
+              ],
+              "radiance": 0.22949503549486983,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 40,
+              "irradiance": 0.8976000000000004,
+              "colour": "#0f30ff",
+              "position": [
+                -0.18818110551804446,
+                1.2297403060673306,
+                -0.42266168314747743
+              ],
+              "panelMetres": [
+                0.25886688902130306,
+                0.8628276853739483
+              ],
+              "radiance": 1.967448899924911,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": 15.999999999999993,
+              "irradiance": 0.020400000000000005,
+              "colour": "#ffd7b0",
+              "position": [
+                0.020261404643838674,
+                1.0079959463592074,
+                -0.5802107152486063
+              ],
+              "panelMetres": [
+                0.25886688902130306,
+                0.8197141762189286
+              ],
+              "radiance": 0.04608832747655593,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "studio",
+        "exposure": 2.4,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {
+          "fill": {
+            "irradiance": 0.15
+          },
+          "rim": {
+            "irradiance": 0.02,
+            "distanceInHeights": 0.5
+          },
+          "kicker": {
+            "irradiance": 0.1,
+            "distanceInHeights": 0.5
+          }
+        }
+      },
+      "nativeExposure": 2.4,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    },
+    "legacy-studio-reopened": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "warm",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "charcoal",
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5301/src/showcase.html?preset=casual&outfit=elegant&style=charcoal&frame=portrait&light=warm&capture=",
+      "choices": {
+        "outfit": "elegant",
+        "style": "charcoal",
+        "frame": "portrait",
+        "light": "warm",
+        "scene": "studio"
+      },
+      "preset": "casual",
+      "cut": "Chin-length bob",
+      "lightingHidden": false,
+      "scene": {
+        "id": "studio",
+        "kind": "studio",
+        "background": "#08080a",
+        "backdrop": "#070a0e",
+        "ground": true,
+        "environment": null,
+        "groundMaterial": {
+          "albedo": "#968c34",
+          "roughness": 0.9
+        },
+        "lighting": {
+          "look": "warm",
+          "exposure": 0.85,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": true,
+          "designedKeyToFill": 1.3636363636363635,
+          "ambientAttached": true,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": 42,
+              "elevationDegrees": 18,
+              "irradiance": 2.55,
+              "colour": "#ffe3c0",
+              "position": [
+                0.8402076056488441,
+                1.8152256268749916,
+                0.6104465578574426
+              ],
+              "panelMetres": [
+                0.84,
+                1.176
+              ],
+              "radiance": 2.177923376237455,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -52,
+              "elevationDegrees": 2.0000000000000004,
+              "irradiance": 1.8699999999999997,
+              "colour": "#f7cdb8",
+              "position": [
+                -0.6205545754536215,
+                1.511491982832165,
+                0.7395481446976281
+              ],
+              "panelMetres": [
+                1.764,
+                1.764
+              ],
+              "radiance": 1.168724717797948,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 25.999999999999982,
+              "irradiance": 13.600000000000001,
+              "colour": "#0f30ff",
+              "position": [
+                -0.13818639487271414,
+                1.64348336250382,
+                -0.31037172453736506
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.13083
+              ],
+              "radiance": 434.61237203641264,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -5.99999999999999,
+              "irradiance": 0.0714,
+              "colour": "#ffd7b0",
+              "position": [
+                0.01260953033377555,
+                1.4398038783124105,
+                -0.36108970441660326
+              ],
+              "panelMetres": [
+                0.034901999999999996,
+                0.12356400000000001
+              ],
+              "radiance": 2.2304184088931933,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "resolvedLighting": {
+        "look": "warm",
+        "exposure": 1,
+        "ambient": 1,
+        "shadows": null,
+        "lights": {},
+        "scales": {}
+      },
+      "nativeExposure": 1,
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      },
+      "attention": "idle",
+      "noHorizontalOverflow": true
+    }
+  },
+  "limits": [
+    "Functional evidence for the current two g050 studies only; no fit, hair, motion or other-body acceptance.",
+    "Kitchen uses the existing native scene exposure and lighting; the chooser adds no core scene or asset changes.",
+    "Scene changes and settings restore start a new Avatar and viewing clock; orbit, attention and motion time are not saved."
+  ],
+  "builtHtmlSha256": "5c51a4af5147aa641233df471e5bbe3627d184153ce408bb5479bc60b99cf869",
+  "passed": true
+}

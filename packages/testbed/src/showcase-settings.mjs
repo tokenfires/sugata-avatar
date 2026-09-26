@@ -23,10 +23,11 @@ export function selectionFromConfiguration(configuration) {
         garments.length === SHOWCASE_OUTFITS[id].garments.length &&
         SHOWCASE_OUTFITS[id].garments.every(garment => garments.includes(garment)));
     const selection = { preset: preset.id, outfit, style: configuration.wardrobe?.style ?? 'original',
-        frame: configuration.frame, light: configuration.lighting };
+        frame: configuration.frame, scene: configuration.scene,
+        light: configuration.scene === 'kitchen' && configuration.lighting === undefined ? 'studio' : configuration.lighting };
     let expected;
     try { expected = optionsForShowcase(selection); }
-    catch { throw new Error('These clothes, colours, framing or light are unavailable in this study.'); }
+    catch { throw new Error('These clothes, colours, framing, scene or light are unavailable in this study.'); }
     // The SDK also accepts explicit "original"; exports omit it. Both mean the same attached fabrics.
     if (configuration.wardrobe.style === 'original') expected.wardrobe.style = 'original';
     sameOptions(configuration, expected);

@@ -12,6 +12,7 @@ const dialog = document.getElementById('copy-dialog');
 let avatar = null, controls = null, framing = null, selected = null, busy = true, failed = false;
 let paused = reducedMotion, frame = 0, previousTime = null;
 let savingImage = false, attention = null, attentionError = null;
+let navigationPending = false;
 const downloadUrls = new Set();
 const setStatus = text => { status.textContent = text; };
 function enableControls() {
@@ -49,12 +50,13 @@ function animate(time) {
 function updateUrl() {
     const url = new URL(location.href), preset = SHOWCASE_PRESETS.find(p => p.id === selected.preset);
     url.searchParams.set('preset', selected.preset);
-    for (const [key, value, normal] of [['style', selected.style, 'ecru'], ['outfit', selected.outfit, preset.outfit], ['frame', selected.frame, 'body'], ['light', selected.light, 'studio']])
+    for (const [key, value, normal] of [['style', selected.style, 'ecru'], ['outfit', selected.outfit, preset.outfit], ['frame', selected.frame, 'body'], ['light', selected.light, 'studio'], ['scene', selected.scene, 'studio']])
         if (value === normal) url.searchParams.delete(key); else url.searchParams.set(key, value);
     history.replaceState(null, '', url);
     for (const link of document.querySelectorAll('[data-preset]')) {
         const next = new URL(location.href); next.search = ''; next.searchParams.set('preset', link.dataset.preset);
         if (selected.style !== 'ecru') next.searchParams.set('style', selected.style);
+        if (selected.scene !== 'studio') next.searchParams.set('scene', selected.scene);
         if (captured) next.searchParams.set('capture', ''); link.href = next.href;
     }
 }
@@ -62,8 +64,9 @@ function refresh() {
     const report = avatar.report(); selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
     const preset = SHOWCASE_PRESETS.find(p => p.id === selected.preset);
     for (const link of document.querySelectorAll('[data-preset]')) link.setAttribute('aria-current', String(link.dataset.preset === selected.preset));
-    for (const [key, value] of [['style', selected.style], ['outfit', selected.outfit], ['frame', selected.frame], ['light', selected.light]])
+    for (const [key, value] of [['style', selected.style], ['outfit', selected.outfit], ['frame', selected.frame], ['light', selected.light], ['scene', selected.scene]])
         for (const button of document.querySelectorAll(`[data-${key}]`)) button.setAttribute('aria-pressed', String(button.dataset[key] === value));
+    document.getElementById('lighting-controls').hidden = selected.scene === 'kitchen';
     document.getElementById('view-name').textContent = `${preset.number} / ${selected.outfit === preset.outfit ? preset.name : 'Your combination'}`;
     document.getElementById('cut-label').textContent = report.hair.loadedStyle === 'bob02' ? 'Chin-length bob' : 'Long bob';
     document.getElementById('pause').textContent = paused ? 'Resume motion' : 'Pause motion';
@@ -127,7 +130,7 @@ async function openLook(file) {
         if (failed || avatar.disposed) return false;
         const url = showcaseSettingsUrl(restored, location.href);
         releaseAttention({immediate: true}); setStatus('Opening saved look…');
-        location.assign(url.href); navigating = true; return true;
+        navigationPending = true; location.assign(url.href); navigating = true; return true;
     } catch (error) {
         if (!avatar.disposed) {
             feedback.textContent = `Settings not opened. ${error.message} Your current look is retained.`;
@@ -192,10 +195,19 @@ try {
         if (busy || savingImage || failed || button.dataset.style === selected.style) return;
         const next = new URL(location.href); next.searchParams.set('style', button.dataset.style);
         releaseAttention({immediate: true});
-        busy = true; enableControls(); setStatus('Preparing colours…'); location.assign(next.href);
+        busy = true; enableControls(); setStatus('Preparing colours…'); navigationPending = true; location.assign(next.href);
     });
     for (const button of document.querySelectorAll('[data-frame]')) button.addEventListener('click', () => { frameView(button.dataset.frame); refresh(); });
-    for (const button of document.querySelectorAll('[data-light]')) button.addEventListener('click', () => { avatar.setLighting(button.dataset.light); selected.light = button.dataset.light; refresh(); });
+    for (const button of document.querySelectorAll('[data-scene]')) button.addEventListener('click', () => {
+        if (busy || savingImage || failed || button.dataset.scene === selected.scene) return;
+        const next = new URL(location.href); next.searchParams.set('scene', button.dataset.scene); next.searchParams.delete('light');
+        releaseAttention({immediate: true});
+        busy = true; enableControls(); setStatus('Preparing the scene…'); navigationPending = true; location.assign(next.href);
+    });
+    for (const button of document.querySelectorAll('[data-light]')) button.addEventListener('click', () => {
+        if (selected.scene !== 'studio' || busy || savingImage || failed) return;
+        avatar.setLighting(button.dataset.light); selected.light = button.dataset.light; refresh();
+    });
     for (const button of document.querySelectorAll('[data-angle]')) button.addEventListener('click', () => {
         releaseAttention({immediate: true});
         flushOrbitDamping(controls);
@@ -226,4 +238,13 @@ try {
 
 document.addEventListener('visibilitychange', () => { previousTime = null; });
 addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
-addEventListener('pageshow', event => { if (event.persisted && avatar && !failed && !captured && !savingImage) { previousTime = null; frame = requestAnimationFrame(animate); } });
+addEventListener('pageshow', event => {
+    if (!event.persisted || !avatar || avatar.disposed || failed) return;
+    // Restore only navigation's busy state. An unfinished file read or dress operation stays busy.
+    if (navigationPending) {
+        navigationPending = false; busy = false; refresh(); setStatus(paused ? 'Motion paused' : 'Live view');
+    }
+    if (!captured && !savingImage) {
+        cancelAnimationFrame(frame); previousTime = null; frame = requestAnimationFrame(animate);
+    }
+});

@@ -11,24 +11,26 @@ const exported = options => configurationFromReport({ disposal: { disposed: fals
     wardrobe: { attached: true, appearance: { attached: true, style: options.wardrobe.style ?? 'original' },
         pendingCandidates: 0, foundation: options.wardrobe.foundation,
         state: { worn: [...options.wardrobe.outfit, ...Object.values(options.wardrobe.foundation)] } },
-    framing: { mode: options.frame }, scene: { id: options.scene, lighting: { look: options.lighting } },
+    framing: { mode: options.frame }, scene: { id: options.scene, lighting: { look: options.lighting ?? 'studio' } },
     quality: { requested: options.quality }, motion: { seed: options.seed } });
 const normal = () => optionsForShowcase(resolveShowcaseSelection(new URLSearchParams()));
 
-await check('48 complete attached-look exports reopen through JSON and page URL without losing settings', async () => {
+await check('72 complete Studio/Kitchen exports reopen through JSON and page URL without losing settings', async () => {
     let combinations = 0;
     for (const preset of SHOWCASE_PRESETS) for (const outfit of Object.keys(SHOWCASE_OUTFITS))
         for (const style of ['ecru', 'charcoal', 'original']) for (const frame of ['body', 'portrait'])
-            for (const light of ['studio', 'warm']) {
-                const expected = optionsForShowcase({ preset: preset.id, outfit, style, frame, light });
+            for (const [scene, light] of [['studio', 'studio'], ['studio', 'warm'], ['kitchen', 'studio']]) {
+                const expected = optionsForShowcase({ preset: preset.id, outfit, style, frame, light, scene });
                 const settings = exported(expected), selected = await readShowcaseSettings(file(JSON.stringify(settings)));
+                assert.equal(selected.scene, scene); assert.equal(selected.light, light);
+                assert.equal(Object.hasOwn(settings, 'lighting'), scene === 'studio');
                 const url = showcaseSettingsUrl(selected, 'http://localhost:5173/src/showcase.html?capture=&gender=0&debug=old');
                 assert.deepEqual(optionsForShowcase(resolveShowcaseSelection(url.searchParams)), settings);
                 assert.equal(url.pathname, '/src/showcase.html'); assert.equal(url.origin, 'http://localhost:5173');
                 assert.equal(url.searchParams.has('capture'), true); assert.equal(url.searchParams.has('debug'), false);
                 assert.equal(url.searchParams.has('gender'), false); combinations++;
             }
-    assert.equal(combinations, 48);
+    assert.equal(combinations, 72);
 });
 await check('JSON object key order, garment order and explicit original fabric preserve the same look', () => {
     const settings = normal(); settings.wardrobe.style = 'original'; settings.wardrobe.outfit.reverse();
@@ -48,6 +50,8 @@ await check('unsupported or incomplete settings fail before they can become a pa
         value => { value.wardrobe.outfit.push('fedora01'); }, value => { value.wardrobe.style = 'unavailable'; },
         value => { value.hair = 'arbitrary'; }, value => { value.scene = 'outdoors'; },
         value => { value.frame = 'neck'; }, value => { value.lighting = 'cool'; },
+        value => { delete value.lighting; }, value => { delete value.scene; },
+        value => { value.scene = 'kitchen'; }, value => { value.scene = 'kitchen'; value.lighting = 'warm'; },
         value => { value.assetRoot = 'https://example.invalid/assets/'; },
         value => { value.identity.extra = true; }, value => { value.wardrobe.foundation.EXTRA = 'unknown'; }
     ]) {
