@@ -1,0 +1,25 @@
+{
+  "scope": "Retained output analysis after completed comparison; eyeWide targets may alter facial-card geometry despite identical non-eyeWide weights and bones.",
+  "stats": [
+    {
+      "speech": false,
+      "samplePairs": 71,
+      "maxEyeWideDelta": 0.20378571428354822,
+      "differingHairVertexHashes": 0,
+      "differingFacialCardPositionHashes": {
+        "Humaneyebrow001": 48,
+        "Humaneyelashes01": 48
+      }
+    },
+    {
+      "speech": true,
+      "samplePairs": 83,
+      "maxEyeWideDelta": 0.20378571428354822,
+      "differingHairVertexHashes": 0,
+      "differingFacialCardPositionHashes": {
+        "Humaneyebrow001": 60,
+        "Humaneyelashes01": 60
+      }
+    }
+  ]
+}

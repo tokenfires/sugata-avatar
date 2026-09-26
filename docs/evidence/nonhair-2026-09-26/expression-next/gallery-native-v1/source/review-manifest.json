@@ -1,0 +1,2522 @@
+{
+  "title": "Three expression studies",
+  "scope": "Isolated experiment on one fixed character and view. Native simulation at 60Hz; images at 15Hz plus explicit endpoints. Speech uses a saved synthetic mouth timeline, with no audio. No change to the shipped expression behavior or broad perceptual qualification.",
+  "groups": [
+    {
+      "id": "quiet",
+      "label": "Quiet",
+      "samples": [
+        {
+          "step": 0,
+          "time": 0
+        },
+        {
+          "step": 4,
+          "time": 0.06666666666666667
+        },
+        {
+          "step": 8,
+          "time": 0.13333333333333333
+        },
+        {
+          "step": 12,
+          "time": 0.2
+        },
+        {
+          "step": 15,
+          "time": 0.25
+        },
+        {
+          "step": 16,
+          "time": 0.26666666666666666
+        },
+        {
+          "step": 20,
+          "time": 0.3333333333333333
+        },
+        {
+          "step": 24,
+          "time": 0.4
+        },
+        {
+          "step": 28,
+          "time": 0.4666666666666667
+        },
+        {
+          "step": 32,
+          "time": 0.5333333333333333
+        },
+        {
+          "step": 36,
+          "time": 0.6
+        },
+        {
+          "step": 40,
+          "time": 0.6666666666666666
+        },
+        {
+          "step": 44,
+          "time": 0.7333333333333333
+        },
+        {
+          "step": 48,
+          "time": 0.8
+        },
+        {
+          "step": 51,
+          "time": 0.85
+        },
+        {
+          "step": 52,
+          "time": 0.8666666666666667
+        },
+        {
+          "step": 56,
+          "time": 0.9333333333333333
+        },
+        {
+          "step": 60,
+          "time": 1
+        },
+        {
+          "step": 64,
+          "time": 1.0666666666666667
+        },
+        {
+          "step": 68,
+          "time": 1.1333333333333333
+        },
+        {
+          "step": 72,
+          "time": 1.2
+        },
+        {
+          "step": 76,
+          "time": 1.2666666666666666
+        },
+        {
+          "step": 80,
+          "time": 1.3333333333333333
+        },
+        {
+          "step": 84,
+          "time": 1.4
+        },
+        {
+          "step": 88,
+          "time": 1.4666666666666666
+        },
+        {
+          "step": 92,
+          "time": 1.5333333333333334
+        },
+        {
+          "step": 96,
+          "time": 1.6
+        },
+        {
+          "step": 100,
+          "time": 1.6666666666666667
+        },
+        {
+          "step": 104,
+          "time": 1.7333333333333334
+        },
+        {
+          "step": 108,
+          "time": 1.8
+        },
+        {
+          "step": 112,
+          "time": 1.8666666666666667
+        },
+        {
+          "step": 116,
+          "time": 1.9333333333333333
+        },
+        {
+          "step": 120,
+          "time": 2
+        },
+        {
+          "step": 124,
+          "time": 2.066666666666667
+        },
+        {
+          "step": 128,
+          "time": 2.1333333333333333
+        },
+        {
+          "step": 132,
+          "time": 2.2
+        },
+        {
+          "step": 136,
+          "time": 2.2666666666666666
+        },
+        {
+          "step": 140,
+          "time": 2.3333333333333335
+        },
+        {
+          "step": 144,
+          "time": 2.4
+        },
+        {
+          "step": 148,
+          "time": 2.466666666666667
+        },
+        {
+          "step": 152,
+          "time": 2.533333333333333
+        },
+        {
+          "step": 156,
+          "time": 2.6
+        },
+        {
+          "step": 160,
+          "time": 2.6666666666666665
+        },
+        {
+          "step": 164,
+          "time": 2.7333333333333334
+        },
+        {
+          "step": 168,
+          "time": 2.8
+        },
+        {
+          "step": 172,
+          "time": 2.8666666666666667
+        },
+        {
+          "step": 176,
+          "time": 2.933333333333333
+        },
+        {
+          "step": 180,
+          "time": 3
+        },
+        {
+          "step": 184,
+          "time": 3.066666666666667
+        },
+        {
+          "step": 188,
+          "time": 3.1333333333333333
+        },
+        {
+          "step": 192,
+          "time": 3.2
+        },
+        {
+          "step": 196,
+          "time": 3.2666666666666666
+        },
+        {
+          "step": 200,
+          "time": 3.3333333333333335
+        },
+        {
+          "step": 204,
+          "time": 3.4
+        },
+        {
+          "step": 208,
+          "time": 3.466666666666667
+        },
+        {
+          "step": 212,
+          "time": 3.533333333333333
+        },
+        {
+          "step": 216,
+          "time": 3.6
+        },
+        {
+          "step": 220,
+          "time": 3.6666666666666665
+        },
+        {
+          "step": 224,
+          "time": 3.7333333333333334
+        },
+        {
+          "step": 228,
+          "time": 3.8
+        },
+        {
+          "step": 232,
+          "time": 3.8666666666666667
+        },
+        {
+          "step": 236,
+          "time": 3.933333333333333
+        },
+        {
+          "step": 240,
+          "time": 4
+        },
+        {
+          "step": 244,
+          "time": 4.066666666666666
+        },
+        {
+          "step": 248,
+          "time": 4.133333333333334
+        },
+        {
+          "step": 252,
+          "time": 4.2
+        },
+        {
+          "step": 256,
+          "time": 4.266666666666667
+        },
+        {
+          "step": 260,
+          "time": 4.333333333333333
+        },
+        {
+          "step": 264,
+          "time": 4.4
+        },
+        {
+          "step": 268,
+          "time": 4.466666666666667
+        },
+        {
+          "step": 270,
+          "time": 4.5
+        }
+      ],
+      "arms": [
+        {
+          "id": "view-1",
+          "label": "View 1",
+          "images": [
+            {
+              "step": 0,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0000.png"
+            },
+            {
+              "step": 4,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0004.png"
+            },
+            {
+              "step": 8,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0008.png"
+            },
+            {
+              "step": 12,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0012.png"
+            },
+            {
+              "step": 15,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0015.png"
+            },
+            {
+              "step": 16,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0016.png"
+            },
+            {
+              "step": 20,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0020.png"
+            },
+            {
+              "step": 24,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0024.png"
+            },
+            {
+              "step": 28,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0028.png"
+            },
+            {
+              "step": 32,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0032.png"
+            },
+            {
+              "step": 36,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0036.png"
+            },
+            {
+              "step": 40,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0040.png"
+            },
+            {
+              "step": 44,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0044.png"
+            },
+            {
+              "step": 48,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0048.png"
+            },
+            {
+              "step": 51,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0051.png"
+            },
+            {
+              "step": 52,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0052.png"
+            },
+            {
+              "step": 56,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0056.png"
+            },
+            {
+              "step": 60,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0060.png"
+            },
+            {
+              "step": 64,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0064.png"
+            },
+            {
+              "step": 68,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0068.png"
+            },
+            {
+              "step": 72,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0072.png"
+            },
+            {
+              "step": 76,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0076.png"
+            },
+            {
+              "step": 80,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0080.png"
+            },
+            {
+              "step": 84,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0084.png"
+            },
+            {
+              "step": 88,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0088.png"
+            },
+            {
+              "step": 92,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0092.png"
+            },
+            {
+              "step": 96,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0096.png"
+            },
+            {
+              "step": 100,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0100.png"
+            },
+            {
+              "step": 104,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0104.png"
+            },
+            {
+              "step": 108,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0108.png"
+            },
+            {
+              "step": 112,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0112.png"
+            },
+            {
+              "step": 116,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0116.png"
+            },
+            {
+              "step": 120,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0120.png"
+            },
+            {
+              "step": 124,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0124.png"
+            },
+            {
+              "step": 128,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0128.png"
+            },
+            {
+              "step": 132,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0132.png"
+            },
+            {
+              "step": 136,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0136.png"
+            },
+            {
+              "step": 140,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0140.png"
+            },
+            {
+              "step": 144,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0144.png"
+            },
+            {
+              "step": 148,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0148.png"
+            },
+            {
+              "step": 152,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0152.png"
+            },
+            {
+              "step": 156,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0156.png"
+            },
+            {
+              "step": 160,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0160.png"
+            },
+            {
+              "step": 164,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0164.png"
+            },
+            {
+              "step": 168,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0168.png"
+            },
+            {
+              "step": 172,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0172.png"
+            },
+            {
+              "step": 176,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0176.png"
+            },
+            {
+              "step": 180,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0180.png"
+            },
+            {
+              "step": 184,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0184.png"
+            },
+            {
+              "step": 188,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0188.png"
+            },
+            {
+              "step": 192,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0192.png"
+            },
+            {
+              "step": 196,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0196.png"
+            },
+            {
+              "step": 200,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0200.png"
+            },
+            {
+              "step": 204,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0204.png"
+            },
+            {
+              "step": 208,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0208.png"
+            },
+            {
+              "step": 212,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0212.png"
+            },
+            {
+              "step": 216,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0216.png"
+            },
+            {
+              "step": 220,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0220.png"
+            },
+            {
+              "step": 224,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0224.png"
+            },
+            {
+              "step": 228,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0228.png"
+            },
+            {
+              "step": 232,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0232.png"
+            },
+            {
+              "step": 236,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0236.png"
+            },
+            {
+              "step": 240,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0240.png"
+            },
+            {
+              "step": 244,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0244.png"
+            },
+            {
+              "step": 248,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0248.png"
+            },
+            {
+              "step": 252,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0252.png"
+            },
+            {
+              "step": 256,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0256.png"
+            },
+            {
+              "step": 260,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0260.png"
+            },
+            {
+              "step": 264,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0264.png"
+            },
+            {
+              "step": 268,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0268.png"
+            },
+            {
+              "step": 270,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0270.png"
+            }
+          ]
+        },
+        {
+          "id": "view-2",
+          "label": "View 2",
+          "images": [
+            {
+              "step": 0,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0000.png"
+            },
+            {
+              "step": 4,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0004.png"
+            },
+            {
+              "step": 8,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0008.png"
+            },
+            {
+              "step": 12,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0012.png"
+            },
+            {
+              "step": 15,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0015.png"
+            },
+            {
+              "step": 16,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0016.png"
+            },
+            {
+              "step": 20,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0020.png"
+            },
+            {
+              "step": 24,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0024.png"
+            },
+            {
+              "step": 28,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0028.png"
+            },
+            {
+              "step": 32,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0032.png"
+            },
+            {
+              "step": 36,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0036.png"
+            },
+            {
+              "step": 40,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0040.png"
+            },
+            {
+              "step": 44,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0044.png"
+            },
+            {
+              "step": 48,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0048.png"
+            },
+            {
+              "step": 51,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0051.png"
+            },
+            {
+              "step": 52,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0052.png"
+            },
+            {
+              "step": 56,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0056.png"
+            },
+            {
+              "step": 60,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0060.png"
+            },
+            {
+              "step": 64,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0064.png"
+            },
+            {
+              "step": 68,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0068.png"
+            },
+            {
+              "step": 72,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0072.png"
+            },
+            {
+              "step": 76,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0076.png"
+            },
+            {
+              "step": 80,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0080.png"
+            },
+            {
+              "step": 84,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0084.png"
+            },
+            {
+              "step": 88,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0088.png"
+            },
+            {
+              "step": 92,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0092.png"
+            },
+            {
+              "step": 96,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0096.png"
+            },
+            {
+              "step": 100,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0100.png"
+            },
+            {
+              "step": 104,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0104.png"
+            },
+            {
+              "step": 108,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0108.png"
+            },
+            {
+              "step": 112,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0112.png"
+            },
+            {
+              "step": 116,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0116.png"
+            },
+            {
+              "step": 120,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0120.png"
+            },
+            {
+              "step": 124,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0124.png"
+            },
+            {
+              "step": 128,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0128.png"
+            },
+            {
+              "step": 132,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0132.png"
+            },
+            {
+              "step": 136,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0136.png"
+            },
+            {
+              "step": 140,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0140.png"
+            },
+            {
+              "step": 144,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0144.png"
+            },
+            {
+              "step": 148,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0148.png"
+            },
+            {
+              "step": 152,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0152.png"
+            },
+            {
+              "step": 156,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0156.png"
+            },
+            {
+              "step": 160,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0160.png"
+            },
+            {
+              "step": 164,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0164.png"
+            },
+            {
+              "step": 168,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0168.png"
+            },
+            {
+              "step": 172,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0172.png"
+            },
+            {
+              "step": 176,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0176.png"
+            },
+            {
+              "step": 180,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0180.png"
+            },
+            {
+              "step": 184,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0184.png"
+            },
+            {
+              "step": 188,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0188.png"
+            },
+            {
+              "step": 192,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0192.png"
+            },
+            {
+              "step": 196,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0196.png"
+            },
+            {
+              "step": 200,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0200.png"
+            },
+            {
+              "step": 204,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0204.png"
+            },
+            {
+              "step": 208,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0208.png"
+            },
+            {
+              "step": 212,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0212.png"
+            },
+            {
+              "step": 216,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0216.png"
+            },
+            {
+              "step": 220,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0220.png"
+            },
+            {
+              "step": 224,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0224.png"
+            },
+            {
+              "step": 228,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0228.png"
+            },
+            {
+              "step": 232,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0232.png"
+            },
+            {
+              "step": 236,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0236.png"
+            },
+            {
+              "step": 240,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0240.png"
+            },
+            {
+              "step": 244,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0244.png"
+            },
+            {
+              "step": 248,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0248.png"
+            },
+            {
+              "step": 252,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0252.png"
+            },
+            {
+              "step": 256,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0256.png"
+            },
+            {
+              "step": 260,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0260.png"
+            },
+            {
+              "step": 264,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0264.png"
+            },
+            {
+              "step": 268,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0268.png"
+            },
+            {
+              "step": 270,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0270.png"
+            }
+          ]
+        },
+        {
+          "id": "view-3",
+          "label": "View 3",
+          "images": [
+            {
+              "step": 0,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0000.png"
+            },
+            {
+              "step": 4,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0004.png"
+            },
+            {
+              "step": 8,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0008.png"
+            },
+            {
+              "step": 12,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0012.png"
+            },
+            {
+              "step": 15,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0015.png"
+            },
+            {
+              "step": 16,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0016.png"
+            },
+            {
+              "step": 20,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0020.png"
+            },
+            {
+              "step": 24,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0024.png"
+            },
+            {
+              "step": 28,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0028.png"
+            },
+            {
+              "step": 32,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0032.png"
+            },
+            {
+              "step": 36,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0036.png"
+            },
+            {
+              "step": 40,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0040.png"
+            },
+            {
+              "step": 44,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0044.png"
+            },
+            {
+              "step": 48,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0048.png"
+            },
+            {
+              "step": 51,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0051.png"
+            },
+            {
+              "step": 52,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0052.png"
+            },
+            {
+              "step": 56,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0056.png"
+            },
+            {
+              "step": 60,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0060.png"
+            },
+            {
+              "step": 64,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0064.png"
+            },
+            {
+              "step": 68,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0068.png"
+            },
+            {
+              "step": 72,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0072.png"
+            },
+            {
+              "step": 76,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0076.png"
+            },
+            {
+              "step": 80,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0080.png"
+            },
+            {
+              "step": 84,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0084.png"
+            },
+            {
+              "step": 88,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0088.png"
+            },
+            {
+              "step": 92,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0092.png"
+            },
+            {
+              "step": 96,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0096.png"
+            },
+            {
+              "step": 100,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0100.png"
+            },
+            {
+              "step": 104,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0104.png"
+            },
+            {
+              "step": 108,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0108.png"
+            },
+            {
+              "step": 112,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0112.png"
+            },
+            {
+              "step": 116,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0116.png"
+            },
+            {
+              "step": 120,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0120.png"
+            },
+            {
+              "step": 124,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0124.png"
+            },
+            {
+              "step": 128,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0128.png"
+            },
+            {
+              "step": 132,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0132.png"
+            },
+            {
+              "step": 136,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0136.png"
+            },
+            {
+              "step": 140,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0140.png"
+            },
+            {
+              "step": 144,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0144.png"
+            },
+            {
+              "step": 148,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0148.png"
+            },
+            {
+              "step": 152,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0152.png"
+            },
+            {
+              "step": 156,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0156.png"
+            },
+            {
+              "step": 160,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0160.png"
+            },
+            {
+              "step": 164,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0164.png"
+            },
+            {
+              "step": 168,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0168.png"
+            },
+            {
+              "step": 172,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0172.png"
+            },
+            {
+              "step": 176,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0176.png"
+            },
+            {
+              "step": 180,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0180.png"
+            },
+            {
+              "step": 184,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0184.png"
+            },
+            {
+              "step": 188,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0188.png"
+            },
+            {
+              "step": 192,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0192.png"
+            },
+            {
+              "step": 196,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0196.png"
+            },
+            {
+              "step": 200,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0200.png"
+            },
+            {
+              "step": 204,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0204.png"
+            },
+            {
+              "step": 208,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0208.png"
+            },
+            {
+              "step": 212,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0212.png"
+            },
+            {
+              "step": 216,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0216.png"
+            },
+            {
+              "step": 220,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0220.png"
+            },
+            {
+              "step": 224,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0224.png"
+            },
+            {
+              "step": 228,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0228.png"
+            },
+            {
+              "step": 232,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0232.png"
+            },
+            {
+              "step": 236,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0236.png"
+            },
+            {
+              "step": 240,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0240.png"
+            },
+            {
+              "step": 244,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0244.png"
+            },
+            {
+              "step": 248,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0248.png"
+            },
+            {
+              "step": 252,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0252.png"
+            },
+            {
+              "step": 256,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0256.png"
+            },
+            {
+              "step": 260,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0260.png"
+            },
+            {
+              "step": 264,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0264.png"
+            },
+            {
+              "step": 268,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0268.png"
+            },
+            {
+              "step": 270,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0270.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "speech",
+      "label": "With mouth motion",
+      "samples": [
+        {
+          "step": 0,
+          "time": 0
+        },
+        {
+          "step": 4,
+          "time": 0.06666666666666667
+        },
+        {
+          "step": 8,
+          "time": 0.13333333333333333
+        },
+        {
+          "step": 12,
+          "time": 0.2
+        },
+        {
+          "step": 15,
+          "time": 0.25
+        },
+        {
+          "step": 16,
+          "time": 0.26666666666666666
+        },
+        {
+          "step": 20,
+          "time": 0.3333333333333333
+        },
+        {
+          "step": 24,
+          "time": 0.4
+        },
+        {
+          "step": 28,
+          "time": 0.4666666666666667
+        },
+        {
+          "step": 30,
+          "time": 0.5
+        },
+        {
+          "step": 32,
+          "time": 0.5333333333333333
+        },
+        {
+          "step": 36,
+          "time": 0.6
+        },
+        {
+          "step": 39,
+          "time": 0.65
+        },
+        {
+          "step": 40,
+          "time": 0.6666666666666666
+        },
+        {
+          "step": 43,
+          "time": 0.7166666666666667
+        },
+        {
+          "step": 44,
+          "time": 0.7333333333333333
+        },
+        {
+          "step": 48,
+          "time": 0.8
+        },
+        {
+          "step": 51,
+          "time": 0.85
+        },
+        {
+          "step": 52,
+          "time": 0.8666666666666667
+        },
+        {
+          "step": 56,
+          "time": 0.9333333333333333
+        },
+        {
+          "step": 60,
+          "time": 1
+        },
+        {
+          "step": 64,
+          "time": 1.0666666666666667
+        },
+        {
+          "step": 66,
+          "time": 1.1
+        },
+        {
+          "step": 68,
+          "time": 1.1333333333333333
+        },
+        {
+          "step": 72,
+          "time": 1.2
+        },
+        {
+          "step": 75,
+          "time": 1.25
+        },
+        {
+          "step": 76,
+          "time": 1.2666666666666666
+        },
+        {
+          "step": 79,
+          "time": 1.3166666666666667
+        },
+        {
+          "step": 80,
+          "time": 1.3333333333333333
+        },
+        {
+          "step": 84,
+          "time": 1.4
+        },
+        {
+          "step": 88,
+          "time": 1.4666666666666666
+        },
+        {
+          "step": 92,
+          "time": 1.5333333333333334
+        },
+        {
+          "step": 96,
+          "time": 1.6
+        },
+        {
+          "step": 100,
+          "time": 1.6666666666666667
+        },
+        {
+          "step": 102,
+          "time": 1.7
+        },
+        {
+          "step": 104,
+          "time": 1.7333333333333334
+        },
+        {
+          "step": 108,
+          "time": 1.8
+        },
+        {
+          "step": 111,
+          "time": 1.85
+        },
+        {
+          "step": 112,
+          "time": 1.8666666666666667
+        },
+        {
+          "step": 115,
+          "time": 1.9166666666666667
+        },
+        {
+          "step": 116,
+          "time": 1.9333333333333333
+        },
+        {
+          "step": 120,
+          "time": 2
+        },
+        {
+          "step": 124,
+          "time": 2.066666666666667
+        },
+        {
+          "step": 128,
+          "time": 2.1333333333333333
+        },
+        {
+          "step": 132,
+          "time": 2.2
+        },
+        {
+          "step": 136,
+          "time": 2.2666666666666666
+        },
+        {
+          "step": 138,
+          "time": 2.3
+        },
+        {
+          "step": 140,
+          "time": 2.3333333333333335
+        },
+        {
+          "step": 144,
+          "time": 2.4
+        },
+        {
+          "step": 147,
+          "time": 2.45
+        },
+        {
+          "step": 148,
+          "time": 2.466666666666667
+        },
+        {
+          "step": 151,
+          "time": 2.5166666666666666
+        },
+        {
+          "step": 152,
+          "time": 2.533333333333333
+        },
+        {
+          "step": 156,
+          "time": 2.6
+        },
+        {
+          "step": 160,
+          "time": 2.6666666666666665
+        },
+        {
+          "step": 164,
+          "time": 2.7333333333333334
+        },
+        {
+          "step": 168,
+          "time": 2.8
+        },
+        {
+          "step": 172,
+          "time": 2.8666666666666667
+        },
+        {
+          "step": 176,
+          "time": 2.933333333333333
+        },
+        {
+          "step": 180,
+          "time": 3
+        },
+        {
+          "step": 184,
+          "time": 3.066666666666667
+        },
+        {
+          "step": 188,
+          "time": 3.1333333333333333
+        },
+        {
+          "step": 192,
+          "time": 3.2
+        },
+        {
+          "step": 196,
+          "time": 3.2666666666666666
+        },
+        {
+          "step": 200,
+          "time": 3.3333333333333335
+        },
+        {
+          "step": 204,
+          "time": 3.4
+        },
+        {
+          "step": 208,
+          "time": 3.466666666666667
+        },
+        {
+          "step": 212,
+          "time": 3.533333333333333
+        },
+        {
+          "step": 216,
+          "time": 3.6
+        },
+        {
+          "step": 220,
+          "time": 3.6666666666666665
+        },
+        {
+          "step": 224,
+          "time": 3.7333333333333334
+        },
+        {
+          "step": 228,
+          "time": 3.8
+        },
+        {
+          "step": 232,
+          "time": 3.8666666666666667
+        },
+        {
+          "step": 236,
+          "time": 3.933333333333333
+        },
+        {
+          "step": 240,
+          "time": 4
+        },
+        {
+          "step": 244,
+          "time": 4.066666666666666
+        },
+        {
+          "step": 248,
+          "time": 4.133333333333334
+        },
+        {
+          "step": 252,
+          "time": 4.2
+        },
+        {
+          "step": 256,
+          "time": 4.266666666666667
+        },
+        {
+          "step": 260,
+          "time": 4.333333333333333
+        },
+        {
+          "step": 264,
+          "time": 4.4
+        },
+        {
+          "step": 268,
+          "time": 4.466666666666667
+        },
+        {
+          "step": 270,
+          "time": 4.5
+        }
+      ],
+      "arms": [
+        {
+          "id": "view-1",
+          "label": "View 1",
+          "images": [
+            {
+              "step": 0,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0000.png"
+            },
+            {
+              "step": 4,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0004.png"
+            },
+            {
+              "step": 8,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0008.png"
+            },
+            {
+              "step": 12,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0012.png"
+            },
+            {
+              "step": 15,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0015.png"
+            },
+            {
+              "step": 16,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0016.png"
+            },
+            {
+              "step": 20,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0020.png"
+            },
+            {
+              "step": 24,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0024.png"
+            },
+            {
+              "step": 28,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0028.png"
+            },
+            {
+              "step": 30,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0030.png"
+            },
+            {
+              "step": 32,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0032.png"
+            },
+            {
+              "step": 36,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0036.png"
+            },
+            {
+              "step": 39,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0039.png"
+            },
+            {
+              "step": 40,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0040.png"
+            },
+            {
+              "step": 43,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0043.png"
+            },
+            {
+              "step": 44,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0044.png"
+            },
+            {
+              "step": 48,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0048.png"
+            },
+            {
+              "step": 51,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0051.png"
+            },
+            {
+              "step": 52,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0052.png"
+            },
+            {
+              "step": 56,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0056.png"
+            },
+            {
+              "step": 60,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0060.png"
+            },
+            {
+              "step": 64,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0064.png"
+            },
+            {
+              "step": 66,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0066.png"
+            },
+            {
+              "step": 68,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0068.png"
+            },
+            {
+              "step": 72,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0072.png"
+            },
+            {
+              "step": 75,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0075.png"
+            },
+            {
+              "step": 76,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0076.png"
+            },
+            {
+              "step": 79,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0079.png"
+            },
+            {
+              "step": 80,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0080.png"
+            },
+            {
+              "step": 84,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0084.png"
+            },
+            {
+              "step": 88,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0088.png"
+            },
+            {
+              "step": 92,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0092.png"
+            },
+            {
+              "step": 96,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0096.png"
+            },
+            {
+              "step": 100,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0100.png"
+            },
+            {
+              "step": 102,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0102.png"
+            },
+            {
+              "step": 104,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0104.png"
+            },
+            {
+              "step": 108,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0108.png"
+            },
+            {
+              "step": 111,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0111.png"
+            },
+            {
+              "step": 112,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0112.png"
+            },
+            {
+              "step": 115,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0115.png"
+            },
+            {
+              "step": 116,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0116.png"
+            },
+            {
+              "step": 120,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0120.png"
+            },
+            {
+              "step": 124,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0124.png"
+            },
+            {
+              "step": 128,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0128.png"
+            },
+            {
+              "step": 132,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0132.png"
+            },
+            {
+              "step": 136,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0136.png"
+            },
+            {
+              "step": 138,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0138.png"
+            },
+            {
+              "step": 140,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0140.png"
+            },
+            {
+              "step": 144,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0144.png"
+            },
+            {
+              "step": 147,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0147.png"
+            },
+            {
+              "step": 148,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0148.png"
+            },
+            {
+              "step": 151,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0151.png"
+            },
+            {
+              "step": 152,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0152.png"
+            },
+            {
+              "step": 156,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0156.png"
+            },
+            {
+              "step": 160,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0160.png"
+            },
+            {
+              "step": 164,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0164.png"
+            },
+            {
+              "step": 168,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0168.png"
+            },
+            {
+              "step": 172,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0172.png"
+            },
+            {
+              "step": 176,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0176.png"
+            },
+            {
+              "step": 180,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0180.png"
+            },
+            {
+              "step": 184,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0184.png"
+            },
+            {
+              "step": 188,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0188.png"
+            },
+            {
+              "step": 192,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0192.png"
+            },
+            {
+              "step": 196,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0196.png"
+            },
+            {
+              "step": 200,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0200.png"
+            },
+            {
+              "step": 204,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0204.png"
+            },
+            {
+              "step": 208,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0208.png"
+            },
+            {
+              "step": 212,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0212.png"
+            },
+            {
+              "step": 216,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0216.png"
+            },
+            {
+              "step": 220,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0220.png"
+            },
+            {
+              "step": 224,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0224.png"
+            },
+            {
+              "step": 228,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0228.png"
+            },
+            {
+              "step": 232,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0232.png"
+            },
+            {
+              "step": 236,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0236.png"
+            },
+            {
+              "step": 240,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0240.png"
+            },
+            {
+              "step": 244,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0244.png"
+            },
+            {
+              "step": 248,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0248.png"
+            },
+            {
+              "step": 252,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0252.png"
+            },
+            {
+              "step": 256,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0256.png"
+            },
+            {
+              "step": 260,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0260.png"
+            },
+            {
+              "step": 264,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0264.png"
+            },
+            {
+              "step": 268,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0268.png"
+            },
+            {
+              "step": 270,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0270.png"
+            }
+          ]
+        },
+        {
+          "id": "view-2",
+          "label": "View 2",
+          "images": [
+            {
+              "step": 0,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0000.png"
+            },
+            {
+              "step": 4,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0004.png"
+            },
+            {
+              "step": 8,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0008.png"
+            },
+            {
+              "step": 12,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0012.png"
+            },
+            {
+              "step": 15,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0015.png"
+            },
+            {
+              "step": 16,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0016.png"
+            },
+            {
+              "step": 20,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0020.png"
+            },
+            {
+              "step": 24,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0024.png"
+            },
+            {
+              "step": 28,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0028.png"
+            },
+            {
+              "step": 30,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0030.png"
+            },
+            {
+              "step": 32,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0032.png"
+            },
+            {
+              "step": 36,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0036.png"
+            },
+            {
+              "step": 39,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0039.png"
+            },
+            {
+              "step": 40,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0040.png"
+            },
+            {
+              "step": 43,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0043.png"
+            },
+            {
+              "step": 44,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0044.png"
+            },
+            {
+              "step": 48,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0048.png"
+            },
+            {
+              "step": 51,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0051.png"
+            },
+            {
+              "step": 52,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0052.png"
+            },
+            {
+              "step": 56,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0056.png"
+            },
+            {
+              "step": 60,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0060.png"
+            },
+            {
+              "step": 64,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0064.png"
+            },
+            {
+              "step": 66,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0066.png"
+            },
+            {
+              "step": 68,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0068.png"
+            },
+            {
+              "step": 72,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0072.png"
+            },
+            {
+              "step": 75,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0075.png"
+            },
+            {
+              "step": 76,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0076.png"
+            },
+            {
+              "step": 79,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0079.png"
+            },
+            {
+              "step": 80,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0080.png"
+            },
+            {
+              "step": 84,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0084.png"
+            },
+            {
+              "step": 88,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0088.png"
+            },
+            {
+              "step": 92,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0092.png"
+            },
+            {
+              "step": 96,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0096.png"
+            },
+            {
+              "step": 100,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0100.png"
+            },
+            {
+              "step": 102,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0102.png"
+            },
+            {
+              "step": 104,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0104.png"
+            },
+            {
+              "step": 108,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0108.png"
+            },
+            {
+              "step": 111,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0111.png"
+            },
+            {
+              "step": 112,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0112.png"
+            },
+            {
+              "step": 115,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0115.png"
+            },
+            {
+              "step": 116,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0116.png"
+            },
+            {
+              "step": 120,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0120.png"
+            },
+            {
+              "step": 124,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0124.png"
+            },
+            {
+              "step": 128,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0128.png"
+            },
+            {
+              "step": 132,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0132.png"
+            },
+            {
+              "step": 136,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0136.png"
+            },
+            {
+              "step": 138,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0138.png"
+            },
+            {
+              "step": 140,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0140.png"
+            },
+            {
+              "step": 144,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0144.png"
+            },
+            {
+              "step": 147,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0147.png"
+            },
+            {
+              "step": 148,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0148.png"
+            },
+            {
+              "step": 151,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0151.png"
+            },
+            {
+              "step": 152,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0152.png"
+            },
+            {
+              "step": 156,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0156.png"
+            },
+            {
+              "step": 160,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0160.png"
+            },
+            {
+              "step": 164,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0164.png"
+            },
+            {
+              "step": 168,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0168.png"
+            },
+            {
+              "step": 172,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0172.png"
+            },
+            {
+              "step": 176,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0176.png"
+            },
+            {
+              "step": 180,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0180.png"
+            },
+            {
+              "step": 184,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0184.png"
+            },
+            {
+              "step": 188,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0188.png"
+            },
+            {
+              "step": 192,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0192.png"
+            },
+            {
+              "step": 196,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0196.png"
+            },
+            {
+              "step": 200,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0200.png"
+            },
+            {
+              "step": 204,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0204.png"
+            },
+            {
+              "step": 208,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0208.png"
+            },
+            {
+              "step": 212,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0212.png"
+            },
+            {
+              "step": 216,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0216.png"
+            },
+            {
+              "step": 220,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0220.png"
+            },
+            {
+              "step": 224,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0224.png"
+            },
+            {
+              "step": 228,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0228.png"
+            },
+            {
+              "step": 232,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0232.png"
+            },
+            {
+              "step": 236,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0236.png"
+            },
+            {
+              "step": 240,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0240.png"
+            },
+            {
+              "step": 244,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0244.png"
+            },
+            {
+              "step": 248,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0248.png"
+            },
+            {
+              "step": 252,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0252.png"
+            },
+            {
+              "step": 256,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0256.png"
+            },
+            {
+              "step": 260,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0260.png"
+            },
+            {
+              "step": 264,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0264.png"
+            },
+            {
+              "step": 268,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0268.png"
+            },
+            {
+              "step": 270,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0270.png"
+            }
+          ]
+        },
+        {
+          "id": "view-3",
+          "label": "View 3",
+          "images": [
+            {
+              "step": 0,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0000.png"
+            },
+            {
+              "step": 4,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0004.png"
+            },
+            {
+              "step": 8,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0008.png"
+            },
+            {
+              "step": 12,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0012.png"
+            },
+            {
+              "step": 15,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0015.png"
+            },
+            {
+              "step": 16,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0016.png"
+            },
+            {
+              "step": 20,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0020.png"
+            },
+            {
+              "step": 24,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0024.png"
+            },
+            {
+              "step": 28,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0028.png"
+            },
+            {
+              "step": 30,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0030.png"
+            },
+            {
+              "step": 32,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0032.png"
+            },
+            {
+              "step": 36,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0036.png"
+            },
+            {
+              "step": 39,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0039.png"
+            },
+            {
+              "step": 40,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0040.png"
+            },
+            {
+              "step": 43,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0043.png"
+            },
+            {
+              "step": 44,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0044.png"
+            },
+            {
+              "step": 48,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0048.png"
+            },
+            {
+              "step": 51,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0051.png"
+            },
+            {
+              "step": 52,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0052.png"
+            },
+            {
+              "step": 56,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0056.png"
+            },
+            {
+              "step": 60,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0060.png"
+            },
+            {
+              "step": 64,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0064.png"
+            },
+            {
+              "step": 66,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0066.png"
+            },
+            {
+              "step": 68,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0068.png"
+            },
+            {
+              "step": 72,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0072.png"
+            },
+            {
+              "step": 75,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0075.png"
+            },
+            {
+              "step": 76,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0076.png"
+            },
+            {
+              "step": 79,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0079.png"
+            },
+            {
+              "step": 80,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0080.png"
+            },
+            {
+              "step": 84,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0084.png"
+            },
+            {
+              "step": 88,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0088.png"
+            },
+            {
+              "step": 92,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0092.png"
+            },
+            {
+              "step": 96,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0096.png"
+            },
+            {
+              "step": 100,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0100.png"
+            },
+            {
+              "step": 102,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0102.png"
+            },
+            {
+              "step": 104,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0104.png"
+            },
+            {
+              "step": 108,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0108.png"
+            },
+            {
+              "step": 111,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0111.png"
+            },
+            {
+              "step": 112,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0112.png"
+            },
+            {
+              "step": 115,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0115.png"
+            },
+            {
+              "step": 116,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0116.png"
+            },
+            {
+              "step": 120,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0120.png"
+            },
+            {
+              "step": 124,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0124.png"
+            },
+            {
+              "step": 128,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0128.png"
+            },
+            {
+              "step": 132,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0132.png"
+            },
+            {
+              "step": 136,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0136.png"
+            },
+            {
+              "step": 138,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0138.png"
+            },
+            {
+              "step": 140,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0140.png"
+            },
+            {
+              "step": 144,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0144.png"
+            },
+            {
+              "step": 147,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0147.png"
+            },
+            {
+              "step": 148,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0148.png"
+            },
+            {
+              "step": 151,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0151.png"
+            },
+            {
+              "step": 152,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0152.png"
+            },
+            {
+              "step": 156,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0156.png"
+            },
+            {
+              "step": 160,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0160.png"
+            },
+            {
+              "step": 164,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0164.png"
+            },
+            {
+              "step": 168,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0168.png"
+            },
+            {
+              "step": 172,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0172.png"
+            },
+            {
+              "step": 176,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0176.png"
+            },
+            {
+              "step": 180,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0180.png"
+            },
+            {
+              "step": 184,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0184.png"
+            },
+            {
+              "step": 188,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0188.png"
+            },
+            {
+              "step": 192,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0192.png"
+            },
+            {
+              "step": 196,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0196.png"
+            },
+            {
+              "step": 200,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0200.png"
+            },
+            {
+              "step": 204,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0204.png"
+            },
+            {
+              "step": 208,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0208.png"
+            },
+            {
+              "step": 212,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0212.png"
+            },
+            {
+              "step": 216,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0216.png"
+            },
+            {
+              "step": 220,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0220.png"
+            },
+            {
+              "step": 224,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0224.png"
+            },
+            {
+              "step": 228,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0228.png"
+            },
+            {
+              "step": 232,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0232.png"
+            },
+            {
+              "step": 236,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0236.png"
+            },
+            {
+              "step": 240,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0240.png"
+            },
+            {
+              "step": 244,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0244.png"
+            },
+            {
+              "step": 248,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0248.png"
+            },
+            {
+              "step": 252,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0252.png"
+            },
+            {
+              "step": 256,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0256.png"
+            },
+            {
+              "step": 260,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0260.png"
+            },
+            {
+              "step": 264,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0264.png"
+            },
+            {
+              "step": 268,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0268.png"
+            },
+            {
+              "step": 270,
+              "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0270.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

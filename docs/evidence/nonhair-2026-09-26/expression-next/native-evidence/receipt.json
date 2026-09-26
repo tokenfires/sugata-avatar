@@ -1,0 +1,29 @@
+[
+  {
+    "run": "lifecycle-v1",
+    "rawPath": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/lifecycle-v1/report.json",
+    "rawSha256": "6df2450c924770dfbd266aa2e91a8f71648fa6ce287529c1e1aa19320604e9c5",
+    "compressedSha256": "d9eed48112bd4d07abeea8eecc352ef55bafb14e6f7c625ba239fd25116d1797",
+    "completed": false,
+    "nativeGroups": 1,
+    "failure": "AssertionError [ERR_ASSERTION]: {\"name\":\"Error\",\"message\":\"Speech witness did not exercise genuine committed visemes\",\"stack\":\"Error: Speech witness did not exercise genuine committed visemes\\n    at check (eval at evaluate (:303:30), <anonymous>:7:75)\\n    at eval (eval at evaluate (:303:30), <anonymous>:44:13)\\n    at async <anonymous>:329:30\"}\n\nfalse !== true\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/expression-next/run-native-lifecycle.mjs:32:12"
+  },
+  {
+    "run": "lifecycle-v2",
+    "rawPath": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/lifecycle-v2/report.json",
+    "rawSha256": "65ff39837dfc71eea176ff65dc7007e42c623bd1e5e7404b506afc66c7e841f2",
+    "compressedSha256": "7bf97126ffed7e61491c47d9b3c479739cf80c0460cda917527cacb583499521",
+    "completed": false,
+    "nativeGroups": 10,
+    "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    'assets/figures/figure_g000.glb': '26aa87c59a5e7cff800d3bf576426945aeb63d0bd2dff0e67db34f2240ae559d',\n    'assets/figures/figure_g025.glb': 'f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e',\n    'assets/figures/figure_g050.glb': 'b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14',\n    'assets/figures/figure_g075.glb': 'dbfc23ac6987c2f4b33bcf366f09c2f8f43c8518610ebd3697714b78b34f21ec',\n...\n    'docs/evidence/nonhair-2026-09-26/expression-next/ExpressionStudyArm.mjs': '5b7edd36ed48198bfc1abb0b366f1c1e7102d053e092348bcfce2d56f4f7236d',\n+   'docs/evidence/nonhair-2026-09-26/expression-next/capture-runtime.mjs': 'a3564b052fcf07f6e155ddbda17a8e0b39989849bfd32b05138b89a2a1efee39',\n-   'docs/evidence/nonhair-2026-09-26/expression-next/capture-runtime.mjs': '514a489f6885ea09bcb303e6a039c5634af4e4579c0c79f1a74d78ce3accdeb1',\n    'docs/evidence/nonhair-2026-09-26/expression-next/native-lifecycle.mjs': '7fc6081da4a5614a7ec2367f3a5ea540ec86c0df64d4036d61b3db1a63a26c3d',\n    'docs/evidence/nonhair-2026-09-26/expression-next/run-native-lifecycle.mjs': '4a1e849b7cf732c45a915d0374bcd05967a59e374a2dd8b1ae1f1c4ba31d15fb',\n    'node_modules/three/package.json': '1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df',\n    'package-lock.json': '86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2',\n    'package.json': 'd4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8',\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/expression-next/run-native-lifecycle.mjs:35:81"
+  },
+  {
+    "run": "lifecycle-v3",
+    "rawPath": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/lifecycle-v3/report.json",
+    "rawSha256": "0ce3a157e3de7cca1a6d7f6b6b07d6c21ea003436e67198d592f454c20254c52",
+    "compressedSha256": "8e75d84b176f84cc0f4e4d990b2642079687870cebfe73d859be1b67ad06b580",
+    "completed": true,
+    "nativeGroups": 10,
+    "failure": null
+  }
+]

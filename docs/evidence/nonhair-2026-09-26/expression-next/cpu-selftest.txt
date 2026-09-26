@@ -1,0 +1,16 @@
+PASS Fixed C reads the weighted current native expression; other writers, blink, brow, corners and OVR survive
+PASS Native epsilon boundaries preserve E=1.5e-6, admit exact -1e-6, and filter before expression weight
+PASS Opposing admitted writers leave a positive sub-epsilon residual; only the final sum is clamped
+PASS Disabled or silent expression has no stale subtraction; enabling the same owner uses its fresh writer
+PASS C rejects negative/nonfinite current owner values atomically without touching the other writers
+PASS C follows the same-frame authored envelope, repeats continuously, cancels smoothly and ends at rest
+PASS C pins actual owner identity/order/weight and retires rather than following a same-name replacement
+PASS C disable/reset/rebind/removal/disposal retire, re-enable never resumes, and replacement names survive cleanup
+PASS Partial native registration failure removes only study instances, including failure after onBind
+PASS B acquires one genuine calibrated hold, sets current-frame point weight, restores either prior policy
+PASS B invalid camera/support preserves the current token; repeat/cancel blend and old tokens cannot steal
+PASS B retires on newer native gaze commands; older study cleanup cannot change their policy or hold
+PASS B normal speaking/real Viseme output does not supersede, C ignores unrelated gaze supersession
+PASS B control/gaze/head disable and native reset/bind/removal/disposal retire resources without resurrection
+PASS A/C native affected input, bones, gaze, blink, visemes and all other committed morphs match through release
+15 expression study CPU groups passed. Native rendering, Avatar.say integration, hair and perceptual judgment remain separate.

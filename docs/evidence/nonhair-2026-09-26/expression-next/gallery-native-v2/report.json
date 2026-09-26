@@ -1,0 +1,246 @@
+{
+  "startedAt": "2026-09-26T17:33:37.741Z",
+  "sourceHashes": {
+    "review.html": "c9f60c03d5fd1facbb98874228e6ceb77ec55c6204958724f8fcdc55e0ac0a25",
+    "review.js": "d03b90207ffd9a35a4cf221215343bb271a5fe6c53396131cdeffb2f441e5af3",
+    "review.css": "04bea7b2efae23bd55abf971eedac526e44066bc3c9d47dbad543d75a42f5fa5",
+    "review-manifest.json": "95ae1ea840ed57d73539cd0a9978836865aafd932fc04b5051b8866a57c06467",
+    "gallery-probe.mjs": "88dacf427768760e337145f6da2d02500f6affdb5835b3674bfe3109c364facd"
+  },
+  "checks": [
+    "Real common playback advances matched images, then pause retains all three at one time",
+    "Quiet/speech switches reset all views together; endpoint and keyboard frame controls work",
+    "Desktop/mobile keep complete images; narrow screen uses contained horizontal review strip"
+  ],
+  "images": [
+    {
+      "file": "desktop-quiet-start.png",
+      "sha256": "96246737b4c1de3fb8572d41bfb7236e6bb33764c865f8b3716d2ade16158d48",
+      "state": {
+        "time": "0.00 s",
+        "status": "Paused · use the shared slider, marked times, or frame buttons.",
+        "error": null,
+        "pressed": [
+          "quiet"
+        ],
+        "play": "Play",
+        "viewport": {
+          "width": 1440,
+          "scrollWidth": 1440
+        },
+        "strip": {
+          "width": 1354,
+          "scrollWidth": 1354
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0000.png",
+            "alt": "View 1, Quiet, action time 0.00 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0000.png",
+            "alt": "View 2, Quiet, action time 0.00 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0000.png",
+            "alt": "View 3, Quiet, action time 0.00 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          }
+        ]
+      }
+    },
+    {
+      "file": "desktop-quiet-hold.png",
+      "sha256": "39567f856e8ae5ed0fcc20e7f6655267df24e846c8d29cab16f492d213ffcd08",
+      "state": {
+        "time": "0.85 s",
+        "status": "Paused · use the shared slider, marked times, or frame buttons.",
+        "error": null,
+        "pressed": [
+          "quiet"
+        ],
+        "play": "Play",
+        "viewport": {
+          "width": 1440,
+          "scrollWidth": 1440
+        },
+        "strip": {
+          "width": 1354,
+          "scrollWidth": 1354
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-1-0051.png",
+            "alt": "View 1, Quiet, action time 0.85 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0051.png",
+            "alt": "View 2, Quiet, action time 0.85 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0051.png",
+            "alt": "View 3, Quiet, action time 0.85 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          }
+        ]
+      }
+    },
+    {
+      "file": "desktop-speech-hold.png",
+      "sha256": "ce9c6fcb293ceb4d8f48aad33f7cfad2e71e3fa6ffe50ef5b2f6c24df6ca2f13",
+      "state": {
+        "time": "2.60 s",
+        "status": "Paused · use the shared slider, marked times, or frame buttons.",
+        "error": null,
+        "pressed": [
+          "speech"
+        ],
+        "play": "Play",
+        "viewport": {
+          "width": 1440,
+          "scrollWidth": 1440
+        },
+        "strip": {
+          "width": 1354,
+          "scrollWidth": 1354
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0156.png",
+            "alt": "View 1, With mouth motion, action time 2.60 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0156.png",
+            "alt": "View 2, With mouth motion, action time 2.60 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0156.png",
+            "alt": "View 3, With mouth motion, action time 2.60 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          }
+        ]
+      }
+    },
+    {
+      "file": "mobile-speech.png",
+      "sha256": "813de7cff3fc170856fd8c2dd4c5fe91e729bd44f7154f44522687f381c1d11a",
+      "state": {
+        "time": "2.67 s",
+        "status": "Paused · use the shared slider, marked times, or frame buttons.",
+        "error": null,
+        "pressed": [
+          "speech"
+        ],
+        "play": "Play",
+        "viewport": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "strip": {
+          "width": 358,
+          "scrollWidth": 710
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0160.png",
+            "alt": "View 1, With mouth motion, action time 2.67 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0160.png",
+            "alt": "View 2, With mouth motion, action time 2.67 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0160.png",
+            "alt": "View 3, With mouth motion, action time 2.67 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          }
+        ]
+      }
+    },
+    {
+      "file": "mobile-third-view.png",
+      "sha256": "8298380b850ea13d9cb49cca34b586d9c0af746bbadc51a7100ee27a69ce0443",
+      "state": {
+        "time": "2.67 s",
+        "status": "Paused · use the shared slider, marked times, or frame buttons.",
+        "error": null,
+        "pressed": [
+          "speech"
+        ],
+        "play": "Play",
+        "viewport": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "strip": {
+          "width": 358,
+          "scrollWidth": 710
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-1-0160.png",
+            "alt": "View 1, With mouth motion, action time 2.67 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-2-0160.png",
+            "alt": "View 2, With mouth motion, action time 2.67 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          },
+          {
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/speech-view-3-0160.png",
+            "alt": "View 3, With mouth motion, action time 2.67 seconds",
+            "width": 932,
+            "height": 850,
+            "objectFit": "contain"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "completed": true,
+  "finalSourceHashes": {
+    "review.html": "c9f60c03d5fd1facbb98874228e6ceb77ec55c6204958724f8fcdc55e0ac0a25",
+    "review.js": "d03b90207ffd9a35a4cf221215343bb271a5fe6c53396131cdeffb2f441e5af3",
+    "review.css": "04bea7b2efae23bd55abf971eedac526e44066bc3c9d47dbad543d75a42f5fa5",
+    "review-manifest.json": "95ae1ea840ed57d73539cd0a9978836865aafd932fc04b5051b8866a57c06467",
+    "gallery-probe.mjs": "88dacf427768760e337145f6da2d02500f6affdb5835b3674bfe3109c364facd"
+  }
+}
