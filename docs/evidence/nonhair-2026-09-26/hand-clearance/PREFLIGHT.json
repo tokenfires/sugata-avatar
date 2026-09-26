@@ -1,0 +1,33 @@
+{
+  "status": "CPU preflight passed; native not run by instrument author",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v1.json",
+    "sha256": "0d6de947df09e6c516b5a89a7d0b9a677e486c2990c7622d2b7d24b5cdad9aa5"
+  },
+  "preflight": {
+    "path": "captures/hand-attribution-2026-09-26/preflight-v1/report.json",
+    "sha256": "47c7a9701b1c4f00e37ee1644e0d677154b46405610de86246271bced477da2d",
+    "completed": true,
+    "preflightOnly": true
+  },
+  "sourceFiles": 1556,
+  "instrumentHashes": {
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs": "8db1b42ae711a3fc23f0c6c48c0b54ec1a4115841a0a19a1a3bd26401dfe8692",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest.mjs": "31197fcbfbf63c921eb5aeda094c0027818156439bd6548cf94437c3e40208ab",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-runtime.mjs": "64988641b21faf1e841644eb696740ad480ba10fd8d4ae23c57184cffa61e71f",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution.selftest.mjs": "0191eec7b1cef0e22e9aaa48a135faeb4f58349c9d9f55596dabb486c1f052cf",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.mjs": "614cf2db48236909337e696029cf0e4fbe743ab24c0631bb9f7998d685839f14",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.selftest.mjs": "b14f2e00af1106978fd2b330449b2a17cfcaad0790eb662cc616e52e8a045f0b"
+  },
+  "perArm": {
+    "nativeUpdates": 720,
+    "ownerStateSamples": 721,
+    "geometrySamples": 109,
+    "visualImageTimes": 244,
+    "extraClosePlates": 6
+  },
+  "cpuGroupsPassed": 3,
+  "criticalHarnessSourceReview": "Critic found no critical blocker; native readiness, exact A reproduction and disposal remain actual-run gates.",
+  "primaryCommand": "node docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v1.json captures/hand-attribution-2026-09-26/primary-v1 --primary-only",
+  "sourceFreeze": "No browser was launched by this worker. All pinned source/asset files are archived before native server startup by the primary controller. Helper bytes frozen after this receipt."
+}

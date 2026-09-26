@@ -1,0 +1,30 @@
+{
+  "createdAt": "2026-09-26T18:39:03.185894+00:00",
+  "analyzerSHA256": "882a287fff44b9211f1b9e7f830d6ea71be046815b3ecce0566c91186a428d0a",
+  "sourceReportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+  "groupsPassed": 3,
+  "cases": [
+    {
+      "case": "resealed-three-sample-subset",
+      "exitCode": 1,
+      "outputNotCreated": true,
+      "expectedRejectionObserved": true,
+      "rejectionLogSHA256": "52d04a86fcc250588f3b9a5780c768fe595ec9c7b34796b89321fe13038aeff2"
+    },
+    {
+      "case": "resealed-dirty-disposal",
+      "exitCode": 1,
+      "outputNotCreated": true,
+      "expectedRejectionObserved": true,
+      "rejectionLogSHA256": "741d7adfe78cd2c4c3310240db52d8e36b1e0f9d5c3d732f47cd63d9b6961d4d"
+    },
+    {
+      "case": "resealed-state-hash-mismatch",
+      "exitCode": 1,
+      "outputNotCreated": true,
+      "expectedRejectionObserved": true,
+      "rejectionLogSHA256": "01a2680b2c7262b026ccdfe1cd14f2c6b5b1e18077425a560ed0e035728c8dae"
+    }
+  ],
+  "scope": "Negative admission checks only; positive native analysis separate."
+}

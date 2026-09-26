@@ -1,0 +1,70 @@
+{
+  "status": "CPU preflight passed; native v4 pending",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v4.json",
+    "sha256": "fc0e017fba7da12f6c511b53e705b2441b440fa8cb8731bd65f36a839514793d"
+  },
+  "preflight": {
+    "path": "captures/hand-attribution-2026-09-26/preflight-v4/report.json",
+    "sha256": "91a2759a71c5bfa611fc66aeff79a8a363d20f731e42134519dbb99056335ba0",
+    "completed": true,
+    "preflightOnly": true
+  },
+  "changedPinnedSources": [
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs",
+      "before": "8db1b42ae711a3fc23f0c6c48c0b54ec1a4115841a0a19a1a3bd26401dfe8692",
+      "after": "77950c0586f298d244a34fd509294bf45948f54ed21a4ab8bf6538fe86b21f2c",
+      "predecessorArchive": "captures/hand-attribution-2026-09-26/primary-v3/source/docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs",
+      "predecessorArchiveSHA256": "8db1b42ae711a3fc23f0c6c48c0b54ec1a4115841a0a19a1a3bd26401dfe8692"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest.mjs",
+      "before": "80b6090b9abf3ee0180252321002c4ec744ed382ba4d4da3dcbdae641ced398a",
+      "after": "0ea09e21c08adca8a69ea7bb30295d1f456e57917db7788f4566b87314cc2e7a",
+      "predecessorArchive": "captures/hand-attribution-2026-09-26/primary-v3/source/docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest.mjs",
+      "predecessorArchiveSHA256": "80b6090b9abf3ee0180252321002c4ec744ed382ba4d4da3dcbdae641ced398a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/retained-json-comparison.mjs",
+      "before": null,
+      "after": "1c5cff595559c696186f823bae90eeceea302ed82bf688af46df7112ae5c0699",
+      "predecessorArchive": null,
+      "predecessorArchiveSHA256": null
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/retained-json-comparison.selftest.mjs",
+      "before": null,
+      "after": "cf78edf2b1499689fb764afe0db20446bbd9479f26ec05ac1092491c603355c0",
+      "predecessorArchive": null,
+      "predecessorArchiveSHA256": null
+    }
+  ],
+  "sourceFiles": 1558,
+  "perArm": {
+    "nativeUpdates": 720,
+    "ownerStateSamples": 721,
+    "geometrySamples": 109,
+    "visualImageTimes": 244,
+    "extraClosePlates": 6
+  },
+  "comparisonPolicy": "For comparisons with JSON-retained records only, recursively canonicalize numeric -0 to +0. Preserve every other value, type, own property, array hole and prototype; no rounding, epsilon or hash normalization.",
+  "audit": "Each compared JSON-retained record logs its label, actual and expected normalized JSON-pointer paths/counts, and exact equality verdict before throwing. Raw source/asset/PNG/gzip/decoded hashes and live-to-live guards remain untouched.",
+  "cpuChecks": {
+    "groupsPassed": 3,
+    "coverage": [
+      "nested signed zeros, exact paths and original input immutability",
+      "nextafter(1,+infinity), +/-Number.MIN_VALUE and other value differences rejected",
+      "structural/type/hole/prototype differences rejected, unsupported containers/accessors/cycles fail closed"
+    ],
+    "captureSyntax": "passed"
+  },
+  "predecessor": {
+    "manifest": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v3.json",
+    "sha256": "68d02b58a19bf5ee85dfe30dda50e0f2e96ddac7d538c1f68681496f26de2d63",
+    "report": "captures/hand-attribution-2026-09-26/primary-v3/report.json",
+    "reportSHA256": "ac31942fbfc85ad010c2727d88e49aaf19fd0cfd428f823aa72a65f4be26c721",
+    "status": "Stopped on A636 live -0 versus JSON-retained +0. Earlier A checks passed; no B/C interpretation."
+  },
+  "primaryCommand": "node docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v4.json captures/hand-attribution-2026-09-26/primary-v4 --primary-only"
+}

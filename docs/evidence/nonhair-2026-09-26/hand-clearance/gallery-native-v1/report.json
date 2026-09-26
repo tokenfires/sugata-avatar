@@ -1,0 +1,130 @@
+{
+  "completed": true,
+  "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/hand-attribution-2026-09-26/review-v1/index.html",
+  "sourceHashes": {
+    "index.html": "8127d423fa7440cbbc0a4c2d00531425b266ac4c14d369189d1fa7f4993cc9e5",
+    "review.mjs": "f65e37440ffe51d099c878a42a6cd654df967617b1f2d4d70c92958a011ccba2",
+    "review.css": "294d94005cc38f7f5781bcff96ba1c15eb8923fe72acc1ff001b5c920879d5fa",
+    "review-manifest.json": "d7688d5b01816ab7fa3f76b3f183137cdadcdb407b07de596ba2835a8d9771d1",
+    "receipt.json": "b32cb861b67913e4bf60cdd4ebfc34332eaa8b383969080ca03958daf5b98333"
+  },
+  "checks": [
+    {
+      "name": "shared play/pause, exact marked step and independent close selector",
+      "passed": true,
+      "pausedSteps": [
+        "8",
+        "8",
+        "8"
+      ]
+    },
+    {
+      "name": "one failed PNG retains matched prior set; explicit retry and endpoint recover",
+      "passed": true
+    },
+    {
+      "name": "mobile document fits viewport with explicit horizontal comparisons and uncropped images",
+      "passed": true,
+      "measurements": {
+        "client": 390,
+        "scroll": 390,
+        "regions": [
+          {
+            "client": 358,
+            "scroll": 800,
+            "overflow": "auto"
+          },
+          {
+            "client": 358,
+            "scroll": 800,
+            "overflow": "auto"
+          }
+        ],
+        "images": [
+          {
+            "fit": "contain",
+            "width": 258,
+            "height": 314,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 258,
+            "height": 314,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 258,
+            "height": 314,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          },
+          {
+            "fit": "contain",
+            "width": 129,
+            "height": 157,
+            "naturalWidth": 754,
+            "naturalHeight": 918
+          }
+        ]
+      }
+    }
+  ],
+  "images": [
+    {
+      "file": "desktop-start.png",
+      "sha256": "7383b33430f623d2e6e514c14e420319961e9a5e9bdcf74fdbda8c00a081384f"
+    },
+    {
+      "file": "desktop-637.png",
+      "sha256": "1aee93a35e7c58fdce4af050333158ca9bb5644f150bffe7c5a5b5bcd89704c7"
+    },
+    {
+      "file": "mobile-first-control.png",
+      "sha256": "9fc5ac3089fe5bacc02d5125acfc49d0a25cf0ac4ac80efdf8284d237662bcd6"
+    },
+    {
+      "file": "mobile-third-control.png",
+      "sha256": "1e24da4a20e1ff9624519f22471ba288cad11b664c9c79bf7cdb0707e267e753"
+    }
+  ],
+  "errors": []
+}

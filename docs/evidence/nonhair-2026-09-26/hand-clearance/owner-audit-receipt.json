@@ -1,0 +1,1864 @@
+{
+  "version": 1,
+  "createdAt": "2026-09-26T18:44:16.333Z",
+  "inputDirectory": "captures/hand-attribution-2026-09-26/primary-v4",
+  "sealSHA256": "bdc7965c78e3e0823c7ae76c0affe9298bde316bff9edc5b2ddf3b8db777577b",
+  "reportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+  "manifestSHA256": "fc0e017fba7da12f6c511b53e705b2441b440fa8cb8731bd65f36a839514793d",
+  "comparisonSemantics": "Exact decoded JSON values and ordered map arrays; no numeric tolerance. JSON does not distinguish signed zero.",
+  "sourceBinding": {
+    "manifestSources": 1558,
+    "retainedBaselineInputs": 4,
+    "verifiedFrozenFiles": 1562,
+    "verifiedFrozenBytes": 501452349,
+    "sourceFreezeIndexSHA256": "f0c28f984f265884ab8de4c58b7acd75f0f97d4981f5d77a5a2d80f1a48840b5"
+  },
+  "archives": [
+    {
+      "arm": "A",
+      "file": "A-primary/states.json.gz",
+      "sha256": "0dc544679d01b3fe6973adf5740b576722659750fd58ec882040e0eadc3facc7",
+      "decodedSHA256": "4a87e6d19c4823649b28d2818bda9e5e532c69604ad24cae87f77509692c47f7",
+      "count": 721
+    },
+    {
+      "arm": "B",
+      "file": "B-primary/states.json.gz",
+      "sha256": "92574b9eb322605e65fe1b1294fb3fa587113c6346be2159e9d326fca2e8f1d5",
+      "decodedSHA256": "f8813eb5ae8075b9f4bb7486da89ee85c397c43d34b6b23a43430c383100dc0f",
+      "count": 721
+    },
+    {
+      "arm": "C",
+      "file": "C-primary/states.json.gz",
+      "sha256": "94a056f303cd0f19733517fb223adcfb842d1fdb2dc68eed201a3db5346aef6b",
+      "decodedSHA256": "f31e759720aa6ba14c102e9c300d15894bd20027d73521b25712cccdcbadff30",
+      "count": 721
+    }
+  ],
+  "geometryBinding": {
+    "verifiedArchives": 327,
+    "indexSHA256": "a550b63e7c11fdaf8fdeae72207e4105099a96bf351f0b9bcfa82f13eb089e96",
+    "telemetryEqualsSameStepState": true
+  },
+  "nativeSetup": {
+    "channelRebuildCallsPerArm": 1,
+    "beforeAfterStateEqual": true,
+    "existingIdentityRetained": true,
+    "preFilterEqualAcrossArms": true,
+    "initialStackFrame": 2,
+    "framesPerArm": 721
+  },
+  "invariants": {
+    "arms": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ownerCount": 17,
+    "ownerFrameChecks": 36771,
+    "rawEffectiveChecks": 36771,
+    "equalStateFields": [
+      "clock",
+      "stackTime",
+      "stackFrame",
+      "affect",
+      "gesture",
+      "schedule",
+      "attention",
+      "sharedPosture"
+    ],
+    "equalOwnerFields": [
+      "name",
+      "order",
+      "weight",
+      "enabled",
+      "status",
+      "randomAfterFrame"
+    ],
+    "actualCommandSteps": [
+      0,
+      360
+    ],
+    "commandReceiptsEqual": true,
+    "sourcePreservingDisposalAllArms": true,
+    "zeroBrowserErrors": true,
+    "zeroFinalRendererMemory": true
+  },
+  "trajectoryHashes": {
+    "schedule": {
+      "A": "53ed36165474c811e96bfd1759b6ed17120236b6a9825508c857ed637cf616a5",
+      "B": "53ed36165474c811e96bfd1759b6ed17120236b6a9825508c857ed637cf616a5",
+      "C": "53ed36165474c811e96bfd1759b6ed17120236b6a9825508c857ed637cf616a5"
+    },
+    "postureRaw": {
+      "A": "6b5f040f328de3ee73b2b2281d1c7dbab43a8a550eee764f2f7b6b6fa6edc045",
+      "B": "6b5f040f328de3ee73b2b2281d1c7dbab43a8a550eee764f2f7b6b6fa6edc045",
+      "C": "6b5f040f328de3ee73b2b2281d1c7dbab43a8a550eee764f2f7b6b6fa6edc045"
+    },
+    "gestureRaw": {
+      "A": "b493c680ac2052b95518e472dece4907ba5ecffafa2aa3feb8b004318dbadd2e",
+      "B": "b493c680ac2052b95518e472dece4907ba5ecffafa2aa3feb8b004318dbadd2e",
+      "C": "b493c680ac2052b95518e472dece4907ba5ecffafa2aa3feb8b004318dbadd2e"
+    },
+    "sharedPosture": {
+      "A": "b5050943e9ec9482c9e38909e4094928861738a1dbec0e161deaefdf3c63d706",
+      "B": "b5050943e9ec9482c9e38909e4094928861738a1dbec0e161deaefdf3c63d706",
+      "C": "b5050943e9ec9482c9e38909e4094928861738a1dbec0e161deaefdf3c63d706"
+    },
+    "clock": {
+      "A": "4da90b0349344b7d1313c3982e212de06b070d601b9c567f024270aba231b568",
+      "B": "4da90b0349344b7d1313c3982e212de06b070d601b9c567f024270aba231b568",
+      "C": "4da90b0349344b7d1313c3982e212de06b070d601b9c567f024270aba231b568"
+    },
+    "ownerPRNG": {
+      "A": "c09bbc8843dc3ae5ebbfe33c12a026d3e64f215078cf4921055237c366c97ad8",
+      "B": "c09bbc8843dc3ae5ebbfe33c12a026d3e64f215078cf4921055237c366c97ad8",
+      "C": "c09bbc8843dc3ae5ebbfe33c12a026d3e64f215078cf4921055237c366c97ad8"
+    },
+    "ownerMeta": {
+      "A": "73aa26bbebd5902ab05513b595eef1910ee4ccd8a9811430fd3b4b3ef6c7a390",
+      "B": "73aa26bbebd5902ab05513b595eef1910ee4ccd8a9811430fd3b4b3ef6c7a390",
+      "C": "73aa26bbebd5902ab05513b595eef1910ee4ccd8a9811430fd3b4b3ef6c7a390"
+    }
+  },
+  "ownerStatusCounts": {
+    "A": {
+      "attentionControl": {
+        "no-returned-output": 721
+      },
+      "affectPosture": {
+        "no-returned-output": 26,
+        "returned-output": 695
+      },
+      "breath": {
+        "returned-output": 721
+      },
+      "sway": {
+        "returned-output": 721
+      },
+      "idle": {
+        "returned-output": 721
+      },
+      "bodyIdle": {
+        "returned-output": 721
+      },
+      "handIdle": {
+        "returned-output": 721
+      },
+      "gesture": {
+        "no-returned-output": 388,
+        "returned-output": 333
+      },
+      "attentionPose": {
+        "no-returned-output": 721
+      },
+      "gazeHead": {
+        "returned-output": 721
+      },
+      "gaze": {
+        "returned-output": 721
+      },
+      "pupil": {
+        "no-returned-output": 721
+      },
+      "expression": {
+        "no-returned-output": 1,
+        "returned-output": 720
+      },
+      "viseme": {
+        "no-returned-output": 721
+      },
+      "blink": {
+        "no-returned-output": 611,
+        "returned-output": 110
+      },
+      "facialIdle": {
+        "returned-output": 721
+      },
+      "attentionSmile": {
+        "no-returned-output": 721
+      }
+    },
+    "B": {
+      "attentionControl": {
+        "no-returned-output": 721
+      },
+      "affectPosture": {
+        "no-returned-output": 26,
+        "returned-output": 695
+      },
+      "breath": {
+        "returned-output": 721
+      },
+      "sway": {
+        "returned-output": 721
+      },
+      "idle": {
+        "returned-output": 721
+      },
+      "bodyIdle": {
+        "returned-output": 721
+      },
+      "handIdle": {
+        "returned-output": 721
+      },
+      "gesture": {
+        "no-returned-output": 388,
+        "returned-output": 333
+      },
+      "attentionPose": {
+        "no-returned-output": 721
+      },
+      "gazeHead": {
+        "returned-output": 721
+      },
+      "gaze": {
+        "returned-output": 721
+      },
+      "pupil": {
+        "no-returned-output": 721
+      },
+      "expression": {
+        "no-returned-output": 1,
+        "returned-output": 720
+      },
+      "viseme": {
+        "no-returned-output": 721
+      },
+      "blink": {
+        "no-returned-output": 611,
+        "returned-output": 110
+      },
+      "facialIdle": {
+        "returned-output": 721
+      },
+      "attentionSmile": {
+        "no-returned-output": 721
+      }
+    },
+    "C": {
+      "attentionControl": {
+        "no-returned-output": 721
+      },
+      "affectPosture": {
+        "no-returned-output": 26,
+        "returned-output": 695
+      },
+      "breath": {
+        "returned-output": 721
+      },
+      "sway": {
+        "returned-output": 721
+      },
+      "idle": {
+        "returned-output": 721
+      },
+      "bodyIdle": {
+        "returned-output": 721
+      },
+      "handIdle": {
+        "returned-output": 721
+      },
+      "gesture": {
+        "no-returned-output": 388,
+        "returned-output": 333
+      },
+      "attentionPose": {
+        "no-returned-output": 721
+      },
+      "gazeHead": {
+        "returned-output": 721
+      },
+      "gaze": {
+        "returned-output": 721
+      },
+      "pupil": {
+        "no-returned-output": 721
+      },
+      "expression": {
+        "no-returned-output": 1,
+        "returned-output": 720
+      },
+      "viseme": {
+        "no-returned-output": 721
+      },
+      "blink": {
+        "no-returned-output": 611,
+        "returned-output": 110
+      },
+      "facialIdle": {
+        "returned-output": 721
+      },
+      "attentionSmile": {
+        "no-returned-output": 721
+      }
+    }
+  },
+  "comparisons": {
+    "A_vs_B": {
+      "topFields": {
+        "bones": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        }
+      },
+      "instrumentFields": {
+        "arm": {
+          "count": 721,
+          "first": 0,
+          "last": 720,
+          "ranges": [
+            [
+              0,
+              720
+            ]
+          ]
+        },
+        "samples": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "owners": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        }
+      },
+      "owners": {
+        "affectPosture": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ],
+          "fields": {
+            "effective": {
+              "count": 263,
+              "first": 458,
+              "last": 720,
+              "ranges": [
+                [
+                  458,
+                  720
+                ]
+              ]
+            }
+          },
+          "channels": {
+            "effective.rotations.upperarm_l": {
+              "count": 263,
+              "first": 458,
+              "last": 720,
+              "ranges": [
+                [
+                  458,
+                  720
+                ]
+              ]
+            },
+            "effective.rotations.upperarm_r": {
+              "count": 263,
+              "first": 458,
+              "last": 720,
+              "ranges": [
+                [
+                  458,
+                  720
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "skinningPaletteBones": {
+        "upperarm_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "lowerarm_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "hand_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "index_01_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "index_02_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "index_03_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "middle_01_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "middle_02_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "middle_03_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "pinky_01_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "pinky_02_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "pinky_03_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "ring_01_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "ring_02_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "ring_03_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "thumb_01_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "thumb_02_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "thumb_03_l": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "upperarm_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "lowerarm_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "hand_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "index_01_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "index_02_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "index_03_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "middle_01_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "middle_02_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "middle_03_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "pinky_01_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "pinky_02_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "pinky_03_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "ring_01_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "ring_02_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "ring_03_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "thumb_01_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "thumb_02_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        },
+        "thumb_03_r": {
+          "count": 263,
+          "first": 458,
+          "last": 720,
+          "ranges": [
+            [
+              458,
+              720
+            ]
+          ]
+        }
+      }
+    },
+    "A_vs_C": {
+      "topFields": {
+        "bones": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        }
+      },
+      "instrumentFields": {
+        "arm": {
+          "count": 721,
+          "first": 0,
+          "last": 720,
+          "ranges": [
+            [
+              0,
+              720
+            ]
+          ]
+        },
+        "samples": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "owners": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        }
+      },
+      "owners": {
+        "gesture": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ],
+          "fields": {
+            "effective": {
+              "count": 333,
+              "first": 56,
+              "last": 680,
+              "ranges": [
+                [
+                  56,
+                  140
+                ],
+                [
+                  227,
+                  313
+                ],
+                [
+                  418,
+                  491
+                ],
+                [
+                  594,
+                  680
+                ]
+              ]
+            }
+          },
+          "channels": {
+            "effective.rotations.upperarm_l": {
+              "count": 333,
+              "first": 56,
+              "last": 680,
+              "ranges": [
+                [
+                  56,
+                  140
+                ],
+                [
+                  227,
+                  313
+                ],
+                [
+                  418,
+                  491
+                ],
+                [
+                  594,
+                  680
+                ]
+              ]
+            },
+            "effective.rotations.upperarm_r": {
+              "count": 333,
+              "first": 56,
+              "last": 680,
+              "ranges": [
+                [
+                  56,
+                  140
+                ],
+                [
+                  227,
+                  313
+                ],
+                [
+                  418,
+                  491
+                ],
+                [
+                  594,
+                  680
+                ]
+              ]
+            },
+            "effective.rotations.lowerarm_l": {
+              "count": 333,
+              "first": 56,
+              "last": 680,
+              "ranges": [
+                [
+                  56,
+                  140
+                ],
+                [
+                  227,
+                  313
+                ],
+                [
+                  418,
+                  491
+                ],
+                [
+                  594,
+                  680
+                ]
+              ]
+            },
+            "effective.rotations.lowerarm_r": {
+              "count": 333,
+              "first": 56,
+              "last": 680,
+              "ranges": [
+                [
+                  56,
+                  140
+                ],
+                [
+                  227,
+                  313
+                ],
+                [
+                  418,
+                  491
+                ],
+                [
+                  594,
+                  680
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "skinningPaletteBones": {
+        "upperarm_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "lowerarm_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "hand_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "index_01_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "index_02_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "index_03_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "middle_01_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "middle_02_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "middle_03_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "pinky_01_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "pinky_02_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "pinky_03_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "ring_01_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "ring_02_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "ring_03_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "thumb_01_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "thumb_02_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "thumb_03_l": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "upperarm_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "lowerarm_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "hand_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "index_01_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "index_02_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "index_03_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "middle_01_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "middle_02_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "middle_03_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "pinky_01_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "pinky_02_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "pinky_03_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "ring_01_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "ring_02_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "ring_03_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "thumb_01_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "thumb_02_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        },
+        "thumb_03_r": {
+          "count": 333,
+          "first": 56,
+          "last": 680,
+          "ranges": [
+            [
+              56,
+              140
+            ],
+            [
+              227,
+              313
+            ],
+            [
+              418,
+              491
+            ],
+            [
+              594,
+              680
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "limits": [
+    "All changes are compared at recorded native frame boundaries in this one happy-to-angry 12s prefix.",
+    "Authored native posture/gesture and shared yield remain intact; effective study rotations are filtered.",
+    "This receipt does not certify a product correction, all motion, hand clearance, continuous collision or perceptual quality.",
+    "Detailed geometry counts and visual evidence are separate analyses."
+  ]
+}

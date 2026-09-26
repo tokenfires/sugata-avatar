@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "file": "assets/figures/figure_g050.glb",
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    }
+  ],
+  "meshes": [
+    [
+      "base.001",
+      "cornea",
+      "eyebrow001",
+      "eyelashes01",
+      "high-poly",
+      "teeth_base",
+      "tongue01"
+    ],
+    [
+      "base.001",
+      "cornea",
+      "eyebrow001",
+      "eyelashes01",
+      "high-poly",
+      "teeth_base",
+      "tongue01"
+    ]
+  ],
+  "attributes": {
+    "POSITION": {
+      "equal": true,
+      "values": 43551
+    },
+    "JOINTS_0": {
+      "equal": true,
+      "values": 58068
+    },
+    "WEIGHTS_0": {
+      "equal": true,
+      "values": 58068
+    }
+  },
+  "indicesEqual": true,
+  "jointsEqual": true
+}

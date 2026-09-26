@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "script": "owner-audit.executed.mjs",
+  "scriptSHA256": "5f3b33d51914a3d96d930564ff779f705166cb86fe74a68159da7a037adb760c",
+  "origin": "The exact JavaScript body of the successful transient node --input-type=module heredoc was copied from this task's executed tool-call history after the run. There was no original temporary script file. The source hash was computed upon retention, not before the original execution.",
+  "originalExecution": {
+    "tool": "exec_command, followed by write_stdin",
+    "initialChunkId": "10cd50",
+    "sessionId": 53663,
+    "completionChunkId": "827316",
+    "exitCode": 0
+  },
+  "originalReceipt": {
+    "file": "owner-audit-receipt.json",
+    "sha256": "931b8c62baac8bc05516db2f5f5c59ce1f08927f7d8256ca12837de6acf9083e",
+    "unchangedAfterScriptRetention": true
+  },
+  "retentionVerification": "Only the retained script and original receipt hashes were read. The audit was not rerun and no native capture or source file was edited.",
+  "reproduction": {
+    "workingDirectory": "A fresh audit directory containing the same captures/hand-attribution-2026-09-26/primary-v4 input tree (a read-only link is sufficient) and an empty docs/evidence/nonhair-2026-09-26/hand-clearance output directory.",
+    "command": "node /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/owner-audit.executed.mjs",
+    "overwritePolicy": "The exact executed script refuses to run when its output receipt already exists. Do not remove or overwrite the preserved original receipt.",
+    "comparison": "The generated createdAt uses the wall clock and therefore changes on a later run. Compare all remaining receipt fields exactly; the preserved original receipt hash binds the original timestamp and bytes."
+  }
+}

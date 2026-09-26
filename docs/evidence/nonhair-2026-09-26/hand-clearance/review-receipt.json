@@ -1,0 +1,3788 @@
+{
+  "version": 1,
+  "completed": true,
+  "input": "/Users/robault/GitHub/sugata-avatar/captures/hand-attribution-2026-09-26/views-v4",
+  "output": "/Users/robault/GitHub/sugata-avatar/captures/hand-attribution-2026-09-26/review-v1",
+  "createdAt": "2026-09-26T18:47:58.575Z",
+  "sourceCount": 1558,
+  "pngCount": 750,
+  "viewsSealSHA256": "a3b1a924f062c17cbf8e1d92c087374bdb5d2858802093e723224c70e25060ab",
+  "primarySealSHA256": "bdc7965c78e3e0823c7ae76c0affe9298bde316bff9edc5b2ddf3b8db777577b",
+  "primaryDirectory": "/Users/robault/GitHub/sugata-avatar/captures/hand-attribution-2026-09-26/primary-v4",
+  "geometrySamplesPerArm": 109,
+  "fullBodySamplesPerArm": 244,
+  "closePlatesPerArm": 6,
+  "viewsReportSHA256": "5fc7296aae2c6f657fb1fac6b4c4830d87f0ce527ce5c06bbf17ee90a4a5e82b",
+  "primaryReportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+  "manifestSHA256": "d7688d5b01816ab7fa3f76b3f183137cdadcdb407b07de596ba2835a8d9771d1",
+  "captureManifestSHA256": "fc0e017fba7da12f6c511b53e705b2441b440fa8cb8731bd65f36a839514793d",
+  "generatorSHA256": "a7a6110bfe9b545386d0557260806f8699964341f1955eccc42e98704ef31105",
+  "generated": [
+    {
+      "file": "index.html",
+      "sha256": "8127d423fa7440cbbc0a4c2d00531425b266ac4c14d369189d1fa7f4993cc9e5"
+    },
+    {
+      "file": "review.mjs",
+      "sha256": "f65e37440ffe51d099c878a42a6cd654df967617b1f2d4d70c92958a011ccba2"
+    },
+    {
+      "file": "review.css",
+      "sha256": "294d94005cc38f7f5781bcff96ba1c15eb8923fe72acc1ff001b5c920879d5fa"
+    }
+  ],
+  "images": [
+    {
+      "input": "A-views/front-full-body-0000.png",
+      "output": "images/A-front-full-body-0000.png",
+      "sha256": "1ba1b0ff786826fc4ed34c4f2facb0240aa78194ec6c6d3dc430f889ebf46c51"
+    },
+    {
+      "input": "A-views/left-hand-hip-0000.png",
+      "output": "images/A-left-hand-hip-0000.png",
+      "sha256": "282babfd50710a4b4b6c22d16b28e5fa6c49ac5ab6360c0b5faa1bdb5f259194"
+    },
+    {
+      "input": "A-views/right-hand-hip-0000.png",
+      "output": "images/A-right-hand-hip-0000.png",
+      "sha256": "35f1cbe45b0d0dd3e98c373fac93e0bb8ef8a6880f8432706a67ab06c3df8b26"
+    },
+    {
+      "input": "A-views/front-full-body-0004.png",
+      "output": "images/A-front-full-body-0004.png",
+      "sha256": "89e94055a20ac161977167ff734a3d51530d2cf59eb5cd653d37aead9c0a713e"
+    },
+    {
+      "input": "A-views/front-full-body-0008.png",
+      "output": "images/A-front-full-body-0008.png",
+      "sha256": "6f7aad9b9c56be74dc595d62584c49fbb64e59cf12b6a7cd72e24a77c0a67fba"
+    },
+    {
+      "input": "A-views/front-full-body-0012.png",
+      "output": "images/A-front-full-body-0012.png",
+      "sha256": "073b5ee6649954df9a057fb9181f86753d067ca91b2bc2ab5290256eba09db14"
+    },
+    {
+      "input": "A-views/front-full-body-0016.png",
+      "output": "images/A-front-full-body-0016.png",
+      "sha256": "729f4498401c58f91a80b98a440287989e59343c3a58aee1cfd09ea8a5aeae5b"
+    },
+    {
+      "input": "A-views/front-full-body-0020.png",
+      "output": "images/A-front-full-body-0020.png",
+      "sha256": "588cff4174d935603456919a5622520f1da0c00c9d2456635d2ebcb76ad2f247"
+    },
+    {
+      "input": "A-views/front-full-body-0024.png",
+      "output": "images/A-front-full-body-0024.png",
+      "sha256": "b79bbfda3053fc35d7d68a019e8ac63340579001c57ec0f4853cd199325da0d2"
+    },
+    {
+      "input": "A-views/front-full-body-0028.png",
+      "output": "images/A-front-full-body-0028.png",
+      "sha256": "03e144c59a06223b5c0500185e04f9a70ec8a0789826ffc7ed261f42b71b0d8b"
+    },
+    {
+      "input": "A-views/front-full-body-0032.png",
+      "output": "images/A-front-full-body-0032.png",
+      "sha256": "b60481871bd59bf095e780bf6f1de4c1096bdcbd053d7d8a942d382aa7735b92"
+    },
+    {
+      "input": "A-views/front-full-body-0036.png",
+      "output": "images/A-front-full-body-0036.png",
+      "sha256": "87dbba65d3de3eb777fd7105db6555bcedfadccb710952b509b2ef9b9273eb6a"
+    },
+    {
+      "input": "A-views/front-full-body-0040.png",
+      "output": "images/A-front-full-body-0040.png",
+      "sha256": "5af1b67d26aa56a9a0ac821a714b87ebacbd48027f6b537e46052937d839de0f"
+    },
+    {
+      "input": "A-views/front-full-body-0044.png",
+      "output": "images/A-front-full-body-0044.png",
+      "sha256": "5a70e0154d2d8d1af3cb3eb911db11b164b63d15447fb3d5f7da5ab7316f644a"
+    },
+    {
+      "input": "A-views/front-full-body-0048.png",
+      "output": "images/A-front-full-body-0048.png",
+      "sha256": "ab8d88221c382ed42676b963487ded8c2ff704ceddace1a14acdc3b99c3923ef"
+    },
+    {
+      "input": "A-views/front-full-body-0052.png",
+      "output": "images/A-front-full-body-0052.png",
+      "sha256": "1e5990aabd280dbf76d3b67faa91ba7c3d47f70f93dd76e33e659c6d1048a9b2"
+    },
+    {
+      "input": "A-views/front-full-body-0054.png",
+      "output": "images/A-front-full-body-0054.png",
+      "sha256": "a8f4e1d37e5a0ed1f949e6bfa2f9a59b1207ad46ecbb8057aedfab71c9ebb50c"
+    },
+    {
+      "input": "A-views/front-full-body-0055.png",
+      "output": "images/A-front-full-body-0055.png",
+      "sha256": "f84682b06309bc9ca6fc92c3f25c3eba81cb8f923f1b0d924e1a1b17be3ebb4c"
+    },
+    {
+      "input": "A-views/front-full-body-0056.png",
+      "output": "images/A-front-full-body-0056.png",
+      "sha256": "a30e60fd29ed7f664ffad63ffa935978a901ee6f4e806bfa52f5548b7407ac9d"
+    },
+    {
+      "input": "A-views/front-full-body-0060.png",
+      "output": "images/A-front-full-body-0060.png",
+      "sha256": "d83e76c6fb572a60f399f4ff59ed88eb297418600e56391e62ac0630be1b192c"
+    },
+    {
+      "input": "A-views/front-full-body-0064.png",
+      "output": "images/A-front-full-body-0064.png",
+      "sha256": "d8610d72430e4d0acea44042cfc5c8810a72f0a99e5ae14e4272fb5b876a3e40"
+    },
+    {
+      "input": "A-views/front-full-body-0068.png",
+      "output": "images/A-front-full-body-0068.png",
+      "sha256": "ee1383a6cf5513b043602b48c87ae692518729789306d1d32f34ba3e6d0d363f"
+    },
+    {
+      "input": "A-views/front-full-body-0072.png",
+      "output": "images/A-front-full-body-0072.png",
+      "sha256": "5cfc5da7b508b5d4afce519edf97a3ce648e407c3a5573ba65257c37640c1833"
+    },
+    {
+      "input": "A-views/front-full-body-0076.png",
+      "output": "images/A-front-full-body-0076.png",
+      "sha256": "d408c7718f634a2aaa5f82fb0cad28acbd86001c8727bcad5981fe6cbabc4edf"
+    },
+    {
+      "input": "A-views/front-full-body-0080.png",
+      "output": "images/A-front-full-body-0080.png",
+      "sha256": "0682c2ba4a62fd9f16643b53363dc6114e929ec0ac71477208ff1ec808573c1a"
+    },
+    {
+      "input": "A-views/front-full-body-0084.png",
+      "output": "images/A-front-full-body-0084.png",
+      "sha256": "57ec6f4b31f315cf3ffb1159bdbc005ff26621dfed25a8180a67c9fbc70cb134"
+    },
+    {
+      "input": "A-views/front-full-body-0088.png",
+      "output": "images/A-front-full-body-0088.png",
+      "sha256": "6ce1825c0ab330cc58583d577af9aceeea051a551c29ca5b9b59604ec4194356"
+    },
+    {
+      "input": "A-views/front-full-body-0089.png",
+      "output": "images/A-front-full-body-0089.png",
+      "sha256": "feee56da0500a99f65184f779a66dee2ca89980eb4236063a248bcd949018e56"
+    },
+    {
+      "input": "A-views/front-full-body-0090.png",
+      "output": "images/A-front-full-body-0090.png",
+      "sha256": "1f164566850117f942e2fb4fe231eb825a05721d8e30d897f4a3c6d56b23f4aa"
+    },
+    {
+      "input": "A-views/front-full-body-0091.png",
+      "output": "images/A-front-full-body-0091.png",
+      "sha256": "428a63783d5428808869f7566fb3e53f74a8ca643ee8f54d5a515f34c2d55a3d"
+    },
+    {
+      "input": "A-views/front-full-body-0092.png",
+      "output": "images/A-front-full-body-0092.png",
+      "sha256": "104a06ec4dc905f9324cee29e29ed43e44581e1d6011828beb3e8fd16cd14aa7"
+    },
+    {
+      "input": "A-views/front-full-body-0093.png",
+      "output": "images/A-front-full-body-0093.png",
+      "sha256": "b9e91caa88e2e42a462f949257eb2fe0e3cb1151caeda1437c0752f19a55058c"
+    },
+    {
+      "input": "A-views/front-full-body-0096.png",
+      "output": "images/A-front-full-body-0096.png",
+      "sha256": "4c1dc4fd1bf91b9d28fc099aa91bf982524d09414b9419d791e0a4852c372bec"
+    },
+    {
+      "input": "A-views/front-full-body-0097.png",
+      "output": "images/A-front-full-body-0097.png",
+      "sha256": "3dc4c72e60c5dc5ec379f3425a74cfadaed90ff38ec67e97485c11b4adbd0613"
+    },
+    {
+      "input": "A-views/front-full-body-0098.png",
+      "output": "images/A-front-full-body-0098.png",
+      "sha256": "aac8a1d8ab9aab2a64fda3def76919fb17846d9976e4c2dd9645a0c7a115e3ee"
+    },
+    {
+      "input": "A-views/front-full-body-0099.png",
+      "output": "images/A-front-full-body-0099.png",
+      "sha256": "57857cd90d3b15e7a5e6ae82961e8f6d57b1d3e86e016b89335545bf37dd3cd9"
+    },
+    {
+      "input": "A-views/front-full-body-0100.png",
+      "output": "images/A-front-full-body-0100.png",
+      "sha256": "45b73097a8003d2d00df5887992c075dffeca520107a5747bd6d409464e0a335"
+    },
+    {
+      "input": "A-views/front-full-body-0104.png",
+      "output": "images/A-front-full-body-0104.png",
+      "sha256": "c24d8332b1ec50e6d05abba8b289298d43b0a38cbcb1c1d943d544098835d405"
+    },
+    {
+      "input": "A-views/front-full-body-0107.png",
+      "output": "images/A-front-full-body-0107.png",
+      "sha256": "3b2dafdb78930f7e772a038d6a687e5b8a1e5e35e66773bf227a5ef1ac93c1b4"
+    },
+    {
+      "input": "A-views/front-full-body-0108.png",
+      "output": "images/A-front-full-body-0108.png",
+      "sha256": "283d4a91f490482e72847b43ddc170d40c4360efcc965808d1e5300c06b1077f"
+    },
+    {
+      "input": "A-views/front-full-body-0109.png",
+      "output": "images/A-front-full-body-0109.png",
+      "sha256": "54f27432c93e40e4b655865964c9aaae625179897e914b56ac48a43ce88a0c14"
+    },
+    {
+      "input": "A-views/front-full-body-0110.png",
+      "output": "images/A-front-full-body-0110.png",
+      "sha256": "27bbcaff0bca5cc08e1b042f3eed1b8f1621a3aa79797dd83db59688134f5703"
+    },
+    {
+      "input": "A-views/front-full-body-0111.png",
+      "output": "images/A-front-full-body-0111.png",
+      "sha256": "4c6535af0cd479a7e871d1b56d137061c1fed9011c79991a66389ee20b347b0d"
+    },
+    {
+      "input": "A-views/front-full-body-0112.png",
+      "output": "images/A-front-full-body-0112.png",
+      "sha256": "6d8ebcf7956ee4c1ca58b74e3615e97d766d2096df6ce56cfc4278b26781592d"
+    },
+    {
+      "input": "A-views/front-full-body-0116.png",
+      "output": "images/A-front-full-body-0116.png",
+      "sha256": "62bae56b4a4cf2652c301694de689d6bbac83a131fa2b77e30ea016306ed01a0"
+    },
+    {
+      "input": "A-views/front-full-body-0120.png",
+      "output": "images/A-front-full-body-0120.png",
+      "sha256": "8fda66d6838147ababd62c0d7259bda7114dc9d9706375be3404e581d0863eb4"
+    },
+    {
+      "input": "A-views/front-full-body-0124.png",
+      "output": "images/A-front-full-body-0124.png",
+      "sha256": "72ccafbea0aeb71ada4e1a5e947e47c064af1369fc171ffbbf2ba2b97c3cbda9"
+    },
+    {
+      "input": "A-views/front-full-body-0128.png",
+      "output": "images/A-front-full-body-0128.png",
+      "sha256": "dfc6289cca7774cd112340b6624aab03d9f37b5c284bca2069efd90e4f81eb1e"
+    },
+    {
+      "input": "A-views/front-full-body-0132.png",
+      "output": "images/A-front-full-body-0132.png",
+      "sha256": "6cec91e5e8630f8eb999926182f4dfdd8463a922b69d7af82fbd95ddc9e2b36f"
+    },
+    {
+      "input": "A-views/front-full-body-0136.png",
+      "output": "images/A-front-full-body-0136.png",
+      "sha256": "60769427d607022b64c9d2f09f7163161a64043a9120b84941be6de8c8c823d1"
+    },
+    {
+      "input": "A-views/front-full-body-0140.png",
+      "output": "images/A-front-full-body-0140.png",
+      "sha256": "b2e14bad2204d297e4431ea628233cd9ba423b8a25070cb15b96e36de031e28a"
+    },
+    {
+      "input": "A-views/front-full-body-0141.png",
+      "output": "images/A-front-full-body-0141.png",
+      "sha256": "e29c825efbb868adb91d36b4b9fcbdc0f214a0a0059a53c870999c2cd400804c"
+    },
+    {
+      "input": "A-views/front-full-body-0142.png",
+      "output": "images/A-front-full-body-0142.png",
+      "sha256": "d3aab2ab5177b847aba5590288184ad4b6cf83bb1ed0dd321bda6db511a741d6"
+    },
+    {
+      "input": "A-views/front-full-body-0143.png",
+      "output": "images/A-front-full-body-0143.png",
+      "sha256": "5baa8cdbb4ecffcb0f68fc7f34a9d444d0ff5115903e6e5de63ef97f312d3f32"
+    },
+    {
+      "input": "A-views/front-full-body-0144.png",
+      "output": "images/A-front-full-body-0144.png",
+      "sha256": "9223c3825e184c4261661eb2b211e0e3ef2c909d0d258ed225ba9a5a4e447365"
+    },
+    {
+      "input": "A-views/front-full-body-0148.png",
+      "output": "images/A-front-full-body-0148.png",
+      "sha256": "bcbd5fef75891565e026aa235a54e8b174245208ff12851e0dc6464fc1b31f67"
+    },
+    {
+      "input": "A-views/front-full-body-0152.png",
+      "output": "images/A-front-full-body-0152.png",
+      "sha256": "288f5b227e6d19d5c6fae07081e3f6ee5915ecfc8e7501035ac93025b4c5c4c4"
+    },
+    {
+      "input": "A-views/front-full-body-0156.png",
+      "output": "images/A-front-full-body-0156.png",
+      "sha256": "2e992077ef83cc507f2757660627d6a2557155d73f1a7426cbccf971957e2085"
+    },
+    {
+      "input": "A-views/front-full-body-0160.png",
+      "output": "images/A-front-full-body-0160.png",
+      "sha256": "4fd4329df60125ebb39eb693a8e7b79840ad18fd983e7394baf5e5de352378c2"
+    },
+    {
+      "input": "A-views/front-full-body-0164.png",
+      "output": "images/A-front-full-body-0164.png",
+      "sha256": "b4294c7f10f7590ba8bdd621a3d898012f84c9c4b9c26b4ef18f706ceecd2d0a"
+    },
+    {
+      "input": "A-views/front-full-body-0168.png",
+      "output": "images/A-front-full-body-0168.png",
+      "sha256": "2efe6c3cf44fb8e791eb7ebdf6f30a430f85041f28d301f431ded75329a377f4"
+    },
+    {
+      "input": "A-views/front-full-body-0172.png",
+      "output": "images/A-front-full-body-0172.png",
+      "sha256": "06a429050649d2014357b7c7d4b153fcb8bf28267e46d5ed10bc878eef79eb36"
+    },
+    {
+      "input": "A-views/front-full-body-0176.png",
+      "output": "images/A-front-full-body-0176.png",
+      "sha256": "d3eff679502cef8307f70e2cd79f2c1046211cf3fe91b28650b2af31e8e74f86"
+    },
+    {
+      "input": "A-views/front-full-body-0180.png",
+      "output": "images/A-front-full-body-0180.png",
+      "sha256": "2118867c1dcdfb1d3aa52817c18a81f0db9b116b3f7058d87742073982770502"
+    },
+    {
+      "input": "A-views/front-full-body-0184.png",
+      "output": "images/A-front-full-body-0184.png",
+      "sha256": "09e843d8abea61fb775934464df07f36ffb224591798991a68a6e0700a64de86"
+    },
+    {
+      "input": "A-views/front-full-body-0188.png",
+      "output": "images/A-front-full-body-0188.png",
+      "sha256": "475a5d9ffc48527b1a474683823869952bb70ad0b242ad5fa93ed69e49da81a5"
+    },
+    {
+      "input": "A-views/front-full-body-0192.png",
+      "output": "images/A-front-full-body-0192.png",
+      "sha256": "21b916c9ed809b5fd388bcdccc93105795cca23346984fae8b55ec4917c8a8c7"
+    },
+    {
+      "input": "A-views/front-full-body-0196.png",
+      "output": "images/A-front-full-body-0196.png",
+      "sha256": "bf3c5b5588e8a436609efcdf7e41a79c708264fcb1ca7fbaf5d8dfe7d3d42512"
+    },
+    {
+      "input": "A-views/front-full-body-0200.png",
+      "output": "images/A-front-full-body-0200.png",
+      "sha256": "b0c7e0d10e8637d0799069737761be7289eadc850c809afb57bbd41b603d82e8"
+    },
+    {
+      "input": "A-views/front-full-body-0204.png",
+      "output": "images/A-front-full-body-0204.png",
+      "sha256": "cee8e36d2ea09f58a9ff90bac3f7e66d2c2ed7390974f889df4a247223ccffb5"
+    },
+    {
+      "input": "A-views/front-full-body-0208.png",
+      "output": "images/A-front-full-body-0208.png",
+      "sha256": "90bf1e816d74421fe9e6a4ca0a3a7bf47d9a41ba948144faa777e55e4b561a50"
+    },
+    {
+      "input": "A-views/front-full-body-0212.png",
+      "output": "images/A-front-full-body-0212.png",
+      "sha256": "c4c3d1dc9769015c3e2cfdcabbde3d742b2d656c5143336d3d52e498d075073f"
+    },
+    {
+      "input": "A-views/front-full-body-0216.png",
+      "output": "images/A-front-full-body-0216.png",
+      "sha256": "3852a8c2d288c55434809b24d4223868b778c99497f86a8eddccd8735aebfeb5"
+    },
+    {
+      "input": "A-views/front-full-body-0220.png",
+      "output": "images/A-front-full-body-0220.png",
+      "sha256": "ac53282fa6c9b5e2a20b9877fa00e9108da85adee802c27b26f443236d8ea06b"
+    },
+    {
+      "input": "A-views/front-full-body-0224.png",
+      "output": "images/A-front-full-body-0224.png",
+      "sha256": "6d41e4a72ad60cc185ebaf8ed35f46c74e6eb9af32066ae47e0a9f7a5ab66cd1"
+    },
+    {
+      "input": "A-views/front-full-body-0225.png",
+      "output": "images/A-front-full-body-0225.png",
+      "sha256": "d8fa68ef65c060a8f537481d7a02061059c826b4a56e92a86a4e0acd9192858e"
+    },
+    {
+      "input": "A-views/front-full-body-0226.png",
+      "output": "images/A-front-full-body-0226.png",
+      "sha256": "58ff108917a63529d6460d174e0646248fd2042fecc9a0f6a6c00411b82b8ddc"
+    },
+    {
+      "input": "A-views/front-full-body-0227.png",
+      "output": "images/A-front-full-body-0227.png",
+      "sha256": "34ac99f833f778ea30246238f4c73e4136c4f59589cb97a4a3921a014618fe36"
+    },
+    {
+      "input": "A-views/front-full-body-0228.png",
+      "output": "images/A-front-full-body-0228.png",
+      "sha256": "2eef55c670e008e15a4a0152706d57ead6cfb7f2030bd3abd1f149fc67b2f9d8"
+    },
+    {
+      "input": "A-views/front-full-body-0232.png",
+      "output": "images/A-front-full-body-0232.png",
+      "sha256": "daf46ec4720acad374e349adae962da4800169191a35db530bfb31090a37bffd"
+    },
+    {
+      "input": "A-views/front-full-body-0236.png",
+      "output": "images/A-front-full-body-0236.png",
+      "sha256": "5c53f0be5c0a3591da0b8a5e90606ba3a806beb51bf752ecbd93aac2b985ea28"
+    },
+    {
+      "input": "A-views/front-full-body-0240.png",
+      "output": "images/A-front-full-body-0240.png",
+      "sha256": "cd73cc1be072d77c030c60b1f1ed152cb50a49a9c383268494620adb85669ab4"
+    },
+    {
+      "input": "A-views/front-full-body-0244.png",
+      "output": "images/A-front-full-body-0244.png",
+      "sha256": "9e6a328a1a5f852396d77209679af7d86d7a5cf4169880b58fbe018f60ce33de"
+    },
+    {
+      "input": "A-views/front-full-body-0248.png",
+      "output": "images/A-front-full-body-0248.png",
+      "sha256": "4cbd8f8dc9e4e200e0bb9fa022c495df2464a1e9fb2047df66f7427894f95dbc"
+    },
+    {
+      "input": "A-views/front-full-body-0252.png",
+      "output": "images/A-front-full-body-0252.png",
+      "sha256": "82027301b1b702c6be60bb696db46daae4112fa2d6e5b60106f42ea593ad1173"
+    },
+    {
+      "input": "A-views/front-full-body-0256.png",
+      "output": "images/A-front-full-body-0256.png",
+      "sha256": "6b9896b12f6c9fc5f3706bc4c80e4f7d59b6cb68db8e260ace309cbc38191b19"
+    },
+    {
+      "input": "A-views/front-full-body-0260.png",
+      "output": "images/A-front-full-body-0260.png",
+      "sha256": "72dd81e99240acab382b34522e05bd8b9b37480538abcc0b6150dee3115e8cfa"
+    },
+    {
+      "input": "A-views/front-full-body-0262.png",
+      "output": "images/A-front-full-body-0262.png",
+      "sha256": "a96e1e51bb496e8818e91b14d6c6dfe3b9cd60ddcfd8fe2249447979a64fe702"
+    },
+    {
+      "input": "A-views/front-full-body-0263.png",
+      "output": "images/A-front-full-body-0263.png",
+      "sha256": "1c11b782a2a99ae6be8a183880bed1d57e7b12d87ff04cdc2a784c2eb4395118"
+    },
+    {
+      "input": "A-views/front-full-body-0264.png",
+      "output": "images/A-front-full-body-0264.png",
+      "sha256": "500d46cbc335fb2c79a4444ef82771b69c15de52c13e0151d3c5b5d9968377d5"
+    },
+    {
+      "input": "A-views/front-full-body-0265.png",
+      "output": "images/A-front-full-body-0265.png",
+      "sha256": "47bc7930ca583348e92f5c127377b75cde761b899d66865f8844b92daab1b0f9"
+    },
+    {
+      "input": "A-views/front-full-body-0266.png",
+      "output": "images/A-front-full-body-0266.png",
+      "sha256": "828e437760a7bdc432ed5a2661ff8f8383da39415ef58cc3c918c1a3a0ff8358"
+    },
+    {
+      "input": "A-views/front-full-body-0268.png",
+      "output": "images/A-front-full-body-0268.png",
+      "sha256": "12184fa9ddfaa7b473f03865332ebb0d6f84f08775e77a783802333a43d24d84"
+    },
+    {
+      "input": "A-views/front-full-body-0269.png",
+      "output": "images/A-front-full-body-0269.png",
+      "sha256": "4e0832a1019f741fc532a8146889a7e23da591a9bca027dba822543d7f638c45"
+    },
+    {
+      "input": "A-views/front-full-body-0270.png",
+      "output": "images/A-front-full-body-0270.png",
+      "sha256": "4adc2a95eac183e7812ac4c80f058c73dec6f8fb602b09675fc0bf4fc3c5edf9"
+    },
+    {
+      "input": "A-views/front-full-body-0271.png",
+      "output": "images/A-front-full-body-0271.png",
+      "sha256": "cddc8cdcbe7cf31d48d61729caa914c30f9ba9298801030ab7d2c8db554f9e4c"
+    },
+    {
+      "input": "A-views/front-full-body-0272.png",
+      "output": "images/A-front-full-body-0272.png",
+      "sha256": "0f4b78cfb73ea7165f6bf268a00df905e28e39743024f0e2948158d02c37df0e"
+    },
+    {
+      "input": "A-views/front-full-body-0276.png",
+      "output": "images/A-front-full-body-0276.png",
+      "sha256": "0ca466415940e2728b14da24ebfa6723a5305c1e337da8197a106999fb02edb7"
+    },
+    {
+      "input": "A-views/front-full-body-0279.png",
+      "output": "images/A-front-full-body-0279.png",
+      "sha256": "778bdb0306afa70343db49ec98f12de0865d42b26eabd7242ee07626930fef4e"
+    },
+    {
+      "input": "A-views/front-full-body-0280.png",
+      "output": "images/A-front-full-body-0280.png",
+      "sha256": "1f66cfa03b3835122ada9b0bd54f257f72834a881a3d907b2c60eace87e0fd00"
+    },
+    {
+      "input": "A-views/front-full-body-0281.png",
+      "output": "images/A-front-full-body-0281.png",
+      "sha256": "4f6fc01fc067df1c9af62b3c2d6327137e737e8188d63e12c99c8ff0737dec01"
+    },
+    {
+      "input": "A-views/front-full-body-0282.png",
+      "output": "images/A-front-full-body-0282.png",
+      "sha256": "b79740a0ee3b7bd508facbbc6cb392b1f883f7f2cc19dc9d6e42e30410013b70"
+    },
+    {
+      "input": "A-views/front-full-body-0283.png",
+      "output": "images/A-front-full-body-0283.png",
+      "sha256": "13e68673e714cde54c03127ff316b6bf305814add084f2be9d38717c798b53ce"
+    },
+    {
+      "input": "A-views/front-full-body-0284.png",
+      "output": "images/A-front-full-body-0284.png",
+      "sha256": "09bd53213f33e72ed133e2baa48a020138302fbc70efe32965c15b47123abc4a"
+    },
+    {
+      "input": "A-views/front-full-body-0288.png",
+      "output": "images/A-front-full-body-0288.png",
+      "sha256": "ab1581e6630b512855fc6f4660ffca4dcaf0473c8eb8aa6361c4cde4f82e5e96"
+    },
+    {
+      "input": "A-views/front-full-body-0292.png",
+      "output": "images/A-front-full-body-0292.png",
+      "sha256": "beec860cf5cebc481eecda09a7da5e3ec7787cf317e64243970b182fdd83564c"
+    },
+    {
+      "input": "A-views/front-full-body-0296.png",
+      "output": "images/A-front-full-body-0296.png",
+      "sha256": "48e0a1feaa1865449ebc1aaf02a51c35e3b547685c8e2c51555be7d73dcb08ba"
+    },
+    {
+      "input": "A-views/front-full-body-0300.png",
+      "output": "images/A-front-full-body-0300.png",
+      "sha256": "3f1bfd2823d24f39ef51416826407032112e31520d6598738ef1cd22bb77c52f"
+    },
+    {
+      "input": "A-views/front-full-body-0304.png",
+      "output": "images/A-front-full-body-0304.png",
+      "sha256": "243f294ec9685c789acfc54e746ea9593de705aa7a4ed6a6a2856bc7ff2ae9d7"
+    },
+    {
+      "input": "A-views/front-full-body-0308.png",
+      "output": "images/A-front-full-body-0308.png",
+      "sha256": "3faaf03d29db7cae63b689475db3ac822f4e24aa6af45b04f73b389b13076bf3"
+    },
+    {
+      "input": "A-views/front-full-body-0312.png",
+      "output": "images/A-front-full-body-0312.png",
+      "sha256": "02bb2c3fd2de1d9891883b53c4105e64fa9f0f2242a78589f40986d9ccffb522"
+    },
+    {
+      "input": "A-views/front-full-body-0314.png",
+      "output": "images/A-front-full-body-0314.png",
+      "sha256": "073aaf9a960b1839c35accfe75f1eb1553b1d8d6ea7decb157abefacddbef8e8"
+    },
+    {
+      "input": "A-views/front-full-body-0315.png",
+      "output": "images/A-front-full-body-0315.png",
+      "sha256": "0c8df683209c9001b15c51af2a9b6cf18b9694063c7c07def785fdc5e8d077de"
+    },
+    {
+      "input": "A-views/front-full-body-0316.png",
+      "output": "images/A-front-full-body-0316.png",
+      "sha256": "775ae16b31848676c3cd8078ea8e4b5e45231e5971801f9929d8eed3f27fcb22"
+    },
+    {
+      "input": "A-views/front-full-body-0320.png",
+      "output": "images/A-front-full-body-0320.png",
+      "sha256": "a718a5cea7a312feb334ccf061a2c2c0424902fdde6ef748d93af9b8b273ddd8"
+    },
+    {
+      "input": "A-views/front-full-body-0324.png",
+      "output": "images/A-front-full-body-0324.png",
+      "sha256": "cb0f189209405885219471d29d8630465fc67c03941c611b2718efcf990a5b01"
+    },
+    {
+      "input": "A-views/front-full-body-0328.png",
+      "output": "images/A-front-full-body-0328.png",
+      "sha256": "cfc4e1d7892b72c4efc98fb2fad49ddbbd3063b38bb0f441d35154991fe0c180"
+    },
+    {
+      "input": "A-views/front-full-body-0332.png",
+      "output": "images/A-front-full-body-0332.png",
+      "sha256": "26c1bc7d8f13eaa6378656bf2db336b21148adf8f599cf695cd6b50fa3d34d56"
+    },
+    {
+      "input": "A-views/front-full-body-0336.png",
+      "output": "images/A-front-full-body-0336.png",
+      "sha256": "faf893787f8ba02b2033f6f20b79d986f5d6afdd18947a56ef92ea9b05730aa0"
+    },
+    {
+      "input": "A-views/front-full-body-0340.png",
+      "output": "images/A-front-full-body-0340.png",
+      "sha256": "027ae8ab25abf2f374006b11ab215ba71761f573960296397cdd6d63957d4887"
+    },
+    {
+      "input": "A-views/front-full-body-0344.png",
+      "output": "images/A-front-full-body-0344.png",
+      "sha256": "ae1ea93603b0eceb40b9629cb08de728268aa086e17cdeb5277b10f05bf6988e"
+    },
+    {
+      "input": "A-views/front-full-body-0348.png",
+      "output": "images/A-front-full-body-0348.png",
+      "sha256": "44e302dae7ebe86e5be716ce3a30e4ae62ed1aa7127ccedf631380cad7ee55ef"
+    },
+    {
+      "input": "A-views/front-full-body-0352.png",
+      "output": "images/A-front-full-body-0352.png",
+      "sha256": "0507ace4c92417f1f94b45a275001e0fc712627373e0a0ef828ee3d12e4d02c9"
+    },
+    {
+      "input": "A-views/front-full-body-0356.png",
+      "output": "images/A-front-full-body-0356.png",
+      "sha256": "63032feb8ea7eed0ee0bfd45b78bf59ad6a9e63770f945b19311f45f904b8d84"
+    },
+    {
+      "input": "A-views/front-full-body-0360.png",
+      "output": "images/A-front-full-body-0360.png",
+      "sha256": "1291cf040d323718cd6b43aafd765073fbf34a1967a8b45855cd7703929cdd3c"
+    },
+    {
+      "input": "A-views/front-full-body-0364.png",
+      "output": "images/A-front-full-body-0364.png",
+      "sha256": "a37f0b79ea90e9dd37ef9a72befce8e0382d95d3838bba10a4a28eaa66950c39"
+    },
+    {
+      "input": "A-views/front-full-body-0368.png",
+      "output": "images/A-front-full-body-0368.png",
+      "sha256": "8d106d45e845d18e948ca91f4d95cc2af43cc98713d41ff2fb1d2ab29e1234b1"
+    },
+    {
+      "input": "A-views/front-full-body-0372.png",
+      "output": "images/A-front-full-body-0372.png",
+      "sha256": "0607397152ae4fa903a391ed0ddfa36ab2104b902c2a4c1c4daafd4cbe7fe6a1"
+    },
+    {
+      "input": "A-views/front-full-body-0376.png",
+      "output": "images/A-front-full-body-0376.png",
+      "sha256": "d5ff322af38acd969bc5a2eaf7799ad90c6ccd93d72e1d4d62de76640a6f11f5"
+    },
+    {
+      "input": "A-views/front-full-body-0380.png",
+      "output": "images/A-front-full-body-0380.png",
+      "sha256": "fe5c4065930e3148083c3b623d65962179cbfd7a5a64070603d2486fff3607f2"
+    },
+    {
+      "input": "A-views/front-full-body-0384.png",
+      "output": "images/A-front-full-body-0384.png",
+      "sha256": "5d45301c751caeeb03372c247d598286735fbcf12d64c9b91676460c177f616f"
+    },
+    {
+      "input": "A-views/front-full-body-0388.png",
+      "output": "images/A-front-full-body-0388.png",
+      "sha256": "3196d3a86eb76ed8b871c799b74093e7cf95f1801b5b5d635c8bf798fd161281"
+    },
+    {
+      "input": "A-views/front-full-body-0392.png",
+      "output": "images/A-front-full-body-0392.png",
+      "sha256": "7c56643235bfe88b6b720270cb249fe1197ffbf8169ab060cd21bf44e30452be"
+    },
+    {
+      "input": "A-views/front-full-body-0396.png",
+      "output": "images/A-front-full-body-0396.png",
+      "sha256": "0ccba2d3a25b4d28ccb7920b4ed5058868a6a83299490bb8833187d3db3240cd"
+    },
+    {
+      "input": "A-views/front-full-body-0400.png",
+      "output": "images/A-front-full-body-0400.png",
+      "sha256": "ba75324c041124310724bd662393b2bbeeca6521c599440d4aab48c9e2a4763e"
+    },
+    {
+      "input": "A-views/front-full-body-0404.png",
+      "output": "images/A-front-full-body-0404.png",
+      "sha256": "add620da833b6f4487c35093a41a603492b300955b54674499bafe2be6e9e430"
+    },
+    {
+      "input": "A-views/front-full-body-0408.png",
+      "output": "images/A-front-full-body-0408.png",
+      "sha256": "e3206658385f7f9127dc7f9a398e2aeb2c653b6345d8f37215b14c2322425dc0"
+    },
+    {
+      "input": "A-views/front-full-body-0412.png",
+      "output": "images/A-front-full-body-0412.png",
+      "sha256": "d7a76c90c7c0c710d8263a4204cbead48add41da4827a698505154f8e08849d6"
+    },
+    {
+      "input": "A-views/front-full-body-0416.png",
+      "output": "images/A-front-full-body-0416.png",
+      "sha256": "f0f9ee0b70579728bb3e3fe9f195a205cd9fcf4c0a1d2724710ded5371fafb0a"
+    },
+    {
+      "input": "A-views/front-full-body-0417.png",
+      "output": "images/A-front-full-body-0417.png",
+      "sha256": "d1e92e300624604699dff8c2e2f08b2169aa0ab9a0c82fcc17b9e3df3bd4ff23"
+    },
+    {
+      "input": "A-views/front-full-body-0418.png",
+      "output": "images/A-front-full-body-0418.png",
+      "sha256": "12feccdd2bcad4668b8d359c05b51a528b8b39b910eef8544ff1b4b555902ad5"
+    },
+    {
+      "input": "A-views/front-full-body-0420.png",
+      "output": "images/A-front-full-body-0420.png",
+      "sha256": "85b753050f1b9d0db2368864c21eb543f7f3c1df50cd714f0b44ad2baa2a31a8"
+    },
+    {
+      "input": "A-views/front-full-body-0424.png",
+      "output": "images/A-front-full-body-0424.png",
+      "sha256": "87aaa5e420a12a1d0141e401de9cc608436751194b37d5b1082b09c1349d0881"
+    },
+    {
+      "input": "A-views/front-full-body-0428.png",
+      "output": "images/A-front-full-body-0428.png",
+      "sha256": "f112f9027c528128ddc44b4d18d3e39fae80cd6c56cd5db7700d9b73a214ca2f"
+    },
+    {
+      "input": "A-views/front-full-body-0432.png",
+      "output": "images/A-front-full-body-0432.png",
+      "sha256": "7ff36efb7661067e36a073e02c90b77ddb78f4b36a788e2e325065b90fec2463"
+    },
+    {
+      "input": "A-views/front-full-body-0436.png",
+      "output": "images/A-front-full-body-0436.png",
+      "sha256": "a1df28f0091025eb5776e2ed63371b27b3f6258da6c39698080c5753c920ee87"
+    },
+    {
+      "input": "A-views/front-full-body-0440.png",
+      "output": "images/A-front-full-body-0440.png",
+      "sha256": "b36adcee4f435a93aa3d6be198e3a7ad308bd878c56e82b19bda8c0f028a336b"
+    },
+    {
+      "input": "A-views/front-full-body-0444.png",
+      "output": "images/A-front-full-body-0444.png",
+      "sha256": "5ea0b6e7b12e88661dbd88882c1f9c7c4116027de838eb0e0525818b67e8ba71"
+    },
+    {
+      "input": "A-views/front-full-body-0446.png",
+      "output": "images/A-front-full-body-0446.png",
+      "sha256": "6b057965fd6f46276ea5191ee4f555666363d12507484d5e88488720abc787f6"
+    },
+    {
+      "input": "A-views/front-full-body-0447.png",
+      "output": "images/A-front-full-body-0447.png",
+      "sha256": "07e8b9ffc27e3ab6d36654d36eef541db8dbbd18a07ddc679c98d90dc4a96984"
+    },
+    {
+      "input": "A-views/front-full-body-0448.png",
+      "output": "images/A-front-full-body-0448.png",
+      "sha256": "10761fbc44d7e74cad9ca8400bed80fdd97dacb0477953faf6071777c4e652ba"
+    },
+    {
+      "input": "A-views/front-full-body-0449.png",
+      "output": "images/A-front-full-body-0449.png",
+      "sha256": "9909799517d757b915d2114251ae45b5db6be531a735a33e20ced7d9b3cad144"
+    },
+    {
+      "input": "A-views/front-full-body-0450.png",
+      "output": "images/A-front-full-body-0450.png",
+      "sha256": "23f7ad4f3688bcbd8c370fb1c79d01c596cce749ccb3363ce285e0940badb7ac"
+    },
+    {
+      "input": "A-views/front-full-body-0452.png",
+      "output": "images/A-front-full-body-0452.png",
+      "sha256": "f39847c51eb7df34790c941a55bdf6610fc9adfdf9c90b845f15f2a2481bfdac"
+    },
+    {
+      "input": "A-views/front-full-body-0453.png",
+      "output": "images/A-front-full-body-0453.png",
+      "sha256": "ea456b710daa7c136330fb41adabd1738629effcab74b19b6063a68721323c57"
+    },
+    {
+      "input": "A-views/front-full-body-0454.png",
+      "output": "images/A-front-full-body-0454.png",
+      "sha256": "bf098de8a238c60a50739b201c193f41783b9e6fcc3ffb403299e9fa5c05ae05"
+    },
+    {
+      "input": "A-views/front-full-body-0455.png",
+      "output": "images/A-front-full-body-0455.png",
+      "sha256": "09c7096c38a76bcbb772cd1350a50c36b3058e77db63c95ef2b4efe74717d82b"
+    },
+    {
+      "input": "A-views/left-hand-hip-0455.png",
+      "output": "images/A-left-hand-hip-0455.png",
+      "sha256": "2214b641a81ca851fb73d050ee11ccd1c16eb6e0fd612386b23683a8ccee6823"
+    },
+    {
+      "input": "A-views/right-hand-hip-0455.png",
+      "output": "images/A-right-hand-hip-0455.png",
+      "sha256": "2473055f7be51ebd40c5cf13b04294344e5a14cfd2ebc24390e0f8f94e5edeee"
+    },
+    {
+      "input": "A-views/front-full-body-0456.png",
+      "output": "images/A-front-full-body-0456.png",
+      "sha256": "43a64e898cec714fb5606cf01ca9dfd8393f92a4c54285b96fe3357736c1956a"
+    },
+    {
+      "input": "A-views/front-full-body-0457.png",
+      "output": "images/A-front-full-body-0457.png",
+      "sha256": "a09bb58404782ce4d960e001d20b01dc2f39aa8202fdfca120e0601572d3aae8"
+    },
+    {
+      "input": "A-views/front-full-body-0460.png",
+      "output": "images/A-front-full-body-0460.png",
+      "sha256": "68bbae38ad6d7a84cb2d95c27d7a3655a01f96f7931185f98d104b1dc8aad112"
+    },
+    {
+      "input": "A-views/front-full-body-0464.png",
+      "output": "images/A-front-full-body-0464.png",
+      "sha256": "7c6e71c3bd91d744193ce605bff2147c21fb27e357a1eedd7f80df7785175755"
+    },
+    {
+      "input": "A-views/front-full-body-0465.png",
+      "output": "images/A-front-full-body-0465.png",
+      "sha256": "392923733947f982986d1fc7d7de2df75e3496013ccd6ef342c44cceddc73586"
+    },
+    {
+      "input": "A-views/front-full-body-0466.png",
+      "output": "images/A-front-full-body-0466.png",
+      "sha256": "4cb30fea7a16f2b77feba8319dca0b42781505f4bfa197a5fef7507c9ce5c17c"
+    },
+    {
+      "input": "A-views/front-full-body-0467.png",
+      "output": "images/A-front-full-body-0467.png",
+      "sha256": "d4ba2b5516cae35ad5956401122483f0fbe3becb341ebf37a5a5c3a50866e0f2"
+    },
+    {
+      "input": "A-views/front-full-body-0468.png",
+      "output": "images/A-front-full-body-0468.png",
+      "sha256": "12116fa4ad03d83213416763586d8907c2a3da48d96cc47e3251dc3297abbd52"
+    },
+    {
+      "input": "A-views/front-full-body-0472.png",
+      "output": "images/A-front-full-body-0472.png",
+      "sha256": "768f6e7d6e3663264ae57885650398e63fff0cb9d886ad9d5c3731d3d46ba92f"
+    },
+    {
+      "input": "A-views/front-full-body-0476.png",
+      "output": "images/A-front-full-body-0476.png",
+      "sha256": "4ff4f3334f58142073ad210bb1075a29af921b159524afa0beeb2235fa4852f9"
+    },
+    {
+      "input": "A-views/front-full-body-0480.png",
+      "output": "images/A-front-full-body-0480.png",
+      "sha256": "3d2583db56c0b199e90593020cd381562c704c350072f860a9e5617fbc5fe4ae"
+    },
+    {
+      "input": "A-views/front-full-body-0484.png",
+      "output": "images/A-front-full-body-0484.png",
+      "sha256": "32dbaf2c6b85bef76ad883e66b7faffdc50fe7d6ebf88d012b3188b54bd24bbf"
+    },
+    {
+      "input": "A-views/front-full-body-0488.png",
+      "output": "images/A-front-full-body-0488.png",
+      "sha256": "e820ebcdf75a1de0aca59ba9e3c47229b3f1214f352d98e5a81f9a334617695e"
+    },
+    {
+      "input": "A-views/front-full-body-0492.png",
+      "output": "images/A-front-full-body-0492.png",
+      "sha256": "adb6e6d03563b6c6b515d0aca6fb5141fffda2835ec31c536400ad4da7bf1978"
+    },
+    {
+      "input": "A-views/front-full-body-0493.png",
+      "output": "images/A-front-full-body-0493.png",
+      "sha256": "e972f82832e28bbb12d5cd47336bc3fc90c9ba27c0c37c93fd3c7c00e4b41338"
+    },
+    {
+      "input": "A-views/front-full-body-0494.png",
+      "output": "images/A-front-full-body-0494.png",
+      "sha256": "52480c7a78f0d07ab29381d4a11445d711b2502ee7263fae61ab7ef8217dcf86"
+    },
+    {
+      "input": "A-views/front-full-body-0495.png",
+      "output": "images/A-front-full-body-0495.png",
+      "sha256": "78aa111cdba19fd62cca71de801a8e5acf86dd25a235c328b888b72122141b84"
+    },
+    {
+      "input": "A-views/front-full-body-0496.png",
+      "output": "images/A-front-full-body-0496.png",
+      "sha256": "0a17f9368af40d2b2232dc99d3728161495622a6b7d157c2704bed8d44365b5e"
+    },
+    {
+      "input": "A-views/front-full-body-0500.png",
+      "output": "images/A-front-full-body-0500.png",
+      "sha256": "60c36d1bfb8c02250d1c4efe71bdc78bbf3c4064bc5b90a53846da57d4e2d262"
+    },
+    {
+      "input": "A-views/front-full-body-0504.png",
+      "output": "images/A-front-full-body-0504.png",
+      "sha256": "8d66b957f81d31ee6e24c1892b27b228a21d05339c24974add4f7a3f15066593"
+    },
+    {
+      "input": "A-views/front-full-body-0508.png",
+      "output": "images/A-front-full-body-0508.png",
+      "sha256": "d1454d8bd28ed82436eeac3f46a0b574c151a9e7761574d820daab4effdbc4be"
+    },
+    {
+      "input": "A-views/front-full-body-0512.png",
+      "output": "images/A-front-full-body-0512.png",
+      "sha256": "7fb64606b75aa0289ab49029af6789cac6ef441731d6110b251bce2c7c0489cf"
+    },
+    {
+      "input": "A-views/front-full-body-0516.png",
+      "output": "images/A-front-full-body-0516.png",
+      "sha256": "adee1ef879cb0a24ba2231355c19bf05ff39ba3cbe787759270a27d6f82b8121"
+    },
+    {
+      "input": "A-views/front-full-body-0520.png",
+      "output": "images/A-front-full-body-0520.png",
+      "sha256": "f25cdd3c2acf370b103321821a2dbd9d835bd50b8f514b1e0dd7a6cb6f76d972"
+    },
+    {
+      "input": "A-views/front-full-body-0524.png",
+      "output": "images/A-front-full-body-0524.png",
+      "sha256": "597be57a37a0338db2f9b99888173773d8765ebb3f1e00cee3417a66899ea533"
+    },
+    {
+      "input": "A-views/front-full-body-0528.png",
+      "output": "images/A-front-full-body-0528.png",
+      "sha256": "1a0d97bfa416541377fa411ef399835bf3cedc6e2ea03d32b7b0968c0cfee5a3"
+    },
+    {
+      "input": "A-views/front-full-body-0532.png",
+      "output": "images/A-front-full-body-0532.png",
+      "sha256": "17ba776499421190c029c79b1b04a649cef13f527f705f77540aad5a05e56722"
+    },
+    {
+      "input": "A-views/front-full-body-0536.png",
+      "output": "images/A-front-full-body-0536.png",
+      "sha256": "58ad35459fb700cd4f808819c09fa0cf20c27208d2f0b4f023159dba77b22d33"
+    },
+    {
+      "input": "A-views/front-full-body-0540.png",
+      "output": "images/A-front-full-body-0540.png",
+      "sha256": "cd427fdf7325a7322d8e42aa52553f67658ac5ecde6423e1ca6a811eb7c0f615"
+    },
+    {
+      "input": "A-views/front-full-body-0544.png",
+      "output": "images/A-front-full-body-0544.png",
+      "sha256": "4010b14567a18bd04721a90f5719770dcc6ec2a2b265d90109359cba29b20bbd"
+    },
+    {
+      "input": "A-views/front-full-body-0548.png",
+      "output": "images/A-front-full-body-0548.png",
+      "sha256": "019b93522369ecd12a0378e9d9eba2224e6c9de3726b00731bdd70b88fd4bbce"
+    },
+    {
+      "input": "A-views/front-full-body-0552.png",
+      "output": "images/A-front-full-body-0552.png",
+      "sha256": "6043cd1be1021df11da7465efdeb00465b10c800fd8720656c92712d04d4b35d"
+    },
+    {
+      "input": "A-views/front-full-body-0556.png",
+      "output": "images/A-front-full-body-0556.png",
+      "sha256": "11b5669a292fbc4e4ae6b34034ccbb0f9f67b093e3f38005ce7f6a069660544f"
+    },
+    {
+      "input": "A-views/front-full-body-0560.png",
+      "output": "images/A-front-full-body-0560.png",
+      "sha256": "931668ce8842582c2649d22cf0609d5466016d36edce4999dc7e77d9cd6a829b"
+    },
+    {
+      "input": "A-views/front-full-body-0564.png",
+      "output": "images/A-front-full-body-0564.png",
+      "sha256": "9392a6095ff40af4ab30fb356fa629340283254780a46e404d9fe07d195bc3a2"
+    },
+    {
+      "input": "A-views/front-full-body-0568.png",
+      "output": "images/A-front-full-body-0568.png",
+      "sha256": "0b5a9fb16729df6151441f113760e63f34bc4cd77cb39e9e8029152f5f9121f4"
+    },
+    {
+      "input": "A-views/front-full-body-0572.png",
+      "output": "images/A-front-full-body-0572.png",
+      "sha256": "9ffd3b0a42b1a04a249e77e8c200fdacf2263def6d17ed94cf841a2a0edce975"
+    },
+    {
+      "input": "A-views/front-full-body-0576.png",
+      "output": "images/A-front-full-body-0576.png",
+      "sha256": "587eda69c5ccf1647faed85dd8f92e1f6bab7bc3e98c578c35095bba8afea954"
+    },
+    {
+      "input": "A-views/front-full-body-0580.png",
+      "output": "images/A-front-full-body-0580.png",
+      "sha256": "1c980dc99ed23d744ab4cc3ee038841d5fd55af997bd5404e1d81a375b5b517b"
+    },
+    {
+      "input": "A-views/front-full-body-0584.png",
+      "output": "images/A-front-full-body-0584.png",
+      "sha256": "270702194e88c52272203651dae275a6b8faa0e30d7e8287daa6263b9f7a4e68"
+    },
+    {
+      "input": "A-views/front-full-body-0588.png",
+      "output": "images/A-front-full-body-0588.png",
+      "sha256": "d4d8c60b4c27f9c43191c7d7f29ad5153131b8e7e9f96d0eb23710d50e06051c"
+    },
+    {
+      "input": "A-views/front-full-body-0590.png",
+      "output": "images/A-front-full-body-0590.png",
+      "sha256": "8eeede82d7685541692814fe7c93be60ddad718c8129a692304040e0b9d09e60"
+    },
+    {
+      "input": "A-views/front-full-body-0591.png",
+      "output": "images/A-front-full-body-0591.png",
+      "sha256": "977a2bcfc4f467fe446ff7153de6142499bd08899e4b691d0d42d4f7e95099bc"
+    },
+    {
+      "input": "A-views/front-full-body-0592.png",
+      "output": "images/A-front-full-body-0592.png",
+      "sha256": "8e37d7ce95abf4676ff5d96875ebe61445086e72866593e31cec7c043b78984a"
+    },
+    {
+      "input": "A-views/front-full-body-0596.png",
+      "output": "images/A-front-full-body-0596.png",
+      "sha256": "7124c21e26d78aa7920505f9690306d807ee78c7d8130b8e59f49c2379773d4b"
+    },
+    {
+      "input": "A-views/front-full-body-0600.png",
+      "output": "images/A-front-full-body-0600.png",
+      "sha256": "17c3bb77b6f7acc348872db7012dd1c5a448799b309894a6d3d3f92ab3027dd4"
+    },
+    {
+      "input": "A-views/front-full-body-0604.png",
+      "output": "images/A-front-full-body-0604.png",
+      "sha256": "9f35a1125d6d261d7df732e120033f26f08d1a7a0666d6459dc3e59cc9e77c3d"
+    },
+    {
+      "input": "A-views/front-full-body-0608.png",
+      "output": "images/A-front-full-body-0608.png",
+      "sha256": "fd2d4654485be20895c583c43d7abfe5ddc2733be5608b6c4087e05bf11fc0f8"
+    },
+    {
+      "input": "A-views/front-full-body-0612.png",
+      "output": "images/A-front-full-body-0612.png",
+      "sha256": "65b9328f552fca5180a4a4a980bd8794f95984c15c175fdb6714bc698ac9fef2"
+    },
+    {
+      "input": "A-views/front-full-body-0616.png",
+      "output": "images/A-front-full-body-0616.png",
+      "sha256": "d415d2c8f3f903ff8aa5e1ce0f6a3896c0aca3afb744acdfc31d44bca5b07993"
+    },
+    {
+      "input": "A-views/front-full-body-0620.png",
+      "output": "images/A-front-full-body-0620.png",
+      "sha256": "1720b3bce1bbf5ebde9c8853a35e240e7494cd72ad5d5607eebf737b2424adcf"
+    },
+    {
+      "input": "A-views/front-full-body-0624.png",
+      "output": "images/A-front-full-body-0624.png",
+      "sha256": "a2af01d2a2597fdf2074cef1d786b0d1ddca0d0c29541e81ca6039fbe393ec45"
+    },
+    {
+      "input": "A-views/front-full-body-0628.png",
+      "output": "images/A-front-full-body-0628.png",
+      "sha256": "13f8f822701ce276252d14c289e469b162dc4831836f00ae7ac0da615b0c253e"
+    },
+    {
+      "input": "A-views/front-full-body-0629.png",
+      "output": "images/A-front-full-body-0629.png",
+      "sha256": "b58f9ef7aa0e505d2fadb8a6cda216f06e9cbecc0973fa3944bb61bb7e83ad61"
+    },
+    {
+      "input": "A-views/front-full-body-0630.png",
+      "output": "images/A-front-full-body-0630.png",
+      "sha256": "923bf0c31effa63eb468511b641b4b7675bb77ae957c1379a431f6b3a939b770"
+    },
+    {
+      "input": "A-views/front-full-body-0631.png",
+      "output": "images/A-front-full-body-0631.png",
+      "sha256": "66cdaaee05f15c7fc3e4903aef4ef0a92c6b0370cb62fecaa16e184a620bab83"
+    },
+    {
+      "input": "A-views/front-full-body-0632.png",
+      "output": "images/A-front-full-body-0632.png",
+      "sha256": "eb659c098cbbdfe69af44b5aa6fc04718e82a730fefa962651b6f2bb81006a7c"
+    },
+    {
+      "input": "A-views/front-full-body-0635.png",
+      "output": "images/A-front-full-body-0635.png",
+      "sha256": "aa7b690071f325d5d7a2425b1a9626195ce7bd382a52093b8139ca9072c8d0aa"
+    },
+    {
+      "input": "A-views/front-full-body-0636.png",
+      "output": "images/A-front-full-body-0636.png",
+      "sha256": "f3b0640b422eb3c5901eb14dcc7458cc7c7fcaf0285a882d5cf7cbaeb35fad55"
+    },
+    {
+      "input": "A-views/front-full-body-0637.png",
+      "output": "images/A-front-full-body-0637.png",
+      "sha256": "51cf645f877d84617bfc0d3d6fa3d40c066e9ff47392511a76c72ba37b312d9e"
+    },
+    {
+      "input": "A-views/left-hand-hip-0637.png",
+      "output": "images/A-left-hand-hip-0637.png",
+      "sha256": "8b7caf3d2f323ba7a2ad8141a8846d8eef7496ea9e168eed0c451d06ef7e6f75"
+    },
+    {
+      "input": "A-views/right-hand-hip-0637.png",
+      "output": "images/A-right-hand-hip-0637.png",
+      "sha256": "9d7d71885faf9ec455dd845c6515109bc3cece655e6c36f441b79620df487ad5"
+    },
+    {
+      "input": "A-views/front-full-body-0638.png",
+      "output": "images/A-front-full-body-0638.png",
+      "sha256": "e69b72950ff7ba60e4ff24da808b11095bb475ced30b9894b80de006c82fd225"
+    },
+    {
+      "input": "A-views/front-full-body-0639.png",
+      "output": "images/A-front-full-body-0639.png",
+      "sha256": "0b2680c5cf322e6d28e584daeea53820f472ebfe9ffa2f327db716ba41789797"
+    },
+    {
+      "input": "A-views/front-full-body-0640.png",
+      "output": "images/A-front-full-body-0640.png",
+      "sha256": "44cf793a6e4adf713feb4cf82f61e7571290f043b582e81d11ada2da9d32433c"
+    },
+    {
+      "input": "A-views/front-full-body-0644.png",
+      "output": "images/A-front-full-body-0644.png",
+      "sha256": "5cd3f9d48ce1ee4b10d76049692c1fd74a023220c3bf5e75cb1a2402b35a63b6"
+    },
+    {
+      "input": "A-views/front-full-body-0645.png",
+      "output": "images/A-front-full-body-0645.png",
+      "sha256": "1e743d0510ee0326e870a34c1e354b1b0a66e10813e0575f8a3a1bfe959d16f6"
+    },
+    {
+      "input": "A-views/front-full-body-0646.png",
+      "output": "images/A-front-full-body-0646.png",
+      "sha256": "d523c9b3ec8163e46c1549c506a392ecc901cd43e42808340a3ffbfa23a550f0"
+    },
+    {
+      "input": "A-views/front-full-body-0647.png",
+      "output": "images/A-front-full-body-0647.png",
+      "sha256": "f9ac6eb9b7619fa54bb9730b83b8b39285ef6ec62232cab77074d2bdff4d2430"
+    },
+    {
+      "input": "A-views/front-full-body-0648.png",
+      "output": "images/A-front-full-body-0648.png",
+      "sha256": "b5cd15332164f8849d51a78bd3447762a82fdd73e86d92aa237554c4ab41d463"
+    },
+    {
+      "input": "A-views/front-full-body-0649.png",
+      "output": "images/A-front-full-body-0649.png",
+      "sha256": "7323876cb9f4332b3958e3a9fd51c7e926477ace87ea692a91380c32468e0cae"
+    },
+    {
+      "input": "A-views/front-full-body-0652.png",
+      "output": "images/A-front-full-body-0652.png",
+      "sha256": "d59034cba726c25e1dc2559ef37cbdb2908bd6d584ce55c6f3c1d2219a4e596c"
+    },
+    {
+      "input": "A-views/front-full-body-0656.png",
+      "output": "images/A-front-full-body-0656.png",
+      "sha256": "237952da5b11f2a11c001af6a0933e7922fd5895f5bc5a1259ab24b388a811ed"
+    },
+    {
+      "input": "A-views/front-full-body-0660.png",
+      "output": "images/A-front-full-body-0660.png",
+      "sha256": "3adf148efa0a560ea31c7a04ed46afa228f6b2e75e3149b85b40818899348ce5"
+    },
+    {
+      "input": "A-views/front-full-body-0664.png",
+      "output": "images/A-front-full-body-0664.png",
+      "sha256": "ff623c13403338ef13f03a451c1eee0c2964f6ab739b4e6e67e35c72c239f4d7"
+    },
+    {
+      "input": "A-views/front-full-body-0668.png",
+      "output": "images/A-front-full-body-0668.png",
+      "sha256": "44b6b764e7b7a7603aeebe218bffc72a05d6ece51830d0d5c92f3adb964e3f98"
+    },
+    {
+      "input": "A-views/front-full-body-0672.png",
+      "output": "images/A-front-full-body-0672.png",
+      "sha256": "06c5fe48fc191a72571f546b82fd712275f5fee9b97086d7808dbffd16ff8be4"
+    },
+    {
+      "input": "A-views/front-full-body-0676.png",
+      "output": "images/A-front-full-body-0676.png",
+      "sha256": "ead53b31c6ac929176a5b175cf97d51ce71b284781007a2a9d61019fa7bb3ba0"
+    },
+    {
+      "input": "A-views/front-full-body-0680.png",
+      "output": "images/A-front-full-body-0680.png",
+      "sha256": "5d983e2c56675ab403e59448b3c578ead216620c47efbbea2c0ec8fd37f72f9e"
+    },
+    {
+      "input": "A-views/front-full-body-0682.png",
+      "output": "images/A-front-full-body-0682.png",
+      "sha256": "0dfb63efddb0e25f59a45bd8b8c155747672f838197e1c8cfc998846dd635abb"
+    },
+    {
+      "input": "A-views/front-full-body-0683.png",
+      "output": "images/A-front-full-body-0683.png",
+      "sha256": "938703e0bbdfb5f58a5389c2a7afd1d94e215ba76011e830ddf9ef8a986bc3ff"
+    },
+    {
+      "input": "A-views/front-full-body-0684.png",
+      "output": "images/A-front-full-body-0684.png",
+      "sha256": "8b2e9a78fb53bd86a03c82e4df5ef850bc7ba7ef3973c9c0752a2c436b7b60c9"
+    },
+    {
+      "input": "A-views/front-full-body-0688.png",
+      "output": "images/A-front-full-body-0688.png",
+      "sha256": "ae6b6e8110972fcf637a10b4250ff94994b64d1c3151a9361b597b5d314e74b3"
+    },
+    {
+      "input": "A-views/front-full-body-0692.png",
+      "output": "images/A-front-full-body-0692.png",
+      "sha256": "67ba949f77dda7d29bbfa381cbb064fe26b5671ffe43048f92bbd4dca6362394"
+    },
+    {
+      "input": "A-views/front-full-body-0696.png",
+      "output": "images/A-front-full-body-0696.png",
+      "sha256": "a17bb5c5dbe5f1fe977a64150173b7e499726594412cc4509dc1539612e11f2d"
+    },
+    {
+      "input": "A-views/front-full-body-0700.png",
+      "output": "images/A-front-full-body-0700.png",
+      "sha256": "5e0696e57af1e49d68d14c3c580465e849d8b828c029a538166439e5e2a32349"
+    },
+    {
+      "input": "A-views/front-full-body-0704.png",
+      "output": "images/A-front-full-body-0704.png",
+      "sha256": "c4c2f49cf075dfff016a80d50e2a276ade49cc73c913dfea7784ebea83d3cd34"
+    },
+    {
+      "input": "A-views/front-full-body-0708.png",
+      "output": "images/A-front-full-body-0708.png",
+      "sha256": "efd63d02850825afd7940d2bd1c9da44e889d96fdf7678a55635b9bf96df2591"
+    },
+    {
+      "input": "A-views/front-full-body-0712.png",
+      "output": "images/A-front-full-body-0712.png",
+      "sha256": "0492eef1ea8f797ebadcc40724cc94398a837928673c1ad9d499f4f0cdf0b0d7"
+    },
+    {
+      "input": "A-views/front-full-body-0716.png",
+      "output": "images/A-front-full-body-0716.png",
+      "sha256": "9dc45cfbf8fb83ef4099a992427604542b5499ea9361eac7d734017eef0943cc"
+    },
+    {
+      "input": "A-views/front-full-body-0720.png",
+      "output": "images/A-front-full-body-0720.png",
+      "sha256": "ecb79dabee729bb1fd8963b1440ad215ada793527b63e44c3802e458d51daca1"
+    },
+    {
+      "input": "B-views/front-full-body-0000.png",
+      "output": "images/B-front-full-body-0000.png",
+      "sha256": "dcc9c46d79a7f1f1155a629f83a16e656a67375b1bce55532d87da49e1b25822"
+    },
+    {
+      "input": "B-views/left-hand-hip-0000.png",
+      "output": "images/B-left-hand-hip-0000.png",
+      "sha256": "282babfd50710a4b4b6c22d16b28e5fa6c49ac5ab6360c0b5faa1bdb5f259194"
+    },
+    {
+      "input": "B-views/right-hand-hip-0000.png",
+      "output": "images/B-right-hand-hip-0000.png",
+      "sha256": "35f1cbe45b0d0dd3e98c373fac93e0bb8ef8a6880f8432706a67ab06c3df8b26"
+    },
+    {
+      "input": "B-views/front-full-body-0004.png",
+      "output": "images/B-front-full-body-0004.png",
+      "sha256": "5009da2a09b87fb822caf9de228d12955c7897db0bcbf5d737162ee03de3d4e2"
+    },
+    {
+      "input": "B-views/front-full-body-0008.png",
+      "output": "images/B-front-full-body-0008.png",
+      "sha256": "237b52d6b383e18bd99a871b5fe1381ff0fc5924548d2d81de667d9746fe2fde"
+    },
+    {
+      "input": "B-views/front-full-body-0012.png",
+      "output": "images/B-front-full-body-0012.png",
+      "sha256": "073b5ee6649954df9a057fb9181f86753d067ca91b2bc2ab5290256eba09db14"
+    },
+    {
+      "input": "B-views/front-full-body-0016.png",
+      "output": "images/B-front-full-body-0016.png",
+      "sha256": "729f4498401c58f91a80b98a440287989e59343c3a58aee1cfd09ea8a5aeae5b"
+    },
+    {
+      "input": "B-views/front-full-body-0020.png",
+      "output": "images/B-front-full-body-0020.png",
+      "sha256": "588cff4174d935603456919a5622520f1da0c00c9d2456635d2ebcb76ad2f247"
+    },
+    {
+      "input": "B-views/front-full-body-0024.png",
+      "output": "images/B-front-full-body-0024.png",
+      "sha256": "4af1528b3b54cce9e0b1bd4392f1b67d285ea615f25d76568a5bd6b435212a70"
+    },
+    {
+      "input": "B-views/front-full-body-0028.png",
+      "output": "images/B-front-full-body-0028.png",
+      "sha256": "03e144c59a06223b5c0500185e04f9a70ec8a0789826ffc7ed261f42b71b0d8b"
+    },
+    {
+      "input": "B-views/front-full-body-0032.png",
+      "output": "images/B-front-full-body-0032.png",
+      "sha256": "b60481871bd59bf095e780bf6f1de4c1096bdcbd053d7d8a942d382aa7735b92"
+    },
+    {
+      "input": "B-views/front-full-body-0036.png",
+      "output": "images/B-front-full-body-0036.png",
+      "sha256": "cdf31e9799e0017cd9bbc1b8b58c3ffa2ff8da54be97f737b256d0f6f6c04aed"
+    },
+    {
+      "input": "B-views/front-full-body-0040.png",
+      "output": "images/B-front-full-body-0040.png",
+      "sha256": "5af1b67d26aa56a9a0ac821a714b87ebacbd48027f6b537e46052937d839de0f"
+    },
+    {
+      "input": "B-views/front-full-body-0044.png",
+      "output": "images/B-front-full-body-0044.png",
+      "sha256": "15810006a16d3cb68311b9f77d084fe8daa41907563e80c3c80aa961f402355f"
+    },
+    {
+      "input": "B-views/front-full-body-0048.png",
+      "output": "images/B-front-full-body-0048.png",
+      "sha256": "ab8d88221c382ed42676b963487ded8c2ff704ceddace1a14acdc3b99c3923ef"
+    },
+    {
+      "input": "B-views/front-full-body-0052.png",
+      "output": "images/B-front-full-body-0052.png",
+      "sha256": "1e5990aabd280dbf76d3b67faa91ba7c3d47f70f93dd76e33e659c6d1048a9b2"
+    },
+    {
+      "input": "B-views/front-full-body-0054.png",
+      "output": "images/B-front-full-body-0054.png",
+      "sha256": "a8f4e1d37e5a0ed1f949e6bfa2f9a59b1207ad46ecbb8057aedfab71c9ebb50c"
+    },
+    {
+      "input": "B-views/front-full-body-0055.png",
+      "output": "images/B-front-full-body-0055.png",
+      "sha256": "48d3d4c5a17c54e0375e8e185da8e18320a43e45e2357ea9505139b5c18e000e"
+    },
+    {
+      "input": "B-views/front-full-body-0056.png",
+      "output": "images/B-front-full-body-0056.png",
+      "sha256": "a30e60fd29ed7f664ffad63ffa935978a901ee6f4e806bfa52f5548b7407ac9d"
+    },
+    {
+      "input": "B-views/front-full-body-0060.png",
+      "output": "images/B-front-full-body-0060.png",
+      "sha256": "d83e76c6fb572a60f399f4ff59ed88eb297418600e56391e62ac0630be1b192c"
+    },
+    {
+      "input": "B-views/front-full-body-0064.png",
+      "output": "images/B-front-full-body-0064.png",
+      "sha256": "d8610d72430e4d0acea44042cfc5c8810a72f0a99e5ae14e4272fb5b876a3e40"
+    },
+    {
+      "input": "B-views/front-full-body-0068.png",
+      "output": "images/B-front-full-body-0068.png",
+      "sha256": "ee1383a6cf5513b043602b48c87ae692518729789306d1d32f34ba3e6d0d363f"
+    },
+    {
+      "input": "B-views/front-full-body-0072.png",
+      "output": "images/B-front-full-body-0072.png",
+      "sha256": "5cfc5da7b508b5d4afce519edf97a3ce648e407c3a5573ba65257c37640c1833"
+    },
+    {
+      "input": "B-views/front-full-body-0076.png",
+      "output": "images/B-front-full-body-0076.png",
+      "sha256": "d408c7718f634a2aaa5f82fb0cad28acbd86001c8727bcad5981fe6cbabc4edf"
+    },
+    {
+      "input": "B-views/front-full-body-0080.png",
+      "output": "images/B-front-full-body-0080.png",
+      "sha256": "0682c2ba4a62fd9f16643b53363dc6114e929ec0ac71477208ff1ec808573c1a"
+    },
+    {
+      "input": "B-views/front-full-body-0084.png",
+      "output": "images/B-front-full-body-0084.png",
+      "sha256": "57ec6f4b31f315cf3ffb1159bdbc005ff26621dfed25a8180a67c9fbc70cb134"
+    },
+    {
+      "input": "B-views/front-full-body-0088.png",
+      "output": "images/B-front-full-body-0088.png",
+      "sha256": "6ce1825c0ab330cc58583d577af9aceeea051a551c29ca5b9b59604ec4194356"
+    },
+    {
+      "input": "B-views/front-full-body-0089.png",
+      "output": "images/B-front-full-body-0089.png",
+      "sha256": "feee56da0500a99f65184f779a66dee2ca89980eb4236063a248bcd949018e56"
+    },
+    {
+      "input": "B-views/front-full-body-0090.png",
+      "output": "images/B-front-full-body-0090.png",
+      "sha256": "1f164566850117f942e2fb4fe231eb825a05721d8e30d897f4a3c6d56b23f4aa"
+    },
+    {
+      "input": "B-views/front-full-body-0091.png",
+      "output": "images/B-front-full-body-0091.png",
+      "sha256": "428a63783d5428808869f7566fb3e53f74a8ca643ee8f54d5a515f34c2d55a3d"
+    },
+    {
+      "input": "B-views/front-full-body-0092.png",
+      "output": "images/B-front-full-body-0092.png",
+      "sha256": "104a06ec4dc905f9324cee29e29ed43e44581e1d6011828beb3e8fd16cd14aa7"
+    },
+    {
+      "input": "B-views/front-full-body-0093.png",
+      "output": "images/B-front-full-body-0093.png",
+      "sha256": "b9e91caa88e2e42a462f949257eb2fe0e3cb1151caeda1437c0752f19a55058c"
+    },
+    {
+      "input": "B-views/front-full-body-0096.png",
+      "output": "images/B-front-full-body-0096.png",
+      "sha256": "4c1dc4fd1bf91b9d28fc099aa91bf982524d09414b9419d791e0a4852c372bec"
+    },
+    {
+      "input": "B-views/front-full-body-0097.png",
+      "output": "images/B-front-full-body-0097.png",
+      "sha256": "3dc4c72e60c5dc5ec379f3425a74cfadaed90ff38ec67e97485c11b4adbd0613"
+    },
+    {
+      "input": "B-views/front-full-body-0098.png",
+      "output": "images/B-front-full-body-0098.png",
+      "sha256": "aac8a1d8ab9aab2a64fda3def76919fb17846d9976e4c2dd9645a0c7a115e3ee"
+    },
+    {
+      "input": "B-views/front-full-body-0099.png",
+      "output": "images/B-front-full-body-0099.png",
+      "sha256": "57857cd90d3b15e7a5e6ae82961e8f6d57b1d3e86e016b89335545bf37dd3cd9"
+    },
+    {
+      "input": "B-views/front-full-body-0100.png",
+      "output": "images/B-front-full-body-0100.png",
+      "sha256": "45b73097a8003d2d00df5887992c075dffeca520107a5747bd6d409464e0a335"
+    },
+    {
+      "input": "B-views/front-full-body-0104.png",
+      "output": "images/B-front-full-body-0104.png",
+      "sha256": "c24d8332b1ec50e6d05abba8b289298d43b0a38cbcb1c1d943d544098835d405"
+    },
+    {
+      "input": "B-views/front-full-body-0107.png",
+      "output": "images/B-front-full-body-0107.png",
+      "sha256": "3b2dafdb78930f7e772a038d6a687e5b8a1e5e35e66773bf227a5ef1ac93c1b4"
+    },
+    {
+      "input": "B-views/front-full-body-0108.png",
+      "output": "images/B-front-full-body-0108.png",
+      "sha256": "283d4a91f490482e72847b43ddc170d40c4360efcc965808d1e5300c06b1077f"
+    },
+    {
+      "input": "B-views/front-full-body-0109.png",
+      "output": "images/B-front-full-body-0109.png",
+      "sha256": "54f27432c93e40e4b655865964c9aaae625179897e914b56ac48a43ce88a0c14"
+    },
+    {
+      "input": "B-views/front-full-body-0110.png",
+      "output": "images/B-front-full-body-0110.png",
+      "sha256": "27bbcaff0bca5cc08e1b042f3eed1b8f1621a3aa79797dd83db59688134f5703"
+    },
+    {
+      "input": "B-views/front-full-body-0111.png",
+      "output": "images/B-front-full-body-0111.png",
+      "sha256": "4c6535af0cd479a7e871d1b56d137061c1fed9011c79991a66389ee20b347b0d"
+    },
+    {
+      "input": "B-views/front-full-body-0112.png",
+      "output": "images/B-front-full-body-0112.png",
+      "sha256": "6d8ebcf7956ee4c1ca58b74e3615e97d766d2096df6ce56cfc4278b26781592d"
+    },
+    {
+      "input": "B-views/front-full-body-0116.png",
+      "output": "images/B-front-full-body-0116.png",
+      "sha256": "62bae56b4a4cf2652c301694de689d6bbac83a131fa2b77e30ea016306ed01a0"
+    },
+    {
+      "input": "B-views/front-full-body-0120.png",
+      "output": "images/B-front-full-body-0120.png",
+      "sha256": "8fda66d6838147ababd62c0d7259bda7114dc9d9706375be3404e581d0863eb4"
+    },
+    {
+      "input": "B-views/front-full-body-0124.png",
+      "output": "images/B-front-full-body-0124.png",
+      "sha256": "72ccafbea0aeb71ada4e1a5e947e47c064af1369fc171ffbbf2ba2b97c3cbda9"
+    },
+    {
+      "input": "B-views/front-full-body-0128.png",
+      "output": "images/B-front-full-body-0128.png",
+      "sha256": "dfc6289cca7774cd112340b6624aab03d9f37b5c284bca2069efd90e4f81eb1e"
+    },
+    {
+      "input": "B-views/front-full-body-0132.png",
+      "output": "images/B-front-full-body-0132.png",
+      "sha256": "6cec91e5e8630f8eb999926182f4dfdd8463a922b69d7af82fbd95ddc9e2b36f"
+    },
+    {
+      "input": "B-views/front-full-body-0136.png",
+      "output": "images/B-front-full-body-0136.png",
+      "sha256": "60769427d607022b64c9d2f09f7163161a64043a9120b84941be6de8c8c823d1"
+    },
+    {
+      "input": "B-views/front-full-body-0140.png",
+      "output": "images/B-front-full-body-0140.png",
+      "sha256": "b2e14bad2204d297e4431ea628233cd9ba423b8a25070cb15b96e36de031e28a"
+    },
+    {
+      "input": "B-views/front-full-body-0141.png",
+      "output": "images/B-front-full-body-0141.png",
+      "sha256": "e29c825efbb868adb91d36b4b9fcbdc0f214a0a0059a53c870999c2cd400804c"
+    },
+    {
+      "input": "B-views/front-full-body-0142.png",
+      "output": "images/B-front-full-body-0142.png",
+      "sha256": "d3aab2ab5177b847aba5590288184ad4b6cf83bb1ed0dd321bda6db511a741d6"
+    },
+    {
+      "input": "B-views/front-full-body-0143.png",
+      "output": "images/B-front-full-body-0143.png",
+      "sha256": "5baa8cdbb4ecffcb0f68fc7f34a9d444d0ff5115903e6e5de63ef97f312d3f32"
+    },
+    {
+      "input": "B-views/front-full-body-0144.png",
+      "output": "images/B-front-full-body-0144.png",
+      "sha256": "9223c3825e184c4261661eb2b211e0e3ef2c909d0d258ed225ba9a5a4e447365"
+    },
+    {
+      "input": "B-views/front-full-body-0148.png",
+      "output": "images/B-front-full-body-0148.png",
+      "sha256": "bacba52a192fd476f46bbf14317b37edbfcaaba928decac1e46fa84bdca2c4d9"
+    },
+    {
+      "input": "B-views/front-full-body-0152.png",
+      "output": "images/B-front-full-body-0152.png",
+      "sha256": "288f5b227e6d19d5c6fae07081e3f6ee5915ecfc8e7501035ac93025b4c5c4c4"
+    },
+    {
+      "input": "B-views/front-full-body-0156.png",
+      "output": "images/B-front-full-body-0156.png",
+      "sha256": "2e992077ef83cc507f2757660627d6a2557155d73f1a7426cbccf971957e2085"
+    },
+    {
+      "input": "B-views/front-full-body-0160.png",
+      "output": "images/B-front-full-body-0160.png",
+      "sha256": "4fd4329df60125ebb39eb693a8e7b79840ad18fd983e7394baf5e5de352378c2"
+    },
+    {
+      "input": "B-views/front-full-body-0164.png",
+      "output": "images/B-front-full-body-0164.png",
+      "sha256": "b4294c7f10f7590ba8bdd621a3d898012f84c9c4b9c26b4ef18f706ceecd2d0a"
+    },
+    {
+      "input": "B-views/front-full-body-0168.png",
+      "output": "images/B-front-full-body-0168.png",
+      "sha256": "2efe6c3cf44fb8e791eb7ebdf6f30a430f85041f28d301f431ded75329a377f4"
+    },
+    {
+      "input": "B-views/front-full-body-0172.png",
+      "output": "images/B-front-full-body-0172.png",
+      "sha256": "06a429050649d2014357b7c7d4b153fcb8bf28267e46d5ed10bc878eef79eb36"
+    },
+    {
+      "input": "B-views/front-full-body-0176.png",
+      "output": "images/B-front-full-body-0176.png",
+      "sha256": "d3eff679502cef8307f70e2cd79f2c1046211cf3fe91b28650b2af31e8e74f86"
+    },
+    {
+      "input": "B-views/front-full-body-0180.png",
+      "output": "images/B-front-full-body-0180.png",
+      "sha256": "2118867c1dcdfb1d3aa52817c18a81f0db9b116b3f7058d87742073982770502"
+    },
+    {
+      "input": "B-views/front-full-body-0184.png",
+      "output": "images/B-front-full-body-0184.png",
+      "sha256": "09e843d8abea61fb775934464df07f36ffb224591798991a68a6e0700a64de86"
+    },
+    {
+      "input": "B-views/front-full-body-0188.png",
+      "output": "images/B-front-full-body-0188.png",
+      "sha256": "475a5d9ffc48527b1a474683823869952bb70ad0b242ad5fa93ed69e49da81a5"
+    },
+    {
+      "input": "B-views/front-full-body-0192.png",
+      "output": "images/B-front-full-body-0192.png",
+      "sha256": "21b916c9ed809b5fd388bcdccc93105795cca23346984fae8b55ec4917c8a8c7"
+    },
+    {
+      "input": "B-views/front-full-body-0196.png",
+      "output": "images/B-front-full-body-0196.png",
+      "sha256": "bf3c5b5588e8a436609efcdf7e41a79c708264fcb1ca7fbaf5d8dfe7d3d42512"
+    },
+    {
+      "input": "B-views/front-full-body-0200.png",
+      "output": "images/B-front-full-body-0200.png",
+      "sha256": "b0c7e0d10e8637d0799069737761be7289eadc850c809afb57bbd41b603d82e8"
+    },
+    {
+      "input": "B-views/front-full-body-0204.png",
+      "output": "images/B-front-full-body-0204.png",
+      "sha256": "cee8e36d2ea09f58a9ff90bac3f7e66d2c2ed7390974f889df4a247223ccffb5"
+    },
+    {
+      "input": "B-views/front-full-body-0208.png",
+      "output": "images/B-front-full-body-0208.png",
+      "sha256": "90bf1e816d74421fe9e6a4ca0a3a7bf47d9a41ba948144faa777e55e4b561a50"
+    },
+    {
+      "input": "B-views/front-full-body-0212.png",
+      "output": "images/B-front-full-body-0212.png",
+      "sha256": "c4c3d1dc9769015c3e2cfdcabbde3d742b2d656c5143336d3d52e498d075073f"
+    },
+    {
+      "input": "B-views/front-full-body-0216.png",
+      "output": "images/B-front-full-body-0216.png",
+      "sha256": "3852a8c2d288c55434809b24d4223868b778c99497f86a8eddccd8735aebfeb5"
+    },
+    {
+      "input": "B-views/front-full-body-0220.png",
+      "output": "images/B-front-full-body-0220.png",
+      "sha256": "ac53282fa6c9b5e2a20b9877fa00e9108da85adee802c27b26f443236d8ea06b"
+    },
+    {
+      "input": "B-views/front-full-body-0224.png",
+      "output": "images/B-front-full-body-0224.png",
+      "sha256": "6d41e4a72ad60cc185ebaf8ed35f46c74e6eb9af32066ae47e0a9f7a5ab66cd1"
+    },
+    {
+      "input": "B-views/front-full-body-0225.png",
+      "output": "images/B-front-full-body-0225.png",
+      "sha256": "d8fa68ef65c060a8f537481d7a02061059c826b4a56e92a86a4e0acd9192858e"
+    },
+    {
+      "input": "B-views/front-full-body-0226.png",
+      "output": "images/B-front-full-body-0226.png",
+      "sha256": "58ff108917a63529d6460d174e0646248fd2042fecc9a0f6a6c00411b82b8ddc"
+    },
+    {
+      "input": "B-views/front-full-body-0227.png",
+      "output": "images/B-front-full-body-0227.png",
+      "sha256": "34ac99f833f778ea30246238f4c73e4136c4f59589cb97a4a3921a014618fe36"
+    },
+    {
+      "input": "B-views/front-full-body-0228.png",
+      "output": "images/B-front-full-body-0228.png",
+      "sha256": "2eef55c670e008e15a4a0152706d57ead6cfb7f2030bd3abd1f149fc67b2f9d8"
+    },
+    {
+      "input": "B-views/front-full-body-0232.png",
+      "output": "images/B-front-full-body-0232.png",
+      "sha256": "daf46ec4720acad374e349adae962da4800169191a35db530bfb31090a37bffd"
+    },
+    {
+      "input": "B-views/front-full-body-0236.png",
+      "output": "images/B-front-full-body-0236.png",
+      "sha256": "5c53f0be5c0a3591da0b8a5e90606ba3a806beb51bf752ecbd93aac2b985ea28"
+    },
+    {
+      "input": "B-views/front-full-body-0240.png",
+      "output": "images/B-front-full-body-0240.png",
+      "sha256": "cd73cc1be072d77c030c60b1f1ed152cb50a49a9c383268494620adb85669ab4"
+    },
+    {
+      "input": "B-views/front-full-body-0244.png",
+      "output": "images/B-front-full-body-0244.png",
+      "sha256": "9e6a328a1a5f852396d77209679af7d86d7a5cf4169880b58fbe018f60ce33de"
+    },
+    {
+      "input": "B-views/front-full-body-0248.png",
+      "output": "images/B-front-full-body-0248.png",
+      "sha256": "4cbd8f8dc9e4e200e0bb9fa022c495df2464a1e9fb2047df66f7427894f95dbc"
+    },
+    {
+      "input": "B-views/front-full-body-0252.png",
+      "output": "images/B-front-full-body-0252.png",
+      "sha256": "82027301b1b702c6be60bb696db46daae4112fa2d6e5b60106f42ea593ad1173"
+    },
+    {
+      "input": "B-views/front-full-body-0256.png",
+      "output": "images/B-front-full-body-0256.png",
+      "sha256": "6b9896b12f6c9fc5f3706bc4c80e4f7d59b6cb68db8e260ace309cbc38191b19"
+    },
+    {
+      "input": "B-views/front-full-body-0260.png",
+      "output": "images/B-front-full-body-0260.png",
+      "sha256": "72dd81e99240acab382b34522e05bd8b9b37480538abcc0b6150dee3115e8cfa"
+    },
+    {
+      "input": "B-views/front-full-body-0262.png",
+      "output": "images/B-front-full-body-0262.png",
+      "sha256": "a96e1e51bb496e8818e91b14d6c6dfe3b9cd60ddcfd8fe2249447979a64fe702"
+    },
+    {
+      "input": "B-views/front-full-body-0263.png",
+      "output": "images/B-front-full-body-0263.png",
+      "sha256": "1c11b782a2a99ae6be8a183880bed1d57e7b12d87ff04cdc2a784c2eb4395118"
+    },
+    {
+      "input": "B-views/front-full-body-0264.png",
+      "output": "images/B-front-full-body-0264.png",
+      "sha256": "500d46cbc335fb2c79a4444ef82771b69c15de52c13e0151d3c5b5d9968377d5"
+    },
+    {
+      "input": "B-views/front-full-body-0265.png",
+      "output": "images/B-front-full-body-0265.png",
+      "sha256": "47bc7930ca583348e92f5c127377b75cde761b899d66865f8844b92daab1b0f9"
+    },
+    {
+      "input": "B-views/front-full-body-0266.png",
+      "output": "images/B-front-full-body-0266.png",
+      "sha256": "828e437760a7bdc432ed5a2661ff8f8383da39415ef58cc3c918c1a3a0ff8358"
+    },
+    {
+      "input": "B-views/front-full-body-0268.png",
+      "output": "images/B-front-full-body-0268.png",
+      "sha256": "12184fa9ddfaa7b473f03865332ebb0d6f84f08775e77a783802333a43d24d84"
+    },
+    {
+      "input": "B-views/front-full-body-0269.png",
+      "output": "images/B-front-full-body-0269.png",
+      "sha256": "4e0832a1019f741fc532a8146889a7e23da591a9bca027dba822543d7f638c45"
+    },
+    {
+      "input": "B-views/front-full-body-0270.png",
+      "output": "images/B-front-full-body-0270.png",
+      "sha256": "4adc2a95eac183e7812ac4c80f058c73dec6f8fb602b09675fc0bf4fc3c5edf9"
+    },
+    {
+      "input": "B-views/front-full-body-0271.png",
+      "output": "images/B-front-full-body-0271.png",
+      "sha256": "cddc8cdcbe7cf31d48d61729caa914c30f9ba9298801030ab7d2c8db554f9e4c"
+    },
+    {
+      "input": "B-views/front-full-body-0272.png",
+      "output": "images/B-front-full-body-0272.png",
+      "sha256": "0f4b78cfb73ea7165f6bf268a00df905e28e39743024f0e2948158d02c37df0e"
+    },
+    {
+      "input": "B-views/front-full-body-0276.png",
+      "output": "images/B-front-full-body-0276.png",
+      "sha256": "0ca466415940e2728b14da24ebfa6723a5305c1e337da8197a106999fb02edb7"
+    },
+    {
+      "input": "B-views/front-full-body-0279.png",
+      "output": "images/B-front-full-body-0279.png",
+      "sha256": "778bdb0306afa70343db49ec98f12de0865d42b26eabd7242ee07626930fef4e"
+    },
+    {
+      "input": "B-views/front-full-body-0280.png",
+      "output": "images/B-front-full-body-0280.png",
+      "sha256": "1f66cfa03b3835122ada9b0bd54f257f72834a881a3d907b2c60eace87e0fd00"
+    },
+    {
+      "input": "B-views/front-full-body-0281.png",
+      "output": "images/B-front-full-body-0281.png",
+      "sha256": "4f6fc01fc067df1c9af62b3c2d6327137e737e8188d63e12c99c8ff0737dec01"
+    },
+    {
+      "input": "B-views/front-full-body-0282.png",
+      "output": "images/B-front-full-body-0282.png",
+      "sha256": "b79740a0ee3b7bd508facbbc6cb392b1f883f7f2cc19dc9d6e42e30410013b70"
+    },
+    {
+      "input": "B-views/front-full-body-0283.png",
+      "output": "images/B-front-full-body-0283.png",
+      "sha256": "13e68673e714cde54c03127ff316b6bf305814add084f2be9d38717c798b53ce"
+    },
+    {
+      "input": "B-views/front-full-body-0284.png",
+      "output": "images/B-front-full-body-0284.png",
+      "sha256": "706aa2226ccba20d7dcfc065d18b8ac9a4c49a5547fd33b1aa299b989c94f23d"
+    },
+    {
+      "input": "B-views/front-full-body-0288.png",
+      "output": "images/B-front-full-body-0288.png",
+      "sha256": "43ce3ed6d3e3721dcb57c6a2517b08393bfa5ca7f99078f979ff31387b2aa102"
+    },
+    {
+      "input": "B-views/front-full-body-0292.png",
+      "output": "images/B-front-full-body-0292.png",
+      "sha256": "1ea24c82bfc7a819fefe17dbfeb7801baff06b5a5d6718f49b449e8803bfa472"
+    },
+    {
+      "input": "B-views/front-full-body-0296.png",
+      "output": "images/B-front-full-body-0296.png",
+      "sha256": "f36a2e8ca44c31a9a75d31c71ce9f118ee14c084eadfb177ba0a4d6f8bd7dbeb"
+    },
+    {
+      "input": "B-views/front-full-body-0300.png",
+      "output": "images/B-front-full-body-0300.png",
+      "sha256": "3f1bfd2823d24f39ef51416826407032112e31520d6598738ef1cd22bb77c52f"
+    },
+    {
+      "input": "B-views/front-full-body-0304.png",
+      "output": "images/B-front-full-body-0304.png",
+      "sha256": "4e199c6ed32bf758efe8fc29ed8ade7ae9b6fe5a3e229c1828ffba110a84cdae"
+    },
+    {
+      "input": "B-views/front-full-body-0308.png",
+      "output": "images/B-front-full-body-0308.png",
+      "sha256": "76c64e9197faa178e6a2d2eb717206cf59f83ab6ec8f1cdd7e1c95d2f5f1ca85"
+    },
+    {
+      "input": "B-views/front-full-body-0312.png",
+      "output": "images/B-front-full-body-0312.png",
+      "sha256": "edac57029bf1858a75acfd65be7f7fd2268bca73cf4bf75cd6d6b3315a98a6d3"
+    },
+    {
+      "input": "B-views/front-full-body-0314.png",
+      "output": "images/B-front-full-body-0314.png",
+      "sha256": "7a0a614aaa99e8fe20358519b5b37ad336b160a4b6c3cbe5652ec104f2402f3a"
+    },
+    {
+      "input": "B-views/front-full-body-0315.png",
+      "output": "images/B-front-full-body-0315.png",
+      "sha256": "612555b1ae7e1815bcd2ad52938cf6fc6e34eb09be1ad584f153ed85345cdaf4"
+    },
+    {
+      "input": "B-views/front-full-body-0316.png",
+      "output": "images/B-front-full-body-0316.png",
+      "sha256": "38238d6d0f496e5a6024d93f65405409d66bba6ccaa25b569d51507bfb0e16dd"
+    },
+    {
+      "input": "B-views/front-full-body-0320.png",
+      "output": "images/B-front-full-body-0320.png",
+      "sha256": "815bf2262f2d44fb8fd43bce3a573bf83a21dee1d296ea712315e42803b016f2"
+    },
+    {
+      "input": "B-views/front-full-body-0324.png",
+      "output": "images/B-front-full-body-0324.png",
+      "sha256": "82664e90bd6d185fb3a6931c68c150d4a2b55742f7341679576fc58dd4b6e748"
+    },
+    {
+      "input": "B-views/front-full-body-0328.png",
+      "output": "images/B-front-full-body-0328.png",
+      "sha256": "384643f4bb1342ec2888c9651b377d0d4881965c25b2ee54c9c59fe51d58652c"
+    },
+    {
+      "input": "B-views/front-full-body-0332.png",
+      "output": "images/B-front-full-body-0332.png",
+      "sha256": "26c1bc7d8f13eaa6378656bf2db336b21148adf8f599cf695cd6b50fa3d34d56"
+    },
+    {
+      "input": "B-views/front-full-body-0336.png",
+      "output": "images/B-front-full-body-0336.png",
+      "sha256": "eec24ee2d00c86bec484ce72778f254584135ae82fbcb77a12f2b2046b6ed06c"
+    },
+    {
+      "input": "B-views/front-full-body-0340.png",
+      "output": "images/B-front-full-body-0340.png",
+      "sha256": "83a03150595baf267559319c8c720f6f1659b8f36d96587cd39028fcc29b9d06"
+    },
+    {
+      "input": "B-views/front-full-body-0344.png",
+      "output": "images/B-front-full-body-0344.png",
+      "sha256": "846140cd15bfd7ac205ca527574abcb1b815263e84de59309dfd1c8cc8d65ab8"
+    },
+    {
+      "input": "B-views/front-full-body-0348.png",
+      "output": "images/B-front-full-body-0348.png",
+      "sha256": "3420b8aad530e1bd7edcc6a91996e0fc8bde7898321f452f0e46e3b47710307b"
+    },
+    {
+      "input": "B-views/front-full-body-0352.png",
+      "output": "images/B-front-full-body-0352.png",
+      "sha256": "ff92958a1d025bfada3560c03f80ce04b001587af93cbede1391ac2b913c5724"
+    },
+    {
+      "input": "B-views/front-full-body-0356.png",
+      "output": "images/B-front-full-body-0356.png",
+      "sha256": "f4b4bda2985275269c72919e46e6322aa2120986d898166e7dcc7cac8c029040"
+    },
+    {
+      "input": "B-views/front-full-body-0360.png",
+      "output": "images/B-front-full-body-0360.png",
+      "sha256": "6a243453d6fb1094472bc164ba1fd6249f0a2642f33435b7e03190a738e6a52c"
+    },
+    {
+      "input": "B-views/front-full-body-0364.png",
+      "output": "images/B-front-full-body-0364.png",
+      "sha256": "a37f0b79ea90e9dd37ef9a72befce8e0382d95d3838bba10a4a28eaa66950c39"
+    },
+    {
+      "input": "B-views/front-full-body-0368.png",
+      "output": "images/B-front-full-body-0368.png",
+      "sha256": "51e1f01372800a7db638fae539eff9e73c878255a144356aa79609ebd528250f"
+    },
+    {
+      "input": "B-views/front-full-body-0372.png",
+      "output": "images/B-front-full-body-0372.png",
+      "sha256": "10658e57a13ed1cfc61ebf97a622fb9e2fcdd00f291c7c1a8b27325fabbbde86"
+    },
+    {
+      "input": "B-views/front-full-body-0376.png",
+      "output": "images/B-front-full-body-0376.png",
+      "sha256": "d5ff322af38acd969bc5a2eaf7799ad90c6ccd93d72e1d4d62de76640a6f11f5"
+    },
+    {
+      "input": "B-views/front-full-body-0380.png",
+      "output": "images/B-front-full-body-0380.png",
+      "sha256": "fe5c4065930e3148083c3b623d65962179cbfd7a5a64070603d2486fff3607f2"
+    },
+    {
+      "input": "B-views/front-full-body-0384.png",
+      "output": "images/B-front-full-body-0384.png",
+      "sha256": "69dbccf5843d4d4fe90ec0d8d3df71ae6c9d6b14c5efee3a4ebcb2d55ce0d44c"
+    },
+    {
+      "input": "B-views/front-full-body-0388.png",
+      "output": "images/B-front-full-body-0388.png",
+      "sha256": "3196d3a86eb76ed8b871c799b74093e7cf95f1801b5b5d635c8bf798fd161281"
+    },
+    {
+      "input": "B-views/front-full-body-0392.png",
+      "output": "images/B-front-full-body-0392.png",
+      "sha256": "7c56643235bfe88b6b720270cb249fe1197ffbf8169ab060cd21bf44e30452be"
+    },
+    {
+      "input": "B-views/front-full-body-0396.png",
+      "output": "images/B-front-full-body-0396.png",
+      "sha256": "0ccba2d3a25b4d28ccb7920b4ed5058868a6a83299490bb8833187d3db3240cd"
+    },
+    {
+      "input": "B-views/front-full-body-0400.png",
+      "output": "images/B-front-full-body-0400.png",
+      "sha256": "ba75324c041124310724bd662393b2bbeeca6521c599440d4aab48c9e2a4763e"
+    },
+    {
+      "input": "B-views/front-full-body-0404.png",
+      "output": "images/B-front-full-body-0404.png",
+      "sha256": "add620da833b6f4487c35093a41a603492b300955b54674499bafe2be6e9e430"
+    },
+    {
+      "input": "B-views/front-full-body-0408.png",
+      "output": "images/B-front-full-body-0408.png",
+      "sha256": "e3206658385f7f9127dc7f9a398e2aeb2c653b6345d8f37215b14c2322425dc0"
+    },
+    {
+      "input": "B-views/front-full-body-0412.png",
+      "output": "images/B-front-full-body-0412.png",
+      "sha256": "d7a76c90c7c0c710d8263a4204cbead48add41da4827a698505154f8e08849d6"
+    },
+    {
+      "input": "B-views/front-full-body-0416.png",
+      "output": "images/B-front-full-body-0416.png",
+      "sha256": "f0f9ee0b70579728bb3e3fe9f195a205cd9fcf4c0a1d2724710ded5371fafb0a"
+    },
+    {
+      "input": "B-views/front-full-body-0417.png",
+      "output": "images/B-front-full-body-0417.png",
+      "sha256": "d1e92e300624604699dff8c2e2f08b2169aa0ab9a0c82fcc17b9e3df3bd4ff23"
+    },
+    {
+      "input": "B-views/front-full-body-0418.png",
+      "output": "images/B-front-full-body-0418.png",
+      "sha256": "12feccdd2bcad4668b8d359c05b51a528b8b39b910eef8544ff1b4b555902ad5"
+    },
+    {
+      "input": "B-views/front-full-body-0420.png",
+      "output": "images/B-front-full-body-0420.png",
+      "sha256": "85b753050f1b9d0db2368864c21eb543f7f3c1df50cd714f0b44ad2baa2a31a8"
+    },
+    {
+      "input": "B-views/front-full-body-0424.png",
+      "output": "images/B-front-full-body-0424.png",
+      "sha256": "87aaa5e420a12a1d0141e401de9cc608436751194b37d5b1082b09c1349d0881"
+    },
+    {
+      "input": "B-views/front-full-body-0428.png",
+      "output": "images/B-front-full-body-0428.png",
+      "sha256": "894089099ee81493bf4479a0dc150817f89be23c7b947d047aa6c12ad5e0087b"
+    },
+    {
+      "input": "B-views/front-full-body-0432.png",
+      "output": "images/B-front-full-body-0432.png",
+      "sha256": "0b178ba1ba6357697607f496b30cbfdb6ba80720b28000053cce4b7d4c091e3c"
+    },
+    {
+      "input": "B-views/front-full-body-0436.png",
+      "output": "images/B-front-full-body-0436.png",
+      "sha256": "a1cc6afdc7eb315dc87194c3a5738854b7eb1a94803537254ab6237b6a32879c"
+    },
+    {
+      "input": "B-views/front-full-body-0440.png",
+      "output": "images/B-front-full-body-0440.png",
+      "sha256": "02012e5af72bec58750930a37d444d1bca7e505de5ad08a33dbe8ac0fca9ef9e"
+    },
+    {
+      "input": "B-views/front-full-body-0444.png",
+      "output": "images/B-front-full-body-0444.png",
+      "sha256": "5ea0b6e7b12e88661dbd88882c1f9c7c4116027de838eb0e0525818b67e8ba71"
+    },
+    {
+      "input": "B-views/front-full-body-0446.png",
+      "output": "images/B-front-full-body-0446.png",
+      "sha256": "2fe03c62bd31cf5b2155d70213e51f832851a5873928c51cd659d6c48abc5b13"
+    },
+    {
+      "input": "B-views/front-full-body-0447.png",
+      "output": "images/B-front-full-body-0447.png",
+      "sha256": "82fef4ca44bae1aa63c1a806339a41a128dd282d50c85f13e72b287ec19e72fc"
+    },
+    {
+      "input": "B-views/front-full-body-0448.png",
+      "output": "images/B-front-full-body-0448.png",
+      "sha256": "10761fbc44d7e74cad9ca8400bed80fdd97dacb0477953faf6071777c4e652ba"
+    },
+    {
+      "input": "B-views/front-full-body-0449.png",
+      "output": "images/B-front-full-body-0449.png",
+      "sha256": "9909799517d757b915d2114251ae45b5db6be531a735a33e20ced7d9b3cad144"
+    },
+    {
+      "input": "B-views/front-full-body-0450.png",
+      "output": "images/B-front-full-body-0450.png",
+      "sha256": "23f7ad4f3688bcbd8c370fb1c79d01c596cce749ccb3363ce285e0940badb7ac"
+    },
+    {
+      "input": "B-views/front-full-body-0452.png",
+      "output": "images/B-front-full-body-0452.png",
+      "sha256": "f39847c51eb7df34790c941a55bdf6610fc9adfdf9c90b845f15f2a2481bfdac"
+    },
+    {
+      "input": "B-views/front-full-body-0453.png",
+      "output": "images/B-front-full-body-0453.png",
+      "sha256": "adaee108c37ea286b2afee7bd597e0e71f9dc09e60f794d5886bb8e9f64c7b54"
+    },
+    {
+      "input": "B-views/front-full-body-0454.png",
+      "output": "images/B-front-full-body-0454.png",
+      "sha256": "bf098de8a238c60a50739b201c193f41783b9e6fcc3ffb403299e9fa5c05ae05"
+    },
+    {
+      "input": "B-views/front-full-body-0455.png",
+      "output": "images/B-front-full-body-0455.png",
+      "sha256": "09c7096c38a76bcbb772cd1350a50c36b3058e77db63c95ef2b4efe74717d82b"
+    },
+    {
+      "input": "B-views/left-hand-hip-0455.png",
+      "output": "images/B-left-hand-hip-0455.png",
+      "sha256": "cf4544db6c870f22d9daed3cdf0afb2521e891566b911720a9e1e861b23e3f75"
+    },
+    {
+      "input": "B-views/right-hand-hip-0455.png",
+      "output": "images/B-right-hand-hip-0455.png",
+      "sha256": "2473055f7be51ebd40c5cf13b04294344e5a14cfd2ebc24390e0f8f94e5edeee"
+    },
+    {
+      "input": "B-views/front-full-body-0456.png",
+      "output": "images/B-front-full-body-0456.png",
+      "sha256": "b451bcc9b40fdc25ef4f4e6ff8d0ae4641ba9fcde3887ed4687f531aaf661305"
+    },
+    {
+      "input": "B-views/front-full-body-0457.png",
+      "output": "images/B-front-full-body-0457.png",
+      "sha256": "02e5076145160b2ffe94b9953cbae58f5b58a4606ae3b6c3365f3d5b347b8df8"
+    },
+    {
+      "input": "B-views/front-full-body-0460.png",
+      "output": "images/B-front-full-body-0460.png",
+      "sha256": "1b047bed3cd162d7ca5071500d2ceb6dbe3d269859b369061bf645f5cdb21d52"
+    },
+    {
+      "input": "B-views/front-full-body-0464.png",
+      "output": "images/B-front-full-body-0464.png",
+      "sha256": "fc5fc758769652c0be1aa7069b70e83bdde5b090e4080578283e53eaae90cb13"
+    },
+    {
+      "input": "B-views/front-full-body-0465.png",
+      "output": "images/B-front-full-body-0465.png",
+      "sha256": "f2eb5c271eca32665720f9f53dd5f2b3a6253025d9bc65c102e8c65680682941"
+    },
+    {
+      "input": "B-views/front-full-body-0466.png",
+      "output": "images/B-front-full-body-0466.png",
+      "sha256": "6e1b5f5f3281ae0c4dcb64b19970d87c007fee082333617a4f187bb49f0446ab"
+    },
+    {
+      "input": "B-views/front-full-body-0467.png",
+      "output": "images/B-front-full-body-0467.png",
+      "sha256": "ce09b0a4b7977158ced24b1b451dc1bd33c2ae9be8d4c114ca88e0cdb747aba6"
+    },
+    {
+      "input": "B-views/front-full-body-0468.png",
+      "output": "images/B-front-full-body-0468.png",
+      "sha256": "4a22cffb5c12ed3d00dc34756d1cd3a4ad13f1e5ba2e58bbad1e91c4f4864699"
+    },
+    {
+      "input": "B-views/front-full-body-0472.png",
+      "output": "images/B-front-full-body-0472.png",
+      "sha256": "c892b3d3952b6475fbf617462bb8e46b0b3e996c0ac593471eb34826fedc73dc"
+    },
+    {
+      "input": "B-views/front-full-body-0476.png",
+      "output": "images/B-front-full-body-0476.png",
+      "sha256": "3f06fcd6e10db1e90358be93b425b21046c69e63608354b3ee9fff9855087818"
+    },
+    {
+      "input": "B-views/front-full-body-0480.png",
+      "output": "images/B-front-full-body-0480.png",
+      "sha256": "1e664f73cc92c1e0ce8ff2b0824e69fb692300940853f25b3c4ecc45ce7d2a32"
+    },
+    {
+      "input": "B-views/front-full-body-0484.png",
+      "output": "images/B-front-full-body-0484.png",
+      "sha256": "880829d5bc8f777bcf67c39136e0da099c56370a013723aa61711a46dab875e9"
+    },
+    {
+      "input": "B-views/front-full-body-0488.png",
+      "output": "images/B-front-full-body-0488.png",
+      "sha256": "71fd02f56c76a7baf4aca6a52bb00e03a09c531da16fb5e2a07d3193ded1a64c"
+    },
+    {
+      "input": "B-views/front-full-body-0492.png",
+      "output": "images/B-front-full-body-0492.png",
+      "sha256": "aa2868e3ea0f5ab7ac25c215bf24d2534571a71e6808c90a9ddb6ae1037b2acd"
+    },
+    {
+      "input": "B-views/front-full-body-0493.png",
+      "output": "images/B-front-full-body-0493.png",
+      "sha256": "a14c18f940e510ef3deff42262bd66d7a84c34ca851cf9b38829d14c2d88185b"
+    },
+    {
+      "input": "B-views/front-full-body-0494.png",
+      "output": "images/B-front-full-body-0494.png",
+      "sha256": "ddd50b1e04d236881d0a10e2ef41085d2057c1608fd8c027def27e5283683bfc"
+    },
+    {
+      "input": "B-views/front-full-body-0495.png",
+      "output": "images/B-front-full-body-0495.png",
+      "sha256": "1402def10135787482ec1682215a7b68343bf90b2b80dea5236cddcb67a7b1ce"
+    },
+    {
+      "input": "B-views/front-full-body-0496.png",
+      "output": "images/B-front-full-body-0496.png",
+      "sha256": "65ebe390799d45d0adbc9b41fd7dd12fdb1a7ff3dcece056c42b783a93d54d26"
+    },
+    {
+      "input": "B-views/front-full-body-0500.png",
+      "output": "images/B-front-full-body-0500.png",
+      "sha256": "d71cf84ea5aed36844e11261c6f2e2c7c6facc097f323d56227d8c4ccba5d3f2"
+    },
+    {
+      "input": "B-views/front-full-body-0504.png",
+      "output": "images/B-front-full-body-0504.png",
+      "sha256": "a24795e9c437563c3cce65dc49b32d4bcef81bb2a04a39e09e29d342e5ae3a7a"
+    },
+    {
+      "input": "B-views/front-full-body-0508.png",
+      "output": "images/B-front-full-body-0508.png",
+      "sha256": "b5d5ae31e168e5ff1a0085ef197958262c8a67f5c28b87daf964b6ca22858db4"
+    },
+    {
+      "input": "B-views/front-full-body-0512.png",
+      "output": "images/B-front-full-body-0512.png",
+      "sha256": "5362c3ce8b02143a075f889e10d2ea0ff9e470f0889f5b36dbf37dfec58029da"
+    },
+    {
+      "input": "B-views/front-full-body-0516.png",
+      "output": "images/B-front-full-body-0516.png",
+      "sha256": "970bedbb95705b898647f11d1804ee0b2c534699fe0d620104d5bea8e33b62c3"
+    },
+    {
+      "input": "B-views/front-full-body-0520.png",
+      "output": "images/B-front-full-body-0520.png",
+      "sha256": "6a7db3efb6785db259f3c2945cddd8556f1185ce9008507c1f7d08ada6138684"
+    },
+    {
+      "input": "B-views/front-full-body-0524.png",
+      "output": "images/B-front-full-body-0524.png",
+      "sha256": "1f5d54996c66d4a917f003ef288609c49a3a8043831df92251c073ae64108e62"
+    },
+    {
+      "input": "B-views/front-full-body-0528.png",
+      "output": "images/B-front-full-body-0528.png",
+      "sha256": "9ffb90ae7ee7ece8a81d4bf4254cb37b7916ee699929425eccb0c07cbb7a7f3b"
+    },
+    {
+      "input": "B-views/front-full-body-0532.png",
+      "output": "images/B-front-full-body-0532.png",
+      "sha256": "c26a257a6be25735ee30311a3380215bc5212dec8c7ed8a7c2361ffc7bf7b24e"
+    },
+    {
+      "input": "B-views/front-full-body-0536.png",
+      "output": "images/B-front-full-body-0536.png",
+      "sha256": "208f2c5c5109f9b3e0035c95b44a7f294f3648551eee5d1c364386a57a8f9725"
+    },
+    {
+      "input": "B-views/front-full-body-0540.png",
+      "output": "images/B-front-full-body-0540.png",
+      "sha256": "90a28446f95b3baed08e1f201de90d1ededd6a71e3e468fa1dab2852573e6bec"
+    },
+    {
+      "input": "B-views/front-full-body-0544.png",
+      "output": "images/B-front-full-body-0544.png",
+      "sha256": "3a8ca641b19f895287483d14928a70815922d3695cd30d17647b35efc3c493dd"
+    },
+    {
+      "input": "B-views/front-full-body-0548.png",
+      "output": "images/B-front-full-body-0548.png",
+      "sha256": "7d179eff7363f5c70cfdfc7c4dcf4e781cfb50e83b90d6de3eaded11fcc1dc19"
+    },
+    {
+      "input": "B-views/front-full-body-0552.png",
+      "output": "images/B-front-full-body-0552.png",
+      "sha256": "8543d86f0b4543d668b05270a8760a9d92882d891801d4b6f68ad533cbaa5b46"
+    },
+    {
+      "input": "B-views/front-full-body-0556.png",
+      "output": "images/B-front-full-body-0556.png",
+      "sha256": "0267dc7a137026d0447a5e935671cf88b8e59bfd15994f8207460d5e9f1feb91"
+    },
+    {
+      "input": "B-views/front-full-body-0560.png",
+      "output": "images/B-front-full-body-0560.png",
+      "sha256": "62f028ed5a10e253d6c9711da25c7ec866a7785cfec1a863becfe272f99710e4"
+    },
+    {
+      "input": "B-views/front-full-body-0564.png",
+      "output": "images/B-front-full-body-0564.png",
+      "sha256": "220bee51dfcda1bb59f7437b553ee1e41ebeb501acea97cf1a0d6bb942ed4c6c"
+    },
+    {
+      "input": "B-views/front-full-body-0568.png",
+      "output": "images/B-front-full-body-0568.png",
+      "sha256": "11e9f7206814a55646e5150a2964786bb0638f2cee3aa97a517f3b516b7e2293"
+    },
+    {
+      "input": "B-views/front-full-body-0572.png",
+      "output": "images/B-front-full-body-0572.png",
+      "sha256": "10ffc9af2dacc8a9444fd4729f68cbd801c7a93f514b6a6b59ed322c6105708f"
+    },
+    {
+      "input": "B-views/front-full-body-0576.png",
+      "output": "images/B-front-full-body-0576.png",
+      "sha256": "4716064213ae3258113bde30cfcc4f46d499519570d2daed660523350d4f1001"
+    },
+    {
+      "input": "B-views/front-full-body-0580.png",
+      "output": "images/B-front-full-body-0580.png",
+      "sha256": "19d98390d487f646a76ee019a6c2389309a93c037b3d8471189a19b33c2ae528"
+    },
+    {
+      "input": "B-views/front-full-body-0584.png",
+      "output": "images/B-front-full-body-0584.png",
+      "sha256": "20cb645b1fa4d230bddcf01e9687c0b31211faf1fe548cf024044f719bf30b10"
+    },
+    {
+      "input": "B-views/front-full-body-0588.png",
+      "output": "images/B-front-full-body-0588.png",
+      "sha256": "858f052decbcd30924197ac0113566cfefdebdfdea9e80dd1e1ed546b62ac1b7"
+    },
+    {
+      "input": "B-views/front-full-body-0590.png",
+      "output": "images/B-front-full-body-0590.png",
+      "sha256": "94a084f9f24080e5eff919c4626238dbe3bb3bc8dc8bb7a316aa94b895de2de3"
+    },
+    {
+      "input": "B-views/front-full-body-0591.png",
+      "output": "images/B-front-full-body-0591.png",
+      "sha256": "ee52f0f0925935de3946cfa29e9e87efffe13ba8628441621bdda9defccacd2d"
+    },
+    {
+      "input": "B-views/front-full-body-0592.png",
+      "output": "images/B-front-full-body-0592.png",
+      "sha256": "5fb116cdd61ccc4b6c7dded4fc85b0a9ecae0199f9a3c280b8b6099cb9f445d8"
+    },
+    {
+      "input": "B-views/front-full-body-0596.png",
+      "output": "images/B-front-full-body-0596.png",
+      "sha256": "576fdb34c913275c3b692f20a2b036a449b3c4e02870cb7610295d2d09bd76d8"
+    },
+    {
+      "input": "B-views/front-full-body-0600.png",
+      "output": "images/B-front-full-body-0600.png",
+      "sha256": "0c916d2c60fd411afe19f4fb30f95cea7556f042582e6565c82f8283ebb52746"
+    },
+    {
+      "input": "B-views/front-full-body-0604.png",
+      "output": "images/B-front-full-body-0604.png",
+      "sha256": "2e8c7f9da8c4a07a9de043bcad381635d729f55eb3f1a4d2d1eb2aad061e22d7"
+    },
+    {
+      "input": "B-views/front-full-body-0608.png",
+      "output": "images/B-front-full-body-0608.png",
+      "sha256": "e8f13bd0c614a5693a3960e727e4ea3ddbebba768dcdf1a48cdf88b7db9f0c6d"
+    },
+    {
+      "input": "B-views/front-full-body-0612.png",
+      "output": "images/B-front-full-body-0612.png",
+      "sha256": "4d6f04e4ea4c45b55cf176c12171c10f4086b29e7c2965bb8bb99052d17a5bca"
+    },
+    {
+      "input": "B-views/front-full-body-0616.png",
+      "output": "images/B-front-full-body-0616.png",
+      "sha256": "4880800f9c04efc7ce64a45968200bc62f24fd4ab19ea8ed0873f86e250faeff"
+    },
+    {
+      "input": "B-views/front-full-body-0620.png",
+      "output": "images/B-front-full-body-0620.png",
+      "sha256": "115cabe0e5a8c1350928ada1f05e0d5db39142e9c51dbc5882a2b69902f66ff8"
+    },
+    {
+      "input": "B-views/front-full-body-0624.png",
+      "output": "images/B-front-full-body-0624.png",
+      "sha256": "a88855db629b64967582c78fa4fe9d583e028d30e59cab44fa471513bc4fd163"
+    },
+    {
+      "input": "B-views/front-full-body-0628.png",
+      "output": "images/B-front-full-body-0628.png",
+      "sha256": "bad5bee929fce4fcd1e6443f826419f2bf0c016855888d3208a4de019ccf2efe"
+    },
+    {
+      "input": "B-views/front-full-body-0629.png",
+      "output": "images/B-front-full-body-0629.png",
+      "sha256": "732acec3adf694952d7b3d3d2bc6bf60c9813b7e467b6f2da4f9b9468bc31874"
+    },
+    {
+      "input": "B-views/front-full-body-0630.png",
+      "output": "images/B-front-full-body-0630.png",
+      "sha256": "b25c5da971bb735ba59fbf116ad1093f45fdb85b9c6ccf39dc2a7281bd3a4a70"
+    },
+    {
+      "input": "B-views/front-full-body-0631.png",
+      "output": "images/B-front-full-body-0631.png",
+      "sha256": "e597f18c04468ecc9ebe226935827d7495b3ace4bd44b4bade5fbaa5d072d981"
+    },
+    {
+      "input": "B-views/front-full-body-0632.png",
+      "output": "images/B-front-full-body-0632.png",
+      "sha256": "121882c23616b9e9a37af20460a31fe5b2eb870611afd0f4ddbfdca242f002a4"
+    },
+    {
+      "input": "B-views/front-full-body-0635.png",
+      "output": "images/B-front-full-body-0635.png",
+      "sha256": "b9aeb8bc17f175e2f8ee1df2684f5b1fdcc850d33fab4f8afb40e707a685c048"
+    },
+    {
+      "input": "B-views/front-full-body-0636.png",
+      "output": "images/B-front-full-body-0636.png",
+      "sha256": "317fc6d81d955fb75d97eb36ed5b207da8c065a88e6204af3face1ee5d3d2a7e"
+    },
+    {
+      "input": "B-views/front-full-body-0637.png",
+      "output": "images/B-front-full-body-0637.png",
+      "sha256": "b5d70c3ff82cf1948779b660eea17e057b59a7416299d8eccaf19f303fe6174a"
+    },
+    {
+      "input": "B-views/left-hand-hip-0637.png",
+      "output": "images/B-left-hand-hip-0637.png",
+      "sha256": "635c4a58e2f9a7d674e8e83bae67a340c53d5822bc681846daaaef40820b04b0"
+    },
+    {
+      "input": "B-views/right-hand-hip-0637.png",
+      "output": "images/B-right-hand-hip-0637.png",
+      "sha256": "27f85f1d6cd7dc8fcbd9059b1c98180418fa45ad22bed3e7e447fbcc890a3a3b"
+    },
+    {
+      "input": "B-views/front-full-body-0638.png",
+      "output": "images/B-front-full-body-0638.png",
+      "sha256": "365db2e987c753172be7ddccee261593a36a0960d7933017ade7c9377d50cf69"
+    },
+    {
+      "input": "B-views/front-full-body-0639.png",
+      "output": "images/B-front-full-body-0639.png",
+      "sha256": "b9e358c704b6fac975d64a455cfa9632b65c7bae332254fe07c1625c0050a768"
+    },
+    {
+      "input": "B-views/front-full-body-0640.png",
+      "output": "images/B-front-full-body-0640.png",
+      "sha256": "6421c9a1bf8e8a144dac8bf742bf755ab2ee79a2e955c831fdf75fbd7cea0ebe"
+    },
+    {
+      "input": "B-views/front-full-body-0644.png",
+      "output": "images/B-front-full-body-0644.png",
+      "sha256": "0ebb9cffd542b524d4c7ef36d3fc97dfae335eef08aef68db14a08fe4ff5db13"
+    },
+    {
+      "input": "B-views/front-full-body-0645.png",
+      "output": "images/B-front-full-body-0645.png",
+      "sha256": "9b836902441a56687258d9614822df5668cc6dc738165f044cdeae0590fc569a"
+    },
+    {
+      "input": "B-views/front-full-body-0646.png",
+      "output": "images/B-front-full-body-0646.png",
+      "sha256": "08c4e7ee5fe53e0f05064ebc17859dd7958c8d1ed5b69bc95d122458a3c2365c"
+    },
+    {
+      "input": "B-views/front-full-body-0647.png",
+      "output": "images/B-front-full-body-0647.png",
+      "sha256": "b84d3f25a4b726b30beaba12605c49a5d569a78e2b0484792dacef447b1c0514"
+    },
+    {
+      "input": "B-views/front-full-body-0648.png",
+      "output": "images/B-front-full-body-0648.png",
+      "sha256": "5b35518d3c827710e3eabbaf5361d23b76b1485c935e27992be70cfe0a3d316f"
+    },
+    {
+      "input": "B-views/front-full-body-0649.png",
+      "output": "images/B-front-full-body-0649.png",
+      "sha256": "6250b083bae7538402189f5662fccfe4ef338263efd2aca9cd3cf3a0f216456c"
+    },
+    {
+      "input": "B-views/front-full-body-0652.png",
+      "output": "images/B-front-full-body-0652.png",
+      "sha256": "f55ac6115d880c24ee02a9e0640644e98e6803495a02fa6d659152d252f2da70"
+    },
+    {
+      "input": "B-views/front-full-body-0656.png",
+      "output": "images/B-front-full-body-0656.png",
+      "sha256": "a505f63df0386a9403f897f33c47b2891858a8baefb9e03d8c4d0f19b3e1cebe"
+    },
+    {
+      "input": "B-views/front-full-body-0660.png",
+      "output": "images/B-front-full-body-0660.png",
+      "sha256": "559d6f8655657df9e82cac5483025eb6961abe5e81bf24d83240210d9dfac695"
+    },
+    {
+      "input": "B-views/front-full-body-0664.png",
+      "output": "images/B-front-full-body-0664.png",
+      "sha256": "4227602822e9060e310845e7d7d1edb063e9d68ed55e6544f94ff30e57fec520"
+    },
+    {
+      "input": "B-views/front-full-body-0668.png",
+      "output": "images/B-front-full-body-0668.png",
+      "sha256": "b2e05e209a33b41b048194812331be99dca0905b286fabecc888083e3ed1af44"
+    },
+    {
+      "input": "B-views/front-full-body-0672.png",
+      "output": "images/B-front-full-body-0672.png",
+      "sha256": "61fdf00c7a013b48686abe25626b5e98562af4731413fe9c4439a2099a8e62be"
+    },
+    {
+      "input": "B-views/front-full-body-0676.png",
+      "output": "images/B-front-full-body-0676.png",
+      "sha256": "92ac22d5c321b96b90f69b1ac4aba165598539e4efb571015834b32acecf8e0b"
+    },
+    {
+      "input": "B-views/front-full-body-0680.png",
+      "output": "images/B-front-full-body-0680.png",
+      "sha256": "7233d76be4e843d690b4e1ea407b964986fad6b93c58c5a28615fb701d298863"
+    },
+    {
+      "input": "B-views/front-full-body-0682.png",
+      "output": "images/B-front-full-body-0682.png",
+      "sha256": "d37c57dbd6fbfcbc489665bb7b70b02961dade6c2d6736ec2cc263f0b6369b8c"
+    },
+    {
+      "input": "B-views/front-full-body-0683.png",
+      "output": "images/B-front-full-body-0683.png",
+      "sha256": "b8fc2f3fc988ad827db43102f6afb725078c8c2da2ba5dc383bf97cb062063a8"
+    },
+    {
+      "input": "B-views/front-full-body-0684.png",
+      "output": "images/B-front-full-body-0684.png",
+      "sha256": "73a409cba0ef429638ca9212e6688b219e6067be11031b114c517d17fa5ba2c7"
+    },
+    {
+      "input": "B-views/front-full-body-0688.png",
+      "output": "images/B-front-full-body-0688.png",
+      "sha256": "28164e28928b727bd60e978ca52edce1a6089ecaee27b6d91815b8866d3ebbfc"
+    },
+    {
+      "input": "B-views/front-full-body-0692.png",
+      "output": "images/B-front-full-body-0692.png",
+      "sha256": "5264024b36fc50b068d7bc7f4b898136d17795c04034d5d10d5514b97477d84d"
+    },
+    {
+      "input": "B-views/front-full-body-0696.png",
+      "output": "images/B-front-full-body-0696.png",
+      "sha256": "3dbef0052aca6f81f8bb6683c1fc06df75d5212d1b447c98af30ce8878a4d9a9"
+    },
+    {
+      "input": "B-views/front-full-body-0700.png",
+      "output": "images/B-front-full-body-0700.png",
+      "sha256": "633f542129981c199a924fac3808e4d2a27a36505dc5ae4cc7e07f0207938933"
+    },
+    {
+      "input": "B-views/front-full-body-0704.png",
+      "output": "images/B-front-full-body-0704.png",
+      "sha256": "880e41d2a92808ae6e7705d8eeb66015585ea7b9fbd52b6468a6b85e43682a85"
+    },
+    {
+      "input": "B-views/front-full-body-0708.png",
+      "output": "images/B-front-full-body-0708.png",
+      "sha256": "9ddeed6d9e4486ba58f0c3469fc40a611908a626db1824c85ff50e51ef42467b"
+    },
+    {
+      "input": "B-views/front-full-body-0712.png",
+      "output": "images/B-front-full-body-0712.png",
+      "sha256": "2bca096989f2df8f057264152ee00d14b6ad68f74781ddff7138a29b276119aa"
+    },
+    {
+      "input": "B-views/front-full-body-0716.png",
+      "output": "images/B-front-full-body-0716.png",
+      "sha256": "7791ca8e07412989630ef90da83443b199ac618b22da28d4f87e79853f9a0c9f"
+    },
+    {
+      "input": "B-views/front-full-body-0720.png",
+      "output": "images/B-front-full-body-0720.png",
+      "sha256": "d7412815efc456e842a05e3cf3a7c7c278531f385c9106fef2436ed36961a3e9"
+    },
+    {
+      "input": "C-views/front-full-body-0000.png",
+      "output": "images/C-front-full-body-0000.png",
+      "sha256": "dcc9c46d79a7f1f1155a629f83a16e656a67375b1bce55532d87da49e1b25822"
+    },
+    {
+      "input": "C-views/left-hand-hip-0000.png",
+      "output": "images/C-left-hand-hip-0000.png",
+      "sha256": "282babfd50710a4b4b6c22d16b28e5fa6c49ac5ab6360c0b5faa1bdb5f259194"
+    },
+    {
+      "input": "C-views/right-hand-hip-0000.png",
+      "output": "images/C-right-hand-hip-0000.png",
+      "sha256": "35f1cbe45b0d0dd3e98c373fac93e0bb8ef8a6880f8432706a67ab06c3df8b26"
+    },
+    {
+      "input": "C-views/front-full-body-0004.png",
+      "output": "images/C-front-full-body-0004.png",
+      "sha256": "89e94055a20ac161977167ff734a3d51530d2cf59eb5cd653d37aead9c0a713e"
+    },
+    {
+      "input": "C-views/front-full-body-0008.png",
+      "output": "images/C-front-full-body-0008.png",
+      "sha256": "6f7aad9b9c56be74dc595d62584c49fbb64e59cf12b6a7cd72e24a77c0a67fba"
+    },
+    {
+      "input": "C-views/front-full-body-0012.png",
+      "output": "images/C-front-full-body-0012.png",
+      "sha256": "073b5ee6649954df9a057fb9181f86753d067ca91b2bc2ab5290256eba09db14"
+    },
+    {
+      "input": "C-views/front-full-body-0016.png",
+      "output": "images/C-front-full-body-0016.png",
+      "sha256": "729f4498401c58f91a80b98a440287989e59343c3a58aee1cfd09ea8a5aeae5b"
+    },
+    {
+      "input": "C-views/front-full-body-0020.png",
+      "output": "images/C-front-full-body-0020.png",
+      "sha256": "588cff4174d935603456919a5622520f1da0c00c9d2456635d2ebcb76ad2f247"
+    },
+    {
+      "input": "C-views/front-full-body-0024.png",
+      "output": "images/C-front-full-body-0024.png",
+      "sha256": "b79bbfda3053fc35d7d68a019e8ac63340579001c57ec0f4853cd199325da0d2"
+    },
+    {
+      "input": "C-views/front-full-body-0028.png",
+      "output": "images/C-front-full-body-0028.png",
+      "sha256": "03e144c59a06223b5c0500185e04f9a70ec8a0789826ffc7ed261f42b71b0d8b"
+    },
+    {
+      "input": "C-views/front-full-body-0032.png",
+      "output": "images/C-front-full-body-0032.png",
+      "sha256": "b60481871bd59bf095e780bf6f1de4c1096bdcbd053d7d8a942d382aa7735b92"
+    },
+    {
+      "input": "C-views/front-full-body-0036.png",
+      "output": "images/C-front-full-body-0036.png",
+      "sha256": "87dbba65d3de3eb777fd7105db6555bcedfadccb710952b509b2ef9b9273eb6a"
+    },
+    {
+      "input": "C-views/front-full-body-0040.png",
+      "output": "images/C-front-full-body-0040.png",
+      "sha256": "5af1b67d26aa56a9a0ac821a714b87ebacbd48027f6b537e46052937d839de0f"
+    },
+    {
+      "input": "C-views/front-full-body-0044.png",
+      "output": "images/C-front-full-body-0044.png",
+      "sha256": "5a70e0154d2d8d1af3cb3eb911db11b164b63d15447fb3d5f7da5ab7316f644a"
+    },
+    {
+      "input": "C-views/front-full-body-0048.png",
+      "output": "images/C-front-full-body-0048.png",
+      "sha256": "ab8d88221c382ed42676b963487ded8c2ff704ceddace1a14acdc3b99c3923ef"
+    },
+    {
+      "input": "C-views/front-full-body-0052.png",
+      "output": "images/C-front-full-body-0052.png",
+      "sha256": "1e5990aabd280dbf76d3b67faa91ba7c3d47f70f93dd76e33e659c6d1048a9b2"
+    },
+    {
+      "input": "C-views/front-full-body-0054.png",
+      "output": "images/C-front-full-body-0054.png",
+      "sha256": "a8f4e1d37e5a0ed1f949e6bfa2f9a59b1207ad46ecbb8057aedfab71c9ebb50c"
+    },
+    {
+      "input": "C-views/front-full-body-0055.png",
+      "output": "images/C-front-full-body-0055.png",
+      "sha256": "f84682b06309bc9ca6fc92c3f25c3eba81cb8f923f1b0d924e1a1b17be3ebb4c"
+    },
+    {
+      "input": "C-views/front-full-body-0056.png",
+      "output": "images/C-front-full-body-0056.png",
+      "sha256": "b604a1c6a13e292af4670948a8e95d1a26a214ccefa96f48cef3e8409092c701"
+    },
+    {
+      "input": "C-views/front-full-body-0060.png",
+      "output": "images/C-front-full-body-0060.png",
+      "sha256": "27bb73ed4146504751723e8dabeb844e4da4b4fbe2c255126e39e3e1abdd6f00"
+    },
+    {
+      "input": "C-views/front-full-body-0064.png",
+      "output": "images/C-front-full-body-0064.png",
+      "sha256": "c47bfcdecc460c71cfa9fd5e940ff4ee4d22c813165c30ee9cc93533f0642189"
+    },
+    {
+      "input": "C-views/front-full-body-0068.png",
+      "output": "images/C-front-full-body-0068.png",
+      "sha256": "87e4343b3207f9a990ed49e30ff12395ee0aa9f3a91eb1828b4a526954a29ada"
+    },
+    {
+      "input": "C-views/front-full-body-0072.png",
+      "output": "images/C-front-full-body-0072.png",
+      "sha256": "4a4d5c7900b64bd91445732115011e90092819875df4c67a7a5cfcd415b5c6a0"
+    },
+    {
+      "input": "C-views/front-full-body-0076.png",
+      "output": "images/C-front-full-body-0076.png",
+      "sha256": "4734d4c55392d92cd9fae1d5781f894517f847ca214b684e3bb69325f98621f0"
+    },
+    {
+      "input": "C-views/front-full-body-0080.png",
+      "output": "images/C-front-full-body-0080.png",
+      "sha256": "bc7290def4091d761108dae5905ac35f7bc20b9ceefd563736e4d333c58148ba"
+    },
+    {
+      "input": "C-views/front-full-body-0084.png",
+      "output": "images/C-front-full-body-0084.png",
+      "sha256": "998b2021b3e2512233ea3f0af7c652aebd2525edaf9a7d4aedfd0616870ad12c"
+    },
+    {
+      "input": "C-views/front-full-body-0088.png",
+      "output": "images/C-front-full-body-0088.png",
+      "sha256": "2fa879c612b80dbb35baa04af86ecdc140c1915c4164ef2b7005042bce39bad4"
+    },
+    {
+      "input": "C-views/front-full-body-0089.png",
+      "output": "images/C-front-full-body-0089.png",
+      "sha256": "cd9d59ebbaeb833e3199bbbe4be06851b203fa7ea429b2255cc838c862fcfebf"
+    },
+    {
+      "input": "C-views/front-full-body-0090.png",
+      "output": "images/C-front-full-body-0090.png",
+      "sha256": "7dfadd865b8cf33254ae813dd0ae257b98d2ce9347262d113c54bda0276d0429"
+    },
+    {
+      "input": "C-views/front-full-body-0091.png",
+      "output": "images/C-front-full-body-0091.png",
+      "sha256": "0dcfbce7a1204bcd28c228bd36dea62c7b540d6b65c05bfa0a530daef8d932f1"
+    },
+    {
+      "input": "C-views/front-full-body-0092.png",
+      "output": "images/C-front-full-body-0092.png",
+      "sha256": "51c627b4cf929b48dbfc83cbe3e43bd1600717def87f3a74bb616cdaf2defe56"
+    },
+    {
+      "input": "C-views/front-full-body-0093.png",
+      "output": "images/C-front-full-body-0093.png",
+      "sha256": "cfc99eb11fea8459b509e7e86c39bf4b2ecde2a0da6fafcaf3db3e1e89e46232"
+    },
+    {
+      "input": "C-views/front-full-body-0096.png",
+      "output": "images/C-front-full-body-0096.png",
+      "sha256": "7316f0da7d7edf69b8a7af5a3bbac7f270f0154d12665e6cae0f5a4f74fb82f1"
+    },
+    {
+      "input": "C-views/front-full-body-0097.png",
+      "output": "images/C-front-full-body-0097.png",
+      "sha256": "ab47f4736d60d174d2c649f335a1cac9ed5ab90bce923ffa2fad4bcd68d3007d"
+    },
+    {
+      "input": "C-views/front-full-body-0098.png",
+      "output": "images/C-front-full-body-0098.png",
+      "sha256": "5da2a53c29586ab0e151577ae1663971270730cd5f4b2fbd01f173755f5d71c5"
+    },
+    {
+      "input": "C-views/front-full-body-0099.png",
+      "output": "images/C-front-full-body-0099.png",
+      "sha256": "436e608228e37e16b4343d4999346cd40c8d5bce64e3377857ab7639a7086c0e"
+    },
+    {
+      "input": "C-views/front-full-body-0100.png",
+      "output": "images/C-front-full-body-0100.png",
+      "sha256": "7b0b3a4340e308f584344457ddd206de111f2b68a5e596942c50013c9ba52598"
+    },
+    {
+      "input": "C-views/front-full-body-0104.png",
+      "output": "images/C-front-full-body-0104.png",
+      "sha256": "82904ba0f371dd5999cbe733838598f64b894a1b32ef1b6036cf5e913b38c8e2"
+    },
+    {
+      "input": "C-views/front-full-body-0107.png",
+      "output": "images/C-front-full-body-0107.png",
+      "sha256": "e1bda24f0ec815379adfc087ab4090c5de1bf4f8f94bc678f4a8a49d87e51e43"
+    },
+    {
+      "input": "C-views/front-full-body-0108.png",
+      "output": "images/C-front-full-body-0108.png",
+      "sha256": "dffa93ad386f614a64e0147765857bc8e904cc115246544a2a6a78e8ee8037e6"
+    },
+    {
+      "input": "C-views/front-full-body-0109.png",
+      "output": "images/C-front-full-body-0109.png",
+      "sha256": "be07a25a0948b02ff98f3d63f065133c6c238833918feee71e381472018dfcd2"
+    },
+    {
+      "input": "C-views/front-full-body-0110.png",
+      "output": "images/C-front-full-body-0110.png",
+      "sha256": "f07d41f14529315eb70ea79b7973379fca27c4a5e87a1cf3ab9a21f6e5e2317e"
+    },
+    {
+      "input": "C-views/front-full-body-0111.png",
+      "output": "images/C-front-full-body-0111.png",
+      "sha256": "71727a9a3ce1ae2b64ec6117a3d79a3cfb41c43cef86c1666d0431b341518485"
+    },
+    {
+      "input": "C-views/front-full-body-0112.png",
+      "output": "images/C-front-full-body-0112.png",
+      "sha256": "a4fb3c6ea82f6dcc9d003a9c170e6a07b7aa690a9c89901ea5e6c1ad339a1a57"
+    },
+    {
+      "input": "C-views/front-full-body-0116.png",
+      "output": "images/C-front-full-body-0116.png",
+      "sha256": "5a4180a6bbf8cec213a4c312ad4e1c9de15c8c550de1fa6d81c9f6cee2d0d872"
+    },
+    {
+      "input": "C-views/front-full-body-0120.png",
+      "output": "images/C-front-full-body-0120.png",
+      "sha256": "e58120c7fdb6ca65767d9b31de98b26a7b83a189f579743c1df519a875629836"
+    },
+    {
+      "input": "C-views/front-full-body-0124.png",
+      "output": "images/C-front-full-body-0124.png",
+      "sha256": "b3161c0294c02b12af764c434bfc173a02a0dc700603d6b1da232ad57fd007bd"
+    },
+    {
+      "input": "C-views/front-full-body-0128.png",
+      "output": "images/C-front-full-body-0128.png",
+      "sha256": "c5c95af061ebed3846dd825072b93f2cee7dd475e942875f6b2b5e835ccb3ffd"
+    },
+    {
+      "input": "C-views/front-full-body-0132.png",
+      "output": "images/C-front-full-body-0132.png",
+      "sha256": "d0d4008c00e1ffb420516c6239f7b06dc254dcd508ed04593f89906fc1cad7b3"
+    },
+    {
+      "input": "C-views/front-full-body-0136.png",
+      "output": "images/C-front-full-body-0136.png",
+      "sha256": "e58ab9a2a82085bc6041df3f0be609188c50283a7954f9bf33384224c1cc1b52"
+    },
+    {
+      "input": "C-views/front-full-body-0140.png",
+      "output": "images/C-front-full-body-0140.png",
+      "sha256": "56c973b4db5f45808d01b391bbdd6350fe44d14b063c786dac2e54edf68d33ff"
+    },
+    {
+      "input": "C-views/front-full-body-0141.png",
+      "output": "images/C-front-full-body-0141.png",
+      "sha256": "81401a21b9d51b989cc7efc40d1fee9be414d59a8ee77544bd51fafe8d6a15d2"
+    },
+    {
+      "input": "C-views/front-full-body-0142.png",
+      "output": "images/C-front-full-body-0142.png",
+      "sha256": "d4165a72df5c924839b4ae7dcab660b3ecbb1d179864a8aa1d405b61918ae12d"
+    },
+    {
+      "input": "C-views/front-full-body-0143.png",
+      "output": "images/C-front-full-body-0143.png",
+      "sha256": "9c4fa0aba0cd61766bb6372cd46c3e49616679edf01bf40d894c9bc0675e823e"
+    },
+    {
+      "input": "C-views/front-full-body-0144.png",
+      "output": "images/C-front-full-body-0144.png",
+      "sha256": "e84921f59b131f26d777fb7c007dd907fcfb97fddebc0125f1ccb527b2e3f2ed"
+    },
+    {
+      "input": "C-views/front-full-body-0148.png",
+      "output": "images/C-front-full-body-0148.png",
+      "sha256": "feef5b0d629fc1afc8572b8ca1410854a654c8b4adbed7a473664323991e748f"
+    },
+    {
+      "input": "C-views/front-full-body-0152.png",
+      "output": "images/C-front-full-body-0152.png",
+      "sha256": "15b03e249c6b74eb929eb57259223e2b6d0639b3377b4286cbd8a1a52a76d5c8"
+    },
+    {
+      "input": "C-views/front-full-body-0156.png",
+      "output": "images/C-front-full-body-0156.png",
+      "sha256": "823354f89da4e2cce6563d96fc883fc5d538b469fbf3b8cb72fb04f71601c969"
+    },
+    {
+      "input": "C-views/front-full-body-0160.png",
+      "output": "images/C-front-full-body-0160.png",
+      "sha256": "989c1b77a8074c4b748dab13fe96d0bc87c5cc1418e1344b510a0de5504d294d"
+    },
+    {
+      "input": "C-views/front-full-body-0164.png",
+      "output": "images/C-front-full-body-0164.png",
+      "sha256": "39c14cebeb41bf09758ff68ff1de798b3fb89652442a4928ae4f6741c9599cd0"
+    },
+    {
+      "input": "C-views/front-full-body-0168.png",
+      "output": "images/C-front-full-body-0168.png",
+      "sha256": "f13d3c96a2016aed4a36b21bccbb8ce4eaf57d5bac3a09aca2988256a07018b7"
+    },
+    {
+      "input": "C-views/front-full-body-0172.png",
+      "output": "images/C-front-full-body-0172.png",
+      "sha256": "5fcf426aeac13cf743f12bf591385eb66d4f0ac6e70c7fafc2efea306e5fa5ea"
+    },
+    {
+      "input": "C-views/front-full-body-0176.png",
+      "output": "images/C-front-full-body-0176.png",
+      "sha256": "fcb64a2c940d13ffb727b940864442df6d449c1decb4d3128518d00c2eb49cec"
+    },
+    {
+      "input": "C-views/front-full-body-0180.png",
+      "output": "images/C-front-full-body-0180.png",
+      "sha256": "8dbdcd8b332113e127fa8c58468d73102263459a6c4019e6742dd0ae8cbb6d66"
+    },
+    {
+      "input": "C-views/front-full-body-0184.png",
+      "output": "images/C-front-full-body-0184.png",
+      "sha256": "62786e520da75a382175a16d16572aeb10b1e7879887b3fedc9c0537d10d0722"
+    },
+    {
+      "input": "C-views/front-full-body-0188.png",
+      "output": "images/C-front-full-body-0188.png",
+      "sha256": "692c0921bd7d67a380311c120de4dec5917af1e349c47648f6f167b6294845e8"
+    },
+    {
+      "input": "C-views/front-full-body-0192.png",
+      "output": "images/C-front-full-body-0192.png",
+      "sha256": "0a2b80c7e56332ffc72235faec00575001d7ba8d44043a2d0362507113731d57"
+    },
+    {
+      "input": "C-views/front-full-body-0196.png",
+      "output": "images/C-front-full-body-0196.png",
+      "sha256": "0cf63beef40529ccc1904758e769d30dfda250606c58211b0597c3f049bd8100"
+    },
+    {
+      "input": "C-views/front-full-body-0200.png",
+      "output": "images/C-front-full-body-0200.png",
+      "sha256": "1a80097a83c9c868b15bd1678212238b831ea34a5978fe605d88f31fbdfd4c73"
+    },
+    {
+      "input": "C-views/front-full-body-0204.png",
+      "output": "images/C-front-full-body-0204.png",
+      "sha256": "ea5a0ce6d69a83d6627a93147d2aaed9589350d515a4cb5c4728c2897670f8b3"
+    },
+    {
+      "input": "C-views/front-full-body-0208.png",
+      "output": "images/C-front-full-body-0208.png",
+      "sha256": "a21f5bf9747d9fad23204731345be4c0075f4f49a993fd057c943f3b485de022"
+    },
+    {
+      "input": "C-views/front-full-body-0212.png",
+      "output": "images/C-front-full-body-0212.png",
+      "sha256": "3b8312588b8385ebc926651f64fdbd68cf779d94bce6d7aae6e114dc4aade002"
+    },
+    {
+      "input": "C-views/front-full-body-0216.png",
+      "output": "images/C-front-full-body-0216.png",
+      "sha256": "9700e55b1bf5adc921808789a93aff078024102317fff2f821883a0c7892d232"
+    },
+    {
+      "input": "C-views/front-full-body-0220.png",
+      "output": "images/C-front-full-body-0220.png",
+      "sha256": "e27e7d81defcc756783648bae078e238d85c584da0a27ccf302e8cd682e0c8dc"
+    },
+    {
+      "input": "C-views/front-full-body-0224.png",
+      "output": "images/C-front-full-body-0224.png",
+      "sha256": "824b1d3b45275e9645308db4a35777763db6b9e03860e73ed1a588b4be7d357b"
+    },
+    {
+      "input": "C-views/front-full-body-0225.png",
+      "output": "images/C-front-full-body-0225.png",
+      "sha256": "81c5b5f627957e6746d4c8c3fa212b5bf9986f5f4e3d573c1f8b34eeb557bcdb"
+    },
+    {
+      "input": "C-views/front-full-body-0226.png",
+      "output": "images/C-front-full-body-0226.png",
+      "sha256": "f25e56b2ff8e7f84577960e23991097997cebe9d4e199b8e5e8e3b6faf332b22"
+    },
+    {
+      "input": "C-views/front-full-body-0227.png",
+      "output": "images/C-front-full-body-0227.png",
+      "sha256": "fab736e8cac828b3f5c83ed6ae650ce6f16e5b4cb02de168f23448b16e3a9005"
+    },
+    {
+      "input": "C-views/front-full-body-0228.png",
+      "output": "images/C-front-full-body-0228.png",
+      "sha256": "e84dad8ebb45e3fe4a5655f00538c5437f05830ccc8062b01803776ea473be58"
+    },
+    {
+      "input": "C-views/front-full-body-0232.png",
+      "output": "images/C-front-full-body-0232.png",
+      "sha256": "21f316c7ea8338f050e16d15a0182df8a8bfde4ed6a066bff752387cacec1a53"
+    },
+    {
+      "input": "C-views/front-full-body-0236.png",
+      "output": "images/C-front-full-body-0236.png",
+      "sha256": "4c1e29d8aae0d25449310ba4c287d08c00a260aa60de727e585581b783de1f6e"
+    },
+    {
+      "input": "C-views/front-full-body-0240.png",
+      "output": "images/C-front-full-body-0240.png",
+      "sha256": "6a073ac3789c58a1e50f0d545088f2052b1d2132edeedb497bcbef8d0ca42acf"
+    },
+    {
+      "input": "C-views/front-full-body-0244.png",
+      "output": "images/C-front-full-body-0244.png",
+      "sha256": "a508576c8b1eb1d29b8ccc3debd35032036fcb6019f1e45732497bfe454c3d07"
+    },
+    {
+      "input": "C-views/front-full-body-0248.png",
+      "output": "images/C-front-full-body-0248.png",
+      "sha256": "a37ba36dd1db48335be4b695c998a040241d47efb942dc6e6fd7c83cb40428c4"
+    },
+    {
+      "input": "C-views/front-full-body-0252.png",
+      "output": "images/C-front-full-body-0252.png",
+      "sha256": "c62ff75275a522ce016ead7751b6344f04c2dab6aabc96a19a094ea9f46916c3"
+    },
+    {
+      "input": "C-views/front-full-body-0256.png",
+      "output": "images/C-front-full-body-0256.png",
+      "sha256": "83aa81ddd1894430ba99d069e85909e35104c3871fa94db25e0a99de726e4eb0"
+    },
+    {
+      "input": "C-views/front-full-body-0260.png",
+      "output": "images/C-front-full-body-0260.png",
+      "sha256": "a4df40b15dd08d409f30f10778057424bcd1e7f3a513bd8edbe875f8c4dda6f3"
+    },
+    {
+      "input": "C-views/front-full-body-0262.png",
+      "output": "images/C-front-full-body-0262.png",
+      "sha256": "699464312574ae33e9fa01fbaf4328f8abe915fc57bbedd72314a65be66a8527"
+    },
+    {
+      "input": "C-views/front-full-body-0263.png",
+      "output": "images/C-front-full-body-0263.png",
+      "sha256": "9f05c0bdc3daa9e3bb8a58caee843c5018d5a0508781bd966279ebd3d0008a45"
+    },
+    {
+      "input": "C-views/front-full-body-0264.png",
+      "output": "images/C-front-full-body-0264.png",
+      "sha256": "575b8e92bbd4996adaa82e2131e856d90d7ff668f0e1991df05a04e1b6f0176a"
+    },
+    {
+      "input": "C-views/front-full-body-0265.png",
+      "output": "images/C-front-full-body-0265.png",
+      "sha256": "b4094a8074515225a049b086e3b8dab5251d7c00353928795616bd2e2d22140e"
+    },
+    {
+      "input": "C-views/front-full-body-0266.png",
+      "output": "images/C-front-full-body-0266.png",
+      "sha256": "df0e52270a39f55ac7bb4914aec7a91a5ac6bacc2367b97ff5644886159668c5"
+    },
+    {
+      "input": "C-views/front-full-body-0268.png",
+      "output": "images/C-front-full-body-0268.png",
+      "sha256": "e62352d7586956b9fe83e166ac39e8159dad4bed9c690982ebc00d5056b5855c"
+    },
+    {
+      "input": "C-views/front-full-body-0269.png",
+      "output": "images/C-front-full-body-0269.png",
+      "sha256": "48d8bc1f438fed4522d9ed9fe048d727b76b2740e19b9ad9f5755beab7cedd03"
+    },
+    {
+      "input": "C-views/front-full-body-0270.png",
+      "output": "images/C-front-full-body-0270.png",
+      "sha256": "ac9df8a084c020c8e9597f424b4870b8b2489911b7971bd4e3b0ffa10cecbd3a"
+    },
+    {
+      "input": "C-views/front-full-body-0271.png",
+      "output": "images/C-front-full-body-0271.png",
+      "sha256": "1af9abba55386fe266a18b8ca461eec31089b444925ce05af4a0e4471e3b3189"
+    },
+    {
+      "input": "C-views/front-full-body-0272.png",
+      "output": "images/C-front-full-body-0272.png",
+      "sha256": "de99053f444a47f575933c1a90a8af8086a7cfd1992773fefc079c7ad3fb7372"
+    },
+    {
+      "input": "C-views/front-full-body-0276.png",
+      "output": "images/C-front-full-body-0276.png",
+      "sha256": "844ec0d908933c42aa048dfb2fdbef584fed9bf54c14f32d4e8eb3845f719a59"
+    },
+    {
+      "input": "C-views/front-full-body-0279.png",
+      "output": "images/C-front-full-body-0279.png",
+      "sha256": "03ab0a809d81ca3f8144434501dbab4fb4e9cf5234fc50dec3c7a68ef7ae1163"
+    },
+    {
+      "input": "C-views/front-full-body-0280.png",
+      "output": "images/C-front-full-body-0280.png",
+      "sha256": "c4bdc2503482f1ad1e2afad9ec4e1c2ad41605f6a7fb2c2ab68bb4e8387cfc84"
+    },
+    {
+      "input": "C-views/front-full-body-0281.png",
+      "output": "images/C-front-full-body-0281.png",
+      "sha256": "b648ec4a7879271afd38547b14e8d8020311de1d47d39698d0e717e9aac4c4a1"
+    },
+    {
+      "input": "C-views/front-full-body-0282.png",
+      "output": "images/C-front-full-body-0282.png",
+      "sha256": "fadde69d0ced0cef4dd47b0dd84ada30de02d39b4c3788314ac4c6399851037b"
+    },
+    {
+      "input": "C-views/front-full-body-0283.png",
+      "output": "images/C-front-full-body-0283.png",
+      "sha256": "70629e3d78a28d5d0c31a52b03186c83dae3f1e280ba6ca4874867c64a8292da"
+    },
+    {
+      "input": "C-views/front-full-body-0284.png",
+      "output": "images/C-front-full-body-0284.png",
+      "sha256": "fb7295d48bc7e495ca23633a1bd8dba7c3868b85958bf28e16bc3aca484c58bc"
+    },
+    {
+      "input": "C-views/front-full-body-0288.png",
+      "output": "images/C-front-full-body-0288.png",
+      "sha256": "e69dccf92464f0ecd51cc773726161c5f9a162501cd057b8d5f169636ab8ed52"
+    },
+    {
+      "input": "C-views/front-full-body-0292.png",
+      "output": "images/C-front-full-body-0292.png",
+      "sha256": "fc446fc6b22d97bc80bd0d01fc072e0d5ea60945523abc78d81cc20f5db5beab"
+    },
+    {
+      "input": "C-views/front-full-body-0296.png",
+      "output": "images/C-front-full-body-0296.png",
+      "sha256": "c3f0fc9ada93de2b0f8ac5ddb17f4fe77f94f6275675adba17c86faead3be2c3"
+    },
+    {
+      "input": "C-views/front-full-body-0300.png",
+      "output": "images/C-front-full-body-0300.png",
+      "sha256": "c3db4936aee03fc818b9a7e5a5e226a99d683dd216c46099bbb11ad02245b4cf"
+    },
+    {
+      "input": "C-views/front-full-body-0304.png",
+      "output": "images/C-front-full-body-0304.png",
+      "sha256": "b86309b7faffff7e80e6673d5e053dc31b21a0570c7223647ccf706c452a446a"
+    },
+    {
+      "input": "C-views/front-full-body-0308.png",
+      "output": "images/C-front-full-body-0308.png",
+      "sha256": "a705feb010a052ce895a6b5d18fb1cb7fbfccbc8ae06c08b732ec08c93693be7"
+    },
+    {
+      "input": "C-views/front-full-body-0312.png",
+      "output": "images/C-front-full-body-0312.png",
+      "sha256": "288d3193dbf81085e80eca7fc66fbe88beb2d8039e909633227ee5e7ec6b3292"
+    },
+    {
+      "input": "C-views/front-full-body-0314.png",
+      "output": "images/C-front-full-body-0314.png",
+      "sha256": "b601199afea43687fd566d0b1ff787e57a050cec8268fd81315ac5d47528a61d"
+    },
+    {
+      "input": "C-views/front-full-body-0315.png",
+      "output": "images/C-front-full-body-0315.png",
+      "sha256": "eaf7ba0af3893a4c540c581f8182455c0de25c1448b1e8a3ef03a98f515b8044"
+    },
+    {
+      "input": "C-views/front-full-body-0316.png",
+      "output": "images/C-front-full-body-0316.png",
+      "sha256": "0a3def42f23aa97782d2ac9f59870814639333c7610956370a739bbea5150911"
+    },
+    {
+      "input": "C-views/front-full-body-0320.png",
+      "output": "images/C-front-full-body-0320.png",
+      "sha256": "54cad550e349978a67a7cc18fa16265558fb5ade5602e8c230840730fa5d43bc"
+    },
+    {
+      "input": "C-views/front-full-body-0324.png",
+      "output": "images/C-front-full-body-0324.png",
+      "sha256": "ec85a048e9b57edd8273ea020c8618d87962cab7478d7c91add725ae89d22183"
+    },
+    {
+      "input": "C-views/front-full-body-0328.png",
+      "output": "images/C-front-full-body-0328.png",
+      "sha256": "e21d8d8d0c987fd58221659cfa122723bfe5d65288fe5535f4dfb48f16898eb0"
+    },
+    {
+      "input": "C-views/front-full-body-0332.png",
+      "output": "images/C-front-full-body-0332.png",
+      "sha256": "242a874df009c0259cf84bf144b0134d3405ca9777429f8dc8913b6daf78be71"
+    },
+    {
+      "input": "C-views/front-full-body-0336.png",
+      "output": "images/C-front-full-body-0336.png",
+      "sha256": "df39937f28fe859ae9d2f39370dfd406f67cd17cc30d864f58f413d5223189f0"
+    },
+    {
+      "input": "C-views/front-full-body-0340.png",
+      "output": "images/C-front-full-body-0340.png",
+      "sha256": "026d5f2fab8942e48f2d4a9b770d4d69f3254a5ed0fc7703da8d246e6862070e"
+    },
+    {
+      "input": "C-views/front-full-body-0344.png",
+      "output": "images/C-front-full-body-0344.png",
+      "sha256": "7748a1ed674cd068eba0c2fa926d7726bffa8bf15bd3e48a56d21a31815cb2ef"
+    },
+    {
+      "input": "C-views/front-full-body-0348.png",
+      "output": "images/C-front-full-body-0348.png",
+      "sha256": "eed5ab4373d63b8d890871d3b70e57720b3e56fd575dd2b5e8e5e6767aa89232"
+    },
+    {
+      "input": "C-views/front-full-body-0352.png",
+      "output": "images/C-front-full-body-0352.png",
+      "sha256": "a15c488d0e486af8d915aeaec0a1c0dbc117cd7c2ee99f75cacb0501bbf8db8a"
+    },
+    {
+      "input": "C-views/front-full-body-0356.png",
+      "output": "images/C-front-full-body-0356.png",
+      "sha256": "444a160812055b182800cf358bd24bfd6a49de444bce62c577b1cd6085264587"
+    },
+    {
+      "input": "C-views/front-full-body-0360.png",
+      "output": "images/C-front-full-body-0360.png",
+      "sha256": "a911ce67cce7f67996c81bca13f12afe83c0c31b09ae77d7f048c0f29fcf3110"
+    },
+    {
+      "input": "C-views/front-full-body-0364.png",
+      "output": "images/C-front-full-body-0364.png",
+      "sha256": "305da61bb7f64950aaaaf2fd1566d6a98fe56fe0f0561d80d7f2f2d5fc682617"
+    },
+    {
+      "input": "C-views/front-full-body-0368.png",
+      "output": "images/C-front-full-body-0368.png",
+      "sha256": "69b1fb41d0bb8d895dd089e0cb3bf74e8710d2b8f5e7928d7b4a3f0f62c5d2b4"
+    },
+    {
+      "input": "C-views/front-full-body-0372.png",
+      "output": "images/C-front-full-body-0372.png",
+      "sha256": "109dc8a46219bbf33e1e05405cc6a4dbc821f91968415e90a6c6214789791f2d"
+    },
+    {
+      "input": "C-views/front-full-body-0376.png",
+      "output": "images/C-front-full-body-0376.png",
+      "sha256": "528532936cf1521c57827acd248f32a64a58d218967afaf79841760a93cf2bc2"
+    },
+    {
+      "input": "C-views/front-full-body-0380.png",
+      "output": "images/C-front-full-body-0380.png",
+      "sha256": "edca2f487c5a572aee3f7d38c1ea596b0e2cdb986af8154850fdba603dfd3bb0"
+    },
+    {
+      "input": "C-views/front-full-body-0384.png",
+      "output": "images/C-front-full-body-0384.png",
+      "sha256": "7fe3dc849b3657bbd47c624212c478746ef926afea63fb004f7b98f3dcf813cc"
+    },
+    {
+      "input": "C-views/front-full-body-0388.png",
+      "output": "images/C-front-full-body-0388.png",
+      "sha256": "5ecedb756a71048ac9a343e17ed58e9afc651100b2577375d1b3875d168af557"
+    },
+    {
+      "input": "C-views/front-full-body-0392.png",
+      "output": "images/C-front-full-body-0392.png",
+      "sha256": "3a3f17f0ab784f6118e96e983714218aa9924e3062a824676d2a0afeb8b45e5e"
+    },
+    {
+      "input": "C-views/front-full-body-0396.png",
+      "output": "images/C-front-full-body-0396.png",
+      "sha256": "593276577ca413c973fc1dfa37f4eaa0ec568d76dc85f34fc4e02e5fddeca4a2"
+    },
+    {
+      "input": "C-views/front-full-body-0400.png",
+      "output": "images/C-front-full-body-0400.png",
+      "sha256": "bf0f51db3209c8c70778b8c08c47d57b8fa7209279b9da94b36385badc8b7a29"
+    },
+    {
+      "input": "C-views/front-full-body-0404.png",
+      "output": "images/C-front-full-body-0404.png",
+      "sha256": "97e39736c99117f0428b17569cd5fdbc6f363b88bd55e385fe0dbecc42d4d341"
+    },
+    {
+      "input": "C-views/front-full-body-0408.png",
+      "output": "images/C-front-full-body-0408.png",
+      "sha256": "b920765e5c83da6324b99d888107312e113c9e18b9b3ae189a8b27cc8815df54"
+    },
+    {
+      "input": "C-views/front-full-body-0412.png",
+      "output": "images/C-front-full-body-0412.png",
+      "sha256": "d9aedcc273e62fa9aa49b80c161e22c1595cbaa3845800fe1aecc801656018a7"
+    },
+    {
+      "input": "C-views/front-full-body-0416.png",
+      "output": "images/C-front-full-body-0416.png",
+      "sha256": "083a86ad5960b2a3b5f5385ab2c3ce6e222e418fe5967ea4e266d9b184a86979"
+    },
+    {
+      "input": "C-views/front-full-body-0417.png",
+      "output": "images/C-front-full-body-0417.png",
+      "sha256": "c3051ae8ae001b5eb085becfcc09b12b2f1e435e00852a03d6f1a96a43985f05"
+    },
+    {
+      "input": "C-views/front-full-body-0418.png",
+      "output": "images/C-front-full-body-0418.png",
+      "sha256": "469c359e1274dec60b1f3ec847d50a6c570f26b1ef3a74c4b36da1657a50b7ed"
+    },
+    {
+      "input": "C-views/front-full-body-0420.png",
+      "output": "images/C-front-full-body-0420.png",
+      "sha256": "9c884c5108d3f1f63d5f854e4d50488494be6977e99d408d88752932a73ed88d"
+    },
+    {
+      "input": "C-views/front-full-body-0424.png",
+      "output": "images/C-front-full-body-0424.png",
+      "sha256": "41aef2b7f5aeb943b25a35efef39c28751af4ad3c0f820d9ee2fa0ba9fa56069"
+    },
+    {
+      "input": "C-views/front-full-body-0428.png",
+      "output": "images/C-front-full-body-0428.png",
+      "sha256": "5389bc7cf218bfb8be9e951c299495905f2431d362763d2e33f584a091a8fa9f"
+    },
+    {
+      "input": "C-views/front-full-body-0432.png",
+      "output": "images/C-front-full-body-0432.png",
+      "sha256": "d7fbcc3cb7384cd895457bb871286ad5f2a408fb14a89b43bad4fb8b2ca58c2d"
+    },
+    {
+      "input": "C-views/front-full-body-0436.png",
+      "output": "images/C-front-full-body-0436.png",
+      "sha256": "a1b2037ed072279a81afd5f8f09ea364ac02a3f9a0dfd3a9a10d474da4578214"
+    },
+    {
+      "input": "C-views/front-full-body-0440.png",
+      "output": "images/C-front-full-body-0440.png",
+      "sha256": "b01a61873910f124c98380691a9e492256864b1f45a1d8d0b2991e64d1a72f3a"
+    },
+    {
+      "input": "C-views/front-full-body-0444.png",
+      "output": "images/C-front-full-body-0444.png",
+      "sha256": "9219cb20669cb12a47d9cbed0aae07ce1e36bc35144fa293d6c1918354d37645"
+    },
+    {
+      "input": "C-views/front-full-body-0446.png",
+      "output": "images/C-front-full-body-0446.png",
+      "sha256": "c2d4c544de46932c5e22173f59ebf0f33a9fc2249c3e6d5518804286e751ce1a"
+    },
+    {
+      "input": "C-views/front-full-body-0447.png",
+      "output": "images/C-front-full-body-0447.png",
+      "sha256": "dd4f664029a629b01b6e19675cb0c72ee60dbc33facc2274b35e810199521da6"
+    },
+    {
+      "input": "C-views/front-full-body-0448.png",
+      "output": "images/C-front-full-body-0448.png",
+      "sha256": "50a212df5ed8a4a4e76bc9ffe0a46f35abcef79cb6e82bc413b4766a46ead91d"
+    },
+    {
+      "input": "C-views/front-full-body-0449.png",
+      "output": "images/C-front-full-body-0449.png",
+      "sha256": "798d0bed10f4ae00e7f02b9dd359162ad562b16c9d5f49004559b482d71bcf39"
+    },
+    {
+      "input": "C-views/front-full-body-0450.png",
+      "output": "images/C-front-full-body-0450.png",
+      "sha256": "27adbdd6016550289067891ea52c2ad16cd365534deffd5abd6e22b2b441ad40"
+    },
+    {
+      "input": "C-views/front-full-body-0452.png",
+      "output": "images/C-front-full-body-0452.png",
+      "sha256": "336170063daf0a551686d42a3a38353678de4a1e34d4eb775fb60d0d8e13a18d"
+    },
+    {
+      "input": "C-views/front-full-body-0453.png",
+      "output": "images/C-front-full-body-0453.png",
+      "sha256": "9f2f0d684522176c44580f84ac689d6fce7df14ec9aea00d5cbd245f529fbbee"
+    },
+    {
+      "input": "C-views/front-full-body-0454.png",
+      "output": "images/C-front-full-body-0454.png",
+      "sha256": "6c45ff42cb5c6d52beb6e7cb3208dd1c6d769806cc24a017ff384a9287a3d1b2"
+    },
+    {
+      "input": "C-views/front-full-body-0455.png",
+      "output": "images/C-front-full-body-0455.png",
+      "sha256": "53e7ef18347d3997d7e0cf6e54f6ab2398fe4bc8a05ac75919527d50a83bcc81"
+    },
+    {
+      "input": "C-views/left-hand-hip-0455.png",
+      "output": "images/C-left-hand-hip-0455.png",
+      "sha256": "9716aa63f4c653a17ae9da1bc4face5170362838b73844e79d06160341f2cc93"
+    },
+    {
+      "input": "C-views/right-hand-hip-0455.png",
+      "output": "images/C-right-hand-hip-0455.png",
+      "sha256": "47cb41e5f8d9b741f491a861af3807dde0141ff514756eeb1daeeae688278000"
+    },
+    {
+      "input": "C-views/front-full-body-0456.png",
+      "output": "images/C-front-full-body-0456.png",
+      "sha256": "945189eec739c56a8335bb3509c6614c3bfb1fd0c5d9bebe34400585efd6901a"
+    },
+    {
+      "input": "C-views/front-full-body-0457.png",
+      "output": "images/C-front-full-body-0457.png",
+      "sha256": "2851ddf1ef9458083e441577f222ff70690dd1569068727ab35bf28757a4a20d"
+    },
+    {
+      "input": "C-views/front-full-body-0460.png",
+      "output": "images/C-front-full-body-0460.png",
+      "sha256": "3fd93c7b0e3553fcc4007715d712e698424015a5e0fb4c74d0135ef813b94068"
+    },
+    {
+      "input": "C-views/front-full-body-0464.png",
+      "output": "images/C-front-full-body-0464.png",
+      "sha256": "9fe5c36d17ec41e6423eea17abc35ba5b57ed45c21fe0d2f416f026a9baa65cb"
+    },
+    {
+      "input": "C-views/front-full-body-0465.png",
+      "output": "images/C-front-full-body-0465.png",
+      "sha256": "d3a1ea9a3f98a26f76e5f15e0241b27a599002fdef84af549be3d790e5aec762"
+    },
+    {
+      "input": "C-views/front-full-body-0466.png",
+      "output": "images/C-front-full-body-0466.png",
+      "sha256": "fe5d77daa2becdbf6141a485bced9cda155d5bd80c5a726c5d9656b8ed5ac980"
+    },
+    {
+      "input": "C-views/front-full-body-0467.png",
+      "output": "images/C-front-full-body-0467.png",
+      "sha256": "8934341a039fff5f3e36ffe6028e8c096da920b7c3284e453bc171489f76f122"
+    },
+    {
+      "input": "C-views/front-full-body-0468.png",
+      "output": "images/C-front-full-body-0468.png",
+      "sha256": "629807fba4b8c5d4a826b6fa3e169d2925f3838a0b84887a637884e9e1b1fa36"
+    },
+    {
+      "input": "C-views/front-full-body-0472.png",
+      "output": "images/C-front-full-body-0472.png",
+      "sha256": "d4f8baeb54da04d16680fafb08dca8e13f7fe870f1b073dd6c3473f35c6b34a5"
+    },
+    {
+      "input": "C-views/front-full-body-0476.png",
+      "output": "images/C-front-full-body-0476.png",
+      "sha256": "ef6a6b209bae11c42af88d4546a7a615fc9ee717dd67894dac60b207badbd8df"
+    },
+    {
+      "input": "C-views/front-full-body-0480.png",
+      "output": "images/C-front-full-body-0480.png",
+      "sha256": "c12c3b4c0664e51e5c4fdcbce9c08e9b9b8b8f51825b92cba50ab1ac7e18617e"
+    },
+    {
+      "input": "C-views/front-full-body-0484.png",
+      "output": "images/C-front-full-body-0484.png",
+      "sha256": "dc49534ef19c702aa08bf8fef96153ceca347a7272c2958d190ed9ca5352f5cc"
+    },
+    {
+      "input": "C-views/front-full-body-0488.png",
+      "output": "images/C-front-full-body-0488.png",
+      "sha256": "667adf041f6e444a991ff33fb97563e16372f126bb2045fe5bc72825e7fca03d"
+    },
+    {
+      "input": "C-views/front-full-body-0492.png",
+      "output": "images/C-front-full-body-0492.png",
+      "sha256": "dad5e5edc4a03c25ced92848c355156310568150e5ca575f5924bad2e9c994bf"
+    },
+    {
+      "input": "C-views/front-full-body-0493.png",
+      "output": "images/C-front-full-body-0493.png",
+      "sha256": "dd77ae643eb323f8d4a6f2fecdd3bcdd4bd6522a1ab2a2b28e09bb0da416a786"
+    },
+    {
+      "input": "C-views/front-full-body-0494.png",
+      "output": "images/C-front-full-body-0494.png",
+      "sha256": "60a05bbf28a075d7cd0d31748eda6c67bd79574fbdf5dc7dff06699b85eba284"
+    },
+    {
+      "input": "C-views/front-full-body-0495.png",
+      "output": "images/C-front-full-body-0495.png",
+      "sha256": "721ff0387ccfcd6f6321d8b1e6b0ca4b0f391cc248a29578ad222fd1bdec415b"
+    },
+    {
+      "input": "C-views/front-full-body-0496.png",
+      "output": "images/C-front-full-body-0496.png",
+      "sha256": "560d6275debcc576ff85c34a12a33fb4569533bde5028ac2513352adff309476"
+    },
+    {
+      "input": "C-views/front-full-body-0500.png",
+      "output": "images/C-front-full-body-0500.png",
+      "sha256": "237720971fe6c0587d4b96a0857b513267537fd64c4abb58ee7257f50d758f2d"
+    },
+    {
+      "input": "C-views/front-full-body-0504.png",
+      "output": "images/C-front-full-body-0504.png",
+      "sha256": "cef10065f3077660c143e4613b790ef5aea071f7eb1b0ae833374bd99ce82947"
+    },
+    {
+      "input": "C-views/front-full-body-0508.png",
+      "output": "images/C-front-full-body-0508.png",
+      "sha256": "f749c1c2cf5062d1b70b18963e91a82c3c7bbe7e2ab420384ef7b7c9764b4b79"
+    },
+    {
+      "input": "C-views/front-full-body-0512.png",
+      "output": "images/C-front-full-body-0512.png",
+      "sha256": "3faa47f2fe15890a05de699de2e7d981921f95f82f84576ac4313ea8d56a2702"
+    },
+    {
+      "input": "C-views/front-full-body-0516.png",
+      "output": "images/C-front-full-body-0516.png",
+      "sha256": "f6ad6f467c56c6f1307ebb6bc4c247c3367a79bab90ebf55a6e08cd604511598"
+    },
+    {
+      "input": "C-views/front-full-body-0520.png",
+      "output": "images/C-front-full-body-0520.png",
+      "sha256": "494a6e7a548380893c5221f3ed5b829a89526519e19ad32b0ece798d1bc34b76"
+    },
+    {
+      "input": "C-views/front-full-body-0524.png",
+      "output": "images/C-front-full-body-0524.png",
+      "sha256": "62de42b925036bd643145a833e3cca0e2cf80f0f57498b056652b14266c907af"
+    },
+    {
+      "input": "C-views/front-full-body-0528.png",
+      "output": "images/C-front-full-body-0528.png",
+      "sha256": "326b21ae3a8ee97765b07d5bee442c04d0621d661560ee208225712b07543f62"
+    },
+    {
+      "input": "C-views/front-full-body-0532.png",
+      "output": "images/C-front-full-body-0532.png",
+      "sha256": "894ab5bc78ffda402f3e717abf569b4e07593073af92effcd8b5b52e19d142c3"
+    },
+    {
+      "input": "C-views/front-full-body-0536.png",
+      "output": "images/C-front-full-body-0536.png",
+      "sha256": "4295bbd55731b7ec102e6c7bf05c6349ad859ba0b9be7b66238179c1435e4053"
+    },
+    {
+      "input": "C-views/front-full-body-0540.png",
+      "output": "images/C-front-full-body-0540.png",
+      "sha256": "d47ce180df1b0b6f3356a0ec257e00f9cf8a2e4ad2b638d6ee403097d602ec56"
+    },
+    {
+      "input": "C-views/front-full-body-0544.png",
+      "output": "images/C-front-full-body-0544.png",
+      "sha256": "de5272450ed10efa12f9cc0c4747f7e6ff334e138d271c677549aa29cb7d971a"
+    },
+    {
+      "input": "C-views/front-full-body-0548.png",
+      "output": "images/C-front-full-body-0548.png",
+      "sha256": "472c1763708f6d9f4e08b423c197c5faa8ac804354ad3375028d1085cb4fb969"
+    },
+    {
+      "input": "C-views/front-full-body-0552.png",
+      "output": "images/C-front-full-body-0552.png",
+      "sha256": "e0bee57cf85c421216b4f1d7ab7b8f4899f56483fec080cd287fb7332c549cb2"
+    },
+    {
+      "input": "C-views/front-full-body-0556.png",
+      "output": "images/C-front-full-body-0556.png",
+      "sha256": "c5ae2affd22b048561404d2a55bc9b7fa3bf1ec5d2964609043ab916e6c58fa8"
+    },
+    {
+      "input": "C-views/front-full-body-0560.png",
+      "output": "images/C-front-full-body-0560.png",
+      "sha256": "3248695b5d77489866b53278a452e5c272756e1e731b5d4c61188000421afb3a"
+    },
+    {
+      "input": "C-views/front-full-body-0564.png",
+      "output": "images/C-front-full-body-0564.png",
+      "sha256": "3c68eb9ecaefceab01166718866bc12080bffdb0100b77bece8bdccff1ca0077"
+    },
+    {
+      "input": "C-views/front-full-body-0568.png",
+      "output": "images/C-front-full-body-0568.png",
+      "sha256": "8390585e1456fea98e634c93587c30459f054c88756ee281c75c3a82485c8512"
+    },
+    {
+      "input": "C-views/front-full-body-0572.png",
+      "output": "images/C-front-full-body-0572.png",
+      "sha256": "f7fd36ff8367ab8461b9a4a202ce9888414341bf90361ee5a62ab0bcc45cc44c"
+    },
+    {
+      "input": "C-views/front-full-body-0576.png",
+      "output": "images/C-front-full-body-0576.png",
+      "sha256": "b8d69e18f45241e4dd94c3216a5dd9c526bd15fd41aea9e6dfc010ca8742f9cb"
+    },
+    {
+      "input": "C-views/front-full-body-0580.png",
+      "output": "images/C-front-full-body-0580.png",
+      "sha256": "ffe8da434480cd1cd20965b3a5aea9c3c61d874aa023a0658efb2d6b1d7f8fb9"
+    },
+    {
+      "input": "C-views/front-full-body-0584.png",
+      "output": "images/C-front-full-body-0584.png",
+      "sha256": "ebc9dd71f96f67bd02afa17687602b9ea2421925837b84fb2a326aa0b66401b3"
+    },
+    {
+      "input": "C-views/front-full-body-0588.png",
+      "output": "images/C-front-full-body-0588.png",
+      "sha256": "af00764eb403ac4b8763db96a6c0f86d720d56b00e719031ba2cfd38f1e4acb1"
+    },
+    {
+      "input": "C-views/front-full-body-0590.png",
+      "output": "images/C-front-full-body-0590.png",
+      "sha256": "2a7f083c3c71185f44a2387a8cb44fdfcfd435dc5a05d597baaa345a50cd579a"
+    },
+    {
+      "input": "C-views/front-full-body-0591.png",
+      "output": "images/C-front-full-body-0591.png",
+      "sha256": "125b90552a6a86fd3cc3602fdedfd02fd9fc8ab2d32d55b791413f268d763692"
+    },
+    {
+      "input": "C-views/front-full-body-0592.png",
+      "output": "images/C-front-full-body-0592.png",
+      "sha256": "ff18a5905cd207a4097ecf81d3a66d0dee4f611f0393368bf9c8500ef9ed9b96"
+    },
+    {
+      "input": "C-views/front-full-body-0596.png",
+      "output": "images/C-front-full-body-0596.png",
+      "sha256": "dfc04da2655c81c77146d1f64ce37bf56aaf87073a2658039eecf93a821cb917"
+    },
+    {
+      "input": "C-views/front-full-body-0600.png",
+      "output": "images/C-front-full-body-0600.png",
+      "sha256": "2c54b4985481346d27eef0e66917de4c76fc394cac568c532d0ab44838e97fd4"
+    },
+    {
+      "input": "C-views/front-full-body-0604.png",
+      "output": "images/C-front-full-body-0604.png",
+      "sha256": "32868f4bb107e6b2e55846006580bbd245a93cae6e649b9d52518ad8a9327145"
+    },
+    {
+      "input": "C-views/front-full-body-0608.png",
+      "output": "images/C-front-full-body-0608.png",
+      "sha256": "cfbb80cfe267f0c4bef69e3e0b4f14a94a47d2edcaaea4b8fb5fc924e736037b"
+    },
+    {
+      "input": "C-views/front-full-body-0612.png",
+      "output": "images/C-front-full-body-0612.png",
+      "sha256": "4fe4908eb3196699e4e52db19fdffd0a31bb2676018745ce2e9c69a76c564b0d"
+    },
+    {
+      "input": "C-views/front-full-body-0616.png",
+      "output": "images/C-front-full-body-0616.png",
+      "sha256": "532581df165edbea5c4888c3c8fc5da3ad9fa012ee5677ebc60e71886a19dc3d"
+    },
+    {
+      "input": "C-views/front-full-body-0620.png",
+      "output": "images/C-front-full-body-0620.png",
+      "sha256": "d6a6323001091b0dec744039efa9d6ed02387356faa5a6d11f549ddcc7f6fd62"
+    },
+    {
+      "input": "C-views/front-full-body-0624.png",
+      "output": "images/C-front-full-body-0624.png",
+      "sha256": "5d9b0bb9ecb8692ea88c9457f9c87e2f7cf7ccdb297ce5958d4dde7cb94395c0"
+    },
+    {
+      "input": "C-views/front-full-body-0628.png",
+      "output": "images/C-front-full-body-0628.png",
+      "sha256": "da14c21b7cd889eb14022e42eb5c285f99f5e38125a2a273f4b28a63377443e0"
+    },
+    {
+      "input": "C-views/front-full-body-0629.png",
+      "output": "images/C-front-full-body-0629.png",
+      "sha256": "94d0dd13862a64c0aa4016dfec650825054900f4c94d3a3ae695bf254e748fc4"
+    },
+    {
+      "input": "C-views/front-full-body-0630.png",
+      "output": "images/C-front-full-body-0630.png",
+      "sha256": "350586fced05c37b6cfe2d5c5157b98ff98839ca4ddb00a9ee6b1a808a1f5eb1"
+    },
+    {
+      "input": "C-views/front-full-body-0631.png",
+      "output": "images/C-front-full-body-0631.png",
+      "sha256": "6b1df5d001b746a8f1eb39762214201ca56784927336dde66b9e2347bc73fb22"
+    },
+    {
+      "input": "C-views/front-full-body-0632.png",
+      "output": "images/C-front-full-body-0632.png",
+      "sha256": "86588ef31c433e73e32f0f47ac9b8e1da26b58b5e97e7ba12c920ec7b1f9af32"
+    },
+    {
+      "input": "C-views/front-full-body-0635.png",
+      "output": "images/C-front-full-body-0635.png",
+      "sha256": "ff9441606b031e95d7bef6a99f92c6d6277115bd385255b839c2cb99309a736b"
+    },
+    {
+      "input": "C-views/front-full-body-0636.png",
+      "output": "images/C-front-full-body-0636.png",
+      "sha256": "d10b5cc926d0b06b0a6b658553331044c77c618f83d94adb3b4d1d7ec4682e0a"
+    },
+    {
+      "input": "C-views/front-full-body-0637.png",
+      "output": "images/C-front-full-body-0637.png",
+      "sha256": "60c5ca5f7341a6bdc63d4268eb6cd4a627d61fa3ce818f227ca8aefa1ee74920"
+    },
+    {
+      "input": "C-views/left-hand-hip-0637.png",
+      "output": "images/C-left-hand-hip-0637.png",
+      "sha256": "98dec08466435b0d90f59c405a0a29ee43fb99d6f6d3fa198d0dee1ddbe6bf01"
+    },
+    {
+      "input": "C-views/right-hand-hip-0637.png",
+      "output": "images/C-right-hand-hip-0637.png",
+      "sha256": "ec1018bde2b27cad52565c1686dc646f8461ef73eecf8faecb88f692c40f4310"
+    },
+    {
+      "input": "C-views/front-full-body-0638.png",
+      "output": "images/C-front-full-body-0638.png",
+      "sha256": "245d0230783803ed2040f63a25a949572589bfb5880128bdb0302bd216c04d4e"
+    },
+    {
+      "input": "C-views/front-full-body-0639.png",
+      "output": "images/C-front-full-body-0639.png",
+      "sha256": "ab8ebb6335d2194fb33853ca38f4c1a73cae7e33a2fc408b2483522cb654f108"
+    },
+    {
+      "input": "C-views/front-full-body-0640.png",
+      "output": "images/C-front-full-body-0640.png",
+      "sha256": "90db961c5f33f358e3281d626a8758a92d5f555957075808a085743a71cacad6"
+    },
+    {
+      "input": "C-views/front-full-body-0644.png",
+      "output": "images/C-front-full-body-0644.png",
+      "sha256": "ec4fe6ed94b1ee5e3d8b9e0003319b8ec416ef612b18456177c2e683eb1ed2f1"
+    },
+    {
+      "input": "C-views/front-full-body-0645.png",
+      "output": "images/C-front-full-body-0645.png",
+      "sha256": "625e33a93dd08c031d0b3f96cedb86ec3b9bba378c2e7f95fb55a97a2231e752"
+    },
+    {
+      "input": "C-views/front-full-body-0646.png",
+      "output": "images/C-front-full-body-0646.png",
+      "sha256": "2a715eaff849eeb2f583a1faf353e87f5562e9a9be39d2a0b42998d7b8f11e88"
+    },
+    {
+      "input": "C-views/front-full-body-0647.png",
+      "output": "images/C-front-full-body-0647.png",
+      "sha256": "bd6d2517b19f1ec2ba369333729676c877f3f368dfa52ec12791feb0922b5017"
+    },
+    {
+      "input": "C-views/front-full-body-0648.png",
+      "output": "images/C-front-full-body-0648.png",
+      "sha256": "27413a2c3e238e83aaaacfcca097374947cec9b5e66603bf9fb3cecaba81bb45"
+    },
+    {
+      "input": "C-views/front-full-body-0649.png",
+      "output": "images/C-front-full-body-0649.png",
+      "sha256": "688e19093afdabe15d69946bd92e95371861a6647c06c8775310748c62fd4bfe"
+    },
+    {
+      "input": "C-views/front-full-body-0652.png",
+      "output": "images/C-front-full-body-0652.png",
+      "sha256": "228cd78f1a193586c16e99f08deec9c3b5f9195a04b7184f2f810bab44ab4aea"
+    },
+    {
+      "input": "C-views/front-full-body-0656.png",
+      "output": "images/C-front-full-body-0656.png",
+      "sha256": "28e307705470c0f05c7b6f4715e41a74a828b2782c6b1c8ae07356ed337618f2"
+    },
+    {
+      "input": "C-views/front-full-body-0660.png",
+      "output": "images/C-front-full-body-0660.png",
+      "sha256": "21ae6b81eec07acaa337029592a2700a6d3a5782a800ed1a1f0c4f03f4add61b"
+    },
+    {
+      "input": "C-views/front-full-body-0664.png",
+      "output": "images/C-front-full-body-0664.png",
+      "sha256": "9ee2ad3400568799637431e9f1a813f80cfc8add8be8f4dc044c0fac39f57f13"
+    },
+    {
+      "input": "C-views/front-full-body-0668.png",
+      "output": "images/C-front-full-body-0668.png",
+      "sha256": "98894c59e282de213a1408c079c7c81b5d3b80ff4e819a59cf0df98fe872c0bd"
+    },
+    {
+      "input": "C-views/front-full-body-0672.png",
+      "output": "images/C-front-full-body-0672.png",
+      "sha256": "c08b750cdaade2143ccba395e7832569edcc2c05004f4052ea933143b50f6703"
+    },
+    {
+      "input": "C-views/front-full-body-0676.png",
+      "output": "images/C-front-full-body-0676.png",
+      "sha256": "380aeb0f3768b37ce8f6953fee0c8680661241f93e7b83ed78d26ae20ccba0c9"
+    },
+    {
+      "input": "C-views/front-full-body-0680.png",
+      "output": "images/C-front-full-body-0680.png",
+      "sha256": "357932a471c629414633c443538e84ed1284e1d3190b85e78f238bf50da29c49"
+    },
+    {
+      "input": "C-views/front-full-body-0682.png",
+      "output": "images/C-front-full-body-0682.png",
+      "sha256": "f0ff1de53966b5b59d7d5a0f85fdc15c300d4345120b7517d561e687adf1d6ed"
+    },
+    {
+      "input": "C-views/front-full-body-0683.png",
+      "output": "images/C-front-full-body-0683.png",
+      "sha256": "7ddaf686a5ad5cb0fce53433964785b66085ba0b4033e4b7a2485e837d1ee539"
+    },
+    {
+      "input": "C-views/front-full-body-0684.png",
+      "output": "images/C-front-full-body-0684.png",
+      "sha256": "cc33d3e4e66003ea9a98eef3ec49725e104c9966f1787265a6754e1d7fe87ef8"
+    },
+    {
+      "input": "C-views/front-full-body-0688.png",
+      "output": "images/C-front-full-body-0688.png",
+      "sha256": "27c25ed2f2d6af5ed4c8f9c0f8c5c4f59346b3f800efc571c382a4f506b90018"
+    },
+    {
+      "input": "C-views/front-full-body-0692.png",
+      "output": "images/C-front-full-body-0692.png",
+      "sha256": "808b29c43d2c154bba4fa63b0c06c7e175955ce01d5941bfbac5780ff3c3c7fd"
+    },
+    {
+      "input": "C-views/front-full-body-0696.png",
+      "output": "images/C-front-full-body-0696.png",
+      "sha256": "eb06c476d5a91b74ac2613297cec9052c92e2b532cbb9ee5cc2208ad118375dd"
+    },
+    {
+      "input": "C-views/front-full-body-0700.png",
+      "output": "images/C-front-full-body-0700.png",
+      "sha256": "398359c3c9c38c4000984d28b409a65de50a5624d98da1288dea6ba82ed89595"
+    },
+    {
+      "input": "C-views/front-full-body-0704.png",
+      "output": "images/C-front-full-body-0704.png",
+      "sha256": "bc1fed16441f9a74ff48966b6c312f88e35209831cee8b88f1e0d4a2dbd9e41f"
+    },
+    {
+      "input": "C-views/front-full-body-0708.png",
+      "output": "images/C-front-full-body-0708.png",
+      "sha256": "e8017df1419f3e233f09a498d004039e671810c747f45ba0b13648bd8d4a96da"
+    },
+    {
+      "input": "C-views/front-full-body-0712.png",
+      "output": "images/C-front-full-body-0712.png",
+      "sha256": "2d3d30f02f81effe25cc1bd50706d2afb5df5df86bcede74a4497bd309ae6346"
+    },
+    {
+      "input": "C-views/front-full-body-0716.png",
+      "output": "images/C-front-full-body-0716.png",
+      "sha256": "25a4851bbaec399185acd77cda33c449dcd5ca075f53af4586fa269ea10252c5"
+    },
+    {
+      "input": "C-views/front-full-body-0720.png",
+      "output": "images/C-front-full-body-0720.png",
+      "sha256": "09bd80842ed9eb94d9ee98cdaf862e43d11ce8d6fd8cb725251d6bb116b2d41f"
+    }
+  ],
+  "timing": "Intervals are differences between actual native steps divided by 60; irregular extra images are not treated as uniform 15 fps. Buffering pauses all three views together.",
+  "qualification": "Source/image/record verification only; no browser or visual acceptance performed by this generator."
+}

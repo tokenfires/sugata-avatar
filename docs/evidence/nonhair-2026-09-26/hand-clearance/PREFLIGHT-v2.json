@@ -1,0 +1,45 @@
+{
+  "status": "CPU successor preflight passed; native v2 pending at handoff",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v2.json",
+    "sha256": "9c88f743d37edff0d0bba7bc56c9dc8d0e5c3c48e2a10b3540566c339c8cd662"
+  },
+  "preflight": {
+    "path": "captures/hand-attribution-2026-09-26/preflight-v2/report.json",
+    "sha256": "3bb86353269fe06e286f355a3a0406b77e6ca22c41044788bbf883071b5fbf0e",
+    "completed": true,
+    "preflightOnly": true
+  },
+  "predecessor": {
+    "manifest": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v1.json",
+    "sha256": "0d6de947df09e6c516b5a89a7d0b9a677e486c2990c7622d2b7d24b5cdad9aa5",
+    "nativeReport": "captures/hand-attribution-2026-09-26/primary-v1/report.json",
+    "nativeReportSHA256": "98e1a1c7475a266f4ca6f59bc186da3a7d41c38de628d78358953d416e36715b",
+    "status": "Stopped before capture: native re-dress left channelsDirty true; clean native teardown."
+  },
+  "changedPinnedSources": [
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-runtime.mjs",
+      "before": "64988641b21faf1e841644eb696740ad480ba10fd8d4ae23c57184cffa61e71f",
+      "after": "86f9c9c75d10bf63415339c96fc5ff3ee9fc3d41a09115ec1add611ce66b2356",
+      "predecessorArchive": "captures/hand-attribution-2026-09-26/primary-v1/source/docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-runtime.mjs",
+      "predecessorArchiveSHA256": "64988641b21faf1e841644eb696740ad480ba10fd8d4ae23c57184cffa61e71f"
+    }
+  ],
+  "sourceFiles": 1556,
+  "perArm": {
+    "nativeUpdates": 720,
+    "ownerStateSamples": 721,
+    "geometrySamples": 109,
+    "visualImageTimes": 244,
+    "extraClosePlates": 6
+  },
+  "checks": [
+    "Runtime syntax passed",
+    "Fresh CPU preflight passed; no server/browser started",
+    "Only runtime pinned source differs; old archive bytes match v1 manifest"
+  ],
+  "initialization": "Require original native rebuildChannels; call once iff dirty before adapter install. Preserve existing channel/bone/owner identities, rest/live transforms, body/worn morphs, raw contributions/declarations/PRNG and clocks. Record allowed presence/retirement/new-channel metadata; no claim of a complete no-op.",
+  "protocol": "Protocol/schema version and study ID remain v1; this is the second input manifest revision, distinguished by exact file/hash. Sampling, adapter and all other pinned bytes are unchanged.",
+  "primaryCommand": "node docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v2.json captures/hand-attribution-2026-09-26/primary-v2 --primary-only"
+}

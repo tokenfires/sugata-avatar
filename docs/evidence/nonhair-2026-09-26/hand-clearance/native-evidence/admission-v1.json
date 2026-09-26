@@ -1,0 +1,18 @@
+{
+  "instance": true,
+  "targetPresent": true,
+  "targetEqual": true,
+  "updateEqual": true,
+  "accumulateEqual": true,
+  "channelsDirty": true,
+  "evaluatingLayer": null,
+  "postureInstance": true,
+  "gestureInstance": true,
+  "constructorName": "MotionStack",
+  "prototypeUpdate": "update( deltaSeconds ) {\n\n        if ( this.target === null ) {\n\n            throw new Error( 'MotionStack.update() called before bind(). Bind a motion target first.' );\n\n        }",
+  "modules": [
+    "http://127.0.0.1:5369/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/Gesture.js",
+    "http://127.0.0.1:5369/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js",
+    "http://127.0.0.1:5369/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/affect/PostureLayer.js"
+  ]
+}

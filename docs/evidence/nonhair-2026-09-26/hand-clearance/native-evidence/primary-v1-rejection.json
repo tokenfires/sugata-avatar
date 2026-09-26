@@ -1,0 +1,39 @@
+{
+  "recordedUtc": "2026-09-26T18:15:47.149535+00:00",
+  "run": "primary-v1",
+  "accepted": false,
+  "snapshots": 0,
+  "cause": "Native channelsDirty=true after foundation preparation; all other separately probed admission predicates passed.",
+  "reportSHA256": "98e1a1c7475a266f4ca6f59bc186da3a7d41c38de628d78358953d416e36715b",
+  "compressedReportSHA256": "39115d7a82cf96a7a682c308a8f5dfca857e094f3981204c022422319a30c8ca",
+  "admissionProbeSHA256": "47a30e0550cb5b25c7726e7948de07cf2679879e2b9936f862d6e77adf7470dc",
+  "runtimeSHA256": "64988641b21faf1e841644eb696740ad480ba10fd8d4ae23c57184cffa61e71f",
+  "disposal": {
+    "instrument": null,
+    "disposed": true,
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    },
+    "leaks": []
+  },
+  "originalSourceArchive": "captures/hand-attribution-2026-09-26/primary-v1/source",
+  "next": "Critic-approved native pending-channel rebuild before installing adapter, without simulation/reset/rebind; exact A reproduction still required."
+}

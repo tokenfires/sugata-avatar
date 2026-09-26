@@ -1,0 +1,43 @@
+{
+  "status": "CPU preflight passed; native v3 pending",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v3.json",
+    "sha256": "68d02b58a19bf5ee85dfe30dda50e0f2e96ddac7d538c1f68681496f26de2d63"
+  },
+  "preflight": {
+    "path": "captures/hand-attribution-2026-09-26/preflight-v3/report.json",
+    "sha256": "0327ef6e379075ec5abdfc8840d07dac879e7e2169083e82a1eeb55faace6136",
+    "completed": true,
+    "preflightOnly": true
+  },
+  "changedPinnedSources": [
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest.mjs",
+      "before": "31197fcbfbf63c921eb5aeda094c0027818156439bd6548cf94437c3e40208ab",
+      "after": "80b6090b9abf3ee0180252321002c4ec744ed382ba4d4da3dcbdae641ced398a",
+      "predecessorArchive": "captures/hand-attribution-2026-09-26/primary-v2/source/docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest.mjs",
+      "predecessorArchiveSHA256": "31197fcbfbf63c921eb5aeda094c0027818156439bd6548cf94437c3e40208ab"
+    }
+  ],
+  "sourceFiles": 1556,
+  "perArm": {
+    "nativeUpdates": 720,
+    "ownerStateSamples": 721,
+    "geometrySamples": 109,
+    "visualImageTimes": 244,
+    "extraClosePlates": 6
+  },
+  "correction": "The six-response expected asset list now requires actual dressed native loader URL assets/wardrobe/body/g050.glb. CPU figure source and all assets/runtime/adapter/capture code remain unchanged. Parent separately proved body POSITION/JOINTS_0/WEIGHTS_0/indices/joint equivalence.",
+  "equivalenceReceipt": {
+    "path": "docs/evidence/nonhair-2026-09-26/hand-clearance/native-evidence/body-source-equivalence.json",
+    "sha256": "532a1ec174c326246cfba9684009b1a986d058c3bf33434611a5737383e9f48d"
+  },
+  "predecessor": {
+    "manifest": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v2.json",
+    "sha256": "9c88f743d37edff0d0bba7bc56c9dc8d0e5c3c48e2a10b3540566c339c8cd662",
+    "report": "captures/hand-attribution-2026-09-26/primary-v2/report.json",
+    "reportSHA256": "f26d7edf8786a1a95540a53228d78a0cd1dabe3bd5590930af405fc7bfcdf471",
+    "status": "Initialization and clean disposal passed; stopped before geometry on the wrong expected body response URL."
+  },
+  "primaryCommand": "node docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-manifest-v3.json captures/hand-attribution-2026-09-26/primary-v3 --primary-only"
+}

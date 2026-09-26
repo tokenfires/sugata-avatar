@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "run": "primary-v2",
+  "snapshots": 0,
+  "cause": "Harness expected standalone figure URL; dressed native Avatar correctly loaded the manifest-pinned wardrobe body URL.",
+  "reportSHA256": "f26d7edf8786a1a95540a53228d78a0cd1dabe3bd5590930af405fc7bfcdf471",
+  "compressedReportSHA256": "26cee26e75415e2b71334b9b4fbc7594b9213c68bdac0c0f854a9dcf87379a51",
+  "captureSourceSHA256": "8db1b42ae711a3fc23f0c6c48c0b54ec1a4115841a0a19a1a3bd26401dfe8692",
+  "channelPreparation": {
+    "calls": 1,
+    "preservedState": true,
+    "preservedExistingIdentities": true,
+    "addedMorphChannels": [],
+    "addedBoneChannels": []
+  },
+  "nativeInstrumentCompletedFrames": 1,
+  "cleanDisposal": true,
+  "nativeBodyResponse": {
+    "file": "assets/wardrobe/body/g050.glb",
+    "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "bytes": 11916776
+  },
+  "sourceEquivalenceReceiptSHA256": "532a1ec174c326246cfba9684009b1a986d058c3bf33434611a5737383e9f48d",
+  "next": "Correct only required body response path; retain exact A geometry and physical gates."
+}

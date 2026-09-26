@@ -1,0 +1,123 @@
+{
+  "reviewer": "/root/critic",
+  "primaryReportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+  "manifestSHA256": "fc0e017fba7da12f6c511b53e705b2441b440fa8cb8731bd65f36a839514793d",
+  "analysisSHA256": "9b9165191a3a16bf553f44f51207d471840864616a3bb390c2cd77f3f88d5c26",
+  "currentSourceBindings": 1558,
+  "analysisSourceBindings": 6,
+  "compressedAndDecodedGeometryBindings": 327,
+  "stateRecordsBound": 2163,
+  "exactRetainedAResultSteps": [
+    0,
+    637,
+    720
+  ],
+  "negativeRejectionLogsBound": 3,
+  "witnesses": [
+    {
+      "arm": "B",
+      "step": 637,
+      "side": "l",
+      "target": "trousers",
+      "handFace": 16800,
+      "targetFace": 2713,
+      "exactlyMappedToHashedDrawnSnapshotTriangles": true,
+      "handEdgeHits": [
+        {
+          "edge": 1,
+          "t": "2203616353355091099/3296586023499892373",
+          "targetBarycentric": [
+            "1882913339452661453/3296586023499892373",
+            "110944681876519780/3296586023499892373",
+            "1302728002170711140/3296586023499892373"
+          ],
+          "pointRational": [
+            "32397105093362453357446753/221230143115355081274294272",
+            "4598247683401222364671733/6913441972354846289821696",
+            "35819323773462292933047989/442460286230710162548588544"
+          ],
+          "point": [
+            0.14644073649796344,
+            0.6651169854015531,
+            0.08095488993736531
+          ]
+        },
+        {
+          "edge": 2,
+          "t": "156138524306400182/809383997362817999",
+          "targetBarycentric": [
+            "455236702795700715/809383997362817999",
+            "30729163746596220/809383997362817999",
+            "323418130820521064/809383997362817999"
+          ],
+          "pointRational": [
+            "7956481229477110140005415/54316840602797711751643136",
+            "1129889471806237060123061/1697401268837428492238848",
+            "8784356758314597200610027/108633681205595423503286272"
+          ],
+          "point": [
+            0.1464827692696709,
+            0.6656584347790152,
+            0.08086218436885796
+          ]
+        }
+      ],
+      "clothEdgeHits": [],
+      "intersectionSegmentLengthMetres": 0.0005509342108490153,
+      "limit": "Exact arithmetic on stored floating coordinates; segment length is not penetration depth or severity."
+    },
+    {
+      "arm": "C",
+      "step": 455,
+      "side": "l",
+      "target": "trousers",
+      "handFace": 16438,
+      "targetFace": 2701,
+      "exactlyMappedToHashedDrawnSnapshotTriangles": true,
+      "handEdgeHits": [
+        {
+          "edge": 0,
+          "t": "443769518195937147/1307607065746843547",
+          "targetBarycentric": [
+            "105715578670245608/1307607065746843547",
+            "911116823150435326/1307607065746843547",
+            "290774663926162613/1307607065746843547"
+          ],
+          "pointRational": [
+            "2737969223781182256081339/21938006185160995506225152",
+            "15480828847299265075916483/21938006185160995506225152",
+            "2759600104210284781044437/25072007068755423435685888"
+          ],
+          "point": [
+            0.12480483416187392,
+            0.7056625254199533,
+            0.11006698014413377
+          ]
+        },
+        {
+          "edge": 2,
+          "t": "49636397104558919/72992687535924032",
+          "targetBarycentric": [
+            "4462866719589845/72992687535924032",
+            "52840181712884491/72992687535924032",
+            "490301221982803/2281021485497626"
+          ],
+          "pointRational": [
+            "1215843381813465373601781/9796912681685641955639296",
+            "431635200798201115151095/612307042605352622227456",
+            "271309412503090365337241/2449228170421410488909824"
+          ],
+          "point": [
+            0.12410474823220219,
+            0.7049326085840906,
+            0.11077343294496293
+          ]
+        }
+      ],
+      "clothEdgeHits": [],
+      "intersectionSegmentLengthMetres": 0.0012336832883684582,
+      "limit": "Exact arithmetic on stored floating coordinates; segment length is not penetration depth or severity."
+    }
+  ],
+  "scope": "Independent hashes/metadata/time/mapping and two rational transverse witnesses. Counts are read from the reviewed operator result; no duplicate full count or owner analysis. Native rendered review remains separate."
+}

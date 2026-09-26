@@ -1,0 +1,13 @@
+{
+  "accepted": false,
+  "run": "primary-v3",
+  "completedArms": 0,
+  "partialGeometrySamples": 94,
+  "lastSavedGeometryStep": 636,
+  "failure": "AssertionError [ERR_ASSERTION]: A retained physical mismatch at636\n+ actual - expected\n... Skipped lines\n\n  {\n    camera: [\n      0.9063077870366499,\n      -8.673617379884035e-19,\n      -0.42261826174069955,\n...\n      0.4223569824796659,\n+     -0,\n-     0,\n      -6.938893903907228e-18,\n      0.9993817605988973,\n      0.035158165228700654,\n      0,\n      -0.4226182617406996,\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-capture.mjs:120:141",
+  "reportSHA256": "ac31942fbfc85ad010c2727d88e49aaf19fd0cfd428f823aa72a65f4be26c721",
+  "compressedReportSHA256": "983e381cfc1ad47b6ebd24f65a56b35eb209f219fcd3528a16ffd4016a8d5ee0",
+  "captureSourceSHA256": "8db1b42ae711a3fc23f0c6c48c0b54ec1a4115841a0a19a1a3bd26401dfe8692",
+  "cleanDisposal": true,
+  "next": "Canonicalize numeric signed zero only when comparing against JSON-retained data. Preserve all other values/structure and byte hashes. No tolerance change. No partial attribution conclusion."
+}

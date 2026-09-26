@@ -1,0 +1,7 @@
+# Actual clothed body source
+
+The native dressed Avatar chooses `wardrobeAssets.bodyUrl` in `Avatar.js:3017`, so this study loads `assets/wardrobe/body/g050.glb` (SHA-256 `fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a`). The earlier CPU witness and adapter fixture use `assets/figures/figure_g050.glb` (`b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14`). These are different asset bytes.
+
+Root directly decoded both GLBs and compared the `base.001` POSITION, JOINTS_0 and WEIGHTS_0 arrays, full indices, and the named skin-joint local transform/child-name records. All of those checked values are exactly equal; [body-source-equivalence.json](body-source-equivalence.json) binds the files and checked fields. This supports the original source-derived hand membership and topology. It does not claim complete GLB, other meshes, inverse-bind matrices, morph targets, materials, global root transforms or rendered pixels are identical.
+
+The native response itself is hash-bound in each capture. New postprocessing uses the actual wardrobe-body source directly, then requires A to reproduce the original count/witness records at the three retained poses. Native A's full posed geometry and physical checks remain separate gates. The v2 failed expectation named the wrong response URL; the runtime correctly loaded its ordinary clothed body, and no asset was repaired or substituted.

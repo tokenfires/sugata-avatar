@@ -1,0 +1,176 @@
+{
+  "reviewer": "/root/critic",
+  "reportSHA256": "5fc7296aae2c6f657fb1fac6b4c4830d87f0ce527ce5c06bbf17ee90a4a5e82b",
+  "sealSHA256": "a3b1a924f062c17cbf8e1d92c087374bdb5d2858802093e723224c70e25060ab",
+  "manifestSHA256": "fc0e017fba7da12f6c511b53e705b2441b440fa8cb8731bd65f36a839514793d",
+  "primaryReportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+  "ownerAnalysisSHA256": "3970278d28b4ae0cba1807bad52915a321c998c0bebc9da19bc64f7f57b56e2b",
+  "ownerReceiptSHA256": "931b8c62baac8bc05516db2f5f5c59ce1f08927f7d8256ca12837de6acf9083e",
+  "hashedNativePNGs": 750,
+  "boundSameArmParityReceipts": 327,
+  "directlyInspectedUneditedPNGs": [
+    {
+      "file": "A-views/front-full-body-0000.png",
+      "sha256": "1ba1b0ff786826fc4ed34c4f2facb0240aa78194ec6c6d3dc430f889ebf46c51",
+      "step": 0,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/left-hand-hip-0000.png",
+      "sha256": "282babfd50710a4b4b6c22d16b28e5fa6c49ac5ab6360c0b5faa1bdb5f259194",
+      "step": 0,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/right-hand-hip-0000.png",
+      "sha256": "35f1cbe45b0d0dd3e98c373fac93e0bb8ef8a6880f8432706a67ab06c3df8b26",
+      "step": 0,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/front-full-body-0455.png",
+      "sha256": "09c7096c38a76bcbb772cd1350a50c36b3058e77db63c95ef2b4efe74717d82b",
+      "step": 455,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/left-hand-hip-0455.png",
+      "sha256": "2214b641a81ca851fb73d050ee11ccd1c16eb6e0fd612386b23683a8ccee6823",
+      "step": 455,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/front-full-body-0637.png",
+      "sha256": "51cf645f877d84617bfc0d3d6fa3d40c066e9ff47392511a76c72ba37b312d9e",
+      "step": 637,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/left-hand-hip-0637.png",
+      "sha256": "8b7caf3d2f323ba7a2ad8141a8846d8eef7496ea9e168eed0c451d06ef7e6f75",
+      "step": 637,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/right-hand-hip-0637.png",
+      "sha256": "9d7d71885faf9ec455dd845c6515109bc3cece655e6c36f441b79620df487ad5",
+      "step": 637,
+      "arm": "A"
+    },
+    {
+      "file": "A-views/front-full-body-0720.png",
+      "sha256": "ecb79dabee729bb1fd8963b1440ad215ada793527b63e44c3802e458d51daca1",
+      "step": 720,
+      "arm": "A"
+    },
+    {
+      "file": "B-views/front-full-body-0000.png",
+      "sha256": "dcc9c46d79a7f1f1155a629f83a16e656a67375b1bce55532d87da49e1b25822",
+      "step": 0,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/left-hand-hip-0000.png",
+      "sha256": "282babfd50710a4b4b6c22d16b28e5fa6c49ac5ab6360c0b5faa1bdb5f259194",
+      "step": 0,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/right-hand-hip-0000.png",
+      "sha256": "35f1cbe45b0d0dd3e98c373fac93e0bb8ef8a6880f8432706a67ab06c3df8b26",
+      "step": 0,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/front-full-body-0455.png",
+      "sha256": "09c7096c38a76bcbb772cd1350a50c36b3058e77db63c95ef2b4efe74717d82b",
+      "step": 455,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/left-hand-hip-0455.png",
+      "sha256": "cf4544db6c870f22d9daed3cdf0afb2521e891566b911720a9e1e861b23e3f75",
+      "step": 455,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/front-full-body-0637.png",
+      "sha256": "b5d70c3ff82cf1948779b660eea17e057b59a7416299d8eccaf19f303fe6174a",
+      "step": 637,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/left-hand-hip-0637.png",
+      "sha256": "635c4a58e2f9a7d674e8e83bae67a340c53d5822bc681846daaaef40820b04b0",
+      "step": 637,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/right-hand-hip-0637.png",
+      "sha256": "27f85f1d6cd7dc8fcbd9059b1c98180418fa45ad22bed3e7e447fbcc890a3a3b",
+      "step": 637,
+      "arm": "B"
+    },
+    {
+      "file": "B-views/front-full-body-0720.png",
+      "sha256": "d7412815efc456e842a05e3cf3a7c7c278531f385c9106fef2436ed36961a3e9",
+      "step": 720,
+      "arm": "B"
+    },
+    {
+      "file": "C-views/front-full-body-0000.png",
+      "sha256": "dcc9c46d79a7f1f1155a629f83a16e656a67375b1bce55532d87da49e1b25822",
+      "step": 0,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/left-hand-hip-0000.png",
+      "sha256": "282babfd50710a4b4b6c22d16b28e5fa6c49ac5ab6360c0b5faa1bdb5f259194",
+      "step": 0,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/right-hand-hip-0000.png",
+      "sha256": "35f1cbe45b0d0dd3e98c373fac93e0bb8ef8a6880f8432706a67ab06c3df8b26",
+      "step": 0,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/front-full-body-0455.png",
+      "sha256": "53e7ef18347d3997d7e0cf6e54f6ab2398fe4bc8a05ac75919527d50a83bcc81",
+      "step": 455,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/left-hand-hip-0455.png",
+      "sha256": "9716aa63f4c653a17ae9da1bc4face5170362838b73844e79d06160341f2cc93",
+      "step": 455,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/front-full-body-0637.png",
+      "sha256": "60c5ca5f7341a6bdc63d4268eb6cd4a627d61fa3ce818f227ca8aefa1ee74920",
+      "step": 637,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/left-hand-hip-0637.png",
+      "sha256": "98dec08466435b0d90f59c405a0a29ee43fb99d6f6d3fa198d0dee1ddbe6bf01",
+      "step": 637,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/right-hand-hip-0637.png",
+      "sha256": "ec1018bde2b27cad52565c1686dc646f8461ef73eecf8faecb88f692c40f4310",
+      "step": 637,
+      "arm": "C"
+    },
+    {
+      "file": "C-views/front-full-body-0720.png",
+      "sha256": "09bd80842ed9eb94d9ee98cdaf862e43d11ce8d6fd8cb725251d6bb116b2d41f",
+      "step": 720,
+      "arm": "C"
+    }
+  ],
+  "scope": "All PNG hashes verified; 27 native stills directly viewed. Parity receipts matched their sealed primary archive bindings. Full owner audit interpreted from its bound receipt/source, not rerun. No continuous playback, pixel-equality claim, hair acceptance or production correction qualification."
+}
