@@ -1,0 +1,36 @@
+{
+  "completed": false,
+  "attemptedArms": 1,
+  "completeArms": 0,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 2.04\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/skin-attribution/capture-micro.mjs:165:10",
+  "stableSources": true,
+  "errors": [],
+  "retained": [
+    {
+      "original": "captures/skin-micro-attribution-2026-09-26/native-v1/report.json",
+      "copy": "docs/evidence/nonhair-2026-09-26/skin-attribution/rejected-native-v1/report.json",
+      "sha256": "be53d2171da16a709f17c8f9e45df40ef3ab6c22633212e2001dff6775c93f10"
+    },
+    {
+      "original": "captures/skin-micro-attribution-2026-09-26/native-v1/manifest.json",
+      "copy": "docs/evidence/nonhair-2026-09-26/skin-attribution/rejected-native-v1/manifest.json",
+      "sha256": "d69fc5918ed8fe0668693f29d39e313143b125b0096b4d75771351c501a9aba0"
+    },
+    {
+      "original": "captures/skin-micro-attribution-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/skin-attribution/capture-micro.mjs",
+      "copy": "docs/evidence/nonhair-2026-09-26/skin-attribution/rejected-native-v1/capture-micro.mjs",
+      "sha256": "846d77b13c2496a03daeabe63d5403ea1a81e87779ca8f48632c7d6ad490c66f"
+    },
+    {
+      "original": "captures/skin-micro-attribution-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.mjs",
+      "copy": "docs/evidence/nonhair-2026-09-26/skin-attribution/rejected-native-v1/micro-capture-runtime.mjs",
+      "sha256": "f3cb711a99fe1c15502e3b275d67f706d17206203064d5df825cfaa564a28cb0"
+    },
+    {
+      "original": "captures/skin-micro-attribution-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.selftest.mjs",
+      "copy": "docs/evidence/nonhair-2026-09-26/skin-attribution/rejected-native-v1/micro-capture-runtime.selftest.mjs",
+      "sha256": "83c1074f7b5bf64be4f0c23fc02ac6a237e07916d8b7f92097098eb867284dc2"
+    }
+  ],
+  "fixtureSHA256": "938a3dd4097e756547015893e48e3ddf42522b451712c70f953e4390e9e91a2a"
+}

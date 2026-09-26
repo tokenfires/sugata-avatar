@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "kind": "lossless-skin-attribution-native-v2-package",
+  "rawDirectory": "/Users/robault/GitHub/sugata-avatar/captures/skin-micro-attribution-2026-09-26/native-v2",
+  "reportSHA256": "a6fd3b54201a93be6546ec78a4e7dd8665be0dfa613fd64e8e6bd4418871b872",
+  "manifestSHA256": "55816a1a111e6a6d9baad3b632d5d7c33bb93692eae2f3541574d8097e1d909e",
+  "completedArms": 3,
+  "exactDefaultReturn": true,
+  "exactNativeStateAcrossArms": {
+    "file": "states/088fa095afb47a9e4d7342a6ee56113ff1e8286f9f2ea0a3a66533e254da5384.json.gz",
+    "sha256": "81f742c0ff6d02c986451c883df96a6c4a8781e7893253fa61ae7b7b3c1d1c82",
+    "decodedSHA256": "088fa095afb47a9e4d7342a6ee56113ff1e8286f9f2ea0a3a66533e254da5384"
+  },
+  "sourceVerification": {
+    "manifestEntries": 1586,
+    "retainedNonAssetSourcesVerified": 1486,
+    "actualResponseRecords": 438,
+    "uniqueServedBodiesVerified": 146,
+    "completeSourceArchive": "Retained at rawDirectory/source; only essential experimental sources copied here. No source/served/archive files removed."
+  },
+  "copies": [
+    {
+      "file": "report.json",
+      "bytes": 1011875,
+      "sha256": "a6fd3b54201a93be6546ec78a4e7dd8665be0dfa613fd64e8e6bd4418871b872"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 207798,
+      "sha256": "55816a1a111e6a6d9baad3b632d5d7c33bb93692eae2f3541574d8097e1d909e"
+    },
+    {
+      "file": "seal.json",
+      "bytes": 478,
+      "sha256": "e4a066e9d0cb82dc42902c87102c1cac55798187a850326d7027572b76d239fc"
+    },
+    {
+      "file": "default-a.png",
+      "bytes": 795955,
+      "sha256": "a215c2ff86d583a437af2b2bc8c824c8d74862664bbcd313f0877d8839718b7d"
+    },
+    {
+      "file": "micro-off.png",
+      "bytes": 794363,
+      "sha256": "e293423dfff9669f74635b89f4e04dc47229313fb5638769da623104efe7d7aa"
+    },
+    {
+      "file": "default-a2.png",
+      "bytes": 795955,
+      "sha256": "a215c2ff86d583a437af2b2bc8c824c8d74862664bbcd313f0877d8839718b7d"
+    },
+    {
+      "file": "states/088fa095afb47a9e4d7342a6ee56113ff1e8286f9f2ea0a3a66533e254da5384.json.gz",
+      "bytes": 1476744,
+      "sha256": "81f742c0ff6d02c986451c883df96a6c4a8781e7893253fa61ae7b7b3c1d1c82"
+    },
+    {
+      "file": "source/docs/evidence/nonhair-2026-09-26/skin-attribution/capture-micro.mjs",
+      "bytes": 25826,
+      "sha256": "ac80acd9db724213bf2caf093e6da5202872202d3cf8154e387191beb73f51b4"
+    },
+    {
+      "file": "source/docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.mjs",
+      "bytes": 8501,
+      "sha256": "5123724755f3aa4770b5e7aaaa198686b8dd851fa43e43913bd06301fe9a7903"
+    },
+    {
+      "file": "source/docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.selftest.mjs",
+      "bytes": 5829,
+      "sha256": "76bdf19b4076d5ae6fcc2d7095b145bcf3371dbcb06fe7695dc7ad153f284360"
+    },
+    {
+      "file": "source/docs/evidence/nonhair-2026-09-26/skin-attribution/rejected-native-v1/exposure-owner-fixture.json",
+      "bytes": 6569,
+      "sha256": "938a3dd4097e756547015893e48e3ddf42522b451712c70f953e4390e9e91a2a"
+    }
+  ],
+  "imageDifferencesSHA256": "d46d07aab88eea1d7ae86f9146b30a213b15ba0d23e03a353b221b5d7c927a87",
+  "packagingSourceSHA256": "0b42b6c035279a69941e5e8fa3252c02bbbe75129048554eee17653beb93ccc6",
+  "pngDecoderSHA256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a",
+  "warnings": [
+    {
+      "label": "default-a",
+      "message": "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs."
+    },
+    {
+      "label": "default-a",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces."
+    },
+    {
+      "label": "default-a",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces."
+    },
+    {
+      "label": "default-a",
+      "message": "Compilation log for [ShaderModule \"compute_surface adaptive contact ring-major queries\"]:\n\n2 warning(s) generated while compiling the shader:\n:825:7 warning: code is unreachable\n            break;\n            ^^^^^\n\n:1062:7 warning: code is unreachable\n            break;\n            ^^^^^\n"
+    },
+    {
+      "label": "micro-off",
+      "message": "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs."
+    },
+    {
+      "label": "micro-off",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces."
+    },
+    {
+      "label": "micro-off",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces."
+    },
+    {
+      "label": "micro-off",
+      "message": "Compilation log for [ShaderModule \"compute_surface adaptive contact ring-major queries\"]:\n\n2 warning(s) generated while compiling the shader:\n:825:7 warning: code is unreachable\n            break;\n            ^^^^^\n\n:1062:7 warning: code is unreachable\n            break;\n            ^^^^^\n"
+    },
+    {
+      "label": "default-a2",
+      "message": "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs."
+    },
+    {
+      "label": "default-a2",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces."
+    },
+    {
+      "label": "default-a2",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces."
+    },
+    {
+      "label": "default-a2",
+      "message": "Compilation log for [ShaderModule \"compute_surface adaptive contact ring-major queries\"]:\n\n2 warning(s) generated while compiling the shader:\n:825:7 warning: code is unreachable\n            break;\n            ^^^^^\n\n:1062:7 warning: code is unreachable\n            break;\n            ^^^^^\n"
+    }
+  ],
+  "errors": [],
+  "rejectedFirstRun": {
+    "path": "../rejected-native-v1/receipt.json",
+    "sha256": "3836342e1369ba23d4eceb335b49353349be558cbca57154012dfe4d3fdf6882"
+  },
+  "scope": "One fixed native Kitchen body-view attribution with shared diagnostic clock/history. Does not establish global skin quality, face calibration, another scene/resolution/motion or production cadence."
+}

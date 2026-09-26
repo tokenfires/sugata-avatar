@@ -33,7 +33,7 @@
         .section-heading p { margin:0; color:var(--muted); font-size:13px; }
         .grid { display:grid; gap:18px; }
         .live { grid-template-columns:repeat(2,minmax(0,1fr)); }
-        .comparisons { grid-template-columns:repeat(3,minmax(0,1fr)); }
+        .comparisons { grid-template-columns:repeat(2,minmax(0,1fr)); }
         .card { display:flex; flex-direction:column; min-width:0; padding:28px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
         .card.current { border-top:3px solid var(--accent); }
         .status { align-self:flex-start; margin:0 0 20px; font-size:11px; line-height:1.4; letter-spacing:.09em; text-transform:uppercase; color:var(--accent); }
@@ -128,6 +128,13 @@
                 <p class="limit">The wider arms also change the closed posture. Broader motion and outfit checks remain open; the live default is unchanged.</p>
                 <a class="link" href="hand-candidate/review.html">Compare hand placement <span class="arrow" aria-hidden="true">→</span></a>
                 <p class="limit"><a href="hand-clearance/review.html">Earlier motion diagnosis</a></p>
+            </article>
+            <article class="card experimental">
+                <p class="status">Isolated diagnostic</p>
+                <h3>Separating skin detail from colour.</h3>
+                <p>Compare the current skin with its fine surface detail switched off, then with the current setting restored.</p>
+                <p class="limit">The shins look smoother, while the darker knee patches remain. This comparison helps guide the next study; the live skin is unchanged.</p>
+                <a class="link" href="skin-attribution/review.html">Compare skin detail <span class="arrow" aria-hidden="true">→</span></a>
             </article>
         </div>
     </section>

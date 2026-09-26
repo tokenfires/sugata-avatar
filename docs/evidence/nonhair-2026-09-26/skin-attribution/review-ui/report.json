@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "name": "gallery-desktop",
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "images": [
+        {
+          "src": "native-v2/default-a.png",
+          "loaded": true,
+          "width": 657,
+          "height": 868
+        },
+        {
+          "src": "native-v2/micro-off.png",
+          "loaded": true,
+          "width": 657,
+          "height": 868
+        },
+        {
+          "src": "native-v2/default-a2.png",
+          "loaded": true,
+          "width": 657,
+          "height": 868
+        }
+      ],
+      "skinLink": false,
+      "focus": "Open original default skin PNG"
+    },
+    {
+      "name": "gallery-mobile",
+      "scrollWidth": 390,
+      "viewport": 390,
+      "images": [
+        {
+          "src": "native-v2/default-a.png",
+          "loaded": true,
+          "width": 657,
+          "height": 868
+        },
+        {
+          "src": "native-v2/micro-off.png",
+          "loaded": true,
+          "width": 657,
+          "height": 868
+        },
+        {
+          "src": "native-v2/default-a2.png",
+          "loaded": true,
+          "width": 657,
+          "height": 868
+        }
+      ],
+      "skinLink": false,
+      "focus": "Open original default skin PNG"
+    },
+    {
+      "name": "portal-desktop",
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "images": [],
+      "skinLink": true
+    },
+    {
+      "name": "portal-mobile",
+      "scrollWidth": 390,
+      "viewport": 390,
+      "images": [],
+      "skinLink": true
+    }
+  ],
+  "errors": [],
+  "sources": {
+    "review.html": "7137e48e51a032fb6474346efee107dfecca7d8cd7c16b6b9b333604387893ab",
+    "skin-attribution/review.html": "e396d7d78167f71816bf8b352fa4bc764cfbd72d0ec24ed40b9d52dc8c5d0354"
+  },
+  "completed": true
+}

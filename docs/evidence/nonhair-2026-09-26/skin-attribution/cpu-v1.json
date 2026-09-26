@@ -1,0 +1,33 @@
+{
+  "scope": "CPU native-shaped ownership/clock admission controls only; actual render/reset/PNG proof remains required.",
+  "sources": {
+    "runtime": "f3cb711a99fe1c15502e3b275d67f706d17206203064d5df825cfaa564a28cb0",
+    "test": "83c1074f7b5bf64be4f0c23fc02ac6a237e07916d8b7f92097098eb867284dc2"
+  },
+  "cases": [
+    {
+      "name": "Fresh A keeps all material values and performs exactly64+1 indexed draws",
+      "passed": true
+    },
+    {
+      "name": "B changes only its actual existing scale uniform and restores it for immediate retirement",
+      "passed": true
+    },
+    {
+      "name": "Foreign uniform, body material or clock mutations refuse further capture",
+      "passed": true
+    },
+    {
+      "name": "Unindexed draw, external renderer tick and incomplete export refuse",
+      "passed": true
+    },
+    {
+      "name": "Foreign draw owner is never overwritten during cleanup",
+      "passed": true
+    },
+    {
+      "name": "Invalid default and failed temporal reset restore the study scale without replacing draw",
+      "passed": true
+    }
+  ]
+}

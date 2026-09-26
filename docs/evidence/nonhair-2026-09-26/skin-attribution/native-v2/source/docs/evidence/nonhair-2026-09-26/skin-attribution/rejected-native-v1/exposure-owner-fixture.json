@@ -1,0 +1,268 @@
+{
+  "sourceReportSHA256": "be53d2171da16a709f17c8f9e45df40ef3ab6c22633212e2001dff6775c93f10",
+  "scope": "Exact retained current values from rejected native-v1 after64 successful native draws. No image/geometry/three-arm acceptance.",
+  "uniforms": {
+    "skin": {
+      "scatterDistanceMillimetres": 1.25,
+      "runtimeCurvatureBlend": 0,
+      "maxScatterGain": 6,
+      "scatterGainFloor": 0.02,
+      "transmissionStrength": 1,
+      "transmissionDistances": [
+        4,
+        1.4,
+        0.88
+      ],
+      "lipTint": [
+        1,
+        1,
+        1
+      ],
+      "cavityStrength": 1,
+      "cavityAlbedo": [
+        0.89,
+        0.737,
+        0.659
+      ],
+      "cavityChroma": 1,
+      "thinTissueDepthMillimetres": 0,
+      "thinTissueTint": [
+        1,
+        0.72,
+        0.76
+      ],
+      "microNormalScale": 0.25,
+      "microNormalRepeat": 48
+    },
+    "material": {
+      "roughness": 0.46,
+      "metalness": 0,
+      "ior": 1.42,
+      "clearcoat": 0.34,
+      "clearcoatRoughness": 0.24,
+      "specularIntensity": 1,
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "specularColor": [
+        1,
+        1,
+        1
+      ],
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "normalScale": [
+        1,
+        1
+      ],
+      "opacity": 1,
+      "transparent": false,
+      "depthWrite": true,
+      "side": 0
+    },
+    "grade": {
+      "exposure": 1,
+      "bloomStrength": 0.3,
+      "bloomRadius": 0.85,
+      "bloomThreshold": 0.8,
+      "grainSigmaCodes": 1.5,
+      "vignette": 0.15,
+      "saturation": 1.02
+    },
+    "gradeStatic": {
+      "toneCurveName": "aces",
+      "sharpness": 1.2,
+      "rebuiltGrainDefect": null
+    },
+    "exposure": 1
+  },
+  "nativeScene": {
+    "id": "kitchen",
+    "kind": "interior",
+    "background": "sky-pmrem",
+    "backdrop": null,
+    "ground": true,
+    "environment": {
+      "attached": true,
+      "kind": "interior",
+      "cubeSize": 256,
+      "bakes": 1,
+      "environmentIntensity": 0.24361185471668675,
+      "roomInFrame": true,
+      "liveFaces": 7,
+      "bakeFaces": 8,
+      "widthMetres": 4.2,
+      "depthMetres": 6.4,
+      "heightMetres": 2.6,
+      "windowAreaSquareMetres": 2.0999999999999996,
+      "windowAzimuthDegrees": -90,
+      "windowAdmittance": 1,
+      "windowTransmission": 0.86,
+      "interReflection": 0.04595619842434076,
+      "sunAmbientIrradiance": [
+        0.07712775406493703,
+        0.05336180132573205,
+        0.027723201000915968
+      ],
+      "fixtures": [
+        {
+          "kelvin": 2900,
+          "irradiance": 5
+        }
+      ],
+      "sunElevationDegrees": 15,
+      "sunAzimuthDegrees": -55,
+      "sunColour": 16767394,
+      "sunKelvin": 4042,
+      "sunIrradianceInSkyUnits": 7.748358618628155,
+      "keyIrradianceInRigUnits": 0.7957495745690517,
+      "skyToRigScale": 0.11941757584151311
+    },
+    "groundMaterial": {
+      "albedo": "#6b5443",
+      "roughness": 0.6
+    },
+    "lighting": {
+      "look": "studio",
+      "exposure": 2.04,
+      "ambientFractionOfKey": 0.22,
+      "calibrated": false,
+      "designedKeyToFill": 4.4208309698280654,
+      "ambientAttached": false,
+      "shadowsEnabled": true,
+      "placements": [
+        {
+          "name": "key",
+          "azimuthDegrees": -67,
+          "elevationDegrees": 14.999999999999995,
+          "irradiance": 1.6233291321208658,
+          "colour": "#ffd9a2",
+          "position": [
+            -3.8230240808338287,
+            2.092054242166232,
+            2.6769102801570934
+          ],
+          "panelMetres": [
+            3.716681823708586,
+            5.20335455319202
+          ],
+          "radiance": 1.3864652800679576,
+          "visible": true,
+          "attached": true,
+          "shadowCasterIntensity": 17.053619487205133
+        },
+        {
+          "name": "fill",
+          "azimuthDegrees": -51.99999999999999,
+          "elevationDegrees": 2,
+          "irradiance": 0.36719999999999997,
+          "colour": "#f2d2c6",
+          "position": [
+            -2.7457189419138968,
+            0.9906886632438128,
+            3.2722204132798596
+          ],
+          "panelMetres": [
+            7.805031829788031,
+            7.805031829788031
+          ],
+          "radiance": 0.22949503549486983,
+          "visible": true,
+          "attached": true,
+          "shadowCasterIntensity": 0
+        },
+        {
+          "name": "rim",
+          "azimuthDegrees": -168,
+          "elevationDegrees": 40,
+          "irradiance": 0.8976000000000004,
+          "colour": "#0f30ff",
+          "position": [
+            -0.18818110551804446,
+            1.2297403060673306,
+            -0.42266168314747743
+          ],
+          "panelMetres": [
+            0.25886688902130306,
+            0.8628276853739483
+          ],
+          "radiance": 1.967448899924911,
+          "visible": true,
+          "attached": true,
+          "shadowCasterIntensity": 0
+        },
+        {
+          "name": "kicker",
+          "azimuthDegrees": 166,
+          "elevationDegrees": 15.999999999999993,
+          "irradiance": 0.020400000000000005,
+          "colour": "#ffd7b0",
+          "position": [
+            0.020261404643838674,
+            1.0079959463592074,
+            -0.5802107152486063
+          ],
+          "panelMetres": [
+            0.25886688902130306,
+            0.8197141762189286
+          ],
+          "radiance": 0.04608832747655593,
+          "visible": true,
+          "attached": true,
+          "shadowCasterIntensity": 0
+        }
+      ]
+    }
+  },
+  "draws": 64,
+  "clock": {
+    "frameId": 1000064,
+    "time": 0,
+    "deltaTime": 0,
+    "clock": 0,
+    "temporal": {
+      "jitterIndex": 2,
+      "jitterPeriod": 31,
+      "historyWidth": 657
+    },
+    "grainFrame": 640,
+    "draws": 64
+  },
+  "retirement": {
+    "instrumentError": null,
+    "gpu": {
+      "errors": [],
+      "losses": [],
+      "retiring": true
+    },
+    "disposed": true,
+    "leaks": [],
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    },
+    "handlerFixture": "nonpersisted pagehide"
+  }
+}

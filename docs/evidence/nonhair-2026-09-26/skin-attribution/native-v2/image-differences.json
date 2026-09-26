@@ -1,0 +1,280 @@
+{
+  "definition": "Descriptive differences of8-bit sRGB-encoded PNG codes, BminusA. Named rectangles are declared display-space review windows including boundaries/background where present, not anatomical or material masks, and not acceptance thresholds.",
+  "regions": {
+    "whole": [
+      0,
+      0,
+      657,
+      868
+    ],
+    "leftVisibleLeg": [
+      246,
+      565,
+      57,
+      172
+    ],
+    "rightVisibleLeg": [
+      329,
+      563,
+      62,
+      176
+    ],
+    "leftInnerShin": [
+      266,
+      661,
+      22,
+      55
+    ],
+    "rightInnerShin": [
+      348,
+      663,
+      23,
+      55
+    ],
+    "leftKnee": [
+      260,
+      598,
+      24,
+      27
+    ],
+    "rightKnee": [
+      345,
+      598,
+      26,
+      27
+    ],
+    "jawEdge": [
+      287,
+      134,
+      47,
+      18
+    ]
+  },
+  "defaultVersusMicroOff": {
+    "whole": {
+      "rect": [
+        0,
+        0,
+        657,
+        868
+      ],
+      "areaPixels": 570276,
+      "changedRGBPixels": 21509,
+      "changedRGBFraction": 0.037716824835693594,
+      "meanAbsoluteRGBCodeDifference": 0.03684064090604082,
+      "rmsRGBCodeDifference": 0.28097015947061815,
+      "maxAbsoluteRGBCodeDifference": 11,
+      "meanSignedBminusARGB": [
+        -0.00033843261859169946,
+        -0.0010819322573631014,
+        -0.001476478056239435
+      ],
+      "meanAbsoluteByChannelRGB": [
+        0.041223898603483224,
+        0.03745379430310937,
+        0.03184422981152986
+      ],
+      "alphaChangedPixels": 0
+    },
+    "leftVisibleLeg": {
+      "rect": [
+        246,
+        565,
+        57,
+        172
+      ],
+      "areaPixels": 9804,
+      "changedRGBPixels": 6644,
+      "changedRGBFraction": 0.6776825785393716,
+      "meanAbsoluteRGBCodeDifference": 0.857609139126887,
+      "rmsRGBCodeDifference": 1.4331990676537087,
+      "maxAbsoluteRGBCodeDifference": 10,
+      "meanSignedBminusARGB": [
+        -0.01142390860873113,
+        -0.03457772337821297,
+        -0.03518971848225214
+      ],
+      "meanAbsoluteByChannelRGB": [
+        1.0148918808649532,
+        0.8666870665034679,
+        0.6912484700122399
+      ],
+      "alphaChangedPixels": 0
+    },
+    "rightVisibleLeg": {
+      "rect": [
+        329,
+        563,
+        62,
+        176
+      ],
+      "areaPixels": 10912,
+      "changedRGBPixels": 6603,
+      "changedRGBFraction": 0.6051136363636364,
+      "meanAbsoluteRGBCodeDifference": 0.7459982893450635,
+      "rmsRGBCodeDifference": 1.3338792565175237,
+      "maxAbsoluteRGBCodeDifference": 11,
+      "meanSignedBminusARGB": [
+        -0.03848973607038123,
+        -0.04985337243401759,
+        -0.06112536656891496
+      ],
+      "meanAbsoluteByChannelRGB": [
+        0.7917888563049853,
+        0.7628299120234604,
+        0.6833760997067448
+      ],
+      "alphaChangedPixels": 0
+    },
+    "leftInnerShin": {
+      "rect": [
+        266,
+        661,
+        22,
+        55
+      ],
+      "areaPixels": 1210,
+      "changedRGBPixels": 1125,
+      "changedRGBFraction": 0.9297520661157025,
+      "meanAbsoluteRGBCodeDifference": 1.7179063360881544,
+      "rmsRGBCodeDifference": 2.2322455308932385,
+      "maxAbsoluteRGBCodeDifference": 10,
+      "meanSignedBminusARGB": [
+        0.07768595041322314,
+        0.026446280991735537,
+        -0.06446280991735537
+      ],
+      "meanAbsoluteByChannelRGB": [
+        1.912396694214876,
+        1.8214876033057852,
+        1.4198347107438016
+      ],
+      "alphaChangedPixels": 0
+    },
+    "rightInnerShin": {
+      "rect": [
+        348,
+        663,
+        23,
+        55
+      ],
+      "areaPixels": 1265,
+      "changedRGBPixels": 1165,
+      "changedRGBFraction": 0.9209486166007905,
+      "meanAbsoluteRGBCodeDifference": 1.477733860342556,
+      "rmsRGBCodeDifference": 1.9826653252204107,
+      "maxAbsoluteRGBCodeDifference": 10,
+      "meanSignedBminusARGB": [
+        0.091699604743083,
+        0.02766798418972332,
+        -0.019762845849802372
+      ],
+      "meanAbsoluteByChannelRGB": [
+        1.1841897233201581,
+        1.5849802371541502,
+        1.6640316205533596
+      ],
+      "alphaChangedPixels": 0
+    },
+    "leftKnee": {
+      "rect": [
+        260,
+        598,
+        24,
+        27
+      ],
+      "areaPixels": 648,
+      "changedRGBPixels": 569,
+      "changedRGBFraction": 0.8780864197530864,
+      "meanAbsoluteRGBCodeDifference": 1.1188271604938271,
+      "rmsRGBCodeDifference": 1.5932922666333318,
+      "maxAbsoluteRGBCodeDifference": 9,
+      "meanSignedBminusARGB": [
+        -0.2345679012345679,
+        -0.16820987654320987,
+        -0.1388888888888889
+      ],
+      "meanAbsoluteByChannelRGB": [
+        1.5864197530864197,
+        1.0540123456790123,
+        0.7160493827160493
+      ],
+      "alphaChangedPixels": 0
+    },
+    "rightKnee": {
+      "rect": [
+        345,
+        598,
+        26,
+        27
+      ],
+      "areaPixels": 702,
+      "changedRGBPixels": 615,
+      "changedRGBFraction": 0.8760683760683761,
+      "meanAbsoluteRGBCodeDifference": 1.0963912630579298,
+      "rmsRGBCodeDifference": 1.524880703069749,
+      "maxAbsoluteRGBCodeDifference": 8,
+      "meanSignedBminusARGB": [
+        -0.08262108262108261,
+        -0.17663817663817663,
+        -0.1866096866096866
+      ],
+      "meanAbsoluteByChannelRGB": [
+        1.2678062678062678,
+        1.1253561253561253,
+        0.896011396011396
+      ],
+      "alphaChangedPixels": 0
+    },
+    "jawEdge": {
+      "rect": [
+        287,
+        134,
+        47,
+        18
+      ],
+      "areaPixels": 846,
+      "changedRGBPixels": 361,
+      "changedRGBFraction": 0.42671394799054374,
+      "meanAbsoluteRGBCodeDifference": 0.21631205673758866,
+      "rmsRGBCodeDifference": 0.4759793520496663,
+      "maxAbsoluteRGBCodeDifference": 2,
+      "meanSignedBminusARGB": [
+        0.027186761229314422,
+        0.015366430260047281,
+        0.01773049645390071
+      ],
+      "meanAbsoluteByChannelRGB": [
+        0.25886524822695034,
+        0.2044917257683215,
+        0.18557919621749408
+      ],
+      "alphaChangedPixels": 0
+    }
+  },
+  "defaultReturn": {
+    "rect": [
+      0,
+      0,
+      657,
+      868
+    ],
+    "areaPixels": 570276,
+    "changedRGBPixels": 0,
+    "changedRGBFraction": 0,
+    "meanAbsoluteRGBCodeDifference": 0,
+    "rmsRGBCodeDifference": 0,
+    "maxAbsoluteRGBCodeDifference": 0,
+    "meanSignedBminusARGB": [
+      0,
+      0,
+      0
+    ],
+    "meanAbsoluteByChannelRGB": [
+      0,
+      0,
+      0
+    ],
+    "alphaChangedPixels": 0
+  }
+}

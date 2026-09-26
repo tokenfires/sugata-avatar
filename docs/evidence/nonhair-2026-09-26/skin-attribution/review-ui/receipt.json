@@ -1,0 +1,42 @@
+{
+  "kind": "static-gallery-manual-browser-check",
+  "scope": "Four fresh Playwright Chromium headless pages at DPR1. Layout, existing image decode, first gallery keyboard focus and Today link checks only. No avatar renderer or performance measurement. Coordinator inspected rendered images; no raster editing.",
+  "sourceDirectory": "captures/skin-micro-attribution-2026-09-26/review-ui",
+  "copies": [
+    {
+      "file": "report.json",
+      "bytes": 1767,
+      "sha256": "4e887156a526f61dadb16e14c334495a7a29d884e8a5ff9cccc30def8daf8498"
+    },
+    {
+      "file": "gallery-mobile.png",
+      "bytes": 410662,
+      "sha256": "5739cdb2bdb560c12b22e9d95ec5a3d5624b9c4f5efee2605a02a76113755106"
+    },
+    {
+      "file": "portal-mobile.png",
+      "bytes": 269123,
+      "sha256": "8362d4a13a49b39ee57aa5bc9df1982112ac414fe0f67458bdac82ba9889ae06"
+    },
+    {
+      "file": "gallery-desktop.png",
+      "bytes": 471396,
+      "sha256": "bc08696934e95b25e642efbce80225cf06ae9e48dfef5b5a7208cf8578ea6e7a"
+    },
+    {
+      "file": "portal-desktop.png",
+      "bytes": 275407,
+      "sha256": "318f28d7a593b2276b8b483afb0e774efb475487974bdce4f26306f1ce732390"
+    },
+    {
+      "file": "today-source.html",
+      "bytes": 11590,
+      "sha256": "7137e48e51a032fb6474346efee107dfecca7d8cd7c16b6b9b333604387893ab"
+    },
+    {
+      "file": "gallery-source.html",
+      "bytes": 3857,
+      "sha256": "e396d7d78167f71816bf8b352fa4bc764cfbd72d0ec24ed40b9d52dc8c5d0354"
+    }
+  ]
+}

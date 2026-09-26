@@ -1,0 +1,38 @@
+{
+  "scope": "CPU native-shaped ownership/clock admission controls only; actual render/reset/PNG proof remains required.",
+  "sources": {
+    "fixture": "938a3dd4097e756547015893e48e3ddf42522b451712c70f953e4390e9e91a2a",
+    "runtime": "5123724755f3aa4770b5e7aaaa198686b8dd851fa43e43913bd06301fe9a7903",
+    "test": "76bdf19b4076d5ae6fcc2d7095b145bcf3371dbcb06fe7695dc7ad153f284360"
+  },
+  "cases": [
+    {
+      "name": "Fresh A keeps all material values and performs exactly64+1 indexed draws",
+      "passed": true
+    },
+    {
+      "name": "B changes only its actual existing scale uniform and restores it for immediate retirement",
+      "passed": true
+    },
+    {
+      "name": "Foreign uniform, body material or clock mutations refuse further capture",
+      "passed": true
+    },
+    {
+      "name": "Unindexed draw, external renderer tick and incomplete export refuse",
+      "passed": true
+    },
+    {
+      "name": "Foreign draw owner is never overwritten during cleanup",
+      "passed": true
+    },
+    {
+      "name": "Invalid default and failed temporal reset restore the study scale without replacing draw",
+      "passed": true
+    },
+    {
+      "name": "Exact rejected native exposure fixture distinguishes renderer1, grade1 and reported LightingRig2.04",
+      "passed": true
+    }
+  ]
+}
