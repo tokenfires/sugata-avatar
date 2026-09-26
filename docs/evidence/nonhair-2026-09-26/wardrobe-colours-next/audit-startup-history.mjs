@@ -1,0 +1,16 @@
+// CPU-only readback of the exact retained old-code failure; no native page or asset writes.
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';import {gunzipSync} from 'node:zlib';import {fileURLToPath} from 'node:url';
+const hash=b=>createHash('sha256').update(b).digest('hex'),read=p=>fs.readFileSync(p),digest=p=>hash(read(p));
+const [directory,output]=process.argv.slice(2);assert.ok(directory&&output);const dir=path.resolve(directory),reportPath=path.join(dir,'report.json'),r=JSON.parse(read(reportPath));
+assert.equal(r.completed,false);assert.equal(r.sourcesStable,true);assert.deepEqual(r.errors,[]);assert.match(r.failure,/Returned fresh base PNG must be byte-identical/);assert.equal(r.cases.length,2);
+const cases=r.cases.map(c=>{
+ const state=read(path.join(dir,c.stateArtifact.file));assert.equal(hash(state),c.stateArtifact.sha256);assert.equal(hash(gunzipSync(state)),c.stateArtifact.decodedSHA256);assert.equal(digest(path.join(dir,c.image.file)),c.image.sha256);
+ assert.equal(c.retirement.disposed,true);assert.deepEqual(c.retirement.leaks,[]);assert.equal(c.retirement.memory.total,0);
+ return {label:c.label,completed:c.completed,before:{nodeFrame:c.instrumentSetup.before.nodeFrame,temporal:c.instrumentSetup.before.temporal,grainFrame:c.instrumentSetup.before.grainFrame,motionClock:c.instrumentSetup.before.clock},stateSHA256:c.stateSHA256,stateArtifact:c.stateArtifact,image:c.image,exportClock:c.exported.clock,cleanup:{disposed:true,leaks:[],memoryTotal:0}};
+});
+assert.equal(cases[0].stateSHA256,cases[1].stateSHA256);assert.notEqual(cases[0].image.sha256,cases[1].image.sha256);assert.deepEqual(cases[0].exportClock,cases[1].exportClock);
+const exported=r.cases.map(c=>{const x=structuredClone(c.exported);delete x.uniforms.skin.microNormalScale;delete x.trace[0].before.grainFrame;return x;});assert.deepEqual(exported[0],exported[1]);
+const files=['packages/core/src/Avatar.js','packages/core/src/render/Stage.js','packages/core/src/render/MorphVelocity.js','packages/core/src/render/TRAAPost.js','packages/core/src/render/InteriorEnvironment.js','packages/testbed/src/showcase.js','packages/testbed/src/alive.js','node_modules/three/src/renderers/common/Animation.js','node_modules/three/src/renderers/common/Renderer.js','node_modules/three/src/nodes/core/NodeFrame.js','node_modules/three/src/nodes/accessors/VelocityNode.js','docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.mjs'];
+const sources=Object.fromEntries(files.map(f=>{const h=digest(path.join(dir,'source',f));assert.equal(h,r.sourceHashes[f]);return[f,h];}));
+const result={scope:'Retained unchanged-code failed repeat readback and archived source bindings. Different startup histories are observed; neither a sole causal counter nor a working repair is proved.',input:{directory:dir,reportSHA256:digest(reportPath),manifestSHA256:r.manifestSHA256},scriptSHA256:digest(fileURLToPath(import.meta.url)),checks:{exactState:true,exactDeclaredExportHistory:true,returnedPNGExact:false,cleanRetirement:true},cases,sources};
+fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({output,sha256:digest(output),cases:cases.length,sources:files.length}));

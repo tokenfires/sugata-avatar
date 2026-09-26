@@ -1,0 +1,55 @@
+{
+  "scope": "CPU contract/ownership controls against observable synthetic native-shaped classes; actual startup timing/PMREM/image repeatability remains unverified.",
+  "sources": {
+    "showcase-boot-hold.mjs": "7518b51db2cbce7504851bb1cc48954a6a7694431bcee9bd045722f3b3088f3e",
+    "showcase-boot-route.mjs": "7ac503953e0c4b06201c130046104ee31f15c0fc4ff7629588c6091fe8213c46",
+    "showcase-boot-entry.mjs": "404ce1649426497c11f7cd9ad1e3c6f1f00a45d5fff8c9336d56b3a5d04dd289",
+    "showcase-boot-hold.selftest.mjs": "f435771190ed985958b95371a0048f4ddd73aad362e210499a91d27bf79004e6"
+  },
+  "cases": [
+    {
+      "name": "Actual receivers/arguments/return and one native ready draw are preserved; descriptors restored",
+      "passed": true
+    },
+    {
+      "name": "Async native asset window sees stopped callback and cancelled RAF before Avatar resumes",
+      "passed": true
+    },
+    {
+      "name": "Pre-hold native draw is retained and rejects rather than being erased",
+      "passed": true
+    },
+    {
+      "name": "Native construction failures retain their original error and restore the observer",
+      "passed": true
+    },
+    {
+      "name": "Zero/two ready draws cannot be labelled the native one-draw page history",
+      "passed": true
+    },
+    {
+      "name": "Foreign published owner and changed motion/node clocks fail ready admission",
+      "passed": true
+    },
+    {
+      "name": "Descriptor drift never overwrites a foreign draw owner during cleanup",
+      "passed": true
+    },
+    {
+      "name": "Failed descriptor restoration cannot publish a ready admission",
+      "passed": true
+    },
+    {
+      "name": "Partial installation restores Stage if installing Avatar wrapper fails",
+      "passed": true
+    },
+    {
+      "name": "Capture requires explicit manual creation and cannot be reused after admission",
+      "passed": true
+    },
+    {
+      "name": "Bound HTML entry substitution preserves all other bytes and rejects ambiguity",
+      "passed": true
+    }
+  ]
+}

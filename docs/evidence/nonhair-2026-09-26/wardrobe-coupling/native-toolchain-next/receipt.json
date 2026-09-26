@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "kind": "bounded-native-toolchain-payload-availability",
+  "observedAtUTC": "2026-09-26T23:44:09.759585+00:00",
+  "repository": "/Users/robault/GitHub/sugata-avatar",
+  "scope": {
+    "directory": "tmp/hair-sep24",
+    "depth": "top-level filenames/stat only; no child-directory inventory",
+    "contentRead": [
+      "tmp/hair-sep24/install-blender.txt"
+    ],
+    "exactPathChecks": [
+      "tmp/hair-sep24/blender-volume/Blender.app/Contents/MacOS/Blender"
+    ],
+    "priorReferences": [
+      {
+        "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/native-oracle-recovery/README.md",
+        "sha256": "694adfd0c3d4692cc086955bf622b97aeeea05c3b36fd2194e6b1b134d53a01c",
+        "bytes": 5845
+      },
+      {
+        "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/native-oracle-recovery/inventory-v1.json",
+        "sha256": "52c422b66f3da51ee452378810d99e9de459396913b2bc917bd614f9e0868d4f",
+        "bytes": 18705
+      },
+      {
+        "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/PLAN.md",
+        "sha256": "c6ec1c13989d8838b24c7366caec6c30149bbab2becb0a86d11690409210753a",
+        "bytes": 9138
+      },
+      {
+        "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/inventory-v1.json",
+        "sha256": "a5efb4f0882a47fa3276b4b059427a85d008fad28c4177030a17c358387e99f0",
+        "bytes": 18329
+      }
+    ]
+  },
+  "topLevel": [
+    {
+      "name": "baseline",
+      "kind": "directory",
+      "bytes": 128
+    },
+    {
+      "name": "blender-profile",
+      "kind": "directory",
+      "bytes": 160
+    },
+    {
+      "name": "blender-volume",
+      "kind": "directory",
+      "bytes": 64
+    },
+    {
+      "name": "boundary",
+      "kind": "directory",
+      "bytes": 128
+    },
+    {
+      "name": "boundary-diagnose.py",
+      "kind": "regular-file",
+      "bytes": 1658
+    },
+    {
+      "name": "boundary.txt",
+      "kind": "regular-file",
+      "bytes": 19437
+    },
+    {
+      "name": "build-cap1.txt",
+      "kind": "regular-file",
+      "bytes": 14426
+    },
+    {
+      "name": "build-cap2-crop01.txt",
+      "kind": "regular-file",
+      "bytes": 14440
+    },
+    {
+      "name": "build-cap2-pixie01.txt",
+      "kind": "regular-file",
+      "bytes": 14532
+    },
+    {
+      "name": "build-crop-baseline.txt",
+      "kind": "regular-file",
+      "bytes": 14423
+    },
+    {
+      "name": "cap-candidate.py",
+      "kind": "regular-file",
+      "bytes": 1265
+    },
+    {
+      "name": "cap-edge",
+      "kind": "directory",
+      "bytes": 992
+    },
+    {
+      "name": "cap1",
+      "kind": "directory",
+      "bytes": 128
+    },
+    {
+      "name": "cap1-coverage.json",
+      "kind": "regular-file",
+      "bytes": 3375
+    },
+    {
+      "name": "cap1-views",
+      "kind": "directory",
+      "bytes": 256
+    },
+    {
+      "name": "cap2",
+      "kind": "directory",
+      "bytes": 160
+    },
+    {
+      "name": "cap2-crop-views",
+      "kind": "directory",
+      "bytes": 256
+    },
+    {
+      "name": "capture-candidate.mjs",
+      "kind": "regular-file",
+      "bytes": 1293
+    },
+    {
+      "name": "check-card-payload.mjs",
+      "kind": "regular-file",
+      "bytes": 1443
+    },
+    {
+      "name": "check-card-preservation.mjs",
+      "kind": "regular-file",
+      "bytes": 1689
+    },
+    {
+      "name": "coverage-diagnosis.json",
+      "kind": "regular-file",
+      "bytes": 10574
+    },
+    {
+      "name": "crop-before",
+      "kind": "directory",
+      "bytes": 256
+    },
+    {
+      "name": "diagnose-coverage.mjs",
+      "kind": "regular-file",
+      "bytes": 2081
+    },
+    {
+      "name": "diagnose-occlusion.mjs",
+      "kind": "regular-file",
+      "bytes": 1720
+    },
+    {
+      "name": "hair_geometry.mjs",
+      "kind": "regular-file",
+      "bytes": 27161
+    },
+    {
+      "name": "hair_geometry.selftest.mjs",
+      "kind": "regular-file",
+      "bytes": 19733
+    },
+    {
+      "name": "install-blender.txt",
+      "kind": "regular-file",
+      "bytes": 4412
+    },
+    {
+      "name": "layer-attribution",
+      "kind": "directory",
+      "bytes": 3424
+    },
+    {
+      "name": "material-attribution",
+      "kind": "directory",
+      "bytes": 3584
+    },
+    {
+      "name": "narrow-density",
+      "kind": "directory",
+      "bytes": 800
+    },
+    {
+      "name": "occlusion.json",
+      "kind": "regular-file",
+      "bytes": 10016
+    },
+    {
+      "name": "pr-before.json",
+      "kind": "regular-file",
+      "bytes": 2104
+    },
+    {
+      "name": "pr-body.md",
+      "kind": "regular-file",
+      "bytes": 4850
+    },
+    {
+      "name": "ribbon-shape",
+      "kind": "directory",
+      "bytes": 1152
+    },
+    {
+      "name": "runtime-coverage",
+      "kind": "directory",
+      "bytes": 800
+    },
+    {
+      "name": "transparency",
+      "kind": "directory",
+      "bytes": 288
+    },
+    {
+      "name": "verify-cap1.txt",
+      "kind": "regular-file",
+      "bytes": 3967
+    },
+    {
+      "name": "verify-cap2.txt",
+      "kind": "regular-file",
+      "bytes": 7787
+    },
+    {
+      "name": "verify-module.mjs",
+      "kind": "regular-file",
+      "bytes": 161523
+    },
+    {
+      "name": "visibility-red-proof.mjs",
+      "kind": "regular-file",
+      "bytes": 1071
+    }
+  ],
+  "topLevelCount": 40,
+  "retainedBlenderInstallerArchiveCandidates": [],
+  "documentedExecutable": {
+    "path": "tmp/hair-sep24/blender-volume/Blender.app/Contents/MacOS/Blender",
+    "exists": false,
+    "symlink": false
+  },
+  "installLog": {
+    "path": "tmp/hair-sep24/install-blender.txt",
+    "sha256": "4afbd3e459a27cfa1597dc64f68cdf2a48fc78eb87e978129b591480302a4c37",
+    "bytes": 4412,
+    "historicalBlenderVersion": "5.2.2 LTS",
+    "historicalBuildHash": "d13f752e3b9c",
+    "historicalBuilt": "2026-09-15 01:49:19",
+    "historicalMPFBBuild": "20260722",
+    "namedCachedArchives": [
+      "mpfb-2.0.17.zip",
+      "faceunits01.zip",
+      "visemes01.zip",
+      "visemes02.zip",
+      "makehuman_system_assets_cc0.zip"
+    ],
+    "blenderInstallerFilenameOrURLPresent": false,
+    "interpretation": "Prior successful MPFB setup under Blender is logged; these archive names refer to MPFB/assets, not a retained Blender executable payload."
+  },
+  "result": "No retained Blender installer/archive filename was present at this documented environment top level; the exact documented executable is absent. No new toolchain payload was found or hashed. Stop at this scope.",
+  "limits": [
+    "No home or global search; no repeat of exhausted positional-oracle search.",
+    "No recursive environment/profile inventory and no profile data rehash.",
+    "No archive inspection, extraction, mounting, download, installation, native application execution, browser or GPU job.",
+    "This does not prove Blender is absent elsewhere or that the historical executable or installer was deleted.",
+    "A supplied concrete executable/archive path or separately authorized toolchain acquisition is still required before a fresh native oracle can be planned against actual executable bytes."
+  ]
+}

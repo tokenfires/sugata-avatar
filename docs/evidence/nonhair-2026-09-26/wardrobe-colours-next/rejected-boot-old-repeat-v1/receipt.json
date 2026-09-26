@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "completed": false,
+  "kind": "retained-rejected-boot-held-old-code-repeat",
+  "rawDirectory": "/Users/robault/GitHub/sugata-avatar/captures/wardrobe-colours-2026-09-26/boot-old-repeat-v1",
+  "failure": "AssertionError [ERR_ASSERTION]: Returned fresh base PNG must be byte-identical\n+ actual - expected\n\n+ '65d1c5a57ed21a25be0411636e04ba95aa40e8cdf19a731e9953b8e7bbf62390'\n- '8c23ad81a02bcccf7e844d84d381c208f6c8df19edca183aa86512e534e351fb'\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/wardrobe-colours-next/capture-colours-boot.mjs:226:31",
+  "artifacts": {
+    "report.json.gz": {
+      "file": "report.json.gz",
+      "sha256": "6a863dda840747a1a90f1fb8700627321dc40ce50c058f92dcea6a096b62ec75",
+      "bytes": 124493,
+      "decodedSHA256": "581df0412df3ffbc39f108d6121545d6ab09ef83022c310e7f2787b47e0ca83d"
+    },
+    "manifest.json.gz": {
+      "file": "manifest.json.gz",
+      "sha256": "41983663639411e72f5d26972942c6d4ff8f7fc4bf35d84f76c80e7e32d5956b",
+      "bytes": 77421,
+      "decodedSHA256": "e3851be2358f6495bf8a49d7f55caa5ad4a2fc8b2334e47cc4dd0143a3bf21aa"
+    },
+    "casual-front-base.png": {
+      "file": "casual-front-base.png",
+      "sha256": "8c23ad81a02bcccf7e844d84d381c208f6c8df19edca183aa86512e534e351fb",
+      "bytes": 802226
+    },
+    "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz": {
+      "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "bytes": 1475445,
+      "decodedSHA256": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8"
+    },
+    "casual-front-return.png": {
+      "file": "casual-front-return.png",
+      "sha256": "65d1c5a57ed21a25be0411636e04ba95aa40e8cdf19a731e9953b8e7bbf62390",
+      "bytes": 802238
+    },
+    "source/micro-capture-runtime.mjs": {
+      "file": "source/micro-capture-runtime.mjs",
+      "sha256": "5123724755f3aa4770b5e7aaaa198686b8dd851fa43e43913bd06301fe9a7903",
+      "bytes": 8501
+    },
+    "source/boot-bootstrap.mjs": {
+      "file": "source/boot-bootstrap.mjs",
+      "sha256": "81f38da7d90bae46260a9f6ea9764742145938de89b642c97ecf92ac91f692f7",
+      "bytes": 2268
+    },
+    "source/boot-bootstrap.selftest.mjs": {
+      "file": "source/boot-bootstrap.selftest.mjs",
+      "sha256": "53ce5c42e6a786f9b9c395da92e4f1ee298242f363a8ebf5470bd5771b158b36",
+      "bytes": 2483
+    },
+    "source/capture-colours-boot.mjs": {
+      "file": "source/capture-colours-boot.mjs",
+      "sha256": "c3dbe9229a7ae589f209aa9814129c0bcc18cc8168c7638afbddb6e6902d670f",
+      "bytes": 30307
+    },
+    "source/showcase-boot-entry.mjs": {
+      "file": "source/showcase-boot-entry.mjs",
+      "sha256": "404ce1649426497c11f7cd9ad1e3c6f1f00a45d5fff8c9336d56b3a5d04dd289",
+      "bytes": 760
+    },
+    "source/showcase-boot-hold.mjs": {
+      "file": "source/showcase-boot-hold.mjs",
+      "sha256": "965b0be1856a5427ce7c872665a30d8db59e2fe929d2d53d06481c2077431f93",
+      "bytes": 9209
+    },
+    "source/showcase-boot-hold.selftest.mjs": {
+      "file": "source/showcase-boot-hold.selftest.mjs",
+      "sha256": "579099197bf5ad1024aebdd8e16c044ec3c62bb8c926ff04ba53b296cdd64076",
+      "bytes": 11899
+    },
+    "source/showcase-boot-route.mjs": {
+      "file": "source/showcase-boot-route.mjs",
+      "sha256": "7ac503953e0c4b06201c130046104ee31f15c0fc4ff7629588c6091fe8213c46",
+      "bytes": 904
+    },
+    "bootstrap.html": {
+      "file": "bootstrap.html",
+      "sha256": "b264ca16fba4926cb3b674818c972a5c8e3af8c44c85125dff958ee49c7ae1b3",
+      "bytes": 15847
+    }
+  }
+}

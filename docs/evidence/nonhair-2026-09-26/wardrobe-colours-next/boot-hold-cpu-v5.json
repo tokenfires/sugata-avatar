@@ -1,0 +1,67 @@
+{
+  "scope": "CPU contract/ownership controls against observable synthetic native-shaped classes; actual startup timing/PMREM/image repeatability remains unverified.",
+  "sources": {
+    "showcase-boot-hold.mjs": "965b0be1856a5427ce7c872665a30d8db59e2fe929d2d53d06481c2077431f93",
+    "showcase-boot-route.mjs": "7ac503953e0c4b06201c130046104ee31f15c0fc4ff7629588c6091fe8213c46",
+    "showcase-boot-entry.mjs": "404ce1649426497c11f7cd9ad1e3c6f1f00a45d5fff8c9336d56b3a5d04dd289",
+    "showcase-boot-hold.selftest.mjs": "579099197bf5ad1024aebdd8e16c044ec3c62bb8c926ff04ba53b296cdd64076"
+  },
+  "cases": [
+    {
+      "name": "Actual receivers/arguments/return and one native ready draw are preserved; descriptors restored",
+      "passed": true
+    },
+    {
+      "name": "Async native asset window sees stopped callback and cancelled RAF before Avatar resumes",
+      "passed": true
+    },
+    {
+      "name": "Pre-hold native draw is retained and rejects rather than being erased",
+      "passed": true
+    },
+    {
+      "name": "Native construction failures retain their original error and restore the observer",
+      "passed": true
+    },
+    {
+      "name": "Rejected postchecks retire the unpublished resolved native owner exactly once",
+      "passed": true
+    },
+    {
+      "name": "Postcheck plus failed native retirement retains both errors and never retries disposal",
+      "passed": true
+    },
+    {
+      "name": "Zero/two ready draws cannot be labelled the native one-draw page history",
+      "passed": true
+    },
+    {
+      "name": "Foreign published owner and changed motion/node clocks fail ready admission",
+      "passed": true
+    },
+    {
+      "name": "Descriptor drift never overwrites a foreign draw owner during cleanup",
+      "passed": true
+    },
+    {
+      "name": "Failed descriptor restoration cannot publish a ready admission",
+      "passed": true
+    },
+    {
+      "name": "Partial installation restores Stage if installing Avatar wrapper fails",
+      "passed": true
+    },
+    {
+      "name": "Capture requires explicit manual creation and cannot be reused after admission",
+      "passed": true
+    },
+    {
+      "name": "Unexpected native signature rejects before installing any wrapper",
+      "passed": true
+    },
+    {
+      "name": "Bound HTML entry substitution preserves all other bytes and rejects ambiguity",
+      "passed": true
+    }
+  ]
+}

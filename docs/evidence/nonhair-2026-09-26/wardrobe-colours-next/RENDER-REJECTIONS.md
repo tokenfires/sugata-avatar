@@ -39,3 +39,22 @@ diagnostic. The documented dressed-boot history hazard in `alive.js` is a hypoth
 Showcase, not an attribution. Do not change accepted assets, hair controls, dependencies,
 image thresholds or the existing rejected packets. Actual form/navigation/export qualification
 can proceed independently; integration still requires an adequate native appearance comparison.
+
+
+## Combined startup-control trial: stopped
+
+The source-reviewed capture-only Stage draw hold and early node epoch was executed once on
+unchanged main (`boot-old-repeat-v1`, root56819 closed). Both actual boot receipts are exact:
+zero Stage draws at native Avatar factory resolution, one original page-ready draw at epoch
+999999, then restored method descriptors and the existing 65 indexed capture draws. This
+combined initialization control still fails exact image equality: one red-channel code at
+pixel (351,819), independently verified. It also produces a visibly softer figure than the
+original startup protocol. Therefore it is not an accepted capture correction. No extra retry,
+arbitrary settling extension or image tolerance follows; the trial sequence is stopped.
+
+The report is `581df0412df3ffbc39f108d6121545d6ab09ef83022c310e7f2787b47e0ca83d`.
+The compact exact packet is `rejected-boot-old-repeat-v1/`, receipt
+`867ebd297fed0860b96cde57282b9b958eec69277a911c102a326df609b87749`.
+See `BOOT-NATIVE-CRITIQUE.md` for the verified boot/state/retirement evidence and two source-specific
+future diagnostic options. Those are proposals, not launched work. The accepted functional UI
+packet remains separate in the isolated feature branch; neither feature nor assets are promoted.

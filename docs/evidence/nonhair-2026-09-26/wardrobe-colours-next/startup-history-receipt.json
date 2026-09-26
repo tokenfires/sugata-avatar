@@ -1,0 +1,135 @@
+{
+  "scope": "Retained unchanged-code failed repeat readback and archived source bindings. Different startup histories are observed; neither a sole causal counter nor a working repair is proved.",
+  "input": {
+    "directory": "/Users/robault/GitHub/sugata-avatar/captures/wardrobe-colours-2026-09-26/old-repeat-v1",
+    "reportSHA256": "b1f9bae538d2c6aaf8847415180106432e6c16231d2da66d36fedb69275f39e1",
+    "manifestSHA256": "a113919516bf8cc9e8d20b6ae3bdad193aab2524432d7937a5ff6af1ea523823"
+  },
+  "scriptSHA256": "23ea89582d36f11b3af6dda29ed51e0e4ab0b4245e5ef766df987adea109792b",
+  "checks": {
+    "exactState": true,
+    "exactDeclaredExportHistory": true,
+    "returnedPNGExact": false,
+    "cleanRetirement": true
+  },
+  "cases": [
+    {
+      "label": "casual-front-base",
+      "completed": true,
+      "before": {
+        "nodeFrame": {
+          "frameId": 132,
+          "time": 1.5734000000059594,
+          "deltaTime": 0.008399999976158142
+        },
+        "temporal": {
+          "jitterIndex": 13,
+          "jitterPeriod": 31,
+          "historyWidth": 657
+        },
+        "grainFrame": 75,
+        "motionClock": 0
+      },
+      "stateSHA256": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8",
+      "stateArtifact": {
+        "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+        "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+        "decodedSHA256": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8"
+      },
+      "image": {
+        "file": "casual-front-base.png",
+        "sha256": "7d9a36801a4c8177eec32ecf932c1978977307cf479070970c206fb4b032a6cd",
+        "bytes": 811007,
+        "width": 657,
+        "height": 868,
+        "suggestedFilename": "sugata-bob02-casual-ecru-body.png",
+        "nativeSaveImage": true,
+        "unmodifiedBytes": true
+      },
+      "exportClock": {
+        "frameId": 1000065,
+        "time": 0,
+        "deltaTime": 0,
+        "clock": 0,
+        "temporal": {
+          "jitterIndex": 3,
+          "jitterPeriod": 31,
+          "historyWidth": 657
+        },
+        "grainFrame": 641,
+        "draws": 65
+      },
+      "cleanup": {
+        "disposed": true,
+        "leaks": [],
+        "memoryTotal": 0
+      }
+    },
+    {
+      "label": "casual-front-return",
+      "completed": false,
+      "before": {
+        "nodeFrame": {
+          "frameId": 128,
+          "time": 1.5339000000059586,
+          "deltaTime": 0.008900000005960465
+        },
+        "temporal": {
+          "jitterIndex": 9,
+          "jitterPeriod": 31,
+          "historyWidth": 657
+        },
+        "grainFrame": 71,
+        "motionClock": 0
+      },
+      "stateSHA256": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8",
+      "stateArtifact": {
+        "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+        "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+        "decodedSHA256": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8"
+      },
+      "image": {
+        "file": "casual-front-return.png",
+        "sha256": "b7902a95252bbc3877afc2709bda873aca15b47d4006e69b862219a9540bf978",
+        "bytes": 811115,
+        "width": 657,
+        "height": 868,
+        "suggestedFilename": "sugata-bob02-casual-ecru-body.png",
+        "nativeSaveImage": true,
+        "unmodifiedBytes": true
+      },
+      "exportClock": {
+        "frameId": 1000065,
+        "time": 0,
+        "deltaTime": 0,
+        "clock": 0,
+        "temporal": {
+          "jitterIndex": 3,
+          "jitterPeriod": 31,
+          "historyWidth": 657
+        },
+        "grainFrame": 641,
+        "draws": 65
+      },
+      "cleanup": {
+        "disposed": true,
+        "leaks": [],
+        "memoryTotal": 0
+      }
+    }
+  ],
+  "sources": {
+    "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+    "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+    "packages/core/src/render/MorphVelocity.js": "06b4fd0d529f2d0a855aec98bc7150a76a1a73c5b679a2c3e296cba0d80be2de",
+    "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+    "packages/core/src/render/InteriorEnvironment.js": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d",
+    "packages/testbed/src/showcase.js": "1cf5c6943b94ca2a62c38d16269a501748bcabe05660d670e9196ec24eeaa278",
+    "packages/testbed/src/alive.js": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d",
+    "node_modules/three/src/renderers/common/Animation.js": "253fcef5f7bfed144946e7c6ed790c0a494a2c8c275a290bcec05f0ac60ff401",
+    "node_modules/three/src/renderers/common/Renderer.js": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+    "node_modules/three/src/nodes/core/NodeFrame.js": "50b38f505f83c8548bce8867594eb8f5a31eb2cea18690286ed6b91202e418b3",
+    "node_modules/three/src/nodes/accessors/VelocityNode.js": "e9de8e0a3e7da47d9ad37eb31de4773f502d6b2eee40c31a33cb2b904ab39e94",
+    "docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.mjs": "5123724755f3aa4770b5e7aaaa198686b8dd851fa43e43913bd06301fe9a7903"
+  }
+}
