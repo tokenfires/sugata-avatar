@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "sealedAt": "2026-09-26T16:29:23.915Z",
+  "qualificationId": "collar-replacement-2026-09-26-v1",
+  "status": "intentionally-stopped-partial",
+  "qualificationCaptureComplete": false,
+  "reason": "Parent requested early seal following a provisional fixed-support vest-crossing stop witness in the frozen interior control. Geometric adjudication is separate from this capture receipt.",
+  "archivePath": "captures/collar-replacement-2026-09-26/capture-v2",
+  "reportSHA256": "d948def1aa42e54fabd0a3e6b8efd4f0828c5b11b6d5295e85ad204d0f0c5963",
+  "manifestSHA256": "cc3ba48bc129d3ece111bba0dab841c242602a34d3412c1ae4b6819984ab26eb",
+  "partialReceipt": {
+    "file": "partial-v2-receipt.json",
+    "sha256": "0de73914f9e65e3120beffff2b5ed567923812d4d97352cc6fd80a455d04ac4e"
+  },
+  "archiveVerifier": {
+    "file": "verify-capture.mjs",
+    "sha256": "d71b4bbf3bc62b2b25d8cfbaf7c48e0959eb74ee7c6cf98b5284027e03705639"
+  },
+  "execution": {
+    "planned": 16,
+    "completed": 8,
+    "interrupted": 1,
+    "notStarted": 7,
+    "completedHair": "bob02",
+    "completedImages": 1928,
+    "completedSnapshots": 324,
+    "interruptedRun": "bob01-expressive-foundation_bra-accepted-installed",
+    "interruptedImages": 41,
+    "interruptedStates": 41,
+    "interruptedSnapshots": 10,
+    "lastInterruptedImageAndSnapshotStep": 120,
+    "stopMethod": "Stopped only capture-controller PID2797; terminated only its owned Chromium PID2826; resumed controller to let its existing catch/finally path persist the explicitly incomplete report and close its server.",
+    "exitCode": 1,
+    "expectedStopError": "Target page, context or browser has been closed",
+    "noRemainingOwnedProcesses": true,
+    "gpuReleased": true,
+    "completedCasesDisposal": "All reported renderer counters zero and no leaked handles for each of8 completed cases.",
+    "interruptedCaseDisposal": "No successful disposal receipt; browser process termination is recorded separately. Interrupted case excluded from acceptance inputs."
+  },
+  "verification": {
+    "artifactFiles": 2568,
+    "decodedSnapshots": 334,
+    "completeDecodedSnapshots": 324,
+    "completedRuns": 8,
+    "interruptedRuns": 1,
+    "notStartedRuns": 7,
+    "frozenSourceFiles": 257,
+    "manifestSourceFiles": 355,
+    "pairedNativeComparisons": 4,
+    "allPairedNativeStatesAndCommandsEqual": true,
+    "foundationPoseComparisons": 4,
+    "allSampledBodyOuterPosesEqual": true,
+    "selectedLiveSourcesVerifiedAfterShutdown": 355,
+    "liveVerificationBoundary": "Live verification completed and parent notified before subsequent testbed edits were allowed. Later provenance checks must use frozen capture/source and manifest digests.",
+    "installedAcceptedSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "frozenInteriorSHA256": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a"
+  },
+  "limitations": [
+    "8 of16 planned cases completed; bob01 family is not qualified.",
+    "Interrupted case is retained but excluded from acceptance inputs.",
+    "Native60Hz updates,20Hz images, and discrete numerical snapshots do not prove continuous collision freedom.",
+    "Artifact integrity and pose parity do not establish coverage, clearance, appearance acceptance, or fit eligibility.",
+    "No solver, export, support growth, asset promotion, accepted-mask change, or hair change performed."
+  ],
+  "deletedFiles": 0
+}

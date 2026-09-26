@@ -27,9 +27,15 @@ The [September 26 preflight](evidence/collar-2026-09-26/README.md) verified the 
 archive but found the required older mild-pose and coverage inputs absent at their named paths.
 Do not repeat that audit; use a known backup or explicitly design fresh replacement qualification.
 
-The [fresh replacement protocol](COLLAR-REQUALIFICATION-2026-09-26.md) now defines new controls
-and coverage with explicit conventions, preserving the historical gap. Its capture adapter and
-independently tested CPU operator are in progress; no new trial or asset promotion has occurred.
+The [fresh replacement protocol](COLLAR-REQUALIFICATION-2026-09-26.md) defines new controls
+and coverage with explicit conventions, preserving the historical gap. The independently tested
+operator and capture adapter are complete. Eight native bob02 cases are sealed; the remaining
+matrix was intentionally stopped at a fixed-support vest-contact witness. Four intersecting
+cloth faces cannot move under the 34-group support. This blocks joint bra/vest clearance under
+the proposed interface; the original body-plus-bra-only solve remains untested. See the
+[clearance inventory](evidence/collar-2026-09-26/replacement-clearance/README.md). No solver,
+trial export or promotion occurred. Preserve the unused trial slot and do not restart this
+same support experiment today; a broader fit study requires a separately designed constraint set.
 
 One exported candidate only, jointly constrained against body and bra across saved expressive
 poses, restricted to the prescribed 34 welded groups / 43 raw vertices and at most 3 mm extra

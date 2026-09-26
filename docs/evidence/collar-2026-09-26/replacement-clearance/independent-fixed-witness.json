@@ -1,0 +1,235 @@
+{
+  "reviewer": "/root/critic",
+  "method": "Exact Fraction edge-plane intersections and Gram barycentrics on saved Float32 positions; no epsilon or reused triangle predicate",
+  "scriptSha256": "9f022d8a0e7e0f659f4b180f01b48c4502a70f1c7b145589da0aff90da7065ba",
+  "sourceHashes": {
+    "captures/collar-stress-2026-09-22/gpu-v1/assets/collar-interior.glb": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a",
+    "assets/wardrobe/foundation_vest/g050.glb": "4804bd9e11c7aafacc19ca9fa3ded25fbbd2c4d72c25a17d566087ee09ba6152",
+    "docs/evidence/collar-2026-09-26/support.json": "fc84784680066aaa5997e41eac3a60ea06ec542d68a4e7cd004ccd665267c9b8"
+  },
+  "snapshot": {
+    "file": "bob02-expressive-foundation_vest-frozen-interior/meshes-98.json.gz",
+    "sha256": "c22de9d7e43174529744209d78ac789150c1ed10d82155ee0950006bf4040c13",
+    "decodedSHA256": "66866406502735f0e5af97369481cccdfea574dbbb8e599c5e586f448cdeb182"
+  },
+  "immutableCaptureRecordSha256": "d2363bae716baba7be0635bdd06824235644632dc351ad0c039a0b11210e47ff",
+  "verifiedFrozenCaptureSources": 257,
+  "wholeCaptureCompleteAtInventory": false,
+  "selectedRunComplete": true,
+  "retainedVestTriangles": 1411,
+  "rows": [
+    {
+      "clothSourceTriangle": 1503,
+      "clothVertices": [
+        368,
+        881,
+        886
+      ],
+      "vestSourceTriangle": 18271,
+      "vestVertices": [
+        7931,
+        692,
+        5539
+      ],
+      "vestRetainedIndex": 426,
+      "allClothVerticesImmutable": true,
+      "rearGuardVertices": [],
+      "transverseAndStrictInterior": true,
+      "intersectionSegmentLengthMetres": 0.0007619202920265,
+      "segmentEndpointsExactRational": [
+        [
+          "52395382400876156490577/2696737956069864468643840",
+          "46604728702712956875219/33709224450873305858048",
+          "189082550126433392079701/2696737956069864468643840"
+        ],
+        [
+          "402019237367445602391827/21239115488536360738881536",
+          "917396713216415159119597/663722359016761273090048",
+          "749412143389340912273941/10619557744268180369440768"
+        ]
+      ],
+      "midpointWorld": [
+        0.019178709223204773,
+        1.3823753501434402,
+        0.07034216943208657
+      ],
+      "midpointClothBarycentric": [
+        0.22987580579502173,
+        0.7470654626677711,
+        0.023058731537207187
+      ],
+      "midpointVestBarycentric": [
+        0.6103380942327805,
+        0.20805469360351342,
+        0.18160721216370612
+      ]
+    },
+    {
+      "clothSourceTriangle": 1515,
+      "clothVertices": [
+        371,
+        884,
+        889
+      ],
+      "vestSourceTriangle": 6120,
+      "vestVertices": [
+        13275,
+        8432,
+        4218
+      ],
+      "vestRetainedIndex": 42,
+      "allClothVerticesImmutable": true,
+      "rearGuardVertices": [
+        371,
+        884,
+        889
+      ],
+      "transverseAndStrictInterior": true,
+      "intersectionSegmentLengthMetres": 0.0016119768514816085,
+      "segmentEndpointsExactRational": [
+        [
+          "3003192981979082066098609/294104066124797493035139072",
+          "2178975479533222327457857/1531792011066653609558016",
+          "-4545039382001663505437551/294104066124797493035139072"
+        ],
+        [
+          "3032970920852229962821133/258566135617867693454000128",
+          "5747943621200602108145467/4040095869029182710218752",
+          "-3868595293529349008867265/258566135617867693454000128"
+        ]
+      ],
+      "midpointWorld": [
+        0.010970644777042972,
+        1.4226127190764473,
+        -0.01520778600574514
+      ],
+      "midpointClothBarycentric": [
+        0.20626179084377044,
+        0.06431032884680132,
+        0.7294278803094283
+      ],
+      "midpointVestBarycentric": [
+        0.44427179307630255,
+        0.39058841386781795,
+        0.16513979305587953
+      ]
+    },
+    {
+      "clothSourceTriangle": 1516,
+      "clothVertices": [
+        261,
+        371,
+        889
+      ],
+      "vestSourceTriangle": 19672,
+      "vestVertices": [
+        10551,
+        7130,
+        10549
+      ],
+      "vestRetainedIndex": 568,
+      "allClothVerticesImmutable": true,
+      "rearGuardVertices": [
+        261,
+        371,
+        889
+      ],
+      "transverseAndStrictInterior": true,
+      "intersectionSegmentLengthMetres": 6.125650375883766e-05,
+      "segmentEndpointsExactRational": [
+        [
+          "972006816797932157089195/71296799511496553092087808",
+          "3170322734850089640838259/2228024984734267284127744",
+          "-581164818335518423454001/40741028292283744624050176"
+        ],
+        [
+          "1465439504362836620550599/107019595754092567300407296",
+          "4758816799782969767475977/3344362367315392728137728",
+          "-871725785198065091452323/61154054716624324171661312"
+        ]
+      ],
+      "midpointWorld": [
+        0.0136632173508519,
+        1.422933284714062,
+        -0.014259720407932205
+      ],
+      "midpointClothBarycentric": [
+        0.07564396324502513,
+        0.09825586832318024,
+        0.8261001684317947
+      ],
+      "midpointVestBarycentric": [
+        0.014993023558883285,
+        0.011252590097992711,
+        0.9737543863431241
+      ]
+    },
+    {
+      "clothSourceTriangle": 1517,
+      "clothVertices": [
+        261,
+        889,
+        885
+      ],
+      "vestSourceTriangle": 26194,
+      "vestVertices": [
+        10551,
+        12554,
+        15177
+      ],
+      "vestRetainedIndex": 1163,
+      "allClothVerticesImmutable": true,
+      "rearGuardVertices": [
+        261,
+        885,
+        889
+      ],
+      "transverseAndStrictInterior": true,
+      "intersectionSegmentLengthMetres": 1.981874929122463e-05,
+      "segmentEndpointsExactRational": [
+        [
+          "175192212689457398282311/11513849519782563397238784",
+          "682708213618150416144209/479743729990940141551616",
+          "-827244597500809302286027/61407197438840338118606848"
+        ],
+        [
+          "95174807813287318270899/6259996911714450607702016",
+          "556775555106117620284087/391249806982153162981376",
+          "-673866179524983325459281/50079975293715604861616128"
+        ]
+      ],
+      "midpointWorld": [
+        0.015209715957521354,
+        1.423068881135924,
+        -0.01346363042591636
+      ],
+      "midpointClothBarycentric": [
+        0.1514680240064728,
+        0.8467660281870097,
+        0.0017659478065175027
+      ],
+      "midpointVestBarycentric": [
+        0.004560632135347892,
+        0.5445605439910052,
+        0.45087882387364697
+      ]
+    }
+  ],
+  "ordinaryImageWitnesses": [
+    {
+      "step": 96,
+      "file": "bob02-expressive-foundation_vest-frozen-interior/frame-0096.png",
+      "sha256": "42060289d6dedae675f0271eaa8982a774b96e00f8870c8ed0aed5a0aacb8a06"
+    },
+    {
+      "step": 99,
+      "file": "bob02-expressive-foundation_vest-frozen-interior/frame-0099.png",
+      "sha256": "54e20a22dc60d53b3c0c3e6a108912998780371ac7491fdc7734eef26301aee5"
+    }
+  ],
+  "conclusion": "Four transverse crossings cannot be removed by the permitted34groups because all vertices of each crossing cloth triangle are fixed. Joint bra-plus-vest clearance is infeasible under this fixed support and unchanged target pose. A bra-only problem is not decided.",
+  "limits": [
+    "Exact geometry is the saved CPU-skinned Float32 snapshot, not GPU deformed coordinates or continuous motion.",
+    "No asset solve, export, changed support, or promotion."
+  ]
+}

@@ -77,3 +77,18 @@ For posed data, additionally supply `--snapshot PATH.json.gz --snapshot-sha256 H
 The API exports `runCoverage({outerPath, outerSha256, snapshotPath, snapshotSha256, foundationIds, outputPath, excludedOuterTriangles})` and a pure `evaluateCoverage` function for geometric cases. The omission list is for explicit negative controls and is included in reports.
 
 No result here establishes original-mask coverage, all-view ray occlusion, collision clearance, GPU deformation correctness, motion continuity, body-build generality or asset promotion. A trial still needs its own exact-byte posed coverage, support/shape audit, full-body/retained-foundation clearance, visual obliques and motion review.
+# Completed current-runtime witness check
+
+`current-witnesses-v2.json` binds the four completed bob02 expressive step-98 cases from
+the sealed partial capture. The exact report hash matches the capture stop receipt. The
+read-only `probe-current-witnesses.mjs` evaluated **15,540** additional-mask footprints:
+accepted44 fails two bra and three vest footprints; frozen d81 passes both sets, with
+maximum residual area below 3.57e-20 m². The exact compressed reports remain in
+`captures/collar-replacement-2026-09-26/coverage-witness-v2/`. The driver binds its source,
+the then-current manifest sources and each encoded/decoded native snapshot. Subsequent
+viewer changes mean this original live-source replay requires the pinned capture source
+state, not an arbitrary later checkout.
+
+This is four discrete controls, not a complete coverage matrix. Passing additional-mask
+coverage does not imply clearance against the separately retained foundation triangles:
+the d81 vest control has fixed-support crossings documented in the clearance inventory.

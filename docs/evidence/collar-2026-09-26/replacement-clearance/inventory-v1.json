@@ -1,0 +1,1358 @@
+{
+  "version": 1,
+  "status": "Bounded inventory complete; fullcapture-derived rows provisional until captureseal. No solver/export.",
+  "sourceHashes": {
+    "inventory": "68b78440a7ad884a60562e16573a185ae58552416b437120d04ef69f6f03a07a",
+    "support": "fc84784680066aaa5997e41eac3a60ea06ec542d68a4e7cd004ccd665267c9b8",
+    "ray": "602318aea40bf007a542fb6562d12d21a41d2e4cbb0aec5b86edd757e32ddd69",
+    "triangle": "365e342b914cd5a415160868ee55dc9db5effaffa9a85a21e447938655ce7a02"
+  },
+  "faceCounts": {
+    "movingGroups": 34,
+    "movingVertices": 43,
+    "supportIncident": 91,
+    "originalChanged": 180,
+    "rearGuardVertices": 10,
+    "rearIncident": 25,
+    "union": 180
+  },
+  "records": [
+    {
+      "name": "expressive-bra-accepted-98",
+      "summaryFile": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-bra-accepted-98/summary.json",
+      "summarySha256": "bf02f6e6dd24fd7f24657994b32ce4c8b0a0f106dc7794317978a01dcc76fd1d",
+      "inventory": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-bra-accepted-98/inventory.json.gz",
+        "encodedSHA256": "9a3c4a8d38de37cb5d6dbf68074b6d45a17408d7dd65c57b8c08ebe6ed0b8bde",
+        "decodedSHA256": "725ccebc44c36cedfd63b11a037790455b123e5b20e132a51b02c702c4fa8041"
+      },
+      "captureRecord": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-bra-accepted-98/capture-record.json.gz",
+        "encodedSHA256": "9567fd932674a83e7cefcabf27660a9e5903b7f9b690009c7b651f827060c09d",
+        "decodedSHA256": "ec230c5958764c9c376be3e5c838e69ea80a26a6a8dd7d574567d275886f9c79"
+      },
+      "provisional": true,
+      "role": "accepted-installed",
+      "foundation": "foundation_bra",
+      "retainedTriangles": 327,
+      "bodyCrossings": 22,
+      "bodyInsideCentroids": 11,
+      "bodyAmbiguousRays": 0,
+      "bodyMinimumMetres": 0,
+      "foundationCrossings": 6,
+      "lbsMaxError": 1.0529166383221877e-7,
+      "failingFaces": [
+        {
+          "target": "body",
+          "teeTriangle": 552,
+          "targetOriginalTriangle": 15586,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 553,
+          "targetOriginalTriangle": 15586,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 598,
+          "targetOriginalTriangle": 15586,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 599,
+          "targetOriginalTriangle": 15599,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1489,
+          "targetOriginalTriangle": 2350,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1496,
+          "targetOriginalTriangle": 2338,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1497,
+          "targetOriginalTriangle": 2332,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1506,
+          "targetOriginalTriangle": 15601,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1507,
+          "targetOriginalTriangle": 15582,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1510,
+          "targetOriginalTriangle": 2332,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1511,
+          "targetOriginalTriangle": 2333,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1512,
+          "targetOriginalTriangle": 15588,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1513,
+          "targetOriginalTriangle": 15584,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1514,
+          "targetOriginalTriangle": 15580,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1515,
+          "targetOriginalTriangle": 15586,
+          "distance": 0.0009368931646714484,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1516,
+          "targetOriginalTriangle": 15600,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1517,
+          "targetOriginalTriangle": 15601,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1518,
+          "targetOriginalTriangle": 2351,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1519,
+          "targetOriginalTriangle": 2358,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1520,
+          "targetOriginalTriangle": 2345,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1521,
+          "targetOriginalTriangle": 2345,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1522,
+          "targetOriginalTriangle": 15578,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1523,
+          "targetOriginalTriangle": 15574,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1488,
+          "targetOriginalTriangle": 20740,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1489,
+          "targetOriginalTriangle": 20740,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1495,
+          "targetOriginalTriangle": 4909,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1508,
+          "targetOriginalTriangle": 4908,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1509,
+          "targetOriginalTriangle": 15069,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1525,
+          "targetOriginalTriangle": 6436,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        }
+      ]
+    },
+    {
+      "name": "mild-vest-accepted-98",
+      "summaryFile": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/mild-vest-accepted-98/summary.json",
+      "summarySha256": "39c937905a106172125d0c62e3b3c2d08ef39a5b36eb9fe7002c8041cc850af0",
+      "inventory": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/mild-vest-accepted-98/inventory.json.gz",
+        "encodedSHA256": "9e90baf32f6b73b8614496771b44425b248c32db33f38b36fde301743b2ae1fb",
+        "decodedSHA256": "fa50199d7c4e78aad122888669c5fdeaac5cfba59950581cdda7b1a1c956efb6"
+      },
+      "captureRecord": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/mild-vest-accepted-98/capture-record.json.gz",
+        "encodedSHA256": "b9d59f9bec89392746e37e3e87efe9c55e52d9679b5018fb76e64d55bd937aaa",
+        "decodedSHA256": "bba03e0d05c8ca0bd7df7eb5b043355e9a82aee4a16790c4ef8aa77cd114a533"
+      },
+      "provisional": false,
+      "role": "accepted-installed",
+      "foundation": "foundation_vest",
+      "retainedTriangles": 1411,
+      "bodyCrossings": 23,
+      "bodyInsideCentroids": 12,
+      "bodyAmbiguousRays": 0,
+      "bodyMinimumMetres": 0,
+      "foundationCrossings": 20,
+      "lbsMaxError": 1.0823132923221124e-7,
+      "failingFaces": [
+        {
+          "target": "body",
+          "teeTriangle": 552,
+          "targetOriginalTriangle": 15586,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 553,
+          "targetOriginalTriangle": 15586,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 598,
+          "targetOriginalTriangle": 15586,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 599,
+          "targetOriginalTriangle": 15599,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1488,
+          "targetOriginalTriangle": 2350,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1489,
+          "targetOriginalTriangle": 2350,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1496,
+          "targetOriginalTriangle": 2338,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1497,
+          "targetOriginalTriangle": 2332,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1506,
+          "targetOriginalTriangle": 15572,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1507,
+          "targetOriginalTriangle": 15582,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1510,
+          "targetOriginalTriangle": 2332,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1511,
+          "targetOriginalTriangle": 2333,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1512,
+          "targetOriginalTriangle": 15588,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1513,
+          "targetOriginalTriangle": 15584,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1514,
+          "targetOriginalTriangle": 15580,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1515,
+          "targetOriginalTriangle": 15586,
+          "distance": 0.00045862386517945576,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1516,
+          "targetOriginalTriangle": 15599,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1517,
+          "targetOriginalTriangle": 15572,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1518,
+          "targetOriginalTriangle": 2351,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1519,
+          "targetOriginalTriangle": 2358,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1520,
+          "targetOriginalTriangle": 2344,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1521,
+          "targetOriginalTriangle": 2345,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1522,
+          "targetOriginalTriangle": 15578,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "body",
+          "teeTriangle": 1523,
+          "targetOriginalTriangle": 15574,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 552,
+          "targetOriginalTriangle": 25682,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1336,
+          "targetOriginalTriangle": 22154,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1337,
+          "targetOriginalTriangle": 9986,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1382,
+          "targetOriginalTriangle": 26602,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1383,
+          "targetOriginalTriangle": 22173,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1488,
+          "targetOriginalTriangle": 28032,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1489,
+          "targetOriginalTriangle": 28032,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1494,
+          "targetOriginalTriangle": 10984,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1495,
+          "targetOriginalTriangle": 9382,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1496,
+          "targetOriginalTriangle": 9983,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1498,
+          "targetOriginalTriangle": 8211,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1499,
+          "targetOriginalTriangle": 8208,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1500,
+          "targetOriginalTriangle": 19359,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1501,
+          "targetOriginalTriangle": 11928,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1503,
+          "targetOriginalTriangle": 4835,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1508,
+          "targetOriginalTriangle": 10269,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1509,
+          "targetOriginalTriangle": 28033,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1514,
+          "targetOriginalTriangle": 25683,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1520,
+          "targetOriginalTriangle": 26603,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1527,
+          "targetOriginalTriangle": 25746,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        }
+      ]
+    },
+    {
+      "name": "expressive-bra-interior-98",
+      "summaryFile": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-bra-interior-98/summary.json",
+      "summarySha256": "bc568a9785f1522db747abbe4e4dd10b467126a56ef8256c34c5023bf7c5b4b2",
+      "inventory": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-bra-interior-98/inventory.json.gz",
+        "encodedSHA256": "5abcbd30bfba5771d94c05ac109dabd05a53e0353f8d1d04277c8467380be250",
+        "decodedSHA256": "b7f51a341cbb89f16f87789aef3fbd552d33ed3bd7a90cbde822b376cf5c2ab6"
+      },
+      "captureRecord": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-bra-interior-98/capture-record.json.gz",
+        "encodedSHA256": "c93fb231830ca45ee03b6d40c1ee58bb80564387c2eece07a648cf5a5acca7aa",
+        "decodedSHA256": "8a8d5763417bccc293aa1d66428176481075068987cf93b9e463cf05e9b20c89"
+      },
+      "provisional": true,
+      "role": "frozen-interior",
+      "foundation": "foundation_bra",
+      "retainedTriangles": 327,
+      "bodyCrossings": 0,
+      "bodyInsideCentroids": 0,
+      "bodyAmbiguousRays": 0,
+      "bodyMinimumMetres": 0.0005683795158435357,
+      "foundationCrossings": 4,
+      "lbsMaxError": 1.0529166383221877e-7,
+      "failingFaces": [
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 544,
+          "targetOriginalTriangle": 9777,
+          "distance": 0.0002567763351333927,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 545,
+          "targetOriginalTriangle": 9777,
+          "distance": 0.0002567763351333927,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1327,
+          "targetOriginalTriangle": 15016,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1328,
+          "targetOriginalTriangle": 4845,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1329,
+          "targetOriginalTriangle": 18574,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_bra",
+          "teeTriangle": 1331,
+          "targetOriginalTriangle": 4846,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        }
+      ]
+    },
+    {
+      "name": "expressive-vest-interior-98",
+      "summaryFile": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-vest-interior-98/summary.json",
+      "summarySha256": "2dc9a7f6cd6ae512985d125feddf302f638a41e1cdfc757c211ddb59745b1fb3",
+      "inventory": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-vest-interior-98/inventory.json.gz",
+        "encodedSHA256": "945a8b5b639c08c6d75d08cf2fd1f0b85f39d08d199df3d8da3a3a27fd91464a",
+        "decodedSHA256": "cb7fe9989c269996cb14688d6b214a37ea4dc8e2bd48553206e808df61d4447d"
+      },
+      "captureRecord": {
+        "file": "captures/collar-replacement-2026-09-26/clearance-inventory-v1/expressive-vest-interior-98/capture-record.json.gz",
+        "encodedSHA256": "d9a660ffd16add7f140a0051a75dd276276977b615a8fda007e4c4ebe2d76c5d",
+        "decodedSHA256": "d2363bae716baba7be0635bdd06824235644632dc351ad0c039a0b11210e47ff"
+      },
+      "provisional": true,
+      "role": "frozen-interior",
+      "foundation": "foundation_vest",
+      "retainedTriangles": 1411,
+      "bodyCrossings": 0,
+      "bodyInsideCentroids": 0,
+      "bodyAmbiguousRays": 0,
+      "bodyMinimumMetres": 0.0005683795158435357,
+      "foundationCrossings": 16,
+      "lbsMaxError": 1.0529166383221877e-7,
+      "failingFaces": [
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1321,
+          "targetOriginalTriangle": 11034,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1326,
+          "targetOriginalTriangle": 10984,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1327,
+          "targetOriginalTriangle": 78,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1328,
+          "targetOriginalTriangle": 10194,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1329,
+          "targetOriginalTriangle": 25104,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1331,
+          "targetOriginalTriangle": 10195,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1491,
+          "targetOriginalTriangle": 12767,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1494,
+          "targetOriginalTriangle": 27100,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1495,
+          "targetOriginalTriangle": 25948,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1498,
+          "targetOriginalTriangle": 10182,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1499,
+          "targetOriginalTriangle": 22873,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1502,
+          "targetOriginalTriangle": 12773,
+          "distance": 0,
+          "fullyFixed": false,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1503,
+          "targetOriginalTriangle": 18271,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": false
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1515,
+          "targetOriginalTriangle": 6120,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1516,
+          "targetOriginalTriangle": 19672,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        },
+        {
+          "target": "foundation_vest",
+          "teeTriangle": 1517,
+          "targetOriginalTriangle": 26194,
+          "distance": 0,
+          "fullyFixed": true,
+          "rearGuard": true
+        }
+      ]
+    }
+  ],
+  "pairedStep98": {
+    "acceptedVsInteriorBra": {
+      "sameTime": true,
+      "sameRig": true,
+      "sameFullBody": true,
+      "sameNativeBra": true
+    },
+    "interiorBraVsVest": {
+      "sameTime": true,
+      "sameRig": true,
+      "sameFullBody": true,
+      "sameOuter": true
+    }
+  },
+  "fixedVestWitnesses": [
+    {
+      "target": "foundation_vest",
+      "teeTriangle": 1503,
+      "targetOriginalTriangle": 18271,
+      "minimum": {
+        "distance": 0,
+        "a": [
+          0.019429170818374752,
+          1.382551199616981,
+          0.07011528491333134
+        ],
+        "b": [
+          0.019429170818374752,
+          1.382551199616981,
+          0.07011528491333134
+        ],
+        "kind": "transverse",
+        "targetTriangle": 426
+      },
+      "winding": null,
+      "parity": null,
+      "teeWorld": [
+        [
+          0.013980898074805737,
+          1.3716377019882202,
+          0.08148372918367386
+        ],
+        [
+          0.02107056975364685,
+          1.3858391046524048,
+          0.06669031828641891
+        ],
+        [
+          0.009703225456178188,
+          1.3772004842758179,
+          0.077584408223629
+        ]
+      ],
+      "targetWorld": [
+        [
+          0.01831246353685856,
+          1.3828880786895752,
+          0.07064635306596756
+        ],
+        [
+          0.019811250269412994,
+          1.3812121152877808,
+          0.07045821100473404
+        ],
+        [
+          0.021365294232964516,
+          1.381984829902649,
+          0.06918694078922272
+        ]
+      ],
+      "barycentricAtTeeWitness": [
+        0.23151973880127608,
+        0.7684802611987236,
+        3.477451667218352e-16
+      ],
+      "movableTerms": [
+        {
+          "vertex": 368,
+          "weight": 0.23151973880127608,
+          "group": null
+        },
+        {
+          "vertex": 881,
+          "weight": 0.7684802611987236,
+          "group": null
+        },
+        {
+          "vertex": 886,
+          "weight": 3.477451667218352e-16,
+          "group": null
+        }
+      ],
+      "seed": false,
+      "rearGuard": false,
+      "support": false,
+      "independentStrictEdgeHits": [
+        {
+          "edgeFrom": "cloth",
+          "edge": 0,
+          "segmentFraction": 0.768480261198723,
+          "targetBarycentric": [
+            0.6315312339507541,
+            0.005254341721828345,
+            0.36321442432741763
+          ],
+          "point": [
+            0.019429170818374742,
+            1.382551199616981,
+            0.07011528491333135
+          ]
+        },
+        {
+          "edgeFrom": "vest",
+          "edge": 0,
+          "segmentFraction": 0.41085504548516644,
+          "targetBarycentric": [
+            0.2282318727887621,
+            0.7256506641368207,
+            0.046117463074417206
+          ],
+          "point": [
+            0.018928247628034803,
+            1.3821995006698995,
+            0.07056905395084179
+          ]
+        }
+      ]
+    },
+    {
+      "target": "foundation_vest",
+      "teeTriangle": 1515,
+      "targetOriginalTriangle": 6120,
+      "minimum": {
+        "distance": 0,
+        "a": [
+          0.011729961905508932,
+          1.422724560885682,
+          -0.014961724528562065
+        ],
+        "b": [
+          0.011729961905508932,
+          1.422724560885682,
+          -0.014961724528562065
+        ],
+        "kind": "transverse",
+        "targetTriangle": 42
+      },
+      "winding": null,
+      "parity": null,
+      "teeWorld": [
+        [
+          0.016615133732557297,
+          1.423924446105957,
+          -0.019756007939577103
+        ],
+        [
+          -0.008225490339100361,
+          1.4193432331085205,
+          -0.015559544786810875
+        ],
+        [
+          0.011066976934671402,
+          1.4225300550460815,
+          -0.013890663161873817
+        ]
+      ],
+      "targetWorld": [
+        [
+          0.012036076746881008,
+          1.4226446151733398,
+          -0.015008370392024517
+        ],
+        [
+          0.010469527915120125,
+          1.4222596883773804,
+          -0.01569586805999279
+        ],
+        [
+          0.009289578534662724,
+          1.423361897468567,
+          -0.014589858241379261
+        ]
+      ],
+      "barycentricAtTeeWitness": [
+        0.17783481057161896,
+        0.016777037262424004,
+        0.805388152165957
+      ],
+      "movableTerms": [
+        {
+          "vertex": 371,
+          "weight": 0.17783481057161896,
+          "group": null
+        },
+        {
+          "vertex": 884,
+          "weight": 0.016777037262424004,
+          "group": null
+        },
+        {
+          "vertex": 889,
+          "weight": 0.805388152165957,
+          "group": null
+        }
+      ],
+      "seed": false,
+      "rearGuard": true,
+      "support": false,
+      "independentStrictEdgeHits": [
+        {
+          "edgeFrom": "vest",
+          "edge": 1,
+          "segmentFraction": 0.21882317226439274,
+          "targetBarycentric": [
+            0.23468877111592776,
+            0.11184362043117749,
+            0.6534676084528948
+          ],
+          "point": [
+            0.010211327648577065,
+            1.4225008772672125,
+            -0.015453847482928244
+          ]
+        },
+        {
+          "edgeFrom": "vest",
+          "edge": 2,
+          "segmentFraction": 0.888543586152612,
+          "targetBarycentric": [
+            0.1778348105716132,
+            0.016777037262425073,
+            0.8053881521659617
+          ],
+          "point": [
+            0.011729961905508877,
+            1.422724560885682,
+            -0.014961724528562035
+          ]
+        }
+      ]
+    },
+    {
+      "target": "foundation_vest",
+      "teeTriangle": 1516,
+      "targetOriginalTriangle": 19672,
+      "minimum": {
+        "distance": 0,
+        "a": [
+          0.013633246140890207,
+          1.422929615498997,
+          -0.014264853949343986
+        ],
+        "b": [
+          0.013633246140890207,
+          1.422929615498997,
+          -0.014264853949343986
+        ],
+        "kind": "transverse",
+        "targetTriangle": 568
+      },
+      "winding": null,
+      "parity": null,
+      "teeWorld": [
+        [
+          0.038182180374860764,
+          1.4260494709014893,
+          -0.011150890029966831
+        ],
+        [
+          0.016615133732557297,
+          1.423924446105957,
+          -0.019756007939577103
+        ],
+        [
+          0.011066976934671402,
+          1.4225300550460815,
+          -0.013890663161873817
+        ]
+      ],
+      "targetWorld": [
+        [
+          0.016561336815357208,
+          1.422479271888733,
+          -0.014803477562963963
+        ],
+        [
+          0.014880705624818802,
+          1.4219963550567627,
+          -0.015447782352566719
+        ],
+        [
+          0.013604525476694107,
+          1.422951102256775,
+          -0.014237619005143642
+        ]
+      ],
+      "barycentricAtTeeWitness": [
+        0.0744716013149922,
+        0.09858347663399902,
+        0.8269449220510088
+      ],
+      "movableTerms": [
+        {
+          "vertex": 261,
+          "weight": 0.0744716013149922,
+          "group": null
+        },
+        {
+          "vertex": 371,
+          "weight": 0.09858347663399902,
+          "group": null
+        },
+        {
+          "vertex": 889,
+          "weight": 0.8269449220510088,
+          "group": null
+        }
+      ],
+      "seed": false,
+      "rearGuard": true,
+      "support": false,
+      "independentStrictEdgeHits": [
+        {
+          "edgeFrom": "vest",
+          "edge": 1,
+          "segmentFraction": 0.9774948198040087,
+          "targetBarycentric": [
+            0.07447160131499223,
+            0.09858347663399733,
+            0.8269449220510104
+          ],
+          "point": [
+            0.013633246140890194,
+            1.422929615498997,
+            -0.014264853949343976
+          ]
+        },
+        {
+          "edgeFrom": "vest",
+          "edge": 2,
+          "segmentFraction": 0.029986047117765043,
+          "targetBarycentric": [
+            0.0768163251750597,
+            0.0979282600123625,
+            0.8252554148125778
+          ],
+          "point": [
+            0.013693188560813604,
+            1.4229369539291272,
+            -0.014254586866520433
+          ]
+        }
+      ]
+    },
+    {
+      "target": "foundation_vest",
+      "teeTriangle": 1517,
+      "targetOriginalTriangle": 26194,
+      "minimum": {
+        "distance": 0,
+        "a": [
+          0.015215780993876118,
+          1.423068548766741,
+          -0.013471459894008669
+        ],
+        "b": [
+          0.015215780993876118,
+          1.423068548766741,
+          -0.013471459894008669
+        ],
+        "kind": "transverse",
+        "targetTriangle": 1163
+      },
+      "winding": null,
+      "parity": null,
+      "teeWorld": [
+        [
+          0.038182180374860764,
+          1.4260494709014893,
+          -0.011150890029966831
+        ],
+        [
+          0.011066976934671402,
+          1.4225300550460815,
+          -0.013890663161873817
+        ],
+        [
+          0.03125598654150963,
+          1.4257844686508179,
+          -0.007070125546306372
+        ]
+      ],
+      "targetWorld": [
+        [
+          0.016561336815357208,
+          1.422479271888733,
+          -0.014803477562963963
+        ],
+        [
+          0.015180054120719433,
+          1.423507809638977,
+          -0.01376886572688818
+        ],
+        [
+          0.01523186918348074,
+          1.4225447177886963,
+          -0.013081422075629234
+        ]
+      ],
+      "barycentricAtTeeWitness": [
+        0.15300656210661268,
+        0.8469934378933895,
+        -2.2915824837292914e-15
+      ],
+      "movableTerms": [
+        {
+          "vertex": 261,
+          "weight": 0.15300656210661268,
+          "group": null
+        },
+        {
+          "vertex": 889,
+          "weight": 0.8469934378933895,
+          "group": null
+        },
+        {
+          "vertex": 885,
+          "weight": -2.2915824837292914e-15,
+          "group": null
+        }
+      ],
+      "seed": false,
+      "rearGuard": true,
+      "support": false,
+      "independentStrictEdgeHits": [
+        {
+          "edgeFrom": "cloth",
+          "edge": 0,
+          "segmentFraction": 0.8469934378933891,
+          "targetBarycentric": [
+            0.0091212642707027,
+            0.5445253505579707,
+            0.44635338517132667
+          ],
+          "point": [
+            0.015215780993876132,
+            1.423068548766741,
+            -0.013471459894008667
+          ]
+        },
+        {
+          "edgeFrom": "vest",
+          "edge": 1,
+          "segmentFraction": 0.4554042625759408,
+          "targetBarycentric": [
+            0.14992948590633348,
+            0.8465386184806296,
+            0.0035318956130368524
+          ],
+          "point": [
+            0.015203650921166574,
+            1.423069213505107,
+            -0.013455800957824053
+          ]
+        }
+      ]
+    }
+  ],
+  "conditionalConclusion": "If these immutable fullcapture snapshots retain their sealed hashes, positive vest clearance is infeasible under the current34-group support:four intersecting cloth faces have no movable vertex, includingthree rear-guard faces. No tolerance/support change is authorized."
+}

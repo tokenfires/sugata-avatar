@@ -1,0 +1,149 @@
+{
+  "protocol": "sugata-collar-replacement-coverage-v2",
+  "sourceHashes": {
+    "tools/figure-pipeline/collar_coverage_v2.mjs": "21ca66c2ccb73162c1ee294988ceb0bfffb2c414354d3e91ceae9665b27522d8",
+    "docs/evidence/collar-2026-09-26/replacement-coverage/probe-current-witnesses.mjs": "2bf27cb172671b82a90ec56e0a230712141e970e0e2f9b5cea9a060dc2fcd968"
+  },
+  "captureReport": {
+    "file": "captures/collar-replacement-2026-09-26/capture-v2/report.json",
+    "sha256": "d948def1aa42e54fabd0a3e6b8efd4f0828c5b11b6d5295e85ad204d0f0c5963",
+    "matrixCompleted": false,
+    "frozenCopy": "captures/collar-replacement-2026-09-26/coverage-witness-v2/capture-report-observed.json.gz"
+  },
+  "captureManifest": {
+    "file": "captures/collar-replacement-2026-09-26/capture-v2/manifest.json",
+    "sha256": "cc3ba48bc129d3ece111bba0dab841c242602a34d3412c1ae4b6819984ab26eb"
+  },
+  "rows": [
+    {
+      "run": "bob02-expressive-foundation_bra-accepted-installed",
+      "asset": {
+        "assetPath": "assets/wardrobe/female_casualsuit01/g050.glb",
+        "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+        "role": "accepted-installed"
+      },
+      "foundation": "foundation_bra",
+      "step": 98,
+      "input": {
+        "file": "captures/collar-replacement-2026-09-26/capture-v2/bob02-expressive-foundation_bra-accepted-installed/meshes-98.json.gz",
+        "encodedSha256": "a8601ab9c25396cb0ffdbdc5cbcce914d05d9c1d8ee667b8359c014bc83c161d",
+        "decodedSha256": "fe5023ad372ecd8e07a49b8a18f1ed14c1690afda57c0010f31464931cd4db28"
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 4.809988044407573e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 4.809988044407573e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 4.8164191590480483e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-witness-v2/bob02-expressive-foundation_bra-accepted-installed-98.json.gz",
+        "encodedSha256": "26f9ae96afd8ccaed05311d64c847b4b9b3d1f01414622a451e461ecbe92165a",
+        "decodedSha256": "a9fd514a0f785e2ffcb50d6c19b3883dc29cf3e00bea641e034112c7c5ca3856"
+      }
+    },
+    {
+      "run": "bob02-expressive-foundation_bra-frozen-interior",
+      "asset": {
+        "assetPath": "captures/collar-stress-2026-09-22/gpu-v1/assets/collar-interior.glb",
+        "sha256": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a",
+        "role": "frozen-interior"
+      },
+      "foundation": "foundation_bra",
+      "step": 98,
+      "input": {
+        "file": "captures/collar-replacement-2026-09-26/capture-v2/bob02-expressive-foundation_bra-frozen-interior/meshes-98.json.gz",
+        "encodedSha256": "1127a016b86c984726e0e5f99c893b7f8b0dff6c6cce2b289a516e62b0f062f8",
+        "decodedSha256": "e313bcfd328c99f29eb597905b83093dda569e2ab5e651aac61e37c317d6a2da"
+      },
+      "selected": 3669,
+      "passed": 3669,
+      "failed": 0,
+      "maximumUncoveredArea": 2.6833188574693954e-20,
+      "failedTriangles": [],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-witness-v2/bob02-expressive-foundation_bra-frozen-interior-98.json.gz",
+        "encodedSha256": "1f04f64d119f58504d81a504e7742c85ab93450f2a76c33c8fd7bca2ed992112",
+        "decodedSha256": "23187b848e9fa3cfc3293926f64e76d616acbc4f7e91eb1adf13b3a576f3353f"
+      }
+    },
+    {
+      "run": "bob02-expressive-foundation_vest-accepted-installed",
+      "asset": {
+        "assetPath": "assets/wardrobe/female_casualsuit01/g050.glb",
+        "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+        "role": "accepted-installed"
+      },
+      "foundation": "foundation_vest",
+      "step": 98,
+      "input": {
+        "file": "captures/collar-replacement-2026-09-26/capture-v2/bob02-expressive-foundation_vest-accepted-installed/meshes-98.json.gz",
+        "encodedSha256": "ff589cf6181837f43b739f77cf7906af16e7998dbbb484a11470f639dff19402",
+        "decodedSha256": "55335d29ca6f07d956857825810308c4e151e8d7188bd1e73836f92160c1aded"
+      },
+      "selected": 4101,
+      "passed": 4098,
+      "failed": 3,
+      "maximumUncoveredArea": 3.0288061378782253e-9,
+      "failedTriangles": [
+        {
+          "id": 15506,
+          "uncoveredArea": 1.8443927639087187e-9
+        },
+        {
+          "id": 15508,
+          "uncoveredArea": 3.0288061378782253e-9
+        },
+        {
+          "id": 15509,
+          "uncoveredArea": 5.168824580603151e-10
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-witness-v2/bob02-expressive-foundation_vest-accepted-installed-98.json.gz",
+        "encodedSha256": "37e215fe8ff695c4afbaddce4ea50ac2aac0611480ad7fb7e85caa8df2bdfdb4",
+        "decodedSha256": "3531d0a296b85a5db2c92b3d63f068a12bb163c2338de6177629fcc1b1258359"
+      }
+    },
+    {
+      "run": "bob02-expressive-foundation_vest-frozen-interior",
+      "asset": {
+        "assetPath": "captures/collar-stress-2026-09-22/gpu-v1/assets/collar-interior.glb",
+        "sha256": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a",
+        "role": "frozen-interior"
+      },
+      "foundation": "foundation_vest",
+      "step": 98,
+      "input": {
+        "file": "captures/collar-replacement-2026-09-26/capture-v2/bob02-expressive-foundation_vest-frozen-interior/meshes-98.json.gz",
+        "encodedSha256": "c22de9d7e43174529744209d78ac789150c1ed10d82155ee0950006bf4040c13",
+        "decodedSha256": "66866406502735f0e5af97369481cccdfea574dbbb8e599c5e586f448cdeb182"
+      },
+      "selected": 4101,
+      "passed": 4101,
+      "failed": 0,
+      "maximumUncoveredArea": 3.5610572996683555e-20,
+      "failedTriangles": [],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-witness-v2/bob02-expressive-foundation_vest-frozen-interior-98.json.gz",
+        "encodedSha256": "e75ef4b353020b82cc38dcc2f448352d94ac99678aa26b5a31404410760e18a8",
+        "decodedSha256": "77def5fadbd39fb6eafb3fc17fe381b7f62e876128a3669835bc78f113cdb4f3"
+      }
+    }
+  ],
+  "limits": [
+    "Only four completed bob02 expressive native controls at step98 are evaluated.",
+    "The parent matrix may be partial; this does not qualify the remaining poses or bob01.",
+    "Additional-mask projected coverage is distinct from retained-foundation clearance, appearance, continuous motion and historical replay."
+  ],
+  "completed": true,
+  "totalFootprintEvaluations": 15540,
+  "pass": false
+}
