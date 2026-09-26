@@ -124,6 +124,7 @@ export class Stage {
         this.drawingBufferSize = new Vector2();
         this.resizeObserver = null;
         this.pixelRatioWatcher = null;
+        this.pixelRatioChangeListener = null;
 
         // Frame timing. `fps` is the smoothed presentation rate; `frameMs` is the CPU time
         // this Stage spends inside one frame (callbacks + submit), which is not the GPU cost.
@@ -986,17 +987,20 @@ export class Stage {
      */
     watchPixelRatio() {
 
+        this.unwatchPixelRatio();
         const currentRatio = window.devicePixelRatio || 1;
+        const watcher = window.matchMedia( `(resolution: ${ currentRatio }dppx)` );
+        this.pixelRatioWatcher = watcher;
+        this.pixelRatioChangeListener = () => {
 
-        this.pixelRatioWatcher = window.matchMedia( `(resolution: ${ currentRatio }dppx)` );
-        this.pixelRatioWatcher.addEventListener( 'change', () => {
-
-            if ( this.renderer === null ) return; // disposed while the query was pending
+            // A retired query must not resize or replace a newer registration.
+            if ( this.pixelRatioWatcher !== watcher || this.renderer === null ) return;
 
             this.updateViewport();
             this.watchPixelRatio();
 
-        }, { once: true } );
+        };
+        watcher.addEventListener( 'change', this.pixelRatioChangeListener, { once: true } );
 
     }
 
@@ -1009,7 +1013,20 @@ export class Stage {
 
         }
 
+        this.unwatchPixelRatio();
+
+    }
+
+    unwatchPixelRatio() {
+
+        if ( this.pixelRatioWatcher !== null ) {
+
+            this.pixelRatioWatcher.removeEventListener( 'change', this.pixelRatioChangeListener );
+
+        }
+
         this.pixelRatioWatcher = null;
+        this.pixelRatioChangeListener = null;
 
     }
 

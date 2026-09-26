@@ -1,0 +1,9 @@
+# Independent viewport lifecycle review
+
+Reviewer: `/root/critic`, September 26, 2026. **Integrate the narrow Stage DPR listener fix.**
+
+Reviewed Stage SHA-256 `726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0` and the exact listener-ownership diff. The callback is removed from its original MediaQueryList on repin and unwatch; watcher identity also prevents a captured obsolete callback from replacing a newer registration. The viewport sizing calculation and DPR clamp are unchanged. I read the preserved baseline's seven failures and independently reran all nine focused CPU cases successfully using real Stage methods and native EventTarget once semantics with instrumented MediaQueryList/renderer boundaries.
+
+I independently verified native-v2 report SHA-256 `5ef62287ae9e1d49761572baaf05ea140c8738ddea7fcacfc31d41ea3d268ba2`, all three archived/current source hashes, four passing groups, empty errors and three clean Stage retirements. The exact producer is `9e631710b87c3581b850c2c1f179f065c0ebd5e2bfe8044f49a38943f400d3b6`. Browser DOMDebugger listener inspection confirms one initial native registration, removal on explicit repin, and zero registered change listeners after unwatch/disposal across three same-document empty WebGPU Stages. Explicitly synthetic events on the native MediaQueryList objects invoke the current callback once and leave retired callbacks inert.
+
+This is evidence of listener registration/retirement and the controlled delivery contract. The unsuccessful automatic-event attempt is preserved; a CDP DPR override changing the reported ratio without delivering a change event is not established as a product defect. The accepted probe does not qualify automatic physical-display changes, full Avatar behavior, browser garbage collection, OS/GPU allocation reclamation, visual quality or performance. Zeroed renderer counters have only their documented ownership-counter meaning. No GPU job was rerun by this reviewer.

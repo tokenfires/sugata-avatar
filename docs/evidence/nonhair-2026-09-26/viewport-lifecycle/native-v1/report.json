@@ -1,0 +1,44 @@
+{
+  "completed": false,
+  "sourceHashes": {
+    "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "docs/evidence/nonhair-2026-09-26/viewport-lifecycle/native-probe.mjs": "2153d0ea6e63a9ea7c86db31fdb10d94c3b77b55fed15b4d3c2709aa969072c0"
+  },
+  "checks": [],
+  "observations": [
+    {
+      "label": "initial native query",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 1,
+          "flags": [
+            {
+              "useCapture": false,
+              "passive": false,
+              "once": true
+            }
+          ]
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 2,
+        "watcherIndex": 0,
+        "watcherNull": false,
+        "listenerNull": false,
+        "resizeObserverNull": false,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "retirements": [],
+  "scope": "Native MediaQueryList listener retirement and display-density viewport response on empty WebGPU Stages; no full Avatar, OS heap, GPU allocator, appearance or performance qualification.",
+  "failure": "page.waitForFunction: Timeout 30000ms exceeded.\n    at /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/viewport-lifecycle/native-probe.mjs:73:14"
+}

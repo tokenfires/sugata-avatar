@@ -2775,13 +2775,10 @@ export class Avatar {
      *   3. **DOM listeners.** This file adds NONE. That is deliberate and it is the reason the
      *      claim is cheap: `Stage` owns the only two — a `ResizeObserver` on the canvas and a
      *      `matchMedia` change listener for `devicePixelRatio` — and `Stage.dispose()` disconnects
-     *      the observer. ⚠️ **One real leak found in `Stage` and NOT fixed here, because that file
-     *      is not mine:** `watchPixelRatio()` adds its listener with `{ once: true }` and
-     *      `unwatchViewport()` sets `pixelRatioWatcher = null` without ever calling
-     *      `removeEventListener`, so a disposed Stage leaves one closure alive on a MediaQueryList
-     *      until the user drags the window to a display of different density. It is harmless when it
-     *      fires — the callback returns early on `renderer === null` — but a hundred create/destroy
-     *      cycles leave a hundred of them. Filed as a request against `render/Stage.js`.
+     *      the observer and explicitly removes its owned media-query listener. The September 26
+     *      lifecycle regression first reproduced one retained listener per retired Stage, then
+     *      verified exact listener removal, repeated retirement and obsolete-callback rejection.
+     *      Those ownership checks are separate from browser heap or GPU allocator reclamation.
      *
      * What is NOT verified here is the browser-side measurement: a hundred cycles with the heap and
      * the GPU allocator watched. That needs a page, and it belongs to `Avatar.selftest.mjs` and to a

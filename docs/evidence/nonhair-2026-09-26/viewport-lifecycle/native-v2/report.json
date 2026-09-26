@@ -1,0 +1,548 @@
+{
+  "completed": true,
+  "sourceHashes": {
+    "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "docs/evidence/nonhair-2026-09-26/viewport-lifecycle/native-probe.mjs": "9e631710b87c3581b850c2c1f179f065c0ebd5e2bfe8044f49a38943f400d3b6"
+  },
+  "checks": [
+    "Native listener census proves explicit repin retires the old callback; synthetic old/current query events observe removal and once-only repinning.",
+    "Synthetic events on all native retired queries after unwatch invoke no viewport callback and cannot recreate observation.",
+    "Rewatch installs one listener; real Stage disposal removes it and later synthetic events invoke no retired callback.",
+    "Three same-document native Stage create/dispose cycles leave zero registered change listeners and zero renderer counters."
+  ],
+  "observations": [
+    {
+      "label": "initial native query",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 1,
+          "flags": [
+            {
+              "useCapture": false,
+              "passive": false,
+              "once": true
+            }
+          ]
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 2,
+        "watcherIndex": 0,
+        "watcherNull": false,
+        "listenerNull": false,
+        "resizeObserverNull": false,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "explicit repin",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 1,
+          "flags": [
+            {
+              "useCapture": false,
+              "passive": false,
+              "once": true
+            }
+          ]
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 2,
+        "watcherIndex": 1,
+        "watcherNull": false,
+        "listenerNull": false,
+        "resizeObserverNull": false,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "synthetic event on native current query",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 1,
+          "flags": [
+            {
+              "useCapture": false,
+              "passive": false,
+              "once": true
+            }
+          ]
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 3,
+        "watcherIndex": 2,
+        "watcherNull": false,
+        "listenerNull": false,
+        "resizeObserverNull": false,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "unwatch while renderer remains live",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 3,
+        "watcherIndex": -1,
+        "watcherNull": true,
+        "listenerNull": true,
+        "resizeObserverNull": true,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "synthetic changes after unwatch",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 3,
+        "watcherIndex": -1,
+        "watcherNull": true,
+        "listenerNull": true,
+        "resizeObserverNull": true,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "watch again",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 3,
+          "changeListeners": 1,
+          "flags": [
+            {
+              "useCapture": false,
+              "passive": false,
+              "once": true
+            }
+          ]
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 4,
+        "watcherIndex": 3,
+        "watcherNull": false,
+        "listenerNull": false,
+        "resizeObserverNull": false,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "first complete Stage disposal",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 3,
+          "changeListeners": 0,
+          "flags": []
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 4,
+        "watcherIndex": -1,
+        "watcherNull": true,
+        "listenerNull": true,
+        "resizeObserverNull": true,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "fresh Stage 0",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 3,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 4,
+          "changeListeners": 1,
+          "flags": [
+            {
+              "useCapture": false,
+              "passive": false,
+              "once": true
+            }
+          ]
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 2,
+        "watcherIndex": 4,
+        "watcherNull": false,
+        "listenerNull": false,
+        "resizeObserverNull": false,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "fresh Stage 0 disposed",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 3,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 4,
+          "changeListeners": 0,
+          "flags": []
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 2,
+        "watcherIndex": -1,
+        "watcherNull": true,
+        "listenerNull": true,
+        "resizeObserverNull": true,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "fresh Stage 1",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 3,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 4,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 5,
+          "changeListeners": 1,
+          "flags": [
+            {
+              "useCapture": false,
+              "passive": false,
+              "once": true
+            }
+          ]
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 2,
+        "watcherIndex": 5,
+        "watcherNull": false,
+        "listenerNull": false,
+        "resizeObserverNull": false,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    },
+    {
+      "label": "fresh Stage 1 disposed",
+      "queries": [
+        {
+          "index": 0,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 3,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 4,
+          "changeListeners": 0,
+          "flags": []
+        },
+        {
+          "index": 5,
+          "changeListeners": 0,
+          "flags": []
+        }
+      ],
+      "state": {
+        "dpr": 1,
+        "updateCount": 2,
+        "watcherIndex": -1,
+        "watcherNull": true,
+        "listenerNull": true,
+        "resizeObserverNull": true,
+        "pixelRatio": 1,
+        "buffer": {
+          "width": 320,
+          "height": 240
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "retirements": [
+    {
+      "label": "first complete Stage disposal",
+      "rendererNull": true,
+      "watcherNull": true,
+      "listenerNull": true,
+      "resizeObserverNull": true,
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    },
+    {
+      "label": "fresh Stage 0 disposed",
+      "rendererNull": true,
+      "watcherNull": true,
+      "listenerNull": true,
+      "resizeObserverNull": true,
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    },
+    {
+      "label": "fresh Stage 1 disposed",
+      "rendererNull": true,
+      "watcherNull": true,
+      "listenerNull": true,
+      "resizeObserverNull": true,
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    }
+  ],
+  "scope": "Native MediaQueryList registration/retirement on empty WebGPU Stages, with explicitly synthetic change events. No automatic physical-display DPR transition, full Avatar, OS heap, GPU allocator, appearance or performance qualification."
+}

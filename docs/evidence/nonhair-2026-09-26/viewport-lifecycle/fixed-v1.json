@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "completed": true,
+  "scope": "CPU real Stage viewport lifecycle; native EventTarget delivery; instrumented MediaQueryList/ResizeObserver and renderer sizing boundary. No GPU/browser or browser-GC proof.",
+  "sourceHashes": {
+    "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+    "docs/evidence/nonhair-2026-09-26/viewport-lifecycle/Stage.viewport-lifecycle.selftest.mjs": "d0d2d27ea2bbb950a3db0e26378d1c5aa4614f31a850155562b0a9cae1b19ac4"
+  },
+  "checks": [
+    {
+      "name": "normal DPR delivery fires once, resizes, and repins to the new raw ratio",
+      "passed": true,
+      "observation": {
+        "deliveries": 1,
+        "active": 1,
+        "query": "(resolution: 1.5dppx)"
+      }
+    },
+    {
+      "name": "dispose before any DPR delivery releases its listener and observer",
+      "passed": true,
+      "observation": {
+        "activeAfterDispose": 0,
+        "postDisposeDeliveries": 0
+      }
+    },
+    {
+      "name": "unwatch while renderer remains live prevents stale updates and registration resurrection",
+      "passed": true,
+      "observation": {
+        "deliveries": 0,
+        "queries": 1
+      }
+    },
+    {
+      "name": "explicit repinning replaces the old listener rather than duplicating ownership",
+      "passed": true,
+      "observation": {
+        "deliveries": 1,
+        "queryCount": 3
+      }
+    },
+    {
+      "name": "a captured obsolete callback cannot steal a replacement registration",
+      "passed": true,
+      "observation": {
+        "capturedCallbackReplay": "inert",
+        "queryCount": 2
+      }
+    },
+    {
+      "name": "retired callback stays inert after an explicit unwatch and rewatch",
+      "passed": true,
+      "observation": {
+        "activeAfterDispose": 0
+      }
+    },
+    {
+      "name": "fifty independent create-watch-retire cycles retain no pending listeners",
+      "passed": true,
+      "observation": {
+        "cycles": 50,
+        "activeAfterRetirement": 0,
+        "postRetirementDeliveries": 0
+      }
+    },
+    {
+      "name": "DPR clamp and canvas ResizeObserver sizing remain native",
+      "passed": true,
+      "observation": {
+        "sizes": [
+          {
+            "width": 800,
+            "height": 600,
+            "style": false,
+            "ratio": 2
+          },
+          {
+            "width": 400,
+            "height": 800,
+            "style": false,
+            "ratio": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "listener retirement precedes a renderer-disposal failure and remains idempotent",
+      "passed": true,
+      "observation": {
+        "activeAfterFailedRendererDisposal": 0
+      }
+    }
+  ]
+}
