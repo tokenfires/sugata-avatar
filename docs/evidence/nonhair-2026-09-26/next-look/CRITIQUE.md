@@ -1,0 +1,17 @@
+# Independent saved-looks acceptance
+
+Reviewer: `/root/critic`, 2026-09-26.
+
+**Verdict: integrate the bounded browser-local collection.** The source review, final five CPU groups, seven native groups and rendered desktop/mobile UI support naming and reopening the current supported looks. No blocking regression was found. This does not qualify wardrobe fit or add persistent avatar identity.
+
+I independently reran `node packages/testbed/src/showcase-collection.selftest.mjs` after the final one-line-name tightening; all five groups pass. The helper now rejects C1 controls and Unicode line/paragraph separators as well as the original controls. I reread the final helper, UI integration and native gate rather than relying only on the successful report.
+
+I independently recomputed all 19 source/asset hashes, 106 production HTML/JS/JSON hashes, three screenshot hashes and the downloaded options JSON hash in `native-v2/report.json`; all match the retained receipts and current files. Report SHA-256: `b4bdd04e5ba19623c94822a2625e84ea33904228f7db9eadf75357d4c4aa0e34`. The report records seven completed checks and an empty error list. The v1 instrument archive matches its original source hash; the product sources and all build hashes are identical between v1 and v2. The rejected v1 fieldset accessor result therefore remains an instrument failure, not an unexplained product correction.
+
+I directly inspected `two-saved-looks-desktop.png`, `saved-looks-mobile.png` and `storage-unavailable-mobile.png`. Names, configuration summaries and paired Open/Remove actions are legible and separated. The desktop sticky preview stays useful beside the collection. Mobile wraps the summaries without clipping or horizontal overflow; it uses the established ordinary page scroll, so the avatar is above the collection rather than always visible. The collapsed section limits the default page growth. The error plate clearly labels the collection Unavailable, disables its input/actions, and leaves the settings-download path available. No extra layout fix is required for this slice.
+
+The gate exercises real keyboard naming, reload persistence in one browser context, both Studio/Warm and Original/Kitchen restoration, native Remove/Undo, a real second-tab storage event, unsupported-record display, malformed-envelope refusal, and a deliberately inaccessible storage accessor. Actual attached configuration and pressed UI choices match after Open; Kitchen retains omitted style/lighting fields and native exposure 2.04. Collection metadata operations preserve the checked Avatar/renderer ownership, camera, clock and attention state. A pending settings read remains busy through the synthetic persisted-page refresh, so the new section does not bypass that lifecycle guard.
+
+Limits remain explicit: capture pages hold the motion clock, so these observations are not a new live-motion/performance gate. Access failure clears displayed rows while preserving stored bytes and the current viewer; it does not preserve a cached list UI. Quota refusal is a CPU test, not native quota exhaustion. Same-origin storage events and latest-read/raw-recheck protection are not atomic multi-tab merging or cross-device/private-mode durability. Open intentionally starts a fresh view. Existing neck, skirt, socks and hair appearance are unchanged and unqualified by this feature.
+
+Signed: `/root/critic` — independently reviewed, no browser/GPU rerun used for this acceptance.

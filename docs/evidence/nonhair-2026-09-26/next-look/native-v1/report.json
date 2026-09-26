@@ -1,0 +1,234 @@
+{
+  "startedAt": "2026-09-26T17:30:29.279Z",
+  "production": true,
+  "sourceHashes": {
+    "packages/testbed/src/showcase.html": "487436a733aeb9b7d1e27969e7388e24e70acd131af7aab4448f677e524ddd33",
+    "packages/testbed/src/showcase.js": "1debe294b31fc00df9ff63f97b64ec43dd9453e609bb6308eb446206b36bc497",
+    "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+    "packages/testbed/src/showcase-settings.mjs": "cd8f27aba2fce99bd7343b9fcf91e5ab4aeaeac4d70f117a3ddacc28c5a38d08",
+    "packages/testbed/src/showcase-collection.mjs": "6e223be74c389559590310543085b7f6fbc15f75d2255b145e98ecdbb0095aa5",
+    "packages/testbed/src/showcase-collection.selftest.mjs": "c5973faef5156e6a09bedbf0a590d820836e5a36563d8b983a03d2c4debddad7",
+    "packages/testbed/src/showcase-collection.gpu.selftest.mjs": "c8bda9ca361f205796c05faa458c54fdd2af30e524b19cfc2ea638989425e2fa",
+    "packages/testbed/src/viewer-scenes.mjs": "64bbbf3d21aa9100dc4c311b2ad6835e94d83bba1ebf0c1da25d4bfe8f44a810",
+    "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/female_elegantsuit01/g050.glb": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+  },
+  "checks": [
+    "native naming saves actual mixed Warm settings; duplicate refusal preserves stored bytes and live owner/camera/clock/attention",
+    "two named looks survive reload; Open reconstructs attached Studio settings and existing JSON export stays plain Avatar options",
+    "fresh mobile navigation opens Original Kitchen with faithful UI; Remove/Undo preserves the live view and restores exact settings",
+    "real second-tab storage event refreshes plain-text names and retires stale Undo without changing the current avatar"
+  ],
+  "screenshots": [
+    {
+      "file": "two-saved-looks-desktop.png",
+      "sha256": "e3edfe39ae3f41a8df714a94b11f514f670d4950683515bf9473d64982fc1dd0"
+    },
+    {
+      "file": "saved-looks-mobile.png",
+      "sha256": "16942734e671d27ff74294db4f9d599c2089a9b6652e7c4b4389418d28e98393"
+    }
+  ],
+  "errors": [],
+  "states": {
+    "studioRestored": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "warm",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "charcoal",
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "choices": {
+        "outfit": "elegant",
+        "style": "charcoal",
+        "frame": "portrait",
+        "scene": "studio",
+        "light": "warm"
+      },
+      "preset": "casual",
+      "cutLabel": "Chin-length bob",
+      "lightHidden": false,
+      "exposure": 0.85,
+      "noOverflow": true
+    },
+    "kitchenRestoredMobile": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "choices": {
+        "outfit": "elegant",
+        "style": "original",
+        "frame": "body",
+        "scene": "kitchen",
+        "light": "studio"
+      },
+      "preset": "casual",
+      "cutLabel": "Chin-length bob",
+      "lightHidden": true,
+      "exposure": 2.04,
+      "noOverflow": true
+    }
+  },
+  "scope": "Named local look persistence and recovery on the current g050 studies. No fit, appearance, hair, performance or concurrent-write atomicity claim.",
+  "storageFailure": "Controlled localStorage accessor exception; the second-tab mutations use a lightweight same-origin writer document and real browser storage events.",
+  "builtHtmlSha256": "453b0bf264efffa73da9dc1a3cad2625923e6050fb70566e293128c07edb0c00",
+  "builtFileHashes": {
+    "alive.html": "e34993ac0ad049dc73e73637459599d83045298c2bbd665dcef8ae22318bbb53",
+    "assets/Avatar-C8CEGk91.js": "1b8dbdbe2d0ee5ee39a2cbd7e68ef09cf5916927dab9262be02bd2a20177cab6",
+    "assets/AvatarWardrobe-BCIQon9Q.js": "0f66ee6dd962be4b9ea8a1664979d376f72eccfcbee0c1c4eb99af66da0d8438",
+    "assets/Blink-cwHcGeE3.js": "da87c931b3593dbe4e77149548632afb309cf777975a7bb8a1931aad1deac4d7",
+    "assets/Breath-mSKmAbr6.js": "7481626cf90de3faff05b5deea24230f390b7592101a972a91d23ee260ae2b7e",
+    "assets/CardRenderHistory-hWR22iF3.js": "daa9afc367e148685789b815b12de4d95e9f95417aa3091c908cca23d8f97b55",
+    "assets/ExpressionBank-CdcXcxy-.js": "135492899cf14e7eac7a3ae7acb5f07519cdb45162b099314b39f57dfdead956",
+    "assets/ExpressionLayer-CdciS6jw.js": "e8cfcddd5dc7ed6f35e03f372c0d22f1033c891245f1743e52e2f455a9128b7a",
+    "assets/ExpressionLayer-_piLElie.js": "62d0fb940479a3a58904ffea419de09b475bf64c7ca000bcabb8591271117326",
+    "assets/EyeMaterial-D_IljW9D.js": "c4c5f4aaf7fb1629277ba831009c88639c58af1ea129bdbdf421ab47c9666c59",
+    "assets/EyeOcclusion-DM2wPlAF.js": "584529b0d5c7cd5a51ef37efc5a82da94371063c79a4792b64ca916c4e4b0a7a",
+    "assets/Figure-BTyRrsvb.js": "b65030f666a401aa1c9d763725f7925d9aed4d1bbc254c09270e91aeba26dd28",
+    "assets/FoundationLayer-CSxTtWTk.js": "a83d05910dc8ffd43d3fe6e49431a080d246363ec1df7b746f879b44c4274c82",
+    "assets/FoundationLayer-VobtPtqa.js": "996b9d468d97c7dc00f10e23878ebf6efaec5a91f5081339dfa2b398ea3a0eb7",
+    "assets/GLTFLoader-CdTfRvUe.js": "e19d3d543ec63a1f1d4a33b1b74c0134dd9ea56e34559bf82a31dbc8cf804780",
+    "assets/GLTFLoader-DH5I9FFG.js": "2cd0291a0bf3e5624b47f01f4e22bc6a0adb780d7cf808b921d26cbed88d037e",
+    "assets/GarmentManifest-CLkDDuUS.js": "7abdcfc41b9cf4b85e8ccbfa39ffc2bf092e7e918acd18851f853ec84102d376",
+    "assets/GarmentManifest-DHOryuYg.js": "b736164b53505de4dac09a3ee52c3febe0a97d6b521c9762b78dfc3c0cfe1d79",
+    "assets/GroundContact-CMv7pGLz.js": "2a6c7d6224a8c5a86e63bb1c468f7faf40804236a32a2d02f0875ac766aed5f9",
+    "assets/HairBodyContact-7dOwlMjy.js": "2cc796ef3da1c6f3dd60a231276ec259d5dd8d8fb28b585ce5bed7f1090a91d9",
+    "assets/HairBodyContactCalibration-Cf_dH18n.js": "df5467375621c518562b70b33d35508a49f2b64404f20bf1321a4a4301c44aa2",
+    "assets/HairBodyContactCalibration-DaGuTn7V.js": "455f588fac1c33365cc358123caa0d99dc72a2d2bbb1342b445b00e3d667c99f",
+    "assets/HairCardFrame-DEtZbWdS.js": "8ca7f8dafff5f532b641a48953fad3ed0ca49ee85fec9d1652ff2f54d48aaea2",
+    "assets/HairDynamics-B7fmjF87.js": "2fbaf21c3a907255cbfea2ea3469dd04f189b9d655eb3aaa5d2e65d551e22221",
+    "assets/HairDynamics-vHYzH1OJ.js": "26fe699aefa72cfb0752d91e0dc366697ad268ac90018486a81f2ea49a2ad099",
+    "assets/HairMaterial-DNq5sfFl.js": "b51044d392634fbce597d6cae0464916db0ca4933e6b47087259bf1d72533eb6",
+    "assets/HairMaterial-X6YTFLeS.js": "f88f73802d2ad4a84e45efb1ed014b088142f54c0d04777fe836d79f70a975c7",
+    "assets/HairOIT-C1BXgDjm.js": "5d4762d9d4e970b215bdc47377c009722a6dee2bb0e7914ecd2168a49f18de5a",
+    "assets/HairOIT-CjX8NN7K.js": "a529400c774cedbc93a5a0f90aed851788838f6f2375b005e441517b3d4517d5",
+    "assets/HairSkinTransform-2FB2kHdQ.js": "2761b8e70818a52343a7598d719b8bf57c05254cfc16b35fe1558c1363559355",
+    "assets/HairSkinTransform-3umdmAag.js": "ba386a4bdbb45930b6c9a8fe796de769a4cb9246fb39d40de43c416bb8a16358",
+    "assets/HairVelocity-BoVuLLzT.js": "d078bf42c01f91adf89ca2030e92fb9d0970783e1e5bf89a7c11d7fa7e246d35",
+    "assets/HairVelocity-DN8f7tJq.js": "664cf64d42c4b87f0fb020bc98a6fe5168cae10d1c865e367692b2392611306f",
+    "assets/Identity-UQqfQRZd.js": "b646821fb363a96c76c06fdfbaf157c7cc93ff22fe61e02abf85d1471d647ac9",
+    "assets/IdentityCatalogue-BPCTg9XQ.js": "e64ec7b79400436fe746fd5cca168c05f5f552b6c577f45a706d3182b19b216b",
+    "assets/IdentityCatalogue-DsW1LjQ7.js": "d3e53ac6d270d0d469820a40896eecd3201689acc62a6645d92e39c1d782fef7",
+    "assets/IdentityTargets-C1uO-kKi.js": "4ad05822a3f31c7748ad637b080e02d7cb037c799276c158df084f6605ef5e21",
+    "assets/IdentityTargets-CzHPwiHH.js": "b59a9c53592c7bd2831a605cf532f0a4581c891dfad8da8c90511b01d09319ba",
+    "assets/Layer-D4oVLxkv.js": "5b2bae760f19bfcd607871f884383728a2de52a3d6114f70b767d4fb1f63e3fd",
+    "assets/LightingRig-DppnznKx.js": "205c5c84d0cd995c3ec44fda42af0fc4fecacbe7b9c950515dd01cd69167193a",
+    "assets/OrbitControls-Ckh0pE36.js": "549b767abd1a5987fc382a3f57f58468b577adb3d95fdf3f8e371b9858564912",
+    "assets/Pupil-BPZEWBqE.js": "21dd96a3529a474e62f6fe0d85779761087861e569f6a3f8c1963e1d6d9f8a1b",
+    "assets/ReflexAffect-Br1dDyAT.js": "0f064efa4a9b5b9adeb71cc2fdf6c185237970e018bf86f8b12e8724c40bcbfc",
+    "assets/RenderParticipants-Cx0JuJNu.js": "9afdc37bbe6825593d174fd79af994894e8854c07030e2f8509b9afb99dbcc61",
+    "assets/RestPose-BeyKJeS5.js": "7b899b234294d7cddea9b1536e4a9edbc86a46d36ffe10762e015868e660b712",
+    "assets/Skeleton-IIsaYxCf.js": "0a43f2bdfdb1550dde784b062ec10db3cdefb6d8e3fc5fbec7417307cbefee37",
+    "assets/SkinMaterial-FbBdR_My.js": "206ae03957097c1b078a60804b6e756eacd046b5c0aa76946f57a4d98f2755b2",
+    "assets/Stage-Fcr2D-YD.js": "10b852df2cf73d80bec2faf84ff9b7caa131b428beb3e9f4a1d670ab507560e3",
+    "assets/Sway-BMRgX8l2.js": "b8b1941e6e916c83a603a4341618ea72709df29fd4c48794996b89842e203e2a",
+    "assets/VisemeLayer-BjtDmkVD.js": "06c599d33052f47d91f1e01dfc8f31e5877e11304f0b8ad174c806725e10d504",
+    "assets/Wardrobe-1HINh7Cq.js": "bbf040a57a2bc32e8533c9e94779b1953daf615fc749d7395c815cd83ec1391e",
+    "assets/Wardrobe-Bu5neOuN.js": "eeed4ddc38a9ebad0f3425d186e55fc22b5799ba467c2bd46744cbdf43c2589c",
+    "assets/WardrobeStyleOptions-PZWtOwiU.js": "2dbe3b7e694fc78432a57e1a7dd1a5bea6b07b451d31d955d7da959ac3a885e9",
+    "assets/WardrobeStyles-CV2rj9hg.js": "8d070e4e682e07739048a84275383cbc86df3d80e9d7c779acd14300b08b8a37",
+    "assets/affect-C0eCMnBu.js": "afb595b069b6285eb1e5bec915d10851273a93649ad81cc83a497145251922bd",
+    "assets/affect-presets-ClsPC6nB.js": "05e453e2547dd3c81b671e793444ed9a87ce413dcefa9b8baa6959907f344d54",
+    "assets/affect-presets-Dy_m_NtY.js": "ecd82af3de441ed85af88830b49c3b09cd8d2c0184b77ec7d260eebe5dffc5f1",
+    "assets/alive-QTtjpouf.js": "f1d04e1401a722914b1b5a54abdd163a09272b3b2e4c32f79b60379f3b69a1b7",
+    "assets/catalogue-C21krsV3.json": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176",
+    "assets/converse-DspOOTGQ.js": "b7347d96834ae6e169dae71fa77ea24c051f097b7e043c23eb42560da7cd9267",
+    "assets/embed-example-DqR09ms2.js": "b2a8044db489e3521dc3a760c9891f7c80f5031339be89bf7ea31469c5b63753",
+    "assets/eye-D8I27QvA.js": "9578f011a521315123a31f5c0d4a070664ef4370c797be2f16f186a203216a67",
+    "assets/fabric-kSq8yf9_.js": "e8f4e4625c95424f20a5e8714b6c638dbebc807dde959130be3e1ad42fb2b300",
+    "assets/frame-clock-BK1Orcin.js": "a25953d035e9a9385627cc30aff58910703169b28b56a3a6ca00b7b6378b26a8",
+    "assets/frame-clock-lUzgvEQJ.js": "55ad7c0b6ddbd4a5fe0a3b449a628f5668b75312f1798564a691993594046977",
+    "assets/hair-JDve9uRX.js": "b107e66608125e0ea8929a234d867996cab5c91defca89f1372615a7036dc732",
+    "assets/identity-5uKIFWpd.js": "d607396e5af7ad08d73d587509baad125aa4baa90b49a6b28b8dcabef90edbd4",
+    "assets/index-_LmleTtv.js": "7bf85b2523633f007b323d321e4401ab2ee1285234b00bf115f46bb5400066fd",
+    "assets/light-defects-12WBvXcr.js": "b2911b194b0175ce0b6defd73b43002ca2bc7757f630528c999449525aec8677",
+    "assets/lighting-BcKH2hLn.js": "7784dd461a60dfd40cead107e942cbcbc77c3730bdf8981e44a71d8a69e9f899",
+    "assets/manifest-Cl-SSJjc.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+    "assets/manifest-YNOlvV_e.json": "02fb1bb35d345fb5765fd5b72403764d254aa8f115ec9a014e13d0cfd62c73ba",
+    "assets/modulepreload-polyfill-P2Xu9kJm.js": "418c206484b89b68ef5f067277831e583fc9193a62aadf4de269acaaeb12a85f",
+    "assets/portrait-Bky9E5qh.js": "eb74ea82fa9db8dd2db0ca6de4140c8266e011db1467d8440f4bffe9d854a7c4",
+    "assets/post-BlGCFGWM.js": "9061231c1db4e12b10031ddf42315a17eab38dcc0c5e7a0d9d74cb5a7d2ac661",
+    "assets/preload-helper-Czpn1I53.js": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152",
+    "assets/prosody-worklet-CkOTTYJp.js": "616f6b21132b80b64a8c3ee7ee12c883fbf7cb5f9fd940bb9c4461f1e12de7a8",
+    "assets/scaffold-BVKRgpyZ.js": "554474339854297cc0b8c9e7258aca64ac35f3ab9677f031b5115e7a557639ae",
+    "assets/showcase-presets-cdb8o6vZ.js": "a11e09051dede9eff828c9ab0a35fc807c447c9ce3fa552ae85af23ad15ad9cf",
+    "assets/showcase-rtXMxBq6.js": "bb860dfa868303e96390c13b08ad6ffc7f53db15d30e477a422b62ce98e2efd2",
+    "assets/skin-5H2H4cX5.js": "98e0b36d5840047bfe864ee815019c0683a1b932174a27726cae2529d6622a0d",
+    "assets/stage-BGB_8qzc.js": "7e144d19d6f47101fe0afde5a09fad3091bbf7cf67b7c33b2c0cbab6fb37fced",
+    "assets/three.core-BmqiN6YQ.js": "5546cfea638409f2e8aa278e559a998b14ac0ba50e3368620f9f33f689f4093c",
+    "assets/three.tsl-Bjg-fAyR.js": "194a29c37dc06d3ef0bb828697f6b47977a509ed96406b57c27bd2eb8e4a99b7",
+    "assets/three.webgpu-CV_CB2F1.js": "b62a71a3729aa37a6e25e16d23761636b1b45a709052186333b5511db1000640",
+    "assets/viewer-framing-7MufETYO.js": "3bbc826e2b678b4058edd1f1c51f2e84fc1dcaf138f07bde894ac7740d4ce080",
+    "assets/viewer-scenes-BRckcoh0.js": "6d6e0c7de6e635a8107c339da330601e6c20129746775afef699baac151299ae",
+    "assets/voice-C0S0WZja.js": "2f5d99b6c0ec37eac0bf70c4bce67f60b3954a11c1ca2756a06dda3d644a326d",
+    "assets/wardrobe-CYKJEGxY.js": "3c600756cad2a49a648b18c6e610d307152583e655ff55d0ffd9717189426e20",
+    "index.html": "244392b331a97eb15a289209af4fb2a86c8deb61915fcfbe7e6cee3684f01652",
+    "src/affect.html": "86ec6a2a962b7ad5124091e231bb46391ad39dde60e22eacf2026bbcdb006bf8",
+    "src/converse.html": "50a9c7023e7345038d887a763b451aecd5081b7d514e77162434b6821aa9991a",
+    "src/embed-example.html": "28576f2777a09aafe40c48cdea1cb08f58085e3d51497ce833f2ec8837db28dc",
+    "src/eye.html": "4a6370425bb9ecd7551a8a7ad8b891cce620e2ad01444a51e0905c5f5ede0295",
+    "src/fabric.html": "8c6de3393056788659ab5b4d362014a2543b216fbf3f30a14a64fd62760d40ee",
+    "src/hair.html": "dbbf4eeb644c31dab349e0cefee963b5f15754eb48e129a1ce218c81339174b5",
+    "src/identity.html": "0328a4628eb040d9144addabbbdee7c4e3c816177268c1914cd3b4fe3ab38c96",
+    "src/lighting.html": "dc82a06655dc5c8eec289f040033e5c47083a26d4f315ea2a4c644288601c6fb",
+    "src/portrait.html": "26119901e98732b83a3b09e3f69bc874800cc367d8f489b60529f9588f38b324",
+    "src/post.html": "e7898b743eb96a91c931173a39d29e93fab52ba93e22167f7b6f88333d1fa1b1",
+    "src/scaffold.html": "1ec4f7c1c89a4f286f5778fda7ec2098b86e48f0358e434724e64beb3b5e3e90",
+    "src/showcase.html": "453b0bf264efffa73da9dc1a3cad2625923e6050fb70566e293128c07edb0c00",
+    "src/skin.html": "003cfb0e850e60cc6e710bde0ed06e4040791a826b776a11c254753150d71461",
+    "src/stage.html": "aa4691b0471368e169b52b0b4f09f424409e1255e52355dfc2b6256604854e7b",
+    "src/voice.html": "bc1312f4e637efa18916ff2988b8f9287035bc8b249bc6b06e2f5f9d38e949da",
+    "src/wardrobe.html": "5a8ff77626435e958eddc37a70899a548c04e72ee1306c1b66677c5453627cb6"
+  },
+  "download": {
+    "file": "plain-avatar-options.json",
+    "sha256": "eb9ab5f005b56525da06b65589961fa96f16bc2d64670139d0b2d92d5d80c69a"
+  },
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at file:///Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.gpu.selftest.mjs:131:12"
+}

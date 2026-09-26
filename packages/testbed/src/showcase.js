@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, resolveShowcaseSelection, optionsForShowcase, outfitFromReport, configurationFromReport } from './showcase-presets.mjs';
 import { readShowcaseSettings, showcaseSettingsUrl } from './showcase-settings.mjs';
 import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
+import { SavedLooks, SAVED_LOOKS_KEY, SAVED_LOOKS_LIMIT, savedLookSelection } from './showcase-collection.mjs';
 
 const params = new URLSearchParams(location.search), captured = params.has('capture');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -15,9 +16,64 @@ let savingImage = false, attention = null, attentionError = null;
 let navigationPending = false;
 const downloadUrls = new Set();
 const setStatus = text => { status.textContent = text; };
+const savedLooks = new SavedLooks();
+let collectionBlocked = true, collectionCount = 0;
+const collectionAvailable = () => !busy && !savingImage && !failed && avatar && !avatar.disposed && !collectionBlocked;
+function updateCollectionControls() {
+    document.getElementById('collection-controls').disabled = !collectionAvailable();
+    document.getElementById('save-local-look').disabled = !collectionAvailable() || collectionCount >= SAVED_LOOKS_LIMIT;
+    for (const button of document.querySelectorAll('[data-open-look]')) button.disabled = !collectionAvailable() || button.dataset.unavailable === 'true';
+}
 function enableControls() {
     for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
-    updateAttention();
+    updateCollectionControls(); updateAttention();
+}
+function collectionFeedback(message, error = false) {
+    const feedback = document.getElementById('collection-error'); feedback.hidden = !error; feedback.textContent = error ? message : '';
+    document.getElementById('collection-status').textContent = error ? '' : message;
+}
+function renderCollection() {
+    const list = document.getElementById('saved-look-list');
+    try {
+        const current = savedLooks.read(); collectionBlocked = false; collectionCount = current.looks.length;
+        list.replaceChildren(); document.getElementById('saved-look-count').textContent = `${collectionCount} / ${SAVED_LOOKS_LIMIT}`;
+        document.getElementById('saved-look-empty').hidden = collectionCount !== 0;
+        document.getElementById('undo-look').hidden = !savedLooks.canUndo(current.raw);
+        for (const item of current.looks) {
+            const row = document.createElement('li'), name = document.createElement('strong'), description = document.createElement('small'), actions = document.createElement('div');
+            name.textContent = item.name; description.id = `saved-description-${item.id}`; actions.className = 'saved-look-actions';
+            const open = document.createElement('button'), remove = document.createElement('button');
+            open.type = remove.type = 'button'; open.className = remove.className = 'secondary';
+            open.textContent = 'Open'; remove.textContent = 'Remove'; open.dataset.openLook = item.id; remove.dataset.removeLook = item.id;
+            open.setAttribute('aria-label', `Open saved look ${item.name}`); remove.setAttribute('aria-label', `Remove saved look ${item.name}`);
+            open.setAttribute('aria-describedby', description.id);
+            try {
+                const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
+                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
+            } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep or remove this saved entry.'; }
+            open.addEventListener('click', () => {
+                if (!collectionAvailable()) return;
+                try {
+                    const { item: latest } = savedLooks.open(item.id), text = JSON.stringify(latest.configuration);
+                    collectionFeedback('Opening saved look…');
+                    openLook({ size: new Blob([text]).size, text: async () => text });
+                } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
+            });
+            remove.addEventListener('click', () => {
+                if (!collectionAvailable()) return;
+                try {
+                    const removed = savedLooks.remove(item.id, item);
+                    if (renderCollection()) { collectionFeedback(`Removed “${removed.name}”. You can undo this removal.`); document.getElementById('undo-look').focus(); }
+                } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
+            });
+            actions.append(open, remove); row.append(name, description, actions); list.append(row);
+        }
+        updateCollectionControls(); return true;
+    } catch (error) {
+        collectionBlocked = true; list.replaceChildren(); document.getElementById('saved-look-empty').hidden = true;
+        document.getElementById('saved-look-count').textContent = 'Unavailable'; document.getElementById('undo-look').hidden = true;
+        collectionFeedback(error.message, true); updateCollectionControls(); return false;
+    }
 }
 function updateAttention() {
     const phase = attention?.phase ?? 'idle', unavailable = busy || savingImage || failed || attention === null;
@@ -176,6 +232,25 @@ async function copyLook() {
     } catch (error) { setStatus(error.message); }
 }
 
+document.getElementById('save-local-form').addEventListener('submit', event => {
+    event.preventDefault(); if (!collectionAvailable()) return;
+    const input = document.getElementById('saved-look-name');
+    try {
+        const item = savedLooks.add(input.value, currentConfiguration());
+        if (renderCollection()) { input.value = ''; collectionFeedback(`“${item.name}” is saved in this browser.`); }
+    } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
+});
+document.getElementById('undo-look').addEventListener('click', () => {
+    if (!collectionAvailable()) return;
+    try { savedLooks.undo(); if (renderCollection()) { collectionFeedback('Saved look restored.'); document.getElementById('saved-look-name').focus(); } }
+    catch (error) { renderCollection(); collectionFeedback(error.message, true); }
+});
+addEventListener('storage', event => {
+    if (event.key === SAVED_LOOKS_KEY || event.key === null)
+        if (renderCollection()) collectionFeedback('Saved looks updated from another tab. Your current view is unchanged.');
+});
+renderCollection();
+
 try {
     selected = resolveShowcaseSelection(params);
     avatar = await Avatar.create({canvas, ...optionsForShowcase(selected), autoStart: false});
@@ -240,6 +315,7 @@ document.addEventListener('visibilitychange', () => { previousTime = null; });
 addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
 addEventListener('pageshow', event => {
     if (!event.persisted || !avatar || avatar.disposed || failed) return;
+    renderCollection();
     // Restore only navigation's busy state. An unfinished file read or dress operation stays busy.
     if (navigationPending) {
         navigationPending = false; busy = false; refresh(); setStatus(paused ? 'Motion paused' : 'Live view');
