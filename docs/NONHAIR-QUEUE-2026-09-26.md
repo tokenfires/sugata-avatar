@@ -11,9 +11,10 @@ actual file selection, attached configuration equality, mixed-outfit and Origina
 safe errors and same-file retry, accessible desktop/mobile UI, and independent review.
 
 The first implementation passes those functional checks; see today's checkpoint. Its corrected
-mobile capture exposes a portrait-framing crop. Next prove that on direct unimported mobile
-navigation, then correct responsive framing with matched desktop/body/orbit/reset checks. This
-is a useful small visible slice while the collar's missing historical inputs are unresolved.
+mobile capture exposed a portrait-framing crop, reproduced on direct navigation and now corrected
+with measured head-region projection fitting. Desktop/body/orbit/reset and attention continuity
+checks pass; lower long tails and animated excursions are outside that claim. See the final
+[framing evidence](evidence/nonhair-2026-09-26/framing/README.md).
 
 ## Casual collar fit
 

@@ -2,6 +2,7 @@ import { AttentionAction } from '../../core/src/motion/AttentionAction.js';
 import { Avatar } from '../../core/src/Avatar.js';
 import { portraitSelection, validatePortraitHair } from './portrait-selection.mjs';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
 
 const params = new URLSearchParams( location.search );
 const hair = params.get( 'hair' ) ?? 'bob02';
@@ -12,6 +13,7 @@ const status = document.getElementById( 'status' );
 const pauseButton = document.getElementById( 'pause' );
 let avatar = null;
 let controls = null;
+let framing = null;
 let attention = null;
 let attentionError = null;
 let paused = reducedMotion;
@@ -54,7 +56,7 @@ function updateAttention() {
 function animate( time ) {
     const delta = previousTime === null ? 0 : Math.min( ( time - previousTime ) / 1000, 0.05 );
     previousTime = time;
-    controls.update();
+    framing.update(); controls.update();
     avatar.update( paused ? 0 : delta );
     updateAttention();
     frame = requestAnimationFrame( animate );
@@ -88,6 +90,8 @@ try {
     controls.minPolarAngle = Math.PI * 0.25;
     controls.maxPolarAngle = Math.PI * 0.72;
     controls.update();
+    framing = new ViewerFraming( avatar, controls, canvas );
+    framing.setFraming( 'portrait' );
     controls.saveState();
     await avatar.step( 0 );
     const report = avatar.report();
@@ -142,7 +146,7 @@ try {
     document.getElementById( 'reset-view' ).addEventListener( 'click', () => {
         attention.cancel();
         attentionError = null;
-        controls.reset();
+        flushOrbitDamping( controls ); controls.reset();
         updateAttention();
     } );
     document.getElementById( 'hair-style' ).addEventListener( 'change', event => {
@@ -153,9 +157,9 @@ try {
         location.assign( url );
     } );
     window.avatar = avatar;
-    window.portrait = { avatar, controls, attention, step: async delta => {
+    window.portrait = { avatar, controls, attention, framing, step: async delta => {
         if ( !captured ) throw new Error( 'Manual stepping requires ?capture.' );
-        controls.update();
+        framing.update(); controls.update();
         await avatar.step( paused ? 0 : delta );
         updateAttention();
     } };

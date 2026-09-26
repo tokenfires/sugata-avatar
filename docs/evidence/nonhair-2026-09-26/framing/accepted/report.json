@@ -1,0 +1,1679 @@
+{
+  "date": "2026-09-26T15:31:12.619Z",
+  "sourceHashes": {
+    "packages/testbed/src/showcase.js": "8949a33969b99dde9c10997ef7b688010b04bdbec516731077d5b89e374411ef",
+    "packages/testbed/src/showcase.html": "7bfe107f8f9e2a5bdbbf869d798420d4afa8126b5e37e3c80a44e4998a17b475",
+    "packages/testbed/src/portrait.js": "168700c4a1f0276af2919e14a4d037f305402e004364bbfadafaf457cac115f3",
+    "packages/testbed/src/portrait.html": "149f0a056992a4122c0a8c0c1b32852dfa5038de92c2e2cbfbc49831aef844e4",
+    "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+    "packages/testbed/src/viewer-framing.gpu.selftest.mjs": "d4a83da71cafbda9698e6f2948039de72067134ade40dbf60fd8d3327f38b7b6",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+  },
+  "baselineReportSha256": "53cff77d2a2162b5361e9d2e6790d7c33173e0d9d2c7ce72dc143732e6c147d8",
+  "checks": [
+    "portrait bob02 desktop: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "showcase-portrait bob02 desktop: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "showcase-body bob02 desktop: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "portrait bob02 mobile: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "portrait: repeated mobile/desktop resize preserves exact camera/target/clock and active sampled attention hold",
+    "portrait: real drag responds, releases attention and explicit reset clears residual damping at the current responsive projection",
+    "portrait: native wheel dolly remains effective and relative user distance/limits survive resize roundtrip",
+    "showcase-portrait bob02 mobile: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "showcase-portrait: repeated mobile/desktop resize preserves exact camera/target/clock and active sampled attention hold",
+    "showcase-portrait: real drag responds, releases attention and explicit reset clears residual damping at the current responsive projection",
+    "showcase-portrait: native wheel dolly remains effective and relative user distance/limits survive resize roundtrip",
+    "showcase: body/portrait transitions restore their separate projections and Side is exact even after damped orbit",
+    "showcase-body bob02 mobile: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "portrait bob01 desktop: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "showcase-portrait bob01 desktop: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "portrait bob01 mobile: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "showcase-portrait bob01 mobile: real default bounds fit, camera/aspect are valid and desktop/body composition is retained",
+    "source/asset hashes stayed stable; browser console, page and network errors are empty"
+  ],
+  "views": [
+    {
+      "kind": "portrait",
+      "device": "desktop",
+      "hair": "bob02",
+      "file": "portrait-bob02-desktop.png",
+      "sha256": "e28b00bb350641767ef16b5a6de7a03417c5fe667c8153db2f793b53851bf4a4",
+      "position": [
+        0.18911853927933772,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765344,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.637505657495342,
+      "maxDistance": 1.3660835517757333,
+      "fov": 26,
+      "aspect": 1.0962566844919786,
+      "canvas": [
+        932,
+        850
+      ],
+      "backing": [
+        932,
+        850
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": {
+          "minX": -0.817392910599199,
+          "maxX": 0.3773079974449421,
+          "minY": -0.5101225959479314,
+          "maxY": 0.8545925091687816
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.7456218257660985,
+        "maxX": 0.3441785147424594,
+        "minY": -0.5101225959479314,
+        "maxY": 0.8545925091687816
+      },
+      "skinBounds": {
+        "minX": -0.569821483579908,
+        "maxX": 0.1921368973892488,
+        "minY": -0.47125534184416706,
+        "maxY": 0.6986756526331768,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "showcase-portrait",
+      "device": "desktop",
+      "hair": "bob02",
+      "file": "showcase-portrait-bob02-desktop.png",
+      "sha256": "19fcb2b4592d756f9839228106caa0aa2dff8b117873fe87779119bf0b014b6f",
+      "position": [
+        0.1891185392793377,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765343,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.6367269535197708,
+      "maxDistance": 1.364414900399509,
+      "fov": 26,
+      "aspect": 1.0384615384615385,
+      "canvas": [
+        900,
+        868
+      ],
+      "backing": [
+        900,
+        868
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": {
+          "minX": -0.817392910599199,
+          "maxX": 0.3773079974449422,
+          "minY": -0.5101225959479339,
+          "maxY": 0.8545925091687789
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.7871190990955249,
+        "maxX": 0.3633336271692036,
+        "minY": -0.5101225959479339,
+        "maxY": 0.8545925091687789
+      },
+      "skinBounds": {
+        "minX": -0.6015346618104396,
+        "maxX": 0.20283019668938332,
+        "minY": -0.47125534184416934,
+        "maxY": 0.6986756526331743,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "showcase-body",
+      "device": "desktop",
+      "hair": "bob02",
+      "file": "showcase-body-bob02-desktop.png",
+      "sha256": "1b85a90a5a709eb469bde263689dbae67f3ec7f16ffc1269fdca427b69c11dc4",
+      "position": [
+        0.8367855943739235,
+        0.8415295548972083,
+        3.936766702469393
+      ],
+      "target": [
+        0,
+        0.841529554897208,
+        0
+      ],
+      "quaternion": [
+        -2.743401009116785e-17,
+        0.10452846326765328,
+        2.8834306509030423e-18,
+        0.9945218953682733
+      ],
+      "distance": 4.024716412447399,
+      "minDistance": 2.817301488713179,
+      "maxDistance": 6.037074618671098,
+      "fov": 26,
+      "aspect": 1.0384615384615385,
+      "canvas": [
+        900,
+        868
+      ],
+      "backing": [
+        900,
+        868
+      ],
+      "framing": {
+        "mode": "body",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": null,
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.16970563901193642,
+        "maxX": 0.07703695570685695,
+        "minY": 0.6325815958571027,
+        "maxY": 0.9281063662499517
+      },
+      "skinBounds": {
+        "minX": -0.1286663439417538,
+        "maxX": 0.04321381557424705,
+        "minY": 0.6542736027141879,
+        "maxY": 0.8955539963273976,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "portrait",
+      "device": "mobile",
+      "hair": "bob02",
+      "file": "portrait-bob02-mobile.png",
+      "sha256": "e32cc892cacb5ad9a7ef18fc754d241eba998c06c802f54a1b064bab7c2a94d4",
+      "position": [
+        0.18911853927933772,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765344,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.637505657495342,
+      "maxDistance": 1.3660835517757333,
+      "fov": 26,
+      "aspect": 0.6348314606741573,
+      "canvas": [
+        343,
+        540
+      ],
+      "backing": [
+        343,
+        540
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 0.7041964696395716,
+        "effectiveFov": 36.303075941379745,
+        "boundsAtUnitAspect": {
+          "minX": -0.817392910599199,
+          "maxX": 0.3773079974449421,
+          "minY": -0.5101225959479314,
+          "maxY": 0.8545925091687816
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.9067055393586004,
+        "maxX": 0.4185346445895208,
+        "minY": -0.35922653114990694,
+        "maxY": 0.6018010279370792
+      },
+      "skinBounds": {
+        "minX": -0.6929253916039665,
+        "maxX": 0.2336460430178677,
+        "minY": -0.33185634802545194,
+        "maxY": 0.49200492800740675,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "showcase-portrait",
+      "device": "mobile",
+      "hair": "bob02",
+      "file": "showcase-portrait-bob02-mobile.png",
+      "sha256": "c5081c9be332976e37fc25a395f5775073bce5e0c354baf7d9b704f756d3d058",
+      "position": [
+        0.1891185392793377,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765343,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.6367269535197708,
+      "maxDistance": 1.364414900399509,
+      "fov": 26,
+      "aspect": 0.5485436893203883,
+      "canvas": [
+        343,
+        625
+      ],
+      "backing": [
+        343,
+        625
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 0.6084804446400182,
+        "effectiveFov": 41.55525381331115,
+        "boundsAtUnitAspect": {
+          "minX": -0.817392910599199,
+          "maxX": 0.3773079974449422,
+          "minY": -0.5101225959479339,
+          "maxY": 0.8545925091687789
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.9067055393586002,
+        "maxX": 0.4185346445895208,
+        "minY": -0.3103996240033191,
+        "maxY": 0.5200028299650473
+      },
+      "skinBounds": {
+        "minX": -0.6929253916039663,
+        "maxX": 0.2336460430178677,
+        "minY": -0.2867496599443239,
+        "maxY": 0.4251304717733888,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "showcase-body",
+      "device": "mobile",
+      "hair": "bob02",
+      "file": "showcase-body-bob02-mobile.png",
+      "sha256": "578af48017a6737ac44e53abf86bf05397ce7e0951196fe3296e690bf4f9368f",
+      "position": [
+        0.8367855943739235,
+        0.8415295548972083,
+        3.936766702469393
+      ],
+      "target": [
+        0,
+        0.841529554897208,
+        0
+      ],
+      "quaternion": [
+        -2.743401009116785e-17,
+        0.10452846326765328,
+        2.8834306509030423e-18,
+        0.9945218953682733
+      ],
+      "distance": 4.024716412447399,
+      "minDistance": 2.817301488713179,
+      "maxDistance": 6.037074618671098,
+      "fov": 26,
+      "aspect": 0.5485436893203883,
+      "canvas": [
+        343,
+        625
+      ],
+      "backing": [
+        343,
+        625
+      ],
+      "framing": {
+        "mode": "body",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": null,
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.3212739156515965,
+        "maxX": 0.1458405539964392,
+        "minY": 0.6325815958571027,
+        "maxY": 0.9281063662499517
+      },
+      "skinBounds": {
+        "minX": -0.24358141763241484,
+        "maxX": 0.08180913622326823,
+        "minY": 0.6542736027141879,
+        "maxY": 0.8955539963273976,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "portrait",
+      "device": "desktop",
+      "hair": "bob01",
+      "file": "portrait-bob01-desktop.png",
+      "sha256": "de9218d6582292d8c35ad29ae721577abafa63d36d27ad6e0c5fbec91f58d5b1",
+      "position": [
+        0.18911853927933772,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765344,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.637505657495342,
+      "maxDistance": 1.3660835517757333,
+      "fov": 26,
+      "aspect": 1.0962566844919786,
+      "canvas": [
+        932,
+        850
+      ],
+      "backing": [
+        932,
+        850
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": {
+          "minX": -0.9455754266097808,
+          "maxX": 0.40180777879109175,
+          "minY": -0.5147103860097051,
+          "maxY": 0.8543149261565514
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 13877,
+        "excludedLowerCardVertices": 3639,
+        "cardEdgeIntersections": 1756,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.8625492915903855,
+        "maxX": 0.3665270957752886,
+        "minY": -0.5147103860097051,
+        "maxY": 0.8543149261565514
+      },
+      "skinBounds": {
+        "minX": -0.569821483579908,
+        "maxX": 0.1921368973892488,
+        "minY": -0.47125534184416706,
+        "maxY": 0.6986756526331768,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "showcase-portrait",
+      "device": "desktop",
+      "hair": "bob01",
+      "file": "showcase-portrait-bob01-desktop.png",
+      "sha256": "1ba3c3d7cfa6e9796aacfeb4f6535cd98f76d0eeaf9567e148c2a97194628b6d",
+      "position": [
+        0.1891185392793377,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765343,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.6367269535197708,
+      "maxDistance": 1.364414900399509,
+      "fov": 26,
+      "aspect": 1.0384615384615385,
+      "canvas": [
+        900,
+        868
+      ],
+      "backing": [
+        900,
+        868
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": {
+          "minX": -0.9455754266097808,
+          "maxX": 0.40180777879109175,
+          "minY": -0.5147103860097075,
+          "maxY": 0.8543149261565487
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 13877,
+        "excludedLowerCardVertices": 3639,
+        "cardEdgeIntersections": 1756,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.9105541145131223,
+        "maxX": 0.38692600920623654,
+        "minY": -0.5147103860097075,
+        "maxY": 0.8543149261565487
+      },
+      "skinBounds": {
+        "minX": -0.6015346618104396,
+        "maxX": 0.20283019668938332,
+        "minY": -0.47125534184416934,
+        "maxY": 0.6986756526331743,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "portrait",
+      "device": "mobile",
+      "hair": "bob01",
+      "file": "portrait-bob01-mobile.png",
+      "sha256": "a1b79e765d5e23d4c81e41f27bec8aa5fa36780bfc90e0b2c5ccc8c2be6b1709",
+      "position": [
+        0.18911853927933772,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765344,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.637505657495342,
+      "maxDistance": 1.3660835517757333,
+      "fov": 26,
+      "aspect": 0.6348314606741573,
+      "canvas": [
+        343,
+        540
+      ],
+      "backing": [
+        343,
+        540
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 0.6087353644712578,
+        "effectiveFov": 41.53933692735055,
+        "boundsAtUnitAspect": {
+          "minX": -0.9455754266097808,
+          "maxX": 0.40180777879109175,
+          "minY": -0.5147103860097051,
+          "maxY": 0.8543149261565514
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 13877,
+        "excludedLowerCardVertices": 3639,
+        "cardEdgeIntersections": 1756,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.9067055393586005,
+        "maxX": 0.3852906162054969,
+        "minY": -0.3133224144247596,
+        "maxY": 0.5200517079471438
+      },
+      "skinBounds": {
+        "minX": -0.5989921974833576,
+        "maxX": 0.2019729085358034,
+        "minY": -0.2868697922765362,
+        "maxY": 0.4253085780528507,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    },
+    {
+      "kind": "showcase-portrait",
+      "device": "mobile",
+      "hair": "bob01",
+      "file": "showcase-portrait-bob01-mobile.png",
+      "sha256": "7c4b65527142e1f0ab3da4c0ea75a4c2a2b35f0ad1643f6fba5990a29b5761fb",
+      "position": [
+        0.1891185392793377,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "target": [
+        0,
+        1.5227790690175487,
+        0
+      ],
+      "quaternion": [
+        0,
+        0.10452846326765343,
+        0,
+        0.9945218953682733
+      ],
+      "distance": 0.9096099335996728,
+      "minDistance": 0.6367269535197708,
+      "maxDistance": 1.364414900399509,
+      "fov": 26,
+      "aspect": 0.5485436893203883,
+      "canvas": [
+        343,
+        625
+      ],
+      "backing": [
+        343,
+        625
+      ],
+      "framing": {
+        "mode": "portrait",
+        "zoom": 0.5259946353198247,
+        "effectiveFov": 47.39501130448906,
+        "boundsAtUnitAspect": {
+          "minX": -0.9455754266097808,
+          "maxX": 0.40180777879109175,
+          "minY": -0.5147103860097075,
+          "maxY": 0.8543149261565487
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 13877,
+        "excludedLowerCardVertices": 3639,
+        "cardEdgeIntersections": 1756,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "bounds": {
+        "minX": -0.9067055393586004,
+        "maxX": 0.3852906162054969,
+        "minY": -0.2707349017845023,
+        "maxY": 0.44936506803199683
+      },
+      "skinBounds": {
+        "minX": -0.5989921974833576,
+        "maxX": 0.20197290853580344,
+        "minY": -0.2478777816758432,
+        "maxY": 0.36749964511362715,
+        "count": 4231
+      },
+      "attention": {
+        "phase": "idle",
+        "time": 0,
+        "poseWeight": 0,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 1,
+        "target": null,
+        "holdsGaze": false,
+        "eyeFocus": "inactive"
+      },
+      "clock": 0,
+      "identity": {
+        "gender": 0.5,
+        "bake": "figure_g050"
+      }
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Fits neutral head skin and authored cards at or above the skin head lower extent, including crossing edges. Lower long-bob tails are excluded. Alpha-transparent card borders are conservative; dynamic hair excursions are not qualified.",
+    "User orbit and dolly remain free to crop the figure deliberately. No geometry, fit, hair-quality, all-motion or performance acceptance."
+  ],
+  "current": {
+    "kind": "showcase-portrait",
+    "device": "mobile",
+    "hair": "bob01",
+    "position": [
+      0.1891185392793377,
+      1.5227790690175487,
+      0.8897327741541562
+    ],
+    "target": [
+      0,
+      1.5227790690175487,
+      0
+    ],
+    "quaternion": [
+      0,
+      0.10452846326765343,
+      0,
+      0.9945218953682733
+    ],
+    "distance": 0.9096099335996728,
+    "minDistance": 0.6367269535197708,
+    "maxDistance": 1.364414900399509,
+    "fov": 26,
+    "aspect": 0.5485436893203883,
+    "canvas": [
+      343,
+      625
+    ],
+    "backing": [
+      343,
+      625
+    ],
+    "framing": {
+      "mode": "portrait",
+      "zoom": 0.5259946353198247,
+      "effectiveFov": 47.39501130448906,
+      "boundsAtUnitAspect": {
+        "minX": -0.9455754266097808,
+        "maxX": 0.40180777879109175,
+        "minY": -0.5147103860097075,
+        "maxY": 0.8543149261565487
+      },
+      "skinCount": 4231,
+      "headFloorY": 1.4349272982560242,
+      "includedCardVertices": 13877,
+      "excludedLowerCardVertices": 3639,
+      "cardEdgeIntersections": 1756,
+      "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+      "gutterPixels": 16
+    },
+    "bounds": {
+      "minX": -0.9067055393586004,
+      "maxX": 0.3852906162054969,
+      "minY": -0.2707349017845023,
+      "maxY": 0.44936506803199683
+    },
+    "skinBounds": {
+      "minX": -0.5989921974833576,
+      "maxX": 0.20197290853580344,
+      "minY": -0.2478777816758432,
+      "maxY": 0.36749964511362715,
+      "count": 4231
+    },
+    "attention": {
+      "phase": "idle",
+      "time": 0,
+      "poseWeight": 0,
+      "expression": "neutral",
+      "smileWeight": 0,
+      "smile": {
+        "amount": 0,
+        "status": "inactive"
+      },
+      "headNoiseScale": 1,
+      "target": null,
+      "holdsGaze": false,
+      "eyeFocus": "inactive"
+    },
+    "clock": 0,
+    "identity": {
+      "gender": 0.5,
+      "bake": "figure_g050"
+    }
+  },
+  "interactions": [
+    {
+      "kind": "portrait",
+      "initial": {
+        "position": [
+          0.18911853927933772,
+          1.5227790690175487,
+          0.8897327741541562
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765344,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.9096099335996728,
+        "minDistance": 0.637505657495342,
+        "maxDistance": 1.3660835517757333,
+        "fov": 26,
+        "aspect": 0.6348314606741573,
+        "canvas": [
+          343,
+          540
+        ],
+        "backing": [
+          343,
+          540
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.7041964696395716,
+          "effectiveFov": 36.303075941379745,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449421,
+            "minY": -0.5101225959479314,
+            "maxY": 0.8545925091687816
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -0.9067055393586004,
+          "maxX": 0.4185346445895208,
+          "minY": -0.35922653114990694,
+          "maxY": 0.6018010279370792
+        },
+        "skinBounds": {
+          "minX": -0.6929253916039665,
+          "maxX": 0.2336460430178677,
+          "minY": -0.33185634802545194,
+          "maxY": 0.49200492800740675,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      },
+      "reset": {
+        "position": [
+          0.18911853927933772,
+          1.5227790690175487,
+          0.8897327741541562
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765344,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.9096099335996728,
+        "minDistance": 0.637505657495342,
+        "maxDistance": 1.3660835517757333,
+        "fov": 26,
+        "aspect": 0.6348314606741573,
+        "canvas": [
+          343,
+          540
+        ],
+        "backing": [
+          343,
+          540
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.7041964696395716,
+          "effectiveFov": 36.303075941379745,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449421,
+            "minY": -0.5101225959479314,
+            "maxY": 0.8545925091687816
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -0.9067055393586004,
+          "maxX": 0.4185346445895208,
+          "minY": -0.35922653114990694,
+          "maxY": 0.6018010279370792
+        },
+        "skinBounds": {
+          "minX": -0.6836369038896163,
+          "maxX": 0.24097659773870506,
+          "minY": -0.3339208821976353,
+          "maxY": 0.49226143975802733,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "releasing",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "soft-smile",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 0.95656,
+          "target": {
+            "yawDegrees": 14.905435339125626,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "clock": 0.6,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      },
+      "dolly": {
+        "position": [
+          0.17243943623155414,
+          1.5227790690175487,
+          0.8112637637564597
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765344,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.8293878788312216,
+        "minDistance": 0.637505657495342,
+        "maxDistance": 1.3660835517757333,
+        "fov": 26,
+        "aspect": 0.6348314606741573,
+        "canvas": [
+          343,
+          540
+        ],
+        "backing": [
+          343,
+          540
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.7041964696395716,
+          "effectiveFov": 36.303075941379745,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449421,
+            "minY": -0.5101225959479314,
+            "maxY": 0.8545925091687816
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -1.0004382063524841,
+          "maxX": 0.4628301559848843,
+          "minY": -0.4025140805840595,
+          "maxY": 0.6678080340118182
+        },
+        "skinBounds": {
+          "minX": -0.7605063386180521,
+          "maxX": 0.2663275667654525,
+          "minY": -0.3727783617547679,
+          "maxY": 0.5451413035446474,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "releasing",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "soft-smile",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 0.95656,
+          "target": {
+            "yawDegrees": 14.905435339125626,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "clock": 0.6,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      },
+      "attentionBefore": {
+        "position": [
+          0.18911853927933772,
+          1.5227790690175487,
+          0.8897327741541562
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765344,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.9096099335996728,
+        "minDistance": 0.637505657495342,
+        "maxDistance": 1.3660835517757333,
+        "fov": 26,
+        "aspect": 0.6348314606741573,
+        "canvas": [
+          343,
+          540
+        ],
+        "backing": [
+          343,
+          540
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.7041964696395716,
+          "effectiveFov": 36.303075941379745,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449421,
+            "minY": -0.5101225959479314,
+            "maxY": 0.8545925091687816
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -0.9067055393586004,
+          "maxX": 0.4185346445895208,
+          "minY": -0.35922653114990694,
+          "maxY": 0.6018010279370792
+        },
+        "skinBounds": {
+          "minX": -0.6836369038896163,
+          "maxX": 0.24097659773870506,
+          "minY": -0.3339208821976353,
+          "maxY": 0.49226143975802733,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "attending",
+          "time": 0.1,
+          "poseWeight": 0,
+          "expression": "soft-smile",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 0.95656,
+          "target": {
+            "yawDegrees": 14.905435339125626,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": true,
+          "eyeFocus": "settling"
+        },
+        "clock": 0.6,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      }
+    },
+    {
+      "kind": "showcase-portrait",
+      "initial": {
+        "position": [
+          0.1891185392793377,
+          1.5227790690175487,
+          0.8897327741541562
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765343,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.9096099335996728,
+        "minDistance": 0.6367269535197708,
+        "maxDistance": 1.364414900399509,
+        "fov": 26,
+        "aspect": 0.5485436893203883,
+        "canvas": [
+          343,
+          625
+        ],
+        "backing": [
+          343,
+          625
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.6084804446400182,
+          "effectiveFov": 41.55525381331115,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449422,
+            "minY": -0.5101225959479339,
+            "maxY": 0.8545925091687789
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -0.9067055393586002,
+          "maxX": 0.4185346445895208,
+          "minY": -0.3103996240033191,
+          "maxY": 0.5200028299650473
+        },
+        "skinBounds": {
+          "minX": -0.6929253916039663,
+          "maxX": 0.2336460430178677,
+          "minY": -0.2867496599443239,
+          "maxY": 0.4251304717733888,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "clock": 0,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      },
+      "reset": {
+        "position": [
+          0.1891185392793377,
+          1.5227790690175487,
+          0.8897327741541562
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765343,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.9096099335996728,
+        "minDistance": 0.6367269535197708,
+        "maxDistance": 1.364414900399509,
+        "fov": 26,
+        "aspect": 0.5485436893203883,
+        "canvas": [
+          343,
+          625
+        ],
+        "backing": [
+          343,
+          625
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.6084804446400182,
+          "effectiveFov": 41.55525381331115,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449422,
+            "minY": -0.5101225959479339,
+            "maxY": 0.8545925091687789
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -0.9067055393586002,
+          "maxX": 0.4185346445895208,
+          "minY": -0.3103996240033191,
+          "maxY": 0.5200028299650473
+        },
+        "skinBounds": {
+          "minX": -0.6836438836121917,
+          "maxX": 0.24097660127744025,
+          "minY": -0.2885388070649811,
+          "maxY": 0.42535274422374447,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": {
+            "yawDegrees": 14.905435339125622,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "clock": 0.6,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      },
+      "dolly": {
+        "position": [
+          0.1724394362315541,
+          1.5227790690175487,
+          0.8112637637564597
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765343,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.8293878788312216,
+        "minDistance": 0.6367269535197708,
+        "maxDistance": 1.364414900399509,
+        "fov": 26,
+        "aspect": 0.5485436893203883,
+        "canvas": [
+          343,
+          625
+        ],
+        "backing": [
+          343,
+          625
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.6084804446400182,
+          "effectiveFov": 41.55525381331115,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449422,
+            "minY": -0.5101225959479339,
+            "maxY": 0.8545925091687789
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -1.000438206352484,
+          "maxX": 0.46283015598488425,
+          "minY": -0.34780342885418897,
+          "maxY": 0.5770380099713751
+        },
+        "skinBounds": {
+          "minX": -0.7605139529989386,
+          "maxX": 0.26632766225314086,
+          "minY": -0.32211519667291444,
+          "maxY": 0.471043317643489,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": {
+            "yawDegrees": 14.905435339125622,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "clock": 0.6,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      },
+      "attentionBefore": {
+        "position": [
+          0.1891185392793377,
+          1.5227790690175487,
+          0.8897327741541562
+        ],
+        "target": [
+          0,
+          1.5227790690175487,
+          0
+        ],
+        "quaternion": [
+          0,
+          0.10452846326765343,
+          0,
+          0.9945218953682733
+        ],
+        "distance": 0.9096099335996728,
+        "minDistance": 0.6367269535197708,
+        "maxDistance": 1.364414900399509,
+        "fov": 26,
+        "aspect": 0.5485436893203883,
+        "canvas": [
+          343,
+          625
+        ],
+        "backing": [
+          343,
+          625
+        ],
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.6084804446400182,
+          "effectiveFov": 41.55525381331115,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449422,
+            "minY": -0.5101225959479339,
+            "maxY": 0.8545925091687789
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "bounds": {
+          "minX": -0.9067055393586002,
+          "maxX": 0.4185346445895208,
+          "minY": -0.3103996240033191,
+          "maxY": 0.5200028299650473
+        },
+        "skinBounds": {
+          "minX": -0.6836369038896162,
+          "maxX": 0.24097659773870503,
+          "minY": -0.2885335778212592,
+          "maxY": 0.42535211784916765,
+          "count": 4231
+        },
+        "attention": {
+          "phase": "attending",
+          "time": 0.1,
+          "poseWeight": 0,
+          "expression": "soft-smile",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 0.95656,
+          "target": {
+            "yawDegrees": 14.905435339125622,
+            "pitchDegrees": 0.6468313591771493
+          },
+          "holdsGaze": true,
+          "eyeFocus": "settling"
+        },
+        "clock": 0.6,
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "hair": "bob02"
+      }
+    }
+  ],
+  "passed": true
+}

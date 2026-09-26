@@ -3,12 +3,13 @@ import { Avatar } from '../../core/src/Avatar.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, resolveShowcaseSelection, optionsForShowcase, outfitFromReport, configurationFromReport } from './showcase-presets.mjs';
 import { readShowcaseSettings, showcaseSettingsUrl } from './showcase-settings.mjs';
+import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
 
 const params = new URLSearchParams(location.search), captured = params.has('capture');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const canvas = document.getElementById('stage'), status = document.getElementById('status');
 const dialog = document.getElementById('copy-dialog');
-let avatar = null, controls = null, selected = null, busy = true, failed = false;
+let avatar = null, controls = null, framing = null, selected = null, busy = true, failed = false;
 let paused = reducedMotion, frame = 0, previousTime = null;
 let savingImage = false, attention = null, attentionError = null;
 const downloadUrls = new Set();
@@ -42,7 +43,7 @@ addEventListener('unhandledrejection', event => showFailure(event.reason));
 function animate(time) {
     if (failed || savingImage || !avatar || avatar.disposed) return;
     const delta = previousTime === null ? 0 : Math.min((time - previousTime) / 1000, .05); previousTime = time;
-    try { controls.update(); avatar.update(paused ? 0 : delta); updateAttention(); frame = requestAnimationFrame(animate); }
+    try { framing.update(); controls.update(); avatar.update(paused ? 0 : delta); updateAttention(); frame = requestAnimationFrame(animate); }
     catch (error) { showFailure(error); }
 }
 function updateUrl() {
@@ -71,12 +72,13 @@ function refresh() {
 }
 function frameView(mode) {
     releaseAttention({immediate: true});
+    flushOrbitDamping(controls);
     avatar.setFraming(mode); selected.frame = mode;
     controls.target.copy(avatar.focus);
     if (mode === 'portrait') { controls.target.y += .045; avatar.stage.camera.position.y += .045; }
     const distance = avatar.stage.camera.position.distanceTo(controls.target);
     controls.minDistance = distance * .7; controls.maxDistance = distance * 1.5;
-    controls.update(); controls.saveState();
+    controls.update(); framing.setFraming(mode); controls.saveState();
 }
 async function changeOutfit(id) {
     if (busy || savingImage || failed) return false;
@@ -178,6 +180,7 @@ try {
     controls = new OrbitControls(avatar.stage.camera, canvas); controls.enablePan = false;
     controls.enableDamping = !reducedMotion; controls.dampingFactor = .1;
     controls.minPolarAngle = Math.PI * .26; controls.maxPolarAngle = Math.PI * .70;
+    framing = new ViewerFraming(avatar, controls, canvas);
     frameView(selected.frame); await avatar.step(0);
     // Attachment is observed before controls or export become available; a requested garment is insufficient.
     configurationFromReport(avatar.report());
@@ -195,6 +198,7 @@ try {
     for (const button of document.querySelectorAll('[data-light]')) button.addEventListener('click', () => { avatar.setLighting(button.dataset.light); selected.light = button.dataset.light; refresh(); });
     for (const button of document.querySelectorAll('[data-angle]')) button.addEventListener('click', () => {
         releaseAttention({immediate: true});
+        flushOrbitDamping(controls);
         const target = controls.target, radius = avatar.stage.camera.position.distanceTo(target), angle = Number(button.dataset.angle) * Math.PI / 180;
         avatar.stage.camera.position.set(target.x + radius * Math.sin(angle), target.y, target.z + radius * Math.cos(angle));
         avatar.stage.camera.lookAt(target); controls.update();
@@ -215,8 +219,8 @@ try {
     document.getElementById('open-settings').addEventListener('click', () => settingsFile.click());
     settingsFile.addEventListener('change', () => { const file = settingsFile.files[0]; settingsFile.value = ''; openLook(file); });
     document.getElementById('dialog-save').addEventListener('click', saveLook); document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
-    window.showcase = { avatar, controls, attention, configuration: currentConfiguration, changeOutfit, saveImage, openLook,
-        step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); if (savingImage) throw new Error('Wait for the image export before stepping.'); controls.update(); await avatar.step(paused ? 0 : delta); updateAttention(); } };
+    window.showcase = { avatar, controls, attention, framing, configuration: currentConfiguration, changeOutfit, saveImage, openLook,
+        step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); if (savingImage) throw new Error('Wait for the image export before stepping.'); framing.update(); controls.update(); await avatar.step(paused ? 0 : delta); updateAttention(); } };
     if (!captured) frame = requestAnimationFrame(animate);
 } catch (error) { showFailure(error); }
 
