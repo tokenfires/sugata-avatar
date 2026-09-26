@@ -1,0 +1,87 @@
+{
+  "protocol": "cached-portable-replay-v1",
+  "passed": true,
+  "proofReportSHA256": "4a3e861e3b744929c5f664c81787c59dd2b84de090bab468b45e3b08aae09277",
+  "kernelSHA256": "ef7d111cd220a555abe0cb225ab5d18a6715903bc6d20e1526269b86777791e4",
+  "verifierSHA256": "6164089a5133e1b85f0e15bacc60cad2e112f0df8300e7993c858ae5ecc22585",
+  "checks": [
+    {
+      "weight": 0,
+      "bodyComponentsExact": 5655,
+      "garmentComponentsExact": 6591
+    },
+    {
+      "weight": 0.25,
+      "bodyComponentsExact": 5655,
+      "garmentComponentsExact": 6591
+    },
+    {
+      "weight": 1,
+      "bodyComponentsExact": 5655,
+      "garmentComponentsExact": 6591
+    }
+  ],
+  "controls": {
+    "omittedHelperTargetDeltas": {
+      "maxMm": 106.88657174541281,
+      "worst": 1324,
+      "reference": [
+        -0.15473672747612,
+        -0.10429371893405914,
+        0.41315945982933044
+      ],
+      "corrupted": [
+        -0.12883645296096802,
+        -0.10429371893405914,
+        0.5168605446815491
+      ]
+    },
+    "reversedOffsetAxis": {
+      "maxMm": 30.558496713638306,
+      "worst": 266,
+      "reference": [
+        0.036758992820978165,
+        0.047822073101997375,
+        1.2061707973480225
+      ],
+      "corrupted": [
+        0.036758992820978165,
+        0.07838056981563568,
+        1.2061707973480225
+      ]
+    },
+    "validButWrongHelperIndex": {
+      "maxMm": 3.5301295100735257,
+      "worst": 0,
+      "reference": [
+        0.09699173271656036,
+        0.04349329322576523,
+        0.9916226267814636
+      ],
+      "corrupted": [
+        0.09387233853340149,
+        0.045145753771066666,
+        0.9915987849235535
+      ]
+    },
+    "clampedAndNormalizedWeights": {
+      "maxMm": 87.0628470300148,
+      "worst": 2148,
+      "reference": [
+        -0.0010070068528875709,
+        0.016054658219218254,
+        0.7874631285667419
+      ],
+      "corrupted": [
+        -0.0005574582028202713,
+        0.0193120539188385,
+        0.8744638562202454
+      ]
+    }
+  },
+  "limitations": [
+    "Exact matches are packet/full-CPU consistency, not a native MPFB oracle.",
+    "Corruptions are detected against the source-bound CPU output, not independent native geometry.",
+    "No proof of helper correctness, installed corrected garment mapping or fit quality."
+  ]
+}

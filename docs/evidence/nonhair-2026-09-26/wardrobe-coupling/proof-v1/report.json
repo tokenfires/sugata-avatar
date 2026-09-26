@@ -1,0 +1,329 @@
+{
+  "protocol": "cached-g050-one-garment-cpu-v1",
+  "completed": true,
+  "recordedUTC": "2026-09-26T20:24:19.314Z",
+  "inputSources": [
+    {
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 280467,
+      "sha256": "077a12ea577f6b6665179a4150f7c58709ea84361b49a9fecea65daf1c017418"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 9010,
+      "sha256": "cc0d3cf99ed448bf933cf436b34ebd6f0872eb920a5a41320cfd76a693d5ffd2"
+    },
+    {
+      "path": "docs/research/identity-sculpting.md",
+      "bytes": 110854,
+      "sha256": "ed9479fafa49067c6033ddfcc2ec29e1cfac28eaef2d95928248abfc073e1020"
+    },
+    {
+      "path": "docs/research/wardrobe-system.md",
+      "bytes": 113454,
+      "sha256": "a9ec3b630ffa0a419932577cca19a05345f1dd51fa09ba825ed1afb72c066905"
+    },
+    {
+      "path": "docs/WARDROBE-TROUSER-FIT-2026-09-13.md",
+      "bytes": 7944,
+      "sha256": "575b6c9c19aacfcaccbd659f9da68890146ea9ee85fb5aa419ede9f0a9f39690"
+    },
+    {
+      "path": "tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37"
+    },
+    {
+      "path": "tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "tools/identity-pipeline/probe.py",
+      "bytes": 5288,
+      "sha256": "40a443a224fd7eca9c35a7aa1ac7f330c2e03d76e97f0475f58fcbc428a2ef64"
+    },
+    {
+      "path": "tools/identity-pipeline/build_identity_assets.mjs",
+      "bytes": 20739,
+      "sha256": "92460284f630b25bfb8789d2f66c08803779db15e0a59e67d767e2f01d8e465a"
+    },
+    {
+      "path": "tools/identity-pipeline/build_from_blender.mjs",
+      "bytes": 16904,
+      "sha256": "7aa732d98ef90c9c30c13910ca5991166fe46ec274699c29cf2530267a245c7b"
+    },
+    {
+      "path": "tools/identity-pipeline/fixtures/macro-stacks.json",
+      "bytes": 11411,
+      "sha256": "4ff7dff3ab3a35e13e77e9f2e3bac2d27ca872fb128bf1c160cc9f62605dff3b"
+    },
+    {
+      "path": "tools/identity-pipeline/fixtures/body100.json",
+      "bytes": 1314,
+      "sha256": "042b1312ff4cf3b8a103304a5c4231bc966c7c87c94953f643534acd3ff68e6a"
+    },
+    {
+      "path": "tools/identity-pipeline/fixtures/body100.delta.i32.gz",
+      "bytes": 37112,
+      "sha256": "eebf4532302bc23633f8656088756897341e866ee825010ecff4920b2d4fe202"
+    },
+    {
+      "path": "packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    {
+      "path": "packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "path": "packages/core/src/figure/identitytargets.selftest.mjs",
+      "bytes": 29617,
+      "sha256": "e4177d1c1c08129d9c2df4c26384d0baf29ec2ed0147259b81bc0fc74847adec"
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 48776,
+      "sha256": "d890af1ff1f26eb836d59f2dc83137a3d414a59fe027186494d5bfc62aa9aa14"
+    },
+    {
+      "path": "assets/identity/catalogue.json",
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "assets/identity/targets/torso.bin",
+      "bytes": 3524384,
+      "sha256": "7d50189eafb722cadafb5dae7ed5e9f35f6d7a8ef49e3332f0adfc5383b2978e"
+    },
+    {
+      "path": "assets/identity/targets/legs.bin",
+      "bytes": 1185488,
+      "sha256": "97030d89413b199fa9110fcbe79f88d35f387e70eba9fae05e618023048a0fd2"
+    },
+    {
+      "path": "assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "tools/figure-pipeline/fixtures/casual-g050-original.glb",
+      "bytes": 11084688,
+      "sha256": "109dad33eb225ff7954501f6b1d0fcf9a17f4ea3d0271f7cef374dcbfa295160"
+    },
+    {
+      "path": "tools/figure-pipeline/casual_trouser_fit.mjs",
+      "bytes": 9184,
+      "sha256": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f"
+    },
+    {
+      "path": "tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+      "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87"
+    },
+    {
+      "path": "tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+      "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/read-cache.py",
+      "sha256": "1b35d1c03913f8c858a5bf9b20c97f7c85ebf084a0eb9f39a0862939e675b062"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/cpu-refit.mjs",
+      "sha256": "ef7d111cd220a555abe0cb225ab5d18a6715903bc6d20e1526269b86777791e4"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/prove-refit.mjs",
+      "sha256": "55c4ab4de5aaa7ee1940ed5f5ff5192010e602b9a059f129b672e35486180726"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/cpu-refit.selftest.mjs",
+      "sha256": "8eb2bc94230491c56cc74aad0117c3f605c2accb31e7e4bde9cabd5da960c165"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/proof-v1/baseline.json.gz",
+      "bytes": 466608,
+      "sha256": "505575ec2c1681df8fc78e42385a38f0ae98997bad6ed3a84def6accb91b8299",
+      "decodedBytes": 1150396,
+      "decodedSHA256": "62283433a923d3bd496efa69e1bf785588741967b9e975c9de3517570ec80388"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/proof-v1/case-0.json.gz",
+      "bytes": 110214,
+      "sha256": "f9e4ee2c356d9db7ec65398d8ec7528e1fc7755dd3148e099e3f28f15dd303c0",
+      "decodedBytes": 256342,
+      "decodedSHA256": "2ffb6c6935e85125ee3954571d912b8755152ec8703c326beb2d3de2082afec6"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/proof-v1/case-0_25.json.gz",
+      "bytes": 113907,
+      "sha256": "b7e13fdc53a4db03cdaf11ecdf91028fb938845da8733cb5563fd2629cf34a4b",
+      "decodedBytes": 292662,
+      "decodedSHA256": "b229f0e8e4b2f1e07e0f3833bcfc964073c6b4712cf5475382fdb9b243435568"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/proof-v1/case-1.json.gz",
+      "bytes": 113906,
+      "sha256": "6b4ca8aa3980655415d190b9179f98358a8630040d8fd542680ca9505843f1bc",
+      "decodedBytes": 292546,
+      "decodedSHA256": "089ddf7dccf8cf906d7344414557e17bffcb2dd97b92db5ba2eba89ebe36c9ac"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/proof-v1/portable-inputs.json.gz",
+      "bytes": 119461,
+      "sha256": "6d5abfa5a93957d4f6dccaa660fbc779705e3e8140257e98bb35f30a84c6ab2f",
+      "decodedBytes": 378747,
+      "decodedSHA256": "ef8adff8e6a7e9d6a468c12ff24363bbab3b04ef4f223af8cc74d4254b04ea6c"
+    }
+  ],
+  "correspondence": {
+    "passed": true,
+    "gateMm": 0.001,
+    "strict": true,
+    "positions": 14517,
+    "uniqueSources": 13380,
+    "maxMm": 0.0007168062609914358,
+    "rmsMm": 0.0002732910404277922,
+    "perAxisMaxMm": [
+      0.00017881393432617188,
+      0.0007152557373046875,
+      0.0001341104507446289
+    ],
+    "exactPositions": 0,
+    "worst": {
+      "position": 6177,
+      "sourceIndex": 5709,
+      "predicted": [
+        -0.0703120008111,
+        1.5284397602081299,
+        0.051629502326250076
+      ],
+      "actual": [
+        -0.0703120157122612,
+        1.5284404754638672,
+        0.051629457622766495
+      ],
+      "deltaM": [
+        1.4901161193847656e-8,
+        -7.152557373046875e-7,
+        4.470348358154297e-8
+      ]
+    }
+  },
+  "grounding": {
+    "minZ": -0.8177425265312195,
+    "translationZ": 0.8177425265312195,
+    "lowestIndex": 6461,
+    "bodyCount": 13380
+  },
+  "cases": [
+    {
+      "weight": 0,
+      "scale": {
+        "x": 0.10008226349971155,
+        "y": 0.10500344378854781,
+        "z": 0.1031336378162676
+      },
+      "compactVsFullIdentityTargetsExact": true,
+      "float32VsDoubleReference": {
+        "maxMm": 0.00021532600615199038,
+        "worst": 233
+      },
+      "float32VsDoubleSameRoundedBody": {
+        "maxMm": 0.00021532600615199038,
+        "worst": 233
+      }
+    },
+    {
+      "weight": 0.25,
+      "scale": {
+        "x": 0.10008226349971155,
+        "y": 0.10500344378854781,
+        "z": 0.1031336378162676
+      },
+      "compactVsFullIdentityTargetsExact": true,
+      "float32VsDoubleReference": {
+        "maxMm": 0.0002152969970887442,
+        "worst": 233
+      },
+      "float32VsDoubleSameRoundedBody": {
+        "maxMm": 0.00021529925248883,
+        "worst": 233
+      }
+    },
+    {
+      "weight": 1,
+      "scale": {
+        "x": 0.10008226349971155,
+        "y": 0.10500344378854781,
+        "z": 0.1031336378162676
+      },
+      "compactVsFullIdentityTargetsExact": true,
+      "float32VsDoubleReference": {
+        "maxMm": 0.00021529690775302321,
+        "worst": 233
+      },
+      "float32VsDoubleSameRoundedBody": {
+        "maxMm": 0.00021531116566984613,
+        "worst": 233
+      }
+    }
+  ],
+  "method": {
+    "model": "Source-derived float32 basis/key storage and retained macro-order relative sum. Ground then reevaluate same keys.",
+    "axes": "OBJ/MakeHuman(x,y,z) to Blender(x,-z,y); glTF(x,z,-y). No fitted translation or scaling.",
+    "currentNativeEvidence": false,
+    "bodyOnlyGateMm": 0.001,
+    "bodyOnlyGateStrict": true
+  },
+  "nativeBlock": {
+    "command": "/opt/homebrew/bin/blender --version",
+    "resolvedWrapper": "/opt/homebrew/Caskroom/blender/5.2.1/.homebrew-command-wrappers/blender",
+    "returnCode": 126,
+    "stdout": "",
+    "stderr": "/opt/homebrew/bin/blender: line 2: /Applications/Blender.app/Contents/MacOS/Blender: No such file or directory\n/opt/homebrew/bin/blender: line 2: exec: /Applications/Blender.app/Contents/MacOS/Blender: cannot execute: No such file or directory\n",
+    "requiredWrapperTarget": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "targetExists": false,
+    "expectedMPFBRoot": "/Users/robault/Library/Application Support/Blender",
+    "expectedMPFBRootExists": false,
+    "spotlightQuery": "kMDItemFSName == \"Blender.app\"c",
+    "spotlightReturnCode": 0,
+    "spotlightMatches": [],
+    "scopeLimit": "No whole-disk absence claim; checked system/user Applications, documented app/extension paths, Spotlight, and filename inventory under repo, Downloads, Documents, user .cache and Homebrew Blender cask."
+  },
+  "limits": [
+    "Helpers are reconstructed, not independently observed in native MPFB.",
+    "No exact Blender importer/evaluator rounding claim; nonzero mapped residual is retained.",
+    "Double/reference comparison only diagnoses the CPU arithmetic, not native correctness.",
+    "No installed garment mutation, glTF garment source mapping, fit qualification, skeleton refit, foundations, motion or9.4 work."
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "protocol": "wardrobe-coupling-inventory-v1",
+  "recordedUTC": "2026-09-26T20:14:14.553628+00:00",
+  "status": "inventory and proposed protocol only; neither native baseline nor native garment refit executed",
+  "scope": {
+    "noGPU": true,
+    "blenderVersionAttemptOnly": true,
+    "noInstallation": true,
+    "noSourceAssetDefaultOrCoreMutation": true,
+    "no9_4Work": true,
+    "noFitQualification": true
+  },
+  "files": [
+    {
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 280467,
+      "sha256": "077a12ea577f6b6665179a4150f7c58709ea84361b49a9fecea65daf1c017418"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 9010,
+      "sha256": "cc0d3cf99ed448bf933cf436b34ebd6f0872eb920a5a41320cfd76a693d5ffd2"
+    },
+    {
+      "path": "docs/research/identity-sculpting.md",
+      "bytes": 110854,
+      "sha256": "ed9479fafa49067c6033ddfcc2ec29e1cfac28eaef2d95928248abfc073e1020"
+    },
+    {
+      "path": "docs/research/wardrobe-system.md",
+      "bytes": 113454,
+      "sha256": "a9ec3b630ffa0a419932577cca19a05345f1dd51fa09ba825ed1afb72c066905"
+    },
+    {
+      "path": "docs/WARDROBE-TROUSER-FIT-2026-09-13.md",
+      "bytes": 7944,
+      "sha256": "575b6c9c19aacfcaccbd659f9da68890146ea9ee85fb5aa419ede9f0a9f39690"
+    },
+    {
+      "path": "tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37"
+    },
+    {
+      "path": "tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "tools/identity-pipeline/probe.py",
+      "bytes": 5288,
+      "sha256": "40a443a224fd7eca9c35a7aa1ac7f330c2e03d76e97f0475f58fcbc428a2ef64"
+    },
+    {
+      "path": "tools/identity-pipeline/build_identity_assets.mjs",
+      "bytes": 20739,
+      "sha256": "92460284f630b25bfb8789d2f66c08803779db15e0a59e67d767e2f01d8e465a"
+    },
+    {
+      "path": "tools/identity-pipeline/build_from_blender.mjs",
+      "bytes": 16904,
+      "sha256": "7aa732d98ef90c9c30c13910ca5991166fe46ec274699c29cf2530267a245c7b"
+    },
+    {
+      "path": "tools/identity-pipeline/fixtures/macro-stacks.json",
+      "bytes": 11411,
+      "sha256": "4ff7dff3ab3a35e13e77e9f2e3bac2d27ca872fb128bf1c160cc9f62605dff3b"
+    },
+    {
+      "path": "tools/identity-pipeline/fixtures/body100.json",
+      "bytes": 1314,
+      "sha256": "042b1312ff4cf3b8a103304a5c4231bc966c7c87c94953f643534acd3ff68e6a"
+    },
+    {
+      "path": "tools/identity-pipeline/fixtures/body100.delta.i32.gz",
+      "bytes": 37112,
+      "sha256": "eebf4532302bc23633f8656088756897341e866ee825010ecff4920b2d4fe202"
+    },
+    {
+      "path": "packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    {
+      "path": "packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "path": "packages/core/src/figure/identitytargets.selftest.mjs",
+      "bytes": 29617,
+      "sha256": "e4177d1c1c08129d9c2df4c26384d0baf29ec2ed0147259b81bc0fc74847adec"
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 48776,
+      "sha256": "d890af1ff1f26eb836d59f2dc83137a3d414a59fe027186494d5bfc62aa9aa14"
+    },
+    {
+      "path": "assets/identity/catalogue.json",
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "assets/identity/targets/torso.bin",
+      "bytes": 3524384,
+      "sha256": "7d50189eafb722cadafb5dae7ed5e9f35f6d7a8ef49e3332f0adfc5383b2978e"
+    },
+    {
+      "path": "assets/identity/targets/legs.bin",
+      "bytes": 1185488,
+      "sha256": "97030d89413b199fa9110fcbe79f88d35f387e70eba9fae05e618023048a0fd2"
+    },
+    {
+      "path": "assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "tools/figure-pipeline/fixtures/casual-g050-original.glb",
+      "bytes": 11084688,
+      "sha256": "109dad33eb225ff7954501f6b1d0fcf9a17f4ea3d0271f7cef374dcbfa295160"
+    },
+    {
+      "path": "tools/figure-pipeline/casual_trouser_fit.mjs",
+      "bytes": 9184,
+      "sha256": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f"
+    }
+  ],
+  "archives": [
+    {
+      "path": "tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+      "bytes": 45031536,
+      "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87",
+      "members": [
+        {
+          "path": "__init__.py",
+          "bytes": 9948,
+          "sha256": "541bfbfb91d28c73d19b49edd6ce65ba2f7543cb21657f78db49f417ee2a2d6d"
+        },
+        {
+          "path": "blender_manifest.toml",
+          "bytes": 434,
+          "sha256": "bda56b74520f432417be162d97f3279149a056910ed9ddc5b0de8d0d02282fd1"
+        },
+        {
+          "path": "services/clothesservice.py",
+          "bytes": 40732,
+          "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b"
+        },
+        {
+          "path": "services/targetservice.py",
+          "bytes": 62066,
+          "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+        },
+        {
+          "path": "services/objectservice.py",
+          "bytes": 41911,
+          "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+        },
+        {
+          "path": "services/humanservice.py",
+          "bytes": 86233,
+          "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+        },
+        {
+          "path": "entities/clothes/mhclo.py",
+          "bytes": 12931,
+          "sha256": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c"
+        },
+        {
+          "path": "data/3dobjs/base.obj",
+          "bytes": 1749303,
+          "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+        },
+        {
+          "path": "data/mesh_metadata/hm08_config.json",
+          "bytes": 3600,
+          "sha256": "0ebab5f8ba35e56f3be49e3de241746552bce57fe8e079b72b00a362be246a29"
+        },
+        {
+          "path": "data/targets/macrodetails/asian-female-young.target.gz",
+          "bytes": 135687,
+          "sha256": "ee17da733288434e5b6fa120497f1fa6e72bf7faad5d694b0431d7275139170d",
+          "decodedBytes": 434949,
+          "decodedSHA256": "f17bef57d3088ba579b2ba27a75cd0dd240dec9dc79f7fcf6086e252505e25ba"
+        },
+        {
+          "path": "data/targets/macrodetails/asian-male-young.target.gz",
+          "bytes": 130005,
+          "sha256": "0928ed8b9f08f60afb9884cf9e9f33a939ed3a85d7f136de9ccc88a76981d6d7",
+          "decodedBytes": 420436,
+          "decodedSHA256": "f2e5c764d14dbc74e066f61c76b96197ef70942e152be6048355ad2fc3020527"
+        },
+        {
+          "path": "data/targets/macrodetails/caucasian-female-young.target.gz",
+          "bytes": 127369,
+          "sha256": "e9d6212373ac5f1e2c596fa145e363385f4d169c3c6c88ede3bab93b681af041",
+          "decodedBytes": 419955,
+          "decodedSHA256": "efdb17514632b2b3f549bf0095cb965a25023ac303d0d6a02a7f7e25dee6c62e"
+        },
+        {
+          "path": "data/targets/macrodetails/caucasian-male-young.target.gz",
+          "bytes": 127922,
+          "sha256": "ffe69537e53148edff2776204ba48cf3bf1f3cbc72966592c8a562ab80b07333",
+          "decodedBytes": 395875,
+          "decodedSHA256": "1992d3108f521efd3f362bd2a84f1e3913893ffee02e041aa560a44cda8d724a"
+        },
+        {
+          "path": "data/targets/macrodetails/african-female-young.target.gz",
+          "bytes": 123654,
+          "sha256": "1147ae55ecb0f66bade3f45176b3af187e265878322db172ad1090e9f3108e84",
+          "decodedBytes": 411131,
+          "decodedSHA256": "4a69b868dc48ca1bff09850f631c5c6a3ae6c16a954f2b43f02a97b8ce268789"
+        },
+        {
+          "path": "data/targets/macrodetails/african-male-young.target.gz",
+          "bytes": 132860,
+          "sha256": "05ed84d6df36e788cdfa8da0be15376850524b960cf2f17f3e592b9cf7d21c85",
+          "decodedBytes": 405566,
+          "decodedSHA256": "781b77b6095c91422bca011c0c97eb141825db7ccd4c4fdacf111586510982c3"
+        },
+        {
+          "path": "data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target.gz",
+          "bytes": 78,
+          "sha256": "30046c85a461249824548d5319d74c16392842a1ee00ca9a4485ea3eeb06e2e8",
+          "decodedBytes": 0,
+          "decodedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target.gz",
+          "bytes": 76,
+          "sha256": "e814651195c53971503d9823d6841216718a561951ef064f81d132297f4fa494",
+          "decodedBytes": 0,
+          "decodedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/targets/torso/measure-shoulder-dist-incr.target.gz",
+          "bytes": 15015,
+          "sha256": "d9508362063fee6f697bee2d7204cb6a799d9711fb2436f93f781242a104494f",
+          "decodedBytes": 82232,
+          "decodedSHA256": "a38c8e5380a2d6e6ccb4ef535406598a0c140576cfca871b33344cc1ea347a96"
+        },
+        {
+          "path": "data/targets/legs/upperlegs-height-incr.target.gz",
+          "bytes": 18243,
+          "sha256": "807d3ed8398ec5ce293ea5e3c75d97998760a79b2e4896480744db8a3724ba73",
+          "decodedBytes": 106905,
+          "decodedSHA256": "200f2998de9b1f75f9b3c06ff783a2e063a569cff4b420829d2513fc814bc7d9"
+        }
+      ]
+    },
+    {
+      "path": "tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+      "bytes": 280737770,
+      "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+      "members": [
+        {
+          "path": "clothes/female_casualsuit01/female_casualsuit01.mhclo",
+          "bytes": 150568,
+          "sha256": "8a17e4edceeb22ef30ce102ed05fb3463ca0eeb61addc7811f4867fde5963fa4"
+        },
+        {
+          "path": "clothes/female_casualsuit01/female_casualsuit01.obj",
+          "bytes": 175427,
+          "sha256": "b6cfaf08b291fe10ea312d37e98d5e328eced5828bdb6f96ecac6bf4ababe652"
+        },
+        {
+          "path": "clothes/female_casualsuit01/female_casualsuit01.mhmat",
+          "bytes": 1404,
+          "sha256": "7bef35aade88daf9f4597f3b3c9a45be51cc51caf44012d12ac4e005c8087689"
+        }
+      ]
+    }
+  ],
+  "nativeAvailability": {
+    "command": "/opt/homebrew/bin/blender --version",
+    "resolvedWrapper": "/opt/homebrew/Caskroom/blender/5.2.1/.homebrew-command-wrappers/blender",
+    "returnCode": 126,
+    "stdout": "",
+    "stderr": "/opt/homebrew/bin/blender: line 2: /Applications/Blender.app/Contents/MacOS/Blender: No such file or directory\n/opt/homebrew/bin/blender: line 2: exec: /Applications/Blender.app/Contents/MacOS/Blender: cannot execute: No such file or directory\n",
+    "requiredWrapperTarget": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "targetExists": false,
+    "expectedMPFBRoot": "/Users/robault/Library/Application Support/Blender",
+    "expectedMPFBRootExists": false,
+    "spotlightQuery": "kMDItemFSName == \"Blender.app\"c",
+    "spotlightReturnCode": 0,
+    "spotlightMatches": [],
+    "scopeLimit": "No whole-disk absence claim; checked system/user Applications, documented app/extension paths, Spotlight, and filename inventory under repo, Downloads, Documents, user .cache and Homebrew Blender cask."
+  },
+  "sourceData": {
+    "cachedMPFBVersion": "2.0.17",
+    "cachedBUILD_INFO": "20260722",
+    "fullBaseOBJVertices": 19158,
+    "neutralRetainedRecipe": {
+      "label": "neutral",
+      "macro": {
+        "gender": 0.5,
+        "age": 0.5,
+        "muscle": 0.5,
+        "weight": 0.5,
+        "proportions": 0.5,
+        "height": 0.5,
+        "cupsize": 0.5,
+        "firmness": 0.5,
+        "race": {
+          "asian": 0.33,
+          "caucasian": 0.33,
+          "african": 0.33
+        }
+      },
+      "mpfbStack": [
+        {
+          "file": "macrodetails/asian-female-young",
+          "weight": 0.16500000655651093
+        },
+        {
+          "file": "macrodetails/asian-male-young",
+          "weight": 0.16500000655651093
+        },
+        {
+          "file": "macrodetails/caucasian-female-young",
+          "weight": 0.16500000655651093
+        },
+        {
+          "file": "macrodetails/caucasian-male-young",
+          "weight": 0.16500000655651093
+        },
+        {
+          "file": "macrodetails/african-female-young",
+          "weight": 0.16500000655651093
+        },
+        {
+          "file": "macrodetails/african-male-young",
+          "weight": 0.16500000655651093
+        },
+        {
+          "file": "macrodetails/universal-female-young-averagemuscle-averageweight",
+          "weight": 0.5
+        },
+        {
+          "file": "macrodetails/universal-male-young-averagemuscle-averageweight",
+          "weight": 0.5
+        }
+      ]
+    },
+    "allEightNeutralTargetMembersPresent": true,
+    "neutralFull19158PositionsDumpFound": false,
+    "neutralDumpSearchScope": "Repo, Downloads, Documents, user .cache, Homebrew Blender cask via rg --files --hidden -g *.f64; ZIP members inspected separately. No neutral.f64 found.",
+    "neutralReconstruction": "Feasible next CPU data check from cached OBJ+eight pinned macro targets+retained weights+source grounding; not executed. No mapped/helper position parity claim."
+  },
+  "identityMap": {
+    "positionCount": 14517,
+    "uniqueBasemeshCount": 13380,
+    "min": 0,
+    "max": 13379,
+    "coversExactlyRange0To13379": true,
+    "figurePositionAccessorSHA256": "bd5e9814875666133e91c03f9c1ea84fa460a682254ee28255e48588f72f8db3",
+    "wardrobeBodyPositionAccessorSHA256": "bd5e9814875666133e91c03f9c1ea84fa460a682254ee28255e48588f72f8db3",
+    "bodyPositionAccessorBytesEqual": true,
+    "figurePositions": 14517,
+    "wardrobeBodyPositions": 14517,
+    "note": "Raw accessor equality supports using the same correspondence; does not validate missing helper coordinates."
+  },
+  "fitInputs": {
+    "garment": "female_casualsuit01",
+    "mhcloRules": 2197,
+    "objVertices": 2197,
+    "currentGLTFPositions": 2377,
+    "fitTriangleReferenceCount": 1879,
+    "fitTriangleHelpers": 1879,
+    "maxReferencedIndex": 17975,
+    "scaleReferences": {
+      "x_scale": {
+        "indices": [
+          5399,
+          11998
+        ],
+        "denominator": 1.398
+      },
+      "z_scale": {
+        "indices": [
+          962,
+          5320
+        ],
+        "denominator": 1.8461
+      },
+      "y_scale": {
+        "indices": [
+          791,
+          881
+        ],
+        "denominator": 2.2048
+      }
+    },
+    "scaleReferenceCount": 6,
+    "allReferencesIncludingScales": 1885,
+    "packedHelperPositionBytesFloat32": 22548,
+    "packedAllReferenceBytesFloat32": 22620,
+    "minimumWeight": -0.11017,
+    "weightSumMin": 0.9999899999999999,
+    "weightSumMax": 1.00001,
+    "preserveUnnormalizedSignedWeights": true,
+    "garmentExportToMhcloVertexMapFound": false,
+    "acceptedGarmentCaveat": "Installed44eb includes reviewed trouser changes against original109dad fixture; raw mhclo refit cannot silently replace accepted positions. Source garment2197 vs glTF2377 also requires explicit split-vertex map."
+  },
+  "twoDetailTargetPackedProvenance": [
+    {
+      "slider": "torso/measure-shoulder-dist-decr-incr",
+      "target": "measure-shoulder-dist-incr",
+      "packed": {
+        "target": "measure-shoulder-dist-incr",
+        "offset": 648784,
+        "count": 5568
+      },
+      "sourceRecords": 5568,
+      "minIndex": 1355,
+      "maxIndex": 17879,
+      "helperRecords": 1044,
+      "cachedSourceToPackedExact": true,
+      "formula": "uint32 index + three float32(raw target column * 0.10000000149011612), little endian; MakeHuman/glTF Y-up",
+      "sourcePackedSHA256": "9cbefb1477b9882cea385ec84ed3db557c1f0da45bada17333c2046cb7b2acdb",
+      "actualPackedSliceSHA256": "9cbefb1477b9882cea385ec84ed3db557c1f0da45bada17333c2046cb7b2acdb"
+    },
+    {
+      "slider": "legs/upperlegs-height-decr-incr",
+      "target": "upperlegs-height-incr",
+      "packed": {
+        "target": "upperlegs-height-incr",
+        "offset": 1100224,
+        "count": 5329
+      },
+      "sourceRecords": 5329,
+      "minIndex": 4262,
+      "maxIndex": 19157,
+      "helperRecords": 2167,
+      "cachedSourceToPackedExact": true,
+      "formula": "uint32 index + three float32(raw target column * 0.10000000149011612), little endian; MakeHuman/glTF Y-up",
+      "sourcePackedSHA256": "2dc0c7c3a30bdc52c286d38f5174c308bed43bc2bf6582fed41097a42e3ec32a",
+      "actualPackedSliceSHA256": "2dc0c7c3a30bdc52c286d38f5174c308bed43bc2bf6582fed41097a42e3ec32a"
+    }
+  ],
+  "existingProbeStaticIssue": {
+    "path": "tools/identity-pipeline/probe.py",
+    "line": 13,
+    "issue": "Path(__file__) is used without importing/binding Path",
+    "changed": false
+  },
+  "futureNativeGate": {
+    "nativeRequired": true,
+    "cases": [
+      0,
+      0.25,
+      1
+    ],
+    "targets": [
+      "torso/measure-shoulder-dist-incr",
+      "legs/upperlegs-height-incr"
+    ],
+    "garmentMaxErrorMmStrictlyBelow": 0.1,
+    "bodyDeltaAll19158MaxErrorMmStrictlyBelow": 0.001,
+    "9_4FitThresholdsNotEvaluated": true
+  }
+}
