@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "recordedAt": "2026-09-26T22:37:40.343Z",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/review-performance/warmup-manifest-v2.json",
+    "sha256": "a14c4964e3690143033c351188bd36fc88d5fc86d226624555cf77040888538a"
+  },
+  "preflight": {
+    "path": "captures/review-performance-2026-09-26/warmup-preflight-v2/report.json",
+    "sha256": "9dbcca9155709940290f911ad4813958ca87e726fe9fecc9df87ff7c3d76f84b",
+    "files": 1603,
+    "completed": true,
+    "preflightOnly": true,
+    "sourcesStable": true
+  },
+  "CPUReceipt": {
+    "path": "docs/evidence/nonhair-2026-09-26/review-performance/warmup-cpu-v2.json",
+    "sha256": "ac2d930c0a669c4261a493ca18a5e4bce3c80bf3455b1399f29b5516d0d48901"
+  },
+  "command": "node docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs --warmup-diagnostic docs/evidence/nonhair-2026-09-26/review-performance/warmup-manifest-v2.json captures/review-performance-2026-09-26/warmup-v2",
+  "nativePending": true,
+  "scope": "Narrow retirement observer correction; fresh CPU preflight only.20UNMEASURED native steps pending root launch."
+}

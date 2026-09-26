@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "recordedAt": "2026-09-26T22:12:59.523Z",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/review-performance/smoke-manifest-v3.json",
+    "sha256": "33bb2d6a1280d2682ee897daecf12261551a459138c16cfa076226d75a0ab0b1"
+  },
+  "preflight": {
+    "path": "captures/review-performance-2026-09-26/preflight-v3/report.json",
+    "sha256": "8d667876f999441616ef915297a1d2dc7d8c423e71a995c6492864868b3066d6",
+    "completed": true,
+    "preflightOnly": true,
+    "files": 1598,
+    "sourcesStable": true
+  },
+  "sourceHashes": {
+    "probe.mjs": "5a21f702e6a066213a94bf20d1e5ffd55a54493825baed8b0af67f3f622e5e90",
+    "runtime.mjs": "fe6f443655b4ac92782dba32ae7d7a66bda29102ab7c93168dd8d9e24e2b2002",
+    "startup-policy.mjs": "47443628cc1849d63ebf9b7f1f5d5f6eb7561c4835f45b30ab1aede3a17b7650",
+    "startup-policy.selftest.mjs": "a20bda81bb4df0af05dc638924b0e1f4bfa3200858d536c0e8a87af7f4c9b028",
+    "startup-workload-fixture.mjs": "651818ae509f34709750cf981a0d6a5a1fd5b20a82584300294b26be969044d3"
+  },
+  "CPUReceipt": {
+    "path": "docs/evidence/nonhair-2026-09-26/review-performance/startup-policy-cpu-v1.json",
+    "sha256": "9bff803977ea7b4d0afe1fed5ce76ae5883963b39fcd2112df15123694363f67"
+  },
+  "command": "node docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs --smoke docs/evidence/nonhair-2026-09-26/review-performance/smoke-manifest-v3.json captures/review-performance-2026-09-26/smoke-v3",
+  "scope": "Fresh Wardrobe-only source freeze and CPU preflight. Native20step measurement pending root launch; no GPU by author."
+}

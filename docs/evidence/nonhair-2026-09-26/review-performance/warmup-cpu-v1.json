@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "recordedAt": "2026-09-26T22:30:19.333Z",
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/review-performance/orbit-replay.mjs": "ff1d448430b64733fa5fc46fd022391dc32522972bf9f43d65862ed1f22929fe",
+    "docs/evidence/nonhair-2026-09-26/review-performance/orbit-replay.selftest.mjs": "c4b7855b022cb71cc46b4e74bf8163760dec356dbe5b2fe56aca930f1bc05417",
+    "docs/evidence/nonhair-2026-09-26/review-performance/warmup-runtime.mjs": "52ed1a8e655b94e4b4f9f43a6aa8e0ef827b2a7e31bad9c1a5bad0ddbf8ff23d",
+    "docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs": "a631978656ecd8d0812cb048bab2697e69364cb676250bd47e55d6cb6f863a6f",
+    "docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.mjs": "aee61eb1890751be07369267ea6a782e15e643aef5e8f5aaa0b457cf4cb5fe72",
+    "docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.selftest.mjs": "42b538bf11b3a9199ffd6d0f5c502ace770e50e6f62bb1535932ee60dff03cec"
+  },
+  "checks": {
+    "nativeOrbitReplay": {
+      "groups": 6,
+      "exitCode": 0,
+      "modeledSteps": 20,
+      "sourcePin": "faabb4e8dfd9235ee4a9fd7c9a3d75f90f1689dbd4944bd6fd32117dacec5f93",
+      "negativeControls": [
+        "camera/cache mismatches",
+        "input and MIN_VALUE pan",
+        "source/method/camera-parent mismatch"
+      ],
+      "scope": "Explicit CPU modeled initial target/state; not retrospective proof of smoke-v3."
+    },
+    "observation": {
+      "groups": 7,
+      "exitCode": 0,
+      "newCheck": "Raw warning and native zero-draw context phase/step retained."
+    },
+    "syntax": {
+      "files": [
+        "probe.mjs",
+        "warmup-runtime.mjs"
+      ],
+      "exitCode": 0
+    }
+  },
+  "nativePending": true,
+  "scope": "CPU instrumentation preparation only.20-step native diagnostic and fresh source freeze pending; no browser/GPU by author."
+}

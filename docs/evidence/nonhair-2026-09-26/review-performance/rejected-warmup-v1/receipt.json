@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "classification": "Rejected cleanup observer; diagnostic data retained, no admitted diagnostic/timing.",
+  "capture": "captures/review-performance-2026-09-26/warmup-v1/",
+  "report": {
+    "rawSHA256": "25ef6cc8995b6c62f393038846d98d952015b086784d1f855e1d8a643cf8ce33",
+    "gzipSHA256": "67fde687165aa3278da2f65dea3beaa85c263dc7ff4a0ee0daf3e9359b5fd33d"
+  },
+  "manifestSHA256": "2dfde00a19346c1066b0b64f47da0af54c4ea6e2492e2be0a2b3650580827590",
+  "sourceHashes": {
+    "probe.mjs": "a631978656ecd8d0812cb048bab2697e69364cb676250bd47e55d6cb6f863a6f",
+    "warmup-runtime.mjs": "52ed1a8e655b94e4b4f9f43a6aa8e0ef827b2a7e31bad9c1a5bad0ddbf8ff23d",
+    "orbit-replay.mjs": "ff1d448430b64733fa5fc46fd022391dc32522972bf9f43d65862ed1f22929fe",
+    "startup-diagnostics.mjs": "aee61eb1890751be07369267ea6a782e15e643aef5e8f5aaa0b457cf4cb5fe72"
+  },
+  "completed": false,
+  "diagnosticCompleted": true,
+  "measurementCompleted": false,
+  "sourcesStable": true,
+  "errors": [],
+  "cleanupFailure": "page.evaluate: TypeError: Cannot read properties of null (reading 'info')\n    at Module.finish (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/warmup-runtime.mjs:70:43)\n    at eval (eval at evaluate (:303:30), <anonymous>:1:24)\n    at UtilityScript.evaluate (<anonymous>:305:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs:198:59",
+  "partialData": {
+    "steps": 20,
+    "exactOrbitReplay": true,
+    "warmCheckpoints": [
+      {
+        "admitted": true,
+        "updates": 8,
+        "solverStepsInitial": 1,
+        "solverStepsCurrent": 17,
+        "solverStepsDelta": 16,
+        "commitsInitial": 0,
+        "commitsCurrent": 8,
+        "commitsDelta": 8,
+        "historyMode": "exact",
+        "cardFrameMode": "smooth",
+        "scope": "Native workload/draw progression only; appearance still needs the end plate, and no hair correctness or performance budget is certified."
+      },
+      {
+        "admitted": true,
+        "updates": 20,
+        "solverStepsInitial": 1,
+        "solverStepsCurrent": 41,
+        "solverStepsDelta": 40,
+        "commitsInitial": 0,
+        "commitsCurrent": 20,
+        "commitsDelta": 20,
+        "historyMode": "exact",
+        "cardFrameMode": "smooth",
+        "scope": "Native workload/draw progression only; appearance still needs the end plate, and no hair correctness or performance budget is certified."
+      }
+    ],
+    "endPNG": {
+      "file": "end.png",
+      "sha256": "4f26cc7b086fde4da1a9b994bc618fb14f90a63d54377141e1d153da15ae6655"
+    },
+    "warnings": [
+      {
+        "type": "console-warning",
+        "phase": "original-page-startup",
+        "message": "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.",
+        "location": {
+          "url": "http://localhost:5391/@vite/client",
+          "line": 528,
+          "column": 3,
+          "lineNumber": 528,
+          "columnNumber": 3
+        }
+      },
+      {
+        "type": "console-warning",
+        "phase": "original-page-startup",
+        "message": "Calling [RenderPassEncoder (unlabeled)].Draw with an index count of 0 is unusual.",
+        "location": {
+          "url": "http://localhost:5391/src/showcase.html?capture",
+          "line": 0,
+          "column": 0,
+          "lineNumber": 0,
+          "columnNumber": 0
+        }
+      },
+      {
+        "type": "console-warning",
+        "phase": "original-page-startup",
+        "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:770:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+        "location": {
+          "url": "http://localhost:5391/@vite/client",
+          "line": 528,
+          "column": 3,
+          "lineNumber": 528,
+          "columnNumber": 3
+        }
+      },
+      {
+        "type": "console-warning",
+        "phase": "original-page-startup",
+        "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:778:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+        "location": {
+          "url": "http://localhost:5391/@vite/client",
+          "line": 528,
+          "column": 3,
+          "lineNumber": 528,
+          "columnNumber": 3
+        }
+      },
+      {
+        "type": "console-warning",
+        "phase": "unmeasured-traced-warmup-step-1",
+        "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:770:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+        "location": {
+          "url": "http://localhost:5391/@vite/client",
+          "line": 528,
+          "column": 3,
+          "lineNumber": 528,
+          "columnNumber": 3
+        }
+      },
+      {
+        "type": "console-warning",
+        "phase": "unmeasured-traced-warmup-step-1",
+        "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:778:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+        "location": {
+          "url": "http://localhost:5391/@vite/client",
+          "line": 528,
+          "column": 3,
+          "lineNumber": 528,
+          "columnNumber": 3
+        }
+      }
+    ]
+  },
+  "scope": "Native disposal was invoked, but the failed post-disposal observer produced no retirement receipt. Do not infer native complete cleanup solely from this failed observer."
+}

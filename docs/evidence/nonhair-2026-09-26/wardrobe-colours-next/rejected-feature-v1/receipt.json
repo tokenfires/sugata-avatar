@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "completed": false,
+  "kind": "retained-rejected-colour-triplet",
+  "rawDirectory": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/captures/wardrobe-colours-2026-09-26/feature-native-v1",
+  "failure": "AssertionError [ERR_ASSERTION]: Returned fresh base PNG must be byte-identical\n+ actual - expected\n\n+ 'f57a37f3a29e1c89e0b3538306f2a1e23f15ca0c77b21f184d655ea9ebb3a1e2'\n- '9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00'\n\n    at file:///Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/docs/evidence/nonhair-2026-09-26/wardrobe-colours-next/capture-colours.mjs:209:31",
+  "artifacts": {
+    "report.json.gz": {
+      "file": "report.json.gz",
+      "sha256": "15812815119f1406ffe3f4c14f8b38a3c5983797b4ac36facec09121246646ea",
+      "bytes": 141521,
+      "decodedSHA256": "810159270353a29a87487f879921b0e26f297c5cd398b7e8960e9613505d4975"
+    },
+    "manifest.json.gz": {
+      "file": "manifest.json.gz",
+      "sha256": "c60c43aa99c2612b2e8e1a2b437cfa5c40a2c71394e4258b21e57f1530f5cb75",
+      "bytes": 77204,
+      "decodedSHA256": "e1a81e2eaf2c684d13c53f0b2e524788e001439b84eb85b3a09397f4312fa69c"
+    },
+    "casual-front-base.png": {
+      "file": "casual-front-base.png",
+      "sha256": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00",
+      "bytes": 811082
+    },
+    "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz": {
+      "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "bytes": 1475445,
+      "decodedSHA256": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8"
+    },
+    "casual-front-custom.png": {
+      "file": "casual-front-custom.png",
+      "sha256": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9",
+      "bytes": 795348
+    },
+    "casual-front-return.png": {
+      "file": "casual-front-return.png",
+      "sha256": "f57a37f3a29e1c89e0b3538306f2a1e23f15ca0c77b21f184d655ea9ebb3a1e2",
+      "bytes": 811133
+    },
+    "source/capture-colours.mjs": {
+      "file": "source/capture-colours.mjs",
+      "sha256": "087069ace11e122feacdcf7269db6291afe9ed13f3bb0a47cc8483926f156d4e",
+      "bytes": 27858
+    },
+    "source/micro-capture-runtime.mjs": {
+      "file": "source/micro-capture-runtime.mjs",
+      "sha256": "5123724755f3aa4770b5e7aaaa198686b8dd851fa43e43913bd06301fe9a7903",
+      "bytes": 8501
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "recordedAt": "2026-09-26T22:37:17.502Z",
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs": "0f61cb72c59afd3d6319fa8484777292cb886d43b43461c6303d6f401a0b4fbb",
+    "docs/evidence/nonhair-2026-09-26/review-performance/warmup-runtime.mjs": "b32b3e60cb5a4955b585f617041bbd306e60ebe060b6ab16d8d7e6fafdd0525c",
+    "docs/evidence/nonhair-2026-09-26/review-performance/warmup-retirement.selftest.mjs": "1df16f4487c525d9a9ae1703563f7090a4fa7fb84120541dfce7665e0b0569f9",
+    "docs/evidence/nonhair-2026-09-26/review-performance/rejected-warmup-v1/warmup-runtime.mjs": "52ed1a8e655b94e4b4f9f43a6aa8e0ef827b2a7e31bad9c1a5bad0ddbf8ff23d",
+    "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+    "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+    "node_modules/three/src/renderers/common/Renderer.js": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+    "node_modules/three/src/renderers/common/Info.js": "ae82fd9eef48b6f9973fc032588c3f35dc58225afad3c3e68e334381d838fcec"
+  },
+  "test": {
+    "command": "node docs/evidence/nonhair-2026-09-26/review-performance/warmup-retirement.selftest.mjs",
+    "groups": 6,
+    "exitCode": 0,
+    "scope": "Exact finish bodies with actual Stage disposal and modeled renderer/pagehide Avatar host."
+  },
+  "syntax": {
+    "files": [
+      "probe.mjs",
+      "warmup-runtime.mjs"
+    ],
+    "exitCode": 0
+  },
+  "nativePending": true,
+  "scope": "Narrow cleanup observer fix.20-step diagnostic and measurement code otherwise unchanged; noGPU launch."
+}

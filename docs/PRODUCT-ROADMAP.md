@@ -35,6 +35,11 @@ for each of the two current outfits. Compare palettes preserves the user's room,
 when applying a choice, and works with the existing JSON and named-look controls. The images
 make the available compositions easier to compare; they do not expand the supported body or fit.
 
+A first [Wardrobe timing pilot](evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md)
+records 240 controlled stepped updates after an instrumented stable warmup. It provides a
+bounded baseline on the current M5 Max host; it does not establish live FPS, a budget pass
+or representative-build performance.
+
 Expression evaluation must distinguish control correctness from human readability. Record the intended meaning, the actual face/body sequence, the observed reading, and the evidence. An action can have valid numbers and still look annoyed when the agent meant playful. Use matched views and motion, and have the independent critic offer two concrete alternatives with tradeoffs for each proved issue.
 
 ## Phase 2 — VTuber-style characters

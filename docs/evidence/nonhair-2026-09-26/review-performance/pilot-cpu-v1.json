@@ -1,0 +1,58 @@
+{
+  "kind": "stepped-pilot-cpu-readiness",
+  "nativeLaunched": false,
+  "node": "v24.13.1",
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs": "eaf1d97b70916abd90faadfe87ce3aed7a36ac428acc3172996d8c0732518498",
+    "docs/evidence/nonhair-2026-09-26/review-performance/runtime.mjs": "ed35faab85dffe90c4165ee3eee0eb7156a1c4bd9b282dfc09f2aa2c3e9fcb41",
+    "docs/evidence/nonhair-2026-09-26/review-performance/startup-policy.mjs": "f584a589713872085e866dd2bdcf09a2d39167bd3f85a32600fd5f0cf03e67ff",
+    "docs/evidence/nonhair-2026-09-26/review-performance/startup-policy.selftest.mjs": "0761769227c879550e80a044bff6370fee9a415aa47b8469d137b30aef093a1a",
+    "docs/evidence/nonhair-2026-09-26/review-performance/pilot-policy.mjs": "8356e2fc276ec2bded77a8b7a4282cc5604886db55ea5a2a2ba1c4a7dea89b45",
+    "docs/evidence/nonhair-2026-09-26/review-performance/pilot-policy.selftest.mjs": "17c22de73f27825ea5e1bc0f5c5fda1bd8282d242692a49383af669a49249613",
+    "docs/evidence/nonhair-2026-09-26/review-performance/compilation-policy.selftest.mjs": "15609fd7eb702e0bdc058784e11803fa929f294dbb33c042d9d2bb16c8725006",
+    "docs/evidence/nonhair-2026-09-26/review-performance/orbit-replay.mjs": "ff1d448430b64733fa5fc46fd022391dc32522972bf9f43d65862ed1f22929fe",
+    "docs/evidence/nonhair-2026-09-26/review-performance/timestamp-accounting.mjs": "f34349bc98c314c96aaaa9186301a7d449b042dec5b0fcab35519fdbab2f82f5",
+    "docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.mjs": "aee61eb1890751be07369267ea6a782e15e643aef5e8f5aaa0b457cf4cb5fe72"
+  },
+  "checks": [
+    {
+      "file": "compilation-policy.selftest.mjs",
+      "groups": 4,
+      "passed": true,
+      "scope": "Exact retained warmup-v2 warnings/readiness plus explicitly reconstructed intermediate startup observation fixture."
+    },
+    {
+      "file": "pilot-policy.selftest.mjs",
+      "groups": 5,
+      "passed": true,
+      "scope": "120 transitions, source-independent stability/census/pass/ID-change controls, sample census refusal and240-row summary checks."
+    },
+    {
+      "file": "startup-policy.selftest.mjs",
+      "groups": 7,
+      "passed": true,
+      "scope": "Original source/warning/census/warmed progression policy, bounded through840 total updates."
+    },
+    {
+      "files": [
+        "probe.mjs",
+        "runtime.mjs"
+      ],
+      "syntaxPassed": true
+    },
+    {
+      "file": "verify-warmup-package.mjs",
+      "passed": true,
+      "scope": "20 recorded same-browser expected/actual equalities; no offline replay."
+    }
+  ],
+  "unchangedPreviouslyReviewed": [
+    "timestamp-accounting.mjs",
+    "orbit-replay.mjs",
+    "startup-diagnostics.mjs"
+  ],
+  "limits": [
+    "CPU/source readiness only; no timing or new native run.",
+    "Actual warmup stability, sample invariance, query coverage, end image and retirement remain launch gates."
+  ]
+}

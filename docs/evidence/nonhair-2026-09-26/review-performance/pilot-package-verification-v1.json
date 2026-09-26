@@ -1,0 +1,24 @@
+{
+  "kind": "archive-only-pilot-package-verification",
+  "completed": true,
+  "verifier": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-performance/verify-pilot-package.mjs",
+    "sha256": "1582d0b9bd3ac8d2a3b8f6f4a7ebd36993cc8c44a2a0a4afe6d8a9e8193f607f"
+  },
+  "packageReceiptSHA256": "9dd35ba528750f20e5288bb08d268f86f7431b8641835fefe17589995e9425ff",
+  "verified": {
+    "sourceBindings": 1608,
+    "selectedArchivedSources": 22,
+    "recordedSameBrowserCameraSteps": 420,
+    "accountedUpdates": 412,
+    "uniqueFreshPassQueries": 8240,
+    "warmupUpdates": 180,
+    "samples": 240,
+    "exactRawStatistics": true,
+    "allLocalReviewLinksExist": true,
+    "retirement": true
+  },
+  "browserLaunched": false,
+  "visualHTMLReview": "Pending parent-owned static browser check; native end PNG independent review separate.",
+  "scope": "Pure archived accounting and recorded-equality verification. No GPU execution or offline camera prediction."
+}

@@ -1,0 +1,17 @@
+{
+  "classification": "Rejected instrumentation metadata admission before context/page creation; no Avatar workload captured.",
+  "cause": "Installed Chromium omits --enable-automation, so Browser.getBrowserCommandLine rejects. Actual process binary/argv was not recorded by v1.",
+  "unchanged": "Original capture and v1 manifest/preflight remain retained; no source/measurement acceptance inferred.",
+  "files": [
+    {
+      "source": "captures/review-performance-2026-09-26/smoke-v1/report.json",
+      "file": "report.json",
+      "sha256": "34a5fde64bc85e1afb10430822edde96679176a69b390622d6a39bc4f0bf3a35"
+    },
+    {
+      "source": "captures/review-performance-2026-09-26/smoke-v1/source/docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs",
+      "file": "probe.mjs",
+      "sha256": "b2b5acf6cee6b8492f9a2546d3ab3da5a047aaba4971c751ec22561e75b28554"
+    }
+  ]
+}

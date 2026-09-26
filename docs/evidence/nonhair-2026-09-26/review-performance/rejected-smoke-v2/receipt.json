@@ -1,0 +1,21 @@
+{
+  "classification": "Rejected before measured updates: unclassified native startup warnings; no timestamp accounting result.",
+  "cleanupCorrectionNeeded": "Actual Avatar disposed with empty leaks and renderer memory0. Instrument falsely rejected absent timestamp pools before first update.",
+  "files": [
+    {
+      "source": "captures/review-performance-2026-09-26/smoke-v2/report.json",
+      "file": "report.json",
+      "sha256": "014dfc86a41df45be2a598859caaed021d71adb8c945859f2df09563dea9ccde"
+    },
+    {
+      "source": "captures/review-performance-2026-09-26/smoke-v2/source/docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs",
+      "file": "probe.mjs",
+      "sha256": "ec9023065dc12ff165b8094b10e687bb0f9fb8b23839acae080d247706733a4e"
+    },
+    {
+      "source": "captures/review-performance-2026-09-26/smoke-v2/source/docs/evidence/nonhair-2026-09-26/review-performance/runtime.mjs",
+      "file": "runtime.mjs",
+      "sha256": "d871127d4b28df2083059b44d2ddf1ece28766d0f35536e4ac4147eabe1216e9"
+    }
+  ]
+}

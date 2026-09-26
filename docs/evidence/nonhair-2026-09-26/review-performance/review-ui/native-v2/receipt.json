@@ -1,0 +1,152 @@
+{
+  "kind": "static-review-ui-after-editorial-spacing",
+  "completed": true,
+  "capture": "captures/review-performance-2026-09-26/review-ui-native-v2",
+  "reportSHA256": "c4d908abe1bef963b7f0f74a67a537e9caec7f83798bc65c9528aa15b69c1a57",
+  "artifacts": {
+    "report.json": {
+      "file": "report.json.gz",
+      "sha256": "53ffec7a77432b5351df9586c1632ee3b372e3ae8a78332f66ebf1f6ed32f01b",
+      "decodedSHA256": "c4d908abe1bef963b7f0f74a67a537e9caec7f83798bc65c9528aa15b69c1a57",
+      "bytes": 44405
+    },
+    "seal.json": {
+      "file": "seal.json.gz",
+      "sha256": "57bd195ab822f770072d935567f8d228b8f4f1be8748c0562286d09a7421db59",
+      "decodedSHA256": "08f6cb193bd88502c4a1f3372b0e65d26c474774f4dfea7fb484b675e138354c",
+      "bytes": 2253
+    },
+    "controller.mjs": {
+      "file": "controller.mjs",
+      "source": "docs/evidence/nonhair-2026-09-26/review-performance/review-ui.mjs",
+      "sha256": "dafd83bec06ad5cce616de0a68eea649e184a844f6d3c91f1d9cf883c7902d6a",
+      "bytes": 14170
+    },
+    "timings.html": {
+      "file": "timings.html",
+      "source": "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/review.html",
+      "sha256": "db5d49d7cf408d68b0b220c6517d331a2089269b104db55bb7f9f1df1dce9399",
+      "bytes": 17097
+    },
+    "today.html": {
+      "file": "today.html",
+      "source": "docs/evidence/nonhair-2026-09-26/review.html",
+      "sha256": "ad4d875dfe35e2bd8eaea36fc0d7623e43f188f914fca72d89dff14364548c8e",
+      "bytes": 12238
+    },
+    "pilot-package-receipt.json": {
+      "file": "pilot-package-receipt.json",
+      "source": "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/receipt.json",
+      "sha256": "4c9db722d42f961900f7f5120ca76f6d8f9548d26009abca94e8d9bd0d556f4b",
+      "bytes": 3124
+    },
+    "pilot-result.md": {
+      "file": "pilot-result.md",
+      "source": "docs/evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md",
+      "sha256": "c5a347d22de9cf4853bcb02e0ce62c3ed26c61cda5c0a2c19010608be78cbe4e",
+      "bytes": 5383
+    },
+    "MotionProbe.mjs": {
+      "file": "MotionProbe.mjs",
+      "source": "packages/core/src/render/MotionProbe.mjs",
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+      "bytes": 16460
+    },
+    "png.mjs": {
+      "file": "png.mjs",
+      "source": "tools/critic/png.mjs",
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a",
+      "bytes": 11612
+    },
+    "desktop-portal.png": {
+      "file": "desktop-portal.png",
+      "sha256": "1a1373cb92b717e54e12c21534c761fc90677bc7805b0cb1255bed733779aad4",
+      "width": 1440,
+      "height": 2305,
+      "bytes": 307631
+    },
+    "desktop-timings.png": {
+      "file": "desktop-timings.png",
+      "sha256": "f9e9a32e92addedd295a27d1ef2f3bbb2b824610ff72f8e3b09a13d047265b0e",
+      "width": 1440,
+      "height": 1899,
+      "bytes": 362271
+    },
+    "desktop-table.png": {
+      "file": "desktop-table.png",
+      "sha256": "03f7b9fb5072b7e7730a12ff405444fde6b6606ff74c148b40fec3f1798ca839",
+      "width": 626,
+      "height": 279,
+      "bytes": 26048
+    },
+    "desktop-keyboard.png": {
+      "file": "desktop-keyboard.png",
+      "sha256": "bf215cbbb9e686b6faf16a0c334afbfef0f605191b20521f7b1823b791d202da",
+      "width": 1440,
+      "height": 1899,
+      "bytes": 362683
+    },
+    "mobile-portal.png": {
+      "file": "mobile-portal.png",
+      "sha256": "0e671dbdd5c7a21aa5a32eeb761c068ab60f76b2a6df5abf93a84592cedaca46",
+      "width": 390,
+      "height": 3855,
+      "bytes": 294196
+    },
+    "mobile-timings.png": {
+      "file": "mobile-timings.png",
+      "sha256": "14ced7cb3319dca11527b342b7612e716d204ec80dc0453ecb423bd103c56835",
+      "width": 390,
+      "height": 3142,
+      "bytes": 315665
+    },
+    "mobile-table.png": {
+      "file": "mobile-table.png",
+      "sha256": "7a297264d63f03029abd333535a8632bbac2fe3f8f14ad69ab07b6dc6b07ec8c",
+      "width": 320,
+      "height": 279,
+      "bytes": 24453
+    },
+    "mobile-keyboard.png": {
+      "file": "mobile-keyboard.png",
+      "sha256": "9f1b4806f8900b3b3467c7104a52ceaf45fb9036d98fb8718e98d9ab5bb6781d",
+      "width": 390,
+      "height": 3142,
+      "bytes": 315990
+    }
+  },
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md": "c5a347d22de9cf4853bcb02e0ce62c3ed26c61cda5c0a2c19010608be78cbe4e",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/end.png": "b91ff54dcde05a1b562fd71cbf906b48c0510dd860f895f7c353fd694c0ac7fe",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/manifest.json.gz": "670e209a8ea8b860cb728ea38f045fdbfb0cdfa7a9957a49ee3bcc63c54cb106",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/pilot.json.gz": "4ed8b0489decc7a34fcda32c0628250403425d5e620f84698d054c036e2bfda0",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/receipt.json": "4c9db722d42f961900f7f5120ca76f6d8f9548d26009abca94e8d9bd0d556f4b",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/report.json.gz": "94c8dec107c8c102637a0c8a11e090e73d3c348c5f690e2088bd9d2b75ed3308",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/review.html": "db5d49d7cf408d68b0b220c6517d331a2089269b104db55bb7f9f1df1dce9399",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/seal.json.gz": "7d3f2a92d0fd762e9af8a7a16a01adf9a4240cd184da885c9d5c167c0cea96e1",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/sources.json.gz": "a72e130f87c5a0521e2602ff774d1d355b01107664199fc873edd002a536f6e7",
+    "docs/evidence/nonhair-2026-09-26/review-performance/native-pilot-v1/summary.json": "fa0e4511396e5c1c679313003ae72f8038229691dbb02d084a5f85b3884191c4",
+    "docs/evidence/nonhair-2026-09-26/review-performance/review-ui.mjs": "dafd83bec06ad5cce616de0a68eea649e184a844f6d3c91f1d9cf883c7902d6a",
+    "docs/evidence/nonhair-2026-09-26/review.html": "ad4d875dfe35e2bd8eaea36fc0d7623e43f188f914fca72d89dff14364548c8e",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "tools/critic/png.mjs": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+  },
+  "checks": 8,
+  "screenshots": 8,
+  "errors": 0,
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "dpr": 1,
+  "editorialStatus": "Passing static UI check after whitespace-only editorial correction. Native timing data, numeric values and original end image unchanged.",
+  "visualReview": "Desktop/mobile tables, full timing pages and Today pages independently viewed. No clipping/broken layout or image failure. Corrected prose spacing inspected; mobile SVG labels remain small, with readable table providing numeric values.",
+  "scope": "Static Today portal and timing HTML only. No Avatar import or new performance/hair/fit qualification.",
+  "archiveHTML": "Exact source archives, not relocated live sites; their relative links retain original paths."
+}

@@ -1,0 +1,19 @@
+{
+  "groups": 3,
+  "firstArrayUID": "r:0:undefined:f42",
+  "repeatedArrayUID": "r:0:undefined:f42",
+  "singleNodeUID": "c:3:18:f42",
+  "nextFrameArrayUID": "r:0:undefined:f43",
+  "evidence": "Actual native Backend UID/accessor execution with modeled Renderer counter sequence; not native Renderer.compute or GPU execution.",
+  "currentDefaultSource": "Avatar calls dynamics.update once; HairDynamics batches both fixed substeps plus rebuild into one renderer.compute(array); CardRenderHistory submits one separate single-node compute after draw.",
+  "limit": "Multiple array submissions with unchanged render.frameCalls and Three frame collide; unchanged native IDs remain rejected. No UID rewriting.",
+  "sourceHashes": {
+    "node_modules/three/src/renderers/common/Backend.js": "c9373cbc7c562812a0d018685efbbc59390ddd661e8aadc67b8671d6ceca5dc0",
+    "node_modules/three/src/renderers/common/Renderer.js": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+    "node_modules/three/src/renderers/common/TimestampQueryPool.js": "7c11475084bd8198f2de0fe170e2d0c5d455c80611050fdab621d722d8bc3da6",
+    "node_modules/three/build/three.webgpu.js": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340",
+    "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+    "packages/core/src/motion/HairDynamics.js": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc",
+    "packages/core/src/render/CardRenderHistory.js": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f"
+  }
+}

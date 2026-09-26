@@ -1,0 +1,9 @@
+# Timing review UI evidence
+
+`native-v3/` is the accepted final static UI run after editorial spacing and warning-boundary wording cleanup: 8 checks, 8 original screenshots, no errors and exact source stability. Its lossless receipt binds the exact report/seal, controller, timing and Today HTML, selected host sources and original screenshots. The HTML files are source archives; their relative links retain original locations and are not relocated live sites. The live timing review remains [the original page](../native-pilot-v1/review.html).
+
+The corrected desktop/mobile timing pages and keyboard plates were independently inspected. Both table and Today screenshots are byte-identical to the already inspected first run. The table is compact but readable, the pages show no clipping or missing images, and the focused image link has a visible outline. Mobile SVG axis labels remain small; the chart provides an overview and the table carries exact numbers. Native checks exercised real keyboard traversal, reverse focus and Enter navigation. This is not full accessibility certification or real touch-device qualification.
+
+`native-v1/` preserves the passing first static UI run before spacing cleanup; `native-v2/` preserves the spacing-corrected run before the final wording clarification. The original pilot data are unchanged. [The editorial receipt](../review-editorial-v2.json) proves the regenerated timing HTML differs only in whitespace and that all other native artifact mappings are identical. The final wording now says warnings occurred “before timestamp collection”, because startup tracing was already instrumentation. The v3 HTML differs from v2 by exactly that phrase. Neither static successor repeated the performance run.
+
+See [the visual verdict](VISUAL-VERDICT.md) and [QA record](../REVIEW-UI.md) for exact hashes, provenance and commands.

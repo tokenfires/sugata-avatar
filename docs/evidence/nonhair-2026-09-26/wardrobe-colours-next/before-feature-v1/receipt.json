@@ -1,0 +1,138 @@
+{
+  "kind": "four-pre-feature-default-controls",
+  "rawDirectory": "captures/wardrobe-colours-2026-09-26/before-feature-v1",
+  "reportSHA256": "01b6943f1904baf7cda9ad2db63bfc82eace20914e500539b45cde5bbf6d3f21",
+  "manifestSHA256": "09dfb13fb4ae824f28a8f04b35f15c1b8df2504b7df4369b301a7d329990c954",
+  "cases": [
+    {
+      "label": "casual-front-base",
+      "image": {
+        "file": "casual-front-base.png",
+        "sha256": "ea59ef1ca95f0b1b49f73fee0b441dd60f2c09403c33c767fdb35884f900a201",
+        "bytes": 810951,
+        "width": 657,
+        "height": 868,
+        "suggestedFilename": "sugata-bob02-casual-ecru-body.png",
+        "nativeSaveImage": true,
+        "unmodifiedBytes": true
+      },
+      "state": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8"
+    },
+    {
+      "label": "casual-back-base",
+      "image": {
+        "file": "casual-back-base.png",
+        "sha256": "ff8fed2166acf6c8cc2053676832f513a2896a10e6fa24afd3b39b7ebd8d5260",
+        "bytes": 740919,
+        "width": 657,
+        "height": 868,
+        "suggestedFilename": "sugata-bob02-casual-ecru-body.png",
+        "nativeSaveImage": true,
+        "unmodifiedBytes": true
+      },
+      "state": "ae763b683dca295ed5d387a6ba3c3e79e6129d718f4450d0a86a3d9080211d07"
+    },
+    {
+      "label": "elegant-front-base",
+      "image": {
+        "file": "elegant-front-base.png",
+        "sha256": "0f00e5f0a71a2c01d10b39c204464e3f99d33eefcb6b2f05b97594b9ee8889fe",
+        "bytes": 791695,
+        "width": 657,
+        "height": 868,
+        "suggestedFilename": "sugata-bob01-elegant-charcoal-body.png",
+        "nativeSaveImage": true,
+        "unmodifiedBytes": true
+      },
+      "state": "cfb246d5fcf03cc6a2a4c04a22d87b4903368d993e7e577b99614bb22bbf3b76"
+    },
+    {
+      "label": "elegant-back-base",
+      "image": {
+        "file": "elegant-back-base.png",
+        "sha256": "c46e0acaf36ca394184a85e75cd6740e9c05e54d713a356644f9d6f4117c36f0",
+        "bytes": 720029,
+        "width": 657,
+        "height": 868,
+        "suggestedFilename": "sugata-bob01-elegant-charcoal-body.png",
+        "nativeSaveImage": true,
+        "unmodifiedBytes": true
+      },
+      "state": "d4869e6f0a543ce96b195714d0a414792c7f972592bc27227f2200c8f5637767"
+    }
+  ],
+  "files": {
+    "report.json": {
+      "file": "report.json.gz",
+      "decodedSHA256": "01b6943f1904baf7cda9ad2db63bfc82eace20914e500539b45cde5bbf6d3f21",
+      "sha256": "94fea3f05fa6d4f98c6773e32c9904420d3f6b7357ebac3b0733d4d8ddd46260"
+    },
+    "manifest.json": {
+      "file": "manifest.json.gz",
+      "decodedSHA256": "09dfb13fb4ae824f28a8f04b35f15c1b8df2504b7df4369b301a7d329990c954",
+      "sha256": "8e932ef3625a80f196ae2c263258274623041e3a21f2fdf8772c05d2d5dd6b60"
+    },
+    "seal.json": {
+      "file": "seal.json.gz",
+      "decodedSHA256": "bf8af1a55e59db7a1c2c5b4c0a66a31d5bc66abd799d171a58cbd4414549a7ae",
+      "sha256": "42e7076f1eaf58c9b54994772c895b98e3027cfc239fefb488e20a2a1d13c1ca"
+    },
+    "casual-front-base.png": {
+      "file": "casual-front-base.png",
+      "sha256": "ea59ef1ca95f0b1b49f73fee0b441dd60f2c09403c33c767fdb35884f900a201",
+      "bytes": 810951
+    },
+    "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz": {
+      "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "bytes": 1475445
+    },
+    "casual-back-base.png": {
+      "file": "casual-back-base.png",
+      "sha256": "ff8fed2166acf6c8cc2053676832f513a2896a10e6fa24afd3b39b7ebd8d5260",
+      "bytes": 740919
+    },
+    "states/ae763b683dca295ed5d387a6ba3c3e79e6129d718f4450d0a86a3d9080211d07.json.gz": {
+      "file": "states/ae763b683dca295ed5d387a6ba3c3e79e6129d718f4450d0a86a3d9080211d07.json.gz",
+      "sha256": "868239fc2f4781ec199fab9b5efbaad433a893ef35fc5870af7eb39a362cfc18",
+      "bytes": 1475550
+    },
+    "elegant-front-base.png": {
+      "file": "elegant-front-base.png",
+      "sha256": "0f00e5f0a71a2c01d10b39c204464e3f99d33eefcb6b2f05b97594b9ee8889fe",
+      "bytes": 791695
+    },
+    "states/cfb246d5fcf03cc6a2a4c04a22d87b4903368d993e7e577b99614bb22bbf3b76.json.gz": {
+      "file": "states/cfb246d5fcf03cc6a2a4c04a22d87b4903368d993e7e577b99614bb22bbf3b76.json.gz",
+      "sha256": "8e15eac4ce188ca792fa0c6c1ad0a7ae34e8223eadf4622cf52b09c05b1f2825",
+      "bytes": 1476559
+    },
+    "elegant-back-base.png": {
+      "file": "elegant-back-base.png",
+      "sha256": "c46e0acaf36ca394184a85e75cd6740e9c05e54d713a356644f9d6f4117c36f0",
+      "bytes": 720029
+    },
+    "states/d4869e6f0a543ce96b195714d0a414792c7f972592bc27227f2200c8f5637767.json.gz": {
+      "file": "states/d4869e6f0a543ce96b195714d0a414792c7f972592bc27227f2200c8f5637767.json.gz",
+      "sha256": "12aaf3215a0684dec25c9da914b98b8b3f9dbea50c266245c093bd911f8a25b4",
+      "bytes": 1476649
+    },
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-next/capture-colours.mjs": {
+      "file": "source/capture-colours.mjs",
+      "sha256": "087069ace11e122feacdcf7269db6291afe9ed13f3bb0a47cc8483926f156d4e",
+      "bytes": 27858
+    },
+    "docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.mjs": {
+      "file": "source/micro-capture-runtime.mjs",
+      "sha256": "5123724755f3aa4770b5e7aaaa198686b8dd851fa43e43913bd06301fe9a7903",
+      "bytes": 8501
+    },
+    "docs/evidence/nonhair-2026-09-26/skin-attribution/micro-capture-runtime.selftest.mjs": {
+      "file": "source/micro-capture-runtime.selftest.mjs",
+      "sha256": "76bdf19b4076d5ae6fcc2d7095b145bcf3371dbcb06fe7695dc7ad153f284360",
+      "bytes": 5829
+    }
+  },
+  "scope": "Four unchanged default controls captured before colour-control implementation. Same planned camera, body/wardrobe state and declared clock policy as the later colour triplets. This contains no custom-colour or feature qualification.",
+  "archives": "Full source and served-body archives remain in rawDirectory; copied JSON is losslessly compressed, PNG/state bytes unchanged."
+}

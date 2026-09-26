@@ -1,0 +1,50 @@
+{
+  "kind": "review-performance-smoke-cpu-preflight",
+  "nativeRun": "not started",
+  "scope": "CPU/source admission only; no GPU capabilities or performance result",
+  "manifest": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-performance/smoke-manifest-v1.json",
+    "sha256": "2038ebf39d42dfba06e930a39ee579ba2051da9563455ba6f66b6b51b9863da2",
+    "inputs": 1579
+  },
+  "preflight": {
+    "file": "captures/review-performance-2026-09-26/preflight-v1/report.json",
+    "sha256": "9f7c92d8887ccb7527c3b2783473e2e10a55a46e41149cbace898564d1c9523d",
+    "passed": true
+  },
+  "checks": {
+    "timestampAccountingGroups": 11,
+    "nativeBackendCPUGroups": 3,
+    "runtimeAndControllerSyntax": "passed"
+  },
+  "instrumentHashes": {
+    "runtime.mjs": "d871127d4b28df2083059b44d2ddf1ece28766d0f35536e4ac4147eabe1216e9",
+    "probe.mjs": "b2b5acf6cee6b8492f9a2546d3ab3da5a047aaba4971c751ec22561e75b28554",
+    "timestamp-accounting.mjs": "f34349bc98c314c96aaaa9186301a7d449b042dec5b0fcab35519fdbab2f82f5",
+    "timestamp-accounting.selftest.mjs": "a17d36fff1735708124d218086ad979868f7e4b28cc8965a1abf6fd12c93aaad",
+    "native-uid.selftest.mjs": "7b5d65fe03e3fdcbee4d893c782a25a643e7683a1b24ecfd5542752bcb257da9",
+    "native-uid-proof-v1.json": "b3f15b3e0c3a0f23564a6a8fb94bb93fff77d7b964e7dd54ed69e7de66583453"
+  },
+  "acceptedCurrentSource": {
+    "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+    "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+  },
+  "gpuLaunchOwner": "root after critique approval",
+  "planned": {
+    "page": "showcase",
+    "warmup": 8,
+    "samples": 12,
+    "dt": 0.016666666666666666,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 2
+  },
+  "limits": [
+    "Diagnostic observer CPU time only",
+    "Current default g050 with complete accepted wardrobe, not representative builds",
+    "Typed query-pool observation preserves native array compute UID; collisions are rejected",
+    "Synthetic pagehide tests existing cleanup handler, not actual navigation or OS memory reclamation"
+  ]
+}

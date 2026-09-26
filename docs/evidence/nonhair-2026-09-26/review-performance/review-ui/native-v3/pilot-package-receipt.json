@@ -1,0 +1,74 @@
+{
+  "kind": "sealed-native-stepped-pilot-package",
+  "capture": "captures/review-performance-2026-09-26/pilot-v1",
+  "artifacts": {
+    "report.json": {
+      "file": "report.json.gz",
+      "sha256": "94c8dec107c8c102637a0c8a11e090e73d3c348c5f690e2088bd9d2b75ed3308",
+      "decodedSHA256": "d2f0b6601b15f3b75d5f6f2b90ca69b20a66f01bc83031a4d56c6206a4817cfa",
+      "bytes": 1256583,
+      "compressedBytes": 44107
+    },
+    "manifest.json": {
+      "file": "manifest.json.gz",
+      "sha256": "670e209a8ea8b860cb728ea38f045fdbfb0cdfa7a9957a49ee3bcc63c54cb106",
+      "decodedSHA256": "158a8fac3693d41387d4e056e9fc745030e881daa517c4aca56324d14ef25fda",
+      "bytes": 211219,
+      "compressedBytes": 74203
+    },
+    "seal.json": {
+      "file": "seal.json.gz",
+      "sha256": "7d3f2a92d0fd762e9af8a7a16a01adf9a4240cd184da885c9d5c167c0cea96e1",
+      "decodedSHA256": "03d259060fe1dedf5baf60e049e4ae5a2b2ff85bcf10ba8ea4d3d9a9773ef159",
+      "bytes": 428,
+      "compressedBytes": 319
+    },
+    "pilot.json": {
+      "file": "pilot.json.gz",
+      "sha256": "4ed8b0489decc7a34fcda32c0628250403425d5e620f84698d054c036e2bfda0",
+      "decodedSHA256": "a1bd38fd559b733a7b1154e4ccbfceddd4d687a8037b4997bc8019c0c3419319",
+      "updates": 412,
+      "warmup": 180,
+      "samples": 240,
+      "bytes": 15578115,
+      "compressedBytes": 1193955
+    },
+    "end.png": {
+      "file": "end.png",
+      "sha256": "b91ff54dcde05a1b562fd71cbf906b48c0510dd860f895f7c353fd694c0ac7fe",
+      "bytes": 2139653
+    },
+    "sources.json": {
+      "file": "sources.json.gz",
+      "sha256": "a72e130f87c5a0521e2602ff774d1d355b01107664199fc873edd002a536f6e7",
+      "decodedSHA256": "d3d5f9aa85d94140c49d6cf2b5bdede941814ec99c86fbc3ac2311d97682ed69",
+      "bytes": 829440,
+      "compressedBytes": 213845
+    },
+    "summary": {
+      "file": "summary.json",
+      "sha256": "fa0e4511396e5c1c679313003ae72f8038229691dbb02d084a5f85b3884191c4"
+    },
+    "review": {
+      "file": "review.html",
+      "sha256": "049dcd7ced70e9416f9784000625141ff577862afcb7fc1e9cd3728cacec306c"
+    }
+  },
+  "sourceCount": 1608,
+  "selectedArchivedSources": 22,
+  "summary": "summary.json",
+  "scope": [
+    "Stepped pass sums are not FPS or presentation latency.",
+    "CPU includes profiler observer overhead; its overhead is uncalibrated.",
+    "GPU sums exclude copies/transfers outside observed passes, timestamp readback, browser composition and presentation.",
+    "Serial native step/queue/paint waits change pacing and queue pressure compared with live rendering.",
+    "Owned jobs were serialized; unrelated user applications were not controlled.",
+    "One native run of one current accepted body/outfit/groom; no representative-build, fit/hair, hardware-generalization or budget verdict.",
+    "Same-browser exact controls only; an offline Node replay differs by1ULP.",
+    "Tracked memory zero is not proof of complete OS allocator reclamation."
+  ],
+  "packager": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-performance/package-pilot-v1.mjs",
+    "sha256": "bf780446fcb84943b1ca6c44f93fcb203586c678a3fc6ec4e562537c02dbf6bc"
+  }
+}

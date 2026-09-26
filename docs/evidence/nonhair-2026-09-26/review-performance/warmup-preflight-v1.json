@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "recordedAt": "2026-09-26T22:31:12.327Z",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/review-performance/warmup-manifest-v1.json",
+    "sha256": "2dfde00a19346c1066b0b64f47da0af54c4ea6e2492e2be0a2b3650580827590"
+  },
+  "preflight": {
+    "path": "captures/review-performance-2026-09-26/warmup-preflight-v1/report.json",
+    "sha256": "add619bf2448536a6ee7641678d58c34813cdc5f8c1a6f674cd52d5919180da8",
+    "files": 1601,
+    "completed": true,
+    "preflightOnly": true,
+    "sourcesStable": true
+  },
+  "CPUReceipt": {
+    "path": "docs/evidence/nonhair-2026-09-26/review-performance/warmup-cpu-v1.json",
+    "sha256": "88180bd9f115e7d3886f8085a13375c6bdade860633d0a6674d03624b80154be"
+  },
+  "command": "node docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs --warmup-diagnostic docs/evidence/nonhair-2026-09-26/review-performance/warmup-manifest-v1.json captures/review-performance-2026-09-26/warmup-v1",
+  "nativePending": true,
+  "scope": "Fresh source freeze and CPU preflight only;20UNMEASURED native steps pending root launch."
+}

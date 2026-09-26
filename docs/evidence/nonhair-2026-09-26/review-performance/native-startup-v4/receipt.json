@@ -1,0 +1,225 @@
+{
+  "classification": "Successful source-bound original startup diagnostic; zero measured updates; no performance/warning-harmlessness/visual-completeness verdict.",
+  "captured": "2026-09-26T21:56:01.196Z",
+  "report": {
+    "original": "captures/review-performance-2026-09-26/startup-v4/report.json",
+    "file": "report.json.gz",
+    "sha256": "267bc9adb78e5ba8f41c5d85220f36e08ee194ec3a52c85fa8e41cd01ca3e9f9",
+    "decodedSHA256": "6de56b8c3f9c316255407a026478d996e4cecff35e903c3d3329b8ac2447fb15"
+  },
+  "manifest": {
+    "file": "../startup-manifest-v4.json",
+    "sha256": "a7e955d2ab019febe7ccd4b3b449cfa0b5d0f62f3ff5e6adfdb305ae412c480b",
+    "sources": 1594
+  },
+  "seal": {
+    "reportSHA256": "6de56b8c3f9c316255407a026478d996e4cecff35e903c3d3329b8ac2447fb15",
+    "manifestSHA256": "a7e955d2ab019febe7ccd4b3b449cfa0b5d0f62f3ff5e6adfdb305ae412c480b",
+    "scope": "Unmeasured original page startup diagnostics only; zero measured updates, no timestamp accounting or performance verdict."
+  },
+  "sourceWitnesses": {
+    "packages/core/src/motion/HairDynamics.js": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc",
+    "packages/core/src/figure/Figure.js": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da",
+    "packages/core/src/wardrobe/Wardrobe.js": "d890af1ff1f26eb836d59f2dc83137a3d414a59fe027186494d5bfc62aa9aa14",
+    "node_modules/three/src/nodes/math/ConditionalNode.js": "323394ddbe991b6dc905cc7c740dc479b32476fcc7fdd7e053de904c0c910dc3",
+    "node_modules/three/src/nodes/core/Node.js": "0720d248724842ffb5dbefc14b2ccfd26a5f7ec18136bed0a6d7ad3c93303dda",
+    "node_modules/three/src/renderers/webgpu/WebGPUBackend.js": "ffd7f720c3cbbe4c6ec9757dd73b003fa340b1c2e40ccf4be131b6025a649e31",
+    "docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs": "635df4a998a42e779d1c278ff42d7aadb9c308bbec0b3b917b96c7e373bdaf47",
+    "docs/evidence/nonhair-2026-09-26/review-performance/runtime.mjs": "fa6f4237ac31a4b1f39f00007b57871ec11a35685a13b471819733b357b99157",
+    "docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.mjs": "948b6dbefd9155aa911b5f8b469de94da293989f43cdd26125ae3778f5a83613",
+    "docs/evidence/nonhair-2026-09-26/review-performance/bootstrap.mjs": "21c914cf9fab1469dd43c2e891dc436032e555a48bb110fc0f18f968e3774550"
+  },
+  "actualGLBResponses": [
+    {
+      "url": "http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "status": 200,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "bytes": 11916776,
+      "asset": "assets/wardrobe/body/g050.glb"
+    },
+    {
+      "url": "http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "status": 200,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+      "bytes": 921176,
+      "asset": "assets/wardrobe/foundation_bra/g050.glb"
+    },
+    {
+      "url": "http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "status": 200,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+      "bytes": 529028,
+      "asset": "assets/wardrobe/foundation_briefs/g050.glb"
+    },
+    {
+      "url": "http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+      "status": 200,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "bytes": 11084628,
+      "asset": "assets/wardrobe/female_casualsuit01/g050.glb"
+    },
+    {
+      "url": "http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "status": 200,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "bytes": 2345604,
+      "asset": "assets/wardrobe/shoes01/g050.glb"
+    },
+    {
+      "url": "http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/g050.glb",
+      "status": 200,
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+      "bytes": 3347176,
+      "asset": "assets/hair/bob02/g050.glb"
+    }
+  ],
+  "browser": {
+    "version": "149.0.7827.55",
+    "actualExecutable": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "actualExecutableSHA256": "b1b9e2dd063115031f08eadc10ed381ca0fa05b2284baff8f721d87f5f0f61b7"
+  },
+  "adapter": {
+    "vendor": "apple",
+    "architecture": "metal-3",
+    "device": "",
+    "description": "",
+    "isFallbackAdapter": false,
+    "subgroupMinSize": 32,
+    "subgroupMaxSize": 32
+  },
+  "timestampQueryAdvertised": true,
+  "nativeStartup": {
+    "frame": 1,
+    "seconds": 0,
+    "measuredUpdates": 0,
+    "poolsAllocated": false,
+    "observerRestored": true
+  },
+  "warnings": [
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back \u2014 jaw to the jawOpen morph, gaze to the eyeLook* morphs.",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "Calling [RenderPassEncoder (unlabeled)].Draw with an index count of 0 is unusual.",
+      "location": {
+        "url": "http://localhost:5391/src/showcase.html?capture",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:770:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:778:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    }
+  ],
+  "warningOrigins": [
+    {
+      "source": "packages/core/src/figure/Figure.js:423",
+      "count": 1,
+      "classification": "Declared g050 absent-bone/morph-fallback diagnostic."
+    },
+    {
+      "source": "WebGPUBackend._draw -> native drawIndexed",
+      "browserDiagnosticCount": 1,
+      "actualZeroIndexSubmissions": 30,
+      "shadow": 15,
+      "beauty": 15,
+      "mesh": "garment_foundation_briefs",
+      "indexCount": 37494,
+      "drawRange": {
+        "start": 0,
+        "count": 0
+      },
+      "classification": "Fully hidden retained foundation; no one-warning-per-draw claim."
+    },
+    {
+      "source": "packages/core/src/motion/HairDynamics.js:770",
+      "count": 1,
+      "classification": "Native inline If arrow returns assignment node for kinematic override; source default kinematic0; no hair correctness/harmlessness verdict."
+    },
+    {
+      "source": "packages/core/src/motion/HairDynamics.js:778",
+      "count": 1,
+      "classification": "Native inline If arrow returns assignment node for FTL-disabled override; source default ftlEnabled1; no hair correctness/harmlessness verdict."
+    }
+  ],
+  "cleanup": {
+    "disposed": true,
+    "leaks": [],
+    "allTrackedMemoryCountersZero": true,
+    "emptyPools": "Accepted only because no measured step was attempted; not timestamp accounting."
+  },
+  "initialPlate": {
+    "file": "ready.png",
+    "sha256": "071a7464860c4f773d5de9ebde761b5e30524c486969cfb9d0965c6f4ef5ea35",
+    "original": "captures/review-performance-2026-09-26/startup-v4/ready.png",
+    "scope": "Unwarmed startup plate; root observed absent visible hair and report history invalid/awaiting first beauty. Not a complete warmed workload plate."
+  },
+  "warmWorkloadLimit": {
+    "history": {
+      "requested": "auto",
+      "mode": "hold",
+      "reason": "awaiting first beauty",
+      "live": true,
+      "valid": false,
+      "commits": 0,
+      "cachedDraws": 1,
+      "invalidations": 0,
+      "lastDraw": null,
+      "cardVertexBase": 652,
+      "cardVertexCount": 16864,
+      "ownedHistoryBuffers": 1,
+      "paddedHistoryBytes": 269824,
+      "caps": "native hold; exact cards only"
+    },
+    "cardFrame": {
+      "mode": "derivative",
+      "available": true,
+      "reason": "awaiting a draw",
+      "live": true,
+      "layout": {
+        "base": 652,
+        "count": 16864,
+        "rings": 17,
+        "cards": 496,
+        "width": 0.123046875
+      },
+      "ownedBuffers": 0,
+      "addedVertexBytes": 0
+    }
+  },
+  "nextGate": "Source-reviewed exact startup-readiness policy plus normal8-step warmup with current hair draw/history and visible end plate; no native/workload edits."
+}

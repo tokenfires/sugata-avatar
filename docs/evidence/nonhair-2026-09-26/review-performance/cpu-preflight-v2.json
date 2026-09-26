@@ -1,0 +1,63 @@
+{
+  "kind": "review-performance-smoke-cpu-preflight",
+  "version": 2,
+  "nativeRun": "not started by author; root owns launch",
+  "scope": "CPU/source/process-helper admission only; no GPU capability or performance result",
+  "manifest": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-performance/smoke-manifest-v2.json",
+    "sha256": "3b655aa01bc4693f46295eb9abc43765f6578a3931aeb2d573a21c058aa9ef75",
+    "inputs": 1581
+  },
+  "preflight": {
+    "file": "captures/review-performance-2026-09-26/preflight-v2/report.json",
+    "sha256": "681e087b18474c0675c5df510afc356bf8998244c4a765a8a258dd5d71c49471",
+    "passed": true,
+    "processScopeProbe": {
+      "rootPID": 90398,
+      "tree": []
+    }
+  },
+  "checks": {
+    "processReceiptGroups": 4,
+    "controllerSyntax": "passed",
+    "unchangedAccounting": "11 analytic + 3 native Backend groups previously passed; hashes unchanged"
+  },
+  "instrumentHashes": {
+    "probe.mjs": "ec9023065dc12ff165b8094b10e687bb0f9fb8b23839acae080d247706733a4e",
+    "process-receipt.py": "d3c463c46b3bc5802a809f8a4cb60b19203a6d232fcaaa6ea7522481bdb89b90",
+    "process-receipt.selftest.py": "af7921d3e66ad9a8edf6618b82b1bccaad471d4a8faf2a577f0e7070649c34bf",
+    "runtime.mjs": "d871127d4b28df2083059b44d2ddf1ece28766d0f35536e4ac4147eabe1216e9",
+    "timestamp-accounting.mjs": "f34349bc98c314c96aaaa9186301a7d449b042dec5b0fcab35519fdbab2f82f5"
+  },
+  "launcher": {
+    "resolved": "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright/index.js",
+    "version": "1.61.1",
+    "sourceHashes": {
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright/index.js": "4e98f65f0a9d9bcab8cffc0c5cfdd87fd3f5b0be74fc494ff166a466b204cd44",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright/package.json": "6b840268612656f0639fb7d68782e8353bdf11518589d30ddf66f283c2670ed5",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core/index.js": "a58fb2cec4293e7dcf73c58a179898a4f3986666451a19da4e731fa3af63265b",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core/package.json": "759e376f995bf39edd4810d699b99469bab1d7428b6fbc78d41912f367df7ba9",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core/lib/coreBundle.js": "6be5c2ea035554e9b184b1dbc7aa5e7f1fb428dd1b5c202022858dcfae9bee27"
+    },
+    "registryDefaultExecutable": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "registryDefaultExecutableSHA256": "b1b9e2dd063115031f08eadc10ed381ca0fa05b2284baff8f721d87f5f0f61b7",
+    "executableScope": "Registry hint only until matched to native process executable/argv."
+  },
+  "priorRejectedRun": {
+    "report": "rejected-smoke-v1/report.json",
+    "sha256": "34a5fde64bc85e1afb10430822edde96679176a69b390622d6a39bc4f0bf3a35",
+    "classification": "Metadata incompatibility before page creation; no Avatar workload"
+  },
+  "gpuLaunchOwner": "root after independent source critique",
+  "planned": {
+    "pageName": "showcase",
+    "warmup": 8,
+    "samples": 12,
+    "dt": 0.016666666666666666,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "deviceScaleFactor": 2
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "scope": "Local received native _draw arguments from rejected instrument run; no original startup count/warning/timing qualification.",
+  "reportSHA256": "d9cceeb6050fa852e1e6f8ec9d62bb7dd27450ffbeeafa10da9052e2b9773908",
+  "totalRecordedCalls": 17,
+  "meshNames": [
+    "garment_foundation_briefs"
+  ],
+  "selectedCalls": [
+    {
+      "mesh": "garment_foundation_briefs",
+      "ancestry": [
+        "garment_foundation_briefs",
+        "Humanrig",
+        "Scene",
+        "Shadow Map [ key-shadow ]"
+      ],
+      "geometryId": 13,
+      "indexCount": 37494,
+      "drawRange": {
+        "start": 0,
+        "count": 0
+      },
+      "drawParameters": {
+        "vertexCount": 0,
+        "firstVertex": 0,
+        "instanceCount": 1,
+        "firstInstance": 0
+      },
+      "material": {
+        "name": "ShadowMaterial",
+        "type": "NodeMaterial"
+      },
+      "camera": {
+        "name": "",
+        "type": "PerspectiveCamera"
+      },
+      "callStack": "Error: Native zero-index draw submission\n    at WebGPUBackend.<anonymous> (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.mjs:41:76)\n    at WebGPUBackend.draw (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:57676:9)\n    at WebGPURenderer._renderObjectDirect (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:43299:17)\n    at WebGPURenderer.renderObject (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:43245:15)\n    at WebGPURenderer.renderObjectFunction (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:30541:14)\n    at WebGPURenderer._renderObjects (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:43095:9)\n    at WebGPURenderer._renderScene (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:42119:62)\n    at WebGPURenderer.render (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:41918:8)\n    at ShadowNode.renderShadow (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:30977:12)\n    at ShadowNode.updateShadow (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:31001:8)"
+    },
+    {
+      "mesh": "garment_foundation_briefs",
+      "ancestry": [
+        "garment_foundation_briefs",
+        "Humanrig",
+        "Scene",
+        ""
+      ],
+      "geometryId": 13,
+      "indexCount": 37494,
+      "drawRange": {
+        "start": 0,
+        "count": 0
+      },
+      "drawParameters": {
+        "vertexCount": 0,
+        "firstVertex": 0,
+        "instanceCount": 1,
+        "firstInstance": 0
+      },
+      "material": {
+        "name": "foundation_briefs",
+        "type": "MeshStandardMaterial"
+      },
+      "camera": {
+        "name": "",
+        "type": "PerspectiveCamera"
+      },
+      "callStack": "Error: Native zero-index draw submission\n    at WebGPUBackend.<anonymous> (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.mjs:41:76)\n    at WebGPUBackend.draw (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:57676:9)\n    at WebGPURenderer._renderObjectDirect (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:43299:17)\n    at WebGPURenderer.renderObject (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:43245:15)\n    at WebGPURenderer._renderObjects (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:43095:9)\n    at WebGPURenderer._renderScene (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:42119:62)\n    at WebGPURenderer.render (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:41918:8)\n    at StageScenePass.updateBefore (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:27926:12)\n    at StageScenePass.updateBefore (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/render/StageScenePass.js:15:34)\n    at NodeFrame.updateBeforeNode (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three_webgpu.js?v=13ff0585:37597:14)"
+    }
+  ]
+}

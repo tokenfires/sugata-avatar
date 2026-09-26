@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "kind": "current-review-page-timestamp-smoke",
+  "completed": false,
+  "manifestSHA256": "2038ebf39d42dfba06e930a39ee579ba2051da9563455ba6f66b6b51b9863da2",
+  "createdAt": "2026-09-26T21:18:17.270Z",
+  "pageName": "showcase",
+  "scope": "20 native fixed steps for timestamp coverage/accounting validation only. No performance budget, representative-avatar, native presentation or leak qualification.",
+  "errors": [],
+  "responses": [],
+  "sourcesStable": true,
+  "environmentBefore": {
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428",
+    "architecture": "arm64",
+    "node": "v24.13.1",
+    "nodeExecutableSHA256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559",
+    "hardware": {
+      "machine": [
+        {
+          "machine_name": "MacBook Pro",
+          "machine_model": "Mac17,6",
+          "chip_type": "Apple M5 Max",
+          "number_processors": "proc 18:6:12:0",
+          "physical_memory": "128 GB"
+        }
+      ],
+      "gpu": [
+        {
+          "sppci_model": "Apple M5 Max",
+          "displays": [
+            {
+              "_name": "Color LCD",
+              "spdisplays_pixelresolution": "spdisplays_3456x2234Retina",
+              "spdisplays_main": "spdisplays_yes",
+              "spdisplays_online": "spdisplays_yes",
+              "spdisplays_display_type": "spdisplays_built-in-liquid-retina-xdr"
+            }
+          ]
+        }
+      ]
+    },
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23134307)\t78%; charging; (no estimate) present: true",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "launch": {
+      "channel": "chromium",
+      "headless": true,
+      "flags": [
+        "--enable-unsafe-webgpu",
+        "--ignore-gpu-blocklist",
+        "--hide-scrollbars"
+      ]
+    }
+  },
+  "playwright": {
+    "resolved": "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright/index.js",
+    "entrySHA256": "4e98f65f0a9d9bcab8cffc0c5cfdd87fd3f5b0be74fc494ff166a466b204cd44",
+    "version": "1.61.1",
+    "packageSHA256": "6b840268612656f0639fb7d68782e8353bdf11518589d30ddf66f283c2670ed5",
+    "executable": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "executableSHA256": "b1b9e2dd063115031f08eadc10ed381ca0fa05b2284baff8f721d87f5f0f61b7"
+  },
+  "browserVersion": "149.0.7827.55",
+  "browserCDP": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/149.0.7827.55",
+    "revision": "@3188f8a607ae7e067593be8aab7f02d2451fec07",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "jsVersion": "14.9.207.21"
+  },
+  "failure": "cdpSession.send: Protocol error (Browser.getBrowserCommandLine): Command line not returned because --enable-automation not set.\n    at /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs:86:143",
+  "environmentAfter": {
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428",
+    "architecture": "arm64",
+    "node": "v24.13.1",
+    "nodeExecutableSHA256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559",
+    "hardware": {
+      "machine": [
+        {
+          "machine_name": "MacBook Pro",
+          "machine_model": "Mac17,6",
+          "chip_type": "Apple M5 Max",
+          "number_processors": "proc 18:6:12:0",
+          "physical_memory": "128 GB"
+        }
+      ],
+      "gpu": [
+        {
+          "sppci_model": "Apple M5 Max",
+          "displays": [
+            {
+              "_name": "Color LCD",
+              "spdisplays_pixelresolution": "spdisplays_3456x2234Retina",
+              "spdisplays_main": "spdisplays_yes",
+              "spdisplays_online": "spdisplays_yes",
+              "spdisplays_display_type": "spdisplays_built-in-liquid-retina-xdr"
+            }
+          ]
+        }
+      ]
+    },
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23134307)\t78%; charging; (no estimate) present: true",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "launch": {
+      "channel": "chromium",
+      "headless": true,
+      "flags": [
+        "--enable-unsafe-webgpu",
+        "--ignore-gpu-blocklist",
+        "--hide-scrollbars"
+      ]
+    }
+  },
+  "servedResponseBlobs": 0
+}

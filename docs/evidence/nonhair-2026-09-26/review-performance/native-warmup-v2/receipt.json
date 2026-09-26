@@ -1,0 +1,118 @@
+{
+  "kind": "completed-unmeasured-native-warmup",
+  "capture": "captures/review-performance-2026-09-26/warmup-v2",
+  "files": {
+    "report.json": {
+      "file": "report.json.gz",
+      "sha256": "a766dd86e59563cbc15aa81247af97ad14833a651130d454faa0ef48b869e6d9",
+      "decodedSHA256": "17ece5d26cb808b762472a2e5d6bb4e4978ff05166e0867d69963078c9ce9d3e",
+      "bytes": 533483,
+      "compressedBytes": 34537
+    },
+    "manifest.json": {
+      "file": "manifest.json.gz",
+      "sha256": "ff5e591eef7f36cc15d07b169dcb1b6ee3eaf3636e3287ae9b81de6cf36a7d54",
+      "decodedSHA256": "a14c4964e3690143033c351188bd36fc88d5fc86d226624555cf77040888538a",
+      "bytes": 211498,
+      "compressedBytes": 77924
+    },
+    "seal.json": {
+      "file": "seal.json.gz",
+      "sha256": "6869da506759b1b6f1ad46feb70bd7898d7128104eacae3b3692514068367676",
+      "decodedSHA256": "702f7853767627b8e5c6865ae95f6faa5de4b400d2d1606e669dc652242212be",
+      "bytes": 340,
+      "compressedBytes": 278
+    },
+    "end.png": {
+      "file": "end.png",
+      "sha256": "d78f704cf7944b8fa7d80ed1fb60af227ca1911c1e6f35b042b4165334ef581a",
+      "bytes": 2137517
+    },
+    "sources": {
+      "file": "sources.json.gz",
+      "sha256": "23aeda0da0918b7a8e3253a10d0b6ca5dac7e71fe7d99dfd66f344bd18f7cea2",
+      "decodedSHA256": "04802a4441ec1a92460c23de73b1328fb31e5ae70ca0ee58a3fb7b02e7125b2b",
+      "files": 14
+    }
+  },
+  "sourceCount": 1603,
+  "inBrowserExactControlsSteps": 20,
+  "warningCount": 6,
+  "rawJSWarnings": 5,
+  "warningPhases": [
+    "original-page-startup",
+    "original-page-startup",
+    "original-page-startup",
+    "original-page-startup",
+    "unmeasured-traced-warmup-step-1",
+    "unmeasured-traced-warmup-step-1"
+  ],
+  "warmChecks": [
+    {
+      "admitted": true,
+      "updates": 8,
+      "solverStepsInitial": 1,
+      "solverStepsCurrent": 17,
+      "solverStepsDelta": 16,
+      "commitsInitial": 0,
+      "commitsCurrent": 8,
+      "commitsDelta": 8,
+      "historyMode": "exact",
+      "cardFrameMode": "smooth",
+      "scope": "Native workload/draw progression only; appearance still needs the end plate, and no hair correctness or performance budget is certified."
+    },
+    {
+      "admitted": true,
+      "updates": 20,
+      "solverStepsInitial": 1,
+      "solverStepsCurrent": 41,
+      "solverStepsDelta": 40,
+      "commitsInitial": 0,
+      "commitsCurrent": 20,
+      "commitsDelta": 20,
+      "historyMode": "exact",
+      "cardFrameMode": "smooth",
+      "scope": "Native workload/draw progression only; appearance still needs the end plate, and no hair correctness or performance budget is certified."
+    }
+  ],
+  "retirement": {
+    "cleanupErrors": [],
+    "disposed": true,
+    "leaks": [],
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    },
+    "stageRendererCleared": true,
+    "avatarStageCleared": true,
+    "stageBackend": "disposed",
+    "observerRestored": true,
+    "nodeCaptureStackTrace": false,
+    "completed": true
+  },
+  "limits": [
+    "All20 steps unmeasured; no timing, steady-state or presentation result.",
+    "Exact predictions were generated in the same browser from a single actual initial state. Offline Node replay diverges by1ULP at step13; no cross-runtime guarantee. See ../NATIVE-CRITIQUE.md.",
+    "Warnings are attributed unchanged dependency diagnostics, not proof of harmlessness or hair quality.",
+    "Initial ready plate was unwarmed; end plate is the reviewed warmed workload.",
+    "Zero tracked renderer memory after disposal is bookkeeping, not an OS allocator measurement.",
+    "Owned GPU jobs serialized; unrelated user apps not controlled."
+  ]
+}

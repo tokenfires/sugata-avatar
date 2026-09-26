@@ -1,0 +1,34 @@
+{
+  "classification": "Rejected instrument-caused compilation and restoration failure. No accepted startup diagnostic or timing result.",
+  "defects": [
+    "Rest-args ConditionalNode.generate wrapper has length0; native Node.build branches at generate.length<2, changing dispatch and causing invalid WGSL void output.",
+    "Vite console forwarding installed after observer; exact console.warn ownership restoration correctly rejected displacement."
+  ],
+  "files": [
+    {
+      "source": "captures/review-performance-2026-09-26/startup-v3/report.json",
+      "file": "report.json",
+      "sha256": "d9cceeb6050fa852e1e6f8ec9d62bb7dd27450ffbeeafa10da9052e2b9773908"
+    },
+    {
+      "source": "captures/review-performance-2026-09-26/startup-v3/source/docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs",
+      "file": "probe.mjs",
+      "sha256": "777d32be26f84c3f75fc402ccde3724fc1e6e32f34c19ddefe8a815df9b06bc7"
+    },
+    {
+      "source": "captures/review-performance-2026-09-26/startup-v3/source/docs/evidence/nonhair-2026-09-26/review-performance/runtime.mjs",
+      "file": "runtime.mjs",
+      "sha256": "fa6f4237ac31a4b1f39f00007b57871ec11a35685a13b471819733b357b99157"
+    },
+    {
+      "source": "captures/review-performance-2026-09-26/startup-v3/source/docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.mjs",
+      "file": "startup-diagnostics.mjs",
+      "sha256": "b7e16fdc424045fdaacd4d4edf96b77004877c8857becb22a96861a671e3d8d6"
+    },
+    {
+      "source": "captures/review-performance-2026-09-26/startup-v3/source/docs/evidence/nonhair-2026-09-26/review-performance/startup-diagnostics.selftest.mjs",
+      "file": "startup-diagnostics.selftest.mjs",
+      "sha256": "660549fe5ed7c0777a7c9a04cc2ccc09715e7fba86c199157db81e17b5964d8c"
+    }
+  ]
+}

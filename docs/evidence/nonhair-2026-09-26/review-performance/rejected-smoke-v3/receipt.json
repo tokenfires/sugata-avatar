@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "classification": "Rejected smoke; no admitted performance result.",
+  "originalCapture": "captures/review-performance-2026-09-26/smoke-v3/",
+  "report": {
+    "path": "captures/review-performance-2026-09-26/smoke-v3/report.json",
+    "sha256": "bbc88a56ad485b2386920fa872aa58cc98722eae3275819d5569b7604b4b585b",
+    "gzip": "report.json.gz",
+    "gzipSHA256": "0d75f0fcdb7b307a6e7a84eca5d8876b381cbb00fd38da5683b0cc95e4848411"
+  },
+  "manifestSHA256": "33bb2d6a1280d2682ee897daecf12261551a459138c16cfa076226d75a0ab0b1",
+  "archivedSourceHashes": {
+    "probe.mjs": "5a21f702e6a066213a94bf20d1e5ffd55a54493825baed8b0af67f3f622e5e90",
+    "runtime.mjs": "fe6f443655b4ac92782dba32ae7d7a66bda29102ab7c93168dd8d9e24e2b2002",
+    "startup-policy.mjs": "47443628cc1849d63ebf9b7f1f5d5f6eb7561c4835f45b30ab1aede3a17b7650",
+    "startup-workload-fixture.mjs": "651818ae509f34709750cf981a0d6a5a1fd5b20a82584300294b26be969044d3"
+  },
+  "completed": false,
+  "sourcesStable": true,
+  "errors": [],
+  "reportedFailure": "page.evaluate: Error: Camera changed: position\n    at requireThat (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/runtime.mjs:7:55)\n    at Module.smoke (http://localhost:5391/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/runtime.mjs:173:76)\n    at async <anonymous>:329:30\n    at /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs:165:83",
+  "rawWarnings": [
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "Calling [RenderPassEncoder (unlabeled)].Draw with an index count of 0 is unusual.",
+      "location": {
+        "url": "http://localhost:5391/src/showcase.html?capture",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:770:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "original-page-startup",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. \"    at new StackTrace (http://localhost:5391/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5391/ (three_webgpu.js:510:80)\n    at     at new Node (http://localhost:5391/ (three_webgpu.js:997:58)\n    at     at new ConditionalNode (http://localhost:5391/ (three_webgpu.js:5316:3)\n    at     at fn (http://localhost:5391/ (three_webgpu.js:2439:21)\n    at     at StackNode.If (http://localhost:5391/ (three_webgpu.js:23642:23)\n    at     at If (http://localhost:5391/ (three_webgpu.js:2812:38)\n    at     at http://localhost:5391/ (HairDynamics.js:778:13)\n    at     at ShaderCallNodeInternal.call (http://localhost:5391/ (three_webgpu.js:2523:61)\n    at     at ShaderCallNodeInternal.setupOutput (http://localhost:5391/ (three_webgpu.js:2532:35)\n    at     at ShaderCallNodeInternal.getOutputNode (http://localhost:5391/ (three_webgpu.js:2538:67)",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "measured-updates",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces.",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    },
+    {
+      "type": "console-warning",
+      "phase": "measured-updates",
+      "message": "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces.",
+      "location": {
+        "url": "http://localhost:5391/@vite/client",
+        "line": 528,
+        "column": 3,
+        "lineNumber": 528,
+        "columnNumber": 3
+      }
+    }
+  ],
+  "partialData": {
+    "accountedUpdates": 20,
+    "successfulWarmCheckpoints": [
+      {
+        "admitted": true,
+        "updates": 8,
+        "solverStepsInitial": 1,
+        "solverStepsCurrent": 17,
+        "solverStepsDelta": 16,
+        "commitsInitial": 0,
+        "commitsCurrent": 8,
+        "commitsDelta": 8,
+        "historyMode": "exact",
+        "cardFrameMode": "smooth",
+        "scope": "Native workload/draw progression only; appearance still needs the end plate, and no hair correctness or performance budget is certified."
+      },
+      {
+        "admitted": true,
+        "updates": 20,
+        "solverStepsInitial": 1,
+        "solverStepsCurrent": 41,
+        "solverStepsDelta": 40,
+        "commitsInitial": 0,
+        "commitsCurrent": 20,
+        "commitsDelta": 20,
+        "historyMode": "exact",
+        "cardFrameMode": "smooth",
+        "scope": "Native workload/draw progression only; appearance still needs the end plate, and no hair correctness or performance budget is certified."
+      }
+    ],
+    "scope": "Retained accounted rows and workload receipts, not admitted measurement."
+  },
+  "retirement": {
+    "completed": true,
+    "disposed": true,
+    "leaks": [],
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    }
+  },
+  "limits": [
+    "No final PNG: final camera check threw before screenshot.",
+    "Initial and checkpoints8/20 camera states retained; actual initial OrbitControls target/private state and per-step camera states were not recorded.",
+    "Two new TSL warnings in measured-updates remain unattributed and unadmitted."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "review-performance-startup-diagnostic-cpu-preflight",
+  "nativeRun": "root-owned, not launched by author",
+  "scope": "CPU observer/cleanup/source admission only; zero measured updates and no warning or timing qualification",
+  "manifest": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-performance/startup-manifest-v3.json",
+    "sha256": "3b0cc44d300d0214e05d30f0320afb2e4b3198d013f68623d4208793d979e36e",
+    "inputs": 1591
+  },
+  "preflight": {
+    "file": "captures/review-performance-2026-09-26/startup-preflight-v3/report.json",
+    "sha256": "97fa9c8f848b9b6673a0c94cdb31b4f4458d40ff8917731c3a1c58495a74d8c2",
+    "passed": true
+  },
+  "checks": {
+    "groups": 4,
+    "syntax": "runtime/controller passed",
+    "cases": [
+      "Native Node/StackNode/ConditionalNode observer forwarding and exact descriptor restoration",
+      "Native WebGPUBackend._draw with modeled encoder forwards zero-index draw and info.update unchanged",
+      "Absent-pool admission confined to premeasurement retirement",
+      "Pending/allocated/contradictory pool state rejected"
+    ]
+  },
+  "instrumentHashes": {
+    "probe.mjs": "777d32be26f84c3f75fc402ccde3724fc1e6e32f34c19ddefe8a815df9b06bc7",
+    "runtime.mjs": "fa6f4237ac31a4b1f39f00007b57871ec11a35685a13b471819733b357b99157",
+    "startup-diagnostics.mjs": "b7e16fdc424045fdaacd4d4edf96b77004877c8857becb22a96861a671e3d8d6",
+    "startup-diagnostics.selftest.mjs": "660549fe5ed7c0777a7c9a04cc2ccc09715e7fba86c199157db81e17b5964d8c"
+  },
+  "measuredUpdates": 0,
+  "gpuLaunchOwner": "root",
+  "limits": [
+    "All warnings remain fatal in timing mode",
+    "Startup Node stack tracing adds unmeasured observation only",
+    "Cleanup memory counters must be reviewed; no OS memory/GC proof"
+  ]
+}

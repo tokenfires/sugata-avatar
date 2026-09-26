@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "completed": false,
+  "kind": "retained-rejected-unchanged-old-code-repeat",
+  "rawDirectory": "/Users/robault/GitHub/sugata-avatar/captures/wardrobe-colours-2026-09-26/old-repeat-v1",
+  "failure": "AssertionError [ERR_ASSERTION]: Returned fresh base PNG must be byte-identical\n+ actual - expected\n\n+ 'b7902a95252bbc3877afc2709bda873aca15b47d4006e69b862219a9540bf978'\n- '7d9a36801a4c8177eec32ecf932c1978977307cf479070970c206fb4b032a6cd'\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/wardrobe-colours-next/capture-colours.mjs:210:31",
+  "artifacts": {
+    "report.json.gz": {
+      "file": "report.json.gz",
+      "sha256": "581a2e391b0eb560f8fb33211c29dce88851f2f9eed24adbebdbbf34ca9cec5a",
+      "bytes": 121642,
+      "decodedSHA256": "b1f9bae538d2c6aaf8847415180106432e6c16231d2da66d36fedb69275f39e1"
+    },
+    "manifest.json.gz": {
+      "file": "manifest.json.gz",
+      "sha256": "85cd7c3c490aa2d9cf31c63681e6bc0d64d8df20da59d231eb2419cfcaa2e845",
+      "bytes": 76979,
+      "decodedSHA256": "a113919516bf8cc9e8d20b6ae3bdad193aab2524432d7937a5ff6af1ea523823"
+    },
+    "casual-front-base.png": {
+      "file": "casual-front-base.png",
+      "sha256": "7d9a36801a4c8177eec32ecf932c1978977307cf479070970c206fb4b032a6cd",
+      "bytes": 811007
+    },
+    "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz": {
+      "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "bytes": 1475445,
+      "decodedSHA256": "cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8"
+    },
+    "casual-front-return.png": {
+      "file": "casual-front-return.png",
+      "sha256": "b7902a95252bbc3877afc2709bda873aca15b47d4006e69b862219a9540bf978",
+      "bytes": 811115
+    },
+    "source/capture-colours.mjs": {
+      "file": "source/capture-colours.mjs",
+      "sha256": "5c0ae1e2f2f469e715bc94c609d23cedc5aa55727fd068be8356680294682cde",
+      "bytes": 28302
+    },
+    "source/micro-capture-runtime.mjs": {
+      "file": "source/micro-capture-runtime.mjs",
+      "sha256": "5123724755f3aa4770b5e7aaaa198686b8dd851fa43e43913bd06301fe9a7903",
+      "bytes": 8501
+    }
+  }
+}

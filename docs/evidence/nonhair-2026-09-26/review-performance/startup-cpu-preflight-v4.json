@@ -1,0 +1,61 @@
+{
+  "kind": "review-performance-corrected-startup-cpu-preflight",
+  "nativeRun": "root-owned, not launched by author",
+  "scope": "Startup diagnostics only, zero measured updates. No native warning/timestamp/performance admission.",
+  "manifest": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-performance/startup-manifest-v4.json",
+    "sha256": "a7e955d2ab019febe7ccd4b3b449cfa0b5d0f62f3ff5e6adfdb305ae412c480b",
+    "inputs": 1594
+  },
+  "preflight": {
+    "file": "captures/review-performance-2026-09-26/startup-preflight-v4/report.json",
+    "sha256": "f192b5bd25d2a0494d7d00d5660a37e2cc715c60edf2e14b0a9a03a9e43883bc",
+    "passed": true
+  },
+  "instrumentHashes": {
+    "probe.mjs": "635df4a998a42e779d1c278ff42d7aadb9c308bbec0b3b917b96c7e373bdaf47",
+    "runtime.mjs": "fa6f4237ac31a4b1f39f00007b57871ec11a35685a13b471819733b357b99157",
+    "startup-diagnostics.mjs": "948b6dbefd9155aa911b5f8b469de94da293989f43cdd26125ae3778f5a83613",
+    "startup-diagnostics.selftest.mjs": "d42cd9163cd8a99bf6647d90bc29860d3269349d1a65671bf6525d84d8e1ca27",
+    "bootstrap.mjs": "21c914cf9fab1469dd43c2e891dc436032e555a48bb110fc0f18f968e3774550",
+    "bootstrap.selftest.mjs": "a045e1b3b7ad8ad5cc75167645f7a1c6bd98e0b3eaccb0d6f80c4884d4d7bb1c"
+  },
+  "checks": {
+    "observerGroups": 7,
+    "HTTPBootstrapGroups": 3,
+    "syntax": "passed",
+    "independentCritic": "CODE-CRITIQUE.md exact hash clearance"
+  },
+  "regression": {
+    "actualNativeNodeBuild": {
+      "unobservedAndCurrent": {
+        "length": 2,
+        "outputs": [
+          "native-result",
+          "native-result"
+        ],
+        "formats": 0,
+        "types": 2,
+        "snippet": null
+      },
+      "rejectedV3": {
+        "length": 0,
+        "outputs": [
+          "formatted(native-result,float,float)",
+          "formatted(native-result,float,vec3)"
+        ],
+        "formats": 2,
+        "types": 3,
+        "snippet": "native-result"
+      }
+    },
+    "shaderMethods": "unchanged exact native identities",
+    "restoration": "Refuses displaced console owner, restores other owned descriptors; no overwriting newer owners."
+  },
+  "bootstrap": "Native Vite HTTP with pre-transform deferring one page script; client injection and module completion precede observer. No permissions or errors suppressed.",
+  "rejectedV3": {
+    "report": "rejected-startup-v3/report.json",
+    "sha256": "d9cceeb6050fa852e1e6f8ec9d62bb7dd27450ffbeeafa10da9052e2b9773908",
+    "sourceFailure": "Observer arity changed Node.build dispatch; Vite client displaced console hook. These are instrument errors, not product shader defects."
+  }
+}

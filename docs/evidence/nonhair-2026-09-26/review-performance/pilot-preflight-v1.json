@@ -1,0 +1,26 @@
+{
+  "kind": "cpu-only-pilot-preflight",
+  "completed": true,
+  "nativeLaunched": false,
+  "manifest": "docs/evidence/nonhair-2026-09-26/review-performance/pilot-manifest-v1.json",
+  "manifestSHA256": "158a8fac3693d41387d4e056e9fc745030e881daa517c4aca56324d14ef25fda",
+  "preflightReport": "captures/review-performance-2026-09-26/pilot-preflight-v1/report.json",
+  "preflightReportSHA256": "19b1efb373bc72abf91f2bbdc93d547942e89d83ee2c864c5a56604012547246",
+  "files": 1608,
+  "policy": {
+    "traceSteps": 8,
+    "minWarmup": 180,
+    "maxWarmup": 600,
+    "window": 60,
+    "samples": 240,
+    "dt": 0.016666666666666666
+  },
+  "minimumTotalUpdates": 420,
+  "maximumTotalUpdates": 840,
+  "minimumAccountedUpdates": 412,
+  "maximumAccountedUpdates": 832,
+  "sampleUpdates": 240,
+  "cpuReceiptSHA256": "3c09192733edad594f092cdb4b9da43fd5d31bee5d8e9d14c0d8f3bad9dcc6df",
+  "launch": "node docs/evidence/nonhair-2026-09-26/review-performance/probe.mjs --pilot docs/evidence/nonhair-2026-09-26/review-performance/pilot-manifest-v1.json captures/review-performance-2026-09-26/pilot-v1",
+  "scope": "Source and CPU readiness only; root owns native launch. Stable warmup/pass census, sample invariance, source/asset bindings, exact in-browser controls, all query coverage, end image and native cleanup remain actual-run gates."
+}
