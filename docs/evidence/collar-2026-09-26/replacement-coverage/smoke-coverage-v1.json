@@ -1,0 +1,504 @@
+{
+  "protocol": "sugata-collar-replacement-coverage-v2",
+  "sourceHashes": {
+    "tools/figure-pipeline/collar_coverage_v2.mjs": "21ca66c2ccb73162c1ee294988ceb0bfffb2c414354d3e91ceae9665b27522d8",
+    "docs/evidence/collar-2026-09-26/replacement-coverage/probe-smoke.mjs": "6addf8f41a295b3e7fe411103add2ad53bfa636ca3876235ac7280d555b616ae"
+  },
+  "captureReport": {
+    "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/report.json",
+    "sha256": "7c04b6f48ef8e89ea06b8d5ccd47799a4eb56699dd46d0273ea414e762a374e7"
+  },
+  "captureManifest": {
+    "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/manifest.json",
+    "sha256": "9571c3d6854316181cafa5fc8d292d1c681d02c924d6bee812194d09472666aa"
+  },
+  "asset": {
+    "assetPath": "assets/wardrobe/female_casualsuit01/g050.glb",
+    "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "role": "accepted-installed"
+  },
+  "run": "bob02-mild-accepted-installed",
+  "foundation": "foundation_bra",
+  "discretePoses": 15,
+  "rows": [
+    {
+      "step": 0,
+      "time": 0,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-0.json.gz",
+        "encodedSha256": "2af9d11936927dc569bf1936d4b63ad14815def6c65c9bfaf3cada9e134f2133",
+        "decodedSha256": "2e139f881344cacb130af4df5f8890d426ba47e565b4af89ac7a0899076efa5f",
+        "encodedBytes": 1440705,
+        "decodedBytes": 3668057
+      },
+      "selected": 3669,
+      "passed": 3669,
+      "failed": 0,
+      "maximumUncoveredArea": 3.2491371996221724e-20,
+      "failedTriangles": [],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-0.json.gz",
+        "encodedSha256": "520707e1d8d2f5ec51b5f10db564994f71f74ec075056396efb882a0510c9df3",
+        "decodedSha256": "e328bb20a2527c1cbc3547d89e11c0df6460d02f343a7737249612df3ba4b3fc",
+        "encodedBytes": 453224,
+        "decodedBytes": 4938057,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-0.json"
+      }
+    },
+    {
+      "step": 30,
+      "time": 0.49999999999999994,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-30.json.gz",
+        "encodedSha256": "f53bc0f22fb085fbcee242b1f20a4171ff87017eb0b294ae7e32f9c806d70803",
+        "decodedSha256": "fc7b7bc29fabf7b03d708bac5d39a280204ae3a0c4c27331e43ab5071eafbf7d",
+        "encodedBytes": 1440765,
+        "decodedBytes": 3666749
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 4.282685396986225e-9,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 4.282685396986225e-9
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 6.293252325894898e-10
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-30.json.gz",
+        "encodedSha256": "7691d53c20475636b22607726d12255a521ae6157c4a993909fb817aa8c0a27f",
+        "decodedSha256": "1f7cb99398a26ac0544ef415efd711159184726f2b3814c6ac891c72ef185e7a",
+        "encodedBytes": 451832,
+        "decodedBytes": 4941759,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-30.json"
+      }
+    },
+    {
+      "step": 60,
+      "time": 1.0000000000000013,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-60.json.gz",
+        "encodedSha256": "7f3876f0e7b7c965e1367c8e48e9c400bd912f1dcdd6c3cbc1fff89d58fa60bc",
+        "decodedSha256": "ad0e525230dfeb8c350a229bd06005a78d161e6451c1f7311da41b4b90e42cde",
+        "encodedBytes": 1440872,
+        "decodedBytes": 3667644
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 6.350297726696895e-9,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 6.350297726696895e-9
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 9.044516595487279e-10
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-60.json.gz",
+        "encodedSha256": "cc128b9930f7b9be94d11a959a1a42962ff13997bf049aed0b9387cb8400b106",
+        "decodedSha256": "ca6423827fd7d51269fbcddd7cea822c81dd0feebbbc1855e8b056d6b99753b1",
+        "encodedBytes": 454131,
+        "decodedBytes": 4939031,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-60.json"
+      }
+    },
+    {
+      "step": 90,
+      "time": 1.4999999999999996,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-90.json.gz",
+        "encodedSha256": "c2f21180d19dd18d3087cf704f65e6256fa09ea0c042ec0e387d8f758f758b94",
+        "decodedSha256": "47eadcd943e45d1fb565623425f0cd819264923385144d9a145a40dfe9fec579",
+        "encodedBytes": 1440990,
+        "decodedBytes": 3667362
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 3.2046832131152825e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 3.2046832131152825e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 4.673643425271546e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-90.json.gz",
+        "encodedSha256": "40aa5b3205b9f21f3dbc4aa8d080794998f71195df6aad6ade518f5e1b755764",
+        "decodedSha256": "a490a6176884e18c0518569386ff943666a5253cff64b7dc4c1caac32f5f33bf",
+        "encodedBytes": 452995,
+        "decodedBytes": 4936813,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-90.json"
+      }
+    },
+    {
+      "step": 98,
+      "time": 1.6333333333333324,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-98.json.gz",
+        "encodedSha256": "b3f01a5c2112bc08cd6e3b37ab586725dba111201c62b2d4fce8ab3facbe6a22",
+        "decodedSha256": "821b836ec1a347d8fd521c0c98f8acd12366a21db324cd552c3fb7d8b51e7736",
+        "encodedBytes": 1440667,
+        "decodedBytes": 3667319
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 1.144247531092133e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 1.144247531092133e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 1.68062779922738e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-98.json.gz",
+        "encodedSha256": "d32ced7c28af9ebe0d3ec1cd6a4a3fa684f61bfcefdfe8b7b23cc6c05e2db538",
+        "decodedSha256": "a939024901c1f9cf6228232d85b52fdc8292e5637aa039d50beffa27441771ca",
+        "encodedBytes": 456548,
+        "decodedBytes": 4952668,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-98.json"
+      }
+    },
+    {
+      "step": 99,
+      "time": 1.649999999999999,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-99.json.gz",
+        "encodedSha256": "d2b10ee84e9a7fc8887fed57670f2ca6eb8b8c4ee9df1c309a02b84caa8c3478",
+        "decodedSha256": "8ade0828f2805e5d86dedfeab5914b2a30952be25bdecdd9382790788275a9c0",
+        "encodedBytes": 1440652,
+        "decodedBytes": 3667685
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 9.0262113895411e-11,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 9.0262113895411e-11
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 1.3261271598034664e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-99.json.gz",
+        "encodedSha256": "1326b447f72f05f47d6ed6148addfc338c382a621b73f7547a75218f2bac0a0b",
+        "decodedSha256": "8309b0bb9b3af42d1b0b0c1ecba09814adb1978bfe24d82c1b223e8cb47c7c40",
+        "encodedBytes": 452324,
+        "decodedBytes": 4933503,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-99.json"
+      }
+    },
+    {
+      "step": 120,
+      "time": 1.9999999999999978,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-120.json.gz",
+        "encodedSha256": "872dc1304bfc9b43cc3d0056824e9c1b352b517c010a6ceda0075b123fd022a6",
+        "decodedSha256": "86979325679bc435e91b9ef3315c9bfc303322a7edf9b785312a220247ea81b2",
+        "encodedBytes": 1440916,
+        "decodedBytes": 3667309
+      },
+      "selected": 3669,
+      "passed": 3669,
+      "failed": 0,
+      "maximumUncoveredArea": 2.172794340463486e-20,
+      "failedTriangles": [],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-120.json.gz",
+        "encodedSha256": "1ca565019692b409f23aebad1b41d5fdca3357432ad354c4addd4d122d4d0c57",
+        "decodedSha256": "ea1f3c562866256772bbb3da79e5fff48407a622f7ce99f43b1df5ff3d8160f5",
+        "encodedBytes": 453211,
+        "decodedBytes": 4915326,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-120.json"
+      }
+    },
+    {
+      "step": 150,
+      "time": 2.499999999999996,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-150.json.gz",
+        "encodedSha256": "7c2edd920e8eafba66620e7f8c4a20e9f6016ae2d437526d40287c8c6398552d",
+        "decodedSha256": "8b0ec15fa9bfd71ec4a8361ac2fc87f39083511adc66884898914e91adf8576c",
+        "encodedBytes": 1440502,
+        "decodedBytes": 3666831
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 3.701179890816573e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 3.701179890816573e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 5.4600244417570385e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-150.json.gz",
+        "encodedSha256": "3cff50b02db982ca860b8671e2e5a9f6b31c7fc14512608f4af8a3a421cefaa6",
+        "decodedSha256": "67bd39b89d3bac2f0cb69bbc5d519b8cb9a55092439623f0d07bf73bf45407f7",
+        "encodedBytes": 458627,
+        "decodedBytes": 4998761,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-150.json"
+      }
+    },
+    {
+      "step": 180,
+      "time": 2.9999999999999942,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-180.json.gz",
+        "encodedSha256": "d3ec2da87ef4d4403dbd2e4fe35c4d0e95ac26f898a5102a6408b8379e23f8cc",
+        "decodedSha256": "40e00a5754f5d0ee23b40d99da75d44270f1be2dccee91ef215eee997122cc0d",
+        "encodedBytes": 1441136,
+        "decodedBytes": 3669026
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 8.695770214290418e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 8.695770214290418e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 1.265870215203094e-10
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-180.json.gz",
+        "encodedSha256": "6db5a79faaa6766b270075d93ed5af02d676d95b5d2ee391ce2d9b3657809113",
+        "decodedSha256": "ba63db1bdbf067a012ee5c993dcbeaaeed919201228abf4052b5087dd7111d7e",
+        "encodedBytes": 457965,
+        "decodedBytes": 4983723,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-180.json"
+      }
+    },
+    {
+      "step": 210,
+      "time": 3.4999999999999925,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-210.json.gz",
+        "encodedSha256": "d271bc1fe34d8ee65e605a7739bbf80ecccc22b2908981379ef206ece39c0fd3",
+        "decodedSha256": "33029ac49976e5cdecafdecf99f54c2ffbf4ec86a75e2bfcb9cac64c7ecdc0ea",
+        "encodedBytes": 1440791,
+        "decodedBytes": 3666704
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 7.268106592077644e-11,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 7.268106592077644e-11
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 1.0532685379663423e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-210.json.gz",
+        "encodedSha256": "1fe1aac7484887430ba2c36392cc15f5e68a6059cb0fe0d329203baa36885c96",
+        "decodedSha256": "b268b736bc016f5a46c1a93d1cb766d2f3c9a46dc6612e2d7236b9c008299fda",
+        "encodedBytes": 451916,
+        "decodedBytes": 4915948,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-210.json"
+      }
+    },
+    {
+      "step": 240,
+      "time": 3.9999999999999907,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-240.json.gz",
+        "encodedSha256": "fdec5549dc3c878dca1f01a696ffa0cbc421912708bb7f147de516be5e36f6f2",
+        "decodedSha256": "21bf4ac7d7e5189a1a4f6e7f7abb8bc9fa58ae3b37bc6b2af41487f599339011",
+        "encodedBytes": 1441109,
+        "decodedBytes": 3667472
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 1.600550525057749e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 1.600550525057749e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 2.3013245438820484e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-240.json.gz",
+        "encodedSha256": "294978e0e0094195d418d53499523000289e9ce4132d8aa8191c18436458b317",
+        "decodedSha256": "deb45b0bc828b1733ea89af1aa38646f4b734df8cc5667b2450434068004bf8d",
+        "encodedBytes": 451716,
+        "decodedBytes": 4935551,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-240.json"
+      }
+    },
+    {
+      "step": 270,
+      "time": 4.499999999999989,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-270.json.gz",
+        "encodedSha256": "d10e3ae07e20124bf3a8392330de2138f5688172d9882661ddddac58c814f599",
+        "decodedSha256": "53e58d6b21040b96369064b9f36eca65375ebf6d488056908af58933978bbe18",
+        "encodedBytes": 1440579,
+        "decodedBytes": 3667608
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 1.545708454644634e-11,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 1.545708454644634e-11
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 2.2597899055197645e-12
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-270.json.gz",
+        "encodedSha256": "f938c19959cb398a41060bc39980a27d212b188e887be524ad2c60566bcf4c27",
+        "decodedSha256": "7a2bd0fe62fc16daf9edc8c94e971ebb0acf7a207d11efeebfb7b16f1fd0e001",
+        "encodedBytes": 454409,
+        "decodedBytes": 4933854,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-270.json"
+      }
+    },
+    {
+      "step": 300,
+      "time": 4.999999999999988,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-300.json.gz",
+        "encodedSha256": "65920b8acb431a3893f8962eef4cac204218ce81ee02d7932e7ba26628b82d75",
+        "decodedSha256": "96b67e7e71ee5a17b523ec90719fb3f552c2540aabe9c9bcde459a02a294727c",
+        "encodedBytes": 1440928,
+        "decodedBytes": 3667076
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 5.372150296570455e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 5.372150296570455e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 7.963075345794923e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-300.json.gz",
+        "encodedSha256": "1b57b80544f3b509fff11c6cbfd6d63447daa67f0e99b5c2b6380a13a9082809",
+        "decodedSha256": "02a44d93add9e0ae37f62954770303b222413f6409f5365b14490c4d7d73a475",
+        "encodedBytes": 455437,
+        "decodedBytes": 4969972,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-300.json"
+      }
+    },
+    {
+      "step": 330,
+      "time": 5.499999999999986,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-330.json.gz",
+        "encodedSha256": "63bdc6dffbaefe18bfbd7dbe424c781948d82c33f6a137b0b03a6b9a1f5731b9",
+        "decodedSha256": "46e354eeb382dda915b57fb6041cd3ea1836d7dc7430c27092a1694afc31a9aa",
+        "encodedBytes": 1440725,
+        "decodedBytes": 3666409
+      },
+      "selected": 3669,
+      "passed": 3667,
+      "failed": 2,
+      "maximumUncoveredArea": 2.7784482242276327e-10,
+      "failedTriangles": [
+        {
+          "id": 8866,
+          "uncoveredArea": 2.7784482242276327e-10
+        },
+        {
+          "id": 8869,
+          "uncoveredArea": 4.075806822645754e-11
+        }
+      ],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-330.json.gz",
+        "encodedSha256": "126a68b51616a6271e8da6b517c6ca58bd5d57a711dfb0d4092f1342b05089c8",
+        "decodedSha256": "434c5e01310d5539d552d323f47276f5b38984d165ae3edb4dd4f9ef3c32678e",
+        "encodedBytes": 455010,
+        "decodedBytes": 4986686,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-330.json"
+      }
+    },
+    {
+      "step": 360,
+      "time": 5.999999999999984,
+      "input": {
+        "file": "docs/evidence/collar-2026-09-26/replacement-capture/smoke-v1/bob02-mild-accepted-installed/meshes-360.json.gz",
+        "encodedSha256": "be01bbc2f64fee4c987d1ac18a9fa8dd551685af367f75317d10706c50cdfea0",
+        "decodedSha256": "7c106eb2c609be31eb1c7a7cbc64dbd7c6d2d0f1023a2b7633920e93e9e453f2",
+        "encodedBytes": 1440453,
+        "decodedBytes": 3666983
+      },
+      "selected": 3669,
+      "passed": 3669,
+      "failed": 0,
+      "maximumUncoveredArea": 3.2608002119903824e-20,
+      "failedTriangles": [],
+      "output": {
+        "file": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-360.json.gz",
+        "encodedSha256": "fcdf352b6a342520b984ead9491b70fdbc22ae55ac6c24db5470af87e1ce74c3",
+        "decodedSha256": "392ed5048fa371fdff9fe1d308711174ef3353f6801fe9105ab5ead6662751b3",
+        "encodedBytes": 451212,
+        "decodedBytes": 4923227,
+        "rawLocalFile": "captures/collar-replacement-2026-09-26/coverage-smoke-v1/bra-step-360.json"
+      }
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Only the actual captured bra/body/outer positions at these15 discrete poses are tested.",
+    "No vest, second haircut, expressive sequence, d81/trial runtime or between-frame coverage is established.",
+    "Projected additional-mask coverage does not qualify collision clearance, fit, all-view occlusion, continuous motion or historical parity."
+  ],
+  "completed": true,
+  "posesPassing": 3,
+  "posesFailing": 12,
+  "totalFootprintEvaluations": 55035,
+  "pass": false
+}

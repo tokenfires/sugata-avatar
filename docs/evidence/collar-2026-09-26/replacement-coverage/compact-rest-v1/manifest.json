@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "meaning": "Lossless copies only; raw source evidence remains in place. Decode gzip copies to recover exact original bytes except sourceWasGzip entries, whose encoded copy already is the original file.",
+  "sourceDirectory": "docs/evidence/collar-2026-09-26/replacement-coverage/final",
+  "compressor": {
+    "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compress-evidence.mjs",
+    "sha256": "d086ced4573afd02c77d1a8627344eae8cdc832a89ebe8afa08e67382012be5f"
+  },
+  "files": [
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/accepted-independent-hole-witnesses.json",
+      "sourceSha256": "a6bed65827716fce890724ba0a6fd04b1961520b69dd79e1879d4023da314432",
+      "sourceBytes": 55206,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/accepted-independent-hole-witnesses.json.gz",
+      "encoding": "gzip",
+      "sha256": "7a2de4f8a288e997a1c9753244984ba8cbd7bcb5f1d21b93342908d4721f6548",
+      "bytes": 4472,
+      "decodedSHA256": "a6bed65827716fce890724ba0a6fd04b1961520b69dd79e1879d4023da314432",
+      "decodedBytes": 55206
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/authored-accepted.json",
+      "sourceSha256": "36d7441c0eedb06a8ce4aff7da55f562734bc3a926674efdf101845c9c35dfec",
+      "sourceBytes": 10355952,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/authored-accepted.json.gz",
+      "encoding": "gzip",
+      "sha256": "b40b2baa1254be04e39199abadade449b334b03b9d672ac8432f8ab0b819464d",
+      "bytes": 945586,
+      "decodedSHA256": "36d7441c0eedb06a8ce4aff7da55f562734bc3a926674efdf101845c9c35dfec",
+      "decodedBytes": 10355952
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/authored-adapter-fixture.json.gz",
+      "sourceSha256": "97b7455d5c247ae6c801cd81a36279210093fdce523cd168e49a3b2494ecc20f",
+      "sourceBytes": 1875585,
+      "sourceWasGzip": true,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/authored-adapter-fixture.json.gz",
+      "encoding": "gzip",
+      "sha256": "97b7455d5c247ae6c801cd81a36279210093fdce523cd168e49a3b2494ecc20f",
+      "bytes": 1875585,
+      "decodedSHA256": "c73785acdfa4c2737fe21881b68e7bacc7b9f288f5ddc5c730888c86267e2cce",
+      "decodedBytes": 5167006
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/authored-adapter-result.json",
+      "sourceSha256": "ea199683970cbabad85eb7c0d1dba61b1c29b8bb8ad461ddb8f0922d97c223e2",
+      "sourceBytes": 9684515,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/authored-adapter-result.json.gz",
+      "encoding": "gzip",
+      "sha256": "aaf7a51b67ace697b58ee9f27f1ed0d382b4e97ff8b9752dbc563793baab88ee",
+      "bytes": 874726,
+      "decodedSHA256": "ea199683970cbabad85eb7c0d1dba61b1c29b8bb8ad461ddb8f0922d97c223e2",
+      "decodedBytes": 9684515
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/authored-interior.json",
+      "sourceSha256": "9acf94fdbbfeb27f3a0186d6e6b6bbcd0a4f0e3e971a4a30823646ca4cfc7560",
+      "sourceBytes": 9684257,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/authored-interior.json.gz",
+      "encoding": "gzip",
+      "sha256": "6d2abffa577cec1a3eed3825af61d86e62b32123069bd7e6964e44c494b336c2",
+      "bytes": 874618,
+      "decodedSHA256": "9acf94fdbbfeb27f3a0186d6e6b6bbcd0a4f0e3e971a4a30823646ca4cfc7560",
+      "decodedBytes": 9684257
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/invalid-topology-fixture.json.gz",
+      "sourceSha256": "d8eb31fc4b308e84ae79028335b893fdb54212fc7591daf9832615263d387d23",
+      "sourceBytes": 1875583,
+      "sourceWasGzip": true,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/invalid-topology-fixture.json.gz",
+      "encoding": "gzip",
+      "sha256": "d8eb31fc4b308e84ae79028335b893fdb54212fc7591daf9832615263d387d23",
+      "bytes": 1875583,
+      "decodedSHA256": "96d16fdf0c394a37f9b8838b8ff68c5474152d4d5bc81230530bf9cbe4ce401d",
+      "decodedBytes": 5167006
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/removed-cover-negative.json",
+      "sourceSha256": "b4aa60dca2041228b6ec30e108424bde3d8e3ce3aeceaf34f4582a3f6869084e",
+      "sourceBytes": 33885222,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/removed-cover-negative.json.gz",
+      "encoding": "gzip",
+      "sha256": "8c23180f63d36d854563dbe11907cffb8a3d117c8084976592cbec9d3da39a65",
+      "bytes": 2872245,
+      "decodedSHA256": "b4aa60dca2041228b6ec30e108424bde3d8e3ce3aeceaf34f4582a3f6869084e",
+      "decodedBytes": 33885222
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/removed-cover-selection.json",
+      "sourceSha256": "d0b64ff783028c8b5521a1e005b3a2a75b6237c4762c808c8f0c55bc929d584a",
+      "sourceBytes": 2014,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/removed-cover-selection.json.gz",
+      "encoding": "gzip",
+      "sha256": "eb7c67be1449f1d4ae72bc8a038d956975f7d150a8a5cea3f963084503199609",
+      "bytes": 616,
+      "decodedSHA256": "d0b64ff783028c8b5521a1e005b3a2a75b6237c4762c808c8f0c55bc929d584a",
+      "decodedBytes": 2014
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/selftest.log",
+      "sourceSha256": "f52c7254601da9e9c6577736118f774262fb146e44b6b845dfad3d40a38d19dd",
+      "sourceBytes": 1084,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/selftest.log.gz",
+      "encoding": "gzip",
+      "sha256": "88edc0e332b0dde03111011f7edb4209c17edad359bca6057c87b875666d18ac",
+      "bytes": 604,
+      "decodedSHA256": "f52c7254601da9e9c6577736118f774262fb146e44b6b845dfad3d40a38d19dd",
+      "decodedBytes": 1084
+    },
+    {
+      "sourceFile": "docs/evidence/collar-2026-09-26/replacement-coverage/final/summary.json",
+      "sourceSha256": "5419a3fc71c179d8564d3e7b5062d0560e6e0f3f3dba9c416c3034a9346fa351",
+      "sourceBytes": 2472,
+      "sourceWasGzip": false,
+      "file": "docs/evidence/collar-2026-09-26/replacement-coverage/compact-rest-v1/summary.json.gz",
+      "encoding": "gzip",
+      "sha256": "ea81392fe70facc80bb14fcf5df2c55392918dea51cad7484076852ceda90b1e",
+      "bytes": 1086,
+      "decodedSHA256": "5419a3fc71c179d8564d3e7b5062d0560e6e0f3f3dba9c416c3034a9346fa351",
+      "decodedBytes": 2472
+    }
+  ],
+  "totalSourceBytes": 67421890,
+  "totalEncodedBytes": 9325121
+}
