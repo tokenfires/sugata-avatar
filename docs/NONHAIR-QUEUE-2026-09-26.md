@@ -1,0 +1,71 @@
+# Non-hair work queue — September 26
+
+Read with [the product roadmap](PRODUCT-ROADMAP.md) and [today's live checkpoint](PROGRESS-2026-09-26.md).
+This orders bounded slices within the existing ambition; it does not replace the complete backlog.
+
+## Saved looks and review access
+
+The review LaunchAgent now serves the hub at http://127.0.0.1:5173/. First implementation slice:
+reopen the supported look settings the Wardrobe studies can already export. Acceptance requires
+actual file selection, attached configuration equality, mixed-outfit and Original-palette replay,
+safe errors and same-file retry, accessible desktop/mobile UI, and independent review.
+
+The first implementation passes those functional checks; see today's checkpoint. Its corrected
+mobile capture exposes a portrait-framing crop. Next prove that on direct unimported mobile
+navigation, then correct responsive framing with matched desktop/body/orbit/reset checks. This
+is a useful small visible slice while the collar's missing historical inputs are unresolved.
+
+## Casual collar fit
+
+The defect is already proved in [the collar stress study](COLLAR-STRESS-2026-09-16.md): foundation
+contact during happy gestures and a thin/angular collar. Hands entering trousers is a separate
+issue. Follow the exact [bounded fit plan](COLLAR-FIT-PLAN-2026-09-16.md).
+
+Before fitting, recover and hash-check all required historical pose and frozen coverage inputs.
+The [September 26 preflight](evidence/collar-2026-09-26/README.md) verified the retained September 22
+archive but found the required older mild-pose and coverage inputs absent at their named paths.
+Do not repeat that audit; use a known backup or explicitly design fresh replacement qualification.
+
+One exported candidate only, jointly constrained against body and bra across saved expressive
+poses, restricted to the prescribed 34 welded groups / 43 raw vertices and at most 3 mm extra
+displacement. Preserve rear guard, topology, UVs, weights, masks, and accepted default. Stop on a
+failed final invariant. Exact new bytes need coverage replay, real motion, oblique views and
+independent critique before promotion. No support expansion or threshold relaxation.
+
+## Focused expression readability
+
+[The expression inventory](EXPRESSION-INVENTORY-2026-09-13.md) records weak Curious/Determined
+differentiation. Current controls are in `packages/testbed/src/portrait.js`. Use a small isolated
+comparison: current behavior, gaze hold alone, or moderate expression-owned eye-opening
+attenuation alone. The [attention study](ATTENTION-STUDY-2026-09-13.md) records the rejected
+stronger skeptical-reading profile; do not repeat it as a determination fix.
+
+Capture matched onset/hold/release in face and clothed body views. Record intended and observed
+meaning; a numeric ownership pass cannot earn the label "determined." Preserve neutral default,
+repeat continuity, speech-mouth ownership, explicit gaze supersession, pause/orbit/release and
+disposal. Critic gives two concrete alternatives per proved visual issue. Avoid generalized cue
+infrastructure. Coy/teasing remains unattributed and must not be invented as a diagnosed defect.
+
+## One useful scene's readability
+
+Scene presets already exist in `packages/core/src/render/Scene.js`. Kitchen's L3 person/background
+separation remained red after the September 22 geometry-mask repair. Start with fresh studio and
+kitchen controls, inspect actual masks, and test one isolated room/background or composition
+candidate with all existing L1–L5 checks and matched portrait/body critique. Preserve studio
+calibration. The earlier increase-rim attempt also brightened the wall and is not a fresh idea.
+
+Tools: `tools/critic/scene-probe.mjs`, `scene-gates.mjs`, and the avatar-plate testbed. Keep exact
+preset, seed, frame, source and stepping provenance. A future review picker may reconstruct an
+owned Avatar; do not imply that missing `Avatar.setScene`, suggest or pin APIs already exist.
+
+## Representative builds and performance
+
+The current lookbook is two outfits on g050 with three palettes. Available g000/g050/g100 body
+bakes do not establish garment fit on those bodies: the manifest currently covers g050 only.
+Do not relabel that single body as three completed representative builds. Wider-body garments
+depend on the identity/wardrobe coupling gate in `PUNCHLIST.md` section 10.9.
+
+Complete, visually reviewed male/female/gender-neutral starter looks remain the deliverable.
+Run the representative performance pass against explicit device, resolution, frame-time and
+memory budgets once those builds are ready. `Stage.frameMs` measures CPU callbacks/submission,
+not GPU execution; presentation FPS alone cannot certify the GPU budget.

@@ -2,6 +2,7 @@ import { AttentionAction } from '../../core/src/motion/AttentionAction.js';
 import { Avatar } from '../../core/src/Avatar.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, resolveShowcaseSelection, optionsForShowcase, outfitFromReport, configurationFromReport } from './showcase-presets.mjs';
+import { readShowcaseSettings, showcaseSettingsUrl } from './showcase-settings.mjs';
 
 const params = new URLSearchParams(location.search), captured = params.has('capture');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -13,7 +14,7 @@ let savingImage = false, attention = null, attentionError = null;
 const downloadUrls = new Set();
 const setStatus = text => { status.textContent = text; };
 function enableControls() {
-    for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy')) control.disabled = busy || savingImage || failed;
+    for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
     updateAttention();
 }
 function updateAttention() {
@@ -114,6 +115,27 @@ function saveLook() {
         setStatus('Settings downloaded as JSON');
     } catch (error) { setStatus(error.message); }
 }
+async function openLook(file) {
+    if (!file || busy || savingImage || failed || !avatar || avatar.disposed) return false;
+    const feedback = document.getElementById('settings-error'); feedback.hidden = true; feedback.textContent = '';
+    busy = true; enableControls(); setStatus('Reading settings…');
+    let navigating = false;
+    try {
+        const restored = await readShowcaseSettings(file);
+        if (failed || avatar.disposed) return false;
+        const url = showcaseSettingsUrl(restored, location.href);
+        releaseAttention({immediate: true}); setStatus('Opening saved look…');
+        location.assign(url.href); navigating = true; return true;
+    } catch (error) {
+        if (!avatar.disposed) {
+            feedback.textContent = `Settings not opened. ${error.message} Your current look is retained.`;
+            feedback.hidden = false; setStatus('Settings not opened');
+        }
+        return false;
+    } finally {
+        if (!navigating) { busy = false; if (!avatar.disposed) enableControls(); }
+    }
+}
 async function saveImage() {
     if (savingImage) return false;
     let held = false, orbitEnabled;
@@ -189,8 +211,11 @@ try {
     document.getElementById('pause').addEventListener('click', () => { paused = !paused; if (paused) releaseAttention({immediate: true}); previousTime = null; refresh(); setStatus(paused ? 'Motion paused' : 'Live view'); });
     document.getElementById('save-image').addEventListener('click', saveImage);
     document.getElementById('save').addEventListener('click', saveLook); document.getElementById('copy').addEventListener('click', copyLook);
+    const settingsFile = document.getElementById('settings-file');
+    document.getElementById('open-settings').addEventListener('click', () => settingsFile.click());
+    settingsFile.addEventListener('change', () => { const file = settingsFile.files[0]; settingsFile.value = ''; openLook(file); });
     document.getElementById('dialog-save').addEventListener('click', saveLook); document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
-    window.showcase = { avatar, controls, attention, configuration: currentConfiguration, changeOutfit, saveImage,
+    window.showcase = { avatar, controls, attention, configuration: currentConfiguration, changeOutfit, saveImage, openLook,
         step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); if (savingImage) throw new Error('Wait for the image export before stepping.'); controls.update(); await avatar.step(paused ? 0 : delta); updateAttention(); } };
     if (!captured) frame = requestAnimationFrame(animate);
 } catch (error) { showFailure(error); }
