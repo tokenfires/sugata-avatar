@@ -89,6 +89,20 @@ bakes do not establish garment fit on those bodies: the manifest currently cover
 Do not relabel that single body as three completed representative builds. Wider-body garments
 depend on the identity/wardrobe coupling gate in `PUNCHLIST.md` section 10.9.
 
+September 26 closes two data prerequisites without claiming native refitting: cached body/helper
+arithmetic and an exact UV/topology map from the casual garment's 2,197 source vertices to its
+2,377 exported vertices. Existing trouser corrections are characterized separately. The new
+[CPU evidence and independent critique](evidence/nonhair-2026-09-26/wardrobe-coupling/README.md)
+retain the absent Blender/native-helper oracle, corrective behavior across identities and
+skeleton/foundation coupling as open work. Do not apply current corrective offsets blindly to
+another body or mark 9.4 complete.
+
+The isolated [hand-placement candidate](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
+has 109 measured native poses and matched A/D visual evidence. It restores visible hands in the
+recorded angry sequence, with wider arms and weaker upper-arm contraction as a visible tradeoff.
+The live default is unchanged; the narrow-gap follow-up and broader motions/outfits remain
+separate qualification work. The completed fixed candidate must not be silently retuned.
+
 Complete, visually reviewed male/female/gender-neutral starter looks remain the deliverable.
 Run the representative performance pass against explicit device, resolution, frame-time and
 memory budgets once those builds are ready. `Stage.frameMs` measures CPU callbacks/submission,

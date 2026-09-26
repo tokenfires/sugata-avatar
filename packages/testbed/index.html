@@ -97,6 +97,7 @@
 </main>
 <script type="module">
     import { CATALOGUE_REVIEWED, PAGE_GROUPS, ALL_PAGES, COMMANDS } from './pages.js';
+    import { mountTodayReview } from './today-review.js';
     const el = (tag, className, text) => {
         const node = document.createElement(tag);
         if (className) node.className = className;
@@ -105,6 +106,7 @@
     };
     const hub = document.getElementById('hub');
     const jump = document.getElementById('jump');
+    mountTodayReview(jump);
     for (const group of PAGE_GROUPS) {
         const section = el('section'); section.id = group.id;
         const heading = el('h2', null, group.title); heading.id = `${group.id}-title`;

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./review.css">
+    <title>Matched view review</title>
+</head>
+<body>
+<main>
+    <header>
+        <p class="eyebrow">Isolated comparison · neutral view labels</p>
+        <h1 id="title">Matched view review</h1>
+        <p id="scope">Loading the adjacent review manifest…</p>
+        <p class="method">Native simulation runs at <strong>60 Hz</strong>. Images are sampled at
+            <strong>15 Hz</strong>, with additional marked moments. This gallery plays matched PNGs;
+            there is <strong>no audio</strong>. The three views always show the same action time.</p>
+    </header>
+
+    <section class="transport" aria-label="Comparison playback">
+        <div id="groups" class="groups" aria-label="Sequence"></div>
+        <div class="playback">
+            <button id="previous" type="button" disabled aria-label="Previous sampled frame">←</button>
+            <button id="play" type="button" disabled>Play</button>
+            <button id="next" type="button" disabled aria-label="Next sampled frame">→</button>
+            <output id="time" for="timeline">0.00 s</output>
+            <span id="frame-detail"></span>
+        </div>
+        <label class="sr-only" for="timeline">Common action time in seconds</label>
+        <input id="timeline" type="range" min="0" max="4.5" step="0.016666666666666666" value="0" disabled>
+        <div id="markers" class="markers" aria-label="Jump to a marked action time"></div>
+        <p id="status" role="status">Loading manifest…</p>
+    </section>
+
+    <section id="error" class="error" role="alert" hidden>
+        <strong>Review images are not ready.</strong>
+        <p id="error-message"></p>
+        <button id="retry" type="button">Retry loading</button>
+    </section>
+
+    <section class="comparison-scroll" aria-label="Three matched views" tabindex="0">
+        <div id="comparison" class="comparison"></div>
+    </section>
+    <p class="footnote">On a narrow screen, scroll the three-view strip sideways. Each image is shown
+        in full. Loading pauses playback; it never advances only one view. View labels do not identify
+        a control, a treatment, or a preferred result.</p>
+    <noscript><p class="error">Enable JavaScript to load the local manifest and synchronized images.</p></noscript>
+</main>
+<script type="module" src="./review.js"></script>
+</body>
+</html>

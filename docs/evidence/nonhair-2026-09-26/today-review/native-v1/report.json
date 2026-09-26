@@ -1,0 +1,104 @@
+{
+  "completed": false,
+  "sourceHashes": {
+    "packages/testbed/index.html": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b",
+    "packages/testbed/today-review.js": "6f0d19cda312a94085f05e05977d078d6ff2c7a5348c5cf75da5760297f3f5fa",
+    "docs/evidence/nonhair-2026-09-26/review.html": "30cc0949ce20ba4423c0f44ee44f4a52a8fe830975ff414017ca5637bdd98a56"
+  },
+  "checks": [
+    {
+      "name": "Hub shortcut resolves local review; keyboard skip/section links work",
+      "passed": true,
+      "landing": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review.html"
+    },
+    {
+      "name": "Desktop/mobile landing fit viewport",
+      "passed": true,
+      "mobile": {
+        "client": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "name": "Four relative comparison routes reach their actual pages; image galleries initialize",
+      "passed": true
+    },
+    {
+      "name": "Both live demo links initialize actual WebGPU avatars serially",
+      "passed": true
+    }
+  ],
+  "images": [
+    {
+      "file": "desktop.png",
+      "sha256": "9a8f73b6ee5d026b696c22e9588c6dd1778014ef4760bbbacfeb71bbb4789a53"
+    },
+    {
+      "file": "mobile.png",
+      "sha256": "83be49acfd20a84380691160bc68a11cd779909d522a8498cdfe056643b75fb3"
+    }
+  ],
+  "retirements": [
+    {
+      "handle": "showcase",
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    },
+    {
+      "handle": "portrait",
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    }
+  ],
+  "errors": [
+    {
+      "kind": "console",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     kind: 'console',\n+     message: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   }\n+ ]\n- []\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/today-review/probe.mjs:45:133"
+}

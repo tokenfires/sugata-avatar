@@ -1,0 +1,120 @@
+{
+  "completed": false,
+  "sourceHashes": {
+    "packages/testbed/index.html": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b",
+    "packages/testbed/today-review.js": "6f0d19cda312a94085f05e05977d078d6ff2c7a5348c5cf75da5760297f3f5fa",
+    "docs/evidence/nonhair-2026-09-26/review.html": "b0f3619c0881002e103295fc4e892a09c1eb4896bb7bde776d58909136492322",
+    "docs/evidence/nonhair-2026-09-26/today-review/probe.mjs": "451d6f28686f12ce4340bc3dd28631acd7465a19d61d5aa1addfd12188e81af4",
+    "docs/evidence/nonhair-2026-09-26/scene/review.html": "a2c27c174e3a99760aa8d8f234dbfa853896f88abd68cdd01355f3764c0bd16f",
+    "docs/evidence/nonhair-2026-09-26/expression-next/review.html": "c9f60c03d5fd1facbb98874228e6ceb77ec55c6204958724f8fcdc55e0ac0a25",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/review.html": "48499c6d3a9f194b2450ee93a34a6bb619586cd91bbe3fedd2c0c5ea347729b4",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/review.html": "cb9d9f84f5a730f70ebc628e3222723dbd298e8853bee94a0a822175e1d3d699",
+    "docs/evidence/nonhair-2026-09-26/expression-next/review.js": "d03b90207ffd9a35a4cf221215343bb271a5fe6c53396131cdeffb2f441e5af3",
+    "docs/evidence/nonhair-2026-09-26/expression-next/review-manifest.json": "95ae1ea840ed57d73539cd0a9978836865aafd932fc04b5051b8866a57c06467",
+    "packages/testbed/src/showcase.html": "487436a733aeb9b7d1e27969e7388e24e70acd131af7aab4448f677e524ddd33",
+    "packages/testbed/src/showcase.js": "1debe294b31fc00df9ff63f97b64ec43dd9453e609bb6308eb446206b36bc497",
+    "packages/testbed/src/portrait.html": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764",
+    "packages/testbed/src/portrait.js": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+  },
+  "checks": [
+    {
+      "name": "Hub shortcut resolves local review; keyboard skip/section links work",
+      "passed": true,
+      "landing": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review.html"
+    },
+    {
+      "name": "Desktop/mobile landing fit viewport",
+      "passed": true,
+      "mobile": {
+        "client": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "name": "Four relative comparison routes reach their actual pages; image galleries initialize",
+      "passed": true
+    },
+    {
+      "name": "Both live demo links initialize actual WebGPU avatars serially",
+      "passed": true
+    }
+  ],
+  "images": [
+    {
+      "file": "desktop.png",
+      "sha256": "cb68aa9caeeee491efe57fca8f4cc3552fff66b9dfd518f908d5a0d4f8cbcd7a"
+    },
+    {
+      "file": "mobile.png",
+      "sha256": "f59fb423211ee016e0c3a2903073a3b5e21d8444d2eb98570609888916b11b36"
+    }
+  ],
+  "retirements": [
+    {
+      "handle": "showcase",
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    },
+    {
+      "handle": "portrait",
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    }
+  ],
+  "errors": [
+    {
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5173/",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    }
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     failure: {\n+       errorText: 'net::ERR_ABORTED'\n+     },\n+     kind: 'requestfailed',\n+     url: 'http://127.0.0.1:5173/'\n+   }\n+ ]\n- []\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/today-review/probe.mjs:50:133"
+}

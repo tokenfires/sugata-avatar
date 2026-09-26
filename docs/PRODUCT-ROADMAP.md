@@ -23,6 +23,13 @@ remaining gates stay preserved; they are not today's prerequisite.
 
 Keep representation and customization present throughout Phase 1. Attractive examples are a design deliverable with visual review, not a side effect of exposing sliders.
 
+September 26's [wardrobe coupling study](evidence/nonhair-2026-09-26/wardrobe-coupling/README.md)
+establishes cached helper arithmetic and exact source-to-export garment correspondence. Native
+reshaped-body validation, corrective behavior across identities, skeleton/foundation coupling
+and actual fit remain open. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
+improves visible hands in its recorded sequence but changes the closed posture; it remains an
+isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
+
 Expression evaluation must distinguish control correctness from human readability. Record the intended meaning, the actual face/body sequence, the observed reading, and the evidence. An action can have valid numbers and still look annoyed when the agent meant playful. Use matched views and motion, and have the independent critic offer two concrete alternatives with tradeoffs for each proved issue.
 
 ## Phase 2 — VTuber-style characters
