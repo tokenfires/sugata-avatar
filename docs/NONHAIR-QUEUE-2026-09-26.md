@@ -16,6 +16,10 @@ with measured head-region projection fitting. Desktop/body/orbit/reset and atten
 checks pass; lower long tails and animated excursions are outside that claim. See the final
 [framing evidence](evidence/nonhair-2026-09-26/framing/README.md).
 
+September 26 follow-through also adds Studio/Kitchen controls, sticky desktop previews and
+a browser-local collection of up to 12 named looks. Independent native/code/image review
+approves these bounded controls; see [the saved-look evidence](evidence/nonhair-2026-09-26/next-look/README.md).
+
 ## Casual collar fit
 
 The defect is already proved in [the collar stress study](COLLAR-STRESS-2026-09-16.md): foundation
@@ -56,6 +60,11 @@ meaning; a numeric ownership pass cannot earn the label "determined." Preserve n
 repeat continuity, speech-mouth ownership, explicit gaze supersession, pause/orbit/release and
 disposal. Critic gives two concrete alternatives per proved visual issue. Avoid generalized cue
 infrastructure. Coy/teasing remains unattributed and must not be invented as a diagnosed defect.
+
+The fixed three-arm comparison is complete and remains isolated. Blind still-image review
+favors gaze hold for direct engagement but does not establish determination; eye-opening
+attenuation is inconclusive. No production expression change follows. See the
+[sealed decision](evidence/nonhair-2026-09-26/expression-next/DECISION.md).
 
 ## One useful scene's readability
 

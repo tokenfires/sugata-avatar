@@ -32,23 +32,23 @@ export const PAGE_GROUPS = [
                 source: 'packages/testbed/src/portrait.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-26',
-                    detail: 'Studio/Kitchen switching, narrow-screen head framing and gradual expression release have native browser evidence. Room changes restore a fresh view. Attention and the optional smile retain their existing scope; nuanced intent, wider appearance and all-motion quality remain open.',
+                    detail: 'Studio/Kitchen switching, narrow-screen head framing, a pinned desktop preview and gradual expression release have native browser evidence. Room changes restore a fresh view. Attention and the optional smile retain their existing scope; nuanced intent, wider appearance and all-motion quality remain open.',
                     evidence: 'docs/PROGRESS-2026-09-26.md'
                 },
                 gates: [ 'Avatar', 'AttentionAction', 'AttentionSmile', 'viewer-scenes' ]
             },
             {
                 path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',
-                blurb: 'Compare two outfits, three palettes and two rooms. Save an image or reopen a saved look.',
+                blurb: 'Compare two outfits, three palettes and two rooms. Name your favourite looks, reopen them here, or save an image.',
                 boundary: 'Two starting outfits on one body study, with experimental attention near the front view. Clothing fit and the larger wardrobe remain works in progress.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/showcase.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-26',
-                    detail: 'Saved JSON settings reopen the current supported look, including Studio or Kitchen, mixed outfits and Original fabrics. Native browser checks cover scene lighting, desktop/mobile controls and head framing. Upper fit, skirt layering, shoe/sock styling, facial nuance and additional bodies remain open.',
+                    detail: 'Named browser-local looks and saved JSON settings reopen the supported combinations, including both rooms, mixed outfits and Original fabrics. Native checks cover recovery, scene lighting, desktop/mobile controls, pinned desktop previews and head framing. Upper fit, skirt layering, shoe/sock styling, facial nuance and additional bodies remain open.',
                     evidence: 'docs/PROGRESS-2026-09-26.md'
                 },
-                gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu', 'showcase-settings', 'showcase-scenes.gpu' ]
+                gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu', 'showcase-settings', 'showcase-scenes.gpu', 'showcase-collection' ]
             }
         ]
     },
