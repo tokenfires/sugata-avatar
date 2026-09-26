@@ -1,0 +1,33 @@
+{
+  "scope": "Read-only HTTP witness against existing development server; no browser/GPU. Does not reconstruct the rejected native response statuses.",
+  "url": "http://127.0.0.1:5173/src/palette-references/casual-ecru.png",
+  "first": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-cache",
+      "connection": "keep-alive",
+      "content-length": "634358",
+      "content-type": "image/png",
+      "date": "Sat, 26 Sep 2026 21:56:03 GMT",
+      "etag": "W/\"634358-1790458932937\"",
+      "keep-alive": "timeout=5",
+      "last-modified": "Sat, 26 Sep 2026 21:42:12 GMT",
+      "vary": "Origin"
+    },
+    "bytes": 634358,
+    "sha256": "cb03b3ab97a29a2b46f6eca0613b5d06ebb9084068d5b3edb9e93828f75ae33e"
+  },
+  "second": {
+    "requestHeaders": {
+      "If-None-Match": "W/\"634358-1790458932937\""
+    },
+    "status": 304,
+    "headers": {
+      "connection": "keep-alive",
+      "date": "Sat, 26 Sep 2026 21:56:03 GMT",
+      "keep-alive": "timeout=5",
+      "vary": "Origin"
+    },
+    "bodyBytes": 0
+  }
+}

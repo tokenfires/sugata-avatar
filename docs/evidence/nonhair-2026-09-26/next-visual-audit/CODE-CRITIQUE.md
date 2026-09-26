@@ -1,0 +1,41 @@
+# Independent source review — 2026-09-26
+
+Reviewer: `/root/critic`. **Clear the six-case native capture under manifest v3.** This admits the capture instrument and isolated candidate design; it does not approve unseen reference images or product integration. No browser/GPU work was performed by this reviewer.
+
+Reviewed bytes:
+
+- `capture-palettes.mjs`: `2cbfefea9e78dca878d8c2bfa2ab3013dd4024e7960a1651324d0af7d5988327`
+- `capture-manifest-v3.json`: `5a30308709c8211e9c079bcfee398fb66e15dec2ed518844bc8593581e4da538`
+- `candidate/palette-references.mjs`: `7b468936f9fee08a5a4959ecc49b920aec8761d724d60d9755855591467ee62f`
+- `candidate/palette-references.css`: `1a2b53e11290c55167a4f84db1f0d7a08c44d957f0d451d334128c964bd0c211`
+- `candidate/INTEGRATION.md`: `676ad5bf3a5f1a266e01bf1832173a183b202b4ac8e76dd6ae562369e35c82eb`
+
+I independently recomputed all 1,577 current manifest bindings with zero mismatches and checked the completed CPU-only preflight and its byte-identical manifest. The capture uses the original Showcase module, 64 public zero-delta steps and the real Save image download. It retains the PNG bytes unchanged. Exact within-preset comparisons include full CPU-skinned body/worn positions, full topology, drawn masks/ranges, rig, morphs and camera; palette differences are not permission to alter these. A differing numerical snapshot is retained before its comparison fails. Native asset responses, executed sources, downloads and cleanup are retained separately.
+
+The v3 correction properly keeps a fully masked foundation mesh, its complete geometry and its explicitly empty effective draw range. It does not drop the foundation to satisfy a nonempty-draw assumption. Browser version and WebGPU checks remain required; only the exact known CDP command-line refusal may be recorded as unavailable corroboration. Launch flags remain clearly labelled source declarations. This is not a performance or process-argv comparison. Raw console warnings remain visible; errors, drift and failed cleanup reject completion. The nonpersisted pagehide dispatch is explicitly a handler fixture, not proof of actual navigation or BFcache behavior.
+
+The candidate now preserves exactly three canonical `data-style` controls. Six separate reference actions forward to those controls' native `.click()` and therefore reuse existing disabled and same-style handling. Reference state receives the actual attached outfit/style from `refresh()`, so a mixed starting preset does not select the wrong outfit examples. The disclosure starts collapsed; group captions name the reference cut and the note identifies Studio/full-look references. Broken images have a local fallback without taking over the existing text controls.
+
+Remaining acceptance is concrete: inspect all six native downloaded PNGs and their completed receipts, then test the actual integrated desktop/mobile disclosure, mixed-outfit readback, canonical selector cardinality, same-style action, loading disablement and failed-image fallback. Three narrow desktop cards may make full-body differences small; that needs rendered inspection rather than a speculative CSS change. No fit, hair, motion, GPU-deformed-geometry equality or representative-build acceptance is established by this source review.
+
+## Integrated source and UI instrument
+
+The six native references are now admitted separately in `NATIVE-CRITIQUE.md`. **Clear the focused integrated UI probe v2 for native execution.** Product `showcase.js` (`1cf5c6943b94ca2a62c38d16269a501748bcabe05660d670e9196ec24eeaa278`) adds only static imports, one mount, and `update()` immediately after actual outfit/style readback. The installed helper (`60163e41d9a228974ebecd69d29aedb63560815f9f3a28b586c8959542e1db00`) and CSS (`11ed94435bbfd36ef7288dadc9109258e776bcd5fbb6c818672ba5bff9283e5e`) differ from the reviewed candidate only in their introductory comments. Original action handlers, storage/settings schema and native viewer lifecycle remain unchanged.
+
+Reviewed UI probe `4c7056ac729065050cee1a025e02e05f9e0076adfa18ff7cf9411574a50a904d`, manifest `3c54f0411c8b65f92306eefd5bbba1321952040c76368d35d2bbfe8597a8df8f`. I independently verified all 1,582 bindings and the completed CPU-only preflight. The probe binds the installed PNGs to the sealed native downloads, checks actual image responses, preserves live owner/camera/attention/clock during disclosure and no-op actions, and tests mixed outfits, both room/light paths, a mobile JSON restore, local image-decode failure and one named-look roundtrip.
+
+Review caught one meaningful completeness gap: validating whichever retirement records happened to exist did not prove all owners were observed. V2 now requires eight unique ready owners and exactly the same ordered eight retirement IDs, with seven actual navigation receipts and one explicitly synthetic final handler fixture. Every receipt still requires disposed ownership, no leaks and zero memory. This adds no renderer cases. The instrument remains an eight-group focused dev-server check, not a complete settings matrix or production-build rendering proof. Actual final screenshots and results remain required for integration acceptance.
+
+## Response-metadata repair after rejected UI-native-v1
+
+**Clear UI probe v3 for a fresh native run.** Reviewed controller `939a2ae572d3bcee185f68c6e3e4e3fe5e682a3238a80e3618a729591348edc7` and manifest `e16d33023e3bec88897adb0505320c2f4955411ec451ea042a77a8f7b65ee524`; independently verified all 1,582 current bindings/preflight and reran eight metadata-policy controls without a browser. Product and image bytes are unchanged.
+
+The old exception text is not reliable HTTP classification: Playwright's body accessor rejects the entire 300–399 range. Missing original status/URL metadata prevents retrospectively deciding whether its six failures were redirects or cache revalidations. Preserve that rejected run without claiming a proved cache cause. The new code retains actual status, headers, request IDs and ancestry before body access. A 200 endpoint still requires exact bound bytes. A 304 requires an earlier successfully hashed 200 for the identical URL plus the actual matching If-None-Match/prior ETag, no Location and no redirect ancestry. A real redirect must remain on the server origin, preserve the same bound file and query, and its actual request chain must terminate in a hashed 200. Missing endpoints, unknown bindings, changed validators/bytes, unexpected statuses and network failures reject. Queued response processing preserves prior-body ordering; drain checks include unresolved redirects.
+
+This is a narrower interpretation of body-less HTTP responses, not an exemption from image-byte verification. The new policy needs actual native evidence; its CPU controls and the separate local HTTP 200/304 witness do not explain the old unclassified failures or establish final UI acceptance.
+
+## Validator-history correction after rejected UI-native-v2
+
+V3's metadata collection made a different instrument defect concrete: a later successfully hashed 200 with no ETag replaced the earlier actual validator record in the per-URL map. A subsequent 304 referring to the original validator was then incorrectly rejected. My prior source review did not anticipate this valid sequence. The exact flow/depth histories are preserved against rejected report `7546e31e92626afdfad37ebc52a61e6122e8e185ff867d52f40a719e009cf569`; I independently checked both fixture sequences equal their actual response/metadata records.
+
+**Clear controller v4 `1979b81b43e0d38673f3d0c0ee45c4d8dc5fe468168a44ba39cd2fdfc3712faf` with manifest `373f9c605455a16e6c99b8cc8c0203adb1463e17ca308661b6eb189612517299`.** All 1,583 current bindings/preflight verify and nine CPU groups pass independently. The ledger retains every actually hashed 200; a 304 selects an earlier record with the exact current URL, expected digest and actual matching ETag. It neither invents headers on later responses nor accepts a headerless-only history, unseen validator or different URL. Existing exact body, redirect and error gates remain unchanged. Added viewport screenshots complement the existing full-page images without extra native steps. This repairs the evidence ledger, not product code, and still needs fresh native completion and image review.

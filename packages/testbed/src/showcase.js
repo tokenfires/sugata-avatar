@@ -5,6 +5,14 @@ import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, resolveShowcaseSelection, optionsFo
 import { readShowcaseSettings, showcaseSettingsUrl } from './showcase-settings.mjs';
 import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
 import { SavedLooks, SAVED_LOOKS_KEY, SAVED_LOOKS_LIMIT, savedLookSelection } from './showcase-collection.mjs';
+import { mountPaletteReferences } from './showcase-palette-references.mjs';
+import './showcase-palette-references.css';
+import casualEcru from './palette-references/casual-ecru.png';
+import casualCharcoal from './palette-references/casual-charcoal.png';
+import casualOriginal from './palette-references/casual-original.png';
+import elegantEcru from './palette-references/elegant-ecru.png';
+import elegantCharcoal from './palette-references/elegant-charcoal.png';
+import elegantOriginal from './palette-references/elegant-original.png';
 
 const params = new URLSearchParams(location.search), captured = params.has('capture');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -17,6 +25,14 @@ let navigationPending = false;
 const downloadUrls = new Set();
 const setStatus = text => { status.textContent = text; };
 const savedLooks = new SavedLooks();
+const paletteReferences = mountPaletteReferences(document.getElementById('style-controls'), [
+    {outfit: 'casual', style: 'ecru', src: casualEcru},
+    {outfit: 'casual', style: 'charcoal', src: casualCharcoal},
+    {outfit: 'casual', style: 'original', src: casualOriginal},
+    {outfit: 'elegant', style: 'ecru', src: elegantEcru},
+    {outfit: 'elegant', style: 'charcoal', src: elegantCharcoal},
+    {outfit: 'elegant', style: 'original', src: elegantOriginal}
+]);
 let collectionBlocked = true, collectionCount = 0;
 const collectionAvailable = () => !busy && !savingImage && !failed && avatar && !avatar.disposed && !collectionBlocked;
 function updateCollectionControls() {
@@ -118,6 +134,7 @@ function updateUrl() {
 }
 function refresh() {
     const report = avatar.report(); selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
+    paletteReferences.update(selected.outfit, selected.style);
     const preset = SHOWCASE_PRESETS.find(p => p.id === selected.preset);
     for (const link of document.querySelectorAll('[data-preset]')) link.setAttribute('aria-current', String(link.dataset.preset === selected.preset));
     for (const [key, value] of [['style', selected.style], ['outfit', selected.outfit], ['frame', selected.frame], ['light', selected.light], ['scene', selected.scene]])

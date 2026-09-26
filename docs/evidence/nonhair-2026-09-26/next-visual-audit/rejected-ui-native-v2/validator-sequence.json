@@ -1,0 +1,218 @@
+{
+  "sourceReportSHA256": "7546e31e92626afdfad37ebc52a61e6122e8e185ff867d52f40a719e009cf569",
+  "scope": "Exact retained response records from rejected native UI v2, not a new native run.",
+  "sequences": [
+    {
+      "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+      "successfulBodies": [
+        {
+          "phase": "desktop-disclosure",
+          "id": 142,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+          "status": 200,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": "W/\"349906-1790126775474\"",
+          "lastModified": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "ifNoneMatch": null,
+          "ifModifiedSince": null,
+          "chain": [
+            {
+              "id": 142,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ],
+          "kind": "body",
+          "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+          "bytes": 349906,
+          "asset": "assets/hair/bob02/flow.png",
+          "reference": null
+        },
+        {
+          "phase": "kitchen-palette",
+          "id": 306,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+          "status": 200,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": null,
+          "lastModified": null,
+          "ifNoneMatch": "W/\"349906-1790126775474\"",
+          "ifModifiedSince": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "chain": [
+            {
+              "id": 306,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ],
+          "kind": "body",
+          "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+          "bytes": 349906,
+          "asset": "assets/hair/bob02/flow.png",
+          "reference": null
+        },
+        {
+          "phase": "kitchen-palette",
+          "id": 460,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+          "status": 200,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": null,
+          "lastModified": null,
+          "ifNoneMatch": "W/\"349906-1790126775474\"",
+          "ifModifiedSince": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "chain": [
+            {
+              "id": 460,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ],
+          "kind": "body",
+          "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+          "bytes": 349906,
+          "asset": "assets/hair/bob02/flow.png",
+          "reference": null
+        }
+      ],
+      "attempted304": [
+        {
+          "phase": "studio-warm-palette",
+          "id": 614,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+          "status": 304,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": null,
+          "lastModified": null,
+          "ifNoneMatch": "W/\"349906-1790126775474\"",
+          "ifModifiedSince": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "chain": [
+            {
+              "id": 614,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+      "successfulBodies": [
+        {
+          "phase": "desktop-disclosure",
+          "id": 143,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+          "status": 200,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": "W/\"62903-1790126775474\"",
+          "lastModified": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "ifNoneMatch": null,
+          "ifModifiedSince": null,
+          "chain": [
+            {
+              "id": 143,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ],
+          "kind": "body",
+          "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+          "bytes": 62903,
+          "asset": "assets/hair/bob02/depth.png",
+          "reference": null
+        },
+        {
+          "phase": "kitchen-palette",
+          "id": 307,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+          "status": 200,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": null,
+          "lastModified": null,
+          "ifNoneMatch": "W/\"62903-1790126775474\"",
+          "ifModifiedSince": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "chain": [
+            {
+              "id": 307,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ],
+          "kind": "body",
+          "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+          "bytes": 62903,
+          "asset": "assets/hair/bob02/depth.png",
+          "reference": null
+        },
+        {
+          "phase": "kitchen-palette",
+          "id": 461,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+          "status": 200,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": null,
+          "lastModified": null,
+          "ifNoneMatch": "W/\"62903-1790126775474\"",
+          "ifModifiedSince": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "chain": [
+            {
+              "id": 461,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ],
+          "kind": "body",
+          "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+          "bytes": 62903,
+          "asset": "assets/hair/bob02/depth.png",
+          "reference": null
+        }
+      ],
+      "attempted304": [
+        {
+          "phase": "studio-warm-palette",
+          "id": 615,
+          "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+          "status": 304,
+          "method": "GET",
+          "resourceType": "image",
+          "location": null,
+          "etag": null,
+          "lastModified": null,
+          "ifNoneMatch": "W/\"62903-1790126775474\"",
+          "ifModifiedSince": "Wed, 23 Sep 2026 01:26:15 GMT",
+          "chain": [
+            {
+              "id": 615,
+              "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+              "method": "GET",
+              "resourceType": "image"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "rawDirectory": "captures/wardrobe-palette-references-2026-09-26/ui-native-v3",
+  "rawReportSHA256": "c94ebd736d746c598159cd3ae202be30c868270a177267f914b7300cf253d654",
+  "manifestSHA256": "373f9c605455a16e6c99b8cc8c0203adb1463e17ca308661b6eb189612517299",
+  "completed": true,
+  "groups": 8,
+  "retirementCompleteness": {
+    "readyOwners": 8,
+    "uniqueRetiredOwners": 8,
+    "actualNavigations": 7,
+    "finalHandlerFixtures": 1,
+    "exactOwnerIdSequence": true
+  },
+  "warnings": 27,
+  "errors": [],
+  "sourcesStable": true,
+  "artifacts": [
+    {
+      "file": "report.json.gz",
+      "sha256": "418bb5c1b5cefa932a453396c326f355e453da51cd7a774054bb52e0d0b9a528",
+      "bytes": 92864
+    },
+    {
+      "file": "seal.json",
+      "sha256": "54a3b145dbe15bdb02b28fed0c047e88160cf824ce09cf4d41bd028212a728cd",
+      "bytes": 177
+    },
+    {
+      "file": "desktop-casual-comparison.png",
+      "sha256": "0797f11cc09816ce73cc9cd809063bb5cd22f9761ab44423d6624cd0333d5675",
+      "bytes": 698358
+    },
+    {
+      "file": "desktop-casual-comparison-viewport.png",
+      "sha256": "67f80065cd854e9305ace1b8e0dbd737bb431f3988c9e21a5c53fc0535781c5a",
+      "bytes": 629270
+    },
+    {
+      "file": "desktop-mixed-elegant-comparison.png",
+      "sha256": "6c8786d04a7015b5d17f5f63f1fd1986fcce1d2bd78c19b0905a95e1ba49f5aa",
+      "bytes": 712501
+    },
+    {
+      "file": "desktop-mixed-elegant-comparison-viewport.png",
+      "sha256": "cf99a0e95104ef31297046d24c1690ebca982b58dc051b29c4a5bd28b4d16c4b",
+      "bytes": 654503
+    },
+    {
+      "file": "mobile-comparison.png",
+      "sha256": "8096866695d8297ebddafe3ffdc7d0195c9f9170e5d0f2d82340772c48b6e87e",
+      "bytes": 379071
+    },
+    {
+      "file": "mobile-comparison-viewport.png",
+      "sha256": "cd1f29dcfeec76ef999af3a7eefe0b9a395566cdb509feb2d3a254a7ef6899b2",
+      "bytes": 72730
+    },
+    {
+      "file": "mobile-thumbnail-fallback.png",
+      "sha256": "8541ff3cc61654e04e6e5ce59321f4b61b2c3fde8c05b584f8257976ea3b41a6",
+      "bytes": 360930
+    },
+    {
+      "file": "mobile-thumbnail-fallback-viewport.png",
+      "sha256": "6ab5deaadbaa4ec54d8a3bc66ae7fc50958ca80331b1855d130f1e821bd6e94b",
+      "bytes": 61442
+    },
+    {
+      "file": "saved-look.json",
+      "sha256": "96a221e33e24210406c67dde02507c91b373854734b2f1fe2e680299ed834635",
+      "bytes": 412
+    }
+  ],
+  "scope": "Focused native chooser interaction, actual image bytes, configuration continuity and cleanup. No new palette/fit/hair/performance or all-combinations qualification.",
+  "compression": "Lossless gzip of exact report bytes; PNGs copied unchanged."
+}

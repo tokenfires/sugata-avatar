@@ -1,0 +1,23 @@
+/* Candidate styling uses the existing Wardrobe variables. Images are never cropped. */
+.palette-references{margin-top:12px;padding-top:8px;border-top:1px solid var(--line)}
+.palette-references summary{min-height:44px;display:list-item;align-content:center;font-size:12px;color:var(--ink)}
+.palette-reference-note,.palette-reference-caption{font-size:11px;line-height:1.5;color:var(--muted);margin:8px 0 12px}
+.palette-reference-caption{color:var(--ink)}
+.palette-reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.palette-reference{display:flex;flex-direction:column;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:3px;background:var(--panel);color:var(--muted);text-align:left}
+.palette-reference:hover{border-color:#68705f}
+.palette-reference[aria-pressed=true]{border-color:var(--accent);background:#252c20;color:var(--ink)}
+.palette-reference:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.palette-reference img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:#101110}
+.palette-reference-label{display:grid;gap:5px;padding:10px 8px;font-size:10px;line-height:1.35;min-height:58px}
+.palette-reference-label strong{font-size:12px;font-weight:500}
+.palette-reference-missing{display:grid;place-content:center;aspect-ratio:3/4;padding:10px;font-size:11px;color:#f3cdb7}
+.palette-reference[aria-pressed=true] .palette-reference-label strong::after{content:' ✓'}
+.palette-reference-group[hidden],.palette-reference [hidden]{display:none!important}
+@media(max-width:760px){
+ .palette-reference-grid{grid-template-columns:1fr;gap:10px}
+ .palette-reference{display:grid;grid-template-columns:minmax(120px,42%) 1fr;align-items:center}
+ .palette-reference img{max-height:260px}
+ .palette-reference-label{padding:14px;font-size:12px}
+ .palette-reference-label strong{font-size:14px}
+}

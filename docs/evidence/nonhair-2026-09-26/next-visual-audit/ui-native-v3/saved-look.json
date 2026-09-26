@@ -1,0 +1,23 @@
+{
+  "identity": {
+    "gender": 0.5,
+    "mode": "nearest"
+  },
+  "hair": "bob02",
+  "frame": "portrait",
+  "quality": "balanced",
+  "scene": "kitchen",
+  "seed": 20260807,
+  "pose": "relaxed-standing",
+  "wardrobe": {
+    "style": "charcoal",
+    "outfit": [
+      "female_elegantsuit01",
+      "shoes01"
+    ],
+    "foundation": {
+      "TORSO": "foundation_bra",
+      "HIPS": "foundation_briefs"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "completed": false,
+  "checks": 3,
+  "readyPages": 3,
+  "retirements": 4,
+  "errors": [
+    {
+      "phase": "studio-warm-palette",
+      "type": "response-binding",
+      "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/flow.png",
+      "status": 304,
+      "requestId": 614,
+      "message": "AssertionError [ERR_ASSERTION]: 304 requires exact recorded If-None-Match agreement"
+    },
+    {
+      "phase": "studio-warm-palette",
+      "type": "response-binding",
+      "url": "http://localhost:5394/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/depth.png",
+      "status": 304,
+      "requestId": 615,
+      "message": "AssertionError [ERR_ASSERTION]: 304 requires exact recorded If-None-Match agreement"
+    }
+  ],
+  "retained": [
+    {
+      "original": "captures/wardrobe-palette-references-2026-09-26/ui-native-v2/report.json",
+      "retained": "docs/evidence/nonhair-2026-09-26/next-visual-audit/rejected-ui-native-v2/report.json",
+      "sha256": "7546e31e92626afdfad37ebc52a61e6122e8e185ff867d52f40a719e009cf569"
+    },
+    {
+      "original": "captures/wardrobe-palette-references-2026-09-26/ui-native-v2/manifest.json",
+      "retained": "docs/evidence/nonhair-2026-09-26/next-visual-audit/rejected-ui-native-v2/manifest.json",
+      "sha256": "e16d33023e3bec88897adb0505320c2f4955411ec451ea042a77a8f7b65ee524"
+    },
+    {
+      "original": "captures/wardrobe-palette-references-2026-09-26/ui-native-v2/source/docs/evidence/nonhair-2026-09-26/next-visual-audit/ui-probe.mjs",
+      "retained": "docs/evidence/nonhair-2026-09-26/next-visual-audit/rejected-ui-native-v2/ui-probe.mjs",
+      "sha256": "939a2ae572d3bcee185f68c6e3e4e3fe5e682a3238a80e3618a729591348edc7"
+    }
+  ],
+  "fixtureSHA256": "748ed0d3a2846554fd8cdb8e160ac678f78f2fda8ba881d443fed2e1278c51fb",
+  "lifecycle": "Four observed retirements, not the required eight-owner matrix."
+}

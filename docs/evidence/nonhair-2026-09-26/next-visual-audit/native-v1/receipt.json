@@ -1,0 +1,149 @@
+{
+  "nativeReportSHA256": "da9d4e0e30c7464ceed62dd72e644d43ac44f586ebed70c6111e6c29f930b0da",
+  "manifestSHA256": "5a30308709c8211e9c079bcfee398fb66e15dec2ed518844bc8593581e4da538",
+  "completed": true,
+  "sourcesStable": true,
+  "errors": [],
+  "warningCount": 24,
+  "files": [
+    {
+      "file": "report.json.gz",
+      "sha256": "f3a18124a1e9fef4b3aa4b92fbb315e5e888d5103e897cd535fdf07d29204a90",
+      "bytes": 129321
+    },
+    {
+      "file": "seal.json",
+      "sha256": "f8ba81335b295477cb651ab4f383e32d756bb072af12e93657ed13dceeea6b52",
+      "bytes": 387
+    },
+    {
+      "file": "39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367.json.gz",
+      "sha256": "27dd1def976cb441ffd29cc7ce6dd99a3a507e8a41d95e8b555f4c6635e38c87",
+      "bytes": 1475317
+    },
+    {
+      "file": "50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a.json.gz",
+      "sha256": "539c917d8a9b6ac4670a24452ee7e0ca0caa52521b80815c02f6ca48fb825ed3",
+      "bytes": 1476488
+    }
+  ],
+  "images": [
+    {
+      "label": "casual-ecru",
+      "file": "casual-ecru.png",
+      "sha256": "cb03b3ab97a29a2b46f6eca0613b5d06ebb9084068d5b3edb9e93828f75ae33e",
+      "bytes": 634358,
+      "width": 657,
+      "height": 868,
+      "suggestedFilename": "sugata-bob02-casual-ecru-body.png",
+      "nativeSaveImage": true,
+      "unmodifiedBytes": true,
+      "stateSHA256": "39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367",
+      "exactReferenceState": null,
+      "retired": true,
+      "stateArtifact": {
+        "file": "states/39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367.json.gz",
+        "sha256": "27dd1def976cb441ffd29cc7ce6dd99a3a507e8a41d95e8b555f4c6635e38c87",
+        "decodedSHA256": "39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367"
+      }
+    },
+    {
+      "label": "casual-charcoal",
+      "file": "casual-charcoal.png",
+      "sha256": "43c387cd58068b21d0376a17762651635831b922a5d2ec817f1a822d15eeec64",
+      "bytes": 653274,
+      "width": 657,
+      "height": 868,
+      "suggestedFilename": "sugata-bob02-casual-charcoal-body.png",
+      "nativeSaveImage": true,
+      "unmodifiedBytes": true,
+      "stateSHA256": "39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367",
+      "exactReferenceState": "states/39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367.json.gz",
+      "retired": true,
+      "stateArtifact": {
+        "file": "states/39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367.json.gz",
+        "sha256": "27dd1def976cb441ffd29cc7ce6dd99a3a507e8a41d95e8b555f4c6635e38c87",
+        "decodedSHA256": "39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367"
+      }
+    },
+    {
+      "label": "casual-original",
+      "file": "casual-original.png",
+      "sha256": "0527c0b0f295efb770099a8977127699cff83caf0429f5314ef24cd6937e038d",
+      "bytes": 669499,
+      "width": 657,
+      "height": 868,
+      "suggestedFilename": "sugata-bob02-casual-original-body.png",
+      "nativeSaveImage": true,
+      "unmodifiedBytes": true,
+      "stateSHA256": "39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367",
+      "exactReferenceState": "states/39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367.json.gz",
+      "retired": true,
+      "stateArtifact": {
+        "file": "states/39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367.json.gz",
+        "sha256": "27dd1def976cb441ffd29cc7ce6dd99a3a507e8a41d95e8b555f4c6635e38c87",
+        "decodedSHA256": "39d3332a6aec16185e8fdcc434a581adf973f1fa45fc7dc34c3988f237a8d367"
+      }
+    },
+    {
+      "label": "elegant-ecru",
+      "file": "elegant-ecru.png",
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e",
+      "bytes": 647399,
+      "width": 657,
+      "height": 868,
+      "suggestedFilename": "sugata-bob01-elegant-ecru-body.png",
+      "nativeSaveImage": true,
+      "unmodifiedBytes": true,
+      "stateSHA256": "50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a",
+      "exactReferenceState": null,
+      "retired": true,
+      "stateArtifact": {
+        "file": "states/50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a.json.gz",
+        "sha256": "539c917d8a9b6ac4670a24452ee7e0ca0caa52521b80815c02f6ca48fb825ed3",
+        "decodedSHA256": "50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a"
+      }
+    },
+    {
+      "label": "elegant-charcoal",
+      "file": "elegant-charcoal.png",
+      "sha256": "911f684b21f6d5fd38593d38c61891b3fda7b6f62275a2b89f94ab0985ae2819",
+      "bytes": 634861,
+      "width": 657,
+      "height": 868,
+      "suggestedFilename": "sugata-bob01-elegant-charcoal-body.png",
+      "nativeSaveImage": true,
+      "unmodifiedBytes": true,
+      "stateSHA256": "50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a",
+      "exactReferenceState": "states/50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a.json.gz",
+      "retired": true,
+      "stateArtifact": {
+        "file": "states/50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a.json.gz",
+        "sha256": "539c917d8a9b6ac4670a24452ee7e0ca0caa52521b80815c02f6ca48fb825ed3",
+        "decodedSHA256": "50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a"
+      }
+    },
+    {
+      "label": "elegant-original",
+      "file": "elegant-original.png",
+      "sha256": "c6bc0176b2bf1873f52c6f34d40f0fd0c81956ee7c1533b8b6fb81403b4d7b54",
+      "bytes": 663518,
+      "width": 657,
+      "height": 868,
+      "suggestedFilename": "sugata-bob01-elegant-original-body.png",
+      "nativeSaveImage": true,
+      "unmodifiedBytes": true,
+      "stateSHA256": "50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a",
+      "exactReferenceState": "states/50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a.json.gz",
+      "retired": true,
+      "stateArtifact": {
+        "file": "states/50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a.json.gz",
+        "sha256": "539c917d8a9b6ac4670a24452ee7e0ca0caa52521b80815c02f6ca48fb825ed3",
+        "decodedSHA256": "50c65ac81cd09a6f15317554ca5da9fe43ad2ca6096d2248ff584ba16dca388a"
+      }
+    }
+  ],
+  "limits": "Six unchanged native Wardrobe resting references. Palette comparison only within each authored preset; no hair change/comparison, new fit, motion qualification or representative-build acceptance.",
+  "archive": "captures/wardrobe-palette-references-2026-09-26/native-v1",
+  "sourceBinding": "Capture-time manifest and archived source; production UI integration follows this closed capture."
+}

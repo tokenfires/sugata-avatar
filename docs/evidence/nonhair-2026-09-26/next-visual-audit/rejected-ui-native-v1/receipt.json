@@ -1,0 +1,21 @@
+{
+  "kind": "rejected-partial-native-ui-run",
+  "rawDirectory": "captures/wardrobe-palette-references-2026-09-26/ui-native-v1",
+  "files": {
+    "report.json": {
+      "original": "captures/wardrobe-palette-references-2026-09-26/ui-native-v1/report.json",
+      "sha256": "efa39fedb62d7f7bad6aac037f11ba52b4abe3b6227e7336500752464299dca1"
+    },
+    "manifest.json": {
+      "original": "captures/wardrobe-palette-references-2026-09-26/ui-native-v1/manifest.json",
+      "sha256": "3c54f0411c8b65f92306eefd5bbba1321952040c76368d35d2bbfe8597a8df8f"
+    },
+    "ui-probe.mjs": {
+      "original": "captures/wardrobe-palette-references-2026-09-26/ui-native-v1/source/docs/evidence/nonhair-2026-09-26/next-visual-audit/ui-probe.mjs",
+      "sha256": "4c7056ac729065050cee1a025e02e05f9e0076adfa18ff7cf9411574a50a904d"
+    }
+  },
+  "completedChecks": 2,
+  "errors": "Six redirect response.body readback refusals; original receipt lacks redirect URLs/headers and cannot prove the exact chains retrospectively.",
+  "lifecycle": "Two observed owners retired (first actual navigation, second final synthetic handler), both disposed/no leaks/all recorded memory zero; eight-owner qualification did not complete. cleanupFailure repeats the response-readback gate, not a recorded disposal counter failure."
+}

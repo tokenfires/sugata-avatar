@@ -1,0 +1,38 @@
+{
+  "sourceSHA256": "10d7681166fd3634b34d3ac52e707b12adc18b7025a38c328b9c0d533bed6634",
+  "scope": "CPU response-metadata policy controls, not browser/cache evidence.",
+  "cases": [
+    {
+      "name": "Successful bound endpoint requires body hash downstream",
+      "passed": true
+    },
+    {
+      "name": "304 accepts only previously observed same-URL bytes and exact validator",
+      "passed": true
+    },
+    {
+      "name": "304 without a prior successful body rejects",
+      "passed": true
+    },
+    {
+      "name": "304 changed validator and changed expected bytes reject",
+      "passed": true
+    },
+    {
+      "name": "304 cannot hide a redirect chain",
+      "passed": true
+    },
+    {
+      "name": "Same-origin alias redirect retains exact bound file",
+      "passed": true
+    },
+    {
+      "name": "Redirect cross-origin, different file, query mutation or self-loop rejects",
+      "passed": true
+    },
+    {
+      "name": "Unbound Location, missing Location and unexpected partial success reject",
+      "passed": true
+    }
+  ]
+}

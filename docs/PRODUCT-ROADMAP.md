@@ -30,6 +30,11 @@ and actual fit remain open. The separate [hand-placement comparison](evidence/no
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
 
+Wardrobe now also offers [matched visual palette references](evidence/nonhair-2026-09-26/next-visual-audit/RESULTS.md)
+for each of the two current outfits. Compare palettes preserves the user's room, framing and cut
+when applying a choice, and works with the existing JSON and named-look controls. The images
+make the available compositions easier to compare; they do not expand the supported body or fit.
+
 Expression evaluation must distinguish control correctness from human readability. Record the intended meaning, the actual face/body sequence, the observed reading, and the evidence. An action can have valid numbers and still look annoyed when the agent meant playful. Use matched views and motion, and have the independent critic offer two concrete alternatives with tradeoffs for each proved issue.
 
 ## Phase 2 — VTuber-style characters

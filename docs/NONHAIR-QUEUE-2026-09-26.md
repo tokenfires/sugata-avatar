@@ -20,6 +20,11 @@ September 26 follow-through also adds Studio/Kitchen controls, sticky desktop pr
 a browser-local collection of up to 12 named looks. Independent native/code/image review
 approves these bounded controls; see [the saved-look evidence](evidence/nonhair-2026-09-26/next-look/README.md).
 
+The follow-through adds a collapsed **Compare palettes** chooser with six matched native Studio
+references, showing the actual outfit's three palettes. Focused desktop/mobile, settings,
+mixed-outfit and lifecycle checks pass; see [the qualification](evidence/nonhair-2026-09-26/next-visual-audit/RESULTS.md).
+These remain references to two existing outfits on the current body.
+
 ## Casual collar fit
 
 The defect is already proved in [the collar stress study](COLLAR-STRESS-2026-09-16.md): foundation
