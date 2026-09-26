@@ -1,0 +1,38 @@
+PASS source drift and foreign native methods are rejected before acquiring ownership
+PASS A matches an untouched native stack exactly for 120 frames, including ordered competing writers
+PASS B removes only current negative posture arm rotations and preserves native telemetry, gesture yield and other owners
+PASS C suppresses only the actual gesture rotations while its native clock/schedule/random and all other outputs survive
+PASS B preserves positive posture spread exactly rather than muting the full posture owner
+PASS neutral null frames and stopped gestures cannot replay stale native telemetry
+PASS initially disabled native owners stay disabled, including native skipped-frame behavior
+PASS ordered all-owner receipts distinguish actual returns from populated null buffers and skipped owners
+PASS reset/rebind/rest recapture/registration/declaration/identity/outfit mutations fail before native mutation
+PASS owner, target, weight, order, enabled and source configuration assignments are blocked before mutation
+PASS unsupported direct array/map/target edits are detected before the next native frame advances
+PASS mid-frame unsafe mutation stops before commit and poisons further stepping
+PASS direct accumulator/commit calls and duplicate instrumentation are rejected
+PASS partial acquisition failure restores exact descriptors and leaves normal native teardown available
+PASS descriptor theft is reported without overwriting the new owner during teardown
+PASS teardown restores exact owned descriptors then retires Avatar once, with no detached/reusable state
+PASS native teardown failure is surfaced after restoration, with retired state and no repeat disposal
+REJECTED_INSTRUMENT_WITNESS {"method":"bindArmBudget","before":{"leftUpperArm":0.17766836756218315,"rightUpperArm":0.20847278526539728},"after":{"leftUpperArm":0.3666207696880308,"rightUpperArm":0.4455984909908861},"status":"active"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: bindArmBudget must fail before recomputing a bind cache from the filtered pose
+    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.selftest.mjs:267:16
+    at test (file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.selftest.mjs:30:31)
+    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.selftest.mjs:260:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.13.1

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "groups": 18,
+  "sourceHashes": {
+    "packages/core/src/motion/MotionStack.js": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9",
+    "packages/core/src/motion/Layer.js": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8",
+    "packages/core/src/affect/PostureLayer.js": "9f72fb58dfdb1646934b61e75c6187fe4bfc7c1c642198842c9eb57dbe31470c",
+    "packages/core/src/motion/Gesture.js": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea",
+    "packages/core/src/figure/Skeleton.js": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+  },
+  "adapterSha256": "614cf2db48236909337e696029cf0e4fbe743ab24c0631bb9f7998d685839f14",
+  "testSha256": "b14f2e00af1106978fd2b330449b2a17cfcaad0790eb662cc616e52e8a045f0b",
+  "scope": "Native CPU motion mechanism on exact shipped bone hierarchy with controlled foreign writers. No WebGPU, skinned hand clearance, real Avatar teardown or visual qualification.",
+  "command": "node docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.selftest.mjs",
+  "nodeVersion": "v24.13.1",
+  "logSha256": "7fa88f2b65a7f47bb1425de8cbbab7a38f5a05e69a37db6fe61c17a1b5d6553d",
+  "nativeCaptureRun": false,
+  "supersedes": "adapter-v1-rejected/adapter-cpu-receipt.json; binding helper guard defect"
+}
