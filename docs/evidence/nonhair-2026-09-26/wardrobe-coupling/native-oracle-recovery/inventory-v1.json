@@ -1,0 +1,558 @@
+{
+  "version": 1,
+  "recordedUTC": "2026-09-26T21:12:07.560048+00:00",
+  "status": "No adequate retained absolute helper plus native garment oracle located in the bounded scope",
+  "requiredCases": {
+    "targets": [
+      "torso/measure-shoulder-dist-incr",
+      "legs/upperlegs-height-incr"
+    ],
+    "jointWeights": [
+      0,
+      0.25,
+      1
+    ],
+    "bodyVertices": 19158,
+    "originalGarmentVertices": 2197
+  },
+  "scope": {
+    "root": "/Users/robault/GitHub/sugata-avatar",
+    "noBroadExternalSearch": true,
+    "noArchiveReinventory": true,
+    "noNativeExecution": true,
+    "noGeometryReconstruction": true,
+    "noAssetOrCoreWrites": true
+  },
+  "files": [
+    {
+      "path": "docs/PUNCHLIST.md",
+      "exists": true,
+      "bytes": 280467,
+      "sha256": "077a12ea577f6b6665179a4150f7c58709ea84361b49a9fecea65daf1c017418"
+    },
+    {
+      "path": "docs/research/identity-sculpting.md",
+      "exists": true,
+      "bytes": 110854,
+      "sha256": "ed9479fafa49067c6033ddfcc2ec29e1cfac28eaef2d95928248abfc073e1020"
+    },
+    {
+      "path": "docs/research/wardrobe-system.md",
+      "exists": true,
+      "bytes": 113454,
+      "sha256": "a9ec3b630ffa0a419932577cca19a05345f1dd51fa09ba825ed1afb72c066905"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "exists": true,
+      "bytes": 195242,
+      "sha256": "fb4ea1e895ef17c11b4d74f5e02cc3f32267bc1053ae00f9e7b9de598c9b5c33"
+    },
+    {
+      "path": "tools/identity-pipeline/probe.py",
+      "exists": true,
+      "bytes": 5288,
+      "sha256": "40a443a224fd7eca9c35a7aa1ac7f330c2e03d76e97f0475f58fcbc428a2ef64"
+    },
+    {
+      "path": "tools/identity-pipeline/build_from_blender.mjs",
+      "exists": true,
+      "bytes": 16904,
+      "sha256": "7aa732d98ef90c9c30c13910ca5991166fe46ec274699c29cf2530267a245c7b"
+    },
+    {
+      "path": "tools/identity-pipeline/fixtures/macro-stacks.json",
+      "exists": true,
+      "bytes": 11411,
+      "sha256": "4ff7dff3ab3a35e13e77e9f2e3bac2d27ca872fb128bf1c160cc9f62605dff3b"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.json",
+      "exists": true,
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.bin",
+      "exists": true,
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "tools/figure-pipeline/fixtures/casual-g050-original.glb",
+      "exists": true,
+      "bytes": 11084688,
+      "sha256": "109dad33eb225ff7954501f6b1d0fcf9a17f4ea3d0271f7cef374dcbfa295160"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/inventory-v1.json",
+      "exists": true,
+      "bytes": 18329,
+      "sha256": "a5efb4f0882a47fa3276b4b059427a85d008fad28c4177030a17c358387e99f0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/proof-v1/report.json",
+      "exists": true,
+      "bytes": 11811,
+      "sha256": "4a3e861e3b744929c5f664c81787c59dd2b84de090bab468b45e3b08aae09277"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/garment-map/proof-v1/report.json",
+      "exists": true,
+      "bytes": 7565,
+      "sha256": "967654da2aa78f3189f0d806b7dad14a0d3104014f2f4698d932967325e7ab40"
+    },
+    {
+      "path": "docs/evidence/hair-2026-09-24/narrow-density/README.md",
+      "exists": true,
+      "bytes": 4367,
+      "sha256": "e945544d6d1ae8512bb758411674722025e4f1d607ec23f3c570f3e9d63dc6af"
+    },
+    {
+      "path": "tmp/hair-sep24/install-blender.txt",
+      "exists": true,
+      "bytes": 4412,
+      "sha256": "4afbd3e459a27cfa1597dc64f68cdf2a48fc78eb87e978129b591480302a4c37"
+    },
+    {
+      "path": "tmp/hair-sep24/blender-profile/config/userpref.blend",
+      "exists": true,
+      "bytes": 180602,
+      "sha256": "92a31b8ef5987dbfbd2c9b3f7859643e4b8271a0da92cde80f11c326f19dd4f5"
+    }
+  ],
+  "nativeDerivedFixtures": [
+    {
+      "label": "face100",
+      "metadata": {
+        "path": "tools/identity-pipeline/fixtures/face100.json",
+        "exists": true,
+        "bytes": 1178,
+        "sha256": "90f08fb948abecfe0bb3a3dd24bf6c549a078f1eb009ff79ecd2ba1d02ee5f01"
+      },
+      "data": {
+        "path": "tools/identity-pipeline/fixtures/face100.delta.i32.gz",
+        "exists": true,
+        "bytes": 18037,
+        "sha256": "4ff5e68510e994535808e08a865584ed40a4a9ae9887ccd6fc3973d4e5d7dd18"
+      },
+      "decodedBytes": 229896,
+      "decodedSHA256": "875b29f5ed6551a25bf59eef024f97a6544d4213451e215b16a5ccbf30db6020",
+      "components": 57474,
+      "vertexCount": 19158,
+      "blenderTargets": [
+        [
+          "eyes/l-eye-scale-incr",
+          1
+        ],
+        [
+          "eyes/r-eye-scale-incr",
+          1
+        ],
+        [
+          "chin/chin-height-decr",
+          1
+        ],
+        [
+          "forehead/forehead-scale-vert-incr",
+          1
+        ],
+        [
+          "nose/nose-scale-horiz-decr",
+          1
+        ],
+        [
+          "mouth/mouth-scale-horiz-incr",
+          1
+        ],
+        [
+          "head/head-oval",
+          1
+        ]
+      ],
+      "provenance": {
+        "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+        "mpfb": "20260722",
+        "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+        "scaleFactor": 0.10000000149011612
+      },
+      "kind": "native-derived displacement quantized to int32 nanometres; not absolute positions or garment coordinates"
+    },
+    {
+      "label": "face025",
+      "metadata": {
+        "path": "tools/identity-pipeline/fixtures/face025.json",
+        "exists": true,
+        "bytes": 1247,
+        "sha256": "6048a7792eea71bc687d3f89bc7ce178ef27d84c0ffefe327ffc91a4a3b5e0cb"
+      },
+      "data": {
+        "path": "tools/identity-pipeline/fixtures/face025.delta.i32.gz",
+        "exists": true,
+        "bytes": 18367,
+        "sha256": "570cf6d63064a80d2993c878c5714d5b95f9176ef3de24fb713a261b6f886842"
+      },
+      "decodedBytes": 229896,
+      "decodedSHA256": "159c2f22b62d7ae7823f958e56e8ebd83a1f70a3036c9b2b009472864122f495",
+      "components": 57474,
+      "vertexCount": 19158,
+      "blenderTargets": [
+        [
+          "eyes/l-eye-scale-incr",
+          0.25
+        ],
+        [
+          "eyes/r-eye-scale-incr",
+          0.25
+        ],
+        [
+          "chin/chin-height-decr",
+          0.25
+        ],
+        [
+          "forehead/forehead-scale-vert-incr",
+          0.25
+        ],
+        [
+          "nose/nose-scale-horiz-decr",
+          0.25
+        ],
+        [
+          "mouth/mouth-scale-horiz-incr",
+          0.25
+        ],
+        [
+          "head/head-oval",
+          0.25
+        ]
+      ],
+      "provenance": {
+        "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+        "mpfb": "20260722",
+        "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+        "scaleFactor": 0.10000000149011612
+      },
+      "kind": "native-derived displacement quantized to int32 nanometres; not absolute positions or garment coordinates"
+    },
+    {
+      "label": "body100",
+      "metadata": {
+        "path": "tools/identity-pipeline/fixtures/body100.json",
+        "exists": true,
+        "bytes": 1314,
+        "sha256": "042b1312ff4cf3b8a103304a5c4231bc966c7c87c94953f643534acd3ff68e6a"
+      },
+      "data": {
+        "path": "tools/identity-pipeline/fixtures/body100.delta.i32.gz",
+        "exists": true,
+        "bytes": 37112,
+        "sha256": "eebf4532302bc23633f8656088756897341e866ee825010ecff4920b2d4fe202"
+      },
+      "decodedBytes": 229896,
+      "decodedSHA256": "d1f9183444aeadb952d28480c682d41e573d3906060596a99c2baec634e89cbe",
+      "components": 57474,
+      "vertexCount": 19158,
+      "blenderTargets": [
+        [
+          "torso/measure-shoulder-dist-incr",
+          1
+        ],
+        [
+          "legs/upperlegs-height-incr",
+          1
+        ],
+        [
+          "legs/lowerlegs-height-incr",
+          1
+        ],
+        [
+          "torso/measure-waist-circ-incr",
+          1
+        ],
+        [
+          "hip/hip-scale-horiz-incr",
+          1
+        ],
+        [
+          "neck/measure-neck-height-incr",
+          1
+        ],
+        [
+          "torso/torso-scale-vert-incr",
+          1
+        ]
+      ],
+      "provenance": {
+        "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+        "mpfb": "20260722",
+        "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+        "scaleFactor": 0.10000000149011612
+      },
+      "kind": "native-derived displacement quantized to int32 nanometres; not absolute positions or garment coordinates"
+    },
+    {
+      "label": "mixed",
+      "metadata": {
+        "path": "tools/identity-pipeline/fixtures/mixed.json",
+        "exists": true,
+        "bytes": 1118,
+        "sha256": "4d50cad41d7b8b0ae5c52885be4bb00bca8976751aee68a2adcdf5edf917f44a"
+      },
+      "data": {
+        "path": "tools/identity-pipeline/fixtures/mixed.delta.i32.gz",
+        "exists": true,
+        "bytes": 11855,
+        "sha256": "5e1781b142921eebe106a7a96648ac837d53e36ccaf9a29e63e9dba3448ba644"
+      },
+      "decodedBytes": 229896,
+      "decodedSHA256": "e875bf13796c0379f052251aca6493e200f6095bd22f04a0fef9d9ce6f0889e3",
+      "components": 57474,
+      "vertexCount": 19158,
+      "blenderTargets": [
+        [
+          "eyes/l-eye-scale-decr",
+          0.6
+        ],
+        [
+          "eyes/r-eye-scale-incr",
+          0.35
+        ],
+        [
+          "chin/chin-height-incr",
+          0.8
+        ],
+        [
+          "head/head-square",
+          1
+        ],
+        [
+          "nose/nose-volume-decr",
+          0.45
+        ]
+      ],
+      "provenance": {
+        "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+        "mpfb": "20260722",
+        "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+        "scaleFactor": 0.10000000149011612
+      },
+      "kind": "native-derived displacement quantized to int32 nanometres; not absolute positions or garment coordinates"
+    }
+  ],
+  "documentedPathChecks": [
+    {
+      "path": "tools/spikes/identity-inventory",
+      "exists": false
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/user_default/mpfb/data/targets",
+      "exists": false
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/.user/user_default/mpfb/data",
+      "exists": false
+    },
+    {
+      "path": "tmp/hair-sep24/blender-volume/Blender.app/Contents/MacOS/Blender",
+      "exists": false
+    },
+    {
+      "path": "tmp/hair-sep24/blender-profile/extensions/.user/user_default/mpfb/cache",
+      "exists": true,
+      "kind": "directory"
+    }
+  ],
+  "ambiguousPaths": [
+    {
+      "literal": "\u2026/scratchpad/identity/",
+      "source": "docs/research/identity-sculpting.md:20",
+      "resolution": "Not a concrete filesystem path; prefix was not guessed"
+    },
+    {
+      "literal": "\u2026/scratchpad/wardrobe/",
+      "source": "docs/research/wardrobe-system.md:19",
+      "resolution": "Not a concrete filesystem path; prefix was not guessed"
+    },
+    {
+      "literal": "--out DIR / --dumps <dir>",
+      "source": "tools/identity-pipeline/probe.py; build_from_blender.mjs",
+      "resolution": "CLI-provided output; no historical concrete directory retained in these scripts"
+    }
+  ],
+  "searches": [
+    {
+      "argv": [
+        "rg",
+        "--files",
+        "--hidden",
+        "--no-ignore",
+        "-g",
+        "!node_modules/**",
+        "-g",
+        "!.git/**",
+        "-g",
+        "*.f64",
+        "-g",
+        "*.blend",
+        "-g",
+        "*.blend1",
+        "."
+      ],
+      "exitCode": 0,
+      "matches": [
+        "./tmp/hair-sep24/blender-profile/config/userpref.blend"
+      ],
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--all",
+        "--name-only",
+        "--format=",
+        "--",
+        "*identity-inventory*"
+      ],
+      "exitCode": 0,
+      "matches": [],
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rg",
+        "--files",
+        "--hidden",
+        "--no-ignore",
+        "tools",
+        "-g",
+        "*identity-inventory*"
+      ],
+      "exitCode": 1,
+      "matches": [],
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rg",
+        "--files",
+        "--hidden",
+        "--no-ignore",
+        "captures",
+        "-g",
+        "!**/source/**"
+      ],
+      "selectionRegex": "(^|/)(identity[^/]*|wardrobe[^/]*|scratchpad|[^/]*refit[^/]*)/",
+      "exitCode": 0,
+      "matches": []
+    }
+  ],
+  "laterProfile": {
+    "directory": "tmp/hair-sep24/blender-profile",
+    "sourceAvailability": [
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/user_default/mpfb/services/clothesservice.py",
+        "exists": true,
+        "bytes": 40732,
+        "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b",
+        "matchesAlreadyInventoriedArchiveMember": true
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/user_default/mpfb/services/humanservice.py",
+        "exists": true,
+        "bytes": 86233,
+        "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207",
+        "matchesAlreadyInventoriedArchiveMember": true
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/user_default/mpfb/services/objectservice.py",
+        "exists": true,
+        "bytes": 41911,
+        "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6",
+        "matchesAlreadyInventoriedArchiveMember": true
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/user_default/mpfb/services/targetservice.py",
+        "exists": true,
+        "bytes": 62066,
+        "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d",
+        "matchesAlreadyInventoriedArchiveMember": true
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/user_default/mpfb/entities/clothes/mhclo.py",
+        "exists": true,
+        "bytes": 12931,
+        "sha256": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c",
+        "matchesAlreadyInventoriedArchiveMember": true
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/user_default/mpfb/data/3dobjs/base.obj",
+        "exists": true,
+        "bytes": 1749303,
+        "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
+        "matchesAlreadyInventoriedArchiveMember": true
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/.user/user_default/mpfb/data/clothes/female_casualsuit01/female_casualsuit01.mhclo",
+        "exists": true,
+        "bytes": 150568,
+        "sha256": "8a17e4edceeb22ef30ce102ed05fb3463ca0eeb61addc7811f4867fde5963fa4",
+        "matchesAlreadyInventoriedArchiveMember": true
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/extensions/.user/user_default/mpfb/data/clothes/female_casualsuit01/female_casualsuit01.obj",
+        "exists": true,
+        "bytes": 175427,
+        "sha256": "b6cfaf08b291fe10ea312d37e98d5e328eced5828bdb6f96ecac6bf4ababe652",
+        "matchesAlreadyInventoriedArchiveMember": true
+      }
+    ],
+    "logFilesWithContent": [
+      {
+        "path": "tmp/hair-sep24/blender-profile/mpfb/logs/combined.txt",
+        "exists": true,
+        "bytes": 672,
+        "sha256": "313c6916f4d5ef216f6676bb755027e1219980ba22f9057e996ba6a2611502c9",
+        "text": "[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.\n[INFO ] mpfb.init ..............................: Build info 20260722\n[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.\n[INFO ] mpfb.init ..............................: MPFB initialization has finished.\n[WARN ] services.humanservice ..................: Creating game engine skin material\n[WARN ] material.mhmaterial ....................: Patching input material line to cater for non-normalized key ('bumpTexture', 'bumpmapTexture')\n"
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/mpfb/logs/separated.material.mhmaterial.txt",
+        "exists": true,
+        "bytes": 103,
+        "sha256": "899bbe1d324978a75d3c1f957a986e918f920ac0ac2f82d979bb71b990ab09cb",
+        "text": "[WARN ] Patching input material line to cater for non-normalized key ('bumpTexture', 'bumpmapTexture')\n"
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/mpfb/logs/separated.mpfb.init.txt",
+        "exists": true,
+        "bytes": 156,
+        "sha256": "ef2099550447dab8e39cdc73dbb22b421f1d9d4da812e6bc44c69102c767081b",
+        "text": "[INFO ] Build info 20260722\n[INFO ] Online access preference is not enabled. Not checking if MakeHuman is online.\n[INFO ] MPFB initialization has finished.\n"
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/mpfb/logs/separated.services.humanservice.txt",
+        "exists": true,
+        "bytes": 43,
+        "sha256": "bf5c3ff1b323698075312af68be30beb166f80aed4c22c2b3af26c61e42f43b3",
+        "text": "[WARN ] Creating game engine skin material\n"
+      },
+      {
+        "path": "tmp/hair-sep24/blender-profile/mpfb/logs/separated.services.locationservice.txt",
+        "exists": true,
+        "bytes": 118,
+        "sha256": "4ad5e7482722155c8b2c686bc102c75f40b2cfec36426deea314731982ad747c",
+        "text": "[INFO ] Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.\n"
+      }
+    ],
+    "cacheFiles": [],
+    "onlyBlendDiscovered": "tmp/hair-sep24/blender-profile/config/userpref.blend",
+    "installedVersionHistoricalLog": "Blender 5.2.2 LTS d13f752e3b9c, MPFB 20260722; not the original study Blender 5.2.0 LTS",
+    "oracleRecovered": false
+  },
+  "limits": [
+    "Filename/output-schema recovery scope, not a whole-disk absence claim.",
+    "Retained displacement fields have native provenance but cannot determine absolute helper baseline or isolate the two-target body case from the seven-target body100 field.",
+    "The original neutral garment GLB and its separately proved source map support exported geometry correspondence, not the requested pre-export MPFB refit oracle for all three weights.",
+    "The later MPFB profile is source/configuration availability, not saved native deformed coordinates; no Blender installation or launch was attempted."
+  ]
+}

@@ -98,10 +98,12 @@ skeleton/foundation coupling as open work. Do not apply current corrective offse
 another body or mark 9.4 complete.
 
 The isolated [hand-placement candidate](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
-has 109 measured native poses and matched A/D visual evidence. It restores visible hands in the
-recorded angry sequence, with wider arms and weaker upper-arm contraction as a visible tradeoff.
-The live default is unchanged; the narrow-gap follow-up and broader motions/outfits remain
-separate qualification work. The completed fixed candidate must not be silently retuned.
+has 126 unique measured native geometry times and matched A/D visual evidence. It restores visible
+hands in the recorded angry sequence, with wider arms and weaker upper-arm contraction as a
+visible tradeoff. The narrow-gap follow-up found a smaller positive left-hand separation bound
+of 0.5075335502624511 mm at step 593. These are discrete observations, not a continuous guarantee.
+The live default is unchanged; broader motions/outfits remain separate qualification work.
+The completed fixed candidate must not be silently retuned.
 
 Complete, visually reviewed male/female/gender-neutral starter looks remain the deliverable.
 Run the representative performance pass against explicit device, resolution, frame-time and
