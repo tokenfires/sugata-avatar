@@ -17,6 +17,7 @@ let framing = null;
 let attention = null;
 let attentionError = null;
 let paused = reducedMotion;
+let easingExpression = false;
 let frame = 0;
 let previousTime = null;
 
@@ -36,7 +37,14 @@ function updatePause() {
     pauseButton.textContent = paused ? 'Resume motion' : 'Pause motion';
     pauseButton.setAttribute( 'aria-pressed', String( paused ) );
     status.textContent = paused ? 'Motion paused · you can still explore' : 'Live portrait';
+    updateExpressionStatus();
     updateAttention();
+}
+
+function updateExpressionStatus() {
+    document.getElementById( 'expression-status' ).textContent = easingExpression
+        ? ( paused ? 'Resume motion to ease toward neutral.' : 'Returning gradually toward neutral.' )
+        : ( paused ? 'Resume motion to see expression changes.' : 'Expressions blend gradually.' );
 }
 
 function updateAttention() {
@@ -109,10 +117,19 @@ try {
     for ( const button of document.querySelectorAll( '[data-expression]' ) ) {
         button.addEventListener( 'click', () => {
             avatar.feel( expressions[ button.dataset.expression ] );
+            easingExpression = false;
             for ( const peer of document.querySelectorAll( '[data-expression]' ) )
                 peer.setAttribute( 'aria-pressed', String( peer === button ) );
+            updateExpressionStatus();
         } );
     }
+    document.getElementById( 'release-expression' ).addEventListener( 'click', () => {
+        avatar.feel( { pleasure: 0, arousal: 0, dominance: 0 } );
+        easingExpression = true;
+        for ( const button of document.querySelectorAll( '[data-expression]' ) )
+            button.setAttribute( 'aria-pressed', 'false' );
+        updateExpressionStatus();
+    } );
     for ( const button of document.querySelectorAll( '[data-light]' ) ) {
         button.addEventListener( 'click', () => {
             avatar.setLighting( button.dataset.light );

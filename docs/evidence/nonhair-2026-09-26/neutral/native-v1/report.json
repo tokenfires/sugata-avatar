@@ -1,0 +1,1033 @@
+{
+  "date": "2026-09-26T15:38:09.845Z",
+  "head": "99fb8d065c4a6915bf624a60012cc90f5748fa27",
+  "sourceHashes": {
+    "packages/testbed/src/portrait.js": "45a6f37bb76cc9f86c6235e34895ebd32d9394f7f5f6a58d2388083ce1e39830",
+    "packages/testbed/src/portrait.html": "e5eb716b6a68d3d93fe81bc852a5dcba8cc34c19af8e8e5659ee97b340898cc6",
+    "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/affect/AffectState.js": "df254e1fda2263ac2a40f3cbcd4bff6492addb65e11fae697e45633b231c95ba",
+    "packages/core/src/affect/ExpressionLayer.js": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478",
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34",
+    "packages/core/src/render/Scene.js": "1792a2fed0d535c916cd215b9dd0758972856fbe4d6795ade8f83258e6cc6a0f",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "docs/evidence/nonhair-2026-09-26/neutral/probe.mjs": "fd6e1b1b307231f2fa9ff4e988f45085d18bc8f091f451c2e8f5d1fe36f868be"
+  },
+  "checks": [
+    "desktop: keyboard Enter releases only the expression target, preserving current PAD, camera, lighting and owned attention",
+    "desktop: Warm visibly sampled over its existing gradual release; viewer settings survive",
+    "mobile: keyboard Space queues neutral while paused; attempted manual steps preserve affect and motion time",
+    "mobile: explicit resume advances gradual release; 390px controls fit with native touch-sized targets",
+    "two native Avatar retirements are clean; selected sources stable and browser errors empty"
+  ],
+  "cases": [
+    {
+      "name": "desktop-warm",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "no-preference",
+      "samples": [
+        {
+          "label": "warm-attending",
+          "state": {
+            "clock": 3.399999999999993,
+            "backend": "webgpu",
+            "target": {
+              "pleasure": 0.7,
+              "arousal": 0.25,
+              "dominance": 0.35
+            },
+            "pad": {
+              "pleasure": 0.7113333043537693,
+              "arousal": 0.26133332298348905,
+              "dominance": 0.3613333188435513
+            },
+            "emotion": {
+              "pleasure": 0.699999971020436,
+              "arousal": 0.24999998965015577,
+              "dominance": 0.349999985510218
+            },
+            "mood": {
+              "pleasure": 0.011333333333333294,
+              "arousal": 0.011333333333333294,
+              "dominance": 0.011333333333333294
+            },
+            "face": {
+              "aus": {
+                "AU1": 0,
+                "AU2": 0,
+                "AU4": 0,
+                "AU7": 0,
+                "AU9": 0,
+                "AU5": 0.23047617569069864,
+                "AU6": 0.4611708288912043,
+                "AU12": 1,
+                "AU15": 0,
+                "AU43": 0
+              },
+              "morphs": {
+                "eyeWideLeft": 0.23047617569069864,
+                "eyeWideRight": 0.23047617569069864,
+                "cheekSquintLeft": 0.4611708288912043,
+                "cheekSquintRight": 0.4611708288912043
+              },
+              "mouthCornerOffset": {
+                "smile": 0.35,
+                "frown": 0
+              },
+              "speechOwned": {
+                "AU25": 0,
+                "AU26": 0,
+                "AU10": 0
+              }
+            },
+            "attention": {
+              "phase": "attending",
+              "time": 0.9000000000000011,
+              "poseWeight": 1,
+              "expression": "neutral",
+              "smileWeight": 0,
+              "smile": {
+                "amount": 0,
+                "status": "inactive"
+              },
+              "headNoiseScale": 0.25,
+              "target": {
+                "yawDegrees": 14.469576521872602,
+                "pitchDegrees": 0.6283151239864209
+              },
+              "holdsGaze": true,
+              "eyeFocus": "aimed"
+            },
+            "camera": {
+              "position": [
+                0.18911853927933772,
+                1.5227790690175487,
+                0.8897327741541562
+              ],
+              "quaternion": [
+                0,
+                0.10452846326765344,
+                0,
+                0.9945218953682733
+              ],
+              "target": [
+                0,
+                1.5227790690175487,
+                0
+              ],
+              "zoom": 1,
+              "aspect": 1.0962566844919786
+            },
+            "framing": {
+              "mode": "portrait",
+              "zoom": 1,
+              "effectiveFov": 26,
+              "boundsAtUnitAspect": {
+                "minX": -0.817392910599199,
+                "maxX": 0.3773079974449421,
+                "minY": -0.5101225959479314,
+                "maxY": 0.8545925091687816
+              },
+              "skinCount": 4231,
+              "headFloorY": 1.4349272982560242,
+              "includedCardVertices": 17360,
+              "excludedLowerCardVertices": 156,
+              "cardEdgeIntersections": 346,
+              "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+              "gutterPixels": 16
+            },
+            "lighting": "studio",
+            "selected": [
+              "joy"
+            ],
+            "paused": false,
+            "releaseDisabled": false,
+            "expressionStatus": "Expressions blend gradually.",
+            "attentionStatus": "Looking toward this view",
+            "focused": "look-toward-me"
+          },
+          "canvas": "desktop-warm-warm-attending-canvas.png",
+          "ui": "desktop-warm-warm-attending-ui.png",
+          "sha256": {
+            "desktop-warm-warm-attending-canvas.png": "d8d540178a6920a4bd63b82ff1efbc5ca04fd229463911b5ec98a0ff787e68fb",
+            "desktop-warm-warm-attending-ui.png": "c3ff11b4748d16aaf885f22a6161142ad0185ddb59f0140b0b5fd2b5ef2b9987"
+          }
+        },
+        {
+          "label": "release-0.5s",
+          "state": {
+            "clock": 3.899999999999991,
+            "backend": "webgpu",
+            "target": {
+              "pleasure": 0,
+              "arousal": 0,
+              "dominance": 0
+            },
+            "pad": {
+              "pleasure": 0.5710161588367446,
+              "arousal": 0.21068434244169446,
+              "dominance": 0.2907580794183723
+            },
+            "emotion": {
+              "pleasure": 0.5605161588367447,
+              "arousal": 0.2001843424416945,
+              "dominance": 0.28025807941837233
+            },
+            "mood": {
+              "pleasure": 0.010499999999999966,
+              "arousal": 0.010499999999999966,
+              "dominance": 0.010499999999999966
+            },
+            "face": {
+              "aus": {
+                "AU1": 0,
+                "AU2": 0,
+                "AU4": 0,
+                "AU7": 0,
+                "AU9": 0,
+                "AU5": 0.15812048920242067,
+                "AU6": 0.5757108937540871,
+                "AU12": 1,
+                "AU15": 0,
+                "AU43": 0
+              },
+              "morphs": {
+                "eyeWideLeft": 0.15812048920242067,
+                "eyeWideRight": 0.15812048920242067,
+                "cheekSquintLeft": 0.5757108937540871,
+                "cheekSquintRight": 0.5757108937540871
+              },
+              "mouthCornerOffset": {
+                "smile": 0.35,
+                "frown": 0
+              },
+              "speechOwned": {
+                "AU25": 0,
+                "AU26": 0,
+                "AU10": 0
+              }
+            },
+            "attention": {
+              "phase": "attending",
+              "time": 1.4,
+              "poseWeight": 1,
+              "expression": "neutral",
+              "smileWeight": 0,
+              "smile": {
+                "amount": 0,
+                "status": "inactive"
+              },
+              "headNoiseScale": 0.25,
+              "target": {
+                "yawDegrees": 14.469576521872602,
+                "pitchDegrees": 0.6283151239864209
+              },
+              "holdsGaze": true,
+              "eyeFocus": "aimed"
+            },
+            "camera": {
+              "position": [
+                0.18911853927933772,
+                1.5227790690175487,
+                0.8897327741541562
+              ],
+              "quaternion": [
+                0,
+                0.10452846326765344,
+                0,
+                0.9945218953682733
+              ],
+              "target": [
+                0,
+                1.5227790690175487,
+                0
+              ],
+              "zoom": 1,
+              "aspect": 1.0962566844919786
+            },
+            "framing": {
+              "mode": "portrait",
+              "zoom": 1,
+              "effectiveFov": 26,
+              "boundsAtUnitAspect": {
+                "minX": -0.817392910599199,
+                "maxX": 0.3773079974449421,
+                "minY": -0.5101225959479314,
+                "maxY": 0.8545925091687816
+              },
+              "skinCount": 4231,
+              "headFloorY": 1.4349272982560242,
+              "includedCardVertices": 17360,
+              "excludedLowerCardVertices": 156,
+              "cardEdgeIntersections": 346,
+              "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+              "gutterPixels": 16
+            },
+            "lighting": "studio",
+            "selected": [],
+            "paused": false,
+            "releaseDisabled": false,
+            "expressionStatus": "Returning gradually toward neutral.",
+            "attentionStatus": "Looking toward this view",
+            "focused": "release-expression"
+          },
+          "canvas": "desktop-warm-release-0.5s-canvas.png",
+          "ui": "desktop-warm-release-0.5s-ui.png",
+          "sha256": {
+            "desktop-warm-release-0.5s-canvas.png": "5a2470f74b596d6a884bcf98bc3fa949e473dcebb10419825913045aab869a25",
+            "desktop-warm-release-0.5s-ui.png": "8fb5ef413c8304a7cd682efdb69012b42a134483cf7481fcae57a083ef3a56d4"
+          }
+        },
+        {
+          "label": "release-2.5s",
+          "state": {
+            "clock": 5.899999999999984,
+            "backend": "webgpu",
+            "target": {
+              "pleasure": 0,
+              "arousal": 0,
+              "dominance": 0
+            },
+            "pad": {
+              "pleasure": 0.23760174859233085,
+              "arousal": 0.08946491021154675,
+              "dominance": 0.12238420762949875
+            },
+            "emotion": {
+              "pleasure": 0.2304350819256642,
+              "arousal": 0.08229824354488009,
+              "dominance": 0.1152175409628321
+            },
+            "mood": {
+              "pleasure": 0.007166666666666653,
+              "arousal": 0.007166666666666653,
+              "dominance": 0.007166666666666653
+            },
+            "face": {
+              "aus": {
+                "AU1": 0,
+                "AU2": 0,
+                "AU4": 0,
+                "AU7": 0,
+                "AU9": 0,
+                "AU5": 0,
+                "AU6": 0.3202209755535003,
+                "AU12": 0.4752034971846617,
+                "AU15": 0,
+                "AU43": 0
+              },
+              "morphs": {
+                "cheekSquintLeft": 0.3202209755535003,
+                "cheekSquintRight": 0.3202209755535003
+              },
+              "mouthCornerOffset": {
+                "smile": 0.1663212240146316,
+                "frown": 0
+              },
+              "speechOwned": {
+                "AU25": 0,
+                "AU26": 0,
+                "AU10": 0
+              }
+            },
+            "attention": {
+              "phase": "attending",
+              "time": 3.399999999999993,
+              "poseWeight": 6.661338147750939e-16,
+              "expression": "neutral",
+              "smileWeight": 0,
+              "smile": {
+                "amount": 0,
+                "status": "inactive"
+              },
+              "headNoiseScale": 0.9999999999999996,
+              "target": {
+                "yawDegrees": 14.469576521872602,
+                "pitchDegrees": 0.6283151239864209
+              },
+              "holdsGaze": true,
+              "eyeFocus": "aiming"
+            },
+            "camera": {
+              "position": [
+                0.18911853927933772,
+                1.5227790690175487,
+                0.8897327741541562
+              ],
+              "quaternion": [
+                0,
+                0.10452846326765344,
+                0,
+                0.9945218953682733
+              ],
+              "target": [
+                0,
+                1.5227790690175487,
+                0
+              ],
+              "zoom": 1,
+              "aspect": 1.0962566844919786
+            },
+            "framing": {
+              "mode": "portrait",
+              "zoom": 1,
+              "effectiveFov": 26,
+              "boundsAtUnitAspect": {
+                "minX": -0.817392910599199,
+                "maxX": 0.3773079974449421,
+                "minY": -0.5101225959479314,
+                "maxY": 0.8545925091687816
+              },
+              "skinCount": 4231,
+              "headFloorY": 1.4349272982560242,
+              "includedCardVertices": 17360,
+              "excludedLowerCardVertices": 156,
+              "cardEdgeIntersections": 346,
+              "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+              "gutterPixels": 16
+            },
+            "lighting": "studio",
+            "selected": [],
+            "paused": false,
+            "releaseDisabled": false,
+            "expressionStatus": "Returning gradually toward neutral.",
+            "attentionStatus": "Looking toward this view",
+            "focused": "release-expression"
+          },
+          "canvas": "desktop-warm-release-2.5s-canvas.png",
+          "ui": "desktop-warm-release-2.5s-ui.png",
+          "sha256": {
+            "desktop-warm-release-2.5s-canvas.png": "93a68f34eaddcace68459c0793423905523d214275275d9773b66b49d3e2ed04",
+            "desktop-warm-release-2.5s-ui.png": "d8284a755c365b427f985f68d2084b95268d5db6bce87820a17cd9b689fc8516"
+          }
+        }
+      ],
+      "initial": {
+        "clock": 0,
+        "backend": "webgpu",
+        "target": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "pad": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "emotion": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "mood": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "face": {
+          "aus": {
+            "AU1": 0,
+            "AU2": 0,
+            "AU4": 0,
+            "AU7": 0,
+            "AU9": 0,
+            "AU5": 0,
+            "AU6": 0,
+            "AU12": 0,
+            "AU15": 0,
+            "AU43": 0
+          },
+          "morphs": {},
+          "mouthCornerOffset": {
+            "smile": 0,
+            "frown": 0
+          },
+          "speechOwned": {
+            "AU25": 0,
+            "AU26": 0,
+            "AU10": 0
+          }
+        },
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 1,
+          "aspect": 1.0962566844919786
+        },
+        "framing": {
+          "mode": "portrait",
+          "zoom": 1,
+          "effectiveFov": 26,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449421,
+            "minY": -0.5101225959479314,
+            "maxY": 0.8545925091687816
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "lighting": "studio",
+        "selected": [],
+        "paused": false,
+        "releaseDisabled": false,
+        "expressionStatus": "Expressions blend gradually.",
+        "attentionStatus": "Ready when you are",
+        "focused": null
+      },
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      }
+    },
+    {
+      "name": "mobile-determined",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "samples": [
+        {
+          "label": "determined-paused",
+          "state": {
+            "clock": 2.499999999999996,
+            "backend": "webgpu",
+            "target": {
+              "pleasure": 0,
+              "arousal": 0.4,
+              "dominance": 0.85
+            },
+            "pad": {
+              "pleasure": 0,
+              "arousal": 0.4083318426720645,
+              "dominance": 0.858330165678137
+            },
+            "emotion": {
+              "pleasure": 0,
+              "arousal": 0.3999985093387312,
+              "dominance": 0.8499968323448037
+            },
+            "mood": {
+              "pleasure": 0,
+              "arousal": 0.008333333333333312,
+              "dominance": 0.008333333333333312
+            },
+            "face": {
+              "aus": {
+                "AU1": 0,
+                "AU2": 0,
+                "AU4": 0,
+                "AU7": 0,
+                "AU9": 0,
+                "AU5": 0.4404740609600922,
+                "AU6": 0,
+                "AU12": 0,
+                "AU15": 0,
+                "AU43": 0
+              },
+              "morphs": {
+                "eyeWideLeft": 0.4404740609600922,
+                "eyeWideRight": 0.4404740609600922
+              },
+              "mouthCornerOffset": {
+                "smile": 0,
+                "frown": 0
+              },
+              "speechOwned": {
+                "AU25": 0.2708296066801613,
+                "AU26": 0.23332737068825815,
+                "AU10": 0
+              }
+            },
+            "attention": {
+              "phase": "idle",
+              "time": 0,
+              "poseWeight": 0,
+              "expression": "neutral",
+              "smileWeight": 0,
+              "smile": {
+                "amount": 0,
+                "status": "inactive"
+              },
+              "headNoiseScale": 1,
+              "target": null,
+              "holdsGaze": false,
+              "eyeFocus": "inactive"
+            },
+            "camera": {
+              "position": [
+                0.18911853927933772,
+                1.5227790690175487,
+                0.8897327741541562
+              ],
+              "quaternion": [
+                0,
+                0.10452846326765344,
+                0,
+                0.9945218953682733
+              ],
+              "target": [
+                0,
+                1.5227790690175487,
+                0
+              ],
+              "zoom": 0.7041964696395716,
+              "aspect": 0.6348314606741573
+            },
+            "framing": {
+              "mode": "portrait",
+              "zoom": 0.7041964696395716,
+              "effectiveFov": 36.303075941379745,
+              "boundsAtUnitAspect": {
+                "minX": -0.817392910599199,
+                "maxX": 0.3773079974449421,
+                "minY": -0.5101225959479314,
+                "maxY": 0.8545925091687816
+              },
+              "skinCount": 4231,
+              "headFloorY": 1.4349272982560242,
+              "includedCardVertices": 17360,
+              "excludedLowerCardVertices": 156,
+              "cardEdgeIntersections": 346,
+              "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+              "gutterPixels": 16
+            },
+            "lighting": "studio",
+            "selected": [
+              "determined"
+            ],
+            "paused": true,
+            "releaseDisabled": false,
+            "expressionStatus": "Resume motion to see expression changes.",
+            "attentionStatus": "Resume motion to try attention.",
+            "focused": "pause"
+          },
+          "canvas": "mobile-determined-determined-paused-canvas.png",
+          "ui": "mobile-determined-determined-paused-ui.png",
+          "sha256": {
+            "mobile-determined-determined-paused-canvas.png": "07f9f24eb7265713e2373a35dc2992a60e415ffa92c24cc8316ce13067385f35",
+            "mobile-determined-determined-paused-ui.png": "59a7a7a4d4b10e3ebe5d86e0374a1aafe68f730415e37285968656fd93e1f862"
+          }
+        },
+        {
+          "label": "release-still-paused",
+          "state": {
+            "clock": 2.499999999999996,
+            "backend": "webgpu",
+            "target": {
+              "pleasure": 0,
+              "arousal": 0,
+              "dominance": 0
+            },
+            "pad": {
+              "pleasure": 0,
+              "arousal": 0.4083318426720645,
+              "dominance": 0.858330165678137
+            },
+            "emotion": {
+              "pleasure": 0,
+              "arousal": 0.3999985093387312,
+              "dominance": 0.8499968323448037
+            },
+            "mood": {
+              "pleasure": 0,
+              "arousal": 0.008333333333333312,
+              "dominance": 0.008333333333333312
+            },
+            "face": {
+              "aus": {
+                "AU1": 0,
+                "AU2": 0,
+                "AU4": 0,
+                "AU7": 0,
+                "AU9": 0,
+                "AU5": 0.4404740609600922,
+                "AU6": 0,
+                "AU12": 0,
+                "AU15": 0,
+                "AU43": 0
+              },
+              "morphs": {
+                "eyeWideLeft": 0.4404740609600922,
+                "eyeWideRight": 0.4404740609600922
+              },
+              "mouthCornerOffset": {
+                "smile": 0,
+                "frown": 0
+              },
+              "speechOwned": {
+                "AU25": 0.2708296066801613,
+                "AU26": 0.23332737068825815,
+                "AU10": 0
+              }
+            },
+            "attention": {
+              "phase": "idle",
+              "time": 0,
+              "poseWeight": 0,
+              "expression": "neutral",
+              "smileWeight": 0,
+              "smile": {
+                "amount": 0,
+                "status": "inactive"
+              },
+              "headNoiseScale": 1,
+              "target": null,
+              "holdsGaze": false,
+              "eyeFocus": "inactive"
+            },
+            "camera": {
+              "position": [
+                0.18911853927933772,
+                1.5227790690175487,
+                0.8897327741541562
+              ],
+              "quaternion": [
+                0,
+                0.10452846326765344,
+                0,
+                0.9945218953682733
+              ],
+              "target": [
+                0,
+                1.5227790690175487,
+                0
+              ],
+              "zoom": 0.7041964696395716,
+              "aspect": 0.6348314606741573
+            },
+            "framing": {
+              "mode": "portrait",
+              "zoom": 0.7041964696395716,
+              "effectiveFov": 36.303075941379745,
+              "boundsAtUnitAspect": {
+                "minX": -0.817392910599199,
+                "maxX": 0.3773079974449421,
+                "minY": -0.5101225959479314,
+                "maxY": 0.8545925091687816
+              },
+              "skinCount": 4231,
+              "headFloorY": 1.4349272982560242,
+              "includedCardVertices": 17360,
+              "excludedLowerCardVertices": 156,
+              "cardEdgeIntersections": 346,
+              "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+              "gutterPixels": 16
+            },
+            "lighting": "studio",
+            "selected": [],
+            "paused": true,
+            "releaseDisabled": false,
+            "expressionStatus": "Resume motion to ease toward neutral.",
+            "attentionStatus": "Resume motion to try attention.",
+            "focused": "release-expression"
+          },
+          "canvas": "mobile-determined-release-still-paused-canvas.png",
+          "ui": "mobile-determined-release-still-paused-ui.png",
+          "sha256": {
+            "mobile-determined-release-still-paused-canvas.png": "ca810327e009429eaee5ec37d3aa9d2688ab365cbb78fd7348d9c84138e1870c",
+            "mobile-determined-release-still-paused-ui.png": "9ac6cc05283361292a06a72623d528e37cfb9b34fe6bea2beaf9a0d496edc435"
+          }
+        },
+        {
+          "label": "release-resumed-2.5s",
+          "state": {
+            "clock": 4.999999999999988,
+            "backend": "webgpu",
+            "target": {
+              "pleasure": 0,
+              "arousal": 0,
+              "dominance": 0
+            },
+            "pad": {
+              "pleasure": 0,
+              "arousal": 0.1358433710745918,
+              "dominance": 0.28397966353350756
+            },
+            "emotion": {
+              "pleasure": 0,
+              "arousal": 0.13167670440792512,
+              "dominance": 0.2798129968668409
+            },
+            "mood": {
+              "pleasure": 0,
+              "arousal": 0.004166666666666671,
+              "dominance": 0.004166666666666671
+            },
+            "face": {
+              "aus": {
+                "AU1": 0,
+                "AU2": 0,
+                "AU4": 0.038691173792043565,
+                "AU7": 0.015476469516817427,
+                "AU9": 0,
+                "AU5": 0.05120481582084542,
+                "AU6": 0.038691173792043565,
+                "AU12": 0,
+                "AU15": 0,
+                "AU43": 0
+              },
+              "morphs": {
+                "browDownLeft": 0.038691173792043565,
+                "browDownRight": 0.038691173792043565,
+                "eyeWideLeft": 0.05120481582084542,
+                "eyeWideRight": 0.05120481582084542,
+                "cheekSquintLeft": 0.038691173792043565,
+                "cheekSquintRight": 0.038691173792043565,
+                "eyeSquintLeft": 0.015476469516817427,
+                "eyeSquintRight": 0.015476469516817427
+              },
+              "mouthCornerOffset": {
+                "smile": 0,
+                "frown": 0
+              },
+              "speechOwned": {
+                "AU25": 0,
+                "AU26": 0,
+                "AU10": 0
+              }
+            },
+            "attention": {
+              "phase": "idle",
+              "time": 0,
+              "poseWeight": 0,
+              "expression": "neutral",
+              "smileWeight": 0,
+              "smile": {
+                "amount": 0,
+                "status": "inactive"
+              },
+              "headNoiseScale": 1,
+              "target": null,
+              "holdsGaze": false,
+              "eyeFocus": "inactive"
+            },
+            "camera": {
+              "position": [
+                0.18911853927933772,
+                1.5227790690175487,
+                0.8897327741541562
+              ],
+              "quaternion": [
+                0,
+                0.10452846326765344,
+                0,
+                0.9945218953682733
+              ],
+              "target": [
+                0,
+                1.5227790690175487,
+                0
+              ],
+              "zoom": 0.7041964696395716,
+              "aspect": 0.6348314606741573
+            },
+            "framing": {
+              "mode": "portrait",
+              "zoom": 0.7041964696395716,
+              "effectiveFov": 36.303075941379745,
+              "boundsAtUnitAspect": {
+                "minX": -0.817392910599199,
+                "maxX": 0.3773079974449421,
+                "minY": -0.5101225959479314,
+                "maxY": 0.8545925091687816
+              },
+              "skinCount": 4231,
+              "headFloorY": 1.4349272982560242,
+              "includedCardVertices": 17360,
+              "excludedLowerCardVertices": 156,
+              "cardEdgeIntersections": 346,
+              "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+              "gutterPixels": 16
+            },
+            "lighting": "studio",
+            "selected": [],
+            "paused": false,
+            "releaseDisabled": false,
+            "expressionStatus": "Returning gradually toward neutral.",
+            "attentionStatus": "Ready when you are",
+            "focused": "pause"
+          },
+          "canvas": "mobile-determined-release-resumed-2.5s-canvas.png",
+          "ui": "mobile-determined-release-resumed-2.5s-ui.png",
+          "sha256": {
+            "mobile-determined-release-resumed-2.5s-canvas.png": "e6862d4df3e4ad636a5b2e41cc278dbae086e384ef6a83a9a91ca67540861551",
+            "mobile-determined-release-resumed-2.5s-ui.png": "be2265085c72fdf63203dac9643254e1e8f70111ecd18985797e1f18e1ff511b"
+          }
+        }
+      ],
+      "initial": {
+        "clock": 0,
+        "backend": "webgpu",
+        "target": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "pad": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "emotion": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "mood": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "face": {
+          "aus": {
+            "AU1": 0,
+            "AU2": 0,
+            "AU4": 0,
+            "AU7": 0,
+            "AU9": 0,
+            "AU5": 0,
+            "AU6": 0,
+            "AU12": 0,
+            "AU15": 0,
+            "AU43": 0
+          },
+          "morphs": {},
+          "mouthCornerOffset": {
+            "smile": 0,
+            "frown": 0
+          },
+          "speechOwned": {
+            "AU25": 0,
+            "AU26": 0,
+            "AU10": 0
+          }
+        },
+        "attention": {
+          "phase": "idle",
+          "time": 0,
+          "poseWeight": 0,
+          "expression": "neutral",
+          "smileWeight": 0,
+          "smile": {
+            "amount": 0,
+            "status": "inactive"
+          },
+          "headNoiseScale": 1,
+          "target": null,
+          "holdsGaze": false,
+          "eyeFocus": "inactive"
+        },
+        "camera": {
+          "position": [
+            0.18911853927933772,
+            1.5227790690175487,
+            0.8897327741541562
+          ],
+          "quaternion": [
+            0,
+            0.10452846326765344,
+            0,
+            0.9945218953682733
+          ],
+          "target": [
+            0,
+            1.5227790690175487,
+            0
+          ],
+          "zoom": 0.7041964696395716,
+          "aspect": 0.6348314606741573
+        },
+        "framing": {
+          "mode": "portrait",
+          "zoom": 0.7041964696395716,
+          "effectiveFov": 36.303075941379745,
+          "boundsAtUnitAspect": {
+            "minX": -0.817392910599199,
+            "maxX": 0.3773079974449421,
+            "minY": -0.5101225959479314,
+            "maxY": 0.8545925091687816
+          },
+          "skinCount": 4231,
+          "headFloorY": 1.4349272982560242,
+          "includedCardVertices": 17360,
+          "excludedLowerCardVertices": 156,
+          "cardEdgeIntersections": 346,
+          "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+          "gutterPixels": 16
+        },
+        "lighting": "studio",
+        "selected": [],
+        "paused": true,
+        "releaseDisabled": false,
+        "expressionStatus": "Resume motion to see expression changes.",
+        "attentionStatus": "Resume motion to try attention.",
+        "focused": null
+      },
+      "layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "button": {
+          "left": 23.390625,
+          "right": 366.609375,
+          "width": 343.21875,
+          "height": 46.5
+        },
+        "note": "Resume motion to ease toward neutral."
+      },
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      }
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Two selected native UI scenarios, Warm desktop and Determined mobile with reduced motion.",
+    "Expression target release retains the existing emotion and mood clocks. It is not a fresh neutral baseline.",
+    "Saved stills and behavior qualify review usability, not determination, emotion recognition, all-motion quality or performance."
+  ],
+  "hashesStable": true,
+  "complete": true
+}
