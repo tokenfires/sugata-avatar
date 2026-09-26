@@ -1,0 +1,96 @@
+{
+  "kind": "read-only-wardrobe-colour-customization-design",
+  "date": "2026-09-26",
+  "status": "design only; not implemented or native qualified",
+  "sources": [
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 394,
+      "sha256": "88ace8aea37370d3bb3e6fbf2a8e84872854a3ae453b48e931a5aae8a76afa1b"
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7301,
+      "sha256": "b896ec3978130374a04760e576d61d1f049abc32a4cc9f592ad7f57fba75ee5a"
+    },
+    {
+      "path": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4605,
+      "sha256": "696d0602055b4890e487ded4dd087d8d8466fb629f3247588bcfc74353a61437"
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 48776,
+      "sha256": "d890af1ff1f26eb836d59f2dc83137a3d414a59fe027186494d5bfc62aa9aa14"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 249944,
+      "sha256": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 5787,
+      "sha256": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3150,
+      "sha256": "cd8f27aba2fce99bd7343b9fcf91e5ab4aeaeac4d70f117a3ddacc28c5a38d08"
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 5843,
+      "sha256": "6e223be74c389559590310543085b7f6fbc15f75d2255b145e98ecdbb0095aa5"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 24229,
+      "sha256": "1cf5c6943b94ca2a62c38d16269a501748bcabe05660d670e9196ec24eeaa278"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 15831,
+      "sha256": "487436a733aeb9b7d1e27969e7388e24e70acd131af7aab4448f677e524ddd33"
+    },
+    {
+      "path": "packages/testbed/src/showcase-palette-references.mjs",
+      "bytes": 4963,
+      "sha256": "60163e41d9a228974ebecd69d29aedb63560815f9f3a28b586c8959542e1db00"
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyles.selftest.mjs",
+      "bytes": 9785,
+      "sha256": "ed461635af7928453554be056d8c430040c3379b1ddbd985ec8ccbbe4b812b99"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 5754,
+      "sha256": "f5cc4384515e382ee2c84e758c836491201ed2cbbba460adbf08a8853d3e1724"
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 6093,
+      "sha256": "c5973faef5156e6a09bedbf0a590d820836e5a36563d8b983a03d2c4debddad7"
+    },
+    {
+      "path": "docs/WARDROBE-COLOURWAYS-2026-09-13.md",
+      "bytes": 8344,
+      "sha256": "68643834e7ef3151583b541a80962c8478e6fd0114bd0058faaf76b411fd6d4e"
+    },
+    {
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 280467,
+      "sha256": "077a12ea577f6b6665179a4150f7c58709ea84361b49a9fecea65daf1c017418"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 10019,
+      "sha256": "67e41482210453f22463c6e3cda21eb901b9741fbe36315e482842d608b88ed8"
+    }
+  ],
+  "limits": [
+    "No new test execution claimed. Existing test sources were inspected for extension points.",
+    "No product/core/assets edited; no browser or GPU launched."
+  ]
+}
