@@ -1,0 +1,733 @@
+{
+  "completed": true,
+  "reportSHA256": "17ab2f601b2e921ac47ae23739805be870de0c21526aa6a52daf36bb5442730f",
+  "gzipSHA256": "3545a7c98e195ee80ac915a7a8b407e12243c69e7d141dd40bb7d52e7ac191da",
+  "manifestSHA256": "17e1d1e9e5d71987cb1a66eb1dc3b5b8ce8653d7d006b073389bc1d19b5de871",
+  "sourceCount": 1587,
+  "geometrySamples": 21,
+  "ownerStateSamples": 721,
+  "windowSteps": [
+    585,
+    586,
+    587,
+    588,
+    589,
+    590,
+    591,
+    592,
+    593,
+    594,
+    595,
+    596,
+    597,
+    598,
+    599,
+    600,
+    601,
+    602,
+    603,
+    604,
+    605
+  ],
+  "reference": {
+    "directory": "captures/hand-candidate-2026-09-26/candidate-primary-v3",
+    "manifestSHA256": "a4bd27fcef48d9efb2cdcd71d7df3c2523d4e2b2416e6002a834c56efa382515",
+    "reportSHA256": "34305cf143306ae7818c159159e2eb7aa1514992da696cc8a27b948467b0b877",
+    "sealSHA256": "d618a3351565738fa2b95ffb0df6b760bc44ae8ce55a6da393910da3c687de8f",
+    "states": {
+      "file": "states.json.gz",
+      "sha256": "4d8cd39cc33b403e1ae1017c84d5e427e8fa8d84e5a81d392e6f450d7e91d133",
+      "decodedSHA256": "9f9bdad8a12c5cdb14922d8c58fb9027f24b0a6cc6898cf62cffe7e4b0847bfe",
+      "count": 721
+    },
+    "overlapSteps": [
+      590,
+      591,
+      592,
+      600
+    ],
+    "cameraReferenceStep": 590,
+    "geometryInputs": [
+      {
+        "step": 0,
+        "file": "meshes-0.json.gz",
+        "sha256": "6f8b80a3ecda03b776290b4d2d569e4458fdb507117ee014cf29020f10e66024",
+        "decodedSHA256": "b0ec495d11b15a8d1868ea7b893dfb0d7d2fd56abc4799de574beb2b104f6366"
+      },
+      {
+        "step": 1,
+        "file": "meshes-1.json.gz",
+        "sha256": "21aeaccfa9bd24c827a1bb2d3a389030c55ca05caf41acd44676065fc659bce3",
+        "decodedSHA256": "c7d40a3874eb606354fa25d01d9212865a24d2352854ecdef96360b345b737bb"
+      },
+      {
+        "step": 30,
+        "file": "meshes-30.json.gz",
+        "sha256": "d86aad5733d015e4a9217c32c564d0e567dde96a85e76ee9b28f9c76bbc61f97",
+        "decodedSHA256": "034b5bf70377102e2f8da5ec8b94bb21fd5a3b5d2f8e8d5a8e943c9d04e38e6e"
+      },
+      {
+        "step": 54,
+        "file": "meshes-54.json.gz",
+        "sha256": "6b50609e03be455209b47a88ad095b53aa74ae5fe6b4e0af6b4e13f764e69c3b",
+        "decodedSHA256": "ea2093e7f54948708b5178fa3f20a1b3f26010fe252cc213ec750a03e8a128fa"
+      },
+      {
+        "step": 55,
+        "file": "meshes-55.json.gz",
+        "sha256": "ea9e711455084bc8cf98f1a59e8a0304c906be59b3c555b426267580a3339866",
+        "decodedSHA256": "f9c67ff790b6f7d5886ba04a13482008d567d757f228098ff21f1edf08263827"
+      },
+      {
+        "step": 56,
+        "file": "meshes-56.json.gz",
+        "sha256": "781de59cf2eb516e6dd477f0c2947d5c957d56afcd3c38b35a07c69813604d87",
+        "decodedSHA256": "924a96043c559ea2607473bb894f32b82dd853e2f91f20f9ef1e86bd6c6245cb"
+      },
+      {
+        "step": 60,
+        "file": "meshes-60.json.gz",
+        "sha256": "df0bfd16c1e63998005f4b1cd8fc57df17ebbc1fbe3ac4f4504d9a97d7ad0c55",
+        "decodedSHA256": "d11ebad386259cd23c3000f5492c12aae6f75c6283e2e48a8aeeefdd6e0b74b4"
+      },
+      {
+        "step": 89,
+        "file": "meshes-89.json.gz",
+        "sha256": "82bfb9d497ea14279cabc06fd9341d42fd99c5449be5206fda2b43132ba8bced",
+        "decodedSHA256": "eda7595562f5e8bfd62430908c0340034d8722697b89fc8bad088e0897e69c38"
+      },
+      {
+        "step": 90,
+        "file": "meshes-90.json.gz",
+        "sha256": "946d66cfbf0fddd267567168ecfd62377920a6bc0485b45516f4ce8d3d9258b9",
+        "decodedSHA256": "9cde61414bbee5cf6b063b210b244881725a411cefff5278538f3073dc8fbf80"
+      },
+      {
+        "step": 91,
+        "file": "meshes-91.json.gz",
+        "sha256": "cde372b5e67aea8804a2e1898f16bd68be3ca7e56c3016915f7443c999419663",
+        "decodedSHA256": "2c9701159b18d1a6b7db96070daf72838630375f38803e5d4d4d22ff3d4ce980"
+      },
+      {
+        "step": 92,
+        "file": "meshes-92.json.gz",
+        "sha256": "b911cddad763177cbead8c2fce8ee0d79459395427784f62166dc6343f70b4eb",
+        "decodedSHA256": "687d93405491f0da45600959f8b89ad3565267c68acebd6def4dda5a69d6efd6"
+      },
+      {
+        "step": 93,
+        "file": "meshes-93.json.gz",
+        "sha256": "e471ce33626855f7aa487cdde34e9fc040eb0ec715a63835b7a4626a52337dfc",
+        "decodedSHA256": "576c93f238d9dc7cd6b60f35ea5a6268e029c91f16b2df6c84223a92cc288451"
+      },
+      {
+        "step": 96,
+        "file": "meshes-96.json.gz",
+        "sha256": "f9fde942c2a6bb1b4d44f085a68375971c7362b441339810d4daf8a81322b897",
+        "decodedSHA256": "bc639ebb23ab1e7af2c85678f0952517171f11de2cb96423dfbff0c38d920e20"
+      },
+      {
+        "step": 97,
+        "file": "meshes-97.json.gz",
+        "sha256": "49d827bb027044bb04ea70ea5d218b02c7f976604432b4112d6f0fcdacadd0e8",
+        "decodedSHA256": "d5972720508f3ca83b6f4750a52f066ad4bf4a840eaeed476b1ea93eaa8c806b"
+      },
+      {
+        "step": 98,
+        "file": "meshes-98.json.gz",
+        "sha256": "38ff633888abd2aabd3a2ece5d390feca2bfa593bd45d725f48e6b02839f2747",
+        "decodedSHA256": "ec6157507073f3e0f65069d2fdc5aaa0fd633076826fb3acd26b120dcbdd7419"
+      },
+      {
+        "step": 99,
+        "file": "meshes-99.json.gz",
+        "sha256": "afdb4ff7cb152d400c34a83523e926ba3d6143c32220216f99f4a988bb100068",
+        "decodedSHA256": "682512f7b603efa6f8b4c94c0f274fad1470154db578694022d2845da8f813b6"
+      },
+      {
+        "step": 100,
+        "file": "meshes-100.json.gz",
+        "sha256": "be9f350b4e3afe4d4806d8b75c1989bd6c585b3a6154915cd8335488b87b22ba",
+        "decodedSHA256": "35c93fd047789cb0fd5556727f65c9db723f02f06a2360dc7c2948eae00c70b2"
+      },
+      {
+        "step": 107,
+        "file": "meshes-107.json.gz",
+        "sha256": "7b9679a5aa1aabd28b4aeaccfdf28b8a61ee37029aa0b3f4efee485d6ab44166",
+        "decodedSHA256": "94b4255fdc3d424929977d321472d512749a18c37e8b15a794a920059bf3a6d8"
+      },
+      {
+        "step": 108,
+        "file": "meshes-108.json.gz",
+        "sha256": "6c40577d413ffcd3b073d5a55a7420889ab0f1ded060e152a0f3628d29134615",
+        "decodedSHA256": "f18323d610f3f465eaf22a437a4b7de6367fd44dad1cd97d659fb43765e95e8c"
+      },
+      {
+        "step": 109,
+        "file": "meshes-109.json.gz",
+        "sha256": "eabf48d4abd3bcc4276a6bab7432c2d38be77050b1cec222865defd50f610afb",
+        "decodedSHA256": "a81eadbb36376cf476b36b1c56577bd5f25655f0ca2ac2cab628e874d5308b74"
+      },
+      {
+        "step": 110,
+        "file": "meshes-110.json.gz",
+        "sha256": "391885bd83ba56a8c4e05d0b6c1640c5235895b29abef2d18c2e752ec76ca355",
+        "decodedSHA256": "baeb0d1ca99f80bb55c516bd1a09639194d07cba4e7025943010f6e583fe0fcc"
+      },
+      {
+        "step": 111,
+        "file": "meshes-111.json.gz",
+        "sha256": "a4c2417c83a2d254181786ea272f03f48c993f9b7aa3391cb7f6a552e7ae164b",
+        "decodedSHA256": "6589674ff8b7257fce6591b2c7bd793aa3c94eba5934d21be27d5a28b5e87524"
+      },
+      {
+        "step": 120,
+        "file": "meshes-120.json.gz",
+        "sha256": "7ec608745fdd6d6b528e5ef6330a227d9502b947374f2606dd6cb3a0bc087bb0",
+        "decodedSHA256": "988f5940fee6bfa2c161f03d7efd705a125f7484eaddbcf655957df480c542fb"
+      },
+      {
+        "step": 141,
+        "file": "meshes-141.json.gz",
+        "sha256": "756fa050f41b33b3155d8eec19d7d217a9efec7273ef072ba7f66577becc4cde",
+        "decodedSHA256": "f7d3d475fdb1744c42b4409cd4d503a80d4d1a3859a7120edaa7e84ca3e0c5ee"
+      },
+      {
+        "step": 142,
+        "file": "meshes-142.json.gz",
+        "sha256": "d5e4b2cafaba77e61e30819f19f6a163961146ac085f671bce710e07f5e85fd6",
+        "decodedSHA256": "8bbfcd0934a3a86365c154bb0675a39668c6f85cbac6110d848bf4b827f0f0d5"
+      },
+      {
+        "step": 143,
+        "file": "meshes-143.json.gz",
+        "sha256": "d364087d801cc07b2bdbf90b4fcebb5d3a37229efcc5a06e2fc9e44efc25ba29",
+        "decodedSHA256": "067f75f787e4cb38565bbafb5ff280707cc4474f15ef7a9763ef6096f6a59f11"
+      },
+      {
+        "step": 150,
+        "file": "meshes-150.json.gz",
+        "sha256": "769adbdd5bda8c7ab40f421e6b82d2a25244def656898195bec82393f4067a92",
+        "decodedSHA256": "02ee511e78b6d7b637fd76ddb63549dfb102fb1ccb6a2a4dac8a3e5219735ca6"
+      },
+      {
+        "step": 180,
+        "file": "meshes-180.json.gz",
+        "sha256": "3792c63a6f43232df2caeddd006899ad9e94f9175ca7a425abfc24ae3dedd71d",
+        "decodedSHA256": "df75123fdcaf087956e059a4b2b5e0c446cbcd52d758c1c7207f556f6950437e"
+      },
+      {
+        "step": 210,
+        "file": "meshes-210.json.gz",
+        "sha256": "f0446312f3a919e6ec4c1ce93bfab87908da298a97d9af515835b61393158ef4",
+        "decodedSHA256": "10c757a3b896438aea01f3f4133f418ed13779488ee92b227092c10dad21b999"
+      },
+      {
+        "step": 225,
+        "file": "meshes-225.json.gz",
+        "sha256": "eab4453ab89d5baa4c322952ae47181af437473ca6b509147ff4da89234f7f7f",
+        "decodedSHA256": "b1f2564211488060874a6e81b29fbe43bd8a1549ffcff514d38a4446f0a3b7a0"
+      },
+      {
+        "step": 226,
+        "file": "meshes-226.json.gz",
+        "sha256": "72480223d987dd3b91de89c5d3ed38f9411ddc30d214fd3a7cda2beabe3c4aa6",
+        "decodedSHA256": "6b881686d6d7fcae9d5eedca8ca0786593fa796c64852c699dd74c230db12a16"
+      },
+      {
+        "step": 227,
+        "file": "meshes-227.json.gz",
+        "sha256": "4f8438b46b12b8bdb14dd77330fa057c668bd425ddbe7e90b1e7d6ebf3b00103",
+        "decodedSHA256": "5fb456ba74f10cdeb0c586d9928a2c9a87d5395cf41b2299847309b76b94d165"
+      },
+      {
+        "step": 240,
+        "file": "meshes-240.json.gz",
+        "sha256": "bd28a240993b77a261c6f2e70b30d822c23a20d6f5bacd008bb67404c3e2ebd9",
+        "decodedSHA256": "fc5fc52506c122b9c2879816617d47964388b5bb6d07e4cf710c097cff9b246e"
+      },
+      {
+        "step": 262,
+        "file": "meshes-262.json.gz",
+        "sha256": "babae5b0b63d610a5bb54b83aa88e56ed2b5e8118ad3dd6702059595b470b8c9",
+        "decodedSHA256": "739228e95d856f899d34ac7cbd30ecd6793b05a79d3e6c914dff6693b3371298"
+      },
+      {
+        "step": 263,
+        "file": "meshes-263.json.gz",
+        "sha256": "c45d8cdf6e6c685ec1b2f9729e70d3adfabb29945ca766a3a9851dbb2e529165",
+        "decodedSHA256": "eea19c2c685e97c5ad7c9a249d14b327ef0bae11f7d6f0137a2dd583fd52fbeb"
+      },
+      {
+        "step": 264,
+        "file": "meshes-264.json.gz",
+        "sha256": "7a48007eab511825d05816445d771372985b8a414101d32a95047070e3beb92c",
+        "decodedSHA256": "8e965e0873e693c37ee45d963b9555fb24b88a6ab9cb1424705349b6108846c9"
+      },
+      {
+        "step": 265,
+        "file": "meshes-265.json.gz",
+        "sha256": "7d317ba748cd132abcf1f69cc80d552bf588c0107680522b2cf7582dc30e37b8",
+        "decodedSHA256": "16052d1f68a35b9577ab759d16921eed77e4a0cf22ebda29424e5f5a10f338c7"
+      },
+      {
+        "step": 266,
+        "file": "meshes-266.json.gz",
+        "sha256": "9dcdde6ab7e264756b4eb633480c8ea97fb4881710e8028eb99db35ff64e334b",
+        "decodedSHA256": "3020317ab201d935b49c578d42ff6185a56bfaeb242b1dce26f9607977eac069"
+      },
+      {
+        "step": 268,
+        "file": "meshes-268.json.gz",
+        "sha256": "ea3800ea3adac59d696bc9d3f51ecf701284d8a5d5fadba31bb7006284a4e860",
+        "decodedSHA256": "b4e0aa1d9d067a5e81f3c61fb232580fcfa19b5a47b09ab695004f39116b823c"
+      },
+      {
+        "step": 269,
+        "file": "meshes-269.json.gz",
+        "sha256": "d68bbe5bf9ccf3bf22c3cfdd1629e82ab98dcda8364b2506f8611139c3f46b85",
+        "decodedSHA256": "00f569de0251499b7338dc748a7b6a9d87f7d5e1042f4caa17619300aa046546"
+      },
+      {
+        "step": 270,
+        "file": "meshes-270.json.gz",
+        "sha256": "ffcacdf542760dca40a4a9e7cb6083ff8697a07b80d8fba3d1c1719e247ff75c",
+        "decodedSHA256": "e5741fac22665140620e1b5b778958d33706f41730b2a3b28e78e0e2863eb62f"
+      },
+      {
+        "step": 271,
+        "file": "meshes-271.json.gz",
+        "sha256": "b91ff6f1c4efd81fbfab08e0ed86039675cc547eac53d18beddb9b745633841b",
+        "decodedSHA256": "923563475a04262af0f9e69c99e059960d4d89983345a9b192d4af0a2f6662af"
+      },
+      {
+        "step": 272,
+        "file": "meshes-272.json.gz",
+        "sha256": "c1e9c4ac541642fb591e91ec132762191c2f6491f373e372bca4a2edaa3f7e9a",
+        "decodedSHA256": "595efbf429d47d0b4735b17cfcae9406cf286aef144b1aa799c0c9470852e1d5"
+      },
+      {
+        "step": 279,
+        "file": "meshes-279.json.gz",
+        "sha256": "2b23f1a7b8a54434e3a194ae6f8d719a386d3b623530a0adff21df7ebb18c97c",
+        "decodedSHA256": "931d0b2ccb52f16b5d72061fc1e8eae5cbd554b28c268fe15792dad09da6ec80"
+      },
+      {
+        "step": 280,
+        "file": "meshes-280.json.gz",
+        "sha256": "3a6d852e543a1e2a5079c6954566cbe53dc2b9c8019e7da8d88f0d61080f1269",
+        "decodedSHA256": "fe747c730eee5ea0069c0246f69b67b46ba157fa0249aac05c8919dd67c699bc"
+      },
+      {
+        "step": 281,
+        "file": "meshes-281.json.gz",
+        "sha256": "4ed1f7efad0f6a82fc493ebe4deebb16b6269583e8098371a6be2588c427c455",
+        "decodedSHA256": "94b07c510c968d122217d53422bf87eaa9c0a5d59a65ce8382a1723dd01d708d"
+      },
+      {
+        "step": 282,
+        "file": "meshes-282.json.gz",
+        "sha256": "bf71b25173a34a29a2c920dca55384688bb77843dc0a9799ffe5a419b60d5e79",
+        "decodedSHA256": "070ba9dafb5cd675aba289a857cc34d09dc1fac31bfe76eb777df4bccfa9508a"
+      },
+      {
+        "step": 283,
+        "file": "meshes-283.json.gz",
+        "sha256": "917e856ffabf428b0d6f8c6359ed494148dbfd408af8b15011c2c0579a99292d",
+        "decodedSHA256": "811b0af5a57d2232a3f4443c214fb81ab94a879c27ee7efd14b3efb22dcd8153"
+      },
+      {
+        "step": 300,
+        "file": "meshes-300.json.gz",
+        "sha256": "d16acd09bdb9ce659891bf1adc356237807e0c9d025c24540ab9d75a14f70df2",
+        "decodedSHA256": "b9a1309b1de05e00310c1512f54f5d2d1d1e26d03c4d4406ac634150fb05770c"
+      },
+      {
+        "step": 314,
+        "file": "meshes-314.json.gz",
+        "sha256": "638cabcc776c2a876e0285b11a0f77e84e0cd037478e6fee90fedd33d2512cbb",
+        "decodedSHA256": "32a39e9f80cd5b17ec77bb03a654368e98a4a5a2dc9593837438b3ae74f3c9c4"
+      },
+      {
+        "step": 315,
+        "file": "meshes-315.json.gz",
+        "sha256": "dfc214958d0d3022a29a88515762a17301ad85f27573ea24e9766ea16898e148",
+        "decodedSHA256": "8f3031694816fdf6a230652b27173f375dc2f7840827b8f844854bb5518560d8"
+      },
+      {
+        "step": 316,
+        "file": "meshes-316.json.gz",
+        "sha256": "6cc8d512edfe5dd603c47ba3563e0f53714cfe1d8b51675729097ae3c085838b",
+        "decodedSHA256": "574d835a13fb9c48541ce03466b3af5cec2f40465cfcc43f593f28f17ec5ae10"
+      },
+      {
+        "step": 330,
+        "file": "meshes-330.json.gz",
+        "sha256": "738f74cbcd853199be444da450e69eb27b4828da5efec64f68f01133f65847c7",
+        "decodedSHA256": "ee77794ab4dcc68354a2dde80e9bc07fe912e05882441aa71604967bc1d75bca"
+      },
+      {
+        "step": 359,
+        "file": "meshes-359.json.gz",
+        "sha256": "3af0bb27ba3de04da1f38c750cfda287402df399a4c0fff480119b5d3912a56c",
+        "decodedSHA256": "ab5b154dac5f332acd4d9164d5a484ee888fb27fdbf6eb9e06ac2997c78d4b85"
+      },
+      {
+        "step": 360,
+        "file": "meshes-360.json.gz",
+        "sha256": "c5d78f84b90cee820ac4bfa27ae57bf1b0386af1814e346d971a3e79a4093f7c",
+        "decodedSHA256": "d23e64dc060e56b6927ad82c3aa36d7d15bc3523d66d76508156c99f86902e25"
+      },
+      {
+        "step": 361,
+        "file": "meshes-361.json.gz",
+        "sha256": "21e28f6360f6f527b40a3a5ba14156d607d3cff9da7e7e040301e5d898aca94c",
+        "decodedSHA256": "0540a5ca7ff3847e941ba81e798db93e21f20f380d213d510819b16983ee8984"
+      },
+      {
+        "step": 390,
+        "file": "meshes-390.json.gz",
+        "sha256": "a2e5b888d72eaab2f4e640153a023c14bc1e46bb98d0427f55b84f4833ea321a",
+        "decodedSHA256": "9b3be7e6b8e184cd22a15677876886e378c0a336ca2312a88391d6650ec3bdd0"
+      },
+      {
+        "step": 416,
+        "file": "meshes-416.json.gz",
+        "sha256": "fe2bc2cd7d5de18c659111c433c9fd77ed4e0f7160c0c9d45312ee2b0c83e353",
+        "decodedSHA256": "ad33867a83c278f5b2aa00f930d1e35f69ba237919f9fa56c9bdaa8b17017c52"
+      },
+      {
+        "step": 417,
+        "file": "meshes-417.json.gz",
+        "sha256": "d8abdc9618efe1a1ae7fe8ed5e6241c91947973df840074fc3f9104412e59fc8",
+        "decodedSHA256": "5b92135c9a7c705ef52e81574ae2a49359c47a33427bed5035adc7dae540b65e"
+      },
+      {
+        "step": 418,
+        "file": "meshes-418.json.gz",
+        "sha256": "73639f6b33b7208838af6fe3642d01dffdb9e23201579f35a3f82dde9c0eb75c",
+        "decodedSHA256": "e6816aae8b97fd215c7877fb517c5d5dc488b7113397cd6901b564bf2d9de417"
+      },
+      {
+        "step": 420,
+        "file": "meshes-420.json.gz",
+        "sha256": "b27e1b11d401e4ca2b377a7037f6876ffdf324f337320757183ceb9591300c54",
+        "decodedSHA256": "a872b92b90a41306914b876917c26d3a310b7f7ca31c29221764a25ea6d4f908"
+      },
+      {
+        "step": 446,
+        "file": "meshes-446.json.gz",
+        "sha256": "b7bc344946d2e416f077762d8f3b4cd6cc9552344a3414692595d3f8c0edfcb4",
+        "decodedSHA256": "41b0c3e3803d66e70302e28bfd0bcf4867be49568664a8511f7090f17ce8eec2"
+      },
+      {
+        "step": 447,
+        "file": "meshes-447.json.gz",
+        "sha256": "1e9b333c8b4cbefc46d3f7245758e68a57c08c2fb1a8388621291f385f285172",
+        "decodedSHA256": "ee52195a8d1160350bb5d5221148b4c9f34032747614f365e3d6c431c127fd33"
+      },
+      {
+        "step": 448,
+        "file": "meshes-448.json.gz",
+        "sha256": "44c412014484d6094745b94fbcbe7007f127d8408fc8101157002ff6565fb575",
+        "decodedSHA256": "7de6279ffceaadb1b0d2a8bf66f230cccf49b6814af95b8bf49165c61b82df43"
+      },
+      {
+        "step": 449,
+        "file": "meshes-449.json.gz",
+        "sha256": "cbf39fa6dd6ff64755772064aa3427fd26d9d3a80ea52c84672ce5bb8735cf1a",
+        "decodedSHA256": "bcfc808e298debff1c4c67421b4bfdfb4674c6178befab342b115d2f9808b86c"
+      },
+      {
+        "step": 450,
+        "file": "meshes-450.json.gz",
+        "sha256": "543087b85b2a3d3d5b4299fa60e0fed5865176529a9fa0b1b7260b9d2cb8c86a",
+        "decodedSHA256": "11017a0ddb2793157c3b2d16a2fb1d5f4264a2f63cd6263a4584c977e0157980"
+      },
+      {
+        "step": 453,
+        "file": "meshes-453.json.gz",
+        "sha256": "38bf743b11f4a4afd744677c7a7412d68baae43158183dc4f9492b742963242c",
+        "decodedSHA256": "e9bbc0a8a4b6cb790a8d0884fefba2b3d45dc1c07a1aae51d41dd1e691dff648"
+      },
+      {
+        "step": 454,
+        "file": "meshes-454.json.gz",
+        "sha256": "d3b0234921696595fd73aa9224ea66eaa9999b70674d9d664ac2e6108f4e520d",
+        "decodedSHA256": "b70ff48bcf066df4fe89246a04868e0ca00da3f4e8efe0392acd9dfea769a9b7"
+      },
+      {
+        "step": 455,
+        "file": "meshes-455.json.gz",
+        "sha256": "b0b4033d5f43452ee9be61e020d02fb632113c76b69a32789bec55233d5414f9",
+        "decodedSHA256": "a26212061b134eb58d684f3d15fca09a651e654997ff04f4470c58c19fd3e96d"
+      },
+      {
+        "step": 456,
+        "file": "meshes-456.json.gz",
+        "sha256": "02a3fbde7d9ea4180973f27dfd7d44ddf9305cd1ec1ccf103cd7a7a8de2c883d",
+        "decodedSHA256": "3165d8bf61849cd7fb889624798b57d0341056fa067159077de719ba95236ef5"
+      },
+      {
+        "step": 457,
+        "file": "meshes-457.json.gz",
+        "sha256": "a031d44f848cd49e68df91626fd414f8a0225c54192d32e57a52e0982772d0e1",
+        "decodedSHA256": "37fa9b6b4885d5c71eb8c2e3cd4325eb704a8f6c60705d498c82f3620c3342ee"
+      },
+      {
+        "step": 464,
+        "file": "meshes-464.json.gz",
+        "sha256": "d3ada40d8c999fee238f9ef9093f79b98f95ab87258d33f51c629a2d6f6c1bf6",
+        "decodedSHA256": "9dd845ec3f556c6786e25744edbd0207d7938157f2a5d6aadf15070c15c857b2"
+      },
+      {
+        "step": 465,
+        "file": "meshes-465.json.gz",
+        "sha256": "de53fe4f5a71c2df8d470d448488c18b91d6172f7b8b90253cd2d59042147ef0",
+        "decodedSHA256": "eea9c1533eef04a1074ff21d8fa3cb34478d14749eec042bbc106afae704b796"
+      },
+      {
+        "step": 466,
+        "file": "meshes-466.json.gz",
+        "sha256": "031f310ea9dbd4ca92c06fec09c8acaa56cdb374f63fcd204e81ea292f63e6d4",
+        "decodedSHA256": "b48abebfeaeaae47613ce6621240d8c7289a241e241d2f2a2b67c67aa0f54a61"
+      },
+      {
+        "step": 467,
+        "file": "meshes-467.json.gz",
+        "sha256": "b3fe4fcb3d4a23bdc3a77c54f055cee7d98180e826251e7d09c510f5db387aee",
+        "decodedSHA256": "053d15f86aa743937b98014a6a6aad63dc6558a1fc899326ef5687821994c020"
+      },
+      {
+        "step": 468,
+        "file": "meshes-468.json.gz",
+        "sha256": "ecea02738a0767d8ae21acc4a319affed9a7205a5318ea7133fc71a870fe3127",
+        "decodedSHA256": "6c93641a446ac1854e708c5058dd71545fdf39077a1dc65021a4901137bb1eb6"
+      },
+      {
+        "step": 480,
+        "file": "meshes-480.json.gz",
+        "sha256": "a0f0f7874a643089737d7c4575878c7627d2da843be0cc52452f2c7cc7831e89",
+        "decodedSHA256": "d376c073cbd4d3cb31154e831ef7690e71a9711ccc033367e9b8050c7b9941d9"
+      },
+      {
+        "step": 493,
+        "file": "meshes-493.json.gz",
+        "sha256": "42d32f89f56aa388c2fb84419d815a0303a38cc64c492b8144223fab09c5c64c",
+        "decodedSHA256": "a4ea74d659259652e5b5facfc9d458f8e3a7267e1bb71472274c6c96e2f6335a"
+      },
+      {
+        "step": 494,
+        "file": "meshes-494.json.gz",
+        "sha256": "3aa2574303688d5d29a2a526918f13b768e69392a78f8f34e59bab39742004b6",
+        "decodedSHA256": "e1ecc16d4b4eb7cf2303ec3f604e9e17701fc34e69c0778c35ec2e8c0c7b9b0c"
+      },
+      {
+        "step": 495,
+        "file": "meshes-495.json.gz",
+        "sha256": "813630e264d762d838b71369f92d42073225aff97b490e34a0e51a6c9876ef79",
+        "decodedSHA256": "43aa8a3e8938f28b8f2a8a8531330826f57a80f05b3c3af8ee5d784d71de6fbc"
+      },
+      {
+        "step": 510,
+        "file": "meshes-510.json.gz",
+        "sha256": "f4ffd5962afc9f990281c1172b910b369eeafd544d208aa8e0c3864a7723a6c6",
+        "decodedSHA256": "699fc84d9fcc6097695401c5df2261f3e08242a12e86ac907250a2e2bd3770b4"
+      },
+      {
+        "step": 540,
+        "file": "meshes-540.json.gz",
+        "sha256": "c6491031e94dc4f23f08af50500f60270b0b889200dc9f7329f9b575ea752fa6",
+        "decodedSHA256": "ae79a5e84444d74d6f4c5e815c30f08f3f6930110301b69df2fe9095afdeffad"
+      },
+      {
+        "step": 570,
+        "file": "meshes-570.json.gz",
+        "sha256": "af9cee729f63654a47f1400c7cc97972e8ceb1941edfb775cb52f11feeac50f8",
+        "decodedSHA256": "99778fe244ba11f5965db1c1b258a0c8fd73b90f5f05c2ef40b6d57f39542e2e"
+      },
+      {
+        "step": 590,
+        "file": "meshes-590.json.gz",
+        "sha256": "74ad66c7cff80c0ac90ac6d75707f76eb18b296969a945557b3bf5a889660112",
+        "decodedSHA256": "a641139a1015495ea18e4c30bc6997e3a7277dc0bc07699ce1be9e6a3f81a28a"
+      },
+      {
+        "step": 591,
+        "file": "meshes-591.json.gz",
+        "sha256": "5336c011e80310fafe11a30e3eeb40b48d3983c7946904b865a23c962c6ced49",
+        "decodedSHA256": "6f7a39a9466c2033b10efccb054a887c05f3a4297ca8757024fcca9cf8e2319f"
+      },
+      {
+        "step": 592,
+        "file": "meshes-592.json.gz",
+        "sha256": "9fc9a57697716f99d3bf329759b3ec87a9bc584643046805364774bcf91c58c4",
+        "decodedSHA256": "ccbe5d4588f3d435f441c5db091e8ac075fc1ff4572457f3f994f6f36160d0c2"
+      },
+      {
+        "step": 600,
+        "file": "meshes-600.json.gz",
+        "sha256": "496adb4c1bfbb2f22c7a8e95c9d346c2992acc2217c2a1b37c1e658aedcbff95",
+        "decodedSHA256": "01843a64183fa8a179d816769a7bb4686ad49f647dd0221dfeeeb08c42a2e665"
+      },
+      {
+        "step": 628,
+        "file": "meshes-628.json.gz",
+        "sha256": "6d248095180fcdeec4ef6b869fd7a5bc87b25b1c2f4738568de96af064d2c26b",
+        "decodedSHA256": "30b4a763c092739a9e172afa86689ae4a502dd0b99627759d31bf0b95e13ae47"
+      },
+      {
+        "step": 629,
+        "file": "meshes-629.json.gz",
+        "sha256": "d1804fbe86776ed21629a159b177938fed979b6dafc249e9507b806ee909efaa",
+        "decodedSHA256": "0f1c52cbb5bef26c8f2a40a3cbad4ca2604bfdd822706b78a3dbd00aeaa3a526"
+      },
+      {
+        "step": 630,
+        "file": "meshes-630.json.gz",
+        "sha256": "b6b84155c075cdb6f22427d442c2dc8e7867d7f9df70db075e342da8e00c35a3",
+        "decodedSHA256": "af3762b64a3855871f875f8a9588588ac818aae587343e3c1f6e976640527972"
+      },
+      {
+        "step": 631,
+        "file": "meshes-631.json.gz",
+        "sha256": "04a04aff5f8fc329b1869799e1e1abff605237777f37fb454a5ac53727d43528",
+        "decodedSHA256": "198fb95b393a4eed95e4590f37b20450825a1bacc1003c20319bd3634bedfc93"
+      },
+      {
+        "step": 632,
+        "file": "meshes-632.json.gz",
+        "sha256": "0095eff00933290141628a11496e515fbdd036314fa323c61557fd7aa841b41b",
+        "decodedSHA256": "ac9cb44ac136766eb2c3defc200ca6857edba6a424c1964b024deb207f1f2b52"
+      },
+      {
+        "step": 635,
+        "file": "meshes-635.json.gz",
+        "sha256": "f55db5da112bc7c17c2b53e8b4eb27c47f9ce9529ab83df08771d1c71ef0a1e6",
+        "decodedSHA256": "3e1fdc0a8315cac3464a5419a818d5be611ef5cae47448a86c079e401efd78ec"
+      },
+      {
+        "step": 636,
+        "file": "meshes-636.json.gz",
+        "sha256": "afdcdf3eccb741f92847fc02801be17e99fb9c69e5ea01cafadd54e8576427ba",
+        "decodedSHA256": "509a8409fa08112cef0422aad16e444bad9382bf3cf9d5c9436b99e485fafe22"
+      },
+      {
+        "step": 637,
+        "file": "meshes-637.json.gz",
+        "sha256": "a18264634e5ebbe6bbc3a3e69d28e0fe4d0ef197a8fef7cbefd43bc069ebcfb4",
+        "decodedSHA256": "06b567fd70355d429a23db4f8a9becbfbc4d50fc1a05ac597337edc809396789"
+      },
+      {
+        "step": 638,
+        "file": "meshes-638.json.gz",
+        "sha256": "f9934d7bca45bba0953e7623d015d696bfadc4cbf455429be365748097a0baa1",
+        "decodedSHA256": "cb9623d5468e0e254d327d7a9ac0b06d5b19561cce294c6741f3dd210db79d59"
+      },
+      {
+        "step": 639,
+        "file": "meshes-639.json.gz",
+        "sha256": "0533005c3cf3e23e5a1082ab786293132354103c65f26f7d2ce16c4f7365a486",
+        "decodedSHA256": "305e02b45ba94a62fdcc868039550445937cd631292427c9493aabdf07c11347"
+      },
+      {
+        "step": 645,
+        "file": "meshes-645.json.gz",
+        "sha256": "c6bcb42e0169107263bf419ae5c0e4b52913ee782b73b2e5029975fae0c7e357",
+        "decodedSHA256": "4de1abe2aecc5aea0df1cad7fee71cb1f39ff5a4d0d6e3c7288dbef620d914cb"
+      },
+      {
+        "step": 646,
+        "file": "meshes-646.json.gz",
+        "sha256": "5f81694305905408c048757ea02028112841e5d6d4439c01d27deef107a42893",
+        "decodedSHA256": "bcee36a7017878fb66e906c7babeb8e4c7e0ca96ee1409e18b8c83b891570278"
+      },
+      {
+        "step": 647,
+        "file": "meshes-647.json.gz",
+        "sha256": "4c7fe8cfe407629f71f38430f0137c10bbdbef4ca8e34f1e66edb6439bdf1b79",
+        "decodedSHA256": "988cb9529299dcf60b84d533a56f189aebee91271be4e3c097ac6632e0ee5285"
+      },
+      {
+        "step": 648,
+        "file": "meshes-648.json.gz",
+        "sha256": "e369384013a55ca44d7d92398ffca5eab62b53a06b788feccd78ada317f47fd9",
+        "decodedSHA256": "2b8d5400c4947b86af84b025937e786723c532c84a86107ca707ad319cb42ca5"
+      },
+      {
+        "step": 649,
+        "file": "meshes-649.json.gz",
+        "sha256": "f4e4f4a503e28af67fe9be41ae6eaad4e035830e222c24b4f46f694613059089",
+        "decodedSHA256": "e33b2327296c3dce7de6e1e1e7ab6b8731aab6aa29f62ec9d9b8a2b15e93ef77"
+      },
+      {
+        "step": 660,
+        "file": "meshes-660.json.gz",
+        "sha256": "565aea39bdfeb38e08d2338f8bd681fdea1515a73a3059e94d7ec76a50ff88c3",
+        "decodedSHA256": "0183913eadb49352ce98331458fbf86de4b54bf36a9007bf5eb6d7c2d3042bc4"
+      },
+      {
+        "step": 682,
+        "file": "meshes-682.json.gz",
+        "sha256": "e86ffb59183565e64bd0f68d49e079a71d35f82f32cf41fcae8910be3701bd2b",
+        "decodedSHA256": "60b9924ed2789705f72676a05c51f0b49ec0e293453a2347305c6253410d45c1"
+      },
+      {
+        "step": 683,
+        "file": "meshes-683.json.gz",
+        "sha256": "6364a73688028e8226ac491bc9d9897261336e8d34036462c42778170470e33c",
+        "decodedSHA256": "a86d4ad7199c496bd4853b0d2ac87b96efd108748facf3497d908d2715771d6f"
+      },
+      {
+        "step": 684,
+        "file": "meshes-684.json.gz",
+        "sha256": "51e4ac01549014a010c4f7a66528ff7ce9512579f09fabd198311497465a793b",
+        "decodedSHA256": "988b86f55ba04c5ba2372e735e0e0a9539eb570ccf808c5dfba74a5554f7063d"
+      },
+      {
+        "step": 690,
+        "file": "meshes-690.json.gz",
+        "sha256": "470a7643ace7acc7bb1a7592623f274b8e9d18d0d1d1536193147832099711a9",
+        "decodedSHA256": "ab0f1b578dad78ef023bcc67cff2f3cc4c90efce9178ed91787d25f73fcdd78e"
+      },
+      {
+        "step": 719,
+        "file": "meshes-719.json.gz",
+        "sha256": "18320f597fee180c8a54af00b4fa105b2bfc1f089af5e8081ce7e1dcd9e0604a",
+        "decodedSHA256": "f44ac5eba064cc927d1ca41e1581faaaafec00d8a4375420d14df8d92acfc933"
+      },
+      {
+        "step": 720,
+        "file": "meshes-720.json.gz",
+        "sha256": "193cdda3c93f8f3501f56d990406a3045dd561a1f424aac9db839f4e936f6e9a",
+        "decodedSHA256": "b969e675902fc266f4b2c98aeb3527cd14ed9d8cef074c6fef5c332c35afe55a"
+      }
+    ]
+  },
+  "retirementCompleted": true,
+  "memory": {
+    "attributes": 0,
+    "attributesSize": 0,
+    "geometries": 0,
+    "indexAttributes": 0,
+    "indexAttributesSize": 0,
+    "indirectStorageAttributes": 0,
+    "indirectStorageAttributesSize": 0,
+    "programs": 0,
+    "programsSize": 0,
+    "readbackBuffers": 0,
+    "readbackBuffersSize": 0,
+    "renderTargets": 0,
+    "storageAttributes": 0,
+    "storageAttributesSize": 0,
+    "textures": 0,
+    "texturesSize": 0,
+    "uniformBuffers": 0,
+    "uniformBuffersSize": 0,
+    "total": 0
+  },
+  "leaks": [],
+  "errors": [],
+  "sourceDirectory": "captures/hand-candidate-2026-09-26/candidate-dense-v2",
+  "scope": "Complete additional native collection at21 discrete60Hz steps585..605; no continuous-time, appearance, other-outfit or promotion qualification."
+}

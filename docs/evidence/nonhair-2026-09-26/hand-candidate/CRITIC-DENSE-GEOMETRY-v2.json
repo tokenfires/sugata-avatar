@@ -1,0 +1,307 @@
+{
+  "reviewer": "/root/critic",
+  "completed": true,
+  "analysisSHA256": "5629a2cce7a42803e991706bfe735664806c8dc0324b63edc15ffbcd504ca25a",
+  "nativeReportSHA256": "17ab2f601b2e921ac47ae23739805be870de0c21526aa6a52daf36bb5442730f",
+  "manifestSHA256": "17e1d1e9e5d71987cb1a66eb1dc3b5b8ce8653d7d006b073389bc1d19b5de871",
+  "windowSteps": [
+    585,
+    586,
+    587,
+    588,
+    589,
+    590,
+    591,
+    592,
+    593,
+    594,
+    595,
+    596,
+    597,
+    598,
+    599,
+    600,
+    601,
+    602,
+    603,
+    604,
+    605
+  ],
+  "all21SelectedPairsZero": true,
+  "all21CompleteHandAndDeclaredBodyCertificatesPositive": true,
+  "minima": [
+    {
+      "side": "l",
+      "metric": "allWornPositiveHandBoundary",
+      "step": 593,
+      "lowerBoundMetres": 0.0005075335502624511,
+      "unroundedWitnessBoundMetres": 0.0005075335502624512,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 16444,
+          "ids": [
+            9440,
+            9286,
+            9282
+          ],
+          "points": [
+            [
+              0.152874156832695,
+              0.6769576668739319,
+              0.017555342987179756
+            ],
+            [
+              0.15200175344944,
+              0.6768825650215149,
+              0.020673543214797974
+            ],
+            [
+              0.15098042786121368,
+              0.6782007217407227,
+              0.02091904543340206
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "female_casualsuit01",
+          "face": 2810,
+          "ids": [
+            1461,
+            2022,
+            2150
+          ],
+          "points": [
+            [
+              0.13525962829589844,
+              0.6438812613487244,
+              0.005416653584688902
+            ],
+            [
+              0.14012186229228973,
+              0.6972048282623291,
+              0.0036619948223233223
+            ],
+            [
+              0.15047289431095123,
+              0.6987957954406738,
+              0.047731250524520874
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.0005075335502624511,
+          "y": -0.02191323041915894,
+          "z": -0.017257050611078743
+        },
+        "separationLowerBoundMetres": 0.0005075335502624511
+      }
+    },
+    {
+      "side": "l",
+      "metric": "declaredBodyDistal",
+      "step": 593,
+      "lowerBoundMetres": 0.004578053951263427,
+      "unroundedWitnessBoundMetres": 0.004578053951263428,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 16632,
+          "ids": [
+            9438,
+            9313,
+            9404
+          ],
+          "points": [
+            [
+              0.1528477966785431,
+              0.6825430989265442,
+              0.016643177717924118
+            ],
+            [
+              0.15117481350898743,
+              0.6836302280426025,
+              0.021910563111305237
+            ],
+            [
+              0.15471287071704865,
+              0.6880416870117188,
+              0.022091953083872795
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "body",
+          "face": 25716,
+          "ids": [
+            14482,
+            12046,
+            12045
+          ],
+          "points": [
+            [
+              0.14266657829284668,
+              0.6890474557876587,
+              0.01944189891219139
+            ],
+            [
+              0.14408650994300842,
+              0.718397319316864,
+              0.01745062693953514
+            ],
+            [
+              0.146596759557724,
+              0.7222828269004822,
+              0.04315052181482315
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.004578053951263427,
+          "y": 0.0010057687759399412,
+          "z": -0.004641326144337655
+        },
+        "separationLowerBoundMetres": 0.004578053951263427
+      }
+    },
+    {
+      "side": "r",
+      "metric": "allWornPositiveHandBoundary",
+      "step": 589,
+      "lowerBoundMetres": 0.028412550687789914,
+      "unroundedWitnessBoundMetres": 0.028412550687789917,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 3206,
+          "ids": [
+            2206,
+            2216,
+            2049
+          ],
+          "points": [
+            [
+              -0.23773683607578278,
+              0.6790418028831482,
+              0.028987405821681023
+            ],
+            [
+              -0.2372211366891861,
+              0.6798758506774902,
+              0.028327183797955513
+            ],
+            [
+              -0.23583635687828064,
+              0.680360734462738,
+              0.03231823444366455
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "female_casualsuit01",
+          "face": 2706,
+          "ids": [
+            1448,
+            2053,
+            2151
+          ],
+          "points": [
+            [
+              -0.2043166607618332,
+              0.7387661337852478,
+              0.08404529839754105
+            ],
+            [
+              -0.20742380619049072,
+              0.7406200766563416,
+              0.04453000798821449
+            ],
+            [
+              -0.19993847608566284,
+              0.696060299873352,
+              0.040284428745508194
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.028412550687789914,
+          "y": 0.01569956541061401,
+          "z": 0.007966194301843641
+        },
+        "separationLowerBoundMetres": 0.028412550687789914
+      }
+    },
+    {
+      "side": "r",
+      "metric": "declaredBodyDistal",
+      "step": 592,
+      "lowerBoundMetres": 0.01776809990406036,
+      "unroundedWitnessBoundMetres": 0.017768099904060364,
+      "witness": {
+        "query": {
+          "mesh": "body",
+          "face": 2788,
+          "ids": [
+            1821,
+            1811,
+            1828
+          ],
+          "points": [
+            [
+              -0.189694344997406,
+              1.1760958433151245,
+              0.08850008994340897
+            ],
+            [
+              -0.19027990102767944,
+              1.1691699028015137,
+              0.10079778730869293
+            ],
+            [
+              -0.19791805744171143,
+              1.1500345468521118,
+              0.09607214480638504
+            ]
+          ]
+        },
+        "target": {
+          "mesh": "body",
+          "face": 7394,
+          "ids": [
+            4320,
+            4335,
+            4336
+          ],
+          "points": [
+            [
+              -0.17192624509334564,
+              1.154342532157898,
+              0.10141408443450928
+            ],
+            [
+              -0.16676953434944153,
+              1.1372785568237305,
+              0.0985943153500557
+            ],
+            [
+              -0.16636018455028534,
+              1.1316713094711304,
+              0.12078890204429626
+            ]
+          ]
+        },
+        "signedAxisGapLowerBoundsMetres": {
+          "outwardX": 0.01776809990406036,
+          "y": -0.004307985305786134,
+          "z": -0.002203471958637238
+        },
+        "separationLowerBoundMetres": 0.01776809990406036
+      }
+    }
+  ],
+  "limits": [
+    "Independent output admission, allsummary checks and four exact native triangle/witness bindings; reviewed fulloperators not rerun.",
+    "Conservative lowerbounds for declared sets, not tight distances or continuous-time guarantees.",
+    "Twentyone60Hz frames around one interval only; all721 semantic states do not substitute for geometry outside this window."
+  ]
+}

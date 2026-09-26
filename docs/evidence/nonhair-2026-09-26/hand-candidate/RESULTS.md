@@ -13,7 +13,8 @@ control first reproduced the previous native trace exactly.
 ## Native evidence
 
 Primary-v3 collects all721 semantic states and109 geometry samples. Its separate native visual
-replay reproduces those states and all109 native geometry/physical records before collecting
+replay reproduces those states, all109 native geometry records and the camera-independent
+solver positions/velocities, head and clock/step fields before collecting
 244 ordinary full-body frames and six fixed bilateral hand/hip plates. Original asset bytes,
 topology, masks, initialization, schedules and recorded owner PRNG state remain pinned. Both
 avatars retire cleanly, with zero renderer memory, no leaked handles and no browser errors.
@@ -42,13 +43,25 @@ incident to positive hand/finger support rather than dropping seams with a weigh
 Against all42,144 worn garment faces, all109 samples on both sides earn a conservative positive
 separation certificate. The smallest bound is left0.516831874847412mm at592; the smallest right
 bound is27.04823017120361mm at690. These are conservative lower bounds, not exact distances,
-required product margins or guarantees between samples. Root has commissioned an additional
-unchanged-candidate capture at every native60Hz step585–605 to inspect the narrow left interval.
+required product margins or guarantees between samples.
+
+A separate completed native replay measures every60Hz step585–605. All721 complete states
+match the primary, and all four overlapping geometry/physical samples match exactly. All21
+window samples have zero selected crossings and positive complete-hand/all-worn certificates.
+The tighter measured left bound is0.5075335502624511mm at593; the right window minimum is
+28.412550687789913mm at589, so the earlier global right minimum at690 remains smaller. This
+adds17 new sampled times and rechecks four; it is not continuous-time clearance or a chosen
+minimum fit margin. The rejected first dense run exposed an incorrect instrument counter
+assumption; its data and source-derived correction remain in dense-counter-v1.
 
 The declared distal-arm/body comparison also passes all109 samples: worst left bound
 4.597410559654235mm at592, right17.469495534896847mm at493. This body selection deliberately
 excludes ipsilateral whole-arm support and mixed torso/arm faces as recorded in the profile;
 it is not an unrestricted anatomical self-collision proof.
+
+The dense window's declared distal/body bounds are also positive at all21 samples. Its left
+minimum4.578053951263427mm at593 is slightly below the earlier109-sample result; the earlier
+right global minimum at493 remains smaller than this window's17.76809990406036mm at592.
 
 Full distal-arm/all-worn directional certification remains unproven at the six retained
 witnesses because proximal arm skin belongs inside its sleeve. Those failed face sets remain
@@ -82,6 +95,9 @@ Those checks prove review controls, not real-time presentation timing or human i
 - Geometry analysis: `5a9c1d60ef4499b0c90485f7c4fb12e6845b580a13ed96265e6bd7f5ffeed5e3`.
 - Visual manifest: `560e2ad016622c66c9ae4f449a670bcfe72851bef449409fcac4c6eb5686b47e`.
 - Visual report: `23091b73c43edb4ede16ec640cd1b417535d71791eaa04580ef885b7f9be848c`.
+- Dense-window manifest: `17e1d1e9e5d71987cb1a66eb1dc3b5b8ce8653d7d006b073389bc1d19b5de871`.
+- Dense-window report: `17ab2f601b2e921ac47ae23739805be870de0c21526aa6a52daf36bb5442730f`.
+- Dense-window analysis: `5629a2cce7a42803e991706bfe735664806c8dc0324b63edc15ffbcd504ca25a`.
 
 Compact complete reports, operator receipts and critique live in this directory. Raw frozen
 sources, all geometry/states and PNGs remain under captures/hand-candidate-2026-09-26. No accepted

@@ -34,3 +34,5 @@ There are two concrete directions if the reduced closed posture is unacceptable:
 2. Preserve inward upper-arm intent and add a clearance-constrained elbow/wrist placement that keeps the complete hand outside clothing after all native contributions. This could retain more contraction, but adds joint coordination, ownership and temporal continuity obligations; it needs a separate design and exact native lifecycle/collision proof.
 
 Neither alternative is authorized by this critique as an automatic new trial. The current successful experiment should remain the reference while the next bounded gate is chosen. No all-motion, continuous-clearance, other-outfit/body, hair or production acceptance follows from these results.
+
+The separate unchanged-candidate native window at 585–605 subsequently passed all 21 discrete frames. Its smallest conservative left hand/clothing bound is 0.507533550 mm at 593. Exact own-primary state/overlap controls and independent witness checks are recorded in `CRITIQUE-DENSE-WINDOW.md`. That completed local gate strengthens the isolated result without changing this still-image verdict, the affect tradeoff or the production hold.

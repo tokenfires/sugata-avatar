@@ -1,0 +1,787 @@
+{
+  "version": 1,
+  "kind": "dense-window-counter-instrument-correction",
+  "nativeRerun": false,
+  "script": {
+    "file": "docs/evidence/nonhair-2026-09-26/hand-candidate/dense-counter-proof.mjs",
+    "sha256": "7c2e93a8ce121cf232d91226bde1ab400e126501c3dc0a083138cc8e91f03fad",
+    "bytes": 9130
+  },
+  "primary": {
+    "report": {
+      "file": "captures/hand-candidate-2026-09-26/candidate-primary-v3/report.json",
+      "sha256": "34305cf143306ae7818c159159e2eb7aa1514992da696cc8a27b948467b0b877",
+      "bytes": 16821876
+    },
+    "manifest": {
+      "file": "captures/hand-candidate-2026-09-26/candidate-primary-v3/manifest.json",
+      "sha256": "a4bd27fcef48d9efb2cdcd71d7df3c2523d4e2b2416e6002a834c56efa382515",
+      "bytes": 424461
+    },
+    "seal": {
+      "file": "captures/hand-candidate-2026-09-26/candidate-primary-v3/seal.json",
+      "sha256": "d618a3351565738fa2b95ffb0df6b760bc44ae8ce55a6da393910da3c687de8f",
+      "bytes": 219
+    }
+  },
+  "rejected": {
+    "directory": "captures/hand-candidate-2026-09-26/candidate-dense-v1",
+    "report": {
+      "file": "captures/hand-candidate-2026-09-26/candidate-dense-v1/report.json",
+      "sha256": "eb423081d1c861f8aa1943943dc11e830c934f9b693ad0c735a95ee0f2ee08a3",
+      "bytes": 2932077
+    },
+    "manifest": {
+      "file": "captures/hand-candidate-2026-09-26/candidate-dense-v1/manifest.json",
+      "sha256": "726d42f44bcb2b4edf338b600758dbabe0cea29fff47b772020592a5e9781885",
+      "bytes": 425305
+    },
+    "states": {
+      "file": "captures/hand-candidate-2026-09-26/candidate-dense-v1/partial-states.json.gz",
+      "sha256": "1370fec8e0c9bd8dd1445316a888c9bb80e1a2112223022ad571949572d322ee",
+      "decodedSHA256": "0ab95ac3bc1127410195f2dc364952e3e63a632171d65583a3a21b8aaf0403b8",
+      "count": 586,
+      "partial": true
+    },
+    "failureState": {
+      "step": 585,
+      "file": "captures/hand-candidate-2026-09-26/candidate-dense-v1/failure-state.json.gz",
+      "sha256": "c47c206c7922a2d91df4f54f1e1c2ac8c5854be5c868b86a8a5029f8ef17fbfe",
+      "decodedSHA256": "9f99b70b482782107f0cb6749f7bf8ac1e643aeadf8e7455b156fc2c809921e9"
+    },
+    "sourceFilesVerified": 1587,
+    "controller": {
+      "file": "captures/hand-candidate-2026-09-26/candidate-dense-v1/source/docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-dense-window.mjs",
+      "sha256": "ddd6dba29dc9808473eb2b4fcb0f1d4fffa309afd9faf2a2dce904bd940154b8",
+      "bytes": 22443
+    },
+    "semanticStatesExactAgainstOwnPrimary": 586,
+    "geometrySamples": 0,
+    "attemptedStep": 585,
+    "observedCounter": 1171,
+    "invalidExpectedCounter": 586,
+    "cleanRetirement": true,
+    "errors": [],
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    }
+  },
+  "preserved": {
+    "reportGzip": {
+      "file": "rejected-native-v1-report.json.gz",
+      "sha256": "e9f85cfd53dfdb0d181c04548c25bc7b776fb82e58abe728c4454709506be119",
+      "decodedSHA256": "eb423081d1c861f8aa1943943dc11e830c934f9b693ad0c735a95ee0f2ee08a3"
+    },
+    "controller": {
+      "file": "rejected-native-v1-controller.mjs",
+      "sha256": "ddd6dba29dc9808473eb2b4fcb0f1d4fffa309afd9faf2a2dce904bd940154b8"
+    }
+  },
+  "sourceBindings": [
+    {
+      "file": "packages/core/src/motion/HairDynamics.js",
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "sha256": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c"
+    },
+    {
+      "file": "tools/figure-pipeline/collar_capture_browser.mjs",
+      "sha256": "6a5c7a8584e2d5c653bdb6e9e44289350b0b229261c250f252dcf34aaccdf846"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-09-26/hand-clearance/hand-attribution-runtime.mjs",
+      "sha256": "86f9c9c75d10bf63415339c96fc5ff3ee9fc3d41a09115ec1add611ce66b2356"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-09-26/hand-candidate/candidate-runtime.mjs",
+      "sha256": "73699e9f6e4968a9d2d9dd976cae1918663902f29f0b2d0ba4d29e33ef30c40f"
+    }
+  ],
+  "counter": {
+    "meaning": "HairDynamics submitted fixed solver substeps, not Avatar/native updates",
+    "solverHz": 120,
+    "nativeHz": 60,
+    "initialResetSubsteps": 1,
+    "substepsPerPositiveNativeUpdate": 2,
+    "formula": "1 + 2 * nativeStep",
+    "accumulatorModelFrames": 721,
+    "allAccumulatorRemaindersExactlyZero": true,
+    "knownPrimarySamples": [
+      {
+        "step": 0,
+        "clock": 0,
+        "observedSolverSubsteps": 1,
+        "expectedSolverSubsteps": 1
+      },
+      {
+        "step": 1,
+        "clock": 0.016666666666666666,
+        "observedSolverSubsteps": 3,
+        "expectedSolverSubsteps": 3
+      },
+      {
+        "step": 30,
+        "clock": 0.49999999999999994,
+        "observedSolverSubsteps": 61,
+        "expectedSolverSubsteps": 61
+      },
+      {
+        "step": 54,
+        "clock": 0.9000000000000011,
+        "observedSolverSubsteps": 109,
+        "expectedSolverSubsteps": 109
+      },
+      {
+        "step": 55,
+        "clock": 0.9166666666666679,
+        "observedSolverSubsteps": 111,
+        "expectedSolverSubsteps": 111
+      },
+      {
+        "step": 56,
+        "clock": 0.9333333333333346,
+        "observedSolverSubsteps": 113,
+        "expectedSolverSubsteps": 113
+      },
+      {
+        "step": 60,
+        "clock": 1.0000000000000013,
+        "observedSolverSubsteps": 121,
+        "expectedSolverSubsteps": 121
+      },
+      {
+        "step": 89,
+        "clock": 1.483333333333333,
+        "observedSolverSubsteps": 179,
+        "expectedSolverSubsteps": 179
+      },
+      {
+        "step": 90,
+        "clock": 1.4999999999999996,
+        "observedSolverSubsteps": 181,
+        "expectedSolverSubsteps": 181
+      },
+      {
+        "step": 91,
+        "clock": 1.5166666666666662,
+        "observedSolverSubsteps": 183,
+        "expectedSolverSubsteps": 183
+      },
+      {
+        "step": 92,
+        "clock": 1.5333333333333328,
+        "observedSolverSubsteps": 185,
+        "expectedSolverSubsteps": 185
+      },
+      {
+        "step": 93,
+        "clock": 1.5499999999999994,
+        "observedSolverSubsteps": 187,
+        "expectedSolverSubsteps": 187
+      },
+      {
+        "step": 96,
+        "clock": 1.5999999999999992,
+        "observedSolverSubsteps": 193,
+        "expectedSolverSubsteps": 193
+      },
+      {
+        "step": 97,
+        "clock": 1.6166666666666658,
+        "observedSolverSubsteps": 195,
+        "expectedSolverSubsteps": 195
+      },
+      {
+        "step": 98,
+        "clock": 1.6333333333333324,
+        "observedSolverSubsteps": 197,
+        "expectedSolverSubsteps": 197
+      },
+      {
+        "step": 99,
+        "clock": 1.649999999999999,
+        "observedSolverSubsteps": 199,
+        "expectedSolverSubsteps": 199
+      },
+      {
+        "step": 100,
+        "clock": 1.6666666666666656,
+        "observedSolverSubsteps": 201,
+        "expectedSolverSubsteps": 201
+      },
+      {
+        "step": 107,
+        "clock": 1.7833333333333319,
+        "observedSolverSubsteps": 215,
+        "expectedSolverSubsteps": 215
+      },
+      {
+        "step": 108,
+        "clock": 1.7999999999999985,
+        "observedSolverSubsteps": 217,
+        "expectedSolverSubsteps": 217
+      },
+      {
+        "step": 109,
+        "clock": 1.816666666666665,
+        "observedSolverSubsteps": 219,
+        "expectedSolverSubsteps": 219
+      },
+      {
+        "step": 110,
+        "clock": 1.8333333333333317,
+        "observedSolverSubsteps": 221,
+        "expectedSolverSubsteps": 221
+      },
+      {
+        "step": 111,
+        "clock": 1.8499999999999983,
+        "observedSolverSubsteps": 223,
+        "expectedSolverSubsteps": 223
+      },
+      {
+        "step": 120,
+        "clock": 1.9999999999999978,
+        "observedSolverSubsteps": 241,
+        "expectedSolverSubsteps": 241
+      },
+      {
+        "step": 141,
+        "clock": 2.3499999999999965,
+        "observedSolverSubsteps": 283,
+        "expectedSolverSubsteps": 283
+      },
+      {
+        "step": 142,
+        "clock": 2.366666666666663,
+        "observedSolverSubsteps": 285,
+        "expectedSolverSubsteps": 285
+      },
+      {
+        "step": 143,
+        "clock": 2.3833333333333298,
+        "observedSolverSubsteps": 287,
+        "expectedSolverSubsteps": 287
+      },
+      {
+        "step": 150,
+        "clock": 2.499999999999996,
+        "observedSolverSubsteps": 301,
+        "expectedSolverSubsteps": 301
+      },
+      {
+        "step": 180,
+        "clock": 2.9999999999999942,
+        "observedSolverSubsteps": 361,
+        "expectedSolverSubsteps": 361
+      },
+      {
+        "step": 210,
+        "clock": 3.4999999999999925,
+        "observedSolverSubsteps": 421,
+        "expectedSolverSubsteps": 421
+      },
+      {
+        "step": 225,
+        "clock": 3.7499999999999916,
+        "observedSolverSubsteps": 451,
+        "expectedSolverSubsteps": 451
+      },
+      {
+        "step": 226,
+        "clock": 3.766666666666658,
+        "observedSolverSubsteps": 453,
+        "expectedSolverSubsteps": 453
+      },
+      {
+        "step": 227,
+        "clock": 3.7833333333333248,
+        "observedSolverSubsteps": 455,
+        "expectedSolverSubsteps": 455
+      },
+      {
+        "step": 240,
+        "clock": 3.9999999999999907,
+        "observedSolverSubsteps": 481,
+        "expectedSolverSubsteps": 481
+      },
+      {
+        "step": 262,
+        "clock": 4.3666666666666565,
+        "observedSolverSubsteps": 525,
+        "expectedSolverSubsteps": 525
+      },
+      {
+        "step": 263,
+        "clock": 4.383333333333323,
+        "observedSolverSubsteps": 527,
+        "expectedSolverSubsteps": 527
+      },
+      {
+        "step": 264,
+        "clock": 4.39999999999999,
+        "observedSolverSubsteps": 529,
+        "expectedSolverSubsteps": 529
+      },
+      {
+        "step": 265,
+        "clock": 4.416666666666656,
+        "observedSolverSubsteps": 531,
+        "expectedSolverSubsteps": 531
+      },
+      {
+        "step": 266,
+        "clock": 4.433333333333323,
+        "observedSolverSubsteps": 533,
+        "expectedSolverSubsteps": 533
+      },
+      {
+        "step": 268,
+        "clock": 4.466666666666656,
+        "observedSolverSubsteps": 537,
+        "expectedSolverSubsteps": 537
+      },
+      {
+        "step": 269,
+        "clock": 4.483333333333323,
+        "observedSolverSubsteps": 539,
+        "expectedSolverSubsteps": 539
+      },
+      {
+        "step": 270,
+        "clock": 4.499999999999989,
+        "observedSolverSubsteps": 541,
+        "expectedSolverSubsteps": 541
+      },
+      {
+        "step": 271,
+        "clock": 4.516666666666656,
+        "observedSolverSubsteps": 543,
+        "expectedSolverSubsteps": 543
+      },
+      {
+        "step": 272,
+        "clock": 4.533333333333323,
+        "observedSolverSubsteps": 545,
+        "expectedSolverSubsteps": 545
+      },
+      {
+        "step": 279,
+        "clock": 4.649999999999989,
+        "observedSolverSubsteps": 559,
+        "expectedSolverSubsteps": 559
+      },
+      {
+        "step": 280,
+        "clock": 4.666666666666655,
+        "observedSolverSubsteps": 561,
+        "expectedSolverSubsteps": 561
+      },
+      {
+        "step": 281,
+        "clock": 4.683333333333322,
+        "observedSolverSubsteps": 563,
+        "expectedSolverSubsteps": 563
+      },
+      {
+        "step": 282,
+        "clock": 4.699999999999989,
+        "observedSolverSubsteps": 565,
+        "expectedSolverSubsteps": 565
+      },
+      {
+        "step": 283,
+        "clock": 4.716666666666655,
+        "observedSolverSubsteps": 567,
+        "expectedSolverSubsteps": 567
+      },
+      {
+        "step": 300,
+        "clock": 4.999999999999988,
+        "observedSolverSubsteps": 601,
+        "expectedSolverSubsteps": 601
+      },
+      {
+        "step": 314,
+        "clock": 5.23333333333332,
+        "observedSolverSubsteps": 629,
+        "expectedSolverSubsteps": 629
+      },
+      {
+        "step": 315,
+        "clock": 5.249999999999987,
+        "observedSolverSubsteps": 631,
+        "expectedSolverSubsteps": 631
+      },
+      {
+        "step": 316,
+        "clock": 5.266666666666653,
+        "observedSolverSubsteps": 633,
+        "expectedSolverSubsteps": 633
+      },
+      {
+        "step": 330,
+        "clock": 5.499999999999986,
+        "observedSolverSubsteps": 661,
+        "expectedSolverSubsteps": 661
+      },
+      {
+        "step": 359,
+        "clock": 5.983333333333317,
+        "observedSolverSubsteps": 719,
+        "expectedSolverSubsteps": 719
+      },
+      {
+        "step": 360,
+        "clock": 5.999999999999984,
+        "observedSolverSubsteps": 721,
+        "expectedSolverSubsteps": 721
+      },
+      {
+        "step": 361,
+        "clock": 6.016666666666651,
+        "observedSolverSubsteps": 723,
+        "expectedSolverSubsteps": 723
+      },
+      {
+        "step": 390,
+        "clock": 6.499999999999982,
+        "observedSolverSubsteps": 781,
+        "expectedSolverSubsteps": 781
+      },
+      {
+        "step": 416,
+        "clock": 6.933333333333314,
+        "observedSolverSubsteps": 833,
+        "expectedSolverSubsteps": 833
+      },
+      {
+        "step": 417,
+        "clock": 6.949999999999981,
+        "observedSolverSubsteps": 835,
+        "expectedSolverSubsteps": 835
+      },
+      {
+        "step": 418,
+        "clock": 6.966666666666647,
+        "observedSolverSubsteps": 837,
+        "expectedSolverSubsteps": 837
+      },
+      {
+        "step": 420,
+        "clock": 6.9999999999999805,
+        "observedSolverSubsteps": 841,
+        "expectedSolverSubsteps": 841
+      },
+      {
+        "step": 446,
+        "clock": 7.433333333333312,
+        "observedSolverSubsteps": 893,
+        "expectedSolverSubsteps": 893
+      },
+      {
+        "step": 447,
+        "clock": 7.449999999999979,
+        "observedSolverSubsteps": 895,
+        "expectedSolverSubsteps": 895
+      },
+      {
+        "step": 448,
+        "clock": 7.4666666666666455,
+        "observedSolverSubsteps": 897,
+        "expectedSolverSubsteps": 897
+      },
+      {
+        "step": 449,
+        "clock": 7.483333333333312,
+        "observedSolverSubsteps": 899,
+        "expectedSolverSubsteps": 899
+      },
+      {
+        "step": 450,
+        "clock": 7.499999999999979,
+        "observedSolverSubsteps": 901,
+        "expectedSolverSubsteps": 901
+      },
+      {
+        "step": 453,
+        "clock": 7.5499999999999785,
+        "observedSolverSubsteps": 907,
+        "expectedSolverSubsteps": 907
+      },
+      {
+        "step": 454,
+        "clock": 7.566666666666645,
+        "observedSolverSubsteps": 909,
+        "expectedSolverSubsteps": 909
+      },
+      {
+        "step": 455,
+        "clock": 7.583333333333312,
+        "observedSolverSubsteps": 911,
+        "expectedSolverSubsteps": 911
+      },
+      {
+        "step": 456,
+        "clock": 7.599999999999978,
+        "observedSolverSubsteps": 913,
+        "expectedSolverSubsteps": 913
+      },
+      {
+        "step": 457,
+        "clock": 7.616666666666645,
+        "observedSolverSubsteps": 915,
+        "expectedSolverSubsteps": 915
+      },
+      {
+        "step": 464,
+        "clock": 7.733333333333311,
+        "observedSolverSubsteps": 929,
+        "expectedSolverSubsteps": 929
+      },
+      {
+        "step": 465,
+        "clock": 7.749999999999978,
+        "observedSolverSubsteps": 931,
+        "expectedSolverSubsteps": 931
+      },
+      {
+        "step": 466,
+        "clock": 7.766666666666644,
+        "observedSolverSubsteps": 933,
+        "expectedSolverSubsteps": 933
+      },
+      {
+        "step": 467,
+        "clock": 7.783333333333311,
+        "observedSolverSubsteps": 935,
+        "expectedSolverSubsteps": 935
+      },
+      {
+        "step": 468,
+        "clock": 7.799999999999978,
+        "observedSolverSubsteps": 937,
+        "expectedSolverSubsteps": 937
+      },
+      {
+        "step": 480,
+        "clock": 7.999999999999977,
+        "observedSolverSubsteps": 961,
+        "expectedSolverSubsteps": 961
+      },
+      {
+        "step": 493,
+        "clock": 8.216666666666654,
+        "observedSolverSubsteps": 987,
+        "expectedSolverSubsteps": 987
+      },
+      {
+        "step": 494,
+        "clock": 8.233333333333322,
+        "observedSolverSubsteps": 989,
+        "expectedSolverSubsteps": 989
+      },
+      {
+        "step": 495,
+        "clock": 8.24999999999999,
+        "observedSolverSubsteps": 991,
+        "expectedSolverSubsteps": 991
+      },
+      {
+        "step": 510,
+        "clock": 8.500000000000002,
+        "observedSolverSubsteps": 1021,
+        "expectedSolverSubsteps": 1021
+      },
+      {
+        "step": 540,
+        "clock": 9.000000000000027,
+        "observedSolverSubsteps": 1081,
+        "expectedSolverSubsteps": 1081
+      },
+      {
+        "step": 570,
+        "clock": 9.500000000000052,
+        "observedSolverSubsteps": 1141,
+        "expectedSolverSubsteps": 1141
+      },
+      {
+        "step": 590,
+        "clock": 9.833333333333401,
+        "observedSolverSubsteps": 1181,
+        "expectedSolverSubsteps": 1181
+      },
+      {
+        "step": 591,
+        "clock": 9.850000000000069,
+        "observedSolverSubsteps": 1183,
+        "expectedSolverSubsteps": 1183
+      },
+      {
+        "step": 592,
+        "clock": 9.866666666666736,
+        "observedSolverSubsteps": 1185,
+        "expectedSolverSubsteps": 1185
+      },
+      {
+        "step": 600,
+        "clock": 10.000000000000076,
+        "observedSolverSubsteps": 1201,
+        "expectedSolverSubsteps": 1201
+      },
+      {
+        "step": 628,
+        "clock": 10.466666666666766,
+        "observedSolverSubsteps": 1257,
+        "expectedSolverSubsteps": 1257
+      },
+      {
+        "step": 629,
+        "clock": 10.483333333333434,
+        "observedSolverSubsteps": 1259,
+        "expectedSolverSubsteps": 1259
+      },
+      {
+        "step": 630,
+        "clock": 10.500000000000101,
+        "observedSolverSubsteps": 1261,
+        "expectedSolverSubsteps": 1261
+      },
+      {
+        "step": 631,
+        "clock": 10.516666666666769,
+        "observedSolverSubsteps": 1263,
+        "expectedSolverSubsteps": 1263
+      },
+      {
+        "step": 632,
+        "clock": 10.533333333333436,
+        "observedSolverSubsteps": 1265,
+        "expectedSolverSubsteps": 1265
+      },
+      {
+        "step": 635,
+        "clock": 10.583333333333439,
+        "observedSolverSubsteps": 1271,
+        "expectedSolverSubsteps": 1271
+      },
+      {
+        "step": 636,
+        "clock": 10.600000000000106,
+        "observedSolverSubsteps": 1273,
+        "expectedSolverSubsteps": 1273
+      },
+      {
+        "step": 637,
+        "clock": 10.616666666666774,
+        "observedSolverSubsteps": 1275,
+        "expectedSolverSubsteps": 1275
+      },
+      {
+        "step": 638,
+        "clock": 10.633333333333441,
+        "observedSolverSubsteps": 1277,
+        "expectedSolverSubsteps": 1277
+      },
+      {
+        "step": 639,
+        "clock": 10.650000000000109,
+        "observedSolverSubsteps": 1279,
+        "expectedSolverSubsteps": 1279
+      },
+      {
+        "step": 645,
+        "clock": 10.750000000000114,
+        "observedSolverSubsteps": 1291,
+        "expectedSolverSubsteps": 1291
+      },
+      {
+        "step": 646,
+        "clock": 10.766666666666781,
+        "observedSolverSubsteps": 1293,
+        "expectedSolverSubsteps": 1293
+      },
+      {
+        "step": 647,
+        "clock": 10.783333333333449,
+        "observedSolverSubsteps": 1295,
+        "expectedSolverSubsteps": 1295
+      },
+      {
+        "step": 648,
+        "clock": 10.800000000000116,
+        "observedSolverSubsteps": 1297,
+        "expectedSolverSubsteps": 1297
+      },
+      {
+        "step": 649,
+        "clock": 10.816666666666784,
+        "observedSolverSubsteps": 1299,
+        "expectedSolverSubsteps": 1299
+      },
+      {
+        "step": 660,
+        "clock": 11.000000000000126,
+        "observedSolverSubsteps": 1321,
+        "expectedSolverSubsteps": 1321
+      },
+      {
+        "step": 682,
+        "clock": 11.366666666666811,
+        "observedSolverSubsteps": 1365,
+        "expectedSolverSubsteps": 1365
+      },
+      {
+        "step": 683,
+        "clock": 11.383333333333479,
+        "observedSolverSubsteps": 1367,
+        "expectedSolverSubsteps": 1367
+      },
+      {
+        "step": 684,
+        "clock": 11.400000000000146,
+        "observedSolverSubsteps": 1369,
+        "expectedSolverSubsteps": 1369
+      },
+      {
+        "step": 690,
+        "clock": 11.500000000000151,
+        "observedSolverSubsteps": 1381,
+        "expectedSolverSubsteps": 1381
+      },
+      {
+        "step": 719,
+        "clock": 11.983333333333508,
+        "observedSolverSubsteps": 1439,
+        "expectedSolverSubsteps": 1439
+      },
+      {
+        "step": 720,
+        "clock": 12.000000000000176,
+        "observedSolverSubsteps": 1441,
+        "expectedSolverSubsteps": 1441
+      }
+    ]
+  },
+  "scope": "CPU proof and preserved rejected run only. No additional native geometry, clearance, visual acceptance, hair change or promotion."
+}
