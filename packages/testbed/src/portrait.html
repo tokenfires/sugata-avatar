@@ -51,6 +51,7 @@
         [hidden] { display:none !important; }
         @media(max-width:900px) { header { height:72px; } main { grid-template-columns:minmax(0,1fr) 270px; gap:20px; } aside { padding-top:45px; } .portrait { min-height:550px; } }
         @media(max-width:650px) { main { grid-template-columns:1fr; gap:0; padding:0 6vw; } .portrait { height:64svh; min-height:390px; order:1; } aside { order:2; padding:24px 0; } h1 { font-size:42px; } .intro { max-width:40ch; margin-bottom:26px; } .eyebrow { margin-bottom:14px; } footer { padding:16px 6vw 30px; } .caption { bottom:14px; } }
+        @media(min-width:651px) and (min-height:612px) { .portrait { position:sticky; top:16px; align-self:start; } }
         @media(prefers-reduced-motion:reduce) { .spinner { animation:none; } .choice { transition:none; } }
     </style>
 </head>

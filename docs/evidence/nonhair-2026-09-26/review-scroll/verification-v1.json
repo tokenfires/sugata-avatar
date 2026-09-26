@@ -1,0 +1,170 @@
+{
+  "verifiedAt": "2026-09-26T17:08:08.773Z",
+  "method": "Post-capture CPU assertion on retained exact-hash geometry; no additional candidate rendering or pixel-equality claim.",
+  "baseline": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/report.json",
+    "sha256": "2b2ee465598518962a59bdaad39f8e089134e3881d20e669f7481631cffc05b7"
+  },
+  "candidate": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/report.json",
+    "sha256": "67ca8152dc0b36290e16d55fbff4c8e6a1cf923bd16dcff5a924c365882bc970"
+  },
+  "capturedHarness": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-scroll/captured-instrument-v1/probe.mjs",
+    "sha256": "b4f23057c6710561db850af0737daa06b1e0e46cde638587a16e56455bfe2dda"
+  },
+  "strengthenedHarness": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-scroll/strengthened-instrument-v2/probe.mjs",
+    "sha256": "49bda592265cb5a55a3a10aa0fa67c02369b7be1b9aee6d6e87dd555cdfb6daf",
+    "change": "Only adds explicit nonnegative-top and full-visible-height assertions; used by baseline-v2."
+  },
+  "reusableHarness": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-scroll/probe.mjs",
+    "sha256": "449ad50c2515de795cd0ff22e27cf9c97a42fb5635efe181f15643fad232f83e",
+    "change": "Also adopts bounded wheel increments, compositor settling and screenshot-adjacent states from the successful focused follow-up; this full reusable version has not been rerun."
+  },
+  "verifier": {
+    "file": "docs/evidence/nonhair-2026-09-26/review-scroll/verify-retained.mjs",
+    "sha256": "974e49ff29d33d8158b11bc3c457b0e93835010b4f8146d3e240729ba12021bf"
+  },
+  "verifiedCandidateSourceCount": 313,
+  "verifiedBuildOutputCount": 103,
+  "outputs": {
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/portrait-1440x1000-initial.png": "07e1710b7b3219f54c8b98b9b210b90fabd85182b34fe826460b8d7a2f206bc3",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/portrait-1440x1000-sidebar-wheel.png": "63fb0e1d7776e8d41b8dabbe13fdd36de15d9cf6c8fbc1fb057ff032ac01be9e",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/portrait-1440x1000-lower-keyboard-focus.png": "9f10c181fc9765a7e6c6c76b8c8d978590c42dc2d2331937f77996dfafbf5cc2",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/portrait-1440x1000-document-end.png": "1b16e247b3f5f295dcae956ed3ad796d3156b4655de3e8d770e63e6850f23a58",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/portrait-1440x1000-mobile.png": "7cca909c815651330bdb6361f3c4c915deda25113cc6e5c541af60f6c8fb3b22",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/portrait-1440x1000-short.png": "8d969ee20fc9eedf2801caa3d7e501ac33c55ac3b5a6218117bdf9657bf38f93",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1440x1000-initial.png": "8c930e93486f21737fb396a1195e016c7e548239e8e6f42543248d854d0974e0",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1440x1000-sidebar-wheel.png": "2be3bb8da3878c12cb673f117b572ddf308677716c3d551c907477bee5672ea3",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1440x1000-lower-keyboard-focus.png": "b4a23864e47e2fdf43274386d421eb10762de6c1ef4fada9c310b2b2cdcce2df",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1440x1000-document-end.png": "3acc561da393eb91abf3ee71a55851dddcefe620367b6f8e161bfb59bad5c2cb",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1440x1000-mobile.png": "4e2506a86d8df6ab8ba4bbb3927afbafcb50877254b20f3d712429d7f4599036",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1440x1000-short.png": "69c7ef591f77394292136f953677fd44ded4dd5cb5d625adfeb39d3ee1d024ae",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1440x1000-initial-canvas.png": "d6bbcccaa936bece4779ecfe981d5cae2d4596f6881622ef060f712d14edcd6f",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1024x800-initial.png": "bb266815914c372efcfaa1686b0d0d8d33015adfaa4c4d251ab410d4b6bf5740",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1024x800-sidebar-wheel.png": "64a25585f92fb048a078deb6792767edb5e6ea3eeabcc2bf99c401875707e2af",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1024x800-lower-keyboard-focus.png": "80ab59880dc8abb76732a66240ebe249c3066387f182c7ad4ba35f5d97fda15c",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/baseline-v1/showcase-1024x800-document-end.png": "bcb10d9e49da189e1e408729c0fbb56f51010c64396b44be4bc0a3e5b3621545",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/portrait-1440x1000-initial.png": "b20831637ddf0a05078cf3628b0db65b48ac5d5694e8f1d2770690d283dfae63",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/portrait-1440x1000-sidebar-wheel.png": "d2dc5ce35bef35e824629412a51c64069919c07c2acbc0d783048a7a471dcd51",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/portrait-1440x1000-lower-keyboard-focus.png": "a19b2d50c54daa3a6005f366e5c3c065716a4b94e0904ebcb88143b7e8da4d86",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/portrait-1440x1000-document-end.png": "e3c873124c3ec109252d531973feef9b290dbe683aa2ff9f62184bdecd3e6a3d",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/portrait-1440x1000-mobile.png": "ba431ab3b52e405aa3e00f629a143dc2256532bc497b5b4b8951a841f67668f8",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/portrait-1440x1000-short.png": "02abffc2d296c9d3cf37f525faf118a036733d7cc19fd9ef6f27c3ec166015e9",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/portrait-1440x1000-pinned-kitchen.png": "21c6d0d2f036f58075e3b98459184a65f5e88f35c38af9f639b3a70b93476368",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-initial.png": "621803dd215538f1cc3f333459c5582294edd6b1b8f1f305d91f5606bb1a47ad",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-sidebar-wheel.png": "b891c501626438cc8911b57725b73f6cb54443b01e17cd5e161c64b49c7c3e67",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-lower-keyboard-focus.png": "828c1da2cdc516eed911668e46b26444e89bac6adbe352a08db20f29aba5ff9f",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-document-end.png": "9714a12788871b2f62b42f90db50201ba06c1bd2fce0d57e0d558fb38090981e",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-mobile.png": "327f2e6be92cfe2899e14884e2f1741a6e0a5b474e6ee779a6edf214c77bea49",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-short.png": "fb4aa33f1dea947c1ed0fa211d24b47c57e57e0163c55b2f84145ca7e6247244",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-initial-canvas.png": "033415caca2acfa757780746326ba9bbabc0079b4cfa27a342e2f4ce89d8c7b8",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1440x1000-pinned-native-export.png": "76be22d840df3dbae0d84725b25e03f967a9139323b730ab2179723ffde484cd",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1024x800-initial.png": "47ad782205ab162d41cceb0babdfd0ee608269f2bf8a75dbd13b71ba8fdf31a4",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1024x800-sidebar-wheel.png": "bcb23dab8ef2a433c8ff5d20c929bcd0d10eb10241adcc2765449ba77ffc84fa",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1024x800-lower-keyboard-focus.png": "8b3c5a2e69f266dfe25d3ba2cc7d891d9ab320b3364201c5582db042c6e8d4f8",
+    "docs/evidence/nonhair-2026-09-26/review-scroll/candidate-v1/showcase-1024x800-document-end.png": "d293b1247bbc5d3711cc1c09b7ae9c77e0e00b6d6a037f8a1a6f3fc65c8ad403"
+  },
+  "cases": [
+    {
+      "name": "portrait-1440x1000",
+      "witnesses": [
+        {
+          "phase": "scrolled",
+          "top": 16,
+          "bottom": 866,
+          "visibleHeight": 850,
+          "previewHeight": 850,
+          "baselineVisibleHeight": 472,
+          "recoveredPixels": 378
+        },
+        {
+          "phase": "focused",
+          "top": 16,
+          "bottom": 866,
+          "visibleHeight": 850,
+          "previewHeight": 850,
+          "baselineVisibleHeight": 472,
+          "recoveredPixels": 378
+        },
+        {
+          "phase": "end",
+          "top": 16,
+          "bottom": 866,
+          "visibleHeight": 850,
+          "previewHeight": 850,
+          "baselineVisibleHeight": 472,
+          "recoveredPixels": 378
+        }
+      ]
+    },
+    {
+      "name": "showcase-1440x1000",
+      "witnesses": [
+        {
+          "phase": "scrolled",
+          "top": 16,
+          "bottom": 884,
+          "visibleHeight": 868,
+          "previewHeight": 868,
+          "baselineVisibleHeight": 450,
+          "recoveredPixels": 418
+        },
+        {
+          "phase": "focused",
+          "top": 16,
+          "bottom": 884,
+          "visibleHeight": 868,
+          "previewHeight": 868,
+          "baselineVisibleHeight": 450,
+          "recoveredPixels": 418
+        },
+        {
+          "phase": "end",
+          "top": 16,
+          "bottom": 884,
+          "visibleHeight": 868,
+          "previewHeight": 868,
+          "baselineVisibleHeight": 334,
+          "recoveredPixels": 534
+        }
+      ]
+    },
+    {
+      "name": "showcase-1024x800",
+      "witnesses": [
+        {
+          "phase": "scrolled",
+          "top": 16,
+          "bottom": 716,
+          "visibleHeight": 700,
+          "previewHeight": 700,
+          "baselineVisibleHeight": 282,
+          "recoveredPixels": 418
+        },
+        {
+          "phase": "focused",
+          "top": 16,
+          "bottom": 716,
+          "visibleHeight": 700,
+          "previewHeight": 700,
+          "baselineVisibleHeight": 282,
+          "recoveredPixels": 418
+        },
+        {
+          "phase": "end",
+          "top": 16,
+          "bottom": 716,
+          "visibleHeight": 700,
+          "previewHeight": 700,
+          "baselineVisibleHeight": 0,
+          "recoveredPixels": 700
+        }
+      ]
+    }
+  ],
+  "note": "baseline-v2 was already running when repeat candidate rendering was stopped. It is retained as supplemental baseline evidence, but is not needed for this v1 before/after proof.",
+  "limit": "DOM-only verification: candidate-v1/showcase-1024x800-document-end.png is rejected for screenshot-layout correspondence. The separately hash-bound settled-1024-v1 follow-up checks unchanged CSS with before/after screenshot state and independent footer/canvas pixels."
+}
