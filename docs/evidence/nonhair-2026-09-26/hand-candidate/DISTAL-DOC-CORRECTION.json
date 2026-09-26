@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "reason": "Independent critic correctly identified that a conservative outward-x seed can be below the actual global min of max(axis gaps) near an outward-rounded yz boundary. The previous exact-min wording was too strong; the numerical bound remains conservative.",
+  "oldNote": {
+    "file": "DISTAL-CLEARANCE.v1-pre-critique.md",
+    "sha256": "1917a57b51af0a0232b21f3044b4c3f94c04236e03c0e0e1be78b09a59c2a46d",
+    "originalReceipt": "DISTAL-CPU-RECEIPT.json",
+    "originalReceiptSHA256": "4faa655f0c87c8bac5ac7e0d6b91080796e8e43969747b25fefa1d316b9bcf7f"
+  },
+  "correctedNote": {
+    "file": "DISTAL-CLEARANCE.md",
+    "sha256": "96b52be6cb637b1e48bb0fc4a9e9d0eafe2ad10ac29d584c8f473ebd2de72195"
+  },
+  "counterexample": {
+    "query": "x=1e-300, y=[0,1], z=[0,1]",
+    "target": "x=0, y=[nextUp(1),nextUp(1)+1], z=[0,1]",
+    "effect": "Zero-margin outward-rounded yz bounds admit the pair. The outward-x seed is approximately1e-300; max of the rounded axis gaps is approximately2.2204460492503128e-16. Returning the smaller positive seed is conservative; a minimizing witness can be null."
+  },
+  "numericalHelpersChanged": false,
+  "measurementsRerun": false,
+  "unchangedV3SHA256": "40f1047e3c81fb7c783529c17376db51e0a1203c6f6626e981b5d26fab5c0602",
+  "drawMaskFollowUp": {
+    "noteSHA256": "f7dfb6914246f558396baa03b1e6219b82debaa501403222112cb5d11bc1e151",
+    "receiptSHA256": "9bc392840b30cfbc6070dcc7df2286fc0b346e539bb2d7182ee7bb3e48dee8f0",
+    "helperSHA256": "10da0fc366c223ab9c60cc5618c7bcb0b09d3fbb40fa0392c2c993c876b07382"
+  }
+}

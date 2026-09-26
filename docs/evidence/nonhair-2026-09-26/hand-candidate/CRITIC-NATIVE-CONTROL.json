@@ -1,0 +1,34 @@
+{
+  "reviewer": "/root/critic",
+  "reportSHA256": "25d1aa1e845090fac55b4e74465b583b77d128cd6674993d3a38a5aae45551b6",
+  "sealSHA256": "cd611576c0d50379709ebb75cbd347c747f3f58b673e11aa81810e66a6e10fdd",
+  "manifestSHA256": "1eeda6f9cb06b300289a62ef658f1b87026b63fc7cfe965044df43d82807eefa",
+  "primaryReferenceSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+  "archivedAndCurrentSourceBindings": 1562,
+  "actualAssetResponseBindings": 8,
+  "exactCompressedAndDecodedStateArchive": true,
+  "exactNativeStateRecords": 721,
+  "independentlyEqualFiveMeshPoseSnapshots": 109,
+  "sourceBoundFullPhysicalComparisonReceipts": 109,
+  "comparisonLabelsAndPassingReceipts": 941,
+  "nativePoseLoadOrder": [
+    "relaxed-standing",
+    "weight-left",
+    "weight-right",
+    "relaxed-standing"
+  ],
+  "nativeBudgetCalls": 1,
+  "nativePassthroughBudgetRadians": {
+    "leftUpperArm": 0.17766836756218315,
+    "rightUpperArm": 0.20847278526539728
+  },
+  "initializationFrames": {
+    "constructionBind": 0,
+    "showcaseReady": 1,
+    "afterDress": 1,
+    "afterChannelPreparation": 1
+  },
+  "nativeChannelRebuildCalls": 1,
+  "cleanWrapperOwnedRetirement": true,
+  "scope": "Accepted-byte construction replay admitted. Physical-state equality was exercised by the pinned native controller and verified through its exact comparison receipts; no new GPU run or changed candidate qualification."
+}

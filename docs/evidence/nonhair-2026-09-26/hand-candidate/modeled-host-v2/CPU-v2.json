@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "status": "Eight focused CPU groups passed; original Showcase/native Avatar execution remains pending",
+  "sources": {
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/AcceptedPoseControl.mjs": "cd1673b5daff6c73859112cdcfe04ad3aef092e45c951f079ae6ca4811b07598",
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/AcceptedPoseControl.selftest.mjs": "6046207c3ea95c68cda5811c0a07b63e80ac6c0fa37a14c80669210d95899150"
+  },
+  "requiredNativeSources": {
+    "packages/core/src/motion/MotionStack.js": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9",
+    "packages/core/src/motion/Layer.js": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8",
+    "packages/core/src/affect/PostureLayer.js": "9f72fb58dfdb1646934b61e75c6187fe4bfc7c1c642198842c9eb57dbe31470c",
+    "packages/core/src/motion/Gesture.js": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea",
+    "packages/core/src/figure/Skeleton.js": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "packages/core/src/figure/RestPose.js": "c8e7892717d33e9f273fbb4f85d765f80b5a3efe09f09f6a4abc0ba5368bceb3",
+    "packages/core/src/motion/Sway.js": "00d99fe27a749fc491e0a5eaca4dbdbb13f5331f0a5265089ba5012d47fb84a6",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/testbed/src/showcase.js": "1debe294b31fc00df9ff63f97b64ec43dd9453e609bb6308eb446206b36bc497",
+    "docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.mjs": "614cf2db48236909337e696029cf0e4fbe743ab24c0631bb9f7998d685839f14",
+    "packages/core/src/figure/poses/relaxed-standing.json": "917cead92c04fc339a0baedf07ca592293800dc670ba4f50686975a0439d345f",
+    "packages/core/src/figure/poses/weight-left.json": "79afa516a9b2048b9e315e359a0dbc47ec5413b3c9cb3dec60482dffa0e6d0b8",
+    "packages/core/src/figure/poses/weight-right.json": "a132916357c84a24e3c7a73e967987202bd9346fc3a2ebc2f8c62990efa761f4"
+  },
+  "acceptedPoseHashes": {
+    "relaxed-standing": "917cead92c04fc339a0baedf07ca592293800dc670ba4f50686975a0439d345f",
+    "weight-left": "79afa516a9b2048b9e315e359a0dbc47ec5413b3c9cb3dec60482dffa0e6d0b8",
+    "weight-right": "a132916357c84a24e3c7a73e967987202bd9346fc3a2ebc2f8c62990efa761f4"
+  },
+  "command": "node docs/evidence/nonhair-2026-09-26/hand-candidate/AcceptedPoseControl.selftest.mjs",
+  "groupsPassed": 8,
+  "nativeAvatarRuns": 0,
+  "GPUJobs": 0,
+  "changedCandidateRuns": 0,
+  "predecessor": {
+    "directory": "docs/evidence/nonhair-2026-09-26/hand-candidate/modeled-host-v1",
+    "archiveSHA256": "0928b66d5e7bce8071aa99b9b10acd299fea862258fd49920c05e7083b053e7c",
+    "scope": "Exact preserved modeled-host-only frame0 version, not native Showcase equivalence"
+  },
+  "initialization": {
+    "nativeBudgetBind": "frame0/time0",
+    "originalShowcaseReady": "one original step(0), frame1/time0",
+    "foundationDress": "same frame1/time0; Avatar.dress does not call stack.bind",
+    "channelPreparation": "caller-owned callback after descriptor restoration; unchanged-state/identity receipt required, frame1/time0/clean required",
+    "guard": "same A guard; frozen observer.report() interface; helper-owned teardown may retire it once before outer finally"
+  },
+  "checks": [
+    "Accepted compile and native Sway consumer/cache references exact",
+    "Wrong/missing bytes/source/cap rejected before construction",
+    "Wrong pose/posture consumer rejected with returned-host disposal",
+    "Partial factory and callback failures restore descriptors and retire owned hosts",
+    "Foreign descriptors refused or left intact with lost ownership reported",
+    "Native factory bind counts retained; wrong initial step count/time or budget mutation rejected",
+    "Guard prohibits capture-time rebind before native call",
+    "Missing preparation receipt, remaining dirty channels and added step rejected; read-only report copy and single retirement verified"
+  ],
+  "limitations": [
+    "CPU construction/wardrobe/preparation host uses native motion classes and exact g050 bones but not actual Showcase/Avatar/native asset loader/GPU",
+    "Frame boundary checks alone do not prove original startup ran; native bootstrap must bind actual original showcase source and run exact reproduction",
+    "Full native prepareChannels invariants are supplied and source-bound by the future capture caller; this module does not duplicate that implementation",
+    "No changed pose/cap, hand clearance approval, lifecycle replacement/reset qualification or hair work"
+  ]
+}

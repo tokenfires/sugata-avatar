@@ -1,0 +1,16 @@
+[
+  {
+    "script": "caught-bind-red.mjs",
+    "sha256": "cbfad1da3d4425b57755d9c9f05bdc5640a27e8cb0e08d5cda16914f7959155a",
+    "exitCode": 0,
+    "stdout": "caught Hand attribution stopped: Forbidden lifecycle mutation: stack.bind.\n{\"completed\":true,\"disposed\":true,\"retirementStatus\":\"disposed\",\"retirementFailure\":\"Forbidden lifecycle mutation: stack.bind.\",\"disposalCount\":1}\n",
+    "stderr": ""
+  },
+  {
+    "script": "caught-dispose-red.mjs",
+    "sha256": "e298d5792965035d2c08bdb74b0aa54db2209cfbc7356f99d8746226fedcebd9",
+    "exitCode": 0,
+    "stdout": "caught disposal Hand attribution teardown failed.\n{\"completed\":true,\"disposed\":true,\"retirementFailure\":null,\"cleanupLost\":[],\"disposalCount\":1}\n",
+    "stderr": ""
+  }
+]

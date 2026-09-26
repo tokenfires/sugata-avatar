@@ -1,0 +1,1904 @@
+{
+  "version": 1,
+  "completed": true,
+  "sourceHashes": {
+    "audit-distal-draw-mask.mjs": "10da0fc366c223ab9c60cc5618c7bcb0b09d3fbb40fa0392c2c993c876b07382",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+  },
+  "captureReportSHA256": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+  "diagnosticSHA256": "40f1047e3c81fb7c783529c17376db51e0a1203c6f6626e981b5d26fab5c0602",
+  "regionSHA256": "4fcd74bdf3478895ee538dd38f0f67c53f28434401d417a4f4990b285fedd933",
+  "bodySourceSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+  "poses": [
+    {
+      "arm": "A",
+      "step": 0,
+      "file": "A-primary/meshes-0.json.gz",
+      "sha256": "2731c2d61c812e07c6943768011637ce459536628644c3841508b66786b3463b",
+      "decodedSHA256": "18724d5e3fc23021cd202150f112697c3c5bcf4efb22bfd0ad7ddf4dfaccb7e3",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16009,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1268,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.13001316785812378,
+                1.210744023323059,
+                0.060120824724435806
+              ],
+              [
+                0.124954454600811,
+                1.1967120170593262,
+                0.0425136424601078
+              ],
+              [
+                0.13283833861351013,
+                1.1939812898635864,
+                0.05946059897542
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.20444338023662567,
+                1.2094812393188477,
+                0.030024029314517975
+              ],
+              [
+                0.20088039338588715,
+                1.2102560997009277,
+                0.04563145339488983
+              ],
+              [
+                0.1905374377965927,
+                1.2066212892532349,
+                0.04192531853914261
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 613
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2788,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.18153880536556244,
+                1.1993216276168823,
+                0.015597090125083923
+              ],
+              [
+                -0.18192212283611298,
+                1.197022795677185,
+                0.029529526829719543
+              ],
+              [
+                -0.18837541341781616,
+                1.177017092704773,
+                0.03171369060873985
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.2642013132572174,
+                1.2024868726730347,
+                0.03751731663942337
+              ],
+              [
+                -0.2631957530975342,
+                1.2012966871261597,
+                0.020856883376836777
+              ],
+              [
+                -0.25421756505966187,
+                1.1964678764343262,
+                0.023863457143306732
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 102
+          }
+        }
+      }
+    },
+    {
+      "arm": "A",
+      "step": 455,
+      "file": "A-primary/meshes-455.json.gz",
+      "sha256": "afde6ceec372f63a3aa96317fc893c9ecf3e6f38063046e3d4631e2d5192a3c8",
+      "decodedSHA256": "18e8db2103bc2a2dad9bdb29f8993f2673ee924add110ba41fb563ff1cab5c1d",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16009,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1202,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.1339903473854065,
+                1.215683937072754,
+                0.08812939375638962
+              ],
+              [
+                0.12975238263607025,
+                1.1983669996261597,
+                0.07390526682138443
+              ],
+              [
+                0.13768011331558228,
+                1.1997239589691162,
+                0.09045686572790146
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.20489871501922607,
+                1.215976357460022,
+                0.07370907068252563
+              ],
+              [
+                0.19591733813285828,
+                1.2171498537063599,
+                0.08711513131856918
+              ],
+              [
+                0.18751753866672516,
+                1.2120002508163452,
+                0.081280916929245
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 20
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2803,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.19363409280776978,
+                1.1988228559494019,
+                0.07776003330945969
+              ],
+              [
+                -0.19834785163402557,
+                1.1766300201416016,
+                0.06463794410228729
+              ],
+              [
+                -0.19060461223125458,
+                1.1952872276306152,
+                0.0594782680273056
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.2723233997821808,
+                1.20753014087677,
+                0.06517519056797028
+              ],
+              [
+                -0.2713907063007355,
+                1.203191876411438,
+                0.04907887801527977
+              ],
+              [
+                -0.26276087760925293,
+                1.1984297037124634,
+                0.053052742034196854
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 32
+          }
+        }
+      }
+    },
+    {
+      "arm": "A",
+      "step": 637,
+      "file": "A-primary/meshes-637.json.gz",
+      "sha256": "a50ea467a77697bb4e6726c5f8bad2ed56a662302ec0aba1b9f574962051a314",
+      "decodedSHA256": "3820ee05a3d44570e915643ac14df99f62fafb03b37489899ddf9c2db6463807",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16816,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2712,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.031980983912944794,
+                0.6685527563095093,
+                0.07200782001018524
+              ],
+              [
+                0.03081326000392437,
+                0.6682083606719971,
+                0.07481604814529419
+              ],
+              [
+                0.029768019914627075,
+                0.6695530414581299,
+                0.07476896047592163
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.14537663757801056,
+                0.6380789279937744,
+                0.07902415841817856
+              ],
+              [
+                0.14784224331378937,
+                0.6400052905082703,
+                0.04453809931874275
+              ],
+              [
+                0.1530381143093109,
+                0.6989699006080627,
+                0.04999649152159691
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3377
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 3578,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2719,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.09356734901666641,
+                0.6693658828735352,
+                0.08676672726869583
+              ],
+              [
+                -0.09276552498340607,
+                0.670833945274353,
+                0.08609861880540848
+              ],
+              [
+                -0.09141221642494202,
+                0.6705470085144043,
+                0.08950204402208328
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.1857062727212906,
+                0.6332753896713257,
+                0.0790073350071907
+              ],
+              [
+                -0.1769876927137375,
+                0.6975982785224915,
+                0.11471643298864365
+              ],
+              [
+                -0.19587254524230957,
+                0.6956667900085449,
+                0.08290361613035202
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3284
+          }
+        }
+      }
+    },
+    {
+      "arm": "A",
+      "step": 720,
+      "file": "A-primary/meshes-720.json.gz",
+      "sha256": "e38c298ee927fad1d53c429fed9c5245583e8ae1d1da03e822db1a2816617430",
+      "decodedSHA256": "5a8d9d6762b1b837eda21ce9164570df95587af3ac6deb8f0896c90457aca1c9",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16444,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2810,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.010531140491366386,
+                0.6878839135169983,
+                0.015564283356070518
+              ],
+              [
+                0.009915079921483994,
+                0.6879808306694031,
+                0.018742486834526062
+              ],
+              [
+                0.009209568612277508,
+                0.6894803643226624,
+                0.019050052389502525
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.1365995556116104,
+                0.6441327333450317,
+                0.0032926443964242935
+              ],
+              [
+                0.14159494638442993,
+                0.6974405646324158,
+                0.0014165453612804413
+              ],
+              [
+                0.15237271785736084,
+                0.6990636587142944,
+                0.045380350202322006
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3280
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 3395,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2805,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.07836620509624481,
+                0.6912033557891846,
+                0.020899271592497826
+              ],
+              [
+                -0.081729456782341,
+                0.6961986422538757,
+                0.02610875852406025
+              ],
+              [
+                -0.07734865695238113,
+                0.6926210522651672,
+                0.02625473588705063
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.19693972170352936,
+                0.744509756565094,
+                -0.0009555880096741021
+              ],
+              [
+                -0.1981017291545868,
+                0.6961501240730286,
+                0.037449777126312256
+              ],
+              [
+                -0.20542515814304352,
+                0.7407342195510864,
+                0.04159330949187279
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3279
+          }
+        }
+      }
+    },
+    {
+      "arm": "B",
+      "step": 0,
+      "file": "B-primary/meshes-0.json.gz",
+      "sha256": "2ea667d5ae95c125dd415f2b33f53d2749cf9c6ecde17a0de5c60b56593ef7cb",
+      "decodedSHA256": "c69d757898805b5dc9635ffc1b8d9aa34f79ee662471bc14eaa83941f6aa7876",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16009,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1268,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.13001316785812378,
+                1.210744023323059,
+                0.060120824724435806
+              ],
+              [
+                0.124954454600811,
+                1.1967120170593262,
+                0.0425136424601078
+              ],
+              [
+                0.13283833861351013,
+                1.1939812898635864,
+                0.05946059897542
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.20444338023662567,
+                1.2094812393188477,
+                0.030024029314517975
+              ],
+              [
+                0.20088039338588715,
+                1.2102560997009277,
+                0.04563145339488983
+              ],
+              [
+                0.1905374377965927,
+                1.2066212892532349,
+                0.04192531853914261
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 613
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2788,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.18153880536556244,
+                1.1993216276168823,
+                0.015597090125083923
+              ],
+              [
+                -0.18192212283611298,
+                1.197022795677185,
+                0.029529526829719543
+              ],
+              [
+                -0.18837541341781616,
+                1.177017092704773,
+                0.03171369060873985
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.2642013132572174,
+                1.2024868726730347,
+                0.03751731663942337
+              ],
+              [
+                -0.2631957530975342,
+                1.2012966871261597,
+                0.020856883376836777
+              ],
+              [
+                -0.25421756505966187,
+                1.1964678764343262,
+                0.023863457143306732
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 102
+          }
+        }
+      }
+    },
+    {
+      "arm": "B",
+      "step": 455,
+      "file": "B-primary/meshes-455.json.gz",
+      "sha256": "3004625824a8a0216884f1b35cb89a1736acd5b8526f158ac56e02d27aab9f88",
+      "decodedSHA256": "393f7e8950f4ff7eb5bc074a92faa4adf5e160610e5f148a5747d49bf8b641df",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16009,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1202,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.1339903473854065,
+                1.215683937072754,
+                0.08812939375638962
+              ],
+              [
+                0.12975238263607025,
+                1.1983669996261597,
+                0.07390526682138443
+              ],
+              [
+                0.13768011331558228,
+                1.1997239589691162,
+                0.09045686572790146
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.20489871501922607,
+                1.215976357460022,
+                0.07370907068252563
+              ],
+              [
+                0.19591733813285828,
+                1.2171498537063599,
+                0.08711513131856918
+              ],
+              [
+                0.18751753866672516,
+                1.2120002508163452,
+                0.081280916929245
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 20
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2803,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.19363409280776978,
+                1.1988228559494019,
+                0.07776003330945969
+              ],
+              [
+                -0.19834785163402557,
+                1.1766300201416016,
+                0.06463794410228729
+              ],
+              [
+                -0.19060461223125458,
+                1.1952872276306152,
+                0.0594782680273056
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.2723233997821808,
+                1.20753014087677,
+                0.06517519056797028
+              ],
+              [
+                -0.2713907063007355,
+                1.203191876411438,
+                0.04907887801527977
+              ],
+              [
+                -0.26276087760925293,
+                1.1984297037124634,
+                0.053052742034196854
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 32
+          }
+        }
+      }
+    },
+    {
+      "arm": "B",
+      "step": 637,
+      "file": "B-primary/meshes-637.json.gz",
+      "sha256": "2b2368c78ea970ea61ea9f169fa74c8858e1b7210109b127e51437bbaeef3c03",
+      "decodedSHA256": "157a2beda0d09d543add4e7390a1d03203049f1f709a31e79f0c675e4a1a05f0",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16009,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1202,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.1305890828371048,
+                1.1688427925109863,
+                0.15000206232070923
+              ],
+              [
+                0.12580688297748566,
+                1.1598674058914185,
+                0.1293884962797165
+              ],
+              [
+                0.13358904421329498,
+                1.1530855894088745,
+                0.1449839323759079
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.2015732079744339,
+                1.1727086305618286,
+                0.13662464916706085
+              ],
+              [
+                0.19249171018600464,
+                1.1681019067764282,
+                0.1492493748664856
+              ],
+              [
+                0.18396547436714172,
+                1.1664304733276367,
+                0.14176540076732635
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 407
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2788,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.18406404554843903,
+                1.169944167137146,
+                0.10188616067171097
+              ],
+              [
+                -0.18455928564071655,
+                1.1640266180038452,
+                0.11470340937376022
+              ],
+              [
+                -0.19144582748413086,
+                1.1444718837738037,
+                0.11131508648395538
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.26672613620758057,
+                1.1690312623977661,
+                0.12396969646215439
+              ],
+              [
+                -0.2656738758087158,
+                1.1722856760025024,
+                0.10760367661714554
+              ],
+              [
+                -0.256819486618042,
+                1.1666295528411865,
+                0.10920388251543045
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 31
+          }
+        }
+      }
+    },
+    {
+      "arm": "B",
+      "step": 720,
+      "file": "B-primary/meshes-720.json.gz",
+      "sha256": "1f525cf97ba2e67c6c599e02779a84c70602b500fb15f361c751ff7cfef86f05",
+      "decodedSHA256": "9bbbdd84928d9e680703d7e930db555a5781622f6cbf68432595583db4226e8a",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16026,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1242,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.11843641102313995,
+                1.1759543418884277,
+                0.08098559826612473
+              ],
+              [
+                0.12303384393453598,
+                1.1565054655075073,
+                0.07435955852270126
+              ],
+              [
+                0.12496556341648102,
+                1.1493486166000366,
+                0.08822919428348541
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.20054566860198975,
+                1.1816052198410034,
+                0.08635841310024261
+              ],
+              [
+                0.20227330923080444,
+                1.1771870851516724,
+                0.10311586409807205
+              ],
+              [
+                0.19284118711948395,
+                1.1747289896011353,
+                0.10199328511953354
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 963
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2788,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.18217583000659943,
+                1.175674557685852,
+                0.08291398733854294
+              ],
+              [
+                -0.1825927495956421,
+                1.168648600578308,
+                0.09516166150569916
+              ],
+              [
+                -0.1890832483768463,
+                1.149153232574463,
+                0.09019792824983597
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.26487085223197937,
+                1.1712297201156616,
+                0.10448310524225235
+              ],
+              [
+                -0.2638370096683502,
+                1.1759361028671265,
+                0.08846185356378555
+              ],
+              [
+                -0.25487756729125977,
+                1.1703342199325562,
+                0.08959637582302094
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 31
+          }
+        }
+      }
+    },
+    {
+      "arm": "C",
+      "step": 0,
+      "file": "C-primary/meshes-0.json.gz",
+      "sha256": "0a704e52a580f862bbc463cdddcbc201ecce51d1b3ba9341b32090af6f5f80ed",
+      "decodedSHA256": "cce839ceb462f6fabd39005bd964911196f65f992a309dccc93647e157a25a74",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16009,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1268,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.13001316785812378,
+                1.210744023323059,
+                0.060120824724435806
+              ],
+              [
+                0.124954454600811,
+                1.1967120170593262,
+                0.0425136424601078
+              ],
+              [
+                0.13283833861351013,
+                1.1939812898635864,
+                0.05946059897542
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.20444338023662567,
+                1.2094812393188477,
+                0.030024029314517975
+              ],
+              [
+                0.20088039338588715,
+                1.2102560997009277,
+                0.04563145339488983
+              ],
+              [
+                0.1905374377965927,
+                1.2066212892532349,
+                0.04192531853914261
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 613
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2788,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.18153880536556244,
+                1.1993216276168823,
+                0.015597090125083923
+              ],
+              [
+                -0.18192212283611298,
+                1.197022795677185,
+                0.029529526829719543
+              ],
+              [
+                -0.18837541341781616,
+                1.177017092704773,
+                0.03171369060873985
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.2642013132572174,
+                1.2024868726730347,
+                0.03751731663942337
+              ],
+              [
+                -0.2631957530975342,
+                1.2012966871261597,
+                0.020856883376836777
+              ],
+              [
+                -0.25421756505966187,
+                1.1964678764343262,
+                0.023863457143306732
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 102
+          }
+        }
+      }
+    },
+    {
+      "arm": "C",
+      "step": 455,
+      "file": "C-primary/meshes-455.json.gz",
+      "sha256": "96d39b2a7389fbd5222cee46dc15f1f9512b6f005b052e17b119ec5c5b6cb45b",
+      "decodedSHA256": "a51ef1c2c9b5a13c7d94a184cd8104d69ab6cf9c90d1f591cf5ea620b870f2cb",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16009,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1268,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.12699387967586517,
+                1.2099543809890747,
+                0.06760909408330917
+              ],
+              [
+                0.12171245366334915,
+                1.1961479187011719,
+                0.04987666755914688
+              ],
+              [
+                0.1294795274734497,
+                1.1931564807891846,
+                0.06681249290704727
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.20147782564163208,
+                1.2074896097183228,
+                0.03776008263230324
+              ],
+              [
+                0.19787321984767914,
+                1.2082147598266602,
+                0.053358569741249084
+              ],
+              [
+                0.18747578561306,
+                1.2048060894012451,
+                0.049589067697525024
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 1132
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 2788,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 1250,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.18216897547245026,
+                1.1994538307189941,
+                0.021192505955696106
+              ],
+              [
+                -0.1825452744960785,
+                1.1968839168548584,
+                0.03507767990231514
+              ],
+              [
+                -0.18894626200199127,
+                1.1768255233764648,
+                0.03686031699180603
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.2648298740386963,
+                1.2020565271377563,
+                0.043187327682971954
+              ],
+              [
+                -0.26382800936698914,
+                1.20119047164917,
+                0.026508977636694908
+              ],
+              [
+                -0.2548411190509796,
+                1.1963192224502563,
+                0.029418570920825005
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 65
+          }
+        }
+      }
+    },
+    {
+      "arm": "C",
+      "step": 637,
+      "file": "C-primary/meshes-637.json.gz",
+      "sha256": "4814e2571b1175289bb2c497ace5c5496206200900c258c56377f765f56ac1a2",
+      "decodedSHA256": "6b78a24129d0de322695baf99996714946e4c7d2c8ff53163c8550e8b2a279b3",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16444,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2810,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.013956108130514622,
+                0.686053454875946,
+                0.031142042949795723
+              ],
+              [
+                0.01333724893629551,
+                0.6861742734909058,
+                0.03431888297200203
+              ],
+              [
+                0.01261153444647789,
+                0.6876672506332397,
+                0.03461100906133652
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.137099489569664,
+                0.6443846225738525,
+                0.007523166947066784
+              ],
+              [
+                0.14214158058166504,
+                0.6977010369300842,
+                0.006050869822502136
+              ],
+              [
+                0.1530381143093109,
+                0.6989699006080627,
+                0.04999649152159691
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3541
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 3395,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2707,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.07493580877780914,
+                0.6908556222915649,
+                0.04498523473739624
+              ],
+              [
+                -0.07851526141166687,
+                0.6958547234535217,
+                0.05004475265741348
+              ],
+              [
+                -0.0740165188908577,
+                0.6924340724945068,
+                0.05031341314315796
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.2017531394958496,
+                0.7384928464889526,
+                0.08612299710512161
+              ],
+              [
+                -0.19754886627197266,
+                0.6960236430168152,
+                0.04212498664855957
+              ],
+              [
+                -0.19587254524230957,
+                0.6956667900085449,
+                0.08290361613035202
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3600
+          }
+        }
+      }
+    },
+    {
+      "arm": "C",
+      "step": 720,
+      "file": "C-primary/meshes-720.json.gz",
+      "sha256": "6c0c5d74412b7f0cbb9f90b674095936ec68e65cc4c165f6250d6497e5bca068",
+      "decodedSHA256": "7063a4227657f40e84a4ce5f83d4d6f116d5658fbcc0076c8ae0036344854004",
+      "meshes": {
+        "body": {
+          "fullFaces": 26756,
+          "drawnFaces": 17012,
+          "fullIndicesSHA256": "9f4f05f70bed5b2b9c3941a2913b2eb2504e2d953b8ec4f58a95f1f2f72b00bc",
+          "drawnIndicesSHA256": "baac2d814038af4b263c6bf1c854a3e0d2cf5575d81ab3ace99e32fa23008c8e"
+        },
+        "foundation_bra": {
+          "fullFaces": 22090,
+          "drawnFaces": 327,
+          "fullIndicesSHA256": "38c9b34ec83ab17ee77b0314796de6245259564ef71be8a794c98cc1368aa840",
+          "drawnIndicesSHA256": "69da6bd218c756ecf68a871c5741c332ce6c3e720fc77641b0a4eae484bb16a8"
+        },
+        "foundation_briefs": {
+          "fullFaces": 12498,
+          "drawnFaces": 0,
+          "fullIndicesSHA256": "cbd5fa40109cb167a4867850fc88154e5874288474f273ab1467f46a8bfd71ae",
+          "drawnIndicesSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "female_casualsuit01": {
+          "fullFaces": 4236,
+          "drawnFaces": 4236,
+          "fullIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430",
+          "drawnIndicesSHA256": "a2422613d1448fdafb098b08366eb1fa4bd51889825ca122f068deb9d56f4430"
+        },
+        "shoes01": {
+          "fullFaces": 3320,
+          "drawnFaces": 3320,
+          "fullIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250",
+          "drawnIndicesSHA256": "88db2fa89777b2d981c3172d9be7696cc903017a4f37a626478f69f3818a8250"
+        }
+      },
+      "sides": {
+        "l": {
+          "fullDistalFaces": 3909,
+          "drawnDistalFaces": 3909,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "07ec789e58b6d61f58e2d9c6144e50b306ad18002be0a76abff149ea4be15044",
+          "proximalSleeveFace": {
+            "face": 16009,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 16444,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2810,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                0.010531140491366386,
+                0.6878839135169983,
+                0.015564283356070518
+              ],
+              [
+                0.009915079921483994,
+                0.6879808306694031,
+                0.018742486834526062
+              ],
+              [
+                0.009209568612277508,
+                0.6894803643226624,
+                0.019050052389502525
+              ]
+            ],
+            "targetPoints": [
+              [
+                0.1365995556116104,
+                0.6441327333450317,
+                0.0032926443964242935
+              ],
+              [
+                0.14159494638442993,
+                0.6974405646324158,
+                0.0014165453612804413
+              ],
+              [
+                0.15237271785736084,
+                0.6990636587142944,
+                0.045380350202322006
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3280
+          }
+        },
+        "r": {
+          "fullDistalFaces": 3907,
+          "drawnDistalFaces": 3907,
+          "hiddenDistalFaceIds": [],
+          "legacyHandFaces": 3166,
+          "legacyHiddenFaceIds": [],
+          "fullAndDrawnOrderedFaceIdsSHA256": "5fe50bbbbe126874564006c570c29a8e3490ccce64e4d3fe7d76f25b73e8a9dd",
+          "proximalSleeveFace": {
+            "face": 2803,
+            "drawn": true
+          },
+          "actualLimitingClothingPair": {
+            "queryFace": 3395,
+            "queryDrawn": true,
+            "targetMesh": "female_casualsuit01",
+            "targetFace": 2805,
+            "targetDrawn": true,
+            "queryPoints": [
+              [
+                -0.07836620509624481,
+                0.6912033557891846,
+                0.020899271592497826
+              ],
+              [
+                -0.081729456782341,
+                0.6961986422538757,
+                0.02610875852406025
+              ],
+              [
+                -0.07734865695238113,
+                0.6926210522651672,
+                0.02625473588705063
+              ]
+            ],
+            "targetPoints": [
+              [
+                -0.19693972170352936,
+                0.744509756565094,
+                -0.0009555880096741021
+              ],
+              [
+                -0.1981017291545868,
+                0.6961501240730286,
+                0.037449777126312256
+              ],
+              [
+                -0.20542515814304352,
+                0.7407342195510864,
+                0.04159330949187279
+              ]
+            ]
+          },
+          "fullAndDrawnCertificateIdenticalBySetEquality": true,
+          "existingFullClothingResult": {
+            "status": "unproven",
+            "failedTriangles": 3279
+          }
+        }
+      }
+    }
+  ],
+  "scope": "Native full/drawn index membership only. Drawn is not proof of on-screen visibility: a garment may occlude a submitted body triangle.",
+  "maskAndTopologyFixedAcrossAll12Poses": true,
+  "everyLegacyHandFaceDrawn": true,
+  "everySelectedDistalFaceDrawn": true,
+  "clothingCertificateRerun": false,
+  "noRerunReason": "Every ordered full query face set equals its drawn subset, with the same retained positions and targets. The pure existing operator therefore receives identical inputs; no alternate visible-face result is invented."
+}
