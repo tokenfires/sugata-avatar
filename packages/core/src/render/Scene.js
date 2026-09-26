@@ -1011,7 +1011,9 @@ export const SCENES = Object.freeze( {
             centreOffsetMetres: Object.freeze( { x: 0.9, z: 1.5 } ),
 
             // Warm plaster, an oak floor and a near-white ceiling. Albedos, not radiances.
-            wall: 0xd8cfc2,
+            // September 26: moderated plaster separates the shadow-side face while retaining
+            // room and dark-outfit readability. See docs/evidence/nonhair-2026-09-26/scene/.
+            wall: 0xb4ac9f,
             floor: 0x6b5443,
             ceiling: 0xe8e4dc,
 

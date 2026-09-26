@@ -2,6 +2,11 @@
 //
 // scene-gates.mjs — punch-list 11.7. CAN YOU STILL READ THE PERSON?
 //
+// CURRENT MASK PATH: runScene uses the opaque geometry-ID pass added on September 22.
+// The dither-difference findings below document the earlier instrument and its motivation;
+// they do not describe the current subject-mask construction. Current scene verdicts still
+// require inspecting the emitted geometry overlay and each clause, not just CLI exit status.
+//
 // 🔴 TWO OF THE FIVE CLAUSES ARE DEFECTIVE AS SHIPPED, FOUND BY AN ADVERSARY ON THE SAME DAY AND
 // DECLARED HERE RATHER THAN LEFT FOR A LATER READER TO TRUST. Both are about the MATTE, which is
 // the one input every masked clause shares, so neither is a tuning question.
@@ -1022,7 +1027,7 @@ function declaredKeySide(report) {
   return { side: a > 0 ? 'right' : 'left', azimuth: a };
 }
 
-async function runScene(browser, urlBase, out, scene, { overlays, label = scene, extra = '' }) {
+export async function runScene(browser, urlBase, out, scene, { overlays, label = scene, extra = '' }) {
   const query = `scene=${scene}&frame=portrait${extra}`;
   const lit = await arm(browser, urlBase, query, `${out}/${label}-lit.png`, { readGeometry: true });
   const bg = await arm(browser, urlBase, query, `${out}/${label}-matte.png`, { geometryMask: true });
@@ -1033,6 +1038,7 @@ async function runScene(browser, urlBase, out, scene, { overlays, label = scene,
   // An ID pass counts visible geometry. Bloom and changing background light cannot join the mask.
   const raw = { mask: Uint8Array.from({ length: w * h }, (_, k) =>
     Math.max(...bg.png.pixels.slice(k * 4, k * 4 + 3)) > 0.5 ? 1 : 0) };
+  raw.hits = raw.mask.reduce((sum, value) => sum + value, 0);
   const component = largestComponent(raw.mask, w, h);
   const subjectPixels = [];
   for (let k = 0; k < w * h; k += 1) if (component.mask[k] === 1) subjectPixels.push(k);

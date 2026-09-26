@@ -1,0 +1,319 @@
+{
+  "date": "2026-09-26T15:16:47.280Z",
+  "head": "a5cef3adf65c77a4b7ca21a16c585cb7efde9a98",
+  "sourceHashes": {
+    "packages/core/src/render/Scene.js": "1792a2fed0d535c916cd215b9dd0758972856fbe4d6795ade8f83258e6cc6a0f",
+    "packages/core/src/render/InteriorEnvironment.js": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/render/LightingRig.js": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374",
+    "tools/critic/scene-gates.mjs": "68c83e5c07dff2ed74c20ebd578f700cd6fbf6817e461859bd872bcfa221fa88",
+    "tools/critic/avatar-plate.html": "190df83951a2150b3f4528444c8f21f61180c4f51cd5aaa62c50b1dd79a9d41e",
+    "tools/critic/GeometryMask.js": "d4ce6fa6b0c8fb8ebc074a8ec45e6a5a41d1b124dc29e4ef8df5dfb5762a4aa3",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+  },
+  "wallOverride": null,
+  "cases": [
+    {
+      "scene": "studio",
+      "clauses": [
+        {
+          "id": "L1",
+          "name": "face sits inside the frame's own range",
+          "value": 0.9092754529113094,
+          "band": [
+            0.2,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "faceMedian": 0.7529341323733328,
+            "frameBlack": 0.008126274956762792,
+            "frameWhite": 0.8272486377477646,
+            "facePixels": 44169
+          }
+        },
+        {
+          "id": "L2",
+          "name": "cheek:cheek inside a legibility band",
+          "value": 1.1478067852894789,
+          "band": [
+            1.0847,
+            4
+          ],
+          "status": "PASS",
+          "detail": {
+            "keySideFromFrame": "right",
+            "imageRightMedian": 0.7966580513358115,
+            "imageLeftMedian": 0.6940698221564293,
+            "imageRightPixels": 9283,
+            "imageLeftPixels": 9064
+          }
+        },
+        {
+          "id": "L3",
+          "name": "silhouette separates on every side",
+          "value": 0.9529435407299252,
+          "band": [
+            0.05,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "sidesTested": [
+              "left",
+              "right",
+              "top"
+            ],
+            "failed": [],
+            "worstSide": "right",
+            "separation": {
+              "bySide": {
+                "left": {
+                  "count": 665,
+                  "p10": 0.9564128657413808,
+                  "median": 0.9619340510647524
+                },
+                "right": {
+                  "count": 717,
+                  "p10": 0.9529435407299252,
+                  "median": 0.9615329099220954
+                },
+                "top": {
+                  "count": 825,
+                  "p10": 0.9586945053448634,
+                  "median": 0.9645131446396027
+                },
+                "bottom": {
+                  "count": 50,
+                  "p10": 0.9323745628677108,
+                  "median": 0.9543336628874624
+                }
+              },
+              "skipped": 192,
+              "outlineMean": 0.9579454736292228,
+              "outlineP10": 0.956157587867998,
+              "total": 2257
+            }
+          }
+        },
+        {
+          "id": "L4",
+          "name": "subject clipping under G5's share",
+          "value": 0,
+          "band": [
+            0,
+            0.005
+          ],
+          "status": "PASS",
+          "detail": {
+            "subjectClipped": 0,
+            "subjectPixels": 644524,
+            "frameClippedFraction": 0,
+            "frameClipped": 0
+          }
+        },
+        {
+          "id": "L5",
+          "name": "a catchlight in every eye",
+          "value": 4.03979843927777,
+          "band": [
+            1.5,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "perEye": {
+              "left": {
+                "pixels": 1804,
+                "median": 0.19914039835631847,
+                "peak": 0.8044870704770087,
+                "ratio": 4.03979843927777
+              },
+              "right": {
+                "pixels": 1527,
+                "median": 0.15861255763471124,
+                "peak": 0.7469600150823592,
+                "ratio": 4.709337181250347
+              }
+            }
+          }
+        }
+      ],
+      "keySide": {
+        "fromFrame": "right",
+        "declared": {
+          "side": "right",
+          "azimuth": 42
+        }
+      },
+      "subjectPixels": 644524
+    },
+    {
+      "scene": "kitchen",
+      "clauses": [
+        {
+          "id": "L1",
+          "name": "face sits inside the frame's own range",
+          "value": 0.645910743844088,
+          "band": [
+            0.2,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "faceMedian": 0.6556094301402567,
+            "frameBlack": 0.1573098089084029,
+            "frameWhite": 0.9287780434608459,
+            "facePixels": 44169
+          }
+        },
+        {
+          "id": "L2",
+          "name": "cheek:cheek inside a legibility band",
+          "value": 1.5700081083866535,
+          "band": [
+            1.0847,
+            4
+          ],
+          "status": "PASS",
+          "detail": {
+            "keySideFromFrame": "left",
+            "imageRightMedian": 0.5853043362915515,
+            "imageLeftMedian": 0.9189325538516045,
+            "imageRightPixels": 9283,
+            "imageLeftPixels": 9064
+          }
+        },
+        {
+          "id": "L3",
+          "name": "silhouette separates on every side",
+          "value": 0.008141488611438066,
+          "band": [
+            0.05,
+            null
+          ],
+          "status": "FAIL",
+          "detail": {
+            "sidesTested": [
+              "left",
+              "right",
+              "top"
+            ],
+            "failed": [
+              "right"
+            ],
+            "worstSide": "right",
+            "separation": {
+              "bySide": {
+                "left": {
+                  "count": 665,
+                  "p10": 0.25156604902544183,
+                  "median": 0.30622906596723215
+                },
+                "right": {
+                  "count": 717,
+                  "p10": 0.008141488611438066,
+                  "median": 0.04788610334091821
+                },
+                "top": {
+                  "count": 825,
+                  "p10": 0.2369695099579553,
+                  "median": 0.40630414213190563
+                },
+                "bottom": {
+                  "count": 50,
+                  "p10": 0.030750187442930045,
+                  "median": 0.12254623710345298
+                }
+              },
+              "skipped": 192,
+              "outlineMean": 0.2724859192536649,
+              "outlineP10": 0.02621432198773642,
+              "total": 2257
+            }
+          }
+        },
+        {
+          "id": "L4",
+          "name": "subject clipping under G5's share",
+          "value": 0,
+          "band": [
+            0,
+            0.005
+          ],
+          "status": "PASS",
+          "detail": {
+            "subjectClipped": 0,
+            "subjectPixels": 644524,
+            "frameClippedFraction": 0,
+            "frameClipped": 0
+          }
+        },
+        {
+          "id": "L5",
+          "name": "a catchlight in every eye",
+          "value": 1.7774945322649742,
+          "band": [
+            1.5,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "perEye": {
+              "left": {
+                "pixels": 1870,
+                "median": 0.2732996096223593,
+                "peak": 0.8785231444954872,
+                "ratio": 3.2145056691058413
+              },
+              "right": {
+                "pixels": 1590,
+                "median": 0.501825104266405,
+                "peak": 0.8919913789868356,
+                "ratio": 1.7774945322649742
+              }
+            }
+          }
+        }
+      ],
+      "keySide": {
+        "fromFrame": "left",
+        "declared": {
+          "side": "left",
+          "azimuth": -67
+        }
+      },
+      "subjectPixels": 644524
+    }
+  ],
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "THREE.TSL: Invalid parameter for the type \"float\". \"    at new StackTrace (http://localhost:5298/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5298/ (three_webgpu.js:510:80)\n    at     at http://localhost:5298/ (three_webgpu.js:2674:60)\n    at     at MeshBasicNodeMaterial.setupDiffuseColor (http://localhost:5298/ (three_webgpu.js:14072:50)\n    at     at MeshBasicNodeMaterial.setup (http://localhost:5298/ (three_webgpu.js:13924:9)\n    at     at MeshBasicNodeMaterial.build (http://localhost:5298/ (three_webgpu.js:13885:8)\n    at     at WGSLNodeBuilder.prebuild (http://localhost:5298/ (three_webgpu.js:37333:17)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37342:8)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)",
+    "THREE.TSL: TypeError: Cannot read properties of undefined (reading 'build') \"    at SubBuildNode.build (http://localhost:5298/()\" at \"three_webgpu.js:5896\"\n    at     at SubBuildNode.build (http://localhost:5298/ (three_webgpu.js:5896:26)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1464:16)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1771:16)\n    at     at StackNode.build (http://localhost:5298/ (three_webgpu.js:23737:37)\n    at     at WGSLNodeBuilder.flowNodeFromShaderStage (http://localhost:5298/ (three_webgpu.js:37110:24)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37345:68)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)\n    at     at NodeManager.needsRefresh (http://localhost:5298/ (three_webgpu.js:38868:23)",
+    "THREE.TSL: Invalid parameter for the type \"float\". \"    at new StackTrace (http://localhost:5298/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5298/ (three_webgpu.js:510:80)\n    at     at http://localhost:5298/ (three_webgpu.js:2674:60)\n    at     at MeshBasicNodeMaterial.setupDiffuseColor (http://localhost:5298/ (three_webgpu.js:14072:50)\n    at     at MeshBasicNodeMaterial.setup (http://localhost:5298/ (three_webgpu.js:13924:9)\n    at     at MeshBasicNodeMaterial.build (http://localhost:5298/ (three_webgpu.js:13885:8)\n    at     at WGSLNodeBuilder.prebuild (http://localhost:5298/ (three_webgpu.js:37333:17)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37342:8)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)",
+    "THREE.TSL: TypeError: Cannot read properties of undefined (reading 'build') \"    at SubBuildNode.build (http://localhost:5298/()\" at \"three_webgpu.js:5896\"\n    at     at SubBuildNode.build (http://localhost:5298/ (three_webgpu.js:5896:26)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1464:16)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1771:16)\n    at     at StackNode.build (http://localhost:5298/ (three_webgpu.js:23737:37)\n    at     at WGSLNodeBuilder.flowNodeFromShaderStage (http://localhost:5298/ (three_webgpu.js:37110:24)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37345:68)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)\n    at     at NodeManager.needsRefresh (http://localhost:5298/ (three_webgpu.js:38868:23)",
+    "THREE.TSL: Invalid parameter for the type \"float\". \"    at new StackTrace (http://localhost:5298/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5298/ (three_webgpu.js:510:80)\n    at     at http://localhost:5298/ (three_webgpu.js:2674:60)\n    at     at MeshBasicNodeMaterial.setupDiffuseColor (http://localhost:5298/ (three_webgpu.js:14072:50)\n    at     at MeshBasicNodeMaterial.setup (http://localhost:5298/ (three_webgpu.js:13924:9)\n    at     at MeshBasicNodeMaterial.build (http://localhost:5298/ (three_webgpu.js:13885:8)\n    at     at WGSLNodeBuilder.prebuild (http://localhost:5298/ (three_webgpu.js:37333:17)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37342:8)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)",
+    "THREE.TSL: TypeError: Cannot read properties of undefined (reading 'build') \"    at SubBuildNode.build (http://localhost:5298/()\" at \"three_webgpu.js:5896\"\n    at     at SubBuildNode.build (http://localhost:5298/ (three_webgpu.js:5896:26)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1464:16)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1771:16)\n    at     at StackNode.build (http://localhost:5298/ (three_webgpu.js:23737:37)\n    at     at WGSLNodeBuilder.flowNodeFromShaderStage (http://localhost:5298/ (three_webgpu.js:37110:24)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37345:68)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)\n    at     at NodeManager.needsRefresh (http://localhost:5298/ (three_webgpu.js:38868:23)",
+    "THREE.TSL: Invalid parameter for the type \"float\". \"    at new StackTrace (http://localhost:5298/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5298/ (three_webgpu.js:510:80)\n    at     at http://localhost:5298/ (three_webgpu.js:2674:60)\n    at     at MeshBasicNodeMaterial.setupDiffuseColor (http://localhost:5298/ (three_webgpu.js:14072:50)\n    at     at MeshBasicNodeMaterial.setup (http://localhost:5298/ (three_webgpu.js:13924:9)\n    at     at MeshBasicNodeMaterial.build (http://localhost:5298/ (three_webgpu.js:13885:8)\n    at     at WGSLNodeBuilder.prebuild (http://localhost:5298/ (three_webgpu.js:37333:17)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37342:8)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)",
+    "THREE.TSL: TypeError: Cannot read properties of undefined (reading 'build') \"    at SubBuildNode.build (http://localhost:5298/()\" at \"three_webgpu.js:5896\"\n    at     at SubBuildNode.build (http://localhost:5298/ (three_webgpu.js:5896:26)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1464:16)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1771:16)\n    at     at StackNode.build (http://localhost:5298/ (three_webgpu.js:23737:37)\n    at     at WGSLNodeBuilder.flowNodeFromShaderStage (http://localhost:5298/ (three_webgpu.js:37110:24)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37345:68)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)\n    at     at NodeManager.needsRefresh (http://localhost:5298/ (three_webgpu.js:38868:23)"
+  ],
+  "limits": [
+    "Bald diagnostic portrait at 900x1200, fixed seed 1, frozen single simulation step.",
+    "No complete clothed character, motion, alternate view or performance acceptance.",
+    "A wall override changes the actual room and its environment bake; kitchen lighting is not held identical."
+  ],
+  "url": "http://localhost:5298/@fs/Users/robault/GitHub/sugata-avatar/tools/critic/avatar-plate.html",
+  "hashesStable": true,
+  "images": {
+    "kitchen-lit.png": "fc406484083b70a3a9f49e24bd472054383ec7e25761b15b3a1dc72a407f821c",
+    "kitchen-matte.png": "b93626f0f4c277bb6ac7d53f4257ec49f7518889ff58ad7eb89cce3fb97a065f",
+    "kitchen-noeyes.png": "ed16fb59b1350e0e2880f6d698d2e37356f7f4152b5d3b166175e83e19bcf2c7",
+    "kitchen-overlay.png": "2c3d254ef25971f0870403f70fb96995891efa659c74206e9b217b2dccf479c0",
+    "studio-lit.png": "b32fe439fcd991b297aebb2aa4f0f7d97a079cdd1d1c254eaed14c047b9142bc",
+    "studio-matte.png": "b93626f0f4c277bb6ac7d53f4257ec49f7518889ff58ad7eb89cce3fb97a065f",
+    "studio-noeyes.png": "460129b1b406b93053dfa3f1cedba03ac5cea3bd9cd4b72301e9d619e2287d7d",
+    "studio-overlay.png": "4fe14bbbb811ce2216ec33d81281bf716ee8886f5032a11d10efd4bfb3802a07"
+  },
+  "complete": false,
+  "error": "Error: Probe errors or source drift; inspect report.\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/scene/probe.mjs:58:33"
+}

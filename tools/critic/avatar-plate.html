@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Sugata 姿 — Avatar plate target</title>
+    <link rel="icon" href="data:,">
     <style>
         html, body { margin: 0; height: 100%; background: #000; overscroll-behavior: none; }
         #stage { display: block; width: 100%; height: 100%; touch-action: none; }
@@ -60,6 +61,8 @@
          *   ?quality=<tier>       `auto` by default, so the plate is of the SHIPPED default.
          *   ?seed=<n>            `Avatar`'s motion seed.
          *   ?frame=portrait|body
+         *   ?look=casual|elegant   an existing clothed g050 wardrobe study, with its accepted
+         *                        hair, foundation, colours and pose. Absent remains the bald control.
          *   ?freeze              do not advance the simulation between steps. On a still plate
          *                        this is what makes the temporal resolve converge on ONE picture
          *                        rather than on a picture plus N steps of idle motion.
@@ -99,6 +102,7 @@
          */
 
         import { Avatar, SCENES } from '../../packages/core/src/Avatar.js';
+        import { optionsForShowcase } from '../../packages/testbed/src/showcase-presets.mjs';
         import { drawGeometryMask } from './GeometryMask.js';
         globalThis.__SUGATA_GEOMETRY_MASK__ = () => drawGeometryMask(globalThis.avatar);
 
@@ -117,8 +121,17 @@
 
             const query = new URLSearchParams( location.search );
             const frozen = query.has( 'freeze' );
+            const look = query.get( 'look' );
+            if ( query.getAll( 'look' ).length > 1 || ( look !== null && ![ 'casual', 'elegant' ].includes( look ) ) )
+                throw new Error( 'The plate look must be casual or elegant.' );
+            const study = look === null ? {} : optionsForShowcase( { preset: look, outfit: look,
+                style: 'ecru', frame: query.get( 'frame' ) ?? 'portrait', light: 'studio' } );
+            // Reuse the accepted outfit, not the showcase's explicit studio rig override.
+            // Scene comparisons must use the requested scene's native lighting recipe.
+            delete study.lighting;
 
             const avatar = await Avatar.create( {
+                ...study,
                 canvas: document.getElementById( 'stage' ),
                 autoStart: false,
                 seed: Number( query.get( 'seed' ) ?? 1 ),
@@ -229,6 +242,10 @@
                 // carries the same guard: a "frozen plate" that walked one simulation step per
                 // screenshot was how a whole phase's gate numbers came to disagree with themselves.
                 if ( frozen === false ) avatar.advanceFrame( deltaSeconds );
+                // A clothed look needs its native attachment update even at a held simulation
+                // clock. Without this, dynamic cards have never rebuilt and the plate is invalid.
+                // Keep the existing bald diagnostic path unchanged.
+                else if ( look !== null ) avatar.advanceFrame( 0 );
 
                 elapsedSeconds += deltaSeconds;
                 advanceRendererFrame?.( deltaSeconds, elapsedSeconds );

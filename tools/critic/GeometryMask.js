@@ -19,9 +19,12 @@ export async function drawGeometryMask(avatar) {
                 alphaHash: original.alphaHash, transparent: original.transparent,
                 opacity: original.opacity, map: original.map, alphaMap: original.alphaMap });
             if (original.colorNode) mask.colorNode = vec4(vec3(1), original.colorNode.a);
-            mask.opacityNode = original.opacityNode;
-            mask.alphaTestNode = original.alphaTestNode;
-            mask.positionNode = original.positionNode;
+            // Ordinary materials (the figure's teeth/tongue) have no node fields. NodeMaterial
+            // uses null as the absent alpha-test/position sentinel; undefined enters its shader
+            // builder and emits float(undefined) / subBuild(undefined) errors during this pass.
+            mask.opacityNode = original.opacityNode ?? null;
+            mask.alphaTestNode = original.alphaTestNode ?? null;
+            mask.positionNode = original.positionNode ?? null;
             mask.toneMapped = false;
             return mask;
         });

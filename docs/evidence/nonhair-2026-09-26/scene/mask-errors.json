@@ -1,0 +1,309 @@
+{
+  "materials": [
+    {
+      "mesh": "Human",
+      "material": "SkinNodeMaterial",
+      "type": "SkinNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "Humancornea",
+      "material": "MeshPhysicalNodeMaterial",
+      "type": "MeshPhysicalNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "Humaneyebrow001",
+      "material": "MeshPhysicalNodeMaterial",
+      "type": "MeshPhysicalNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "ConditionalNode"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "Humaneyelashes01",
+      "material": "MeshPhysicalNodeMaterial",
+      "type": "MeshPhysicalNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "ConditionalNode"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "Humanhigh-poly",
+      "material": "MeshPhysicalNodeMaterial",
+      "type": "MeshPhysicalNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "Humanteeth_base",
+      "material": "MeshStandardMaterial",
+      "type": "MeshStandardMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": false,
+          "kind": "undefined"
+        },
+        "opacityNode": {
+          "present": false,
+          "kind": "undefined"
+        },
+        "alphaTestNode": {
+          "present": false,
+          "kind": "undefined"
+        },
+        "positionNode": {
+          "present": false,
+          "kind": "undefined"
+        }
+      }
+    },
+    {
+      "mesh": "Humantongue01",
+      "material": "MeshStandardMaterial",
+      "type": "MeshStandardMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": false,
+          "kind": "undefined"
+        },
+        "opacityNode": {
+          "present": false,
+          "kind": "undefined"
+        },
+        "alphaTestNode": {
+          "present": false,
+          "kind": "undefined"
+        },
+        "positionNode": {
+          "present": false,
+          "kind": "undefined"
+        }
+      }
+    },
+    {
+      "mesh": "eyeOcclusion.left",
+      "material": "MeshBasicNodeMaterial",
+      "type": "MeshBasicNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "eyeLacrimal.left",
+      "material": "MeshPhysicalNodeMaterial",
+      "type": "MeshPhysicalNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "eyeOcclusion.right",
+      "material": "MeshBasicNodeMaterial",
+      "type": "MeshBasicNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    },
+    {
+      "mesh": "eyeLacrimal.right",
+      "material": "MeshPhysicalNodeMaterial",
+      "type": "MeshPhysicalNodeMaterial",
+      "nodes": {
+        "colorNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "opacityNode": {
+          "present": true,
+          "kind": "object",
+          "nodeType": null,
+          "constructor": "VarNode"
+        },
+        "alphaTestNode": {
+          "present": true,
+          "kind": "null"
+        },
+        "positionNode": {
+          "present": true,
+          "kind": "null"
+        }
+      }
+    }
+  ],
+  "errors": [
+    {
+      "phase": "boot",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "phase": "mask",
+      "text": "THREE.TSL: Invalid parameter for the type \"float\". \"    at new StackTrace (http://localhost:5298/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5298/ (three_webgpu.js:510:80)\n    at     at http://localhost:5298/ (three_webgpu.js:2674:60)\n    at     at MeshBasicNodeMaterial.setupDiffuseColor (http://localhost:5298/ (three_webgpu.js:14072:50)\n    at     at MeshBasicNodeMaterial.setup (http://localhost:5298/ (three_webgpu.js:13924:9)\n    at     at MeshBasicNodeMaterial.build (http://localhost:5298/ (three_webgpu.js:13885:8)\n    at     at WGSLNodeBuilder.prebuild (http://localhost:5298/ (three_webgpu.js:37333:17)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37342:8)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)"
+    },
+    {
+      "phase": "mask",
+      "text": "THREE.TSL: TypeError: Cannot read properties of undefined (reading 'build') \"    at SubBuildNode.build (http://localhost:5298/()\" at \"three_webgpu.js:5896\"\n    at     at SubBuildNode.build (http://localhost:5298/ (three_webgpu.js:5896:26)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1464:16)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1771:16)\n    at     at StackNode.build (http://localhost:5298/ (three_webgpu.js:23737:37)\n    at     at WGSLNodeBuilder.flowNodeFromShaderStage (http://localhost:5298/ (three_webgpu.js:37110:24)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37345:68)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)\n    at     at NodeManager.needsRefresh (http://localhost:5298/ (three_webgpu.js:38868:23)"
+    },
+    {
+      "phase": "mask",
+      "text": "THREE.TSL: Invalid parameter for the type \"float\". \"    at new StackTrace (http://localhost:5298/()\" at \"three_webgpu.js:510\"\n    at     at new StackTrace (http://localhost:5298/ (three_webgpu.js:510:80)\n    at     at http://localhost:5298/ (three_webgpu.js:2674:60)\n    at     at MeshBasicNodeMaterial.setupDiffuseColor (http://localhost:5298/ (three_webgpu.js:14072:50)\n    at     at MeshBasicNodeMaterial.setup (http://localhost:5298/ (three_webgpu.js:13924:9)\n    at     at MeshBasicNodeMaterial.build (http://localhost:5298/ (three_webgpu.js:13885:8)\n    at     at WGSLNodeBuilder.prebuild (http://localhost:5298/ (three_webgpu.js:37333:17)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37342:8)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)"
+    },
+    {
+      "phase": "mask",
+      "text": "THREE.TSL: TypeError: Cannot read properties of undefined (reading 'build') \"    at SubBuildNode.build (http://localhost:5298/()\" at \"three_webgpu.js:5896\"\n    at     at SubBuildNode.build (http://localhost:5298/ (three_webgpu.js:5896:26)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1464:16)\n    at     at AssignNode.build (http://localhost:5298/ (three_webgpu.js:1771:16)\n    at     at StackNode.build (http://localhost:5298/ (three_webgpu.js:23737:37)\n    at     at WGSLNodeBuilder.flowNodeFromShaderStage (http://localhost:5298/ (three_webgpu.js:37110:24)\n    at     at WGSLNodeBuilder.build (http://localhost:5298/ (three_webgpu.js:37345:68)\n    at     at NodeManager.getForRender (http://localhost:5298/ (three_webgpu.js:38469:19)\n    at     at RenderObject.getNodeBuilderState (http://localhost:5298/ (three_webgpu.js:20365:74)\n    at     at RenderObject.getMonitor (http://localhost:5298/ (three_webgpu.js:20373:49)\n    at     at NodeManager.needsRefresh (http://localhost:5298/ (three_webgpu.js:38868:23)"
+    }
+  ]
+}

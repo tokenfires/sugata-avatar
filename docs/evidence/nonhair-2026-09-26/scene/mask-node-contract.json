@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "scope": "CPU primitive/property-contract reproduction only. Actual source-material census and browser mask checks are separate.",
+  "cases": [
+    {
+      "sourceType": "MeshBasicMaterial",
+      "mode": "existing-copy",
+      "sourceProperties": {
+        "opacityNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "alphaTestNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "positionNode": {
+          "own": false,
+          "type": "undefined"
+        }
+      },
+      "entersOpacityFloatBranch": false,
+      "entersAlphaFloatBranch": true,
+      "entersPositionSubBuildBranch": true,
+      "alphaFloatErrors": [
+        "THREE.TSL: Invalid parameter for the type \"float\". \"mask-node-contract.mjs:30\"\n    at mask-node-contract.mjs:30:45\n    at ModuleJob.run (module_job:430:25)\n    at async onImport.tracePromise.__proto__ (loader:661:26)\n    at async asyncRunEntryPointWithESMLoader (run_main:101:5)"
+      ],
+      "positionBuildError": "Cannot read properties of undefined (reading 'build')"
+    },
+    {
+      "sourceType": "MeshBasicMaterial",
+      "mode": "preserve-null",
+      "sourceProperties": {
+        "opacityNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "alphaTestNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "positionNode": {
+          "own": false,
+          "type": "undefined"
+        }
+      },
+      "entersOpacityFloatBranch": false,
+      "entersAlphaFloatBranch": false,
+      "entersPositionSubBuildBranch": false,
+      "alphaFloatErrors": [],
+      "positionBuildError": null
+    },
+    {
+      "sourceType": "MeshStandardMaterial",
+      "mode": "existing-copy",
+      "sourceProperties": {
+        "opacityNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "alphaTestNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "positionNode": {
+          "own": false,
+          "type": "undefined"
+        }
+      },
+      "entersOpacityFloatBranch": false,
+      "entersAlphaFloatBranch": true,
+      "entersPositionSubBuildBranch": true,
+      "alphaFloatErrors": [
+        "THREE.TSL: Invalid parameter for the type \"float\". \"mask-node-contract.mjs:30\"\n    at mask-node-contract.mjs:30:45\n    at ModuleJob.run (module_job:430:25)\n    at async onImport.tracePromise.__proto__ (loader:661:26)\n    at async asyncRunEntryPointWithESMLoader (run_main:101:5)"
+      ],
+      "positionBuildError": "Cannot read properties of undefined (reading 'build')"
+    },
+    {
+      "sourceType": "MeshStandardMaterial",
+      "mode": "preserve-null",
+      "sourceProperties": {
+        "opacityNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "alphaTestNode": {
+          "own": false,
+          "type": "undefined"
+        },
+        "positionNode": {
+          "own": false,
+          "type": "undefined"
+        }
+      },
+      "entersOpacityFloatBranch": false,
+      "entersAlphaFloatBranch": false,
+      "entersPositionSubBuildBranch": false,
+      "alphaFloatErrors": [],
+      "positionBuildError": null
+    }
+  ],
+  "explicitNodeControl": {
+    "nodeIdentityPreserved": true
+  },
+  "finding": "For ordinary material instances, undefined alphaTestNode triggers float(undefined), and undefined positionNode triggers SubBuildNode.build on undefined. Undefined opacityNode takes the existing safe materialOpacity fallback. Null preservation avoids both invalid branches while retaining an explicit node.",
+  "sources": {
+    "../../../../node_modules/three/src/materials/nodes/NodeMaterial.js": "dbef1e6d16b4291afd41e98d06e865f912ea317de3b3298ff0fc057aa3ce24c6",
+    "../../../../node_modules/three/src/nodes/core/SubBuildNode.js": "a6c6dd8b3a4b9d2aac6cfc3fc3c2215a31032dcfedce9ade396c23d4b443fca9",
+    "../../../../node_modules/three/src/nodes/tsl/TSLCore.js": "6deeda9575ef08802464222ca24c234ec6b81f154be229d1786f09a1ddc2e045",
+    "./mask-node-contract.mjs": "d2804e37e75b3768df7c287b066fc5d0449a6ccdfc09c98df87dfcc06b8a264f"
+  }
+}

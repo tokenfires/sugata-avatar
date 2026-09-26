@@ -1,0 +1,308 @@
+{
+  "date": "2026-09-26T15:18:38.043Z",
+  "head": "a5cef3adf65c77a4b7ca21a16c585cb7efde9a98",
+  "sourceHashes": {
+    "packages/core/src/render/Scene.js": "1792a2fed0d535c916cd215b9dd0758972856fbe4d6795ade8f83258e6cc6a0f",
+    "packages/core/src/render/InteriorEnvironment.js": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "packages/core/src/render/LightingRig.js": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374",
+    "tools/critic/scene-gates.mjs": "68c83e5c07dff2ed74c20ebd578f700cd6fbf6817e461859bd872bcfa221fa88",
+    "tools/critic/avatar-plate.html": "82142516ebd92e0dc3ffd0c1250fe4c262da98584dab9012ed48abd70eaae877",
+    "tools/critic/GeometryMask.js": "6f77c80048f761fc11d8470a942480d871ab5d5f8d86cd93ca10fd5cf23f1986",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+  },
+  "wallOverride": null,
+  "cases": [
+    {
+      "scene": "studio",
+      "clauses": [
+        {
+          "id": "L1",
+          "name": "face sits inside the frame's own range",
+          "value": 0.897230998733215,
+          "band": [
+            0.2,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "faceMedian": 0.7430682506084442,
+            "frameBlack": 0.008126274956762792,
+            "frameWhite": 0.8272486377477646,
+            "facePixels": 47050
+          }
+        },
+        {
+          "id": "L2",
+          "name": "cheek:cheek inside a legibility band",
+          "value": 1.1491872034791983,
+          "band": [
+            1.0847,
+            4
+          ],
+          "status": "PASS",
+          "detail": {
+            "keySideFromFrame": "right",
+            "imageRightMedian": 0.7966580513358115,
+            "imageLeftMedian": 0.6932360967159272,
+            "imageRightPixels": 9283,
+            "imageLeftPixels": 9289
+          }
+        },
+        {
+          "id": "L3",
+          "name": "silhouette separates on every side",
+          "value": 0.9532941327282779,
+          "band": [
+            0.05,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "sidesTested": [
+              "left",
+              "right",
+              "top"
+            ],
+            "failed": [],
+            "worstSide": "right",
+            "separation": {
+              "bySide": {
+                "left": {
+                  "count": 660,
+                  "p10": 0.9565229706999389,
+                  "median": 0.9619340510647524
+                },
+                "right": {
+                  "count": 710,
+                  "p10": 0.9532941327282779,
+                  "median": 0.9615473060185088
+                },
+                "top": {
+                  "count": 825,
+                  "p10": 0.9586945053448634,
+                  "median": 0.9645131446396027
+                },
+                "bottom": {
+                  "count": 50,
+                  "p10": 0.9323745628677108,
+                  "median": 0.9543336628874624
+                }
+              },
+              "skipped": 4,
+              "outlineMean": 0.9620480319633826,
+              "outlineP10": 0.9563362961333494,
+              "total": 2245
+            }
+          }
+        },
+        {
+          "id": "L4",
+          "name": "subject clipping under G5's share",
+          "value": 0,
+          "band": [
+            0,
+            0.005
+          ],
+          "status": "PASS",
+          "detail": {
+            "subjectClipped": 0,
+            "subjectPixels": 644647,
+            "frameClippedFraction": 0,
+            "frameClipped": 0
+          }
+        },
+        {
+          "id": "L5",
+          "name": "a catchlight in every eye",
+          "value": 4.03979843927777,
+          "band": [
+            1.5,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "perEye": {
+              "left": {
+                "pixels": 1804,
+                "median": 0.19914039835631847,
+                "peak": 0.8044870704770087,
+                "ratio": 4.03979843927777
+              },
+              "right": {
+                "pixels": 1527,
+                "median": 0.15861255763471124,
+                "peak": 0.7469600150823592,
+                "ratio": 4.709337181250347
+              }
+            }
+          }
+        }
+      ],
+      "keySide": {
+        "fromFrame": "right",
+        "declared": {
+          "side": "right",
+          "azimuth": 42
+        }
+      },
+      "subjectPixels": 644647
+    },
+    {
+      "scene": "kitchen",
+      "clauses": [
+        {
+          "id": "L1",
+          "name": "face sits inside the frame's own range",
+          "value": 0.6332158272320955,
+          "band": [
+            0.2,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "faceMedian": 0.6458157052338124,
+            "frameBlack": 0.1573098089084029,
+            "frameWhite": 0.9287780434608459,
+            "facePixels": 47050
+          }
+        },
+        {
+          "id": "L2",
+          "name": "cheek:cheek inside a legibility band",
+          "value": 1.5700081083866535,
+          "band": [
+            1.0847,
+            4
+          ],
+          "status": "PASS",
+          "detail": {
+            "keySideFromFrame": "left",
+            "imageRightMedian": 0.5853043362915515,
+            "imageLeftMedian": 0.9189325538516045,
+            "imageRightPixels": 9283,
+            "imageLeftPixels": 9289
+          }
+        },
+        {
+          "id": "L3",
+          "name": "silhouette separates on every side",
+          "value": 0.008070881783258797,
+          "band": [
+            0.05,
+            null
+          ],
+          "status": "FAIL",
+          "detail": {
+            "sidesTested": [
+              "left",
+              "right",
+              "top"
+            ],
+            "failed": [
+              "right"
+            ],
+            "worstSide": "right",
+            "separation": {
+              "bySide": {
+                "left": {
+                  "count": 660,
+                  "p10": 0.252157012984197,
+                  "median": 0.30648995974790555
+                },
+                "right": {
+                  "count": 710,
+                  "p10": 0.008070881783258797,
+                  "median": 0.04774826386938891
+                },
+                "top": {
+                  "count": 825,
+                  "p10": 0.2369695099579553,
+                  "median": 0.40630414213190563
+                },
+                "bottom": {
+                  "count": 50,
+                  "p10": 0.030750187442930045,
+                  "median": 0.12254623710345298
+                }
+              },
+              "skipped": 4,
+              "outlineMean": 0.2735617696287469,
+              "outlineP10": 0.026732601080074733,
+              "total": 2245
+            }
+          }
+        },
+        {
+          "id": "L4",
+          "name": "subject clipping under G5's share",
+          "value": 0,
+          "band": [
+            0,
+            0.005
+          ],
+          "status": "PASS",
+          "detail": {
+            "subjectClipped": 0,
+            "subjectPixels": 644647,
+            "frameClippedFraction": 0,
+            "frameClipped": 0
+          }
+        },
+        {
+          "id": "L5",
+          "name": "a catchlight in every eye",
+          "value": 1.7774945322649742,
+          "band": [
+            1.5,
+            null
+          ],
+          "status": "PASS",
+          "detail": {
+            "perEye": {
+              "left": {
+                "pixels": 1870,
+                "median": 0.2732996096223593,
+                "peak": 0.8785231444954872,
+                "ratio": 3.2145056691058413
+              },
+              "right": {
+                "pixels": 1590,
+                "median": 0.501825104266405,
+                "peak": 0.8919913789868356,
+                "ratio": 1.7774945322649742
+              }
+            }
+          }
+        }
+      ],
+      "keySide": {
+        "fromFrame": "left",
+        "declared": {
+          "side": "left",
+          "azimuth": -67
+        }
+      },
+      "subjectPixels": 644647
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Bald diagnostic portrait at 900x1200, fixed seed 1, frozen single simulation step.",
+    "No complete clothed character, motion, alternate view or performance acceptance.",
+    "A wall override changes the actual room and its environment bake; kitchen lighting is not held identical."
+  ],
+  "url": "http://localhost:5298/@fs/Users/robault/GitHub/sugata-avatar/tools/critic/avatar-plate.html",
+  "hashesStable": true,
+  "images": {
+    "kitchen-lit.png": "fc406484083b70a3a9f49e24bd472054383ec7e25761b15b3a1dc72a407f821c",
+    "kitchen-matte.png": "6c78993e1b8b5c877f3c2563e721f14b28e38496b4ce60ffadc8f8db05456bee",
+    "kitchen-noeyes.png": "ed16fb59b1350e0e2880f6d698d2e37356f7f4152b5d3b166175e83e19bcf2c7",
+    "kitchen-overlay.png": "6d2518e97070974968b16def626e04c5a99619234816cc0239379058ed8aabb4",
+    "studio-lit.png": "b32fe439fcd991b297aebb2aa4f0f7d97a079cdd1d1c254eaed14c047b9142bc",
+    "studio-matte.png": "6c78993e1b8b5c877f3c2563e721f14b28e38496b4ce60ffadc8f8db05456bee",
+    "studio-noeyes.png": "460129b1b406b93053dfa3f1cedba03ac5cea3bd9cd4b72301e9d619e2287d7d",
+    "studio-overlay.png": "996a6208d34a497f26ed0f100eb798ac41aa9e347bc1c61c559b6bed8b8a090d"
+  },
+  "complete": true
+}

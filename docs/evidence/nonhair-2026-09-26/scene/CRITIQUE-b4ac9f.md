@@ -1,0 +1,26 @@
+# Independent final wall review — 2026-09-26
+
+**Verdict: promote wall `#b4ac9f` as a bounded kitchen scene improvement, after verifying the actual default path uses the reviewed recipe.** The modest skin-contour gain and retained warm room depth are a reasonable tradeoff. The darker `#928b80` remains held; the intermediate `#beb5a8` did not pass the unchanged bald L3 floor.
+
+Reviewer: independent critic agent `/root/critic`. I inspected all eight `clothed-b4ac9f/` before/after plates, the bald original and candidate beauty images, and the candidate overlay. I reviewed both reports and independently verified every selected current source/asset/helper hash, all four bald image hashes and all eight clothed image hashes. No browser or GPU job was run by this reviewer. Report SHA-256 values are:
+
+- `wall-b4ac9f/report.json`: `66f98b1634668af4c04276c76d9fa42d938233fbb21197796f0bce987adfeb83`
+- `clothed-b4ac9f/report.json`: `d3ac1bc88f06bb356a0da2bb7f3d067b1b2b42b18e1eb47ba252417e0bd3b8fc`
+
+The bald contour is visibly clearer around the image-right temple, ear and neck. L3 improves from `0.008071` to `0.071812` against the existing `0.05` floor; this is a pass with a modest margin, not evidence of universal silhouette separation. All five clauses pass. Face range, cheek balance, clipping and eye catchlights remain within their existing bands. The overlay follows the external contour and eye apertures, and no threshold or mask change explains the improvement.
+
+In both clothed portrait pairs, the eyes, mouth, cheek shading and skin at the collar remain readable. The pale tops and folds retain their light direction. The existing neckline discontinuities and groom artifacts are present in both arms; they are not new wall defects and are not accepted or repaired by this change.
+
+In both body pairs, the candidate keeps a visible warm wall plane, its left corner and the wall/floor boundary. The room therefore retains depth, unlike the near-black `#928b80` candidate. The dark skirt and denim remain readable against it. Their image-right outlines have less separation than with the original wall, but I do not find that modest loss sufficient to block this candidate: the garments remain recognizable and the face/neck gains separation. This is a comparative visual judgment, not a new clothing metric pass. The floor and shoes remain legible.
+
+The corrected native fixture verifies attached garments/grooms, completed card rebuild, valid history/card frame, resolved kitchen lighting, an actual environment bake and fixed simulation clocks in all eight cases. Both reports record stable selected hashes and no browser/page/network errors. This remains a physical wall-and-IBL change; its room fill is not identical to the original.
+
+The two alternatives remain the original lighter room with a separate edge/bounce-light study, or a composition study with unchanged room material. The former preserves dark-garment contrast but risks an artificial light edge; the latter changes facial projection and cannot be treated as the same portrait. Neither needs to be pursued to accept this bounded material revision, and no further wall-axis trial is requested today.
+
+The remaining integration check is narrow: promote this exact color through the actual kitchen default, retain the other recipe fields, and confirm the default path reproduces the accepted recipe/appearance with clean errors. A broad new motion gate is not necessary for this static material edit. The present evidence does not qualify other identities, motion, fit, performance, all-view rendering or hair. Do not apply the bald L1–L5 result to the clothed plates: the ordinary-texture limitation of the current geometry mask remains as documented in `CRITIQUE.md`. Hair work stays deferred.
+
+## Actual-default verification
+
+**Final binding verdict: integrate.** I inspected all four fresh `promoted-clothed-measured/` images through the actual kitchen default, reviewed the one-value scene diff, and verified the report's twelve current source/asset/helper hashes and four image hashes. The wall, face, eyes, clothing and room retain the accepted candidate appearance. Native scene, motion, affect, hair, identity, quality and camera states match the reviewed candidate; the report records stable sources and no browser/page/network errors. `default-bald-parity.json` records exact original-studio/accepted-kitchen image and clause parity for the bald control.
+
+The clothed default captures are **not byte-identical** to the override captures. I independently recomputed the decoded image differences: casual portrait has 5 changed pixels (maximum channel difference 4/255), casual body 19 (6/255), elegant portrait 6 (2/255), and elegant body 32 (2/255), each out of 1,080,000 pixels. I find no material visible difference in the four fresh ordinary images. This combines explicit differences, matching native state and visual review; it does not substitute a relaxed numeric tolerance or claim exact clothed pixel parity. The failed strict-PNG run remains retained at `promoted-clothed/REJECTED.md`. The source of these small capture differences is not established here, and no deferred hair investigation or acceptance follows from them.

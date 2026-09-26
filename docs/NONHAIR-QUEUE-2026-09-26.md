@@ -27,6 +27,10 @@ The [September 26 preflight](evidence/collar-2026-09-26/README.md) verified the 
 archive but found the required older mild-pose and coverage inputs absent at their named paths.
 Do not repeat that audit; use a known backup or explicitly design fresh replacement qualification.
 
+The [fresh replacement protocol](COLLAR-REQUALIFICATION-2026-09-26.md) now defines new controls
+and coverage with explicit conventions, preserving the historical gap. Its capture adapter and
+independently tested CPU operator are in progress; no new trial or asset promotion has occurred.
+
 One exported candidate only, jointly constrained against body and bra across saved expressive
 poses, restricted to the prescribed 34 welded groups / 43 raw vertices and at most 3 mm extra
 displacement. Preserve rear guard, topology, UVs, weights, masks, and accepted default. Stop on a
@@ -58,6 +62,10 @@ calibration. The earlier increase-rim attempt also brightened the wall and is no
 Tools: `tools/critic/scene-probe.mjs`, `scene-gates.mjs`, and the avatar-plate testbed. Keep exact
 preset, seed, frame, source and stepping provenance. A future review picker may reconstruct an
 owned Avatar; do not imply that missing `Avatar.setScene`, suggest or pin APIs already exist.
+
+Completed bounded slice: kitchen wall `#b4ac9f` passes the unchanged bald clauses and independent
+clothed/default-path review. [Evidence and visual comparison](evidence/nonhair-2026-09-26/scene/README.md)
+retain the darker rejected alternative and exact limits. Do not repeat the wall-axis trial today.
 
 ## Representative builds and performance
 
