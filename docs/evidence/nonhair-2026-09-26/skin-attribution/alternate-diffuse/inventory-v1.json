@@ -1,0 +1,34 @@
+{
+  "archive": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+  "archiveSHA256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+  "archiveBytes": 280737770,
+  "scriptSHA256": "8057e27c804c0b1a65b6625eb76c8a7a4e38f7c3346d8aa5d668b71fde0dd90e",
+  "items": [
+    {
+      "role": "current",
+      "zipPNG": "skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+      "pngSHA256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc",
+      "pngBytes": 4391156,
+      "extractedPath": "/Users/robault/GitHub/sugata-avatar/captures/skin-albedo-inventory-2026-09-26/young_lightskinned_female_diffuse.png",
+      "extractedByteIdentical": true,
+      "zipMhmat": "skins/young_caucasian_female/young_caucasian_female.mhmat",
+      "mhmatSHA256": "0bdea7786201f0b1132a24088336a97496ccdc54e9984db65d253a6a6d66f24f",
+      "mhmatBytes": 1464,
+      "mhmatText": "# This is a material file for MakeHuman\n#\n# This asset was explicitly released as CC0 in september 2020. The license\n# text for CC0 can be found in the root of this repository.\n#\n# The copyright holders at the point of the release to CC0 were:\n#\n# Copyright (C) 2020 Data Collection AB, https://www.datacollection.se\n# Copyright (C) 2020 Joel Palmius\n# Copyright (C) 2020 Jonas Hauquier\n#\n# The primary legal contact for MakeHuman is Data Collection AB.\n#\n# For more information, see homepage at http://www.makehumancommunity.org\n\nname young_caucasian_female\ntag MakeHuman\u2122\nambientColor 0.301960784314 0.278431372549 0.278431372549\ndiffuseColor 1.0 1.0 1.0\nspecularColor 0.0627450980392 0.0509803921569 0.0509803921569\nshininess 0.5\nemissiveColor 0.196078431373 0.101960784314 0.101960784314\nopacity 1.0\ntranslucency 0.0\n\nshadeless False\nwireframe False\ntransparent False\nalphaToCoverage True\nbackfaceCull True\ndepthless False\ncastShadows True\nreceiveShadows True\n\ntag MakeHuman\u2122\ntag young\ntag caucasian\ntag female\n\ndiffuseTexture young_lightskinned_female_diffuse.png\n\nsssEnabled True\nsssRScale 5.0\nsssGScale 2.5\nsssBScale 1.0\n\nshader data/shaders/glsl/litsphere\n\nshaderParam litsphereTexture data/litspheres/lit_standard_skin.png\n\nshaderConfig ambientOcclusion True\nshaderConfig normal False\nshaderConfig bump True\nshaderConfig displacement False\nshaderConfig vertexColors True\nshaderConfig spec True\nshaderConfig transparency True\nshaderConfig diffuse True\n",
+      "scope": "Stored source header and exact texture pointer; no material/shader settings applied or licence interpretation beyond the retained text."
+    },
+    {
+      "role": "alternate",
+      "zipPNG": "skins/young_caucasian_female2/young_lightskinned_female_diffuse2.png",
+      "pngSHA256": "8d1fb3ceedf142fad32a3504eca1feb4539aecca6de66acde1514b9a61fc7ba0",
+      "pngBytes": 3724137,
+      "extractedPath": "/Users/robault/GitHub/sugata-avatar/captures/skin-albedo-inventory-2026-09-26/young_lightskinned_female_diffuse2.png",
+      "extractedByteIdentical": true,
+      "zipMhmat": "skins/young_caucasian_female2/young_caucasian_female2.mhmat",
+      "mhmatSHA256": "8934dd8d8f3beccc1b212c12116a88b3a88d6265e0a5c8fe42eb62e3fb281ab6",
+      "mhmatBytes": 1465,
+      "mhmatText": "# This is a material file for MakeHuman\n#\n# This asset was explicitly released as CC0 in september 2020. The license\n# text for CC0 can be found in the root of this repository.\n#\n# The copyright holders at the point of the release to CC0 were:\n#\n# Copyright (C) 2020 Data Collection AB, https://www.datacollection.se\n# Copyright (C) 2020 Joel Palmius\n# Copyright (C) 2020 Jonas Hauquier\n#\n# The primary legal contact for MakeHuman is Data Collection AB.\n#\n# For more information, see homepage at http://www.makehumancommunity.org\nname young_caucasian_female2\ntag MakeHuman\u2122\nambientColor 0.301960784314 0.278431372549 0.278431372549\ndiffuseColor 1.0 1.0 1.0\nspecularColor 0.0627450980392 0.0509803921569 0.0509803921569\nshininess 0.5\nemissiveColor 0.196078431373 0.101960784314 0.101960784314\nopacity 1.0\ntranslucency 0.0\n\nshadeless False\nwireframe False\ntransparent False\nalphaToCoverage True\nbackfaceCull True\ndepthless False\ncastShadows True\nreceiveShadows True\n\ntag MakeHuman\u2122\ntag young\ntag caucasian\ntag female\n\ndiffuseTexture young_lightskinned_female_diffuse2.png\n\nsssEnabled True\nsssRScale 5.0\nsssGScale 2.5\nsssBScale 1.0\n\nshader data/shaders/glsl/litsphere\n\nshaderParam litsphereTexture data/litspheres/lit_standard_skin.png\n\nshaderConfig ambientOcclusion True\nshaderConfig normal False\nshaderConfig bump True\nshaderConfig displacement False\nshaderConfig vertexColors True\nshaderConfig spec True\nshaderConfig transparency True\nshaderConfig diffuse True\n",
+      "scope": "Stored source header and exact texture pointer; no material/shader settings applied or licence interpretation beyond the retained text."
+    }
+  ]
+}
