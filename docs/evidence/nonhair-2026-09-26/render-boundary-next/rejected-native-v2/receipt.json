@@ -1,0 +1,102 @@
+{
+  "kind": "rejected-render-boundary-native-v2",
+  "scope": "Incorrect independent pre-bloom target; actual balanced graph aliases TAAU output. Stopped before boundary copy, original image/state and clean retirement retained.",
+  "entries": [
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/report.json",
+      "file": "report.json.gz",
+      "rawBytes": 544225,
+      "sha256": "15979e9a6235a5a848eba52acab2169b4907e8484d75bcbdc14d339baa937065",
+      "packedSHA256": "8707e445d05f6a51d03a8280999c8f2d545db79128e9a198a82e57eb3b5d729e",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/manifest.json",
+      "file": "manifest.json.gz",
+      "rawBytes": 208998,
+      "sha256": "3cdaeb9ef4a1f7110120e2deee909558b784673f061b5c9f59f78a89c918bda0",
+      "packedSHA256": "492e8f1c48346f7dec4c099a818dc980a88544fa2467d7e4101dbeb4c43efd49",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/casual-front-base.png",
+      "file": "casual-front-base.png",
+      "rawBytes": 810989,
+      "sha256": "5431c2de48252f9836bb8041d1f82b962cbab43e3b54a1ce89817c488692f9d4",
+      "packedSHA256": "5431c2de48252f9836bb8041d1f82b962cbab43e3b54a1ce89817c488692f9d4",
+      "gzip": false
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "rawBytes": 1475445,
+      "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "packedSHA256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "gzip": false
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/capture-boundaries.mjs",
+      "file": "capture-boundaries.mjs.gz",
+      "rawBytes": 29919,
+      "sha256": "c17587a5f79169e54ea8ee39fc778c0a3fd246b6e389c027ddeab39162ace494",
+      "packedSHA256": "19ce12097a5252b5c17d5649c844bae7645d6df64b2e60ddc58ade71c82e5f0f",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/readback-bytes.mjs",
+      "file": "readback-bytes.mjs.gz",
+      "rawBytes": 1907,
+      "sha256": "f3320bb2b220745388b93de38ceaa5d66fadd9b4649996c233e584335b8050cd",
+      "packedSHA256": "6e43a7bdd82877bc89ababd15d0f89443a7132aeeeb7c8bb9a4ecf2a4e717503",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/readback-bytes.selftest.mjs",
+      "file": "readback-bytes.selftest.mjs.gz",
+      "rawBytes": 2441,
+      "sha256": "5f5c996d52cfc0b0553bc39114823bf9744ed29fc5fb76cc2a2717805ed89c34",
+      "packedSHA256": "72a39780907e824d82c6b049442b1946453e3b428667127c3fa8f46fdf94d23c",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/read-targets.mjs",
+      "file": "read-targets.mjs.gz",
+      "rawBytes": 6477,
+      "sha256": "ee8d5db226a698b74ff2eb2a089e2a35ec630392bd6138da9a2afbc80930ed26",
+      "packedSHA256": "98915a8cbc603fb8a99499b2a74ecbd10483a39470cf5bf18904eaaf6925d175",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/read-targets.selftest.mjs",
+      "file": "read-targets.selftest.mjs.gz",
+      "rawBytes": 7526,
+      "sha256": "782a4188c933c97af4faeffa949a3e79c6ca484df301c8779dbfd52eba8c2040",
+      "packedSHA256": "479aa6e854ea4b351d67ce7af0db947f90a3ee889e9b8430133747bf0121544f",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/compare-bytes.mjs",
+      "file": "compare-bytes.mjs.gz",
+      "rawBytes": 1157,
+      "sha256": "308b5cc0bbb6a656ed3e84cfc386954439f7e55b43271849216d84fd189f5c12",
+      "packedSHA256": "23dfef823b521e91aa164c02c26378cd95797f71f2f5cdd5c7d03a1dcdab64be",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/compare-bytes.selftest.mjs",
+      "file": "compare-bytes.selftest.mjs.gz",
+      "rawBytes": 1100,
+      "sha256": "1cb93d821ee65056b90d8b2550b5b4ef9f69ee07c98e66cdb246a39cfd7a2622",
+      "packedSHA256": "3ebeaedd89386ba3a7038151bf58d32eae77c0500e4014bf0c63adabe82fc6fd",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/PLAN.md",
+      "file": "PLAN.md.gz",
+      "rawBytes": 4904,
+      "sha256": "c4925a09f075d1ccdaa12b77b81645be2443263546c6852e9390030f4461ad90",
+      "packedSHA256": "7e8797bb8306da39127aa7a3bc882d2d954cf7ef18adc6cf5ea6ee3836891296",
+      "gzip": true
+    }
+  ]
+}

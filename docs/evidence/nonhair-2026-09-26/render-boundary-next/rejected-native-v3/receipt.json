@@ -1,0 +1,110 @@
+{
+  "kind": "rejected-render-boundary-native-v3",
+  "scope": "Recorder rejected uppercase C in scene-diffuseColor. One scene-output readback and original image/state retained; no completed boundary pair.",
+  "entries": [
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/report.json",
+      "file": "report.json.gz",
+      "rawBytes": 546269,
+      "sha256": "49f51d1a59a3ae7889138d042591445121b20d03910da5186d36f6eceb8e7ad5",
+      "packedSHA256": "a6d942ff6905ecea07455faa19c07228fa7197073f81a10fdbe8031f168205c5",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/manifest.json",
+      "file": "manifest.json.gz",
+      "rawBytes": 208998,
+      "sha256": "bca8179878651104453be81771fd622f75da99b6bd2aeaf42867b9bec9811bb6",
+      "packedSHA256": "2b02e65f4831e4de3ddd79f6c7dccfb8eff6d13fa52ea555b9ca91912820e0c7",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/casual-front-base.png",
+      "file": "casual-front-base.png",
+      "rawBytes": 811058,
+      "sha256": "0c22351573e0abffe416dc33a584d4ba3a1b4e41ebcc02c0ea307ab25330dee1",
+      "packedSHA256": "0c22351573e0abffe416dc33a584d4ba3a1b4e41ebcc02c0ea307ab25330dee1",
+      "gzip": false
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "file": "states/cffae4e9bf408a8849ea8314d175978a4bcd91982b93917f8c0d8366ad3a0ea8.json.gz",
+      "rawBytes": 1475445,
+      "sha256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "packedSHA256": "e62b098e72d40f99e63ac5bedc9d89e62c2eceb9a5241c03d5fdf9c8ff2d60d5",
+      "gzip": false
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/readbacks/casual-front-base/scene-output.bin.gz",
+      "file": "readbacks/casual-front-base/scene-output.bin.gz",
+      "rawBytes": 871658,
+      "sha256": "eb501a7a9cf785c05b70e8b55912e97a4efc3d4ba37b2d7d88da686a1016bf8f",
+      "packedSHA256": "eb501a7a9cf785c05b70e8b55912e97a4efc3d4ba37b2d7d88da686a1016bf8f",
+      "gzip": false
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/capture-boundaries.mjs",
+      "file": "capture-boundaries.mjs.gz",
+      "rawBytes": 29919,
+      "sha256": "c17587a5f79169e54ea8ee39fc778c0a3fd246b6e389c027ddeab39162ace494",
+      "packedSHA256": "19ce12097a5252b5c17d5649c844bae7645d6df64b2e60ddc58ade71c82e5f0f",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/readback-bytes.mjs",
+      "file": "readback-bytes.mjs.gz",
+      "rawBytes": 1907,
+      "sha256": "f3320bb2b220745388b93de38ceaa5d66fadd9b4649996c233e584335b8050cd",
+      "packedSHA256": "6e43a7bdd82877bc89ababd15d0f89443a7132aeeeb7c8bb9a4ecf2a4e717503",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/readback-bytes.selftest.mjs",
+      "file": "readback-bytes.selftest.mjs.gz",
+      "rawBytes": 2441,
+      "sha256": "5f5c996d52cfc0b0553bc39114823bf9744ed29fc5fb76cc2a2717805ed89c34",
+      "packedSHA256": "72a39780907e824d82c6b049442b1946453e3b428667127c3fa8f46fdf94d23c",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/read-targets.mjs",
+      "file": "read-targets.mjs.gz",
+      "rawBytes": 7061,
+      "sha256": "edfb1c788405e084a2bdcf9fd54764834bf9a1371dee26caae374e16f88228b4",
+      "packedSHA256": "9b83ca73ceab2387d339d5ebfe50ad3dd96603c4996736b9681406b91a385eb3",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/read-targets.selftest.mjs",
+      "file": "read-targets.selftest.mjs.gz",
+      "rawBytes": 7849,
+      "sha256": "c5a62e8be5c08d8b9aa46b5adb41a7c4cc0c991ef6535a9813f61c2fd28069ac",
+      "packedSHA256": "50f2fee2545ec09cd02b6daf2a945533efb7b3141d855d71d4b08ccf6d46d3b4",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/compare-bytes.mjs",
+      "file": "compare-bytes.mjs.gz",
+      "rawBytes": 1157,
+      "sha256": "308b5cc0bbb6a656ed3e84cfc386954439f7e55b43271849216d84fd189f5c12",
+      "packedSHA256": "23dfef823b521e91aa164c02c26378cd95797f71f2f5cdd5c7d03a1dcdab64be",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/compare-bytes.selftest.mjs",
+      "file": "compare-bytes.selftest.mjs.gz",
+      "rawBytes": 1100,
+      "sha256": "1cb93d821ee65056b90d8b2550b5b4ef9f69ee07c98e66cdb246a39cfd7a2622",
+      "packedSHA256": "3ebeaedd89386ba3a7038151bf58d32eae77c0500e4014bf0c63adabe82fc6fd",
+      "gzip": true
+    },
+    {
+      "source": "captures/render-boundary-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/render-boundary-next/PLAN.md",
+      "file": "PLAN.md.gz",
+      "rawBytes": 5970,
+      "sha256": "8bc13f585716dfd3df28e7afc85b056a368850dc4c0090be40828b684d2b66f6",
+      "packedSHA256": "e4835b0ee659c8d9f1c85cbc0ff182a6765904c2f94ad2741886712d8866c33a",
+      "gzip": true
+    }
+  ]
+}

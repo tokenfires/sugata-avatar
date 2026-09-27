@@ -1,0 +1,32 @@
+{
+  "sourceFiles": [
+    {
+      "file": "casual-front-base.png",
+      "sha256": "7478d1ca2856e07f87610c5c26ac3d17253b6f3e775bc77d8ed07b30b8c791a3"
+    },
+    {
+      "file": "casual-front-return.png",
+      "sha256": "90e68a8fe563ebde4ae8ca2fcc847e3f674614f4f7f0fdffa2c048f88cc310a2"
+    }
+  ],
+  "width": 657,
+  "height": 868,
+  "comparison": "Exact decoded RGBA8 PNG samples; no tolerance or edited image",
+  "changedPixels": 170,
+  "totalPixels": 570276,
+  "changedChannels": [
+    41,
+    50,
+    122,
+    0
+  ],
+  "maximumChannelDifference": 5,
+  "totalAbsoluteChannelDifference": 258,
+  "bounds": {
+    "minX": 22,
+    "maxX": 585,
+    "minY": 48,
+    "maxY": 767
+  },
+  "coordinates": "Decoded PNG top-left origin; not asserted equal to native texture copy coordinates"
+}

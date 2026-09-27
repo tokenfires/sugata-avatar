@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "reportSHA256": "9e662e886717c15a93db7c703a79d3f98b4d7fde2898f664dbebd8b04f797f42",
+  "manifestSHA256": "215b4144ffffde93d0c8a98c0096fee0bbb2be1d91e48ae2e59f75532f8cd600",
+  "currentSources": 1594,
+  "archivedSources": 1494,
+  "responses": 276,
+  "readbacks": 20,
+  "originalPNGs": 2,
+  "retirements": 2,
+  "warnings": 8,
+  "comparison": [
+    {
+      "label": "scene-output",
+      "changedBytes": 0,
+      "changedTexels": 0,
+      "bounds": null,
+      "maxByteDifference": 0
+    },
+    {
+      "label": "scene-diffuseColor",
+      "changedBytes": 0,
+      "changedTexels": 0,
+      "bounds": null,
+      "maxByteDifference": 0
+    },
+    {
+      "label": "scene-normal",
+      "changedBytes": 0,
+      "changedTexels": 0,
+      "bounds": null,
+      "maxByteDifference": 0
+    },
+    {
+      "label": "scene-velocity",
+      "changedBytes": 0,
+      "changedTexels": 0,
+      "bounds": null,
+      "maxByteDifference": 0
+    },
+    {
+      "label": "temporal-resolve",
+      "changedBytes": 362,
+      "changedTexels": 166,
+      "bounds": {
+        "minX": 193,
+        "minY": 35,
+        "maxX": 429,
+        "maxY": 819
+      },
+      "maxByteDifference": 255
+    },
+    {
+      "label": "temporal-history-post-copy",
+      "changedBytes": 362,
+      "changedTexels": 166,
+      "bounds": {
+        "minX": 193,
+        "minY": 35,
+        "maxX": 429,
+        "maxY": 819
+      },
+      "maxByteDifference": 255
+    },
+    {
+      "label": "bloom-final-composite",
+      "changedBytes": 4707,
+      "changedTexels": 4681,
+      "bounds": {
+        "minX": 0,
+        "minY": 30,
+        "maxX": 302,
+        "maxY": 408
+      },
+      "maxByteDifference": 255
+    },
+    {
+      "label": "bloom-vertical-0",
+      "changedBytes": 99,
+      "changedTexels": 82,
+      "bounds": {
+        "minX": 100,
+        "minY": 89,
+        "maxX": 128,
+        "maxY": 182
+      },
+      "maxByteDifference": 1
+    },
+    {
+      "label": "grade-encoded-before-rcas",
+      "changedBytes": 2619,
+      "changedTexels": 2451,
+      "bounds": {
+        "minX": 0,
+        "minY": 35,
+        "maxX": 604,
+        "maxY": 816
+      },
+      "maxByteDifference": 255
+    },
+    {
+      "label": "grade-encoded-after-rcas",
+      "changedBytes": 4374,
+      "changedTexels": 4061,
+      "bounds": {
+        "minX": 0,
+        "minY": 35,
+        "maxX": 604,
+        "maxY": 816
+      },
+      "maxByteDifference": 255
+    }
+  ],
+  "pngComparison": {
+    "changedBytes": 213,
+    "changedTexels": 170,
+    "bounds": {
+      "minX": 22,
+      "minY": 48,
+      "maxX": 585,
+      "maxY": 767
+    },
+    "maxByteDifference": 5
+  },
+  "limits": "Post-export finite boundary pair only; no prior history/depth, causal, repeatability or feature admission."
+}

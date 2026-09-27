@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {compareTexels} from './compare-bytes.mjs';
+const layout={width:3,height:2,bytesPerTexel:4},a=new Uint8Array(24),b=a.slice();
+assert.deepEqual(compareTexels(a,b,layout),{exact:true,changedBytes:0,changedTexels:0,totalTexels:6,bounds:null,coordinates:'native copied texture origin; no flip or canvas-coordinate inference'});
+b[0]=1;b[2]=2;b[23]=3;
+assert.deepEqual(compareTexels(a,b,layout),{exact:false,changedBytes:3,changedTexels:2,totalTexels:6,bounds:{minX:0,minY:0,maxX:2,maxY:1},coordinates:'native copied texture origin; no flip or canvas-coordinate inference'});
+const pos=new Uint8Array(Uint16Array.of(0,0x7e01).buffer),neg=new Uint8Array(Uint16Array.of(0x8000,0x7e02).buffer);
+assert.equal(compareTexels(pos,neg,{width:2,height:1,bytesPerTexel:2}).changedTexels,2);
+assert.throws(()=>compareTexels(a,b,{...layout,bytesPerTexel:8}));
+assert.throws(()=>compareTexels(a,b,{...layout,width:0}));
+console.log(JSON.stringify({groups:4,passed:true,controls:['exact','two texels and three bytes','signed zero and NaN payload','malformed layout']}));
