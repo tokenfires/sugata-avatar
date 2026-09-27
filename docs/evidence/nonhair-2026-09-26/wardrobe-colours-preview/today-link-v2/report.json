@@ -1,0 +1,117 @@
+{
+  "scope": "Static Today link, status and layout only; no live Avatar page is loaded.",
+  "sources": {
+    "docs/evidence/nonhair-2026-09-26/review.html": "29d905c3f04e97224d6d32b871f9ed1542cc6b878a5dd4f5568ca99f87389786",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html": "63a8b22a09610123bba8d45c6202d4c5decbf385cddf4c9d59e6540457372409",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2"
+  },
+  "responses": [
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review.html",
+      "sha256": "29d905c3f04e97224d6d32b871f9ed1542cc6b878a5dd4f5568ca99f87389786"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "sha256": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "sha256": "63a8b22a09610123bba8d45c6202d4c5decbf385cddf4c9d59e6540457372409"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png",
+      "sha256": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png",
+      "sha256": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png",
+      "sha256": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png",
+      "sha256": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review.html",
+      "sha256": "29d905c3f04e97224d6d32b871f9ed1542cc6b878a5dd4f5568ca99f87389786"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review.html",
+      "sha256": "29d905c3f04e97224d6d32b871f9ed1542cc6b878a5dd4f5568ca99f87389786"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "sha256": "63a8b22a09610123bba8d45c6202d4c5decbf385cddf4c9d59e6540457372409"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "sha256": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png",
+      "sha256": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png",
+      "sha256": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png",
+      "sha256": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png",
+      "sha256": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review.html",
+      "sha256": "29d905c3f04e97224d6d32b871f9ed1542cc6b878a5dd4f5568ca99f87389786"
+    }
+  ],
+  "checks": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sixCards": true,
+      "keyboardNavigation": true,
+      "heldStatus": true,
+      "returnNavigation": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "sixCards": true,
+      "keyboardNavigation": true,
+      "heldStatus": true,
+      "returnNavigation": true
+    }
+  ],
+  "screens": [
+    {
+      "file": "desktop-today.png",
+      "sha256": "2ea29b78f8bb0bb00fa91f5e2c3057287fc59219c7435dbec56474888d45ca39"
+    },
+    {
+      "file": "mobile-today.png",
+      "sha256": "25634e60330b329db02c53b18640e0f696b00170d4f11cfe7d95b8d29a6c806b"
+    }
+  ],
+  "errors": [],
+  "controllerSHA256": "fa8b7342d3ca723aecdaac23f42db76095d87da6f77283766c80f41d405c2ef5",
+  "browserVersion": "149.0.7827.55",
+  "sourcesStable": true,
+  "browserClosed": true,
+  "serverClosed": true,
+  "completed": true
+}

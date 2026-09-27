@@ -1,0 +1,213 @@
+{
+  "kind": "static-held-colour-preview-qa-v1",
+  "scope": "Static navigation, image integrity and readable responsive layout only; no live Avatar, product promotion or material-repeatability claim.",
+  "completed": true,
+  "manifestSHA256": "6e957265fbcc56f04be71fd7ef17aa0a7d88fa17a1b80fc0dde3b4059d9ac732",
+  "sources": {
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/prepare.mjs": "a9fe835c1c971571f8eaae2f776d323bdb7907d5e5b0278a26e63e74c9caad87",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/probe.mjs": "6341abddb4a12913fb4f96d93127b5fb5c0fac80f2d67a41f41fa4a2b3759581",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/provenance.json": "cd4e574f248e16ccd6557c0d00d9ccab54cdef6f0be1a5e1bf865cfff5063316",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html": "63a8b22a09610123bba8d45c6202d4c5decbf385cddf4c9d59e6540457372409",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/technical.html": "93a016a96e18f8d44a26704904269672b5610225e4a5650f6b21634a175310eb",
+    "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+    "package.json": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "tools/critic/png.mjs": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+  },
+  "checks": [
+    {
+      "name": "Static page, exact held status and functional keyboard skip link",
+      "passed": true
+    },
+    {
+      "name": "desktop complete original images, uncropped layout and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile complete original images, uncropped layout and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Linked technical limits remain accessible without loading a live renderer",
+      "passed": true
+    }
+  ],
+  "screens": [
+    {
+      "file": "desktop.png",
+      "sha256": "4b6b92bda8a1ecd47a837d0c9c0b885e22f471a4bd95e39553f2bf6b1af3a766"
+    },
+    {
+      "file": "desktop-full.png",
+      "sha256": "08fd0528a8f955fe49c79cf5162b98b4dc155d6c9e341acfa198b3a644f3d9d1"
+    },
+    {
+      "file": "mobile.png",
+      "sha256": "2a4a8b7049cbc2e19efcdc2f801df58993c9867aa2efa64fd67c9f9d9b692ccb"
+    },
+    {
+      "file": "mobile-full.png",
+      "sha256": "0df36db8b8f6b87458a7fedcb2fb65ed53e2f45af09cb7689836d3d11305f113"
+    }
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "status": 200,
+      "sha256": "63a8b22a09610123bba8d45c6202d4c5decbf385cddf4c9d59e6540457372409"
+    },
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "status": 200,
+      "sha256": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606"
+    },
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png",
+      "status": 200,
+      "sha256": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00"
+    },
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png",
+      "status": 200,
+      "sha256": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a"
+    },
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png",
+      "status": 200,
+      "sha256": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9"
+    },
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png",
+      "status": 200,
+      "sha256": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2"
+    },
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/technical.html",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/technical.html",
+      "status": 200,
+      "sha256": "93a016a96e18f8d44a26704904269672b5610225e4a5650f6b21634a175310eb"
+    },
+    {
+      "url": "http://127.0.0.1:54457/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "status": 200,
+      "sha256": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "browserClosed": true,
+  "serverClosed": true,
+  "baseURL": "http://127.0.0.1:54457",
+  "browserVersion": "149.0.7827.55",
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scrollWidth": 1440,
+    "images": [
+      {
+        "src": "base-example.png",
+        "alt": "Front view of the casual outfit with an ecru T-shirt, blue denim trousers and brown shoes.",
+        "width": 458,
+        "height": 605.078125,
+        "naturalWidth": 657,
+        "naturalHeight": 868,
+        "objectFit": "contain",
+        "complete": true
+      },
+      {
+        "src": "custom-example.png",
+        "alt": "Front view of the same casual outfit with a sage T-shirt and dark grey shoes; the blue denim colour is retained.",
+        "width": 458,
+        "height": 605.078125,
+        "naturalWidth": 657,
+        "naturalHeight": 868,
+        "objectFit": "contain",
+        "complete": true
+      },
+      {
+        "src": "desktop-controls.png",
+        "alt": "Desktop prototype with the blouse and skirt outfit. The Mix colours panel shows Top and Shoes enabled, their applied values, and Bottom using the base palette.",
+        "width": 1118,
+        "height": 776.375,
+        "naturalWidth": 1440,
+        "naturalHeight": 1000,
+        "objectFit": "contain",
+        "complete": true
+      },
+      {
+        "src": "mobile-controls.png",
+        "alt": "Phone viewport showing the Mix colours controls in one column, with Top and Shoes selected and Bottom left with the base palette.",
+        "width": 388,
+        "height": 839.65625,
+        "naturalWidth": 390,
+        "naturalHeight": 844,
+        "objectFit": "contain",
+        "complete": true
+      }
+    ]
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scrollWidth": 390,
+    "images": [
+      {
+        "src": "base-example.png",
+        "alt": "Front view of the casual outfit with an ecru T-shirt, blue denim trousers and brown shoes.",
+        "width": 352,
+        "height": 465.046875,
+        "naturalWidth": 657,
+        "naturalHeight": 868,
+        "objectFit": "contain",
+        "complete": true
+      },
+      {
+        "src": "custom-example.png",
+        "alt": "Front view of the same casual outfit with a sage T-shirt and dark grey shoes; the blue denim colour is retained.",
+        "width": 352,
+        "height": 465.046875,
+        "naturalWidth": 657,
+        "naturalHeight": 868,
+        "objectFit": "contain",
+        "complete": true
+      },
+      {
+        "src": "desktop-controls.png",
+        "alt": "Desktop prototype with the blouse and skirt outfit. The Mix colours panel shows Top and Shoes enabled, their applied values, and Bottom using the base palette.",
+        "width": 352,
+        "height": 244.4375,
+        "naturalWidth": 1440,
+        "naturalHeight": 1000,
+        "objectFit": "contain",
+        "complete": true
+      },
+      {
+        "src": "mobile-controls.png",
+        "alt": "Phone viewport showing the Mix colours controls in one column, with Top and Shoes selected and Bottom left with the base palette.",
+        "width": 352,
+        "height": 761.75,
+        "naturalWidth": 390,
+        "naturalHeight": 844,
+        "objectFit": "contain",
+        "complete": true
+      }
+    ]
+  },
+  "sourcesStable": true
+}

@@ -1,0 +1,194 @@
+{
+  "kind": "static-held-colour-preview-qa-v1",
+  "createdAt": "2026-09-26T23:56:34.226Z",
+  "sources": {
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/prepare.mjs": "a9fe835c1c971571f8eaae2f776d323bdb7907d5e5b0278a26e63e74c9caad87",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/probe.mjs": "6341abddb4a12913fb4f96d93127b5fb5c0fac80f2d67a41f41fa4a2b3759581",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/provenance.json": "cd4e574f248e16ccd6557c0d00d9ccab54cdef6f0be1a5e1bf865cfff5063316",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html": "63a8b22a09610123bba8d45c6202d4c5decbf385cddf4c9d59e6540457372409",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/technical.html": "93a016a96e18f8d44a26704904269672b5610225e4a5650f6b21634a175310eb",
+    "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+    "package.json": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "tools/critic/png.mjs": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+  },
+  "links": [
+    {
+      "page": "review.html",
+      "href": "review.css",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "#main",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "hash": "#main"
+    },
+    {
+      "page": "review.html",
+      "href": "../review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/review.html",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "../review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/review.html",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "/src/showcase.html",
+      "file": "packages/testbed/src/showcase.html",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "base-example.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "base-example.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "custom-example.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "custom-example.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "technical.html",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/technical.html",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "desktop-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "desktop-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "desktop-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "mobile-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "mobile-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "mobile-controls.png",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "/src/showcase.html",
+      "file": "packages/testbed/src/showcase.html",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "../review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/review.html",
+      "hash": ""
+    },
+    {
+      "page": "review.html",
+      "href": "technical.html",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/technical.html",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "review.css",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "../review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/review.html",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "provenance.json",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/provenance.json",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "../wardrobe-colours-next/UI-NATIVE-CRITIQUE.md",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-next/UI-NATIVE-CRITIQUE.md",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "../wardrobe-colours-next/RENDER-REJECTIONS.md",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-next/RENDER-REJECTIONS.md",
+      "hash": ""
+    },
+    {
+      "page": "technical.html",
+      "href": "review.html",
+      "file": "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html",
+      "hash": ""
+    }
+  ],
+  "desktop": {
+    "width": 1440,
+    "height": 1000
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844
+  },
+  "deviceScaleFactor": 1,
+  "scope": "Static navigation, image integrity and readable responsive layout only; no live Avatar, product promotion or material-repeatability claim."
+}

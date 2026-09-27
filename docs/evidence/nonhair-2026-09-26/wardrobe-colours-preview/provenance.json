@@ -1,0 +1,71 @@
+{
+  "kind": "held-custom-colour-controls-static-preview-v1",
+  "createdAt": "2026-09-26T23:51:49.138Z",
+  "scope": "Static design review only. Feature is isolated and absent from live Wardrobe. All images are unmodified native originals; illustration run failed exact returned-base image equality. No new capture, rendering, asset or product change.",
+  "prepareSHA256": "a9fe835c1c971571f8eaae2f776d323bdb7907d5e5b0278a26e63e74c9caad87",
+  "sourceFeatureCommit": "428232ce86385bb94795c46939139216161ec402",
+  "reports": {
+    "illustration": {
+      "source": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/captures/wardrobe-colours-2026-09-26/feature-native-v1/report.json",
+      "sha256": "810159270353a29a87487f879921b0e26f297c5cd398b7e8960e9613505d4975",
+      "completed": false,
+      "manifestSHA256": "e1a81e2eaf2c684d13c53f0b2e524788e001439b84eb85b3a09397f4312fa69c"
+    },
+    "ui": {
+      "source": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/captures/wardrobe-colours-ui-2026-09-26/native-v1/report.json",
+      "sha256": "587faf0267676c04d60c27806009df3f21304ed2266b32d3cf09cb2213e7b95a",
+      "completed": true,
+      "manifestSHA256": "9aa3c24b128e9f15ddebdee53d9e76e98438034d29ee71cb46394826c7c72b88"
+    }
+  },
+  "images": [
+    {
+      "run": "illustration",
+      "source": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/captures/wardrobe-colours-2026-09-26/feature-native-v1/casual-front-base.png",
+      "file": "base-example.png",
+      "label": "Casual Ecru base example",
+      "sha256": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00",
+      "bytes": 811082,
+      "width": 657,
+      "height": 868,
+      "exactOriginalCopy": true,
+      "scope": "Illustration from rejected repeatability run; not accepted default or material proof."
+    },
+    {
+      "run": "illustration",
+      "source": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/captures/wardrobe-colours-2026-09-26/feature-native-v1/casual-front-custom.png",
+      "file": "custom-example.png",
+      "label": "Casual Ecru with custom Top and Shoes",
+      "sha256": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9",
+      "bytes": 795348,
+      "width": 657,
+      "height": 868,
+      "exactOriginalCopy": true,
+      "scope": "Illustration from rejected repeatability run; not accepted default or material proof."
+    },
+    {
+      "run": "ui",
+      "source": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/captures/wardrobe-colours-ui-2026-09-26/native-v1/desktop-custom-kitchen-viewport.png",
+      "file": "desktop-controls.png",
+      "label": "Accepted desktop control-layout witness",
+      "sha256": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a",
+      "bytes": 894222,
+      "width": 1440,
+      "height": 1000,
+      "exactOriginalCopy": true,
+      "scope": "Bounded UI behavior/layout accepted; no material-image qualification."
+    },
+    {
+      "run": "ui",
+      "source": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/captures/wardrobe-colours-ui-2026-09-26/native-v1/mobile-custom-controls-viewport.png",
+      "file": "mobile-controls.png",
+      "label": "Accepted mobile control-layout witness",
+      "sha256": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2",
+      "bytes": 39996,
+      "width": 390,
+      "height": 844,
+      "exactOriginalCopy": true,
+      "scope": "Bounded UI behavior/layout accepted; no material-image qualification."
+    }
+  ]
+}

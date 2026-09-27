@@ -1,0 +1,34 @@
+{
+  "scope": "Static Today link, status and layout only; no live Avatar page is loaded.",
+  "sources": {
+    "docs/evidence/nonhair-2026-09-26/review.html": "29d905c3f04e97224d6d32b871f9ed1542cc6b878a5dd4f5568ca99f87389786",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.html": "63a8b22a09610123bba8d45c6202d4c5decbf385cddf4c9d59e6540457372409",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/review.css": "6cfac688bebf97474abc3324d3dd9d1b7e3588defaadcb6b91ead1deb134c606",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/base-example.png": "9c19f1878a470fc2f2017017ea534bbaf4d4e0a6ca495ed1c022799054c26f00",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/custom-example.png": "0e947853b2de36aca7bcfee20e51820e6189cba055d4c1cbf1bb7282fcd2e4f9",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/desktop-controls.png": "3d4465f3976d35a720e036ac5f6091dd289608842495da20ede24d6ee523ba1a",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/mobile-controls.png": "773d14b6101494fc59d49f8fc084d4b10b6a5d66ba3d14ac11e0eda9382ec0a2"
+  },
+  "responses": [
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review.html",
+      "sha256": "29d905c3f04e97224d6d32b871f9ed1542cc6b878a5dd4f5568ca99f87389786"
+    }
+  ],
+  "checks": [],
+  "screens": [
+    {
+      "file": "desktop-today.png",
+      "sha256": "2ea29b78f8bb0bb00fa91f5e2c3057287fc59219c7435dbec56474888d45ca39"
+    }
+  ],
+  "errors": [
+    "Error: response.body: Target page, context or browser has been closed"
+  ],
+  "controllerSHA256": "e5f7f9c28dde449dcbcd36762f3fa4f2a0cdff826c054943842ec7c0df639a1a",
+  "browserVersion": "149.0.7827.55",
+  "failure": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /wardrobe-colours-preview\\/review.html$/. Input:\n\n'http://127.0.0.1:54689/docs/evidence/nonhair-2026-09-26/review.html'\n\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/wardrobe-colours-preview/check-today-link.mjs:30:88",
+  "browserClosed": true,
+  "serverClosed": true,
+  "completed": false
+}
