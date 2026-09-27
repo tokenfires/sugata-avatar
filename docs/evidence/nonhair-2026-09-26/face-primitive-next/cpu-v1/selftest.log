@@ -1,0 +1,15 @@
+PASS Analytical 45 degree transport preserves authored offset and original length
+PASS Complete star includes unchanged neighbor and yields the hand-solved normal
+PASS Source weld combines UV split incidence and rejects hard-normal or position conflict
+PASS Unchanged geometric direction preserves authored normal without rounding
+PASS Nonfinite, cancelling and opposite normals reject without fallback
+PASS Collapsed, reference-reversed and malformed geometry reject; inputs remain untouched
+PASS Topology permits only actual shared edge/vertex and catches adjacent coplanar folding
+PASS Nonadjacent interior crossing and contact are failures; separated triangles pass
+PASS Actual source hashes admit; changed bytes, missing or extra inputs reject
+PASS Actual zero bypass is byte exact and returns independent copies
+PASS Both source endpoints pass local normal and whole-body local crossing gates
+PASS Endpoint order, caller mutations and prior return mutations cannot accumulate
+PASS Present tangents and aliased accessor storage explicitly reject
+PASS Independent complete GLB read preserves every other attribute/morph and all metadata
+14/14 focused CPU groups passed. No native or aesthetic qualification.

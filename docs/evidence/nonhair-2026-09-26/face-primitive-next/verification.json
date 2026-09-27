@@ -1,0 +1,61 @@
+{
+  "kind": "nose-support-inventory-verification",
+  "runtimeComparison": "Exact inline code executed from repository root, then preserved as text. Reproduce with node --input-type=module < path/to/verify-runtime-executed.js.txt.",
+  "runtimeGroups": 42,
+  "runtimeResult": "passed: exact support sets and unit maxima versus actual catalogue and target apply",
+  "sourceBindingsCurrentOrExactExecutedCopy": true,
+  "allV2TargetFieldsExactlyPreservedInV4": true,
+  "nativeRuns": 0,
+  "files": [
+    {
+      "path": "inventory.py",
+      "bytes": 7811,
+      "sha256": "f06c06a5fdd96ac9cbc06f1e9e381851576e0440b4c5070b67ff474fe0d2660e"
+    },
+    {
+      "path": "inventory-v1.json",
+      "bytes": 428364,
+      "sha256": "cc3511d75b59192bad94e4ef8d3e6ed31db7d5a594b5bf4d2a787fe9434b6115"
+    },
+    {
+      "path": "inventory-source-v1.py",
+      "bytes": 7053,
+      "sha256": "04591137af7b46d5f2151072954452fc6da291188608a8c8ae187e48e697af1f"
+    },
+    {
+      "path": "inventory-v2.json",
+      "bytes": 428498,
+      "sha256": "b15c8ebc0ea90327c6e9ba7f061aadfcecf36579e14e1fdb008e86dfff027d3a"
+    },
+    {
+      "path": "inventory-source-v2.py",
+      "bytes": 7106,
+      "sha256": "06d8a540adf2cf83a1e397c235744f198889e72aa4f808d322b5b3dc51ad4ffb"
+    },
+    {
+      "path": "inventory-v3.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "inventory-source-v3.py",
+      "bytes": 7774,
+      "sha256": "a6d0dae499fa5f106e01c12ba30aba1b7feb06bbe52bb31a3ab8b71cebdb2e37"
+    },
+    {
+      "path": "inventory-v4.json",
+      "bytes": 460427,
+      "sha256": "6add17238fbde0ee5218e6acc85e9f7bbd102971a335e5bb73dd0b9feb70b108"
+    },
+    {
+      "path": "verify-runtime-executed.js.txt",
+      "bytes": 1223,
+      "sha256": "4c7ba6438de288c4b0b1237eeeccccd6359785f116fc5f192a549fcd360a508d"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 11442,
+      "sha256": "bc418732065320ae9c95d66fe3e9f52e3d962a9b91f7462b4150210b3afe2b14"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {spawnSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
+import {createTipWidthOperator,inspectPatchLayout,sha} from './TipWidthCandidate.mjs';
+const here=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(here,'../../../..');
+const out=path.resolve(process.argv[2]??path.join(here,'cpu-v1'));assert.ok(out.startsWith(here+path.sep),'Evidence output only');assert.ok(!fs.existsSync(out),'Fresh output required');
+const inputPaths={bodyBytes:'assets/wardrobe/body/g050.glb',mapBytes:'assets/identity/figure-vertex-map.bin',catalogueBytes:'assets/identity/catalogue.json',noseBytes:'assets/identity/targets/nose.bin'};
+const files=[...Object.values(inputPaths),'packages/core/src/figure/IdentityCatalogue.js','packages/core/src/figure/IdentityTargets.js','tools/lut-bake/glb.mjs','tools/figure-pipeline/hair_surface.mjs',...['TipWidthCandidate.mjs','local-normal.mjs','TipWidthCandidate.selftest.mjs','verify-local-geometry.py','prove-tip-width.mjs','normal-audit-v1.json','NORMAL-POLICY.md'].map(n=>path.relative(root,path.join(here,n)))];
+const sourceHashes=Object.fromEntries(files.map(p=>[p,sha(fs.readFileSync(path.join(root,p)))]));
+const inputs=Object.fromEntries(Object.entries(inputPaths).map(([k,p])=>[k,fs.readFileSync(path.join(root,p))]));fs.mkdirSync(out);const report={kind:'tip-width-cpu-admission',completed:false,sourceHashes,cases:[],nativeRuns:0};
+try {
+ const selftest=spawnSync(process.execPath,[path.join(here,'TipWidthCandidate.selftest.mjs')],{cwd:root,encoding:'utf8'});fs.writeFileSync(path.join(out,'selftest.log'),selftest.stdout+selftest.stderr);assert.equal(selftest.status,0,selftest.stderr);report.selftest={groups:14,passed:true,sha256:sha(fs.readFileSync(path.join(out,'selftest.log')))};
+ const op=await createTipWidthOperator(inputs),cases=[op.candidate(-1),op.candidate(0),op.candidate(1)],layout=inspectPatchLayout(inputs.bodyBytes),map=Uint16Array.from({length:inputs.mapBytes.length/2},(_,i)=>inputs.mapBytes.readUInt16LE(i*2));
+ report.cases=cases.map(c=>c.receipt);
+ const affected=[...new Set([...cases[0].receipt.affectedFaces,...cases[2].receipt.affectedFaces])].sort((a,b)=>a-b);
+ const payload=JSON.stringify({indices:Array.from(layout.indices),mapping:Array.from(map),reference:Array.from(layout.position),cases:cases.map(c=>({weight:c.receipt.weight,positions:Array.from(c.positions),affectedFaces:affected}))});
+ const proof=spawnSync('python3',[path.join(here,'verify-local-geometry.py')],{cwd:root,input:payload,encoding:'utf8',maxBuffer:4*1024*1024});fs.writeFileSync(path.join(out,'independent-geometry-output.txt'),proof.stdout+proof.stderr);assert.equal(proof.status,0,proof.stderr);report.independentGeometry=JSON.parse(proof.stdout);assert.equal(report.independentGeometry.inputSHA256,sha(payload));
+ const normalAudit=JSON.parse(fs.readFileSync(path.join(here,'normal-audit-v1.json')));
+ report.independentNormalAudit=[];for(const [candidate,row] of [[cases[0],normalAudit.cases[0]],[cases[2],normalAudit.cases[1]]]) {
+  assert.equal(candidate.receipt.normalSources.length,row.normalSources);assert.equal(candidate.receipt.completeStarFaces.length,row.completeNormalNeighborhoodFaceCount);
+  const error=Math.abs(candidate.receipt.maxGeometricNormalRotationDegrees-row.maxGeometricNormalRotationDegrees);assert.ok(error<1e-10,'Independent double arithmetic differs beyond roundoff');report.independentNormalAudit.push({weight:candidate.receipt.weight,maximumAngleDifferenceDegrees:error,normalNeighborhoodCountsExact:true});
+ }
+ report.zeroBytesExact=cases[1].bytes.equals(inputs.bodyBytes);assert.ok(report.zeroBytesExact);
+ report.candidateArtifactsWritten=false;report.limits=['In-memory diagnostic endpoints only; source library endpoints are not an aesthetic operating range.','Exact byte preservation excludes only declared current body POSITION/NORMAL slots. No accepted asset, public API, renderer or native owner was modified.','Discrete geometry checks do not establish continuous range, expression/viseme behavior, fitted-part clearance, curvature/cavity-map correctness, or rendered appearance.'];
+ for(const [p,h] of Object.entries(sourceHashes))assert.equal(sha(fs.readFileSync(path.join(root,p))),h,'Source changed: '+p);report.completed=true;
+} catch(e) {report.failure={message:e.message,stack:e.stack};process.exitCode=1;} finally {const bytes=Buffer.from(JSON.stringify(report,null,2)+'\n');fs.writeFileSync(path.join(out,'report.json'),bytes);fs.writeFileSync(path.join(out,'seal.json'),JSON.stringify({reportSHA256:sha(bytes),completed:report.completed},null,2)+'\n');console.log(JSON.stringify({out,completed:report.completed,failure:report.failure?.message,reportSHA256:sha(bytes)},null,2));}

@@ -1,0 +1,6 @@
+import fs from 'node:fs'; import assert from 'node:assert/strict';
+import {IdentityCatalogue} from './packages/core/src/figure/IdentityCatalogue.js';import {IdentityTargets,AXIS_GLTF} from './packages/core/src/figure/IdentityTargets.js';
+const r=JSON.parse(fs.readFileSync('docs/evidence/nonhair-2026-09-26/face-primitive-next/inventory-v2.json'));
+const c=new IdentityCatalogue(JSON.parse(fs.readFileSync('assets/identity/catalogue.json'))),t=new IdentityTargets(c,{baseUrl:'file:///',fetchBytes:async u=>{let b=fs.readFileSync('assets/identity/'+u.slice(8));return b.buffer.slice(b.byteOffset,b.byteOffset+b.length)}});
+await t.loadRegions(['nose']);for(const row of r.targets){const displacement=new Float64Array(19158*3),stats=t.apply(displacement,c.resolve({[row.slider]:row.end.startsWith('negative')?-1:1}),{axis:AXIS_GLTF});assert.equal(stats.maxDisplacementMm,row.unitMaxDisplacementMM);const moved=[];for(let i=0;i<19158;i++)if(displacement.slice(3*i,3*i+3).some(x=>x!==0))moved.push(i);assert.deepEqual(moved,row.movedSourceIDs)}
+console.log('PASS 42 raw-packed support sets and unit displacement maxima exactly match actual IdentityCatalogue.resolve + IdentityTargets.apply. No candidate amplitude selected.');

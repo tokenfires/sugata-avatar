@@ -1,0 +1,9 @@
+{
+  "kind": "critic-exact-predicate-adversarial-check",
+  "sourceSHA256": "633a1b5e38e8bb4ef2ceea32a3feb932e8b236c88349c76d7141cc128dc8eda4",
+  "boundSourceAnalyticControlsPassed": 8,
+  "allVertexOrderPermutationsCrossingPassed": 36,
+  "exactSeparatedPlanesAtPlusMinusOneEminus20Passed": 2,
+  "coincidentDifferentTopologyContactRejected": true,
+  "scope": "Exact-rational kernel controls only; supplied Float32 endpoint results remain in separately sealed operator report."
+}

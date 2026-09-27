@@ -1,0 +1,123 @@
+{
+  "kind": "read-only-local-normal-ownership-audit",
+  "method": "Source-index weld mapping, complete indexed triangle incidence, cross-product area sums. Endpoint POSITION values rounded once to Float32 as actual typed-array application. No candidate normal output authored.",
+  "sourceHashes": [
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/inventory.py",
+      "bytes": 7811,
+      "sha256": "f06c06a5fdd96ac9cbc06f1e9e381851576e0440b4c5070b67ff474fe0d2660e"
+    },
+    {
+      "path": "packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    {
+      "path": "packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "tools/identity-pipeline/build_identity_assets.mjs",
+      "bytes": 20739,
+      "sha256": "92460284f630b25bfb8789d2f66c08803779db15e0a59e67d767e2f01d8e465a"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "assets/identity/catalogue.json",
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176"
+    },
+    {
+      "path": "assets/identity/targets/nose.bin",
+      "bytes": 162592,
+      "sha256": "172dc716c51be189045f1de6209cf655dd01fe9eafae031fd4232dde7c94ca17"
+    },
+    {
+      "path": "tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+      "bytes": 45031536,
+      "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87"
+    },
+    {
+      "path": "tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+      "bytes": 280737770,
+      "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/normal-audit.py",
+      "bytes": 4222,
+      "sha256": "3e2aa58eebdc4833cfdccee93c4bbb72631c0d7354281a4b4aec046337dfd39b"
+    }
+  ],
+  "allBodySplitGroups": 1122,
+  "allBodyUnequalAuthoredNormalSplitGroups": 0,
+  "cases": [
+    {
+      "target": "nose-point-width-decr",
+      "movedSources": 64,
+      "changedFaces": 184,
+      "normalSources": 114,
+      "normalPositions": 114,
+      "completeNormalNeighborhoodFaceCount": 276,
+      "splitGroupsInNormalNeighborhood": {},
+      "hardNormalGroupsInNormalNeighborhood": {},
+      "minPristineTriangleAreaM2": 8.081059948675156e-07,
+      "minEndpointTriangleAreaM2": 7.533281823270919e-07,
+      "minFaceReferenceCosine": 0.9365628919184011,
+      "minEndpointToPristineAreaRatio": 0.48312917094043073,
+      "maxGeometricNormalRotationDegrees": 14.342215801949914,
+      "maxAuthoredVsPristineGeometricNormalDegrees": 4.3133665027733645,
+      "minSummedGeometricNormalLengthM2": 1.1172730829028362e-05,
+      "minAuthoredNormalLength": 0.9999999714447134,
+      "maxAuthoredNormalLength": 1.0000000833962734
+    },
+    {
+      "target": "nose-point-width-incr",
+      "movedSources": 42,
+      "changedFaces": 126,
+      "normalSources": 83,
+      "normalPositions": 83,
+      "completeNormalNeighborhoodFaceCount": 214,
+      "splitGroupsInNormalNeighborhood": {},
+      "hardNormalGroupsInNormalNeighborhood": {},
+      "minPristineTriangleAreaM2": 8.081059948675156e-07,
+      "minEndpointTriangleAreaM2": 8.629711289183378e-07,
+      "minFaceReferenceCosine": 0.9616780915677614,
+      "minEndpointToPristineAreaRatio": 0.6965613405959176,
+      "maxGeometricNormalRotationDegrees": 8.286047828797724,
+      "maxAuthoredVsPristineGeometricNormalDegrees": 3.623331724591003,
+      "minSummedGeometricNormalLengthM2": 1.1367324322759493e-05,
+      "minAuthoredNormalLength": 0.9999999714447134,
+      "maxAuthoredNormalLength": 1.0000000833962734
+    }
+  ],
+  "limits": [
+    "No candidate normal operator, topology quality gate or self-intersection test executed.",
+    "Area/cosine metrics describe source endpoints, not a chosen aesthetic range.",
+    "Different authored normals on one source weld are classified as unresolved hard-normal ownership; no averaging across them is proposed."
+  ]
+}
