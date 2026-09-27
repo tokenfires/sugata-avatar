@@ -4,7 +4,7 @@ Rob's September 13, 2026 discussion with Ember, supplied as `sugata-avatar-track
 
 Sugata is an embodiment system for AI agents: a compelling, customizable character whose face, gaze, posture, gestures and actions communicate the agent's intended meaning to a human. The first visual target remains AAA quality, with Stellar Blade on PS5 and MetaHuman as quality references. These references do not choose a new engine or asset dependency. The present browser runtime remains the implementation under development.
 
-**September 26 work window:** Robert explicitly deferred hair and authorized autonomous non-hair
+**September 26 work window — now paused at Robert's request:** Robert explicitly deferred hair and authorized autonomous non-hair
 progress with subagents and independent critique. Follow [today's checkpoint](PROGRESS-2026-09-26.md)
 and [the recovered work queue](NONHAIR-QUEUE-2026-09-26.md). The earlier hair experiments and their
 remaining gates stay preserved; they are not today's prerequisite.

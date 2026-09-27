@@ -1,0 +1,97 @@
+{
+  "source": "docs/evidence/nonhair-2026-09-26/skin-attribution/native-v2/report.json",
+  "sourceSHA256": "a6fd3b54201a93be6546ec78a4e7dd8665be0dfa613fd64e8e6bd4418871b872",
+  "selector": "cases[0].native.report.wardrobe",
+  "wardrobe": {
+    "supportedBake": "g050",
+    "assetStatus": "existing plumbing stand-ins",
+    "requestedOutfit": [
+      "female_elegantsuit01",
+      "shoes01"
+    ],
+    "requestedStyle": "ecru",
+    "appearance": {
+      "style": "ecru",
+      "attached": true
+    },
+    "foundation": {
+      "TORSO": "foundation_bra",
+      "HIPS": "foundation_briefs"
+    },
+    "floor": [
+      "foundation_bra",
+      "foundation_briefs"
+    ],
+    "attached": true,
+    "bodyUrl": "http://localhost:5395/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+    "manifestUrl": "http://localhost:5395/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+    "fragmentUrls": {
+      "foundation_bra": "http://localhost:5395/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "foundation_briefs": "http://localhost:5395/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "female_elegantsuit01": "http://localhost:5395/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_elegantsuit01/g050.glb",
+      "shoes01": "http://localhost:5395/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb"
+    },
+    "pendingCandidates": 0,
+    "state": {
+      "disposed": false,
+      "pendingFragments": 0,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_elegantsuit01",
+        "shoes01"
+      ],
+      "bodyVisible": true,
+      "bodyTriangles": 17224,
+      "fullBodyTriangles": 26756,
+      "hiddenTriangles": 9532,
+      "garmentTriangles": 8036,
+      "occlusion": [
+        {
+          "id": "foundation_bra",
+          "drawnTriangles": 284,
+          "fullTriangles": 22090,
+          "occludedBy": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "carriesUnderMasks": true
+        },
+        {
+          "id": "foundation_briefs",
+          "drawnTriangles": 240,
+          "fullTriangles": 12498,
+          "occludedBy": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "carriesUnderMasks": true
+        },
+        {
+          "id": "female_elegantsuit01",
+          "drawnTriangles": 4192,
+          "fullTriangles": 4192,
+          "occludedBy": [],
+          "carriesUnderMasks": false
+        },
+        {
+          "id": "shoes01",
+          "drawnTriangles": 3320,
+          "fullTriangles": 3320,
+          "occludedBy": [],
+          "carriesUnderMasks": false
+        }
+      ],
+      "drawCalls": 5,
+      "residentFragments": 4,
+      "insulation": {
+        "clo": 0.67,
+        "unrated": []
+      },
+      "lastDressMs": 1.2999999821186066,
+      "lastRebuildMs": 1.2999999821186066,
+      "jointRemapIsIdentity": true
+    },
+    "lastError": null
+  }
+}

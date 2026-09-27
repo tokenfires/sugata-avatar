@@ -1,0 +1,66 @@
+{
+  "status": "Stopped at explicit user request; no new work authorized by this checkpoint",
+  "ownedLiveProcesses": [],
+  "ownedLiveBrowserOrGPUSessions": [],
+  "files": {
+    "capture-native.mjs": {
+      "sha256": "f47a3974ef93aa6e2864bd9a57056768315ec6a5ac1ad42509bca6659b041f88",
+      "bytes": 25768
+    },
+    "native-runtime.mjs": {
+      "sha256": "620f97f83e483edc87ceac4859c1cc748f79f17268089ded7025b6f873802d08",
+      "bytes": 13921
+    },
+    "native-channel-preparation.mjs": {
+      "sha256": "199e942c657750f767ef3fa26cbf5f8431e87ac0b99d1cda9e438b1aee14c78e",
+      "bytes": 7069
+    },
+    "native-channel-preparation.selftest.mjs": {
+      "sha256": "1fcd3978a5114cea0451f3bc394a82089382f82c5da1e9d23456f2b24cd836da",
+      "bytes": 3391
+    },
+    "native-stack-fixture.mjs": {
+      "sha256": "7d18b6e57d6e73ca5f8c2081461d1b50b693d528a2a2dc1b9eec8d44078cf786",
+      "bytes": 3407
+    },
+    "diagnose-observer-initialization.mjs": {
+      "sha256": "65372eddb487c689344dd0b61fc5d732374cb165c5b5304a764dfaf6952f6d50",
+      "bytes": 2083
+    },
+    "observer-diagnosis-v1.json": {
+      "sha256": "de280069bafc9b5f6aa67afaf36a34ca122f130c6f6e667bcc0d03fd9134b5bb",
+      "bytes": 1055
+    },
+    "native-admission.mjs": {
+      "sha256": "d9b35e7dbac6ada08f2ae215b9f507911e52802d938091f1b584499fc12954b2",
+      "bytes": 4567
+    },
+    "FreshTipWidthFigure.mjs": {
+      "sha256": "a61fc2ffd5c310c728eb4592daa4cde26b951d76590877c2e0f9fed4fcb83978",
+      "bytes": 12564
+    },
+    "native-manifest-v3.json": {
+      "sha256": "61bb751cee1ae2aaadac039d91c1bf8294c71f6f2c4d7437e170de8d4de43ddb",
+      "bytes": 210249
+    },
+    "native-preflight-v3/report.json": {
+      "sha256": "49b32f2842f0947e19cb2dab3b1639b57243f223110ae898c154c6e3d08a05e5",
+      "bytes": 210270
+    },
+    "native-v1-rejected/report.json": {
+      "sha256": "69d52264670c56812fc7f17c11a63c37a85003c1190800af62c05d76a531bbdb",
+      "bytes": 274425
+    },
+    "native-v1-rejected/receipt.json": {
+      "sha256": "1ebc1732ddf36cf70cc8662c616e16242cfad830317e03db5f8f57fe56070e07",
+      "bytes": 3811
+    },
+    "POST-CAPTURE-PLAN.md": {
+      "sha256": "e7e3386b1d49cdb00c0b90c3f1f8020e1b8238d4cc2430af7d9b5efb0bdaa15a",
+      "bytes": 8958
+    }
+  },
+  "manifestCurrent": false,
+  "repairsReviewed": false,
+  "nativeRepairRuns": 0
+}

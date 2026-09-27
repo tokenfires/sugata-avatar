@@ -1,0 +1,43 @@
+{
+  "kind": "tip-width-manifest-only-rebind",
+  "nativeRuns": 0,
+  "previousManifest": {
+    "file": "native-manifest-v2.json",
+    "sha256": "ae059dffdc09a0709f58fb4c9ea15e04ff0d37d350509b1859c9fbb348c69779",
+    "preserved": true
+  },
+  "currentManifest": {
+    "file": "native-manifest-v3.json",
+    "sha256": "61bb751cee1ae2aaadac039d91c1bf8294c71f6f2c4d7437e170de8d4de43ddb",
+    "revision": "4c73d25e609507123415c3aefc62d8bdbd0a81bc",
+    "sources": 1603
+  },
+  "changedSources": [
+    {
+      "file": "packages/testbed/src/showcase-collection.mjs",
+      "before": "6e223be74c389559590310543085b7f6fbc15f75d2255b145e98ecdbb0095aa5",
+      "after": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "file": "packages/testbed/src/showcase-collection.selftest.mjs",
+      "before": "c5973faef5156e6a09bedbf0a590d820836e5a36563d8b983a03d2c4debddad7",
+      "after": "826d4e2de344bf0122e8ff0eba47fc06c5be5f75bd785125c5dc86550fdfd357"
+    },
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "before": "487436a733aeb9b7d1e27969e7388e24e70acd131af7aab4448f677e524ddd33",
+      "after": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "before": "1cf5c6943b94ca2a62c38d16269a501748bcabe05660d670e9196ec24eeaa278",
+      "after": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1"
+    }
+  ],
+  "controllerUnchanged": true,
+  "preflight": {
+    "file": "native-preflight-v3/report.json",
+    "sha256": "49b32f2842f0947e19cb2dab3b1639b57243f223110ae898c154c6e3d08a05e5",
+    "completed": true
+  }
+}

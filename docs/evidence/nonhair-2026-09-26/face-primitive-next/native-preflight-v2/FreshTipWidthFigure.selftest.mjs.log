@@ -1,0 +1,13 @@
+PASS Native-shaped signature and exact fresh assignment preserve all real Three attribute owners
+PASS Zero assignment is byte exact; arrays are private from caller mutation after installation
+PASS Hash, arity, zero and readonly-descriptor negatives leave factory unmodified
+PASS Wrong URL is rejected before native loading and restores the descriptor
+PASS Native factory rejection is preserved with no fabricated owner retirement
+PASS Returned-owner precheck failure disposes exactly once before rejecting and restores descriptor
+PASS Foreign descriptor during original await is preserved and unpublished Figure retired
+PASS Same-wrapper descriptor metadata theft is never overwritten; unpublished owner retired
+PASS Factory replacement during asynchronous input hashing is detected before installation
+PASS Live equality distinguishes signed zero and refuses NaN instead of JSON coercion
+PASS Disposal errors aggregate with primary admission failure, without double retirement
+PASS Release, reentrancy and captured-wrapper reuse refuse further native mutation
+{"groups":12,"passed":true,"nativeRuns":0}

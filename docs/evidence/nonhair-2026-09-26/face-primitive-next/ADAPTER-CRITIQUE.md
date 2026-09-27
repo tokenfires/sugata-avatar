@@ -1,0 +1,13 @@
+# Independent fresh Figure adapter review
+
+Reviewer: `/root/critic`, 2026-09-26. **Source-admitted for a separately reviewed native diagnostic. No native or appearance result is claimed.** Reviewed `FreshTipWidthFigure.mjs` SHA256 `a61fc2ffd5c310c728eb4592daa4cde26b951d76590877c2e0f9fed4fcb83978` and tests `1fa986ea9e596f2d00884b426bb44974aa4d34e77e33c31e15a87ca4eb6c3f49`. Independently ran all twelve focused CPU groups.
+
+The adapter waits for the unchanged native Figure loader, admits one expected URL and unpublished owner, then copies private, hash-pinned Float32 position/normal arrays into the existing body attributes. It preserves the native method arity. Zero uses exactly pristine bytes; it still exercises the wrapper and increments the two BufferAttribute versions. Pristine remains an explicitly unwrapped control in the proposed native protocol.
+
+All actual mesh/geometry/attribute/index owners, other attributes and morph data, draw ranges, groups, bounds, bind matrices, skeleton owners/palette/inverses, node transforms and Figure registries are checked around assignment and again after awaited output hashing. This binds the intended two-array intervention; it is not a new runtime morph writer or asset export. Native assignment/rendering and subsequent motion composition remain separate gates.
+
+Three review findings were corrected before this verdict: the original factory descriptor is now pinned before asynchronous input hashing and rechecked before installation; all six descriptor fields are checked after native return and during restoration, so same-wrapper metadata theft is preserved and rejected; live-state equality now uses recursive Object.is and rejects NaN, preserving signed-zero distinctions instead of JSON coercion. Focused negative fixtures exercise each.
+
+Native factory rejection fabricates no owner retirement. A native success followed by adapter rejection disposes only the returned unpublished Figure once, attempts owned descriptor restoration independently, and aggregates primary/disposal/ownership errors. Successful return restores the descriptor before publication and leaves native lifetime ownership to Avatar. Reuse, release while loading, wrong URL/receiver, foreign descriptor replacement and stale attachment are rejected.
+
+The tests use real Three geometry with a modelled loader/owner, not an actual downloaded Figure or browser renderer. They do not establish native model readiness, complete browser/device disposal, endpoint visual quality, arbitrary primitive values or continuously composed expression safety. Those limitations remain even though the fixed CPU operator and this adapter have passed their distinct reviews.

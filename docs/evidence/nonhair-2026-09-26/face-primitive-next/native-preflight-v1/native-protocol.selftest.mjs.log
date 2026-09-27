@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "scope": "Native Avatar.feel method and ExpressionLayer schedule only; no native renderer or complete Avatar instance.",
+  "observations": [
+    {
+      "step": 175,
+      "pad": {
+        "pleasure": 0.4063613420856837,
+        "arousal": 0.2063751154872863,
+        "dominance": 0.10638200218808758
+      },
+      "morphs": {
+        "eyeWideLeft": 0.15196445069612327,
+        "eyeWideRight": 0.15196445069612327,
+        "cheekSquintLeft": 0.3661114177481414,
+        "cheekSquintRight": 0.3661114177481414
+      },
+      "mouth": {
+        "smile": 0.28445293945997857,
+        "frown": 0
+      },
+      "triggers": [
+        [
+          "joy",
+          0.75
+        ]
+      ]
+    },
+    {
+      "step": 295,
+      "pad": {
+        "pleasure": -0.3294547751570984,
+        "arousal": 0.21305555493024403,
+        "dominance": 0.11305555524289976
+      },
+      "morphs": {
+        "browDownLeft": 0.3159743119347181,
+        "browDownRight": 0.3159743119347181,
+        "eyeWideLeft": 0.16150793561463433,
+        "eyeWideRight": 0.16150793561463433,
+        "eyeSquintLeft": 0.12638972477388724,
+        "eyeSquintRight": 0.12638972477388724,
+        "noseSneerLeft": 0.75,
+        "noseSneerRight": 0.75
+      },
+      "mouth": {
+        "smile": 0,
+        "frown": 0.23061834260996888
+      },
+      "triggers": [
+        [
+          "disliking",
+          0.75
+        ]
+      ]
+    }
+  ],
+  "speechPeakSteps": [
+    {
+      "viseme": "aa",
+      "step": 330
+    },
+    {
+      "viseme": "PP",
+      "step": 366
+    },
+    {
+      "viseme": "FF",
+      "step": 402
+    },
+    {
+      "viseme": "U",
+      "step": 438
+    }
+  ],
+  "geometrySteps": [
+    0,
+    1,
+    30,
+    60,
+    61,
+    90,
+    120,
+    175,
+    179,
+    180,
+    181,
+    210,
+    240,
+    270,
+    295,
+    299,
+    300,
+    301,
+    329,
+    330,
+    331,
+    365,
+    366,
+    367,
+    401,
+    402,
+    403,
+    437,
+    438,
+    439,
+    480
+  ]
+}

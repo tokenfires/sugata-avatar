@@ -1,0 +1,422 @@
+{
+  "createdAt": "2026-09-27T01:39:39.239166+00:00",
+  "scope": "Explicit user stop. Preservation only; unreviewed drafts and provisional outputs are not accepted or authorized to resume.",
+  "headBeforeCheckpoint": "ea931a3398e689a25beb1fe62ec98cb3c00bdea3",
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "status": "PAUSED"
+  },
+  "reviewServer": "http://127.0.0.1:5173/",
+  "files": [
+    {
+      "path": "docs/CHECKPOINT-2026-09-26.md",
+      "bytes": 6100,
+      "sha256": "f3db0dfe92087d40155b49f7e0ae2ae2f2506fa615f91a4191340fcc2969f20c"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 10965,
+      "sha256": "7c9cdf941bba2d7f07a834530997a9f35db8b67ff878c79e9ad8f4f93931058f"
+    },
+    {
+      "path": "docs/PROGRESS-2026-09-26.md",
+      "bytes": 81673,
+      "sha256": "3ce17e592b8a56e11ae62a7323a9aaebb923ea8e54eee21f25a8a8c0a840adac"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/ADAPTER-CRITIQUE.md",
+      "bytes": 2695,
+      "sha256": "2edcd7d629b07367515f03bf1fe05f5a7f71ca5de8ed7ac008bd31c97c8f7049"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/FreshTipWidthFigure.mjs",
+      "bytes": 12564,
+      "sha256": "a61fc2ffd5c310c728eb4592daa4cde26b951d76590877c2e0f9fed4fcb83978"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/FreshTipWidthFigure.selftest.mjs",
+      "bytes": 9259,
+      "sha256": "1fa986ea9e596f2d00884b426bb44974aa4d34e77e33c31e15a87ca4eb6c3f49"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/NATIVE-CODE-CRITIQUE.md",
+      "bytes": 4812,
+      "sha256": "b104dd6a3887b62feeed1957892661f2dd033a97b87de916e397f724534165ac"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/NATIVE-PLAN.md",
+      "bytes": 10463,
+      "sha256": "432bff1a33fae36b56e2e13554ce155a9a97174c6285dcfe5bf7b1af1ff82a42"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/NATIVE-PROTOCOL.md",
+      "bytes": 10189,
+      "sha256": "42430abb77b77d2836a48f6be9b030c10f2335ebe33f51f810b87759a918b0c9"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/NATIVE-REPAIRS.md",
+      "bytes": 3300,
+      "sha256": "ca63301a69afa9c6f8e88f640632d3f5edf78a3f27c96dc313d404f9fdc05939"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/POST-CAPTURE-PLAN.md",
+      "bytes": 8958,
+      "sha256": "e7e3386b1d49cdb00c0b90c3f1f8020e1b8238d4cc2430af7d9b5efb0bdaa15a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/STOP-source-receipt.json",
+      "bytes": 2331,
+      "sha256": "d8d7805e188e1ae0ee8759fbd554304de2edbc8ef407caa87221de4f63d6e902"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/STOP.md",
+      "bytes": 4488,
+      "sha256": "f6519968f873a09735f6db7e1ae3f2e7bc04536c04d1164ad938668bcb05fcb3"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/capture-native.mjs",
+      "bytes": 25768,
+      "sha256": "f47a3974ef93aa6e2864bd9a57056768315ec6a5ac1ad42509bca6659b041f88"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/check-raw-compositions.mjs",
+      "bytes": 6539,
+      "sha256": "182befcc1df87f95240636a5355d71df7a61ed6eedb58a4753e32c73dc719669"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/jawOpen-exact.txt",
+      "bytes": 1402,
+      "sha256": "5bf507cc2b5bfbb02520d4e1e7867468adc9ef940a9baf6e26a42a6b26f623a3"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/mouthPucker-exact.txt",
+      "bytes": 1405,
+      "sha256": "6782e1143c0b3a70f64a415eb377f0dfab672936eb279671ab2d40369f3ec210"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/mouthSmileLeft-exact.txt",
+      "bytes": 1394,
+      "sha256": "4b3e77387d3bbef6b5d2c3cfdcdb70645a504790c672289adeefb9cf50e1dc6d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/mouthSmileRight-exact.txt",
+      "bytes": 1394,
+      "sha256": "671b0b0a5dfe821efd3aa9183ec3bd0d8480c7ebcbbfd19dd24d56efa6cd6fb6"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/noseSneerLeft-exact.txt",
+      "bytes": 1411,
+      "sha256": "252751cae216a9c8f6b65a7c96089c9b1262d7b202011029d56e2b5816bbd134"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/noseSneerRight-exact.txt",
+      "bytes": 1411,
+      "sha256": "46d60eb698a1049ceec3588bce9cbf9c3f20833d4fcf3c623cb19ffafbce8a6c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/report.json",
+      "bytes": 24234,
+      "sha256": "b93afcaaae4c92b747716f8147f2796c28fcfa4628c7cc29440e2555e9b6e120"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/composition-v1/seal.json",
+      "bytes": 110,
+      "sha256": "572db726f9150259c4ab6bc57312bd608d97707922cbbccc4a15582bea89da90"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/diagnose-observer-initialization.mjs",
+      "bytes": 2083,
+      "sha256": "65372eddb487c689344dd0b61fc5d732374cb165c5b5304a764dfaf6952f6d50"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-admission-fixture.json",
+      "bytes": 3030,
+      "sha256": "3e475854c038df07651e297545ebf882b77ed26ba08befe5497f6df0443bd923"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-admission.mjs",
+      "bytes": 4567,
+      "sha256": "d9b35e7dbac6ada08f2ae215b9f507911e52802d938091f1b584499fc12954b2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-admission.selftest.mjs",
+      "bytes": 4749,
+      "sha256": "3bbc6b335246d85056ed5a25e98316e90a462a4acddb220673195bf38aa83d83"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-channel-preparation.mjs",
+      "bytes": 7069,
+      "sha256": "199e942c657750f767ef3fa26cbf5f8431e87ac0b99d1cda9e438b1aee14c78e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-channel-preparation.selftest.mjs",
+      "bytes": 3391,
+      "sha256": "1fcd3978a5114cea0451f3bc394a82089382f82c5da1e9d23456f2b24cd836da"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-manifest-v1.json",
+      "bytes": 209756,
+      "sha256": "1f68eefe189e9823359408facd72ecd26cb8cd21a39ba18a12a9792ee413b54f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-manifest-v2.json",
+      "bytes": 210249,
+      "sha256": "ae059dffdc09a0709f58fb4c9ea15e04ff0d37d350509b1859c9fbb348c69779"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-manifest-v3.json",
+      "bytes": 210249,
+      "sha256": "61bb751cee1ae2aaadac039d91c1bf8294c71f6f2c4d7437e170de8d4de43ddb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-oracle.mjs",
+      "bytes": 3114,
+      "sha256": "c55fb5fc94e872d49d71701da89eb919331d277e042fed6d9d3c5a6c4ed497d5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-oracle.selftest.mjs",
+      "bytes": 3642,
+      "sha256": "086406baae575f2b152f2994ae677e948e9811f72f2086e1f4c8c0746137b4dd"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v1/FreshTipWidthFigure.selftest.mjs.log",
+      "bytes": 1104,
+      "sha256": "584ca7d5fadd5b8e9342725fcc36354deccccc591720803edcaab840e34fc39c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v1/manifest.json",
+      "bytes": 209756,
+      "sha256": "1f68eefe189e9823359408facd72ecd26cb8cd21a39ba18a12a9792ee413b54f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v1/native-oracle.selftest.mjs.log",
+      "bytes": 258,
+      "sha256": "f80c20d36e5ef8787e3ec07353c8886881e7d8f3fd24291ba55929fa6e17d303"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v1/native-protocol.selftest.mjs.log",
+      "bytes": 1958,
+      "sha256": "895a06ca61dafef480c4d37dc12ad353dfbd24a1cfd7d88ae46033f8a195781d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v1/report.json",
+      "bytes": 209105,
+      "sha256": "e2038e90b5a37aad4c19d073dbde27b0ca0a3216fa2c401d6d7428b974dd42e0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v2/FreshTipWidthFigure.selftest.mjs.log",
+      "bytes": 1104,
+      "sha256": "584ca7d5fadd5b8e9342725fcc36354deccccc591720803edcaab840e34fc39c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v2/manifest.json",
+      "bytes": 210249,
+      "sha256": "ae059dffdc09a0709f58fb4c9ea15e04ff0d37d350509b1859c9fbb348c69779"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v2/native-admission.selftest.mjs.log",
+      "bytes": 303,
+      "sha256": "c4a4ffa81c123dc4b22d63b4dafab1474ebf8f4c03204bf6c188baf35a4c25e5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v2/native-oracle.selftest.mjs.log",
+      "bytes": 258,
+      "sha256": "f80c20d36e5ef8787e3ec07353c8886881e7d8f3fd24291ba55929fa6e17d303"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v2/native-protocol.selftest.mjs.log",
+      "bytes": 1958,
+      "sha256": "895a06ca61dafef480c4d37dc12ad353dfbd24a1cfd7d88ae46033f8a195781d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v2/report.json",
+      "bytes": 210270,
+      "sha256": "771686e004c65796311eb7113f65874628d8e34b02d3555fd22ddd6bdde5a86a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v3/FreshTipWidthFigure.selftest.mjs.log",
+      "bytes": 1104,
+      "sha256": "584ca7d5fadd5b8e9342725fcc36354deccccc591720803edcaab840e34fc39c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v3/manifest.json",
+      "bytes": 210249,
+      "sha256": "61bb751cee1ae2aaadac039d91c1bf8294c71f6f2c4d7437e170de8d4de43ddb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v3/native-admission.selftest.mjs.log",
+      "bytes": 303,
+      "sha256": "c4a4ffa81c123dc4b22d63b4dafab1474ebf8f4c03204bf6c188baf35a4c25e5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v3/native-oracle.selftest.mjs.log",
+      "bytes": 258,
+      "sha256": "f80c20d36e5ef8787e3ec07353c8886881e7d8f3fd24291ba55929fa6e17d303"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v3/native-protocol.selftest.mjs.log",
+      "bytes": 1958,
+      "sha256": "895a06ca61dafef480c4d37dc12ad353dfbd24a1cfd7d88ae46033f8a195781d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-preflight-v3/report.json",
+      "bytes": 210270,
+      "sha256": "49b32f2842f0947e19cb2dab3b1639b57243f223110ae898c154c6e3d08a05e5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-protocol.mjs",
+      "bytes": 2153,
+      "sha256": "17d6f3c16512e302be8277ecec54417c902bdca4bbcdeba20070c5b93d34b639"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-protocol.selftest.mjs",
+      "bytes": 2416,
+      "sha256": "a1d24dfc89320b2241df031b1b4456d702002211c3ee4b35e53041f144222c6a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-rebind-v3.json",
+      "bytes": 1648,
+      "sha256": "3ad7d4bf8a7549ec6b82c0ee630c1ecafaa612a5c7b1f0a50a8529d6245767cf"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-runtime.mjs",
+      "bytes": 13921,
+      "sha256": "620f97f83e483edc87ceac4859c1cc748f79f17268089ded7025b6f873802d08"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-stack-fixture.mjs",
+      "bytes": 3407,
+      "sha256": "7d18b6e57d6e73ca5f8c2081461d1b50b693d528a2a2dc1b9eec8d44078cf786"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-v1-rejected/capture-native.mjs",
+      "bytes": 24364,
+      "sha256": "a1a1a235951ea97d907c29f99a3374fc7f40528f60ec329f2df2a3baf52aaeae"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-v1-rejected/manifest.json",
+      "bytes": 210249,
+      "sha256": "61bb751cee1ae2aaadac039d91c1bf8294c71f6f2c4d7437e170de8d4de43ddb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-v1-rejected/native-admission.mjs",
+      "bytes": 4567,
+      "sha256": "d9b35e7dbac6ada08f2ae215b9f507911e52802d938091f1b584499fc12954b2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-v1-rejected/native-protocol.mjs",
+      "bytes": 2153,
+      "sha256": "17d6f3c16512e302be8277ecec54417c902bdca4bbcdeba20070c5b93d34b639"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-v1-rejected/native-runtime.mjs",
+      "bytes": 12540,
+      "sha256": "dae7a529fde6b0c61601cb067484c6356f3c236e786c01fb90b90cddd0f45506"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-v1-rejected/receipt.json",
+      "bytes": 3811,
+      "sha256": "1ebc1732ddf36cf70cc8662c616e16242cfad830317e03db5f8f57fe56070e07"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/native-v1-rejected/report.json",
+      "bytes": 274425,
+      "sha256": "69d52264670c56812fc7f17c11a63c37a85003c1190800af62c05d76a531bbdb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/observer-diagnosis-v1.json",
+      "bytes": 1055,
+      "sha256": "de280069bafc9b5f6aa67afaf36a34ca122f130c6f6e667bcc0d03fd9134b5bb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/unlaunched-v1/NATIVE-PROTOCOL.md",
+      "bytes": 7458,
+      "sha256": "97aee9aa5c6e1a054dbd10deccca2e6949476e592a8288876879cb638b30ce51"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/unlaunched-v1/capture-native.mjs",
+      "bytes": 20715,
+      "sha256": "436e1cc6033bb8144f6aae6f7a4aa891e12895c5c76a73eaaa67c67925c5c40e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/unlaunched-v1/native-manifest-v1.json",
+      "bytes": 209756,
+      "sha256": "1f68eefe189e9823359408facd72ecd26cb8cd21a39ba18a12a9792ee413b54f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/face-primitive-next/unlaunched-v1/receipt.json",
+      "bytes": 800,
+      "sha256": "838b3ebf644fb252869442c434b4f4de5045bdd5b265de7122206934f0c76713"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/PLAN.md",
+      "bytes": 2691,
+      "sha256": "aa7b476a6cd051a233c15328192790e0848d530fe45a6ef1c13d8aa0de4939a7"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/STOP.md",
+      "bytes": 6193,
+      "sha256": "f44b02f533c3f2c8ba76a769b7cc038fe2bf8b29b3daf286292021aaafb96ee2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/analyze.py",
+      "bytes": 12392,
+      "sha256": "989dad04d71708298fcade6375148c9cb55bd7abd117420e469ecf788fcafdcc"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/analyze_test.py",
+      "bytes": 2244,
+      "sha256": "5a6f4a4be3ee9ae62f2b8fb2fa408a8484f22ad15231fc941b13bded0abdf387"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/exact_triangles.py",
+      "bytes": 4681,
+      "sha256": "93e68ab504f0d1771a5d615cd4701b9fa51745e510b695900af4025baccdb4d8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/exact_triangles_test.py",
+      "bytes": 2424,
+      "sha256": "636d41f4cb78e381a00cbb958a212e8c470190ffe23b2dd17fd7c4ab4970c13c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/native-retained-v1/analysis.json.gz",
+      "bytes": 1836529,
+      "sha256": "65e934a1c1435e47bcc32dbca665955b36558bcad1b1a4834204ba0e706e24fe"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/native-retained-v1/summary.json",
+      "bytes": 12116,
+      "sha256": "fb5502434d14002066de47c41244281b33ac417c4e7d30c4e3eebaf1036fd890"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/native-retained-v2/analysis.json.gz",
+      "bytes": 1836529,
+      "sha256": "65e934a1c1435e47bcc32dbca665955b36558bcad1b1a4834204ba0e706e24fe"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/native-retained-v2/summary.json",
+      "bytes": 12116,
+      "sha256": "fb5502434d14002066de47c41244281b33ac417c4e7d30c4e3eebaf1036fd890"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/run-v2.log",
+      "bytes": 4082,
+      "sha256": "3e3f911bb115d08878c5dcec1b9edbffb69f9b6cf06246ff7ef6cab917d9a8cf"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/render-temporal-input-next/PLAN.md",
+      "bytes": 2632,
+      "sha256": "342444ba1617c9ca4cbc1d369465d33900dd795b3806d21b92245f354a75b8ca"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/render-temporal-input-next/STOP.md",
+      "bytes": 1021,
+      "sha256": "ffa5a92a5e1af2e335e440143ae67a24f1cd739092c2c568a0a91f36025e83c4"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/render-temporal-input-next/read-inputs.mjs",
+      "bytes": 7250,
+      "sha256": "88a0c2871ee1e380a1e3478755ff07e56b5ef82c04af85e042de6298a96a98ab"
+    }
+  ]
+}

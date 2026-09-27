@@ -1,0 +1,350 @@
+{
+  "completed": true,
+  "analysis": {
+    "file": "analysis.json.gz",
+    "sha256": "65e934a1c1435e47bcc32dbca665955b36558bcad1b1a4834204ba0e706e24fe",
+    "decodedSHA256": "217f733dc94829a8e9f8a90a99597831442e541c84b58785a5950bd60d6336fa"
+  },
+  "bindings": {
+    "docs/evidence/nonhair-2026-09-26/hand-candidate/native-geometry-dense-v2/analysis.json": "5629a2cce7a42803e991706bfe735664806c8dc0324b63edc15ffbcd504ca25a",
+    "captures/hand-candidate-2026-09-26/candidate-dense-v2/report.json": "17ab2f601b2e921ac47ae23739805be870de0c21526aa6a52daf36bb5442730f",
+    "captures/hand-candidate-2026-09-26/candidate-dense-v2/manifest.json": "17e1d1e9e5d71987cb1a66eb1dc3b5b8ce8653d7d006b073389bc1d19b5de871",
+    "captures/hand-attribution-2026-09-26/primary-v4/report.json": "bb12301ca0fd0db5097ad8fe6221498228612c2fcd314dac4377ca686d22a74e",
+    "captures/hand-attribution-2026-09-26/primary-v4/manifest.json": "fc0e017fba7da12f6c511b53e705b2441b440fa8cb8731bd65f36a839514793d",
+    "captures/hand-attribution-2026-09-26/primary-v4/seal.json": "bdc7965c78e3e0823c7ae76c0affe9298bde316bff9edc5b2ddf3b8db777577b",
+    "captures/hand-attribution-2026-09-26/primary-v4/A-primary/meshes-592.json.gz": "dc54c7da2a99a738a34e32dd1f7a06aadaba7a507568582d308d17eb85dced84",
+    "captures/hand-candidate-2026-09-26/candidate-dense-v2/seal.json": "fadf565884e840a7a938785da670f50b8a557d831fe0cd9c3e5cd93bb36b2e7f",
+    "captures/hand-candidate-2026-09-26/candidate-dense-v2/meshes-592.json.gz": "07057bfa6ccce52c1144fd73ea322fcdcace280dd5efbee1f1bd675bf3b5464a",
+    "captures/hand-candidate-2026-09-26/candidate-dense-v2/meshes-593.json.gz": "783dc25675dc84f53fb6e906aa4809c36775279b9c5b3512d38f44a3833cb0bb",
+    "captures/hand-candidate-2026-09-26/candidate-dense-v2/meshes-594.json.gz": "8e1bc2fec846805105060228c0a3df38cffc760c123a6b3c2f781f82cc7a1bfb",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/exact_triangles.py": "93e68ab504f0d1771a5d615cd4701b9fa51745e510b695900af4025baccdb4d8",
+    "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/exact_triangles_test.py": "636d41f4cb78e381a00cbb958a212e8c470190ffe23b2dd17fd7c4ab4970c13c",
+    "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/analyze.py": "989dad04d71708298fcade6375148c9cb55bd7abd117420e469ecf788fcafdcc",
+    "docs/evidence/nonhair-2026-09-26/hand-sleeve-next/analyze_test.py": "5a6f4a4be3ee9ae62f2b8fb2fa408a8484f22ad15231fc941b13bded0abdf387"
+  },
+  "cases": [
+    {
+      "arm": "A",
+      "step": 592,
+      "sides": {
+        "l": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 25,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 300,
+              "exactTests": 300,
+              "disjointAfterAABB": 240,
+              "transverse-interior": 60,
+              "bothDrawn": 44,
+              "oneOrBothMasked": 16
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 25,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 382,
+              "exactTests": 357,
+              "expectedSharedSimplex": 300,
+              "identicalSelfFaces": 25,
+              "disjointAfterAABB": 48,
+              "transverse-interior": 9,
+              "oneOrBothMasked": 9
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 771,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6543,
+              "exactTests": 6543,
+              "disjointAfterAABB": 5902,
+              "transverse-interior": 641,
+              "oneOrBothMasked": 441,
+              "bothDrawn": 200
+            }
+          }
+        },
+        "r": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 31,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 363,
+              "exactTests": 363,
+              "disjointAfterAABB": 298,
+              "transverse-interior": 65,
+              "bothDrawn": 49,
+              "oneOrBothMasked": 16
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 31,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 475,
+              "exactTests": 444,
+              "expectedSharedSimplex": 372,
+              "identicalSelfFaces": 31,
+              "disjointAfterAABB": 61,
+              "transverse-interior": 11,
+              "oneOrBothMasked": 11
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 780,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6520,
+              "exactTests": 6520,
+              "disjointAfterAABB": 5829,
+              "transverse-interior": 691,
+              "oneOrBothMasked": 508,
+              "bothDrawn": 183
+            }
+          }
+        }
+      }
+    },
+    {
+      "arm": "D",
+      "step": 592,
+      "sides": {
+        "l": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 25,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 164,
+              "exactTests": 164,
+              "disjointAfterAABB": 129,
+              "transverse-interior": 35,
+              "bothDrawn": 35
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 25,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 329,
+              "exactTests": 304,
+              "expectedSharedSimplex": 300,
+              "identicalSelfFaces": 25,
+              "disjointAfterAABB": 4
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 771,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6099,
+              "exactTests": 6099,
+              "disjointAfterAABB": 5531,
+              "transverse-interior": 568,
+              "oneOrBothMasked": 404,
+              "bothDrawn": 164
+            }
+          }
+        },
+        "r": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 31,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 225,
+              "exactTests": 225,
+              "disjointAfterAABB": 186,
+              "transverse-interior": 39,
+              "bothDrawn": 39
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 31,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 412,
+              "exactTests": 381,
+              "expectedSharedSimplex": 372,
+              "identicalSelfFaces": 31,
+              "disjointAfterAABB": 9
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 780,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6123,
+              "exactTests": 6123,
+              "disjointAfterAABB": 5556,
+              "transverse-interior": 567,
+              "oneOrBothMasked": 421,
+              "bothDrawn": 146
+            }
+          }
+        }
+      }
+    },
+    {
+      "arm": "D",
+      "step": 593,
+      "sides": {
+        "l": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 25,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 164,
+              "exactTests": 164,
+              "disjointAfterAABB": 129,
+              "transverse-interior": 35,
+              "bothDrawn": 35
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 25,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 329,
+              "exactTests": 304,
+              "expectedSharedSimplex": 300,
+              "identicalSelfFaces": 25,
+              "disjointAfterAABB": 4
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 771,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6098,
+              "exactTests": 6098,
+              "disjointAfterAABB": 5530,
+              "transverse-interior": 568,
+              "oneOrBothMasked": 404,
+              "bothDrawn": 164
+            }
+          }
+        },
+        "r": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 31,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 225,
+              "exactTests": 225,
+              "disjointAfterAABB": 186,
+              "transverse-interior": 39,
+              "bothDrawn": 39
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 31,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 412,
+              "exactTests": 381,
+              "expectedSharedSimplex": 372,
+              "identicalSelfFaces": 31,
+              "disjointAfterAABB": 9
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 780,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6121,
+              "exactTests": 6121,
+              "disjointAfterAABB": 5554,
+              "transverse-interior": 567,
+              "oneOrBothMasked": 421,
+              "bothDrawn": 146
+            }
+          }
+        }
+      }
+    },
+    {
+      "arm": "D",
+      "step": 594,
+      "sides": {
+        "l": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 25,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 163,
+              "exactTests": 163,
+              "disjointAfterAABB": 128,
+              "transverse-interior": 35,
+              "bothDrawn": 35
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 25,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 329,
+              "exactTests": 304,
+              "expectedSharedSimplex": 300,
+              "identicalSelfFaces": 25,
+              "disjointAfterAABB": 4
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 771,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6097,
+              "exactTests": 6097,
+              "disjointAfterAABB": 5529,
+              "transverse-interior": 568,
+              "oneOrBothMasked": 404,
+              "bothDrawn": 164
+            }
+          }
+        },
+        "r": {
+          "residualBodyVsAllWorn": {
+            "queryCount": 31,
+            "targetCount": 42144,
+            "counts": {
+              "aabbPairs": 225,
+              "exactTests": 225,
+              "disjointAfterAABB": 186,
+              "transverse-interior": 39,
+              "bothDrawn": 39
+            }
+          },
+          "residualBodyVsFullBody": {
+            "queryCount": 31,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 412,
+              "exactTests": 381,
+              "expectedSharedSimplex": 372,
+              "identicalSelfFaces": 31,
+              "disjointAfterAABB": 9
+            }
+          },
+          "armInfluencedGarmentVsFullBody": {
+            "queryCount": 780,
+            "targetCount": 26756,
+            "counts": {
+              "aabbPairs": 6121,
+              "exactTests": 6121,
+              "disjointAfterAABB": 5554,
+              "transverse-interior": 567,
+              "oneOrBothMasked": 421,
+              "bothDrawn": 146
+            }
+          }
+        }
+      }
+    }
+  ]
+}

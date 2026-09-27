@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "scope": "Actual native motion constructors/methods and AttentionAction over source bones; synthetic target/renderer shells. Failed browser v1 did not record its individual guard booleans.",
+  "before": {
+    "predicates": {
+      "nativeClass": true,
+      "targetPresent": true,
+      "targetIdentity": true,
+      "nativeUpdate": true,
+      "nativeAccumulate": true,
+      "channelsClean": true,
+      "notEvaluating": true
+    },
+    "frame": 0,
+    "time": 0,
+    "idleArmsResolved": false
+  },
+  "after": {
+    "predicates": {
+      "nativeClass": true,
+      "targetPresent": true,
+      "targetIdentity": true,
+      "nativeUpdate": true,
+      "nativeAccumulate": true,
+      "channelsClean": false,
+      "notEvaluating": true
+    },
+    "frame": 1,
+    "time": 0,
+    "idleArmsResolved": true,
+    "idleArmsEnabled": false,
+    "idleChannels": [
+      "head"
+    ]
+  },
+  "exactFalseConjunctInCPU": "channelsClean",
+  "nativeRebuildPermitsUnchangedGuard": true,
+  "stageDrawHypothesisRefuted": true,
+  "disposed": true
+}

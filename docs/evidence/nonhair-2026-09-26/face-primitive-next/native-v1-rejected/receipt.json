@@ -1,0 +1,50 @@
+{
+  "sourceDirectory": "captures/face-tip-width-2026-09-26/native-v1",
+  "completed": false,
+  "nativeImages": 0,
+  "nativeStates": 0,
+  "nativeGeometry": 0,
+  "files": {
+    "report.json": {
+      "source": "captures/face-tip-width-2026-09-26/native-v1/report.json",
+      "sha256": "69d52264670c56812fc7f17c11a63c37a85003c1190800af62c05d76a531bbdb",
+      "bytes": 274425
+    },
+    "manifest.json": {
+      "source": "captures/face-tip-width-2026-09-26/native-v1/manifest.json",
+      "sha256": "61bb751cee1ae2aaadac039d91c1bf8294c71f6f2c4d7437e170de8d4de43ddb",
+      "bytes": 210249
+    },
+    "capture-native.mjs": {
+      "source": "captures/face-tip-width-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/face-primitive-next/capture-native.mjs",
+      "sha256": "a1a1a235951ea97d907c29f99a3374fc7f40528f60ec329f2df2a3baf52aaeae",
+      "bytes": 24364
+    },
+    "native-runtime.mjs": {
+      "source": "captures/face-tip-width-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/face-primitive-next/native-runtime.mjs",
+      "sha256": "dae7a529fde6b0c61601cb067484c6356f3c236e786c01fb90b90cddd0f45506",
+      "bytes": 12540
+    },
+    "native-admission.mjs": {
+      "source": "captures/face-tip-width-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/face-primitive-next/native-admission.mjs",
+      "sha256": "d9b35e7dbac6ada08f2ae215b9f507911e52802d938091f1b584499fc12954b2",
+      "bytes": 4567
+    },
+    "native-protocol.mjs": {
+      "source": "captures/face-tip-width-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/face-primitive-next/native-protocol.mjs",
+      "sha256": "17d6f3c16512e302be8277ecec54417c902bdca4bbcdeba20070c5b93d34b639",
+      "bytes": 2153
+    }
+  },
+  "scope": "Pristine setup rejection, no candidate or image evidence. Physical owner disposal succeeded; published-instrument cleanup assertion also failed because setup did not publish an instrument. Original report unchanged.",
+  "actualOwnerRetired": true,
+  "reportedCleanupFailure": {
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n\n    at retire (file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/face-primitive-next/capture-native.mjs:53:274)\n    at async file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/face-primitive-next/capture-native.mjs:106:6"
+  },
+  "primaryFailure": {
+    "message": "page.evaluate: Error: Hand study requires the idle native stack/target and unwrapped frame path.\n    at new HandAttributionArm (http://localhost:5398/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.mjs:38:75)\n    at createNativeTipCapture (http://localhost:5398/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/face-primitive-next/native-runtime.mjs:69:12)\n    at eval (eval at evaluate (:303:30), <anonymous>:1:450)\n    at async <anonymous>:329:30",
+    "stack": "page.evaluate: Error: Hand study requires the idle native stack/target and unwrapped frame path.\n    at new HandAttributionArm (http://localhost:5398/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.mjs:38:75)\n    at createNativeTipCapture (http://localhost:5398/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/face-primitive-next/native-runtime.mjs:69:12)\n    at eval (eval at evaluate (:303:30), <anonymous>:1:450)\n    at async <anonymous>:329:30\n    at /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/face-primitive-next/capture-native.mjs:80:28",
+    "arm": "pristine"
+  }
+}

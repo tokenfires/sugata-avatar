@@ -1,0 +1,124 @@
+// Source preparation is CPU-only. Only --capture starts the native browser; root executes it.
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {fileURLToPath} from 'node:url';import {gzipSync,gunzipSync} from 'node:zlib';import {execFileSync} from 'node:child_process';
+import {createTipWidthOperator,inspectPatchLayout,sha} from './TipWidthCandidate.mjs';
+import {createNativeBodyOracle,encodeState,decodeState} from './native-oracle.mjs';
+import {PROTOCOL,SPEECH_PEAK_STEPS,FIXED_GEOMETRY_STEPS} from './native-protocol.mjs';
+import {stableInputProjection,TIMING_EXCLUSIONS,admitReady,admitLoadedGLB,admitHTMLTransform,bounded,createResourceCloser} from './native-admission.mjs';
+const HERE=path.dirname(fileURLToPath(import.meta.url)),ROOT=path.resolve(HERE,'../../../..'),KIND='fixed-tip-width-native-diagnostic-v1',rel=p=>path.relative(ROOT,p),hash=p=>sha(fs.readFileSync(p));
+const json=x=>JSON.stringify(x,null,2)+'\n';
+const OWN=['capture-native.mjs','FreshTipWidthFigure.mjs','FreshTipWidthFigure.selftest.mjs','native-runtime.mjs','native-protocol.mjs','native-protocol.selftest.mjs','native-oracle.mjs','native-oracle.selftest.mjs','native-admission.mjs','native-admission.selftest.mjs','native-admission-fixture.json','TipWidthCandidate.mjs','local-normal.mjs','cpu-v1/report.json','cpu-v1/seal.json','composition-v1/report.json','composition-v1/seal.json'];
+const EXTRA=['docs/evidence/nonhair-2026-09-26/hand-clearance/HandAttributionArm.mjs','docs/evidence/nonhair-2026-09-26/wardrobe-colours-next/boot-bootstrap.mjs','tools/figure-pipeline/collar_capture_browser.mjs','tools/figure-pipeline/hair_surface.mjs','tools/lut-bake/glb.mjs','tools/critic/png.mjs','package.json','package-lock.json','vite.config.js','node_modules/three/package.json','node_modules/vite/package.json'];
+function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name)).flatMap(e=>{const p=path.join(dir,e.name);assert.ok(!e.isSymbolicLink(),'Unbound symlink '+p);return e.isDirectory()?walk(p):e.isFile()?[p]:[];});}
+function files(){return [...new Set([...['packages/core/src','packages/testbed/src','assets','node_modules/three/src','node_modules/three/build','node_modules/three/examples/jsm','node_modules/vite/dist'].flatMap(p=>walk(path.join(ROOT,p))),...OWN.map(n=>path.join(HERE,n)),...EXTRA.map(n=>path.join(ROOT,n))])].sort().map(rel);}
+const inputs=Object.fromEntries(Object.entries({bodyBytes:'assets/wardrobe/body/g050.glb',mapBytes:'assets/identity/figure-vertex-map.bin',catalogueBytes:'assets/identity/catalogue.json',noseBytes:'assets/identity/targets/nose.bin'}).map(([k,p])=>[k,fs.readFileSync(path.join(ROOT,p))]));
+const operator=await createTipWidthOperator(inputs),layout=inspectPatchLayout(inputs.bodyBytes),candidates={zero:operator.candidate(0),decrease:operator.candidate(-1),increase:operator.candidate(1)};
+const arrayHash=a=>sha(Buffer.from(a.buffer,a.byteOffset,a.byteLength)),arrayPins=Object.fromEntries(Object.entries(candidates).map(([label,c])=>[label,{pristinePositions:arrayHash(layout.position),pristineNormals:arrayHash(layout.normal),positions:arrayHash(c.positions),normals:arrayHash(c.normals)}]));
+function sealedCPU(dir){const report=JSON.parse(fs.readFileSync(path.join(HERE,dir,'report.json'))),seal=JSON.parse(fs.readFileSync(path.join(HERE,dir,'seal.json')));assert.equal(report.completed,true);assert.equal(seal.reportSHA256,hash(path.join(HERE,dir,'report.json')));return seal.reportSHA256;}
+const qualification={cpu:sealedCPU('cpu-v1'),composition:sealedCPU('composition-v1')};
+function manifest(){return {kind:KIND,version:2,createdAt:new Date().toISOString(),revision:execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),node:process.version,protocol:PROTOCOL,arrayPins,qualification,
+ sources:Object.fromEntries(files().map(f=>[f,hash(path.join(ROOT,f))])),scope:'Four fixed Studio arms; ownership/reconstruction dataset admission excludes pending posed-contact/aperture and appearance qualification. Exact PNG control failure is retained while strict dataset collection continues. No product API or range.'};}
+function verify(m){assert.equal(m.kind,KIND);assert.equal(m.version,2);assert.equal(m.node,process.version);assert.deepEqual(m.protocol,PROTOCOL);assert.deepEqual(m.arrayPins,arrayPins);assert.deepEqual(m.qualification,qualification);assert.deepEqual(Object.keys(m.sources),files());for(const[f,h]of Object.entries(m.sources))assert.equal(hash(path.join(ROOT,f)),h,'Source drift: '+f);}
+const [mode,manifestPath,output]=process.argv.slice(2);
+if(mode==='--write-manifest'){assert.equal(process.argv.length,4);const m=manifest();verify(m);fs.writeFileSync(manifestPath,json(m),{flag:'wx'});console.log(json({manifest:manifestPath,sha256:hash(manifestPath),sources:Object.keys(m.sources).length}));process.exit(0);}
+assert.ok(['--preflight','--capture'].includes(mode));assert.equal(process.argv.length,5);
+const mbytes=fs.readFileSync(manifestPath),m=JSON.parse(mbytes);verify(m);const out=path.resolve(output);assert.ok(!fs.existsSync(out),'Fresh output required');fs.mkdirSync(out,{recursive:true});
+const write=(name,data)=>{const p=path.join(out,name);fs.mkdirSync(path.dirname(p),{recursive:true});fs.writeFileSync(p,typeof data==='string'||Buffer.isBuffer(data)?data:json(data),{flag:'wx'});};write('manifest.json',mbytes);
+const report={kind:KIND,version:2,completed:false,collected:false,ownershipReconstructionAdmission:false,numericalAdmission:false,posedContactAdmission:false,posedContactStatus:'pending-sealed-dataset-analysis',apertureAdmission:false,apertureStatus:'pending-independent-ocular-analysis',appearanceAdmission:false,appearanceStatus:'not-admitted',numericalScope:'Ownership, source arrays, exact CPU skinning reconstruction and cleanup only; excludes posed contact/aperture and appearance.',inputTimingExclusions:TIMING_EXCLUSIONS,closures:[],manifestSHA256:sha(mbytes),sourceHashes:m.sources,protocol:PROTOCOL,cases:[],errors:[],warnings:[],responses:[],archiveEncoding:'gzip of JSON with explicit __tipNegativeZero and __tipUndefined tags; native-oracle.decodeState restores exact primitive values',qualification};
+const save=()=>fs.writeFileSync(path.join(out,'report.json'),json(report));
+if(mode==='--preflight'){
+ report.preflightOnly=true;report.cpuTests=[];for(const name of ['FreshTipWidthFigure.selftest.mjs','native-protocol.selftest.mjs','native-oracle.selftest.mjs','native-admission.selftest.mjs']){const result=execFileSync(process.execPath,[path.join(HERE,name)],{cwd:ROOT,encoding:'utf8'});write(name+'.log',result);report.cpuTests.push({file:name,sha256:sha(result)});}verify(m);report.completed=true;save();console.log(json({preflight:true,sources:Object.keys(m.sources).length}));process.exit(0);
+}
+const {launchProbeBrowser}=await import('../../../../packages/core/src/render/MotionProbe.mjs');
+const {startReviewProbeServer}=await import('../wardrobe-colours-next/boot-bootstrap.mjs');
+const {decodePng}=await import('../../../../tools/critic/png.mjs');
+const oracle=createNativeBodyOracle(inputs.bodyBytes),baseStates=new Map(),baseGeometry=new Map(),baseImages=new Map();let baseInputs=null,server,browser,context,page,current;const reads=[],served=new Set();
+const closeResource=createResourceCloser(report.closures);
+async function drain(){let count;do{count=reads.length;await bounded(Promise.all(reads.slice(0,count)),'Response readback');}while(reads.length!==count);assert.deepEqual(report.errors,[]);}
+const assetFile=url=>{const u=new URL(url);if(u.searchParams.has('import')||u.searchParams.has('url'))return null;const p=decodeURIComponent(u.pathname),i=p.indexOf('/assets/');return i>=0?p.slice(i+1):null;};
+function archive(name,data){const raw=encodeState(data),bytes=gzipSync(raw);write(name,bytes);assert.deepEqual(decodeState(gunzipSync(bytes).toString()),data);return {file:name,sha256:sha(bytes),decodedSHA256:sha(raw),bytes:bytes.length};}
+function finite(x){if(typeof x==='number')assert.ok(Number.isFinite(x));else if(x&&typeof x==='object')for(const y of Object.values(x))finite(y);}
+function geometryGate(g,label){finite(g);assert.equal(g.meshes.length,11);for(const mesh of g.meshes){assert.ok(mesh.positions.length>0&&mesh.positions.length%3===0);assert.ok(mesh.fullIndices.length>0&&mesh.fullIndices.length%3===0);const r=mesh.drawRange;assert.equal(mesh.drawnIndices.length,Math.max(0,Math.min(r.indexCount,r.start+(r.count==='Infinity'?Infinity:r.count))-r.start));for(const i of [...mesh.fullIndices,...mesh.drawnIndices])assert.ok(Number.isInteger(i)&&i>=0&&i<mesh.positions.length/3);}
+ const positions=label==='pristine'?layout.position:candidates[label].positions,proof=oracle(positions,g,current.inputs);
+ if(label==='pristine')baseGeometry.set(g.step,g);else {const b=baseGeometry.get(g.step);assert.ok(b,'Missing control geometry step');const left=structuredClone(g),right=structuredClone(b),aBody=left.meshes.find(x=>x.id==='body'),bBody=right.meshes.find(x=>x.id==='body');
+  if(label!=='zero'){const allowed=new Set(candidates[label].receipt.changedPositionIDs);for(let i=0;i<aBody.positions.length;i++)if(!allowed.has(Math.floor(i/3)))assert.ok(Object.is(aBody.positions[i],bBody.positions[i]),'Nonselected posed body component changed');aBody.positions=bBody.positions;}
+  assert.deepEqual(left,right,'Nonselected complete native geometry/rig/camera changed');}
+ return proof;
+}
+async function retire(){if(!page||current?.retirementAttempted)return;current.retirementAttempted=true;assert.equal(page.isClosed(),false,'Owner page closed before native retirement receipt');const retirement=await bounded(page.evaluate(()=>{
+ const a=window.showcase?.avatar,r=a?.stage.renderer;let instrument=null,error=null;
+ try{instrument=window.__tipCapture?.releaseForRetirement()??null;}catch(e){error=String(e);}
+ if(window.__tipGPU)window.__tipGPU.retiring=true;dispatchEvent(new PageTransitionEvent('pagehide',{persisted:false}));
+ return {instrument,error,adapter:window.__tipAdapter?.report()??null,observer:window.__tipCapture?.retirementObserver()??null,gpu:window.__tipGPU??null,
+  disposed:a?.disposed??null,leaks:a?.leakedHandles()??null,memory:r?structuredClone(r.info.memory):null,fixture:'Explicit nonpersisted pagehide handler; no BFcache claim'};
+ }),'Native retirement');current.retirement=retirement;save();assert.equal(retirement.error,null);if(retirement.disposed!==null){assert.equal(retirement.disposed,true);assert.deepEqual(retirement.leaks,[]);assert.ok(Object.values(retirement.memory).every(v=>v===0));assert.equal(retirement.instrument?.drawRestored,true);assert.equal(retirement.observer?.status,'disposed');assert.deepEqual(retirement.observer?.cleanup?.lost,[]);assert.deepEqual(retirement.gpu?.errors,[]);assert.ok(retirement.gpu.losses.every(x=>x.retiring&&x.reason==='destroyed'));}await drain();current.contextClose=await closeResource(context,current.label+' context');save();assert.equal(current.contextClose.closed,true,'Per-arm context closure failed');context=null;page=null;}
+async function image(label,step,yaw){await page.evaluate(y=>__tipCapture.view(y),yaw);const before=await page.evaluate(()=>__tipCapture.semantics());await page.evaluate(()=>__tipCapture.prepareExport());const [dl,ok]=await Promise.all([page.waitForEvent('download'),page.evaluate(()=>showcase.saveImage())]);assert.equal(ok,true);const file=`${label}/images/step-${step}-yaw-${yaw}.png`;await dl.saveAs(path.join(out,file));const bytes=fs.readFileSync(path.join(out,file)),png=decodePng(bytes),after=await page.evaluate(()=>({state:null,export:__tipCapture.exportComplete()}));const now=await page.evaluate(()=>__tipCapture.semantics());
+ delete before.renderFrame;delete now.renderFrame;assert.deepEqual(now,before,'PNG export moved native state');const row={step,yaw,file,sha256:sha(bytes),width:png.width,height:png.height,nativeSaveImage:true,unmodifiedBytes:true,export:after.export};current.images.push(row);
+ const key=`${step}:${yaw}`;if(label==='pristine')baseImages.set(key,row);if(label==='zero'){row.pristinePNGExact=row.sha256===baseImages.get(key)?.sha256;if(!row.pristinePNGExact)report.imageControlMismatches.push({key,pristine:baseImages.get(key).sha256,zero:row.sha256});}return row;
+}
+try{
+ const disk=fs.statfsSync(out);assert.ok(disk.bavail*disk.bsize>1024**3,'At least1GiB free required for bounded capture/archive');report.diskFreeBytes=disk.bavail*disk.bsize;
+ for(const f of Object.keys(m.sources).filter(f=>!f.startsWith('assets/'))){const b=fs.readFileSync(path.join(ROOT,f));assert.equal(sha(b),m.sources[f]);write('source/'+f,b);}
+ for(const[label,c]of Object.entries(candidates))write('arrays/'+label+'.json',encodeState({positions:Array.from(c.positions),normals:Array.from(c.normals),receipt:c.receipt}));
+ report.imageControlMismatches=[];server=await startReviewProbeServer({pageName:'showcase',port:5398});report.bootstrap=server.bootstrap;browser=await launchProbeBrowser();report.browserVersion=browser.version();const cdp=await browser.newBrowserCDPSession();report.browserCDP=await cdp.send('Browser.getVersion');await cdp.detach();
+ for(const label of PROTOCOL.arms){
+  verify(m);current={label,completed:false,states:[],geometry:[],images:[],events:[]};report.cases.push(current);save();fs.mkdirSync(path.join(out,label,'images'),{recursive:true});
+  context=await browser.newContext({viewport:PROTOCOL.viewport,deviceScaleFactor:1,colorScheme:'dark',reducedMotion:'no-preference',acceptDownloads:true});page=await context.newPage();
+  page.on('pageerror',e=>report.errors.push({label,type:'pageerror',message:String(e)}));page.on('console',msg=>{if(msg.type()==='error')report.errors.push({label,type:'console',message:msg.text()});if(msg.type()==='warning')report.warnings.push({label,message:msg.text()});});page.on('requestfailed',r=>report.errors.push({label,type:'requestfailed',url:r.url(),message:r.failure()?.errorText}));
+  page.on('response',r=>reads.push((async()=>{assert.equal(r.status(),200,'Fresh pinned-route capture refuses unexpected cache/redirect');const bytes=await r.body(),digest=sha(bytes),asset=assetFile(r.url());if(asset){assert.equal(digest,m.sources[asset],'Actual source asset '+asset);}if(!served.has(digest)){write('served/'+digest,bytes);served.add(digest);}report.responses.push({label,url:r.url(),status:r.status(),sha256:digest,bytes:bytes.length,asset});})().catch(e=>report.errors.push({label,type:'response',url:r.url(),message:String(e)}))));
+  await page.route(/\/assets\//,async route=>{const f=assetFile(route.request().url());if(!f)return route.continue();try{assert.ok(Object.hasOwn(m.sources,f),'Unbound asset');const bytes=fs.readFileSync(path.join(ROOT,f));assert.equal(sha(bytes),m.sources[f]);const contentType={'.glb':'model/gltf-binary','.json':'application/json','.png':'image/png','.jpg':'image/jpeg'}[path.extname(f)]??'application/octet-stream';await route.fulfill({status:200,contentType,body:bytes});}catch(e){report.errors.push({label,type:'route',message:String(e)});await route.abort();}});
+  current.url=server.baseUrl+'/src/showcase.html?preset=casual&style=ecru&frame=portrait&scene=studio&light=studio&capture=tip-width';const transformsBefore=server.bootstrap.requests.length;await page.goto(current.url,{waitUntil:'domcontentloaded'});
+  current.htmlTransform=admitHTMLTransform(server.bootstrap,transformsBefore,current.url,m.sources['packages/testbed/src/showcase.html']);
+  current.bootstrap=await page.evaluate(async({root,here,label,arrays,pins})=>{
+   await import('/@vite/client');const {Figure}=await import('/@fs'+root+'/packages/core/src/figure/Figure.js'),{wardrobeAssetUrls}=await import('/@fs'+root+'/packages/core/src/wardrobe/AvatarWardrobe.js');
+   if(label!=='pristine'){const {installFreshTipWidthFigure}=await import('/@fs'+here+'/FreshTipWidthFigure.mjs');window.__tipAdapter=await installFreshTipWidthFigure(Figure,{expectedURL:wardrobeAssetUrls().bodyUrl,weight:label==='zero'?0:label==='decrease'?-1:1,pins,...Object.fromEntries(Object.entries(arrays).map(([k,v])=>[k,Float32Array.from(v)]))});}
+   const original=Figure.load;await import('/src/showcase.js');if(!window.showcase?.avatar)throw Error('Original showcase did not publish native owner: '+document.querySelector('#error')?.textContent);
+   return {bodyURL:wardrobeAssetUrls().bodyUrl,pristineUnwrapped:label==='pristine'?Figure.load===original:null,adapter:window.__tipAdapter?.assertAttached(showcase.avatar)??null};
+  },{root:ROOT,here:HERE,label,pins:arrayPins[label]??null,arrays:label==='pristine'?null:{pristinePositions:Array.from(layout.position),pristineNormals:Array.from(layout.normal),positions:Array.from(candidates[label].positions),normals:Array.from(candidates[label].normals)}});
+  await page.waitForLoadState('networkidle');await drain();
+  current.ready=await page.evaluate(()=>({configuration:showcase.configuration(),report:showcase.avatar.report(),backend:showcase.avatar.stage.backendName,clock:showcase.avatar.clockSeconds,autoStart:showcase.avatar.autoStart}));
+  current.readyAdmission=admitReady(current.ready);current.loadedGLB=admitLoadedGLB(report.responses,label,m.sources);save();
+  current.setup=await page.evaluate(async({here,sourceHashes})=>{const d=showcase.avatar.stage.renderer.backend.device;window.__tipGPU={errors:[],losses:[],retiring:false};d.addEventListener('uncapturederror',e=>__tipGPU.errors.push({name:e.error.name,message:e.error.message}));d.lost.then(i=>__tipGPU.losses.push({reason:i.reason,message:i.message,retiring:__tipGPU.retiring}));const {createNativeTipCapture}=await import('/@fs'+here+'/native-runtime.mjs');window.__tipCapture=await createNativeTipCapture(showcase,{sourceHashes,adapter:window.__tipAdapter});return __tipCapture.setup;},{here:HERE,sourceHashes:m.sources});
+  current.inputs=await page.evaluate(()=>__tipCapture.inputReceipt());const rows=current.inputs.rows,body=rows.find(r=>r.body),expected=label==='pristine'?{positions:arrayHash(layout.position),normals:arrayHash(layout.normal)}:arrayPins[label];assert.equal(body.attributes.position.sha256,expected.positions);assert.equal(body.attributes.normal.sha256,expected.normals);
+  if(label==='pristine')baseInputs=stableInputProjection(current.inputs);else {const adjusted=stableInputProjection(current.inputs),b=adjusted.rows.find(r=>r.body),original=baseInputs.rows.find(r=>r.body);b.attributes.position=original.attributes.position;b.attributes.normal=original.attributes.normal;assert.deepEqual(adjusted,baseInputs,'All other initial native inputs must match (only two wall-time fields excluded)');}
+  current.rawInputTimings={lastDressMs:current.inputs.wardrobe.state.lastDressMs,lastRebuildMs:current.inputs.wardrobe.state.lastRebuildMs};
+  current.inputArchive=archive(label+'/inputs.json.gz',current.inputs);save();
+  let blinkPeak=null;const geometrySteps=new Set(FIXED_GEOMETRY_STEPS),imageSteps=new Map([[175,'joy'],[295,'sneer'],[330,'aa'],[438,'U']]);
+  for(let step=0;step<=PROTOCOL.steps;step++){
+   current.attemptedLoopStep=step;const state=await page.evaluate(step=>step===0?__tipCapture.semantics():__tipCapture.step(),step);
+   current.states.push({step,...archive(`${label}/states/${String(step).padStart(3,'0')}.json.gz`,state)});current.lastRetainedSemanticStep=step;finite(state);assert.equal(state.step,step);
+   if(label==='pristine')baseStates.set(step,state);else assert.deepEqual(state,baseStates.get(step),'Native owners/PRNG/schedules/morphs/bones/physical/camera must remain exact');
+   if(step>0&&blinkPeak===null&&state.blink.closure===1){blinkPeak=step;current.scriptedBlinkPeak=step;geometrySteps.add(step);imageSteps.set(step,'blink');}
+   if(geometrySteps.has(step)){const g=await page.evaluate(()=>__tipCapture.geometry()),entry={step,...archive(`${label}/geometry/${String(step).padStart(3,'0')}.json.gz`,g)};current.geometry.push(entry);entry.reconstruction=geometryGate(g,label);}
+   if(step===0){for(const yaw of PROTOCOL.neutralViews)await image(label,step,yaw);await page.evaluate(()=>__tipCapture.view(0));}
+   else if(imageSteps.has(step)){await image(label,step,0);current.images.at(-1).sample=imageSteps.get(step);}
+   if(step===175)assert.ok(state.channels.mouthSmileLeft?.committed>0&&state.channels.mouthSmileRight?.committed>0,'Native smile not exercised');
+   if(step===295)assert.ok(state.channels.noseSneerLeft?.committed>0&&state.channels.noseSneerRight?.committed>0,'Native nose sneer not exercised');
+   const peak=SPEECH_PEAK_STEPS.find(p=>p.step===step);if(peak){const name='viseme_'+peak.viseme;assert.ok(state.channels[name]?.committed>0,'Native speech peak not exercised');}
+   const event=await page.evaluate(step=>__tipCapture.event(step),step);if(event)current.events.push(event);
+   if(step%60===0){save();console.log(label+' '+step+'/'+PROTOCOL.steps);await drain();}
+  }
+  assert.ok(blinkPeak!==null&&blinkPeak<60,'Initial full blink not exercised before joy');current.finish=await page.evaluate(()=>__tipCapture.finish());assert.equal(current.finish.speechOutcome.outcome,'finished');
+  const lastInputs=await page.evaluate(()=>__tipCapture.inputReceipt());for(let i=0;i<rows.length;i++){assert.deepEqual(lastInputs.rows[i],rows[i],'Native source geometry changed during trace');}
+  await drain();current.loadedGLB=admitLoadedGLB(report.responses,label,m.sources);await retire();current.completed=true;delete current.inputs;save();
+ }
+ verify(m);await drain();report.collected=true;report.imageRepeatabilityPassed=report.imageControlMismatches.length===0;report.appearanceStatus=report.imageRepeatabilityPassed?'pending-independent-visual-review':'held-pristine-zero-image-mismatch';report.visualReviewPending=true;
+}catch(e){report.failure={message:e.message,stack:e.stack,arm:current?.label,attemptedLoopStep:current?.attemptedLoopStep,lastRetainedSemanticStep:current?.lastRetainedSemanticStep};process.exitCode=1;}finally{
+ try{await retire();}catch(e){report.cleanupFailure={message:e.message,stack:e.stack};process.exitCode=1;}
+ // Each independently bounded close is attempted even when an earlier one fails.
+ // A native retirement attempt is never repeated after an unknown/failed result.
+ await closeResource(context,'final context');await closeResource(browser,'browser');await closeResource(server,'server');
+ report.closeFailures=report.closures.filter(x=>!x.closed);if(report.closeFailures.length)process.exitCode=1;
+ report.finalChecks={};
+ try{await drain();report.finalChecks.lateErrorsClear=true;}catch(e){report.finalChecks.lateErrorFailure={message:e.message,stack:e.stack};process.exitCode=1;}
+ try{verify(m);assert.equal(hash(manifestPath),sha(mbytes),'Manifest changed after initial binding');report.sourcesStable=true;report.finalChecks.sourcesStable=true;}catch(e){report.sourcesStable=false;report.finalChecks.sourceFailure={message:e.message,stack:e.stack};process.exitCode=1;}
+ try{
+  assert.equal(report.collected,true);assert.deepEqual(report.cases.map(x=>x.label),PROTOCOL.arms);assert.ok(report.cases.every(x=>x.completed&&x.retirement?.disposed===true&&x.contextClose?.closed===true));
+  assert.equal(server.bootstrap.requests.length,PROTOCOL.arms.length,'One HTML transform for each admitted fresh page');
+  for(const c of report.cases)admitLoadedGLB(report.responses,c.label,m.sources);
+  assert.equal(report.failure,undefined);assert.equal(report.cleanupFailure,undefined);assert.equal(report.closeFailures.length,0);assert.equal(report.finalChecks.lateErrorsClear,true);assert.equal(report.finalChecks.sourcesStable,true);
+  report.ownershipReconstructionAdmission=true;report.numericalAdmission=true;report.completed=true;
+ }catch(e){report.finalAdmissionFailure={message:e.message,stack:e.stack};process.exitCode=1;}
+ save();
+ if(report.completed)write('seal.json',{completed:true,reportSHA256:hash(path.join(out,'report.json')),manifestSHA256:sha(mbytes),ownershipReconstructionAdmission:true,numericalAdmission:report.numericalAdmission,numericalScope:report.numericalScope,posedContactAdmission:false,apertureAdmission:false,appearanceAdmission:false,visualReviewPending:true});
+ console.log(json({out,completed:report.completed,ownershipReconstructionAdmission:report.ownershipReconstructionAdmission,posedContactAdmission:false,apertureAdmission:false,appearanceAdmission:false,failure:report.failure?.message??report.finalAdmissionFailure?.message}));
+}

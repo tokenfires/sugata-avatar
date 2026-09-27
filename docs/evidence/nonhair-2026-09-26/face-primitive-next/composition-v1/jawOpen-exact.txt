@@ -1,0 +1,35 @@
+{
+  "inputSHA256": "44bd35b0770fd8d81ad0e43e8575d1533c4915d3bcdbb5ef76753f45a6f3cbdd",
+  "method": "Exact rationals on supplied Float32 coordinates; plane-section intervals and projected coplanar clipping. Full affected-face versus body pairs; only actual shared source-index simplex is accepted.",
+  "independentAnalyticalControls": 8,
+  "cases": [
+    {
+      "weight": -1,
+      "affectedFaces": 184,
+      "exactAABBPairs": 1438,
+      "nonSharedSimplexIntersections": [],
+      "positiveExactReferenceFaceDot": true,
+      "minimumExactReferenceFaceDot": "192937684306349304259/81129638414606681695789005144064",
+      "passed": true
+    },
+    {
+      "weight": 0,
+      "affectedFaces": 184,
+      "exactAABBPairs": 1414,
+      "nonSharedSimplexIntersections": [],
+      "positiveExactReferenceFaceDot": true,
+      "minimumExactReferenceFaceDot": "208474490732873069629/81129638414606681695789005144064",
+      "passed": true
+    },
+    {
+      "weight": 1,
+      "affectedFaces": 184,
+      "exactAABBPairs": 1408,
+      "nonSharedSimplexIntersections": [],
+      "positiveExactReferenceFaceDot": true,
+      "minimumExactReferenceFaceDot": "224011297159396834999/81129638414606681695789005144064",
+      "passed": true
+    }
+  ],
+  "limits": "Discrete endpoint self-intersection and reference-facing checks only; no positive clearance, continuous range, all-motion or rendered acceptance."
+}

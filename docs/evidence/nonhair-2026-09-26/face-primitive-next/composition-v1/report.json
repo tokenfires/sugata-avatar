@@ -1,0 +1,621 @@
+{
+  "kind": "tip-width-raw-single-channel-composition",
+  "completed": true,
+  "sourceHashes": {
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/identity/figure-vertex-map.bin": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff",
+    "assets/identity/catalogue.json": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176",
+    "assets/identity/targets/nose.bin": "172dc716c51be189045f1de6209cf655dd01fe9eafae031fd4232dde7c94ca17",
+    "node_modules/three/src/objects/Mesh.js": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "docs/evidence/nonhair-2026-09-26/face-primitive-next/check-raw-compositions.mjs": "182befcc1df87f95240636a5355d71df7a61ed6eedb58a4753e32c73dc719669",
+    "docs/evidence/nonhair-2026-09-26/face-primitive-next/TipWidthCandidate.mjs": "7694f83ead87e84215970cfed58afe25802b3acaa4924613237cb4b3c88aada5",
+    "docs/evidence/nonhair-2026-09-26/face-primitive-next/local-normal.mjs": "fe21c9b4aad234229bc938dc78665decc0b043d39065c1d1842638b8ae49ee2f",
+    "docs/evidence/nonhair-2026-09-26/face-primitive-next/verify-local-geometry.py": "633a1b5e38e8bb4ef2ceea32a3feb932e8b236c88349c76d7141cc128dc8eda4",
+    "packages/core/src/figure/IdentityTargets.js": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d",
+    "packages/core/src/figure/IdentityCatalogue.js": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "tools/figure-pipeline/hair_surface.mjs": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+  },
+  "amplitude": 1,
+  "channels": [
+    "jawOpen",
+    "mouthPucker",
+    "mouthSmileLeft",
+    "mouthSmileRight",
+    "noseSneerLeft",
+    "noseSneerRight"
+  ],
+  "cases": [
+    {
+      "channel": "jawOpen",
+      "weight": 1,
+      "morphSHA256": "1759bba8750eb520a8dfa4229ebfcef43374405f66442e1af2cbfadf263b6abe",
+      "baseline": {
+        "affectedFaces": 184,
+        "broadPairs": 1414,
+        "intersectionsChecked": 1414,
+        "witnesses": [],
+        "passed": true,
+        "epsilonM": 1e-9
+      },
+      "arms": [
+        {
+          "endpoint": -1,
+          "positionsSHA256": "2cc5c97f33c58c53cf79d5f6ff6cb86ebbe13e45627032b8013dd9d9f46a8888",
+          "minimumFaceCosine": 0.9299985013023863,
+          "minimumArea": 7.418316110766273e-7,
+          "minimumAltitude": 0.0005016362258990345,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1438,
+            "intersectionsChecked": 1438,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 0,
+          "positionsSHA256": "a297c2460ce13fc13d9e42943f3785a9ea1536797530014f23b759284473bd07",
+          "minimumFaceCosine": 0.9999999999999996,
+          "minimumArea": 8.01505847108623e-7,
+          "minimumAltitude": 0.0005536296445338985,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1414,
+            "intersectionsChecked": 1414,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 1,
+          "positionsSHA256": "e23e133db182493837c326ff5549464770ad7181d4e239645f9abea1efd1a6ab",
+          "minimumFaceCosine": 0.9628837564200352,
+          "minimumArea": 8.61289767679427e-7,
+          "minimumAltitude": 0.000607519026417474,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1408,
+            "intersectionsChecked": 1408,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        }
+      ],
+      "independent": {
+        "inputSHA256": "44bd35b0770fd8d81ad0e43e8575d1533c4915d3bcdbb5ef76753f45a6f3cbdd",
+        "method": "Exact rationals on supplied Float32 coordinates; plane-section intervals and projected coplanar clipping. Full affected-face versus body pairs; only actual shared source-index simplex is accepted.",
+        "independentAnalyticalControls": 8,
+        "cases": [
+          {
+            "weight": -1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1438,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "192937684306349304259/81129638414606681695789005144064",
+            "passed": true
+          },
+          {
+            "weight": 0,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1414,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "208474490732873069629/81129638414606681695789005144064",
+            "passed": true
+          },
+          {
+            "weight": 1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1408,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "224011297159396834999/81129638414606681695789005144064",
+            "passed": true
+          }
+        ],
+        "limits": "Discrete endpoint self-intersection and reference-facing checks only; no positive clearance, continuous range, all-motion or rendered acceptance."
+      }
+    },
+    {
+      "channel": "mouthPucker",
+      "weight": 1,
+      "morphSHA256": "da919e4b1c5ae2394357cf9cf2a0f1532ceb522355ad7518f8118fcf6131bf40",
+      "baseline": {
+        "affectedFaces": 184,
+        "broadPairs": 1406,
+        "intersectionsChecked": 1406,
+        "witnesses": [],
+        "passed": true,
+        "epsilonM": 1e-9
+      },
+      "arms": [
+        {
+          "endpoint": -1,
+          "positionsSHA256": "f5e682a7430d6085c72bf57c517be332be157e8a1fbe3875867c8ff3a12e9182",
+          "minimumFaceCosine": 0.9352625881850358,
+          "minimumArea": 6.649434249688173e-7,
+          "minimumAltitude": 0.0005113756836283801,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1428,
+            "intersectionsChecked": 1428,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 0,
+          "positionsSHA256": "eb9784761b2eb6b4a163316c196ed7e012149a44a67af2d5d2975cff6d43f221",
+          "minimumFaceCosine": 0.9999999999999996,
+          "minimumArea": 7.100456516254517e-7,
+          "minimumAltitude": 0.0005596311393710389,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1406,
+            "intersectionsChecked": 1406,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 1,
+          "positionsSHA256": "f0ff2224cbf288f7f729312ab7cfd51e6f19a2776b23c711f4b71b4fc651f150",
+          "minimumFaceCosine": 0.9523088089365652,
+          "minimumArea": 7.552386964624056e-7,
+          "minimumAltitude": 0.0006098197659708439,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1388,
+            "intersectionsChecked": 1388,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        }
+      ],
+      "independent": {
+        "inputSHA256": "61036e864cfff35c4bcbf2fd97de1e771e41bcbb85a286af042eae74558cc7c1",
+        "method": "Exact rationals on supplied Float32 coordinates; plane-section intervals and projected coplanar clipping. Full affected-face versus body pairs; only actual shared source-index simplex is accepted.",
+        "independentAnalyticalControls": 8,
+        "cases": [
+          {
+            "weight": -1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1428,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "612828488663143875787/324518553658426726783156020576256",
+            "passed": true
+          },
+          {
+            "weight": 0,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1406,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "654443362363084168509/324518553658426726783156020576256",
+            "passed": true
+          },
+          {
+            "weight": 1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1388,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "696058236063024461231/324518553658426726783156020576256",
+            "passed": true
+          }
+        ],
+        "limits": "Discrete endpoint self-intersection and reference-facing checks only; no positive clearance, continuous range, all-motion or rendered acceptance."
+      }
+    },
+    {
+      "channel": "mouthSmileLeft",
+      "weight": 1,
+      "morphSHA256": "8d833af38deec8ca724eef9c2272f456dfd2aa133d10f706ea0b681dfc42351b",
+      "baseline": {
+        "affectedFaces": 184,
+        "broadPairs": 1405,
+        "intersectionsChecked": 1405,
+        "witnesses": [],
+        "passed": true,
+        "epsilonM": 1e-9
+      },
+      "arms": [
+        {
+          "endpoint": -1,
+          "positionsSHA256": "b50f954df2f793cbf3a0ad2ab1d7dfb8cf1fab2578083e0730ec347874b9f280",
+          "minimumFaceCosine": 0.936822960600092,
+          "minimumArea": 6.986577221722572e-7,
+          "minimumAltitude": 0.0004741794374313545,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1421,
+            "intersectionsChecked": 1421,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 0,
+          "positionsSHA256": "2a402dd243583f5ae471ae63931400d4b8d6d7ee48e358e588a4b08f3688f2db",
+          "minimumFaceCosine": 0.9999999999999996,
+          "minimumArea": 7.533276726338773e-7,
+          "minimumAltitude": 0.0005229779816910871,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1405,
+            "intersectionsChecked": 1405,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 1,
+          "positionsSHA256": "78e8065fc5d8b7b1d436ed941679bdeae66fbc06910874dfe99f1482495a4eba",
+          "minimumFaceCosine": 0.9640484135531465,
+          "minimumArea": 8.081054842743105e-7,
+          "minimumAltitude": 0.0005737281228218968,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1390,
+            "intersectionsChecked": 1390,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        }
+      ],
+      "independent": {
+        "inputSHA256": "32e1a77bfbc93dec1081ea52b53608ba2b9533f453024bf7098a9c60ae2a3c38",
+        "method": "Exact rationals on supplied Float32 coordinates; plane-section intervals and projected coplanar clipping. Full affected-face versus body pairs; only actual shared source-index simplex is accepted.",
+        "independentAnalyticalControls": 8,
+        "cases": [
+          {
+            "weight": -1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1421,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "21348234696668911511/10141204801825835211973625643008",
+            "passed": true
+          },
+          {
+            "weight": 0,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1405,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "179848747288655253/79228162514264337593543950336",
+            "passed": true
+          },
+          {
+            "weight": 1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1390,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "24693044609226833257/10141204801825835211973625643008",
+            "passed": true
+          }
+        ],
+        "limits": "Discrete endpoint self-intersection and reference-facing checks only; no positive clearance, continuous range, all-motion or rendered acceptance."
+      }
+    },
+    {
+      "channel": "mouthSmileRight",
+      "weight": 1,
+      "morphSHA256": "14d9982de9ecf1c2af9ef1a185d7a309542554444c49427be69bcc3dc912b712",
+      "baseline": {
+        "affectedFaces": 184,
+        "broadPairs": 1405,
+        "intersectionsChecked": 1405,
+        "witnesses": [],
+        "passed": true,
+        "epsilonM": 1e-9
+      },
+      "arms": [
+        {
+          "endpoint": -1,
+          "positionsSHA256": "008d2d28a7414ddb2bc5be4aafc94b5b38dbb608ad6a1cb500f668d523d03856",
+          "minimumFaceCosine": 0.936822960600092,
+          "minimumArea": 6.986577221722572e-7,
+          "minimumAltitude": 0.0004741794374313545,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1421,
+            "intersectionsChecked": 1421,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 0,
+          "positionsSHA256": "a53d2d2fe2412ecf35436e7c851bfc04ef42486cbdfaddb05311d29b34043da0",
+          "minimumFaceCosine": 0.9999999999999996,
+          "minimumArea": 7.533276726338773e-7,
+          "minimumAltitude": 0.0005229779816910871,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1405,
+            "intersectionsChecked": 1405,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 1,
+          "positionsSHA256": "8b2d451c98ae22826450f7287f94015a917d682ab91cd9f657f1eba052d827fe",
+          "minimumFaceCosine": 0.9640484135531465,
+          "minimumArea": 8.081054842743105e-7,
+          "minimumAltitude": 0.0005737281228218968,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1390,
+            "intersectionsChecked": 1390,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        }
+      ],
+      "independent": {
+        "inputSHA256": "dcdbe5826d81bb1fd7534f8c55d0416aef6281b55a921771f00573bdfdd43846",
+        "method": "Exact rationals on supplied Float32 coordinates; plane-section intervals and projected coplanar clipping. Full affected-face versus body pairs; only actual shared source-index simplex is accepted.",
+        "independentAnalyticalControls": 8,
+        "cases": [
+          {
+            "weight": -1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1421,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "21348234696668911511/10141204801825835211973625643008",
+            "passed": true
+          },
+          {
+            "weight": 0,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1405,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "179848747288655253/79228162514264337593543950336",
+            "passed": true
+          },
+          {
+            "weight": 1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1390,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "24693044609226833257/10141204801825835211973625643008",
+            "passed": true
+          }
+        ],
+        "limits": "Discrete endpoint self-intersection and reference-facing checks only; no positive clearance, continuous range, all-motion or rendered acceptance."
+      }
+    },
+    {
+      "channel": "noseSneerLeft",
+      "weight": 1,
+      "morphSHA256": "b768069a6c5fe2106edb25e896b1552b4a1f358df1d1b154a47b006954f7e294",
+      "baseline": {
+        "affectedFaces": 184,
+        "broadPairs": 1390,
+        "intersectionsChecked": 1390,
+        "witnesses": [],
+        "passed": true,
+        "epsilonM": 1e-9
+      },
+      "arms": [
+        {
+          "endpoint": -1,
+          "positionsSHA256": "d2ea0f05cf88573489bf634470047b47bd44f471a8bf1c8a32f679569f5757af",
+          "minimumFaceCosine": 0.934642627972317,
+          "minimumArea": 7.877818482220802e-7,
+          "minimumAltitude": 0.0005083241646242816,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1424,
+            "intersectionsChecked": 1424,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 0,
+          "positionsSHA256": "92c2622956821e114212085cc31993a2c1e3848eca9237fce8a48173ebcc6e3d",
+          "minimumFaceCosine": 0.9999999999999996,
+          "minimumArea": 8.442960786057503e-7,
+          "minimumAltitude": 0.0005560159909876916,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1390,
+            "intersectionsChecked": 1390,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 1,
+          "positionsSHA256": "983b6bfa4fd3a90e6292121b1776f8ad3382f9e33ee9d87398602c0de97d77c5",
+          "minimumFaceCosine": 0.9626746132568209,
+          "minimumArea": 9.014575308863469e-7,
+          "minimumAltitude": 0.0006057333239381754,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1387,
+            "intersectionsChecked": 1387,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        }
+      ],
+      "independent": {
+        "inputSHA256": "4f778792152c5a560a881d5d61e60910ca5e7cda0aff1fbdb28e620da6ef0c8f",
+        "method": "Exact rationals on supplied Float32 coordinates; plane-section intervals and projected coplanar clipping. Full affected-face versus body pairs; only actual shared source-index simplex is accepted.",
+        "independentAnalyticalControls": 8,
+        "cases": [
+          {
+            "weight": -1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1424,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "3451992168176682224545/1298074214633706907132624082305024",
+            "passed": true
+          },
+          {
+            "weight": 0,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1390,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "3701255439879703903505/1298074214633706907132624082305024",
+            "passed": true
+          },
+          {
+            "weight": 1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1387,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "3950518711582725582465/1298074214633706907132624082305024",
+            "passed": true
+          }
+        ],
+        "limits": "Discrete endpoint self-intersection and reference-facing checks only; no positive clearance, continuous range, all-motion or rendered acceptance."
+      }
+    },
+    {
+      "channel": "noseSneerRight",
+      "weight": 1,
+      "morphSHA256": "6c784129813ac14eb847423eb2dff32a4f4acd5e9b4723151dfabc14ab357cd2",
+      "baseline": {
+        "affectedFaces": 184,
+        "broadPairs": 1390,
+        "intersectionsChecked": 1390,
+        "witnesses": [],
+        "passed": true,
+        "epsilonM": 1e-9
+      },
+      "arms": [
+        {
+          "endpoint": -1,
+          "positionsSHA256": "f621702a8556a09b30ebc0145027cc42e29e8b88a6deab12b222ffcd2c351668",
+          "minimumFaceCosine": 0.934642627972317,
+          "minimumArea": 7.877818482220802e-7,
+          "minimumAltitude": 0.0005083241646242816,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1424,
+            "intersectionsChecked": 1424,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 0,
+          "positionsSHA256": "c6549d2ee163a8e91563ccd751bfddb62600cbaa0c83f189954b2c08a3d535c9",
+          "minimumFaceCosine": 0.9999999999999996,
+          "minimumArea": 8.442960786057503e-7,
+          "minimumAltitude": 0.0005560159909876916,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1390,
+            "intersectionsChecked": 1390,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        },
+        {
+          "endpoint": 1,
+          "positionsSHA256": "ebbac5d349af951724a322d824b3d5a9e68c0e5725543591bc38898a440c8922",
+          "minimumFaceCosine": 0.9626746132568209,
+          "minimumArea": 9.014575308863469e-7,
+          "minimumAltitude": 0.0006057333239381754,
+          "intersection": {
+            "affectedFaces": 184,
+            "broadPairs": 1387,
+            "intersectionsChecked": 1387,
+            "witnesses": [],
+            "passed": true,
+            "epsilonM": 1e-9
+          },
+          "newWitnesses": []
+        }
+      ],
+      "independent": {
+        "inputSHA256": "071c63327f432c82e5645149157f5d810195f9bf39ffa9017c6f2db5721eec2b",
+        "method": "Exact rationals on supplied Float32 coordinates; plane-section intervals and projected coplanar clipping. Full affected-face versus body pairs; only actual shared source-index simplex is accepted.",
+        "independentAnalyticalControls": 8,
+        "cases": [
+          {
+            "weight": -1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1424,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "3451992168176682224545/1298074214633706907132624082305024",
+            "passed": true
+          },
+          {
+            "weight": 0,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1390,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "3701255439879703903505/1298074214633706907132624082305024",
+            "passed": true
+          },
+          {
+            "weight": 1,
+            "affectedFaces": 184,
+            "exactAABBPairs": 1387,
+            "nonSharedSimplexIntersections": [],
+            "positiveExactReferenceFaceDot": true,
+            "minimumExactReferenceFaceDot": "3950518711582725582465/1298074214633706907132624082305024",
+            "passed": true
+          }
+        ],
+        "limits": "Discrete endpoint self-intersection and reference-facing checks only; no positive clearance, continuous range, all-motion or rendered acceptance."
+      }
+    }
+  ],
+  "nativeRuns": 0,
+  "scope": "Each single raw shape at its diagnostic clamp endpoint, fresh source copies; no native feeling, range approval, combined expressions or normal recomputation."
+}
