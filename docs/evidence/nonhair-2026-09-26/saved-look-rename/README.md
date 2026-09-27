@@ -1,0 +1,13 @@
+# Saved-look Rename
+
+Implementation is isolated on `codex/saved-look-rename-2026-09-26` from `354119e`. See [the brief](PLAN.md) and [CPU source receipt](cpu-receipt.json).
+
+The pure helper now renames the selected stored record using its exact displayed snapshot and a latest-read strict commit. It keeps ID, position and complete configuration, works with all 12 slots used, and preserves unsupported entries. The existing name rules apply. An unchanged trimmed name writes nothing and preserves removal Undo; a real committed rename clears old Undo. It does not claim atomic concurrent-tab merging. Configurations with nonfinite numbers or numeric negative zero cannot survive the existing serializer, so Rename refuses the current or selected snapshot without writing; ordinary finite future JSON is preserved. Exact prior helper bytes and two reproduced serializer failures are retained as `rejected-numeric-v1` evidence.
+
+The row action opens a labeled native dialog with a prefilled name, Save and Cancel. Native Enter submits and Escape closes. Validation/write failures keep the draft for retry. Storage changes keep the draft; a changed or removed selected item disables Save with an explanation. A read failure offers a dialog-local Retry. Cancel remains available while the viewer or storage is unavailable. Closing restores focus to the current Rename action or the collection summary. No settings are applied and no avatar control method is called.
+
+Thirteen focused collection CPU groups passed, including the existing supported settings checks. The all-page build passed. The actual native run completed all nine functional groups with exact metadata/viewer preservation and clean retirement; desktop and mobile plates were reviewed independently. See [RESULT.md](RESULT.md) for the admitted feature scope.
+
+The full native capture remains rejected and unsealed because one mobile asset request reported cancellation despite complete source-bound application consumption. Its two raw error records and missing original HTTP-body admission remain explicit. Feature-scope integration does not convert that result into a transport pass. The first three startup rejections and the separate diagnostic's classifier error are retained alongside the final [lossless packet](native-v4-evidence/README.md).
+
+No asset, dependency, core or Portrait changes were made. The local `node_modules` link, root-provided exact runtime hydration, generated build and raw captures are excluded from the commit. Root owns native execution; this worker authored the product, focused instrumentation and evidence, and prepared the specifically authorized local feature commit. No push is authorized.

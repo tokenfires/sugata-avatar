@@ -1,0 +1,855 @@
+{
+  "kind": "saved-look-rename-native-v4-bounded-analysis",
+  "originalReportSHA256": "a4761a4fa035dfeee43018dec4280e5947ecfa7ad864869933fbf56078555b8c",
+  "manifestSHA256": "06d41696465ce49a0cd236566d46e97c1ffe5d7cf8c2da851a3c18f5858058cf",
+  "verdict": {
+    "functionalChecksCompleted": true,
+    "transportAdmitted": false,
+    "completed": false,
+    "acceptanceSeal": false
+  },
+  "functionalGroups": [
+    {
+      "name": "Full 12-entry native collection renames by Enter without changing ID/order/config or live owner/camera/clock/attention",
+      "passed": true
+    },
+    {
+      "name": "Native Escape/Cancel and trimmed no-op keep bytes and owner; no-op retains a working scoped Undo and row focus",
+      "passed": true
+    },
+    {
+      "name": "NFC/case duplicate error stays in the dialog and permits plain-text retry without applying a look",
+      "passed": true
+    },
+    {
+      "name": "Unavailable future configuration remains exact and unavailable to Open after Rename",
+      "passed": true
+    },
+    {
+      "name": "Real other-tab storage events preserve drafts and unrelated edits, deny changed/removed selection and restore safe focus",
+      "passed": true
+    },
+    {
+      "name": "Controlled read/write failures preserve bytes/draft, Retry recovers, and Cancel remains usable with unavailable storage",
+      "passed": true
+    },
+    {
+      "name": "Actual page busy lifecycle disables Save while Cancel remains possible and preserves viewer ownership",
+      "passed": true
+    },
+    {
+      "name": "Fresh mobile owner has contained labeled dialog, real Tab/Enter/Escape focus and unchanged native state",
+      "passed": true
+    },
+    {
+      "name": "Both observed native owners retire once with no leaked handles and zero tracked memory; native consumed bytes/source remain bound, transport verdict separate",
+      "passed": true
+    }
+  ],
+  "nativeConsumption": [
+    {
+      "ownerID": "067826e0-21e1-4369-bf5c-c5f5354b6f1f",
+      "phase": "desktop",
+      "nativeConsumption": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "route": "file-loader",
+          "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "bytes": 11916776,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 2,
+            "at": 213.59999999403954,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 213.59999999403954,
+            "outcome": "returned",
+            "settledAt": 229,
+            "settlement": "fulfilled",
+            "byteLength": 11916776,
+            "prefixHex": "676c544602000000e8d5b500",
+            "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+            "hashAt": 235.30000001192093
+          },
+          "reader": {
+            "receiverID": 1,
+            "calls": 9,
+            "bytes": 11916776,
+            "firstReadAt": 213.5,
+            "doneAt": 218.09999999403954
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        },
+        {
+          "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+          "route": "styled-fragment",
+          "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+          "bytes": 11084628,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 7,
+            "at": 412,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at e.loadFragment (http://127.0.0.1:58519/assets/WardrobeStyles-CV2rj9hg.js:1:1626)\n    at async http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4340\n    at async #s (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4575)\n    at async e.dress (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:2:6157)\n    at async t.swapFigure (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:87559)\n    at async t.build (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:70635)\n    at async t.create (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:65158)\n    at async http://127.0.0.1:58519/assets/showcase-B0MmWcCh.js:2:3533",
+            "returnedAt": 412.59999999403954,
+            "outcome": "returned",
+            "settledAt": 427.90000000596046,
+            "settlement": "fulfilled",
+            "byteLength": 11084628,
+            "prefixHex": "676c5446020000005423a900",
+            "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+            "hashAt": 438.19999998807907
+          },
+          "reader": null,
+          "readerAssociation": null
+        },
+        {
+          "asset": "assets/wardrobe/shoes01/g050.glb",
+          "route": "styled-fragment",
+          "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+          "bytes": 2345604,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 8,
+            "at": 576.0999999940395,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at e.loadFragment (http://127.0.0.1:58519/assets/WardrobeStyles-CV2rj9hg.js:1:1626)\n    at async http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4340\n    at async #s (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4575)\n    at async e.dress (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:2:6157)\n    at async t.swapFigure (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:87559)\n    at async t.build (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:70635)\n    at async t.create (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:65158)\n    at async http://127.0.0.1:58519/assets/showcase-B0MmWcCh.js:2:3533",
+            "returnedAt": 576.1999999880791,
+            "outcome": "returned",
+            "settledAt": 580.1999999880791,
+            "settlement": "fulfilled",
+            "byteLength": 2345604,
+            "prefixHex": "676c54460200000084ca2300",
+            "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+            "hashAt": 582.5
+          },
+          "reader": null,
+          "readerAssociation": null
+        },
+        {
+          "asset": "assets/wardrobe/foundation_bra/g050.glb",
+          "route": "file-loader",
+          "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+          "bytes": 921176,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 4,
+            "at": 396.90000000596046,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 396.90000000596046,
+            "outcome": "returned",
+            "settledAt": 398.30000001192093,
+            "settlement": "fulfilled",
+            "byteLength": 921176,
+            "prefixHex": "676c544602000000580e0e00",
+            "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+            "hashAt": 398.80000001192093
+          },
+          "reader": {
+            "receiverID": 3,
+            "calls": 2,
+            "bytes": 921176,
+            "firstReadAt": 396.90000000596046,
+            "doneAt": 397.40000000596046
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        },
+        {
+          "asset": "assets/wardrobe/foundation_briefs/g050.glb",
+          "route": "file-loader",
+          "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+          "bytes": 529028,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 6,
+            "at": 403.90000000596046,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 403.90000000596046,
+            "outcome": "returned",
+            "settledAt": 404.5,
+            "settlement": "fulfilled",
+            "byteLength": 529028,
+            "prefixHex": "676c54460200000084120800",
+            "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+            "hashAt": 404.69999998807907
+          },
+          "reader": {
+            "receiverID": 5,
+            "calls": 2,
+            "bytes": 529028,
+            "firstReadAt": 403.90000000596046,
+            "doneAt": 404.09999999403954
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        },
+        {
+          "asset": "assets/hair/bob02/g050.glb",
+          "route": "file-loader",
+          "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+          "bytes": 3347176,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 10,
+            "at": 873.8000000119209,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 873.8000000119209,
+            "outcome": "returned",
+            "settledAt": 878.3000000119209,
+            "settlement": "fulfilled",
+            "byteLength": 3347176,
+            "prefixHex": "676c544602000000e8123300",
+            "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+            "hashAt": 879.6999999880791
+          },
+          "reader": {
+            "receiverID": 9,
+            "calls": 17,
+            "bytes": 3347176,
+            "firstReadAt": 873.6999999880791,
+            "doneAt": 875.1999999880791
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        }
+      ],
+      "readerGroups": [
+        {
+          "receiverID": 1,
+          "calls": 9,
+          "bytes": 11916776,
+          "firstReadAt": 213.5,
+          "doneAt": 218.09999999403954
+        },
+        {
+          "receiverID": 3,
+          "calls": 2,
+          "bytes": 921176,
+          "firstReadAt": 396.90000000596046,
+          "doneAt": 397.40000000596046
+        },
+        {
+          "receiverID": 5,
+          "calls": 2,
+          "bytes": 529028,
+          "firstReadAt": 403.90000000596046,
+          "doneAt": 404.09999999403954
+        },
+        {
+          "receiverID": 9,
+          "calls": 17,
+          "bytes": 3347176,
+          "firstReadAt": 873.6999999880791,
+          "doneAt": 875.1999999880791
+        }
+      ],
+      "explicitCancellationCalls": [],
+      "scope": "Exact observed native arrayBuffer results; direct parser forwarding is source-derived, not a separate parse-argument hook. No inference about browser-internal cancellation or prior runs."
+    },
+    {
+      "ownerID": "725a62ff-cdd4-4cc7-9415-e67be7249b8d",
+      "phase": "mobile",
+      "nativeConsumption": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "route": "file-loader",
+          "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "bytes": 11916776,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 2,
+            "at": 130.80000001192093,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 130.80000001192093,
+            "outcome": "returned",
+            "settledAt": 149.7000000178814,
+            "settlement": "fulfilled",
+            "byteLength": 11916776,
+            "prefixHex": "676c544602000000e8d5b500",
+            "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+            "hashAt": 155.2000000178814
+          },
+          "reader": {
+            "receiverID": 1,
+            "calls": 12,
+            "bytes": 11916776,
+            "firstReadAt": 130.80000001192093,
+            "doneAt": 137.40000000596046
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        },
+        {
+          "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+          "route": "styled-fragment",
+          "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+          "bytes": 11084628,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 7,
+            "at": 409.90000000596046,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at e.loadFragment (http://127.0.0.1:58519/assets/WardrobeStyles-CV2rj9hg.js:1:1626)\n    at async http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4340\n    at async #s (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4575)\n    at async e.dress (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:2:6157)\n    at async t.swapFigure (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:87559)\n    at async t.build (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:70635)\n    at async t.create (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:65158)\n    at async http://127.0.0.1:58519/assets/showcase-B0MmWcCh.js:2:3533",
+            "returnedAt": 410,
+            "outcome": "returned",
+            "settledAt": 424.7000000178814,
+            "settlement": "fulfilled",
+            "byteLength": 11084628,
+            "prefixHex": "676c5446020000005423a900",
+            "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+            "hashAt": 435.60000002384186
+          },
+          "reader": null,
+          "readerAssociation": null
+        },
+        {
+          "asset": "assets/wardrobe/shoes01/g050.glb",
+          "route": "styled-fragment",
+          "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+          "bytes": 2345604,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 8,
+            "at": 554.2000000178814,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at e.loadFragment (http://127.0.0.1:58519/assets/WardrobeStyles-CV2rj9hg.js:1:1626)\n    at async http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4340\n    at async #s (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:3:4575)\n    at async e.dress (http://127.0.0.1:58519/assets/Wardrobe-1HINh7Cq.js:2:6157)\n    at async t.swapFigure (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:87559)\n    at async t.build (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:70635)\n    at async t.create (http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js:2:65158)\n    at async http://127.0.0.1:58519/assets/showcase-B0MmWcCh.js:2:3533",
+            "returnedAt": 554.2000000178814,
+            "outcome": "returned",
+            "settledAt": 557.1000000238419,
+            "settlement": "fulfilled",
+            "byteLength": 2345604,
+            "prefixHex": "676c54460200000084ca2300",
+            "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+            "hashAt": 559.1000000238419
+          },
+          "reader": null,
+          "readerAssociation": null
+        },
+        {
+          "asset": "assets/wardrobe/foundation_bra/g050.glb",
+          "route": "file-loader",
+          "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+          "bytes": 921176,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 4,
+            "at": 395.10000002384186,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 395.10000002384186,
+            "outcome": "returned",
+            "settledAt": 396.30000001192093,
+            "settlement": "fulfilled",
+            "byteLength": 921176,
+            "prefixHex": "676c544602000000580e0e00",
+            "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+            "hashAt": 396.60000002384186
+          },
+          "reader": {
+            "receiverID": 3,
+            "calls": 2,
+            "bytes": 921176,
+            "firstReadAt": 395,
+            "doneAt": 395.40000000596046
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        },
+        {
+          "asset": "assets/wardrobe/foundation_briefs/g050.glb",
+          "route": "file-loader",
+          "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+          "bytes": 529028,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 6,
+            "at": 401.10000002384186,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 401.10000002384186,
+            "outcome": "returned",
+            "settledAt": 402.60000002384186,
+            "settlement": "fulfilled",
+            "byteLength": 529028,
+            "prefixHex": "676c54460200000084120800",
+            "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+            "hashAt": 402.80000001192093
+          },
+          "reader": {
+            "receiverID": 5,
+            "calls": 2,
+            "bytes": 529028,
+            "firstReadAt": 401,
+            "doneAt": 402.30000001192093
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        },
+        {
+          "asset": "assets/hair/bob02/g050.glb",
+          "route": "file-loader",
+          "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+          "bytes": 3347176,
+          "call": {
+            "kind": "response-arrayBuffer",
+            "receiverID": 10,
+            "at": 822.6000000238419,
+            "argumentCount": 0,
+            "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js:1:194540",
+            "returnedAt": 822.6000000238419,
+            "outcome": "returned",
+            "settledAt": 824.4000000059605,
+            "settlement": "fulfilled",
+            "byteLength": 3347176,
+            "prefixHex": "676c544602000000e8123300",
+            "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+            "hashAt": 826
+          },
+          "reader": {
+            "receiverID": 9,
+            "calls": 3,
+            "bytes": 3347176,
+            "firstReadAt": 822.5,
+            "doneAt": 824.1000000238419
+          },
+          "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+        }
+      ],
+      "readerGroups": [
+        {
+          "receiverID": 1,
+          "calls": 12,
+          "bytes": 11916776,
+          "firstReadAt": 130.80000001192093,
+          "doneAt": 137.40000000596046
+        },
+        {
+          "receiverID": 3,
+          "calls": 2,
+          "bytes": 921176,
+          "firstReadAt": 395,
+          "doneAt": 395.40000000596046
+        },
+        {
+          "receiverID": 5,
+          "calls": 2,
+          "bytes": 529028,
+          "firstReadAt": 401,
+          "doneAt": 402.30000001192093
+        },
+        {
+          "receiverID": 9,
+          "calls": 3,
+          "bytes": 3347176,
+          "firstReadAt": 822.5,
+          "doneAt": 824.1000000238419
+        }
+      ],
+      "explicitCancellationCalls": [],
+      "scope": "Exact observed native arrayBuffer results; direct parser forwarding is source-derived, not a separate parse-argument hook. No inference about browser-internal cancellation or prior runs."
+    }
+  ],
+  "retirements": [
+    {
+      "id": "067826e0-21e1-4369-bf5c-c5f5354b6f1f",
+      "synthetic": false,
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "avatarStageCleared": true,
+      "stageRendererCleared": true,
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "725a62ff-cdd4-4cc7-9415-e67be7249b8d",
+      "synthetic": true,
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "avatarStageCleared": true,
+      "stageRendererCleared": true,
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    }
+  ],
+  "transport": {
+    "requests": 158,
+    "finished": 157,
+    "failedOriginalRequests": 1,
+    "rawErrors": [
+      {
+        "phase": "mobile",
+        "type": "requestfailed",
+        "requestID": 145,
+        "at": 7046.889209,
+        "url": "http://127.0.0.1:58519/assets/g050-yiqsxV00.glb",
+        "message": "net::ERR_ABORTED"
+      },
+      {
+        "phase": "mobile",
+        "type": "cdp-loading-failed",
+        "page": "owner",
+        "requestID": "59304.226",
+        "at": 7046.971084,
+        "url": "http://127.0.0.1:58519/assets/g050-yiqsxV00.glb",
+        "message": "net::ERR_ABORTED",
+        "canceled": true
+      }
+    ],
+    "failedLedger": {
+      "page": "owner",
+      "requestID": "59304.226",
+      "url": "http://127.0.0.1:58519/assets/g050-yiqsxV00.glb",
+      "phase": "mobile",
+      "response": {
+        "status": 200,
+        "mimeType": "model/gltf-binary",
+        "headers": {
+          "Cache-Control": "no-store",
+          "Content-Length": "3347176",
+          "Keep-Alive": "timeout=5",
+          "Date": "Sun, 27 Sep 2026 01:12:19 GMT",
+          "Content-Type": "model/gltf-binary",
+          "Connection": "keep-alive"
+        }
+      },
+      "terminal": "failed",
+      "body": null
+    },
+    "failedRequestEvents": [
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "requestWillBeSent",
+        "phase": "mobile",
+        "at": 7042.982917,
+        "data": {
+          "requestId": "59304.226",
+          "loaderId": "ADC789349F2138D8E42BD2D24F793ED8",
+          "documentURL": "http://127.0.0.1:58519/src/showcase.html?capture=rename&preset=casual",
+          "request": {
+            "url": "http://127.0.0.1:58519/assets/g050-yiqsxV00.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:58519/src/showcase.html?capture=rename&preset=casual",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 188373.445688,
+          "wallTime": 1790471539.618957,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "load",
+                  "scriptId": "11",
+                  "url": "http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 193764
+                },
+                {
+                  "functionName": "load",
+                  "scriptId": "28",
+                  "url": "http://127.0.0.1:58519/assets/GLTFLoader-CdTfRvUe.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3404
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "11",
+                  "url": "http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192572
+                },
+                {
+                  "functionName": "loadAsync",
+                  "scriptId": "11",
+                  "url": "http://127.0.0.1:58519/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192544
+                },
+                {
+                  "functionName": "attachHair",
+                  "scriptId": "37",
+                  "url": "http://127.0.0.1:58519/assets/Avatar-DuVeBvBE.js",
+                  "lineNumber": 1,
+                  "columnNumber": 91005
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "B3362F36F4779193E743AB6B218C7B6D",
+          "hasUserGesture": true
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "responseReceived",
+        "phase": "mobile",
+        "at": 7044.904542,
+        "data": {
+          "requestId": "59304.226",
+          "loaderId": "ADC789349F2138D8E42BD2D24F793ED8",
+          "timestamp": 188373.450613,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:58519/assets/g050-yiqsxV00.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "3347176",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 01:12:19 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 99,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 58519,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 186,
+            "timing": {
+              "requestTime": 188373.445934,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.116,
+              "sendEnd": 0.16,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 2.343,
+              "receiveHeadersEnd": 2.37
+            },
+            "responseTime": 1790471539621.503,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "B3362F36F4779193E743AB6B218C7B6D"
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "dataReceived",
+        "phase": "mobile",
+        "at": 7045.605292,
+        "data": {
+          "requestId": "59304.226",
+          "timestamp": 188373.451356,
+          "dataLength": 2097152,
+          "encodedDataLength": 2097152
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "dataReceived",
+        "phase": "mobile",
+        "at": 7046.0445,
+        "data": {
+          "requestId": "59304.226",
+          "timestamp": 188373.451978,
+          "dataLength": 1250024,
+          "encodedDataLength": 1179648
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "loadingFailed",
+        "phase": "mobile",
+        "at": 7046.940417,
+        "data": {
+          "requestId": "59304.226",
+          "timestamp": 188373.452314,
+          "type": "Fetch",
+          "errorText": "net::ERR_ABORTED",
+          "canceled": true
+        }
+      }
+    ],
+    "server": [
+      {
+        "id": 122,
+        "phase": "mobile",
+        "method": "GET",
+        "url": "/assets/g050-yiqsxV00.glb",
+        "receivedAt": 7040.054042,
+        "file": "assets/g050-yiqsxV00.glb",
+        "status": 200,
+        "sentBytes": 3347176,
+        "sentSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+        "writeAt": 7041.795834,
+        "finishAt": 7043.102334,
+        "writableFinished": true,
+        "closeAt": 7043.108667,
+        "closedAfterFinish": true
+      }
+    ],
+    "decodedDataTotal": 3347176,
+    "encodedDataEventTotal": 3276800,
+    "nativeConsumedBytes": 3347176,
+    "nativeConsumedSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "nativeReaderDoneAt": 824.1000000238419,
+    "nativeBufferFulfilledAt": 824.4000000059605,
+    "nativeHashAt": 826,
+    "unparentedImages": [
+      {
+        "phase": "mobile",
+        "url": "blob:http://127.0.0.1:58519/94e5c9a1-1a7e-4778-8494-253a4ac725a8",
+        "status": 200,
+        "mimeType": "image/png",
+        "contentLength": "1096244",
+        "page": "owner",
+        "requestID": "59304.227",
+        "cdpBody": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "base64Encoded": false,
+          "encodedCharacters": 0,
+          "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "admitted": true,
+        "kind": "embedded-image",
+        "provenance": "supplied-immutable-Blob",
+        "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+        "bytes": 1096244,
+        "witnesses": [
+          {
+            "asset": "assets/hair/bob02/g050.glb",
+            "assetSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+            "image": 1,
+            "bufferView": 8,
+            "mimeType": "image/png",
+            "byteOffset": 2230452,
+            "byteLength": 1096244,
+            "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+          }
+        ],
+        "cdpCrossCheck": "empty-original-CDP-return-observed"
+      },
+      {
+        "phase": "mobile",
+        "url": "blob:http://127.0.0.1:58519/fd8cadb0-788f-495d-b704-b1da13372760",
+        "status": 200,
+        "mimeType": "image/png",
+        "contentLength": "1077492",
+        "page": "owner",
+        "requestID": "59304.228",
+        "cdpBody": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "base64Encoded": false,
+          "encodedCharacters": 0,
+          "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "admitted": true,
+        "kind": "embedded-image",
+        "provenance": "supplied-immutable-Blob",
+        "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+        "bytes": 1077492,
+        "witnesses": [
+          {
+            "asset": "assets/hair/bob02/g050.glb",
+            "assetSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+            "image": 0,
+            "bufferView": 7,
+            "mimeType": "image/png",
+            "byteOffset": 1152960,
+            "byteLength": 1077492,
+            "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+          }
+        ],
+        "cdpCrossCheck": "empty-original-CDP-return-observed"
+      }
+    ]
+  },
+  "visualReview": {
+    "inspected": [
+      "desktop-duplicate-dialog.png",
+      "mobile-rename-dialog.png",
+      "mobile-renamed-row.png"
+    ],
+    "desktop": "Duplicate error is legible, name remains editable, Save name/Cancel are distinct and dialog is contained.",
+    "mobile": "Dialog and buttons fit 390 px; keyboard focus is visible on Save name. After submission the renamed row and focus on Rename are clear; unavailable future entry remains visible.",
+    "issuesFound": [],
+    "scope": "Three original screenshots; mobile virtual keyboard, assistive-technology announcement and live animation cadence were not exercised."
+  },
+  "limits": [
+    "Overall native run stays rejected. Functional completion is the predeclared separate result, not a retrospective transport waiver.",
+    "Complete native consumed bytes plus read done rule out a truncated GLB result for this observed mobile request; they do not explain the canceled network terminal.",
+    "No observed JavaScript abort/cancel entry point is limited to the startup observer window. Internal browser cancellation/GC behavior and post-restoration cancellation are unobserved.",
+    "Browser performance.now, CDP timestamps and host callback times were not calibrated; order is claimed only within one clock domain.",
+    "Stream-to-buffer association is by unique exact byte count plus same-clock interval; forwarding into parsing is source-derived.",
+    "Observers preserve original promise identity but auxiliary handlers affect scheduling and rejection bookkeeping. No claim this instrumented startup reproduces unobserved timing.",
+    "Storage access/write/busy failures and capacity/future entries include declared controlled fixtures; real keyboard and writer-tab storage events are separate.",
+    "This is fixed-clock metadata/UI qualification on current casual/ecru g050 desktop/mobile, not all settings, live cadence, hair, fit, all accessibility or atomic concurrent-write qualification."
+  ],
+  "recommendation": "The bounded Rename product behavior is supported by 13 CPU groups, source critique, the build and 9 native functional checks. Root and critic may integrate it under that explicit scope while tracking transport separately; this packet cannot be described as an overall passing native capture."
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "saved-look-rename-v4-readiness",
+  "nativeStatus": "pending; root launches",
+  "worktree": "/Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/saved-look-rename/manifest-v4.json",
+    "sha256": "06d41696465ce49a0cd236566d46e97c1ffe5d7cf8c2da851a3c18f5858058cf"
+  },
+  "preflight": {
+    "path": "captures/saved-look-rename-2026-09-26/preflight-v4/report.json",
+    "sha256": "9dd53fd88f37e69f86de31bc2286e79da3f719d46c170a015dfa3954458ffa11",
+    "completed": true,
+    "preflightOnly": true,
+    "sourcesStable": true,
+    "sources": 1574,
+    "built": 172,
+    "errors": []
+  },
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe-v4.mjs": "451f37b965b36206df8718d49e786f22b87e849a7ad43a5be351db4776a75180",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-consumption.mjs": "45a644ecd360b3ab2c7c50238b7be7ec9e56d77f330b901b77fe72955fd62c77",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-consumption.selftest.mjs": "7c17c486b29b8b2a150228ee7d59de13a5efc9da9ed0c0e763bc55f032fef5f3",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.mjs": "0ba4a57faadd2151f093811de24504b011d42a4c8cb40763282707bf3d07d1ed"
+  },
+  "command": "node docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe-v4.mjs --run docs/evidence/nonhair-2026-09-26/saved-look-rename/manifest-v4.json captures/saved-look-rename-2026-09-26/native-v4",
+  "policy": "All 9 functional groups preserved; exact 6 consumed GLBs and source/owner guards required before functional collection. Strict transport is separate and required for overall completion and acceptance seal. No product/build/dependency/asset changes or additional settling."
+}

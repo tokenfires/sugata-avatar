@@ -1,0 +1,33 @@
+{
+  "version": 3,
+  "scope": "CPU/source admission only. No worker native launch; UI acceptance remains pending.",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/saved-look-rename/manifest-v3.json",
+    "sha256": "c56f50efa377e1f853ba03a6d22a603062feb8c03d414c507eed65a897b4cc7b",
+    "sourceCount": 1570,
+    "builtCount": 172
+  },
+  "preflight": {
+    "path": "captures/saved-look-rename-2026-09-26/preflight-v3/report.json",
+    "sha256": "6404be94b03ace033acc814a1911bbaa3a00606ac269206b82200945e58bacc2",
+    "completed": true,
+    "preflightOnly": true,
+    "sourcesStable": true
+  },
+  "groups": {
+    "network": 11,
+    "blobCreation": 6
+  },
+  "sourceHashes": {
+    "native-probe.mjs": "9db14d30a4186b3a8a181319f598f7ba3a1cb13791185e43eb264b6a55f0e05c",
+    "native-network.mjs": "0ce492f4f85c98dfaf126ceed97a6dd8f309fd5fb1346f8688f208b30a2662f7",
+    "native-network.selftest.mjs": "3674b5cd2b988602351fae2dc8a93e9bc863bf86f114f47bf6aae7f9a39dc20d",
+    "blob-creation.mjs": "cefa708412f4f57ec8d3bedee1d0359b9e8bbd1ab1eea951375c3ba231b97c2c",
+    "blob-creation.selftest.mjs": "1f04598ac749c8d81434baed0514af8fab132f6a7ca9b0e831c9ccb6490a7e79"
+  },
+  "rejectedV2ReceiptSHA256": "059a0d3d0cd43f0246cafd54c1b6c38e5d7d6d9707a42eb60d10b2ca6c55bb16",
+  "launch": {
+    "workdir": "/Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar",
+    "command": "node docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe.mjs --run docs/evidence/nonhair-2026-09-26/saved-look-rename/manifest-v3.json captures/saved-look-rename-2026-09-26/native-v3"
+  }
+}

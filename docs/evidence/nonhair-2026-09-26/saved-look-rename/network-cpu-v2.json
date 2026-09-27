@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "scope": "CPU source/provenance checks only; no native v2 launch.",
+  "groups": 8,
+  "sources": {
+    "native-probe.mjs": "666f7bb819a0c0c11a0d39d208545bb87744ae28f08633c4fdc9dd2e04cba691",
+    "native-network.mjs": "df2534a7c920cd2bdca526b598723f64c1ce7b7b39e8444e7ab37a5406a76430",
+    "native-network.selftest.mjs": "9ee2f474e608888bd20c8ee2616ae8b85744572a9c7071539365755a71245ed1"
+  },
+  "rejectedReceiptSHA256": "b3718b2e78ae775b8fc7adfc2ea1f2fced300317b3866a9d87ee2c71897f0704",
+  "unlaunchedReviewedControllerSHA256": "7e1fa6815f6b96746d9236d5ee7beebe0a79eb83d30ef538c29bd0adef290381",
+  "productAndBuild": "Four product source hashes and all 172 production built files still match rejected manifest-v1; no rebuild or product edit."
+}

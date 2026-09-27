@@ -1,0 +1,33 @@
+{
+  "kind": "saved-look-rename-transport-diagnostic-readiness-v1",
+  "status": "CPU preflight passed; native result pending; root launches",
+  "worktree": "/Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-manifest-v1.json",
+    "sha256": "69f7ef7d7e2ec1a0869086bd4cef9c96ad2cb1fa28e2a1157551b6b2ed7a700a"
+  },
+  "preflight": {
+    "path": "captures/saved-look-rename-2026-09-26/transport-preflight-v1/report.json",
+    "sha256": "2864a183872320b8abc761b64613d4a2ae5279b2dcf71f5448226148ea08a01b",
+    "completed": true,
+    "preflightOnly": true,
+    "sourcesStable": true,
+    "sourceCount": 1572,
+    "builtCount": 172,
+    "errors": []
+  },
+  "sources": {
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs": "fa5ce190ee5c5e9988eaee1e31a9f496f1fad911b640767ef14bc63c6db7867d",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.mjs": "0ba4a57faadd2151f093811de24504b011d42a4c8cb40763282707bf3d07d1ed",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.selftest.mjs": "b30c7231d7287197508709bfa33a0787d9404e6dc8b27f9ad0b4e972427aad1e"
+  },
+  "command": "node docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs --run docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-manifest-v1.json captures/saved-look-rename-2026-09-26/transport-v1",
+  "limits": [
+    "No native run by this author.",
+    "Stops at the original page readiness frame with no added normal stepping or Rename interactions.",
+    "Exact native consumed ArrayBuffer evidence and observed JS abort/cancel entry points do not establish browser-internal cancellation cause.",
+    "Auxiliary rejection handlers preserve native promise identity but alter rejection bookkeeping; this is an instrumented diagnostic.",
+    "A completed diagnostic with a real failed transport terminal is not transport admission or UI qualification.",
+    "Product, built assets and prior rejected evidence remain unchanged."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "scope": "Fresh CPU preflight only. Native v1 rejected; native v2 not launched by this worker.",
+  "manifest": {
+    "path": "docs/evidence/nonhair-2026-09-26/saved-look-rename/manifest-v2.json",
+    "sha256": "c45bb4a58aa5bd36afe02817bd82355f95d975b8360420efc5531f975b4f0efb",
+    "sources": 1568,
+    "built": 172
+  },
+  "host": {
+    "entry": "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright/index.js",
+    "core": "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core",
+    "version": "1.61.1",
+    "sourceHashes": {
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright/index.js": "4e98f65f0a9d9bcab8cffc0c5cfdd87fd3f5b0be74fc494ff166a466b204cd44",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright/package.json": "6b840268612656f0639fb7d68782e8353bdf11518589d30ddf66f283c2670ed5",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core/index.js": "a58fb2cec4293e7dcf73c58a179898a4f3986666451a19da4e731fa3af63265b",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core/package.json": "759e376f995bf39edd4810d699b99469bab1d7428b6fbc78d41912f367df7ba9",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core/lib/bootstrap.js": "97ffe165e8e45f1b51a713b3f380d383e4e183727135fe9a5e045ec62e9310ab",
+      "/Users/robault/.npm/_npx/361ceb562f3b3235/node_modules/playwright-core/lib/coreBundle.js": "6be5c2ea035554e9b184b1dbc7aa5e7f1fb428dd1b5c202022858dcfae9bee27"
+    },
+    "scope": "Actual selected package entry and relevant native body/launcher implementation; not a complete transitive host dependency archive."
+  },
+  "preflight": {
+    "path": "captures/saved-look-rename-2026-09-26/preflight-v2/report.json",
+    "sha256": "5e1485bdc6c21a1ff70477cf8347eb30779d179674a3ba296d0576a9b971d245",
+    "completed": true,
+    "preflightOnly": true,
+    "sourcesStable": true
+  },
+  "controllerSHA256": "666f7bb819a0c0c11a0d39d208545bb87744ae28f08633c4fdc9dd2e04cba691",
+  "networkHelperSHA256": "df2534a7c920cd2bdca526b598723f64c1ce7b7b39e8444e7ab37a5406a76430",
+  "networkTestsSHA256": "9ee2f474e608888bd20c8ee2616ae8b85744572a9c7071539365755a71245ed1",
+  "launch": {
+    "workdir": "/Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar",
+    "command": "node docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe.mjs --run docs/evidence/nonhair-2026-09-26/saved-look-rename/manifest-v2.json captures/saved-look-rename-2026-09-26/native-v2"
+  }
+}

@@ -1,0 +1,2200 @@
+{
+  "kind": "rename-transport-v1-corrected-offline-analysis",
+  "originalReportSHA256": "0f9343c0852aaf4a584f4657d4272338110ccfd3eb23bf38f5f317722a66af0e",
+  "originalManifestSHA256": "69f7ef7d7e2ec1a0869086bd4cef9c96ad2cb1fa28e2a1157551b6b2ed7a700a",
+  "originalVerdict": {
+    "completed": false,
+    "diagnosticCompleted": false,
+    "transportAdmitted": false,
+    "failure": "AssertionError [ERR_ASSERTION]: Native FileLoader callsite for assets/wardrobe/female_casualsuit01/g050.glb\n    at file:///Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs:65:250\n    at Array.map (<anonymous>)\n    at ready (file:///Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs:65:42)\n    at async file:///Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs:104:95",
+    "finalNetworkFailure": "AssertionError [ERR_ASSERTION]: Original request body not admitted: blob:http://127.0.0.1:57836/31b35522-0861-4d42-9921-4d3f891aa143\n+ actual - expected\n\n+ 'pending'\n- 'complete'\n\n    at Object.assertSettled (file:///Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.mjs:26:130)\n    at file:///Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs:112:68\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+  },
+  "correction": "The two styled recipe fragments use native WardrobeStyles direct fetch/arrayBuffer/validate/parseAsync; four other GLBs use native Three FileLoader. The rejected all-six-FileLoader and six-reader assumptions were controller defects.",
+  "nativeConsumption": [
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "route": "file-loader",
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "bytes": 11916776,
+      "call": {
+        "kind": "response-arrayBuffer",
+        "receiverID": 2,
+        "at": 226.2000000178814,
+        "argumentCount": 0,
+        "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js:1:194540",
+        "returnedAt": 226.2000000178814,
+        "outcome": "returned",
+        "settledAt": 247.2000000178814,
+        "settlement": "fulfilled",
+        "byteLength": 11916776,
+        "prefixHex": "676c544602000000e8d5b500",
+        "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+        "hashAt": 254
+      },
+      "reader": {
+        "receiverID": 1,
+        "calls": 11,
+        "bytes": 11916776,
+        "firstReadAt": 225.90000000596046,
+        "doneAt": 234.10000002384186
+      },
+      "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+    },
+    {
+      "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "route": "styled-fragment",
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "bytes": 11084628,
+      "call": {
+        "kind": "response-arrayBuffer",
+        "receiverID": 7,
+        "at": 412.40000000596046,
+        "argumentCount": 0,
+        "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at e.loadFragment (http://127.0.0.1:57836/assets/WardrobeStyles-CV2rj9hg.js:1:1626)\n    at async http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js:3:4340\n    at async #s (http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js:3:4575)\n    at async e.dress (http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js:2:6157)\n    at async t.swapFigure (http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js:2:87559)\n    at async t.build (http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js:2:70635)\n    at async t.create (http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js:2:65158)\n    at async http://127.0.0.1:57836/assets/showcase-B0MmWcCh.js:2:3533",
+        "returnedAt": 413.10000002384186,
+        "outcome": "returned",
+        "settledAt": 429.30000001192093,
+        "settlement": "fulfilled",
+        "byteLength": 11084628,
+        "prefixHex": "676c5446020000005423a900",
+        "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+        "hashAt": 438.90000000596046
+      },
+      "reader": null,
+      "readerAssociation": null
+    },
+    {
+      "asset": "assets/wardrobe/shoes01/g050.glb",
+      "route": "styled-fragment",
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "bytes": 2345604,
+      "call": {
+        "kind": "response-arrayBuffer",
+        "receiverID": 8,
+        "at": 568.6000000238419,
+        "argumentCount": 0,
+        "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at e.loadFragment (http://127.0.0.1:57836/assets/WardrobeStyles-CV2rj9hg.js:1:1626)\n    at async http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js:3:4340\n    at async #s (http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js:3:4575)\n    at async e.dress (http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js:2:6157)\n    at async t.swapFigure (http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js:2:87559)\n    at async t.build (http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js:2:70635)\n    at async t.create (http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js:2:65158)\n    at async http://127.0.0.1:57836/assets/showcase-B0MmWcCh.js:2:3533",
+        "returnedAt": 568.6000000238419,
+        "outcome": "returned",
+        "settledAt": 572.1000000238419,
+        "settlement": "fulfilled",
+        "byteLength": 2345604,
+        "prefixHex": "676c54460200000084ca2300",
+        "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+        "hashAt": 574.5
+      },
+      "reader": null,
+      "readerAssociation": null
+    },
+    {
+      "asset": "assets/wardrobe/foundation_bra/g050.glb",
+      "route": "file-loader",
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+      "bytes": 921176,
+      "call": {
+        "kind": "response-arrayBuffer",
+        "receiverID": 4,
+        "at": 394.10000002384186,
+        "argumentCount": 0,
+        "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js:1:194540",
+        "returnedAt": 394.10000002384186,
+        "outcome": "returned",
+        "settledAt": 395.60000002384186,
+        "settlement": "fulfilled",
+        "byteLength": 921176,
+        "prefixHex": "676c544602000000580e0e00",
+        "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+        "hashAt": 396
+      },
+      "reader": {
+        "receiverID": 3,
+        "calls": 2,
+        "bytes": 921176,
+        "firstReadAt": 394,
+        "doneAt": 394.80000001192093
+      },
+      "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+    },
+    {
+      "asset": "assets/wardrobe/foundation_briefs/g050.glb",
+      "route": "file-loader",
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+      "bytes": 529028,
+      "call": {
+        "kind": "response-arrayBuffer",
+        "receiverID": 6,
+        "at": 401.90000000596046,
+        "argumentCount": 0,
+        "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js:1:194540",
+        "returnedAt": 401.90000000596046,
+        "outcome": "returned",
+        "settledAt": 402.60000002384186,
+        "settlement": "fulfilled",
+        "byteLength": 529028,
+        "prefixHex": "676c54460200000084120800",
+        "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+        "hashAt": 402.80000001192093
+      },
+      "reader": {
+        "receiverID": 5,
+        "calls": 2,
+        "bytes": 529028,
+        "firstReadAt": 401.80000001192093,
+        "doneAt": 402.2000000178814
+      },
+      "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+    },
+    {
+      "asset": "assets/hair/bob02/g050.glb",
+      "route": "file-loader",
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+      "bytes": 3347176,
+      "call": {
+        "kind": "response-arrayBuffer",
+        "receiverID": 10,
+        "at": 908.3000000119209,
+        "argumentCount": 0,
+        "stack": "Error: Transport call\n    at Object.apply (<anonymous>:9:97)\n    at http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js:1:194540",
+        "returnedAt": 908.3000000119209,
+        "outcome": "returned",
+        "settledAt": 913.3000000119209,
+        "settlement": "fulfilled",
+        "byteLength": 3347176,
+        "prefixHex": "676c544602000000e8123300",
+        "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+        "hashAt": 915.1000000238419
+      },
+      "reader": {
+        "receiverID": 9,
+        "calls": 4,
+        "bytes": 3347176,
+        "firstReadAt": 908.2000000178814,
+        "doneAt": 909.9000000059605
+      },
+      "readerAssociation": "Unique exact byte-total and same-clock interval, not direct reader/Response identity instrumentation"
+    }
+  ],
+  "readerGroups": [
+    {
+      "receiverID": 1,
+      "calls": 11,
+      "bytes": 11916776,
+      "firstReadAt": 225.90000000596046,
+      "doneAt": 234.10000002384186
+    },
+    {
+      "receiverID": 3,
+      "calls": 2,
+      "bytes": 921176,
+      "firstReadAt": 394,
+      "doneAt": 394.80000001192093
+    },
+    {
+      "receiverID": 5,
+      "calls": 2,
+      "bytes": 529028,
+      "firstReadAt": 401.80000001192093,
+      "doneAt": 402.2000000178814
+    },
+    {
+      "receiverID": 9,
+      "calls": 4,
+      "bytes": 3347176,
+      "firstReadAt": 908.2000000178814,
+      "doneAt": 909.9000000059605
+    }
+  ],
+  "explicitCancellationCalls": [],
+  "scope": "Exact observed native arrayBuffer results; direct parser forwarding is source-derived, not a separate parse-argument hook. No inference about browser-internal cancellation or prior runs.",
+  "compiledSourceAttribution": [
+    {
+      "bundle": "assets/WardrobeStyles-CV2rj9hg.js",
+      "sha256": "8d070e4e682e07739048a84275383cbc86df3d80e9d7c779acd14300b08b8a37",
+      "line": 1,
+      "column": 1626,
+      "compiledExcerpt": "et i=await fetch(e);if(!i.ok)throw Error(`Avatar wardrobe: '${t}' returned HTTP ${i.status}.`);let a=await i.arrayBuffer();await y(t,a);let o=await r.parseAsync(a,new URL(`.`,e).href);return o.scene.traverse(e=>{e.isSkinnedMesh&&n",
+      "source": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "sourceSHA256": "b896ec3978130374a04760e576d61d1f049abc32a4cc9f592ad7f57fba75ee5a",
+      "sourceLine": 51,
+      "method": "Structural exact-bundle statement reconstruction; no emitted source map was used."
+    },
+    {
+      "bundle": "assets/three.core-BmqiN6YQ.js",
+      "sha256": "5546cfea638409f2e8aa278e559a998b14ac0ba50e3368620f9f33f689f4093c",
+      "line": 1,
+      "column": 194540,
+      "compiledExcerpt": "r \"${t.url}\" responded with ${t.status}: ${t.statusText}`,t)}).then(e=>{switch(s){case`arraybuffer`:return e.arrayBuffer();case`blob`:return e.blob();case`document`:return e.text().then(e=>new DOMParser().parseFromString(e,o));cas",
+      "source": "node_modules/three/src/loaders/FileLoader.js",
+      "sourceSHA256": "e3f730f2fdefdd4e9285883fb2eb7ca40e13d58ea96e969a669d3eaacd7d0c03",
+      "sourceLine": 231,
+      "method": "Structural exact-bundle statement reconstruction; no emitted source map was used."
+    }
+  ],
+  "originalHttpBindings": [
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "bytes": 11916776,
+      "response": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:57836/assets/g050-DwVJw10x.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "39663.84",
+        "bodyAt": 1916.831917,
+        "file": "assets/g050-DwVJw10x.glb",
+        "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+        "bytes": 11916776
+      },
+      "bodyRead": {
+        "phase": "desktop",
+        "page": "owner",
+        "requestID": "39663.84",
+        "url": "http://127.0.0.1:57836/assets/g050-DwVJw10x.glb",
+        "at": 1912.314292,
+        "bytes": 11916776,
+        "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+        "base64Encoded": true,
+        "encodedCharacters": 15889036,
+        "encodedStringSHA256": "e9c075688f65d62b2d6de6e82ccf9d897b0d2175291bcec2d00631fb5e034085"
+      },
+      "events": [
+        {
+          "event": "requestWillBeSent",
+          "hostCallbackAt": 1756.221542,
+          "requestId": "39663.84",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "documentURL": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+          "request": {
+            "url": "http://127.0.0.1:57836/assets/g050-DwVJw10x.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 187696.311959,
+          "wallTime": 1790470862.481224,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "load",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 193764
+                },
+                {
+                  "functionName": "load",
+                  "scriptId": "28",
+                  "url": "http://127.0.0.1:57836/assets/GLTFLoader-CdTfRvUe.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3404
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192572
+                },
+                {
+                  "functionName": "loadAsync",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192544
+                },
+                {
+                  "functionName": "load",
+                  "scriptId": "29",
+                  "url": "http://127.0.0.1:57836/assets/Figure-BTyRrsvb.js",
+                  "lineNumber": 0,
+                  "columnNumber": 873
+                },
+                {
+                  "functionName": "swapFigure",
+                  "scriptId": "37",
+                  "url": "http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js",
+                  "lineNumber": 1,
+                  "columnNumber": 87172
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A",
+          "hasUserGesture": true
+        },
+        {
+          "event": "responseReceived",
+          "hostCallbackAt": 1757.43825,
+          "requestId": "39663.84",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "timestamp": 187696.318544,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:57836/assets/g050-DwVJw10x.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "11916776",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 01:01:02 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 99,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 57836,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 187,
+            "timing": {
+              "requestTime": 187696.312235,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.238,
+              "sendEnd": 0.281,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 6.036,
+              "receiveHeadersEnd": 6.089
+            },
+            "responseTime": 1790470862487.47,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A"
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1759.009958,
+          "requestId": "39663.84",
+          "timestamp": 187696.320139,
+          "dataLength": 2097152,
+          "encodedDataLength": 2097152
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1759.977583,
+          "requestId": "39663.84",
+          "timestamp": 187696.321522,
+          "dataLength": 2097152,
+          "encodedDataLength": 2097152
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1760.852125,
+          "requestId": "39663.84",
+          "timestamp": 187696.32224,
+          "dataLength": 1376256,
+          "encodedDataLength": 1376256
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1760.857667,
+          "requestId": "39663.84",
+          "timestamp": 187696.322772,
+          "dataLength": 720896,
+          "encodedDataLength": 1441792
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1761.546625,
+          "requestId": "39663.84",
+          "timestamp": 187696.323312,
+          "dataLength": 1638400,
+          "encodedDataLength": 917504
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1763.728375,
+          "requestId": "39663.84",
+          "timestamp": 187696.325522,
+          "dataLength": 458752,
+          "encodedDataLength": 2097152
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1764.134708,
+          "requestId": "39663.84",
+          "timestamp": 187696.326029,
+          "dataLength": 1835008,
+          "encodedDataLength": 196608
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1764.231292,
+          "requestId": "39663.84",
+          "timestamp": 187696.326469,
+          "dataLength": 262144,
+          "encodedDataLength": 851968
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1764.76525,
+          "requestId": "39663.84",
+          "timestamp": 187696.326875,
+          "dataLength": 1310720,
+          "encodedDataLength": 720896
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1766.078708,
+          "requestId": "39663.84",
+          "timestamp": 187696.327211,
+          "dataLength": 120296,
+          "encodedDataLength": 120296
+        },
+        {
+          "event": "loadingFinished",
+          "hostCallbackAt": 1778.688208,
+          "requestId": "39663.84",
+          "timestamp": 187696.326761,
+          "encodedDataLength": 11916963
+        }
+      ]
+    },
+    {
+      "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "bytes": 11084628,
+      "response": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:57836/assets/g050-CPKgyl1k.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "39663.96",
+        "bodyAt": 2087.967292,
+        "file": "assets/g050-CPKgyl1k.glb",
+        "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+        "bytes": 11084628
+      },
+      "bodyRead": {
+        "phase": "desktop",
+        "page": "owner",
+        "requestID": "39663.96",
+        "url": "http://127.0.0.1:57836/assets/g050-CPKgyl1k.glb",
+        "at": 2083.831583,
+        "bytes": 11084628,
+        "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+        "base64Encoded": true,
+        "encodedCharacters": 14779504,
+        "encodedStringSHA256": "8d185c6846962ce622c020ef528d945c967bb62c843eb0c4149dd6aaf6190b80"
+      },
+      "events": [
+        {
+          "event": "requestWillBeSent",
+          "hostCallbackAt": 1946.905125,
+          "requestId": "39663.96",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "documentURL": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+          "request": {
+            "url": "http://127.0.0.1:57836/assets/g050-CPKgyl1k.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 187696.49745,
+          "wallTime": 1790470862.666703,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "loadFragment",
+                  "scriptId": "47",
+                  "url": "http://127.0.0.1:57836/assets/WardrobeStyles-CV2rj9hg.js",
+                  "lineNumber": 0,
+                  "columnNumber": 1527
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4350
+                },
+                {
+                  "functionName": "#s",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4529
+                },
+                {
+                  "functionName": "dress",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 1,
+                  "columnNumber": 6169
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A",
+          "hasUserGesture": true
+        },
+        {
+          "event": "responseReceived",
+          "hostCallbackAt": 1952.700292,
+          "requestId": "39663.96",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "timestamp": 187696.505548,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:57836/assets/g050-CPKgyl1k.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "11084628",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 01:01:02 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 99,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 57836,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 187,
+            "timing": {
+              "requestTime": 187696.497731,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.116,
+              "sendEnd": 0.158,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 6.921,
+              "receiveHeadersEnd": 6.945
+            },
+            "responseTime": 1790470862673.853,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A"
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.709708,
+          "requestId": "39663.96",
+          "timestamp": 187696.506957,
+          "dataLength": 2097152,
+          "encodedDataLength": 2097152
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.71225,
+          "requestId": "39663.96",
+          "timestamp": 187696.50874,
+          "dataLength": 2097152,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.714833,
+          "requestId": "39663.96",
+          "timestamp": 187696.509003,
+          "dataLength": 131072,
+          "encodedDataLength": 2097152
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.717542,
+          "requestId": "39663.96",
+          "timestamp": 187696.509037,
+          "dataLength": 196608,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.720417,
+          "requestId": "39663.96",
+          "timestamp": 187696.509064,
+          "dataLength": 262144,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.722833,
+          "requestId": "39663.96",
+          "timestamp": 187696.509152,
+          "dataLength": 262144,
+          "encodedDataLength": 786432
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.725125,
+          "requestId": "39663.96",
+          "timestamp": 187696.509224,
+          "dataLength": 393216,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.7275,
+          "requestId": "39663.96",
+          "timestamp": 187696.509319,
+          "dataLength": 720896,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.730083,
+          "requestId": "39663.96",
+          "timestamp": 187696.509394,
+          "dataLength": 131072,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.732542,
+          "requestId": "39663.96",
+          "timestamp": 187696.509409,
+          "dataLength": 124645,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.734667,
+          "requestId": "39663.96",
+          "timestamp": 187696.509706,
+          "dataLength": 65328,
+          "encodedDataLength": 1435365
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.737292,
+          "requestId": "39663.96",
+          "timestamp": 187696.509718,
+          "dataLength": 65536,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.739458,
+          "requestId": "39663.96",
+          "timestamp": 187696.509751,
+          "dataLength": 131072,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.741583,
+          "requestId": "39663.96",
+          "timestamp": 187696.5098,
+          "dataLength": 228024,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.743667,
+          "requestId": "39663.96",
+          "timestamp": 187696.509842,
+          "dataLength": 156740,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.74575,
+          "requestId": "39663.96",
+          "timestamp": 187696.50987,
+          "dataLength": 65328,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.747958,
+          "requestId": "39663.96",
+          "timestamp": 187696.509895,
+          "dataLength": 114740,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.750042,
+          "requestId": "39663.96",
+          "timestamp": 187696.509928,
+          "dataLength": 131072,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.752167,
+          "requestId": "39663.96",
+          "timestamp": 187696.509978,
+          "dataLength": 229532,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.75425,
+          "requestId": "39663.96",
+          "timestamp": 187696.510024,
+          "dataLength": 122412,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.756333,
+          "requestId": "39663.96",
+          "timestamp": 187696.510062,
+          "dataLength": 130864,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.758417,
+          "requestId": "39663.96",
+          "timestamp": 187696.510105,
+          "dataLength": 196608,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.760583,
+          "requestId": "39663.96",
+          "timestamp": 187696.510162,
+          "dataLength": 196608,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.762625,
+          "requestId": "39663.96",
+          "timestamp": 187696.510211,
+          "dataLength": 138643,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.764667,
+          "requestId": "39663.96",
+          "timestamp": 187696.510271,
+          "dataLength": 262144,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.766792,
+          "requestId": "39663.96",
+          "timestamp": 187696.510348,
+          "dataLength": 262144,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.768958,
+          "requestId": "39663.96",
+          "timestamp": 187696.510425,
+          "dataLength": 327680,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.771125,
+          "requestId": "39663.96",
+          "timestamp": 187696.510516,
+          "dataLength": 262144,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.77325,
+          "requestId": "39663.96",
+          "timestamp": 187696.510582,
+          "dataLength": 263441,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.775333,
+          "requestId": "39663.96",
+          "timestamp": 187696.510663,
+          "dataLength": 384348,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.7775,
+          "requestId": "39663.96",
+          "timestamp": 187696.510755,
+          "dataLength": 335251,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.779583,
+          "requestId": "39663.96",
+          "timestamp": 187696.510871,
+          "dataLength": 384397,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1952.781708,
+          "requestId": "39663.96",
+          "timestamp": 187696.510939,
+          "dataLength": 214471,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1959.737,
+          "requestId": "39663.96",
+          "timestamp": 187696.516845,
+          "dataLength": 0,
+          "encodedDataLength": 4668527
+        },
+        {
+          "event": "loadingFinished",
+          "hostCallbackAt": 1959.746583,
+          "requestId": "39663.96",
+          "timestamp": 187696.510893,
+          "encodedDataLength": 11084815
+        }
+      ]
+    },
+    {
+      "asset": "assets/wardrobe/shoes01/g050.glb",
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "bytes": 2345604,
+      "response": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:57836/assets/g050-DqfWZ86u.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "39663.100",
+        "bodyAt": 2132.525167,
+        "file": "assets/g050-DqfWZ86u.glb",
+        "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+        "bytes": 2345604
+      },
+      "bodyRead": {
+        "phase": "desktop",
+        "page": "owner",
+        "requestID": "39663.100",
+        "url": "http://127.0.0.1:57836/assets/g050-DqfWZ86u.glb",
+        "at": 2131.608083,
+        "bytes": 2345604,
+        "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+        "base64Encoded": true,
+        "encodedCharacters": 3127472,
+        "encodedStringSHA256": "465f34f789bf9160fc1ad8f7ea3202a2011015d027ae5832539d50845b366cfa"
+      },
+      "events": [
+        {
+          "event": "requestWillBeSent",
+          "hostCallbackAt": 2099.519458,
+          "requestId": "39663.100",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "documentURL": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+          "request": {
+            "url": "http://127.0.0.1:57836/assets/g050-DqfWZ86u.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 187696.65865,
+          "wallTime": 1790470862.82789,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "loadFragment",
+                  "scriptId": "47",
+                  "url": "http://127.0.0.1:57836/assets/WardrobeStyles-CV2rj9hg.js",
+                  "lineNumber": 0,
+                  "columnNumber": 1527
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4350
+                },
+                {
+                  "functionName": "#s",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4529
+                },
+                {
+                  "functionName": "dress",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 1,
+                  "columnNumber": 6169
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A",
+          "hasUserGesture": true
+        },
+        {
+          "event": "responseReceived",
+          "hostCallbackAt": 2100.261542,
+          "requestId": "39663.100",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "timestamp": 187696.661641,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:57836/assets/g050-DqfWZ86u.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "2345604",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 01:01:02 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 99,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 57836,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 186,
+            "timing": {
+              "requestTime": 187696.658902,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.129,
+              "sendEnd": 0.18,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 2.44,
+              "receiveHeadersEnd": 2.485
+            },
+            "responseTime": 1790470862830.544,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A"
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 2100.568333,
+          "requestId": "39663.100",
+          "timestamp": 187696.662199,
+          "dataLength": 1052486,
+          "encodedDataLength": 986950
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 2100.572542,
+          "requestId": "39663.100",
+          "timestamp": 187696.662502,
+          "dataLength": 1044666,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 2100.575333,
+          "requestId": "39663.100",
+          "timestamp": 187696.662604,
+          "dataLength": 248452,
+          "encodedDataLength": 0
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 2103.122375,
+          "requestId": "39663.100",
+          "timestamp": 187696.66404,
+          "dataLength": 0,
+          "encodedDataLength": 1358654
+        },
+        {
+          "event": "loadingFinished",
+          "hostCallbackAt": 2103.124792,
+          "requestId": "39663.100",
+          "timestamp": 187696.66237,
+          "encodedDataLength": 2345790
+        }
+      ]
+    },
+    {
+      "asset": "assets/wardrobe/foundation_bra/g050.glb",
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+      "bytes": 921176,
+      "response": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:57836/assets/g050-EBFugioW.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "39663.94",
+        "bodyAt": 1951.483458,
+        "file": "assets/g050-EBFugioW.glb",
+        "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+        "bytes": 921176
+      },
+      "bodyRead": {
+        "phase": "desktop",
+        "page": "owner",
+        "requestID": "39663.94",
+        "url": "http://127.0.0.1:57836/assets/g050-EBFugioW.glb",
+        "at": 1951.144625,
+        "bytes": 921176,
+        "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+        "base64Encoded": true,
+        "encodedCharacters": 1228236,
+        "encodedStringSHA256": "672ca5574a947355937d2092ab004b4fb31eea74f16a9fcadff7db86b9242c4f"
+      },
+      "events": [
+        {
+          "event": "requestWillBeSent",
+          "hostCallbackAt": 1928.3645,
+          "requestId": "39663.94",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "documentURL": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+          "request": {
+            "url": "http://127.0.0.1:57836/assets/g050-EBFugioW.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 187696.47134,
+          "wallTime": 1790470862.640588,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "load",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 193764
+                },
+                {
+                  "functionName": "load",
+                  "scriptId": "28",
+                  "url": "http://127.0.0.1:57836/assets/GLTFLoader-CdTfRvUe.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3404
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192572
+                },
+                {
+                  "functionName": "loadAsync",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192544
+                },
+                {
+                  "functionName": "loadFragment",
+                  "scriptId": "47",
+                  "url": "http://127.0.0.1:57836/assets/WardrobeStyles-CV2rj9hg.js",
+                  "lineNumber": 0,
+                  "columnNumber": 1502
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4350
+                },
+                {
+                  "functionName": "#s",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4529
+                },
+                {
+                  "functionName": "dress",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 1,
+                  "columnNumber": 6169
+                },
+                {
+                  "functionName": "swapFigure",
+                  "scriptId": "37",
+                  "url": "http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js",
+                  "lineNumber": 1,
+                  "columnNumber": 87566
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A",
+          "hasUserGesture": true
+        },
+        {
+          "event": "responseReceived",
+          "hostCallbackAt": 1929.010917,
+          "requestId": "39663.94",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "timestamp": 187696.487034,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:57836/assets/g050-EBFugioW.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "921176",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 01:01:02 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 99,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 57836,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 185,
+            "timing": {
+              "requestTime": 187696.471647,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.207,
+              "sendEnd": 0.276,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 15.071,
+              "receiveHeadersEnd": 15.101
+            },
+            "responseTime": 1790470862655.918,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A"
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1929.019583,
+          "requestId": "39663.94",
+          "timestamp": 187696.487674,
+          "dataLength": 921176,
+          "encodedDataLength": 921176
+        },
+        {
+          "event": "loadingFinished",
+          "hostCallbackAt": 1929.031167,
+          "requestId": "39663.94",
+          "timestamp": 187696.487136,
+          "encodedDataLength": 921361
+        }
+      ]
+    },
+    {
+      "asset": "assets/wardrobe/foundation_briefs/g050.glb",
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+      "bytes": 529028,
+      "response": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:57836/assets/g050-BZZi3FxG.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "39663.95",
+        "bodyAt": 1966.940458,
+        "file": "assets/g050-BZZi3FxG.glb",
+        "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+        "bytes": 529028
+      },
+      "bodyRead": {
+        "phase": "desktop",
+        "page": "owner",
+        "requestID": "39663.95",
+        "url": "http://127.0.0.1:57836/assets/g050-BZZi3FxG.glb",
+        "at": 1966.7575,
+        "bytes": 529028,
+        "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+        "base64Encoded": true,
+        "encodedCharacters": 705372,
+        "encodedStringSHA256": "edf74c4aae0abbeaa8122dc76bb697eb91688631b7936c2d9843fb344141b3a8"
+      },
+      "events": [
+        {
+          "event": "requestWillBeSent",
+          "hostCallbackAt": 1931.370375,
+          "requestId": "39663.95",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "documentURL": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+          "request": {
+            "url": "http://127.0.0.1:57836/assets/g050-BZZi3FxG.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 187696.491517,
+          "wallTime": 1790470862.660795,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "load",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 193764
+                },
+                {
+                  "functionName": "load",
+                  "scriptId": "28",
+                  "url": "http://127.0.0.1:57836/assets/GLTFLoader-CdTfRvUe.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3404
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192572
+                },
+                {
+                  "functionName": "loadAsync",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192544
+                },
+                {
+                  "functionName": "loadFragment",
+                  "scriptId": "47",
+                  "url": "http://127.0.0.1:57836/assets/WardrobeStyles-CV2rj9hg.js",
+                  "lineNumber": 0,
+                  "columnNumber": 1502
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4350
+                },
+                {
+                  "functionName": "#s",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 2,
+                  "columnNumber": 4529
+                },
+                {
+                  "functionName": "dress",
+                  "scriptId": "43",
+                  "url": "http://127.0.0.1:57836/assets/Wardrobe-1HINh7Cq.js",
+                  "lineNumber": 1,
+                  "columnNumber": 6169
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A",
+          "hasUserGesture": true
+        },
+        {
+          "event": "responseReceived",
+          "hostCallbackAt": 1946.054417,
+          "requestId": "39663.95",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "timestamp": 187696.494976,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:57836/assets/g050-BZZi3FxG.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "529028",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 01:01:02 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 99,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 57836,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 185,
+            "timing": {
+              "requestTime": 187696.491966,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.233,
+              "sendEnd": 0.294,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 1.328,
+              "receiveHeadersEnd": 1.352
+            },
+            "responseTime": 1790470862662.495,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A"
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 1946.062458,
+          "requestId": "39663.95",
+          "timestamp": 187696.495281,
+          "dataLength": 529028,
+          "encodedDataLength": 529028
+        },
+        {
+          "event": "loadingFinished",
+          "hostCallbackAt": 1946.074,
+          "requestId": "39663.95",
+          "timestamp": 187696.493563,
+          "encodedDataLength": 529213
+        }
+      ]
+    },
+    {
+      "asset": "assets/hair/bob02/g050.glb",
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+      "bytes": 3347176,
+      "response": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:57836/assets/g050-yiqsxV00.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "39663.107",
+        "bodyAt": 2482.58125,
+        "file": "assets/g050-yiqsxV00.glb",
+        "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+        "bytes": 3347176
+      },
+      "bodyRead": {
+        "phase": "desktop",
+        "page": "owner",
+        "requestID": "39663.107",
+        "url": "http://127.0.0.1:57836/assets/g050-yiqsxV00.glb",
+        "at": 2481.249792,
+        "bytes": 3347176,
+        "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+        "base64Encoded": true,
+        "encodedCharacters": 4462904,
+        "encodedStringSHA256": "98f9d56d631374fadc78bdf4467724b8277bbd0abb8742140960bf6353914de1"
+      },
+      "events": [
+        {
+          "event": "requestWillBeSent",
+          "hostCallbackAt": 2437.726417,
+          "requestId": "39663.107",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "documentURL": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+          "request": {
+            "url": "http://127.0.0.1:57836/assets/g050-yiqsxV00.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:57836/src/showcase.html?capture=rename-transport",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 187696.996071,
+          "wallTime": 1790470863.165318,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "load",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 193764
+                },
+                {
+                  "functionName": "load",
+                  "scriptId": "28",
+                  "url": "http://127.0.0.1:57836/assets/GLTFLoader-CdTfRvUe.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3404
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192572
+                },
+                {
+                  "functionName": "loadAsync",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:57836/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192544
+                },
+                {
+                  "functionName": "attachHair",
+                  "scriptId": "37",
+                  "url": "http://127.0.0.1:57836/assets/Avatar-DuVeBvBE.js",
+                  "lineNumber": 1,
+                  "columnNumber": 91005
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A",
+          "hasUserGesture": true
+        },
+        {
+          "event": "responseReceived",
+          "hostCallbackAt": 2439.527167,
+          "requestId": "39663.107",
+          "loaderId": "BACAFC162A11BB2FB1B7AE4833DCC815",
+          "timestamp": 187697.00133,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:57836/assets/g050-yiqsxV00.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "3347176",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 01:01:03 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 151,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 57836,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 186,
+            "timing": {
+              "requestTime": 187696.996351,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.118,
+              "sendEnd": 0.186,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 2.866,
+              "receiveHeadersEnd": 2.904
+            },
+            "responseTime": 1790470863168.421,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "F73646DD60045DB30B984AAD1A6CCF5A"
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 2440.555042,
+          "requestId": "39663.107",
+          "timestamp": 187697.002156,
+          "dataLength": 2097152,
+          "encodedDataLength": 2097152
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 2440.633792,
+          "requestId": "39663.107",
+          "timestamp": 187697.002864,
+          "dataLength": 851968,
+          "encodedDataLength": 851968
+        },
+        {
+          "event": "dataReceived",
+          "hostCallbackAt": 2441.028583,
+          "requestId": "39663.107",
+          "timestamp": 187697.003016,
+          "dataLength": 398056,
+          "encodedDataLength": 398056
+        },
+        {
+          "event": "loadingFinished",
+          "hostCallbackAt": 2444.500542,
+          "requestId": "39663.107",
+          "timestamp": 187697.002784,
+          "encodedDataLength": 3347362
+        }
+      ]
+    }
+  ],
+  "offlineBlobBindings": [
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/d36fcf15-84bb-4988-b143-bee024d68c0c",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "89619",
+      "page": "owner",
+      "requestID": "39663.86",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "bytes": 89619,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "image": 1,
+          "bufferView": 220,
+          "mimeType": "image/png",
+          "byteOffset": 7253636,
+          "byteLength": 89619,
+          "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/ec491e69-6e5c-4f3c-9f7c-6529dc5be458",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "91600",
+      "page": "owner",
+      "requestID": "39663.87",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35",
+      "bytes": 91600,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "image": 2,
+          "bufferView": 324,
+          "mimeType": "image/png",
+          "byteOffset": 7372392,
+          "byteLength": 91600,
+          "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/f7f913db-813e-441d-8585-7df0e478b381",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "610817",
+      "page": "owner",
+      "requestID": "39663.88",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b",
+      "bytes": 610817,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "image": 3,
+          "bufferView": 385,
+          "mimeType": "image/png",
+          "byteOffset": 7528612,
+          "byteLength": 610817,
+          "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/dd6d2a62-86db-4902-92cc-b067a88c1c72",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "1799930",
+      "page": "owner",
+      "requestID": "39663.89",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "d0afb57869c6fbb56b98f5efc4aec629ee7593e70d8dd2bfb9de923acfb65f43",
+      "bytes": 1799930,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "image": 4,
+          "bufferView": 408,
+          "mimeType": "image/png",
+          "byteOffset": 8446752,
+          "byteLength": 1799930,
+          "sha256": "d0afb57869c6fbb56b98f5efc4aec629ee7593e70d8dd2bfb9de923acfb65f43"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/83c87bff-bb85-4372-87d9-68cd12d249ad",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "625419",
+      "page": "owner",
+      "requestID": "39663.90",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "3150be398e48e8ba1feac164c3143c16c0b2e959d9ffb6155f0171f59cfb4ea9",
+      "bytes": 625419,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "image": 5,
+          "bufferView": 469,
+          "mimeType": "image/png",
+          "byteOffset": 11086568,
+          "byteLength": 625419,
+          "sha256": "3150be398e48e8ba1feac164c3143c16c0b2e959d9ffb6155f0171f59cfb4ea9"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/31b35522-0861-4d42-9921-4d3f891aa143",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "4391156",
+      "page": "owner",
+      "requestID": "39663.85",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc",
+      "bytes": 4391156,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/body/g050.glb",
+          "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+          "image": 0,
+          "bufferView": 12,
+          "mimeType": "image/png",
+          "byteOffset": 1263828,
+          "byteLength": 4391156,
+          "sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/5fdbdc8d-447c-4ca9-ac48-68d3b0027420",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "3019656",
+      "page": "owner",
+      "requestID": "39663.97",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "414d46afa55fba09ad0913484d57df2ba6b597dc8193595a13a12436137dc21b",
+      "bytes": 3019656,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+          "assetSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+          "image": 2,
+          "bufferView": 8,
+          "mimeType": "image/png",
+          "byteOffset": 8046272,
+          "byteLength": 3019656,
+          "sha256": "414d46afa55fba09ad0913484d57df2ba6b597dc8193595a13a12436137dc21b"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/b55f9737-36fd-49e8-917c-7a5fb3156ba9",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "2153148",
+      "page": "owner",
+      "requestID": "39663.99",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "f97a31fb02b5f36802a08bfe22bffb1961240d4ecb20059540eec6516d753424",
+      "bytes": 2153148,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+          "assetSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+          "image": 1,
+          "bufferView": 7,
+          "mimeType": "image/png",
+          "byteOffset": 5893124,
+          "byteLength": 2153148,
+          "sha256": "f97a31fb02b5f36802a08bfe22bffb1961240d4ecb20059540eec6516d753424"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/59554ec4-9142-4975-b4ca-e3ecc48dfa92",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "5744103",
+      "page": "owner",
+      "requestID": "39663.98",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "7bff7afbbc3f068e06f69abcddc8c2c9ce667ec181e0f2a918f8af78eba12610",
+      "bytes": 5744103,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+          "assetSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+          "image": 0,
+          "bufferView": 6,
+          "mimeType": "image/png",
+          "byteOffset": 149020,
+          "byteLength": 5744103,
+          "sha256": "7bff7afbbc3f068e06f69abcddc8c2c9ce667ec181e0f2a918f8af78eba12610"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/0ddc8c4d-309b-4f32-9179-00a956504e67",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "1335772",
+      "page": "owner",
+      "requestID": "39663.101",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "50c9a406a7f1cb6aa7b42912348e78f09d0252aa3963c8229cf18dfe8353cdbf",
+      "bytes": 1335772,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/shoes01/g050.glb",
+          "assetSHA256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+          "image": 1,
+          "bufferView": 7,
+          "mimeType": "image/png",
+          "byteOffset": 991388,
+          "byteLength": 1335772,
+          "sha256": "50c9a406a7f1cb6aa7b42912348e78f09d0252aa3963c8229cf18dfe8353cdbf"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/4cb38d94-9a95-4815-bfaa-e4e57255b2c6",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "875473",
+      "page": "owner",
+      "requestID": "39663.102",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "a9bfd7223e98b8f93100e89596135e3a94e6044f9db11b4d23cec625c37a4599",
+      "bytes": 875473,
+      "witnesses": [
+        {
+          "asset": "assets/wardrobe/shoes01/g050.glb",
+          "assetSHA256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+          "image": 0,
+          "bufferView": 6,
+          "mimeType": "image/png",
+          "byteOffset": 115912,
+          "byteLength": 875473,
+          "sha256": "a9bfd7223e98b8f93100e89596135e3a94e6044f9db11b4d23cec625c37a4599"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/c570abd1-6def-49a2-9202-3d5470553a31",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "1096244",
+      "page": "owner",
+      "requestID": "39663.108",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "witnesses": [
+        {
+          "asset": "assets/hair/bob02/g050.glb",
+          "assetSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+          "image": 1,
+          "bufferView": 8,
+          "mimeType": "image/png",
+          "byteOffset": 2230452,
+          "byteLength": 1096244,
+          "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    },
+    {
+      "phase": "desktop",
+      "url": "blob:http://127.0.0.1:57836/a2d20fe7-13ad-4ffa-8482-ac68412d68c8",
+      "status": 200,
+      "mimeType": "image/png",
+      "contentLength": "1077492",
+      "page": "owner",
+      "requestID": "39663.109",
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "admitted": false,
+      "kind": "embedded-image",
+      "provenance": "supplied-immutable-Blob",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "witnesses": [
+        {
+          "asset": "assets/hair/bob02/g050.glb",
+          "assetSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+          "image": 0,
+          "bufferView": 7,
+          "mimeType": "image/png",
+          "byteOffset": 1152960,
+          "byteLength": 1077492,
+          "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+        }
+      ],
+      "cdpCrossCheck": "empty-original-CDP-return-observed",
+      "offlineSourceAndParentValidated": true
+    }
+  ],
+  "network": {
+    "requests": 80,
+    "finished": 80,
+    "failed": 0,
+    "httpBodiesComplete": 67,
+    "blobBodiesPendingInOriginal": 13,
+    "blobCreationAndExactParentValidatedOffline": 13
+  },
+  "retirement": {
+    "id": "9231df44-f9ff-4a26-9c93-b3043c051135",
+    "synthetic": true,
+    "persisted": false,
+    "disposed": true,
+    "leaks": [],
+    "avatarStageCleared": true,
+    "stageRendererCleared": true,
+    "memory": {
+      "attributes": 0,
+      "attributesSize": 0,
+      "geometries": 0,
+      "indexAttributes": 0,
+      "indexAttributesSize": 0,
+      "indirectStorageAttributes": 0,
+      "indirectStorageAttributesSize": 0,
+      "programs": 0,
+      "programsSize": 0,
+      "readbackBuffers": 0,
+      "readbackBuffersSize": 0,
+      "renderTargets": 0,
+      "storageAttributes": 0,
+      "storageAttributesSize": 0,
+      "textures": 0,
+      "texturesSize": 0,
+      "uniformBuffers": 0,
+      "uniformBuffersSize": 0,
+      "total": 0
+    }
+  },
+  "limits": [
+    "The original report remains rejected and byte-for-byte untouched. Offline interpretation is separate and does not create a native completion seal.",
+    "All six consumed buffers match and all original HTTP requests finished in this run. The earlier intermittent abort was not reproduced; no cause is established.",
+    "No observed JS abort/cancel call applies only during observer installation, not internal browser/GC cancellation or teardown after restoration.",
+    "Reader and response association uses unique byte total and same-clock intervals, not direct object identity. Browser performance.now, CDP timestamps and host callback time are separate uncalibrated clocks; no cross-domain order is inferred.",
+    "For bob02, native read done precedes native arrayBuffer settlement/hash in browser time. There was no network failure terminal to order against.",
+    "No Rename interaction, steady-state visual, hair, fit or performance acceptance. One native startup step only; startup image is not a warmed workload."
+  ]
+}

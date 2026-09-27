@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "kind": "rename-rejected-native-v1",
+  "scope": "Rejected startup only; zero Rename interaction groups ran. Raw captures and archived sources remain untouched.",
+  "files": [
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v1/report.json",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v1/report.json.gz",
+      "decodedBytes": 256022,
+      "decodedSHA256": "06d2801a19776e08824e4deb37e97de92f77f9059337abe595e118909ca227b5",
+      "encodedBytes": 83693,
+      "encodedSHA256": "15055431f163df4acada099c7686d372d2549f0e52117036993ffaceb5e6b2c1"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v1/manifest.json",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v1/manifest.json.gz",
+      "decodedBytes": 221755,
+      "decodedSHA256": "fd096937beee8b10ba9ab115cf73330de262d9348a2b73a532cab41025dafb09",
+      "encodedBytes": 80194,
+      "encodedSHA256": "0f5bf326967a7dab7ac2abf063731c5b3a260882d59ecd129bc88e0922a855b0"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v1/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v1/native-probe.mjs",
+      "bytes": 26281,
+      "sha256": "1b98f15183835b6cf11111ed327fa414ac321b2af21b28d622cbbbd5686ca747"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v1/failure.png",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v1/failure.png",
+      "bytes": 599475,
+      "sha256": "73ac388664d1af32f6f240575bf499b75a2a01ebf850d1897262743d3da4baae"
+    }
+  ],
+  "sourceWitnesses": [
+    {
+      "path": "packages/core/src/Avatar.js",
+      "sha256": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2"
+    },
+    {
+      "path": "node_modules/three/src/loaders/FileLoader.js",
+      "sha256": "e3f730f2fdefdd4e9285883fb2eb7ca40e13d58ea96e969a669d3eaacd7d0c03"
+    },
+    {
+      "path": "node_modules/three/src/loaders/ImageBitmapLoader.js",
+      "sha256": "e549af8e615e28094d89d9a262802eb8f662bf314567d8d8c76204695238e351"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  ],
+  "observation": {
+    "completed": false,
+    "checks": 0,
+    "owners": 0,
+    "retirements": [
+      {
+        "id": "13af9c8e-6cbd-4b0e-a136-e16a9dc2c4e9",
+        "synthetic": true,
+        "persisted": false,
+        "disposed": true,
+        "leaks": [],
+        "avatarStageCleared": true,
+        "stageRendererCleared": true,
+        "memory": {
+          "attributes": 0,
+          "attributesSize": 0,
+          "geometries": 0,
+          "indexAttributes": 0,
+          "indexAttributesSize": 0,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 0,
+          "programsSize": 0,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 0,
+          "storageAttributes": 0,
+          "storageAttributesSize": 0,
+          "textures": 0,
+          "texturesSize": 0,
+          "uniformBuffers": 0,
+          "uniformBuffersSize": 0,
+          "total": 0
+        }
+      }
+    ],
+    "successfulHTTPResponses": 65,
+    "blobPathFailures": 13,
+    "HTTPFailures": [
+      {
+        "phase": "desktop",
+        "type": "requestfailed",
+        "url": "http://127.0.0.1:54856/assets/g050-yiqsxV00.glb",
+        "message": "net::ERR_ABORTED"
+      },
+      {
+        "phase": "desktop",
+        "type": "response",
+        "url": "http://127.0.0.1:54856/assets/g050-yiqsxV00.glb",
+        "message": "Error: response.body: Protocol error (Network.getResponseBody): No data found for resource with given identifier"
+      }
+    ],
+    "consoleOrPageErrors": [],
+    "sourcesStable": true
+  },
+  "embeddedImages": [
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "image": 0,
+      "bufferView": 12,
+      "mimeType": "image/png",
+      "byteOffset": 1263828,
+      "byteLength": 4391156,
+      "sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc"
+    },
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "image": 1,
+      "bufferView": 220,
+      "mimeType": "image/png",
+      "byteOffset": 7253636,
+      "byteLength": 89619,
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b"
+    },
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "image": 2,
+      "bufferView": 324,
+      "mimeType": "image/png",
+      "byteOffset": 7372392,
+      "byteLength": 91600,
+      "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35"
+    },
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "image": 3,
+      "bufferView": 385,
+      "mimeType": "image/png",
+      "byteOffset": 7528612,
+      "byteLength": 610817,
+      "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b"
+    },
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "image": 4,
+      "bufferView": 408,
+      "mimeType": "image/png",
+      "byteOffset": 8446752,
+      "byteLength": 1799930,
+      "sha256": "d0afb57869c6fbb56b98f5efc4aec629ee7593e70d8dd2bfb9de923acfb65f43"
+    },
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "assetSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "image": 5,
+      "bufferView": 469,
+      "mimeType": "image/png",
+      "byteOffset": 11086568,
+      "byteLength": 625419,
+      "sha256": "3150be398e48e8ba1feac164c3143c16c0b2e959d9ffb6155f0171f59cfb4ea9"
+    },
+    {
+      "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "assetSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "image": 0,
+      "bufferView": 6,
+      "mimeType": "image/png",
+      "byteOffset": 149020,
+      "byteLength": 5744103,
+      "sha256": "7bff7afbbc3f068e06f69abcddc8c2c9ce667ec181e0f2a918f8af78eba12610"
+    },
+    {
+      "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "assetSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "image": 1,
+      "bufferView": 7,
+      "mimeType": "image/png",
+      "byteOffset": 5893124,
+      "byteLength": 2153148,
+      "sha256": "f97a31fb02b5f36802a08bfe22bffb1961240d4ecb20059540eec6516d753424"
+    },
+    {
+      "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "assetSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "image": 2,
+      "bufferView": 8,
+      "mimeType": "image/png",
+      "byteOffset": 8046272,
+      "byteLength": 3019656,
+      "sha256": "414d46afa55fba09ad0913484d57df2ba6b597dc8193595a13a12436137dc21b"
+    },
+    {
+      "asset": "assets/wardrobe/shoes01/g050.glb",
+      "assetSHA256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "image": 0,
+      "bufferView": 6,
+      "mimeType": "image/png",
+      "byteOffset": 115912,
+      "byteLength": 875473,
+      "sha256": "a9bfd7223e98b8f93100e89596135e3a94e6044f9db11b4d23cec625c37a4599"
+    },
+    {
+      "asset": "assets/wardrobe/shoes01/g050.glb",
+      "assetSHA256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "image": 1,
+      "bufferView": 7,
+      "mimeType": "image/png",
+      "byteOffset": 991388,
+      "byteLength": 1335772,
+      "sha256": "50c9a406a7f1cb6aa7b42912348e78f09d0252aa3963c8229cf18dfe8353cdbf"
+    },
+    {
+      "asset": "assets/hair/bob02/g050.glb",
+      "assetSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+      "image": 0,
+      "bufferView": 7,
+      "mimeType": "image/png",
+      "byteOffset": 1152960,
+      "byteLength": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "asset": "assets/hair/bob02/g050.glb",
+      "assetSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+      "image": 1,
+      "bufferView": 8,
+      "mimeType": "image/png",
+      "byteOffset": 2230452,
+      "byteLength": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    }
+  ],
+  "limit": "The matching 13 image/response counts are not URL-to-image byte provenance. v1 read no blob bodies. HTTP bob02 bytes were never successfully obtained by the observer; no abort exception is granted."
+}

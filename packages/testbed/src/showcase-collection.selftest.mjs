@@ -55,4 +55,83 @@ check('storage access/quota/interleaved changes fail visibly and preserve prior 
     let reads = 0, writes = 0; const raced = new SavedLooks(() => ({ getItem: () => ++reads === 1 ? null : original, setItem: () => writes++ }), () => 'new');
     assert.throws(() => raced.add('New', options()), /changed/); assert.equal(writes, 0);
 });
+check('rename preserves full collection IDs, order and all configurations without another slot', () => {
+    const storage = store(); let next = 0; const library = new SavedLooks(() => storage, () => `id-${next++}`);
+    for (let i = 0; i < 12; i++) library.add(`Look ${i}`, options({ style: i % 2 ? 'original' : 'charcoal' }));
+    const before = library.read().looks, selected = before[5], result = library.rename(selected.id, ' New name ', selected);
+    assert.deepEqual(result, { ...selected, name: 'New name' });
+    assert.deepEqual(library.read().looks, before.map((item, i) => i === 5 ? { ...item, name: 'New name' } : item));
+    result.configuration.hair = 'mutated return'; assert.deepEqual(library.read().looks[5].configuration, selected.configuration);
+});
+check('rename follows Unicode/case duplicate rules excluding its own ID and keeps names plain', () => {
+    const storage = store(); let next = 0; const library = new SavedLooks(() => storage, () => `id-${next++}`);
+    let own = library.add('Cafe\u0301', options()); const other = library.add('Second', options()), before = storage.getItem(SAVED_LOOKS_KEY);
+    assert.throws(() => library.rename(other.id, 'CAFÉ', other), /already saved/); assert.equal(storage.getItem(SAVED_LOOKS_KEY), before);
+    for (const invalid of ['', ' ', 'x'.repeat(41), 'a\nb', 'a\u2028b', null]) assert.throws(() => library.rename(own.id, invalid, own));
+    assert.equal(storage.getItem(SAVED_LOOKS_KEY), before);
+    own = library.rename(own.id, 'CAFÉ', own); assert.equal(own.name, 'CAFÉ');
+    own = library.rename(own.id, '🌿'.repeat(40), own); assert.equal([...own.name].length, 40);
+    own = library.rename(own.id, '<img onerror=bad>', own); assert.equal(own.name, '<img onerror=bad>');
+});
+check('rename exact trimmed no-op does not write or consume Undo; real rename clears it', () => {
+    const storage = store(); let next = 0, writes = 0; const nativeSet = storage.setItem; storage.setItem = (key, value) => { writes++; nativeSet(key, value); };
+    const library = new SavedLooks(() => storage, () => `id-${next++}`), own = library.add('Keep', options()), removed = library.add('Remove', options());
+    library.remove(removed.id, removed); const before = storage.getItem(SAVED_LOOKS_KEY), undo = library.undoRecord, count = writes;
+    assert.deepEqual(library.rename(own.id, '  Keep  ', own), own); assert.equal(writes, count); assert.equal(storage.getItem(SAVED_LOOKS_KEY), before);
+    assert.equal(library.undoRecord, undo); assert.equal(library.canUndo(before), true); library.undo(); assert.equal(library.read().looks.length, 2);
+    library.remove(removed.id, removed); library.rename(own.id, 'keep', own); assert.equal(library.undoRecord, null); assert.throws(() => library.undo(), /changed/);
+});
+check('rename requires its exact selected item but preserves unrelated latest edits', () => {
+    const storage = store(); let next = 0; const a = new SavedLooks(() => storage, () => `a-${next++}`), b = new SavedLooks(() => storage, () => `b-${next++}`);
+    const own = a.add('First', options()), other = b.add('Second', options()); a.rename(own.id, 'Renamed', own);
+    assert.deepEqual(a.read().looks[1], other);
+    const latest = a.read().looks[0], before = storage.getItem(SAVED_LOOKS_KEY);
+    assert.throws(() => a.rename(own.id, 'Try again', own), /changed/); assert.throws(() => a.rename(own.id, 'No snapshot'), /changed/);
+    assert.equal(storage.getItem(SAVED_LOOKS_KEY), before);
+    const data = JSON.parse(before); data.looks[0].configuration = options({ scene: 'kitchen' }); storage.setItem(SAVED_LOOKS_KEY, JSON.stringify(data));
+    const changed = storage.getItem(SAVED_LOOKS_KEY); assert.throws(() => a.rename(own.id, latest.name, latest), /changed/); assert.equal(storage.getItem(SAVED_LOOKS_KEY), changed);
+    b.remove(own.id); const absent = storage.getItem(SAVED_LOOKS_KEY); assert.throws(() => a.rename(own.id, 'Removed', latest), /removed/); assert.equal(storage.getItem(SAVED_LOOKS_KEY), absent);
+});
+check('rename keeps unsupported configuration data exact and refuses corrupt envelopes', () => {
+    const storage = store(), library = new SavedLooks(() => storage), item = { id: 'future', name: 'Future look', configuration: { version: 99, unsupported: [null, { x: -3, text: 'unchanged' }] } };
+    storage.setItem(SAVED_LOOKS_KEY, JSON.stringify({ version: 1, looks: [item] }));
+    assert.deepEqual(library.rename(item.id, 'Future label', item), { ...item, name: 'Future label' }); assert.deepEqual(library.read().looks[0].configuration, item.configuration);
+    for (const raw of ['bad', JSON.stringify({ version: 2, looks: [] }), JSON.stringify({ version: 1, looks: [item, item] })]) {
+        storage.setItem(SAVED_LOOKS_KEY, raw); assert.throws(() => library.rename(item.id, 'Blocked', item)); assert.equal(storage.getItem(SAVED_LOOKS_KEY), raw);
+    }
+});
+check('rename access/read/write errors preserve data and existing Undo, then permit retry', () => {
+    const storage = store(); let next = 0; const library = new SavedLooks(() => storage, () => `id-${next++}`), own = library.add('Keep', options()), remove = library.add('Remove', options());
+    library.remove(remove.id, remove); const before = storage.getItem(SAVED_LOOKS_KEY), undo = library.undoRecord;
+    const get = storage.getItem, set = storage.setItem;
+    for (const point of ['access', 'first-read', 'commit-read', 'write']) {
+        let reads = 0; library.storage = () => { if (point === 'access') throw Error('blocked'); return storage; };
+        storage.getItem = key => { if (++reads === (point === 'first-read' ? 1 : point === 'commit-read' ? 2 : -1)) throw Error('blocked'); return get(key); };
+        storage.setItem = (key, value) => { if (point === 'write') throw Error('quota'); set(key, value); };
+        assert.throws(() => library.rename(own.id, 'Changed', own), /unavailable|could not be read|could not be updated/);
+        assert.equal(get(SAVED_LOOKS_KEY), before); assert.equal(library.undoRecord, undo);
+    }
+    library.storage = () => storage; storage.getItem = get; storage.setItem = set;
+    assert.equal(library.rename(own.id, 'Changed', own).name, 'Changed'); assert.equal(library.undoRecord, null);
+});
+check('rename refuses commit-time interleaving rather than replacing a newer list', () => {
+    const item = { id: 'own', name: 'Name', configuration: options() }, first = JSON.stringify({ version: 1, looks: [item] });
+    const newer = JSON.stringify({ version: 1, looks: [item, { ...item, id: 'other', name: 'Other' }] });
+    let reads = 0, writes = 0; const library = new SavedLooks(() => ({ getItem: () => ++reads === 1 ? first : newer, setItem: () => writes++ }));
+    const undo = { before: { version: 1, looks: [] }, after: first }; library.undoRecord = undo;
+    assert.throws(() => library.rename(item.id, 'Updated', item), /collection changed/); assert.equal(writes, 0); assert.equal(library.undoRecord, undo);
+});
+check('rename fails closed on raw overflow and negative-zero configurations, including unrelated records', () => {
+    for (const literal of ['1e400', '-0']) for (const selectedUnsafe of [true, false]) {
+        let raw = `{"version":1,"looks":[{"id":"safe","name":"Safe","configuration":null},{"id":"future","name":"Future","configuration":{"nested":[{"number":${literal}}]}}]}`, writes = 0;
+        const storage = { getItem: () => raw, setItem: (key, value) => { assert.equal(key, SAVED_LOOKS_KEY); raw = value; writes++; } }, library = new SavedLooks(() => storage);
+        const before = raw, item = library.read().looks[selectedUnsafe ? 1 : 0], undo = { before: { version: 1, looks: [] }, after: raw }; library.undoRecord = undo;
+        for (const name of ['Renamed', item.name]) assert.throws(() => library.rename(item.id, name, item), /cannot be safely renamed/);
+        assert.equal(raw, before); assert.equal(writes, 0); assert.equal(library.undoRecord, undo); assert.equal(library.canUndo(raw), true);
+        raw = raw.replace(`"number":${literal}`, `"number":${literal === '1e400' ? 'null' : '0'}`);
+        const repaired = raw;
+        if (selectedUnsafe) { assert.throws(() => library.rename(item.id, 'Stale snapshot', item), /cannot be safely renamed/); assert.equal(raw, repaired); assert.equal(writes, 0); }
+        const current = library.read().looks[selectedUnsafe ? 1 : 0]; assert.equal(library.rename(current.id, 'Renamed', current).name, 'Renamed'); assert.equal(writes, 1);
+    }
+});
 console.log(`PASS ${checks} saved collection groups`);

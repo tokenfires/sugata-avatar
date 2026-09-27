@@ -72,6 +72,26 @@ export class SavedLooks {
         this.commit(current, { version: 1, looks: [...current.looks, item] }); this.undoRecord = null;
         return copy(item);
     }
+    rename(id, name, expectedItem) {
+        name = savedLookName(name);
+        const current = this.read(), index = current.looks.findIndex(item => item.id === id);
+        if (index < 0) throw new Error('This saved look was removed. Cancel and choose another look.');
+        // Parsed JSON may contain Infinity (for example 1e400) or -0; stringify
+        // would change those values, even inside an unrelated future look.
+        const pending = [...current.looks.map(item => item.configuration), expectedItem?.configuration];
+        while (pending.length) {
+            const value = pending.pop();
+            if (typeof value === 'number' && (!Number.isFinite(value) || Object.is(value, -0))) throw new Error('This collection has settings that cannot be safely renamed in this version. Its stored data was kept.');
+            if (value && typeof value === 'object') for (const child of Object.values(value)) pending.push(child);
+        }
+        const previous = current.looks[index];
+        if (!expectedItem || JSON.stringify(previous) !== JSON.stringify(expectedItem)) throw new Error('This saved look changed. Cancel and open Rename again.');
+        if (previous.name === name) return copy(previous);
+        if (current.looks.some(item => item.id !== id && nameKey(item.name) === nameKey(name))) throw new Error('That name is already saved. Choose another name.');
+        const item = { ...previous, name }, looks = current.looks.slice(); looks[index] = item;
+        this.commit(current, { version: 1, looks }); this.undoRecord = null;
+        return copy(item);
+    }
     open(id) {
         const item = this.read().looks.find(item => item.id === id);
         if (!item) throw new Error('This saved look was removed. Choose another look.');

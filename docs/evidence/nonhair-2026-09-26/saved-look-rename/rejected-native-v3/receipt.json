@@ -1,0 +1,654 @@
+{
+  "version": 1,
+  "kind": "rejected-rename-native-v3",
+  "files": [
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/report.json",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/report.json.gz",
+      "decodedBytes": 829817,
+      "decodedSHA256": "24d9aad4a5ad4df4d77d4a5335630c8f2f4842ee2a50a80b02658148c3040a56",
+      "encodedBytes": 124030,
+      "encodedSHA256": "ac4ed20cfbd3146c7aa387bf081e0a20a49d79dbf3c8bdcff99c92deb5a53063"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/manifest.json",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/manifest.json.gz",
+      "decodedBytes": 223701,
+      "decodedSHA256": "c56f50efa377e1f853ba03a6d22a603062feb8c03d414c507eed65a897b4cc7b",
+      "encodedBytes": 80889,
+      "encodedSHA256": "6f919f7b434743a346982ac82aac5db509909055eaf697305cd7b8b328a9aa3e"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/native-probe.mjs",
+      "bytes": 35520,
+      "sha256": "9db14d30a4186b3a8a181319f598f7ba3a1cb13791185e43eb264b6a55f0e05c"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/native-network.mjs",
+      "bytes": 6267,
+      "sha256": "0ce492f4f85c98dfaf126ceed97a6dd8f309fd5fb1346f8688f208b30a2662f7"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.selftest.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/native-network.selftest.mjs",
+      "bytes": 6283,
+      "sha256": "3674b5cd2b988602351fae2dc8a93e9bc863bf86f114f47bf6aae7f9a39dc20d"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/blob-creation.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/blob-creation.mjs",
+      "bytes": 3263,
+      "sha256": "cefa708412f4f57ec8d3bedee1d0359b9e8bbd1ab1eea951375c3ba231b97c2c"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/blob-creation.selftest.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/blob-creation.selftest.mjs",
+      "bytes": 3935,
+      "sha256": "1f04598ac749c8d81434baed0514af8fab132f6a7ca9b0e831c9ccb6490a7e79"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v3/failure.png",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v3/failure.png",
+      "bytes": 599485,
+      "sha256": "3a78390f6064b671c2468d2b5f34fb26ce32af13a483c3615fbfdc86a77316ef"
+    }
+  ],
+  "completed": false,
+  "checks": 0,
+  "errors": [
+    {
+      "phase": "desktop",
+      "type": "requestfailed",
+      "requestID": 67,
+      "at": 2631.662208,
+      "url": "http://127.0.0.1:56950/assets/g050-yiqsxV00.glb",
+      "message": "net::ERR_ABORTED"
+    },
+    {
+      "phase": "desktop",
+      "type": "cdp-loading-failed",
+      "page": "owner",
+      "requestID": "7097.107",
+      "at": 2631.754416,
+      "url": "http://127.0.0.1:56950/assets/g050-yiqsxV00.glb",
+      "message": "net::ERR_ABORTED",
+      "canceled": true
+    }
+  ],
+  "owners": [
+    {
+      "id": "0d2c7836-0167-416a-8b26-d3ca6f938d0c",
+      "registeredBeforeWarmup": true,
+      "phase": "desktop",
+      "qualified": false
+    }
+  ],
+  "retirements": [
+    {
+      "id": "0d2c7836-0167-416a-8b26-d3ca6f938d0c",
+      "synthetic": true,
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "avatarStageCleared": true,
+      "stageRendererCleared": true,
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    }
+  ],
+  "sourceStable": true,
+  "browserVersion": "149.0.7827.55",
+  "failedRequest": {
+    "url": "http://127.0.0.1:56950/assets/g050-yiqsxV00.glb",
+    "cdpRequestID": "7097.107",
+    "playwrightRequestID": 67,
+    "requestCount": 1,
+    "serverRequestCount": 1,
+    "initiator": {
+      "type": "script",
+      "stack": {
+        "callFrames": [
+          {
+            "functionName": "load",
+            "scriptId": "10",
+            "url": "http://127.0.0.1:56950/assets/three.core-BmqiN6YQ.js",
+            "lineNumber": 0,
+            "columnNumber": 193764
+          },
+          {
+            "functionName": "load",
+            "scriptId": "28",
+            "url": "http://127.0.0.1:56950/assets/GLTFLoader-CdTfRvUe.js",
+            "lineNumber": 0,
+            "columnNumber": 3404
+          },
+          {
+            "functionName": "",
+            "scriptId": "10",
+            "url": "http://127.0.0.1:56950/assets/three.core-BmqiN6YQ.js",
+            "lineNumber": 0,
+            "columnNumber": 192572
+          },
+          {
+            "functionName": "loadAsync",
+            "scriptId": "10",
+            "url": "http://127.0.0.1:56950/assets/three.core-BmqiN6YQ.js",
+            "lineNumber": 0,
+            "columnNumber": 192544
+          },
+          {
+            "functionName": "attachHair",
+            "scriptId": "37",
+            "url": "http://127.0.0.1:56950/assets/Avatar-DuVeBvBE.js",
+            "lineNumber": 1,
+            "columnNumber": 91005
+          }
+        ]
+      }
+    },
+    "method": "GET",
+    "requestHeaders": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "Referer": "http://127.0.0.1:56950/src/showcase.html?capture=rename",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "decodedBytes": 3347176,
+    "encodedBytes": 3347176,
+    "expectedLength": 3347176,
+    "events": [
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "requestWillBeSent",
+        "phase": "desktop",
+        "at": 2629.249583,
+        "data": {
+          "requestId": "7097.107",
+          "loaderId": "9F43666AB3EE1B7ACD683AEDB7A91797",
+          "documentURL": "http://127.0.0.1:56950/src/showcase.html?capture=rename",
+          "request": {
+            "url": "http://127.0.0.1:56950/assets/g050-yiqsxV00.glb",
+            "method": "GET",
+            "headers": {
+              "sec-ch-ua-platform": "\"macOS\"",
+              "Referer": "http://127.0.0.1:56950/src/showcase.html?capture=rename",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+              "sec-ch-ua": "\"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+              "sec-ch-ua-mobile": "?0"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "isSameSite": true
+          },
+          "timestamp": 186541.459368,
+          "wallTime": 1790469707.618384,
+          "initiator": {
+            "type": "script",
+            "stack": {
+              "callFrames": [
+                {
+                  "functionName": "load",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:56950/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 193764
+                },
+                {
+                  "functionName": "load",
+                  "scriptId": "28",
+                  "url": "http://127.0.0.1:56950/assets/GLTFLoader-CdTfRvUe.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3404
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:56950/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192572
+                },
+                {
+                  "functionName": "loadAsync",
+                  "scriptId": "10",
+                  "url": "http://127.0.0.1:56950/assets/three.core-BmqiN6YQ.js",
+                  "lineNumber": 0,
+                  "columnNumber": 192544
+                },
+                {
+                  "functionName": "attachHair",
+                  "scriptId": "37",
+                  "url": "http://127.0.0.1:56950/assets/Avatar-DuVeBvBE.js",
+                  "lineNumber": 1,
+                  "columnNumber": 91005
+                }
+              ]
+            }
+          },
+          "redirectHasExtraInfo": false,
+          "type": "Fetch",
+          "frameId": "A6587CEBB5B7B257CA40E06263CF8FB5",
+          "hasUserGesture": true
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "responseReceived",
+        "phase": "desktop",
+        "at": 2630.431333,
+        "data": {
+          "requestId": "7097.107",
+          "loaderId": "9F43666AB3EE1B7ACD683AEDB7A91797",
+          "timestamp": 186541.46242,
+          "type": "Fetch",
+          "response": {
+            "url": "http://127.0.0.1:56950/assets/g050-yiqsxV00.glb",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Cache-Control": "no-store",
+              "Content-Length": "3347176",
+              "Keep-Alive": "timeout=5",
+              "Date": "Sun, 27 Sep 2026 00:41:47 GMT",
+              "Content-Type": "model/gltf-binary",
+              "Connection": "keep-alive"
+            },
+            "mimeType": "model/gltf-binary",
+            "charset": "",
+            "connectionReused": true,
+            "connectionId": 161,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 56950,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 186,
+            "timing": {
+              "requestTime": 186541.459602,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 0.116,
+              "sendEnd": 0.161,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 2.409,
+              "receiveHeadersEnd": 2.439
+            },
+            "responseTime": 1790469707620.985,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "hasExtraInfo": true,
+          "frameId": "A6587CEBB5B7B257CA40E06263CF8FB5"
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "dataReceived",
+        "phase": "desktop",
+        "at": 2630.479458,
+        "data": {
+          "requestId": "7097.107",
+          "timestamp": 186541.462758,
+          "dataLength": 462662,
+          "encodedDataLength": 462662
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "dataReceived",
+        "phase": "desktop",
+        "at": 2630.4815,
+        "data": {
+          "requestId": "7097.107",
+          "timestamp": 186541.463015,
+          "dataLength": 458752,
+          "encodedDataLength": 458752
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "dataReceived",
+        "phase": "desktop",
+        "at": 2630.483166,
+        "data": {
+          "requestId": "7097.107",
+          "timestamp": 186541.463352,
+          "dataLength": 720896,
+          "encodedDataLength": 655360
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "dataReceived",
+        "phase": "desktop",
+        "at": 2630.48475,
+        "data": {
+          "requestId": "7097.107",
+          "timestamp": 186541.4636,
+          "dataLength": 454842,
+          "encodedDataLength": 1110202
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "dataReceived",
+        "phase": "desktop",
+        "at": 2630.655291,
+        "data": {
+          "requestId": "7097.107",
+          "timestamp": 186541.463879,
+          "dataLength": 1250024,
+          "encodedDataLength": 660200
+        }
+      },
+      {
+        "observer": "cdp",
+        "page": "owner",
+        "event": "loadingFailed",
+        "phase": "desktop",
+        "at": 2631.709083,
+        "data": {
+          "requestId": "7097.107",
+          "timestamp": 186541.464126,
+          "type": "Fetch",
+          "errorText": "net::ERR_ABORTED",
+          "canceled": true
+        }
+      }
+    ],
+    "server": [
+      {
+        "id": 57,
+        "phase": "desktop",
+        "method": "GET",
+        "url": "/assets/g050-yiqsxV00.glb",
+        "receivedAt": 2626.467583,
+        "file": "assets/g050-yiqsxV00.glb",
+        "status": 200,
+        "sentBytes": 3347176,
+        "sentSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+        "writeAt": 2628.26075,
+        "finishAt": 2630.31725,
+        "writableFinished": true,
+        "closeAt": 2630.325541,
+        "closedAfterFinish": true
+      }
+    ],
+    "successfullyObservedOriginalBody": false,
+    "cancellationStackAvailable": false
+  },
+  "originalBlobChecks": [
+    {
+      "url": "blob:http://127.0.0.1:56950/ea9036a2-77a3-41e9-ba0f-5747008de628",
+      "requestID": "7097.86",
+      "creationSHA256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "byteLength": 89619,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/body/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/04e74ef0-0dd1-44ef-bdf7-ea60810beb6b",
+      "requestID": "7097.87",
+      "creationSHA256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35",
+      "byteLength": 91600,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/body/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/86b2587f-e87f-459e-8bdb-c01f51133406",
+      "requestID": "7097.88",
+      "creationSHA256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b",
+      "byteLength": 610817,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/body/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/03df2ec5-aaf6-4feb-be38-ddd1f96a8429",
+      "requestID": "7097.89",
+      "creationSHA256": "d0afb57869c6fbb56b98f5efc4aec629ee7593e70d8dd2bfb9de923acfb65f43",
+      "byteLength": 1799930,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/body/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/cc773f84-ed16-4cc3-bc57-328361b3a36e",
+      "requestID": "7097.90",
+      "creationSHA256": "3150be398e48e8ba1feac164c3143c16c0b2e959d9ffb6155f0171f59cfb4ea9",
+      "byteLength": 625419,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/body/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/80d2431b-8f77-4b38-b934-497c359e04ab",
+      "requestID": "7097.85",
+      "creationSHA256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc",
+      "byteLength": 4391156,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/body/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/a2d04d29-336e-431e-8d4d-91ba112d72e1",
+      "requestID": "7097.97",
+      "creationSHA256": "414d46afa55fba09ad0913484d57df2ba6b597dc8193595a13a12436137dc21b",
+      "byteLength": 3019656,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/female_casualsuit01/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/574d4268-042b-41b6-b1f9-9d9723d713c9",
+      "requestID": "7097.99",
+      "creationSHA256": "f97a31fb02b5f36802a08bfe22bffb1961240d4ecb20059540eec6516d753424",
+      "byteLength": 2153148,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/female_casualsuit01/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/ccbc06d6-e889-446e-a354-b2b586003483",
+      "requestID": "7097.98",
+      "creationSHA256": "7bff7afbbc3f068e06f69abcddc8c2c9ce667ec181e0f2a918f8af78eba12610",
+      "byteLength": 5744103,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/female_casualsuit01/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/33e26f6f-026c-4183-9ffc-98be2f85c69b",
+      "requestID": "7097.101",
+      "creationSHA256": "50c9a406a7f1cb6aa7b42912348e78f09d0252aa3963c8229cf18dfe8353cdbf",
+      "byteLength": 1335772,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/shoes01/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/10301324-e164-448f-b6f6-6d270710ab11",
+      "requestID": "7097.102",
+      "creationSHA256": "a9bfd7223e98b8f93100e89596135e3a94e6044f9db11b4d23cec625c37a4599",
+      "byteLength": 875473,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [
+        "assets/wardrobe/shoes01/g050.glb"
+      ],
+      "limit": "CPU post-check only; whole run rejected"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/393c3e50-2b1c-4092-b9e2-1aebaabcbd6e",
+      "requestID": "7097.108",
+      "creationSHA256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "byteLength": 1096244,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [],
+      "limit": "Parent GLB original HTTP body missing; creation match is not whole-GLB byte admission"
+    },
+    {
+      "url": "blob:http://127.0.0.1:56950/35a6b6d1-268e-44a5-a494-9a487e80e187",
+      "requestID": "7097.109",
+      "creationSHA256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "byteLength": 1077492,
+      "cdpBody": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "base64Encoded": false,
+        "encodedCharacters": 0,
+        "encodedStringSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "creationAndResponseChecksPass": true,
+      "parentsWithExactOriginalHTTPBytes": [],
+      "limit": "Parent GLB original HTTP body missing; creation match is not whole-GLB byte admission"
+    }
+  ],
+  "limit": "Sole observed original native loader request received the complete declared byte count before canceled=true. Counters and embedded PNG hashes do not prove the complete application ArrayBuffer SHA or cancellation cause. No duplicate/preload/range consumer is evidenced. Whole run remains rejected."
+}

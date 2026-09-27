@@ -1,0 +1,22 @@
+{
+  "kind": "saved-look-rename-v4-CPU-source-readiness",
+  "nativeRun": false,
+  "groups": 6,
+  "passed": true,
+  "sourceHashes": {
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe-v4.mjs": "451f37b965b36206df8718d49e786f22b87e849a7ad43a5be351db4776a75180",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-consumption.mjs": "45a644ecd360b3ab2c7c50238b7be7ec9e56d77f330b901b77fe72955fd62c77",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-consumption.selftest.mjs": "7c17c486b29b8b2a150228ee7d59de13a5efc9da9ed0c0e763bc55f032fef5f3",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.mjs": "0ba4a57faadd2151f093811de24504b011d42a4c8cb40763282707bf3d07d1ed",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/blob-creation.mjs": "cefa708412f4f57ec8d3bedee1d0359b9e8bbd1ab1eea951375c3ba231b97c2c",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.mjs": "0ce492f4f85c98dfaf126ceed97a6dd8f309fd5fb1346f8688f208b30a2662f7"
+  },
+  "fixtureReportDecodedSHA256": "0f9343c0852aaf4a584f4657d4272338110ccfd3eb23bf38f5f317722a66af0e",
+  "productHashes": {
+    "packages/testbed/src/showcase-collection.mjs": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+    "packages/testbed/src/showcase-collection.selftest.mjs": "826d4e2de344bf0122e8ff0eba47fc06c5be5f75bd785125c5dc86550fdfd357",
+    "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+    "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8"
+  },
+  "scope": "Six focused classifier/error-boundary groups and controller syntax passed; original product13groups/build unchanged. Source critique pending; no native result."
+}

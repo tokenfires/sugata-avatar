@@ -1,0 +1,141 @@
+{
+  "kind": "rename-transport-v1-preserved-rejection",
+  "records": [
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/report.json",
+      "path": "report.json.gz",
+      "encoding": "gzip",
+      "bytes": 871242,
+      "sha256": "0f9343c0852aaf4a584f4657d4272338110ccfd3eb23bf38f5f317722a66af0e",
+      "encodedBytes": 130347,
+      "encodedSHA256": "0402181bd002604b89409733f4c3ca2ff570d132af217f3b9baefc0150ea9261"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/manifest.json",
+      "path": "manifest.json.gz",
+      "encoding": "gzip",
+      "bytes": 224055,
+      "sha256": "69f7ef7d7e2ec1a0869086bd4cef9c96ad2cb1fa28e2a1157551b6b2ed7a700a",
+      "encodedBytes": 80978,
+      "encodedSHA256": "b9baa26aba3369b2c306003568027bc86ece7c9eca4c112abe51c01c63ec4bd7"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/failure.png",
+      "path": "failure.png",
+      "encoding": "identity",
+      "bytes": 595856,
+      "sha256": "a84f1ba66aa3024011c39fb58c2c09b247d79bf14f028071cb253590e32945c3",
+      "encodedBytes": 595856,
+      "encodedSHA256": "a84f1ba66aa3024011c39fb58c2c09b247d79bf14f028071cb253590e32945c3"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/packages/core/src/wardrobe/WardrobeStyles.js",
+      "path": "source/packages/core/src/wardrobe/WardrobeStyles.js.gz",
+      "encoding": "gzip",
+      "bytes": 7301,
+      "sha256": "b896ec3978130374a04760e576d61d1f049abc32a4cc9f592ad7f57fba75ee5a",
+      "encodedBytes": 2742,
+      "encodedSHA256": "c5a4f375a29f9ac20a18f950fb1f28199980514b228a473492219cc895aec085"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/node_modules/three/src/loaders/FileLoader.js",
+      "path": "source/dependencies/three/src/loaders/FileLoader.js.gz",
+      "encoding": "gzip",
+      "bytes": 7851,
+      "sha256": "e3f730f2fdefdd4e9285883fb2eb7ca40e13d58ea96e969a669d3eaacd7d0c03",
+      "encodedBytes": 2691,
+      "encodedSHA256": "6390e4e9162e81e6c7c855151c9fd04d94f386990f102262eec04e138f60a24f"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "path": "source/dependencies/three/examples/jsm/loaders/GLTFLoader.js.gz",
+      "encoding": "gzip",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2",
+      "encodedBytes": 25179,
+      "encodedSHA256": "54085e9a9d3e998fb16217df1eab6179bc0cc66ee5fa2e0825ecceb5363ae59b"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs",
+      "path": "source/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-diagnostic.mjs.gz",
+      "encoding": "gzip",
+      "bytes": 26220,
+      "sha256": "fa5ce190ee5c5e9988eaee1e31a9f496f1fad911b640767ef14bc63c6db7867d",
+      "encodedBytes": 8340,
+      "encodedSHA256": "1b7b84c196cb70c8b522484adab306605b035c23265fae2607e6b6f100c8da84"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.mjs",
+      "path": "source/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.mjs.gz",
+      "encoding": "gzip",
+      "bytes": 4548,
+      "sha256": "0ba4a57faadd2151f093811de24504b011d42a4c8cb40763282707bf3d07d1ed",
+      "encodedBytes": 1782,
+      "encodedSHA256": "b5c2d7a3d3cbc53ba8cdd06be78063de4431a15336d17715b1b4f3419ce2022d"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.selftest.mjs",
+      "path": "source/docs/evidence/nonhair-2026-09-26/saved-look-rename/transport-observer.selftest.mjs.gz",
+      "encoding": "gzip",
+      "bytes": 5135,
+      "sha256": "b30c7231d7287197508709bfa33a0787d9404e6dc8b27f9ad0b4e972427aad1e",
+      "encodedBytes": 1716,
+      "encodedSHA256": "9924ce0f1f880305cc48799648f0515c6f08490a4dc26965a3fa7de28730cb02"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.mjs",
+      "path": "source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.mjs.gz",
+      "encoding": "gzip",
+      "bytes": 6267,
+      "sha256": "0ce492f4f85c98dfaf126ceed97a6dd8f309fd5fb1346f8688f208b30a2662f7",
+      "encodedBytes": 2158,
+      "encodedSHA256": "89e90b8fc15dc861943527fa21a40b6c8636a71154c749c5a5c0334ec2cc8a35"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/blob-creation.mjs",
+      "path": "source/docs/evidence/nonhair-2026-09-26/saved-look-rename/blob-creation.mjs.gz",
+      "encoding": "gzip",
+      "bytes": 3263,
+      "sha256": "cefa708412f4f57ec8d3bedee1d0359b9e8bbd1ab1eea951375c3ba231b97c2c",
+      "encodedBytes": 1301,
+      "encodedSHA256": "2f69531ab9ddc1d016bfe236bd771aad66737c413ab9c69a8bff473ab61d9eb4"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/built/assets/three.core-BmqiN6YQ.js",
+      "path": "built/assets/three.core-BmqiN6YQ.js.gz",
+      "encoding": "gzip",
+      "bytes": 227221,
+      "sha256": "5546cfea638409f2e8aa278e559a998b14ac0ba50e3368620f9f33f689f4093c",
+      "encodedBytes": 58528,
+      "encodedSHA256": "feb73008b4be06ecf026573536223db0426ed5bde7285149f3593ac4e94d1ec2"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/built/assets/WardrobeStyles-CV2rj9hg.js",
+      "path": "built/assets/WardrobeStyles-CV2rj9hg.js.gz",
+      "encoding": "gzip",
+      "bytes": 3597,
+      "sha256": "8d070e4e682e07739048a84275383cbc86df3d80e9d7c779acd14300b08b8a37",
+      "encodedBytes": 1772,
+      "encodedSHA256": "6530e50769def66bbd6d536d9b88fe77a3a9337375899af04dfc04f69f385d65"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/transport-v1/built/assets/GLTFLoader-CdTfRvUe.js",
+      "path": "built/assets/GLTFLoader-CdTfRvUe.js.gz",
+      "encoding": "gzip",
+      "bytes": 44243,
+      "sha256": "e19d3d543ec63a1f1d4a33b1b74c0134dd9ea56e34559bf82a31dbc8cf804780",
+      "encodedBytes": 13045,
+      "encodedSHA256": "dff904ea04d63b214840d621f6d794df06f77103ffba88c83b30c035b172b388"
+    }
+  ],
+  "analysis": {
+    "path": "analysis.json",
+    "sha256": "1f6dac17eb5aa486e60e460dd0c0c2e6c29580332ac714b7161d87eae3075023"
+  },
+  "analysisSources": {
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/analyze-transport-v1.mjs": "e76f059a2373a09c24e7fc9775ad17609f38c58235c0155f4c12036482168863",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-consumption.mjs": "45a644ecd360b3ab2c7c50238b7be7ec9e56d77f330b901b77fe72955fd62c77",
+    "docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.mjs": "0ce492f4f85c98dfaf126ceed97a6dd8f309fd5fb1346f8688f208b30a2662f7"
+  },
+  "verdict": "Corrected offline consumption/source attribution passes; original native controller stays rejected. Prior cancellation cause remains unresolved; no UI qualification."
+}

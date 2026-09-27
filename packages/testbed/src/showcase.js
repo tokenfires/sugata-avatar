@@ -33,12 +33,26 @@ const paletteReferences = mountPaletteReferences(document.getElementById('style-
     {outfit: 'elegant', style: 'charcoal', src: elegantCharcoal},
     {outfit: 'elegant', style: 'original', src: elegantOriginal}
 ]);
-let collectionBlocked = true, collectionCount = 0;
+let collectionBlocked = true, collectionCount = 0, renameDraft = null, renameFocusId = null;
+const renameDialog = document.getElementById('rename-look-dialog');
+function renameFeedback(message) {
+    const error = document.getElementById('rename-look-error'); error.textContent = message; error.hidden = !message;
+    document.getElementById('rename-look-name').setAttribute('aria-invalid', message ? 'true' : 'false');
+}
+function startRename(item) {
+    if (!collectionAvailable()) return;
+    renameDraft = { item, stale: false }; renameFocusId = item.id;
+    const input = document.getElementById('rename-look-name'); input.value = item.name; renameFeedback('');
+    updateCollectionControls(); renameDialog.showModal(); input.focus(); input.select();
+}
 const collectionAvailable = () => !busy && !savingImage && !failed && avatar && !avatar.disposed && !collectionBlocked;
 function updateCollectionControls() {
     document.getElementById('collection-controls').disabled = !collectionAvailable();
     document.getElementById('save-local-look').disabled = !collectionAvailable() || collectionCount >= SAVED_LOOKS_LIMIT;
     for (const button of document.querySelectorAll('[data-open-look]')) button.disabled = !collectionAvailable() || button.dataset.unavailable === 'true';
+    document.getElementById('rename-look-save').disabled = !collectionAvailable() || !renameDraft || renameDraft.stale;
+    document.getElementById('rename-look-retry').hidden = !collectionBlocked;
+    document.getElementById('rename-look-retry').disabled = busy || savingImage || failed || !avatar || avatar.disposed;
 }
 function enableControls() {
     for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
@@ -52,21 +66,24 @@ function renderCollection() {
     const list = document.getElementById('saved-look-list');
     try {
         const current = savedLooks.read(); collectionBlocked = false; collectionCount = current.looks.length;
+        if (renameDraft && !current.looks.some(item => JSON.stringify(item) === JSON.stringify(renameDraft.item))) {
+            renameDraft.stale = true; renameFeedback('This saved look changed or was removed. Your draft is kept. Cancel and open Rename again.');
+        }
         list.replaceChildren(); document.getElementById('saved-look-count').textContent = `${collectionCount} / ${SAVED_LOOKS_LIMIT}`;
         document.getElementById('saved-look-empty').hidden = collectionCount !== 0;
         document.getElementById('undo-look').hidden = !savedLooks.canUndo(current.raw);
         for (const item of current.looks) {
             const row = document.createElement('li'), name = document.createElement('strong'), description = document.createElement('small'), actions = document.createElement('div');
             name.textContent = item.name; description.id = `saved-description-${item.id}`; actions.className = 'saved-look-actions';
-            const open = document.createElement('button'), remove = document.createElement('button');
-            open.type = remove.type = 'button'; open.className = remove.className = 'secondary';
-            open.textContent = 'Open'; remove.textContent = 'Remove'; open.dataset.openLook = item.id; remove.dataset.removeLook = item.id;
-            open.setAttribute('aria-label', `Open saved look ${item.name}`); remove.setAttribute('aria-label', `Remove saved look ${item.name}`);
+            const open = document.createElement('button'), rename = document.createElement('button'), remove = document.createElement('button');
+            open.type = rename.type = remove.type = 'button'; open.className = rename.className = remove.className = 'secondary';
+            open.textContent = 'Open'; rename.textContent = 'Rename'; remove.textContent = 'Remove'; open.dataset.openLook = item.id; rename.dataset.renameLook = item.id; remove.dataset.removeLook = item.id;
+            open.setAttribute('aria-label', `Open saved look ${item.name}`); rename.setAttribute('aria-label', `Rename saved look ${item.name}`); remove.setAttribute('aria-label', `Remove saved look ${item.name}`);
             open.setAttribute('aria-describedby', description.id);
             try {
                 const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
                 description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
-            } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep or remove this saved entry.'; }
+            } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
             open.addEventListener('click', () => {
                 if (!collectionAvailable()) return;
                 try {
@@ -75,6 +92,7 @@ function renderCollection() {
                     openLook({ size: new Blob([text]).size, text: async () => text });
                 } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
             });
+            rename.addEventListener('click', () => startRename(item));
             remove.addEventListener('click', () => {
                 if (!collectionAvailable()) return;
                 try {
@@ -82,13 +100,13 @@ function renderCollection() {
                     if (renderCollection()) { collectionFeedback(`Removed “${removed.name}”. You can undo this removal.`); document.getElementById('undo-look').focus(); }
                 } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
             });
-            actions.append(open, remove); row.append(name, description, actions); list.append(row);
+            actions.append(open, rename, remove); row.append(name, description, actions); list.append(row);
         }
         updateCollectionControls(); return true;
     } catch (error) {
         collectionBlocked = true; list.replaceChildren(); document.getElementById('saved-look-empty').hidden = true;
         document.getElementById('saved-look-count').textContent = 'Unavailable'; document.getElementById('undo-look').hidden = true;
-        collectionFeedback(error.message, true); updateCollectionControls(); return false;
+        collectionFeedback(error.message, true); if (renameDraft) renameFeedback(error.message); updateCollectionControls(); return false;
     }
 }
 function updateAttention() {
@@ -248,6 +266,24 @@ async function copyLook() {
         catch { document.getElementById('config-text').value = text; dialog.showModal(); document.getElementById('config-text').select(); setStatus('Settings ready to copy'); }
     } catch (error) { setStatus(error.message); }
 }
+
+document.getElementById('rename-look-form').addEventListener('submit', event => {
+    event.preventDefault(); if (!collectionAvailable() || !renameDraft || renameDraft.stale) return;
+    try {
+        const before = renameDraft.item, item = savedLooks.rename(before.id, document.getElementById('rename-look-name').value, before);
+        renameDraft = null; renameDialog.close();
+        if (renderCollection()) collectionFeedback(item.name === before.name ? 'The saved name is unchanged.' : `Saved look renamed to “${item.name}”.`);
+    } catch (error) { renderCollection(); renameFeedback(error.message); }
+});
+document.getElementById('rename-look-retry').addEventListener('click', () => {
+    if (renderCollection() && renameDraft && !renameDraft.stale) renameFeedback('');
+});
+document.getElementById('rename-look-cancel').addEventListener('click', () => renameDialog.close());
+renameDialog.addEventListener('close', () => {
+    renameDraft = null; document.getElementById('rename-look-name').value = ''; renameFeedback(''); updateCollectionControls();
+    const target = [...document.querySelectorAll('[data-rename-look]')].find(button => button.dataset.renameLook === renameFocusId);
+    (target && collectionAvailable() ? target : document.querySelector('#saved-looks summary')).focus(); renameFocusId = null;
+});
 
 document.getElementById('save-local-form').addEventListener('submit', event => {
     event.preventDefault(); if (!collectionAvailable()) return;

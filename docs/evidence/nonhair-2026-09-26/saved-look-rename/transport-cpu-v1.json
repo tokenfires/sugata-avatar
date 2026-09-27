@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "scope": "CPU-only transport observer validation. Native diagnostic pending independent review/root launch.",
+  "groups": 7,
+  "sources": {
+    "transport-diagnostic.mjs": "fa5ce190ee5c5e9988eaee1e31a9f496f1fad911b640767ef14bc63c6db7867d",
+    "transport-observer.mjs": "0ba4a57faadd2151f093811de24504b011d42a4c8cb40763282707bf3d07d1ed",
+    "transport-observer.selftest.mjs": "b30c7231d7287197508709bfa33a0787d9404e6dc8b27f9ad0b4e972427aad1e"
+  },
+  "rejectedV3ReceiptSHA256": "c837caac92c34f2c1085d022c043ac7aaa9f2d7b3bc39a6a253b0b78f6f7a902",
+  "unchanged": "The original native-v3 controller/helpers and all 172 production files still match manifest-v3."
+}

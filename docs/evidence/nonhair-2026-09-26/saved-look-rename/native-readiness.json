@@ -1,0 +1,13 @@
+{
+  "scope": "CPU preflight and independent source admission only; native run belongs to root and is pending.",
+  "manifest": "docs/evidence/nonhair-2026-09-26/saved-look-rename/manifest-v1.json",
+  "manifestSHA256": "fd096937beee8b10ba9ab115cf73330de262d9348a2b73a532cab41025dafb09",
+  "controllerSHA256": "1b98f15183835b6cf11111ed327fa414ac321b2af21b28d622cbbbd5686ca747",
+  "preflight": "captures/saved-look-rename-2026-09-26/preflight-v1/report.json",
+  "preflightSHA256": "841f53977dec3f1228576a377091113cb52ea05915c018535509de9a37d3328d",
+  "sourceBindings": 1566,
+  "builtBindings": 172,
+  "completedCPUPreflight": true,
+  "nativeRun": false,
+  "assetRetention": "Assets are exact-hash-bound, not copied into the evidence archive; source/build code archives are written on native launch."
+}

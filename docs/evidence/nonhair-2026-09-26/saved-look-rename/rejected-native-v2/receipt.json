@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "kind": "rejected-rename-native-v2",
+  "files": [
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v2/report.json",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v2/report.json.gz",
+      "decodedBytes": 763758,
+      "decodedSHA256": "eb6291105258e3670b0e4eacd63974be3a7e7d35cfcd64c3a00ac99fd55ad021",
+      "encodedBytes": 116796,
+      "encodedSHA256": "35de2183213251b7ea8e72260524cac251e96a4d80c536206d7110accc5f02bd"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v2/manifest.json",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v2/manifest.json.gz",
+      "decodedBytes": 223404,
+      "decodedSHA256": "c45bb4a58aa5bd36afe02817bd82355f95d975b8360420efc5531f975b4f0efb",
+      "encodedBytes": 80795,
+      "encodedSHA256": "1ea08447b5da382e4a0b4293133cb4c6528999af241831ae46c41b8b2269bbeb"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-probe.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v2/native-probe.mjs",
+      "bytes": 32796,
+      "sha256": "666f7bb819a0c0c11a0d39d208545bb87744ae28f08633c4fdc9dd2e04cba691"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v2/native-network.mjs",
+      "bytes": 4735,
+      "sha256": "df2534a7c920cd2bdca526b598723f64c1ce7b7b39e8444e7ab37a5406a76430"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v2/source/docs/evidence/nonhair-2026-09-26/saved-look-rename/native-network.selftest.mjs",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v2/native-network.selftest.mjs",
+      "bytes": 4604,
+      "sha256": "9ee2f474e608888bd20c8ee2616ae8b85744572a9c7071539365755a71245ed1"
+    },
+    {
+      "source": "captures/saved-look-rename-2026-09-26/native-v2/failure.png",
+      "artifact": "docs/evidence/nonhair-2026-09-26/saved-look-rename/rejected-native-v2/failure.png",
+      "bytes": 598943,
+      "sha256": "d720e2f27ad5d1cdd6f12b3765f8ab0d0056d918f1ab67e308f889cdeee3a217"
+    }
+  ],
+  "completed": false,
+  "checks": 0,
+  "required": [
+    {
+      "asset": "assets/wardrobe/body/g050.glb",
+      "expectedSHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "actual": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:56030/assets/g050-DwVJw10x.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "79822.84",
+        "bodyAt": 2115.117292,
+        "file": "assets/g050-DwVJw10x.glb",
+        "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+        "bytes": 11916776
+      }
+    },
+    {
+      "asset": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "expectedSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "actual": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:56030/assets/g050-CPKgyl1k.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "79822.96",
+        "bodyAt": 2259.546459,
+        "file": "assets/g050-CPKgyl1k.glb",
+        "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+        "bytes": 11084628
+      }
+    },
+    {
+      "asset": "assets/wardrobe/shoes01/g050.glb",
+      "expectedSHA256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "actual": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:56030/assets/g050-DqfWZ86u.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "79822.100",
+        "bodyAt": 2308.935084,
+        "file": "assets/g050-DqfWZ86u.glb",
+        "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+        "bytes": 2345604
+      }
+    },
+    {
+      "asset": "assets/wardrobe/foundation_bra/g050.glb",
+      "expectedSHA256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+      "actual": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:56030/assets/g050-EBFugioW.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "79822.94",
+        "bodyAt": 2145.770167,
+        "file": "assets/g050-EBFugioW.glb",
+        "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+        "bytes": 921176
+      }
+    },
+    {
+      "asset": "assets/wardrobe/foundation_briefs/g050.glb",
+      "expectedSHA256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+      "actual": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:56030/assets/g050-BZZi3FxG.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "79822.95",
+        "bodyAt": 2172.111417,
+        "file": "assets/g050-BZZi3FxG.glb",
+        "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+        "bytes": 529028
+      }
+    },
+    {
+      "asset": "assets/hair/bob02/g050.glb",
+      "expectedSHA256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+      "actual": {
+        "phase": "desktop",
+        "url": "http://127.0.0.1:56030/assets/g050-yiqsxV00.glb",
+        "status": 200,
+        "kind": "http",
+        "page": "owner",
+        "requestID": "79822.107",
+        "bodyAt": 2632.27425,
+        "file": "assets/g050-yiqsxV00.glb",
+        "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+        "bytes": 3347176
+      }
+    }
+  ],
+  "blobObservations": [
+    {
+      "page": "owner",
+      "requestID": "79822.85",
+      "url": "blob:http://127.0.0.1:56030/5b4f9314-cc8e-441f-925e-3caa87c25d1d",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "4391156"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.85",
+          "timestamp": 185611.850832,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.86",
+      "url": "blob:http://127.0.0.1:56030/06fdea59-b03a-4cc2-b1e8-21728cf7b77d",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "89619"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.86",
+          "timestamp": 185611.821168,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.87",
+      "url": "blob:http://127.0.0.1:56030/bb0e9063-abd9-4072-b559-673e5117095d",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "91600"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.87",
+          "timestamp": 185611.821191,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.88",
+      "url": "blob:http://127.0.0.1:56030/dfcfbfe3-ee39-47a5-85ac-b0c24531e1b2",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "610817"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.88",
+          "timestamp": 185611.821577,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.89",
+      "url": "blob:http://127.0.0.1:56030/b006b9d0-7ad8-4cb1-b53d-96318bf4dd9b",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "1799930"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.89",
+          "timestamp": 185611.821938,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.90",
+      "url": "blob:http://127.0.0.1:56030/51898096-83b6-4388-9984-a62a99614719",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "625419"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.90",
+          "timestamp": 185611.821766,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.97",
+      "url": "blob:http://127.0.0.1:56030/4f08ae77-8edb-4c4b-b29c-d2bf3ffa1900",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "3019656"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.97",
+          "timestamp": 185612.001367,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.98",
+      "url": "blob:http://127.0.0.1:56030/23b2ffae-7d1d-4781-9761-e5a80943a130",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "5744103"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.98",
+          "timestamp": 185612.004178,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.99",
+      "url": "blob:http://127.0.0.1:56030/37f9abb1-363a-412b-9254-da385920eca2",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "2153148"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.99",
+          "timestamp": 185612.002869,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.101",
+      "url": "blob:http://127.0.0.1:56030/1eb1ec81-72c4-4f16-b716-89a7f3ef39b3",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "1335772"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.101",
+          "timestamp": 185612.098081,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.102",
+      "url": "blob:http://127.0.0.1:56030/2ecac2e8-db71-4dac-866d-c997d3d37eb6",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "875473"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.102",
+          "timestamp": 185612.098038,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.108",
+      "url": "blob:http://127.0.0.1:56030/d90e5374-366e-4980-9a49-4e4dc5b889d3",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "1096244"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.108",
+          "timestamp": 185612.411331,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    },
+    {
+      "page": "owner",
+      "requestID": "79822.109",
+      "url": "blob:http://127.0.0.1:56030/79a146ff-660b-4c0c-9a83-b2a4e6083b9a",
+      "phase": "desktop",
+      "response": {
+        "status": 200,
+        "mimeType": "image/png"
+      },
+      "terminal": "finished",
+      "body": "failed",
+      "headers": {
+        "Content-Type": "image/png",
+        "Content-Length": "1077492"
+      },
+      "dataLength": 0,
+      "loadingFinished": [
+        {
+          "requestId": "79822.109",
+          "timestamp": 185612.411399,
+          "encodedDataLength": 0
+        }
+      ],
+      "originalReturnedBodyMetadata": "NOT RECORDED: decoded length/hash/base64Encoded cannot be recovered from this run."
+    }
+  ],
+  "transportFailures": [],
+  "owners": [
+    {
+      "id": "5ce4f6fc-bfe3-4082-847f-4f3dfa523e7f",
+      "registeredBeforeWarmup": true,
+      "phase": "desktop",
+      "qualified": false
+    }
+  ],
+  "retirements": [
+    {
+      "id": "5ce4f6fc-bfe3-4082-847f-4f3dfa523e7f",
+      "synthetic": true,
+      "persisted": false,
+      "disposed": true,
+      "leaks": [],
+      "avatarStageCleared": true,
+      "stageRendererCleared": true,
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      }
+    }
+  ],
+  "sourceStable": true,
+  "limit": "All six required original HTTP response bytes matched. Thirteen blob payload witness checks failed; MIME was image/png, but the rejected controller did not record the returned CDP body metadata. Empty/changed body is unclassified. No Rename UI group ran; no retrospective cause for v1 HTTP abort is established."
+}

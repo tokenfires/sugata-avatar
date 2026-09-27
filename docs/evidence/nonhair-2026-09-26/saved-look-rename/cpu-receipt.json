@@ -1,0 +1,25 @@
+{
+  "kind": "saved-look-rename-cpu-source-readiness",
+  "baseCommit": "354119e684b605a98de6cb9c5ae0c34d700b3b43",
+  "worktree": "/Users/robault/.codex/worktrees/sugata-saved-look-rename/sugata-avatar",
+  "sourceHashes": {
+    "packages/testbed/src/showcase-collection.mjs": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+    "packages/testbed/src/showcase-collection.selftest.mjs": "826d4e2de344bf0122e8ff0eba47fc06c5be5f75bd785125c5dc86550fdfd357",
+    "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+    "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8"
+  },
+  "checks": {
+    "collectionCommand": "node packages/testbed/src/showcase-collection.selftest.mjs",
+    "passedGroups": 13,
+    "newRenameGroups": 8,
+    "priorSupportedConfigurationCombinations": 72,
+    "syntax": [
+      "node --check packages/testbed/src/showcase.js",
+      "node --check packages/testbed/src/showcase-collection.mjs"
+    ],
+    "gitDiffCheck": "passed"
+  },
+  "native": "Not run; awaits source critique, root build and coordinated focused native UI checks.",
+  "scope": "Metadata-only collection and Wardrobe UI; no core, assets, dependencies, Portrait or viewer operations changed.",
+  "numericPreservation": "Rename scans current and expected configurations for nonfinite values and -0, rejecting before serialization without writes or Undo changes."
+}

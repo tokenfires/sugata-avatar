@@ -1,0 +1,21 @@
+{
+  "source": "packages/testbed/src/showcase-collection.mjs",
+  "sourceSHA256": "54a5ddf74947b8473dc1983687174ef7176e81241fc95e6f844dfc1f030d2dbd",
+  "scope": "CPU reproduction of Rename serializer preservation gap before narrow correction; no storage outside modeled host.",
+  "cases": [
+    {
+      "literal": "1e400",
+      "before": "{\"version\":1,\"looks\":[{\"id\":\"future\",\"name\":\"Before\",\"configuration\":{\"futureNumber\":1e400}}]}",
+      "after": "{\"version\":1,\"looks\":[{\"id\":\"future\",\"name\":\"After\",\"configuration\":{\"futureNumber\":null}}]}",
+      "writes": 1,
+      "configurationChanged": true
+    },
+    {
+      "literal": "-0",
+      "before": "{\"version\":1,\"looks\":[{\"id\":\"future\",\"name\":\"Before\",\"configuration\":{\"futureNumber\":-0}}]}",
+      "after": "{\"version\":1,\"looks\":[{\"id\":\"future\",\"name\":\"After\",\"configuration\":{\"futureNumber\":0}}]}",
+      "writes": 1,
+      "configurationChanged": true
+    }
+  ]
+}
