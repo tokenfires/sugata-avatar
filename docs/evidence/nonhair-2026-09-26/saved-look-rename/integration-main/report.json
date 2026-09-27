@@ -1,0 +1,50 @@
+{
+  "createdAt": "2026-09-26T18:25:58.202093",
+  "commit": "4c73d25e609507123415c3aefc62d8bdbd0a81bc",
+  "sourceHashes": {
+    "packages/testbed/src/showcase-collection.mjs": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+    "packages/testbed/src/showcase-collection.selftest.mjs": "826d4e2de344bf0122e8ff0eba47fc06c5be5f75bd785125c5dc86550fdfd357",
+    "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+    "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8"
+  },
+  "cpuGroups": 13,
+  "packetVerified": true,
+  "manifestMembers": 1575,
+  "originalImages": 3,
+  "build": {
+    "pages": 18,
+    "modules": 208,
+    "sha256": "c4ca44b116d47ed76362dbf79354f424c4b29a4589d1254f75db809da092bc3a",
+    "existingLargeChunkWarning": true
+  },
+  "served": [
+    {
+      "route": "/src/showcase.html",
+      "status": 200,
+      "bytes": 16943,
+      "sha256": "a0639ef6527d5e6cfb4124177e2bd92b485255be63e160abe175024bc59c600c",
+      "expectedSourceMarker": "id=\"rename-look-dialog\""
+    },
+    {
+      "route": "/src/showcase.js",
+      "status": 200,
+      "bytes": 138292,
+      "sha256": "3712e86efcf6b9f81ecafd0c93bdd0b46ee6ecdbff1c6a8c30ac9b2d8a40d996",
+      "expectedSourceMarker": "rename"
+    },
+    {
+      "route": "/src/showcase-collection.mjs",
+      "status": 200,
+      "bytes": 40706,
+      "sha256": "eb5162d389099d170cd5ff2927d2027afb06999da2b7d05f7c470407a0788586",
+      "expectedSourceMarker": "rename(id, name, expectedItem)"
+    }
+  ],
+  "scope": "Exact feature bytes integrated, focused CPU and archived native packet reverified; all-page build and live Vite source routes pass. No repeat native interaction capture.",
+  "nativeV4": {
+    "functionalChecksCompleted": true,
+    "transportAdmitted": false,
+    "completed": false,
+    "sealed": false
+  }
+}
