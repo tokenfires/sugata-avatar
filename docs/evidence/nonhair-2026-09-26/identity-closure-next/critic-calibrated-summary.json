@@ -1,0 +1,216 @@
+{
+  "kind": "critic-calibrated-mask-summary-check",
+  "pilotReportSHA256": "1a2329532bebb49efb98835e04eec561bf56188c4f240ed505edeb51010f54c4",
+  "oracleReportSHA256": "bd3331ae6eac765008df3342dca31eed0bcae4719f55f02c6f1ec3c4ca7868e2",
+  "maskSummaries": [
+    {
+      "case": "base-open",
+      "surface": "high-poly",
+      "mode": "asset-sidedness",
+      "counts": [
+        13148,
+        13148
+      ],
+      "columnSpansMm": [
+        7.800000000000001,
+        7.800000000000001
+      ]
+    },
+    {
+      "case": "base-open",
+      "surface": "cornea",
+      "mode": "asset-sidedness",
+      "counts": [
+        13268,
+        13268
+      ],
+      "columnSpansMm": [
+        7.800000000000001,
+        7.800000000000001
+      ]
+    },
+    {
+      "case": "base-open",
+      "surface": "high-poly",
+      "mode": "both-windings",
+      "counts": [
+        13148,
+        13148
+      ],
+      "columnSpansMm": [
+        7.800000000000001,
+        7.800000000000001
+      ]
+    },
+    {
+      "case": "base-open",
+      "surface": "cornea",
+      "mode": "both-windings",
+      "counts": [
+        13268,
+        13268
+      ],
+      "columnSpansMm": [
+        7.800000000000001,
+        7.800000000000001
+      ]
+    },
+    {
+      "case": "base-isolated-blink",
+      "surface": "high-poly",
+      "mode": "asset-sidedness",
+      "counts": [
+        0,
+        0
+      ],
+      "columnSpansMm": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "base-isolated-blink",
+      "surface": "cornea",
+      "mode": "asset-sidedness",
+      "counts": [
+        0,
+        0
+      ],
+      "columnSpansMm": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "base-isolated-blink",
+      "surface": "high-poly",
+      "mode": "both-windings",
+      "counts": [
+        0,
+        0
+      ],
+      "columnSpansMm": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "base-isolated-blink",
+      "surface": "cornea",
+      "mode": "both-windings",
+      "counts": [
+        0,
+        0
+      ],
+      "columnSpansMm": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "height2-open",
+      "surface": "high-poly",
+      "mode": "asset-sidedness",
+      "counts": [
+        17798,
+        17809
+      ],
+      "columnSpansMm": [
+        10.9,
+        10.9
+      ]
+    },
+    {
+      "case": "height2-open",
+      "surface": "cornea",
+      "mode": "asset-sidedness",
+      "counts": [
+        17951,
+        17962
+      ],
+      "columnSpansMm": [
+        10.9,
+        10.9
+      ]
+    },
+    {
+      "case": "height2-open",
+      "surface": "high-poly",
+      "mode": "both-windings",
+      "counts": [
+        17798,
+        17809
+      ],
+      "columnSpansMm": [
+        10.9,
+        10.9
+      ]
+    },
+    {
+      "case": "height2-open",
+      "surface": "cornea",
+      "mode": "both-windings",
+      "counts": [
+        17951,
+        17962
+      ],
+      "columnSpansMm": [
+        10.9,
+        10.9
+      ]
+    },
+    {
+      "case": "height2-isolated-blink",
+      "surface": "high-poly",
+      "mode": "asset-sidedness",
+      "counts": [
+        2323,
+        2323
+      ],
+      "columnSpansMm": [
+        2.1,
+        2.1
+      ]
+    },
+    {
+      "case": "height2-isolated-blink",
+      "surface": "cornea",
+      "mode": "asset-sidedness",
+      "counts": [
+        2397,
+        2397
+      ],
+      "columnSpansMm": [
+        2.1,
+        2.1
+      ]
+    },
+    {
+      "case": "height2-isolated-blink",
+      "surface": "high-poly",
+      "mode": "both-windings",
+      "counts": [
+        2323,
+        2323
+      ],
+      "columnSpansMm": [
+        2.1,
+        2.1
+      ]
+    },
+    {
+      "case": "height2-isolated-blink",
+      "surface": "cornea",
+      "mode": "both-windings",
+      "counts": [
+        2397,
+        2397
+      ],
+      "columnSpansMm": [
+        2.1,
+        2.1
+      ]
+    }
+  ],
+  "scope": "Independent retained-byte hash/count/column-span recheck; all-mask 3D intersection oracle is separately bound."
+}

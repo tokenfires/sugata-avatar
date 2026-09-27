@@ -1,0 +1,475 @@
+{
+  "kind": "identity-aperture-lossless-cpu-packet",
+  "scope": "Two sampled CPU instruments and two independent geometric oracles; no native appearance or identity acceptance.",
+  "generatorSHA256": "b9056e6478ed04e18c37fe9c6326b38047e8c89068e83b96b198a519301e00ef",
+  "entries": [
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/base-full-blink.mask.u8",
+      "file": "cpu-pilot-v1/base-full-blink.mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "0dffa060094adf29e52be2b9b0143d93270767b2609a4e8bd5eca36aac58756d",
+      "packedBytes": 305,
+      "packedSHA256": "0197bb85dd7f1d4fb959236b1f0aa5eed381f37cddd058aa5e551171be9dbb04",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/base-full-blink.svg",
+      "file": "cpu-pilot-v1/base-full-blink.svg.gz",
+      "bytes": 257,
+      "sha256": "b3af66b11e966190155bf2690b627f3f77e7c46d348ca2663e08e95b5e4ca6c0",
+      "packedBytes": 210,
+      "packedSHA256": "6e1f5d0d4dfaef48e0d485b6fab96195dd1eef82785849f9bbd2aaa97d245425",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/base-half-blink.mask.u8",
+      "file": "cpu-pilot-v1/base-half-blink.mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "ecb4f99563fecbb71f3cb0937ff099b0b219f07b5628daff9754d23ac4dbdd71",
+      "packedBytes": 451,
+      "packedSHA256": "7f4aef70953692878afc74666e60fff9149c5a7324fc4207d60431c992e1c0aa",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/base-half-blink.svg",
+      "file": "cpu-pilot-v1/base-half-blink.svg.gz",
+      "bytes": 2613,
+      "sha256": "1d05dd179923aa0365a79b4d4c280904eef8f1ccb36652368234e62ea3cf9067",
+      "packedBytes": 526,
+      "packedSHA256": "58de6e30f6156cff74e19eda42f44d17c9e7ee03ac41a6133eb6c4f96bda4919",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/base-open.mask.u8",
+      "file": "cpu-pilot-v1/base-open.mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "95ea7ea81ab8f5853fda70017bbbfb09d0a0e2274e3a7d3d506d78817b7679d6",
+      "packedBytes": 695,
+      "packedSHA256": "fa0a764273c684409e596c5f162fb98457e0556cba7dbd6abf28c9433ae60a49",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/base-open.svg",
+      "file": "cpu-pilot-v1/base-open.svg.gz",
+      "bytes": 7335,
+      "sha256": "ffb8bfed5a2a282d588a41730343b2c94971bc827ad34cf41ef9d895b0b34c73",
+      "packedBytes": 1006,
+      "packedSHA256": "718ddfbd0956b6a2dde166bcacbe9a19d932aa1590b26e77337dd9c7e2c1ae2c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/controller.mjs",
+      "file": "cpu-pilot-v1/controller.mjs.gz",
+      "bytes": 7847,
+      "sha256": "12f84ca76cf4a6d15f7654dc56a77e08d28c1aaecaa5eb84a8c2d75c662bcfdf",
+      "packedBytes": 3152,
+      "packedSHA256": "e206320559b10b8f6a832a4b35bb42be7f4fe804be3cc2a47a20468888c63d3c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/cpu-mask-overview.png",
+      "file": "cpu-pilot-v1/cpu-mask-overview.png",
+      "bytes": 18491,
+      "sha256": "45a1118b1be79a15e04f4e8d3f44cac05c3fb4a1769869d6a9872b03e68bb4c4",
+      "packedBytes": 18491,
+      "packedSHA256": "45a1118b1be79a15e04f4e8d3f44cac05c3fb4a1769869d6a9872b03e68bb4c4",
+      "gzip": false
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/height2-full-blink.mask.u8",
+      "file": "cpu-pilot-v1/height2-full-blink.mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "0dffa060094adf29e52be2b9b0143d93270767b2609a4e8bd5eca36aac58756d",
+      "packedBytes": 305,
+      "packedSHA256": "0197bb85dd7f1d4fb959236b1f0aa5eed381f37cddd058aa5e551171be9dbb04",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/height2-full-blink.svg",
+      "file": "cpu-pilot-v1/height2-full-blink.svg.gz",
+      "bytes": 260,
+      "sha256": "c7a3911d85c7853cc8075a0ef694fde45c3a25bd14d028168d0af4a3151c34be",
+      "packedBytes": 210,
+      "packedSHA256": "c2dba84d45129740b2928e2cab1a35e4ee46db484a14d622ae11bc2c8a0c67c5",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/cpu-pilot-v1/report.json",
+      "file": "cpu-pilot-v1/report.json.gz",
+      "bytes": 5973,
+      "sha256": "e62f64e1082fcfc8eccc7171adc632f358f3b23729c7f5f22b74aa16a921ab58",
+      "packedBytes": 1587,
+      "packedSHA256": "1d162e1ec5f7abe33df2678a45299eb0d80398976c4d8637a9841cd219b8070d",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-oracle-v1/base-full-blink.oracle-mask.u8",
+      "file": "critic-oracle-v1/base-full-blink.oracle-mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "0dffa060094adf29e52be2b9b0143d93270767b2609a4e8bd5eca36aac58756d",
+      "packedBytes": 305,
+      "packedSHA256": "0197bb85dd7f1d4fb959236b1f0aa5eed381f37cddd058aa5e551171be9dbb04",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-oracle-v1/base-half-blink.oracle-mask.u8",
+      "file": "critic-oracle-v1/base-half-blink.oracle-mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "ecb4f99563fecbb71f3cb0937ff099b0b219f07b5628daff9754d23ac4dbdd71",
+      "packedBytes": 451,
+      "packedSHA256": "7f4aef70953692878afc74666e60fff9149c5a7324fc4207d60431c992e1c0aa",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-oracle-v1/base-open.oracle-mask.u8",
+      "file": "critic-oracle-v1/base-open.oracle-mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "95ea7ea81ab8f5853fda70017bbbfb09d0a0e2274e3a7d3d506d78817b7679d6",
+      "packedBytes": 695,
+      "packedSHA256": "fa0a764273c684409e596c5f162fb98457e0556cba7dbd6abf28c9433ae60a49",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-oracle-v1/height2-full-blink.oracle-mask.u8",
+      "file": "critic-oracle-v1/height2-full-blink.oracle-mask.u8.gz",
+      "bytes": 279000,
+      "sha256": "0dffa060094adf29e52be2b9b0143d93270767b2609a4e8bd5eca36aac58756d",
+      "packedBytes": 305,
+      "packedSHA256": "0197bb85dd7f1d4fb959236b1f0aa5eed381f37cddd058aa5e551171be9dbb04",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-oracle-v1/report.json",
+      "file": "critic-oracle-v1/report.json.gz",
+      "bytes": 4978,
+      "sha256": "e8e78b2ab9b141bb79822158326ba6e74a8a342b4401070564b2ebd97232fad7",
+      "packedBytes": 1699,
+      "packedSHA256": "84c03ed942a0e3962311aea61858373982269858588549b6951b5316b17ae2bf",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-isolated-blink-cornea-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/base-isolated-blink-cornea-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-isolated-blink-cornea-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/base-isolated-blink-cornea-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-isolated-blink-high-poly-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/base-isolated-blink-high-poly-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-isolated-blink-high-poly-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/base-isolated-blink-high-poly-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-open-cornea-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/base-open-cornea-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "9e764652fa68234e016e8b5d62b4a0dbb71485eba567e23a0de8eba43d69fef8",
+      "packedBytes": 710,
+      "packedSHA256": "6e61e45e837e720b8f17fa55194e34269f99652aa435e1a6cc991dcaa842a971",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-open-cornea-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/base-open-cornea-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "9e764652fa68234e016e8b5d62b4a0dbb71485eba567e23a0de8eba43d69fef8",
+      "packedBytes": 710,
+      "packedSHA256": "6e61e45e837e720b8f17fa55194e34269f99652aa435e1a6cc991dcaa842a971",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-open-high-poly-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/base-open-high-poly-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "8fcf4fcdc108c909551add51befa29b355ff15a3049b55bbad6bf8ec304be51f",
+      "packedBytes": 712,
+      "packedSHA256": "2a0dd34f1365f4e5b93e2019e9160c4614b5305b3a7e3c05b92ad5dd167e16f3",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/base-open-high-poly-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/base-open-high-poly-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "8fcf4fcdc108c909551add51befa29b355ff15a3049b55bbad6bf8ec304be51f",
+      "packedBytes": 712,
+      "packedSHA256": "2a0dd34f1365f4e5b93e2019e9160c4614b5305b3a7e3c05b92ad5dd167e16f3",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/controller.mjs",
+      "file": "calibrated-cpu-v1/controller.mjs.gz",
+      "bytes": 8746,
+      "sha256": "4121dd1656c18e345d28e603e5a598a9929198af253b852e84048a2c71c9b4d6",
+      "packedBytes": 3419,
+      "packedSHA256": "1f8b1d5b07fa679c3837e2049247876f87d4cdd3aafee61656bc214039b4f15d",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-isolated-blink-cornea-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/height2-isolated-blink-cornea-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "b822b46e41512c60476436d89af5f1abfeb590f7ba0736314b2e5abf6c1c8880",
+      "packedBytes": 493,
+      "packedSHA256": "5c7733740f538905488e94fcca547b30e989bc4aee2b707c1bb0167845b24c4c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-isolated-blink-cornea-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/height2-isolated-blink-cornea-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "b822b46e41512c60476436d89af5f1abfeb590f7ba0736314b2e5abf6c1c8880",
+      "packedBytes": 493,
+      "packedSHA256": "5c7733740f538905488e94fcca547b30e989bc4aee2b707c1bb0167845b24c4c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-isolated-blink-high-poly-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/height2-isolated-blink-high-poly-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "bcd2b015c6b5387244891d983e5febb27242ac9b6e250b3ff368d2d50e9d960b",
+      "packedBytes": 490,
+      "packedSHA256": "a0d59e5a34f40158b5456c482fb7186393bda925f00edce1c30c220f6b68592b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-isolated-blink-high-poly-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/height2-isolated-blink-high-poly-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "bcd2b015c6b5387244891d983e5febb27242ac9b6e250b3ff368d2d50e9d960b",
+      "packedBytes": 490,
+      "packedSHA256": "a0d59e5a34f40158b5456c482fb7186393bda925f00edce1c30c220f6b68592b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-open-cornea-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/height2-open-cornea-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "103dd791f0d04e468db7c401408a10eebc140d40e35ac1df7ed0378a616e72c0",
+      "packedBytes": 858,
+      "packedSHA256": "ebee743dba3ceea6048d11f5608375ac166a5f9a0527daca7cdc955d8b79c2c4",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-open-cornea-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/height2-open-cornea-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "103dd791f0d04e468db7c401408a10eebc140d40e35ac1df7ed0378a616e72c0",
+      "packedBytes": 858,
+      "packedSHA256": "ebee743dba3ceea6048d11f5608375ac166a5f9a0527daca7cdc955d8b79c2c4",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-open-high-poly-asset-sidedness.mask.u8",
+      "file": "calibrated-cpu-v1/height2-open-high-poly-asset-sidedness.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "19bb40996186a94b6d2a534a60df43fb020ebb6287a1fc4b9e8afc9a6e2d75f6",
+      "packedBytes": 856,
+      "packedSHA256": "0f35582d15dec4b45049cf703e1917c0e6ec07d9c371ccdb1d3b4f2ab8993d5b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/height2-open-high-poly-both-windings.mask.u8",
+      "file": "calibrated-cpu-v1/height2-open-high-poly-both-windings.mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "19bb40996186a94b6d2a534a60df43fb020ebb6287a1fc4b9e8afc9a6e2d75f6",
+      "packedBytes": 856,
+      "packedSHA256": "0f35582d15dec4b45049cf703e1917c0e6ec07d9c371ccdb1d3b4f2ab8993d5b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/mask-overview.png",
+      "file": "calibrated-cpu-v1/mask-overview.png",
+      "bytes": 46647,
+      "sha256": "d8f434c16623535cb565ec3e35cdca9dedaa5fe032da44dc03f750a63d311afa",
+      "packedBytes": 46647,
+      "packedSHA256": "d8f434c16623535cb565ec3e35cdca9dedaa5fe032da44dc03f750a63d311afa",
+      "gzip": false
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/calibrated-cpu-v1/report.json",
+      "file": "calibrated-cpu-v1/report.json.gz",
+      "bytes": 18479,
+      "sha256": "1a2329532bebb49efb98835e04eec561bf56188c4f240ed505edeb51010f54c4",
+      "packedBytes": 2470,
+      "packedSHA256": "7a7e7c55ac413f738ad00158c288577fef87a3ba384a17735545301c528335dc",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-isolated-blink-cornea-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-isolated-blink-cornea-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-isolated-blink-cornea-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-isolated-blink-cornea-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-isolated-blink-high-poly-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-isolated-blink-high-poly-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-isolated-blink-high-poly-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-isolated-blink-high-poly-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "714e289fd6317e062c7d1880a24f5d050dfe054285f7ffeca7ab20ea0a92b031",
+      "packedBytes": 316,
+      "packedSHA256": "a30c945a77e7dfb5b9e4cb23ce0659c8daecf46535f4a6e0987fd9dd5ec4626c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-open-cornea-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-open-cornea-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "9e764652fa68234e016e8b5d62b4a0dbb71485eba567e23a0de8eba43d69fef8",
+      "packedBytes": 710,
+      "packedSHA256": "6e61e45e837e720b8f17fa55194e34269f99652aa435e1a6cc991dcaa842a971",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-open-cornea-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-open-cornea-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "9e764652fa68234e016e8b5d62b4a0dbb71485eba567e23a0de8eba43d69fef8",
+      "packedBytes": 710,
+      "packedSHA256": "6e61e45e837e720b8f17fa55194e34269f99652aa435e1a6cc991dcaa842a971",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-open-high-poly-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-open-high-poly-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "8fcf4fcdc108c909551add51befa29b355ff15a3049b55bbad6bf8ec304be51f",
+      "packedBytes": 712,
+      "packedSHA256": "2a0dd34f1365f4e5b93e2019e9160c4614b5305b3a7e3c05b92ad5dd167e16f3",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/base-open-high-poly-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/base-open-high-poly-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "8fcf4fcdc108c909551add51befa29b355ff15a3049b55bbad6bf8ec304be51f",
+      "packedBytes": 712,
+      "packedSHA256": "2a0dd34f1365f4e5b93e2019e9160c4614b5305b3a7e3c05b92ad5dd167e16f3",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-isolated-blink-cornea-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-isolated-blink-cornea-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "b822b46e41512c60476436d89af5f1abfeb590f7ba0736314b2e5abf6c1c8880",
+      "packedBytes": 493,
+      "packedSHA256": "5c7733740f538905488e94fcca547b30e989bc4aee2b707c1bb0167845b24c4c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-isolated-blink-cornea-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-isolated-blink-cornea-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "b822b46e41512c60476436d89af5f1abfeb590f7ba0736314b2e5abf6c1c8880",
+      "packedBytes": 493,
+      "packedSHA256": "5c7733740f538905488e94fcca547b30e989bc4aee2b707c1bb0167845b24c4c",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-isolated-blink-high-poly-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-isolated-blink-high-poly-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "bcd2b015c6b5387244891d983e5febb27242ac9b6e250b3ff368d2d50e9d960b",
+      "packedBytes": 490,
+      "packedSHA256": "a0d59e5a34f40158b5456c482fb7186393bda925f00edce1c30c220f6b68592b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-isolated-blink-high-poly-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-isolated-blink-high-poly-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "bcd2b015c6b5387244891d983e5febb27242ac9b6e250b3ff368d2d50e9d960b",
+      "packedBytes": 490,
+      "packedSHA256": "a0d59e5a34f40158b5456c482fb7186393bda925f00edce1c30c220f6b68592b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-open-cornea-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-open-cornea-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "103dd791f0d04e468db7c401408a10eebc140d40e35ac1df7ed0378a616e72c0",
+      "packedBytes": 858,
+      "packedSHA256": "ebee743dba3ceea6048d11f5608375ac166a5f9a0527daca7cdc955d8b79c2c4",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-open-cornea-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-open-cornea-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "103dd791f0d04e468db7c401408a10eebc140d40e35ac1df7ed0378a616e72c0",
+      "packedBytes": 858,
+      "packedSHA256": "ebee743dba3ceea6048d11f5608375ac166a5f9a0527daca7cdc955d8b79c2c4",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-open-high-poly-asset-sidedness.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-open-high-poly-asset-sidedness.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "19bb40996186a94b6d2a534a60df43fb020ebb6287a1fc4b9e8afc9a6e2d75f6",
+      "packedBytes": 856,
+      "packedSHA256": "0f35582d15dec4b45049cf703e1917c0e6ec07d9c371ccdb1d3b4f2ab8993d5b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/height2-open-high-poly-both-windings.oracle-mask.u8",
+      "file": "critic-calibrated-oracle-v1/height2-open-high-poly-both-windings.oracle-mask.u8.gz",
+      "bytes": 289652,
+      "sha256": "19bb40996186a94b6d2a534a60df43fb020ebb6287a1fc4b9e8afc9a6e2d75f6",
+      "packedBytes": 856,
+      "packedSHA256": "0f35582d15dec4b45049cf703e1917c0e6ec07d9c371ccdb1d3b4f2ab8993d5b",
+      "gzip": true
+    },
+    {
+      "source": "captures/identity-closure-2026-09-26/critic-calibrated-oracle-v1/report.json",
+      "file": "critic-calibrated-oracle-v1/report.json.gz",
+      "bytes": 19935,
+      "sha256": "bd3331ae6eac765008df3342dca31eed0bcae4719f55f02c6f1ec3c4ca7868e2",
+      "packedBytes": 2640,
+      "packedSHA256": "0379032af0ca7da73cdf7e66d962d522a303475978556bf93f67da0ebc6a56e5",
+      "gzip": true
+    }
+  ]
+}

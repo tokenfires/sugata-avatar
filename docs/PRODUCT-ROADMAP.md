@@ -30,6 +30,13 @@ and actual fit remain open. The separate [hand-placement comparison](evidence/no
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
 
+A September 26 [identity-aware eyelid instrument](evidence/nonhair-2026-09-26/identity-closure-next/README.md)
+now reproduces a sampled CPU red/green case at the native blink coefficient, independently
+checked by a second 3D intersection method. A body-only eye-height change exposes eye
+geometry while the baseline closes on the sampled grid. Fitted native identity behavior,
+continuous closure and corrective design remain unqualified; no identity control or blink
+calibration changed.
+
 Wardrobe now also offers [matched visual palette references](evidence/nonhair-2026-09-26/next-visual-audit/RESULTS.md)
 for each of the two current outfits. Compare palettes preserves the user's room, framing and cut
 when applying a choice, and works with the existing JSON and named-look controls. The images
