@@ -1,0 +1,326 @@
+{
+  "status": "head and ordinary body audits clear; modest contour gain in sampled images; close head margin and minor front373 exception",
+  "protocols": {
+    "head": {
+      "arms": {
+        "baseline": {
+          "directory": "captures/lower-fallback-head-v1/baseline-right-profile-brown",
+          "reportSha256": "8e4ac40088a4619d5ac49faded4f1ffbf2ac7234382eba66b45d0ea5ccf84526",
+          "pid": 5528,
+          "finished": "2026-09-30T09:54:16.321Z",
+          "auditReuse": {
+            "file": "captures/lower-fallback-head-v1/control-replay.json",
+            "sha256": "6b54dc4764a36ab70cc2368868e1a501a59dda9de517cddc107af162a29178d5",
+            "summary": {
+              "frames": 556,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 1.379665112912428,
+              "contactCards": []
+            }
+          }
+        },
+        "candidate": {
+          "directory": "captures/lower-fallback-head-v1/candidate-right-profile-brown",
+          "reportSha256": "26512e56d8dd8a42a49fcfc2550c8ff056583782b7873e8c3f655140d34315d3",
+          "pid": 6296,
+          "finished": "2026-09-30T09:58:43.862Z",
+          "audit": {
+            "file": "captures/lower-fallback-head-v1/candidate-right-profile-brown/numerical-checks.json",
+            "sha256": "e097af0650467af3e56d095fd37f3fe671c6615e1bd21a55269a57ed60071bf6",
+            "summary": {
+              "frames": 556,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 0.07813075042355694,
+              "contactCards": []
+            },
+            "minimumRow": {
+              "frame": 255,
+              "time": 4.24999999999999,
+              "triangleBodyPairs": 0,
+              "contactCards": [],
+              "minimumVertexClearanceMm": 0.07813075042355694,
+              "negativeVertices": 0,
+              "minimumWitness": {
+                "selectedVertex": 2855,
+                "card": 123,
+                "ring": 16,
+                "side": 1,
+                "point": [
+                  -0.04702045023441315,
+                  1.4277682304382324,
+                  -0.005515580996870995
+                ],
+                "signedMm": 0.07813075042355694
+              },
+              "examples": []
+            },
+            "negativeVertexCount": 0
+          }
+        }
+      },
+      "pairedControlsSha256": "049ddb21980b895274032db25a18be3ad9be5369cc692cb96da7486b3473d302",
+      "colliderDifference": {
+        "minimumSkullRadiusDeltaMm": 0,
+        "maximumSkullRadiusDeltaMm": 0,
+        "maximumSkullCentreDeltaMm": 0
+      },
+      "otherVertices": {
+        "retainedFrames": 556,
+        "maximumDelta": {
+          "millimetres": 6.63565071264808,
+          "witness": {
+            "frame": 373,
+            "card": 494,
+            "ring": 16,
+            "side": 1
+          }
+        }
+      },
+      "preview": {
+        "status": "encoded; uniform 20Hz presentation timestamps verified",
+        "generated": "2026-09-30T10:05:35.264926+00:00",
+        "command": [
+          "ffmpeg",
+          "-hide_banner",
+          "-loglevel",
+          "error",
+          "-n",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-fallback-head-v1/baseline-right-profile-brown/frames/*.png",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-fallback-head-v1/candidate-right-profile-brown/frames/*.png",
+          "-filter_complex",
+          "[0:v][1:v]hstack=inputs=2[v]",
+          "-map",
+          "[v]",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "fast",
+          "-crf",
+          "18",
+          "-pix_fmt",
+          "yuv420p",
+          "-movflags",
+          "+faststart",
+          "captures/lower-fallback-head-v1/paired-preview.mp4"
+        ],
+        "probeCommand": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "v:0",
+          "-show_frames",
+          "-show_streams",
+          "-of",
+          "json",
+          "captures/lower-fallback-head-v1/paired-preview.mp4"
+        ],
+        "sha256": "f31e7caee8979f66bf95dc67c24c1991a7fd3573e2680493d726147c9fa37ec0",
+        "frameCount": 186,
+        "duration": "9.300000",
+        "width": 1800,
+        "height": 868,
+        "sourceSha256": "414d1feada0ccb5d4694f12b9a56346dd1312c029bebb6017ed728cbbc09a51f",
+        "limits": [
+          "Compressed convenience preview, not original pixel evidence or continuous perceptual qualification.",
+          "Last captured pose remains for one display interval."
+        ]
+      }
+    },
+    "ordinary": {
+      "arms": {
+        "baseline": {
+          "directory": "captures/lower-fallback-ordinary-v1/baseline-left-profile-brown",
+          "reportSha256": "3c872914ac9519a6f72f19867e09e53ba55846ac3e00bf59d9f334614363a99e",
+          "pid": 7052,
+          "finished": "2026-09-30T10:03:50.652Z",
+          "auditReuse": {
+            "file": "captures/lower-fallback-ordinary-v1/control-replay.json",
+            "sha256": "c674ddeff5faac36eac1823ef81b917f09ce2bebe3deecfa0cd2c41a41a18086",
+            "summary": {
+              "frames": 721,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 2.3314974994234694,
+              "contactCards": []
+            }
+          }
+        },
+        "candidate": {
+          "directory": "captures/lower-fallback-ordinary-v1/candidate-left-profile-brown",
+          "reportSha256": "c80b30b34b303b7a7f1d15e383fc1dbb2b0aafd4e087f1e26b98ca938faed28d",
+          "pid": 8310,
+          "finished": "2026-09-30T10:09:33.482Z",
+          "audit": {
+            "file": "captures/lower-fallback-ordinary-v1/candidate-left-profile-brown/numerical-checks.json",
+            "sha256": "8c5fb60fca0f1e43088fbcf695115fe0e0a737e875a6d9e7ded118cca0943a94",
+            "summary": {
+              "frames": 721,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 2.311099401120304,
+              "contactCards": []
+            },
+            "minimumRow": {
+              "frame": 718,
+              "time": 11.96666666666684,
+              "triangleBodyPairs": 0,
+              "contactCards": [],
+              "minimumVertexClearanceMm": 2.311099401120304,
+              "negativeVertices": 0,
+              "minimumWitness": {
+                "selectedVertex": 3704,
+                "card": 164,
+                "ring": 16,
+                "side": 0,
+                "point": [
+                  0.011061865836381912,
+                  1.4438586235046387,
+                  -0.003936341498047113
+                ],
+                "signedMm": 2.311099401120304
+              },
+              "examples": []
+            },
+            "negativeVertexCount": 0
+          }
+        }
+      },
+      "pairedControlsSha256": "cc3eeb2f4af01de7bb2f8789cb0de0755d502fe50719ced9f8f99c85b1e878a9",
+      "colliderDifference": {
+        "minimumSkullRadiusDeltaMm": 0,
+        "maximumSkullRadiusDeltaMm": 0,
+        "maximumSkullCentreDeltaMm": 0
+      },
+      "otherVertices": {
+        "retainedFrames": 721,
+        "maximumDelta": {
+          "millimetres": 0.5396343917701781,
+          "witness": {
+            "frame": 397,
+            "card": 238,
+            "ring": 16,
+            "side": 1
+          }
+        }
+      },
+      "preview": {
+        "status": "encoded; uniform 20Hz presentation timestamps verified",
+        "generated": "2026-09-30T10:10:53.206962+00:00",
+        "command": [
+          "ffmpeg",
+          "-hide_banner",
+          "-loglevel",
+          "error",
+          "-n",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-fallback-ordinary-v1/baseline-left-profile-brown/frames/*.png",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-fallback-ordinary-v1/candidate-left-profile-brown/frames/*.png",
+          "-filter_complex",
+          "[0:v][1:v]hstack=inputs=2[v]",
+          "-map",
+          "[v]",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "fast",
+          "-crf",
+          "18",
+          "-pix_fmt",
+          "yuv420p",
+          "-movflags",
+          "+faststart",
+          "captures/lower-fallback-ordinary-v1/paired-preview.mp4"
+        ],
+        "probeCommand": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "v:0",
+          "-show_frames",
+          "-show_streams",
+          "-of",
+          "json",
+          "captures/lower-fallback-ordinary-v1/paired-preview.mp4"
+        ],
+        "sha256": "163c0ac9f1773ac6d1552e4ccedae8bb3c051272acbcdc84f81b04dbbbbd5361",
+        "frameCount": 241,
+        "duration": "12.050000",
+        "width": 1800,
+        "height": 868,
+        "sourceSha256": "414d1feada0ccb5d4694f12b9a56346dd1312c029bebb6017ed728cbbc09a51f",
+        "limits": [
+          "Compressed convenience preview, not original pixel evidence or continuous perceptual qualification.",
+          "Last captured pose remains for one display interval."
+        ]
+      }
+    }
+  },
+  "frontReplay": {
+    "file": "captures/lower-fallback-head-front-v1/view-repeat.json",
+    "sha256": "96ee88323b2691fdd071fe67805c47e6871be8110a9b6e2ec55d42d0e9620506",
+    "allPhysicalFieldsExact": true
+  },
+  "nativeReview": [
+    {
+      "directory": "captures/lower-fallback-review-v1",
+      "reportSha256": "ed44dde34e7b956877b3c212ae3df2a8df97bd30fff1fca2019d7195e804c648",
+      "finished": "2026-09-30T10:27:30.110Z",
+      "pid": 12276
+    }
+  ],
+  "decision": "Retain fallback as the scoped experimental lead; no accepted-asset replacement. Front and crown style remain separate work.",
+  "limits": [
+    "All body audits remain scoped to338selected cards, one figure/outfit and captured updates; no garments,hair-hair,alpha or continuous-time coverage.",
+    "A small candidate-only dash at373 remains unattributed to a single visible card. The new audit covers338 selected cards and excludes fringe494. Minimum head clearance is only0.078131mm.",
+    "Reuse is for unchanged controls with exact raw physical inputs, not modified-candidate inheritance or pixel equality.",
+    "Raw evidence is local and ignored; this tracked manifest does not back it up off-machine."
+  ],
+  "archive": {
+    "generated": "2026-09-30T10:48:54.364407+00:00",
+    "roots": [
+      "captures/lower-fallback-head-v1",
+      "captures/lower-fallback-ordinary-v1",
+      "captures/lower-fallback-head-front-v1",
+      "captures/lower-fallback-review-v1",
+      "captures/lower-fallback-motion-audit-source-v1"
+    ],
+    "fileCount": 5057,
+    "totalBytes": 5694655330,
+    "pngCount": 1236,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-lower-fallback-motion.py",
+      "sha256": "7b53235c1d9941527b0478f22ea6aa4514f12872892dd62c6f9af8ddd974c02c"
+    },
+    "frozenAssets": {
+      "captures/bob-side-envelope-v3/candidate.glb": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+      "captures/bob-lower-fallback-v1/candidate.glb": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7"
+    }
+  }
+}

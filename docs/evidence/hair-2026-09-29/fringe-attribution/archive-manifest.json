@@ -1,0 +1,305 @@
+{
+  "generated": "2026-09-30T10:19:47.402641+00:00",
+  "roots": [
+    "captures/bob-fringe-ablation-v1"
+  ],
+  "fileCount": 58,
+  "totalBytes": 55421175,
+  "pngCount": 6,
+  "generator": {
+    "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-fringe-ablation.py",
+    "sha256": "e81bcce0de8d9d43f601b2498dff76f80dc6e10ef8de73fa61312b0d39bda498"
+  },
+  "files": [
+    {
+      "path": "captures/bob-fringe-ablation-v1/audit-bob-fringe-ablation.mjs",
+      "bytes": 3745,
+      "sha256": "52760e041fbcd879ad6f715ce0aa088b59a493487e4a28b629bd1ed145e41f8b"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/casual-front-geometry.json",
+      "bytes": 6951136,
+      "sha256": "1035c333966c1da433fb2c2405f4cc2259aa336c04ca7591140ebddb4fc34d91"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/casual-front-left-geometry.json",
+      "bytes": 6942303,
+      "sha256": "1eb0ac70f45bdf2fdea69f1b056a53c6c435347e5b71724709edb2018a526ac8"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/casual-front-left-medium-brown.png",
+      "bytes": 787818,
+      "sha256": "ba869fe963c3ff33f539b5c6920051a9700749010877925ef67b266a1b5aae94"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/casual-front-medium-brown.png",
+      "bytes": 824705,
+      "sha256": "b2441666284c5489470d30bfe053db877e134e73aabfe0a0b630239fc771a19d"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/casual-front-right-geometry.json",
+      "bytes": 6952799,
+      "sha256": "61048725f3ac0154d0e77a76296b95a71e17db5d69589155e099b1c4b9874554"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/casual-front-right-medium-brown.png",
+      "bytes": 764049,
+      "sha256": "b1adf0204d03cf2cc6c3375480000a8c9bada417326ddd20702c6af7f965dc18"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/report.json",
+      "bytes": 128118,
+      "sha256": "7c0fee1347bd7007699f95c245f0969ee6595cddfa15d5198f73cd12a46d1e13"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/review.html",
+      "bytes": 1195,
+      "sha256": "c98671b3fc35d2ca8a2ea59b12531a05c7ef6d218a5310682ade61bc245248c0"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/captures/bob-side-envelope-v3/candidate.glb",
+      "bytes": 3347412,
+      "sha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/control/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/casual-front-geometry.json",
+      "bytes": 6931552,
+      "sha256": "4423606617ca18fa989aa57f835b40103f93b71b3281e4a967adf4ea4e93f733"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/casual-front-left-geometry.json",
+      "bytes": 6922719,
+      "sha256": "3a4dac93437c29998b630d9eb0a66f1412370df3692d6c2412b38a8d4d1bbcd4"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/casual-front-left-medium-brown.png",
+      "bytes": 794845,
+      "sha256": "c733106a6ad3011ebc80bb8b346aa7aa26507b252b2c2f97826f62a4f56b13b1"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/casual-front-medium-brown.png",
+      "bytes": 825421,
+      "sha256": "bcdd04b11b3318a3d34226a7515abf2b8c3a907f4b4873e51531810cb8a53c96"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/casual-front-right-geometry.json",
+      "bytes": 6933215,
+      "sha256": "13a7199e0d403a0a772ca9d3663bad9bfd60be7b5bd54e900aa242a4eb457c51"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/casual-front-right-medium-brown.png",
+      "bytes": 760001,
+      "sha256": "53d54bbcbbc23fdcdc3555dd90a4d3dde5b2f0bfcdd77ac2c44887b4528eb2e0"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/report.json",
+      "bytes": 130019,
+      "sha256": "38ffee86fe26f1708219f0c3145dcf1c17175fef0e7bd86857a6e77f1bb819bf"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/review.html",
+      "bytes": 1195,
+      "sha256": "c98671b3fc35d2ca8a2ea59b12531a05c7ef6d218a5310682ade61bc245248c0"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/captures/bob-side-envelope-v3/candidate.glb",
+      "bytes": 3347412,
+      "sha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/hidden/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-fringe-ablation-v1/paired-controls.json",
+      "bytes": 2114,
+      "sha256": "2e38296bc935ede19c1f825de3cc787f6bee1033b438bd08c0d0f936083807e4"
+    }
+  ]
+}

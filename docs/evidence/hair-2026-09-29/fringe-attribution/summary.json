@@ -1,0 +1,66 @@
+{
+  "status": "Fringe contributes eyebrow tabs and some crown coverage; residual front breaks need separate attribution",
+  "asset": "captures/bob-side-envelope-v3/candidate.glb",
+  "assetSha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+  "reports": [
+    {
+      "file": "captures/bob-fringe-ablation-v1/control/report.json",
+      "sha256": "7c0fee1347bd7007699f95c245f0969ee6595cddfa15d5198f73cd12a46d1e13",
+      "pid": 9239,
+      "finished": "2026-09-30T10:11:07.281Z"
+    },
+    {
+      "file": "captures/bob-fringe-ablation-v1/hidden/report.json",
+      "sha256": "38ffee86fe26f1708219f0c3145dcf1c17175fef0e7bd86857a6e77f1bb819bf",
+      "pid": 9686,
+      "finished": "2026-09-30T10:13:38.543Z"
+    }
+  ],
+  "pairedControlsSha256": "2e38296bc935ede19c1f825de3cc787f6bee1033b438bd08c0d0f936083807e4",
+  "rows": [
+    {
+      "view": "front",
+      "allRecordedStateExact": true,
+      "allGeometryExceptIndicesExact": true,
+      "removedTriangles": 1088,
+      "baselineImageSha256": "b2441666284c5489470d30bfe053db877e134e73aabfe0a0b630239fc771a19d",
+      "hiddenImageSha256": "bcdd04b11b3318a3d34226a7515abf2b8c3a907f4b4873e51531810cb8a53c96"
+    },
+    {
+      "view": "front-right",
+      "allRecordedStateExact": true,
+      "allGeometryExceptIndicesExact": true,
+      "removedTriangles": 1088,
+      "baselineImageSha256": "b1adf0204d03cf2cc6c3375480000a8c9bada417326ddd20702c6af7f965dc18",
+      "hiddenImageSha256": "53d54bbcbbc23fdcdc3555dd90a4d3dde5b2f0bfcdd77ac2c44887b4528eb2e0"
+    },
+    {
+      "view": "front-left",
+      "allRecordedStateExact": true,
+      "allGeometryExceptIndicesExact": true,
+      "removedTriangles": 1088,
+      "baselineImageSha256": "ba869fe963c3ff33f539b5c6920051a9700749010877925ef67b266a1b5aae94",
+      "hiddenImageSha256": "c733106a6ad3011ebc80bb8b346aa7aa26507b252b2c2f97826f62a4f56b13b1"
+    }
+  ],
+  "archive": {
+    "generated": "2026-09-30T10:19:47.402641+00:00",
+    "roots": [
+      "captures/bob-fringe-ablation-v1"
+    ],
+    "fileCount": 58,
+    "totalBytes": 55421175,
+    "pngCount": 6,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-fringe-ablation.py",
+      "sha256": "e81bcce0de8d9d43f601b2498dff76f80dc6e10ef8de73fa61312b0d39bda498"
+    }
+  },
+  "limits": [
+    "Ablation attributes visible contribution of the complete fringe group; it does not identify individual-card pixels.",
+    "Index removal changes occlusion and shadows too; missing coverage is an observed dependency, not a finished hairstyle.",
+    "This held-state proof does not qualify motion, a new GLB without fringe, or all-groom body clearance.",
+    "This is a visibility diagnosis, not a changed asset or completed bob.",
+    "Local ignored raw evidence is not backed up by the tracked manifest."
+  ]
+}
