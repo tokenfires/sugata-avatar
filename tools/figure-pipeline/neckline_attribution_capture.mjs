@@ -1,0 +1,36 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {gzipSync} from 'node:zlib';
+import {ROOT,collectSourceHashes,ACCEPTED_PATH,ACCEPTED_SHA256,hashFile,sha256} from './collar_replacement_manifest.mjs';
+import {startProbeServer,launchProbeBrowser} from '../../packages/core/src/render/MotionProbe.mjs';
+const out=path.resolve(ROOT,process.argv[2]??'captures/neckline-attribution-2026-09-30-v2');assert.ok(!fs.existsSync(out));assert.equal(hashFile(path.join(ROOT,ACCEPTED_PATH)),ACCEPTED_SHA256);fs.mkdirSync(out,{recursive:true});
+const extra=['tools/figure-pipeline/neckline_attribution_capture.mjs','tools/figure-pipeline/neckline_attribution_browser.mjs','docs/evidence/wardrobe-2026-09-30/neckline-attribution/PLAN.md'];
+const hashes=()=>({...collectSourceHashes(),...Object.fromEntries(extra.map(p=>[p,hashFile(path.join(ROOT,p))]))});
+const report={started:new Date().toISOString(),pid:process.pid,status:'running',sourceHashes:hashes(),arms:[],errors:[],windows:[['left',198,696,220,735],['right',504,714,523,735]],scope:'Accepted44 static neckline attribution only; no candidate, mask edit, solver or asset promotion.'};
+const save=()=>fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');
+for(const p of Object.keys(report.sourceHashes).filter(p=>!p.startsWith('assets/')&&!p.startsWith('node_modules/'))){const dest=path.join(out,'source',p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(ROOT,p),dest);}save();
+let server,browser,page,held,heldClock;const tagged=['ordinary','bra-magenta','cloth-double','body-green','ordinary-repeat'];
+try{server=await startProbeServer({port:5301});browser=await launchProbeBrowser();report.baseUrl=server.baseUrl;save();
+ for(const arm of tagged){const rec={arm,assets:[],errors:[]},reads=[];report.arms.push(rec);save();
+  page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1,reducedMotion:'reduce'});page.on('pageerror',e=>rec.errors.push(e.message));page.on('console',m=>{if(m.type()==='error')rec.errors.push(m.text());});
+  page.on('response',r=>{if(r.status()>=400)rec.errors.push(`${r.status()} ${r.url()}`);const u=new URL(r.url());if(r.ok()&&u.pathname.endsWith('.glb')&&!u.searchParams.has('import'))reads.push(r.body().then(bytes=>{const i=u.pathname.indexOf('/assets/');assert.ok(i>=0,'Unknown asset URL');const file=u.pathname.slice(i+1);assert.equal(sha256(bytes),report.sourceHashes[file],`Loaded bytes ${file}`);rec.assets.push({file,bytes:bytes.length,sha256:sha256(bytes)});}).catch(e=>rec.errors.push(`Asset response: ${e.message}`)));});
+  await page.goto(`${server.baseUrl}/src/showcase.html?preset=casual&frame=portrait&hairColour=%23413934&capture=`,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.showcase||!document.querySelector('#error').hidden,null,{timeout:120000});assert.equal(await page.locator('#error').textContent(),'');
+  rec.setup=await page.evaluate(async ({root,arm})=>{
+   const a=showcase.avatar;window.neckHelper=await import(`/@fs${root}/tools/figure-pipeline/collar_capture_browser.mjs`);window.neckPicker=await import(`/@fs${root}/tools/figure-pipeline/neckline_attribution_browser.mjs`);
+   const f=a.stage.renderer._nodes.nodeFrame;a.stage.renderer._animation.stop();f.frameId=0;f.time=0;f.deltaTime=0;f.lastTime=undefined;a.stage.temporal?.resetFrameEpoch();showcase.controls.enableDamping=false;showcase.controls.update();
+   const configuration=showcase.configuration(),material=arm==='bra-magenta'?a.wardrobe.wornMeshes.get('foundation_bra').material:arm==='body-green'?a.figure.body.material:arm==='cloth-double'?a.wardrobe.wornMeshes.get('female_casualsuit01').material:null;
+   const before=material?{colourNode:material.colorNode?.uuid??null,side:material.side,opacity:material.opacity,alphaTest:material.alphaTest}:null;
+   if(arm==='bra-magenta')neckPicker.diffuseTag(material,1,0,1);
+   if(arm==='body-green')neckPicker.diffuseTag(material,0,1,0);
+   if(arm==='cloth-double'){material.side=2;material.needsUpdate=true;}
+   for(let i=0;i<98;i++){f.update();f.time=0;f.deltaTime=0;await showcase.step(0);}
+   const adapter=a.stage.renderer.backend.device?.adapterInfo;return{configuration,before,backend:a.stage.backendName,adapter:adapter?{vendor:adapter.vendor,architecture:adapter.architecture}:null};
+  },{root:ROOT,arm});assert.equal(rec.setup.backend,'webgpu');await Promise.all(reads);assert.equal(rec.assets.filter(x=>x.file===ACCEPTED_PATH).length,1);
+  const fixed=await page.evaluate(async()=>{const a=showcase.avatar;return{physical:await neckHelper.physical(a),snapshot:neckHelper.snapshot(a),lights:(()=>{const rows=[];a.stage.scene.traverse(o=>{if(o.isLight)rows.push({name:o.name,type:o.type,colour:o.color.toArray(),groundColour:o.groundColor?.toArray()??null,intensity:o.intensity,matrix:o.matrixWorld.toArray()});});return rows;})(),camera:a.stage.camera.matrixWorld.toArray(),projection:a.stage.camera.projectionMatrix.toArray()};});
+  if(held)assert.deepEqual(fixed,held,'Diagnostic arm changed physical state');else held=fixed;
+  const state=Buffer.from(JSON.stringify(fixed)+'\n');fs.writeFileSync(path.join(out,`${arm}-state.json.gz`),gzipSync(state));rec.stateSha256=sha256(state);rec.compressedStateSha256=hashFile(path.join(out,`${arm}-state.json.gz`));
+  if(arm==='ordinary'){const picks=await page.evaluate(w=>neckPicker.necklinePicks(showcase.avatar,w),report.windows);fs.writeFileSync(path.join(out,'picks.json'),JSON.stringify(picks,null,2)+'\n');rec.picksSha256=hashFile(path.join(out,'picks.json'));assert.equal(picks.width,900);assert.equal(picks.height,868);}
+  const image=await page.evaluate(()=>{const a=showcase.avatar,f=a.stage.renderer._nodes.nodeFrame;f.update();f.time=0;f.deltaTime=0;a.stage.draw();return{data:a.stage.canvas.toDataURL('image/png'),clock:{frameId:f.frameId,grainFrame:a.stage.grade?.grainFrame?.value,temporal:a.stage.temporal?.frameEpoch(),time:f.time,delta:f.deltaTime}};});assert.equal(image.clock.frameId,99);assert.equal(image.clock.time,0);assert.equal(image.clock.delta,0);if(heldClock)assert.deepEqual(image.clock,heldClock,'Final image clock mismatch');else heldClock=image.clock;const bytes=Buffer.from(image.data.split(',')[1],'base64');fs.writeFileSync(path.join(out,`${arm}.png`),bytes);rec.imageSha256=sha256(bytes);rec.clock=image.clock;
+  rec.disposal=await page.evaluate(()=>{showcase.attention.dispose();showcase.controls.dispose();showcase.avatar.dispose();return showcase.avatar.report().disposal;});assert.equal(rec.disposal.disposed,true);assert.deepEqual(rec.disposal.leaked,[]);assert.deepEqual(rec.errors,[]);rec.completed=true;save();await page.close();page=null;console.log(arm);
+ }
+ assert.deepEqual(hashes(),report.sourceHashes);report.status='captured';
+}catch(e){report.status='failed';report.errors.push(e.stack);throw e;}
+finally{if(page&&!page.isClosed())try{report.failureDisposal=await page.evaluate(()=>{if(!window.showcase)return null;showcase.attention?.dispose();showcase.controls?.dispose();showcase.avatar.dispose();return showcase.avatar.report().disposal;});}catch(e){report.errors.push(`Cleanup: ${e.message}`);}report.finished=new Date().toISOString();save();await browser?.close();await server?.close();}

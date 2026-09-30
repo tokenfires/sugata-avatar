@@ -1,0 +1,2867 @@
+{
+  "frozenAt": "2026-09-30T15:55:07.221734+00:00",
+  "roots": [
+    "captures/neckline-attribution-2026-09-30-v1",
+    "captures/neckline-attribution-2026-09-30-v2",
+    "captures/neckline-attribution-2026-09-30-analysis-v1"
+  ],
+  "fileCount": 571,
+  "totalBytes": 40238553,
+  "files": [
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/ordinary-state.json.gz",
+      "bytes": 1441773,
+      "sha256": "07bb2053634e3dcb25e508dc1944d38c560f39cf36ae9c3b86ec47fb66301d5c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/ordinary.png",
+      "bytes": 904046,
+      "sha256": "b276dd5af2887c48e478f4b69ce7f4a4d8250daf3e0e39f3ab206896849e1321"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/picks.json",
+      "bytes": 546398,
+      "sha256": "4add99ff08e7685b42de852efbb18057e2e73b2346a0873a4790d01b69122086"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/report.json",
+      "bytes": 48913,
+      "sha256": "8d16fa3496263b9e27423713db37efecfd0a7fa14e66405b51cc2474359f001b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/docs/evidence/wardrobe-2026-09-30/neckline-attribution/PLAN.md",
+      "bytes": 2412,
+      "sha256": "927fd8c1f1a782df73dcd0b4cda1e211f175e567ca3f8e1d84381bca5241cd3c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/Avatar.hair-contact.browser.mjs",
+      "bytes": 9127,
+      "sha256": "7febec2c79cf1391ebf61212d52b401cbb8e38376746a3ebeff4faf33a56d41e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/Avatar.hair-contact.gpu.selftest.mjs",
+      "bytes": 9593,
+      "sha256": "a784aa53b0e3a02c8edf72f81cd25a8150b410a043958c771008d3e9ee211461"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/Avatar.hair-contact.selftest.mjs",
+      "bytes": 3057,
+      "sha256": "c7bb6262b2c92155d9a2d515fb5f3398b9bb92a2bd22cf91cc6c2b8d4550b749"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs",
+      "bytes": 9464,
+      "sha256": "2d644cb21b21e01d1275dfe18b8fdc9a4e0330cffcdcd68cad482a617eac6b7f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/Avatar.js",
+      "bytes": 251758,
+      "sha256": "be80904c84c380f30a7bbe061aebf50bab5d927802dfdec06477ed5e274c9f38"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/Avatar.selftest.mjs",
+      "bytes": 75664,
+      "sha256": "3332445e1c6b7820692e8537359313929e3316f68d1071c979aafd0f01f62e5e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/AvatarQuality.js",
+      "bytes": 45671,
+      "sha256": "deba798e81bb4c9383f17cb047e376c34d18e102ce32191d0b5ffcf214c2428c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/AvatarQuality.selftest.mjs",
+      "bytes": 49403,
+      "sha256": "66ae4bfe86f346a5d830812dd1c06fff142960dabf4471af36092477a020546f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/AffectState.js",
+      "bytes": 22878,
+      "sha256": "df254e1fda2263ac2a40f3cbcd4bff6492addb65e11fae697e45633b231c95ba"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/AppraisalAffect.js",
+      "bytes": 26189,
+      "sha256": "a161264442fff2ad84ef3c1824fcf5c10814b2e1de87e57cfa65c1f9559bbb29"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/AppraisalAffect.selftest.mjs",
+      "bytes": 46365,
+      "sha256": "04fe44013ecde051f6390012e2f74e458115ae34bea5676f0fefdca6b65efb62"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/CompletionDiagnostics.js",
+      "bytes": 2567,
+      "sha256": "af274066126fe0398f37de7aa3825d72f84d0562df5e1a146ee2ce2077c52539"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/ExpressionLayer.js",
+      "bytes": 9216,
+      "sha256": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/ExpressionMap.js",
+      "bytes": 44748,
+      "sha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/LMStudioClient.js",
+      "bytes": 31796,
+      "sha256": "8b9a4026365e0e7784740ec2f5f589a24f509382c80a92bb3eb168a52f40fe49"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/LMStudioClient.selftest.mjs",
+      "bytes": 31837,
+      "sha256": "e12a9b30b846c94da3b4baa774169d45a35c9e31880852454edbf85835c70a3a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/PostureLayer.js",
+      "bytes": 75450,
+      "sha256": "9f72fb58dfdb1646934b61e75c6187fe4bfc7c1c642198842c9eb57dbe31470c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/ReflexAffect.js",
+      "bytes": 23298,
+      "sha256": "d4cb9be30c1dda5aaa25610677e7ab646c8b4a49295e0d70dd5635d834d26abe"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/SeedLexicon.js",
+      "bytes": 10663,
+      "sha256": "415a8ac5ca0c1d8b69f41014cd0a40def9054fd4c3151a8b1f6a7f36db15d65e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/affect/affect.selftest.mjs",
+      "bytes": 155843,
+      "sha256": "cd8d11c6fb57e646707d9f5426fe50aef9d850b03b1ed4460ea30fa8df8df403"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/BodyMass.js",
+      "bytes": 16529,
+      "sha256": "c20eb94dc1bd3bad06ee89be4f815f2ad322870a619960e9b69b3c3b1efb0d22"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/ExpressionBank.js",
+      "bytes": 14362,
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/Figure.js",
+      "bytes": 15766,
+      "sha256": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/RestPose.js",
+      "bytes": 14335,
+      "sha256": "c8e7892717d33e9f273fbb4f85d765f80b5a3efe09f09f6a4abc0ba5368bceb3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/Skeleton.js",
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/bodymass.selftest.mjs",
+      "bytes": 16384,
+      "sha256": "bfc30d8624c79829d5a47ff734c11a506a100686c4247b3e3114d9b1c9f9a921"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/figure.browsercheck.html",
+      "bytes": 9304,
+      "sha256": "a8f648f7930a194392258ce1120a737dd4e8e0797a2d46d8289d653de369016b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/figure.selftest.mjs",
+      "bytes": 17147,
+      "sha256": "6bb6bedd2e520977475f67ef4d3d61d801be9d74d3ecb727e148eff335d288e9"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/identitycatalogue.selftest.mjs",
+      "bytes": 20821,
+      "sha256": "75fbc210c3a1671d95ce7791d719ad84494082124e822fd2aae6ca1734da1c9b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/identitytargets.selftest.mjs",
+      "bytes": 29617,
+      "sha256": "e4177d1c1c08129d9c2df4c26384d0baf29ec2ed0147259b81bc0fc74847adec"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/poses/relaxed-standing.json",
+      "bytes": 13256,
+      "sha256": "917cead92c04fc339a0baedf07ca592293800dc670ba4f50686975a0439d345f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/poses/weight-left.json",
+      "bytes": 12518,
+      "sha256": "79afa516a9b2048b9e315e359a0dbc47ec5413b3c9cb3dec60482dffa0e6d0b8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/poses/weight-right.json",
+      "bytes": 13033,
+      "sha256": "a132916357c84a24e3c7a73e967987202bd9346fc3a2ebc2f8c62990efa761f4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/restpose.browsercheck.html",
+      "bytes": 11837,
+      "sha256": "d70c06bee356251ffe2c9d5abfdd82f098d73774d0468d27e37080e6927ed281"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/figure/restpose.selftest.mjs",
+      "bytes": 49418,
+      "sha256": "a914336ac8f575ff9a0111bcfb8bf0bcb90971d3f63d28b2aa6c53d3591a0997"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/EyeCatchlight.js",
+      "bytes": 18340,
+      "sha256": "00ea06778cbd313bb80eca73ad5cf04b4b20ac36ee87e8e7a0d1d854759d1849"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/EyeMaterial.js",
+      "bytes": 75066,
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/EyeMaterial.selftest.mjs",
+      "bytes": 38136,
+      "sha256": "1bae96f67ffd8ecad85ca6be120292e1696d8e40a02941ab6a037d1de4349c47"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/EyeOcclusion.js",
+      "bytes": 22023,
+      "sha256": "6edd0523001fec7394cd7343ec56dc6e992bff841727ad67209fd7701e2f083c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/HairEnvelope.selftest.mjs",
+      "bytes": 29280,
+      "sha256": "e1c14ac5bc827580168c96acb939be9265b9dc9a51a751448000e3b8c61c14f5"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/HairMaterial.card-roots.selftest.mjs",
+      "bytes": 3313,
+      "sha256": "f892d109978d4e8b9f00861d30729648587db23ac5d9b2203ca44965408b6c07"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/HairMaterial.selftest.mjs",
+      "bytes": 177634,
+      "sha256": "8743e1daa419f1956022fc92a012944831f46a5dffb03c98f0d5622097e089c8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/HairRibbons.js",
+      "bytes": 23343,
+      "sha256": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/PreintegratedSkinLut.js",
+      "bytes": 15988,
+      "sha256": "99d34e28550ca01853d572d485799ccc3e13608f6259abf4f51b445ced8ca5f4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinCurvature.js",
+      "bytes": 18056,
+      "sha256": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinMicroNormal.js",
+      "bytes": 10622,
+      "sha256": "c906a9bbcac40257311a182af8d109022296c9f386740d6536861a714a029685"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinOcclusion.js",
+      "bytes": 18226,
+      "sha256": "099683b239ab06dd526d15139d7ebb59cc6fb4d5cf5c0d0470867fd7648b68aa"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinOcclusion.selftest.mjs",
+      "bytes": 15879,
+      "sha256": "9f0d62d953ec1bedcff76965caa18640869bf6dfc76c6490e559d4d793fc2383"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinRegions.js",
+      "bytes": 30791,
+      "sha256": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinRegions.selftest.mjs",
+      "bytes": 20510,
+      "sha256": "db6c8c57a907f7b1c15640f499af08de2659daf8ac7c147e4637358d8d42e187"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/material/SkinTransmission.selftest.mjs",
+      "bytes": 19561,
+      "sha256": "09fcd34e1f9a7ac06bac59b78c5a05010de1036d2e54fb8f42f1b6782fc721de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/AttentionAction.js",
+      "bytes": 12286,
+      "sha256": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/AttentionAction.selftest.mjs",
+      "bytes": 10528,
+      "sha256": "a9e19f407ef33d294b8236d3b0e292373ba95f8c8827fdeea5b09610cba5581c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/AttentionSmile.js",
+      "bytes": 3538,
+      "sha256": "113c3a6807b62b003e902b75df37130953507d9c5b411b7e73866924b8cabbfb"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/AttentionSmile.selftest.mjs",
+      "bytes": 12597,
+      "sha256": "950564fb78bffd1e60a47e08f36dc0d5b949067c66748d087e2f54bdd2d4270c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Blink.js",
+      "bytes": 46356,
+      "sha256": "71f7286273d118514343ce3f4918583bb02ef520932bb6dbbf5d91a6fc9489c1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/BodyIdle.js",
+      "bytes": 39306,
+      "sha256": "d1afefff100c64fddf929c90c1eac8c08742d12a07986ec41a35111f544c8ebd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/BodyIdle.selftest.mjs",
+      "bytes": 50883,
+      "sha256": "a1a5c623001608de216d0176c4f2e0a4c409a798a427876bef0db94452af3198"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Breath.js",
+      "bytes": 22654,
+      "sha256": "74b1ba926f9a07448556b936da936e16e8c361156f0506f745939fccc5c5a9c0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/EyeAimCalibration.js",
+      "bytes": 8100,
+      "sha256": "be5f8889c3ccbbb6e06b28b99baebc10aa2905c561b0a5fe6fc83f76fdf12bbe"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/EyeAimSolver.js",
+      "bytes": 9912,
+      "sha256": "c2a18d1e7a92c1057dfe09c193af399063fe52778ff1d8e343a82c9e6730b884"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/FacialIdle.js",
+      "bytes": 46284,
+      "sha256": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/FacialIdle.selftest.mjs",
+      "bytes": 31803,
+      "sha256": "de2b215714af838aa01bd2b0b56329400fe2c16cf3c5aa3e3bf8c7470b6c2211"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Gaze.js",
+      "bytes": 129610,
+      "sha256": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Gaze.selftest.mjs",
+      "bytes": 104703,
+      "sha256": "d1a2210ed364c228f6692c8b1b4ab4fe90c139dcbe9d0019313e916c4ed59653"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Gesture.js",
+      "bytes": 46993,
+      "sha256": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Gesture.selftest.mjs",
+      "bytes": 46758,
+      "sha256": "9a1705ab92a4ae64d831b2c02935eecd5f51d3b997d8e353acbc65440b10d3a1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairBodyContact.js",
+      "bytes": 7329,
+      "sha256": "0a569e763576cfa301e7d9d78bc8184d9e621e3e931f0048a0df33a418db63ba"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairBodyContactCalibration.data.js",
+      "bytes": 49812,
+      "sha256": "fa3850d8630b2555d46e3b2dd3c45b3a9e65aaecb64e739ba5e20edc5cbcf5df"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairBodyContactCalibration.g025.data.js",
+      "bytes": 28197,
+      "sha256": "6536881c7e6de35b6cbd7e81154a3a1aa4d76360ffbba8f617b871aa402a3024"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairBodyContactCalibration.js",
+      "bytes": 7736,
+      "sha256": "0709c3d888613c7a1208cbe3f98d3adfe8d2936754f9aaca0bc66d686dd985cc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairBodyContactCalibration.selftest.mjs",
+      "bytes": 15994,
+      "sha256": "1926388efae27672144ef5a8cd5d9f88bfad0ff9ab15a07a09bdc8ee69824ceb"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairBodyContactForest.js",
+      "bytes": 9853,
+      "sha256": "3470f5816c34f08c5374f712eb55efca179974413769cc117d96f2a4cd4f441b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairDynamics.contact.selftest.mjs",
+      "bytes": 26336,
+      "sha256": "3cdb47d39db1ea86f282dabab6ff7729a21fd393cc9137357bd70a19c9c5f70e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairDynamics.disposal.selftest.mjs",
+      "bytes": 17620,
+      "sha256": "c784ac621523045ec2692f096201edd5366467eb09a2d783e7f193466777be58"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairDynamics.selftest.mjs",
+      "bytes": 72846,
+      "sha256": "cc7c57c40922b2ac92d5dcb713ba5038227aa8ae5e8afab711d4fd33bb59f149"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSkinTransform.js",
+      "bytes": 2966,
+      "sha256": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSkinTransform.selftest.mjs",
+      "bytes": 3882,
+      "sha256": "1480cf586db0064a6891a20ccd7be4c6ef22d4b454d26234f4bcad4c3bc9fb65"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.bounds.browser.mjs",
+      "bytes": 3693,
+      "sha256": "b0cc712c99e7d19be9bc8ba27e96dae92b7b18e151b538c903b05ccd9c83bb5f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.bounds.selftest.mjs",
+      "bytes": 10568,
+      "sha256": "33c43b855bcb12d49dc2e221cc03c0e44ac94e90fb03b39ba64742b3861531d0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.cache.browser.mjs",
+      "bytes": 10075,
+      "sha256": "5a4311f8ae87eafa149b42d6348cb5d78b1f642f21f3e62077e610404765fd16"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.cache.selftest.mjs",
+      "bytes": 9534,
+      "sha256": "ee16eb5c24e9895e3226658993f14c1121969b5859706f69ddf0015aa7bce993"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.forest.browser.mjs",
+      "bytes": 15821,
+      "sha256": "81b3c894f7df06ca5c3e04309a9fade2ba4dff712dacf7eefa2d906c8720fa1f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.forest.selftest.mjs",
+      "bytes": 11319,
+      "sha256": "692bde57d6d8c8171de32a7a12010c39d7f25c3bf6164215a875bddfa6e14b02"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.js",
+      "bytes": 33373,
+      "sha256": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.primitives.browser.mjs",
+      "bytes": 14553,
+      "sha256": "f3d3319437a2307b2bc1a5deff8a4b6f3750f17725e6e58bb5a205f8caef4df6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.primitives.selftest.mjs",
+      "bytes": 9980,
+      "sha256": "91361535f255c4b37ad5d42f93f28dddb9c26682cdc66a975413eac093c74d96"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurface.selftest.mjs",
+      "bytes": 25069,
+      "sha256": "71ad9848938813a23f51cacf4e784c807bdd3edb91c88972d91b35a137f34d07"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurfaceContact.js",
+      "bytes": 18887,
+      "sha256": "53d16ea55e10fe8ad72b7eee7d51b2d5b95d4a55f20a42c890ed71a657cbd30e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurfaceForest.js",
+      "bytes": 4514,
+      "sha256": "3a7dabb53363060ec66f78522bf41e1422ddd9d3d75d7d123a188228829f7c05"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurfaceForestQuery.js",
+      "bytes": 24815,
+      "sha256": "506bd08cc26ffee2821075b79adc11ac9d10b877ef5e268856116cd787e83110"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HairSurfaceQuery.js",
+      "bytes": 23932,
+      "sha256": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/HandIdle.js",
+      "bytes": 33844,
+      "sha256": "3d34c24f2fbfefdfe24b95f4b8141d5dffc0c880a37f3f201466beac247ffd73"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/IKSolver.js",
+      "bytes": 55356,
+      "sha256": "7f822a5fa7457a8e8c185549eba8b325ce612b769fdc14386c237134bceede0c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/IKSolver.selftest.mjs",
+      "bytes": 95629,
+      "sha256": "5c0a8f39cc57a7a2a529bf60e7cbeb97291830e56c0205f1cef0b2d802416049"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/IdleMotion.js",
+      "bytes": 15886,
+      "sha256": "1d69470f828c879cadfff5aa155e37b0f96e8870383e5e7f4be3537a0ac86989"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Layer.js",
+      "bytes": 11055,
+      "sha256": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/MotionStack.js",
+      "bytes": 41310,
+      "sha256": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/MotionStack.selftest.mjs",
+      "bytes": 29150,
+      "sha256": "e825114f25fd4dbab1212f5ae1ef3a7f7977e2e8c3e112bd7917f436aa661098"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/PointAim.selftest.mjs",
+      "bytes": 18693,
+      "sha256": "fb8478e423da7f5ceca3e3dc65cd7f2cc0d362f4f557d0c5361e9b8080493bd2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Pupil.js",
+      "bytes": 16529,
+      "sha256": "41ffb2723b5137307540ffa562b5d4933e28abe4bfdf2cb65524481c90951b7a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Signals.js",
+      "bytes": 20354,
+      "sha256": "46c539caa8995c3c426bef03dbbab95d421972829e9b01a449959a76cc07722b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/Sway.js",
+      "bytes": 194104,
+      "sha256": "00d99fe27a749fc491e0a5eaca4dbdbb13f5331f0a5265089ba5012d47fb84a6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/fixtures/avatar-hair-contact-canonical.json",
+      "bytes": 3665,
+      "sha256": "8855a92fbf452b279b1f7fade2aecb39da63ca7a750044814572ec44348e2e36"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/fixtures/avatar-hair-forest-canonical-v2.json",
+      "bytes": 5533,
+      "sha256": "50fb7c7380cf4964e0dc734772aae874f62083a40b1e6b4ceee53eced80f85ed"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/fixtures/hair-body-contact-g050-legacy-v1.data.mjs",
+      "bytes": 19282,
+      "sha256": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/fixtures/hair-segment-oracle.mjs",
+      "bytes": 5566,
+      "sha256": "1867cc36f34af8dc074b5230ba160774caaee187d515b5fd48cd17552f171239"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/fixtures/hair-surface-primitives.json",
+      "bytes": 30325,
+      "sha256": "681ec9e452ed7fc2515615e0eafecfefbd164033a7d1ace80f773a4b2b18c129"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/fixtures/hair-triangle-bounds-adversarial.json",
+      "bytes": 19031,
+      "sha256": "949c1681e282a1e70f36062989822fa8557ed0c2b236fe091786e94648bc80c4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/fixtures/hair-triangle-bounds-control.mjs",
+      "bytes": 3027,
+      "sha256": "73e0c088fa57e840a98c184037eb0fa599619450c48e97855168b9b4846d775e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/idle-motion.selftest.mjs",
+      "bytes": 120170,
+      "sha256": "96ad326f105ab9ede5db4084664ea3816d75d0e1a70b99db69cc3b322943f788"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/motion.browsercheck.html",
+      "bytes": 13616,
+      "sha256": "69d1728ac02dcf3f28f2f64f2cff5718a1ca5e9e82c634df0dd133e991a819d9"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/ocular.browsercheck.html",
+      "bytes": 15245,
+      "sha256": "33caf1e0637315b00d968a9a9ebdc4dad1e957de498f3f09ab75b28f459dfdbd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/ocular.selftest.mjs",
+      "bytes": 69203,
+      "sha256": "bb87341bdab7c64d9d4b039354189d31b2c6531b773b7f3576e05e19435d0c47"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/motion/sway.selftest.mjs",
+      "bytes": 453670,
+      "sha256": "abb11c92c5e9c68c3471ab86ce34236b9d9961585a614fc0388e413f74e0dadf"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/physics/SpringBones.js",
+      "bytes": 74462,
+      "sha256": "5e222ad8647dd7c2b5a604f0b6f521359b53396443939ff1780252b1edb2cab5"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/physics/SpringBones.selftest.mjs",
+      "bytes": 70564,
+      "sha256": "6e8418cfa127b5b0f08840ce53b44bfc05de6025bb703f234064bda68d997bb6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/CardRenderHistory.gpu.selftest.mjs",
+      "bytes": 11406,
+      "sha256": "4aa0934f8dec3419394e3c1de57575e0a746ed3a551a2718aff9623bbd5646fa"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/CardRenderHistory.js",
+      "bytes": 14269,
+      "sha256": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/CardRenderHistory.lifecycle.gpu.selftest.mjs",
+      "bytes": 4182,
+      "sha256": "4c9a5583b3a4430c05a14067d2244999fc8d3d2c8c6dc1c3d22f727de8447b1d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/CardRenderHistory.native.selftest.mjs",
+      "bytes": 9566,
+      "sha256": "3cf2ed7b7a0e8df12e5f253c36227aea9d00162d049dba6e97875b8135d76783"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/CardRenderHistory.selftest.mjs",
+      "bytes": 15311,
+      "sha256": "b2fd22884daf1af9976ae9a4494b92fe4a105d36a6d02360a93b4005f46aace8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/FaceCardCoverage.cleanup.selftest.mjs",
+      "bytes": 12215,
+      "sha256": "35981c214f20887345ebe1c592e2e744e66a79ff701d28632d60ea6203c43d18"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/FaceCardCoverage.gpu.selftest.mjs",
+      "bytes": 4763,
+      "sha256": "9e2afb6b651fc9fee8f80df2495acd2f9c787b5658749cd1c908286f03bc0521"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/FaceCardCoverage.js",
+      "bytes": 10127,
+      "sha256": "729ed498df7fc0a20d6da09771d74ddddf8fe59b2fb4c626d70feba2a20ed1da"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/FaceCardCoverage.selftest.mjs",
+      "bytes": 12507,
+      "sha256": "745d8c417dafa51dada04f447b43c72dad035ec5c8143bda3fdde25b07849945"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/GBuffer.js",
+      "bytes": 19406,
+      "sha256": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/GTAO.js",
+      "bytes": 52102,
+      "sha256": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/GTAO.orbit.selftest.mjs",
+      "bytes": 11206,
+      "sha256": "7cd31abf948af0c3edea6fea02be87cd498ebdbafbd0122bef040bf22cf00199"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/GTAO.selftest.mjs",
+      "bytes": 31448,
+      "sha256": "304da2ccb39d177c03c8570c17190a3a1608fbe06e82503065ccb09929d14d62"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Grade.selftest.mjs",
+      "bytes": 95316,
+      "sha256": "912a7f18a008ba2927dab1ad3d625ea492a8e0e6b6bd2fd97e0ebcf28db0f824"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/GroundContact.js",
+      "bytes": 61153,
+      "sha256": "c7c31b735cec572330914b98109b9e033aa0e0bd3ea4c0bdf9601301cbe27b63"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/GroundContact.selftest.mjs",
+      "bytes": 123322,
+      "sha256": "89162bb70c488ac9e0b0530eb07038db0a9f63fd192057c4991b20df60680e8f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/HairCardFrame.js",
+      "bytes": 7057,
+      "sha256": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/HairCardFrame.selftest.mjs",
+      "bytes": 8833,
+      "sha256": "953a68f76abfaeeadf8c40363e7a8b6315c8bc6bc5ba3ba58f46cf83db6d0eb4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/HairOIT.selftest.mjs",
+      "bytes": 62278,
+      "sha256": "97e530af7e211969e53a2988a396597ae64bdc95776b7f36df75af973d9b5c7c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/HairShadow.selftest.mjs",
+      "bytes": 50298,
+      "sha256": "ccd88b3f34dc7928b687291e43b7d55574c9b96811781faddd8b8dcede9f0e3d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/HairVelocity.js",
+      "bytes": 11512,
+      "sha256": "867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/HairVelocity.selftest.mjs",
+      "bytes": 12513,
+      "sha256": "65f631ae3e9e0c8fee75540845e0193c7a66ed9afec4ac7d04dbf227dfff5118"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/InteriorEnvironment.js",
+      "bytes": 72895,
+      "sha256": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/LightingRig.selftest.mjs",
+      "bytes": 199005,
+      "sha256": "d270562f0eeac6171112d82bf8ef367eb13d8395cc15b2a363124259223adb12"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/MorphVelocity.js",
+      "bytes": 17592,
+      "sha256": "06b4fd0d529f2d0a855aec98bc7150a76a1a73c5b679a2c3e296cba0d80be2de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/MorphVelocity.selftest.mjs",
+      "bytes": 9534,
+      "sha256": "c6beff8ac5d4766060d0239655c8ade41c831bac18b2b8f3270de159d20dc5bd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/RenderParticipants.js",
+      "bytes": 8681,
+      "sha256": "7db372d7ea813ffc2fd0154d42ef35afe1f68fbd707ac15d5c9f616ed5ac2829"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Scene.js",
+      "bytes": 166009,
+      "sha256": "193cb5cfa682e0ed70d42573dd3b2221ceddf207629f2ed225c30100287cdfe4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Scene.selftest.mjs",
+      "bytes": 50375,
+      "sha256": "d2dd4ff2ebe51525f609082c7b3109ee6ceb7fdb2c690ccb3891df081a474d75"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/SkyEnvironment.js",
+      "bytes": 49717,
+      "sha256": "3e1cd75ae80b4c9102233c1479d87c0d971b032d25831d858a8e63970c455c30"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/SourcePatchProbe.mjs",
+      "bytes": 6262,
+      "sha256": "399c77f51c89b71301edfe6295a4df32053f19440c8e53bb856a222fe6104886"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Stage.resize.gpu.selftest.mjs",
+      "bytes": 8771,
+      "sha256": "548db5932d270c7b63a3555b9e04f449e7a86070a160bafff969fa136792f83f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Stage.resize.selftest.mjs",
+      "bytes": 3618,
+      "sha256": "ac1cc2b349784ef8d1cdb4cc83b296d587466bbf20ac2f826d080700dd60eeb2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/StageScenePass.js",
+      "bytes": 1313,
+      "sha256": "ec583b415bb9b8f84e2bd5e51cd0b13af6e220888d52bc820c1ddea5739f5e55"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/StateClosure.js",
+      "bytes": 4642,
+      "sha256": "7db6582661b887e8bcf76c74874598857a6033264279ca06652074cf6094aafd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/TRAAPost.selftest.mjs",
+      "bytes": 19982,
+      "sha256": "8ba57a549eb9c38b6527a1c5bd1c45c581c5c89793f378c23db3033793ef3135"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Toksvig.js",
+      "bytes": 9540,
+      "sha256": "8cebaef419a3c373d6b5e0ea6c0fc3906c15cef1796f4ca336e9fd4c00b11fc0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/render/Toksvig.selftest.mjs",
+      "bytes": 8786,
+      "sha256": "2d18970b741ed17cc12b5852b5a589ed0691bcc044df5035d5ff2ac123e6b3d6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/Coarticulation.js",
+      "bytes": 6863,
+      "sha256": "652b3594abe6165403b6dbb92789a51dfd45edc1268c4fab14da9acd5dbadba6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/Pitch.js",
+      "bytes": 21813,
+      "sha256": "fde78a4c3dd83f543d8ba1c349db1a06b8b697a12255e4490bbbd5a82a3fd167"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/Prosody.js",
+      "bytes": 18736,
+      "sha256": "b922627a7c492ba1a02392aaeeed34e445c4aa74cb0ba71b6a9a6fa5af416f8a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/VisemeLayer.js",
+      "bytes": 6000,
+      "sha256": "9055707cb00c72601c9db754b05effaabfb07cc9ddcee3beed91161291672c99"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/VisemeSchedule.js",
+      "bytes": 22198,
+      "sha256": "695e0d8314d8cc64d748c8e5c4e9f2ba3021bdc9c2a76d443a7373aacc209eac"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/Visemes.js",
+      "bytes": 14905,
+      "sha256": "31b75bc0a6e2932bf799719d7e61dc8537c94703a9c4e3d5a4ad5d2800c49955"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/prosody-worklet.js",
+      "bytes": 3214,
+      "sha256": "60ed8986fdade1f68c3eeaea84584bff919faa7c00dbdb77a7747a87cf230002"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/prosody.selftest.mjs",
+      "bytes": 31189,
+      "sha256": "f4179ec0cce2d335b53e649b735f1fb759ee037221d1c61729cfe72b8b26548c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/voice/visemes.selftest.mjs",
+      "bytes": 59727,
+      "sha256": "f3de9fdcd457cdfe6d78f00155178fb340f8aebd000bc102c50b8a9caecbf620"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs",
+      "bytes": 12071,
+      "sha256": "f3fd6e9d8ac3e369ec463a4faa1aae89bc0f483bc0f5e0ec31f9242fbab2abdc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4605,
+      "sha256": "696d0602055b4890e487ded4dd087d8d8466fb629f3247588bcfc74353a61437"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/AvatarWardrobe.selftest.mjs",
+      "bytes": 15767,
+      "sha256": "36b1efdfda80cd831b4b34838a59ddc985346bef33c76930293d585c9e24f116"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/GarmentInterior.selftest.mjs",
+      "bytes": 17920,
+      "sha256": "8723fa326c72f84de85fab467451f06c65b2a68fa0831dfc647579171aabc17d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/HemGeometry.js",
+      "bytes": 25069,
+      "sha256": "383edcf135a278feeefc3d0789ea4a1ef551ba5515125575fa06613e4de13306"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 48776,
+      "sha256": "d890af1ff1f26eb836d59f2dc83137a3d414a59fe027186494d5bfc62aa9aa14"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 394,
+      "sha256": "88ace8aea37370d3bb3e6fbf2a8e84872854a3ae453b48e931a5aae8a76afa1b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7301,
+      "sha256": "b896ec3978130374a04760e576d61d1f049abc32a4cc9f592ad7f57fba75ee5a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/WardrobeStyles.selftest.mjs",
+      "bytes": 9785,
+      "sha256": "ed461635af7928453554be056d8c430040c3379b1ddbd985ec8ccbbe4b812b99"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/decency.selftest.mjs",
+      "bytes": 52582,
+      "sha256": "cb941ab64561e371f337bb47470f2312464d140456824aeebe8d7ee4dc638999"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/hem.selftest.mjs",
+      "bytes": 35526,
+      "sha256": "f6f3de9bbb43b6f04bde1fb4487d3cd95127c9fe62d969c3105fe879e264abc3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/shadow.selftest.mjs",
+      "bytes": 53497,
+      "sha256": "7a4ba7477672c16548744fb799279eb47bc2e5160f39c7ba6d8f61758305acdd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/core/src/wardrobe/wardrobe.selftest.mjs",
+      "bytes": 54500,
+      "sha256": "cf4ad2671caab6332bb4dbb74138e6a50a044a174f92a3728d5887976fc2c246"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/affect-presets.js",
+      "bytes": 2197,
+      "sha256": "3720f2e658d129df204df61735e878d7ac4893600ce573e4ce371e8708d09cbb"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/affect.html",
+      "bytes": 3898,
+      "sha256": "af4cdb5f1c7151e70acc5a5cf22e8c7196a3a30246d68813fb86932d82a02602"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/affect.js",
+      "bytes": 31483,
+      "sha256": "ae9040c2dde99ac0d1edfc9e02bb803874ac5f97f62a983e858cc728ebd8d05e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/alive-capture-determinism.selftest.mjs",
+      "bytes": 57736,
+      "sha256": "228e2a1ea2acb3f7b521baab1a7e29ecb5d9a37fee26ab058079eb00f5d1aac6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/alive-toggles.selftest.mjs",
+      "bytes": 155329,
+      "sha256": "5896c873f613f94255a5e4fb0903800a69dd92481d68353a16cc90fa771bcd0c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/alive.js",
+      "bytes": 266546,
+      "sha256": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/converse-connection.mjs",
+      "bytes": 4036,
+      "sha256": "92d38462c7c1fd964ee150c1c8aad0f68f6c404f86d4e98b8b4c8e50dc760a29"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/converse-connection.selftest.mjs",
+      "bytes": 2086,
+      "sha256": "3ee07b2e49e871d97f3241c447f9008f1c30854099e289395786088f7bde7f7d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/converse-diagnostics.selftest.mjs",
+      "bytes": 8993,
+      "sha256": "8e57cd4df449f018419c62494f5d1f1d70e59135e28eb0a8789d806057465277"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/converse.gpu.selftest.mjs",
+      "bytes": 17846,
+      "sha256": "3e1568a2856e9f2053c20f3b9acd4abdedd27923239f0a32761bb32867ef2c5b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/converse.html",
+      "bytes": 7463,
+      "sha256": "80288ac2af65b8227631b918e72c8cc7ac9e208c82d887559facf61829a0d484"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/converse.js",
+      "bytes": 64112,
+      "sha256": "22dbc465cd23dcea62376ba8985ea326145b7683540310d47bd17fe945a906af"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/embed-example.html",
+      "bytes": 6024,
+      "sha256": "bfd5ab1cbb4b96acc38834af975b1e718e617d97c4d94c275736670ddaf1852c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/eye.html",
+      "bytes": 2869,
+      "sha256": "0d676caf4aac129df22002c667c6073a56c52a20c5800657990b1801ede9c706"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/eye.js",
+      "bytes": 21199,
+      "sha256": "df056f95de8e85657ee99362a020c4d84229a7997299752ea7423b8ce7435b56"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/fabric.html",
+      "bytes": 2398,
+      "sha256": "7be573e819fb1292de435bdf7a24d8bec9a38c9795e5c8e6916ff05d85aec716"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/fabric.js",
+      "bytes": 40902,
+      "sha256": "9b3881ee75fbb894c96c47d3e6ee2bede5979b8502f584718aebd755116fcd5a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/frame-clock.js",
+      "bytes": 1816,
+      "sha256": "26fb3f42267115cdf92f1e2042f22a3005400593733e4479453a0e977734c3d5"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/frame-subject-state.mjs",
+      "bytes": 7235,
+      "sha256": "ba6633e900a2a8f7fb633a3be417c526c29bb11c56b42fc4ccb5e2747ddce95b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/hair-capture-clock.selftest.mjs",
+      "bytes": 8029,
+      "sha256": "62806078d5d5df9df9430d7bd0c6f02b5a8f9bcc9c0e85fbe2d812cd07226563"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/hair.html",
+      "bytes": 2962,
+      "sha256": "2f9efb2461b087d1bdadae20a992b7ae4359cb81288d204e50496189d502a70a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/hair.js",
+      "bytes": 49905,
+      "sha256": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/identity.html",
+      "bytes": 5118,
+      "sha256": "356515f3a8fde0127144c92f300f61149f62c3425f07c7924e8719abe4ac509d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/identity.js",
+      "bytes": 18218,
+      "sha256": "d3a65fedb9418b0e32c59ddd8b524673c621a040f1f07ffda499e252437ae9f2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/light-defects.js",
+      "bytes": 9492,
+      "sha256": "62ab40d489d11063fa4dab3497b278c53426e8112ecbc8708b1cce75eac75207"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/lighting.html",
+      "bytes": 4414,
+      "sha256": "fe6fbd6fcc58973dd3f0c2df2769c1f98c9ebdad9d1da2d9a3e5032ac9dd1203"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/lighting.js",
+      "bytes": 41030,
+      "sha256": "f19383b0ef7286195434a7ec60bf5bf11541df4587039fa14fa56d029622fa73"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/main.js",
+      "bytes": 3736,
+      "sha256": "9e90d6a94016813bc0d300fbc7c8e09a25772c5d173395a485e33c3f3b1d55d7"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/palette-references/casual-charcoal.png",
+      "bytes": 653274,
+      "sha256": "43c387cd58068b21d0376a17762651635831b922a5d2ec817f1a822d15eeec64"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/palette-references/casual-ecru.png",
+      "bytes": 634358,
+      "sha256": "cb03b3ab97a29a2b46f6eca0613b5d06ebb9084068d5b3edb9e93828f75ae33e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/palette-references/casual-original.png",
+      "bytes": 669499,
+      "sha256": "0527c0b0f295efb770099a8977127699cff83caf0429f5314ef24cd6937e038d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/palette-references/elegant-charcoal.png",
+      "bytes": 634861,
+      "sha256": "911f684b21f6d5fd38593d38c61891b3fda7b6f62275a2b89f94ab0985ae2819"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/palette-references/elegant-ecru.png",
+      "bytes": 647399,
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/palette-references/elegant-original.png",
+      "bytes": 663518,
+      "sha256": "c6bc0176b2bf1873f52c6f34d40f0fd0c81956ee7c1533b8b6fb81403b4d7b54"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/post.html",
+      "bytes": 1488,
+      "sha256": "7dac2d82ee3aedb0aee91f5ad1984a3e50c0fb220222172db3ef5bd85c21f376"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/post.js",
+      "bytes": 33467,
+      "sha256": "9828e259fa29021a7b283d858597fd85ee06fb4faa04689d04de5f145463e72a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/scaffold.html",
+      "bytes": 1168,
+      "sha256": "c7a25f318c63cf098066498adb0b3469f1c9a039c643e46225ba5d7bb4644af2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-collection.gpu.selftest.mjs",
+      "bytes": 16917,
+      "sha256": "12e15e17b52b70c140052f427f41aea5a10636d6ac744f142a5d972bed987c4c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14551,
+      "sha256": "826d4e2de344bf0122e8ff0eba47fc06c5be5f75bd785125c5dc86550fdfd357"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1504,
+      "sha256": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 5505,
+      "sha256": "dfa9f8a20d6f2f3de811daa09da04310fbb4117b3201ee699de93df7016c33ac"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-image.gpu.selftest.mjs",
+      "bytes": 18331,
+      "sha256": "ec90684c373c35a12d0013c32648cde6d91afc93c033a1993afda91c349b19cd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-palette-references.css",
+      "bytes": 1901,
+      "sha256": "11ed94435bbfd36ef7288dadc9109258e776bcd5fbb6c818672ba5bff9283e5e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-palette-references.mjs",
+      "bytes": 4963,
+      "sha256": "60163e41d9a228974ebecd69d29aedb63560815f9f3a28b586c8959542e1db00"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8239,
+      "sha256": "0fc09ac548aaa878dc6e81168a0815f555a31ebe060cdacb81bddf6bb01cbd10"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-presets.selftest.mjs",
+      "bytes": 4819,
+      "sha256": "cf1f02f3354431f41a4532cf224c91e0b07d52130bc3eff894d90649c5abdffc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-scenes.gpu.selftest.mjs",
+      "bytes": 13318,
+      "sha256": "352d60dd41d1c5269134e9d21273edba83c7682fe0cad1c8f00c5eee6686d269"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-settings.gpu.selftest.mjs",
+      "bytes": 11979,
+      "sha256": "9a270cf064c19f8870bc874f2feb2739b370c83336646958820ae8f44dd40f4b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3934,
+      "sha256": "3e51f3b2574650845039ec177c0925633e055cd44acb89afec5df6927d9f01d6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 5754,
+      "sha256": "f5cc4384515e382ee2c84e758c836491201ed2cbbba460adbf08a8853d3e1724"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase.gpu.selftest.mjs",
+      "bytes": 20339,
+      "sha256": "f3817489fa19c2a67d30a599cb1bd026be4c90e463f02d295e2f17fa9a1d07de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase.html",
+      "bytes": 18726,
+      "sha256": "a2401f1ce9f98fb36942d3ea6efc43e2e4dc6ff6222f8f52eae968cc954a4a94"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/showcase.js",
+      "bytes": 28639,
+      "sha256": "15d8d06800a35179efc8147bdd304427230ae6c9890608f0d219024b090d86b0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/skin.html",
+      "bytes": 6267,
+      "sha256": "93240397e52334b9b67c7fe2d4d0d321ebcab3fba7da768c722db2ef5522354f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/skin.js",
+      "bytes": 59361,
+      "sha256": "989b18a7b3d9b900b452bb52c98e6a84739faa04f28c1130fa9447c8426027c1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/stage.html",
+      "bytes": 6051,
+      "sha256": "85958bb4ee1deecb387231fc6b4fa375367f2de1686a44a5edb913fcb46763de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/viewer-framing.gpu.selftest.mjs",
+      "bytes": 14227,
+      "sha256": "d4a83da71cafbda9698e6f2948039de72067134ade40dbf60fd8d3327f38b7b6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/viewer-framing.selftest.mjs",
+      "bytes": 5548,
+      "sha256": "fe4c06298049c2eea7e851c5e599c1ec72750602e4572961ba53f09242efda9d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 957,
+      "sha256": "64bbbf3d21aa9100dc4c311b2ad6835e94d83bba1ebf0c1da25d4bfe8f44a810"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/viewer-scenes.selftest.mjs",
+      "bytes": 1231,
+      "sha256": "f01261afecb86addaa3f08d8acf2982e8615e6787ef55975e54c6b0e9b1fa4e6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/voice.html",
+      "bytes": 3018,
+      "sha256": "90e0e4537c98e839c64401c646953a7cc6b8c4c1aa4e7a17fa5dac02e1dfd5a3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/voice.js",
+      "bytes": 24217,
+      "sha256": "fac1ea9b9c951e7fd327a721d58a089173693d26cda892882b0333c78e04cc0b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/wardrobe.html",
+      "bytes": 5184,
+      "sha256": "050d37694421856b0574717ef516128a35b65d088cbc40863b9708c4872f4922"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/tools/figure-pipeline/collar_capture_browser.mjs",
+      "bytes": 9334,
+      "sha256": "6a5c7a8584e2d5c653bdb6e9e44289350b0b229261c250f252dcf34aaccdf846"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/tools/figure-pipeline/collar_replacement_capture.mjs",
+      "bytes": 23730,
+      "sha256": "bb38e0112fb1050285c3dbcc6a2b2fa01195bdbce3ad15a885cf67d1382b8e6d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/tools/figure-pipeline/collar_replacement_manifest.selftest.mjs",
+      "bytes": 7198,
+      "sha256": "67e1111577f32f32198fd572068e154452f476560f542f65bb0070f1ac6463a3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/tools/figure-pipeline/neckline_attribution_browser.mjs",
+      "bytes": 2301,
+      "sha256": "df720ec41f6e977fba8d06309acd12f669388621ce0dd563d244b78539d2157c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/tools/figure-pipeline/neckline_attribution_capture.mjs",
+      "bytes": 7308,
+      "sha256": "3014dc0352000e0b2aef272eee5885e46f2066b3efc3a503c7b24ddce8e8bef1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v1/source/vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/body-green-state.json.gz",
+      "bytes": 1441773,
+      "sha256": "07bb2053634e3dcb25e508dc1944d38c560f39cf36ae9c3b86ec47fb66301d5c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/body-green.png",
+      "bytes": 936737,
+      "sha256": "b33a5a22a19e06797109156d995340fb9fe4963e3e1d255fdf03f631675aeef4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/bra-magenta-state.json.gz",
+      "bytes": 1441773,
+      "sha256": "07bb2053634e3dcb25e508dc1944d38c560f39cf36ae9c3b86ec47fb66301d5c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/bra-magenta.png",
+      "bytes": 904204,
+      "sha256": "d0ff68965a49c4ac2ed57766bac9d30a44d55d3b76e55ab335b8726d7a8f8811"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/cloth-double-state.json.gz",
+      "bytes": 1441773,
+      "sha256": "07bb2053634e3dcb25e508dc1944d38c560f39cf36ae9c3b86ec47fb66301d5c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/cloth-double.png",
+      "bytes": 904122,
+      "sha256": "784fda80dd5c00e8a8581ba4c7c893d9bfe309bba6c42172d0b99f3462e5c308"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/ordinary-repeat-state.json.gz",
+      "bytes": 1441773,
+      "sha256": "07bb2053634e3dcb25e508dc1944d38c560f39cf36ae9c3b86ec47fb66301d5c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/ordinary-repeat.png",
+      "bytes": 904069,
+      "sha256": "881d3b8923b602a294b4d6ee0cfe12e216f25841447fbfde06178f0f2d591cee"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/ordinary-state.json.gz",
+      "bytes": 1441773,
+      "sha256": "07bb2053634e3dcb25e508dc1944d38c560f39cf36ae9c3b86ec47fb66301d5c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/ordinary.png",
+      "bytes": 904088,
+      "sha256": "71b2d46242dc944a0c97930a643e84be717c37eeaa00cb4bda71eedcf84bf6d7"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/picks.json",
+      "bytes": 546398,
+      "sha256": "4add99ff08e7685b42de852efbb18057e2e73b2346a0873a4790d01b69122086"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/report.json",
+      "bytes": 58547,
+      "sha256": "185e179b319535d14ec559db8f31408f201c72861b4c4e009713163787081fcd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/docs/evidence/wardrobe-2026-09-30/neckline-attribution/PLAN.md",
+      "bytes": 2412,
+      "sha256": "927fd8c1f1a782df73dcd0b4cda1e211f175e567ca3f8e1d84381bca5241cd3c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/Avatar.hair-contact.browser.mjs",
+      "bytes": 9127,
+      "sha256": "7febec2c79cf1391ebf61212d52b401cbb8e38376746a3ebeff4faf33a56d41e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/Avatar.hair-contact.gpu.selftest.mjs",
+      "bytes": 9593,
+      "sha256": "a784aa53b0e3a02c8edf72f81cd25a8150b410a043958c771008d3e9ee211461"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/Avatar.hair-contact.selftest.mjs",
+      "bytes": 3057,
+      "sha256": "c7bb6262b2c92155d9a2d515fb5f3398b9bb92a2bd22cf91cc6c2b8d4550b749"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs",
+      "bytes": 9464,
+      "sha256": "2d644cb21b21e01d1275dfe18b8fdc9a4e0330cffcdcd68cad482a617eac6b7f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/Avatar.js",
+      "bytes": 251758,
+      "sha256": "be80904c84c380f30a7bbe061aebf50bab5d927802dfdec06477ed5e274c9f38"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/Avatar.selftest.mjs",
+      "bytes": 75664,
+      "sha256": "3332445e1c6b7820692e8537359313929e3316f68d1071c979aafd0f01f62e5e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/AvatarQuality.js",
+      "bytes": 45671,
+      "sha256": "deba798e81bb4c9383f17cb047e376c34d18e102ce32191d0b5ffcf214c2428c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/AvatarQuality.selftest.mjs",
+      "bytes": 49403,
+      "sha256": "66ae4bfe86f346a5d830812dd1c06fff142960dabf4471af36092477a020546f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/AffectState.js",
+      "bytes": 22878,
+      "sha256": "df254e1fda2263ac2a40f3cbcd4bff6492addb65e11fae697e45633b231c95ba"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/AppraisalAffect.js",
+      "bytes": 26189,
+      "sha256": "a161264442fff2ad84ef3c1824fcf5c10814b2e1de87e57cfa65c1f9559bbb29"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/AppraisalAffect.selftest.mjs",
+      "bytes": 46365,
+      "sha256": "04fe44013ecde051f6390012e2f74e458115ae34bea5676f0fefdca6b65efb62"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/CompletionDiagnostics.js",
+      "bytes": 2567,
+      "sha256": "af274066126fe0398f37de7aa3825d72f84d0562df5e1a146ee2ce2077c52539"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/ExpressionLayer.js",
+      "bytes": 9216,
+      "sha256": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/ExpressionMap.js",
+      "bytes": 44748,
+      "sha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/LMStudioClient.js",
+      "bytes": 31796,
+      "sha256": "8b9a4026365e0e7784740ec2f5f589a24f509382c80a92bb3eb168a52f40fe49"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/LMStudioClient.selftest.mjs",
+      "bytes": 31837,
+      "sha256": "e12a9b30b846c94da3b4baa774169d45a35c9e31880852454edbf85835c70a3a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/PostureLayer.js",
+      "bytes": 75450,
+      "sha256": "9f72fb58dfdb1646934b61e75c6187fe4bfc7c1c642198842c9eb57dbe31470c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/ReflexAffect.js",
+      "bytes": 23298,
+      "sha256": "d4cb9be30c1dda5aaa25610677e7ab646c8b4a49295e0d70dd5635d834d26abe"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/SeedLexicon.js",
+      "bytes": 10663,
+      "sha256": "415a8ac5ca0c1d8b69f41014cd0a40def9054fd4c3151a8b1f6a7f36db15d65e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/affect/affect.selftest.mjs",
+      "bytes": 155843,
+      "sha256": "cd8d11c6fb57e646707d9f5426fe50aef9d850b03b1ed4460ea30fa8df8df403"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/BodyMass.js",
+      "bytes": 16529,
+      "sha256": "c20eb94dc1bd3bad06ee89be4f815f2ad322870a619960e9b69b3c3b1efb0d22"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/ExpressionBank.js",
+      "bytes": 14362,
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/Figure.js",
+      "bytes": 15766,
+      "sha256": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/RestPose.js",
+      "bytes": 14335,
+      "sha256": "c8e7892717d33e9f273fbb4f85d765f80b5a3efe09f09f6a4abc0ba5368bceb3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/Skeleton.js",
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/bodymass.selftest.mjs",
+      "bytes": 16384,
+      "sha256": "bfc30d8624c79829d5a47ff734c11a506a100686c4247b3e3114d9b1c9f9a921"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/figure.browsercheck.html",
+      "bytes": 9304,
+      "sha256": "a8f648f7930a194392258ce1120a737dd4e8e0797a2d46d8289d653de369016b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/figure.selftest.mjs",
+      "bytes": 17147,
+      "sha256": "6bb6bedd2e520977475f67ef4d3d61d801be9d74d3ecb727e148eff335d288e9"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/identitycatalogue.selftest.mjs",
+      "bytes": 20821,
+      "sha256": "75fbc210c3a1671d95ce7791d719ad84494082124e822fd2aae6ca1734da1c9b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/identitytargets.selftest.mjs",
+      "bytes": 29617,
+      "sha256": "e4177d1c1c08129d9c2df4c26384d0baf29ec2ed0147259b81bc0fc74847adec"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/poses/relaxed-standing.json",
+      "bytes": 13256,
+      "sha256": "917cead92c04fc339a0baedf07ca592293800dc670ba4f50686975a0439d345f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/poses/weight-left.json",
+      "bytes": 12518,
+      "sha256": "79afa516a9b2048b9e315e359a0dbc47ec5413b3c9cb3dec60482dffa0e6d0b8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/poses/weight-right.json",
+      "bytes": 13033,
+      "sha256": "a132916357c84a24e3c7a73e967987202bd9346fc3a2ebc2f8c62990efa761f4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/restpose.browsercheck.html",
+      "bytes": 11837,
+      "sha256": "d70c06bee356251ffe2c9d5abfdd82f098d73774d0468d27e37080e6927ed281"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/figure/restpose.selftest.mjs",
+      "bytes": 49418,
+      "sha256": "a914336ac8f575ff9a0111bcfb8bf0bcb90971d3f63d28b2aa6c53d3591a0997"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/EyeCatchlight.js",
+      "bytes": 18340,
+      "sha256": "00ea06778cbd313bb80eca73ad5cf04b4b20ac36ee87e8e7a0d1d854759d1849"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/EyeMaterial.js",
+      "bytes": 75066,
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/EyeMaterial.selftest.mjs",
+      "bytes": 38136,
+      "sha256": "1bae96f67ffd8ecad85ca6be120292e1696d8e40a02941ab6a037d1de4349c47"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/EyeOcclusion.js",
+      "bytes": 22023,
+      "sha256": "6edd0523001fec7394cd7343ec56dc6e992bff841727ad67209fd7701e2f083c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/HairEnvelope.selftest.mjs",
+      "bytes": 29280,
+      "sha256": "e1c14ac5bc827580168c96acb939be9265b9dc9a51a751448000e3b8c61c14f5"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/HairMaterial.card-roots.selftest.mjs",
+      "bytes": 3313,
+      "sha256": "f892d109978d4e8b9f00861d30729648587db23ac5d9b2203ca44965408b6c07"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/HairMaterial.selftest.mjs",
+      "bytes": 177634,
+      "sha256": "8743e1daa419f1956022fc92a012944831f46a5dffb03c98f0d5622097e089c8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/HairRibbons.js",
+      "bytes": 23343,
+      "sha256": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/PreintegratedSkinLut.js",
+      "bytes": 15988,
+      "sha256": "99d34e28550ca01853d572d485799ccc3e13608f6259abf4f51b445ced8ca5f4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinCurvature.js",
+      "bytes": 18056,
+      "sha256": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinMicroNormal.js",
+      "bytes": 10622,
+      "sha256": "c906a9bbcac40257311a182af8d109022296c9f386740d6536861a714a029685"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinOcclusion.js",
+      "bytes": 18226,
+      "sha256": "099683b239ab06dd526d15139d7ebb59cc6fb4d5cf5c0d0470867fd7648b68aa"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinOcclusion.selftest.mjs",
+      "bytes": 15879,
+      "sha256": "9f0d62d953ec1bedcff76965caa18640869bf6dfc76c6490e559d4d793fc2383"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinRegions.js",
+      "bytes": 30791,
+      "sha256": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinRegions.selftest.mjs",
+      "bytes": 20510,
+      "sha256": "db6c8c57a907f7b1c15640f499af08de2659daf8ac7c147e4637358d8d42e187"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/material/SkinTransmission.selftest.mjs",
+      "bytes": 19561,
+      "sha256": "09fcd34e1f9a7ac06bac59b78c5a05010de1036d2e54fb8f42f1b6782fc721de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/AttentionAction.js",
+      "bytes": 12286,
+      "sha256": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/AttentionAction.selftest.mjs",
+      "bytes": 10528,
+      "sha256": "a9e19f407ef33d294b8236d3b0e292373ba95f8c8827fdeea5b09610cba5581c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/AttentionSmile.js",
+      "bytes": 3538,
+      "sha256": "113c3a6807b62b003e902b75df37130953507d9c5b411b7e73866924b8cabbfb"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/AttentionSmile.selftest.mjs",
+      "bytes": 12597,
+      "sha256": "950564fb78bffd1e60a47e08f36dc0d5b949067c66748d087e2f54bdd2d4270c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Blink.js",
+      "bytes": 46356,
+      "sha256": "71f7286273d118514343ce3f4918583bb02ef520932bb6dbbf5d91a6fc9489c1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/BodyIdle.js",
+      "bytes": 39306,
+      "sha256": "d1afefff100c64fddf929c90c1eac8c08742d12a07986ec41a35111f544c8ebd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/BodyIdle.selftest.mjs",
+      "bytes": 50883,
+      "sha256": "a1a5c623001608de216d0176c4f2e0a4c409a798a427876bef0db94452af3198"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Breath.js",
+      "bytes": 22654,
+      "sha256": "74b1ba926f9a07448556b936da936e16e8c361156f0506f745939fccc5c5a9c0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/EyeAimCalibration.js",
+      "bytes": 8100,
+      "sha256": "be5f8889c3ccbbb6e06b28b99baebc10aa2905c561b0a5fe6fc83f76fdf12bbe"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/EyeAimSolver.js",
+      "bytes": 9912,
+      "sha256": "c2a18d1e7a92c1057dfe09c193af399063fe52778ff1d8e343a82c9e6730b884"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/FacialIdle.js",
+      "bytes": 46284,
+      "sha256": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/FacialIdle.selftest.mjs",
+      "bytes": 31803,
+      "sha256": "de2b215714af838aa01bd2b0b56329400fe2c16cf3c5aa3e3bf8c7470b6c2211"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Gaze.js",
+      "bytes": 129610,
+      "sha256": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Gaze.selftest.mjs",
+      "bytes": 104703,
+      "sha256": "d1a2210ed364c228f6692c8b1b4ab4fe90c139dcbe9d0019313e916c4ed59653"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Gesture.js",
+      "bytes": 46993,
+      "sha256": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Gesture.selftest.mjs",
+      "bytes": 46758,
+      "sha256": "9a1705ab92a4ae64d831b2c02935eecd5f51d3b997d8e353acbc65440b10d3a1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairBodyContact.js",
+      "bytes": 7329,
+      "sha256": "0a569e763576cfa301e7d9d78bc8184d9e621e3e931f0048a0df33a418db63ba"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairBodyContactCalibration.data.js",
+      "bytes": 49812,
+      "sha256": "fa3850d8630b2555d46e3b2dd3c45b3a9e65aaecb64e739ba5e20edc5cbcf5df"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairBodyContactCalibration.g025.data.js",
+      "bytes": 28197,
+      "sha256": "6536881c7e6de35b6cbd7e81154a3a1aa4d76360ffbba8f617b871aa402a3024"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairBodyContactCalibration.js",
+      "bytes": 7736,
+      "sha256": "0709c3d888613c7a1208cbe3f98d3adfe8d2936754f9aaca0bc66d686dd985cc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairBodyContactCalibration.selftest.mjs",
+      "bytes": 15994,
+      "sha256": "1926388efae27672144ef5a8cd5d9f88bfad0ff9ab15a07a09bdc8ee69824ceb"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairBodyContactForest.js",
+      "bytes": 9853,
+      "sha256": "3470f5816c34f08c5374f712eb55efca179974413769cc117d96f2a4cd4f441b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairDynamics.contact.selftest.mjs",
+      "bytes": 26336,
+      "sha256": "3cdb47d39db1ea86f282dabab6ff7729a21fd393cc9137357bd70a19c9c5f70e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairDynamics.disposal.selftest.mjs",
+      "bytes": 17620,
+      "sha256": "c784ac621523045ec2692f096201edd5366467eb09a2d783e7f193466777be58"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairDynamics.selftest.mjs",
+      "bytes": 72846,
+      "sha256": "cc7c57c40922b2ac92d5dcb713ba5038227aa8ae5e8afab711d4fd33bb59f149"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSkinTransform.js",
+      "bytes": 2966,
+      "sha256": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSkinTransform.selftest.mjs",
+      "bytes": 3882,
+      "sha256": "1480cf586db0064a6891a20ccd7be4c6ef22d4b454d26234f4bcad4c3bc9fb65"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.bounds.browser.mjs",
+      "bytes": 3693,
+      "sha256": "b0cc712c99e7d19be9bc8ba27e96dae92b7b18e151b538c903b05ccd9c83bb5f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.bounds.selftest.mjs",
+      "bytes": 10568,
+      "sha256": "33c43b855bcb12d49dc2e221cc03c0e44ac94e90fb03b39ba64742b3861531d0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.cache.browser.mjs",
+      "bytes": 10075,
+      "sha256": "5a4311f8ae87eafa149b42d6348cb5d78b1f642f21f3e62077e610404765fd16"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.cache.selftest.mjs",
+      "bytes": 9534,
+      "sha256": "ee16eb5c24e9895e3226658993f14c1121969b5859706f69ddf0015aa7bce993"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.forest.browser.mjs",
+      "bytes": 15821,
+      "sha256": "81b3c894f7df06ca5c3e04309a9fade2ba4dff712dacf7eefa2d906c8720fa1f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.forest.selftest.mjs",
+      "bytes": 11319,
+      "sha256": "692bde57d6d8c8171de32a7a12010c39d7f25c3bf6164215a875bddfa6e14b02"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.js",
+      "bytes": 33373,
+      "sha256": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.primitives.browser.mjs",
+      "bytes": 14553,
+      "sha256": "f3d3319437a2307b2bc1a5deff8a4b6f3750f17725e6e58bb5a205f8caef4df6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.primitives.selftest.mjs",
+      "bytes": 9980,
+      "sha256": "91361535f255c4b37ad5d42f93f28dddb9c26682cdc66a975413eac093c74d96"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurface.selftest.mjs",
+      "bytes": 25069,
+      "sha256": "71ad9848938813a23f51cacf4e784c807bdd3edb91c88972d91b35a137f34d07"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurfaceContact.js",
+      "bytes": 18887,
+      "sha256": "53d16ea55e10fe8ad72b7eee7d51b2d5b95d4a55f20a42c890ed71a657cbd30e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurfaceForest.js",
+      "bytes": 4514,
+      "sha256": "3a7dabb53363060ec66f78522bf41e1422ddd9d3d75d7d123a188228829f7c05"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurfaceForestQuery.js",
+      "bytes": 24815,
+      "sha256": "506bd08cc26ffee2821075b79adc11ac9d10b877ef5e268856116cd787e83110"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HairSurfaceQuery.js",
+      "bytes": 23932,
+      "sha256": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/HandIdle.js",
+      "bytes": 33844,
+      "sha256": "3d34c24f2fbfefdfe24b95f4b8141d5dffc0c880a37f3f201466beac247ffd73"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/IKSolver.js",
+      "bytes": 55356,
+      "sha256": "7f822a5fa7457a8e8c185549eba8b325ce612b769fdc14386c237134bceede0c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/IKSolver.selftest.mjs",
+      "bytes": 95629,
+      "sha256": "5c0a8f39cc57a7a2a529bf60e7cbeb97291830e56c0205f1cef0b2d802416049"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/IdleMotion.js",
+      "bytes": 15886,
+      "sha256": "1d69470f828c879cadfff5aa155e37b0f96e8870383e5e7f4be3537a0ac86989"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Layer.js",
+      "bytes": 11055,
+      "sha256": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/MotionStack.js",
+      "bytes": 41310,
+      "sha256": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/MotionStack.selftest.mjs",
+      "bytes": 29150,
+      "sha256": "e825114f25fd4dbab1212f5ae1ef3a7f7977e2e8c3e112bd7917f436aa661098"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/PointAim.selftest.mjs",
+      "bytes": 18693,
+      "sha256": "fb8478e423da7f5ceca3e3dc65cd7f2cc0d362f4f557d0c5361e9b8080493bd2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Pupil.js",
+      "bytes": 16529,
+      "sha256": "41ffb2723b5137307540ffa562b5d4933e28abe4bfdf2cb65524481c90951b7a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Signals.js",
+      "bytes": 20354,
+      "sha256": "46c539caa8995c3c426bef03dbbab95d421972829e9b01a449959a76cc07722b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/Sway.js",
+      "bytes": 194104,
+      "sha256": "00d99fe27a749fc491e0a5eaca4dbdbb13f5331f0a5265089ba5012d47fb84a6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/fixtures/avatar-hair-contact-canonical.json",
+      "bytes": 3665,
+      "sha256": "8855a92fbf452b279b1f7fade2aecb39da63ca7a750044814572ec44348e2e36"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/fixtures/avatar-hair-forest-canonical-v2.json",
+      "bytes": 5533,
+      "sha256": "50fb7c7380cf4964e0dc734772aae874f62083a40b1e6b4ceee53eced80f85ed"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/fixtures/hair-body-contact-g050-legacy-v1.data.mjs",
+      "bytes": 19282,
+      "sha256": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/fixtures/hair-segment-oracle.mjs",
+      "bytes": 5566,
+      "sha256": "1867cc36f34af8dc074b5230ba160774caaee187d515b5fd48cd17552f171239"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/fixtures/hair-surface-primitives.json",
+      "bytes": 30325,
+      "sha256": "681ec9e452ed7fc2515615e0eafecfefbd164033a7d1ace80f773a4b2b18c129"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/fixtures/hair-triangle-bounds-adversarial.json",
+      "bytes": 19031,
+      "sha256": "949c1681e282a1e70f36062989822fa8557ed0c2b236fe091786e94648bc80c4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/fixtures/hair-triangle-bounds-control.mjs",
+      "bytes": 3027,
+      "sha256": "73e0c088fa57e840a98c184037eb0fa599619450c48e97855168b9b4846d775e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/idle-motion.selftest.mjs",
+      "bytes": 120170,
+      "sha256": "96ad326f105ab9ede5db4084664ea3816d75d0e1a70b99db69cc3b322943f788"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/motion.browsercheck.html",
+      "bytes": 13616,
+      "sha256": "69d1728ac02dcf3f28f2f64f2cff5718a1ca5e9e82c634df0dd133e991a819d9"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/ocular.browsercheck.html",
+      "bytes": 15245,
+      "sha256": "33caf1e0637315b00d968a9a9ebdc4dad1e957de498f3f09ab75b28f459dfdbd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/ocular.selftest.mjs",
+      "bytes": 69203,
+      "sha256": "bb87341bdab7c64d9d4b039354189d31b2c6531b773b7f3576e05e19435d0c47"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/motion/sway.selftest.mjs",
+      "bytes": 453670,
+      "sha256": "abb11c92c5e9c68c3471ab86ce34236b9d9961585a614fc0388e413f74e0dadf"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/physics/SpringBones.js",
+      "bytes": 74462,
+      "sha256": "5e222ad8647dd7c2b5a604f0b6f521359b53396443939ff1780252b1edb2cab5"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/physics/SpringBones.selftest.mjs",
+      "bytes": 70564,
+      "sha256": "6e8418cfa127b5b0f08840ce53b44bfc05de6025bb703f234064bda68d997bb6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/CardRenderHistory.gpu.selftest.mjs",
+      "bytes": 11406,
+      "sha256": "4aa0934f8dec3419394e3c1de57575e0a746ed3a551a2718aff9623bbd5646fa"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/CardRenderHistory.js",
+      "bytes": 14269,
+      "sha256": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/CardRenderHistory.lifecycle.gpu.selftest.mjs",
+      "bytes": 4182,
+      "sha256": "4c9a5583b3a4430c05a14067d2244999fc8d3d2c8c6dc1c3d22f727de8447b1d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/CardRenderHistory.native.selftest.mjs",
+      "bytes": 9566,
+      "sha256": "3cf2ed7b7a0e8df12e5f253c36227aea9d00162d049dba6e97875b8135d76783"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/CardRenderHistory.selftest.mjs",
+      "bytes": 15311,
+      "sha256": "b2fd22884daf1af9976ae9a4494b92fe4a105d36a6d02360a93b4005f46aace8"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/FaceCardCoverage.cleanup.selftest.mjs",
+      "bytes": 12215,
+      "sha256": "35981c214f20887345ebe1c592e2e744e66a79ff701d28632d60ea6203c43d18"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/FaceCardCoverage.gpu.selftest.mjs",
+      "bytes": 4763,
+      "sha256": "9e2afb6b651fc9fee8f80df2495acd2f9c787b5658749cd1c908286f03bc0521"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/FaceCardCoverage.js",
+      "bytes": 10127,
+      "sha256": "729ed498df7fc0a20d6da09771d74ddddf8fe59b2fb4c626d70feba2a20ed1da"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/FaceCardCoverage.selftest.mjs",
+      "bytes": 12507,
+      "sha256": "745d8c417dafa51dada04f447b43c72dad035ec5c8143bda3fdde25b07849945"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/GBuffer.js",
+      "bytes": 19406,
+      "sha256": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/GTAO.js",
+      "bytes": 52102,
+      "sha256": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/GTAO.orbit.selftest.mjs",
+      "bytes": 11206,
+      "sha256": "7cd31abf948af0c3edea6fea02be87cd498ebdbafbd0122bef040bf22cf00199"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/GTAO.selftest.mjs",
+      "bytes": 31448,
+      "sha256": "304da2ccb39d177c03c8570c17190a3a1608fbe06e82503065ccb09929d14d62"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Grade.selftest.mjs",
+      "bytes": 95316,
+      "sha256": "912a7f18a008ba2927dab1ad3d625ea492a8e0e6b6bd2fd97e0ebcf28db0f824"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/GroundContact.js",
+      "bytes": 61153,
+      "sha256": "c7c31b735cec572330914b98109b9e033aa0e0bd3ea4c0bdf9601301cbe27b63"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/GroundContact.selftest.mjs",
+      "bytes": 123322,
+      "sha256": "89162bb70c488ac9e0b0530eb07038db0a9f63fd192057c4991b20df60680e8f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/HairCardFrame.js",
+      "bytes": 7057,
+      "sha256": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/HairCardFrame.selftest.mjs",
+      "bytes": 8833,
+      "sha256": "953a68f76abfaeeadf8c40363e7a8b6315c8bc6bc5ba3ba58f46cf83db6d0eb4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/HairOIT.selftest.mjs",
+      "bytes": 62278,
+      "sha256": "97e530af7e211969e53a2988a396597ae64bdc95776b7f36df75af973d9b5c7c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/HairShadow.selftest.mjs",
+      "bytes": 50298,
+      "sha256": "ccd88b3f34dc7928b687291e43b7d55574c9b96811781faddd8b8dcede9f0e3d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/HairVelocity.js",
+      "bytes": 11512,
+      "sha256": "867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/HairVelocity.selftest.mjs",
+      "bytes": 12513,
+      "sha256": "65f631ae3e9e0c8fee75540845e0193c7a66ed9afec4ac7d04dbf227dfff5118"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/InteriorEnvironment.js",
+      "bytes": 72895,
+      "sha256": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/LightingRig.selftest.mjs",
+      "bytes": 199005,
+      "sha256": "d270562f0eeac6171112d82bf8ef367eb13d8395cc15b2a363124259223adb12"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/MorphVelocity.js",
+      "bytes": 17592,
+      "sha256": "06b4fd0d529f2d0a855aec98bc7150a76a1a73c5b679a2c3e296cba0d80be2de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/MorphVelocity.selftest.mjs",
+      "bytes": 9534,
+      "sha256": "c6beff8ac5d4766060d0239655c8ade41c831bac18b2b8f3270de159d20dc5bd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/RenderParticipants.js",
+      "bytes": 8681,
+      "sha256": "7db372d7ea813ffc2fd0154d42ef35afe1f68fbd707ac15d5c9f616ed5ac2829"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Scene.js",
+      "bytes": 166009,
+      "sha256": "193cb5cfa682e0ed70d42573dd3b2221ceddf207629f2ed225c30100287cdfe4"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Scene.selftest.mjs",
+      "bytes": 50375,
+      "sha256": "d2dd4ff2ebe51525f609082c7b3109ee6ceb7fdb2c690ccb3891df081a474d75"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/SkyEnvironment.js",
+      "bytes": 49717,
+      "sha256": "3e1cd75ae80b4c9102233c1479d87c0d971b032d25831d858a8e63970c455c30"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/SourcePatchProbe.mjs",
+      "bytes": 6262,
+      "sha256": "399c77f51c89b71301edfe6295a4df32053f19440c8e53bb856a222fe6104886"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Stage.resize.gpu.selftest.mjs",
+      "bytes": 8771,
+      "sha256": "548db5932d270c7b63a3555b9e04f449e7a86070a160bafff969fa136792f83f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Stage.resize.selftest.mjs",
+      "bytes": 3618,
+      "sha256": "ac1cc2b349784ef8d1cdb4cc83b296d587466bbf20ac2f826d080700dd60eeb2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/StageScenePass.js",
+      "bytes": 1313,
+      "sha256": "ec583b415bb9b8f84e2bd5e51cd0b13af6e220888d52bc820c1ddea5739f5e55"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/StateClosure.js",
+      "bytes": 4642,
+      "sha256": "7db6582661b887e8bcf76c74874598857a6033264279ca06652074cf6094aafd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/TRAAPost.selftest.mjs",
+      "bytes": 19982,
+      "sha256": "8ba57a549eb9c38b6527a1c5bd1c45c581c5c89793f378c23db3033793ef3135"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Toksvig.js",
+      "bytes": 9540,
+      "sha256": "8cebaef419a3c373d6b5e0ea6c0fc3906c15cef1796f4ca336e9fd4c00b11fc0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/render/Toksvig.selftest.mjs",
+      "bytes": 8786,
+      "sha256": "2d18970b741ed17cc12b5852b5a589ed0691bcc044df5035d5ff2ac123e6b3d6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/Coarticulation.js",
+      "bytes": 6863,
+      "sha256": "652b3594abe6165403b6dbb92789a51dfd45edc1268c4fab14da9acd5dbadba6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/Pitch.js",
+      "bytes": 21813,
+      "sha256": "fde78a4c3dd83f543d8ba1c349db1a06b8b697a12255e4490bbbd5a82a3fd167"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/Prosody.js",
+      "bytes": 18736,
+      "sha256": "b922627a7c492ba1a02392aaeeed34e445c4aa74cb0ba71b6a9a6fa5af416f8a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/VisemeLayer.js",
+      "bytes": 6000,
+      "sha256": "9055707cb00c72601c9db754b05effaabfb07cc9ddcee3beed91161291672c99"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/VisemeSchedule.js",
+      "bytes": 22198,
+      "sha256": "695e0d8314d8cc64d748c8e5c4e9f2ba3021bdc9c2a76d443a7373aacc209eac"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/Visemes.js",
+      "bytes": 14905,
+      "sha256": "31b75bc0a6e2932bf799719d7e61dc8537c94703a9c4e3d5a4ad5d2800c49955"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/prosody-worklet.js",
+      "bytes": 3214,
+      "sha256": "60ed8986fdade1f68c3eeaea84584bff919faa7c00dbdb77a7747a87cf230002"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/prosody.selftest.mjs",
+      "bytes": 31189,
+      "sha256": "f4179ec0cce2d335b53e649b735f1fb759ee037221d1c61729cfe72b8b26548c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/voice/visemes.selftest.mjs",
+      "bytes": 59727,
+      "sha256": "f3de9fdcd457cdfe6d78f00155178fb340f8aebd000bc102c50b8a9caecbf620"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs",
+      "bytes": 12071,
+      "sha256": "f3fd6e9d8ac3e369ec463a4faa1aae89bc0f483bc0f5e0ec31f9242fbab2abdc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4605,
+      "sha256": "696d0602055b4890e487ded4dd087d8d8466fb629f3247588bcfc74353a61437"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/AvatarWardrobe.selftest.mjs",
+      "bytes": 15767,
+      "sha256": "36b1efdfda80cd831b4b34838a59ddc985346bef33c76930293d585c9e24f116"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/GarmentInterior.selftest.mjs",
+      "bytes": 17920,
+      "sha256": "8723fa326c72f84de85fab467451f06c65b2a68fa0831dfc647579171aabc17d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/HemGeometry.js",
+      "bytes": 25069,
+      "sha256": "383edcf135a278feeefc3d0789ea4a1ef551ba5515125575fa06613e4de13306"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 48776,
+      "sha256": "d890af1ff1f26eb836d59f2dc83137a3d414a59fe027186494d5bfc62aa9aa14"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 394,
+      "sha256": "88ace8aea37370d3bb3e6fbf2a8e84872854a3ae453b48e931a5aae8a76afa1b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7301,
+      "sha256": "b896ec3978130374a04760e576d61d1f049abc32a4cc9f592ad7f57fba75ee5a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/WardrobeStyles.selftest.mjs",
+      "bytes": 9785,
+      "sha256": "ed461635af7928453554be056d8c430040c3379b1ddbd985ec8ccbbe4b812b99"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/decency.selftest.mjs",
+      "bytes": 52582,
+      "sha256": "cb941ab64561e371f337bb47470f2312464d140456824aeebe8d7ee4dc638999"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/hem.selftest.mjs",
+      "bytes": 35526,
+      "sha256": "f6f3de9bbb43b6f04bde1fb4487d3cd95127c9fe62d969c3105fe879e264abc3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/shadow.selftest.mjs",
+      "bytes": 53497,
+      "sha256": "7a4ba7477672c16548744fb799279eb47bc2e5160f39c7ba6d8f61758305acdd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/core/src/wardrobe/wardrobe.selftest.mjs",
+      "bytes": 54500,
+      "sha256": "cf4ad2671caab6332bb4dbb74138e6a50a044a174f92a3728d5887976fc2c246"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/affect-presets.js",
+      "bytes": 2197,
+      "sha256": "3720f2e658d129df204df61735e878d7ac4893600ce573e4ce371e8708d09cbb"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/affect.html",
+      "bytes": 3898,
+      "sha256": "af4cdb5f1c7151e70acc5a5cf22e8c7196a3a30246d68813fb86932d82a02602"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/affect.js",
+      "bytes": 31483,
+      "sha256": "ae9040c2dde99ac0d1edfc9e02bb803874ac5f97f62a983e858cc728ebd8d05e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/alive-capture-determinism.selftest.mjs",
+      "bytes": 57736,
+      "sha256": "228e2a1ea2acb3f7b521baab1a7e29ecb5d9a37fee26ab058079eb00f5d1aac6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/alive-toggles.selftest.mjs",
+      "bytes": 155329,
+      "sha256": "5896c873f613f94255a5e4fb0903800a69dd92481d68353a16cc90fa771bcd0c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/alive.js",
+      "bytes": 266546,
+      "sha256": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/converse-connection.mjs",
+      "bytes": 4036,
+      "sha256": "92d38462c7c1fd964ee150c1c8aad0f68f6c404f86d4e98b8b4c8e50dc760a29"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/converse-connection.selftest.mjs",
+      "bytes": 2086,
+      "sha256": "3ee07b2e49e871d97f3241c447f9008f1c30854099e289395786088f7bde7f7d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/converse-diagnostics.selftest.mjs",
+      "bytes": 8993,
+      "sha256": "8e57cd4df449f018419c62494f5d1f1d70e59135e28eb0a8789d806057465277"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/converse.gpu.selftest.mjs",
+      "bytes": 17846,
+      "sha256": "3e1568a2856e9f2053c20f3b9acd4abdedd27923239f0a32761bb32867ef2c5b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/converse.html",
+      "bytes": 7463,
+      "sha256": "80288ac2af65b8227631b918e72c8cc7ac9e208c82d887559facf61829a0d484"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/converse.js",
+      "bytes": 64112,
+      "sha256": "22dbc465cd23dcea62376ba8985ea326145b7683540310d47bd17fe945a906af"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/embed-example.html",
+      "bytes": 6024,
+      "sha256": "bfd5ab1cbb4b96acc38834af975b1e718e617d97c4d94c275736670ddaf1852c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/eye.html",
+      "bytes": 2869,
+      "sha256": "0d676caf4aac129df22002c667c6073a56c52a20c5800657990b1801ede9c706"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/eye.js",
+      "bytes": 21199,
+      "sha256": "df056f95de8e85657ee99362a020c4d84229a7997299752ea7423b8ce7435b56"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/fabric.html",
+      "bytes": 2398,
+      "sha256": "7be573e819fb1292de435bdf7a24d8bec9a38c9795e5c8e6916ff05d85aec716"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/fabric.js",
+      "bytes": 40902,
+      "sha256": "9b3881ee75fbb894c96c47d3e6ee2bede5979b8502f584718aebd755116fcd5a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/frame-clock.js",
+      "bytes": 1816,
+      "sha256": "26fb3f42267115cdf92f1e2042f22a3005400593733e4479453a0e977734c3d5"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/frame-subject-state.mjs",
+      "bytes": 7235,
+      "sha256": "ba6633e900a2a8f7fb633a3be417c526c29bb11c56b42fc4ccb5e2747ddce95b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/hair-capture-clock.selftest.mjs",
+      "bytes": 8029,
+      "sha256": "62806078d5d5df9df9430d7bd0c6f02b5a8f9bcc9c0e85fbe2d812cd07226563"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/hair.html",
+      "bytes": 2962,
+      "sha256": "2f9efb2461b087d1bdadae20a992b7ae4359cb81288d204e50496189d502a70a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/hair.js",
+      "bytes": 49905,
+      "sha256": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/identity.html",
+      "bytes": 5118,
+      "sha256": "356515f3a8fde0127144c92f300f61149f62c3425f07c7924e8719abe4ac509d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/identity.js",
+      "bytes": 18218,
+      "sha256": "d3a65fedb9418b0e32c59ddd8b524673c621a040f1f07ffda499e252437ae9f2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/light-defects.js",
+      "bytes": 9492,
+      "sha256": "62ab40d489d11063fa4dab3497b278c53426e8112ecbc8708b1cce75eac75207"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/lighting.html",
+      "bytes": 4414,
+      "sha256": "fe6fbd6fcc58973dd3f0c2df2769c1f98c9ebdad9d1da2d9a3e5032ac9dd1203"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/lighting.js",
+      "bytes": 41030,
+      "sha256": "f19383b0ef7286195434a7ec60bf5bf11541df4587039fa14fa56d029622fa73"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/main.js",
+      "bytes": 3736,
+      "sha256": "9e90d6a94016813bc0d300fbc7c8e09a25772c5d173395a485e33c3f3b1d55d7"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/palette-references/casual-charcoal.png",
+      "bytes": 653274,
+      "sha256": "43c387cd58068b21d0376a17762651635831b922a5d2ec817f1a822d15eeec64"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/palette-references/casual-ecru.png",
+      "bytes": 634358,
+      "sha256": "cb03b3ab97a29a2b46f6eca0613b5d06ebb9084068d5b3edb9e93828f75ae33e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/palette-references/casual-original.png",
+      "bytes": 669499,
+      "sha256": "0527c0b0f295efb770099a8977127699cff83caf0429f5314ef24cd6937e038d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/palette-references/elegant-charcoal.png",
+      "bytes": 634861,
+      "sha256": "911f684b21f6d5fd38593d38c61891b3fda7b6f62275a2b89f94ab0985ae2819"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/palette-references/elegant-ecru.png",
+      "bytes": 647399,
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/palette-references/elegant-original.png",
+      "bytes": 663518,
+      "sha256": "c6bc0176b2bf1873f52c6f34d40f0fd0c81956ee7c1533b8b6fb81403b4d7b54"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/post.html",
+      "bytes": 1488,
+      "sha256": "7dac2d82ee3aedb0aee91f5ad1984a3e50c0fb220222172db3ef5bd85c21f376"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/post.js",
+      "bytes": 33467,
+      "sha256": "9828e259fa29021a7b283d858597fd85ee06fb4faa04689d04de5f145463e72a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/scaffold.html",
+      "bytes": 1168,
+      "sha256": "c7a25f318c63cf098066498adb0b3469f1c9a039c643e46225ba5d7bb4644af2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-collection.gpu.selftest.mjs",
+      "bytes": 16917,
+      "sha256": "12e15e17b52b70c140052f427f41aea5a10636d6ac744f142a5d972bed987c4c"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14551,
+      "sha256": "826d4e2de344bf0122e8ff0eba47fc06c5be5f75bd785125c5dc86550fdfd357"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1504,
+      "sha256": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 5505,
+      "sha256": "dfa9f8a20d6f2f3de811daa09da04310fbb4117b3201ee699de93df7016c33ac"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-image.gpu.selftest.mjs",
+      "bytes": 18331,
+      "sha256": "ec90684c373c35a12d0013c32648cde6d91afc93c033a1993afda91c349b19cd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-palette-references.css",
+      "bytes": 1901,
+      "sha256": "11ed94435bbfd36ef7288dadc9109258e776bcd5fbb6c818672ba5bff9283e5e"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-palette-references.mjs",
+      "bytes": 4963,
+      "sha256": "60163e41d9a228974ebecd69d29aedb63560815f9f3a28b586c8959542e1db00"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8239,
+      "sha256": "0fc09ac548aaa878dc6e81168a0815f555a31ebe060cdacb81bddf6bb01cbd10"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-presets.selftest.mjs",
+      "bytes": 4819,
+      "sha256": "cf1f02f3354431f41a4532cf224c91e0b07d52130bc3eff894d90649c5abdffc"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-scenes.gpu.selftest.mjs",
+      "bytes": 13318,
+      "sha256": "352d60dd41d1c5269134e9d21273edba83c7682fe0cad1c8f00c5eee6686d269"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-settings.gpu.selftest.mjs",
+      "bytes": 11979,
+      "sha256": "9a270cf064c19f8870bc874f2feb2739b370c83336646958820ae8f44dd40f4b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3934,
+      "sha256": "3e51f3b2574650845039ec177c0925633e055cd44acb89afec5df6927d9f01d6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 5754,
+      "sha256": "f5cc4384515e382ee2c84e758c836491201ed2cbbba460adbf08a8853d3e1724"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase.gpu.selftest.mjs",
+      "bytes": 20339,
+      "sha256": "f3817489fa19c2a67d30a599cb1bd026be4c90e463f02d295e2f17fa9a1d07de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase.html",
+      "bytes": 18726,
+      "sha256": "a2401f1ce9f98fb36942d3ea6efc43e2e4dc6ff6222f8f52eae968cc954a4a94"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/showcase.js",
+      "bytes": 28639,
+      "sha256": "15d8d06800a35179efc8147bdd304427230ae6c9890608f0d219024b090d86b0"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/skin.html",
+      "bytes": 6267,
+      "sha256": "93240397e52334b9b67c7fe2d4d0d321ebcab3fba7da768c722db2ef5522354f"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/skin.js",
+      "bytes": 59361,
+      "sha256": "989b18a7b3d9b900b452bb52c98e6a84739faa04f28c1130fa9447c8426027c1"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/stage.html",
+      "bytes": 6051,
+      "sha256": "85958bb4ee1deecb387231fc6b4fa375367f2de1686a44a5edb913fcb46763de"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/viewer-framing.gpu.selftest.mjs",
+      "bytes": 14227,
+      "sha256": "d4a83da71cafbda9698e6f2948039de72067134ade40dbf60fd8d3327f38b7b6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/viewer-framing.selftest.mjs",
+      "bytes": 5548,
+      "sha256": "fe4c06298049c2eea7e851c5e599c1ec72750602e4572961ba53f09242efda9d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 957,
+      "sha256": "64bbbf3d21aa9100dc4c311b2ad6835e94d83bba1ebf0c1da25d4bfe8f44a810"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/viewer-scenes.selftest.mjs",
+      "bytes": 1231,
+      "sha256": "f01261afecb86addaa3f08d8acf2982e8615e6787ef55975e54c6b0e9b1fa4e6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/voice.html",
+      "bytes": 3018,
+      "sha256": "90e0e4537c98e839c64401c646953a7cc6b8c4c1aa4e7a17fa5dac02e1dfd5a3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/voice.js",
+      "bytes": 24217,
+      "sha256": "fac1ea9b9c951e7fd327a721d58a089173693d26cda892882b0333c78e04cc0b"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/wardrobe.html",
+      "bytes": 5184,
+      "sha256": "050d37694421856b0574717ef516128a35b65d088cbc40863b9708c4872f4922"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/tools/figure-pipeline/collar_capture_browser.mjs",
+      "bytes": 9334,
+      "sha256": "6a5c7a8584e2d5c653bdb6e9e44289350b0b229261c250f252dcf34aaccdf846"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/tools/figure-pipeline/collar_replacement_capture.mjs",
+      "bytes": 23730,
+      "sha256": "bb38e0112fb1050285c3dbcc6a2b2fa01195bdbce3ad15a885cf67d1382b8e6d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/tools/figure-pipeline/collar_replacement_manifest.selftest.mjs",
+      "bytes": 7198,
+      "sha256": "67e1111577f32f32198fd572068e154452f476560f542f65bb0070f1ac6463a3"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/tools/figure-pipeline/neckline_attribution_browser.mjs",
+      "bytes": 2527,
+      "sha256": "5140c2ee0998397e345699abb7ef8c54afed56a916e494556cc427b008b6e6bd"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/tools/figure-pipeline/neckline_attribution_capture.mjs",
+      "bytes": 7276,
+      "sha256": "0cfa77928ae7f3b9db18b7ad3eef9f7cf28c80ff5b128b4cfd3b2ebbc182b085"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/source/vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-analysis-v1/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-analysis-v1/report.json",
+      "bytes": 295428,
+      "sha256": "8847a3ae6011dbe9649fbca4c6b951707ed635db4de415ef9c1c8c0b05b310ae"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-analysis-v1/source.mjs",
+      "bytes": 3839,
+      "sha256": "61872cd20452c4217980bbbc8da76cfbd99a8b876a915b220d53f7ca00276167"
+    }
+  ]
+}
