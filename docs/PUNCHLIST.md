@@ -2634,8 +2634,9 @@ Measurements, sources and the evidence behind every number below live in
       subsequently verifies this one file's hierarchy/body map/rest binds; it does not qualify
       body updates or posed skin. The subsequent [posed study](evidence/wardrobe-2026-09-30/skeleton-posed-skin/README.md)
       passes matched four-influence arithmetic but fails full-native0.342mm fidelity in the
-      neutral coupled control (1.589mm waist witness, omitted thigh weight). Full source
-      influence preservation is the next isolated study; no runtime/appearance promotion. This item stays unchecked.
+      neutral coupled control (1.589mm waist witness, omitted thigh weight). The [complete-influence CPU candidate](evidence/wardrobe-2026-09-30/skeleton-full-influences/README.md)
+      then passes all nine native cases (max0.000595mm), retaining both four-slot and stale-bind
+      failures. GPU/runtime/appearance qualification remains open. This item stays unchecked.
 - [ ] **10.8** Continuous gender. With 10.1 and 10.7 the five 11 MB bakes become one base plus a
       parameter, and `Identity.js`'s `NEAREST` / `LIVE_PREVIEW` split — which exists *only* because
       glTF cannot morph a skeleton — collapses into one exact mode.

@@ -1,0 +1,988 @@
+{
+  "started": "2026-09-30T18:23:14.180Z",
+  "pid": 90157,
+  "node": "v24.13.1",
+  "status": "compared",
+  "errors": [],
+  "inputs": {
+    "captures/skeleton-native-pose-2026-09-30-v1/report.json": "226a55bc568bec712c847b5a12b91b6c7a019170d91dd26c2d56e60c140f2be1",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/report.json": "ea6f19c3cef8e60e5d9bd8f9936cf0c83eeeb0d363bd08d7f7c635897a0a83ef",
+    "captures/skeleton-export-bridge-2026-09-30-v1/report.json": "a1c1ec374c41f2fd1c197d666a6b25d7c0f11bf52b796c4a5b02cc03270ed3e9",
+    "tools/critic/compare-skeleton-full-influences.mjs": "d4bf3c8fac9e139099fe3d036285ff580d4626bf7101c0eef97b8c5d57bc1971",
+    "docs/evidence/wardrobe-2026-09-30/skeleton-full-influences/PLAN.md": "1f88a45bf430118bfddd4b9261dd09046d2bf9a434defbafc435f4e29403544e",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "captures/skeleton-export-bridge-2026-09-30-v1/parsed-asset.json.gz": "507608c4d7ba566856b005f3725b01559f51f81e2e3c220f49ac33ecd14dba07",
+    "captures/skeleton-native-pose-2026-09-30-v1/weights-0-native-full.json.gz": "226c25641b2cf116693bab7b589956791061e10970ab1a9ac286ee8bb2ce3b72",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0-identity.json.gz": "8a7b665a17cb9c6a7388fd489767b77c3b3c8c2ad632a85195822764833f50df",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-0-native-full-identity.json.gz": "ce58157103fe815e2f29561c8b4faf3004a09da3f9d5bc2fcbc8d1cc54721a6c",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0-elbow.json.gz": "88891bdcb50a9a7348ce79500045b26d861cb48fffdac409ec78d87206d1bb6d",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-0-native-full-elbow.json.gz": "7cc4cf9b56a011183bff4379c30940ed4eb489a16dee136f51f3faac06b73234",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0-coupled.json.gz": "c37cce2061093de422a2a26d6d76f42a280335407fe229651be60998ccb0b8de",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-0-native-full-coupled.json.gz": "d86ab9244d62d5146a754ff30e0f7ec126d1f4f1e8d509617dcc44c7f769fc8f",
+    "captures/skeleton-native-pose-2026-09-30-v1/weights-0_25-native-full.json.gz": "226c25641b2cf116693bab7b589956791061e10970ab1a9ac286ee8bb2ce3b72",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0_25-identity.json.gz": "4e482c82498748dc1e955489a79ba52220e896583db0fe03c73cc3e0e44556d7",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-0_25-native-full-identity.json.gz": "4d9ddf9605cbd41ee3051f793140d8d8122f99a069f3ceeda4314d161f7f6f24",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0_25-elbow.json.gz": "a87126b243e9741b06eecda77e05622cd8d04f4d7b07c0ad7d50e078b209d769",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-0_25-native-full-elbow.json.gz": "48e668adb2a1f37f52decf54e7f88312f62515149076a0c21be520a5580191db",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0_25-coupled.json.gz": "2363eee02955d78c61a28c69ea9b78ae006d06326ce64aabaf18a67e9ebc7485",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-0_25-native-full-coupled.json.gz": "022ef679531a5e51690c4ad35c1e1eead81087a96833d9c84a7be2c1d2d149fd",
+    "captures/skeleton-native-pose-2026-09-30-v1/weights-1-native-full.json.gz": "226c25641b2cf116693bab7b589956791061e10970ab1a9ac286ee8bb2ce3b72",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-1-identity.json.gz": "0c60dc7ad069f9d1ecc60fe92b11fada12a8f983ccf1cf9be751cc0f82662235",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-1-native-full-identity.json.gz": "5378d18a62be0f92dc52660c3c472ab583b948b387464b9379761bc54dea262c",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-1-elbow.json.gz": "500ae1729eb8cc4f04b3d3fc145ad6bec14b314bf2eb05a7d07d300276e99e39",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-1-native-full-elbow.json.gz": "fe44201d482a4c18ad8577b5651ad4d0b780ee35c94ddd8d213aba3df55f7c38",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-1-coupled.json.gz": "96107b8fe3f75d5540233c461480dc06ad43ad63ab96a55bba24533e8dcaf248",
+    "captures/skeleton-native-pose-2026-09-30-v1/pose-1-native-full-coupled.json.gz": "7c8534d1249c2fc14c681f5765bab19eac2948dff36ce140ae2e524225e91e03"
+  },
+  "cases": [
+    {
+      "weight": 0,
+      "pose": "identity",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.0001588464094935218,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.00015946067183305023,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.463207978752786e-05,
+          "rmsMm": 1.4733557811160876e-05,
+          "worst": {
+            "vertex": 913,
+            "actual": [
+              0,
+              1.4456903388659776,
+              -0.017414050955208493
+            ],
+            "expected": [
+              0,
+              1.4456902742385862,
+              -0.017414050176739786
+            ],
+            "mm": 6.463207978752786e-05
+          }
+        }
+      },
+      "controlParents": [],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-0-identity.json.gz",
+        "sha256": "cdd8ee13d1f5d9a146f0c0c19fcb21ef51eb96f66ec836ca5a4c92a72fce51e5",
+        "decodedSHA256": "f6b69224838cc87083097d76a3b72b9f6e572e8dae66a644b87ae83eea0915dd",
+        "bytes": 3292653
+      }
+    },
+    {
+      "weight": 0,
+      "pose": "elbow",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.00016596162474262708,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.0001665247897042463,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.463207978752786e-05,
+          "rmsMm": 1.5025147143250308e-05,
+          "worst": {
+            "vertex": 913,
+            "actual": [
+              0,
+              1.4456903388659776,
+              -0.017414050955208493
+            ],
+            "expected": [
+              0,
+              1.4456902742385862,
+              -0.017414050176739786
+            ],
+            "mm": 6.463207978752786e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-0-elbow.json.gz",
+        "sha256": "c5d98e940c2c6277a65052cc1b9757e1990f1d929c4ad645c8247d5f511ecc8f",
+        "decodedSHA256": "dc3e57d21f4c5cb1a578e11c2f1c4a0ea4d6ea82e7e30f47f61054dd4bf7bbee",
+        "bytes": 3313076
+      }
+    },
+    {
+      "weight": 0,
+      "pose": "coupled",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0005946982497162385,
+          "rmsMm": 0.00021198434671920152,
+          "worst": {
+            "vertex": 6984,
+            "actual": [
+              -0.12895940980027656,
+              0.4629409447096752,
+              0.15493295872275928
+            ],
+            "expected": [
+              -0.12895922362804413,
+              0.46294066309928894,
+              0.15493246912956238
+            ],
+            "mm": 0.0005946982497162385
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0005946982497162385,
+          "rmsMm": 0.0002124317296954429,
+          "worst": {
+            "vertex": 6984,
+            "actual": [
+              -0.12895940980027656,
+              0.4629409447096752,
+              0.15493295872275928
+            ],
+            "expected": [
+              -0.12895922362804413,
+              0.46294066309928894,
+              0.15493246912956238
+            ],
+            "mm": 0.0005946982497162385
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.446075627005909e-05,
+          "rmsMm": 1.4509076384655579e-05,
+          "worst": {
+            "vertex": 8371,
+            "actual": [
+              -0.033166015853747094,
+              1.4408214137064368,
+              0.0468007180854958
+            ],
+            "expected": [
+              -0.03316601437111071,
+              1.4408213492967032,
+              0.046800715993340763
+            ],
+            "mm": 6.446075627005909e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-0-coupled.json.gz",
+        "sha256": "a519ca91d12e1780cda8a753da3b8fc3e666cabb043b2e9e575af0169e51d153",
+        "decodedSHA256": "ece403a50f47be71bdd57a5e95b974a048148b01d248cce8bf1fa36917f303b1",
+        "bytes": 3460112
+      }
+    },
+    {
+      "weight": 0.25,
+      "pose": "identity",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.00015840872050450048,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.0001590353620049236,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.463207978752786e-05,
+          "rmsMm": 1.4743032516907296e-05,
+          "worst": {
+            "vertex": 913,
+            "actual": [
+              0,
+              1.4456903388659776,
+              -0.017414050955208493
+            ],
+            "expected": [
+              0,
+              1.4456902742385862,
+              -0.017414050176739786
+            ],
+            "mm": 6.463207978752786e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-0_25-identity.json.gz",
+        "sha256": "7bcc7274f45fbd8b44e6a71fc422e42ff4879a8d87bcb36fd5135ee63f85f450",
+        "decodedSHA256": "aa706e55287c2ac4b015178b8b8e650ad8a6109520de726b0d8fdcfa3a415b88",
+        "bytes": 3321240
+      }
+    },
+    {
+      "weight": 0.25,
+      "pose": "elbow",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.00016356884622649952,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047778209617538715,
+          "rmsMm": 0.00016415671189194217,
+          "worst": {
+            "vertex": 30,
+            "actual": [
+              -0.040394507348537445,
+              1.5500404834747312,
+              0.12842547893524148
+            ],
+            "expected": [
+              -0.040394511073827744,
+              1.5500400066375732,
+              0.1284254491329193
+            ],
+            "mm": 0.00047778209617538715
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.463207978752786e-05,
+          "rmsMm": 1.5032650278245215e-05,
+          "worst": {
+            "vertex": 913,
+            "actual": [
+              0,
+              1.4456903388659776,
+              -0.017414050955208493
+            ],
+            "expected": [
+              0,
+              1.4456902742385862,
+              -0.017414050176739786
+            ],
+            "mm": 6.463207978752786e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "elbow"
+        },
+        {
+          "weight": 0.25,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-0_25-elbow.json.gz",
+        "sha256": "a600cd48714e731ca8e893b9cf213b5b459b0ab976d39b9696d5780ec899eb92",
+        "decodedSHA256": "15f53bfb81edd2b86815456713a2f06d71d4d14b9be48fd9643cd2181f586362",
+        "bytes": 3336025
+      }
+    },
+    {
+      "weight": 0.25,
+      "pose": "coupled",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0004758414310542664,
+          "rmsMm": 0.00015262470123843713,
+          "worst": {
+            "vertex": 1605,
+            "actual": [
+              -0.1079358299774446,
+              1.3980914520972492,
+              0.06022612641290202
+            ],
+            "expected": [
+              -0.1079358160495758,
+              1.3980919122695923,
+              0.06022624671459198
+            ],
+            "mm": 0.0004758414310542664
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0004885555310636271,
+          "rmsMm": 0.00015322978706556662,
+          "worst": {
+            "vertex": 1605,
+            "actual": [
+              -0.10793582897193965,
+              1.3980914390765828,
+              0.06022612585146584
+            ],
+            "expected": [
+              -0.1079358160495758,
+              1.3980919122695923,
+              0.06022624671459198
+            ],
+            "mm": 0.0004885555310636271
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.446075627005909e-05,
+          "rmsMm": 1.4516467400551361e-05,
+          "worst": {
+            "vertex": 8371,
+            "actual": [
+              -0.033166015853747094,
+              1.4408214137064368,
+              0.0468007180854958
+            ],
+            "expected": [
+              -0.03316601437111071,
+              1.4408213492967032,
+              0.046800715993340763
+            ],
+            "mm": 6.446075627005909e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "coupled"
+        },
+        {
+          "weight": 0.25,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-0_25-coupled.json.gz",
+        "sha256": "4d609fa14e8f0e3a80edaafd0c735780aa6eb79c74f4046f88a5fc1ab49ccf59",
+        "decodedSHA256": "8bd3033f9427791f3b6a63c899bf7f9dffb66b7d5eb532c39309cc4f43c86c06",
+        "bytes": 3465447
+      }
+    },
+    {
+      "weight": 1,
+      "pose": "identity",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047882661970103464,
+          "rmsMm": 0.00011868821449445966,
+          "worst": {
+            "vertex": 3806,
+            "actual": [
+              -0.44442809745669365,
+              1.0193042755126946,
+              0.1409505158662795
+            ],
+            "expected": [
+              -0.44442805647850037,
+              1.019303798675537,
+              0.1409505009651184
+            ],
+            "mm": 0.00047882661970103464
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.00047882661970103464,
+          "rmsMm": 0.0001193077034460095,
+          "worst": {
+            "vertex": 3806,
+            "actual": [
+              -0.44442809745669365,
+              1.0193042755126946,
+              0.1409505158662795
+            ],
+            "expected": [
+              -0.44442805647850037,
+              1.019303798675537,
+              0.1409505009651184
+            ],
+            "mm": 0.00047882661970103464
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.463207978752786e-05,
+          "rmsMm": 1.4781156983266048e-05,
+          "worst": {
+            "vertex": 913,
+            "actual": [
+              0,
+              1.4456903388659776,
+              -0.017414050955208493
+            ],
+            "expected": [
+              0,
+              1.4456902742385862,
+              -0.017414050176739786
+            ],
+            "mm": 6.463207978752786e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-1-identity.json.gz",
+        "sha256": "a25a6e468f740210ee6bcb7f19c8db75c80b6236a67b18f655871d92352f7661",
+        "decodedSHA256": "e06174e6781e0f276404d56907ec3321ce0ac529fb4300c5573bbef3a9db8c06",
+        "bytes": 3296153
+      }
+    },
+    {
+      "weight": 1,
+      "pose": "elbow",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0005485157019113474,
+          "rmsMm": 0.00013076898134329503,
+          "worst": {
+            "vertex": 10925,
+            "actual": [
+              0.35083883190962273,
+              1.1737554654567484,
+              0.0636678320965352
+            ],
+            "expected": [
+              0.350838840007782,
+              1.1737549304962158,
+              0.06366795301437378
+            ],
+            "mm": 0.0005485157019113474
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0005485157019113474,
+          "rmsMm": 0.00013132512381839386,
+          "worst": {
+            "vertex": 10925,
+            "actual": [
+              0.35083883190962273,
+              1.1737554654567484,
+              0.0636678320965352
+            ],
+            "expected": [
+              0.350838840007782,
+              1.1737549304962158,
+              0.06366795301437378
+            ],
+            "mm": 0.0005485157019113474
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.463207978752786e-05,
+          "rmsMm": 1.5064691004011098e-05,
+          "worst": {
+            "vertex": 913,
+            "actual": [
+              0,
+              1.4456903388659776,
+              -0.017414050955208493
+            ],
+            "expected": [
+              0,
+              1.4456902742385862,
+              -0.017414050176739786
+            ],
+            "mm": 6.463207978752786e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "elbow"
+        },
+        {
+          "weight": 1,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-1-elbow.json.gz",
+        "sha256": "dfc73a5f240507978748f31bb57425c46bc46a67908b3c57e96543ffeff113c1",
+        "decodedSHA256": "52b9080f288f92b45a31bc1ea12801bfaba5d21f99b6113ac02681eee96df472",
+        "bytes": 3310455
+      }
+    },
+    {
+      "weight": 1,
+      "pose": "coupled",
+      "comparisons": {
+        "fullVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0005691973584898784,
+          "rmsMm": 0.00016024528430956173,
+          "worst": {
+            "vertex": 8770,
+            "actual": [
+              0.2148391057373354,
+              1.2717266984146658,
+              0.0914655407794202
+            ],
+            "expected": [
+              0.21483905613422394,
+              1.271726131439209,
+              0.0914655327796936
+            ],
+            "mm": 0.0005691973584898784
+          }
+        },
+        "packedVersusNative": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 0.0005870873375647583,
+          "rmsMm": 0.00016070003926887751,
+          "worst": {
+            "vertex": 8953,
+            "actual": [
+              0.19807977827316903,
+              1.3591081996660792,
+              0.05951021968866722
+            ],
+            "expected": [
+              0.19807974994182587,
+              1.3591076135635376,
+              0.059510238468647
+            ],
+            "mm": 0.0005870873375647583
+          }
+        },
+        "packedVersusFull": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.342,
+          "vertices": 14517,
+          "maxMm": 6.446075627005909e-05,
+          "rmsMm": 1.4548521288926071e-05,
+          "worst": {
+            "vertex": 8371,
+            "actual": [
+              -0.033166015853747094,
+              1.4408214137064368,
+              0.0468007180854958
+            ],
+            "expected": [
+              -0.03316601437111071,
+              1.4408213492967032,
+              0.046800715993340763
+            ],
+            "mm": 6.446075627005909e-05
+          }
+        }
+      },
+      "controlParents": [
+        {
+          "weight": 0,
+          "pose": "coupled"
+        },
+        {
+          "weight": 1,
+          "pose": "identity"
+        }
+      ],
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "case-1-coupled.json.gz",
+        "sha256": "8523f2a80fa31cc50f3154e0cb7dbb8c6ac5bc3fbdc8ca27c033f87822c6b5d1",
+        "decodedSHA256": "5559de07fe5de481816da410edc2c46a79387f43dd0b9d1ccc522d6d833cf85f",
+        "bytes": 3456811
+      }
+    }
+  ],
+  "corruptions": {
+    "restoreAcceptedFour": {
+      "passed": false,
+      "strict": true,
+      "gateMm": 0.342,
+      "vertices": 14517,
+      "maxMm": 1.5892395840427933,
+      "rmsMm": 0.04740173336153247,
+      "worst": {
+        "vertex": 4561,
+        "actual": [
+          -0.12759522504799808,
+          0.9839990299333591,
+          0.09066911631512412
+        ],
+        "expected": [
+          -0.12700346112251282,
+          0.9847267866134644,
+          0.08938620239496231
+        ],
+        "mm": 1.5892395840427933
+      },
+      "cleanParent": {
+        "weight": 0,
+        "pose": "coupled",
+        "passed": true
+      },
+      "interpretable": true,
+      "mutationMaxMm": 1.5892208837623525,
+      "reproductionMaxMm": 6.004449063730082e-13
+    },
+    "staleNeutralBinds": {
+      "passed": false,
+      "strict": true,
+      "gateMm": 0.342,
+      "vertices": 14517,
+      "maxMm": 106.88573674249669,
+      "rmsMm": 50.00347275446431,
+      "worst": {
+        "vertex": 14356,
+        "actual": [
+          0.36305833146939326,
+          -0.17096492109328942,
+          0.14391726765679838
+        ],
+        "expected": [
+          0.32978731393814087,
+          -0.06939460337162018,
+          0.14495199918746948
+        ],
+        "mm": 106.88573674249669
+      },
+      "cleanParent": {
+        "weight": 1,
+        "pose": "coupled",
+        "passed": true
+      },
+      "interpretable": true,
+      "mutationMaxMm": 106.88566715317404
+    }
+  },
+  "artifacts": [
+    {
+      "file": "representation.json.gz",
+      "sha256": "bd174a4703a3e429c61123e266a4c6e2067320cf9ceb04c3d46977e53ab49c12",
+      "decodedSHA256": "e4814b2fc7e87bfeaa3944e7c10d17691a72c062f48492c1bdf9f5fbdffddfc8",
+      "bytes": 351469
+    },
+    {
+      "file": "case-0-identity.json.gz",
+      "sha256": "cdd8ee13d1f5d9a146f0c0c19fcb21ef51eb96f66ec836ca5a4c92a72fce51e5",
+      "decodedSHA256": "f6b69224838cc87083097d76a3b72b9f6e572e8dae66a644b87ae83eea0915dd",
+      "bytes": 3292653
+    },
+    {
+      "file": "case-0-elbow.json.gz",
+      "sha256": "c5d98e940c2c6277a65052cc1b9757e1990f1d929c4ad645c8247d5f511ecc8f",
+      "decodedSHA256": "dc3e57d21f4c5cb1a578e11c2f1c4a0ea4d6ea82e7e30f47f61054dd4bf7bbee",
+      "bytes": 3313076
+    },
+    {
+      "file": "case-0-coupled.json.gz",
+      "sha256": "a519ca91d12e1780cda8a753da3b8fc3e666cabb043b2e9e575af0169e51d153",
+      "decodedSHA256": "ece403a50f47be71bdd57a5e95b974a048148b01d248cce8bf1fa36917f303b1",
+      "bytes": 3460112
+    },
+    {
+      "file": "restore-accepted-four.json.gz",
+      "sha256": "17be702ff1da5f8796ee7b2351d668f613d938cd5890fb4d96712e9999118740",
+      "decodedSHA256": "3c225adbc2abd395db2eecdd88a4bca7aeacd6faf739b9648e26267b0eb6f932",
+      "bytes": 2457512
+    },
+    {
+      "file": "case-0_25-identity.json.gz",
+      "sha256": "7bcc7274f45fbd8b44e6a71fc422e42ff4879a8d87bcb36fd5135ee63f85f450",
+      "decodedSHA256": "aa706e55287c2ac4b015178b8b8e650ad8a6109520de726b0d8fdcfa3a415b88",
+      "bytes": 3321240
+    },
+    {
+      "file": "case-0_25-elbow.json.gz",
+      "sha256": "a600cd48714e731ca8e893b9cf213b5b459b0ab976d39b9696d5780ec899eb92",
+      "decodedSHA256": "15f53bfb81edd2b86815456713a2f06d71d4d14b9be48fd9643cd2181f586362",
+      "bytes": 3336025
+    },
+    {
+      "file": "case-0_25-coupled.json.gz",
+      "sha256": "4d609fa14e8f0e3a80edaafd0c735780aa6eb79c74f4046f88a5fc1ab49ccf59",
+      "decodedSHA256": "8bd3033f9427791f3b6a63c899bf7f9dffb66b7d5eb532c39309cc4f43c86c06",
+      "bytes": 3465447
+    },
+    {
+      "file": "case-1-identity.json.gz",
+      "sha256": "a25a6e468f740210ee6bcb7f19c8db75c80b6236a67b18f655871d92352f7661",
+      "decodedSHA256": "e06174e6781e0f276404d56907ec3321ce0ac529fb4300c5573bbef3a9db8c06",
+      "bytes": 3296153
+    },
+    {
+      "file": "case-1-elbow.json.gz",
+      "sha256": "dfc73a5f240507978748f31bb57425c46bc46a67908b3c57e96543ffeff113c1",
+      "decodedSHA256": "52b9080f288f92b45a31bc1ea12801bfaba5d21f99b6113ac02681eee96df472",
+      "bytes": 3310455
+    },
+    {
+      "file": "case-1-coupled.json.gz",
+      "sha256": "8523f2a80fa31cc50f3154e0cb7dbb8c6ac5bc3fbdc8ca27c033f87822c6b5d1",
+      "decodedSHA256": "5559de07fe5de481816da410edc2c46a79387f43dd0b9d1ccc522d6d833cf85f",
+      "bytes": 3456811
+    },
+    {
+      "file": "stale-neutral-binds.json.gz",
+      "sha256": "b228e5f2fab66f75e4fbd8c1f9366248e2a7ade2b24a6e9d6c769c22d46ac08e",
+      "decodedSHA256": "f993eb188fbbee38bcb4b5a4a18e56c9588af32a250e3ecec19027bd1ebeb6fd",
+      "bytes": 2003090
+    }
+  ],
+  "scope": "Full native body influences and float32 eight-slot CPU storage only; no GPU/runtime/body-range/appearance acceptance.",
+  "threeResolved": "file:///Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.module.js",
+  "representation": {
+    "vertices": 14517,
+    "maxInfluences": 6,
+    "countDistribution": {
+      "1": 7105,
+      "2": 4575,
+      "3": 1501,
+      "4": 698,
+      "5": 623,
+      "6": 15
+    },
+    "packedSumMin": 0.9999999515712261,
+    "packedSumMax": 1.0000000447034836,
+    "maxSumError": 4.842877388000488e-08,
+    "artifact": {
+      "file": "representation.json.gz",
+      "sha256": "bd174a4703a3e429c61123e266a4c6e2067320cf9ceb04c3d46977e53ab49c12",
+      "decodedSHA256": "e4814b2fc7e87bfeaa3944e7c10d17691a72c062f48492c1bdf9f5fbdffddfc8",
+      "bytes": 351469
+    }
+  },
+  "cleanPassed": true,
+  "negativeControlsPassed": true,
+  "passed": true,
+  "finished": "2026-09-30T18:23:17.004Z"
+}
