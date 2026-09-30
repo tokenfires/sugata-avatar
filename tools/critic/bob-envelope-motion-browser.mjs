@@ -1,7 +1,17 @@
-// Ordinary production layer stack, fixed-step clock and selected-groom readback only. No production module routing.
+// Fixed ordinary or isolated-head protocols with full selected-groom readback. No production module routing.
+import { Layer } from '../../packages/core/src/motion/Layer.js';
+import { restRotationRelativeToRig, toBoneDeltaFrame } from '../../packages/core/src/motion/Breath.js';
+import { MOTION_KEYS } from './bob-nape-motion-browser.mjs';
+function headDegreesAt(t) {
+  const right = MOTION_KEYS.findIndex(k => k[0] >= t);
+  if (right <= 0) return [0, 0, 0];
+  const a = MOTION_KEYS[right - 1], b = MOTION_KEYS[right];
+  const u = .5 - .5 * Math.cos(Math.PI * (t - a[0]) / (b[0] - a[0]));
+  return [1, 2, 3].map(i => a[i] + (b[i] - a[i]) * u);
+}
 const sha = async a => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new Uint8Array(a.buffer,a.byteOffset,a.byteLength)))].map(x=>x.toString(16).padStart(2,'0')).join('');
 
-export async function setupEnvelopeMotion({angle,neutral,selectedCards}) {
+export async function setupEnvelopeMotion({angle,neutral,selectedCards,protocol='ordinary',retainOtherVertices=false}) {
   const a = showcase.avatar, controls = showcase.controls, renderer = a.stage.renderer;
   if (a.stage.backendName !== 'webgpu' || a.clockSeconds !== 0) throw Error('Requires fresh native captured owner');
   renderer._animation.stop();
@@ -13,9 +23,29 @@ export async function setupEnvelopeMotion({angle,neutral,selectedCards}) {
   const target=controls.target, radius=a.stage.camera.position.distanceTo(target), theta=angle*Math.PI/180;
   a.stage.camera.position.set(target.x+radius*Math.sin(theta),target.y,target.z+radius*Math.cos(theta));
   a.stage.camera.lookAt(target);controls.update();
-  const layers=a.stack.layers.map(l=>({name:l.name,order:l.order,enabled:l.enabled}));
+  if (!['ordinary', 'head'].includes(protocol)) throw Error('Unknown motion protocol');
+  const originalLayers=a.stack.layers.map(l=>({name:l.name,order:l.order,enabled:l.enabled}));
+  if (protocol === 'head') for (const layer of a.stack.layers) layer.enabled = false;
   envelopeTick(0);await showcase.step(0);
+  if (protocol === 'head') {
+    const head = a.figure.root.getObjectByName('head'), rest = restRotationRelativeToRig(head, a.figure.root);
+    const q = head.quaternion.clone(), delta = q.clone(), axis = a.focus.clone();
+    class Motion extends Layer {
+      constructor() { super({name:'envelopeHeadReview',order:500,boneChannels:['head']}); }
+      update(dt, context) {
+        const [yaw, pitch, roll] = headDegreesAt(context.time), value = yaw || pitch || roll;
+        axis.fromArray(yaw ? [0,1,0] : pitch ? [1,0,0] : [0,0,1]);
+        q.setFromAxisAngle(axis, value * Math.PI / 180);
+        this.contribution.rotateBone('head', toBoneDeltaFrame(q, rest, delta));
+        return this.contribution;
+      }
+    }
+    a.stack.add(new Motion());
+  }
+  const layers=a.stack.layers.map(l=>({name:l.name,order:l.order,enabled:l.enabled}));
   a.hairDynamics.reset();
+  window.envelopeProtocol = protocol;
+  window.envelopeRetainOther = retainOtherVertices;
   window.envelopeSelection=selectedCards;
   const lightingChanges=[];
   if(neutral)a.stage.scene.traverse(o=>{
@@ -38,10 +68,10 @@ export async function setupEnvelopeMotion({angle,neutral,selectedCards}) {
   }
   if(selectedIndices.length!==selectedCards.length*96)throw Error('Unexpected selected triangles');
   const pick=(values,width,base=0)=>selectedCards.flatMap(card=>Array.from(values.slice(base+card*width,base+(card+1)*width)));
-  window.envelopeDescriptor={selectedCards,selectedIndices,bodyIndices:Array.from(a.wardrobe?.fullIndex??a.figure.body.geometry.index.array),
+  window.envelopeDescriptor={selectedCards,selectedIndices,otherCards:Array.from({length:496},(_,card)=>card).filter(card=>!compactIndex.has(card)),bodyIndices:Array.from(a.wardrobe?.fullIndex??a.figure.body.geometry.index.array),
     restPositions:pick(mesh.geometry.attributes.position.array,34*3,652*3),restCentres:pick(g.restCentres,17*3)};
   const lights=[];a.stage.scene.traverse(o=>{if(o.isLight)lights.push({name:o.name,type:o.type,color:o.color.toArray(),intensity:o.intensity,position:o.position.toArray()});});
-  return {seed:a.seed,layers,configuration:showcase.configuration(),camera:a.stage.camera.matrixWorld.toArray(),projection:a.stage.camera.projectionMatrix.toArray(),
+  return {seed:a.seed,layers,originalLayers,protocol,keys:protocol==='head'?MOTION_KEYS:null,retainOtherVertices,configuration:showcase.configuration(),camera:a.stage.camera.matrixWorld.toArray(),projection:a.stage.camera.projectionMatrix.toArray(),
     canvas:[a.stage.canvas.width,a.stage.canvas.height],lights,lightingChanges,material:a.hairMaterial.hairUniforms.baseColour.value.toArray(),
     backend:a.stage.backendName,adapter:renderer.backend.adapter?.info?.description??null,descriptor:envelopeDescriptor,
     parameters:Object.fromEntries(['dampingScale','globalStiffness','tipStiffness','gravity','drag'].filter(k=>a.hairDynamics.uniforms[k]).map(k=>[k,a.hairDynamics.uniforms[k].value])),
@@ -66,12 +96,13 @@ export async function envelopeSample(frame) {
   const pick=(values,width)=>new Float32Array(envelopeSelection.flatMap(card=>Array.from(values.slice(card*width,(card+1)*width))));
   const selected=pick(v.positions,34*3),centers=pick(c.positions,17*3),selection=new Set(envelopeSelection);
   const other=new Float32Array(Array.from({length:496},(_,card)=>card).filter(card=>!selection.has(card)).flatMap(card=>Array.from(v.positions.slice(card*34*3,(card+1)*34*3))));
-  for(const array of [selected,centers,positions,normals])if(!array.every(Number.isFinite))throw Error('Nonfinite readback');
+  for(const array of [selected,centers,other,positions,normals])if(!array.every(Number.isFinite))throw Error('Nonfinite readback');
   const nf=a.stage.renderer._nodes.nodeFrame;
-  return {frame,time:a.clockSeconds,headMatrix:c.headMatrix,steps:c.steps,
+  return {frame,time:a.clockSeconds,...(envelopeProtocol==='head'?{degrees:headDegreesAt(a.clockSeconds)}:{}),headMatrix:c.headMatrix,steps:c.steps,
     clock:{frame:nf.frameId,time:nf.time,delta:nf.deltaTime,grain:a.stage.grade?.grainFrame?.value,temporal:a.stage.temporal?.frameEpoch()},
     hashes:{otherVertices:await sha(other),body:await sha(positions),rig:await sha(new Float64Array(body.skeleton.bones.flatMap(b=>b.matrixWorld.toArray()))),velocities:await sha(c.velocities)},
     selectedVertices:Array.from(selected),selectedCentres:Array.from(centers),
+    ...(envelopeRetainOther ? {otherVertices:Array.from(other)} : {}),
     bodyPositions:Array.from(positions),bodyNormals:Array.from(normals),contact:d.contactReport(),
     colliders:{skull:d.uniforms.skull.value.toArray(),capsuleA:d.uniforms.capsuleA.value.toArray(),capsuleB:d.uniforms.capsuleB.value.toArray(),capsuleRadius:d.uniforms.capsuleRadius.value}};
 }
