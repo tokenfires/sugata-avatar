@@ -1,6 +1,6 @@
 # Hair-colour controls: isolated implementation
 
-Authority and overnight deadline live in the main checkout at `/Users/robault/GitHub/sugata-avatar/docs/OVERNIGHT-2026-09-29.md`. This worktree is `/Users/robault/.codex/worktrees/sugata-hair-colours/sugata-avatar`, branch `codex/hair-colours-2026-09-29`, based on `620cf78`. It is not yet integrated into the persistent review server.
+Authority and overnight deadline live in the main checkout at `/Users/robault/GitHub/sugata-avatar/docs/OVERNIGHT-2026-09-29.md`. This worktree is `/Users/robault/.codex/worktrees/sugata-hair-colours/sugata-avatar`, branch `codex/hair-colours-2026-09-29`, based on `620cf78`. It was locally committed as `b170da4` and fast-forwarded into the main branch; the persistent review server passed the subsequent native integration check. The canonical overnight checkpoint records current work and ownership.
 
 ## Current state at 04:30 UTC
 
