@@ -2,7 +2,7 @@
 
 ## Current disposition
 
-**The cleaner side flow survives eleven inspected matched head poses and ten matched ordinary poses spanning twelve seconds. No new obvious side opening, broad crease, ear dome or reintroduced long diagonal appears in these samples. Both capture pairs and their physical-control comparisons are complete. The completed head audit finds zero selected triangle/body intersections in all 556 candidate states; the control has card-68 intersections in every state. Both ordinary body audits remain pending. Keep the exact candidate frozen: this is a bounded head-protocol result and positive discrete-image evidence, not all-motion acceptance or a promotion recommendation.**
+**The cleaner side flow survives eleven inspected matched head poses and ten primary matched ordinary poses spanning twelve seconds, with additional neighborhood review. No new obvious side opening, broad crease, ear dome or reintroduced long diagonal appears in these samples. All captures, physical-control comparisons and four body audits are complete. The side-v3 candidate has zero selected triangle/body intersections in all 556 head states and all 721 ordinary states; the posterior-v3 control has card-68 intersections in every state of both protocols. This supports keeping the exact side-v3 asset as a qualified experimental comparison for these sampled protocols and proceeding to one separately reviewed lower-curve prototype. It does not establish all-motion acceptance or recommend production promotion.**
 
 - Baseline is **frozen posterior v3**, SHA `d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146`.
 - Candidate is **side v3**, SHA `bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9`.
@@ -45,7 +45,7 @@ I directly inspected these eleven matched pairs in temporal order. All coordinat
 
 The smoother side field still contains some forward/crown fragments and an almost straight lower fall. Those are inherited unfinished aspects of this frozen candidate. This head-pose review does not alter the medium-bob brief to accept them, nor does it supply a reason to mix a new hem/volume intervention into the current qualification.
 
-## Completed head body audit; ordinary audits pending
+## Completed head body audit
 
 I independently read the final [head baseline audit](../../../../captures/side-head-v1/baseline-right-profile-brown/numerical-checks.json), completed at 07:48:58.402 UTC, and [head candidate audit](../../../../captures/side-head-v1/candidate-right-profile-brown/numerical-checks.json), completed at 07:56:23.145 UTC on September 30. Their selected union is **338 cards / 10,816 triangles**, compared with the full posed/morphed body at each of the 556 captured updates.
 
@@ -61,22 +61,22 @@ I independently read the final [head baseline audit](../../../../captures/side-h
 
 The control's concrete frame-zero witness is selected hair triangle 1418 (selected component 44, original card 68) against body triangle 23485, with retained transverse intersection endpoints around `[0.04739, 1.54803, 0.05947]` metres. Positive vertex clearances do not exclude a triangle-interior crossing: this control has no negative sampled vertices yet intersects throughout the sequence. The candidate minimum is frame **391**, card **47**, ring **12**, side **0**; the control minimum is frame **351**, card **74**, ring **16**, side **1**. These minima come from different cards and are not an appearance-quality score.
 
-The paired physical controls above make the head comparison useful, including its explicitly recorded shared-collider change. It supports sampled selected-body clearance for this candidate, protocol and figure. The two ordinary body audits are still pending at this checkpoint; no conclusion is drawn from their prefixes.
+The paired physical controls above make the head comparison useful, including its explicitly recorded shared-collider change. It supports sampled selected-body clearance for this candidate, protocol and figure. The completed ordinary comparison is recorded below. Both comparisons use final results rather than progress prefixes.
 
 The audit excludes garments, hair-to-hair contact, the remaining nonselected cards and time between 60Hz updates. It does not sample final shader alpha/occlusion. A geometric contact, if found, must therefore be distinguished from proven visible clipping; an attractive image cannot negate an exact contact. Conversely, a zero selected-body result would not establish shirt clearance or all-motion acceptance.
 
 The [candidate continuity report](../../../../captures/side-head-v1/candidate-right-profile-brown/continuity.json) is complete. It records a maximum head-local selected vertex step of **1.073408479mm**, card 296's right tip, frame 230→231, and maximum root-midpoint departure **0.000186550mm**, card 155 at frame 387. These are descriptive measurements, not perceptual jump thresholds. The midpoint result does not establish that ribbon-width frames remain fixed. No root-detachment claim is supported.
 
-## Finding 1 — the positive pose images support finishing qualification
+## Finding 1 — the completed evidence supports retaining side v3 as the next experimental control
 
-**Actual witness and remaining mismatch:** frames 75, 210, 255 and 390 retain coherent side coverage where the control retains the long crossing. Frames 435 and 555 retain that gain after returns. The head audit now resolves the control's card-68 contacts within its sampled scope. However, both ordinary body audits are unfinished and these are discrete views; the broader claim that the side candidate is clear and visually sound throughout motion is not established.
+**Actual witness and remaining mismatch:** head frames 75, 210, 255 and 390 retain coherent side coverage where the control retains the long crossing; frames 435 and 555 retain that gain after returns. The completed head and ordinary comparisons record the control's card-68 contacts and zero selected contacts in the candidate. Ordinary frame 357 additionally retains the cleaner side field at the control's worst signed-vertex state. The lower contour still falls almost straight to a blunt edge, as the actual reference/image scoping below documents. These discrete views and two protocols do not establish that the groom is visually sound and clear throughout all motion.
 
 Two concrete alternatives:
 
-1. **Recommended: retain the exact candidate while the two existing ordinary body audits finish.** Preserve the completed head result and combine the ordinary-left-profile images and controls below with their final audits and any exact contact witness before choosing another geometry step. Tradeoff: this preserves attribution and complementary side visibility, but the candidate remains unpromoted until the scoped result is known.
-2. **Alternative: stop at the static-plus-head-pose experimental checkpoint.** Preserve this positive appearance evidence while retaining the qualified posterior lead. Tradeoff: no new investigation is needed, but a moving-clearance claim or product replacement would remain unsupported.
+1. **Recommended and selected by the parent: freeze this completed side-v3 checkpoint and build one separate anchored lower-segment prototype.** Use the fixed-width inward-translation recipe retained below and compare it with these exact side-v3 bytes. Tradeoff: this addresses the remaining reference-backed contour mismatch while preserving attribution, but the new candidate must establish its own appearance and clearance; it inherits none of this moving qualification.
+2. **Alternative: stop at this qualified experimental side-v3 checkpoint.** Preserve the scoped appearance and contact gains without starting another shape probe. Tradeoff: no new geometry risk is introduced, but the near-vertical lower fall and blunt hem remain unresolved and the product default is still unchanged.
 
-No inspected image justifies reversing the side representation or reopening a local card/frame/width loop. The planned lower-curve discussion is separate future work and should wait for the current qualification.
+No inspected image justifies reversing the side representation or reopening a local card/frame/width loop. The current qualification is complete within its stated scope; the lower-curve candidate will receive a separate critique.
 
 ## Finding 2 — small nonselected displacement is a measured consequence, not a proved defect
 
@@ -91,11 +91,11 @@ The ordinary-left-profile camera also does not expose the left ear at every head
 
 ## Finding 3 — body and visible outfit remain separate qualification scopes
 
-**Actual witness:** at frame 255 the rear tips approach the neck/collar region near x440–505/y600–655. The shirt is visible, while the audit's retained `bodyPositions`/`bodyIndices` describe the body mesh. The intact pair does not prove a new garment intersection, and a later clear body audit could not prove garment clearance.
+**Actual witness:** at frame 255 the rear tips approach the neck/collar region near x440–505/y600–655. The shirt is visible, while the audit's retained `bodyPositions`/`bodyIndices` describe the body mesh. The intact pair does not prove a new garment intersection, and the completed clear selected-body audits do not prove garment clearance.
 
 Two concrete alternatives:
 
-1. **Recommended: retain the explicit garment limit and keep the shape unchanged.** Preserve frame 255 as the actual proximity witness while completing the selected-body audits. Tradeoff: garment clearance remains unqualified, but no unsupported hem adjustment is introduced.
+1. **Recommended: retain the explicit garment limit and keep this checkpoint unchanged.** Preserve frame 255 as the actual proximity witness alongside the completed selected-body audits. Tradeoff: garment clearance remains unqualified, but no speculative collision correction is introduced into this candidate.
 2. **Alternative if garment qualification is required: retain actual posed garment triangles around the relevant extreme and neighboring updates.** Audit them in the same world coordinates as the hair and compare any witness with intact images. Tradeoff: this is a separate bounded measurement, not evidence for an outfit sweep or speculative tip shortening.
 
 ## Instrument and interpretation limits
@@ -107,15 +107,35 @@ Two concrete alternatives:
 - A root midpoint can remain anchored while width axes rotate. No dynamic stability, continuous-time clearance, perceptual smoothness or settled-state result is inferred from the continuity maxima.
 - Only this assigned motion critique was written. The critic launched no native browser/GPU/Blender job and no duplicate body audit. The committed static critique remains unchanged.
 
-## Required update
+## Qualification boundary
 
-Replace the remaining ordinary body-audit disposition with the two actual final reports when complete. The head result above is final within its declared scope. The completed ordinary-left-profile capture review follows. Retain any contact or visible failure with its exact card/frame/triangle or image region and two concrete alternatives. Keep all-motion, garment and discrete-image boundaries explicit even if both candidate protocols are clear.
+All four body audits are final within their declared scopes. The completed ordinary-left-profile comparison follows. Exact control contact witnesses are retained as geometric evidence, and their visibility remains a separate question. All-motion, garment and discrete-image boundaries remain explicit despite the clear sampled candidate protocols.
 
 ## Completed ordinary-left-profile capture review
 
 The [ordinary baseline report](../../../../captures/side-ordinary-v1/baseline-left-profile-brown/report.json) and [ordinary candidate report](../../../../captures/side-ordinary-v1/candidate-left-profile-brown/report.json) are both `captured`: 721 geometry states and 241 PNGs over 12 seconds, empty monitored errors and disposal with `leaked: []`. Both retain nonselected coordinates. The baseline/candidate assets are the same frozen posterior-v3/side-v3 pair identified above.
 
 The completed [ordinary paired comparison](../../../../captures/side-ordinary-v1/paired-controls.json) records equal source hashes, all declared setup fields and descriptor ordering. All 721 body positions/normals, rig, head, commands, times, clocks, step counts and capsules match. The fitted skull-radius increase is again **0.920332869869mm**. Maximum nonselected displacement is **0.080536642mm**, at frame 400, fringe card 494, ring 16, side 1. Nonselected hashes differ at 720 updates. These measured differences remain runtime consequences rather than proven visible defects.
+
+### Completed ordinary body comparison
+
+I independently read the [final ordinary candidate audit](../../../../captures/side-ordinary-v1/candidate-left-profile-brown/numerical-checks.json), completed at **08:15:03.871 UTC on September 30**. It matches its final progress object and contains all **721 states**, with **zero selected triangle/body pairs**, zero crossing states and zero negative sampled vertices. Minimum signed vertex clearance is **+2.331497499mm**, at frame **355** (5.916666667s), original card **2**, ring **0**, side **1**. Its retained world-space point is `[-0.0365995392, 1.5546009541, -0.0140761919]` metres.
+
+I independently read the [final ordinary control audit](../../../../captures/side-ordinary-v1/baseline-left-profile-brown/numerical-checks.json), completed at **08:24:08.122 UTC on September 30**. It matches its final progress object: all **721 states** contain intersections, with **38,723 triangle/body pairs**, maximum **63** in one state, all attributed to original card **68**. There are **two negative vertex samples** over the sequence. The minimum is **−0.348883354mm**, frame **357** (5.95s), card **68**, ring **13**, side **1**, at world point `[0.0441536605, 1.5095950365, 0.0835833549]` metres. Frame 357 includes a retained transverse witness between selected hair triangle **1418** (component 44, original card 68) and body triangle **23484**.
+
+| Ordinary protocol result | Frozen posterior-v3 control | Side-v3 candidate |
+| --- | --- | --- |
+| Audited states | 721 | 721 |
+| States with triangle/body intersections | 721 | 0 |
+| Total triangle/body pairs over the sequence | 38,723 | 0 |
+| Maximum pairs in one state | 63 | 0 |
+| Contact cards | 68 only | None |
+| Minimum sampled signed vertex clearance | −0.348883354mm | +2.331497499mm |
+| Negative vertex samples over the sequence | 2 | 0 |
+
+I also directly compared the intact [control frame 357](../../../../captures/side-ordinary-v1/baseline-left-profile-brown/frames/0357.png) and [candidate frame 357](../../../../captures/side-ordinary-v1/candidate-left-profile-brown/frames/0357.png). The candidate removes the control's side zigzag around x510–650/y290–440 and retains a joined lower side field. Both images have soft/noisy outer boundaries. These intact views do not isolate card 68 or prove that its measured penetration is visible; the triangle and signed-vertex findings remain geometric evidence.
+
+Both audits cover the full 338-card selected union against the captured posed body. They retain the garment, nonselected-card, hair-to-hair, alpha/occlusion and between-update exclusions stated above. The shared-collider and nonselected-motion differences are explicitly recorded in the paired controls; this is a qualified asset comparison with those consequences, not proof that the changed authored cards alone explain every live difference.
 
 I directly inspected the following ten matched pairs in temporal order. This spans the sequence but is not inspection of every frame or continuous playback.
 
@@ -132,7 +152,7 @@ I directly inspected the following ten matched pairs in temporal order. This spa
 | 600 / 10s | [Image](../../../../captures/side-ordinary-v1/baseline-left-profile-brown/frames/0600.png) | [Image](../../../../captures/side-ordinary-v1/candidate-left-profile-brown/frames/0600.png) | The candidate retains coherent flow at the former cluster around x520–665/y290–480. The lower pale split is comparable or narrower than the control's fragmented opening, rather than demonstrated new exposure. |
 | 720 / 12s | [Image](../../../../captures/side-ordinary-v1/baseline-left-profile-brown/frames/0720.png) | [Image](../../../../captures/side-ordinary-v1/candidate-left-profile-brown/frames/0720.png) | The final sampled turn again retains the side gain. This ordinary endpoint is not a return-to-rest or settling condition. |
 
-The broad side benefit is visible across both motion protocols. This does not finish the hairstyle: the crown/fringe, near-vertical lower fall, blunt hem and shared noisy rendering boundary remain separate limitations. None of these sampled poses supplies a new candidate-specific failure that justifies changing the frozen geometry during its audit.
+The broad side benefit is visible across both motion protocols. This does not finish the hairstyle: the crown/fringe, near-vertical lower fall, blunt hem and shared noisy rendering boundary remain separate limitations. None of these sampled poses supplies a new candidate-specific failure that justifies revising this frozen checkpoint.
 
 ### Ordinary continuity and neighborhood review
 
@@ -142,7 +162,7 @@ I additionally inspected candidate [351](../../../../captures/side-ordinary-v1/c
 
 Two concrete alternatives for this continuity witness:
 
-1. **Recommended: preserve the geometry and carry the anchored-edge statistic with the intact-image limits.** Finish the body audits without reopening frame tuning. Tradeoff: individual-card visibility and the omitted update remain unknown, but no observed defect supports a corrective shape pass.
+1. **Recommended: preserve the geometry and carry the anchored-edge statistic with the intact-image limits.** Retain the completed body audits without reopening frame tuning. Tradeoff: individual-card visibility and the omitted update remain unknown, but no observed defect supports a corrective shape pass.
 2. **Alternative if that event becomes consequential: one frozen 60Hz image/identity witness around frames 353–354.** Retain the intact appearance control and separate identity from style judgment. Tradeoff: this can expose a one-update contribution, but it is another capture and should not be used simply to reduce a numerical maximum.
 
 ### Shared noisy boundary
@@ -154,13 +174,13 @@ Two concrete alternatives:
 1. **Recommended: keep the geometry frozen and use the existing paired image sequence for a separate playback-perception review.** Retain the shared limitation in the qualification record. Tradeoff: no asset iteration is introduced, but this does not isolate the rendering mechanism. This critic has not watched continuous playback.
 2. **Alternative if playback shows a consequential artifact: a separate fixed-geometry rendering diagnostic at a saved noisy pose.** Compare an explicitly declared temporal/coverage condition while retaining the current production-render image as control. Tradeoff: this could distinguish rendering contributions, but it is separate work and should not be conflated with a groom improvement or reopened as an unsupported shader/geometry sweep.
 
-## Final pending-audit boundary for this checkpoint
+## Final disposition for this checkpoint
 
-Both head and ordinary capture pairs, actual-image reviews and paired-control reports are now incorporated. **Both head body audits are complete; only the ordinary baseline and candidate body audits remain pending at this checkpoint.** No partial progress count is treated as clearance acceptance. The next required evidence is the completed ordinary baseline/candidate selected-body comparison, with exact witnesses retained for any failure. Candidate bytes remain frozen and unpromoted; the critic launched no native job or duplicate audit.
+Both capture pairs, actual-image reviews, paired physical comparisons and all four completed body audits are incorporated. The side-v3 candidate is positive for **sampled selected-body clearance in these two protocols** and for **side-flow improvement in the inspected images**, with the explicit appearance and contact limits retained. It is a useful frozen control for the separately selected lower-curve probe. Candidate bytes remain unpromoted to the production default. The critic launched no native job or duplicate audit and changed only this assigned critique.
 
 ## Read-only scoping of a future anchored lower-segment probe
 
-This is a proposed next mechanism, not a constructed candidate or qualification result. The frozen side-v3 asset above remains unchanged, and the ordinary results must be incorporated before choosing to build.
+This section preserves the read-only proposal and prediction that informed the next decision. The parent has selected one isolated construction after the completed motion checkpoint; no lower-curve GLB existed at this review. The frozen side-v3 asset above remains unchanged, and a constructed lower-curve candidate will require its own evidence and critique.
 
 ### Actual appearance and source witnesses
 

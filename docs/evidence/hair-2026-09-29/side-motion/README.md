@@ -1,6 +1,6 @@
 # Side extension during movement
 
-**The reviewed head and ordinary images retain the cleaner side flow. The head sequence clears the selected body audit; ordinary contact qualification is still running.** The frozen side candidate remains isolated; no accepted asset has changed.
+**The cleaner side flow survives the reviewed head and ordinary poses. Both complete candidate protocols have zero selected triangle/body intersections.** The frozen side candidate remains isolated; no accepted asset has changed.
 
 | Frozen posterior control, upward tilt | Side extension, same pose |
 | --- | --- |
@@ -32,7 +32,7 @@ The second protocol uses the normal 17-layer stack for 12 seconds, seed 20260807
 
 Root inspected matched updates 180/360/600. The opposite-side zigzag patch stays removed; soft moving boundaries persist in both arms. The critic's broader temporal sample is recorded separately. The [ordinary preview and original-frame viewer](../../../../captures/side-ordinary-v1/review.html) has 241 uniformly spaced video presentation frames and a 12.05-second duration including the last image hold. Its native browser controls and desktop/mobile layout passed; root inspected the actual mobile page.
 
-## Contact audits and recovery
+## Completed contact audits and recovery
 
 Both head audits are complete:
 
@@ -43,6 +43,15 @@ Both head audits are complete:
 
 The candidate minimum occurs at update 391, original card 47, ring 12, side 0. Positive vertex distances in the control do not exclude triangle-interior contact. Card 68 belongs to the newly added side region; the previous 266-card posterior audit did not claim to cover it. These geometric contacts are not visible-clipping counts.
 
-The two ordinary CPU audits remain active. No ordinary pass follows from their partial prefixes. The audits evaluate selected triangles against the full posed/morphed body and signed vertex distances. Garments, hair-hair contact, nonselected-card contact, rendered alpha/occlusion and continuous time between updates remain outside their scope.
+Both ordinary audits are also complete:
 
-Exact job identities and commands are in the [overnight checkpoint](../../../OVERNIGHT-2026-09-29.md). Root serializes native captures; the independent critic runs no GPU work. Preserve all current sources and candidate bytes until the jobs finish. Any subsequent lower-curve study is a separate decision after this qualification.
+| Ordinary protocol | States | States with body pairs | Triangle/body pairs | Minimum vertex clearance |
+| --- | ---: | ---: | ---: | ---: |
+| Frozen posterior control | 721 | 721 | 38,723, all card 68 | -0.348883 mm |
+| Side candidate | 721 | 0 | 0 | 2.331497 mm |
+
+The control minimum is at update 357, card 68, ring 13, side 1; two vertex samples over the sequence have negative signed distance. The candidate minimum is at update 355, card 2, ring 0, side 1. These witnesses and every audited state remain in the final numerical reports. Both candidate protocols now support sampled selected-body clearance for this exact asset; this is not all-motion or whole-groom acceptance. The audits evaluate selected triangles against the full posed/morphed body and signed vertex distances. Garments, hair-hair contact, nonselected-card contact, rendered alpha/occlusion and continuous time between updates remain outside their scope.
+
+All four CPU audits and native jobs have completed and their sessions were collected. The [archive manifest](archive-manifest.json) pins 3,528 local files, 3,934,219,052 bytes and 862 PNGs, including 854 original motion images and the native page checks. It also preserves hash-verified audit dependency sources. The archive step verifies every retained image and geometry hash, capture-source snapshots, paired-data pins and native-review report pins before publishing its completion manifest. These raw files remain local under ignored captures directories.
+
+Exact commands and job identities remain in the [overnight checkpoint](../../../OVERNIGHT-2026-09-29.md). The independent critic's final scope and actual image examples are in [CRITIQUE.md](CRITIQUE.md). The decision is to preserve this candidate as the current experimental lead and next try the separately specified inward lower segment. That next asset will require its own intact images and qualification; this result does not transfer to changed geometry.
