@@ -65,6 +65,13 @@ removes large stepped/toothed band outlines and the casual neckline's grey found
 actual static views. Required sampled coverage, finite native/export skinning and full rest-body
 clearance pass independently; fine close-up hem marks remain. The [completed runtime review](evidence/wardrobe-2026-09-30/foundation-domain-motion/README.md) then found body crossings in all four audited poses and exposed foundation patches through the elegant blouse. The candidate is rejected as a replacement; its static gains remain preserved. See the [interactive comparison](evidence/wardrobe-2026-09-30/foundation-domain-motion/review.html).
 
+The subsequent [exact runtime trace and bounded body-contact study](evidence/wardrobe-2026-09-30/foundation-runtime-fit/README.md)
+reproduce all saved coordinates and confirm three particular nonadjacent body self-intersections.
+They do not explain every garment crossing or establish a visible body defect. This foundation
+lead is closed with shipped assets retained. Future construction must address body, foundation,
+and outer garment together under the recorded poses, without erasing the separate coverage,
+full-body clearance, and actual-image gates.
+
 A September 26 [identity-aware eyelid instrument](evidence/nonhair-2026-09-26/identity-closure-next/README.md)
 now reproduces a sampled CPU red/green case at the native blink coefficient, independently
 checked by a second 3D intersection method. A body-only eye-height change exposes eye
