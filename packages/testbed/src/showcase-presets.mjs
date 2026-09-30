@@ -1,4 +1,5 @@
 // Supported g050 wardrobe studies with authored colourways on the existing fitted garments.
+import { resolveHairColour } from '../../core/src/material/HairColourOptions.js';
 import { WARDROBE_STYLES } from '../../core/src/wardrobe/WardrobeStyleOptions.js';
 import { REVIEW_SCENES, reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
 export const SHOWCASE_PRESETS = Object.freeze([
@@ -22,9 +23,11 @@ export function resolveShowcaseSelection(params) {
     }
     for (const key of ['gender', 'bake', 'hair', 'foundation']) if (params.has(key))
         throw new Error('This lookbook supports its two authored g050 clothing studies only.');
+    if (params.getAll('hairColour').length > 1) throw new Error('Duplicate hair colour selection.');
+    const hairColour = resolveHairColour(params.has('hairColour') ? params.get('hairColour') : undefined);
     const preset = SHOWCASE_PRESETS.find(p => p.id === (params.get('preset') ?? 'casual'));
     const selection = { preset: preset.id, style: params.get('style') ?? 'ecru', outfit: params.get('outfit') ?? preset.outfit,
-        frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio', scene: reviewSceneSelection(params) };
+        frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio', scene: reviewSceneSelection(params), ...(hairColour === null ? {} : { hairColour }) };
     optionsForReviewScene(selection.scene, selection.light);
     return selection;
 }
@@ -32,7 +35,8 @@ export function optionsForShowcase(selection) {
     const preset = SHOWCASE_PRESETS.find(p => p.id === selection.preset);
     if (!preset || !SHOWCASE_OUTFITS[selection.outfit] || !choices.frame.includes(selection.frame) || !choices.light.includes(selection.light) || !choices.style.includes(selection.style))
         throw new Error('Unsupported showcase selection.');
-    return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, frame: selection.frame,
+    const hairColour = resolveHairColour(selection.hairColour);
+    return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, ...(hairColour === null ? {} : { hairColour }), frame: selection.frame,
         quality: 'balanced', ...optionsForReviewScene(selection.scene ?? 'studio', selection.light), seed: SHOWCASE_SEED,
         pose: 'relaxed-standing', wardrobe: { ...(selection.style === 'original' ? {} : {style: selection.style}), outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
 }
@@ -49,6 +53,10 @@ export function configurationFromReport(report) {
         !report.wardrobe?.attached || report.wardrobe.pendingCandidates !== 0 || !report.hair?.attached ||
         report.hair.loadedStyle !== report.hair.style || !['bob01', 'bob02'].includes(report.hair.style))
         throw new Error('Wait for the supported look to finish loading before saving it.');
+    const hairColour = report.hair.colour;
+    if (hairColour && (!hairColour.matchesAttached || hairColour.requested !== hairColour.applied))
+        throw new Error('The attached hair colour does not match this saved look.');
+    const appliedHairColour = resolveHairColour(hairColour?.applied ?? undefined);
     const appearance = report.wardrobe.appearance;
     if (!appearance?.attached || !choices.style.includes(appearance.style))
         throw new Error('The selected clothing colours are not attached.');
@@ -62,6 +70,7 @@ export function configurationFromReport(report) {
         !REVIEW_SCENES.includes(report.scene.id) || report.quality?.requested !== 'balanced' || !Number.isFinite(report.motion?.seed))
         throw new Error('The current view is outside this lookbook’s supported configuration.');
     return { identity: { gender: report.identity.gender, mode: 'nearest' }, hair: report.hair.style,
+        ...(appliedHairColour === null ? {} : { hairColour: appliedHairColour }),
         frame: report.framing.mode, quality: report.quality.requested,
         ...optionsForReviewScene(report.scene.id, report.scene.lighting.look), seed: report.motion.seed, pose: 'relaxed-standing',
         wardrobe: { ...(appearance.style === 'original' ? {} : {style: appearance.style}), outfit: [...SHOWCASE_OUTFITS[outfit].garments], foundation: { TORSO: foundation.TORSO, HIPS: foundation.HIPS } } };

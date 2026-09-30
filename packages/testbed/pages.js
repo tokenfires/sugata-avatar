@@ -39,7 +39,7 @@ export const PAGE_GROUPS = [
             },
             {
                 path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',
-                blurb: 'Compare two outfits, three palettes and two rooms. Name your favourite looks, reopen them here, or save an image.',
+                blurb: 'Compare outfits, clothing palettes and hair colours in two rooms. Name your favourite looks, reopen them here, or save an image.',
                 boundary: 'Two starting outfits on one body study, with experimental attention near the front view. Clothing fit and the larger wardrobe remain works in progress.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/showcase.js',

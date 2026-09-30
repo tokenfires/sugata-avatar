@@ -1,0 +1,3087 @@
+{
+  "files": [
+    {
+      "path": "captures/hair-colour-controls/all-material-controls-source.mjs",
+      "bytes": 2760,
+      "sha256": "0670369e8ce24089296e2a04bc74c1b5df7811a95ad2f00aca0faa8251959205"
+    },
+    {
+      "path": "captures/hair-colour-controls/all-material-controls.json",
+      "bytes": 14617,
+      "sha256": "89d12c46c89927daf49f48ddd85cf7e67eab4dcd88dc23698416b93efa01c76a"
+    },
+    {
+      "path": "captures/hair-colour-controls/audit-hair-colours.mjs",
+      "bytes": 2476,
+      "sha256": "f498dbcc01e85d6d053ec8be376530df8ee259675893e0737bc5317324a18ad6"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/casual-front-exact-default.png",
+      "bytes": 904071,
+      "sha256": "cd2503d63a646b866bdf532d92f95ea4394057a60bb1b7bf93b34cb6d173e6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/casual-rear-oblique-exact-default.png",
+      "bytes": 666474,
+      "sha256": "76b4b7fba8e7b0916bc538da3a5404ecc1531a932c5f7207b12a58dd58b35dc9"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/report.json",
+      "bytes": 79730,
+      "sha256": "36dd5063c81e4ee79dbfe077f753b12c83e93c810c3a8ef43aaa407292e80124"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/casual-front-exact-default.png",
+      "bytes": 892540,
+      "sha256": "ebc7093297a2d1d17be79222af3329d8b6bff4268d0c1cfb82f437c1f707c32d"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/casual-rear-oblique-exact-default.png",
+      "bytes": 660940,
+      "sha256": "a83d28c3d6bccc7c8322252a7e027d2d961bdb73ace6359477f2ad076c5c1635"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/report.json",
+      "bytes": 79749,
+      "sha256": "2525b6233092654717a1763794f5b00e8b95da6865bac763cc925ec4983a958c"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/casual-front-exact-default.png",
+      "bytes": 895495,
+      "sha256": "6229aaae5e348a4b3abc0aa25230db8b50486df3f0126e77cca227da3b745861"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/casual-rear-oblique-exact-default.png",
+      "bytes": 661554,
+      "sha256": "25036fb9d5b0c2a2a4ac87048500d112a29cd3b3183a6287a8733dbc78a937b1"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/report.json",
+      "bytes": 79724,
+      "sha256": "727bfe15d5a8a584e4fd67c9a877733efe9040b711c4d015a91a762f944ca4bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/casual-front-exact-default.png",
+      "bytes": 1201250,
+      "sha256": "1fed703fa6f63fd9f02983ca01d7dde90d6f118b6f66ca3353768a3d0c30b068"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/casual-rear-oblique-exact-default.png",
+      "bytes": 1005991,
+      "sha256": "172c3fb9e5e8cb0b84ac7d9088ac451c1469a9dbcadec1d473dd212f8e878788"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/report.json",
+      "bytes": 78186,
+      "sha256": "a6ef52f9f3aff983f4fa3442c1eb9f6fd39b9e02e205b241f06b079c47119f48"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/casual-front-exact-default.png",
+      "bytes": 1224444,
+      "sha256": "ba3072e54d75fd6f2899a27fcfc32214f1f750b0674e5bb4dec7b0e0c1127eb9"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/casual-rear-oblique-exact-default.png",
+      "bytes": 1005365,
+      "sha256": "d69b3add22541f4605eead45333d40832ce1d230304a7f7d2f61248208157de0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/report.json",
+      "bytes": 78189,
+      "sha256": "be8f6a79e341a78c2dcf2c56bba8e2f96064bd29d0240e4ae023aad039a82fc8"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/casual-front-exact-default.png",
+      "bytes": 1256537,
+      "sha256": "c541a8ea6819ff4d7c6ddbb780ee949bbab93f422bb76549c504cd3b21590b57"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/casual-rear-oblique-exact-default.png",
+      "bytes": 1009209,
+      "sha256": "7a8e87b41f7d60e62b16a6f2e8685d791146f47ac3d5ff96d2e6c6f5983327f0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/report.json",
+      "bytes": 78174,
+      "sha256": "92e61737729e8b7ab5e6b7056aa4980ffe95f4b756b06f13629d1aac797dadf5"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/elegant-front-exact-default.png",
+      "bytes": 999517,
+      "sha256": "fbd4895e092e3600e9adc7ba34448aa3ea05e539cf41cd0590a03097b94e6321"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/report.json",
+      "bytes": 41523,
+      "sha256": "466e0e12d2fea04e1fb80149c56877f77bc38d96f5c56700b6973f9e6c32b682"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/review.html",
+      "bytes": 853,
+      "sha256": "1601345bf932c30bb91c22892600922ff6767e5b6998b0d1b325fdb30a1ac6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/elegant-front-exact-default.png",
+      "bytes": 978534,
+      "sha256": "794a3e294aeef6225882a01dcb2b75f062146c40b9d3a49308d4021bd28fcc82"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/report.json",
+      "bytes": 41530,
+      "sha256": "f18a180a3419c66c480492671f79e5547de5a8b2c48c5e70cb9cea58848475be"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/review.html",
+      "bytes": 853,
+      "sha256": "1601345bf932c30bb91c22892600922ff6767e5b6998b0d1b325fdb30a1ac6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/elegant-front-exact-default.png",
+      "bytes": 997424,
+      "sha256": "b7646d5e23871c93349e0df9d4d741defb6ed05863459cb636a4747b78ca965e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/report.json",
+      "bytes": 41520,
+      "sha256": "89062f3800cebb918ca42d9e60631c900d2562f4f463cf6e614ab8b5cd34adbd"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/review.html",
+      "bytes": 853,
+      "sha256": "1601345bf932c30bb91c22892600922ff6767e5b6998b0d1b325fdb30a1ac6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/elegant-front-exact-default.png",
+      "bytes": 983905,
+      "sha256": "d8a7eae6f6e613d45d6f5b7a2b1fd90f83a5005979baa199c98b0380aa38bec5"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/report.json",
+      "bytes": 41510,
+      "sha256": "83853fee1ccad39d2bac5f17f70cc936848c14476374194553a98feba5b21079"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/review.html",
+      "bytes": 853,
+      "sha256": "1601345bf932c30bb91c22892600922ff6767e5b6998b0d1b325fdb30a1ac6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/elegant-front-exact-default.png",
+      "bytes": 971800,
+      "sha256": "58b4effedce2fdef76fc3b67d48100fd20fbc80f64cad27391e330d8d3d5c5aa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/report.json",
+      "bytes": 41523,
+      "sha256": "f29edfe9b29fb2eacc06d72b1ed9f6330322197f51fe9008f304bef5d369dd13"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/review.html",
+      "bytes": 853,
+      "sha256": "1601345bf932c30bb91c22892600922ff6767e5b6998b0d1b325fdb30a1ac6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/elegant-front-exact-default.png",
+      "bytes": 1022808,
+      "sha256": "dd6004d48b561cf40c692602bc0db67e3840f32926a7b14b8468737a5a6fe1a2"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/report.json",
+      "bytes": 41522,
+      "sha256": "9e947ccf8c689f73ea67af8f47d71ce8df47ef0e53e051f1b1219f988f8b2644"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/review.html",
+      "bytes": 853,
+      "sha256": "1601345bf932c30bb91c22892600922ff6767e5b6998b0d1b325fdb30a1ac6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/elegant-front-exact-default.png",
+      "bytes": 955203,
+      "sha256": "ff60536c0039d5e5760b371cb1fd1d9bd65a35b3bf24ec388d98cd29470274da"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/report.json",
+      "bytes": 41516,
+      "sha256": "1fa1f1afad7498a270ecde58444231b269ef6be5ae177ade5044752a3fdefb51"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/review.html",
+      "bytes": 853,
+      "sha256": "1601345bf932c30bb91c22892600922ff6767e5b6998b0d1b325fdb30a1ac6d1"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/hair-colour-controls/default-preservation.json",
+      "bytes": 1162,
+      "sha256": "a5f65cee33d22b3c5326a2afe0b4929fa36c17f48b2ffea0868402bd223fb859"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-controls.json",
+      "bytes": 9510,
+      "sha256": "2f855d537096c5608d9a8bba987514697cc986381a94b8ba034c1b2da627fc1a"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/casual-front-exact-default.png",
+      "bytes": 917710,
+      "sha256": "eddae0c35c55bc947eda851428f20f69c4179456e56e7e13adac107c3e485359"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/casual-rear-oblique-exact-default.png",
+      "bytes": 678817,
+      "sha256": "f3ab2f17f93394cc2384ee3647e731421c111a803194dec0e300a975ac18b491"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/report.json",
+      "bytes": 79720,
+      "sha256": "8b130dda9291fca7cf5d1c5f0deffa3e88c653c0c82e82775538eaa1caa330a2"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/casual-front-exact-default.png",
+      "bytes": 885119,
+      "sha256": "8b658c25df9888fbf2a01d5f8834b61a85477bc0fccaa28cdb3d82cf141d97bb"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/casual-rear-oblique-exact-default.png",
+      "bytes": 652244,
+      "sha256": "c59d731dce2a023d8ef0237541a2020ac6fbbfe28f155841cf1e6fddfb431d6f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/report.json",
+      "bytes": 79761,
+      "sha256": "d7f29506b60880be6e0bd7f3d8d95ed34c02fbbe159597f31104dfc228aa886c"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/casual-front-exact-default.png",
+      "bytes": 909828,
+      "sha256": "809ad43ad504a7c0196853082a36fa0aed36fc427953f0b8ee0c56cb4464bcb0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/casual-rear-oblique-exact-default.png",
+      "bytes": 671293,
+      "sha256": "31937c0625d0b0bd497fd0d9eb89dec4f2fd7cb31c899c385d274a66ddeb43ac"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/report.json",
+      "bytes": 79727,
+      "sha256": "805ad55af74884144e189c7176903ebdce0163e045a6cdcd582b9d8e34991af1"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/casual-front-exact-default.png",
+      "bytes": 906244,
+      "sha256": "f04aedadc33179e6f1a42b0bdbf9391d8832a91ee4b356cf9fcc80604589c672"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/casual-rear-oblique-exact-default.png",
+      "bytes": 668196,
+      "sha256": "16e112d4798594666262d13e72041805a2a99563889b1bc49ae76fcc12b83278"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/report.json",
+      "bytes": 79746,
+      "sha256": "7618021802fada8bfa7201c0040a2261762e67ed2012925c021d662ae9f9857b"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/casual-front-exact-default.png",
+      "bytes": 887760,
+      "sha256": "068257ebf99c7f255627cf6bee772b1253fd2307cc97c52a166f5801905a244c"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/casual-rear-oblique-exact-default.png",
+      "bytes": 655081,
+      "sha256": "0f8778a80721f1aa3cb636baad66615cd6cb4e3197d3be77278205c4b172874c"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/report.json",
+      "bytes": 79731,
+      "sha256": "a2b28e12313c0503d5f734fab59f3f5f13133204d07bad4ea9aab54575ea7ede"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/casual-front-exact-default.png",
+      "bytes": 878884,
+      "sha256": "9e1bc56c780e4b37f16db62151b631226252f29cef28eeab43120fc8eb1ff790"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/casual-rear-oblique-exact-default.png",
+      "bytes": 653224,
+      "sha256": "e60e6070255e3810487b1fb912c3c8bc9d3047ee70a5056010f58756de90532f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/report.json",
+      "bytes": 79519,
+      "sha256": "cd7992428fb89a96929180a4c65a940e1af7c786654112ec0522f926b2467759"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/casual-front-default-repeat.png",
+      "bytes": 889454,
+      "sha256": "8200810144ca61566ba15bd6f902bf1f661c21c5a5ecc8f0e22baf7efdf7cb9b"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/casual-front-exact-default.png",
+      "bytes": 889465,
+      "sha256": "5406c14601973c496956d0f008e195b6cbec8579260aebccd868f11d6f6bc78a"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/casual-rear-oblique-default-repeat.png",
+      "bytes": 659341,
+      "sha256": "501b26dd452aefda9ad162023ba7044fe6c1d872c3a726f35015beb0b15191a4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/casual-rear-oblique-exact-default.png",
+      "bytes": 659341,
+      "sha256": "501b26dd452aefda9ad162023ba7044fe6c1d872c3a726f35015beb0b15191a4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/report.json",
+      "bytes": 156295,
+      "sha256": "94f6c61323660eed5073d5e402e4115cd5b1c1a54ccc97dbd8b84a43ed144f93"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/review.html",
+      "bytes": 1362,
+      "sha256": "14c18b1c30bab0ca12e61c7d7950eb86fe8e921d04fe4fecb4bad07a43f8aeba"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/casual-front-exact-default.png",
+      "bytes": 921851,
+      "sha256": "1f9e64d45877cd8710942219e3527d4216cd680b2c2afb4cd4d2610803002fb8"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/casual-rear-oblique-exact-default.png",
+      "bytes": 688778,
+      "sha256": "b05f9565ac91da19135a971e289946696554c9727300fbfc27263287f36452ce"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/report.json",
+      "bytes": 79746,
+      "sha256": "cab6a56ec59f3317bfb345f76d96ac2aa1222dca0333576f4ec50010a25643e3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/casual-front-exact-default.png",
+      "bytes": 883165,
+      "sha256": "f9a5e554062b536d49539f8a5b3df2c0bc84bff96ccd3ebecd264821df7817c7"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/casual-rear-oblique-exact-default.png",
+      "bytes": 654407,
+      "sha256": "5557cfa0b5e3ed9b6e3f9437278937012951916fd81507fcdfa9cea1ac0fd8a5"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/report.json",
+      "bytes": 79704,
+      "sha256": "9c6725c64ffc4a6a1d784856dc98c774d1a263d4c307ba7315621c4ee2fb16ed"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/casual-front-exact-default.png",
+      "bytes": 842166,
+      "sha256": "6c156e3868918f67cd513ed86b64598232742b8d516f436f40619d4cbbed5f43"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/casual-rear-oblique-exact-default.png",
+      "bytes": 620006,
+      "sha256": "81debe3d9ee2d7129e1f8fe60cf3bedb01b773197939a33dc664f772dd02ee99"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/report.json",
+      "bytes": 79518,
+      "sha256": "61287fb964eb48f5db529dcf6bd8f41d1111bb31114c7b13e95878b4f0bce65e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/review.html",
+      "bytes": 1017,
+      "sha256": "0cea0f24890cc373d7de32e3b63119695415f302b68c088c19600f1599e07280"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24474,
+      "sha256": "9ff91f09584e147b2b22a9ae59a6cd800c2aa143c9f9615f65f208917ae8bb9e"
+    },
+    {
+      "path": "captures/hair-colour-controls/review-page/desktop.png",
+      "bytes": 658768,
+      "sha256": "1af654e32ae8b20d657cce2a666183aa989f56de4bed92810d4514cabdf600ff"
+    },
+    {
+      "path": "captures/hair-colour-controls/review-page/mobile.png",
+      "bytes": 655332,
+      "sha256": "c2c25e6fdc0170786255ea12326a44fe0e82c456012d0171f85b1908db29910c"
+    },
+    {
+      "path": "captures/hair-colour-controls/review-page/report.json",
+      "bytes": 894,
+      "sha256": "2da8708b933d8df15445b7691d91b37836e76fc1094bb15b5ab685cf0c9bde00"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/desktop-applied.png",
+      "bytes": 809391,
+      "sha256": "11a419af97316fc33e05bb6eee6890d20a749387385c53ca4ab87a345d4b9a00"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/desktop-draft.png",
+      "bytes": 798961,
+      "sha256": "4a2404bfbcdcfe790d055c2eb794543480052d5e86b63549eb3eba2f68dab469"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/desktop-original.png",
+      "bytes": 797681,
+      "sha256": "41a20f23a457c05c8cc19a09c6153c1356f7be5e0d6083295ebe6e3502a6650b"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/report.json",
+      "bytes": 8199,
+      "sha256": "b286f276551033ee0e7169ecf12890eb2274f07996fd0f397ff72cf485d52b9d"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/saved-look.json",
+      "bytes": 460,
+      "sha256": "fb99bfe4d2d33e15296f59d4bc87e35db1fd333e215e9014a93b189e4bd65758"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/core/src/Avatar.js",
+      "bytes": 251112,
+      "sha256": "81d32d7b9f9b8d51f2cf3df6a3233e1b4ef1ea4de52f9e970ff20b266efb2dd1"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/source/tools/critic/hair-colour-controls-review.mjs",
+      "bytes": 11393,
+      "sha256": "f1f95af69ec617f78e522ce1e8731149db5d7cb5c873733f10e68899865335df"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/desktop-applied.png",
+      "bytes": 809391,
+      "sha256": "11a419af97316fc33e05bb6eee6890d20a749387385c53ca4ab87a345d4b9a00"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/desktop-draft.png",
+      "bytes": 798961,
+      "sha256": "4a2404bfbcdcfe790d055c2eb794543480052d5e86b63549eb3eba2f68dab469"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/desktop-original.png",
+      "bytes": 797681,
+      "sha256": "41a20f23a457c05c8cc19a09c6153c1356f7be5e0d6083295ebe6e3502a6650b"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/mobile-applied.png",
+      "bytes": 287346,
+      "sha256": "658a85016e02ead0ac8fc404efcee203fa5451715f1f06c3ffbf8cfc7eae0b80"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/report.json",
+      "bytes": 12784,
+      "sha256": "46c0b176fc31c76cd6ca2e45d66462fc684997baabb79072bf66279ee4920d76"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/saved-look.json",
+      "bytes": 460,
+      "sha256": "fb99bfe4d2d33e15296f59d4bc87e35db1fd333e215e9014a93b189e4bd65758"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 996,
+      "sha256": "66753efee39e7c10fd2159bbef4f498782541a82208b3ef6403c53d8c458706e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3427,
+      "sha256": "91b54df60871567a0435073939e4ca93820dd10826c03416197ad97511a5991d"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/testbed/src/showcase.html",
+      "bytes": 17943,
+      "sha256": "78a042d45ab386a32464cc259423e8b5a2cb65222722a10dc4a5b8718042857f"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/source/tools/critic/hair-colour-controls-review.mjs",
+      "bytes": 12007,
+      "sha256": "ff06777ebaf76f3bb5eda1e3cccc402dadc131ded3b4617ebfa726ff8b0bef4d"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/desktop-applied.png",
+      "bytes": 809406,
+      "sha256": "80690a3cb2f85f8b214c4039e41fca2ad8ad52adb4d245da49f8d43c6166b167"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/desktop-draft.png",
+      "bytes": 798961,
+      "sha256": "4a2404bfbcdcfe790d055c2eb794543480052d5e86b63549eb3eba2f68dab469"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/desktop-original.png",
+      "bytes": 791242,
+      "sha256": "58b3fc6d9746beeb7dee53c7b58995444052fcf3cd97bcf8ec75192af682c5d0"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/mobile-applied.png",
+      "bytes": 287346,
+      "sha256": "658a85016e02ead0ac8fc404efcee203fa5451715f1f06c3ffbf8cfc7eae0b80"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/report.json",
+      "bytes": 12784,
+      "sha256": "0f0017ad0ae1c6e05a521c43e925e797e646fb4c46c044654e204b98382f4f59"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/saved-look.json",
+      "bytes": 460,
+      "sha256": "fb99bfe4d2d33e15296f59d4bc87e35db1fd333e215e9014a93b189e4bd65758"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/source/tools/critic/hair-colour-controls-review.mjs",
+      "bytes": 12204,
+      "sha256": "ee57e1c4ce7302cfbbb637fb2bae32ef3531e77c43dd7720c06e0d3d1a4c8c54"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/desktop-applied.png",
+      "bytes": 809392,
+      "sha256": "1b676a07d46e6fcd2da5307d8398162af12e5d3c15772d90f3663a38e386157e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/desktop-draft.png",
+      "bytes": 798961,
+      "sha256": "4a2404bfbcdcfe790d055c2eb794543480052d5e86b63549eb3eba2f68dab469"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/desktop-original.png",
+      "bytes": 791269,
+      "sha256": "10c84d612109b56611305864964ebf768d0cf3cf5e3cea6022f4c24b5132ccaf"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/mobile-applied.png",
+      "bytes": 325303,
+      "sha256": "d5966c15ed21e2399b6162a933ae5577f30b27813e24e210b5e94df102e94c37"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/report.json",
+      "bytes": 17621,
+      "sha256": "de8b5906779e9776b2cf9a20e5f08dcf73711d2d5cc2ac423f66db9bbb394c62"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/saved-look.json",
+      "bytes": 460,
+      "sha256": "fb99bfe4d2d33e15296f59d4bc87e35db1fd333e215e9014a93b189e4bd65758"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "1808a5626b2071fa6cd53351fe623abebf22d2f8a370b98c4dc32fc16e157c07"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/source/tools/critic/hair-colour-controls-review.mjs",
+      "bytes": 13253,
+      "sha256": "9c789510ee876714b7f2e1119a735f0ec12438723268a89866705ca290938332"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/desktop-applied.png",
+      "bytes": 792922,
+      "sha256": "fdfdbda53e449dccd6fd7ea1673e5a814895cd4ad3292d4532fb9d2013047aa6"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/desktop-draft.png",
+      "bytes": 799166,
+      "sha256": "611a08d5242003b5a024066f0d928df6622fae58bcdb572eb7a232e5502b985f"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/desktop-original.png",
+      "bytes": 791237,
+      "sha256": "0e778f07b66d4632ef632390698f573b55eb87dccfe42c156202a5eef1b734d4"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/mobile-applied.png",
+      "bytes": 325296,
+      "sha256": "948319e478525ebfce0705f674ecad53f28dca6f874fa458d9c5d1419aa2bb74"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/report.json",
+      "bytes": 17627,
+      "sha256": "0298eaa372f393ae8391eaa149c41964e5812e3ae2fdecc8d1e1b01a97b678ef"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/saved-look.json",
+      "bytes": 460,
+      "sha256": "2e1ea06c07fb423a3437aa1d0b40f9fc3ade7eb888d9d449e1afec3c17025666"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/source/tools/critic/hair-colour-controls-review.mjs",
+      "bytes": 13253,
+      "sha256": "9c789510ee876714b7f2e1119a735f0ec12438723268a89866705ca290938332"
+    }
+  ],
+  "fileCount": 616,
+  "bytes": 78338218,
+  "pngCount": 62
+}

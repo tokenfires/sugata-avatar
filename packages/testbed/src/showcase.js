@@ -7,6 +7,8 @@ import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
 import { SavedLooks, SAVED_LOOKS_KEY, SAVED_LOOKS_LIMIT, savedLookSelection } from './showcase-collection.mjs';
 import { mountPaletteReferences } from './showcase-palette-references.mjs';
 import './showcase-palette-references.css';
+import { mountHairColours, hairColourLabel } from './showcase-hair-colours.mjs';
+import './showcase-hair-colours.css';
 import casualEcru from './palette-references/casual-ecru.png';
 import casualCharcoal from './palette-references/casual-charcoal.png';
 import casualOriginal from './palette-references/casual-original.png';
@@ -25,6 +27,13 @@ let navigationPending = false;
 const downloadUrls = new Set();
 const setStatus = text => { status.textContent = text; };
 const savedLooks = new SavedLooks();
+const hairColours = mountHairColours(document.getElementById('hair-colours'), hex => {
+    if (busy || savingImage || failed || (selected.hairColour ?? null) === hex) return;
+    const next = new URL(location.href);
+    if (hex === null) next.searchParams.delete('hairColour'); else next.searchParams.set('hairColour', hex);
+    releaseAttention({immediate: true}); busy = true; enableControls();
+    setStatus('Preparing hair colour…'); navigationPending = true; location.assign(next.href);
+});
 const paletteReferences = mountPaletteReferences(document.getElementById('style-controls'), [
     {outfit: 'casual', style: 'ecru', src: casualEcru},
     {outfit: 'casual', style: 'charcoal', src: casualCharcoal},
@@ -82,7 +91,7 @@ function renderCollection() {
             open.setAttribute('aria-describedby', description.id);
             try {
                 const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
-                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
+                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style} · ${hairColourLabel(look.hairColour)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
             } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
             open.addEventListener('click', () => {
                 if (!collectionAvailable()) return;
@@ -142,10 +151,12 @@ function updateUrl() {
     url.searchParams.set('preset', selected.preset);
     for (const [key, value, normal] of [['style', selected.style, 'ecru'], ['outfit', selected.outfit, preset.outfit], ['frame', selected.frame, 'body'], ['light', selected.light, 'studio'], ['scene', selected.scene, 'studio']])
         if (value === normal) url.searchParams.delete(key); else url.searchParams.set(key, value);
+    if (selected.hairColour) url.searchParams.set('hairColour', selected.hairColour); else url.searchParams.delete('hairColour');
     history.replaceState(null, '', url);
     for (const link of document.querySelectorAll('[data-preset]')) {
         const next = new URL(location.href); next.search = ''; next.searchParams.set('preset', link.dataset.preset);
         if (selected.style !== 'ecru') next.searchParams.set('style', selected.style);
+        if (selected.hairColour) next.searchParams.set('hairColour', selected.hairColour);
         if (selected.scene !== 'studio') next.searchParams.set('scene', selected.scene);
         if (captured) next.searchParams.set('capture', ''); link.href = next.href;
     }
@@ -315,6 +326,7 @@ try {
     frameView(selected.frame); await avatar.step(0);
     // Attachment is observed before controls or export become available; a requested garment is insufficient.
     configurationFromReport(avatar.report());
+    hairColours.load(selected.hairColour);
     busy = false; refresh(); document.getElementById('loading').hidden = true; setStatus(paused ? 'Motion paused' : 'Live view');
     for (const button of document.querySelectorAll('[data-outfit]')) button.addEventListener('click', () => changeOutfit(button.dataset.outfit));
     // Like changing the starting haircut, a palette opens a fresh owned Avatar. Keep the current

@@ -17,6 +17,10 @@ const root = fileURLToPath(new URL('../../', import.meta.url));
 const arg = (name, fallback) => process.argv.find(x => x.startsWith(`--${name}=`))?.slice(name.length + 3) ?? fallback;
 const out = path.resolve(root, arg('out', 'captures/hair-colour-2026-09-29/pilot-v1'));
 const preset = arg('preset', 'casual');
+const scene = arg('scene', 'studio'), light = arg('light', 'studio');
+assert.ok(['studio', 'kitchen'].includes(scene) && ['studio', 'warm'].includes(light));
+const hairColour = arg('hair-colour', null);
+assert.ok(hairColour === null || /^#[0-9a-f]{6}$/.test(hairColour));
 const candidate = arg('candidate', null);
 assert.ok(candidate === null || (preset === 'casual' && candidate.startsWith('captures/') && candidate.endsWith('.glb')), 'Candidates must be isolated bob02 GLBs in captures/.');
 const frames = Number(arg('frames', '96'));
@@ -36,6 +40,8 @@ const sourcePaths = [
     'tools/critic/hair-colour-diagnostic.mjs', 'tools/critic/hair-attribution-browser.mjs', 'packages/core/src/render/MotionProbe.mjs',
     'packages/testbed/src/showcase.html', 'packages/testbed/src/showcase.js',
     'packages/testbed/src/showcase-presets.mjs', 'packages/testbed/src/viewer-framing.mjs',
+    'packages/testbed/src/showcase-hair-colours.mjs', 'packages/testbed/src/showcase-hair-colours.css',
+    'packages/testbed/src/showcase-settings.mjs', 'packages/core/src/material/HairColourOptions.js',
     'packages/core/src/Avatar.js', 'packages/core/src/render/Stage.js',
     'packages/core/src/render/LightingRig.js', 'packages/core/src/render/Grade.js',
     'packages/core/src/render/TRAAPost.js',
@@ -60,7 +66,7 @@ const colours = [
 ].filter(c => colourSelection === 'all' || colourSelection.split(',').includes(c.id));
 assert.ok(colours.length > 0);
 if (colours.some(c => c.id === 'default-repeat')) assert.ok(colours.some(c => c.id === 'exact-default'));
-const report = { started: new Date().toISOString(), pid: process.pid, preset, candidate, frames, views, clockMode, lightingMode, hideCards, hideCaps, identityMode,
+const report = { started: new Date().toISOString(), pid: process.pid, preset, scene, light, hairColour, candidate, frames, views, clockMode, lightingMode, hideCards, hideCaps, identityMode,
     viewport: { width: 1440, height: 1000, deviceScaleFactor: 1 }, sourceHashes: sourceHashes(),
     cases: [], errors: [], status: 'running',
     limits: ['Fixed-pose appearance only; no motion or final-colour qualification.',
@@ -94,7 +100,7 @@ try {
                 candidateLoads++;
                 await route.fulfill({ status: 200, contentType: 'model/gltf-binary', body: fs.readFileSync(path.join(root, candidate)) });
             });
-            await page.goto(`${server.baseUrl}/src/showcase.html?preset=${preset}&frame=portrait&capture=`, { waitUntil: 'domcontentloaded' });
+            await page.goto(`${server.baseUrl}/src/showcase.html?preset=${preset}&frame=portrait&scene=${scene}&light=${light}&capture=${hairColour === null ? '' : '&hairColour=' + encodeURIComponent(hairColour)}`, { waitUntil: 'domcontentloaded' });
             await page.waitForFunction(() => window.showcase || !document.querySelector('#error').hidden, null, { timeout: 120000 });
             assert.equal(await page.locator('#error').textContent(), '');
             assert.equal(candidateLoads, candidate === null ? 0 : 1, 'Capture must load exactly the requested candidate.');
@@ -151,6 +157,9 @@ try {
                     // Removal is an attribution diagnostic. Solver buffers/layout remain intact.
                     mesh.geometry.setIndex(kept);
                 }
+                // The requested configuration is held before intentional diagnostic overrides.
+                // The export contract correctly rejects a later untracked uniform/node edit.
+                const requestedConfiguration = showcase.configuration();
                 const node = a.hairMaterial.hairUniforms.baseColour;
                 const exactDefault = node.value.toArray();
                 if (hex !== null) {
@@ -191,7 +200,7 @@ try {
                         positions: await digest(c.positions), velocities: await digest(c.velocities), vertices: await digest(v.positions),
                         bones, camera: a.stage.camera.position.toArray(), quaternion: a.stage.camera.quaternion.toArray(),
                         projection: a.stage.camera.projectionMatrix.toArray(), target: controls.target.toArray(),
-                        configuration: showcase.configuration(), uniforms, settings: a.hairMaterial.hairSettings,
+                        configuration: requestedConfiguration, uniforms, settings: a.hairMaterial.hairSettings,
                         alphaTest: a.hairMaterial.alphaTest, opacity: a.hairMaterial.opacity,
                         canvas: [a.stage.canvas.width, a.stage.canvas.height], lights, grade,
                         rendering: { backend: a.stage.backendName, scale: a.stage.resolutionScale, msaa: a.stage.multisampled,

@@ -1,3 +1,4 @@
+import { resolveHairColour } from '../../core/src/material/HairColourOptions.js';
 import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, optionsForShowcase } from './showcase-presets.mjs';
 
 export const SHOWCASE_SETTINGS_MAX_BYTES = 16 * 1024;
@@ -22,7 +23,8 @@ export function selectionFromConfiguration(configuration) {
     const outfit = Object.keys(SHOWCASE_OUTFITS).find(id => Array.isArray(garments) &&
         garments.length === SHOWCASE_OUTFITS[id].garments.length &&
         SHOWCASE_OUTFITS[id].garments.every(garment => garments.includes(garment)));
-    const selection = { preset: preset.id, outfit, style: configuration.wardrobe?.style ?? 'original',
+    const hairColour = resolveHairColour(configuration.hairColour);
+    const selection = { ...(hairColour === null ? {} : { hairColour }), preset: preset.id, outfit, style: configuration.wardrobe?.style ?? 'original',
         frame: configuration.frame, scene: configuration.scene,
         light: configuration.scene === 'kitchen' && configuration.lighting === undefined ? 'studio' : configuration.lighting };
     let expected;
@@ -30,6 +32,8 @@ export function selectionFromConfiguration(configuration) {
     catch { throw new Error('These clothes, colours, framing, scene or light are unavailable in this study.'); }
     // The SDK also accepts explicit "original"; exports omit it. Both mean the same attached fabrics.
     if (configuration.wardrobe.style === 'original') expected.wardrobe.style = 'original';
+    // Both hex cases are valid SDK input; reopened URLs and new exports are canonical lowercase.
+    if (hairColour !== null) expected.hairColour = configuration.hairColour;
     sameOptions(configuration, expected);
     return selection;
 }

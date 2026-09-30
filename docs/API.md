@@ -111,6 +111,7 @@ const avatar = await Avatar.create( {
     background: 'studio',          // 'studio'|'void', a hex, or the object below
     scene: 'studio',               // 'studio'|'void', or a scene description — the WIDER form
     hair: false,                   // 'bob01' | 'bob02' (g050 only) | false
+    hairColour: undefined,         // optional '#rrggbb' sRGB; requires hair; omitted keeps exact default
     wardrobe: false                // opt in with { outfit: [...], foundation: { TORSO, HIPS } }; g050 only
 } );
 ```
@@ -448,6 +449,14 @@ where more than 1% of pixels are not opaque — *"which makes the grade gates (G
 So a transparent capture must be composited over `#08080a` before the critic runs, and the
 transparent plate and the studio plate are then compared on the same pixels. That rule is declared
 now, ahead of the option, so the two cannot arrive in different rounds.
+
+### Hair colour
+
+With a hair style enabled, optional `hairColour: '#765344'` supplies a six-digit sRGB material colour. Uppercase hex is accepted and normalized to lowercase. Named CSS colours, shorthand hex, numeric values, null and colour without a hair style are rejected. Omit the option to retain the exact existing derived default; a rounded hex is not substituted for that default.
+
+The option is fixed for that Avatar and follows hair rebuilds. Create a new Avatar to change it. `avatar.report().hair.colour` reports the requested and attached hex (null for Original), the live linear vector, and whether that vector still matches the attachment. An unsupported diagnostic node reports a null vector and a mismatch. The Showcase refuses to export an untracked material change.
+
+Wardrobe studies offer seven starting shades, a custom tint picker, and a lightness adjustment. Apply recreates the look while preserving its applied clothes, cut, framing, scene and light. URL settings, downloaded JSON and named looks store the resolved colour. Original omits the option in all three. Slider lightness describes the selected sRGB colour, not the brightness of lit hair; lighting and material scattering affect the displayed result. This option does not qualify a new haircut, physical dye model or all-lighting colour accuracy.
 
 ### Clothing on the current body
 

@@ -3563,7 +3563,7 @@ export class HairNodeMaterial extends MeshPhysicalNodeMaterial {
  *   asset in a build. `alive.js`'s `HAIR_BAKES` carries the rule at length.
  * @param {?Texture} [options.alphaMap=null] - the groom's embedded base-colour map. Its ALPHA is
  *   the cutout and its RGB is deliberately NOT used as albedo: hair's colour comes from the lobes.
- * @param {number} [options.baseColourHex] - linear base colour, as an sRGB hex.
+ * @param {number} [options.baseColourHex] - base colour encoded as a numeric sRGB hex; converted to linear internally.
  * @param {boolean} [options.multisampled=false] - whether the stage has an MSAA target.
  * @param {string} [options.defect='none'] - one of `HAIR_DEFECTS`.
  * @param {?{capStripEnd:number,fadeLength:number}} [options.cardRoots=null] - Verified card atlas

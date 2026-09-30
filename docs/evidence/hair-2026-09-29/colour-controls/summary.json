@@ -1,0 +1,536 @@
+{
+  "status": "Qualified for sampled creation-time colour workflows; independent critic recommends integration",
+  "runs": [
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/auburn-low/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:30:36.854Z",
+      "finished": "2026-09-30T04:30:42.641Z",
+      "pid": 43399,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#4c3028",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:30:25.109Z",
+      "finished": "2026-09-30T04:30:30.928Z",
+      "pid": 43337,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#413934",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-mid/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:30:31.007Z",
+      "finished": "2026-09-30T04:30:36.781Z",
+      "pid": 43368,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#4f443d",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-black/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:26.242Z",
+      "finished": "2026-09-30T04:36:32.087Z",
+      "pid": 44699,
+      "preset": "casual",
+      "scene": "kitchen",
+      "light": "studio",
+      "hairColour": "#151217",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-brown/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:32.163Z",
+      "finished": "2026-09-30T04:36:38.037Z",
+      "pid": 44730,
+      "preset": "casual",
+      "scene": "kitchen",
+      "light": "studio",
+      "hairColour": "#413934",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/casual-kitchen-white/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:38.112Z",
+      "finished": "2026-09-30T04:36:44.037Z",
+      "pid": 44796,
+      "preset": "casual",
+      "scene": "kitchen",
+      "light": "studio",
+      "hairColour": "#e4dfd6",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-auburn/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:09.953Z",
+      "finished": "2026-09-30T04:36:13.120Z",
+      "pid": 44586,
+      "preset": "elegant",
+      "scene": "studio",
+      "light": "studio",
+      "hairColour": "#4c3028",
+      "views": [
+        "front"
+      ],
+      "checks": null,
+      "images": 1,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-black/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:03.392Z",
+      "finished": "2026-09-30T04:36:06.623Z",
+      "pid": 44539,
+      "preset": "elegant",
+      "scene": "studio",
+      "light": "studio",
+      "hairColour": "#151217",
+      "views": [
+        "front"
+      ],
+      "checks": null,
+      "images": 1,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-blonde/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:13.191Z",
+      "finished": "2026-09-30T04:36:16.362Z",
+      "pid": 44609,
+      "preset": "elegant",
+      "scene": "studio",
+      "light": "studio",
+      "hairColour": "#c7aa71",
+      "views": [
+        "front"
+      ],
+      "checks": null,
+      "images": 1,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-brown/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:06.689Z",
+      "finished": "2026-09-30T04:36:09.883Z",
+      "pid": 44565,
+      "preset": "elegant",
+      "scene": "studio",
+      "light": "studio",
+      "hairColour": "#413934",
+      "views": [
+        "front"
+      ],
+      "checks": null,
+      "images": 1,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-grey/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:19.706Z",
+      "finished": "2026-09-30T04:36:22.874Z",
+      "pid": 44652,
+      "preset": "elegant",
+      "scene": "studio",
+      "light": "studio",
+      "hairColour": "#89868b",
+      "views": [
+        "front"
+      ],
+      "checks": null,
+      "images": 1,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-red/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:16.433Z",
+      "finished": "2026-09-30T04:36:19.637Z",
+      "pid": 44629,
+      "preset": "elegant",
+      "scene": "studio",
+      "light": "studio",
+      "hairColour": "#aa4029",
+      "views": [
+        "front"
+      ],
+      "checks": null,
+      "images": 1,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/confirmation-v1/elegant-studio-white/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:36:22.946Z",
+      "finished": "2026-09-30T04:36:26.164Z",
+      "pid": 44675,
+      "preset": "elegant",
+      "scene": "studio",
+      "light": "studio",
+      "hairColour": "#e4dfd6",
+      "views": [
+        "front"
+      ],
+      "checks": null,
+      "images": 1,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/auburn/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:26:56.155Z",
+      "finished": "2026-09-30T04:27:01.880Z",
+      "pid": 42488,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#7c3d28",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/black/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:26:44.393Z",
+      "finished": "2026-09-30T04:26:50.241Z",
+      "pid": 42422,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#151217",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/blonde/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:27:01.955Z",
+      "finished": "2026-09-30T04:27:07.712Z",
+      "pid": 42519,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#c7aa71",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/brown/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:26:50.321Z",
+      "finished": "2026-09-30T04:26:56.074Z",
+      "pid": 42457,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#765344",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/grey/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:27:13.622Z",
+      "finished": "2026-09-30T04:27:19.375Z",
+      "pid": 42604,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#89868b",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/one/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:27:31.176Z",
+      "finished": "2026-09-30T04:27:36.913Z",
+      "pid": 42720,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#ffffff",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/original/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:26:10.985Z",
+      "finished": "2026-09-30T04:26:22.042Z",
+      "pid": 42179,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": null,
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 4,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/red/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:27:07.786Z",
+      "finished": "2026-09-30T04:27:13.547Z",
+      "pid": 42572,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#aa4029",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/white/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:27:19.449Z",
+      "finished": "2026-09-30T04:27:25.270Z",
+      "pid": 42637,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#e4dfd6",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/material-v1/zero/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:27:25.353Z",
+      "finished": "2026-09-30T04:27:31.101Z",
+      "pid": 42668,
+      "preset": "casual",
+      "scene": null,
+      "light": null,
+      "hairColour": "#000000",
+      "views": [
+        "front",
+        "rear-oblique"
+      ],
+      "checks": null,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v1/report.json",
+      "status": "failed",
+      "started": "2026-09-30T04:24:39.534Z",
+      "finished": "2026-09-30T04:24:47.688Z",
+      "pid": 41816,
+      "preset": null,
+      "scene": null,
+      "light": null,
+      "hairColour": null,
+      "views": null,
+      "checks": [
+        "Strict input normalization and invalid-value rejection",
+        "All starting shades round-trip through strict settings and URLs, preserving omission"
+      ],
+      "images": 3,
+      "errors": [
+        "page.waitForFunction: Error: Wait for the look to finish loading before saving it.\n    at Object.currentConfiguration [as configuration] (http://localhost:5298/src/showcase.js:205:57)\n    at eval (eval at predicate (eval at evaluate (:303:30)), <anonymous>:1:24)\n    at predicate (eval at evaluate (:303:30), <anonymous>:7:27)\n    at next (eval at evaluate (:303:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:303:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:305:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at /Users/robault/.codex/worktrees/sugata-hair-colours/sugata-avatar/tools/critic/hair-colour-controls-review.mjs:118:16"
+      ]
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v2/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:25:22.162Z",
+      "finished": "2026-09-30T04:25:33.578Z",
+      "pid": 41994,
+      "preset": null,
+      "scene": null,
+      "light": null,
+      "hairColour": null,
+      "views": null,
+      "checks": [
+        "Strict input normalization and invalid-value rejection",
+        "All starting shades round-trip through strict settings and URLs, preserving omission",
+        "Native draft, keyboard lightness, Apply, exact Original restore, both cuts, JSON download/open, named look save/open, mobile overflow and SDK rejection"
+      ],
+      "images": 4,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v3/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:28:46.013Z",
+      "finished": "2026-09-30T04:28:57.427Z",
+      "pid": 42929,
+      "preset": null,
+      "scene": null,
+      "light": null,
+      "hairColour": null,
+      "views": null,
+      "checks": [
+        "Strict input normalization and invalid-value rejection",
+        "All starting shades round-trip through strict settings and URLs, preserving omission",
+        "Native draft, keyboard lightness, Apply, exact Original restore, both cuts, JSON download/open, named look save/open, mobile overflow and SDK rejection"
+      ],
+      "images": 4,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v4/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:33:15.844Z",
+      "finished": "2026-09-30T04:33:28.504Z",
+      "pid": 43923,
+      "preset": null,
+      "scene": null,
+      "light": null,
+      "hairColour": null,
+      "views": null,
+      "checks": [
+        "Strict input normalization and invalid-value rejection",
+        "All starting shades round-trip through strict settings and URLs, preserving omission",
+        "Native draft, keyboard lightness, Apply, exact Original restore, both cuts, JSON download/open, named look save/open, mobile overflow and SDK rejection"
+      ],
+      "images": 4,
+      "errors": []
+    },
+    {
+      "path": "captures/hair-colour-controls/ui-v5/report.json",
+      "status": "captured",
+      "started": "2026-09-30T04:37:26.878Z",
+      "finished": "2026-09-30T04:37:39.560Z",
+      "pid": 44949,
+      "preset": null,
+      "scene": null,
+      "light": null,
+      "hairColour": null,
+      "views": null,
+      "checks": [
+        "Strict input normalization and invalid-value rejection",
+        "All starting shades round-trip through strict settings and URLs, preserving omission",
+        "Native draft, keyboard lightness, Apply, exact Original restore, both cuts, JSON download/open, named look save/open, mobile overflow and SDK rejection"
+      ],
+      "images": 4,
+      "errors": []
+    }
+  ],
+  "reviewPage": {
+    "started": "2026-09-30T04:45:39.853Z",
+    "pid": 46822,
+    "sourceHashes": {
+      "docs/evidence/hair-2026-09-29/review.html": "e532039f848da82875e73d97a399f38da1ed35f8ea5bdfac5a09bac7de401bdc",
+      "packages/testbed/today-review.js": "d69d1d26e470f30f17c28f0dfe23eb594f7931812732f61c98cace10c6b790d1",
+      "packages/testbed/pages.js": "abe518d8d5839e5f6a0e99bca51367a260f4de7e60fabe64f19073452e349d47"
+    },
+    "cases": [
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "overflow": false,
+        "imageSha256": "1af654e32ae8b20d657cce2a666183aa989f56de4bed92810d4514cabdf600ff"
+      },
+      {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "overflow": false,
+        "imageSha256": "c2c25e6fdc0170786255ea12326a44fe0e82c456012d0171f85b1908db29910c"
+      }
+    ],
+    "errors": [],
+    "status": "captured",
+    "finished": "2026-09-30T04:45:41.749Z"
+  }
+}

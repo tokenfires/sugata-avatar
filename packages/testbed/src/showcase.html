@@ -32,6 +32,14 @@ aside{padding:40px 0 36px}.eyebrow{margin:0 0 14px;font-size:10px;letter-spacing
 <div class="looks" aria-label="Starting look"><a class="look" data-preset="casual" href="?preset=casual"><span class="number">01</span><strong>Everyday</strong><small>Chin-length bob</small></a><a class="look" data-preset="elegant" href="?preset=elegant"><span class="number">02</span><strong>After hours</strong><small>Long bob</small></a></div>
 <fieldset disabled id="outfit-controls"><legend>Outfit</legend><div class="choices"><button class="choice" data-outfit="casual">Tee + denim</button><button class="choice" data-outfit="elegant">Blouse + skirt</button></div></fieldset>
 <fieldset disabled id="style-controls"><legend>Colour palette</legend><div class="choices"><button class="choice" data-style="ecru">Ecru</button><button class="choice" data-style="charcoal">Charcoal</button><button class="choice" data-style="original">Original</button></div></fieldset>
+<details class="hair-colours" id="hair-colours"><summary>Hair colour</summary>
+<fieldset disabled id="hair-colour-controls"><legend class="field-label">Choose a shade</legend>
+<label for="hair-shade">Starting colour</label><select id="hair-shade"><option value="original">Original</option><option value="custom">Custom</option></select>
+<div id="hair-tint-controls" hidden><label for="hair-colour">Colour and tint <output id="hair-colour-value" for="hair-colour">Original</output></label><input id="hair-colour" type="color" value="#765344" aria-describedby="hair-colour-help" disabled>
+<label for="hair-lightness">Lightness <output id="hair-lightness-value" for="hair-lightness">36%</output></label><input id="hair-lightness" type="range" min="0" max="100" step="1" value="36" disabled>
+</div><p id="hair-colour-help">Choose a starting shade, then adjust its tint or lightness. Apply reloads your look with the new colour.</p>
+<button class="secondary" id="apply-hair-colour" type="button" disabled>Apply hair colour</button><p id="hair-colour-status" role="status" aria-live="polite"></p>
+</fieldset></details>
 <fieldset disabled id="framing-controls"><legend>Framing</legend><div class="choices"><button class="choice" data-frame="body">Full look</button><button class="choice" data-frame="portrait">Portrait</button></div></fieldset>
 <fieldset disabled id="scene-controls"><legend>Scene</legend><div class="choices"><button class="choice" data-scene="studio">Studio</button><button class="choice" data-scene="kitchen">Kitchen</button></div></fieldset>
 <fieldset disabled id="lighting-controls"><legend>Light</legend><div class="choices"><button class="choice" data-light="studio">Studio</button><button class="choice" data-light="warm">Warm</button></div></fieldset>
