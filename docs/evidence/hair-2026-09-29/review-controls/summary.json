@@ -1,0 +1,70 @@
+{
+  "status": "v6 passed final current pages at1440and390; earlier failures retained",
+  "versions": [
+    {
+      "version": 2,
+      "report": "captures/lower-fallback-review-v2/report.json",
+      "sha256": "9c59ff5da8741dd4c8aac8c01e8ec119677c8004c65c2799d1d2047310070ec6",
+      "status": "failed",
+      "states": 0,
+      "pid": 29504,
+      "started": "2026-09-30T11:09:01.442Z",
+      "finished": "2026-09-30T11:09:32.648Z"
+    },
+    {
+      "version": 3,
+      "report": "captures/lower-fallback-review-v3/report.json",
+      "sha256": "c5479f618210e713cdf6de5895d1d43689c3e275920fdbd723c5c564204235d3",
+      "status": "failed",
+      "states": 0,
+      "pid": 32712,
+      "started": "2026-09-30T11:11:30.641Z",
+      "finished": "2026-09-30T11:12:01.831Z"
+    },
+    {
+      "version": 4,
+      "report": "captures/lower-fallback-review-v4/report.json",
+      "sha256": "2c878395d0e8865a4e8897023f7ec7e91a23792e570d77bb946a6e9c7dc1e822",
+      "status": "passed",
+      "states": 6,
+      "pid": 34676,
+      "started": "2026-09-30T11:13:06.540Z",
+      "finished": "2026-09-30T11:13:15.849Z"
+    },
+    {
+      "version": 5,
+      "report": "captures/lower-fallback-review-v5/report.json",
+      "sha256": "5b0b762417073a792b938fa79292344add043e2eeaa78225819e0763ec91fe69",
+      "status": "passed",
+      "states": 8,
+      "pid": 55191,
+      "started": "2026-09-30T11:34:12.688Z",
+      "finished": "2026-09-30T11:34:27.296Z"
+    },
+    {
+      "version": 6,
+      "report": "captures/lower-fallback-review-v6/report.json",
+      "sha256": "55fc623407328bbf90d4ea367f94b8141606a39c4ac6ac9c916df8a2abe77926",
+      "status": "passed",
+      "states": 8,
+      "pid": 60068,
+      "started": "2026-09-30T12:01:43.078Z",
+      "finished": "2026-09-30T12:01:55.891Z"
+    }
+  ],
+  "archive": {
+    "generated": "2026-09-30T12:03:23.543729+00:00",
+    "fileCount": 51,
+    "totalBytes": 20224886,
+    "pngCount": 28,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-review-pages.py",
+      "sha256": "521abc6a500d4bf967cb72463cf479d9654e248391372106c0649cec1a40836a"
+    }
+  },
+  "limits": [
+    "v2 requested an uncaptured rear-left view; replaced with captured front view.",
+    "v3 native-select Home assertion failed; v4 onward use selectOption for that control. OS menu keyboard behavior is not qualified.",
+    "Motion range controls retain Home/End/previous/next checks. Advancing video playhead does not prove perceptual animation quality."
+  ]
+}

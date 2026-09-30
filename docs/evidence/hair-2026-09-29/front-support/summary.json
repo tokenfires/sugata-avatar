@@ -1,0 +1,52 @@
+{
+  "status": "both front constructions rejected; no third candidate; constraints inventoried, feasibility undetermined",
+  "captures": [
+    {
+      "root": "captures/bob-front-flow-v1",
+      "assetSha256": "8503966620ed993eea2e2dbb2a60bea6265c84256e1848e6e72c0cfde8dde412",
+      "reportSha256": "e2590ba7e1ab2381434818ae2950a81f5f84827e91dafbbb07623851c93ceca3",
+      "captureReportSha256": "60035410f45a1e09434f1f1360ed3b406a5a82a87b68978efc237ed41447637a",
+      "restPairs": 896,
+      "minimumMm": -26.79481535068854
+    },
+    {
+      "root": "captures/bob-front-support-v1",
+      "assetSha256": "488f5ea56c7afdebf83b6c65330f86e24109f798c81468e14ee0f5b78e847cc0",
+      "reportSha256": "80c2fbb2db9e42a478b82e8beed3c9d79c4553d81b5cf66e2824bed1d7665dbd",
+      "captureReportSha256": "0e40f06e47906f8141f1048c94d56cb89b584b5489115f01de33f0626faa6186",
+      "restPairs": 42,
+      "minimumMm": -6.717103057325425
+    }
+  ],
+  "audit": {
+    "path": "captures/bob-front-prototype-audit-v1/summary.json",
+    "sha256": "963bf0379b0c9ff7b09fe2cace39833725b08c5d2f2f9be740d70ba5144add8e"
+  },
+  "constraint": {
+    "path": "captures/bob-front-constraints-v1/report.json",
+    "sha256": "4a48e9a0f804eda92c7d4795e6b025e12eab884caadc269273f88f95e5cb5946"
+  },
+  "critiqueSha256": "7ff8d44b6a1314dd75694fe27ba7c16d51f6d8a04909ae31c7cafc1be8278cb4",
+  "archive": {
+    "generated": "2026-09-30T11:27:44.203320+00:00",
+    "roots": [
+      "captures/bob-front-flow-v1",
+      "captures/bob-front-support-v1",
+      "captures/bob-front-prototype-audit-v1",
+      "captures/bob-front-constraints-v1"
+    ],
+    "fileCount": 74,
+    "totalBytes": 64059418,
+    "pngCount": 6,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-front-support.py",
+      "sha256": "b2d9a06ccab46c43a0ca4395a936585ea9ac2662856de773cb963631602eaabf"
+    }
+  },
+  "decision": "Use the four exact witnesses for a local mesh-supported full-ribbon feasibility study before another whole-front asset. No handle/global-offset/fallback sweep.",
+  "limits": [
+    "No feasibility solver or candidate motion was run.",
+    "Actual native images and geometry confirm both failures; apparent forehead opening is not a safe style improvement.",
+    "Local ignored evidence; manifest is not an off-machine backup."
+  ]
+}

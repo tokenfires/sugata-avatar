@@ -1,0 +1,82 @@
+{
+  "status": "sampled inward contour retained in original-dark rear motion; exact physical replay links prior338-card audits",
+  "critiqueSha256": "bb8a530ba6f03740b39710baa27b417fdde4237405c96e82dbf54fee3508bbd7",
+  "pairedControlsSha256": "8db0d7ccc67d76d9ffe32bc8ecba53e88c781307455a563dbf40b14600351856",
+  "preview": {
+    "status": "encoded; uniform 20Hz presentation timestamps verified",
+    "generated": "2026-09-30T11:29:30.708991+00:00",
+    "command": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-n",
+      "-framerate",
+      "20",
+      "-pattern_type",
+      "glob",
+      "-i",
+      "captures/lower-fallback-dark-head-v1/baseline-rear-oblique-dark/frames/*.png",
+      "-framerate",
+      "20",
+      "-pattern_type",
+      "glob",
+      "-i",
+      "captures/lower-fallback-dark-head-v1/candidate-rear-oblique-dark/frames/*.png",
+      "-filter_complex",
+      "[0:v][1:v]hstack=inputs=2[v]",
+      "-map",
+      "[v]",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "fast",
+      "-crf",
+      "18",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "captures/lower-fallback-dark-head-v1/paired-preview.mp4"
+    ],
+    "probeCommand": [
+      "ffprobe",
+      "-v",
+      "error",
+      "-select_streams",
+      "v:0",
+      "-show_frames",
+      "-show_streams",
+      "-of",
+      "json",
+      "captures/lower-fallback-dark-head-v1/paired-preview.mp4"
+    ],
+    "sha256": "79d028815560c94b3c0f9477542d6d380f9a6b0fbdc20e66b66460846f404905",
+    "frameCount": 186,
+    "duration": "9.300000",
+    "width": 1800,
+    "height": 868,
+    "sourceSha256": "80242a98fb22094468a2f7748e422cb0f2ef8a628751caec006e3ce35ba51092",
+    "limits": [
+      "Compressed convenience preview, not original pixel evidence or continuous perceptual qualification.",
+      "Last captured pose remains for one display interval."
+    ]
+  },
+  "archive": {
+    "generated": "2026-09-30T11:47:16.230988+00:00",
+    "root": "captures/lower-fallback-dark-head-v1",
+    "fileCount": 1532,
+    "totalBytes": 1714386711,
+    "pngCount": 372,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-lower-fallback-dark.py",
+      "sha256": "c6395bb6f4835bb33f2380d8d153a195f113200f5c05532a86e6cffd2c1f3b55"
+    }
+  },
+  "limits": [
+    "No new body oracle for this viewing condition; per-arm556states exactly replay prior audited states.",
+    "The separate158-card head audit finds a shared card58 contact. The prior338-card pass is not an all496 pass.",
+    "Nine image pairs independently reviewed; no continuous perceptual or all-motion acceptance.",
+    "Local ignored evidence; manifest is not an off-machine backup."
+  ]
+}

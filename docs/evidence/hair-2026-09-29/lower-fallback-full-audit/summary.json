@@ -1,0 +1,199 @@
+{
+  "status": "ordinary496-ribbon body audit clear in botharms; head sharedfront58contact in botharms; capexcluded",
+  "results": [
+    {
+      "protocol": "head",
+      "arm": "baseline",
+      "frontAudit": {
+        "path": "captures/lower-fallback-front-audit-v1/head-baseline/numerical-checks.json",
+        "sha256": "1be7060db1cc0998329488a058f9685b1b371c0bd5afcf278c62a6c89c47cff8",
+        "summary": {
+          "frames": 556,
+          "crossingFrames": 5,
+          "totalTriangleBodyPairs": 10,
+          "maximumPairsInFrame": 2,
+          "negativeVertexCount": 5,
+          "minimumVertexClearanceMm": -0.1679443136983223,
+          "contactCards": [
+            58
+          ]
+        }
+      },
+      "regionalAudit": {
+        "path": "captures/side-head-v1/candidate-right-profile-brown/numerical-checks.json",
+        "sha256": "7e5e6c428a28943ea05c6279e097783228ab5fd14386cfd5c0cf3afb76eafaa7",
+        "summary": {
+          "frames": 556,
+          "crossingFrames": 0,
+          "totalTriangleBodyPairs": 0,
+          "maximumPairsInFrame": 0,
+          "minimumVertexClearanceMm": 1.379665112912428,
+          "contactCards": []
+        }
+      },
+      "controlReplay": {
+        "path": "captures/lower-fallback-head-v1/control-replay.json",
+        "sha256": "6b54dc4764a36ab70cc2368868e1a501a59dda9de517cddc107af162a29178d5"
+      },
+      "union": {
+        "frames": 556,
+        "cardCount": 496,
+        "triangleCount": 15872,
+        "totalTriangleBodyPairs": 10,
+        "crossingFrames": 5,
+        "negativeVertexCount": 5,
+        "minimumVertexClearanceMm": -0.1679443136983223,
+        "capExcluded": true
+      }
+    },
+    {
+      "protocol": "head",
+      "arm": "candidate",
+      "frontAudit": {
+        "path": "captures/lower-fallback-front-audit-v1/head-candidate/numerical-checks.json",
+        "sha256": "587dc5b0f848fe0ddd80e3412b889240c8eeca47777817c51da3d65bf9f2a175",
+        "summary": {
+          "frames": 556,
+          "crossingFrames": 4,
+          "totalTriangleBodyPairs": 8,
+          "maximumPairsInFrame": 2,
+          "negativeVertexCount": 4,
+          "minimumVertexClearanceMm": -0.1009253571517394,
+          "contactCards": [
+            58
+          ]
+        }
+      },
+      "regionalAudit": {
+        "path": "captures/lower-fallback-head-v1/candidate-right-profile-brown/numerical-checks.json",
+        "sha256": "e097af0650467af3e56d095fd37f3fe671c6615e1bd21a55269a57ed60071bf6",
+        "summary": {
+          "frames": 556,
+          "crossingFrames": 0,
+          "totalTriangleBodyPairs": 0,
+          "maximumPairsInFrame": 0,
+          "minimumVertexClearanceMm": 0.07813075042355694,
+          "contactCards": []
+        }
+      },
+      "controlReplay": null,
+      "union": {
+        "frames": 556,
+        "cardCount": 496,
+        "triangleCount": 15872,
+        "totalTriangleBodyPairs": 8,
+        "crossingFrames": 4,
+        "negativeVertexCount": 4,
+        "minimumVertexClearanceMm": -0.1009253571517394,
+        "capExcluded": true
+      }
+    },
+    {
+      "protocol": "ordinary",
+      "arm": "baseline",
+      "frontAudit": {
+        "path": "captures/lower-fallback-front-audit-v1/ordinary-baseline/numerical-checks.json",
+        "sha256": "f51f5adefa8dd5a249ac358072120f238580172437be4ce984e98e0a161f6940",
+        "summary": {
+          "frames": 721,
+          "crossingFrames": 0,
+          "totalTriangleBodyPairs": 0,
+          "maximumPairsInFrame": 0,
+          "negativeVertexCount": 0,
+          "minimumVertexClearanceMm": 1.0541239955771573,
+          "contactCards": []
+        }
+      },
+      "regionalAudit": {
+        "path": "captures/side-ordinary-v1/candidate-left-profile-brown/numerical-checks.json",
+        "sha256": "0942d09f9bfa02177912e53f6f69e824339cbade71c1dbc9ed0ca6a72434fcee",
+        "summary": {
+          "frames": 721,
+          "crossingFrames": 0,
+          "totalTriangleBodyPairs": 0,
+          "maximumPairsInFrame": 0,
+          "minimumVertexClearanceMm": 2.3314974994234694,
+          "contactCards": []
+        }
+      },
+      "controlReplay": {
+        "path": "captures/lower-fallback-ordinary-v1/control-replay.json",
+        "sha256": "c674ddeff5faac36eac1823ef81b917f09ce2bebe3deecfa0cd2c41a41a18086"
+      },
+      "union": {
+        "frames": 721,
+        "cardCount": 496,
+        "triangleCount": 15872,
+        "totalTriangleBodyPairs": 0,
+        "crossingFrames": 0,
+        "negativeVertexCount": 0,
+        "minimumVertexClearanceMm": 1.0541239955771573,
+        "capExcluded": true
+      }
+    },
+    {
+      "protocol": "ordinary",
+      "arm": "candidate",
+      "frontAudit": {
+        "path": "captures/lower-fallback-front-audit-v1/ordinary-candidate/numerical-checks.json",
+        "sha256": "3ece58b6e35e6dacd778a97bb726b4188af2d82bf29851d00fe1525e390f49db",
+        "summary": {
+          "frames": 721,
+          "crossingFrames": 0,
+          "totalTriangleBodyPairs": 0,
+          "maximumPairsInFrame": 0,
+          "negativeVertexCount": 0,
+          "minimumVertexClearanceMm": 1.1926986417614656,
+          "contactCards": []
+        }
+      },
+      "regionalAudit": {
+        "path": "captures/lower-fallback-ordinary-v1/candidate-left-profile-brown/numerical-checks.json",
+        "sha256": "8c5fb60fca0f1e43088fbcf695115fe0e0a737e875a6d9e7ded118cca0943a94",
+        "summary": {
+          "frames": 721,
+          "crossingFrames": 0,
+          "totalTriangleBodyPairs": 0,
+          "maximumPairsInFrame": 0,
+          "minimumVertexClearanceMm": 2.311099401120304,
+          "contactCards": []
+        }
+      },
+      "controlReplay": null,
+      "union": {
+        "frames": 721,
+        "cardCount": 496,
+        "triangleCount": 15872,
+        "totalTriangleBodyPairs": 0,
+        "crossingFrames": 0,
+        "negativeVertexCount": 0,
+        "minimumVertexClearanceMm": 1.1926986417614656,
+        "capExcluded": true
+      }
+    }
+  ],
+  "witness": {
+    "path": "captures/lower-fallback-front58-witness-v1/report.json",
+    "sha256": "c9b327f50e367fa4a5225dc5bd61386efb7ad0fd01d3b9b7b68e3a6fe1962b4e"
+  },
+  "critiqueSha256": "88de6da874eb0c940502ae59b2840ffa1195c250ee51c357352f238d66b0fd4b",
+  "archive": {
+    "generated": "2026-09-30T11:59:18.457550+00:00",
+    "roots": [
+      "captures/lower-fallback-front-audit-v1",
+      "captures/lower-fallback-front58-witness-v1"
+    ],
+    "fileCount": 26,
+    "totalBytes": 4587441,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-full-audit.py",
+      "sha256": "93db08503335725ae2238582da9e6ebf90bfb1b199069beede533cfb27844c61"
+    }
+  },
+  "decision": "Preserve experimental inward lead with shared front58 exception; no metric-driven geometry or stiffness tweak. Carry witness into broader front work.",
+  "limits": [
+    "Disjoint496ribbon union excludes1128cap triangles,garments,hair-hair,alpha and between-update motion.",
+    "The independent Three.Ray witness checks onlytwo pairs at256; it is not a second full-sequence oracle.",
+    "The original captured raw data remain in earlier frozen archives; this packet adds audits without modifying those roots."
+  ]
+}

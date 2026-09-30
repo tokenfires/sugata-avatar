@@ -1,0 +1,388 @@
+{
+  "generated": "2026-09-30T11:27:44.203320+00:00",
+  "roots": [
+    "captures/bob-front-flow-v1",
+    "captures/bob-front-support-v1",
+    "captures/bob-front-prototype-audit-v1",
+    "captures/bob-front-constraints-v1"
+  ],
+  "fileCount": 74,
+  "totalBytes": 64059418,
+  "pngCount": 6,
+  "files": [
+    {
+      "path": "captures/bob-front-flow-v1/bob-front-flow.mjs",
+      "bytes": 11608,
+      "sha256": "c418daba5d2cccba067ea4153bf85c217a76898b84fabed2deaea6e871915816"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/candidate-report.json",
+      "bytes": 165359,
+      "sha256": "e2590ba7e1ab2381434818ae2950a81f5f84827e91dafbbb07623851c93ceca3"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/candidate.glb",
+      "bytes": 3348016,
+      "sha256": "8503966620ed993eea2e2dbb2a60bea6265c84256e1848e6e72c0cfde8dde412"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/casual-front-geometry.json",
+      "bytes": 6949834,
+      "sha256": "e84ec2abcf88a0fd3160daafb911f17c0e800509d730965ae815b58c9636fdbf"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/casual-front-left-geometry.json",
+      "bytes": 6941457,
+      "sha256": "a3f6727a2d20019a543ff6be0889f47a7cc511820b88256ce4b5167f35f2accd"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/casual-front-left-medium-brown.png",
+      "bytes": 813234,
+      "sha256": "f6073b17ac908947716a900e2eb1b8906c6737a3d2c5b9f1637a59de29a7f1c8"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/casual-front-medium-brown.png",
+      "bytes": 833195,
+      "sha256": "245800b44a9fe21435c47d57cf7c695fd535a2f84512c85ce03e496d6b433802"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/casual-front-right-geometry.json",
+      "bytes": 6950450,
+      "sha256": "6aa97416b246b459026dce7a04b51c7fff70ad123bbcfb00b10b5d91d4b35046"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/casual-front-right-medium-brown.png",
+      "bytes": 755932,
+      "sha256": "0857a26bff3c933afc2b5936e79cf24e31d2b6f85311017ae5c12acb6b67a755"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/report.json",
+      "bytes": 128080,
+      "sha256": "60035410f45a1e09434f1f1360ed3b406a5a82a87b68978efc237ed41447637a"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/review.html",
+      "bytes": 1195,
+      "sha256": "c98671b3fc35d2ca8a2ea59b12531a05c7ef6d218a5310682ade61bc245248c0"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/captures/bob-front-flow-v1/candidate.glb",
+      "bytes": 3348016,
+      "sha256": "8503966620ed993eea2e2dbb2a60bea6265c84256e1848e6e72c0cfde8dde412"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-front-flow-v1/neutral/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-front-support-v1/bob-front-support.mjs",
+      "bytes": 14227,
+      "sha256": "38e508076821dba66c10266faea9002d4ca832e8a1a64ef39f3257250202f13f"
+    },
+    {
+      "path": "captures/bob-front-support-v1/candidate-report.json",
+      "bytes": 237115,
+      "sha256": "80c2fbb2db9e42a478b82e8beed3c9d79c4553d81b5cf66e2824bed1d7665dbd"
+    },
+    {
+      "path": "captures/bob-front-support-v1/candidate.glb",
+      "bytes": 3348540,
+      "sha256": "488f5ea56c7afdebf83b6c65330f86e24109f798c81468e14ee0f5b78e847cc0"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/casual-front-geometry.json",
+      "bytes": 6949729,
+      "sha256": "d6a43e3391861318b521ad2ed6c732e31e3389e4c08a6caa64ca38832de3336e"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/casual-front-left-geometry.json",
+      "bytes": 6941131,
+      "sha256": "27be20a0614ad885cb1a7a612479dbbdceaf5616ea7790f65488c8e44df60aa9"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/casual-front-left-medium-brown.png",
+      "bytes": 832160,
+      "sha256": "93b89f776a14e8b2c1be0e2983a5ef446833dd831ad7e31f19d222323011fbd5"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/casual-front-medium-brown.png",
+      "bytes": 872431,
+      "sha256": "91e1836784d36ca6028762c3ce05f61023044069ecb36554091df911dc651677"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/casual-front-right-geometry.json",
+      "bytes": 6949438,
+      "sha256": "f908c7d13353d1eb49be278eac2637d3e61d1d93175e90bbf991b85a29dfa4be"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/casual-front-right-medium-brown.png",
+      "bytes": 783648,
+      "sha256": "47d629bc8fdfa8ae5bba6b82f90b9e614d1cd86214221197e3ae7114dc800f68"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/report.json",
+      "bytes": 128101,
+      "sha256": "0e40f06e47906f8141f1048c94d56cb89b584b5489115f01de33f0626faa6186"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/review.html",
+      "bytes": 1195,
+      "sha256": "c98671b3fc35d2ca8a2ea59b12531a05c7ef6d218a5310682ade61bc245248c0"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/captures/bob-front-support-v1/candidate.glb",
+      "bytes": 3348540,
+      "sha256": "488f5ea56c7afdebf83b6c65330f86e24109f798c81468e14ee0f5b78e847cc0"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-front-support-v1/neutral/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-front-prototype-audit-v1/source.mjs",
+      "bytes": 5684,
+      "sha256": "68a3e597ed48f317b5f99332be7424392599ad0d11f23d8518352bb76ca27b98"
+    },
+    {
+      "path": "captures/bob-front-prototype-audit-v1/summary.json",
+      "bytes": 8051,
+      "sha256": "963bf0379b0c9ff7b09fe2cace39833725b08c5d2f2f9be740d70ba5144add8e"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/report.json",
+      "bytes": 831122,
+      "sha256": "4a48e9a0f804eda92c7d4795e6b025e12eab884caadc269273f88f95e5cb5946"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/captures/bob-front-flow-v1/candidate-report.json",
+      "bytes": 165359,
+      "sha256": "e2590ba7e1ab2381434818ae2950a81f5f84827e91dafbbb07623851c93ceca3"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/captures/bob-front-prototype-audit-v1/summary.json",
+      "bytes": 8051,
+      "sha256": "963bf0379b0c9ff7b09fe2cace39833725b08c5d2f2f9be740d70ba5144add8e"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/captures/bob-front-support-v1/candidate-report.json",
+      "bytes": 237115,
+      "sha256": "80c2fbb2db9e42a478b82e8beed3c9d79c4553d81b5cf66e2824bed1d7665dbd"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/tools/critic/audit-bob-front-prototypes.mjs",
+      "bytes": 5684,
+      "sha256": "68a3e597ed48f317b5f99332be7424392599ad0d11f23d8518352bb76ca27b98"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/tools/critic/bob-front-flow.mjs",
+      "bytes": 11608,
+      "sha256": "c418daba5d2cccba067ea4153bf85c217a76898b84fabed2deaea6e871915816"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/tools/critic/bob-front-support.mjs",
+      "bytes": 14227,
+      "sha256": "38e508076821dba66c10266faea9002d4ca832e8a1a64ef39f3257250202f13f"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/tools/critic/inventory-front-constraints.mjs",
+      "bytes": 13413,
+      "sha256": "3732d41b01ce7e26b740fc06eee54d0377287ded183f16c47f78deb045040334"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/tools/figure-pipeline/hair_geometry.mjs",
+      "bytes": 27179,
+      "sha256": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    },
+    {
+      "path": "captures/bob-front-constraints-v1/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    }
+  ],
+  "generator": {
+    "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-front-support.py",
+    "sha256": "b2d9a06ccab46c43a0ca4395a936585ea9ac2662856de773cb963631602eaabf"
+  }
+}

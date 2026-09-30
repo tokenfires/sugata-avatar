@@ -1,0 +1,13 @@
+// Present matched original-dark rear motion; link, rather than impersonate, prior body audits.
+import fs from'node:fs';import assert from'node:assert/strict';import{createHash}from'node:crypto';
+const root='captures/lower-fallback-dark-head-v1',read=p=>JSON.parse(fs.readFileSync(p)),sha=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),pair=read(`${root}/paired-controls.json`);
+assert.ok(pair.sourceHashesEqual&&Object.values(pair.setupEquality).every(Boolean)&&Object.values(pair.descriptorEquality).every(Boolean));for(const[k,v]of Object.entries(pair.mismatchCounts))if(k!=='otherVerticesHashEqual')assert.equal(v,0);
+for(const[i,arm]of['baseline','candidate'].entries()){
+ const file=`${root}/${arm}-rear-oblique-dark/report.json`,r=read(file),reuse=read(`${root}/${arm}-physical-replay.json`);assert.equal(r.status,'captured');assert.equal(r.images.length,186);assert.equal(sha(file),pair.reports[i].sha256);assert.equal(reuse.replay.reportSha256,sha(file));assert.equal(reuse.status,'exact full physical replay; prior body audit linked');assert.ok(reuse.frames.length===556&&reuse.frames.every(f=>f.allPhysicalFieldsExact));
+}
+let html=fs.readFileSync('captures/lower-fallback-head-v1/review.html','utf8').replaceAll('right-profile-brown','rear-oblique-dark');
+html=html.replace(/<title>.*?<\/title>/,'<title>Inward bob ends — original dark hair, moving rear view</title>').replace(/<h1>.*?<\/h1>/,'<h1>Original dark hair,<br>through turns and tilts.</h1>');
+const start=html.indexOf('<p>Matched '),end=html.indexOf('</p>',start);assert.ok(start>=0&&end>start);
+html=html.slice(0,start)+`<p>Matched rear-oblique head sequence with the original dark material and Studio lighting. Its blue rim is part of this viewing condition. Body, camera, light, material and clock controls match between arms. Every physical state also exactly replays the corresponding previously audited neutral sequence; this is an additional appearance view, not a new body audit. The modest inward contour and existing ragged ends should be judged in the preserved images.</p>`+html.slice(end+4);
+html=html.replace('Recorded control comparison</a>','Recorded control comparison</a> · <a href="candidate-physical-replay.json">Exact physical replay</a> · <a href="../../docs/evidence/hair-2026-09-29/lower-fallback-dark-motion/README.md">Review and limits</a>');
+assert.ok(!fs.existsSync(`${root}/review.html`));fs.writeFileSync(`${root}/review.html`,html);fs.copyFileSync('tools/critic/bob-lower-fallback-dark-review.mjs',`${root}/bob-lower-fallback-dark-review.mjs`);console.log(`${root}/review.html`);

@@ -1,0 +1,42 @@
+{
+  "generated": "2026-09-30T12:07:39.428119+00:00",
+  "roots": [
+    "captures/bob-morning-preservation-v1",
+    "captures/bob-morning-preservation-v2",
+    "captures/bob-morning-links-v1"
+  ],
+  "fileCount": 6,
+  "totalBytes": 312492,
+  "files": [
+    {
+      "path": "captures/bob-morning-preservation-v1/report.json",
+      "bytes": 6352,
+      "sha256": "9ad832f815fd6cf9503d216b67c2b8538518825db65490a2b753b4fb5e976c25"
+    },
+    {
+      "path": "captures/bob-morning-preservation-v1/verify-bob-morning-evidence.py",
+      "bytes": 3027,
+      "sha256": "37b6ca3c490a083a6b1d4d23adf74a34ea9b98adf7f710421dc60def1266a729"
+    },
+    {
+      "path": "captures/bob-morning-preservation-v2/report.json",
+      "bytes": 8514,
+      "sha256": "eede3e363483deed4bd7f5c948a4d15dd71a1a3cc816864ced59a120bf635e26"
+    },
+    {
+      "path": "captures/bob-morning-preservation-v2/verify-bob-morning-evidence.py",
+      "bytes": 3028,
+      "sha256": "abe5a0eb55b7b1f51e9d4e061217cf67db6dd77eb26a5f30228c2757d0add36b"
+    },
+    {
+      "path": "captures/bob-morning-links-v1/check-bob-morning-links.py",
+      "bytes": 2684,
+      "sha256": "dea0cc4fa20afa2b08c9cbe3a8682b3e346f0a1d5e4d7fa8b3d0ea6bcc86b134"
+    },
+    {
+      "path": "captures/bob-morning-links-v1/report.json",
+      "bytes": 288887,
+      "sha256": "8335f8a18ee29f708932154b8ed480e2084a56682b6d73c0e8965a92bca52e9f"
+    }
+  ]
+}

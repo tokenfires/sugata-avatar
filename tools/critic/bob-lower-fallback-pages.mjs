@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {launchProbeBrowser} from '../../packages/core/src/render/MotionProbe.mjs';
-const out=process.argv.find(a=>a.startsWith('--out='))?.slice(6)??'captures/lower-fallback-review-v1';
+const out=process.argv.find(a=>a.startsWith('--out='))?.slice(6)??'captures/lower-fallback-review-v6';
 assert.ok(/^captures\/lower-fallback-review-v[0-9]+$/.test(out));assert.ok(!fs.existsSync(out));fs.mkdirSync(out);
 const source='tools/critic/bob-lower-fallback-pages.mjs',sha=b=>createHash('sha256').update(b).digest('hex');
 fs.copyFileSync(source,`${out}/source.mjs`);
@@ -13,7 +13,7 @@ const base='http://localhost:5173/@fs/Users/robault/GitHub/sugata-avatar/';let b
 try{
   browser=await launchProbeBrowser();page=await browser.newPage({viewport:{width:1440,height:1000}});
   page.on('pageerror',e=>report.errors.push(e.message));page.on('response',r=>{if(r.status()>=400)report.errors.push(`${r.status()} ${r.url()}`);});
-  for(const [name,file,last]of [['overview','docs/evidence/hair-2026-09-29/review.html',null],['head','captures/lower-fallback-head-v1/review.html',555],['ordinary','captures/lower-fallback-ordinary-v1/review.html',720]]){
+  for(const [name,file,last]of [['overview','docs/evidence/hair-2026-09-29/review.html',null],['head','captures/lower-fallback-head-v1/review.html',555],['ordinary','captures/lower-fallback-ordinary-v1/review.html',720],['dark','captures/lower-fallback-dark-head-v1/review.html',555]]){
     report.pages.push({file,sha256:sha(fs.readFileSync(file))});
     const snapshot=`${out}/page-source/${file}`;
     fs.mkdirSync(snapshot.slice(0,snapshot.lastIndexOf('/')),{recursive:true});
@@ -25,6 +25,14 @@ try{
       assert.ok(state.scrollWidth<=width);assert.equal(state.images.length,name==='overview'?11:2);
       if(name==='overview'){
         assert.equal(await page.locator('#inward-ends h2').textContent(),'A gentler turn toward the neck.');
+        state.views=[];
+        for(const view of ['back','rear-oblique','front','right-profile','left-profile']){
+          await page.locator('#end-view').selectOption(view);
+          await page.waitForFunction(view=>['end-before','end-after'].every(id=>{const im=document.getElementById(id);return im.complete&&im.naturalWidth&&im.getAttribute('src').includes(`casual-${view}-`);}),view);
+          const selected=await page.locator('#end-view').inputValue();assert.equal(selected,view);state.views.push(view);
+        }
+        await page.locator('#end-view').selectOption('back');
+        await page.waitForFunction(()=>document.querySelector('#end-view').value==='back'&&['end-before','end-after'].every(id=>document.getElementById(id).complete&&document.getElementById(id).naturalWidth));
         await page.locator('#inward-ends').screenshot({path:`${out}/inward-ends-${width}.png`});
       }else{
         await page.locator('#frame').focus();await page.locator('#frame').press('End');
