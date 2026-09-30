@@ -6,6 +6,8 @@ Sugata is an embodiment system for AI agents: a compelling, customizable charact
 
 **September 30 continuation:** Robert has authorized renewed progress within his existing allowance and granted credits. A [bounded front-ribbon study](evidence/hair-2026-09-30/front-feasibility/README.md) now separates head clearance from usable flow: particular clear one-ring constructions can collapse a segment or move the bend upward. No geometry is promoted. The next step is a whole-prefix flow objective under current anchors; see [current progress](PROGRESS-2026-09-30.md).
 
+**September 30 daytime loop active:** the requested ten-minute recovery wakeup resumes this chat with an assumed 18:00 Pacific checkpoint. See [daytime scope, budget and shutdown instructions](DAYTIME-2026-09-30.md); newer user timing or stop instructions take precedence.
+
 **September 29 overnight window completed:** the September 30 morning checkpoint is saved and its automation is paused. See the [morning report](MORNING-2026-09-30.md), [exact recovery state](OVERNIGHT-2026-09-29.md) and [appearance brief](research/bob-appearance-brief-2026-09-29.md). Colour controls are integrated locally; improved rear/side/inward-end candidates remain experimental. Every actionable critic finding retains actual evidence and two alternatives. Front construction stopped after two rejected approaches; a bounded feasibility study is the next step when work resumes.
 
 **Historical September 26 work window — paused at Robert's request:** Robert explicitly deferred hair and authorized autonomous non-hair
