@@ -2,7 +2,7 @@
 
 ## Decision
 
-The independent [material](MATERIAL-CRITIQUE.md) and [combined UI](UI-CRITIQUE.md) reviews support the bounded colour feature. The reviewed implementation is saved in isolated commit `2cb8d0e`, ported from `428232c` onto main `73b37b1`. Root accepts its static material mapping/detail and creation-time recipe workflow for local integration. The UI review completes the pending condition in the earlier material review.
+The independent [material](MATERIAL-CRITIQUE.md) and [combined UI](UI-CRITIQUE.md) reviews support the bounded colour feature. The reviewed implementation is saved in isolated commit `2cb8d0e`, ported from `428232c` onto main `73b37b1`. Root accepts its static material mapping/detail and creation-time recipe workflow. Integrated locally as `fc48fb5` after evidence checkpoint `770f6d6`; all377 captured source/asset bindings match the main checkout. The UI review completes the pending condition in the earlier material review.
 
 **Exact-image reproducibility remains failed.** Five of eight comparisons differ, with a maximum of 53 channel codes. The old September 26 holds and today's tint failures remain preserved. No renderer cause, tolerance, first-frame repair, fit improvement or AAA acceptance is inferred.
 
@@ -44,3 +44,7 @@ Exact commands are `node tools/critic/wardrobe-colours-day-capture.mjs` and `nod
 All three exited and their temporary browsers/servers closed. Main review Vite remains separately owned. [summary.json](summary.json) records report/source/critic hashes; [archive-manifest.json](archive-manifest.json) freezes 607 local files / 62,852,852 bytes, including both source inventories, failures, original images and state. These raw files remain local under ignored `captures/`; the manifest is not a remote backup. Feature sources still matched the native inventory immediately before committing. Accepted asset bytes remain unchanged.
 
 This slice does not qualify all colours, Charcoal's source-denim branch in fresh native images, geometric fit, motion, first-frame startup, full keyboard accessibility, OS colour pickers or arbitrary shader mutation detection. The current wardrobe native run entered its colours by hex fields; the colour-picker handler has older/source evidence only. Review the gallery separately after local integration, then select a new concrete roadmap improvement instead of retuning the closed hair or neckline studies.
+
+## Review gallery
+
+[Today's review](../../hair-2026-09-30/review.html) now shows both clothing examples alongside editable hair tint. Native gallery PID35114/session22406 finished16:47:21.031UTC, with all seven images loaded and no horizontal overflow at1440/390width or recorded page/HTTP errors. Root inspected both actual desktop/mobile originals. The [separate gallery manifest](gallery-archive-manifest.json) preserves its exact HTML/source, report and screenshots without changing the frozen feature packet.
