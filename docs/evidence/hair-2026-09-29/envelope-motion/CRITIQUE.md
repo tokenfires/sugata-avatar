@@ -2,7 +2,7 @@
 
 ## Disposition at this review
 
-**The inspected images preserve the posterior styling improvement through the sampled ordinary poses. Keep the exact candidate frozen. Numerical audits are still pending, and this is not a motion-clearance pass or promotion recommendation.**
+**The inspected images preserve the posterior styling improvement through the sampled ordinary poses. The completed ordinary audit found zero selected-card/body triangle pairs at all 721 captured updates, with minimum signed vertex clearance 2.331416mm. Keep the exact candidate frozen while the separate head-motion qualification concludes; this is a scoped ordinary-motion result, not an all-motion or promotion recommendation.**
 
 Candidate SHA-256: `d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146`.
 
@@ -10,24 +10,24 @@ I directly inspected twelve baseline/candidate frame pairs: 0, 30, 60, 120, 180,
 
 The candidate remains substantially cleaner than the accepted control in these frames. Its broad posterior field maintains downward flow and a relatively coherent nape edge as the head turns. I found no obvious new buckle, large opening in the changed posterior field, or conspicuous diagonal attributable to restored card 47 in this sample. The relatively blunt hem and existing crown/forward-side irregularities remain unfinished aspects of the medium-bob target.
 
-The [static critique](../posterior-envelope/CRITIQUE.md) carries the preceding five-view, dark-material, rest-clearance and exact-fallback evidence. This review extends its appearance observation to selected poses from one ordinary procedural sequence; it does not replace the outstanding numerical or broader motion qualification.
+The [static critique](../posterior-envelope/CRITIQUE.md) carries the preceding five-view, dark-material, rest-clearance and exact-fallback evidence. This review extends its appearance observation to selected poses and completes the selected-card/body audit for one ordinary procedural sequence; it does not replace the separate head-motion or broader qualification.
 
-## Completed capture and pending audits
+## Completed capture and ordinary audits
 
 Both [baseline report](../../../../captures/envelope-motion-v1/baseline-rear-left-brown/report.json) and [candidate report](../../../../captures/envelope-motion-v1/candidate-rear-left-brown/report.json) have `status: captured`, 721 geometry readbacks, 241 PNGs and empty recorded error arrays. The run covers 12 seconds at 60Hz; images are every third update, or 20fps. It uses the ordinary production layers, seed `20260807`, rear-left camera, diagnostic brown material and neutralized lighting.
 
 The recorded [paired controls](../../../../captures/envelope-motion-v1/paired-controls.json) match seed, layers, configuration, camera, projection, canvas, light/material settings, backend, parameters and setup clock. At all 721 updates, recorded time, clock, head matrix, step count, body hash and rig hash match. The fitted skull radius changes from 0.07630462888263419m to 0.0773292385331m, approximately +1.024610mm. Shoulder capsule values remain the same. This shared-runtime consequence is recorded rather than silently forced equal.
 
-At the latest progress snapshot inspected for this critique:
+Both ordinary audits are now complete. I read the final reports and their per-frame minimum witnesses:
 
-| Audit | Status | Completed prefix | Provisional observation |
+| Audit | Captured updates | Triangle/body pairs | Minimum signed vertex clearance |
 | --- | --- | --- | --- |
-| Accepted baseline | Running | Frames 0–180, 181 rows | Contacts occur in the prefix; provisional minimum −8.552404mm at frame 49, card 55, ring 16, left edge. |
-| Candidate v3 | Running | Frames 0–60, 61 rows | Zero triangle/body pairs in this prefix; provisional minimum vertex clearance 3.266232mm at frame 4, card 47, ring 12, left edge. |
+| [Accepted baseline](../../../../captures/envelope-motion-v1/baseline-rear-left-brown/numerical-checks.json) | 721/721 have crossing pairs | 123,429 total; maximum 229 in one update | −9.884827mm at frame 720, card 55, ring 16, right edge |
+| [Candidate v3](../../../../captures/envelope-motion-v1/candidate-rear-left-brown/numerical-checks.json) | All 721 audited; zero crossing updates | Zero total and maximum | +2.331416mm at frame 355, card 2, root ring, right edge |
 
-These are differently sized prefixes, not a final aggregate comparison. Neither `numerical-checks.json` existed at that inspection. Read the eventual completed audits before deciding sampled clearance. The progress files continue to change; these values document the snapshot used here. Alpha and rendered occlusion are not part of these contact counts, so the baseline's numerical contacts are not automatically proven visible clipping.
+These final results supersede the earlier unequal progress prefixes. They establish the candidate's selected-card/body clearance at the recorded updates under this protocol. The positive value is the minimum over sampled vertices, not a lower bound on the distance of every triangle interior. Alpha and rendered occlusion are not part of the contact counts, so the baseline's numerical contacts are not automatically proven visible clipping.
 
-The audit is over the 266 selected cards and the full posed/morphed body. It excludes garments, hair-to-hair contact and time between 60Hz updates. Root owns both CPU jobs; the critic has not duplicated or interrupted them.
+The audit is over the 266 selected cards (8,512 triangles per update) and the full posed/morphed body. It excludes garments, hair-to-hair contact and time between 60Hz updates. Root completed both CPU jobs; the critic did not duplicate or interrupt them. The separate head-motion audits remain pending at this update.
 
 ## Actual frame review
 
@@ -50,14 +50,14 @@ The neighboring [candidate frame 357](../../../../captures/envelope-motion-v1/ca
 
 ## Finding 1 — positive pose evidence still leaves the qualification decision open
 
-**Actual example and mismatch:** candidate frames 30 and 720 maintain a continuous rear field where the baseline exposes angular crossings and the low tab. That is positive styling evidence. The current audit snapshot, however, covers only candidate frames 0–60, and the inspected PNGs are sparse. The broader claim that the new groom clears the body through the full ordinary sequence, or moves naturally throughout it, is not established yet.
+**Actual example and mismatch:** candidate frames 30 and 720 maintain a continuous rear field where the baseline exposes angular crossings and the low tab. The final audit adds zero selected triangle/body pairs at all 721 ordinary updates, including the smallest vertex clearance at frame 355. Those are positive appearance and sampled geometry results. The inspected PNGs remain sparse, and the audit excludes garments and time between updates; natural motion throughout the sequence and broad groom acceptance are not established by these results alone.
 
 Two concrete alternatives:
 
-1. **Recommended: retain frozen v3 and complete the existing audit before choosing another probe.** If a contact appears, use its exact card, triangle, update and closest captured image as the next witness. If the full sampled audit is clear and intact playback remains useful, a separate matched head-turn/tilt sequence can assess motions underrepresented by this one seed. Tradeoff: this preserves attribution and avoids unsupported edits, but broad acceptance remains deferred. A zero audit alone does not establish visual quality.
+1. **Recommended: retain frozen v3 and finish the separate matched head-turn/tilt qualification already captured.** Combine its actual image review and completed audits with this ordinary result before deciding integration. If a failure appears, use its exact card, triangle, update and closest captured image as the next witness. Tradeoff: this preserves attribution and assesses motions underrepresented by the ordinary seed, but broad acceptance remains deferred. A zero audit alone does not establish visual quality.
 2. **Alternative: hold v3 as a static-plus-sampled-pose candidate and stop qualification at this boundary.** Preserve these images and reports while retaining the accepted asset as default. Tradeoff: the visual advance remains recoverable, but the larger candidate is still not ready to replace the accepted groom. This is appropriate if further qualification cannot be completed reliably; it should not be presented as the finished medium bob.
 
-Root has selected a separate matched head-only sequence using the previously reviewed nape keys, with 555 updates and nonselected coordinates retained. It is complementary evidence on the same frozen asset, not a replacement for the still-pending ordinary audits. Its source and result require their own review; this document does not pre-approve them.
+Root has captured a separate matched head-only sequence using the previously reviewed nape keys, with 555 updates and nonselected coordinates retained. Its rear/front image and source review is recorded in the [head-motion critique](../envelope-head/CRITIQUE.md); its body audits remain pending at this update. It is complementary evidence on the same frozen asset, and this completed ordinary result does not pre-approve its clearance outcome.
 
 There is no visible failure in the inspected changed posterior field that currently justifies another endpoint, frame, width or hem adjustment. The remaining blunt-hem/reference mismatch was already documented in the static critique and should not be mixed into this motion result.
 
@@ -121,10 +121,10 @@ The image stream is 20fps while geometry is 60Hz. Frame 354 is available, but fr
 1. **Recommended: preserve the groom and finish the already-running qualification.** Record these exact anchored width-frame rotations as diagnostic witnesses while retaining the positive intact-image result. Tradeoff: one-update visibility at the omitted image times remains unknown, but no guide/frame tweak is justified by an actual visible defect in the inspected material. The previously rejected frame-tuning loop should not be resumed to reduce a statistic alone.
 2. **Alternative if this visibility question becomes consequential: one frozen, attributable witness capture.** Reproduce the exact ordinary seed and narrow intervals around 353→354 and 625→626, retain every update as an image, and use a separate card-identity view if needed to establish whether the affected surface contributes to the intact render. Tradeoff: this requires a new diagnostic capture and identity rendering changes appearance, so it must accompany the intact control rather than replace it. It should answer visibility, without changing guide geometry or claiming that the anchored rotation itself is a defect.
 
-**Decision:** no newly observed defect from these root-edge diagnostics warrants a geometry follow-up now. Their measurements do not change the pending-audit/no-promotion disposition. The head-only qualification already under way may add independent visibility and nonselected-motion evidence; it should be reviewed on its own completed outputs.
+**Decision:** no newly observed defect from these root-edge diagnostics warrants a geometry follow-up now. The final ordinary selected-card/body audit is clear at all captured updates, including the intervals containing these root-edge events. That does not prove their visibility at omitted PNG times or change the no-promotion disposition. The separate head-only qualification adds independent visibility and nonselected-motion evidence and retains its own audit boundary.
 
-## Required later update
+## Remaining qualification boundary
 
-Replace the pending-audit disposition with the actual completed results when both root-owned audits finish. Keep any failures and their witnesses. Do not backfill an all-motion or whole-groom acceptance from a selected-card result, and do not convert the discrete-image review into a claim of having watched the complete animation.
+Both ordinary audits are incorporated above. Complete the separate head-motion disposition from its own final results and retain any failures and witnesses. Do not backfill an all-motion or whole-groom acceptance from this selected-card result, and do not convert the discrete-image review into a claim of having watched the complete animation.
 
 Only this assigned critique file was written. The critic ran no browser, Blender, GPU capture or duplicate CPU audit.

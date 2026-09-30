@@ -1,6 +1,6 @@
 # Posterior bob during ordinary movement
 
-**The sampled moving images retain the rear-flow improvement. Full selected-body contact audits are still running.** The candidate stays isolated; no accepted hair asset has changed.
+**The sampled moving images retain the rear-flow improvement, and the candidate clears the body in all 721 audited updates of this ordinary sequence.** The candidate stays isolated; no accepted hair asset has changed.
 
 | Accepted source at 12 seconds | Frozen posterior v3 at 12 seconds |
 | --- | --- |
@@ -28,9 +28,18 @@ The [continuity diagnostic](../../../../captures/envelope-motion-v1/candidate-re
 
 ## Contact qualification
 
-The existing root-owned CPU audits evaluate all 8,512 selected hair triangles and 9,044 selected vertices against the fully morphed/skinned body at every captured update. Progress and ownership are recorded in each arm's `audit-progress.json`; do not duplicate them. The final results belong in `numerical-checks.json` when each run completes.
+Both CPU audits are complete. They evaluate all 8,512 selected hair triangles and 9,044 selected vertices against the fully morphed/skinned body at every captured update.
 
-This is a selected-hair versus body audit. It excludes garments, hair-hair contact, other groom cards and times between updates. Alpha and rendered occlusion are not modeled, so pair counts cannot be read as visible clipping counts. A separate frozen head-turn/tilt sequence is underway to cover motions underrepresented by this single ordinary interval; it retains nonselected coordinates for a measured comparison.
+| Scoped result | Accepted source | Frozen candidate v3 |
+| --- | --- | --- |
+| Audited updates | 721 | 721 |
+| Updates with selected triangle/body intersections | 721 | 0 |
+| Maximum triangle/body pairs in one update | 229 | 0 |
+| Minimum selected vertex clearance | −9.885 mm | 2.331 mm |
+
+The baseline accumulates 123,429 intersection pairs across the sequence; those repeated geometric pairs are not a count of distinct visible defects. Exact per-frame/card/triangle witnesses are retained in the [baseline audit](../../../../captures/envelope-motion-v1/baseline-rear-left-brown/numerical-checks.json) and [candidate audit](../../../../captures/envelope-motion-v1/candidate-rear-left-brown/numerical-checks.json). Baseline completed at 06:38:57 UTC; candidate completed at 06:47:19 UTC.
+
+This is a selected-hair versus body audit. It excludes garments, hair-hair contact, other groom cards and times between updates. Alpha and rendered occlusion are not modeled, so pair counts cannot be read as visible clipping counts. The separate [head-turn/tilt sequence](../envelope-head/README.md) also clears all 556 captured updates and retains nonselected coordinates for a measured comparison.
 
 ## Recovery and reproduction
 
@@ -38,7 +47,7 @@ The captures record process IDs, timestamps, source snapshots, candidate routing
 
 The first review-page probe used an incorrect dev-root URL and failed its page-content assertion. Its report is preserved. The corrected probe used the existing Vite `/@fs/` URL and passed with all seven overview images loaded, no horizontal overflow at 1440/390 widths, working Home/End/previous/next controls, and an advancing video playhead. Recorded page-error and HTTP-error arrays are empty; separate console channels were not collected.
 
-Read the [overnight checkpoint](../../../OVERNIGHT-2026-09-29.md) for current jobs. Preserve this candidate and the accepted baseline while qualification completes. No further geometry edit is supported by the currently inspected moving frames.
+Read the [overnight checkpoint](../../../OVERNIGHT-2026-09-29.md) for current jobs. Preserve this candidate and the accepted baseline alongside the completed head-sequence qualification. No further geometry edit is supported by the currently inspected moving frames.
 
 ### Preview correction
 

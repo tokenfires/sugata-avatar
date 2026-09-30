@@ -1,0 +1,137 @@
+{
+  "status": "selected-body-contact-pass-for-one-ordinary-sequence; sampled-appearance-positive; still-experimental",
+  "candidateSha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146",
+  "protocol": {
+    "seconds": 12,
+    "updates": 720,
+    "geometryHz": 60,
+    "imageHz": 20,
+    "seed": 20260807,
+    "selectedCards": 266,
+    "selectedTriangles": 8512,
+    "selectedVertices": 9044
+  },
+  "arms": {
+    "baseline": {
+      "capturePid": 62439,
+      "captureStarted": "2026-09-30T06:06:09.570Z",
+      "captureFinished": "2026-09-30T06:09:23.313Z",
+      "samples": 721,
+      "images": 241,
+      "numericalSummary": {
+        "frames": 721,
+        "crossingFrames": 721,
+        "totalTriangleBodyPairs": 123429,
+        "maximumPairsInFrame": 229,
+        "minimumVertexClearanceMm": -9.884827130561657,
+        "contactCards": [
+          16,
+          31,
+          43,
+          51,
+          54,
+          55,
+          56,
+          59,
+          60,
+          64,
+          65,
+          129,
+          203,
+          225,
+          243,
+          347
+        ]
+      },
+      "auditPid": 63508,
+      "auditFinished": "2026-09-30T06:38:57.925Z",
+      "continuitySummary": {
+        "maximumStepMm": 22.91812902924069,
+        "maximumRootMidpointDepartureMm": 0.00022364879858594437,
+        "rootWitness": {
+          "card": 65,
+          "frame": 241
+        }
+      }
+    },
+    "candidate": {
+      "capturePid": 63486,
+      "captureStarted": "2026-09-30T06:11:19.159Z",
+      "captureFinished": "2026-09-30T06:14:45.175Z",
+      "samples": 721,
+      "images": 241,
+      "numericalSummary": {
+        "frames": 721,
+        "crossingFrames": 0,
+        "totalTriangleBodyPairs": 0,
+        "maximumPairsInFrame": 0,
+        "minimumVertexClearanceMm": 2.3314161736802994,
+        "contactCards": []
+      },
+      "auditPid": 64235,
+      "auditFinished": "2026-09-30T06:47:19.317Z",
+      "continuitySummary": {
+        "maximumStepMm": 8.179433942289087,
+        "maximumRootMidpointDepartureMm": 0.0001680348504050568,
+        "rootWitness": {
+          "card": 78,
+          "frame": 215
+        }
+      }
+    }
+  },
+  "pairedControls": {
+    "sourceHashesEqual": true,
+    "setupEquality": {
+      "seed": true,
+      "layers": true,
+      "configuration": true,
+      "camera": true,
+      "projection": true,
+      "canvas": true,
+      "lights": true,
+      "lightingChanges": true,
+      "material": true,
+      "backend": true,
+      "adapter": true,
+      "parameters": true,
+      "clock": true
+    },
+    "descriptorEquality": {
+      "selectedCards": true,
+      "selectedIndices": true,
+      "bodyIndices": true,
+      "otherCards": true
+    },
+    "mismatchCounts": {
+      "timeEqual": 0,
+      "clockEqual": 0,
+      "headEqual": 0,
+      "degreesEqual": 0,
+      "stepsEqual": 0,
+      "bodyEqual": 0,
+      "bodyNormalsEqual": 0,
+      "rigEqual": 0,
+      "otherVerticesHashEqual": 721,
+      "capsulesEqual": 0
+    },
+    "colliderDifference": {
+      "minimumSkullRadiusDeltaMm": 1.024609650444333,
+      "maximumSkullRadiusDeltaMm": 1.024609650444333,
+      "maximumSkullCentreDeltaMm": 5.050284586939428e-08
+    },
+    "otherVertices": {
+      "retainedFrames": 0,
+      "magnitude": "unquantified; coordinates not retained"
+    }
+  },
+  "acceptedAssetsChanged": false,
+  "next": "Finish separate head qualification and preserve original control; no style acceptance from numbers alone.",
+  "limits": [
+    "Bodyonly;garments,hair-hair,othergroomcardsandtimesbetweenupdatesexcluded.",
+    "Noalpha/occlusionincontactoracle;paircountsarenotvisibleclippingcounts.",
+    "RevieweddiscreteactualPNGs;nocontinuousperceptualreviewclaim.",
+    "Ordinaryother-cardcoordinatesnotretained;hashdifferencesunquantified.",
+    "Originalpreviewcadencerejected;v2hasverified20Hzpresentationtimestamps."
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "status": "selected-body-contact-pass-for-one-head-sequence; sampled-appearance-positive; still-experimental",
+  "candidateSha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146",
+  "protocol": {
+    "seconds": 9.25,
+    "updates": 555,
+    "geometryHz": 60,
+    "imageHz": 20,
+    "selectedCards": 266,
+    "selectedTriangles": 8512,
+    "selectedVertices": 9044
+  },
+  "arms": {
+    "baseline": {
+      "capturePid": 66077,
+      "captureStarted": "2026-09-30T06:25:01.114Z",
+      "captureFinished": "2026-09-30T06:28:18.259Z",
+      "samples": 556,
+      "images": 186,
+      "numericalSummary": {
+        "frames": 556,
+        "crossingFrames": 556,
+        "totalTriangleBodyPairs": 93650,
+        "maximumPairsInFrame": 434,
+        "minimumVertexClearanceMm": -21.249280730495713,
+        "contactCards": [
+          0,
+          2,
+          5,
+          9,
+          13,
+          16,
+          31,
+          34,
+          40,
+          43,
+          50,
+          51,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          65,
+          73,
+          80,
+          88,
+          97,
+          101,
+          131,
+          135,
+          143,
+          144,
+          153,
+          154,
+          171,
+          177,
+          201,
+          202,
+          203,
+          211,
+          223,
+          225,
+          243,
+          281
+        ]
+      },
+      "auditPid": 66802,
+      "auditFinished": "2026-09-30T06:52:00.313Z"
+    },
+    "candidate": {
+      "capturePid": 66076,
+      "captureStarted": "2026-09-30T06:28:18.317Z",
+      "captureFinished": "2026-09-30T06:31:48.686Z",
+      "samples": 556,
+      "images": 186,
+      "numericalSummary": {
+        "frames": 556,
+        "crossingFrames": 0,
+        "totalTriangleBodyPairs": 0,
+        "maximumPairsInFrame": 0,
+        "minimumVertexClearanceMm": 1.7804578675079397,
+        "contactCards": []
+      },
+      "auditPid": 67587,
+      "auditFinished": "2026-09-30T07:00:41.408Z",
+      "continuitySummary": {
+        "maximumStepMm": 1.0749909433591618,
+        "maximumRootMidpointDepartureMm": 0.00018651803769034717,
+        "rootWitness": {
+          "card": 155,
+          "frame": 387
+        }
+      }
+    }
+  },
+  "pairedControls": {
+    "status": "complete",
+    "generated": "2026-09-30T06:33:15.748Z",
+    "pid": 67590,
+    "candidateSha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146",
+    "sourceHashesEqual": true,
+    "setupEquality": {
+      "seed": true,
+      "layers": true,
+      "originalLayers": true,
+      "protocol": true,
+      "keys": true,
+      "retainOtherVertices": true,
+      "configuration": true,
+      "camera": true,
+      "projection": true,
+      "canvas": true,
+      "lights": true,
+      "lightingChanges": true,
+      "material": true,
+      "backend": true,
+      "adapter": true,
+      "parameters": true,
+      "clock": true
+    },
+    "descriptorEquality": {
+      "selectedCards": true,
+      "selectedIndices": true,
+      "bodyIndices": true,
+      "otherCards": true
+    },
+    "frameCount": 556,
+    "mismatchCounts": {
+      "timeEqual": 0,
+      "clockEqual": 0,
+      "headEqual": 0,
+      "degreesEqual": 0,
+      "stepsEqual": 0,
+      "bodyEqual": 0,
+      "bodyNormalsEqual": 0,
+      "rigEqual": 0,
+      "otherVerticesHashEqual": 556,
+      "capsulesEqual": 0
+    },
+    "colliderDifference": {
+      "minimumSkullRadiusDeltaMm": 1.024609650444333,
+      "maximumSkullRadiusDeltaMm": 1.024609650444333,
+      "maximumSkullCentreDeltaMm": 5.050280627740394e-08
+    },
+    "otherVertices": {
+      "retainedFrames": 556,
+      "maximumDelta": {
+        "millimetres": 7.193334413553813,
+        "witness": {
+          "frame": 373,
+          "card": 494,
+          "ring": 16,
+          "side": 1
+        }
+      }
+    },
+    "limits": [
+      "A difference in other-card geometry is a measured runtime consequence, not automatically a visible defect.",
+      "Body and normal equality establishes this matched pose comparison, not general motion coverage.",
+      "Image hashes establish preservation; actual visual inspection is still required."
+    ],
+    "sourceSha256": "81c9b00d07535373d7b3fdaeb9c6ac77729279e7da8b2dad5034539fc24694cb"
+  },
+  "frontRepeat": {
+    "status": "complete",
+    "source": "captures/envelope-head-front-v1/view-repeat.json"
+  },
+  "limits": [
+    "Body triangles only: no garments, hair-hair, unselected-card contact or continuous-time proof.",
+    "Actual discrete PNG inspection is positive; no continuous perceptual or all-motion claim.",
+    "One body/outfit/material/protocol; original assets remain unchanged.",
+    "Authored fringe unchanged but runtime other-card maximum7.193334mm; exact front witness gives no obvious new defect, not an individual visibility proof."
+  ]
+}

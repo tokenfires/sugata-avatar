@@ -103,6 +103,10 @@ At checkout `d75d970a81ba16d7a2bb1be1c2cca7cbc95e000c`, the [Showcase controls](
 
 [HairMaterial](../../packages/core/src/material/HairMaterial.js) accepts `baseColourHex` in `createHairMaterial`. This is an existing material input, not evidence that the requested colour families, tint controls, saved configurations, or pale-hair rendering are already implemented or visually qualified. These findings come from source inspection, not a new runtime exercise.
 
+### Implementation checkpoint after the reference discussion
+
+Local commit `b170da4` adds seven starting shades, a custom colour picker and Lightness, explicit Apply, exact Original restoration, and JSON/URL/browser-local named-look retention. See [reviewed colour controls](../evidence/hair-2026-09-29/colour-controls/README.md) for actual native evidence and its limits. The preceding source-inspection note describes the earlier baseline. A separate tint-strength control, strand highlights/lowlights and mixed-strand grey remain proposals.
+
 ## Instructions for future implementation
 
 1. Start with this medium appearance target and reproduce Robert's three reported issues in current front, side, rear, and oblique captures: the rear patch, ear-region bulges, and enclosing front symmetry. Establish which existing asset will serve as the first candidate. The descriptive word medium does not automatically rename or replace either existing bob ID.
