@@ -1,5 +1,7 @@
 # Sugata overnight progress September 29
 
+**Subsequent authorization:** Robert resumed Sugata on September 30 after the completed morning checkpoint. Follow [the new continuation](PROGRESS-2026-09-30.md); this document preserves the closed overnight window.
+
 ## Completed authorization window
 
 Robert explicitly resumed Sugata work on September 29 after the six-image bob discussion. Hair is now in scope, and he authorized useful progress on any area of the product plan overnight. The earlier September 26 pause and hair deferral are historical. His latest steering requires a ten-minute recovery wakeup, a valid evidence example and two alternatives for every actionable critic finding, and avoidance of repeated tweak reversals without new evidence.

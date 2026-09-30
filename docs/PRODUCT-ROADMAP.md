@@ -4,6 +4,8 @@ Rob's September 13, 2026 discussion with Ember, supplied as `sugata-avatar-track
 
 Sugata is an embodiment system for AI agents: a compelling, customizable character whose face, gaze, posture, gestures and actions communicate the agent's intended meaning to a human. The first visual target remains AAA quality, with Stellar Blade on PS5 and MetaHuman as quality references. These references do not choose a new engine or asset dependency. The present browser runtime remains the implementation under development.
 
+**September 30 continuation:** Robert has authorized renewed progress within his existing allowance and granted credits. A [bounded front-ribbon study](evidence/hair-2026-09-30/front-feasibility/README.md) now separates head clearance from usable flow: particular clear one-ring constructions can collapse a segment or move the bend upward. No geometry is promoted. The next step is a whole-prefix flow objective under current anchors; see [current progress](PROGRESS-2026-09-30.md).
+
 **September 29 overnight window completed:** the September 30 morning checkpoint is saved and its automation is paused. See the [morning report](MORNING-2026-09-30.md), [exact recovery state](OVERNIGHT-2026-09-29.md) and [appearance brief](research/bob-appearance-brief-2026-09-29.md). Colour controls are integrated locally; improved rear/side/inward-end candidates remain experimental. Every actionable critic finding retains actual evidence and two alternatives. Front construction stopped after two rejected approaches; a bounded feasibility study is the next step when work resumes.
 
 **Historical September 26 work window — paused at Robert's request:** Robert explicitly deferred hair and authorized autonomous non-hair

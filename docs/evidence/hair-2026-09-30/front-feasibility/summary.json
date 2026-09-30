@@ -1,0 +1,1853 @@
+{
+  "status": "complete bounded reachability diagnostics; no new asset or appearance qualification",
+  "started": "2026-09-30T13:45:40.013Z",
+  "finished": "2026-09-30T13:45:40.435Z",
+  "pid": 29827,
+  "command": "node tools/critic/probe-front-reachability.mjs captures/bob-front-reachability-v1",
+  "reportPath": "captures/bob-front-reachability-v1/report.json",
+  "reportSha256": "ae4ad28fac664cff456639589eb822593618dbef7c526c96ccf70e1e0e9cf2ae",
+  "pins": {
+    "captures/bob-side-envelope-v3/candidate.glb": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/bob-front-constraints-v1/report.json": "4a48e9a0f804eda92c7d4795e6b025e12eab884caadc269273f88f95e5cb5946",
+    "tools/critic/probe-front-reachability.mjs": "40f47b6092345218509ceca34b088854113df500dc31d66f035399d0f53b39f0",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "tools/figure-pipeline/hair_geometry.mjs": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+    "tools/figure-pipeline/hair_surface.mjs": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+    "tools/critic/png.mjs": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+  },
+  "decisions": [
+    "Keep short-card temple endpoints provisional; preserving original arc and those endpoints is analytically incompatible.",
+    "Preserve full-ribbon observations as numerical controls, not styling candidates.",
+    "Define whole-prefix flow under current anchors and fixed widths; only consider a larger explicitly enumerated boundary after a concrete conflict."
+  ],
+  "records": [
+    {
+      "card": 7,
+      "kind": "short-card necessary reach bound",
+      "requestedEndpointMetres": [
+        -0.086,
+        1.52,
+        0.108
+      ],
+      "originalArcMm": 88.28797265798971,
+      "rootToRequestedEndpointMm": 194.20658417087486,
+      "minimumArcGrowthFactor": 2.199694684611154,
+      "fixedArcEndpointFeasible": false,
+      "interpretation": "Triangle inequality excludes this requested endpoint if original arc length is retained. No body-aware route is constructed; the endpoint and length-preservation condition are experimental assumptions.",
+      "witnesses": [
+        {
+          "kind": "baseline",
+          "parameters": {},
+          "spansMm": [
+            7.046729430270046,
+            6.481754320614935,
+            5.154139275482534,
+            6.187838626632124,
+            4.235717666681539,
+            4.941722403306217,
+            6.547026112103387,
+            5.002879896319787,
+            5.317043898978176,
+            4.176482124373754,
+            6.458088090790517,
+            5.262065896320761,
+            4.206541927715805,
+            5.990913052544732,
+            5.575579769660284,
+            5.703450166195107
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 3.00902491568125
+            },
+            {
+              "ring": 2,
+              "degrees": 34.914760192025916
+            },
+            {
+              "ring": 3,
+              "degrees": 35.47922686223108
+            },
+            {
+              "ring": 4,
+              "degrees": 8.316874086298176
+            },
+            {
+              "ring": 5,
+              "degrees": 11.813301297727765
+            },
+            {
+              "ring": 6,
+              "degrees": 10.14426137648968
+            },
+            {
+              "ring": 7,
+              "degrees": 31.756324186821907
+            },
+            {
+              "ring": 8,
+              "degrees": 38.51422473958651
+            },
+            {
+              "ring": 9,
+              "degrees": 36.410100971091126
+            },
+            {
+              "ring": 10,
+              "degrees": 23.333541043814794
+            },
+            {
+              "ring": 11,
+              "degrees": 16.653511032355322
+            },
+            {
+              "ring": 12,
+              "degrees": 32.78442976230823
+            },
+            {
+              "ring": 13,
+              "degrees": 29.480882648984714
+            },
+            {
+              "ring": 14,
+              "degrees": 14.90520672452225
+            },
+            {
+              "ring": 15,
+              "degrees": 7.637254299302491
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                4.41621115299906,
+                29.26007235818232
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                33.78360324155758,
+                64.28524461507986
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                44.85011326847081,
+                30.153801347502295
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                19.060116092467815,
+                7.523814470275382
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                15.300483165057162,
+                10.136103903434224
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                7.012411819015914,
+                26.585258763860722
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                26.76556489419469,
+                50.08556075586327
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                132.36708529008632,
+                37.73160339892083
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                111.83160992784853,
+                32.885293231904
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                40.365263417528645,
+                30.120762494554505
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                12.642458661400527,
+                48.270293609529624
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                47.29195879392091,
+                45.18584416235214
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                49.843922570718675,
+                26.96113792764354
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                42.442679280241,
+                21.01178065463125
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                10.154113809814776,
+                14.849963215773974
+              ]
+            }
+          ],
+          "prefixArcMm": 13.52848375088498,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 13,
+            "side": 1,
+            "pointMetres": [
+              0.03845050558447838,
+              1.6426578760147095,
+              0.09238263964653015
+            ],
+            "signedMm": 3.606770522774771,
+            "bodyTriangle": 14720,
+            "closestMetres": [
+              0.03660431078007885,
+              1.6400485919189869,
+              0.09071171329986662
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 27.929784528900463,
+          "float32MaximumRoundTripDeltaMm": 0
+        }
+      ]
+    },
+    {
+      "card": 46,
+      "kind": "short-card necessary reach bound",
+      "requestedEndpointMetres": [
+        -0.086,
+        1.52,
+        0.108
+      ],
+      "originalArcMm": 77.2035759957806,
+      "rootToRequestedEndpointMm": 185.17887418932347,
+      "minimumArcGrowthFactor": 2.3985789751428617,
+      "fixedArcEndpointFeasible": false,
+      "interpretation": "Triangle inequality excludes this requested endpoint if original arc length is retained. No body-aware route is constructed; the endpoint and length-preservation condition are experimental assumptions.",
+      "witnesses": [
+        {
+          "kind": "baseline",
+          "parameters": {},
+          "spansMm": [
+            3.2870456586863344,
+            5.794177932221939,
+            5.452092377746168,
+            4.127052678726483,
+            7.27257223629727,
+            5.65047139163203,
+            4.300494162168821,
+            4.752766681825681,
+            4.913809670808315,
+            4.804284160439382,
+            2.9888456172184927,
+            5.713899093265944,
+            4.172069486476528,
+            4.745330347822595,
+            4.910383704257643,
+            4.318280796186962
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 13.487521326173225
+            },
+            {
+              "ring": 2,
+              "degrees": 1.5624105818275587
+            },
+            {
+              "ring": 3,
+              "degrees": 20.07480043865289
+            },
+            {
+              "ring": 4,
+              "degrees": 29.196408755556444
+            },
+            {
+              "ring": 5,
+              "degrees": 8.532641432185292
+            },
+            {
+              "ring": 6,
+              "degrees": 40.00963171606204
+            },
+            {
+              "ring": 7,
+              "degrees": 72.12005038551158
+            },
+            {
+              "ring": 8,
+              "degrees": 10.604104966626496
+            },
+            {
+              "ring": 9,
+              "degrees": 6.961293433616429
+            },
+            {
+              "ring": 10,
+              "degrees": 22.558111301014453
+            },
+            {
+              "ring": 11,
+              "degrees": 32.209726845286596
+            },
+            {
+              "ring": 12,
+              "degrees": 6.66464880153436
+            },
+            {
+              "ring": 13,
+              "degrees": 8.402164552021107
+            },
+            {
+              "ring": 14,
+              "degrees": 11.30348659680834
+            },
+            {
+              "ring": 15,
+              "degrees": 4.8814125044199805
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                50.524021663177514,
+                10.254603676787033
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                7.081884010902754,
+                3.079446803573687
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                24.872882783435408,
+                39.43767104744642
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                21.397028718168208,
+                50.58093940310322
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                89.52572050228801,
+                12.09292030739534
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                119.20682301143117,
+                98.36634457245526
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                44.37328033252511,
+                87.48360883843877
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                17.818483945367152,
+                142.98286958462563
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                4.805234923203194,
+                7.709812769336779
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                28.447650470276947,
+                54.377422947837914
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                22.55525591539995,
+                58.114232442205775
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                5.016390959876621,
+                12.848586593057547
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                6.5594673423953935,
+                9.442870656813227
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                11.996407770168076,
+                9.444293923602432
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                5.037884489402213,
+                5.07392333981339
+              ]
+            }
+          ],
+          "prefixArcMm": 9.081223590908273,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 5,
+            "side": 0,
+            "pointMetres": [
+              -0.010912107303738594,
+              1.6634687185287476,
+              0.05039346218109131
+            ],
+            "signedMm": 4.902106453650082,
+            "bodyTriangle": 1443,
+            "closestMetres": [
+              -0.010503251545393041,
+              1.6585999629169936,
+              0.05079183819040927
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 10.396428289299745,
+          "float32MaximumRoundTripDeltaMm": 0
+        }
+      ]
+    },
+    {
+      "card": 145,
+      "kind": "one-free-ring exact join tangent family",
+      "rootMetres": [
+        0.07955227792263031,
+        1.5660929679870605,
+        0.07334233820438385
+      ],
+      "joinMetres": [
+        0.08066358789801598,
+        1.5513734221458435,
+        0.07574885338544846
+      ],
+      "suffixTangent": [
+        0.057683323269651685,
+        -0.9943567638198602,
+        -0.0890351641895707
+      ],
+      "originalPrefixArcMm": 15.130477593949074,
+      "rootToJoinChordMm": 14.956314885351135,
+      "chordProjectionOnSuffixMm": 14.486319545862838,
+      "lambdaMaximumAtOriginalArcMm": 4.067322675534941,
+      "originalFinalSpanMm": 7.196504616870185,
+      "maximumLambdaToOriginalSpanRatio": 0.5651803051720753,
+      "derivation": "c1=c2-lambda*t, lambda>0. Prefix arc=|d-lambda*t|+lambda. With L=original prefix arc, d=c2-c0, and L>d.t, arc<=L implies lambda<=(L^2-|d|^2)/(2*(L-d.t)). Squaring requires lambda<=L, checked for these witnesses.",
+      "interpretation": "Exact zero discrete join angle and no prefix growth are diagnostic conditions, not photographic requirements. The family is necessary/sufficient for this centreline length inequality only, before width, body, appearance or motion.",
+      "witnesses": [
+        {
+          "kind": "baseline",
+          "parameters": {},
+          "spansMm": [
+            7.93397297707889,
+            7.196504616870185,
+            9.239840969113452,
+            6.330128222842607,
+            7.516384124755859,
+            7.552742958068848,
+            7.626056671142578,
+            7.740378379821777,
+            7.894754409790039,
+            8.075118064880371,
+            8.27169418334961,
+            8.482813835144043,
+            8.707046508789062,
+            8.944511413574219,
+            9.196043014526367,
+            9.462833404541016
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 17.42436069824263
+            },
+            {
+              "ring": 2,
+              "degrees": 9.311144542131721
+            },
+            {
+              "ring": 3,
+              "degrees": 2.362778893911472
+            },
+            {
+              "ring": 4,
+              "degrees": 5.774585696299993
+            },
+            {
+              "ring": 5,
+              "degrees": 0
+            },
+            {
+              "ring": 6,
+              "degrees": 0
+            },
+            {
+              "ring": 7,
+              "degrees": 8.537736462515939e-07
+            },
+            {
+              "ring": 8,
+              "degrees": 8.537736462515939e-07
+            },
+            {
+              "ring": 9,
+              "degrees": 0
+            },
+            {
+              "ring": 10,
+              "degrees": 0
+            },
+            {
+              "ring": 11,
+              "degrees": 0
+            },
+            {
+              "ring": 12,
+              "degrees": 0
+            },
+            {
+              "ring": 13,
+              "degrees": 0
+            },
+            {
+              "ring": 14,
+              "degrees": 0
+            },
+            {
+              "ring": 15,
+              "degrees": 0
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                14.793917851764396,
+                27.645545304276737
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                11.254222732424386,
+                10.2359071006278
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                7.2178059909093015,
+                8.390137855136786
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                14.845709550699551,
+                4.233651146773664
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                2.9918403971552605,
+                3.571420346927751
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                1.448421754324961,
+                1.5749028556033033
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                1.3274873248889432,
+                1.3903617526797434
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                0.7525252565045407,
+                0.7504968287946028
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                0.1800554051720535,
+                0.15614829129912292
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                0.07612549234614678,
+                0.03240116416493321
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                0.08515735130409148,
+                0.007518574423280149
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                0.11508698594430339,
+                0.04588166248289454
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                0.16180752345275068,
+                0.10704980172231791
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                0.20799606402335136,
+                0.164399925315569
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                0.24913631762017252,
+                0.20682993117232948
+              ]
+            }
+          ],
+          "prefixArcMm": 15.130477593949074,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 0,
+            "side": 1,
+            "pointMetres": [
+              0.06676143407821655,
+              1.5703508853912354,
+              0.08599577844142914
+            ],
+            "signedMm": 3.7480781920352326,
+            "bodyTriangle": 13584,
+            "closestMetres": [
+              0.06306397939081605,
+              1.5701189208101924,
+              0.08542734955284961
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 106.18350415924483,
+          "float32MaximumRoundTripDeltaMm": 0
+        },
+        {
+          "kind": "exact-tangent-preserve-prefix-arc",
+          "parameters": {
+            "lambdaMm": 4.067322675534941,
+            "targetCentreMetres": [
+              0.08042897120928111,
+              1.5554177919588996,
+              0.07611098812767668
+            ],
+            "ring1WidthFrame": "Original edge vector retained by translating both edges together in JS double precision; no width rotation or normal update."
+          },
+          "spansMm": [
+            11.063154918414082,
+            4.067322675534997,
+            9.239840969113452,
+            6.330128222842607,
+            7.516384124755859,
+            7.552742958068848,
+            7.626056671142578,
+            7.740378379821777,
+            7.894754409790039,
+            8.075118064880371,
+            8.27169418334961,
+            8.482813835144043,
+            8.707046508789062,
+            8.944511413574219,
+            9.196043014526367,
+            9.462833404541016
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 19.648276735327602
+            },
+            {
+              "ring": 2,
+              "degrees": 0
+            },
+            {
+              "ring": 3,
+              "degrees": 2.362778893911472
+            },
+            {
+              "ring": 4,
+              "degrees": 5.774585696299993
+            },
+            {
+              "ring": 5,
+              "degrees": 0
+            },
+            {
+              "ring": 6,
+              "degrees": 0
+            },
+            {
+              "ring": 7,
+              "degrees": 8.537736462515939e-07
+            },
+            {
+              "ring": 8,
+              "degrees": 8.537736462515939e-07
+            },
+            {
+              "ring": 9,
+              "degrees": 0
+            },
+            {
+              "ring": 10,
+              "degrees": 0
+            },
+            {
+              "ring": 11,
+              "degrees": 0
+            },
+            {
+              "ring": 12,
+              "degrees": 0
+            },
+            {
+              "ring": 13,
+              "degrees": 0
+            },
+            {
+              "ring": 14,
+              "degrees": 0
+            },
+            {
+              "ring": 15,
+              "degrees": 0
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                3.411155040069093,
+                42.39100757994691
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                13.65688739894438,
+                18.147220564101083
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                7.2178059909093015,
+                8.390137855136786
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                14.845709550699551,
+                4.233651146773664
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                2.9918403971552605,
+                3.571420346927751
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                1.448421754324961,
+                1.5749028556033033
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                1.3274873248889432,
+                1.3903617526797434
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                0.7525252565045407,
+                0.7504968287946028
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                0.1800554051720535,
+                0.15614829129912292
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                0.07612549234614678,
+                0.03240116416493321
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                0.08515735130409148,
+                0.007518574423280149
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                0.11508698594430339,
+                0.04588166248289454
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                0.16180752345275068,
+                0.10704980172231791
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                0.20799606402335136,
+                0.164399925315569
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                0.24913631762017252,
+                0.20682993117232948
+              ]
+            }
+          ],
+          "prefixArcMm": 15.130477593949077,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 0,
+            "side": 1,
+            "pointMetres": [
+              0.06676143407821655,
+              1.5703508853912354,
+              0.08599577844142914
+            ],
+            "signedMm": 3.7480781920352326,
+            "bodyTriangle": 13584,
+            "closestMetres": [
+              0.06306397939081605,
+              1.5701189208101924,
+              0.08542734955284961
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 54.83906793905919,
+          "float32MaximumRoundTripDeltaMm": 1.5951411071278837e-05
+        },
+        {
+          "kind": "exact-tangent-preserve-final-span",
+          "parameters": {
+            "lambdaMm": 7.196504616870185,
+            "targetCentreMetres": [
+              0.08024846959578952,
+              1.5585293151874893,
+              0.0763895953556025
+            ],
+            "ring1WidthFrame": "Original edge vector retained by translating both edges together in JS double precision; no width rotation or normal update."
+          },
+          "spansMm": [
+            8.184088383191604,
+            7.196504616870231,
+            9.239840969113452,
+            6.330128222842607,
+            7.516384124755859,
+            7.552742958068848,
+            7.626056671142578,
+            7.740378379821777,
+            7.894754409790039,
+            8.075118064880371,
+            8.27169418334961,
+            8.482813835144043,
+            8.707046508789062,
+            8.944511413574219,
+            9.196043014526367,
+            9.462833404541016
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 27.034848837913618
+            },
+            {
+              "ring": 2,
+              "degrees": 0
+            },
+            {
+              "ring": 3,
+              "degrees": 2.362778893911472
+            },
+            {
+              "ring": 4,
+              "degrees": 5.774585696299993
+            },
+            {
+              "ring": 5,
+              "degrees": 0
+            },
+            {
+              "ring": 6,
+              "degrees": 0
+            },
+            {
+              "ring": 7,
+              "degrees": 8.537736462515939e-07
+            },
+            {
+              "ring": 8,
+              "degrees": 8.537736462515939e-07
+            },
+            {
+              "ring": 9,
+              "degrees": 0
+            },
+            {
+              "ring": 10,
+              "degrees": 0
+            },
+            {
+              "ring": 11,
+              "degrees": 0
+            },
+            {
+              "ring": 12,
+              "degrees": 0
+            },
+            {
+              "ring": 13,
+              "degrees": 0
+            },
+            {
+              "ring": 14,
+              "degrees": 0
+            },
+            {
+              "ring": 15,
+              "degrees": 0
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                17.471249826223186,
+                38.311719940529926
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                5.4434670738138795,
+                7.13158175087259
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                7.2178059909093015,
+                8.390137855136786
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                14.845709550699551,
+                4.233651146773664
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                2.9918403971552605,
+                3.571420346927751
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                1.448421754324961,
+                1.5749028556033033
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                1.3274873248889432,
+                1.3903617526797434
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                0.7525252565045407,
+                0.7504968287946028
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                0.1800554051720535,
+                0.15614829129912292
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                0.07612549234614678,
+                0.03240116416493321
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                0.08515735130409148,
+                0.007518574423280149
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                0.11508698594430339,
+                0.04588166248289454
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                0.16180752345275068,
+                0.10704980172231791
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                0.20799606402335136,
+                0.164399925315569
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                0.24913631762017252,
+                0.20682993117232948
+              ]
+            }
+          ],
+          "prefixArcMm": 15.380593000061836,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 0,
+            "side": 1,
+            "pointMetres": [
+              0.06676143407821655,
+              1.5703508853912354,
+              0.08599577844142914
+            ],
+            "signedMm": 3.7480781920352326,
+            "bodyTriangle": 13584,
+            "closestMetres": [
+              0.06306397939081605,
+              1.5701189208101924,
+              0.08542734955284961
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 107.3574876908791,
+          "float32MaximumRoundTripDeltaMm": 5.7449248396599356e-05
+        }
+      ]
+    },
+    {
+      "card": 204,
+      "kind": "one-free-ring exact join tangent family",
+      "rootMetres": [
+        -0.08045294135808945,
+        1.5659353137016296,
+        0.07654011622071266
+      ],
+      "joinMetres": [
+        -0.08071861416101456,
+        1.5541876554489136,
+        0.08054926991462708
+      ],
+      "suffixTangent": [
+        0.05199360853137946,
+        -0.9897259998957358,
+        -0.13318824949022842
+      ],
+      "originalPrefixArcMm": 12.428276566417718,
+      "rootToJoinChordMm": 12.41577101118773,
+      "chordProjectionOnSuffixMm": 11.079177360460333,
+      "lambdaMaximumAtOriginalArcMm": 0.1151466874142105,
+      "originalFinalSpanMm": 6.047888264885049,
+      "maximumLambdaToOriginalSpanRatio": 0.01903915587904782,
+      "derivation": "c1=c2-lambda*t, lambda>0. Prefix arc=|d-lambda*t|+lambda. With L=original prefix arc, d=c2-c0, and L>d.t, arc<=L implies lambda<=(L^2-|d|^2)/(2*(L-d.t)). Squaring requires lambda<=L, checked for these witnesses.",
+      "interpretation": "Exact zero discrete join angle and no prefix growth are diagnostic conditions, not photographic requirements. The family is necessary/sufficient for this centreline length inequality only, before width, body, appearance or motion.",
+      "witnesses": [
+        {
+          "kind": "baseline",
+          "parameters": {},
+          "spansMm": [
+            6.380388301532669,
+            6.047888264885049,
+            5.952599304766978,
+            6.1190989893387,
+            6.002489420935973,
+            5.920119860245272,
+            6.098449230196367,
+            6.162047386171686,
+            6.338834762575431,
+            6.206154823303223,
+            6.359159946442742,
+            6.487071514129639,
+            7.11584091186621,
+            7.416725158691406,
+            7.738590240479413,
+            8.082270622254276
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 5.142871426403613
+            },
+            {
+              "ring": 2,
+              "degrees": 27.988966648356456
+            },
+            {
+              "ring": 3,
+              "degrees": 10.635827964932005
+            },
+            {
+              "ring": 4,
+              "degrees": 4.960395524289948
+            },
+            {
+              "ring": 5,
+              "degrees": 12.759913867226947
+            },
+            {
+              "ring": 6,
+              "degrees": 0.09260689228244426
+            },
+            {
+              "ring": 7,
+              "degrees": 9.848418713572933e-05
+            },
+            {
+              "ring": 8,
+              "degrees": 6.831256303707663e-05
+            },
+            {
+              "ring": 9,
+              "degrees": 4.760505882735608e-05
+            },
+            {
+              "ring": 10,
+              "degrees": 3.35697023035087e-05
+            },
+            {
+              "ring": 11,
+              "degrees": 3.35697023035087e-05
+            },
+            {
+              "ring": 12,
+              "degrees": 3.0003797379776638e-05
+            },
+            {
+              "ring": 13,
+              "degrees": 3.0003797379776638e-05
+            },
+            {
+              "ring": 14,
+              "degrees": 2.7573055777555875e-05
+            },
+            {
+              "ring": 15,
+              "degrees": 5.3990636472412036e-05
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                12.485466628213384,
+                7.388234639681009
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                15.58579633960489,
+                43.82074813833853
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                22.071309416785144,
+                10.831960302555274
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                2.2314413597773917,
+                7.680274071210127
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                15.08440615161342,
+                10.323023627168052
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                2.271413898469411,
+                1.9564580987757079
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                1.2614904867759948,
+                1.4622750188285036
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                2.862018515977131,
+                3.4752757729108055
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                0.9883729524293269,
+                1.0956246562887717
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                1.2460129036131096,
+                1.2902845681421427
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                5.710977735290816,
+                5.869401749600579
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                12.063466423252725,
+                13.102287789496321
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                0.5376928381587717,
+                0.6251758543772237
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                0.3709489565404312,
+                0.42797938176531564
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                0.36526947397399284,
+                0.411544123426844
+              ]
+            }
+          ],
+          "prefixArcMm": 12.428276566417718,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 5,
+            "side": 0,
+            "pointMetres": [
+              -0.06796784698963165,
+              1.5413845777511597,
+              0.0908634215593338
+            ],
+            "signedMm": 3.6675360488005526,
+            "bodyTriangle": 9330,
+            "closestMetres": [
+              -0.06433187571298739,
+              1.5415242819890207,
+              0.09040405648600637
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 110.01830372715733,
+          "float32MaximumRoundTripDeltaMm": 0
+        },
+        {
+          "kind": "exact-tangent-preserve-prefix-arc",
+          "parameters": {
+            "lambdaMm": 0.1151466874142105,
+            "targetCentreMetres": [
+              -0.08072460105280366,
+              1.5543016191192494,
+              0.08056460610035837
+            ],
+            "ring1WidthFrame": "Original edge vector retained by translating both edges together in JS double precision; no width rotation or normal update."
+          },
+          "spansMm": [
+            12.313129879003442,
+            0.11514668741428001,
+            5.952599304766978,
+            6.1190989893387,
+            6.002489420935973,
+            5.920119860245272,
+            6.098449230196367,
+            6.162047386171686,
+            6.338834762575431,
+            6.206154823303223,
+            6.359159946442742,
+            6.487071514129639,
+            7.11584091186621,
+            7.416725158691406,
+            7.738590240479413,
+            8.082270622254276
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 27.07215403338074
+            },
+            {
+              "ring": 2,
+              "degrees": 1.2074182697257333e-06
+            },
+            {
+              "ring": 3,
+              "degrees": 10.635827964932005
+            },
+            {
+              "ring": 4,
+              "degrees": 4.960395524289948
+            },
+            {
+              "ring": 5,
+              "degrees": 12.759913867226947
+            },
+            {
+              "ring": 6,
+              "degrees": 0.09260689228244426
+            },
+            {
+              "ring": 7,
+              "degrees": 9.848418713572933e-05
+            },
+            {
+              "ring": 8,
+              "degrees": 6.831256303707663e-05
+            },
+            {
+              "ring": 9,
+              "degrees": 4.760505882735608e-05
+            },
+            {
+              "ring": 10,
+              "degrees": 3.35697023035087e-05
+            },
+            {
+              "ring": 11,
+              "degrees": 3.35697023035087e-05
+            },
+            {
+              "ring": 12,
+              "degrees": 3.0003797379776638e-05
+            },
+            {
+              "ring": 13,
+              "degrees": 3.0003797379776638e-05
+            },
+            {
+              "ring": 14,
+              "degrees": 2.7573055777555875e-05
+            },
+            {
+              "ring": 15,
+              "degrees": 5.3990636472412036e-05
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                68.52301889716556,
+                85.20136934664603
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                57.854612927146796,
+                110.50217939712017
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                22.071309416785144,
+                10.831960302555274
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                2.2314413597773917,
+                7.680274071210127
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                15.08440615161342,
+                10.323023627168052
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                2.271413898469411,
+                1.9564580987757079
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                1.2614904867759948,
+                1.4622750188285036
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                2.862018515977131,
+                3.4752757729108055
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                0.9883729524293269,
+                1.0956246562887717
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                1.2460129036131096,
+                1.2902845681421427
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                5.710977735290816,
+                5.869401749600579
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                12.063466423252725,
+                13.102287789496321
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                0.5376928381587717,
+                0.6251758543772237
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                0.3709489565404312,
+                0.42797938176531564
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                0.36526947397399284,
+                0.411544123426844
+              ]
+            }
+          ],
+          "prefixArcMm": 12.428276566417722,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 5,
+            "side": 0,
+            "pointMetres": [
+              -0.06796784698963165,
+              1.5413845777511597,
+              0.0908634215593338
+            ],
+            "signedMm": 3.6675360488005526,
+            "bodyTriangle": 9330,
+            "closestMetres": [
+              -0.06433187571298739,
+              1.5415242819890207,
+              0.09040405648600637
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 1.015530694191377,
+          "float32MaximumRoundTripDeltaMm": 5.9201087220579816e-05
+        },
+        {
+          "kind": "exact-tangent-preserve-final-span",
+          "parameters": {
+            "lambdaMm": 6.047888264885049,
+            "targetCentreMetres": [
+              -0.08103306569590052,
+              1.5601734077091347,
+              0.08135477756573961
+            ],
+            "ring1WidthFrame": "Original edge vector retained by translating both edges together in JS double precision; no width rotation or normal update."
+          },
+          "spansMm": [
+            7.531073547706624,
+            6.047888264885138,
+            5.952599304766978,
+            6.1190989893387,
+            6.002489420935973,
+            5.920119860245272,
+            6.098449230196367,
+            6.162047386171686,
+            6.338834762575431,
+            6.206154823303223,
+            6.359159946442742,
+            6.487071514129639,
+            7.11584091186621,
+            7.416725158691406,
+            7.738590240479413,
+            8.082270622254276
+          ],
+          "turns": [
+            {
+              "ring": 1,
+              "degrees": 48.081670345031775
+            },
+            {
+              "ring": 2,
+              "degrees": 8.537736462515939e-07
+            },
+            {
+              "ring": 3,
+              "degrees": 10.635827964932005
+            },
+            {
+              "ring": 4,
+              "degrees": 4.960395524289948
+            },
+            {
+              "ring": 5,
+              "degrees": 12.759913867226947
+            },
+            {
+              "ring": 6,
+              "degrees": 0.09260689228244426
+            },
+            {
+              "ring": 7,
+              "degrees": 9.848418713572933e-05
+            },
+            {
+              "ring": 8,
+              "degrees": 6.831256303707663e-05
+            },
+            {
+              "ring": 9,
+              "degrees": 4.760505882735608e-05
+            },
+            {
+              "ring": 10,
+              "degrees": 3.35697023035087e-05
+            },
+            {
+              "ring": 11,
+              "degrees": 3.35697023035087e-05
+            },
+            {
+              "ring": 12,
+              "degrees": 3.0003797379776638e-05
+            },
+            {
+              "ring": 13,
+              "degrees": 3.0003797379776638e-05
+            },
+            {
+              "ring": 14,
+              "degrees": 2.7573055777555875e-05
+            },
+            {
+              "ring": 15,
+              "degrees": 5.3990636472412036e-05
+            }
+          ],
+          "edgeTurns": [
+            {
+              "ring": 1,
+              "degrees": [
+                44.2677752654484,
+                48.7838006712763
+              ]
+            },
+            {
+              "ring": 2,
+              "degrees": [
+                11.2709760761437,
+                15.291095833064162
+              ]
+            },
+            {
+              "ring": 3,
+              "degrees": [
+                22.071309416785144,
+                10.831960302555274
+              ]
+            },
+            {
+              "ring": 4,
+              "degrees": [
+                2.2314413597773917,
+                7.680274071210127
+              ]
+            },
+            {
+              "ring": 5,
+              "degrees": [
+                15.08440615161342,
+                10.323023627168052
+              ]
+            },
+            {
+              "ring": 6,
+              "degrees": [
+                2.271413898469411,
+                1.9564580987757079
+              ]
+            },
+            {
+              "ring": 7,
+              "degrees": [
+                1.2614904867759948,
+                1.4622750188285036
+              ]
+            },
+            {
+              "ring": 8,
+              "degrees": [
+                2.862018515977131,
+                3.4752757729108055
+              ]
+            },
+            {
+              "ring": 9,
+              "degrees": [
+                0.9883729524293269,
+                1.0956246562887717
+              ]
+            },
+            {
+              "ring": 10,
+              "degrees": [
+                1.2460129036131096,
+                1.2902845681421427
+              ]
+            },
+            {
+              "ring": 11,
+              "degrees": [
+                5.710977735290816,
+                5.869401749600579
+              ]
+            },
+            {
+              "ring": 12,
+              "degrees": [
+                12.063466423252725,
+                13.102287789496321
+              ]
+            },
+            {
+              "ring": 13,
+              "degrees": [
+                0.5376928381587717,
+                0.6251758543772237
+              ]
+            },
+            {
+              "ring": 14,
+              "degrees": [
+                0.3709489565404312,
+                0.42797938176531564
+              ]
+            },
+            {
+              "ring": 15,
+              "degrees": [
+                0.36526947397399284,
+                0.411544123426844
+              ]
+            }
+          ],
+          "prefixArcMm": 13.578961812591762,
+          "triangleBodyPairs": 0,
+          "negativeVertices": 0,
+          "minimumSignedVertex": {
+            "ring": 5,
+            "side": 0,
+            "pointMetres": [
+              -0.06796784698963165,
+              1.5413845777511597,
+              0.0908634215593338
+            ],
+            "signedMm": 3.6675360488005526,
+            "bodyTriangle": 9330,
+            "closestMetres": [
+              -0.06433187571298739,
+              1.5415242819890207,
+              0.09040405648600637
+            ]
+          },
+          "minimumAdjacentTriangleAreaMm2": 120.64670160414887,
+          "float32MaximumRoundTripDeltaMm": 4.433564928007258e-05
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "No search or optimizer. Two long-card witnesses were declared before evaluation; short cards have bounds and baseline controls only.",
+    "Zero triangle crossings plus sampled positive vertices is a bounded rest-body observation, not proof of a positive clearance over the entire ribbon.",
+    "Signed closest-point distance uses interpolated body normals, not watertight inside/outside parity.",
+    "Only each witness card is audited against the body. Cap, other hair, hair-hair, garments, alpha, visible coverage, dynamics and motion are unqualified.",
+    "A clear near-collapsed segment is not a usable groom pass; retain segment and adjacent triangle-area evidence.",
+    "A failed fixed-width witness rejects that sample/frame only. No general full-ribbon infeasibility conclusion follows.",
+    "No GLB, shading normals, render or visible improvement is produced. Root and suffix positions remain exact in each diagnostic array; no byte claim is made for a future export."
+  ]
+}

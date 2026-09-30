@@ -1,0 +1,41 @@
+{
+  "frozenAt": "2026-09-30T13:49:32.205579+00:00",
+  "root": "captures/bob-front-reachability-v1",
+  "files": [
+    {
+      "path": "captures/bob-front-reachability-v1/report.json",
+      "bytes": 356098,
+      "sha256": "ae4ad28fac664cff456639589eb822593618dbef7c526c96ccf70e1e0e9cf2ae"
+    },
+    {
+      "path": "captures/bob-front-reachability-v1/source/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/bob-front-reachability-v1/source/tools/critic/probe-front-reachability.mjs",
+      "bytes": 11817,
+      "sha256": "40f47b6092345218509ceca34b088854113df500dc31d66f035399d0f53b39f0"
+    },
+    {
+      "path": "captures/bob-front-reachability-v1/source/tools/figure-pipeline/hair_geometry.mjs",
+      "bytes": 27179,
+      "sha256": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    },
+    {
+      "path": "captures/bob-front-reachability-v1/source/tools/figure-pipeline/hair_surface.mjs",
+      "bytes": 18753,
+      "sha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+    },
+    {
+      "path": "captures/bob-front-reachability-v1/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    }
+  ],
+  "fileCount": 6,
+  "totalBytes": 435351,
+  "limits": [
+    "Local ignored raw evidence; not an off-machine backup. No PNG, GLB, native capture, motion pass or appearance improvement."
+  ]
+}
