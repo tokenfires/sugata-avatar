@@ -11,6 +11,8 @@ progress with subagents and independent critique. Follow [today's checkpoint](PR
 and [the recovered work queue](NONHAIR-QUEUE-2026-09-26.md). The earlier hair experiments and their
 remaining gates stay preserved; they are not today's prerequisite.
 
+September 29 [colour diagnostics and authored-card attribution](evidence/hair-2026-09-29/authored-attribution/README.md) now isolate a one-card nape-hook correction. It improves the sampled static silhouette in an experimental asset; rear flow, face framing and motion qualification remain open.
+
 ## Phase 1 — AAA characters and expressive agent control
 
 | Area | Intended result | Current evidence / remaining work |

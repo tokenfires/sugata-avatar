@@ -1,0 +1,1184 @@
+{
+  "status": "isolated static candidate; no default promotion",
+  "runs": [
+    {
+      "directory": "attribution-v1",
+      "started": "2026-09-30T03:38:47.458Z",
+      "finished": "2026-09-30T03:38:57.661Z",
+      "pid": 31287,
+      "reportSha256": "5ec581f5b7853715b074c7c00c645892e3a7023f192e8c64866e95656aa1121f",
+      "views": [
+        "back",
+        "rear-oblique",
+        "right-profile"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": null,
+      "cases": [
+        {
+          "name": "casual-back-medium-brown",
+          "filename": "casual-back-medium-brown.png",
+          "imageSha256": "577d6c778fb6d4a51ea4c5e82849149e5b547e61ffa994c3d7ce6b3e7e93905f",
+          "stateSha256": "c117cecc654e8b09c4c4441c2cdaa4ad2e55ded49f71b43891bf7cacd02e9426",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          }
+        },
+        {
+          "name": "casual-rear-oblique-medium-brown",
+          "filename": "casual-rear-oblique-medium-brown.png",
+          "imageSha256": "93b6053599fee21549f1878038d9af7548243e2d8db0f007614b833ffb22a7eb",
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          }
+        },
+        {
+          "name": "casual-right-profile-medium-brown",
+          "filename": "casual-right-profile-medium-brown.png",
+          "imageSha256": "6fc6e7498f90a11d2a4896879dd295a81a61332936f1d3e75fb303f71a2830e5",
+          "stateSha256": "3355aa185747803b17e11df0afff95708825b38d49c81f592750e7b8825170cd",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          }
+        }
+      ]
+    },
+    {
+      "directory": "hook-removal-v1",
+      "started": "2026-09-30T03:40:39.662Z",
+      "finished": "2026-09-30T03:40:45.524Z",
+      "pid": 31687,
+      "reportSha256": "154a7f3b627fc86a5e867a6e6998eab103e6c5a06aec0d225122d7a185fa8bd3",
+      "views": [
+        "rear-oblique",
+        "right-profile"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": null,
+      "cases": [
+        {
+          "name": "casual-rear-oblique-medium-brown",
+          "filename": "casual-rear-oblique-medium-brown.png",
+          "imageSha256": "906c9023f2c8451a7e7e28c04ba2c9cb34f2198364b8a26271d0782e1d316223",
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [
+              281,
+              354,
+              359
+            ],
+            "caps": false,
+            "removedTriangles": 96
+          }
+        },
+        {
+          "name": "casual-right-profile-medium-brown",
+          "filename": "casual-right-profile-medium-brown.png",
+          "imageSha256": "b2ceada51841813afc5fdb322e2387c72b0f813537514272ff3b4b9a4651cdc3",
+          "stateSha256": "3355aa185747803b17e11df0afff95708825b38d49c81f592750e7b8825170cd",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [
+              281,
+              354,
+              359
+            ],
+            "caps": false,
+            "removedTriangles": 96
+          }
+        }
+      ]
+    },
+    {
+      "directory": "hook281-removal-v1",
+      "started": "2026-09-30T03:41:26.660Z",
+      "finished": "2026-09-30T03:41:30.292Z",
+      "pid": 31843,
+      "reportSha256": "cb667d4b4d4a4b8ee4bfd23b5dfc27ada968ac8e6819a18680275141c1d5d6b2",
+      "views": [
+        "rear-oblique"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": null,
+      "cases": [
+        {
+          "name": "casual-rear-oblique-medium-brown",
+          "filename": "casual-rear-oblique-medium-brown.png",
+          "imageSha256": "14ce7ba3cc51be1cc46aa269063bde3f105490d86938383f53fd69a82926924c",
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [
+              281
+            ],
+            "caps": false,
+            "removedTriangles": 32
+          }
+        }
+      ]
+    },
+    {
+      "directory": "layers-v1",
+      "started": "2026-09-30T03:42:46.527Z",
+      "finished": "2026-09-30T03:42:55.702Z",
+      "pid": 32128,
+      "reportSha256": "841459d095b29e358fd1b98d3017c2f7dfafe855a5337d526150b2a65d358b9f",
+      "views": [
+        "back",
+        "rear-oblique",
+        "right-profile"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": null,
+      "cases": [
+        {
+          "name": "casual-back-medium-brown",
+          "filename": "casual-back-medium-brown.png",
+          "imageSha256": "d48c7713f45425c5c7c11c6716e119833d0dbfe36bd732dff75fa6bd201d6975",
+          "stateSha256": "c117cecc654e8b09c4c4441c2cdaa4ad2e55ded49f71b43891bf7cacd02e9426",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": {
+            "layers": [
+              {
+                "name": "cap",
+                "start": -1,
+                "end": 0,
+                "hex": "808080"
+              },
+              {
+                "name": "root",
+                "start": 0,
+                "end": 78,
+                "hex": "ff3030"
+              },
+              {
+                "name": "mass",
+                "start": 78,
+                "end": 178,
+                "hex": "f0d020"
+              },
+              {
+                "name": "underlayer",
+                "start": 178,
+                "end": 248,
+                "hex": "30d060"
+              },
+              {
+                "name": "body",
+                "start": 248,
+                "end": 296,
+                "hex": "20d8e8"
+              },
+              {
+                "name": "surface",
+                "start": 296,
+                "end": 344,
+                "hex": "2858ff"
+              },
+              {
+                "name": "flyaway",
+                "start": 344,
+                "end": 372,
+                "hex": "ad40f0"
+              },
+              {
+                "name": "veil",
+                "start": 372,
+                "end": 462,
+                "hex": "ff9828"
+              },
+              {
+                "name": "fringe",
+                "start": 462,
+                "end": 496,
+                "hex": "f040b0"
+              }
+            ],
+            "limits": [
+              "Group colours pass through production hair lighting and grade.",
+              "Source-group names rely on the calibrated card order; they are not GLB semantic metadata."
+            ]
+          }
+        },
+        {
+          "name": "casual-rear-oblique-medium-brown",
+          "filename": "casual-rear-oblique-medium-brown.png",
+          "imageSha256": "9bc4bb3f41377a552e552fd9112301e2148ddec3fd1257e85916ee9b1db7f169",
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": {
+            "layers": [
+              {
+                "name": "cap",
+                "start": -1,
+                "end": 0,
+                "hex": "808080"
+              },
+              {
+                "name": "root",
+                "start": 0,
+                "end": 78,
+                "hex": "ff3030"
+              },
+              {
+                "name": "mass",
+                "start": 78,
+                "end": 178,
+                "hex": "f0d020"
+              },
+              {
+                "name": "underlayer",
+                "start": 178,
+                "end": 248,
+                "hex": "30d060"
+              },
+              {
+                "name": "body",
+                "start": 248,
+                "end": 296,
+                "hex": "20d8e8"
+              },
+              {
+                "name": "surface",
+                "start": 296,
+                "end": 344,
+                "hex": "2858ff"
+              },
+              {
+                "name": "flyaway",
+                "start": 344,
+                "end": 372,
+                "hex": "ad40f0"
+              },
+              {
+                "name": "veil",
+                "start": 372,
+                "end": 462,
+                "hex": "ff9828"
+              },
+              {
+                "name": "fringe",
+                "start": 462,
+                "end": 496,
+                "hex": "f040b0"
+              }
+            ],
+            "limits": [
+              "Group colours pass through production hair lighting and grade.",
+              "Source-group names rely on the calibrated card order; they are not GLB semantic metadata."
+            ]
+          }
+        },
+        {
+          "name": "casual-right-profile-medium-brown",
+          "filename": "casual-right-profile-medium-brown.png",
+          "imageSha256": "e8d53e9bdead8f3d5cef88a63e82787ffe48818b451836bdb448b393d7f4606b",
+          "stateSha256": "3355aa185747803b17e11df0afff95708825b38d49c81f592750e7b8825170cd",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": {
+            "layers": [
+              {
+                "name": "cap",
+                "start": -1,
+                "end": 0,
+                "hex": "808080"
+              },
+              {
+                "name": "root",
+                "start": 0,
+                "end": 78,
+                "hex": "ff3030"
+              },
+              {
+                "name": "mass",
+                "start": 78,
+                "end": 178,
+                "hex": "f0d020"
+              },
+              {
+                "name": "underlayer",
+                "start": 178,
+                "end": 248,
+                "hex": "30d060"
+              },
+              {
+                "name": "body",
+                "start": 248,
+                "end": 296,
+                "hex": "20d8e8"
+              },
+              {
+                "name": "surface",
+                "start": 296,
+                "end": 344,
+                "hex": "2858ff"
+              },
+              {
+                "name": "flyaway",
+                "start": 344,
+                "end": 372,
+                "hex": "ad40f0"
+              },
+              {
+                "name": "veil",
+                "start": 372,
+                "end": 462,
+                "hex": "ff9828"
+              },
+              {
+                "name": "fringe",
+                "start": 462,
+                "end": 496,
+                "hex": "f040b0"
+              }
+            ],
+            "limits": [
+              "Group colours pass through production hair lighting and grade.",
+              "Source-group names rely on the calibrated card order; they are not GLB semantic metadata."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "directory": "attribution-opposite-v1",
+      "started": "2026-09-30T03:46:18.480Z",
+      "finished": "2026-09-30T03:46:21.701Z",
+      "pid": 33095,
+      "reportSha256": "e50d6760834bee3b468f73b307d41a97e7b7f6642f77e026e9fb74a26100d018",
+      "views": [
+        "rear-left"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": null,
+      "cases": [
+        {
+          "name": "casual-rear-left-medium-brown",
+          "filename": "casual-rear-left-medium-brown.png",
+          "imageSha256": "4c89cc84cbff2b5215bc54f91a5cfaa2c056a79871e75f0d3e0b465d8fa34cac",
+          "stateSha256": "6c0e1709602100ac1221b8996309ee744119e17c95a8f1fa1184b87a0781dde3",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 0
+        }
+      ]
+    },
+    {
+      "directory": "nape-guide-v1/neutral",
+      "started": "2026-09-30T03:45:24.796Z",
+      "finished": "2026-09-30T03:45:35.148Z",
+      "pid": 32813,
+      "reportSha256": "a98ccc09b420782ef94581fd7b666408cf9cd86f0b04c47458c5f8743590806a",
+      "views": [
+        "back",
+        "rear-oblique",
+        "right-profile"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": "captures/hair-colour-2026-09-29/nape-guide-v1/candidate.glb",
+      "cases": [
+        {
+          "name": "casual-back-medium-brown",
+          "filename": "casual-back-medium-brown.png",
+          "imageSha256": "392276cf7ce3c966cceec51419b38cbec68f60c3650028a346686620f4a86830",
+          "stateSha256": "a42f5c4f47296ed031881e970e8b306be9c01ba7b783d481275cf350482a4078",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-rear-oblique-medium-brown",
+          "filename": "casual-rear-oblique-medium-brown.png",
+          "imageSha256": "f99b02dc3534cf563f0c32f54347e4c6601fe9132b1052631cbecdc8d931b829",
+          "stateSha256": "63967475b004f54808cee6207d86b8e3af7f3bc1b8d41f00c824ccf360dd38ac",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-right-profile-medium-brown",
+          "filename": "casual-right-profile-medium-brown.png",
+          "imageSha256": "4521187ae2eb654ee3ae5f10e1e477557033c38c25dcb4957cbc9ac597d545e3",
+          "stateSha256": "2bddeafdea1dc974816609f65b68d2ee33e070da9c8bb334669c7949dfcb5119",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        }
+      ]
+    },
+    {
+      "directory": "nape-guide-v1/opposite",
+      "started": "2026-09-30T03:47:25.714Z",
+      "finished": "2026-09-30T03:47:28.992Z",
+      "pid": 33341,
+      "reportSha256": "c4e1fb5424df2bd10741207ec853d8cefc71961c4610aa5d5b2113fa886dc8e2",
+      "views": [
+        "rear-left"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": "captures/hair-colour-2026-09-29/nape-guide-v1/candidate.glb",
+      "cases": [
+        {
+          "name": "casual-rear-left-medium-brown",
+          "filename": "casual-rear-left-medium-brown.png",
+          "imageSha256": "fcaf34fe2d88bcfe5ea255a3b78c09cf7dfa94a0465c2bef5d77d012c45e9596",
+          "stateSha256": "4a6d0284c09d7f5beac1f549dfcf124645d805ff8684ef941887e816a634ad71",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        }
+      ]
+    },
+    {
+      "directory": "nape-guide-v1/colour-confirm",
+      "started": "2026-09-30T03:48:01.690Z",
+      "finished": "2026-09-30T03:48:18.285Z",
+      "pid": 33503,
+      "reportSha256": "8827faa3b1f430ba4f22421ae439d9d7b41a7c2d84ed673d582fa3e5891d0f09",
+      "views": [
+        "back",
+        "rear-oblique"
+      ],
+      "lighting": "neutral-chromaticity",
+      "candidate": "captures/hair-colour-2026-09-29/nape-guide-v1/candidate.glb",
+      "cases": [
+        {
+          "name": "casual-back-exact-default",
+          "filename": "casual-back-exact-default.png",
+          "imageSha256": "df728737101755fac50b36a141475ddc2a8c6ec42d15b4e5b2e0ea3b7de6f76f",
+          "stateSha256": "a42f5c4f47296ed031881e970e8b306be9c01ba7b783d481275cf350482a4078",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-back-pale-neutral",
+          "filename": "casual-back-pale-neutral.png",
+          "imageSha256": "9bba96c168f2e29885438cdfb588dab226bdd8c82a72947af28daad818072640",
+          "stateSha256": "a42f5c4f47296ed031881e970e8b306be9c01ba7b783d481275cf350482a4078",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-back-default-repeat",
+          "filename": "casual-back-default-repeat.png",
+          "imageSha256": "d4a73b26e6f1e34398fb34b638c6b5e6dfcb36d6902f09cb87f2f0e823f995a5",
+          "stateSha256": "a42f5c4f47296ed031881e970e8b306be9c01ba7b783d481275cf350482a4078",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "darkRepeat": {
+            "changedPixels": 25,
+            "maxDifference": 0.00784313678741455,
+            "exact": false
+          },
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-rear-oblique-exact-default",
+          "filename": "casual-rear-oblique-exact-default.png",
+          "imageSha256": "8e5f5a5ad5413a042440ded7effcdd82ece92f1b47d3c491baf065d85884fb68",
+          "stateSha256": "63967475b004f54808cee6207d86b8e3af7f3bc1b8d41f00c824ccf360dd38ac",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-rear-oblique-pale-neutral",
+          "filename": "casual-rear-oblique-pale-neutral.png",
+          "imageSha256": "32ebe51277133fdbfb77874d158fa77e63d805aaf904a604d83a3883f181aefb",
+          "stateSha256": "63967475b004f54808cee6207d86b8e3af7f3bc1b8d41f00c824ccf360dd38ac",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-rear-oblique-default-repeat",
+          "filename": "casual-rear-oblique-default-repeat.png",
+          "imageSha256": "8e5f5a5ad5413a042440ded7effcdd82ece92f1b47d3c491baf065d85884fb68",
+          "stateSha256": "63967475b004f54808cee6207d86b8e3af7f3bc1b8d41f00c824ccf360dd38ac",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "darkRepeat": {
+            "changedPixels": 0,
+            "maxDifference": 0,
+            "exact": true
+          },
+          "candidateLoads": 1
+        }
+      ]
+    },
+    {
+      "directory": "studio-rear-control-v1",
+      "started": "2026-09-30T03:48:49.240Z",
+      "finished": "2026-09-30T03:48:52.425Z",
+      "pid": 33704,
+      "reportSha256": "a97c60b1b9e6d86dd90cc9b465baddf18767883ba5331537ef5e8a157816dbc0",
+      "views": [
+        "rear-oblique"
+      ],
+      "lighting": "original",
+      "candidate": null,
+      "cases": [
+        {
+          "name": "casual-rear-oblique-exact-default",
+          "filename": "casual-rear-oblique-exact-default.png",
+          "imageSha256": "213b966af0d66d8b90130cd87ed57ebbb4f8ce08a3c7be3708c968a671e5806f",
+          "stateSha256": "be5940145dbebb2c9da63504be063c04d2f29d84b557702ba5d039c99429bf57",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 0
+        }
+      ]
+    },
+    {
+      "directory": "nape-guide-v1/studio",
+      "started": "2026-09-30T03:49:29.563Z",
+      "finished": "2026-09-30T03:49:35.412Z",
+      "pid": 33922,
+      "reportSha256": "2337c70dc6cb38ea512226e8eb5221ab8a2ce06b99a0c2ed65c2be827910beab",
+      "views": [
+        "back",
+        "rear-oblique"
+      ],
+      "lighting": "original",
+      "candidate": "captures/hair-colour-2026-09-29/nape-guide-v1/candidate.glb",
+      "cases": [
+        {
+          "name": "casual-back-exact-default",
+          "filename": "casual-back-exact-default.png",
+          "imageSha256": "2536104978b7845f35c07f159e7480339fce31820bff310aa23b4b58f941fb97",
+          "stateSha256": "93a12c82ea262d016f22f79799bf140b6801db287398a82178c22b17a0523483",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        },
+        {
+          "name": "casual-rear-oblique-exact-default",
+          "filename": "casual-rear-oblique-exact-default.png",
+          "imageSha256": "aa70ccb8838dafcea786c483384bea44d4a63658bdfd30dcced8a48a72266d36",
+          "stateSha256": "263ed537348fe43253dc7a1fb370cd424e62673cbf6d7fe63bdde20983f22d29",
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "hidden": {
+            "cards": [],
+            "caps": false,
+            "removedTriangles": 0
+          },
+          "identity": null,
+          "candidateLoads": 1
+        }
+      ]
+    }
+  ],
+  "authoredVsLive": {
+    "back": {
+      "Centres": {
+        "count": 8432,
+        "maxMm": 0.00044934359288461537,
+        "meanMm": 6.622903425040834e-05,
+        "over0_01Mm": 0
+      },
+      "Vertices": {
+        "count": 16864,
+        "maxMm": 0.0016788466670499852,
+        "meanMm": 8.309403212338807e-05,
+        "over0_01Mm": 0
+      }
+    },
+    "rear-oblique": {
+      "Centres": {
+        "count": 8432,
+        "maxMm": 0.00044934359288461537,
+        "meanMm": 6.622903425040834e-05,
+        "over0_01Mm": 0
+      },
+      "Vertices": {
+        "count": 16864,
+        "maxMm": 0.0016788466670499852,
+        "meanMm": 8.309403212338807e-05,
+        "over0_01Mm": 0
+      }
+    },
+    "right-profile": {
+      "Centres": {
+        "count": 8432,
+        "maxMm": 0.00044934359288461537,
+        "meanMm": 6.622903425040834e-05,
+        "over0_01Mm": 0
+      },
+      "Vertices": {
+        "count": 16864,
+        "maxMm": 0.0016788466670499852,
+        "meanMm": 8.309403212338807e-05,
+        "over0_01Mm": 0
+      }
+    }
+  },
+  "limits": [
+    "Static held pose; no motion qualification.",
+    "Layer hues use production shading; source group names depend on calibrated order.",
+    "Removal changes occlusion and is attribution only."
+  ],
+  "candidate": {
+    "experiment": "nape-guide-v1",
+    "status": "unqualified",
+    "sourceSha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "card": 281,
+    "movedVertices": 32,
+    "controlPoints": [
+      [
+        -0.00034931604750454426,
+        1.4950075149536133,
+        -0.03585666045546532
+      ],
+      [
+        -0.004349316047504544,
+        1.4870075149536133,
+        -0.040856660455465314
+      ],
+      [
+        -0.006349316047504544,
+        1.4750075149536133,
+        -0.041856660455465315
+      ],
+      [
+        -0.006349316047504544,
+        1.4650075149536133,
+        -0.033856660455465315
+      ]
+    ],
+    "originalArcMm": 107.02043771743774,
+    "candidateArcMm": 32.86530822515488,
+    "clearance": [
+      {
+        "vertex": 10208,
+        "signedMm": 14.90502251877721
+      },
+      {
+        "vertex": 10209,
+        "signedMm": 30.26648138856423
+      },
+      {
+        "vertex": 10210,
+        "signedMm": 15.512082066845176
+      },
+      {
+        "vertex": 10211,
+        "signedMm": 32.033460983953965
+      },
+      {
+        "vertex": 10212,
+        "signedMm": 16.294792163325134
+      },
+      {
+        "vertex": 10213,
+        "signedMm": 33.26695036960668
+      },
+      {
+        "vertex": 10214,
+        "signedMm": 16.801878863868428
+      },
+      {
+        "vertex": 10215,
+        "signedMm": 34.178886372744905
+      },
+      {
+        "vertex": 10216,
+        "signedMm": 17.410176165018573
+      },
+      {
+        "vertex": 10217,
+        "signedMm": 34.83819834937114
+      },
+      {
+        "vertex": 10218,
+        "signedMm": 18.0637539055384
+      },
+      {
+        "vertex": 10219,
+        "signedMm": 35.115575055019896
+      },
+      {
+        "vertex": 10220,
+        "signedMm": 19.007910771076183
+      },
+      {
+        "vertex": 10221,
+        "signedMm": 34.72814915139824
+      },
+      {
+        "vertex": 10222,
+        "signedMm": 21.096327324385424
+      },
+      {
+        "vertex": 10223,
+        "signedMm": 32.96429577801267
+      },
+      {
+        "vertex": 10224,
+        "signedMm": 22.965136904969064
+      },
+      {
+        "vertex": 10225,
+        "signedMm": 31.031472345692602
+      },
+      {
+        "vertex": 10226,
+        "signedMm": 24.862197125102043
+      },
+      {
+        "vertex": 10227,
+        "signedMm": 28.70321708430943
+      },
+      {
+        "vertex": 10228,
+        "signedMm": 33.28078102162935
+      },
+      {
+        "vertex": 10229,
+        "signedMm": 18.960798592112447
+      },
+      {
+        "vertex": 10230,
+        "signedMm": 20.6506804428627
+      },
+      {
+        "vertex": 10231,
+        "signedMm": 30.375972101448937
+      },
+      {
+        "vertex": 10232,
+        "signedMm": 12.176485657926765
+      },
+      {
+        "vertex": 10233,
+        "signedMm": 34.784641821057434
+      },
+      {
+        "vertex": 10234,
+        "signedMm": 22.058207391220268
+      },
+      {
+        "vertex": 10235,
+        "signedMm": 24.680702497865113
+      },
+      {
+        "vertex": 10236,
+        "signedMm": 28.490464111683718
+      },
+      {
+        "vertex": 10237,
+        "signedMm": 14.691389723515325
+      },
+      {
+        "vertex": 10238,
+        "signedMm": 27.640396844820014
+      },
+      {
+        "vertex": 10239,
+        "signedMm": 10.974847321946275
+      }
+    ],
+    "minMovedVertexClearanceMm": 10.974847321946275,
+    "limits": [
+      "One held-pose appearance experiment; motion and triangle-body contacts not qualified.",
+      "The card count, UVs, widths, cap, and all other cards remain unchanged. Root ring remains byte identical.",
+      "Earlier accepted correction stamps describe the source history only; this experimental output has modified geometry."
+    ],
+    "outputSha256": "dc6d17fbd6b98facd81e420ee24b46e28c2514243e065446e30ab2ef6de27427"
+  },
+  "candidateChecks": {
+    "movedVertices": [
+      10208,
+      10209,
+      10210,
+      10211,
+      10212,
+      10213,
+      10214,
+      10215,
+      10216,
+      10217,
+      10218,
+      10219,
+      10220,
+      10221,
+      10222,
+      10223,
+      10224,
+      10225,
+      10226,
+      10227,
+      10228,
+      10229,
+      10230,
+      10231,
+      10232,
+      10233,
+      10234,
+      10235,
+      10236,
+      10237,
+      10238,
+      10239
+    ],
+    "changedNormalVertices": [
+      10208,
+      10209,
+      10210,
+      10211,
+      10212,
+      10213,
+      10214,
+      10215,
+      10216,
+      10217,
+      10218,
+      10219,
+      10220,
+      10221,
+      10222,
+      10223,
+      10224,
+      10225,
+      10226,
+      10227,
+      10228,
+      10229,
+      10230,
+      10231,
+      10232,
+      10233,
+      10234,
+      10235,
+      10236,
+      10237,
+      10238,
+      10239
+    ],
+    "unchanged": [
+      "indices",
+      "TEXCOORD_0",
+      "TEXCOORD_1",
+      "JOINTS_0",
+      "WEIGHTS_0",
+      "root ring",
+      "other cards",
+      "cap"
+    ],
+    "cardTriangles": 32,
+    "restTriangleBodyPairs": 0,
+    "nonCandidateLiveVertexMaxMm": 0,
+    "candidateLiveVsRestMaxMm": 0.0016788466670499855,
+    "limits": [
+      "Only card281 checked for rest triangle-body intersection; no moving contact or full-groom qualification."
+    ]
+  },
+  "imageCount": 23
+}

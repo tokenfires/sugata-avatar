@@ -1,7 +1,8 @@
-/** Fixed-groom colour diagnostics on the actual Showcase. No production source routing.
+/** Fixed-groom diagnostics on the actual Showcase. Production modules are never routed.
  * node tools/critic/hair-colour-diagnostic.mjs --out=captures/hair-colour-2026-09-29/pilot-v1
  * Optional: --views=back,rear-oblique,right-profile --preset=casual --frames=96
- * Each arm starts in a fresh browser context. Only the material base-colour vector changes.
+ * Each arm starts in a fresh browser context. Default arms change only the base-colour vector.
+ * Optional geometry export, card removal, layer hues and isolated GLB routing are recorded explicitly.
  * This records appearance evidence; it does not qualify motion or a replacement hairstyle.
  */
 import assert from 'node:assert/strict';
@@ -16,12 +17,14 @@ const root = fileURLToPath(new URL('../../', import.meta.url));
 const arg = (name, fallback) => process.argv.find(x => x.startsWith(`--${name}=`))?.slice(name.length + 3) ?? fallback;
 const out = path.resolve(root, arg('out', 'captures/hair-colour-2026-09-29/pilot-v1'));
 const preset = arg('preset', 'casual');
+const candidate = arg('candidate', null);
+assert.ok(candidate === null || (preset === 'casual' && candidate.startsWith('captures/') && candidate.endsWith('.glb')), 'Candidates must be isolated bob02 GLBs in captures/.');
 const frames = Number(arg('frames', '96'));
 const clockMode = arg('clock', 'owned');
 assert.ok(['owned', 'ambient'].includes(clockMode));
 const lightingMode = arg('lighting', 'original');
 assert.ok(['original', 'neutral-chromaticity'].includes(lightingMode));
-const angles = { front: 0, 'front-right': 45, 'right-profile': 90, 'rear-oblique': 135, back: 180, 'left-profile': -90, 'front-left': -45 };
+const angles = { front: 0, 'front-right': 45, 'right-profile': 90, 'rear-oblique': 135, 'rear-left': -135, back: 180, 'left-profile': -90, 'front-left': -45 };
 const views = arg('views', 'back').split(',');
 assert.ok(['casual', 'elegant'].includes(preset));
 assert.ok(Number.isInteger(frames) && frames >= 24 && frames <= 512);
@@ -30,7 +33,7 @@ assert.ok(!fs.existsSync(path.join(out, 'report.json')), 'Use a new output direc
 fs.mkdirSync(out, { recursive: true });
 const sha = value => createHash('sha256').update(value).digest('hex');
 const sourcePaths = [
-    'tools/critic/hair-colour-diagnostic.mjs', 'packages/core/src/render/MotionProbe.mjs',
+    'tools/critic/hair-colour-diagnostic.mjs', 'tools/critic/hair-attribution-browser.mjs', 'packages/core/src/render/MotionProbe.mjs',
     'packages/testbed/src/showcase.html', 'packages/testbed/src/showcase.js',
     'packages/testbed/src/showcase-presets.mjs', 'packages/testbed/src/viewer-framing.mjs',
     'packages/core/src/Avatar.js', 'packages/core/src/render/Stage.js',
@@ -38,16 +41,26 @@ const sourcePaths = [
     'packages/core/src/render/TRAAPost.js',
     'packages/core/src/material/HairMaterial.js', 'packages/core/src/render/HairOIT.js',
     'packages/core/src/motion/HairDynamics.js',
-    'assets/hair/bob01/g050.glb', 'assets/hair/bob02/g050.glb'
+    'assets/hair/bob01/g050.glb', 'assets/hair/bob02/g050.glb',
+    ...(candidate === null ? [] : [candidate])
 ];
 const sourceHashes = () => Object.fromEntries(sourcePaths.map(p => [p, sha(fs.readFileSync(path.join(root, p)))]));
+const identityMode = arg('identity', 'off');
+assert.ok(['off', 'layers'].includes(identityMode));
+const hideCards = arg('hide-cards', '').split(',').filter(Boolean).map(Number);
+assert.ok(hideCards.every(c => Number.isInteger(c) && c >= 0));
+const hideCaps = arg('hide-caps', 'off') === 'on';
+const exportGeometry = arg('geometry', 'off') === 'on';
+const colourSelection = arg('colours', 'all');
 const colours = [
     { id: 'exact-default', hex: null, label: 'Exact current dark' },
     { id: 'medium-brown', hex: '765344', label: 'Medium brown diagnostic' },
     { id: 'pale-neutral', hex: 'c8baa4', label: 'Pale desaturated diagnostic' },
     { id: 'default-repeat', hex: null, label: 'Exact dark repeated independently' }
-];
-const report = { started: new Date().toISOString(), pid: process.pid, preset, frames, views, clockMode, lightingMode,
+].filter(c => colourSelection === 'all' || colourSelection.split(',').includes(c.id));
+assert.ok(colours.length > 0);
+if (colours.some(c => c.id === 'default-repeat')) assert.ok(colours.some(c => c.id === 'exact-default'));
+const report = { started: new Date().toISOString(), pid: process.pid, preset, candidate, frames, views, clockMode, lightingMode, hideCards, hideCaps, identityMode,
     viewport: { width: 1440, height: 1000, deviceScaleFactor: 1 }, sourceHashes: sourceHashes(),
     cases: [], errors: [], status: 'running',
     limits: ['Fixed-pose appearance only; no motion or final-colour qualification.',
@@ -76,10 +89,16 @@ try {
             page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
             page.on('requestfailed', r => errors.push(`${r.url()} ${r.failure()?.errorText}`));
             page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
+            let candidateLoads = 0;
+            if (candidate !== null) await page.route('**/hair/bob02/g050.glb', async route => {
+                candidateLoads++;
+                await route.fulfill({ status: 200, contentType: 'model/gltf-binary', body: fs.readFileSync(path.join(root, candidate)) });
+            });
             await page.goto(`${server.baseUrl}/src/showcase.html?preset=${preset}&frame=portrait&capture=`, { waitUntil: 'domcontentloaded' });
             await page.waitForFunction(() => window.showcase || !document.querySelector('#error').hidden, null, { timeout: 120000 });
             assert.equal(await page.locator('#error').textContent(), '');
-            const setup = await page.evaluate(async ({ angle, hex, clockMode, lightingMode }) => {
+            assert.equal(candidateLoads, candidate === null ? 0 : 1, 'Capture must load exactly the requested candidate.');
+            const setup = await page.evaluate(async ({ angle, hex, clockMode, lightingMode, hideCards, hideCaps, identityMode, attributionUrl }) => {
                 const a = showcase.avatar, controls = showcase.controls;
                 const nodeFrame = a.stage.renderer._nodes?.nodeFrame;
                 const bootFrame = nodeFrame?.frameId;
@@ -118,12 +137,27 @@ try {
                         }
                     });
                 }
+                const hidden = { cards: hideCards, caps: hideCaps, removedTriangles: 0 };
+                if (hideCards.length || hideCaps) {
+                    let mesh; a.hairRoot.traverse(o => { if (o.isSkinnedMesh) mesh = o; });
+                    const g = a.hairDynamics.groom, original = mesh.geometry.index.array, kept = [];
+                    if (hideCards.some(c => c >= g.chainCount)) throw new Error('Hidden card outside groom');
+                    const selected = new Set(hideCards);
+                    for (let i = 0; i < original.length; i += 3) {
+                        const card = Math.floor((original[i] - g.cardVertexBase) / (g.pointsPerChain * 2));
+                        if (card < 0 ? hideCaps : selected.has(card)) hidden.removedTriangles++;
+                        else kept.push(original[i], original[i + 1], original[i + 2]);
+                    }
+                    // Removal is an attribution diagnostic. Solver buffers/layout remain intact.
+                    mesh.geometry.setIndex(kept);
+                }
                 const node = a.hairMaterial.hairUniforms.baseColour;
                 const exactDefault = node.value.toArray();
                 if (hex !== null) {
                     const rgb = [0, 2, 4].map(i => parseInt(hex.slice(i, i + 2), 16) / 255);
                     node.value.fromArray(rgb.map(c => c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
                 }
+                const identity = identityMode === 'layers' ? (await import(attributionUrl)).installLayerColours(a) : null;
                 window.colourDiagnosticState = async () => {
                     const digest = async array => {
                         if (!ArrayBuffer.isView(array)) throw new Error('Expected typed GPU readback');
@@ -169,13 +203,51 @@ try {
                 colourDiagnosticTick(); await showcase.step(0);
                 const device = a.stage.renderer.backend.device;
                 const adapter = a.stage.renderer.backend.adapter?.info ?? device?.adapterInfo;
-                return { exactDefault, applied: node.value.toArray(), backend: a.stage.backendName, bootFrame, lightingChanges,
+                return { exactDefault, applied: node.value.toArray(), backend: a.stage.backendName, bootFrame, lightingChanges, hidden, identity,
                     adapter: adapter ? { vendor: adapter.vendor, architecture: adapter.architecture, device: adapter.device, description: adapter.description } : null,
                     stats: a.stage.stats, state: await colourDiagnosticState() };
-            }, { angle: angles[view], hex: colour.hex, clockMode, lightingMode });
+            }, { angle: angles[view], hex: colour.hex, clockMode, lightingMode, hideCards, hideCaps, identityMode, attributionUrl: `/@fs/${root}tools/critic/hair-attribution-browser.mjs` });
             assert.equal(setup.backend, 'webgpu', 'Native WebGPU is required.');
             const before = setup.state;
             await page.evaluate(async count => { for (let i = 0; i < count; i++) { colourDiagnosticTick(); await showcase.step(0); } }, frames);
+            if (exportGeometry && colour === colours[0]) {
+                const geometry = await page.evaluate(async () => {
+                    const a = showcase.avatar, d = a.hairDynamics, g = d.groom;
+                    let mesh; a.hairRoot.traverse(o => { if (o.isSkinnedMesh) mesh = o; });
+                    const c = await d.readCentrelines(), v = await d.readVertices();
+                    const head = mesh.matrixWorld.clone().fromArray(c.headMatrix);
+                    const point = mesh.position.clone();
+                    const world = values => {
+                        const result = [];
+                        for (let i = 0; i < values.length; i += 3) result.push(...point.fromArray(values, i).applyMatrix4(head).toArray());
+                        return result;
+                    };
+                    const project = values => {
+                        const result = [];
+                        for (let i = 0; i < values.length; i += 3) {
+                            point.fromArray(values, i).project(a.stage.camera);
+                            result.push((point.x + 1) * a.stage.canvas.width / 2, (1 - point.y) * a.stage.canvas.height / 2, point.z);
+                        }
+                        return result;
+                    };
+                    const restCentres = world(g.restCentres);
+                    const authored = mesh.geometry.getAttribute('position');
+                    if (authored.itemSize !== 3 || authored.count !== g.vertexCount) throw new Error('Unexpected authored position layout');
+                    const restVertices = world(Array.from(authored.array).slice(g.cardVertexBase * authored.itemSize));
+                    return { chainCount: g.chainCount, pointsPerChain: g.pointsPerChain, vertexBase: g.cardVertexBase,
+                        size: [a.stage.canvas.width, a.stage.canvas.height], headMatrix: c.headMatrix, steps: c.steps,
+                        meshName: mesh.name, extras: mesh.geometry.userData, meshExtras: mesh.userData,
+                        restCentres, liveCentres: Array.from(c.positions), restVertices, liveVertices: Array.from(v.positions),
+                        restCentresScreen: project(restCentres), liveCentresScreen: project(c.positions),
+                        restVerticesScreen: project(restVertices), liveVerticesScreen: project(v.positions),
+                        uv: Array.from(mesh.geometry.getAttribute('uv').array),
+                        uv1: Array.from(mesh.geometry.getAttribute('uv1').array),
+                        indices: Array.from(mesh.geometry.index.array) };
+                });
+                const geometryFile = `${preset}-${view}-geometry.json`;
+                fs.writeFileSync(path.join(out, geometryFile), JSON.stringify(geometry) + '\n');
+                report.geometryFiles ??= []; report.geometryFiles.push({ view, filename: geometryFile, sha256: sha(fs.readFileSync(path.join(out, geometryFile))) }); save();
+            }
             const capture = await page.evaluate(async () => {
                 const a = showcase.avatar;
                 const state = await colourDiagnosticState();
@@ -203,10 +275,10 @@ try {
                 low = Math.min(low, sum); high = Math.max(high, sum);
             }
             assert.ok(high - low > .6, 'Actual canvas must contain visible contrast.');
-            const record = { name, view, angle: angles[view], colour, filename, imageSha256: sha(bytes),
+            const record = { name, view, candidateLoads, angle: angles[view], colour, filename, imageSha256: sha(bytes),
                 size: [decoded.width, decoded.height], exactDefault: setup.exactDefault, applied: setup.applied,
                 backend: setup.backend, adapter: setup.adapter, stats: setup.stats, bootFrame: setup.bootFrame, clock: capture.clock,
-                lightingChanges: setup.lightingChanges,
+                lightingChanges: setup.lightingChanges, hidden: setup.hidden, identity: setup.identity,
                 stateSha256: sha(JSON.stringify(before)), fixedState: before, errors };
             if (colour.id === 'exact-default') dark = decoded;
             if (colour.id === 'default-repeat') {
@@ -231,7 +303,7 @@ try {
     assert.deepEqual(sourceHashes(), report.sourceHashes, 'Source/asset bytes changed during capture.');
     report.status = 'captured'; report.finished = new Date().toISOString(); save();
     const items = report.cases.map(c => `<figure><img src="${c.filename}" alt="${c.name}"><figcaption>${c.view} · ${c.colour.label}</figcaption></figure>`).join('\n');
-    fs.writeFileSync(path.join(out, 'review.html'), `<!doctype html><meta charset="utf-8"><title>Bob colour diagnostic</title><style>body{background:#20231f;color:#eee;font:16px system-ui;margin:24px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0}img{width:100%;height:auto}figcaption{padding:10px}p{max-width:75ch}</style><h1>Bob colour diagnostic</h1><p>Lighting: ${lightingMode}. Same source groom and fixed pose within each view; only material base colour changes between its four arms. These are diagnostic colours, not qualified replacement assets. See report.json for controls and repeat differences.</p><main>${items}</main>`);
+    fs.writeFileSync(path.join(out, 'review.html'), `<!doctype html><meta charset="utf-8"><title>Bob colour diagnostic</title><style>body{background:#20231f;color:#eee;font:16px system-ui;margin:24px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0}img{width:100%;height:auto}figcaption{padding:10px}p{max-width:75ch}</style><h1>Bob colour diagnostic</h1><p>Lighting: ${lightingMode}. Same source groom and fixed pose within each view; material base colour varies between selected colour arms. Any card removal is recorded in report.json and changes occlusion; it is an attribution diagnostic. These are diagnostic colours, not qualified replacement assets. See report.json for controls and repeat differences.</p><main>${items}</main>`);
     console.log(`DONE ${report.cases.length} captures; ${out}`);
 } catch (error) {
     report.status = 'failed'; report.errors.push(error.stack); report.finished = new Date().toISOString(); save();
