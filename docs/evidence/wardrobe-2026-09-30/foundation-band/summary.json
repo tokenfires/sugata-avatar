@@ -1,0 +1,200 @@
+{
+  "created": "2026-09-30T20:27:10.735875+00:00",
+  "status": "source-vertex-and-fan-prerequisites-met",
+  "failedV1": {
+    "pid": 71102,
+    "started": "2026-09-30T20:19:39.887Z",
+    "finished": "2026-09-30T20:19:39.934Z",
+    "reportSHA256": "7e8150a9ef9ac90538d023e34c8770c3020d023f08f992b6a6afa73da153fa8b",
+    "reason": "Archive stores root-relative member; prefixed-path assertion stopped before subject evaluation."
+  },
+  "v2": {
+    "pid": 73788,
+    "started": "2026-09-30T20:21:26.143Z",
+    "finished": "2026-09-30T20:21:27.152Z",
+    "reportSHA256": "39d031d21a13b180074cd2645210c6ff9b43216ab15758b7da009f4481b5104f"
+  },
+  "plane": {
+    "bust": 1.2097989618778229,
+    "ceiling": 1.2695089002973263,
+    "floor": 1.1523142659649643,
+    "centres": [
+      [
+        -0.10022244773184259,
+        1.2097989618778229,
+        0.14639005561669668
+      ],
+      [
+        0.10022244773184259,
+        1.2097989618778229,
+        0.14639005561669668
+      ]
+    ],
+    "heads": {
+      "clavicle_l": [
+        0.02277444116771221,
+        1.3424877139211637,
+        0.022098901777730176
+      ],
+      "spine_03": [
+        0,
+        1.0948295700521058,
+        -0.0080367279634729
+      ]
+    },
+    "interpretation": "One reconstructed anatomical source-space plane through the already offset/rolled export, not original pre-offset membership."
+  },
+  "sourceMembership": {
+    "entry": "entities/socketobject/_extra_vertex_groups.py",
+    "bytes": 89161,
+    "sha256": "b27a9391a91344c3e63c4ae73c92f4d14c277e5d2e5cabaa3e2b8089bc5f5e79"
+  },
+  "faceCounts": {
+    "below": 12335,
+    "above": 9447,
+    "mixed": 308
+  },
+  "casualRetainedFaces": 327,
+  "casualAllAbove": true,
+  "requiredCoverage": {
+    "originalCovered": 110,
+    "belowCovered": 110,
+    "originalMissing": [],
+    "belowMissing": [],
+    "exactFirstHitPreserved": 110
+  },
+  "fan": {
+    "samplesIncludingDuplicates": 3780,
+    "baselineUncovered": 0,
+    "lostCoveredSamples": 0,
+    "belowCovered": 3780
+  },
+  "controls": {
+    "emptyCovered": 0,
+    "tooLowCovered": 0,
+    "tooLowHeight": 1.1884267282485963,
+    "analyticCases": 4
+  },
+  "topology": {
+    "weldTolerance": 1e-07,
+    "weldedVertices": 6632,
+    "edges": 18967,
+    "triangles": 12335,
+    "eulerCharacteristic": 0,
+    "boundaryEdges": 929,
+    "nonmanifoldEdges": 0,
+    "orientationErrors": 0,
+    "components": 1,
+    "maxWeldSeparation": 0
+  },
+  "vertexLinkFailures": 13,
+  "firstLinkFailure": {
+    "group": 9573,
+    "pairs": [
+      [
+        6338,
+        3690
+      ],
+      [
+        3690,
+        6477
+      ],
+      [
+        11040,
+        11825
+      ]
+    ],
+    "repeated": false,
+    "degrees": [
+      1,
+      2,
+      1,
+      1,
+      1
+    ],
+    "connected": false
+  },
+  "mixedSummary": {
+    "triangles": 308,
+    "maxEdgeInfluenceUnion": 5,
+    "nearestBodyMinimumUnsigned": 0.0007273994597908359
+  },
+  "fiveInfluenceWitness": {
+    "face": 6636,
+    "edge": [
+      4121,
+      1200
+    ],
+    "fraction": 0.7503045303687784,
+    "point": [
+      0.07655747928585169,
+      1.2695089002973263,
+      -0.07704309324727776
+    ],
+    "bodyNearest": {
+      "triangle": 15749,
+      "point": [
+        0.07637220555516756,
+        1.2696977072800988,
+        -0.0744049187039539
+      ],
+      "signed": 0.002651403279975971
+    },
+    "skinInfluenceUnion": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "floorConfigurations": [
+    {
+      "torso": "foundation_bra",
+      "hips": "foundation_briefs",
+      "hipBounds": {
+        "min": [
+          -0.17180201411247253,
+          0.6745396852493286,
+          -0.0973765179514885
+        ],
+        "max": [
+          0.17180201411247253,
+          0.9102361798286438,
+          0.13054895401000977
+        ]
+      },
+      "lowestChestRayY": 1.17958317514956,
+      "hipCannotSupplyChestHits": true,
+      "torsoOriginalCovered": 110,
+      "torsoBelowCovered": 110
+    },
+    {
+      "torso": "foundation_bra",
+      "hips": "foundation_boxer_brief",
+      "hipBounds": {
+        "min": [
+          -0.1914922595024109,
+          0.6235795021057129,
+          -0.0973765179514885
+        ],
+        "max": [
+          0.1914922595024109,
+          0.9102361798286438,
+          0.13054895401000977
+        ]
+      },
+      "lowestChestRayY": 1.17958317514956,
+      "hipCannotSupplyChestHits": true,
+      "torsoOriginalCovered": 110,
+      "torsoBelowCovered": 110
+    }
+  ],
+  "limits": [
+    "No clipped mesh, new hem, asset export, native image, pose range or runtime transition qualification.",
+    "The horizontal plane is reconstructed from current exported anatomy; original offset/relaxation/roll labels are not recovered.",
+    "Nearest-body witnesses are geometric correspondences, not original subdivision or skin provenance.",
+    "The supplementary fan has fixed samples including duplicates; it is neither a complete surface coverage certificate nor a new product target.",
+    "Topology and skin-union receipts inform a separate construction contract; source coverage does not qualify the new rim."
+  ]
+}

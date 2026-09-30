@@ -1,0 +1,323 @@
+{
+  "created": "2026-09-30T20:27:10.772639+00:00",
+  "scope": "Local integrity inventory; not an off-machine backup. V1 preserves its own failed source. Shared unchanged inputs are copied under V2.",
+  "files": [
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/execution.txt",
+      "bytes": 1007,
+      "sha256": "30aa2722563f2dbad107ebcdc3236681cdf2c1261e7542caabca46630f9c2468"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/report.json",
+      "bytes": 5194,
+      "sha256": "7e8150a9ef9ac90538d023e34c8770c3020d023f08f992b6a6afa73da153fa8b"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/docs/evidence/wardrobe-2026-09-30/foundation-band/PLAN.md",
+      "bytes": 6699,
+      "sha256": "b12c66673d428b7d9d60b55585994958c0f625ff1fedf1effa287d9af51339b5"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/node_modules/three/build/three.tsl.js",
+      "bytes": 34213,
+      "sha256": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/node_modules/three/build/three.webgpu.js",
+      "bytes": 2172442,
+      "sha256": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/packages/core/src/wardrobe/decency.selftest.mjs",
+      "bytes": 52582,
+      "sha256": "cb941ab64561e371f337bb47470f2312464d140456824aeebe8d7ee4dc638999"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/casual_trouser_cuff.mjs",
+      "bytes": 8497,
+      "sha256": "4b90f14806ac94c9408baf3ec70b8d175baf3df83f749c59991d8985c2f20992"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/casual_trouser_fit.mjs",
+      "bytes": 9184,
+      "sha256": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/collar_clearance_review.mjs",
+      "bytes": 26454,
+      "sha256": "60c7e549e63ec02b53460b7f842e8ea7369672a5766d14dc0c38eda96bc3533c"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/foundation_band_feasibility.mjs",
+      "bytes": 19390,
+      "sha256": "1d97b4ac936bb2a4962b632adc20e52238857e60aab785da8455e21227e77d66"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/hair_fall.mjs",
+      "bytes": 17640,
+      "sha256": "ae6dcd35041256706796452be127d2463c6a5c4097bcca31b66cb28dbd9e9133"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/hair_geometry.mjs",
+      "bytes": 27179,
+      "sha256": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/figure-pipeline/hair_surface.mjs",
+      "bytes": 18753,
+      "sha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v1/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/wardrobe/foundation_boxer_brief/g050.glb",
+      "bytes": 529836,
+      "sha256": "4f0a206012250e980ad0f3f4f27101d8af023ce4b52775c986d7a7ee485cdaeb"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/captures/neckline-attachment-2026-09-30-v1/report.json",
+      "bytes": 3089549,
+      "sha256": "6e2fb1fea5470e73188a68f67c9c5d48eacf33663eabb7c3e3c2ee7b6db6b0ca"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/captures/neckline-attachment-2026-09-30-v1/snapshot.json.gz",
+      "bytes": 1439721,
+      "sha256": "be6f11e570ffef086c586f4a05138fb8c0d8e2b9e60bf75df9016adebb46d5bd"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/tmp/wardrobe-sep30/blender-profile/extensions/user_default/mpfb/entities/socketobject/_extra_vertex_groups.py",
+      "bytes": 89161,
+      "sha256": "b27a9391a91344c3e63c4ae73c92f4d14c277e5d2e5cabaa3e2b8089bc5f5e79"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/bound-inputs/tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+      "bytes": 45031536,
+      "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/execution.txt",
+      "bytes": 555,
+      "sha256": "bd0769908d0420e32304e43d57c3c2a933e226b304f0a10266ded6a58e2709a7"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/report.json",
+      "bytes": 4774406,
+      "sha256": "39d031d21a13b180074cd2645210c6ff9b43216ab15758b7da009f4481b5104f"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/docs/evidence/wardrobe-2026-09-30/foundation-band/PLAN.md",
+      "bytes": 6699,
+      "sha256": "b12c66673d428b7d9d60b55585994958c0f625ff1fedf1effa287d9af51339b5"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/docs/evidence/wardrobe-2026-09-30/foundation-band/V2.md",
+      "bytes": 1046,
+      "sha256": "3b3fb44337f058f8df2e690912ea908316c1300b7f85e1365d50e236700bb8ef"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/node_modules/three/build/three.tsl.js",
+      "bytes": 34213,
+      "sha256": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/node_modules/three/build/three.webgpu.js",
+      "bytes": 2172442,
+      "sha256": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/packages/core/src/wardrobe/decency.selftest.mjs",
+      "bytes": 52582,
+      "sha256": "cb941ab64561e371f337bb47470f2312464d140456824aeebe8d7ee4dc638999"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/casual_trouser_cuff.mjs",
+      "bytes": 8497,
+      "sha256": "4b90f14806ac94c9408baf3ec70b8d175baf3df83f749c59991d8985c2f20992"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/casual_trouser_fit.mjs",
+      "bytes": 9184,
+      "sha256": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/collar_clearance_review.mjs",
+      "bytes": 26454,
+      "sha256": "60c7e549e63ec02b53460b7f842e8ea7369672a5766d14dc0c38eda96bc3533c"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/foundation_band_feasibility.mjs",
+      "bytes": 19630,
+      "sha256": "be46016bd297339c674fe40e3b7a55b47ae92893570fb790845a72ae734a0f94"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/hair_fall.mjs",
+      "bytes": 17640,
+      "sha256": "ae6dcd35041256706796452be127d2463c6a5c4097bcca31b66cb28dbd9e9133"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/hair_geometry.mjs",
+      "bytes": 27179,
+      "sha256": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/figure-pipeline/hair_surface.mjs",
+      "bytes": 18753,
+      "sha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+    },
+    {
+      "path": "captures/foundation-band-feasibility-2026-09-30-v2/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    }
+  ],
+  "fileCount": 63,
+  "bytes": 89559692
+}
