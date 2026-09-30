@@ -1,0 +1,93 @@
+{
+  "reports": {
+    "neutral-studio-defaults-2026-09-30-v1": {
+      "path": "captures/neutral-studio-defaults-2026-09-30-v1/report.json",
+      "sha256": "129119b69547f513e9fabe2a84c3f075e1334fe2b1e734c448ae244a7da8f486",
+      "pid": 49067,
+      "started": "2026-09-30T19:00:53.661Z",
+      "finished": "2026-09-30T19:00:53.739Z",
+      "status": "passed"
+    },
+    "neutral-studio-2026-09-30-v1": {
+      "path": "captures/neutral-studio-2026-09-30-v1/report.json",
+      "sha256": "a97c85f58445f37f92957813f0c4db42e19bfa55b5b94cff901eb60e434278d2",
+      "pid": 58081,
+      "started": "2026-09-30T19:06:49.631Z",
+      "finished": "2026-09-30T19:06:55.227Z",
+      "status": "failed"
+    },
+    "neutral-studio-2026-09-30-v2": {
+      "path": "captures/neutral-studio-2026-09-30-v2/report.json",
+      "sha256": "5f1c1bae5f713ff7718c2331a4027d1eb28459d6b307e0a50447fddc0672eb1c",
+      "pid": 60765,
+      "started": "2026-09-30T19:08:33.791Z",
+      "finished": "2026-09-30T19:09:28.592Z",
+      "status": "captured"
+    },
+    "neutral-studio-ui-2026-09-30-v1": {
+      "path": "captures/neutral-studio-ui-2026-09-30-v1/report.json",
+      "sha256": "0ff1035a9602102af33014433dc005a3dfd54ebed86d773aa6e2b2ab564912c4",
+      "pid": 65774,
+      "started": "2026-09-30T19:11:50.711Z",
+      "finished": "2026-09-30T19:12:09.725Z",
+      "status": "failed"
+    },
+    "neutral-studio-ui-2026-09-30-v2": {
+      "path": "captures/neutral-studio-ui-2026-09-30-v2/report.json",
+      "sha256": "6b37721654d150db7212119770d461323e6582b6bce2f107d8c6e40df1dac671",
+      "pid": 69971,
+      "started": "2026-09-30T19:14:32.445Z",
+      "finished": "2026-09-30T19:14:57.187Z",
+      "status": "captured"
+    }
+  },
+  "material": {
+    "arms": 12,
+    "highStates": 7,
+    "retiredOwners": 14,
+    "defaultImageObservations": [
+      {
+        "a": "baseline-casual-body-studio",
+        "b": "feature-casual-body-studio",
+        "changedPixels": 0,
+        "maxCodes": 0,
+        "totalPixels": 781200,
+        "exact": true
+      },
+      {
+        "a": "baseline-casual-portrait-studio",
+        "b": "feature-casual-portrait-studio",
+        "changedPixels": 380,
+        "maxCodes": 7,
+        "totalPixels": 781200,
+        "exact": false
+      },
+      {
+        "a": "baseline-elegant-body-studio",
+        "b": "feature-elegant-body-studio",
+        "changedPixels": 0,
+        "maxCodes": 0,
+        "totalPixels": 781200,
+        "exact": true
+      },
+      {
+        "a": "baseline-elegant-portrait-studio",
+        "b": "feature-elegant-portrait-studio",
+        "changedPixels": 225,
+        "maxCodes": 3,
+        "totalPixels": 781200,
+        "exact": false
+      }
+    ]
+  },
+  "ui": {
+    "states": 16,
+    "images": 5,
+    "retiredOwners": 5
+  },
+  "limits": [
+    "Existing exact-image property remains failed.",
+    "High immediate transitions are not qualified for clean convergence or exact post-draw shadow projection return.",
+    "Static colour inspection and recorded state only; no haircut, fit, all-motion or calibrated-colour acceptance."
+  ]
+}

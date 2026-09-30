@@ -1,0 +1,7 @@
+# Native observer recovery, V2
+
+V1 is preserved failed. PID58081, root exec session72613, start2026-09-30T19:06:49.631Z, finish2026-09-30T19:06:55.227Z, reportSHA256`a97c85f58445f37f92957813f0c4db42e19bfa55b5b94cff901eb60e434278d2`. The first complete baseline image rendered atframe99 on observedAppleMetal3, but the observer incorrectly expected assets/figures/figure_g050.glb. The actual loaded body is assets/wardrobe/body/g050.glb, as Avatar's wardrobe path chooses. Its response SHA matched the source inventory. No browser/HTTP error; failure cleanup disposed the Avatar with no reported leak, and browser/server closed. No candidate product changes.
+
+V2 retains all observation semantics and the accepted asset bytes. It checks the actual wardrobe-body asset path and uses fresh output`captures/neutral-studio-2026-09-30-v2`. It also adopts two pending independent preflight improvements: highfreshNeutral now directly compares linear ambient luminance and intensity to the previously observed highStudio owner; the PNGdecoder is pinned/copied/rechecked as an explicit instrument dependency. Alternatives were post-hoc cross-owner analysis and a broader instrument snapshot. The narrower direct gates were chosen. No thresholds or image epoch searches follow.
+
+Command: `node tools/critic/neutral-studio-capture.mjs`. Root remains sole native owner. UI requiresV2 captured status and exactsourceinventory before execution. OriginalV1report/images/snapshots and capturedoldobserver remain unchanged.
