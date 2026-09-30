@@ -17,7 +17,7 @@ export const SHOWCASE_OUTFITS = Object.freeze({
 // Compared in actual fixed-pose studio renders before selection. Visible fit issues remain documented.
 export const SHOWCASE_FOUNDATION = Object.freeze({ TORSO: 'foundation_bra', HIPS: 'foundation_briefs' });
 export const SHOWCASE_SEED = 20260807;
-const choices = { style: WARDROBE_STYLES, preset: ['casual', 'elegant'], outfit: ['casual', 'elegant'], frame: ['body', 'portrait'], light: ['studio', 'warm'] };
+const choices = { style: WARDROBE_STYLES, preset: ['casual', 'elegant'], outfit: ['casual', 'elegant'], frame: ['body', 'portrait'], light: ['studio', 'warm', 'neutral'] };
 export function resolveShowcaseSelection(params) {
     for (const [key, values] of Object.entries(choices)) {
         if (params.getAll(key).length > 1) throw new Error(`Duplicate ${key} selection.`);

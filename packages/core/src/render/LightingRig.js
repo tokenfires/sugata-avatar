@@ -201,6 +201,7 @@
 
 import {
     Color,
+    ColorManagement,
     DirectionalLight,
     HemisphereLight,
     Object3D,
@@ -2066,6 +2067,7 @@ export class LightingRig {
      * @param {number} [options.shadowCoverageInHeights=2.2] - Half-extent of the shadow cone at
      *   the subject, in framed heights. Do not shrink it to buy texels — see `frameShadowCamera`.
      * @param {boolean} [options.ambient=true]
+     * @param {boolean} [options.neutralColours=false] - Remove source hue at the same linear luminance.
      * @param {?Object} [options.overrides] - Per-light field overrides keyed by name, e.g.
      *   `{ fill: { irradiance: 1.6 } }`. For the browsercheck's sliders; production callers should
      *   change the preset table instead so the change is reviewed.
@@ -2078,6 +2080,7 @@ export class LightingRig {
         this.shadowMapSize = options.shadowMapSize ?? 4096;
         this.shadowCoverageInHeights = options.shadowCoverageInHeights ?? 2.2;
         this.ambientEnabled = options.ambient !== false;
+        this.neutralColours = options.neutralColours === true;
         this.ambientFractionOfKey = options.ambientFractionOfKey ?? AMBIENT.fractionOfKey;
         this.overrides = options.overrides ?? {};
 
@@ -2102,6 +2105,21 @@ export class LightingRig {
         this.cameraPosition = new Vector3( 0, 0, 1 );
 
         this.placements = this.resolvePlacements();
+
+    }
+
+    /** Resolve an authored colour afresh; never quantize the neutral path through sRGB hex. */
+    colourFor( value ) {
+
+        const colour = new Color( value );
+        if ( this.neutralColours ) {
+
+            const coefficients = ColorManagement.getLuminanceCoefficients( new Vector3() );
+            const luminance = colour.r * coefficients.x + colour.g * coefficients.y + colour.b * coefficients.z;
+            colour.setRGB( luminance, luminance, luminance );
+
+        }
+        return colour;
 
     }
 
@@ -2335,13 +2353,13 @@ export class LightingRig {
      * therefore included; a caller that mutates `ambientLight.intensity` directly after attach is
      * not, and `render/GTAO.js` would then be lighting from a value the frame no longer uses.
      *
-     * @returns {{ skyColour: number, groundColour: number, intensity: number, attached: boolean }}
+     * @returns {{ skyColour: number|Color, groundColour: number|Color, intensity: number, attached: boolean }}
      */
     describeAmbient() {
 
         return {
-            skyColour: AMBIENT.skyColour,
-            groundColour: AMBIENT.groundColour,
+            skyColour: this.neutralColours ? this.colourFor( AMBIENT.skyColour ) : AMBIENT.skyColour,
+            groundColour: this.neutralColours ? this.colourFor( AMBIENT.groundColour ) : AMBIENT.groundColour,
             intensity: this.irradianceOf( 'key' ) * this.ambientFractionOfKey,
             attached: this.ambientLight !== null
         };
@@ -2490,7 +2508,7 @@ export class LightingRig {
             // this file's irradiance convention is already stated in `DirectionalLight`'s own units
             // (see the `Placement` docstring), so unlike a panel there is no solid angle to divide
             // by, and with no shadow half there is no share to hold back either.
-            this.glintLight = new DirectionalLight( new Color( glint.colour ), 1 );
+            this.glintLight = new DirectionalLight( this.colourFor( glint.colour ), 1 );
             this.glintLight.name = glint.name;
 
             this.glintTarget = new Object3D();
@@ -2505,8 +2523,8 @@ export class LightingRig {
         if ( this.ambientEnabled ) {
 
             this.ambientLight = new HemisphereLight(
-                AMBIENT.skyColour,
-                AMBIENT.groundColour,
+                this.colourFor( AMBIENT.skyColour ),
+                this.colourFor( AMBIENT.groundColour ),
                 this.irradianceOf( 'key' ) * this.ambientFractionOfKey
             );
             this.ambientLight.name = 'ambient';
@@ -2519,7 +2537,7 @@ export class LightingRig {
     /** One light: the area half, and the shadow half if this light carries any shadow energy. */
     buildUnit( placement ) {
 
-        const area = new RectAreaLight( new Color( placement.colour ), 1, 1, 1 );
+        const area = new RectAreaLight( this.colourFor( placement.colour ), 1, 1, 1 );
         area.name = placement.name;
         this.scene.add( area );
 
@@ -2539,7 +2557,7 @@ export class LightingRig {
         // `SpotLightShadow.updateMatrices`, which sets `camera.far = light.distance || camera.far`
         // and so collapses the shadow frustum as well. Neither is a default three would restore;
         // both are written here explicitly so the fingerprint has something to hold them to.
-        const shadowCaster = new SpotLight( new Color( placement.colour ), 1 );
+        const shadowCaster = new SpotLight( this.colourFor( placement.colour ), 1 );
         shadowCaster.name = `${ placement.name }-shadow`;
         shadowCaster.castShadow = true;
         shadowCaster.decay = 2;

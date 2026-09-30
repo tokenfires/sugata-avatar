@@ -4,16 +4,16 @@ import { optionsForShowcase } from './showcase-presets.mjs';
 const store = () => { const entries = new Map(); return { getItem: key => entries.get(key) ?? null, setItem: (key, value) => entries.set(key, value), entries }; };
 const options = (overrides = {}) => optionsForShowcase({ preset: 'casual', outfit: 'casual', style: 'ecru', frame: 'body', scene: 'studio', light: 'studio', ...overrides });
 let checks = 0; const check = (name, run) => { run(); checks++; console.log('PASS ' + name); };
-check('all 72 supported settings save canonically and reopen with names separate from options', () => {
+check('all 96 supported settings save canonically and reopen with names separate from options', () => {
     let combinations = 0;
     for (const preset of ['casual', 'elegant']) for (const outfit of ['casual', 'elegant']) for (const style of ['ecru', 'charcoal', 'original'])
-        for (const frame of ['body', 'portrait']) for (const [scene, light] of [['studio', 'studio'], ['studio', 'warm'], ['kitchen', 'studio']]) {
+        for (const frame of ['body', 'portrait']) for (const [scene, light] of [['studio', 'studio'], ['studio', 'warm'], ['studio', 'neutral'], ['kitchen', 'studio']]) {
             const storage = store(), library = new SavedLooks(() => storage, () => 'id'), expected = options({ preset, outfit, style, frame, scene, light });
             const item = library.add(' A look ', expected), restored = new SavedLooks(() => storage).open(item.id);
             assert.equal(item.name, 'A look'); assert.deepEqual(optionsForShowcase(restored.selection), expected);
             assert.deepEqual(restored.item.configuration, expected); assert.equal(Object.hasOwn(expected, 'name'), false); combinations++;
         }
-    assert.equal(combinations, 72);
+    assert.equal(combinations, 96);
 });
 check('names, duplicates, identity and cap reject without changing stored data', () => {
     const storage = store(); let next = 0; const library = new SavedLooks(() => storage, () => `id-${next++}`);

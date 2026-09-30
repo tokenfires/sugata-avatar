@@ -328,7 +328,9 @@ const DEFAULT_REST_POSE = 'relaxed-standing';
  * LESS than shipped). One step further, `#b0c0ff` — a tint that reads as white in a swatch — scores
  * 6.2939 and renders 57.37% of the frame saturated blue.
  *
- * ⚠️ AND NO LOOK MOVES THE AMBIENT. See `AMBIENT_MULTIPLIER_RANGE` for the one-code-value window
+ * The original five looks keep ambient colours fixed. Neutral removes ambient hue at the same
+ * linear luminance; its appearance is not covered by the original calibration. See
+ * `AMBIENT_MULTIPLIER_RANGE` for the one-code-value window
  * that makes it the most gate-fragile lever on this whole surface.
  */
 export const SCENE_LOOKS = Object.freeze( {
@@ -339,6 +341,11 @@ export const SCENE_LOOKS = Object.freeze( {
      * critic has judged.
      */
     studio: Object.freeze( { fields: Object.freeze( {} ), scales: Object.freeze( {} ) } ),
+
+    // Colour-inspection option: LightingRig removes each resolved source hue at the same linear
+    // luminance. Geometry and scalar strength stay authored; materials and environments keep
+    // their own colours. This is not colour calibration.
+    neutral: Object.freeze( { fields: Object.freeze( {} ), scales: Object.freeze( {} ) } ),
 
     /**
      * A companion or assistant presence on a dark or neutral host UI. Key ~4300 K instead of
@@ -1387,6 +1394,7 @@ export class Avatar {
         // never as a `preset`, which is the framing axis `setFraming` owns. See `SCENE_LOOKS`.
         this.lights = new LightingRig( {
             preset: this.frameMode,
+            neutralColours: this.lighting.look === 'neutral',
             shadows: this.lighting.shadows ?? this.tierSettings.shadows,
 
             // 🚩 TWO WAYS TO LOSE THE HEMISPHERE AND THEY ARE DIFFERENT REASONS. With GTAO on it
@@ -2216,6 +2224,7 @@ export class Avatar {
         const overrides = this.lightOverridesFor( this.frameMode );
 
         // Set before the re-solve below, because `solve()` reads both.
+        this.lights.neutralColours = this.lighting.look === 'neutral';
         this.lights.exposure = EXPOSURE_CALIBRATION * this.lighting.exposure;
         this.lights.ambientFractionOfKey = shippedAmbientFractionOfKey() * this.lighting.ambient;
 
@@ -2267,7 +2276,10 @@ export class Avatar {
         // frozen at its build value, changing the very key:ambient balance the file is calibrated
         // on, invisibly. `setAmbientIntensity` was added to `createGroundTruthOcclusion`'s return
         // for this line; the `?.` is for the tiers that have no occlusion to tell.
-        this.stage.ambientOcclusion?.setAmbientIntensity?.( this.lights.describeAmbient().intensity );
+        const ambient = this.lights.describeAmbient();
+        this.stage.ambientOcclusion?.setAmbientIntensity?.( ambient.intensity );
+        // High quality owns separate colour uniforms, including when returning from Neutral.
+        this.stage.ambientOcclusion?.setAmbientColours?.( ambient.skyColour, ambient.groundColour );
 
         // 🚩 AND THE ENVIRONMENT, FOR EXACTLY THE REASON ABOVE. `setLighting({ exposure: 1.2 })`
         // scales the four direct lights through `this.lights.exposure`; an image-based light left at
@@ -2605,7 +2617,8 @@ export class Avatar {
                      */
                     calibrated: this.lights.exposure === EXPOSURE_CALIBRATION
                         && this.lights.ambientFractionOfKey === shippedAmbientFractionOfKey()
-                        && this.environment === null,
+                        && this.environment === null
+                        && this.lighting.look !== 'neutral',
 
                     designedKeyToFill: this.lights.designedKeyToFill,
 

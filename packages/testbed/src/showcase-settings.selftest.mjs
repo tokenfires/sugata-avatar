@@ -15,11 +15,11 @@ const exported = options => configurationFromReport({ disposal: { disposed: fals
     quality: { requested: options.quality }, motion: { seed: options.seed } });
 const normal = () => optionsForShowcase(resolveShowcaseSelection(new URLSearchParams()));
 
-await check('72 complete Studio/Kitchen exports reopen through JSON and page URL without losing settings', async () => {
+await check('96 complete Studio/Kitchen exports reopen through JSON and page URL without losing settings', async () => {
     let combinations = 0;
     for (const preset of SHOWCASE_PRESETS) for (const outfit of Object.keys(SHOWCASE_OUTFITS))
         for (const style of ['ecru', 'charcoal', 'original']) for (const frame of ['body', 'portrait'])
-            for (const [scene, light] of [['studio', 'studio'], ['studio', 'warm'], ['kitchen', 'studio']]) {
+            for (const [scene, light] of [['studio', 'studio'], ['studio', 'warm'], ['studio', 'neutral'], ['kitchen', 'studio']]) {
                 const expected = optionsForShowcase({ preset: preset.id, outfit, style, frame, light, scene });
                 const settings = exported(expected), selected = await readShowcaseSettings(file(JSON.stringify(settings)));
                 assert.equal(selected.scene, scene); assert.equal(selected.light, light);
@@ -30,7 +30,7 @@ await check('72 complete Studio/Kitchen exports reopen through JSON and page URL
                 assert.equal(url.searchParams.has('capture'), true); assert.equal(url.searchParams.has('debug'), false);
                 assert.equal(url.searchParams.has('gender'), false); combinations++;
             }
-    assert.equal(combinations, 72);
+    assert.equal(combinations, 96);
 });
 await check('JSON object key order, garment order and explicit original fabric preserve the same look', () => {
     const settings = normal(); settings.wardrobe.style = 'original'; settings.wardrobe.outfit.reverse();

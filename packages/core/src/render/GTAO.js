@@ -1017,6 +1017,14 @@ export function createGroundTruthOcclusion( {
 
         },
 
+        /** Update the existing linear uniforms when the rig changes its colour treatment. */
+        setAmbientColours( sky, ground ) {
+
+            skyColour.value.set( sky );
+            groundColour.value.set( ground );
+
+        },
+
         /** What the composite believes it is doing. Read by the census, so a plate can say. */
         describe() {
 
@@ -1034,6 +1042,8 @@ export function createGroundTruthOcclusion( {
                 view,
                 skyColour: skyColour.value.getHexString(),
                 groundColour: groundColour.value.getHexString(),
+                skyLinear: skyColour.value.toArray(),
+                groundLinear: groundColour.value.toArray(),
                 intensity: intensity.value
             };
 

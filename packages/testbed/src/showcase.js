@@ -102,7 +102,7 @@ function renderCollection() {
             open.setAttribute('aria-describedby', description.id);
             try {
                 const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
-                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style}${customColourLabel(look) ? ` · ${customColourLabel(look)}` : ''} · ${hairColourLabel(look.hairColour, look.hairTint)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
+                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style}${customColourLabel(look) ? ` · ${customColourLabel(look)}` : ''} · ${hairColourLabel(look.hairColour, look.hairTint)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : look.light === 'neutral' ? 'Neutral Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
             } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
             open.addEventListener('click', () => {
                 if (!collectionAvailable()) return;

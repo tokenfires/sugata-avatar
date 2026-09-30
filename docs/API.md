@@ -107,7 +107,7 @@ const avatar = await Avatar.create( {
     bakedMapBaseUrl: null,
     framedHeightMetres: undefined, // override the crop; 0.18 is eyes-only
 
-    lighting: 'studio',            // 'studio'|'warm'|'cool'|'soft'|'dramatic', or the object below
+    lighting: 'studio',            // 'studio'|'neutral'|'warm'|'cool'|'soft'|'dramatic', or the object below
     background: 'studio',          // 'studio'|'void', a hex, or the object below
     scene: 'studio',               // 'studio'|'void', or a scene description — the WIDER form
     hair: false,                   // 'bob01' | 'bob02' (g050 only) | false
@@ -136,7 +136,7 @@ ones that decide whether the avatar looks like it belongs on the host page.
 
 ```js
 lighting: {
-    look: 'studio',      // 'studio' | 'warm' | 'cool' | 'soft' | 'dramatic'
+    look: 'studio',      // 'studio' | 'neutral' | 'warm' | 'cool' | 'soft' | 'dramatic'
     exposure: 1,         // RELATIVE multiplier on the calibrated exposure. Refused outside [0.25, 4]
     ambient: 1,          // RELATIVE multiplier on the rig's ambient fraction of key. [0.5, 2]
     shadows: null,       // null lets the quality tier decide; true/false wins over it
@@ -148,6 +148,8 @@ background: {
     ground: true         // the floor plane + contact occlusion. false => no plane
 }
 ```
+
+`lighting: 'neutral'` removes the hue of each rig source at the same linear luminance, including hemisphere ambient. It preserves light placement, scalar intensity and shadow settings. Use it to inspect hair and clothing colours in Studio; it does not neutralize materials, backgrounds or image-based environments, and it is not colour calibration (`report().scene.lighting.calibrated` is false). The showcase offers **Neutral** beside Studio and Warm and saves the choice with settings and named looks. Kitchen continues to use its own room lighting.
 
 ### `scene` — the place, which is the wider form of `background`
 
@@ -304,7 +306,7 @@ reads `'sky-pmrem'` on an exterior, because what is behind the figure there is a
 colour. ⚠️ `id` and `kind` are the **description** — what the caller asked for — while everything
 else in that block is read off the live scene graph.
 
-**The five looks, and what each is for.** A look changes colour, key geometry and edge-light energy
+**The five original looks, and what each is for.** These looks change colour, key geometry and edge-light energy
 — and *nothing else*. Measured through the real `LightingRig` at both framings on 2026-08-17,
 against the two environment-spill ceilings `LightingRig.selftest.mjs` publishes:
 
@@ -315,6 +317,8 @@ against the two environment-spill ceilings `LightingRig.selftest.mjs` publishes:
 | `cool` | key `#eef2ff`, fill `#dfe6f4` | 1.3636 | 2.5000 | 1.7862 | 3.3409 | an avatar inside cool product chrome |
 | `soft` | key elevation 18°→10°, rim ×0.70, kicker ×0.70 | 1.3636 | 2.5000 | 1.5018 | 2.2325 | always-on, small in a corner |
 | `dramatic` | key elevation 18°→30°, azimuth 42°→52°, rim ×1.25 | 1.3636 | 2.5000 | 1.7060 | 2.4218 | a reveal, an emphatic reply, a listening state |
+
+The optional **Neutral** look preserves each source's linear luminance while removing its hue, including ambient colours. It is outside the historical measurements above. Fresh static Studio and Neutral views and saved controls are qualified in [the September 30 evidence](evidence/appearance-2026-09-30/neutral-studio/README.md). High-quality first frames after a live light/framing change can retain colour residue or stippled edges; instantaneous clean transitions and temporal convergence are not qualified by that packet.
 
 🎯 **Every key:fill is bit-equal to its framing's own baseline, and that is the rule rather than an
 outcome.** A look may not move `key.irradiance` or `fill.irradiance`: that pair is the G1 axis, and

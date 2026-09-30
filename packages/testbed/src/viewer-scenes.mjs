@@ -11,7 +11,7 @@ export function reviewSceneSelection(params) {
 
 export function optionsForReviewScene(scene, light = 'studio') {
     if (!REVIEW_SCENES.includes(scene)) throw new Error('Unsupported review scene.');
-    if (!['studio', 'warm'].includes(light)) throw new Error('Unsupported review light.');
+    if (!['studio', 'warm', 'neutral'].includes(light)) throw new Error('Unsupported review light.');
     if (scene === 'kitchen') {
         if (light !== 'studio') throw new Error('Kitchen uses its own room lighting.');
         return {scene};
