@@ -1,0 +1,2559 @@
+{
+  "runs": [
+    {
+      "started": "2026-09-30T03:18:49.806Z",
+      "finished": "2026-09-30T03:19:02.839Z",
+      "status": "captured",
+      "pid": 23368,
+      "preset": "casual",
+      "frames": 96,
+      "views": [
+        "back"
+      ],
+      "clockMode": null,
+      "lightingMode": null,
+      "sourceHashes": {
+        "tools/critic/hair-colour-diagnostic.mjs": "390e842d76730a7cd404e8d5029481e5ae88bc715e7e638f6ed9b036101f2542",
+        "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+        "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8",
+        "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+        "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+        "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+        "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+        "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+        "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+        "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+        "packages/core/src/motion/HairDynamics.js": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc",
+        "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+        "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+      },
+      "errors": [],
+      "limits": [
+        "Fixed-pose appearance only; no motion or final-colour qualification.",
+        "Base colour affects scattering and temporal guide inputs as well as visible colour.",
+        "Equal frame counts and fresh contexts control initialization; independent dark repeats measure residual image differences."
+      ],
+      "name": "pilot-v1",
+      "localArchive": "captures/hair-colour-2026-09-29/pilot-v1",
+      "cases": [
+        {
+          "name": "casual-back-exact-default",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "exact-default",
+            "hex": null,
+            "label": "Exact current dark"
+          },
+          "filename": "casual-back-exact-default.png",
+          "imageSha256": "b5dd4ed209d2435fa3f8a1c73fe2423018f590a898a611d46f50d4dd1f874d8f",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "82b7bec32d95223ca57b97f8151099a120ebb69e9660b457445d05c34436d489"
+        },
+        {
+          "name": "casual-back-medium-brown",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "medium-brown",
+            "hex": "765344",
+            "label": "Medium brown diagnostic"
+          },
+          "filename": "casual-back-medium-brown.png",
+          "imageSha256": "c33b01cb681b71403051cabb92d0efafa549fd41aba1a827b7e21b91d0201f18",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.18116424424986022,
+            0.08650046203654976,
+            0.05780543019106723
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "82b7bec32d95223ca57b97f8151099a120ebb69e9660b457445d05c34436d489"
+        },
+        {
+          "name": "casual-back-pale-neutral",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "pale-neutral",
+            "hex": "c8baa4",
+            "label": "Pale desaturated diagnostic"
+          },
+          "filename": "casual-back-pale-neutral.png",
+          "imageSha256": "e23302c9b762e5c696efa08747d35420f311bfdc6fad2c27975e9ce988ba47fa",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.5775804404296506,
+            0.4910208498478356,
+            0.3712376804741491
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "82b7bec32d95223ca57b97f8151099a120ebb69e9660b457445d05c34436d489"
+        },
+        {
+          "name": "casual-back-default-repeat",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "default-repeat",
+            "hex": null,
+            "label": "Exact dark repeated independently"
+          },
+          "filename": "casual-back-default-repeat.png",
+          "imageSha256": "2cc5ffc435cb8479bfcf1a5035779c1870f86092976e4a95b5251c685d2b939e",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "82b7bec32d95223ca57b97f8151099a120ebb69e9660b457445d05c34436d489",
+          "darkRepeat": {
+            "changedPixels": 321313,
+            "maxDifference": 0.34117648005485535,
+            "exact": false
+          }
+        }
+      ]
+    },
+    {
+      "started": "2026-09-30T03:23:01.488Z",
+      "finished": "2026-09-30T03:23:04.685Z",
+      "status": "failed",
+      "pid": 27713,
+      "preset": "casual",
+      "frames": 96,
+      "views": [
+        "back"
+      ],
+      "clockMode": "owned",
+      "lightingMode": null,
+      "sourceHashes": {
+        "tools/critic/hair-colour-diagnostic.mjs": "64369b907076d4c7b769a5c3bd90bf56e68f439c41c26e9f5e4b0232f435469e",
+        "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+        "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8",
+        "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+        "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+        "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+        "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+        "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+        "packages/core/src/render/LightingRig.js": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374",
+        "packages/core/src/render/Grade.js": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec",
+        "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+        "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+        "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+        "packages/core/src/motion/HairDynamics.js": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc",
+        "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+        "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+      },
+      "errors": [
+        "AssertionError [ERR_ASSERTION]: Zero-time render settling changed physical, camera or non-colour material state.\n+ actual - expected\n... Skipped lines\n\n  {\n    alphaTest: 0,\n    bones: [\n      [\n        'Root',\n...\n      exposure: 1,\n+     grainFrame: 97,\n-     grainFrame: 1,\n      grainSigmaCodes: 1.5,\n      saturation: 1.02,\n      sharpness: 1.2,\n      toneCurve: 4,\n      vignette: 0.15\n\n    at file:///Users/robault/GitHub/sugata-avatar/tools/critic/hair-colour-diagnostic.mjs:165:20"
+      ],
+      "limits": [
+        "Fixed-pose appearance only; no motion or final-colour qualification.",
+        "Base colour affects scattering and temporal guide inputs as well as visible colour.",
+        "The owned clock stops the private renderer animation and resets node/temporal epochs using the existing alive capture pattern; independent dark repeats measure residual image differences."
+      ],
+      "name": "pilot-v2",
+      "localArchive": "captures/hair-colour-2026-09-29/pilot-v2",
+      "cases": []
+    },
+    {
+      "started": "2026-09-30T03:23:34.423Z",
+      "finished": "2026-09-30T03:23:37.605Z",
+      "status": "failed",
+      "pid": 27845,
+      "preset": "casual",
+      "frames": 96,
+      "views": [
+        "back"
+      ],
+      "clockMode": "owned",
+      "lightingMode": null,
+      "sourceHashes": {
+        "tools/critic/hair-colour-diagnostic.mjs": "04ff053c84a5b08d7a26c9a2428ed9b573e5314b5a14b90af0afd48dd0b0fbce",
+        "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+        "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8",
+        "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+        "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+        "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+        "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+        "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+        "packages/core/src/render/LightingRig.js": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374",
+        "packages/core/src/render/Grade.js": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec",
+        "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+        "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+        "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+        "packages/core/src/motion/HairDynamics.js": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc",
+        "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+        "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+      },
+      "errors": [
+        "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ {\n+   _beforeNodes: null,\n+   _cacheKey: 1146642112929485,\n+   _cacheKeyVersion: 0,\n+   _uuid: null,\n+   global: false,\n+   groupNode: {\n+     _beforeNodes: null,\n+     _cacheKey: 332591690589887,\n+     _cacheKeyVersion: 700,\n+     _uuid: null,\n+     global: false,\n+     id: 114,\n+     isNode: true,\n+     isUniformGroup: true,\n+     name: 'object',\n+     nodeType: 'string',\n+     order: 1,\n+     parents: false,\n+     shared: false,\n+     stackTrace: null,\n+     updateAfterType: 'none',\n+     updateBeforeType: 'none',\n+     updateType: 'object',\n+     version: 5682\n+   },\n+   id: 1031,\n+   isInputNode: true,\n+   isNode: true,\n+   isUniformNode: true,\n+   name: '',\n+   nodeType: null,\n+   parents: false,\n+   precision: null,\n+   stackTrace: null,\n+   update: undefined,\n+   updateAfterType: 'none',\n+   updateBeforeType: 'none',\n+   updateType: 'frame',\n+   value: 98,\n+   version: 0\n+ }\n- 98\n\n    at file:///Users/robault/GitHub/sugata-avatar/tools/critic/hair-colour-diagnostic.mjs:173:63"
+      ],
+      "limits": [
+        "Fixed-pose appearance only; no motion or final-colour qualification.",
+        "Base colour affects scattering and temporal guide inputs as well as visible colour.",
+        "The owned clock stops the private renderer animation and resets node/temporal epochs using the existing alive capture pattern; independent dark repeats measure residual image differences."
+      ],
+      "name": "pilot-v3",
+      "localArchive": "captures/hair-colour-2026-09-29/pilot-v3",
+      "cases": []
+    },
+    {
+      "started": "2026-09-30T03:24:15.510Z",
+      "finished": "2026-09-30T03:24:26.529Z",
+      "status": "captured",
+      "pid": 27992,
+      "preset": "casual",
+      "frames": 96,
+      "views": [
+        "back"
+      ],
+      "clockMode": "owned",
+      "lightingMode": null,
+      "sourceHashes": {
+        "tools/critic/hair-colour-diagnostic.mjs": "24433fdd4a829b55ed217744ec124c6fd2c54b1a6bf17fe744edf4bc11e90e64",
+        "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+        "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8",
+        "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+        "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+        "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+        "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+        "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+        "packages/core/src/render/LightingRig.js": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374",
+        "packages/core/src/render/Grade.js": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec",
+        "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+        "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+        "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+        "packages/core/src/motion/HairDynamics.js": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc",
+        "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+        "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+      },
+      "errors": [],
+      "limits": [
+        "Fixed-pose appearance only; no motion or final-colour qualification.",
+        "Base colour affects scattering and temporal guide inputs as well as visible colour.",
+        "The owned clock stops the private renderer animation and resets node/temporal epochs using the existing alive capture pattern; independent dark repeats measure residual image differences."
+      ],
+      "name": "pilot-v4",
+      "localArchive": "captures/hair-colour-2026-09-29/pilot-v4",
+      "cases": [
+        {
+          "name": "casual-back-exact-default",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "exact-default",
+            "hex": null,
+            "label": "Exact current dark"
+          },
+          "filename": "casual-back-exact-default.png",
+          "imageSha256": "d5614aafb5f3194b8fc582fedd955ef8d362ae648d5a8c2c5e4e40b2ae57cc1b",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "f7bc449dbd3249e78f6992cece0ff9cbda3e9cbdb24b4784bb66cc3e419122be",
+          "bootFrame": 42,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          }
+        },
+        {
+          "name": "casual-back-medium-brown",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "medium-brown",
+            "hex": "765344",
+            "label": "Medium brown diagnostic"
+          },
+          "filename": "casual-back-medium-brown.png",
+          "imageSha256": "da22a135cf0e9f97a51fc4f9ed356fa35d5dfa9c4a4d7b061bedf8f00eace4c8",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.18116424424986022,
+            0.08650046203654976,
+            0.05780543019106723
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "f7bc449dbd3249e78f6992cece0ff9cbda3e9cbdb24b4784bb66cc3e419122be",
+          "bootFrame": 38,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          }
+        },
+        {
+          "name": "casual-back-pale-neutral",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "pale-neutral",
+            "hex": "c8baa4",
+            "label": "Pale desaturated diagnostic"
+          },
+          "filename": "casual-back-pale-neutral.png",
+          "imageSha256": "c3b331d3c67d294a0d14b0d436fe15636a5c13782cbc978aaf2da6778c4545eb",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.5775804404296506,
+            0.4910208498478356,
+            0.3712376804741491
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "f7bc449dbd3249e78f6992cece0ff9cbda3e9cbdb24b4784bb66cc3e419122be",
+          "bootFrame": 38,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          }
+        },
+        {
+          "name": "casual-back-default-repeat",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "default-repeat",
+            "hex": null,
+            "label": "Exact dark repeated independently"
+          },
+          "filename": "casual-back-default-repeat.png",
+          "imageSha256": "2a2daf09d0d2db516e712e4209b1c05c5468f45dd8394abe8380c58c3090d39d",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "f7bc449dbd3249e78f6992cece0ff9cbda3e9cbdb24b4784bb66cc3e419122be",
+          "darkRepeat": {
+            "changedPixels": 92,
+            "maxDifference": 0.023529410362243652,
+            "exact": false
+          },
+          "bootFrame": 40,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          }
+        }
+      ]
+    },
+    {
+      "started": "2026-09-30T03:25:52.815Z",
+      "finished": "2026-09-30T03:26:24.672Z",
+      "status": "captured",
+      "pid": 28381,
+      "preset": "casual",
+      "frames": 96,
+      "views": [
+        "back",
+        "rear-oblique",
+        "right-profile"
+      ],
+      "clockMode": "owned",
+      "lightingMode": "neutral-chromaticity",
+      "sourceHashes": {
+        "tools/critic/hair-colour-diagnostic.mjs": "f91d1c75515017406a990ef053a00e29eeb7563b7dea3747be96b8dcb560b3aa",
+        "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+        "packages/testbed/src/showcase.html": "bc4a639905497a7ebe01adf4a3e977c4150be7dde0a88230b8b97d05b801c1f8",
+        "packages/testbed/src/showcase.js": "89f482343c023e2b7e1d71ca0a6144371efcf9331b5d376e0b88bf856b9701c1",
+        "packages/testbed/src/showcase-presets.mjs": "9dcb441064e0c39b7c48eebdc60a2aee871c624c4fc00562250c9b5c3ae3a95b",
+        "packages/testbed/src/viewer-framing.mjs": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03",
+        "packages/core/src/Avatar.js": "62b48da266bf7a10fe41c4cd71c0326cfc3d65cc4e1475a973b7bbbc47f990d2",
+        "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+        "packages/core/src/render/LightingRig.js": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374",
+        "packages/core/src/render/Grade.js": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec",
+        "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+        "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+        "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+        "packages/core/src/motion/HairDynamics.js": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc",
+        "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+        "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+      },
+      "errors": [],
+      "limits": [
+        "Fixed-pose appearance only; no motion or final-colour qualification.",
+        "Base colour affects scattering and temporal guide inputs as well as visible colour.",
+        "The owned clock stops the private renderer animation and resets node/temporal epochs using the existing alive capture pattern; independent dark repeats measure residual image differences."
+      ],
+      "name": "neutral-v1",
+      "localArchive": "captures/hair-colour-2026-09-29/neutral-v1",
+      "cases": [
+        {
+          "name": "casual-back-exact-default",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "exact-default",
+            "hex": null,
+            "label": "Exact current dark"
+          },
+          "filename": "casual-back-exact-default.png",
+          "imageSha256": "130acd6b452f7b836df9736549aa2c932228d6705e8fa9c7d83d9d3ed905d4aa",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "c117cecc654e8b09c4c4441c2cdaa4ad2e55ded49f71b43891bf7cacd02e9426",
+          "bootFrame": 41,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-back-medium-brown",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "medium-brown",
+            "hex": "765344",
+            "label": "Medium brown diagnostic"
+          },
+          "filename": "casual-back-medium-brown.png",
+          "imageSha256": "577d6c778fb6d4a51ea4c5e82849149e5b547e61ffa994c3d7ce6b3e7e93905f",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.18116424424986022,
+            0.08650046203654976,
+            0.05780543019106723
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "c117cecc654e8b09c4c4441c2cdaa4ad2e55ded49f71b43891bf7cacd02e9426",
+          "bootFrame": 41,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-back-pale-neutral",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "pale-neutral",
+            "hex": "c8baa4",
+            "label": "Pale desaturated diagnostic"
+          },
+          "filename": "casual-back-pale-neutral.png",
+          "imageSha256": "0ea39e1221f08edb807e45a7281f4c68a37963551303f1df074032b496a4d5db",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.5775804404296506,
+            0.4910208498478356,
+            0.3712376804741491
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "c117cecc654e8b09c4c4441c2cdaa4ad2e55ded49f71b43891bf7cacd02e9426",
+          "bootFrame": 40,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-back-default-repeat",
+          "view": "back",
+          "angle": 180,
+          "colour": {
+            "id": "default-repeat",
+            "hex": null,
+            "label": "Exact dark repeated independently"
+          },
+          "filename": "casual-back-default-repeat.png",
+          "imageSha256": "5c76c4f04da7215fd597eb905c4267c8b01d6b7e3ffed7dfcf0dce4e85f8082a",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "c117cecc654e8b09c4c4441c2cdaa4ad2e55ded49f71b43891bf7cacd02e9426",
+          "darkRepeat": {
+            "changedPixels": 2,
+            "maxDifference": 0.003921568393707275,
+            "exact": false
+          },
+          "bootFrame": 39,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-rear-oblique-exact-default",
+          "view": "rear-oblique",
+          "angle": 135,
+          "colour": {
+            "id": "exact-default",
+            "hex": null,
+            "label": "Exact current dark"
+          },
+          "filename": "casual-rear-oblique-exact-default.png",
+          "imageSha256": "e839aec1a6bafc36a0a9a1f2db0947af3040f10c2899f017c7fc91961a1f51fa",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "bootFrame": 39,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-rear-oblique-medium-brown",
+          "view": "rear-oblique",
+          "angle": 135,
+          "colour": {
+            "id": "medium-brown",
+            "hex": "765344",
+            "label": "Medium brown diagnostic"
+          },
+          "filename": "casual-rear-oblique-medium-brown.png",
+          "imageSha256": "93b6053599fee21549f1878038d9af7548243e2d8db0f007614b833ffb22a7eb",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.18116424424986022,
+            0.08650046203654976,
+            0.05780543019106723
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "bootFrame": 41,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-rear-oblique-pale-neutral",
+          "view": "rear-oblique",
+          "angle": 135,
+          "colour": {
+            "id": "pale-neutral",
+            "hex": "c8baa4",
+            "label": "Pale desaturated diagnostic"
+          },
+          "filename": "casual-rear-oblique-pale-neutral.png",
+          "imageSha256": "87ca4f0ada87999d85e51d0803283144b47c48525b31e6e2f79e71552bb7d773",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.5775804404296506,
+            0.4910208498478356,
+            0.3712376804741491
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "bootFrame": 38,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-rear-oblique-default-repeat",
+          "view": "rear-oblique",
+          "angle": 135,
+          "colour": {
+            "id": "default-repeat",
+            "hex": null,
+            "label": "Exact dark repeated independently"
+          },
+          "filename": "casual-rear-oblique-default-repeat.png",
+          "imageSha256": "e839aec1a6bafc36a0a9a1f2db0947af3040f10c2899f017c7fc91961a1f51fa",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "2b83d08200714edfe8b212a8e2ead68f922f22b69fc8e693c3718aa309ac7973",
+          "darkRepeat": {
+            "changedPixels": 0,
+            "maxDifference": 0,
+            "exact": true
+          },
+          "bootFrame": 40,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-right-profile-exact-default",
+          "view": "right-profile",
+          "angle": 90,
+          "colour": {
+            "id": "exact-default",
+            "hex": null,
+            "label": "Exact current dark"
+          },
+          "filename": "casual-right-profile-exact-default.png",
+          "imageSha256": "5e9386b16a6ec4582a93c69f1a7e33119851bf825c6eec0a64da5e25edcd095a",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "3355aa185747803b17e11df0afff95708825b38d49c81f592750e7b8825170cd",
+          "bootFrame": 39,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-right-profile-medium-brown",
+          "view": "right-profile",
+          "angle": 90,
+          "colour": {
+            "id": "medium-brown",
+            "hex": "765344",
+            "label": "Medium brown diagnostic"
+          },
+          "filename": "casual-right-profile-medium-brown.png",
+          "imageSha256": "c3b4a7e2d087d19790784d6684addc2f0cd383385b308b79df95e46d32ecc3e0",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.18116424424986022,
+            0.08650046203654976,
+            0.05780543019106723
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "3355aa185747803b17e11df0afff95708825b38d49c81f592750e7b8825170cd",
+          "bootFrame": 40,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-right-profile-pale-neutral",
+          "view": "right-profile",
+          "angle": 90,
+          "colour": {
+            "id": "pale-neutral",
+            "hex": "c8baa4",
+            "label": "Pale desaturated diagnostic"
+          },
+          "filename": "casual-right-profile-pale-neutral.png",
+          "imageSha256": "052b1a6ef10c952a624bdf46fd2e837436812a3e2520ac002d8441e5b0482db0",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.5775804404296506,
+            0.4910208498478356,
+            0.3712376804741491
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "3355aa185747803b17e11df0afff95708825b38d49c81f592750e7b8825170cd",
+          "bootFrame": 40,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        },
+        {
+          "name": "casual-right-profile-default-repeat",
+          "view": "right-profile",
+          "angle": 90,
+          "colour": {
+            "id": "default-repeat",
+            "hex": null,
+            "label": "Exact dark repeated independently"
+          },
+          "filename": "casual-right-profile-default-repeat.png",
+          "imageSha256": "1f894882cffc739ec9a9166657e653825429c3b4f2118787c21db95a10e4ba8a",
+          "size": [
+            900,
+            868
+          ],
+          "exactDefault": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "applied": [
+            0.010505784538312107,
+            0.004360574652180827,
+            0.0038367111648802705
+          ],
+          "backend": "webgpu",
+          "adapter": {
+            "vendor": "apple",
+            "architecture": "metal-3",
+            "device": "",
+            "description": ""
+          },
+          "stateSha256": "3355aa185747803b17e11df0afff95708825b38d49c81f592750e7b8825170cd",
+          "darkRepeat": {
+            "changedPixels": 74,
+            "maxDifference": 0.00784313678741455,
+            "exact": false
+          },
+          "bootFrame": 38,
+          "clock": {
+            "frameId": 98,
+            "time": 0,
+            "deltaTime": 0,
+            "grainFrame": 98,
+            "temporal": {
+              "jitterIndex": 5,
+              "jitterPeriod": 31,
+              "historyWidth": 900
+            }
+          },
+          "lightingChanges": [
+            {
+              "name": "key",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 2.177923376237455
+            },
+            {
+              "name": "key-shadow",
+              "type": "SpotLight",
+              "key": "color",
+              "before": [
+                1,
+                0.85499260812105,
+                0.7011018919268015
+              ],
+              "after": [
+                0.87471026992529,
+                0.87471026992529,
+                0.87471026992529
+              ],
+              "luma": 0.87471026992529,
+              "intensity": 1.3683524400000002
+            },
+            {
+              "name": "fill",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.8879231178794776,
+                0.6444796819634361,
+                0.5647115056965487
+              ],
+              "after": [
+                0.6904764941127172,
+                0.6904764941127172,
+                0.6904764941127172
+              ],
+              "luma": 0.6904764941127172,
+              "intensity": 1.168724717797948
+            },
+            {
+              "name": "rim",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                0.004776953478513362,
+                0.02955683443236377,
+                1
+              ],
+              "after": [
+                0.0943546282955585,
+                0.0943546282955585,
+                0.0943546282955585
+              ],
+              "luma": 0.0943546282955585,
+              "intensity": 434.61237203641264
+            },
+            {
+              "name": "kicker",
+              "type": "RectAreaLight",
+              "key": "color",
+              "before": [
+                1,
+                0.6795424696265424,
+                0.43415363616478553
+              ],
+              "after": [
+                0.7299546668080007,
+                0.7299546668080007,
+                0.7299546668080007
+              ],
+              "luma": 0.7299546668080007,
+              "intensity": 1.8586820074109944
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "color",
+              "before": [
+                0.48514994004665124,
+                0.55201140150344,
+                0.8227857543924378
+              ],
+              "after": [
+                0.5573465630763124,
+                0.5573465630763124,
+                0.5573465630763124
+              ],
+              "luma": 0.5573465630763124,
+              "intensity": 0.5609999999999999
+            },
+            {
+              "name": "ambient",
+              "type": "HemisphereLight",
+              "key": "groundColor",
+              "before": [
+                0.10224173307914941,
+                0.05126945836711539,
+                0.03954623527052923
+              ],
+              "after": [
+                0.061259747263320306,
+                0.061259747263320306,
+                0.061259747263320306
+              ],
+              "luma": 0.061259747263320306,
+              "intensity": 0.5609999999999999
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
