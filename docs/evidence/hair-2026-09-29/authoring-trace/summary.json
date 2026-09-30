@@ -1,0 +1,1398 @@
+{
+  "status": "exact-original-geometry-correspondence",
+  "sources": {
+    "trace": {
+      "path": "captures/bob-authoring-trace-v1/trace.json.gz",
+      "sha256": "c7917d4d15178d46bebc14da23533fe8e6897ff3ac0a97bbfef4b4c6e30c07c7"
+    },
+    "original": {
+      "path": "tools/figure-pipeline/fixtures/bob02-g050-original.glb",
+      "sha256": "25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4"
+    },
+    "rebuilt": {
+      "path": "captures/bob-authoring-trace-v1/hair/bob02/g050.glb",
+      "sha256": "0d21439f6368e298845eb6b827106f0d9fb84266cf56d703d139fbe124c58821"
+    },
+    "accepted": {
+      "path": "assets/hair/bob02/g050.glb",
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    },
+    "analysis": {
+      "path": "tools/critic/analyse-bob-authoring.mjs",
+      "sha256": "ada50a9e4f0d69e32d85aa8c1eaa622626012c31f1708eb15c9a3e1ee788652f"
+    }
+  },
+  "correspondence": {
+    "attributes": {
+      "POSITION": {
+        "components": 52548,
+        "max": 0,
+        "changed": 0
+      },
+      "NORMAL": {
+        "components": 52548,
+        "max": 0,
+        "changed": 0
+      },
+      "TEXCOORD_0": {
+        "components": 35032,
+        "max": 0,
+        "changed": 0
+      },
+      "TEXCOORD_1": {
+        "components": 35032,
+        "max": 0,
+        "changed": 0
+      },
+      "JOINTS_0": {
+        "components": 70064,
+        "max": 0,
+        "changed": 0
+      },
+      "WEIGHTS_0": {
+        "components": 70064,
+        "max": 0,
+        "changed": 0
+      }
+    },
+    "indices": {
+      "components": 51000,
+      "max": 0,
+      "changed": 0
+    },
+    "nodes": "exact",
+    "skins": "exact",
+    "scenes": "exact",
+    "inverseBindMatrices": {
+      "components": 848,
+      "max": 0,
+      "changed": 0
+    },
+    "lockExtras": "exact",
+    "traceAfterClamp": {
+      "components": 52548,
+      "max": 0,
+      "changed": 0
+    }
+  },
+  "clamp": {
+    "objectMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "cardVertexBase": 652,
+    "headCentre": [
+      0,
+      -0.03419020026922226,
+      1.4434657096862793
+    ],
+    "hairlineZ": 1.4970251631736755,
+    "verticesMovedCount": 1399,
+    "verticesRescuedCount": 0,
+    "closestAfterMetres": 0.0035095594357699156,
+    "closestAfterAt": [
+      0.03599823638796806,
+      -0.009012560360133648,
+      1.6489976644515991
+    ]
+  },
+  "limits": [
+    "Geometric stages and exact fixture correspondence establish where bends enter; appearance attribution still needs native images and the prior ablation witnesses.",
+    "Per-vertex clamp moved count counts operations across passes, not necessarily unique vertices.",
+    "Segment lengths at or below1e-9metres have undefined turn angles; maximum angles cover only finite turns and collapsed spans are reported separately.",
+    "Original rebuild equals preserved original; production additionally contains post-export edits."
+  ],
+  "selectedCards": [
+    {
+      "card": 276,
+      "layer": "body",
+      "stages": {
+        "grownToCut": {
+          "arcMm": 62.97449610527663,
+          "maxBendDegrees": 4.741083987050502,
+          "maxBendRing": 13,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            32.15650096535683,
+            -26.092341169714928,
+            -44.63684558868408
+          ]
+        },
+        "lockGuide": {
+          "arcMm": 68.42201572947026,
+          "maxBendDegrees": 5.800496230197273,
+          "maxBendRing": 7,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            6.1901286244392395,
+            -41.604336351156235,
+            -51.07569694519043
+          ]
+        },
+        "blendedBeforeClearance": {
+          "arcMm": 63.12355712510187,
+          "maxBendDegrees": 4.315100287042208,
+          "maxBendRing": 13,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            36.775220185518265,
+            -40.24702776223421,
+            -29.546141624450684
+          ]
+        },
+        "clumpedAfterClearance": {
+          "arcMm": 65.49870404886086,
+          "maxBendDegrees": 4.315100287042208,
+          "maxBendRing": 13,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            38.58042694628239,
+            -41.6950611397624,
+            -30.17115592956543
+          ]
+        },
+        "ribbonBeforeClamp": {
+          "arcMm": 65.49870281356777,
+          "maxBendDegrees": 4.315097713058355,
+          "maxBendRing": 13,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            38.58042601495981,
+            -41.69506020843983,
+            -30.17115592956543
+          ]
+        },
+        "ribbonAfterClamp": {
+          "arcMm": 65.75163855144176,
+          "maxBendDegrees": 20.528007041200897,
+          "maxBendRing": 5,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            37.03410364687443,
+            -44.57925073802471,
+            -27.95940637588501
+          ]
+        },
+        "accepted": {
+          "arcMm": 65.75163855144176,
+          "maxBendDegrees": 20.528007041200897,
+          "maxBendRing": 5,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            37.03410364687443,
+            -44.57925073802471,
+            -27.95940637588501
+          ]
+        }
+      },
+      "widthFrame": {
+        "beforeClamp": {
+          "maxAxisTurnDegrees": 2.267942962412417,
+          "maxAxisTurnFromRing": 13,
+          "undefinedAxisTurns": [],
+          "angles": [
+            1.3827931866912428,
+            2.114699685401259,
+            0.47866766044483705,
+            0.6122713501970857,
+            0.5030336587773012,
+            0.6697977491004643,
+            0.3734172219346571,
+            0.4422502261389636,
+            0.7795758100326147,
+            0.7600383000547372,
+            1.1082813778271088,
+            1.6748240534911385,
+            2.259133852919336,
+            2.267942962412417,
+            1.842929877319556,
+            0.847833531839487
+          ]
+        },
+        "afterClamp": {
+          "maxAxisTurnDegrees": 3.4121280124787994,
+          "maxAxisTurnFromRing": 4,
+          "undefinedAxisTurns": [],
+          "angles": [
+            2.4106319891518857,
+            2.608886655963894,
+            1.1080939262431646,
+            0.8788241437331092,
+            3.4121280124787994,
+            0.6697977491004643,
+            0.3734172219346571,
+            0.4422502261389636,
+            0.7795758100326147,
+            0.7600383000547372,
+            1.1082813778271088,
+            1.6748240534911385,
+            2.259133852919336,
+            2.267942962412417,
+            1.842929877319556,
+            0.847833531839487
+          ]
+        },
+        "accepted": {
+          "maxAxisTurnDegrees": 3.4121280124787994,
+          "maxAxisTurnFromRing": 4,
+          "undefinedAxisTurns": [],
+          "angles": [
+            2.4106319891518857,
+            2.608886655963894,
+            1.1080939262431646,
+            0.8788241437331092,
+            3.4121280124787994,
+            0.6697977491004643,
+            0.3734172219346571,
+            0.4422502261389636,
+            0.7795758100326147,
+            0.7600383000547372,
+            1.1082813778271088,
+            1.6748240534911385,
+            2.259133852919336,
+            2.267942962412417,
+            1.842929877319556,
+            0.847833531839487
+          ]
+        }
+      },
+      "deltasMm": {
+        "clumpClearance": 2.3971264032466584,
+        "ribbonCentresVsGuide": 1.3170890159654385e-06,
+        "vertexClamp": 7.899747835265089,
+        "postExport": 0
+      }
+    },
+    {
+      "card": 281,
+      "layer": "body",
+      "stages": {
+        "grownToCut": {
+          "arcMm": 176.3564876610507,
+          "maxBendDegrees": 14.650100302764448,
+          "maxBendRing": 9,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -107.12257772684097,
+            34.422699362039566,
+            -117.21479892730713
+          ]
+        },
+        "lockGuide": {
+          "arcMm": 74.02701743385681,
+          "maxBendDegrees": 8.978572540662176,
+          "maxBendRing": 1,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -36.68678272515535,
+            -33.33061560988426,
+            -49.91555213928223
+          ]
+        },
+        "blendedBeforeClearance": {
+          "arcMm": 102.93711126908867,
+          "maxBendDegrees": 49.26137088266243,
+          "maxBendRing": 14,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -63.388630747795105,
+            7.370233535766602,
+            -50.29881000518799
+          ]
+        },
+        "clumpedAfterClearance": {
+          "arcMm": 107.27204022888812,
+          "maxBendDegrees": 49.26137088266243,
+          "maxBendRing": 14,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -68.38825308524493,
+            6.442029029130936,
+            -50.939202308654785
+          ]
+        },
+        "ribbonBeforeClamp": {
+          "arcMm": 107.27204048543047,
+          "maxBendDegrees": 49.26137088266243,
+          "maxBendRing": 14,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -68.38825298473239,
+            6.442029029130936,
+            -50.939202308654785
+          ]
+        },
+        "ribbonAfterClamp": {
+          "arcMm": 107.0204354189562,
+          "maxBendDegrees": 49.26137088266243,
+          "maxBendRing": 14,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -68.03893740288913,
+            4.654526710510254,
+            -49.84712600708008
+          ]
+        },
+        "accepted": {
+          "arcMm": 107.0204354189562,
+          "maxBendDegrees": 49.26137088266243,
+          "maxBendRing": 14,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -68.03893740288913,
+            4.654526710510254,
+            -49.84712600708008
+          ]
+        }
+      },
+      "widthFrame": {
+        "beforeClamp": {
+          "maxAxisTurnDegrees": 154.7273001079577,
+          "maxAxisTurnFromRing": 11,
+          "undefinedAxisTurns": [],
+          "angles": [
+            4.641178980541857,
+            6.9957575689700855,
+            0.808792364677245,
+            2.718198753714742,
+            4.068948172577569,
+            1.989198160330358,
+            3.038935688063321,
+            11.925973779818602,
+            5.158133877158842,
+            3.181944782889423,
+            41.66590495595112,
+            154.7273001079577,
+            10.192696190240166,
+            9.774838771391048,
+            3.4621773372129407,
+            21.164987674628954
+          ]
+        },
+        "afterClamp": {
+          "maxAxisTurnDegrees": 154.7273001079577,
+          "maxAxisTurnFromRing": 11,
+          "undefinedAxisTurns": [],
+          "angles": [
+            4.162649953733502,
+            6.9957575689700855,
+            0.808792364677245,
+            2.718198753714742,
+            4.068948172577569,
+            1.989198160330358,
+            3.038935688063321,
+            11.925973779818602,
+            5.158133877158842,
+            3.181944782889423,
+            41.66590495595112,
+            154.7273001079577,
+            10.192696190240166,
+            9.774838771391048,
+            3.4621773372129407,
+            21.164987674628954
+          ]
+        },
+        "accepted": {
+          "maxAxisTurnDegrees": 154.7273001079577,
+          "maxAxisTurnFromRing": 11,
+          "undefinedAxisTurns": [],
+          "angles": [
+            4.162649953733502,
+            6.9957575689700855,
+            0.808792364677245,
+            2.718198753714742,
+            4.068948172577569,
+            1.989198160330358,
+            3.038935688063321,
+            11.925973779818602,
+            5.158133877158842,
+            3.181944782889423,
+            41.66590495595112,
+            154.7273001079577,
+            10.192696190240166,
+            9.774838771391048,
+            3.4621773372129407,
+            21.164987674628954
+          ]
+        }
+      },
+      "deltasMm": {
+        "clumpClearance": 5.12522091480997,
+        "ribbonCentresVsGuide": 1.862645149230957e-06,
+        "vertexClamp": 4.247265738450514,
+        "postExport": 0
+      }
+    },
+    {
+      "card": 285,
+      "layer": "body",
+      "stages": {
+        "grownToCut": {
+          "arcMm": 77.44284504049702,
+          "maxBendDegrees": 7.994986677089705,
+          "maxBendRing": 8,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            18.756140023469925,
+            -40.74428137391806,
+            -57.97863006591797
+          ]
+        },
+        "lockGuide": {
+          "arcMm": 68.42201572947026,
+          "maxBendDegrees": 5.800496230197273,
+          "maxBendRing": 7,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            6.1901286244392395,
+            -41.604336351156235,
+            -51.07569694519043
+          ]
+        },
+        "blendedBeforeClearance": {
+          "arcMm": 88.5478445648557,
+          "maxBendDegrees": 5.807860530355186,
+          "maxBendRing": 8,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            27.010727673768997,
+            -57.96495545655489,
+            -57.9911470413208
+          ]
+        },
+        "clumpedAfterClearance": {
+          "arcMm": 90.55251068434235,
+          "maxBendDegrees": 18.70627871667939,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            29.072370380163193,
+            -59.20518282800913,
+            -58.02798271179199
+          ]
+        },
+        "ribbonBeforeClamp": {
+          "arcMm": 90.55251061398995,
+          "maxBendDegrees": 18.70627871667939,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            29.072370380163193,
+            -59.20518282800913,
+            -58.02798271179199
+          ]
+        },
+        "ribbonAfterClamp": {
+          "arcMm": 90.96587564898965,
+          "maxBendDegrees": 22.54484886581938,
+          "maxBendRing": 3,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            28.26671302318573,
+            -60.56290026754141,
+            -57.59459733963013
+          ]
+        },
+        "accepted": {
+          "arcMm": 90.96587564898965,
+          "maxBendDegrees": 22.54484886581938,
+          "maxBendRing": 3,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            28.26671302318573,
+            -60.56290026754141,
+            -57.59459733963013
+          ]
+        }
+      },
+      "widthFrame": {
+        "beforeClamp": {
+          "maxAxisTurnDegrees": 4.64193141920439,
+          "maxAxisTurnFromRing": 11,
+          "undefinedAxisTurns": [],
+          "angles": [
+            1.216206476027627,
+            0.3585764649304764,
+            4.478187524976513,
+            1.9246429356045538,
+            2.0497624650222934,
+            3.272102852327579,
+            1.6235003015054752,
+            0.27879173413652125,
+            1.3361668273602978,
+            2.4425274894261175,
+            3.8091669623530025,
+            4.64193141920439,
+            4.463949606418041,
+            3.5556056806123224,
+            2.407779401453911,
+            0.8863025358297669
+          ]
+        },
+        "afterClamp": {
+          "maxAxisTurnDegrees": 4.755328140780123,
+          "maxAxisTurnFromRing": 2,
+          "undefinedAxisTurns": [],
+          "angles": [
+            0.7832032134100526,
+            1.6634346722540543,
+            4.755328140780123,
+            1.5369591201165718,
+            3.016311112897057,
+            4.516334793089748,
+            1.6235003015054752,
+            0.27879173413652125,
+            1.3361668273602978,
+            2.4425274894261175,
+            3.8091669623530025,
+            4.64193141920439,
+            4.463949606418041,
+            3.5556056806123224,
+            2.407779401453911,
+            0.8863025358297669
+          ]
+        },
+        "accepted": {
+          "maxAxisTurnDegrees": 4.755328140780123,
+          "maxAxisTurnFromRing": 2,
+          "undefinedAxisTurns": [],
+          "angles": [
+            0.7832032134100526,
+            1.6634346722540543,
+            4.755328140780123,
+            1.5369591201165718,
+            3.016311112897057,
+            4.516334793089748,
+            1.6235003015054752,
+            0.27879173413652125,
+            1.3361668273602978,
+            2.4425274894261175,
+            3.8091669623530025,
+            4.64193141920439,
+            4.463949606418041,
+            3.5556056806123224,
+            2.407779401453911,
+            0.8863025358297669
+          ]
+        }
+      },
+      "deltasMm": {
+        "clumpClearance": 3.8721516856316978,
+        "ribbonCentresVsGuide": 1.862645149230957e-06,
+        "vertexClamp": 3.274326375464657,
+        "postExport": 0
+      }
+    },
+    {
+      "card": 322,
+      "layer": "surface",
+      "stages": {
+        "grownToCut": {
+          "arcMm": 67.51517823449242,
+          "maxBendDegrees": 6.189411972745998,
+          "maxBendRing": 9,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            26.298165321350098,
+            -41.4414843544364,
+            -41.811347007751465
+          ]
+        },
+        "lockGuide": {
+          "arcMm": 77.76038249102129,
+          "maxBendDegrees": 6.54965801402712,
+          "maxBendRing": 10,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            8.58549028635025,
+            -43.24884153902531,
+            -59.89432334899902
+          ]
+        },
+        "blendedBeforeClearance": {
+          "arcMm": 74.5945275452962,
+          "maxBendDegrees": 6.363402663831955,
+          "maxBendRing": 9,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            26.661738753318787,
+            -49.718914553523064,
+            -42.36757755279541
+          ]
+        },
+        "clumpedAfterClearance": {
+          "arcMm": 81.37289843945118,
+          "maxBendDegrees": 53.83975317787002,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            29.0302075445652,
+            -53.364017978310585,
+            -44.23034191131592
+          ]
+        },
+        "ribbonBeforeClamp": {
+          "arcMm": 81.37289816097318,
+          "maxBendDegrees": 53.839754862305945,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            29.0302075445652,
+            -53.3640175126493,
+            -44.23034191131592
+          ]
+        },
+        "ribbonAfterClamp": {
+          "arcMm": 81.37289816097318,
+          "maxBendDegrees": 53.839754862305945,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            29.0302075445652,
+            -53.3640175126493,
+            -44.23034191131592
+          ]
+        },
+        "accepted": {
+          "arcMm": 81.37289816097318,
+          "maxBendDegrees": 53.839754862305945,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            29.0302075445652,
+            -53.3640175126493,
+            -44.23034191131592
+          ]
+        }
+      },
+      "widthFrame": {
+        "beforeClamp": {
+          "maxAxisTurnDegrees": 11.927934306011636,
+          "maxAxisTurnFromRing": 1,
+          "undefinedAxisTurns": [],
+          "angles": [
+            0.6209126702040345,
+            11.927934306011636,
+            2.6484301320166823,
+            11.356096424230355,
+            0.40190967873969646,
+            0.6401110756639278,
+            1.6372662024389961,
+            2.5551733373968557,
+            3.8419549542999176,
+            4.817619725925299,
+            5.085454432711734,
+            5.256472672074304,
+            5.288573513527226,
+            5.114152310747183,
+            4.371763449707045,
+            1.8811872404646126
+          ]
+        },
+        "afterClamp": {
+          "maxAxisTurnDegrees": 11.927934306011636,
+          "maxAxisTurnFromRing": 1,
+          "undefinedAxisTurns": [],
+          "angles": [
+            0.6209126702040345,
+            11.927934306011636,
+            2.6484301320166823,
+            11.356096424230355,
+            0.40190967873969646,
+            0.6401110756639278,
+            1.6372662024389961,
+            2.5551733373968557,
+            3.8419549542999176,
+            4.817619725925299,
+            5.085454432711734,
+            5.256472672074304,
+            5.288573513527226,
+            5.114152310747183,
+            4.371763449707045,
+            1.8811872404646126
+          ]
+        },
+        "accepted": {
+          "maxAxisTurnDegrees": 11.927934306011636,
+          "maxAxisTurnFromRing": 1,
+          "undefinedAxisTurns": [],
+          "angles": [
+            0.6209126702040345,
+            11.927934306011636,
+            2.6484301320166823,
+            11.356096424230355,
+            0.40190967873969646,
+            0.6401110756639278,
+            1.6372662024389961,
+            2.5551733373968557,
+            3.8419549542999176,
+            4.817619725925299,
+            5.085454432711734,
+            5.256472672074304,
+            5.288573513527226,
+            5.114152310747183,
+            4.371763449707045,
+            1.8811872404646126
+          ]
+        }
+      },
+      "deltasMm": {
+        "clumpClearance": 4.729303801605505,
+        "ribbonCentresVsGuide": 1.862645149230957e-06,
+        "vertexClamp": 0,
+        "postExport": 0
+      }
+    },
+    {
+      "card": 380,
+      "layer": "veil",
+      "stages": {
+        "grownToCut": {
+          "arcMm": 74.91964639494694,
+          "maxBendDegrees": 5.987641703995889,
+          "maxBendRing": 13,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            33.07101130485535,
+            -37.99635265022516,
+            -50.829291343688965
+          ]
+        },
+        "lockGuide": {
+          "arcMm": 82.62350482304358,
+          "maxBendDegrees": 6.307329157321099,
+          "maxBendRing": 10,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            8.38259607553482,
+            -45.225964859128,
+            -63.994765281677246
+          ]
+        },
+        "blendedBeforeClearance": {
+          "arcMm": 91.8359210309212,
+          "maxBendDegrees": 4.994734130694008,
+          "maxBendRing": 10,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            38.72009366750717,
+            -59.31264813989401,
+            -53.28488349914551
+          ]
+        },
+        "clumpedAfterClearance": {
+          "arcMm": 91.58738435895573,
+          "maxBendDegrees": 18.554858734527055,
+          "maxBendRing": 1,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            37.66332566738129,
+            -59.19486563652754,
+            -53.930044174194336
+          ]
+        },
+        "ribbonBeforeClamp": {
+          "arcMm": 91.58738376803873,
+          "maxBendDegrees": 18.554859236831334,
+          "maxBendRing": 1,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            37.66332566738129,
+            -59.194864705204964,
+            -53.930044174194336
+          ]
+        },
+        "ribbonAfterClamp": {
+          "arcMm": 91.53770416996608,
+          "maxBendDegrees": 16.388585688194027,
+          "maxBendRing": 1,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            37.008268758654594,
+            -60.073587112128735,
+            -53.421735763549805
+          ]
+        },
+        "accepted": {
+          "arcMm": 91.53770416996608,
+          "maxBendDegrees": 16.388585688194027,
+          "maxBendRing": 1,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            37.008268758654594,
+            -60.073587112128735,
+            -53.421735763549805
+          ]
+        }
+      },
+      "widthFrame": {
+        "beforeClamp": {
+          "maxAxisTurnDegrees": 6.2747148584424774,
+          "maxAxisTurnFromRing": 0,
+          "undefinedAxisTurns": [],
+          "angles": [
+            6.2747148584424774,
+            5.93382202920627,
+            2.0372841709957608,
+            1.5981065415805755,
+            1.424818656710861,
+            1.0992571173948924,
+            0.5971708887997143,
+            2.4203490766321307,
+            3.8858671184048768,
+            4.652295591105616,
+            4.926169866266743,
+            4.849236990085081,
+            4.635998475902917,
+            4.062518269057803,
+            3.1929446718445753,
+            1.5772953113092139
+          ]
+        },
+        "afterClamp": {
+          "maxAxisTurnDegrees": 6.582713484636658,
+          "maxAxisTurnFromRing": 0,
+          "undefinedAxisTurns": [],
+          "angles": [
+            6.582713484636658,
+            5.853098031122589,
+            3.445904256512526,
+            1.5981065415805755,
+            1.424818656710861,
+            1.0992571173948924,
+            0.5971708887997143,
+            2.4203490766321307,
+            3.8858671184048768,
+            4.652295591105616,
+            4.926169866266743,
+            4.849236990085081,
+            4.635998475902917,
+            4.062518269057803,
+            3.1929446718445753,
+            1.5772953113092139
+          ]
+        },
+        "accepted": {
+          "maxAxisTurnDegrees": 6.582713484636658,
+          "maxAxisTurnFromRing": 0,
+          "undefinedAxisTurns": [],
+          "angles": [
+            6.582713484636658,
+            5.853098031122589,
+            3.445904256512526,
+            1.5981065415805755,
+            1.424818656710861,
+            1.0992571173948924,
+            0.5971708887997143,
+            2.4203490766321307,
+            3.8858671184048768,
+            4.652295591105616,
+            4.926169866266743,
+            4.849236990085081,
+            4.635998475902917,
+            4.062518269057803,
+            3.1929446718445753,
+            1.5772953113092139
+          ]
+        }
+      },
+      "deltasMm": {
+        "clumpClearance": 1.243729721771895,
+        "ribbonCentresVsGuide": 9.313225746154785e-07,
+        "vertexClamp": 2.4163030128131235,
+        "postExport": 0
+      }
+    },
+    {
+      "card": 449,
+      "layer": "veil",
+      "stages": {
+        "grownToCut": {
+          "arcMm": 68.81325736222709,
+          "maxBendDegrees": 14.771356376858439,
+          "maxBendRing": 14,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            -38.82097918540239,
+            -0.40634721517562866,
+            -54.62837219238281
+          ]
+        },
+        "lockGuide": {
+          "arcMm": 82.62350482304358,
+          "maxBendDegrees": 6.307329157321099,
+          "maxBendRing": 10,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            8.38259607553482,
+            -45.225964859128,
+            -63.994765281677246
+          ]
+        },
+        "blendedBeforeClearance": {
+          "arcMm": 76.53331090563586,
+          "maxBendDegrees": 13.911956410047068,
+          "maxBendRing": 5,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            21.155856549739838,
+            -42.2619329765439,
+            -43.93815994262695
+          ]
+        },
+        "clumpedAfterClearance": {
+          "arcMm": 81.75720017262843,
+          "maxBendDegrees": 61.993650216837295,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            26.605796068906784,
+            -31.066755764186382,
+            -42.65320301055908
+          ]
+        },
+        "ribbonBeforeClamp": {
+          "arcMm": 81.75719880609225,
+          "maxBendDegrees": 61.99364584978244,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            26.605796068906784,
+            -31.0667569283396,
+            -42.65320301055908
+          ]
+        },
+        "ribbonAfterClamp": {
+          "arcMm": 81.91802907982697,
+          "maxBendDegrees": 63.33179592231833,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            25.932343676686287,
+            -32.600375125184655,
+            -41.547179222106934
+          ]
+        },
+        "accepted": {
+          "arcMm": 81.91802907982697,
+          "maxBendDegrees": 63.33179592231833,
+          "maxBendRing": 2,
+          "zeroOrNearZeroSegments": [],
+          "undefinedBendRings": [],
+          "tipDeltaMm": [
+            25.932343676686287,
+            -32.600375125184655,
+            -41.547179222106934
+          ]
+        }
+      },
+      "widthFrame": {
+        "beforeClamp": {
+          "maxAxisTurnDegrees": 92.1985669626307,
+          "maxAxisTurnFromRing": 2,
+          "undefinedAxisTurns": [],
+          "angles": [
+            1.4342815644063895,
+            6.808752486315213,
+            92.1985669626307,
+            5.5952845482949085,
+            28.503318048473552,
+            3.5487948779502894,
+            16.157058570273975,
+            30.100414539180232,
+            24.06801325044746,
+            13.13241311312253,
+            7.280228767107793,
+            1.4363157119524441,
+            0.21167911394212816,
+            3.759921177434737,
+            9.875607214080953,
+            52.34657478299949
+          ]
+        },
+        "afterClamp": {
+          "maxAxisTurnDegrees": 92.1985669626307,
+          "maxAxisTurnFromRing": 2,
+          "undefinedAxisTurns": [],
+          "angles": [
+            1.3516914952409982,
+            5.7431602688306445,
+            92.1985669626307,
+            5.5952845482949085,
+            28.503318048473552,
+            3.5487948779502894,
+            16.157058570273975,
+            30.100414539180232,
+            24.06801325044746,
+            13.13241311312253,
+            7.280228767107793,
+            1.4363157119524441,
+            0.21167911394212816,
+            3.759921177434737,
+            9.875607214080953,
+            52.34657478299949
+          ]
+        },
+        "accepted": {
+          "maxAxisTurnDegrees": 92.1985669626307,
+          "maxAxisTurnFromRing": 2,
+          "undefinedAxisTurns": [],
+          "angles": [
+            1.3516914952409982,
+            5.7431602688306445,
+            92.1985669626307,
+            5.5952845482949085,
+            28.503318048473552,
+            3.5487948779502894,
+            16.157058570273975,
+            30.100414539180232,
+            24.06801325044746,
+            13.13241311312253,
+            7.280228767107793,
+            1.4363157119524441,
+            0.21167911394212816,
+            3.759921177434737,
+            9.875607214080953,
+            52.34657478299949
+          ]
+        }
+      },
+      "deltasMm": {
+        "clumpClearance": 14.795517805983819,
+        "ribbonCentresVsGuide": 1.3170890159654385e-06,
+        "vertexClamp": 4.014379911719284,
+        "postExport": 0
+      }
+    }
+  ],
+  "layerStages": [
+    {
+      "layer": "root",
+      "count": 78,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 9.068129246820552,
+        "over30": 2,
+        "over60": 0,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 8.701167593544696,
+        "over30": 2,
+        "over60": 0,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 25.986200252817248,
+        "over30": 30,
+        "over60": 5,
+        "cardsWithUndefinedTurns": [
+          25
+        ]
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 35.600699537883685,
+        "over30": 49,
+        "over60": 11,
+        "cardsWithUndefinedTurns": []
+      }
+    },
+    {
+      "layer": "mass",
+      "count": 100,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 13.543442265907068,
+        "over30": 17,
+        "over60": 2,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 12.829705694646313,
+        "over30": 14,
+        "over60": 1,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 16.98643119956496,
+        "over30": 26,
+        "over60": 13,
+        "cardsWithUndefinedTurns": []
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 17.650429997657803,
+        "over30": 27,
+        "over60": 14,
+        "cardsWithUndefinedTurns": []
+      }
+    },
+    {
+      "layer": "underlayer",
+      "count": 70,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 9.646538321866721,
+        "over30": 7,
+        "over60": 1,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 10.13323111163725,
+        "over30": 6,
+        "over60": 0,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 14.323284509318217,
+        "over30": 18,
+        "over60": 5,
+        "cardsWithUndefinedTurns": []
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 19.891824659031606,
+        "over30": 21,
+        "over60": 7,
+        "cardsWithUndefinedTurns": []
+      }
+    },
+    {
+      "layer": "body",
+      "count": 48,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 12.73938952205636,
+        "over30": 6,
+        "over60": 3,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 12.2769225604962,
+        "over30": 6,
+        "over60": 2,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 22.99508526440167,
+        "over30": 21,
+        "over60": 9,
+        "cardsWithUndefinedTurns": [
+          259,
+          271,
+          272
+        ]
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 22.99508623228654,
+        "over30": 21,
+        "over60": 11,
+        "cardsWithUndefinedTurns": [
+          259,
+          271
+        ]
+      }
+    },
+    {
+      "layer": "surface",
+      "count": 48,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 12.498303261625058,
+        "over30": 4,
+        "over60": 0,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 12.738962580325616,
+        "over30": 2,
+        "over60": 0,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 37.21653061931627,
+        "over30": 26,
+        "over60": 17,
+        "cardsWithUndefinedTurns": [
+          307,
+          331
+        ]
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 37.216526508836566,
+        "over30": 26,
+        "over60": 17,
+        "cardsWithUndefinedTurns": [
+          307,
+          331
+        ]
+      }
+    },
+    {
+      "layer": "flyaway",
+      "count": 28,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 14.094126659194906,
+        "over30": 3,
+        "over60": 1,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 14.110969757635356,
+        "over30": 3,
+        "over60": 1,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 32.6281271838658,
+        "over30": 15,
+        "over60": 8,
+        "cardsWithUndefinedTurns": [
+          348,
+          355,
+          367,
+          370
+        ]
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 33.95556409692144,
+        "over30": 16,
+        "over60": 9,
+        "cardsWithUndefinedTurns": [
+          348,
+          355,
+          367
+        ]
+      }
+    },
+    {
+      "layer": "veil",
+      "count": 90,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 13.294120857679081,
+        "over30": 17,
+        "over60": 3,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 13.495138127058627,
+        "over30": 15,
+        "over60": 2,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 30.837440896607962,
+        "over30": 48,
+        "over60": 21,
+        "cardsWithUndefinedTurns": [
+          394,
+          397,
+          424,
+          441,
+          454
+        ]
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 31.08815415992333,
+        "over30": 48,
+        "over60": 21,
+        "cardsWithUndefinedTurns": [
+          394,
+          397,
+          424,
+          441,
+          454
+        ]
+      }
+    },
+    {
+      "layer": "fringe",
+      "count": 34,
+      "grownToCut": {
+        "medianFiniteMaxBendDegrees": 11.638656714682375,
+        "over30": 0,
+        "over60": 0,
+        "cardsWithUndefinedTurns": []
+      },
+      "blendedBeforeClearance": {
+        "medianFiniteMaxBendDegrees": 11.561187779015047,
+        "over30": 1,
+        "over60": 0,
+        "cardsWithUndefinedTurns": []
+      },
+      "clumpedAfterClearance": {
+        "medianFiniteMaxBendDegrees": 45.99761348767672,
+        "over30": 25,
+        "over60": 7,
+        "cardsWithUndefinedTurns": [
+          474
+        ]
+      },
+      "ribbonAfterClamp": {
+        "medianFiniteMaxBendDegrees": 45.997607786929876,
+        "over30": 25,
+        "over60": 7,
+        "cardsWithUndefinedTurns": [
+          474
+        ]
+      }
+    }
+  ],
+  "medianConvention": "Conventional median: average the middle two values for even-sized sets. Finite-turn maxima and collapsed spans are reported separately."
+}

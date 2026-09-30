@@ -1,0 +1,274 @@
+{
+  "status": "unqualified source-stage diagnostic",
+  "cards": [
+    322,
+    449
+  ],
+  "sources": {
+    "accepted": {
+      "path": "assets/hair/bob02/g050.glb",
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    },
+    "original": {
+      "path": "tools/figure-pipeline/fixtures/bob02-g050-original.glb",
+      "sha256": "25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4"
+    },
+    "rebuilt": {
+      "path": "captures/bob-clump-clearance-v1/hair/bob02/g050.glb",
+      "sha256": "0c17429fb06008a27c9d30046bdf431ff786b06c951b9393701aabe07dbd1924"
+    },
+    "body": {
+      "path": "assets/figures/figure_g050.glb",
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    }
+  },
+  "changes": {
+    "positions": [
+      11600,
+      11601,
+      11602,
+      11603,
+      11604,
+      11605,
+      11606,
+      11607,
+      15918,
+      15919,
+      15920,
+      15921,
+      15922,
+      15923,
+      15924,
+      15925,
+      15926,
+      15927,
+      15928,
+      15929,
+      15930,
+      15931,
+      15932,
+      15933,
+      15934,
+      15935,
+      15936,
+      15937,
+      15938,
+      15939,
+      15940,
+      15941,
+      15942,
+      15943,
+      15944,
+      15945,
+      15946,
+      15947,
+      15948,
+      15949,
+      15950,
+      15951
+    ],
+    "normals": [
+      11600,
+      11601,
+      11602,
+      11603,
+      11604,
+      11605,
+      11606,
+      11607,
+      11608,
+      11609,
+      15918,
+      15919,
+      15920,
+      15921,
+      15922,
+      15923,
+      15924,
+      15925,
+      15926,
+      15927,
+      15928,
+      15929,
+      15930,
+      15931,
+      15932,
+      15933,
+      15934,
+      15935,
+      15936,
+      15937,
+      15938,
+      15939,
+      15940,
+      15941,
+      15942,
+      15943,
+      15944,
+      15945,
+      15946,
+      15947,
+      15948,
+      15949,
+      15950,
+      15951
+    ],
+    "triangles": [
+      15500,
+      15501,
+      15502,
+      15503,
+      15506,
+      15507,
+      15510,
+      15511,
+      15526,
+      15527
+    ]
+  },
+  "selectedTriangles": 64,
+  "restTriangleBodyPairs": 0,
+  "minSelectedVertexClearanceMm": 3.7501072161893734,
+  "shapeBefore": [
+    {
+      "card": 322,
+      "maxFiniteBendDegrees": 53.839754862305945,
+      "undefinedTurns": [],
+      "turns": [
+        10.95494212933907,
+        53.839754862305945,
+        48.546250222156466,
+        0.925917910868028,
+        1.8154178160529937,
+        3.1301350907360694,
+        4.176237832844157,
+        4.714550992667203,
+        6.363409723372911,
+        6.128672617650609,
+        6.222651352348907,
+        5.992202671380028,
+        5.93082345219192,
+        5.333408816930141,
+        4.187005911978266
+      ]
+    },
+    {
+      "card": 449,
+      "maxFiniteBendDegrees": 63.33179592231833,
+      "undefinedTurns": [],
+      "turns": [
+        3.8547862124382015,
+        63.33179592231833,
+        6.495468535149102,
+        41.600421633282,
+        25.26213516705429,
+        8.422760520487383,
+        21.27092456145507,
+        16.371235497934663,
+        41.58660392962808,
+        12.710217937814743,
+        19.7598466305714,
+        22.099716712927453,
+        16.16239254874319,
+        20.73925232731765,
+        60.19847891600198
+      ]
+    }
+  ],
+  "shapeAfter": [
+    {
+      "card": 322,
+      "maxFiniteBendDegrees": 6.363409723372911,
+      "undefinedTurns": [],
+      "turns": [
+        3.429678589646702,
+        0.5477663724029073,
+        1.1802974230844456,
+        0.9258981418617398,
+        1.8154178160529937,
+        3.1301350907360694,
+        4.176237832844157,
+        4.714550992667203,
+        6.363409723372911,
+        6.128672617650609,
+        6.222651352348907,
+        5.992202671380028,
+        5.93082345219192,
+        5.333408816930141,
+        4.187005911978266
+      ]
+    },
+    {
+      "card": 449,
+      "maxFiniteBendDegrees": 17.06377234138277,
+      "undefinedTurns": [],
+      "turns": [
+        17.06377234138277,
+        3.809597101263052,
+        9.338800011868441,
+        12.544478574414843,
+        13.911901026763799,
+        12.63171016222982,
+        10.22628770837409,
+        8.056481333282598,
+        16.05201389294208,
+        7.3547970994719565,
+        0.8498422577734496,
+        4.845716879224721,
+        0.23416283044086625,
+        2.570991865459687,
+        12.098212721688375
+      ]
+    }
+  ],
+  "limits": [
+    "Selected source output includes final production vertex clamp; independent rest triangle crossings are still measured.",
+    "No motion qualification; appearance requires actual native images.",
+    "Root rings and selected topology can change as part of the source mechanism and are reported explicitly; all other cards and cap remain unchanged."
+  ],
+  "outputSha256": "32e767725cf9c1f3e752e906d5f481fd0f0db03720575c1eb1a31762f0786da9",
+  "renderComparison": {
+    "pairs": [
+      {
+        "view": "back",
+        "recordedNongeometryControlsEqual": true,
+        "nonselectedLiveMaxMm": 0,
+        "selectedLiveMaxMm": 23.09334564208889
+      },
+      {
+        "view": "rear-oblique",
+        "recordedNongeometryControlsEqual": true,
+        "nonselectedLiveMaxMm": 0,
+        "selectedLiveMaxMm": 23.09334564208889
+      },
+      {
+        "view": "right-profile",
+        "recordedNongeometryControlsEqual": true,
+        "nonselectedLiveMaxMm": 0,
+        "selectedLiveMaxMm": 23.09334564208889
+      }
+    ],
+    "limits": [
+      "Only recorded controls checked; whole-groom position/velocity/vertex hashes intentionally differ. Other live vertices exactly match in these held samples."
+    ]
+  },
+  "runs": {
+    "control": {
+      "pid": 58015,
+      "started": "2026-09-30T05:42:16.419Z",
+      "finished": "2026-09-30T05:42:26.596Z",
+      "status": "captured",
+      "errors": [],
+      "images": 3
+    },
+    "neutral": {
+      "pid": 57848,
+      "started": "2026-09-30T05:41:33.862Z",
+      "finished": "2026-09-30T05:41:44.166Z",
+      "status": "captured",
+      "errors": [],
+      "images": 3
+    }
+  },
+  "decision": "Reject adoption: mechanism succeeded but intact appearance gain is marginal. One posterior support-envelope prototype selected; no more local card passes."
+}
