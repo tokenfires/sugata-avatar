@@ -1,0 +1,480 @@
+{
+  "status": "complete one-shot whole-prefix objective observation; no asset or appearance claim",
+  "started": "2026-09-30T15:03:21.647Z",
+  "finished": "2026-09-30T15:03:21.906Z",
+  "pid": 51538,
+  "nodeVersion": "v24.13.1",
+  "command": "node tools/critic/probe-front-prefix-objective.mjs captures/bob-front-prefix-objective-v1",
+  "pins": {
+    "captures/bob-side-envelope-v3/candidate.glb": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/bob-front-constraints-v1/report.json": "4a48e9a0f804eda92c7d4795e6b025e12eab884caadc269273f88f95e5cb5946",
+    "captures/bob-front-reachability-v1/report.json": "ae4ad28fac664cff456639589eb822593618dbef7c526c96ccf70e1e0e9cf2ae",
+    "tools/critic/probe-front-prefix-objective.mjs": "65dea7b7141ba3ecb0cdc076fd2227f774625962e4138443b278e6f9fd13772e",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "tools/figure-pipeline/hair_geometry.mjs": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+    "tools/figure-pipeline/hair_surface.mjs": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+    "tools/critic/png.mjs": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a",
+    "docs/evidence/hair-2026-09-30/front-prefix-objective/PLAN.md": "86bf09a618fd3a1990924bfc9d9aa865391bc6f1fb6d3f94e00d8174281bbfdc"
+  },
+  "coordinates": "Authored GLB XYZ metres, X lateral/Y up/Z anterior. Arrays are JS doubles; no Float32 asset exported.",
+  "limits": [
+    "One declared unconstrained analytic minimizer per card, followed by fixed conservative gates. No parameter sweep, iterative solver or retuning.",
+    "The fixed-parameter quadratic is a proxy that includes tangential stretch, not geometric curvature or photographic fidelity.",
+    "Gate failure rejects this minimizer, not general feasibility under the fixed anchors. Non-regression floors are optional engineering constraints.",
+    "Only the two affected intervals and rings1/2 are evaluated for bend redistribution. Root position is fixed but outgoing direction can change; it is reported.",
+    "The full original32 triangles per observation are audited against all body triangles. Zero crossing and positive sampled vertices do not prove continuous positive clearance.",
+    "No new GLB, shading normals, render, alpha/coverage, hair-hair, garment or motion qualification. No cards are promoted or reset to these observations."
+  ],
+  "reportSha256": "a2f52ed1040ee1c18f9a1f3575a39bc61ef0f8ec029316c8870e2012aef75aa5",
+  "records": [
+    {
+      "card": 145,
+      "terms": [
+        {
+          "side": 0,
+          "ring": 1,
+          "originalSpanMetres": [
+            0.006860629348602082,
+            0.007916441887306473,
+            0.009206257170022249
+          ],
+          "weight": 135.34481684976674,
+          "a": -272.07859862460685,
+          "b": [
+            0.24683631604368692,
+            -0.03102158420184098,
+            -0.06639649955133489
+          ]
+        },
+        {
+          "side": 0,
+          "ring": 2,
+          "originalSpanMetres": [
+            0.006860629348602082,
+            0.007916441887306473,
+            0.009206257170022249
+          ],
+          "weight": 116.80401514409469,
+          "a": 126.31937608276243,
+          "b": [
+            -0.04905595338847833,
+            -0.027199886100400916,
+            -0.18791455690183761
+          ]
+        },
+        {
+          "side": 1,
+          "ring": 1,
+          "originalSpanMetres": [
+            0.009171031889608772,
+            0.0068720938696695925,
+            0.009426971740215836
+          ],
+          "weight": 124.66398568516625,
+          "a": -254.5550405846316,
+          "b": [
+            0.15414518271095706,
+            0.014927126672183988,
+            -0.4520469084021916
+          ]
+        },
+        {
+          "side": 1,
+          "ring": 2,
+          "originalSpanMetres": [
+            0.009171031889608772,
+            0.0068720938696695925,
+            0.009426971740215836
+          ],
+          "weight": 122.70642059303047,
+          "a": 145.51605652733605,
+          "b": [
+            -0.17524986077376392,
+            -0.02900180259074603,
+            -0.016658611337721785
+          ]
+        }
+      ],
+      "hessianScalar": 45118482.747679465,
+      "analyticTranslationMetres": [
+        0.0007905516551554155,
+        1.1104798351411156e-05,
+        -0.0006081827713107228
+      ],
+      "stationaryGradient": [
+        0,
+        0,
+        -3.637978807091713e-12
+      ],
+      "objectiveUnit": "inverse metres; fixed-parameter second difference, including tangential stretch",
+      "baselineObjective": 45.8357054897572,
+      "derivedObjective": 23.389677232578553,
+      "relativeProxyDecrease": 0.4897061803094666,
+      "gates": {
+        "angles": false,
+        "affectedSpans": false,
+        "adjacentArea": true,
+        "body": true,
+        "strictlyImprovedProxy": true
+      },
+      "passesAllConservativeGates": false,
+      "angleChecks": [
+        {
+          "path": "centre",
+          "ring": 1,
+          "originalDegrees": 17.42436069824263,
+          "degrees": 5.344401408614316,
+          "deltaDegrees": -12.079959289628313,
+          "pass": true
+        },
+        {
+          "path": "centre",
+          "ring": 2,
+          "originalDegrees": 9.311144542131721,
+          "degrees": 11.772157310686364,
+          "deltaDegrees": 2.4610127685546423,
+          "pass": false
+        },
+        {
+          "path": "edge0",
+          "ring": 1,
+          "originalDegrees": 14.793917851764396,
+          "degrees": 5.422375669003843,
+          "deltaDegrees": -9.371542182760553,
+          "pass": true
+        },
+        {
+          "path": "edge0",
+          "ring": 2,
+          "originalDegrees": 11.254222732424386,
+          "degrees": 15.37756099505195,
+          "deltaDegrees": 4.123338262627563,
+          "pass": false
+        },
+        {
+          "path": "edge1",
+          "ring": 1,
+          "originalDegrees": 27.645545304276737,
+          "degrees": 17.56265525718516,
+          "deltaDegrees": -10.082890047091578,
+          "pass": true
+        },
+        {
+          "path": "edge1",
+          "ring": 2,
+          "originalDegrees": 10.2359071006278,
+          "degrees": 6.939558764971209,
+          "deltaDegrees": -3.2963483356565915,
+          "pass": true
+        }
+      ],
+      "spanChecks": [
+        {
+          "path": "centre",
+          "originalMinimumMm": 7.196504616870185,
+          "minimumMm": 7.163651821263249,
+          "pass": false
+        },
+        {
+          "path": "edge0",
+          "originalMinimumMm": 6.860629348602082,
+          "minimumMm": 6.603325521231524,
+          "pass": false
+        },
+        {
+          "path": "edge1",
+          "originalMinimumMm": 6.872093869669593,
+          "minimumMm": 6.623069880551098,
+          "pass": false
+        }
+      ],
+      "metrics": [
+        {
+          "path": "centre",
+          "rootOutgoingDirectionChangeDegrees": 7.208344632800798,
+          "affectedSpansMm": [
+            7.808913783408965,
+            7.163651821263249
+          ],
+          "originalAffectedSpansMm": [
+            7.93397297707889,
+            7.196504616870185
+          ],
+          "turnsDegrees": [
+            5.344401408614316,
+            11.772157310686364
+          ],
+          "originalTurnsDegrees": [
+            17.42436069824263,
+            9.311144542131721
+          ]
+        },
+        {
+          "path": "edge0",
+          "rootOutgoingDirectionChangeDegrees": 8.210820134713897,
+          "affectedSpansMm": [
+            6.603325521231524,
+            8.067659455957253
+          ],
+          "originalAffectedSpansMm": [
+            6.860629348602082,
+            7.916441887306473
+          ],
+          "turnsDegrees": [
+            5.422375669003843,
+            15.37756099505195
+          ],
+          "originalTurnsDegrees": [
+            14.793917851764396,
+            11.254222732424386
+          ]
+        },
+        {
+          "path": "edge1",
+          "rootOutgoingDirectionChangeDegrees": 6.241566409330749,
+          "affectedSpansMm": [
+            9.145193688007192,
+            6.623069880551098
+          ],
+          "originalAffectedSpansMm": [
+            9.171031889608772,
+            6.872093869669593
+          ],
+          "turnsDegrees": [
+            17.56265525718516,
+            6.939558764971209
+          ],
+          "originalTurnsDegrees": [
+            27.645545304276737,
+            10.2359071006278
+          ]
+        }
+      ]
+    },
+    {
+      "card": 204,
+      "terms": [
+        {
+          "side": 0,
+          "ring": 1,
+          "originalSpanMetres": [
+            0.005323805354510632,
+            0.006160807173806903,
+            0.007199251634022251
+          ],
+          "weight": 174.1460580466788,
+          "a": -350.15196075180404,
+          "b": [
+            0.03238640904643323,
+            0.030604780921119734,
+            0.21286783319368313
+          ]
+        },
+        {
+          "side": 0,
+          "ring": 2,
+          "originalSpanMetres": [
+            0.005323805354510632,
+            0.006160807173806903,
+            0.007199251634022251
+          ],
+          "weight": 149.69993985565213,
+          "a": 162.31639325632023,
+          "b": [
+            0.016021550830842272,
+            -0.034246929076428345,
+            -0.2685368737503616
+          ]
+        },
+        {
+          "side": 1,
+          "ring": 1,
+          "originalSpanMetres": [
+            0.007740319371553037,
+            0.006015887887794695,
+            0.004901976931500689
+          ],
+          "weight": 145.38891151417798,
+          "a": -295.42013755712776,
+          "b": [
+            0.12447970307888462,
+            -0.012506608775555428,
+            -0.030874106152648628
+          ]
+        },
+        {
+          "side": 1,
+          "ring": 2,
+          "originalSpanMetres": [
+            0.007740319371553037,
+            0.006015887887794695,
+            0.004901976931500689
+          ],
+          "weight": 183.18600139336363,
+          "a": 166.22650199795865,
+          "b": [
+            0.08918366089660974,
+            -0.03852614991713099,
+            -0.7399614390084467
+          ]
+        }
+      ],
+      "hessianScalar": 86091399.40557133,
+      "analyticTranslationMetres": [
+        9.795102205376112e-05,
+        7.746022887808658e-05,
+        0.0009457694558511823
+      ],
+      "stationaryGradient": [
+        0,
+        9.094947017729282e-13,
+        0
+      ],
+      "objectiveUnit": "inverse metres; fixed-parameter second difference, including tangential stretch",
+      "baselineObjective": 123.69124026091757,
+      "derivedObjective": 84.51645293724299,
+      "relativeProxyDecrease": 0.3167143222190856,
+      "gates": {
+        "angles": false,
+        "affectedSpans": false,
+        "adjacentArea": true,
+        "body": true,
+        "strictlyImprovedProxy": true
+      },
+      "passesAllConservativeGates": false,
+      "angleChecks": [
+        {
+          "path": "centre",
+          "ring": 1,
+          "originalDegrees": 5.142871426403613,
+          "degrees": 14.387436124528667,
+          "deltaDegrees": 9.244564698125053,
+          "pass": false
+        },
+        {
+          "path": "centre",
+          "ring": 2,
+          "originalDegrees": 27.988966648356456,
+          "degrees": 19.182636975627798,
+          "deltaDegrees": -8.806329672728658,
+          "pass": true
+        },
+        {
+          "path": "edge0",
+          "ring": 1,
+          "originalDegrees": 12.485466628213384,
+          "degrees": 6.683431386840591,
+          "deltaDegrees": -5.802035241372793,
+          "pass": true
+        },
+        {
+          "path": "edge0",
+          "ring": 2,
+          "originalDegrees": 15.58579633960489,
+          "degrees": 6.95556401148774,
+          "deltaDegrees": -8.630232328117149,
+          "pass": true
+        },
+        {
+          "path": "edge1",
+          "ring": 1,
+          "originalDegrees": 7.388234639681009,
+          "degrees": 17.845183186523148,
+          "deltaDegrees": 10.456948546842138,
+          "pass": false
+        },
+        {
+          "path": "edge1",
+          "ring": 2,
+          "originalDegrees": 43.82074813833853,
+          "degrees": 35.2255088478232,
+          "deltaDegrees": -8.59523929051533,
+          "pass": true
+        }
+      ],
+      "spanChecks": [
+        {
+          "path": "centre",
+          "originalMinimumMm": 6.047888264885049,
+          "minimumMm": 5.863623931272948,
+          "pass": false
+        },
+        {
+          "path": "edge0",
+          "originalMinimumMm": 5.323805354510632,
+          "minimumMm": 5.36599801111812,
+          "pass": true
+        },
+        {
+          "path": "edge1",
+          "originalMinimumMm": 6.015887887794695,
+          "minimumMm": 5.73662086837292,
+          "pass": false
+        }
+      ],
+      "metrics": [
+        {
+          "path": "centre",
+          "rootOutgoingDirectionChangeDegrees": 8.05495969568802,
+          "affectedSpansMm": [
+            6.650260130025226,
+            5.863623931272948
+          ],
+          "originalAffectedSpansMm": [
+            6.380388301532669,
+            6.047888264885049
+          ],
+          "turnsDegrees": [
+            14.387436124528667,
+            19.182636975627798
+          ],
+          "originalTurnsDegrees": [
+            5.142871426403613,
+            27.988966648356456
+          ]
+        },
+        {
+          "path": "edge0",
+          "rootOutgoingDirectionChangeDegrees": 10.230022200526356,
+          "affectedSpansMm": [
+            5.36599801111812,
+            6.070247063309606
+          ],
+          "originalAffectedSpansMm": [
+            5.323805354510632,
+            6.160807173806903
+          ],
+          "turnsDegrees": [
+            6.683431386840591,
+            6.95556401148774
+          ],
+          "originalTurnsDegrees": [
+            12.485466628213384,
+            15.58579633960489
+          ]
+        },
+        {
+          "path": "edge1",
+          "rootOutgoingDirectionChangeDegrees": 6.2009641105603945,
+          "affectedSpansMm": [
+            8.15442963108813,
+            5.73662086837292
+          ],
+          "originalAffectedSpansMm": [
+            7.740319371553038,
+            6.015887887794695
+          ],
+          "turnsDegrees": [
+            17.845183186523148,
+            35.2255088478232
+          ],
+          "originalTurnsDegrees": [
+            7.388234639681009,
+            43.82074813833853
+          ]
+        }
+      ]
+    }
+  ]
+}
