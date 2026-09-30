@@ -60,6 +60,12 @@ history, queries, body range and coupling remain open; PUNCHLIST10.7 stays unche
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
 
+September 30's [continuous foundation boundary](evidence/wardrobe-2026-09-30/foundation-domain-native/README.md)
+removes large stepped/toothed band outlines and the casual neckline's grey foundation islands in
+actual static views. Required sampled coverage, finite native/export skinning and full rest-body
+clearance pass independently; fine close-up hem marks remain. The candidate stays isolated pending
+ordinary movement/outfit observations. It is not an accepted replacement or complete wardrobe fit.
+
 A September 26 [identity-aware eyelid instrument](evidence/nonhair-2026-09-26/identity-closure-next/README.md)
 now reproduces a sampled CPU red/green case at the native blink coefficient, independently
 checked by a second 3D intersection method. A body-only eye-height change exposes eye

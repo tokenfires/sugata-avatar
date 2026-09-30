@@ -1,0 +1,60 @@
+[
+  {
+    "root": "captures/foundation-domain-native-2026-09-30-v1",
+    "reportSHA256": "2c11d88c0ab19653321d2577fc25e751558d1633b97cde264136779eec43db48",
+    "pid": 34274,
+    "started": "2026-09-30T22:01:35.550429+00:00",
+    "finished": "2026-09-30T22:01:45.598175+00:00",
+    "status": "failed",
+    "errors": [
+      "[{'name': '_under_FEMALE_CASUALSUIT01', 'type': 'FLOAT', 'domain': 'POINT'}, {'name': '_under_SHOES01', 'type': 'FLOAT', 'domain': 'POINT'}, {'name': '_under_FEMALE_ELEGANTSUIT01', 'type': 'FLOAT', 'domain': 'POINT'}, {'name': 'UVMap', 'type': 'FLOAT2', 'domain': 'CORNER'}, {'name': '.uv_select_vert', 'type': 'BOOLEAN', 'domain': 'CORNER'}, {'name': '.uv_select_edge', 'type': 'BOOLEAN', 'domain': 'CORNER'}, {'name': '.uv_select_face', 'type': 'BOOLEAN', 'domain': 'FACE'}, {'name': 'position', 'type': 'FLOAT_VECTOR', 'domain': 'POINT'}, {'name': '.edge_verts', 'type': 'INT32_2D', 'domain': 'EDGE'}, {'name': '.corner_vert', 'type': 'INT', 'domain': 'CORNER'}, {'name': '.corner_edge', 'type': 'INT', 'domain': 'CORNER'}]"
+    ]
+  },
+  {
+    "root": "captures/foundation-domain-native-2026-09-30-v2",
+    "reportSHA256": "f5ccbd19b1dc04ea3677209ebc81a692bee9a12fce183c883b3e8d0b63de004f",
+    "pid": 39248,
+    "started": "2026-09-30T22:04:44.681540+00:00",
+    "finished": "2026-09-30T22:04:55.466115+00:00",
+    "status": "failed",
+    "errors": [
+      "bpy_prop_collection[index]: index 4 out of range, size 0"
+    ]
+  },
+  {
+    "root": "captures/foundation-domain-native-2026-09-30-v3",
+    "reportSHA256": "1fe19dbc023d78e4ee0eb73d04fccf823eeb51251f044bb8a83b644a52d24582",
+    "pid": 51679,
+    "started": "2026-09-30T22:12:56.592699+00:00",
+    "finished": "2026-09-30T22:13:11.296039+00:00",
+    "status": "constructed-awaiting-export-coverage-and-visual-review",
+    "errors": []
+  },
+  {
+    "root": "captures/foundation-domain-comparison-2026-09-30-v1",
+    "reportSHA256": "452c05c2df7927f9173bf948f5aad1fb9ceeb79530fa32f152656e524c0f255e",
+    "pid": 52855,
+    "started": "2026-09-30T22:13:40.655Z",
+    "finished": "2026-09-30T22:13:42.905Z",
+    "status": "finite-correspondence-and-coverage-prerequisites-met",
+    "errors": []
+  },
+  {
+    "root": "captures/foundation-domain-visual-2026-09-30-v1",
+    "reportSHA256": "72adba1d6e7179d1137cef80c46551c8c565c8783abaf1bdec18f05aabc2266d",
+    "pid": 54801,
+    "started": "2026-09-30T22:14:57.045Z",
+    "finished": "2026-09-30T22:16:40.588Z",
+    "status": "captured",
+    "errors": []
+  },
+  {
+    "root": "captures/foundation-domain-clearance-2026-09-30-v1",
+    "reportSHA256": "8bca6b1cf782aeccf83d49724f0b1530dd9b06dcb38e73e88f90b4d4e974a6f6",
+    "pid": 54650,
+    "started": "2026-09-30T22:14:52.340Z",
+    "finished": "2026-09-30T22:19:51.924Z",
+    "status": "audited",
+    "errors": []
+  }
+]
