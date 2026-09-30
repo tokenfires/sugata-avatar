@@ -1,10 +1,10 @@
 # Sugata overnight progress September 29
 
-## Active authorization and deadline
+## Completed authorization window
 
 Robert explicitly resumed Sugata work on September 29 after the six-image bob discussion. Hair is now in scope, and he authorized useful progress on any area of the product plan overnight. The earlier September 26 pause and hair deferral are historical. His latest steering requires a ten-minute recovery wakeup, a valid evidence example and two alternatives for every actionable critic finding, and avoidance of repeated tweak reversals without new evidence.
 
-The planned final checkpoint is September 30 at 06:00 America/Los_Angeles, or 13:00 UTC. Stop starting substantial work at 05:45, collect or safely stop owned jobs, save the morning report, and pause automation `advance-sugata-avatar-visual-quality`. A newer stop or pause overrides this window immediately. Recovery wakes should resume productive work when capacity permits and must not duplicate a live job. Continue useful cycles within an active turn rather than idling for the next wake.
+The window closed September 30 at 06:00 America/Los_Angeles, or 13:00 UTC. Automation `advance-sugata-avatar-visual-quality` was paused through the app at the deadline. Substantial work ended before 05:45; all owned work jobs are complete and collected. The 13:02 UTC final inventory confirms the awake assertion absent and the existing review server available. No further work is active under this overnight authorization. A new user request can authorize the next window.
 
 Current chat: `01a0f00c-2aad-7912-aece-8ba7e084bd9c`. Repository: `/Users/robault/GitHub/sugata-avatar`. Starting branch `codex/nonhair-progress-2026-09-26`, HEAD `d75d970a81ba16d7a2bb1be1c2cca7cbc95e000c`. Tonight now uses new branch `codex/bob-appearance-2026-09-29` from that exact commit. Initial untracked change is the new [bob appearance brief](research/bob-appearance-brief-2026-09-29.md). Six reference copies and their index are preserved locally in ignored `reference/bob-appearance-2026-09-29/`. Other existing worktrees contain preserved work and are not free scratch space.
 
@@ -20,7 +20,7 @@ The side-v3 `bbed05d0…` remains the exact recoverable comparison. Lower-v1 `2b
 
 **Front work stopped after two rejected constructions:** free-space curves `85039666…` introduce 896 body pairs; global ellipsoid `488f5ea…` introduces 42 pairs and visibly inflated/creased crown. Both retained. Four exact constraint witnesses (7, 46, 145, 204) are frozen. No third candidate or parameter sweep. Next representation work must account for full ribbon width, fixed attachments and transition space; card 58's shared moving contact joins that future scope. Feasibility remains undetermined. See [front support evidence](evidence/hair-2026-09-29/front-support/README.md).
 
-**Recovery at 12:08 UTC:** all work jobs are complete and collected. Evidence preservation and final native review are finished. The [morning report](MORNING-2026-09-30.md) contains the completed results; final automation shutdown is due at 13:00 UTC. Do not restart completed jobs or make a new front candidate. Preserve the review server. At the deadline, inventory owned jobs, pause this automation and update the report/checkpoint with actual shutdown state.
+**Closed checkpoint at 13:02 UTC:** all work jobs and the critic are complete and collected. The automation is verified PAUSED. Review Vite PID 2323 remains available; owned awake PID 29545 is absent. The [final morning report](MORNING-2026-09-30.md) and [shutdown receipt](evidence/hair-2026-09-29/morning-shutdown/README.md) contain the outcome and exact service state. Do not restart completed jobs or continue a new candidate under this expired work window. Preserve the review server and all frozen evidence.
 
 Root exclusively owns native GPU/browser captures. The critic may only edit an explicitly assigned critique file. Inventory jobs before capture, serialize all native work, and record commands, process/session identity and output. Existing native helpers use `packages/core/src/render/MotionProbe.mjs`. Do not route production modules; isolated GLB routes must be counted and hashed. Equal controls and numerical contacts support actual-image review, not replace it.
 
@@ -40,11 +40,11 @@ The medium target remains grounded in R1 through R3. Short, wavy, tousled and cu
 - Read the current material and Showcase interfaces. There is a material base-colour input but no user-facing Showcase hair-colour control.
 - Reference brief and six local copies are saved. The critic reports that the brief is faithful and sufficient for appearance comparison, with the controlled diagnostic procedure the next missing piece.
 
-## Active jobs
+## Final jobs and retained service
 
-Automation `advance-sugata-avatar-visual-quality` is ACTIVE with ten-minute recovery wakes until the 13:00 UTC shutdown. Review PID 2323 and awake PID 29545 remain. Root serializes any final browser capture. No asset generation or body audit remains running.
+Automation `advance-sugata-avatar-visual-quality` is PAUSED. Review PID 2323 remains; awake PID 29545 is absent. No native capture, Blender, encoder, body audit or critic job remains running. The table retains completed job identities for recovery.
 
-Snapshot 2026-09-30 12:00 UTC:
+Final snapshot 2026-09-30 13:02 UTC:
 
 | Job | Exec session / PID | Status | Durable record |
 | --- | --- | --- | --- |
@@ -56,13 +56,14 @@ Snapshot 2026-09-30 12:00 UTC:
 | Dark replay, pair, preview, archive | 8863, 36063, 10487, 86103, 4111 | complete and collected | dark-motion summary and manifest |
 | Front prototypes / focused audit | 16102, 76345, 60682 | complete and collected; rejected | front-support summary and manifest |
 | Native review versions 2–5 | 28950, 43695, 21645, 85901 | collected; v2/v3 failed, v4/v5 passed | `captures/lower-fallback-review-v{2,3,4,5}/report.json` |
-| Independent critic | `/root/hair_critic` | completed full audit; final packaging review assigned | full-audit critique and messages |
+| Final native review v6 | 65437 / 60068 | passed, complete and collected | `captures/lower-fallback-review-v6/report.json` |
+| Independent critic | `/root/hair_critic` | complete; full audit and packaging review collected | full-audit critique and messages |
 
 Process inventory at 11:59 UTC found only Vite 2323 and owned caffeinate 29545 among relevant long-running processes. No Chromium, Blender, encoder, capture or body-audit process remains. GPU is free.
 
 Frozen new packets: front-support 74 files / 64,059,418 bytes / 6 PNGs; dark-motion 1,532 files / 1,714,386,711 bytes / 372 PNGs; expanded audit and independent witness 26 files / 4,587,441 bytes. Each tracked manifest hashes its raw files. These ignored local roots are evidence, not an off-machine backup. Do not append or modify them. Page versions 2–6 are now frozen by the review-controls manifest, including the final overview revision.
 
-Branch `codex/bob-appearance-2026-09-29`, prior saved commit `038cc2b`; the completed front/dark/full-audit/review slice is ready for its next local commit. Usage at 11:19 UTC permitted ordinary work, 22% weekly used. No credits or model changes.
+Branch `codex/bob-appearance-2026-09-29`, completed evidence commit `2d2c721`; final shutdown documentation is saved in the following local commit. Usage at 11:19 UTC permitted ordinary work, 22% weekly used. No credits or model changes.
 
 Temporary Blender mount **cleaned up**: verified cached DMG/device12/mount identity and no Blender process, then `hdiutil detach /dev/disk12` succeeded (disk12 ejected). No other disk touched. The source mount record remains `tmp/hair-sep29/blender-mount.plist`; isolated wrapper/profile remain for recovery, but the wrapper cannot run until the owned cached runtime is deliberately mounted again. Authoring jobs are complete.
 A bounded `/usr/bin/caffeinate -i -t 34093` process, PID 29545, was started at 2026-09-30 03:31:47 UTC to prevent idle system sleep until 13:00 UTC. The display may sleep. Its local recovery record is `tmp/hair-sep29/awake.json`. On an earlier explicit stop, verify this exact process identity before releasing the owned assertion. The process inventory at setup showed only this assertion and the existing review Vite server among owned long-running services; all capture processes had exited.
@@ -511,3 +512,15 @@ Native final page v6 session 65437 / PID 60068 completed and was collected. Eigh
 Byte-preservation v1 session 68997 / PID 60604 completed all 25 manifests (24,135 unique files / 24,621,016,869 bytes), then failed because the checker incorrectly associated the figure hash with `assets/wardrobe/body/g050.glb`. Source reports identify the real body input as `assets/figures/figure_g050.glb`. The wrong path is an instrument error, not an asset change. Both accepted hair pins passed. Preserve v1/source/failure unchanged; corrected checker v2 is now running in a fresh root, with its PID in `captures/bob-morning-preservation-v2/report.json`. No native job is running.
 
 At 12:07 UTC, corrected preservation v2 session 61626 / PID 60855 completed and was collected: all 25 manifests, 24,135 unique files / 24,621,016,869 bytes verified, plus the three accepted asset pins and all six original/reference-copy pairs. The separate local-target check passes 905 explicit file links in 50 documents; heading anchors, external destinations and dynamic links are outside its scope. Reports and both preservation-source versions are frozen under [morning preservation](evidence/hair-2026-09-29/morning-preservation/README.md). Critic independently verified the expanded-audit archive and prior physical dependencies; the morning report now uses its precise wording, “338 selected rear/side cards.” All owned jobs are collected.
+
+### Scheduled shutdown preparation at 12:12 UTC
+
+Recovery wake found the work packet complete and the tree clean at `2d2c721`. No new construction or audit is justified before the checkpoint. Final native and preservation checks are collected. Root is holding the scheduled 13:00 UTC shutdown, with no GPU/CPU work job running; the only retained services are review Vite 2323 and the bounded awake assertion 29545, which expires at 13:00. The morning report is still explicitly marked active until shutdown is verified. A newer user stop takes precedence.
+
+## Final checkpoint — 13:00–13:02 UTC / 06:00–06:02 Pacific
+
+The scheduled window has ended. App tool `automation_update` changed only the existing heartbeat status to PAUSED; the file state confirms the prompt, schedule and target are preserved. The independent critic is complete and its final wording correction was applied. No capture or oracle was restarted after the 12:08 recovery checkpoint. Root held the deadline without starting additional work.
+
+`python3 tmp/hair-sep29/final-shutdown-check.py` completed at 13:02:02 UTC. Owned awake PID 29545 is absent. Process inventory retains only Vite PID 2323 among the relevant Sugata jobs; the visual review returns HTTP 200. Both accepted bob hashes and the figure hash remain exact. The first receipt attempt encountered unrelated non-UTF8 process-command bytes; the corrected decoder completed with the same exact owned-process guard. Source and receipt are frozen under `captures/bob-morning-shutdown-v1` with a tracked manifest. No unrelated process or worktree was changed.
+
+Delivered: local hair-colour controls; isolated rear/side/inward-end shape progress; complete finite ribbon-body qualification with explicit shared head-contact failure; two rejected front constructions with a concrete four-witness next-step packet; desktop/mobile review; preserved source, original images and raw physical evidence. Front styling, crown/tips, all-motion qualification and broader product goals remain open. The next authorized slice is a small full-ribbon feasibility study against the real head mesh, including the fixed-transition witnesses and card 58. No accepted geometry was promoted, no push/publication occurred, and no model/credit action was taken.
