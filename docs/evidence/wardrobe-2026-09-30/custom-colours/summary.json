@@ -1,0 +1,115 @@
+{
+  "recordedAt": "2026-09-30T16:44:02.440659+00:00",
+  "material": {
+    "report": "captures/wardrobe-colours-day-2026-09-30-v1/report.json",
+    "sha256": "aeb5497832cee9562ffb1c51fcf6f013a396ce0e49d4d6c21b0a35ac36e405ef",
+    "started": "2026-09-30T16:28:11.283Z",
+    "finished": "2026-09-30T16:29:07.624Z",
+    "pid": 20984,
+    "arms": 16,
+    "exactImageGatePassed": false,
+    "comparisons": [
+      {
+        "a": "baseline-casual-0-base",
+        "b": "feature-casual-0-base",
+        "changedPixels": 401,
+        "totalPixels": 781200,
+        "maxChannelCodes": 9,
+        "exact": false
+      },
+      {
+        "a": "feature-casual-0-base",
+        "b": "feature-casual-0-return",
+        "changedPixels": 0,
+        "totalPixels": 781200,
+        "maxChannelCodes": 0,
+        "exact": true
+      },
+      {
+        "a": "baseline-casual-145-base",
+        "b": "feature-casual-145-base",
+        "changedPixels": 0,
+        "totalPixels": 781200,
+        "maxChannelCodes": 0,
+        "exact": true
+      },
+      {
+        "a": "feature-casual-145-base",
+        "b": "feature-casual-145-return",
+        "changedPixels": 0,
+        "totalPixels": 781200,
+        "maxChannelCodes": 0,
+        "exact": true
+      },
+      {
+        "a": "baseline-elegant-0-base",
+        "b": "feature-elegant-0-base",
+        "changedPixels": 165,
+        "totalPixels": 781200,
+        "maxChannelCodes": 36,
+        "exact": false
+      },
+      {
+        "a": "feature-elegant-0-base",
+        "b": "feature-elegant-0-return",
+        "changedPixels": 165,
+        "totalPixels": 781200,
+        "maxChannelCodes": 36,
+        "exact": false
+      },
+      {
+        "a": "baseline-elegant-145-base",
+        "b": "feature-elegant-145-base",
+        "changedPixels": 235,
+        "totalPixels": 781200,
+        "maxChannelCodes": 53,
+        "exact": false
+      },
+      {
+        "a": "feature-elegant-145-base",
+        "b": "feature-elegant-145-return",
+        "changedPixels": 206,
+        "totalPixels": 781200,
+        "maxChannelCodes": 4,
+        "exact": false
+      }
+    ]
+  },
+  "ui": [
+    {
+      "report": "captures/wardrobe-colours-day-ui-2026-09-30-v1/report.json",
+      "sha256": "599c9e3bf193c9c6738a0e4760b976cbe3cb9d05baac1e2663e547668a10b5aa",
+      "pid": 21819,
+      "started": "2026-09-30T16:33:41.201Z",
+      "finished": "2026-09-30T16:33:49.449Z",
+      "status": "captured",
+      "states": 14,
+      "readyOwners": 10,
+      "retirements": 10,
+      "images": 4
+    },
+    {
+      "report": "captures/wardrobe-colours-day-ui-2026-09-30-v2/report.json",
+      "sha256": "159c4732ff051de8f455fc09439680f4e3c95307e54f5bd2e3394a12fdc6ac57",
+      "pid": 22294,
+      "started": "2026-09-30T16:37:07.760Z",
+      "finished": "2026-09-30T16:37:32.709Z",
+      "status": "captured",
+      "states": 14,
+      "readyOwners": 10,
+      "retirements": 10,
+      "images": 4
+    }
+  ],
+  "cpuReportSHA256": "0d4fe0801e615063b37d4226c8d1a4089479bb6678a597fbae5c57cd935cf191",
+  "critics": {
+    "MATERIAL-CRITIQUE.md": "13511b526b45602f2a9f4ada1d05bea60343da8a78c1a683c08131d709a6b532",
+    "UI-CRITIQUE.md": "d67939536bff0327898757c445e55c11a2bea4c32d54164005b12bde85342e92"
+  },
+  "archive": {
+    "fileCount": 607,
+    "totalBytes": 62852852,
+    "sha256": "ebf27c15eba3f623c15bf9b95b83a4c4c91160840eab55b79374e975db4731c6"
+  },
+  "featureSourceStillMatches": true
+}
