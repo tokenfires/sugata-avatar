@@ -53,7 +53,10 @@ passes matched four-influence arithmetic but fails the unchanged full-native ski
 thigh influence produces1.589mm error in the neutral coupled waist. Actual plain-body views
 show subtle local differences, not an obvious gross context defect. A [full-influence CPU representation](evidence/wardrobe-2026-09-30/skeleton-full-influences/README.md)
 subsequently passes all nine native comparisons (max0.000595mm) without geometry/pose tuning.
-Actual GPU support is next; broader range/runtime/appearance remain open, and PUNCHLIST10.7 stays unchecked. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
+The [finite WebGPU position probe](evidence/wardrobe-2026-09-30/skeleton-full-influences/GPU-RESULT.md)
+then passes all nine cases (max0.000717mm), with actual paired visible-region review. Full-target
+feet are clipped in context, so complete-body visual coverage is incomplete. Production normals,
+history, queries, body range and coupling remain open; PUNCHLIST10.7 stays unchecked. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
 

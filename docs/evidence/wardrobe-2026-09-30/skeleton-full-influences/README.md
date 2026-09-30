@@ -34,7 +34,7 @@ These observations support preserving full influences as the next candidate. The
 
 Before execution, the critic found a 15-entry coordinate-matrix literal. **Chosen correction:** restore the exact 16-entry matrix and assert finite length-16 input. **Alternative:** construct explicit basis vectors with Matrix4.makeBasis, avoiding flat-list counts while introducing a different constructor path. The correction happened before the first execution; it was an instrument typo, not a representation result.
 
-Independent post-execution review is recorded in [CRITIQUE.md](CRITIQUE.md). The next [GPU plan](GPU-PLAN.md) retains this same finite case set, observes actual compute output, and pairs actual native/candidate static body images. It does not integrate ordinary avatar skinning, normals/tangents, velocity history, runtime body changes or wardrobe/face coupling.
+Independent post-execution review is recorded in [CRITIQUE.md](CRITIQUE.md). The subsequent [GPU result](GPU-RESULT.md) passes this finite case set with actual readbacks and paired native/candidate visible-region inspection. Full-target feet remain visually unqualified because the context clips them. It does not integrate ordinary avatar skinning, normals/tangents, velocity history, runtime body changes or wardrobe/face coupling.
 
 The deferred alternative is constrained four-slot fitting over a broader predeclared pose set. It preserves format but risks fitting particular poses. Complete influence preservation is preferred here because it addresses the actual omitted thigh weight without changing source intent.
 

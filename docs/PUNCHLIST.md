@@ -2636,7 +2636,10 @@ Measurements, sources and the evidence behind every number below live in
       passes matched four-influence arithmetic but fails full-native0.342mm fidelity in the
       neutral coupled control (1.589mm waist witness, omitted thigh weight). The [complete-influence CPU candidate](evidence/wardrobe-2026-09-30/skeleton-full-influences/README.md)
       then passes all nine native cases (max0.000595mm), retaining both four-slot and stale-bind
-      failures. GPU/runtime/appearance qualification remains open. This item stays unchecked.
+      failures. A subsequent [WebGPU position probe](evidence/wardrobe-2026-09-30/skeleton-full-influences/GPU-RESULT.md)
+      passes nine finite cases (max0.000717mm) with paired visible-region review; full-target
+      feet are visually unqualified. Production normals/history/queries, range and coupling
+      remain open. This item stays unchecked.
 - [ ] **10.8** Continuous gender. With 10.1 and 10.7 the five 11 MB bakes become one base plus a
       parameter, and `Identity.js`'s `NEAREST` / `LIVE_PREVIEW` split — which exists *only* because
       glTF cannot morph a skeleton — collapses into one exact mode.
