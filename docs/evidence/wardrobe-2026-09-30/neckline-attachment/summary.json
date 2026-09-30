@@ -1,0 +1,244 @@
+{
+  "status": "no-admissible-cycle-under-declared-closure",
+  "created": "2026-09-30T19:57:05.984586+00:00",
+  "sourceReport": {
+    "path": "captures/neckline-attachment-2026-09-30-v1/report.json",
+    "sha256": "6e2fb1fea5470e73188a68f67c9c5d48eacf33663eabb7c3e3c2ee7b6db6b0ca"
+  },
+  "terminalReport": {
+    "path": "captures/neckline-attachment-terminal-2026-09-30-v1/report.json",
+    "sha256": "3c36860ff0fa5b843e08b0e0082d7f62e478474a1677a330fd3e040d37213b37"
+  },
+  "started": "2026-09-30T19:52:49.777Z",
+  "finished": "2026-09-30T19:53:20.090Z",
+  "pid": 30693,
+  "execSession": 13030,
+  "iterations": 19,
+  "seedFaces": 240,
+  "regionFaces": 1219,
+  "shirtFaces": 2524,
+  "classifiedFaces": 1273,
+  "reasonCounts": {
+    "body: crossing/contact/near contact": 531,
+    "body: inside/ambiguous/inconsistent containment": 478
+  },
+  "terminalOpening": "lower hem",
+  "terminalEdges": [
+    {
+      "key": "159:287",
+      "groups": [
+        159,
+        287
+      ],
+      "faces": [
+        245
+      ],
+      "rawVertices": [
+        [
+          167
+        ],
+        [
+          302
+        ]
+      ],
+      "world": [
+        [
+          0.10723938047885895,
+          0.909338653087616,
+          0.09283655881881714
+        ],
+        [
+          0.08001918345689774,
+          0.9070038795471191,
+          0.11252689361572266
+        ]
+      ]
+    },
+    {
+      "key": "550:691",
+      "groups": [
+        550,
+        691
+      ],
+      "faces": [
+        948
+      ],
+      "rawVertices": [
+        [
+          603
+        ],
+        [
+          751
+        ]
+      ],
+      "world": [
+        [
+          -0.16325224936008453,
+          0.9056531190872192,
+          0.09537280350923538
+        ],
+        [
+          -0.13627074658870697,
+          0.9069451093673706,
+          0.11263982206583023
+        ]
+      ]
+    },
+    {
+      "key": "550:910",
+      "groups": [
+        550,
+        910
+      ],
+      "faces": [
+        1717
+      ],
+      "rawVertices": [
+        [
+          603
+        ],
+        [
+          1007
+        ]
+      ],
+      "world": [
+        [
+          -0.16325224936008453,
+          0.9056531190872192,
+          0.09537280350923538
+        ],
+        [
+          -0.17523564398288727,
+          0.9042268395423889,
+          0.08367574214935303
+        ]
+      ]
+    },
+    {
+      "key": "159:945",
+      "groups": [
+        159,
+        945
+      ],
+      "faces": [
+        1784
+      ],
+      "rawVertices": [
+        [
+          167
+        ],
+        [
+          1043
+        ]
+      ],
+      "world": [
+        [
+          0.10723938047885895,
+          0.909338653087616,
+          0.09283655881881714
+        ],
+        [
+          0.11553526669740677,
+          0.9102290868759155,
+          0.07995646446943283
+        ]
+      ]
+    }
+  ],
+  "bodyTopology": {
+    "weldTolerance": 1e-07,
+    "weldedVertices": 13380,
+    "edges": 40134,
+    "triangles": 26756,
+    "eulerCharacteristic": 2,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "orientationErrors": 0,
+    "components": 1,
+    "maxWeldSeparation": 0
+  },
+  "targets": [
+    {
+      "id": "body",
+      "triangles": 26756,
+      "solid": true,
+      "applicability": "nonempty"
+    },
+    {
+      "id": "foundation_bra",
+      "triangles": 327,
+      "solid": false,
+      "applicability": "nonempty"
+    },
+    {
+      "id": "foundation_briefs",
+      "triangles": 0,
+      "solid": false,
+      "applicability": "empty",
+      "minimumDistance": null
+    }
+  ],
+  "controls": {
+    "helper": {
+      "casesPassed": 12,
+      "pass": true,
+      "cases": [
+        "parallel separation",
+        "transverse intersection",
+        "coplanar intersection",
+        "interior edge-edge nearest",
+        "disjoint segments",
+        "closed tetrahedron",
+        "inside winding",
+        "outside winding",
+        "inside ray parity",
+        "outside ray parity",
+        "grazing ray rejection",
+        "contained triangle without crossing"
+      ]
+    },
+    "segment": 6
+  },
+  "sourceLinks": {
+    "vertices": 1311,
+    "paths": 102,
+    "cycles": 1209,
+    "failures": [],
+    "pass": true
+  },
+  "correspondence": {
+    "exactMeshes": [
+      "body",
+      "female_casualsuit01",
+      "foundation_bra",
+      "foundation_briefs"
+    ],
+    "rigExact": true
+  },
+  "acceptedAssetSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+  "limits": [
+    "One exact saved pose; floating-point predicates, not interval proof.",
+    "One monotone closure from the declared seed, not an exhaustive search for every possible cycle.",
+    "No connecting surface, opening coverage, appearance, motion or asset promotion qualification.",
+    "This documents the declared closure stop. It does not prove that every other boundary is infeasible.",
+    "Distances and containment concern the complete body at one recorded pose; these are not visible-defect counts."
+  ],
+  "images": [
+    {
+      "path": "captures/neutral-studio-2026-09-30-v2/feature-casual-portrait-neutral.png",
+      "sha256": "84fbee48560288eea09db2ffb165f7db7444966bd38f0a01f18b2e7bbf590c16"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/ordinary.png",
+      "sha256": "71b2d46242dc944a0c97930a643e84be717c37eeaa00cb4bda71eedcf84bf6d7"
+    },
+    {
+      "path": "captures/neckline-attribution-2026-09-30-v2/bra-magenta.png",
+      "sha256": "d0ff68965a49c4ac2ed57766bac9d30a44d55d3b76e55ab335b8726d7a8f8811"
+    },
+    {
+      "path": "captures/neckline-shape-2026-09-30-v2/candidate-45.png",
+      "sha256": "b4de7cd5f1b39b122ab20cf324205413268e7b6c0be3401dc775a56163b01f82"
+    }
+  ]
+}
