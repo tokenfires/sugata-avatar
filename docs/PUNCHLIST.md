@@ -2651,6 +2651,12 @@ Measurements, sources and the evidence behind every number below live in
       Gate: **MEASURED** — a runtime-refitted garment meets 9.4's own bar on a continuous identity:
       covered skin outside the cloth ≤ **26.37%**, worst depth ≤ **9.19 mm**, by the same signed
       point-to-triangle tool; and the refit result matches a headless MPFB refit to < 0.1 mm.
+      September30 [native helper/refit evidence](evidence/wardrobe-2026-09-30/native-refit/README.md)
+      closes the previously missing native arithmetic oracle for one original garment and three
+      g050 joint-detail cases. All19158 body/helper positions and2197 garment positions are
+      checked, with independent review and negative controls. Accepted garment correctives,
+      actual fit, skeleton/foundation coupling and broader identities remain open;10.9 and9.4
+      are not marked complete by this prerequisite.
 - [ ] **10.10** The UI — three tiers and an exclusion tier. **Macro** (11: the eight `macro.json`
       parameters plus three ethnicity weights), **Region** (21 dials, one per region, driving a
       curated subset), **Detail** (the 203 `target.json` categories, 269 with left and right split).

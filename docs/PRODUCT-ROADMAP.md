@@ -40,9 +40,11 @@ September 29 [hair-colour customization](evidence/hair-2026-09-29/colour-control
 Keep representation and customization present throughout Phase 1. Attractive examples are a design deliverable with visual review, not a side effect of exposing sliders.
 
 September 26's [wardrobe coupling study](evidence/nonhair-2026-09-26/wardrobe-coupling/README.md)
-establishes cached helper arithmetic and exact source-to-export garment correspondence. Native
-reshaped-body validation, corrective behavior across identities, skeleton/foundation coupling
-and actual fit remain open. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
+establishes cached helper arithmetic and exact source-to-export garment correspondence. September 30
+adds a [native MPFB arithmetic oracle](evidence/wardrobe-2026-09-30/native-refit/README.md):
+three joint detail cases validate all19,158 body/helper positions and the original garment refit
+under the declared thresholds, with independent recomputation and corruption controls. Corrective
+behavior across identities, skeleton/foundation coupling and actual fit remain open. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
 
