@@ -1,0 +1,104 @@
+{
+  "status": "static appearance positive; fresh moving qualification pending",
+  "candidateSha256": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7",
+  "rejectedInputSha256": "2b0c68c05802d0f515aa84b7e505fd325735befbc0159a50bd37cc887e274802",
+  "qualifiedControlSha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+  "reports": [
+    {
+      "directory": "captures/bob-lower-fallback-v1/neutral",
+      "reportSha256": "e9ff4d96f825e4a6de39b6bb2c68b3501d28e4b67347712618649371266c91c1",
+      "pid": 4081,
+      "finished": "2026-09-30T09:44:38.888Z"
+    },
+    {
+      "directory": "captures/bob-lower-fallback-v1/studio",
+      "reportSha256": "988287133cbc516de6494acebcaf0602c4f8290119fd6b9eb5c009e53ee85acc",
+      "pid": 4325,
+      "finished": "2026-09-30T09:45:39.673Z"
+    },
+    {
+      "directory": "captures/bob-lower-fallback-v1/studio-control",
+      "reportSha256": "3e1f356eff43703490bdd2b0fe00550a3674de2542b9843649540a19c9eeb67d",
+      "pid": 4975,
+      "finished": "2026-09-30T09:48:52.849Z"
+    }
+  ],
+  "restoredCards": [
+    78,
+    80,
+    86,
+    101,
+    112,
+    113,
+    120,
+    127,
+    130,
+    131,
+    133,
+    135,
+    146,
+    151,
+    154,
+    162,
+    172,
+    173,
+    177
+  ],
+  "retainedInwardCardCount": 317,
+  "authoring": {
+    "attributes": {
+      "POSITION": {
+        "changedRecords": 272
+      },
+      "NORMAL": {
+        "changedRecords": 274
+      },
+      "TEXCOORD_0": {
+        "changedRecords": 0
+      },
+      "TEXCOORD_1": {
+        "changedRecords": 0
+      },
+      "JOINTS_0": {
+        "changedRecords": 0
+      },
+      "WEIGHTS_0": {
+        "changedRecords": 0
+      }
+    },
+    "restoredPositionAndNormalRecordsExact": true,
+    "allOtherRecordsAndTopologyExact": true,
+    "restTriangleBodyPairs": 0,
+    "minimumSelectedVertexClearanceMm": 3.5063137855455384,
+    "negativeVertices": 0,
+    "sourceHashes": {
+      "tools/critic/bob-lower-fallback.mjs": "5f6b5ad2d9c09cc46b87bfb865e6b559f9e2c71d3f2ae72f715ed5ecb74061b3",
+      "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "tools/figure-pipeline/hair_fall.mjs": "ae6dcd35041256706796452be127d2463c6a5c4097bcca31b66cb28dbd9e9133",
+      "tools/figure-pipeline/hair_geometry.mjs": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+      "tools/figure-pipeline/hair_surface.mjs": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+    }
+  },
+  "pairedStaticSha256": "2cb994d9ae04e1ed4f527761bd894416093b159420d17492e847b9a111c52f10",
+  "archive": {
+    "generated": "2026-09-30T09:53:57.062201+00:00",
+    "roots": [
+      "captures/bob-lower-fallback-v1"
+    ],
+    "fileCount": 97,
+    "totalBytes": 100445152,
+    "pngCount": 11,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-lower-fallback-static.py",
+      "sha256": "8b55e00fb51d9c3d8978d0afe880a2a7678e77ea1de5b1741d8d4c0ecc4ca20a"
+    }
+  },
+  "limits": [
+    "Only finalized 19 failing inner-mass cards restored from qualified side control; all other lower-v1 geometry and settings exact.",
+    "Set is derived from triangle-contact card IDs, not an exhaustive negative-only-card inventory. Fresh full338 motion and signed-vertex checks are required.",
+    "Shared median/compliance can change again. This new combination inherits no body-motion or visual qualification.",
+    "Do not widen fallback, tune amplitude or edit simulation settings without a new recorded diagnosis.",
+    "Actual static images inspected; neither static gain nor body-rest clearance establishes moving acceptance.",
+    "Raw files are local/ignored; this manifest is not an off-machine backup."
+  ]
+}
