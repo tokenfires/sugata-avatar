@@ -1,0 +1,396 @@
+
+--- solid angle -------------------------------------------------------------
+
+PASS  projectedSolidAngle tends to A/d² in the small-angle limit
+      1 mm panel at 10 m: closed form 1.000000e-8 sr, A/d² 1.000000e-8 sr, ratio 0.999999997
+PASS  the closed form is NOT the small-angle approximation at portrait key geometry
+      key panel 0.840 x 1.176 m at 1.092 m: exact 0.64396 sr vs A/d² 0.82840 sr — A/d² overstates by 28.6%
+PASS  projected solid angle is bounded by π
+      1000 x 1000 m panel at 10 mm: 3.141593 sr against the π = 3.141593 ceiling
+
+--- irradiance invariance across a rescale -----------------------------------
+
+PASS  portrait/key: delivered irradiance survives a 4.45x rescale
+      2.550000 (panel at 1.092 m) -> 2.550000 (panel at 4.862 m), drift 0.00e+0%
+PASS  portrait/fill: delivered irradiance survives a 4.45x rescale
+      1.870000 (panel at 0.966 m) -> 1.870000 (panel at 4.301 m), drift 1.19e-14%
+PASS  body/key: delivered irradiance survives a 4.45x rescale
+      2.550000 (panel at 1.092 m) -> 2.550000 (panel at 4.862 m), drift 0.00e+0%
+PASS  body/fill: delivered irradiance survives a 4.45x rescale
+      1.020000 (panel at 0.966 m) -> 1.020000 (panel at 4.301 m), drift 0.00e+0%
+PASS  the two presets disagree about exactly the fields the tables document
+      differing: fill.irradiance, kicker.distanceInHeights, kicker.elevationDegrees, kicker.heightInHeights, kicker.irradiance, kicker.widthInHeights, rim.distanceInHeights, rim.elevationDegrees, rim.heightInHeights, rim.irradiance, rim.widthInHeights
+PASS  CONTROL: constant radiance is scale-invariant too (so this defect is NOT what the rig fixes)
+      constant-intensity model delivers 1.402500 -> 1.402500, ratio 1.000000000. Uniform scaling IS neutral; the rig's value is that the RATIO between two differently-shaped panels is authored rather than emergent — see the next check.
+PASS  KNOWN-BAD: equal radiance on the two panels would NOT be equal light
+      fill panel subtends 1.6000 sr against the key's 0.6440 sr — 2.485x. Two lights typed at the same intensity would sit 2.48:1 apart, which is the error the authored-irradiance model removes.
+PASS  delivered key:fill equals the authored key:fill
+      delivered 1.363636 vs authored 1.363636
+
+--- the shadow split conserves energy ----------------------------------------
+
+PASS  shadowFraction 0.00 moves energy without changing the total
+      panel 2.5500 + caster 0.0000 = 2.550000 against authored 2.550000; caster share 0.000000
+PASS  shadowFraction 0.15 moves energy without changing the total
+      panel 2.1675 + caster 0.3825 = 2.550000 against authored 2.550000; caster share 0.150000
+PASS  shadowFraction 0.30 moves energy without changing the total
+      panel 1.7850 + caster 0.7650 = 2.550000 against authored 2.550000; caster share 0.300000
+PASS  shadowFraction 0.60 moves energy without changing the total
+      panel 1.0200 + caster 1.5300 = 2.550000 against authored 2.550000; caster share 0.600000
+PASS  shadowFraction 1.00 moves energy without changing the total
+      panel 0.0000 + caster 2.5500 = 2.550000 against authored 2.550000; caster share 1.000000
+PASS  a zero shadow fraction builds no shadow caster
+      0 shadow casters built with every fraction at 0
+PASS  shadows:false keeps the key at full authored irradiance rather than losing its shadow share
+      0 casters; key delivers 2.5500 of an authored 2.5500. Turning shadows off must not darken the subject by the key's shadow fraction — that would be a change of exposure disguised as a change of technique, and it would move G1.
+
+--- the shadow half falls off like the panel ----------------------------------
+
+PASS  the spot half tracks the panel half over the depth of the studio
+      at 2.18 m against 1.09 m: panel keeps 30.0% of its focus irradiance, the spot 25.0% — 16.6% apart
+PASS  KNOWN-BAD: a DirectionalLight half does NOT track it
+      a directional keeps 100% of its irradiance at any distance — 233% away from the panel against the spot's 16.6%. Measured on screen before the swap: turning shadows OFF made the backdrop DARKER, 0.296 -> 0.254 encoded, which is impossible for a shadow.
+
+--- placement is camera-relative ---------------------------------------------
+
+PASS  azimuth 0° puts the light on the camera axis, 180° directly behind the subject, 90° camera-right
+      camera at (0.8, 1.55, 1.1): 0° · toCamera = 1.000000, 180° · toCamera = -1.000000, 90° · right = 1.000000
+PASS  moving the camera moves the whole rig with it
+      key direction 0.563, 0.000, 0.826 -> -1.000, 0.000, 0.000, dot -0.5633
+
+--- the gate: designed key:fill ----------------------------------------------
+
+PASS  designed key:fill is under G1's 2.0 ceiling
+      1.3636:1 against measure.mjs G1's < 2.00:1 linear
+PASS  designed key:fill sits in the look spec's authored range of 1.2:1 to 2.0:1
+      1.3636:1 authored. Measured on the render at 900x1200, portrait framing: 1.598 linear, inside the 1.43–1.64 band the spec's two assets measured.
+PASS  KNOWN-BAD: a conventional 4:1 portrait ratio fails the same check
+      a fill at one quarter of key gives 4.00:1, rejected — which is what the look spec means by "light this with a conventional three-point ratio and it will read wrong"
+
+--- the gate: how much of the rim lands on the environment --------------------
+
+PASS  the geometric partition lands exactly on the rim and the kicker
+      behind the subject by world position: kicker, rim. Derived from where the panels stand, never from these names — they are the expected answer, not the input.
+PASS  the lights behind the subject do not out-deliver the lights in front, on the floor
+      behind:in-front irradiance 2 m behind the focus = 1.79:1 against a ceiling of 3.0:1. This clause is DELIBERATELY colour-blind; the colour is the next one. Rendered: 0.074% of the frame in a saturated blue.
+PASS  the light reaching the floor behind the subject is not itself blue
+      blue:red of the summed per-channel irradiance = 2.5144:1 against a ceiling of 4.5:1 — the knee is between 4.45 (0.104% of the frame) and 6.98 (57.37%)
+PASS  the two files agree on what the shipped rig delivers to the floor
+      2.5144 here against 2.5144 published to GroundContact.selftest.mjs, which multiplies it by the floor albedo. If these drift, one of the two copies of the spill arithmetic has changed and the other has not.
+PASS  KNOWN-BAD: DISTANCE — the standoff put back to where the defect was
+      behind:front 21.37 / 3.0, blue:red 17.34 / 4.5 — rejected by behindToFront and blueToRed. Rendered: 24.06% of the frame at the old floor albedo
+PASS  KNOWN-BAD: POWER — the shipped geometry with the rim turned up
+      behind:front 6.50 / 3.0, blue:red 7.20 / 4.5 — rejected by behindToFront and blueToRed
+PASS  KNOWN-BAD: AIM — the rim raised until it points at the floor
+      behind:front 3.36 / 3.0, blue:red 4.10 / 4.5 — rejected by behindToFront. Rendered: 0.034% of the frame — this one does NOT flood, and only behind:front rejects it
+PASS  KNOWN-BAD: DENOMINATOR — the warm lights taken away, which is how an environment goes cool without the rim moving
+      behind:front 17.86 / 3.0, blue:red 17.67 / 4.5 — rejected by behindToFront and blueToRed
+PASS  KNOWN-BAD: COLOUR — the key and fill turned to the rim's own #0f30ff, which is the defect this round found
+      behind:front 1.79 / 3.0, blue:red 209.34 / 4.5 — rejected by blueToRed. Rendered: 90.79% of the frame here, 99.20% on alive.html
+PASS  KNOWN-BAD: COLOUR, ONE LIGHT — only the key turned blue, so a warm light is still standing
+      behind:front 1.79 / 3.0, blue:red 8.57 / 4.5 — rejected by blueToRed. Rendered: 74.20% of the frame
+PASS  KNOWN-BAD: COLOUR, SUBTLE — key and fill at #b0c0ff, a tint that reads as white in a swatch
+      behind:front 1.79 / 3.0, blue:red 6.29 / 4.5 — rejected by blueToRed. Rendered: 57.37% of the frame, from a colour nobody would flag by eye
+PASS  KNOWN-BAD: COLOUR, ONE STEP SHORT OF THE KNEE — key and fill at #c4d0ff
+      behind:front 1.79 / 3.0, blue:red 4.97 / 4.5 — rejected by blueToRed. Rendered: 0.664% of the frame, 9x shipped and one step short of the knee
+PASS  KNOWN-BAD: LEVEL — key and fill dimmed to #403830, a warm grey with blue still its lowest channel
+      behind:front 1.79 / 3.0, blue:red 30.36 / 4.5 — rejected by blueToRed. Rendered: 18.19% of the frame, with behind:front sitting at exactly the shipped 2.0982
+PASS  blue:red catches something behind:front cannot see at ANY ceiling
+      key and fill dimmed to #403830: blue:red 30.36 rejected, while behind:front is 1.7862 — BIT-IDENTICAL to the shipped 1.7862, because a ratio of irradiances cannot weigh radiance. Rendered: 18.19% of the frame.
+PASS  behind:front catches something blue:red does not, and the ceiling cannot come down to fix it
+      rim at 75°: behind:front 3.36 rejected, blue:red 4.10 under the 4.5 ceiling — and it must stay under it, because #d8e0ff scores 4.45 and renders a clean 0.104%
+PASS  renaming the cool lights changes neither clause, because neither reads a name
+      rim -> 'sidekey', kicker -> 'hairlight': behind:front 1.7862 and blue:red 2.5144, against 1.7862 and 2.5144 shipped. The name list this replaced scored 0.00 here.
+PASS  KNOWN-BAD: the blue panels swung to the FRONT, which scores 0.00 on the geometric clause
+      behind:front 0.000 — an empty behind bucket, better than the shipped 1.79 and impossible to improve on — while blue:red 7.12 rejects it. Rendered: 55.72% of the frame in a saturated blue.
+PASS  KNOWN-BAD: a blue key under lights renamed out of the old cool list
+      behind:front 1.79, blue:red 8.57 — rejected, on a configuration the old name-partitioned gate scored 0.00 on
+PASS  MUST PASS: key and fill at neutral white
+      behind:front 1.79, blue:red 2.76, both under their ceilings. Rendered: 0.030% of the frame
+PASS  MUST PASS: key and fill at #e8ecff — a daylight-balanced tint, which the colour partition condemned
+      behind:front 1.79, blue:red 3.42, both under their ceilings. Rendered: 0.058% of the frame, LESS than shipped
+PASS  MUST PASS: key and fill at #d8e0ff — the row the ceiling sits on
+      behind:front 1.79, blue:red 4.01, both under their ceilings. Rendered: 0.104% of the frame
+PASS  MUST PASS: the rim and kicker turned WARM, which removes the blue entirely
+      behind:front 1.79, blue:red 0.69, both under their ceilings. Rendered: not captured; no cool light is left to flood with
+
+--- the SHADOW-CASTER half, which the block above does not sum ------------------
+
+PASS  this block reproduces the panels-only spill the block above gates
+      panels-only behind:front 1.7862 and blue:red 2.5144 here, against 1.7862 and 2.5144 there. Same arithmetic, third copy.
+PASS  the two files agree on the CASTER-INCLUSIVE figure as well as the panels-only one
+      1.9742 here against 1.9742 published to GroundContact.selftest.mjs, which multiplies it by the floor albedo. The panels-only figure was already cross-checked; this is the half that was not.
+PASS  the header's omni pair is reproduced by DROPPING the cone term, which is where it came from
+      omni model 1.2408 / 1.9494 against the cone-aware 1.2650 / 1.9742. The pair on record is the omni reading of a light that has a cone; the cone-aware pair is what is gated below.
+PASS  PREMISE: every shadow caster carries exactly its panel's colour
+      1 caster(s), each the same hex as the panel it was split from. This is the sentence "panels-only is conservative" silently assumes, and it is an EQUALITY — no threshold to walk around, no hue it cannot see.
+PASS  CONSERVATISM: adding the caster half lowers both clauses, so panels-only really is the conservative read
+      behind:front 1.7862 -> 1.2650 (1.41x overstated), blue:red 2.5144 -> 1.9742 (1.27x). If either arrow ever points the other way the anchors above stop bounding anything and this goes red.
+PASS  MAGNITUDE: portrait, shipped — the caster half is a redistribution of the panel half, at the focus
+      1 caster(s): key 1.403+1.148=2.550 at f=0.45
+PASS  REACH: portrait, shipped — every cone is the one shadowCoverageInHeights asked for
+      1 cone(s) at coverage 2.2, i.e. 4.015 m half-extent at each standoff. The focus equality above cannot see this — penumbra is 1, so on-axis attenuation is 1 for any angle whatsoever.
+PASS  MAGNITUDE: body, shipped — the caster half is a redistribution of the panel half, at the focus
+      1 caster(s): key 1.403+1.148=2.550 at f=0.45
+PASS  REACH: body, shipped — every cone is the one shadowCoverageInHeights asked for
+      1 cone(s) at coverage 2.2, i.e. 4.015 m half-extent at each standoff. The focus equality above cannot see this — penumbra is 1, so on-axis attenuation is 1 for any angle whatsoever.
+PASS  MAGNITUDE: body, EVERY light casting at a different fraction — the caster half is a redistribution of the panel half, at the focus
+      4 caster(s): key 1.403+1.148=2.550 at f=0.45, fill 0.714+0.306=1.020 at f=0.3, rim 7.480+11.220=18.700 at f=0.6, kicker 0.008+0.076=0.085 at f=0.9
+PASS  REACH: body, EVERY light casting at a different fraction — every cone is the one shadowCoverageInHeights asked for
+      4 cone(s) at coverage 2.2, i.e. 4.015 m half-extent at each standoff. The focus equality above cannot see this — penumbra is 1, so on-axis attenuation is 1 for any angle whatsoever.
+PASS  MAGNITUDE: body, the wide-coned back lights the CONSERVATISM counter-example uses — the caster half is a redistribution of the panel half, at the focus
+      3 caster(s): key 1.403+1.148=2.550 at f=0.45, rim 1.870+16.830=18.700 at f=0.9, kicker 0.008+0.076=0.085 at f=0.9
+PASS  REACH: body, the wide-coned back lights the CONSERVATISM counter-example uses — every cone is the one shadowCoverageInHeights asked for
+      3 cone(s) at coverage 4, i.e. 7.300 m half-extent at each standoff. The focus equality above cannot see this — penumbra is 1, so on-axis attenuation is 1 for any angle whatsoever.
+
+      injection                        premise   conservatism-era clauses   magnitude   reach
+      GAIN — every solved caster at 5x green     green                      RED         green
+PASS  KNOWN-BAD: GAIN — every solved caster at 5x, colours untouched
+      1 distinct caster object(s) altered after solve; rejected by MAGNITUDE, while PREMISE reads green and CONSERVATISM green. Caster-inclusive blue:red 1.2820 against the shipped 1.9742.
+      GAIN, NON-KEY ONLY at 5x — the c green     green                      RED         green
+PASS  KNOWN-BAD: GAIN, NON-KEY ONLY at 5x — the configuration that scored 82/82 here and 55/55 there
+      2 distinct caster object(s) altered after solve; rejected by MAGNITUDE, while PREMISE reads green and CONSERVATISM green. Caster-inclusive blue:red 1.2038 against the shipped 1.9742.
+      DISPLACEMENT — the caster pulled green     green                      RED         green
+PASS  KNOWN-BAD: DISPLACEMENT — the caster pulled to half its standoff with its intensity left alone
+      1 distinct caster object(s) altered after solve; rejected by MAGNITUDE, while PREMISE reads green and CONSERVATISM green. Caster-inclusive blue:red 1.7145 against the shipped 1.9742.
+      AIM — the caster's target slid 0 green     green                      RED         green
+PASS  KNOWN-BAD: AIM — the caster's target slid 0.5 m sideways, so the focus is off its axis
+      1 distinct caster object(s) altered after solve; rejected by MAGNITUDE, while PREMISE reads green and CONSERVATISM green. Caster-inclusive blue:red 1.9568 against the shipped 1.9742.
+      CONE — every cone at 1.4x, which green     green                      green       RED
+PASS  KNOWN-BAD: CONE — every cone at 1.4x, which the focus equality cannot see at all
+      1 distinct caster object(s) altered after solve; rejected by REACH, while PREMISE reads green and CONSERVATISM green. Caster-inclusive blue:red 1.9567 against the shipped 1.9742.
+      CONE — every cone at 0.5x, the d green     green                      green       RED
+PASS  KNOWN-BAD: CONE — every cone at 0.5x, the direction that starves the shadow map instead
+      1 distinct caster object(s) altered after solve; rejected by REACH, while PREMISE reads green and CONSERVATISM green. Caster-inclusive blue:red 2.2566 against the shipped 1.9742.
+PASS  MAGNITUDE catches something REACH cannot: a caster 5x too bright inside an untouched cone
+      a 5x gain leaves the cone exactly as authored, so REACH is green and PREMISE is green — the colour never moved — while the focus equality rejects it. Caster-inclusive blue:red 1.2820 against the shipped 1.9742.
+PASS  REACH catches something MAGNITUDE cannot, and not by a tolerance: the focus reading is BIT-IDENTICAL
+      caster-inclusive blue:red at the floor: shipped 1.9742, cone 1.4x 1.9567 (down — the widened cone spills MORE of a WARM caster onto the floor), cone 0.5x 2.2566 (up — it spills less). Both move it by far more than the 0.0005 the cross-file constants are held to, and on both the focus equality does not move by a bit: penumbra is 1, so smoothstep( cos angle, 1, 1 ) is 1 for every angle there is. No tolerance on MAGNITUDE could ever catch these — the quantity it measures is genuinely unchanged.
+PASS  the caster-inclusive spill is under both ceilings too
+      behind:front 1.2650 / 3.0, blue:red 1.9742 / 4.5
+      caster colour   premise   conservatism   full behind:front   full blue:red
+      #0f30ff         RED      RED                       1.2650          2.9328
+PASS  KNOWN-BAD: the casters built at the rim's own #0f30ff — the defect this round found
+      rejected by PREMISE and CONSERVATISM. Panels-only reads 2.5144 — IDENTICAL to the shipped rig, because the panels did not move. Rendered: body-framing saturated blue 0.2881% -> 12.0152% of the frame, with this file at 63/63
+      #403830         RED      green                     1.2650          2.4732
+PASS  KNOWN-BAD: LEVEL — the casters dimmed to #403830, a warm grey with blue still its LOWEST channel
+      rejected by PREMISE. Panels-only reads 2.5144 — IDENTICAL to the shipped rig, because the panels did not move. Rendered: not captured. Same mechanism as the #403830 row above: it removes red rather than adding blue
+      #ff30ff         RED      green                     1.2650          2.0632
+PASS  KNOWN-BAD: HUE — the casters turned magenta #ff30ff, which no blue predicate anywhere can see
+      rejected by PREMISE. Panels-only reads 2.5144 — IDENTICAL to the shipped rig, because the panels did not move. Rendered: not captured. Magenta sits outside the 200-300 degree window every rendered anchor uses
+      #b0c0ff         RED      green                     1.2650          2.4816
+PASS  KNOWN-BAD: SUBTLE — the casters at #b0c0ff, the tint that reads as white in a swatch
+      rejected by PREMISE. Panels-only reads 2.5144 — IDENTICAL to the shipped rig, because the panels did not move. Rendered: the panel-side version of this colour renders 57.37% of the frame blue
+PASS  PREMISE catches something CONSERVATISM cannot, at any ceiling
+      casters at #403830: the equality rejects it, while the caster half still LOWERS blue:red 2.5144 -> 2.4732 — so the conservatism clause is green and no ceiling on it could be brought down to help, because the number moved the safe way
+PASS  CONSERVATISM catches something PREMISE cannot: the blue back lights moved into wide-coned casters
+      rim and kicker at shadowFraction 0.9 with the cone at 8 heights: every caster still carries its panel's colour, and the caster half RAISES blue:red 0.8659 -> 1.0009 and behind:front 0.1786 -> 0.3069. Both are far under their ceilings; what has failed is the claim that panels-only bounds them.
+PASS  THE PANELS-ONLY CEILINGS ARE LOAD-BEARING: AIM — the rim raised to 75 degrees is rejected there and NOT here
+      behindToFront panels-only 3.359 (rejected) -> caster-inclusive 2.379 (under the 3 ceiling). Moving the ceilings onto the caster-inclusive model would lose this row, so the two models are both kept and this check is what stops them being merged.
+PASS  THE PANELS-ONLY CEILINGS ARE LOAD-BEARING: COLOUR — key and fill at #c4d0ff, one step short of the knee is rejected there and NOT here
+      blueToRed panels-only 4.971 (rejected) -> caster-inclusive 4.059 (under the 4.5 ceiling). Moving the ceilings onto the caster-inclusive model would lose this row, so the two models are both kept and this check is what stops them being merged.
+PASS  MUST PASS: key and fill at neutral white
+      no colour divergence; caster half takes behind:front 1.7862 -> 1.2650 and blue:red 2.7627 -> 2.2514
+PASS  MUST PASS: key and fill at the daylight tint #e8ecff
+      no colour divergence; caster half takes behind:front 1.7862 -> 1.2650 and blue:red 3.4167 -> 2.7859
+PASS  MUST PASS: shadows switched off entirely, so there is no caster to compare
+      no colour divergence; caster half takes behind:front 1.1561 -> 1.1561 and blue:red 1.8625 -> 1.8625
+PASS  MUST PASS: the key's shadow fraction at zero
+      no colour divergence; caster half takes behind:front 1.1561 -> 1.1561 and blue:red 1.8625 -> 1.8625
+PASS  both defect injectors leave LightingRig.prototype exactly as they found it
+      a rig built after every injection above reads blue:red 1.974194 against the 1.974194 measured before them, with no colour divergence, and its key still splits 1.147500 of 2.550000 into the caster — a share of 0.450000000 against the authored 0.45
+
+--- the whole-state fingerprint ----------------------------------------------
+
+PASS  CLOSURE: portrait, shipped — every field on every light is classified, and every classified field exists
+      6 light(s), 135 declared field(s) accounted for. An enumeration cannot know what it is missing; this asks the objects what they HAVE and fails on anything nobody classified — including a field three has not shipped yet.
+PASS  FINGERPRINT: portrait, shipped — every field reads what the placement table says it should
+      135 field(s) exact across 6 light(s), tolerance 1e-9 relative — these are equalities, and a tolerance wide enough to be an opinion would be a threshold wearing an equality's name
+PASS  CLOSURE: body, shipped — every field on every light is classified, and every classified field exists
+      6 light(s), 135 declared field(s) accounted for. An enumeration cannot know what it is missing; this asks the objects what they HAVE and fails on anything nobody classified — including a field three has not shipped yet.
+PASS  FINGERPRINT: body, shipped — every field reads what the placement table says it should
+      135 field(s) exact across 6 light(s), tolerance 1e-9 relative — these are equalities, and a tolerance wide enough to be an opinion would be a threshold wearing an equality's name
+PASS  CLOSURE: body, every light casting at a different fraction — every field on every light is classified, and every classified field exists
+      9 light(s), 294 declared field(s) accounted for. An enumeration cannot know what it is missing; this asks the objects what they HAVE and fails on anything nobody classified — including a field three has not shipped yet.
+PASS  FINGERPRINT: body, every light casting at a different fraction — every field reads what the placement table says it should
+      294 field(s) exact across 9 light(s), tolerance 1e-9 relative — these are equalities, and a tolerance wide enough to be an opinion would be a threshold wearing an equality's name
+PASS  CLOSURE: portrait, shadows off entirely — every field on every light is classified, and every classified field exists
+      5 light(s), 82 declared field(s) accounted for. An enumeration cannot know what it is missing; this asks the objects what they HAVE and fails on anything nobody classified — including a field three has not shipped yet.
+PASS  FINGERPRINT: portrait, shadows off entirely — every field reads what the placement table says it should
+      82 field(s) exact across 5 light(s), tolerance 1e-9 relative — these are equalities, and a tolerance wide enough to be an opinion would be a threshold wearing an equality's name
+PASS  CLOSURE: body, ambient off — every field on every light is classified, and every classified field exists
+      5 light(s), 121 declared field(s) accounted for. An enumeration cannot know what it is missing; this asks the objects what they HAVE and fails on anything nobody classified — including a field three has not shipped yet.
+PASS  FINGERPRINT: body, ambient off — every field reads what the placement table says it should
+      121 field(s) exact across 5 light(s), tolerance 1e-9 relative — these are equalities, and a tolerance wide enough to be an opinion would be a threshold wearing an equality's name
+PASS  CLOSURE: portrait, REQ-064 glint forced on — every field on every light is classified, and every classified field exists
+      7 light(s), 153 declared field(s) accounted for. An enumeration cannot know what it is missing; this asks the objects what they HAVE and fails on anything nobody classified — including a field three has not shipped yet.
+PASS  FINGERPRINT: portrait, REQ-064 glint forced on — every field reads what the placement table says it should
+      153 field(s) exact across 7 light(s), tolerance 1e-9 relative — these are equalities, and a tolerance wide enough to be an opinion would be a threshold wearing an equality's name
+PASS  CLOSURE: body, a 1024 map and a 4-height cone — every field on every light is classified, and every classified field exists
+      6 light(s), 135 declared field(s) accounted for. An enumeration cannot know what it is missing; this asks the objects what they HAVE and fails on anything nobody classified — including a field three has not shipped yet.
+PASS  FINGERPRINT: body, a 1024 map and a 4-height cone — every field reads what the placement table says it should
+      135 field(s) exact across 6 light(s), tolerance 1e-9 relative — these are equalities, and a tolerance wide enough to be an opinion would be a threshold wearing an equality's name
+
+      the key's caster, all 53 fields three reads, and the 76 it does not:
+
+      color=16772826                            intensity=27.125802990                    position=[3.742375, 2.412441, 2.715943]   
+      visible=true                              layers=1                                  castShadow=true                           
+      isLight=true                              matrixAutoUpdate=true                     matrixWorldAutoUpdate=true                
+      pivot=null                                distance=0                                angle=0.702256932                         
+      penumbra=1                                decay=2                                   map=null                                  
+      target=[0.000000, 0.910000, 0.000000]     isSpotLight=true                          parentIsScene=true                        
+      optional.colorNode=null                   optional.iesMap=null                      shadow.intensity=1                        
+      shadow.bias=-0.000200000                  shadow.normalBias=0.008035156             shadow.radius=4.978123481                 
+      shadow.blurSamples=8                      shadow.mapSize=[4096.000000, 4096.000000  shadow.mapType=1009                       
+      shadow.autoUpdate=true                    shadow.needsUpdate=false                  shadow.focus=1                            
+      shadow.aspect=1                           shadow.biasNode=null                      shadow.optional.shadowNode=null           
+      shadow.optional.filterNode=null           shadow.camera.near=2.992000000            shadow.camera.far=19.822000000            
+      shadow.camera.zoom=1                      shadow.camera.filmGauge=35                shadow.camera.filmOffset=0                
+      shadow.camera.view=null                   shadow.camera.up=[0.000000, 1.000000, 0.  shadow.camera.matrixAutoUpdate=true       
+      shadow.camera.matrixWorldAutoUpdate=true  shadow.camera.pivot=null                  shadow.camera.isCamera=true               
+      shadow.camera.layers=1                    shadow.camera.isPerspectiveCamera=true    shadow.camera._reversedDepth=false        
+      shadow.camera.parentIsNull=true           target.matrixAutoUpdate=true              target.matrixWorldAutoUpdate=true         
+      target.pivot=null                         target.parentIsScene=true                 
+
+      inert: isObject3D, uuid, name, type, parent, children, up, rotation, quaternion, scale, matrix, matrixWorld, matrixWorldNeedsUpdate, receiveShadow, frustumCulled, renderOrder, animations, customDepthMaterial, customDistanceMaterial, static, userData, shadow.camera.isObject3D, shadow.camera.uuid, shadow.camera.name, shadow.camera.type, shadow.camera.parent, shadow.camera.children, shadow.camera.position, shadow.camera.rotation, shadow.camera.quaternion, shadow.camera.scale, shadow.camera.matrix, shadow.camera.matrixWorld, shadow.camera.matrixWorldNeedsUpdate, shadow.camera.visible, shadow.camera.castShadow, shadow.camera.receiveShadow, shadow.camera.frustumCulled, shadow.camera.renderOrder, shadow.camera.animations, shadow.camera.customDepthMaterial, shadow.camera.customDistanceMaterial, shadow.camera.static, shadow.camera.userData, shadow.camera.matrixWorldInverse, shadow.camera.projectionMatrix, shadow.camera.projectionMatrixInverse, shadow.camera.coordinateSystem, shadow.camera.fov, shadow.camera.aspect, shadow.camera.focus, target.isObject3D, target.uuid, target.name, target.type, target.parent, target.children, target.up, target.position, target.rotation, target.quaternion, target.scale, target.matrix, target.matrixWorld, target.matrixWorldNeedsUpdate, target.layers, target.visible, target.castShadow, target.receiveShadow, target.frustumCulled, target.renderOrder, target.animations, target.customDepthMaterial, target.customDistanceMaterial, target.static, target.userData
+
+      injection                                closure  fingerprint  premise  magnitude  reach
+      SHADOW INTENSITY — shadow.intensity 1 -> green    RED          green    green      green
+PASS  KNOWN-BAD: SHADOW INTENSITY — shadow.intensity 1 -> 0.5
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.shadow.intensity reads 0.500000000 against a declared 1. PREMISE, MAGNITUDE and REACH are all green — a three feature since r165 and named nowhere in this repo. Every shadow the rig casts is half as dark; the light itself delivers exactly what it always did, so no delivery equality anywhere can see it. Measured 2.06% of a 900x1200 body frame moved at a worst Δ23/255 — small in area because one caster casts one shadow, and unmissable where it lands.
+      LAYERS — the rim moved onto layer 1      green    RED          green    green      green
+PASS  KNOWN-BAD: LAYERS — the rim moved onto layer 1
+      1 distinct light object(s) altered after solve. FINGERPRINT reads rim.layers reads 2 against a declared 1. PREMISE, MAGNITUDE and REACH are all green — `Renderer._projectObject` collects a light only if `light.layers.test( camera.layers )`, so the rim is not in the frame at all. Every clause above reads the light OBJECT and finds it perfect; the renderer never asks it for anything. Measured 24.00% of a 900x1200 body frame moved at a worst Δ192/255 — the largest single code-value excursion of any mechanism here, because a rim is the brightest thing on a silhouette.
+      SHADOW FOCUS — shadow.focus 1 -> 1.6     green    RED          green    green      green
+PASS  KNOWN-BAD: SHADOW FOCUS — shadow.focus 1 -> 1.6
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.shadow.focus reads 1.600000000 against a declared 1. PREMISE, MAGNITUDE and REACH are all green — `SpotLightShadow.updateMatrices` sets `camera.fov = 2 x light.angle x focus`, so the shadow frustum widens by 60% and the map spends its texels on empty studio. REACH measures `light.angle` and `light.angle` did not move. Measured 0.74% of a 900x1200 body frame at a worst Δ26/255 — the smallest area of any mechanism here, and it is the shadow edge, which is exactly where a viewer looks for contact.
+      SKY AXIS — the hemisphere light tilted t green    RED          green    green      green
+PASS  KNOWN-BAD: SKY AXIS — the hemisphere light tilted to (0.6, 0.8, 0)
+      1 distinct light object(s) altered after solve. FINGERPRINT reads ambient.position reads [0.600000, 0.800000, 0.000000] against a declared [0.000000, 1.000000, 0.000000]. PREMISE, MAGNITUDE and REACH are all green — `HemisphereLightNode` normalises the light's POSITION into the sky axis, so the ambient gradient rolls 37° across the figure. Nothing else in the repo reads a hemisphere light's position, and its intensity and both colours are untouched. Measured 42.91% of a 900x1200 body frame moved at a worst Δ12/255 — broad and shallow, which is the signature of an ambient term and the hardest kind of error to see by eye.
+      PANEL MIRROR — the key panel scaled 1 x  green    RED          green    green      green
+PASS  KNOWN-BAD: PANEL MIRROR — the key panel scaled 1 x −1 x 1
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key.scale reads [1.000000, -1.000000, 1.000000] against a declared [1.000000, 1.000000, 1.000000]. PREMISE, MAGNITUDE and REACH are all green — `RectAreaLightNode.update` builds its half-width and half-height by running `extractRotation( matrixWorld )` over them, and a NEGATIVE scale survives that — `.length()` is positive, so the sign stays, the basis changes handedness and the panel's half-height points the other way. Measured 98.86% of a 900x1200 body frame moved at a worst Δ140/255, with `width`, `height`, `colour`, `intensity` and `position` every one of them still exactly as authored. ⚠️ AND THE OBVIOUS VERSION OF THIS DEFECT IS INERT: the first draft used (1, 2, 1) on the argument that a non-uniform scale skews the basis, and it measured 0.00% moved and 0/255, because `extractRotation` NORMALISES each column. §1.25h — the mechanism was plausible, the effect was zero, and only the measurement told the two apart.
+      PANEL AIM — the fill panel yawed 11.5° o green    RED          green    green      green
+PASS  KNOWN-BAD: PANEL AIM — the fill panel yawed 11.5° off the focus
+      1 distinct light object(s) altered after solve. FINGERPRINT reads fill.quaternion turns the panel 11.459° off the focus. PREMISE, MAGNITUDE and REACH are all green — the orientation invariant is hand-rolled rather than a declared scalar, so it needs its own proof. A `RectAreaLight` lights only the half-space in front of its own plane and LTC integrates the rectangle from the rotated half-width and half-height, so a yawed panel is a differently-shaped light — with `width`, `height`, `position`, `colour` and `intensity` every one of them still exactly as authored. Measured 73.17% of a 900x1200 body frame moved at a worst Δ5/255: nearly the whole picture, two code values deep. A judge would not see it and every gate in this file was blind to it.
+      GRAPH — shadow.camera.matrixAutoUpdate f green    RED          green    green      green
+PASS  KNOWN-BAD: GRAPH — shadow.camera.matrixAutoUpdate false
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.shadow.camera.matrixAutoUpdate reads false against a declared true. PREMISE, MAGNITUDE and REACH are all green — the first of the two an independent verifier planted, and the one that shows what the old reason got wrong. `matrixAutoUpdate` was classified inert as "decides WHEN `matrix` is recomposed, not what it recomposes to" — true only if something else recomposes it, and nothing does. `LightShadow.updateMatrices` writes `camera.position` and calls `lookAt`, then `updateMatrixWorld()` declines to fold either in, so the camera renders the shadow map from the WORLD ORIGIN. Measured: the shadow camera moves 5.2155 m — exactly its own standoff, i.e. all the way to (0,0,0) — and `shadow.matrix` moves by 6.06 in its largest element. On pixels: 1.07% of the frame at a worst Δ40/255.
+      GRAPH — the shadow camera reparented und green    RED          green    green      green
+PASS  KNOWN-BAD: GRAPH — the shadow camera reparented under a translated node
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.shadow.camera.parentIsNull reads false against a declared true. PREMISE, MAGNITUDE and REACH are all green — the second planted mechanism, and the one that names the model error rather than a field. It is a GRAPH defect: every field on the camera still reads exactly what the table declares, and the camera is somewhere else. The closure already knew graph was a hazard — it asserts `parentIsScene` for the LIGHT — and never asked the same question of the camera, because a flat map of `light.field` has nowhere to put "and this field is another Object3D with 44 fields of its own." Measured: the camera moves 0.2081 m, the length of the carrier's own offset, and `shadow.matrix` moves 0.154. On pixels: 0.50% of the frame at a worst Δ15/255.
+      GRAPH — shadow.camera.matrixWorldAutoUpd green    RED          green    green      green
+PASS  KNOWN-BAD: GRAPH — shadow.camera.matrixWorldAutoUpdate false
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.shadow.camera.matrixWorldAutoUpdate reads false against a declared true. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over — the same 5.2155 m collapse to the world origin through the other of the two flags, and it was classified inert with the reason "as above" pointing at a reason that was itself wrong. Two flags, one sentence of justification, both live: the shape of a classification written from what a field sounds like rather than from what three does with it.
+      GRAPH — shadow.camera.up tilted 21°      green    RED          green    green      green
+PASS  KNOWN-BAD: GRAPH — shadow.camera.up tilted 21°
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.shadow.camera.up reads [0.358368, 0.933580, 0.000000] against a declared [0.000000, 1.000000, 0.000000]. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over. `up` is genuinely inert on a LIGHT — the file's own reason, that `lookAt` consumes it and the RESULT is the classified `quaternion`, is correct there. It is wrong one level down, because `LightShadow.updateMatrices` calls `lookAt` on every shadow pass and the camera's quaternion is NOT classified: it is inert precisely BECAUSE that call overwrites it. So the same reason flips sign between two nodes, which is the argument for classifying per node. Measured: the camera does not move at all — 0.0000 m — and `shadow.matrix` still moves 0.143, because the map is rolled about the view axis. The verifier measured this one on pixels too, at 0.08% and Δ3/255: the smallest of the three, and invisible to every clause in this file.
+      GRAPH — shadow.camera.pivot set          green    RED          green    green      green
+PASS  KNOWN-BAD: GRAPH — shadow.camera.pivot set
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.shadow.camera.pivot reads [0.400000, 0.300000, 0.200000] against a declared null. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over, and the field is live on THREE different nodes with three different reasons. `Object3D.updateMatrix` applies the pivot correction to the translation column, so it walks the shadow camera 0.4767 m sideways and moves `shadow.matrix` by 0.368. It was classified inert everywhere as "consumed by `updateMatrix`, i.e. folded into `matrix`" — which is true, and `matrix` is inert only because its INPUTS are classified, so folding into it is an argument for reading the field rather than against it.
+      GRAPH — the spot TARGET reparented under green    RED          green    green      green
+PASS  KNOWN-BAD: GRAPH — the spot TARGET reparented under a translated node
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.target.parentIsScene reads false against a declared true. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over, and a different NODE rather than a different field: the target is the other Object3D in a spot's graph, and three aims the light with `setFromMatrixPosition( light.target.matrixWorld )` (Lights.js `lightTargetPosition`, and again in `LightShadow.updateMatrices`). The declared `target` row reads the target's LOCAL position, so it is still exactly the focus and still green. Measured: the aim moves 0.2081 m off the focus and `shadow.matrix` moves 0.0971 — the shadow and the cone both point somewhere else while every scalar in the table is perfect.
+      GRAPH — target.matrixAutoUpdate false    green    RED          green    green      green
+PASS  KNOWN-BAD: GRAPH — target.matrixAutoUpdate false
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key-shadow.target.matrixAutoUpdate reads false against a declared true. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over. The same flag as the first graph row, on the other node, with a bigger amplitude: the target never composes its `matrix`, so its world position stays at the origin and the aim moves the full 0.9100 m from the focus down to the floor, taking `shadow.matrix` 0.548 with it. The spot then points at the figure's feet and lights it from underneath, with `target` reading exactly the focus.
+      LIGHT — the key panel's matrixAutoUpdate green    RED          green    green      green
+PASS  KNOWN-BAD: LIGHT — the key panel's matrixAutoUpdate false
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key.matrixAutoUpdate reads false against a declared true. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over, and it is on the LIGHT rather than in the graph below it, which is what makes it the sharpest row here: `solve()` sets `position` and then calls `lookAt`, and `Object3D.lookAt` writes `quaternion` WITHOUT recomposing `matrix`. So with the flag off the panel keeps the orientation from the PREVIOUS solve while `quaternion` holds the correct one — and the panel-aim invariant three rows above reads `quaternion`, so it stays green. Measured: the panel's world basis ends up 12.0° off the focus with its position exactly right. This is why the flag is now a read field on every light and not only on the shadow camera.
+      LIGHT — the key panel's pivot set        green    RED          green    green      green
+PASS  KNOWN-BAD: LIGHT — the key panel's pivot set
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key.pivot reads [0.400000, 0.300000, 0.200000] against a declared null. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over. `pivot` was inert on every light for the same wrong reason as on the camera. Measured on the body rig: the key panel's world position moves from (3.742, 2.412, 2.716) to (3.829, 2.365, 3.182), i.e. 0.475 m, with `position` reading exactly what the placement table says. ⚠️ It is inert on the SPOT and on the HEMISPHERE light, because the pivot correction is algebraically zero at identity rotation and only the panel is turned by `lookAt` — conditional inertness, which is not inertness. Held as a read field on all three rather than argued away.
+      LIGHT — the key panel's isLight brand cl green    RED          green    green      green
+PASS  KNOWN-BAD: LIGHT — the key panel's isLight brand cleared
+      1 distinct light object(s) altered after solve. FINGERPRINT reads key.isLight reads false against a declared true. PREMISE, MAGNITUDE and REACH are all green — NOT one of the two handed over, and the one row here whose evidence is source rather than a headless displacement, stated that way rather than dressed up. `Renderer._projectObject` collects lights with `else if ( object.isLight ) renderList.pushLight( object )`, so a light without the brand is never collected and contributes nothing at all — the same total loss as the LAYERS row above, which was measured at 24.00% of a body frame and Δ192/255 on the rim. It read "a type brand" for three rounds. `isObject3D` really is only a brand and stays inert; the difference is that something branches on one of them.
+PASS  KNOWN-BAD: DECAY — shadowCaster.decay 2 -> 1 — the mechanism this round was handed
+      1 caster(s) altered. FINGERPRINT reads key-shadow.intensity reads 27.125802990 against a declared 5.579145000, and MAGNITUDE is independently red because the delivered irradiance is now derived through the light's own `decay` and `distance` rather than through a hardcoded 1/d². Rendered: 41.64% of the frame moved, worst delta 8/255, measured on rendered pixels by an independent verifier while this file read 98/98. Re-measured this round on `/src/lighting.html?frame=body` at 900x1200 — 96.11% and Δ70/255. ⚠️ The two are NOT in conflict and neither supersedes the other: they are different pages, different framings and different recipes, and a defect's pixel footprint is a property of the plate (§1.20). Both say the same thing about the gate, which is that it read green through it.
+PASS  KNOWN-BAD: CUTOFF — shadowCaster.distance 0 -> 1.2 — the mechanism this round was handed
+      1 caster(s) altered. FINGERPRINT reads key-shadow.distance reads 1.200000000 against a declared 0, and MAGNITUDE is independently red because the delivered irradiance is now derived through the light's own `decay` and `distance` rather than through a hardcoded 1/d². Rendered: 79.47% of the frame moved, worst delta 87/255, the key's modelling visibly gone — because a non-zero cutoff reaches the picture through the falloff window AND through `camera.far = light.distance || camera.far`. Re-measured this round on `/src/lighting.html?frame=body` at 900x1200 — 96.08% and Δ140/255, same caveat as the DECAY row: two plates, two footprints, one defect. 🚩 The far-plane coupling also means this defect does not clean up after itself — restoring `distance` to 0 leaves `camera.far` at 1.2, because `light.distance || camera.far` now reads the corrupted value. Found by a restore check that came back dirty; it is why the pixel run puts this mechanism last.
+PASS  CLOSURE catches what NO clause in this file could: a field nobody has classified
+      an unrecognised field on a caster comes back as ["somethingThreeAddedInR186"] rather than being silently ignored. This is the only assertion in the repo that can go red for a defect that does not exist yet, and it is the reason this block is a closure rather than a sixth clause.
+PASS  CLOSURE reaches the shadow camera: an unclassified field one level down the graph
+      an unrecognised field on the shadow camera comes back as ["shadow.camera.somethingThreeAddedInR186"]. Before this round the same injection on the camera returned [] — the camera was skipped by the sweep and read through seven hardcoded names, leaving 37 of its 44 own keys in no list at all. A closure that stops at the first object is a list of remembered mechanisms one level down, which is exactly what it was written not to be.
+PASS  CLOSURE reaches the spot target: an unclassified field one level down the graph
+      an unrecognised field on the spot target comes back as ["target.somethingThreeAddedInR186"]. Before this round the same injection on the camera returned [] — the camera was skipped by the sweep and read through seven hardcoded names, leaving 37 of its 44 own keys in no list at all. A closure that stops at the first object is a list of remembered mechanisms one level down, which is exactly what it was written not to be.
+PASS  CLOSURE, THE OTHER WAY: a field this file expects and three no longer has
+      a caster with no `decay` reports missing ["decay"] instead of comparing undefined against undefined and passing. The value clause and the closure clause fail together here on purpose: one says the number is wrong, the other says the field is gone, and a gate that can only say the first cannot survive a dependency upgrade.
+PASS  LIVENESS: nothing shadow.camera calls inert can move what three consumes
+      11 field(s) measured live and every one of them is a declared read row; 0 inert field(s) move the picture only by also moving a read field (none), which is the aliasing the classification allows. This asks three, not the table — the four reasons this round corrected all read well and were all wrong.
+PASS  LIVENESS, the other way: nothing shadow.camera calls read is silently dead
+      every read field either moved the signature or is one of 3 named as held without a headless proof, each with its citation. A read field nobody can move is a row that will never go red, and a table full of those is a hash
+PASS  LIVENESS: nothing target calls inert can move what three consumes
+      3 field(s) measured live and every one of them is a declared read row; 1 inert field(s) move the picture only by also moving a read field (target.position), which is the aliasing the classification allows. This asks three, not the table — the four reasons this round corrected all read well and were all wrong.
+PASS  LIVENESS, the other way: nothing target calls read is silently dead
+      every read field either moved the signature or is one of 1 named as held without a headless proof, each with its citation. A read field nobody can move is a row that will never go red, and a table full of those is a hash
+PASS  LIVENESS: nothing the key panel calls inert can move what three consumes
+      7 field(s) measured live and every one of them is a declared read row; 1 inert field(s) move the picture only by also moving a read field (rotation), which is the aliasing the classification allows. This asks three, not the table — the four reasons this round corrected all read well and were all wrong.
+PASS  LIVENESS, the other way: nothing the key panel calls read is silently dead
+      every read field either moved the signature or is one of 10 named as held without a headless proof, each with its citation. A read field nobody can move is a row that will never go red, and a table full of those is a hash
+PASS  THE RENDERER FLAG: attaching a shadowing rig enables the shadow map, and a non-shadowing one does not
+      `Renderer.shadowMap.enabled` defaults to FALSE on the WebGPU path, and `AnalyticLightNode.setupShadow` returns immediately when it is false — so a rig handed a renderer that never had it set builds a perfect caster that casts nothing, and every clause in this file reads green. It is the one field outside the light objects that this file owns, and `shadowMap.type` is deliberately left alone because `Stage.js` owns the filter.
+PASS  MUST PASS: a rig re-exposed and overridden the way the browsercheck sliders do it
+      exposure 1.4, the fill at 3.1 and white, the rim 29° higher: 135 field(s) still exact, because every declaration is derived from the placement table rather than pinned to the shipped numbers
+
+--- the two framings ---------------------------------------------------------
+
+PASS  key sits at the same azimuth in both presets
+      42° in both — a form light's PLACEMENT authored in subject heights is scale-free, so there is nothing for a second preset to change there. Its POWER is a different question and the two presets do disagree about the fill; see FORM_LIGHT_OVERRIDES_BY_PRESET.
+PASS  fill sits at the same azimuth in both presets
+      -52° in both — a form light's PLACEMENT authored in subject heights is scale-free, so there is nothing for a second preset to change there. Its POWER is a different question and the two presets do disagree about the fill; see FORM_LIGHT_OVERRIDES_BY_PRESET.
+PASS  rim keeps the same azimuth in both presets
+      -168° in both, 1 + cos φ = 0.022. The presets differ on standoff, elevation and irradiance instead — see the header.
+PASS  rim is not swung forward into a side key
+      -168° against the withdrawn -134°, whose band fraction 0.305 measured as a flood over a torso rather than a band on a limb
+PASS  kicker keeps the same azimuth in both presets
+      166° in both, 1 + cos φ = 0.030. The presets differ on standoff, elevation and irradiance instead — see the header.
+PASS  kicker is not swung forward into a side key
+      166° against the withdrawn -134°, whose band fraction 0.305 measured as a flood over a torso rather than a band on a limb
+PASS  the body preset changes the rim's standoff
+      0.9 -> 0.65
+PASS  the body preset changes the rim's elevation
+      26 -> 40
+PASS  KNOWN SHORTFALL: the body rim band is still thinner in pixels than the portrait rim
+      at 1200 px tall: portrait head rim 5.6 px, body upper-arm rim 0.6 px (would be 0.6 px on the portrait azimuth). No azimuth closes this; see the header derivation.
+PASS  the shortfall is NOT claimed to be closed by azimuth
+      0.63 px on either azimuth — the presets no longer differ there, so the 8.9x pixel shortfall stands exactly as derived
+
+--- the budget ---------------------------------------------------------------
+
+PASS  the area-light budget of 4 is enforced
+      a fifth area light is rejected
+PASS  the default rig is exactly at budget
+      4 area lights: key, fill, rim, kicker — measured 3.608 ms at 1080p on this figure, against PROGRESS.md's fitted 3.604
+PASS  exactly ONE light carries a shadow caster
+      1 shadow-casting light(s): key. Measured 2.62 ms each at 1920x1080 on the real figure; four would be 9.11 ms on top of the area lights' 3.61, i.e. 77% of a 16.6 ms frame.
+
+--- the shadow camera ---------------------------------------------------------
+
+PASS  portrait: the shadow cone is tighter than three's default but wider than the subject
+      cone 40.2° covers 1.85 m at the subject — 4.40x a 0.42 m subject, against the default π/3's 3.8 m. near 0.672 far 4.452 around a standoff of 1.092 m; 931 shadow texels across the subject against 227 at the default
+PASS  body: the shadow cone is tighter than three's default but wider than the subject
+      cone 40.2° covers 8.23 m at the subject — 4.40x a 1.87 m subject, against the default π/3's 16.8 m. near 2.992 far 19.822 around a standoff of 4.862 m; 931 shadow texels across the subject against 227 at the default
+
+--- the shadow normal bias scales with its own texels --------------------------
+
+PASS  SHADOW BIAS: positive bias scales with the built cone and map resolution
+      0.9023 mm/texel: 4.000 texels; 0.4512 mm/texel: 4.000 texels; 4.0176 mm/texel: 4.000 texels; 2.0088 mm/texel: 4.000 texels
+PASS  SHADOW BIAS: framing and resolution produce genuinely different footprints
+      Two framings and a 2:1 map-size change exercise the dimensional scaling.
+PASS  SHADOW BIAS: fixed-distance and zero-bias mutations are rejected
+      A constant in metres cannot satisfy this law, even if one framing happens to look correct.
+PASS  LIVE REPORT: direct object mutations reach radiance, placement and colour
+      The authored placement table is unchanged; the live report follows the objects.
+
+--- what the rig reports about itself ------------------------------------------
+
+      light       az°   el°       E       panel m     d m   Ω_p sr   radiance   1+cosφ  band px
+      key          42    18    2.55     0.84x1.18    1.09   0.6440       2.18    1.743    448.2
+      fill        -52     2    1.87     1.76x1.76    0.97   1.6000       1.17    1.616    415.5
+      rim        -168    26   13.60     0.03x0.13    0.38   0.0313     434.61    0.022      5.6
+      kicker      166    -6    0.06     0.03x0.12    0.36   0.0320       1.86    0.030      7.6
+PASS  describe() reports every light with a derived radiance
+      4 rows, radiances 2.2 / 1.2 / 434.6 / 1.9
+
+PASS: 146/146 checks green
+

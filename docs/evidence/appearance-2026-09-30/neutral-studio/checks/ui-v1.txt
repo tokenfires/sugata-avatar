@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Neutral Studio/. Input:
+
+'Saved looks\n1 / 12'
+
+    at file:///Users/robault/GitHub/sugata-avatar/tools/critic/neutral-studio-ui.mjs:29:245 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'Saved looks\n1 / 12',
+  expected: /Neutral Studio/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v24.13.1
