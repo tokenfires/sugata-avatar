@@ -1,0 +1,460 @@
+{
+  "generated": "2026-09-30T08:45:40.421603+00:00",
+  "roots": [
+    "captures/bob-lower-curve-v1"
+  ],
+  "fileCount": 89,
+  "totalBytes": 59540032,
+  "pngCount": 11,
+  "files": [
+    {
+      "path": "captures/bob-lower-curve-v1/audit-bob-lower-captures.mjs",
+      "bytes": 4571,
+      "sha256": "96770d36a1bb5b8fd9fb1a7efa38543733af5bf1cefeab66a58e70cd27eea775"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/audit-bob-lower-dark.mjs",
+      "bytes": 2301,
+      "sha256": "77082ba3503a4b328e929ab2cf87659ea7ffa5f3d1e4e01465094d5127e7144b"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/bob-lower-curve.mjs",
+      "bytes": 14239,
+      "sha256": "0cf7f5c9a587c063568dde8013cca3908f8c38bb6c1cccba2c093f3d81328069"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/candidate-report.json",
+      "bytes": 766953,
+      "sha256": "22441eee05b131a13f380ce71ff06400c7e69aadb43d2ecae570d613737b5507"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/candidate.glb",
+      "bytes": 3347644,
+      "sha256": "2b0c68c05802d0f515aa84b7e505fd325735befbc0159a50bd37cc887e274802"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/casual-back-exact-default.png",
+      "bytes": 640088,
+      "sha256": "b752399d40a41a028798d91b45a3a63af1e31227a6b4ab336d513309b3f31c01"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/casual-left-profile-exact-default.png",
+      "bytes": 668493,
+      "sha256": "9abbf632e44d64c340577ab3d943caf229cef060c5cbb9829a704717c69e378d"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/casual-right-profile-exact-default.png",
+      "bytes": 586241,
+      "sha256": "6afc6c8e62ecf542400508a470c8ed5082d5d474955729f8be4bbc3e53dcc252"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/report.json",
+      "bytes": 118182,
+      "sha256": "1ffe064cfa2e1fc79dcd9d7e4912ebf8e15365a1ef5f00255883ae749aabc731"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/review.html",
+      "bytes": 1183,
+      "sha256": "d6c6a5d8d75ed603ec5463d96d5544d9e9d694b68d03867db79c7d34634ce697"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/captures/bob-lower-curve-v1/candidate.glb",
+      "bytes": 3347644,
+      "sha256": "2b0c68c05802d0f515aa84b7e505fd325735befbc0159a50bd37cc887e274802"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/casual-back-exact-default.png",
+      "bytes": 642520,
+      "sha256": "3574c5b98d7db0202a79aeaacb2210431accebdbd276d287a487a9ca4546a39d"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/casual-left-profile-exact-default.png",
+      "bytes": 668863,
+      "sha256": "27c70db575af1eed62984849113179e1afce9e9af2dcdff646f5459883d6e262"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/casual-right-profile-exact-default.png",
+      "bytes": 587374,
+      "sha256": "65599e47cec505d22b075e088bc8cd38ce5e8e2fce97119248b7e93ad4f70a74"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/report.json",
+      "bytes": 118171,
+      "sha256": "8fb32326fb250a65edb9e7160345629e1b7e409e5e9e7e8a34abebbdd1ec5ff7"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/review.html",
+      "bytes": 1183,
+      "sha256": "d6c6a5d8d75ed603ec5463d96d5544d9e9d694b68d03867db79c7d34634ce697"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/captures/bob-side-envelope-v3/candidate.glb",
+      "bytes": 3347412,
+      "sha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-control/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/dark-controls.json",
+      "bytes": 1472,
+      "sha256": "325440438a2358513f0dbab78b3ecd4128a01e1ba943ba22d7bf427a717113c7"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-back-geometry.json",
+      "bytes": 6938589,
+      "sha256": "b1d74ffbfab5f8ffbe9803ee6d8b1b9fc2049923cd504e23bbc7371881fb4749"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-back-medium-brown.png",
+      "bytes": 631309,
+      "sha256": "a46a4099ff4a1e2562b4d1af605defb7a86b6b51fa90d77d49e9e9102f474b1d"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-front-geometry.json",
+      "bytes": 6951839,
+      "sha256": "3f89fb5c25879a60d895e819092284e3cadbd184cd3b2462e1a97e10b63dde17"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-front-medium-brown.png",
+      "bytes": 823580,
+      "sha256": "0085eeb3e9ae644d5facf05f554675e2c1987e22ed2afaee51186ab7b88d4ec0"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-left-profile-geometry.json",
+      "bytes": 6940223,
+      "sha256": "166a9595ad5dfa15bc53cdde9ebdc0fc23d4b2b9e12fd6ff5f59393576c11772"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-left-profile-medium-brown.png",
+      "bytes": 643418,
+      "sha256": "fafc6fbe5b7d84e41d151ae564590c5c84f97f53259c70491902dea0c59ce0fe"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-rear-oblique-geometry.json",
+      "bytes": 6945157,
+      "sha256": "5ceeee178e4203afcae087d3ef9be80c27e2c0fc49c766d98439aed071251dae"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-rear-oblique-medium-brown.png",
+      "bytes": 605529,
+      "sha256": "a8297f192ae874420afb1ec59c4289e46d0fac95dccd60a6a828d36e10de563f"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-right-profile-geometry.json",
+      "bytes": 6954504,
+      "sha256": "e57a4fe669278e6a83cee60892413b5851dc9fa8c0ceca1da2625ff5780539d6"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/casual-right-profile-medium-brown.png",
+      "bytes": 573116,
+      "sha256": "4d474949e279db98d90aafb5bff841a1fc1ddb48bfa9f08df6d18e56056275be"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/report.json",
+      "bytes": 211197,
+      "sha256": "4f55d58aa11612328899b897760425333f5eee1fae41babf0d16a92b79a68883"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/review.html",
+      "bytes": 1521,
+      "sha256": "aa1afb6827609d8368eee91be9fb289d4724a93c06ea10da22ebc7e9cafaa013"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/captures/bob-lower-curve-v1/candidate.glb",
+      "bytes": 3347644,
+      "sha256": "2b0c68c05802d0f515aa84b7e505fd325735befbc0159a50bd37cc887e274802"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/neutral/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-lower-curve-v1/paired-captures.json",
+      "bytes": 3769,
+      "sha256": "2abe5f125bfd69209731cffa1ad354ad9521c6a3c94d3d6f8166799b1857a7a8"
+    }
+  ],
+  "generator": {
+    "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-lower-static.py",
+    "sha256": "9cf018ca25cb4ea92718eede986809fe57089ac588b21f31c8415b55d17cf29a"
+  }
+}

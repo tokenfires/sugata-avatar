@@ -1,0 +1,81 @@
+{
+  "status": "static appearance positive in sampled neutral and dark views; motion unqualified",
+  "baselineSha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+  "candidateSha256": "2b0c68c05802d0f515aa84b7e505fd325735befbc0159a50bd37cc887e274802",
+  "reports": [
+    {
+      "name": "neutral",
+      "report": "captures/bob-lower-curve-v1/neutral/report.json",
+      "sha256": "4f55d58aa11612328899b897760425333f5eee1fae41babf0d16a92b79a68883",
+      "images": 5,
+      "pid": 89597,
+      "finished": "2026-09-30T08:29:20.212Z"
+    },
+    {
+      "name": "dark-control",
+      "report": "captures/bob-lower-curve-v1/dark-control/report.json",
+      "sha256": "8fb32326fb250a65edb9e7160345629e1b7e409e5e9e7e8a34abebbdd1ec5ff7",
+      "images": 3,
+      "pid": 90485,
+      "finished": "2026-09-30T08:33:54.335Z"
+    },
+    {
+      "name": "dark",
+      "report": "captures/bob-lower-curve-v1/dark/report.json",
+      "sha256": "1ffe064cfa2e1fc79dcd9d7e4912ebf8e15365a1ef5f00255883ae749aabc731",
+      "images": 3,
+      "pid": 90845,
+      "finished": "2026-09-30T08:35:43.538Z"
+    }
+  ],
+  "authoring": {
+    "sourceSha256": "0cf7f5c9a587c063568dde8013cca3908f8c38bb6c1cccba2c093f3d81328069",
+    "restTriangleBodyPairs": 0,
+    "minimumSelectedVertexClearanceMm": 3.5063137855455384,
+    "maximumWidthVectorDeltaMm": 4.16500117164066e-06,
+    "maximumEdgeYDeltaMm": 0,
+    "maximumOrthogonalityDepartureDegrees": 0.09217894067494604,
+    "protectedPositionAndNormalRecordsExact": true,
+    "topologyAndProtectedAttributesExact": true,
+    "joinNormalSummary": {
+      "largestAngleIncrease": {
+        "card": 337,
+        "side": 0,
+        "lastProtectedRing": 12,
+        "firstMovedRing": 13,
+        "beforeDegrees": 2.2392229841289377,
+        "afterDegrees": 6.666814085491077,
+        "increaseDegrees": 4.42759110136214,
+        "firstMovedNormalChangeDegrees": 4.427591102928591
+      },
+      "largestFirstMovedNormalChange": {
+        "card": 337,
+        "side": 0,
+        "lastProtectedRing": 12,
+        "firstMovedRing": 13,
+        "beforeDegrees": 2.2392229841289377,
+        "afterDegrees": 6.666814085491077,
+        "increaseDegrees": 4.42759110136214,
+        "firstMovedNormalChangeDegrees": 4.427591102928591
+      }
+    }
+  },
+  "archive": {
+    "generated": "2026-09-30T08:45:40.421603+00:00",
+    "roots": [
+      "captures/bob-lower-curve-v1"
+    ],
+    "fileCount": 89,
+    "totalBytes": 59540032,
+    "pngCount": 11,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-lower-static.py",
+      "sha256": "9cf018ca25cb4ea92718eede986809fe57089ac588b21f31c8415b55d17cf29a"
+    }
+  },
+  "limits": [
+    "Still images and rest body audit do not qualify moving geometry, garments, hair-hair or all views.",
+    "Original Studio blue lighting is an appearance condition, not natural shade fidelity.",
+    "Raw evidence is local and ignored; the tracked manifest is not an off-machine backup."
+  ]
+}
