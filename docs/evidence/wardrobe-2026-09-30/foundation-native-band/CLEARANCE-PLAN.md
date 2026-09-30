@@ -1,0 +1,9 @@
+# Full band/body source-rest audit
+
+Audit every triangle of the exact isolated band GLB `c82805f09177627376a9b6ec821c754c020ef1b2cc7a074e6960523e8f5641bd` against the full accepted body `fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a`. Use the unchanged `collar_clearance_review.mjs` full triangle-distance/intersection method, centroid winding and its five fixed parity directions. Run its existing analytic controls. Record three vertex samples per triangle as supplementary local-normal receipts; the full triangle distance supplies the contact result.
+
+Require the body to be closed, consistently oriented and connected before interpreting containment. A strict rest-exterior observation means every full triangle has positive distance, every centroid is outside by winding and all five nonambiguous parity rays. Retain exact crossings, nearest witnesses, contained centroids and ambiguities; no tolerance change or candidate displacement follows from failure. The legacy helper's 1.48 mm sample count is not an acceptance threshold here.
+
+The source rest audit is distinct from the native shell author's nearest-vertex standoff. Preserve the actual masks and annotate only whether each stored nearest body triangle would be hidden by the casual mask. This nearest-triangle label is not a complete crossing or visible-defect count. No moving clearance, self-intersection, garment coverage or appearance pass follows. The original rebuilt control already agrees with the shipped position/normal arrays and oriented triangle multiset; this audit specifically asks about the new band geometry.
+
+Root owns the CPU job and saves each 256-triangle chunk for recovery. No candidate edits during execution. Actual visual capture may still show a failed candidate diagnostically, with failures explicit; promotion requires separate qualification.

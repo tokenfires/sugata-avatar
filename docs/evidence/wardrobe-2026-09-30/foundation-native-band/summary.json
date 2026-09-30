@@ -1,0 +1,228 @@
+{
+  "created": "2026-09-30T21:05:00.435893+00:00",
+  "status": "experimental-static-neckline-improvement-exposed-hem-rejected",
+  "runs": {
+    "foundation-native-band-2026-09-30-v1": {
+      "pid": 6809,
+      "started": "2026-09-30T20:42:11.380964+00:00",
+      "finished": "2026-09-30T20:42:19.867061+00:00",
+      "status": "constructed-awaiting-export-coverage-and-visual-review",
+      "reportSHA256": "4c0af966683e9890b861c6374e50ed1c7d2bc347907d23a2dd3c3ff3c812837f"
+    },
+    "foundation-native-band-comparison-2026-09-30-v1": {
+      "pid": 14160,
+      "started": "2026-09-30T20:46:51.922Z",
+      "finished": "2026-09-30T20:46:54.578Z",
+      "status": "finite-prerequisites-failed",
+      "reportSHA256": "3a3eb9d2a49ec56aac4bdccfe1343525d21cc95b5ceb693076b8e7faf85dfe0f"
+    },
+    "foundation-native-band-comparison-2026-09-30-v2": {
+      "pid": 17158,
+      "started": "2026-09-30T20:48:24.688Z",
+      "finished": "2026-09-30T20:48:27.243Z",
+      "status": "finite-correspondence-and-coverage-prerequisites-met",
+      "reportSHA256": "b2c5697f9b0dd7cdc71de20caec418dcfb9656a473875f2f6f75f3a57a3cc7a4"
+    },
+    "foundation-native-band-comparison-2026-09-30-v3": {
+      "pid": 26247,
+      "started": "2026-09-30T20:54:02.093Z",
+      "finished": "2026-09-30T20:54:06.612Z",
+      "status": "finite-correspondence-and-coverage-prerequisites-met",
+      "reportSHA256": "ac55da64915afcf30b7121d21c94d9508f10f9b1b2f944667c72b23bf602beba"
+    },
+    "foundation-native-band-clearance-2026-09-30-v1": {
+      "pid": 26664,
+      "started": "2026-09-30T20:54:17.660Z",
+      "finished": "2026-09-30T21:01:37.404Z",
+      "status": "audited",
+      "reportSHA256": "b3eb77fd0172b3d8a25650be736b5bd3a91b385c54deddff114d379e84853290"
+    },
+    "foundation-native-band-visual-2026-09-30-v1": {
+      "pid": 32317,
+      "started": "2026-09-30T20:58:03.173Z",
+      "finished": "2026-09-30T21:00:09.366Z",
+      "status": "captured",
+      "reportSHA256": "27cd46ba87bb183b65dbb2dfa0d3983409b556599b6e2a67ed2f2df193aeb9f4"
+    }
+  },
+  "acceptedAssets": {
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+  },
+  "comparison": [
+    {
+      "label": "original-control",
+      "coverage": {
+        "requiredCovered": 110,
+        "requiredMissing": [],
+        "fanCovered": 3780,
+        "fanBaselineMissing": 0,
+        "newFanLosses": 0
+      },
+      "poses": [
+        {
+          "pose": "identity",
+          "maxMetres": 1.8581125269046786e-07,
+          "pass": true
+        },
+        {
+          "pose": "elbow",
+          "maxMetres": 1.8581125269046786e-07,
+          "pass": true
+        },
+        {
+          "pose": "coupled",
+          "maxMetres": 0.0001849824284679093,
+          "pass": true
+        }
+      ],
+      "topology": {
+        "weldTolerance": 1e-07,
+        "weldedVertices": 11979,
+        "edges": 34071,
+        "triangles": 22090,
+        "eulerCharacteristic": -2,
+        "boundaryEdges": 1872,
+        "nonmanifoldEdges": 0,
+        "orientationErrors": 0,
+        "components": 1,
+        "maxWeldSeparation": 0
+      },
+      "vertexLinkFailures": 0,
+      "casualDrawnTriangles": 3996,
+      "correspondence": {
+        "restPositionMaxMetres": 0,
+        "customAttributeMax": 0,
+        "restJointMatrixMax": 1.0791046086700007e-06,
+        "restJointWitnessMaxMetres": 1.9588412908849193e-06,
+        "cornerNormalComponentMax": 6.535649299621582e-05,
+        "uvComponentMax": 0,
+        "orientedTrianglesMatched": 22090
+      }
+    },
+    {
+      "label": "band",
+      "coverage": {
+        "requiredCovered": 110,
+        "requiredMissing": [],
+        "fanCovered": 3780,
+        "fanBaselineMissing": 0,
+        "newFanLosses": 0
+      },
+      "poses": [
+        {
+          "pose": "identity",
+          "maxMetres": 1.746510448737438e-07,
+          "pass": true
+        },
+        {
+          "pose": "elbow",
+          "maxMetres": 1.746510448737438e-07,
+          "pass": true
+        },
+        {
+          "pose": "coupled",
+          "maxMetres": 0.00012348811749470322,
+          "pass": true
+        }
+      ],
+      "topology": {
+        "weldTolerance": 1e-07,
+        "weldedVertices": 7047,
+        "edges": 20265,
+        "triangles": 13218,
+        "eulerCharacteristic": 0,
+        "boundaryEdges": 876,
+        "nonmanifoldEdges": 0,
+        "orientationErrors": 0,
+        "components": 1,
+        "maxWeldSeparation": 0
+      },
+      "vertexLinkFailures": 0,
+      "casualDrawnTriangles": 0,
+      "correspondence": {
+        "restPositionMaxMetres": 0,
+        "customAttributeMax": 0,
+        "restJointMatrixMax": 1.0791046086700007e-06,
+        "restJointWitnessMaxMetres": 1.9588412908849193e-06,
+        "cornerNormalComponentMax": 6.172060966491699e-05,
+        "uvComponentMax": 0,
+        "orientedTrianglesMatched": 13218
+      }
+    }
+  ],
+  "clearance": {
+    "strictRestExterior": true,
+    "summary": {
+      "triangles": 13218,
+      "crossingTriangles": 0,
+      "minimum": {
+        "teeTriangle": 12979,
+        "minimum": {
+          "a": [
+            0.1209414916528138,
+            1.1538869690056828,
+            -0.019126763531455915
+          ],
+          "b": [
+            0.1207149558769586,
+            1.1539710783551977,
+            -0.01897977567914528
+          ],
+          "distance": 0.0002828396527098743,
+          "s": 0.027658173116373978,
+          "t": 0.4974739611342566,
+          "kind": "edge-edge",
+          "targetTriangle": 20664
+        },
+        "sampledMinimum": 0.00028570386644591095,
+        "localSignedMinimum": 0.00028570386644591095,
+        "negativeSamples": 0,
+        "belowSolverTolerance": 2,
+        "winding": -2.570176448430901e-17,
+        "parity": [
+          {
+            "crossings": 2,
+            "inside": false,
+            "ambiguous": false
+          },
+          {
+            "crossings": 4,
+            "inside": false,
+            "ambiguous": false
+          },
+          {
+            "crossings": 2,
+            "inside": false,
+            "ambiguous": false
+          },
+          {
+            "crossings": 0,
+            "inside": false,
+            "ambiguous": false
+          },
+          {
+            "crossings": 0,
+            "inside": false,
+            "ambiguous": false
+          }
+        ],
+        "nearestBodyTriangleMaskedInCasual": true
+      },
+      "windingInside": 0,
+      "parityInside": 0,
+      "parityAmbiguous": 0,
+      "negativeVertexSamplesIncludingDuplicates": 0
+    }
+  },
+  "limits": [
+    "V1 comparison has invalid joint coordinate conversion; V2 lacks actual drawn-face/loader-normalization correspondence; final V3 separately reviewed.",
+    "Required and supplementary source coverage are finite; three posed-skin comparisons do not qualify motion clearance.",
+    "Native/export corner-normal differences are recorded separately; no production normal-path claim.",
+    "Construction control matches original authoring fixture, with later accepted mask calibration absent; shipped original is the actual visual baseline.",
+    "Actual images show clean casual neckline but stepped/sawtooth exposed hems. No promotion.",
+    "Full-body rest minimum0.28284mm differs from native refined-patch vertex standoff; no moving margin inferred."
+  ]
+}
