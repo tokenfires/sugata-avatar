@@ -1,0 +1,611 @@
+{
+  "status": "head body audit failed; ordinary body audit clear; outer shape improved in sampled images; minor front373 exception",
+  "protocols": {
+    "head": {
+      "arms": {
+        "baseline": {
+          "directory": "captures/lower-head-v1/baseline-right-profile-brown",
+          "reportSha256": "23657464bc09b7e33a10826001d12256278f8e344ab2917cbc07e39ce576ea43",
+          "pid": 92259,
+          "finished": "2026-09-30T08:45:59.098Z",
+          "auditReuse": {
+            "file": "captures/lower-head-v1/control-replay-v2.json",
+            "sha256": "0745030a7441b0be6793cd757cd430c425079a820b3dc2a486a5a85540b2b0d0",
+            "summary": {
+              "frames": 556,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 1.379665112912428,
+              "contactCards": []
+            }
+          }
+        },
+        "candidate": {
+          "directory": "captures/lower-head-v1/candidate-right-profile-brown",
+          "reportSha256": "0d3cca17fc33109aa86e3c79156d4010e26e2421450cbbf3c4162c45a623c361",
+          "pid": 93039,
+          "finished": "2026-09-30T08:49:49.307Z",
+          "audit": {
+            "file": "captures/lower-head-v1/candidate-right-profile-brown/numerical-checks.json",
+            "sha256": "140da10579859d24fc1cbb736b1e66ca9ad56d19d46d46e878684d8328425bfa",
+            "summary": {
+              "frames": 556,
+              "crossingFrames": 39,
+              "totalTriangleBodyPairs": 634,
+              "maximumPairsInFrame": 53,
+              "minimumVertexClearanceMm": -2.9086191399082177,
+              "contactCards": [
+                78,
+                80,
+                86,
+                101,
+                112,
+                113,
+                120,
+                127,
+                130,
+                131,
+                133,
+                135,
+                146,
+                151,
+                154,
+                162,
+                172,
+                173,
+                177
+              ]
+            },
+            "minimumRow": {
+              "frame": 255,
+              "time": 4.24999999999999,
+              "triangleBodyPairs": 52,
+              "contactCards": [
+                80,
+                86,
+                101,
+                112,
+                113,
+                120,
+                127,
+                131,
+                133,
+                135,
+                146,
+                154,
+                162,
+                172,
+                173,
+                177
+              ],
+              "minimumVertexClearanceMm": -2.9086191399082177,
+              "negativeVertices": 25,
+              "minimumWitness": {
+                "selectedVertex": 3943,
+                "card": 172,
+                "ring": 16,
+                "side": 1,
+                "point": [
+                  0.0027850354090332985,
+                  1.425189733505249,
+                  -0.0019446846563369036
+                ],
+                "signedMm": -2.9086191399082177
+              },
+              "examples": [
+                {
+                  "hairTriangle": 1758,
+                  "bodyTriangle": 14371,
+                  "card": 80,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.00577367884491408,
+                      1.4304924273303357,
+                      -0.000578189424278475
+                    ],
+                    [
+                      0.0009928824077571029,
+                      1.430494819553445,
+                      -0.002759772037002937
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 54
+                },
+                {
+                  "hairTriangle": 1758,
+                  "bodyTriangle": 14802,
+                  "card": 80,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.0009928824077571148,
+                      1.430494819553445,
+                      -0.002759772037002941
+                    ],
+                    [
+                      0.0005012442679839835,
+                      1.4303353762484374,
+                      -0.0028862979970721474
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 54
+                },
+                {
+                  "hairTriangle": 1759,
+                  "bodyTriangle": 14802,
+                  "card": 80,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.0005012442679839836,
+                      1.4303353762484374,
+                      -0.002886297997072147
+                    ],
+                    [
+                      -0.0029014083761652303,
+                      1.4292296186581788,
+                      -0.003763187359241529
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 54
+                },
+                {
+                  "hairTriangle": 1759,
+                  "bodyTriangle": 14803,
+                  "card": 80,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      -0.002901408376165234,
+                      1.4292296186581788,
+                      -0.0037631873592415266
+                    ],
+                    [
+                      -0.004117776730819076,
+                      1.4288960600602592,
+                      -0.004114408063123241
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 54
+                },
+                {
+                  "hairTriangle": 1855,
+                  "bodyTriangle": 14370,
+                  "card": 86,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.007685938346682319,
+                      1.4261276339091022,
+                      -0.002925181165322187
+                    ],
+                    [
+                      0.01417924337163148,
+                      1.427692408049624,
+                      0.0006647628429262172
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 57
+                },
+                {
+                  "hairTriangle": 2238,
+                  "bodyTriangle": 14370,
+                  "card": 101,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.011089363832107362,
+                      1.4288265872411163,
+                      0.00034893672729714546
+                    ],
+                    [
+                      0.009271516711340574,
+                      1.4285670997574234,
+                      -0.0005237367436925931
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 69
+                },
+                {
+                  "hairTriangle": 2239,
+                  "bodyTriangle": 14370,
+                  "card": 101,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.009271516711340574,
+                      1.4285670997574234,
+                      -0.0005237367436925931
+                    ],
+                    [
+                      0.00734026958770696,
+                      1.4282811586298976,
+                      -0.0014584578910654842
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 69
+                },
+                {
+                  "hairTriangle": 2239,
+                  "bodyTriangle": 14371,
+                  "card": 101,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.007340269587706962,
+                      1.4282811586298976,
+                      -0.0014584578910654838
+                    ],
+                    [
+                      0.0023161031143959067,
+                      1.4278725715010865,
+                      -0.0040477559377677325
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 69
+                },
+                {
+                  "hairTriangle": 2239,
+                  "bodyTriangle": 14802,
+                  "card": 101,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      0.00036593443200017613,
+                      1.4269607383567626,
+                      -0.004698744854181074
+                    ],
+                    [
+                      0.0023161031143959076,
+                      1.4278725715010865,
+                      -0.004047755937767747
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 69
+                },
+                {
+                  "hairTriangle": 2526,
+                  "bodyTriangle": 1126,
+                  "card": 112,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      -0.06520901131899007,
+                      1.4290165162128279,
+                      -0.0010095740928999742
+                    ],
+                    [
+                      -0.06661912308927784,
+                      1.4292069964195537,
+                      -0.0002087160577752426
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 78
+                },
+                {
+                  "hairTriangle": 2526,
+                  "bodyTriangle": 1127,
+                  "card": 112,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      -0.06661912308927784,
+                      1.4292069964195537,
+                      -0.00020871605777524082
+                    ],
+                    [
+                      -0.06848560905201993,
+                      1.4295687942346502,
+                      0.0007869929488931989
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 78
+                },
+                {
+                  "hairTriangle": 2527,
+                  "bodyTriangle": 1116,
+                  "card": 112,
+                  "kind": "transverse",
+                  "points": [
+                    [
+                      -0.07152112962282682,
+                      1.4301619908868526,
+                      0.0024098827786982564
+                    ],
+                    [
+                      -0.07497236515869102,
+                      1.4297806423392894,
+                      0.004878776030158962
+                    ]
+                  ],
+                  "alphaWitnesses": [],
+                  "selectedComponent": 78
+                }
+              ]
+            },
+            "negativeVertexCount": 271
+          }
+        }
+      },
+      "pairedControlsSha256": "38987b09e6f26bba2fab70f3adcf2e9c5f3abf172a44a566e5da659bd791d611",
+      "colliderDifference": {
+        "minimumSkullRadiusDeltaMm": 0,
+        "maximumSkullRadiusDeltaMm": 0,
+        "maximumSkullCentreDeltaMm": 0
+      },
+      "otherVertices": {
+        "retainedFrames": 556,
+        "maximumDelta": {
+          "millimetres": 6.296427746419091,
+          "witness": {
+            "frame": 373,
+            "card": 494,
+            "ring": 16,
+            "side": 1
+          }
+        }
+      },
+      "preview": {
+        "status": "encoded; uniform 20Hz presentation timestamps verified",
+        "generated": "2026-09-30T08:50:46.390874+00:00",
+        "command": [
+          "ffmpeg",
+          "-hide_banner",
+          "-loglevel",
+          "error",
+          "-n",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-head-v1/baseline-right-profile-brown/frames/*.png",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-head-v1/candidate-right-profile-brown/frames/*.png",
+          "-filter_complex",
+          "[0:v][1:v]hstack=inputs=2[v]",
+          "-map",
+          "[v]",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "fast",
+          "-crf",
+          "18",
+          "-pix_fmt",
+          "yuv420p",
+          "-movflags",
+          "+faststart",
+          "captures/lower-head-v1/paired-preview.mp4"
+        ],
+        "probeCommand": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "v:0",
+          "-show_frames",
+          "-show_streams",
+          "-of",
+          "json",
+          "captures/lower-head-v1/paired-preview.mp4"
+        ],
+        "sha256": "1995fb48c2fd61cdfe6e2c5ec3f92862d75859653cd58859b546d305b5ee47b7",
+        "frameCount": 186,
+        "duration": "9.300000",
+        "width": 1800,
+        "height": 868,
+        "sourceSha256": "27a53c60bfe5a01e8b4f3d3a53d129f1e0768092c6414a6d01f2835a2a26b9b7",
+        "limits": [
+          "Compressed convenience preview, not original pixel evidence or continuous perceptual qualification.",
+          "Last captured pose remains for one display interval."
+        ]
+      }
+    },
+    "ordinary": {
+      "arms": {
+        "baseline": {
+          "directory": "captures/lower-ordinary-v1/baseline-left-profile-brown",
+          "reportSha256": "583e70836e0d95371aebea7a2a0c43859821a9a11019a6a1056e9c7b8e16bffd",
+          "pid": 93917,
+          "finished": "2026-09-30T08:54:47.847Z",
+          "auditReuse": {
+            "file": "captures/lower-ordinary-v1/control-replay.json",
+            "sha256": "2c0146ad0712e06a57ffc8f01b6a5b577c29226de47c19610753875214dd1de1",
+            "summary": {
+              "frames": 721,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 2.3314974994234694,
+              "contactCards": []
+            }
+          }
+        },
+        "candidate": {
+          "directory": "captures/lower-ordinary-v1/candidate-left-profile-brown",
+          "reportSha256": "a72f778b32e9ec0db7772f9f163856f07fe7707b8c2863ba7cf9aebfe414ffdf",
+          "pid": 94829,
+          "finished": "2026-09-30T09:00:05.163Z",
+          "audit": {
+            "file": "captures/lower-ordinary-v1/candidate-left-profile-brown/numerical-checks.json",
+            "sha256": "4c0b0d525dab58cada3ee6b54a4af5da5bd2925af5296aafdc900db759b8c7ba",
+            "summary": {
+              "frames": 721,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 2.311070822040907,
+              "contactCards": []
+            },
+            "minimumRow": {
+              "frame": 718,
+              "time": 11.96666666666684,
+              "triangleBodyPairs": 0,
+              "contactCards": [],
+              "minimumVertexClearanceMm": 2.311070822040907,
+              "negativeVertices": 0,
+              "minimumWitness": {
+                "selectedVertex": 3704,
+                "card": 164,
+                "ring": 16,
+                "side": 0,
+                "point": [
+                  0.011061454191803932,
+                  1.4438586235046387,
+                  -0.003936592489480972
+                ],
+                "signedMm": 2.311070822040907
+              },
+              "examples": []
+            },
+            "negativeVertexCount": 0
+          }
+        }
+      },
+      "pairedControlsSha256": "ac1d535b376ec967628cf4af897089a1c995edf6d25807a41def6148d5bd2bd0",
+      "colliderDifference": {
+        "minimumSkullRadiusDeltaMm": 0,
+        "maximumSkullRadiusDeltaMm": 0,
+        "maximumSkullCentreDeltaMm": 0
+      },
+      "otherVertices": {
+        "retainedFrames": 721,
+        "maximumDelta": {
+          "millimetres": 0.5523720027820906,
+          "witness": {
+            "frame": 397,
+            "card": 238,
+            "ring": 16,
+            "side": 1
+          }
+        }
+      },
+      "preview": {
+        "status": "encoded; uniform 20Hz presentation timestamps verified",
+        "generated": "2026-09-30T09:01:06.340868+00:00",
+        "command": [
+          "ffmpeg",
+          "-hide_banner",
+          "-loglevel",
+          "error",
+          "-n",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-ordinary-v1/baseline-left-profile-brown/frames/*.png",
+          "-framerate",
+          "20",
+          "-pattern_type",
+          "glob",
+          "-i",
+          "captures/lower-ordinary-v1/candidate-left-profile-brown/frames/*.png",
+          "-filter_complex",
+          "[0:v][1:v]hstack=inputs=2[v]",
+          "-map",
+          "[v]",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "fast",
+          "-crf",
+          "18",
+          "-pix_fmt",
+          "yuv420p",
+          "-movflags",
+          "+faststart",
+          "captures/lower-ordinary-v1/paired-preview.mp4"
+        ],
+        "probeCommand": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "v:0",
+          "-show_frames",
+          "-show_streams",
+          "-of",
+          "json",
+          "captures/lower-ordinary-v1/paired-preview.mp4"
+        ],
+        "sha256": "b789c2a367d2b374ad8b9131bd00f6c69b8498cbb867580b91abc00615b41089",
+        "frameCount": 241,
+        "duration": "12.050000",
+        "width": 1800,
+        "height": 868,
+        "sourceSha256": "27a53c60bfe5a01e8b4f3d3a53d129f1e0768092c6414a6d01f2835a2a26b9b7",
+        "limits": [
+          "Compressed convenience preview, not original pixel evidence or continuous perceptual qualification.",
+          "Last captured pose remains for one display interval."
+        ]
+      }
+    }
+  },
+  "frontReplay": {
+    "file": "captures/lower-head-front-v1/view-repeat.json",
+    "sha256": "5363dbdc0caf40520cd62a711a587d12ed3e3de2be8f2e28db490f960dc01e8c",
+    "allPhysicalFieldsExact": true
+  },
+  "nativeReview": [
+    {
+      "directory": "captures/lower-review-v1",
+      "reportSha256": "363c4ebf1c44904523a5cf9abbbf710a1b340eb631fc0a639a0672e289fa9195",
+      "finished": "2026-09-30T09:11:49.510Z",
+      "pid": 97523
+    },
+    {
+      "directory": "captures/lower-review-v2",
+      "reportSha256": "31218914ac66676c91c431a78a23e045cddfe6e2afcf7e08e00246c3e6159a8d",
+      "finished": "2026-09-30T09:32:37.134Z",
+      "pid": 1722
+    }
+  ],
+  "decision": "Keep side-v3 as the moving lead. One separate exact fallback of the 19 triangle-contact cards is prepared, with fresh qualification required.",
+  "limits": [
+    "All body audits remain scoped to338selected cards, one figure/outfit and captured updates; no garments,hair-hair,alpha or continuous-time coverage.",
+    "Fringe494 supplemental body check covers only372/373/375. A small candidate-only dash at373 remains unattributed to a single visible card.",
+    "Reuse is for unchanged controls with exact raw physical inputs, not modified-candidate inheritance or pixel equality.",
+    "Raw evidence is local and ignored; this tracked manifest does not back it up off-machine."
+  ],
+  "archive": {
+    "generated": "2026-09-30T09:37:15.564171+00:00",
+    "roots": [
+      "captures/lower-head-v1",
+      "captures/lower-ordinary-v1",
+      "captures/lower-head-front-v1",
+      "captures/lower-review-v1",
+      "captures/lower-review-v2",
+      "captures/lower-motion-audit-source-v1"
+    ],
+    "fileCount": 5083,
+    "totalBytes": 5701225079,
+    "pngCount": 1244,
+    "generator": {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/archive-bob-lower-motion.py",
+      "sha256": "86dd1d5e126e348cae6a5d79d3dc4cb4eb678f688de7daff159e5d0d836e8901"
+    },
+    "frozenAssets": {
+      "captures/bob-side-envelope-v3/candidate.glb": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+      "captures/bob-lower-curve-v1/candidate.glb": "2b0c68c05802d0f515aa84b7e505fd325735befbc0159a50bd37cc887e274802"
+    }
+  }
+}
