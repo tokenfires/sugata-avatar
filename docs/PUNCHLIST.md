@@ -2623,6 +2623,14 @@ Measurements, sources and the evidence behind every number below live in
       Gate: **MEASURED** — the JS refit reproduces MPFB's own refit to < 0.1 mm on all 106 bone
       ends, across the body-identity range, and the skin does not slide: no vertex moves more than
       the **0.342 mm** `Identity.js` already accepts as its worst blend error.
+      September 30 [native endpoint and rest-orientation evidence](evidence/wardrobe-2026-09-30/skeleton-placement/README.md)
+      closes finite arithmetic prerequisites in three coupled g050 cases: all 106 native
+      refit/fresh ends match exactly; SDK endpoint means max 0.000060075 mm. A separate
+      [orientation comparison](evidence/wardrobe-2026-09-30/skeleton-placement/ORIENTATION-RESULT.md)
+      passes its 0.1 mm basis-witness bar (max 0.008103127 mm), including an independently
+      verified roll-error control that leaves endpoints correct. Exported hierarchy, runtime
+      inverse binds/posed skin, broader identities and visual qualification remain open; this
+      item stays unchecked.
 - [ ] **10.8** Continuous gender. With 10.1 and 10.7 the five 11 MB bakes become one base plus a
       parameter, and `Identity.js`'s `NEAREST` / `LIVE_PREVIEW` split — which exists *only* because
       glTF cannot morph a skeleton — collapses into one exact mode.

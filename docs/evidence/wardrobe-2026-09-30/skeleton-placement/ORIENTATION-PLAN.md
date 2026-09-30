@@ -1,0 +1,13 @@
+# Next bounded question: rest orientation from the measured endpoints
+
+The endpoint proof retains three native rest-matrix sets and fixed roll values. Use those existing observations for one independent geometric construction before considering runtime skeleton changes. No further native job, renderer or asset mutation is needed for this step.
+
+For each bone, let local +Y point from head to tail. Construct the shortest rotation from +Y to that direction, then rotate around local +Y by the raw strategy table's fixed roll. Translate to the head. This is a geometric hypothesis about the retained native convention; failure is evidence against this hypothesis, not permission to tune per-bone signs or offsets.
+
+Predeclare two inputs: (1) exact observed native endpoints, (2) the preceding SDK endpoint means rounded to float32. Preserve each predicted row-major matrix and compare to the corresponding native `matrixLocal`. Use every bone in every recorded weight. Report maximum absolute matrix-component residual and angular separation of each basis axis. The admission gate is strict maximum **below 0.1 mm** displacement for origin, tail and the three one-metre basis witnesses under predicted versus observed matrices. This is a diagnostic bar for these finite matrices, not the PUNCHLIST skin gate.
+
+Reject zero-length bones and the antiparallel +Y case rather than silently choosing an unqualified convention. Require finite coordinates and proper orthonormal predicted rotations. Preserve any rejected case; do not broaden numerical tolerances after observation. Derive parent-relative rest transforms from the predicted matrices and compare their reconstructed hierarchy to native absolute rest transforms.
+
+Negative controls: add 90 degrees of roll to one clavicle (the endpoint-only comparison should remain clear while basis witnesses fail), and deliberately transpose all rotation blocks (proper rotations with the wrong convention). Each must start from a passing clean prediction, change observed witnesses, and fail the same displacement gate. Preserve both full mutated matrix sets and per-bone residuals.
+
+Independent review must recompute the construction against retained native matrices and provide actual witnesses plus two alternatives for any actionable mismatch. A successful result establishes this rest-matrix convention in these fixtures. It does not establish exported glTF hierarchy/axis conversion, inverse-bind updates in Sugata, skin weights or posed skin behavior, the broader body range, visual quality, or production integration. No product default, shipped strategy data or accepted asset changes.

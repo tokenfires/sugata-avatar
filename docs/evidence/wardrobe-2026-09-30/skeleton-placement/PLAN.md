@@ -1,0 +1,17 @@
+# Bone placement from observed helper geometry
+
+The [native garment oracle](../native-refit/README.md) now supplies the complete helper coordinates that were missing from the coupling study. The next prerequisite is the endpoint arithmetic of PUNCHLIST 10.7, before runtime rest matrices, skin binding and moving appearance can be qualified.
+
+## Declared comparison
+
+Use the same neutral g050 macro recipe and joint shoulder-distance/upper-leg-height detail weights 0, 0.25 and 1. For each case, create a fresh neutral native human and its `game_engine` rig, apply the detail targets, then call actual `RigService.refit_existing_armature`. Separately create a fresh human with those detail targets before adding its rig. Compare both native results. Preserve every full evaluated helper/body array, endpoint, parent, rest matrix, pose basis, object transform, native strategy table and joint-group membership. Require each body's unrigged mix to match the already observed corresponding native garment-oracle body exactly. Record native skin at identity pose separately from the unrigged mix; this is not a JS skin result.
+
+The pinned rig table currently declares 53 bones / 106 ends, 105 CUBE strategies and 1 MEAN, with no offsets, no connected bones and fixed roll for every bone. Native CUBE means the arithmetic average of members of a named joint vertex group, not a bounding-box center. Bind and verify the actual loaded membership against the pinned metadata, preserving ascending vertex accumulation order. A missing/empty group or unsupported strategy is a refusal, never an implicit default-position fallback.
+
+An independent JS consumer computes endpoints first from each actual native full-body array. It also computes them from the native neutral body plus current SDK detail deltas. Check all 106 endpoints with the original strict **below 0.1 mm maximum Euclidean error** bar. Record every residual and worst bone/endpoint. Native existing-rig refit versus fresh rig is a distinct control. The zero-target case must pass before interpreting shaped cases. Preserve deliberate wrong-group and omitted-helper-delta results; require each to fail the endpoint bar against a passing clean parent. Record pre-storage means and float32 predictions separately. Require identity body/armature transforms and identity pose bases; preserve actual edit-bone rolls and the upgraded native rig table. Also retain an axis-conversion error and an injected 0.2 mm error, with passing clean parents. Original native body target data and failed earlier packets stay frozen.
+
+## Bounds
+
+This is three coupled cases, not the whole body-identity range. It does not qualify bone roll/orientation reconstruction, inverse bind matrices, runtime mesh/skinning updates, motion, clothing/foundation fit or representative builds. Native rest-matrix and identity-pose skin observations are retained for the next stage; they do not establish a JS skin-slide pass. PUNCHLIST 10.7 and 10.9 remain open until their complete gates pass. No production assets/defaults or runtime API change in this arithmetic slice.
+
+Root serializes the native process and records the temporary read-only runtime mount. Reuse the isolated profile only after its pinned source/data still match. Record initial/final module census and input hashes. Detach the verified owned mount after the native job. Independent critique requires actual source/coordinate witnesses and two concrete alternatives for actionable findings.

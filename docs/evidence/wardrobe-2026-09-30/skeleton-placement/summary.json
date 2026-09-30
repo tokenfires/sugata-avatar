@@ -1,0 +1,893 @@
+{
+  "native": {
+    "started": "2026-09-30T17:23:19.887528+00:00",
+    "finished": "2026-09-30T17:23:35.785360+00:00",
+    "pid": 90346,
+    "status": "observed-awaiting-independent-comparison",
+    "blender": "5.2.2 LTS",
+    "buildHash": "d13f752e3b9c",
+    "scope": "Native bone endpoint/refit controls in three coupled cases; no runtime skin or appearance qualification."
+  },
+  "nativeReportSHA256": "0802b23b4bdbee05fbc232f9851aeeb7cc4a67fe14227bb16b645c06cac61472",
+  "comparisonReportSHA256": "b7096610aac66ab73830d1ca1ff09232cb0ec92cd6caa0380750bd2531ef4a0a",
+  "comparison": {
+    "started": "2026-09-30T17:24:11.093Z",
+    "finished": "2026-09-30T17:24:12.130Z",
+    "pid": 91760,
+    "status": "compared",
+    "passed": true,
+    "scope": "All 106 endpoint means in three coupled body cases. No runtime matrices, skinning, appearance or whole-range pass.",
+    "cases": [
+      {
+        "weight": 0,
+        "values": {
+          "torso/measure-shoulder-dist-decr-incr": 0,
+          "legs/upperlegs-height-decr-incr": 0
+        },
+        "stack": [],
+        "comparisons": {
+          "nativeExistingVersusFresh": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 106,
+            "exact": 106,
+            "worst": {
+              "point": "Root.head",
+              "actual": [
+                0,
+                -6.100162863731384e-08,
+                -0.000562518835067749
+              ],
+              "expected": [
+                0,
+                -6.100162863731384e-08,
+                -0.000562518835067749
+              ],
+              "mm": 0
+            }
+          },
+          "nativeInputMeans": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 6.007402853032587e-05,
+            "rmsMm": 2.6942302094789014e-05,
+            "points": 106,
+            "exact": 1,
+            "worst": {
+              "point": "lowerarm_l.head",
+              "actual": [
+                0.3311667665839195,
+                -0.020056976820342243,
+                1.1395601630210876
+              ],
+              "expected": [
+                0.3311667740345001,
+                -0.02005697600543499,
+                1.1395602226257324
+              ],
+              "mm": 6.007402853032587e-05
+            }
+          },
+          "nativeInputFloat32": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 106,
+            "exact": 106,
+            "worst": {
+              "point": "Root.head",
+              "actual": [
+                0,
+                -6.100162863731384e-08,
+                -0.000562518835067749
+              ],
+              "expected": [
+                0,
+                -6.100162863731384e-08,
+                -0.000562518835067749
+              ],
+              "mm": 0
+            }
+          },
+          "sdkMeans": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 6.007402853032587e-05,
+            "rmsMm": 2.6942302094789014e-05,
+            "points": 106,
+            "exact": 1,
+            "worst": {
+              "point": "lowerarm_l.head",
+              "actual": [
+                0.3311667665839195,
+                -0.020056976820342243,
+                1.1395601630210876
+              ],
+              "expected": [
+                0.3311667740345001,
+                -0.02005697600543499,
+                1.1395602226257324
+              ],
+              "mm": 6.007402853032587e-05
+            }
+          },
+          "sdkFloat32": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 106,
+            "exact": 106,
+            "worst": {
+              "point": "Root.head",
+              "actual": [
+                0,
+                -6.100162863731384e-08,
+                -0.000562518835067749
+              ],
+              "expected": [
+                0,
+                -6.100162863731384e-08,
+                -0.000562518835067749
+              ],
+              "mm": 0
+            }
+          },
+          "sdkBody": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.001,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 19158,
+            "exact": 19158,
+            "worst": {
+              "point": 0,
+              "actual": [
+                -0.0329895094037056,
+                -0.13453947007656097,
+                1.5558642148971558
+              ],
+              "expected": [
+                -0.0329895094037056,
+                -0.13453947007656097,
+                1.5558642148971558
+              ],
+              "mm": 0
+            }
+          }
+        },
+        "nativeIdentityPoseOnly": {
+          "refit": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "maxMm": 0.000238999946897409,
+            "rmsMm": 0.00013846753255681486,
+            "points": 19158,
+            "exact": 765,
+            "worst": {
+              "point": 18771,
+              "actual": [
+                0.0858050137758255,
+                -0.04465897008776665,
+                1.4974656105041504
+              ],
+              "expected": [
+                0.0858050212264061,
+                -0.044658955186605453,
+                1.4974658489227295
+              ],
+              "mm": 0.000238999946897409
+            }
+          },
+          "fresh": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "maxMm": 0.000238999946897409,
+            "rmsMm": 0.00013846753255681486,
+            "points": 19158,
+            "exact": 765,
+            "worst": {
+              "point": 18771,
+              "actual": [
+                0.0858050137758255,
+                -0.04465897008776665,
+                1.4974656105041504
+              ],
+              "expected": [
+                0.0858050212264061,
+                -0.044658955186605453,
+                1.4974658489227295
+              ],
+              "mm": 0.000238999946897409
+            }
+          }
+        },
+        "nativeMatricesExactlyEqual": true,
+        "nativeRollsExactlyEqual": true,
+        "passed": true,
+        "interpretableAfterNeutral": true,
+        "artifact": {
+          "file": "case-0.json.gz",
+          "sha256": "faa4e4ea1770b9c4e8ce6bae226383656d118ae860b4d3e9ade839196cacc3b8",
+          "decodedSHA256": "06b42658b2581a25d9148246b614004b4bd7915c2d036611d7cc9fea0e777d7f",
+          "bytes": 3077512
+        }
+      },
+      {
+        "weight": 0.25,
+        "values": {
+          "torso/measure-shoulder-dist-decr-incr": 0.25,
+          "legs/upperlegs-height-decr-incr": 0.25
+        },
+        "stack": [
+          {
+            "target": "measure-shoulder-dist-incr",
+            "weight": 0.25,
+            "region": "torso",
+            "offset": 648784,
+            "count": 5568,
+            "slider": "torso/measure-shoulder-dist-decr-incr",
+            "side": "unsided"
+          },
+          {
+            "target": "upperlegs-height-incr",
+            "weight": 0.25,
+            "region": "legs",
+            "offset": 1100224,
+            "count": 5329,
+            "slider": "legs/upperlegs-height-decr-incr",
+            "side": "unsided"
+          }
+        ],
+        "comparisons": {
+          "nativeExistingVersusFresh": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 106,
+            "exact": 106,
+            "worst": {
+              "point": "Root.head",
+              "actual": [
+                0,
+                -6.100162863731384e-08,
+                -0.023887518793344498
+              ],
+              "expected": [
+                0,
+                -6.100162863731384e-08,
+                -0.023887518793344498
+              ],
+              "mm": 0
+            }
+          },
+          "nativeInputMeans": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 6.007402853032587e-05,
+            "rmsMm": 2.7300264652684156e-05,
+            "points": 106,
+            "exact": 0,
+            "worst": {
+              "point": "lowerarm_l.head",
+              "actual": [
+                0.33739175647497177,
+                -0.020056976820342243,
+                1.1395601630210876
+              ],
+              "expected": [
+                0.33739176392555237,
+                -0.02005697600543499,
+                1.1395602226257324
+              ],
+              "mm": 6.007402853032587e-05
+            }
+          },
+          "nativeInputFloat32": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 106,
+            "exact": 106,
+            "worst": {
+              "point": "Root.head",
+              "actual": [
+                0,
+                -6.100162863731384e-08,
+                -0.023887518793344498
+              ],
+              "expected": [
+                0,
+                -6.100162863731384e-08,
+                -0.023887518793344498
+              ],
+              "mm": 0
+            }
+          },
+          "sdkMeans": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 5.967565674773126e-05,
+            "rmsMm": 2.955895642955562e-05,
+            "points": 106,
+            "exact": 1,
+            "worst": {
+              "point": "lowerarm_l.head",
+              "actual": [
+                0.3373917667195201,
+                -0.020056976820342243,
+                1.1395601630210876
+              ],
+              "expected": [
+                0.33739176392555237,
+                -0.02005697600543499,
+                1.1395602226257324
+              ],
+              "mm": 5.967565674773126e-05
+            }
+          },
+          "sdkFloat32": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 5.9604644775390625e-05,
+            "rmsMm": 2.1283607345826083e-05,
+            "points": 106,
+            "exact": 78,
+            "worst": {
+              "point": "pinky_03_l.tail",
+              "actual": [
+                0.5225687623023987,
+                -0.2433518022298813,
+                0.8958465456962585
+              ],
+              "expected": [
+                0.5225687026977539,
+                -0.2433518022298813,
+                0.8958465456962585
+              ],
+              "mm": 5.9604644775390625e-05
+            }
+          },
+          "sdkBody": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.001,
+            "maxMm": 3.7337492272587655e-05,
+            "rmsMm": 7.11696541075999e-06,
+            "points": 19158,
+            "exact": 8282,
+            "worst": {
+              "point": 4435,
+              "actual": [
+                -0.1366190371045377,
+                0.039924509823322296,
+                0.7490750920260325
+              ],
+              "expected": [
+                -0.13661903142929077,
+                0.039924509823322296,
+                0.7490750551223755
+              ],
+              "mm": 3.7337492272587655e-05
+            }
+          }
+        },
+        "nativeIdentityPoseOnly": {
+          "refit": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "maxMm": 0.000238999946897409,
+            "rmsMm": 0.00013869058318930893,
+            "points": 19158,
+            "exact": 718,
+            "worst": {
+              "point": 18771,
+              "actual": [
+                0.0858050137758255,
+                -0.04465897008776665,
+                1.4974656105041504
+              ],
+              "expected": [
+                0.0858050212264061,
+                -0.044658955186605453,
+                1.4974658489227295
+              ],
+              "mm": 0.000238999946897409
+            }
+          },
+          "fresh": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "maxMm": 0.000238999946897409,
+            "rmsMm": 0.00013869058318930893,
+            "points": 19158,
+            "exact": 718,
+            "worst": {
+              "point": 18771,
+              "actual": [
+                0.0858050137758255,
+                -0.04465897008776665,
+                1.4974656105041504
+              ],
+              "expected": [
+                0.0858050212264061,
+                -0.044658955186605453,
+                1.4974658489227295
+              ],
+              "mm": 0.000238999946897409
+            }
+          }
+        },
+        "nativeMatricesExactlyEqual": true,
+        "nativeRollsExactlyEqual": true,
+        "passed": true,
+        "interpretableAfterNeutral": true,
+        "artifact": {
+          "file": "case-0_25.json.gz",
+          "sha256": "3f486748cb2ecc8becf5b1afe361ad633e025c9fbfe4e3c941210975283f48a8",
+          "decodedSHA256": "840e7c55595c92b19297d6172328b43e58360774adf06ff8e5f8ad97fee8cbc9",
+          "bytes": 3172576
+        }
+      },
+      {
+        "weight": 1,
+        "values": {
+          "torso/measure-shoulder-dist-decr-incr": 1,
+          "legs/upperlegs-height-decr-incr": 1
+        },
+        "stack": [
+          {
+            "target": "measure-shoulder-dist-incr",
+            "weight": 1,
+            "region": "torso",
+            "offset": 648784,
+            "count": 5568,
+            "slider": "torso/measure-shoulder-dist-decr-incr",
+            "side": "unsided"
+          },
+          {
+            "target": "upperlegs-height-incr",
+            "weight": 1,
+            "region": "legs",
+            "offset": 1100224,
+            "count": 5329,
+            "slider": "legs/upperlegs-height-decr-incr",
+            "side": "unsided"
+          }
+        ],
+        "comparisons": {
+          "nativeExistingVersusFresh": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 106,
+            "exact": 106,
+            "worst": {
+              "point": "Root.head",
+              "actual": [
+                0,
+                -6.100162863731384e-08,
+                -0.09386251866817474
+              ],
+              "expected": [
+                0,
+                -6.100162863731384e-08,
+                -0.09386251866817474
+              ],
+              "mm": 0
+            }
+          },
+          "nativeInputMeans": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 6.007402853032587e-05,
+            "rmsMm": 2.652385916051486e-05,
+            "points": 106,
+            "exact": 1,
+            "worst": {
+              "point": "lowerarm_l.head",
+              "actual": [
+                0.3560667559504509,
+                -0.020056976820342243,
+                1.1395601630210876
+              ],
+              "expected": [
+                0.3560667634010315,
+                -0.02005697600543499,
+                1.1395602226257324
+              ],
+              "mm": 6.007402853032587e-05
+            }
+          },
+          "nativeInputFloat32": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 0,
+            "rmsMm": 0,
+            "points": 106,
+            "exact": 106,
+            "worst": {
+              "point": "Root.head",
+              "actual": [
+                0,
+                -6.100162863731384e-08,
+                -0.09386251866817474
+              ],
+              "expected": [
+                0,
+                -6.100162863731384e-08,
+                -0.09386251866817474
+              ],
+              "mm": 0
+            }
+          },
+          "sdkMeans": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 5.97265061797437e-05,
+            "rmsMm": 2.5875586006083054e-05,
+            "points": 106,
+            "exact": 1,
+            "worst": {
+              "point": "lowerarm_l.head",
+              "actual": [
+                0.3560667671263218,
+                -0.020056976820342243,
+                1.1395601630210876
+              ],
+              "expected": [
+                0.3560667634010315,
+                -0.02005697600543499,
+                1.1395602226257324
+              ],
+              "mm": 5.97265061797437e-05
+            }
+          },
+          "sdkFloat32": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "maxMm": 5.9604644775390625e-05,
+            "rmsMm": 1.3066100204017096e-05,
+            "points": 106,
+            "exact": 86,
+            "worst": {
+              "point": "pinky_01_l.tail",
+              "actual": [
+                0.5368569493293762,
+                -0.23075079917907715,
+                0.928679347038269
+              ],
+              "expected": [
+                0.5368568897247314,
+                -0.23075079917907715,
+                0.928679347038269
+              ],
+              "mm": 5.9604644775390625e-05
+            }
+          },
+          "sdkBody": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.001,
+            "maxMm": 4.474227186092851e-05,
+            "rmsMm": 1.1937292483851406e-05,
+            "points": 19158,
+            "exact": 8332,
+            "worst": {
+              "point": 4512,
+              "actual": [
+                -0.16156955249607563,
+                0.026723992079496384,
+                0.519086167216301
+              ],
+              "expected": [
+                -0.16156955063343048,
+                0.026723992079496384,
+                0.5190861225128174
+              ],
+              "mm": 4.474227186092851e-05
+            }
+          }
+        },
+        "nativeIdentityPoseOnly": {
+          "refit": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "maxMm": 0.0002425733297482089,
+            "rmsMm": 9.17711995104035e-05,
+            "points": 19158,
+            "exact": 1243,
+            "worst": {
+              "point": 14048,
+              "actual": [
+                0.19548100233078003,
+                -0.014773963019251823,
+                1.314711570739746
+              ],
+              "expected": [
+                0.1954810470342636,
+                -0.014773963019251823,
+                1.3147118091583252
+              ],
+              "mm": 0.0002425733297482089
+            }
+          },
+          "fresh": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "maxMm": 0.0002425733297482089,
+            "rmsMm": 9.17711995104035e-05,
+            "points": 19158,
+            "exact": 1243,
+            "worst": {
+              "point": 14048,
+              "actual": [
+                0.19548100233078003,
+                -0.014773963019251823,
+                1.314711570739746
+              ],
+              "expected": [
+                0.1954810470342636,
+                -0.014773963019251823,
+                1.3147118091583252
+              ],
+              "mm": 0.0002425733297482089
+            }
+          }
+        },
+        "nativeMatricesExactlyEqual": true,
+        "nativeRollsExactlyEqual": true,
+        "passed": true,
+        "interpretableAfterNeutral": true,
+        "artifact": {
+          "file": "case-1.json.gz",
+          "sha256": "c207d29a6cf03971d01f5e9bd94d8bfc703882e385424ee9392ff537d930efd0",
+          "decodedSHA256": "681869d5228ca5d08d64cc3c315a3b7bb45e10786463564c64f6fccccb9695cd",
+          "bytes": 3094006
+        }
+      }
+    ],
+    "corruptions": {
+      "wrongShoulderGroup": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.1,
+        "maxMm": 389.8327313363577,
+        "rmsMm": 37.86390206312078,
+        "points": 106,
+        "exact": 1,
+        "worst": {
+          "point": "upperarm_l.head",
+          "actual": [
+            -0.19491636380553246,
+            -0.019264152040705085,
+            1.3201014548540115
+          ],
+          "expected": [
+            0.19491636753082275,
+            -0.01926415227353573,
+            1.3201014995574951
+          ],
+          "mm": 389.8327313363577
+        },
+        "cleanParent": "full-weight SDK endpoint means",
+        "cleanParentResult": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.1,
+          "maxMm": 5.97265061797437e-05,
+          "rmsMm": 2.5875586006083054e-05,
+          "points": 106,
+          "exact": 1,
+          "worst": {
+            "point": "lowerarm_l.head",
+            "actual": [
+              0.3560667671263218,
+              -0.020056976820342243,
+              1.1395601630210876
+            ],
+            "expected": [
+              0.3560667634010315,
+              -0.02005697600543499,
+              1.1395602226257324
+            ],
+            "mm": 5.97265061797437e-05
+          }
+        },
+        "changedFromClean": true,
+        "mutationMaxMm": 389.8327276110649,
+        "interpretable": true
+      },
+      "omittedHelperDeltas": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.1,
+        "maxMm": 106.88546629368126,
+        "rmsMm": 45.89092123404131,
+        "points": 106,
+        "exact": 0,
+        "worst": {
+          "point": "calf_l.head",
+          "actual": [
+            0.14264009706676006,
+            -0.03732565836980939,
+            0.4744187891483307
+          ],
+          "expected": [
+            0.1685401052236557,
+            -0.0373256579041481,
+            0.370718777179718
+          ],
+          "mm": 106.88546629368126
+        },
+        "cleanParent": "full-weight SDK endpoint means",
+        "cleanParentResult": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.1,
+          "maxMm": 5.97265061797437e-05,
+          "rmsMm": 2.5875586006083054e-05,
+          "points": 106,
+          "exact": 1,
+          "worst": {
+            "point": "lowerarm_l.head",
+            "actual": [
+              0.3560667671263218,
+              -0.020056976820342243,
+              1.1395601630210876
+            ],
+            "expected": [
+              0.3560667634010315,
+              -0.02005697600543499,
+              1.1395602226257324
+            ],
+            "mm": 5.97265061797437e-05
+          }
+        },
+        "changedFromClean": true,
+        "mutationMaxMm": 106.88545725975538,
+        "interpretable": true
+      },
+      "wrongAxis": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.1,
+        "maxMm": 2351.7328023644027,
+        "rmsMm": 1374.8279580597168,
+        "points": 106,
+        "exact": 0,
+        "worst": {
+          "point": "head.tail",
+          "actual": [
+            0,
+            1.6625131666660309,
+            0.03706219047307968
+          ],
+          "expected": [
+            0,
+            -0.03706219047307968,
+            1.6625131368637085
+          ],
+          "mm": 2351.7328023644027
+        },
+        "cleanParent": "full-weight SDK endpoint means",
+        "cleanParentResult": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.1,
+          "maxMm": 5.97265061797437e-05,
+          "rmsMm": 2.5875586006083054e-05,
+          "points": 106,
+          "exact": 1,
+          "worst": {
+            "point": "lowerarm_l.head",
+            "actual": [
+              0.3560667671263218,
+              -0.020056976820342243,
+              1.1395601630210876
+            ],
+            "expected": [
+              0.3560667634010315,
+              -0.02005697600543499,
+              1.1395602226257324
+            ],
+            "mm": 5.97265061797437e-05
+          }
+        },
+        "changedFromClean": true,
+        "mutationMaxMm": 2351.7328229629215,
+        "interpretable": true
+      },
+      "injectedPointTwoMillimetres": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.1,
+        "maxMm": 0.2,
+        "rmsMm": 0.019425734480631326,
+        "points": 106,
+        "exact": 0,
+        "worst": {
+          "point": "Root.head",
+          "actual": [
+            0.0002,
+            -6.100162863731384e-08,
+            -0.09386251866817474
+          ],
+          "expected": [
+            0,
+            -6.100162863731384e-08,
+            -0.09386251866817474
+          ],
+          "mm": 0.2
+        },
+        "cleanParent": "full-weight SDK endpoint means",
+        "cleanParentResult": {
+          "passed": true,
+          "strict": true,
+          "gateMm": 0.1,
+          "maxMm": 5.97265061797437e-05,
+          "rmsMm": 2.5875586006083054e-05,
+          "points": 106,
+          "exact": 1,
+          "worst": {
+            "point": "lowerarm_l.head",
+            "actual": [
+              0.3560667671263218,
+              -0.020056976820342243,
+              1.1395601630210876
+            ],
+            "expected": [
+              0.3560667634010315,
+              -0.02005697600543499,
+              1.1395602226257324
+            ],
+            "mm": 5.97265061797437e-05
+          }
+        },
+        "changedFromClean": true,
+        "mutationMaxMm": 0.2,
+        "interpretable": true
+      }
+    }
+  },
+  "source": {
+    "parentBindings": 2399,
+    "initialModules": 526,
+    "finalModules": 526,
+    "rigTableSHA256": "b324ddb4b707721c19630bfadb87c3e3b38eed3b6e4590bb3cead43ea918f799",
+    "groupMetadataSHA256": "8cb1417bc55ae5ec8aa99f90734e81ed5fbb556511ff6a2c00e0534b70911444"
+  },
+  "outputs": [
+    "captures/skeleton-native-oracle-2026-09-30-v1",
+    "captures/skeleton-native-comparison-2026-09-30-v1"
+  ],
+  "runtimeDetachedAt": "2026-09-30T17:24:16.275738+00:00"
+}

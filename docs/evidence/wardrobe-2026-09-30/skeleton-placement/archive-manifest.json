@@ -1,0 +1,2801 @@
+{
+  "frozenAt": "2026-09-30T17:30:02.351122+00:00",
+  "roots": [
+    "captures/skeleton-native-oracle-2026-09-30-v1",
+    "captures/skeleton-native-comparison-2026-09-30-v1"
+  ],
+  "fileCount": 558,
+  "totalBytes": 26666608,
+  "files": [
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/case-0-fresh.json.gz",
+      "bytes": 957939,
+      "sha256": "d75f38eb79cb261db0e4aec15cb2ccdf70ce8d9e6da2a431eff5e369fdb2a960"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/case-0-refit.json.gz",
+      "bytes": 957944,
+      "sha256": "5236b9e01870f6001c0ffbb82e0392e4aa4ba3ae3a9f8e393b98134a57c015dd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/case-0_25-fresh.json.gz",
+      "bytes": 958777,
+      "sha256": "42329afc219f1f4f4adeaf311776e792524521ff07e7805b0a62f9f13c3a5d6a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/case-0_25-refit.json.gz",
+      "bytes": 958780,
+      "sha256": "4f161f0c9f6db5393c4843994838ea9680e834aee73bc48fa826655ac7a61437"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/case-1-fresh.json.gz",
+      "bytes": 955491,
+      "sha256": "f72decb8b2bd6d319624e9b3be3c5c334c84165cdf4048eb3ac205cb3831e801"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/case-1-refit.json.gz",
+      "bytes": 955495,
+      "sha256": "c3baf29a028caa75d2dc0848117b47735e0cf47381c0ff1e25c4d81394fe8ff4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/report.json",
+      "bytes": 375307,
+      "sha256": "0802b23b4bdbee05fbc232f9851aeeb7cc4a67fe14227bb16b645c06cac61472"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/rig-table.json.gz",
+      "bytes": 3163,
+      "sha256": "3fec27dae88b0c3967316c597d2310ea6b7eb9688525ede996a717976db00e58"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/runtime/native-oracle-v1.log",
+      "bytes": 930,
+      "sha256": "05510bc4265706549b31e32cffdcf617d7f7ecd18399b8ff3034ef501558c971"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/runtime/runtime-detach.json",
+      "bytes": 486,
+      "sha256": "87df683b2ab5b2ab3c082fa85033fe4fc0cb73412d0be853530738bf96c07bf1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/docs/evidence/wardrobe-2026-09-30/skeleton-placement/PLAN.md",
+      "bytes": 3483,
+      "sha256": "9d373d36a5b3206bddec86963d3dcb8a8aee9456b2f2cdff9dc55af2f0b7d25e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/__init__.py",
+      "bytes": 9948,
+      "sha256": "541bfbfb91d28c73d19b49edd6ce65ba2f7543cb21657f78db49f417ee2a2d6d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/_classmanager.py",
+      "bytes": 3797,
+      "sha256": "b787a5d86df28031e0ae59281b70f6efdcec9939dcb64827ad4b83279548e7b7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/_preferences.py",
+      "bytes": 3305,
+      "sha256": "b7f7c3fc9fba7aa3224039a9563e319a3c5705cdb5d9bf4ec69f7509c886928e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/data/mesh_metadata/basemesh_vertex_groups.json",
+      "bytes": 81984,
+      "sha256": "8cb1417bc55ae5ec8aa99f90734e81ed5fbb556511ff6a2c00e0534b70911444"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/data/rigs/standard/rig.game_engine.json",
+      "bytes": 40936,
+      "sha256": "b324ddb4b707721c19630bfadb87c3e3b38eed3b6e4590bb3cead43ea918f799"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/data/rigs/standard/weights.game_engine.json",
+      "bytes": 3026778,
+      "sha256": "9f4a773e74ce5ba08415b4f30070338e9f75bae5971b5075b10cd6b9caa58473"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/__init__.py",
+      "bytes": 200,
+      "sha256": "824e15c5585d648e9d5b34ecbb6c108ef8596b3c5d37f41817453c0f576147dd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/clothes/mhclo.py",
+      "bytes": 12931,
+      "sha256": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/clothes/vertexmatch.py",
+      "bytes": 16108,
+      "sha256": "81abf8f9fa3839687c5e29ce1a8c18dcd114c046b5a237e06175de115e6b91ab"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/material/__init__.py",
+      "bytes": 126,
+      "sha256": "20644e2406dc46f78fa49c843c887d394788608780c7ece5b114fed6d7ab12f6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/material/enhancedskinmaterial.py",
+      "bytes": 3759,
+      "sha256": "e9e8a548046dbf771fb1b9d53f3197da5135f36c55f5ae4b5ede5a6e89719f24"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/material/makeskinmaterial.py",
+      "bytes": 14821,
+      "sha256": "b4a009f43db8f3474e298ad8a03dd5d7292ab0ef4f287565d34c01c7d5703665"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/material/mhmaterial.py",
+      "bytes": 6886,
+      "sha256": "fa069ecb9418c46b7394a7609811ae07c85b868a176d1baa998395c283a7f045"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/material/mhmatkeys.py",
+      "bytes": 6105,
+      "sha256": "c478310a991b4eeac09be11a5ce4d75afe8e2a7c0e134dbc6ab98f0cfcf6a4e8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/material/mhmatkeytypes.py",
+      "bytes": 5735,
+      "sha256": "03c05280d8eb4fa86d686ca7206dce8a6c0e7529d7c441db12ce106509d88ea8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/meshcrossref.py",
+      "bytes": 18404,
+      "sha256": "44a5ed8bf46d629078b24115e5743ecc8cb3e46a1f18a031218c557b382d9ae0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/__init__.py",
+      "bytes": 77,
+      "sha256": "01e8626e7df58f0a9468ce3aa643d7aadc5a4cead4ace8fdf25247d3d40d2518"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/__init__.py",
+      "bytes": 10041,
+      "sha256": "12ea58a6c5b9ddbceb429e6b2786f42c74cc92814e096b3ec70dab20ff92344b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/abstractgroupwrapper.py",
+      "bytes": 11530,
+      "sha256": "6465ccdc0145b9d1a180955169a454c93d9d94f4aee31724fbcc2a792375fcd2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbadditiverange2.py",
+      "bytes": 17164,
+      "sha256": "4f13098b35a92b0101e5b8d7992c32b88f1971a24c8f796464b9c9654b2554c0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbadditiverange3.py",
+      "bytes": 24975,
+      "sha256": "0f3260ed0a836f2fb5c8684681682680718818362e83906c5b70bf572e55bd78"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbalphamixer.py",
+      "bytes": 13302,
+      "sha256": "f019f7bc40aa28db4fc815bbf3832aea7c6a44d1b54cda055b4f4a9abf253bd1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbaureolae.py",
+      "bytes": 27009,
+      "sha256": "8f1eb6096816b54ec03bfa7fcacf740636cc3daaf99154f7662578e864fe48fb"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbbody.py",
+      "bytes": 30722,
+      "sha256": "2fe8f6ae844f61ec4c73d46f1db515d719119dec5dd9d454127f88c3cb9350a3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbbodyconstants.py",
+      "bytes": 13073,
+      "sha256": "6246b25119cdffc5e4950bedece22a16bb0d215991d9e3e741b4d652968fbd7f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbbodysectionsrouter.py",
+      "bytes": 19113,
+      "sha256": "f287158860c3909c52e4b298ed6cb047422f814f50aae25ed134a27144e6da64"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcharacterinfo.py",
+      "bytes": 9033,
+      "sha256": "8bb01a3300fc4fb9d944ef63dba2831f03776511e3a58ab70ad3bb58f8583697"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorlayermixer.py",
+      "bytes": 9248,
+      "sha256": "1152c30a223684920fe6a976aaec62ca97f9dcd7668a68984e92886ac7192e52"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorramp2.py",
+      "bytes": 9100,
+      "sha256": "6259a5ac4f7344ad94c571ad135d1f4f47afec3728f62a42b00166ecbb710ac3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorramp3.py",
+      "bytes": 13369,
+      "sha256": "ae41feb1fc6f684bccf56912f8a0a89b083069f8d22110b751f4329fdfec83c9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorramp4.py",
+      "bytes": 16862,
+      "sha256": "311054cd33571fdeb70add49f7367e351d17b64c6759435633db4c50c554d2ee"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter2.py",
+      "bytes": 6437,
+      "sha256": "f929f658e2ebf9a9d1d3b81efc4a9effd2ab76da3ab4038dc466924043a01ba8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter3.py",
+      "bytes": 9168,
+      "sha256": "b96950fea4f8bbeb151ff17c454c223ca13d9d874dccf25dc8cb5893d4160611"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter4.py",
+      "bytes": 11897,
+      "sha256": "0fb0a0ec104c171dde20d24399638a3c9421e2035fa2882c40e79ddf15b0c064"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter5.py",
+      "bytes": 14628,
+      "sha256": "306b38cde3e119ab86bcdf140295458d03643081f3100d0f0a14378867d2486d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbears.py",
+      "bytes": 27211,
+      "sha256": "71dcf6626e36c3b62d3f6e89d484e3cf9d2c55fd1b902fd851a4d88cb8c48201"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbeyeconstants.py",
+      "bytes": 5948,
+      "sha256": "a0937307fa5473c6633fae06c6a38247a12273e59cd6ab97e9be966496103537"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbface.py",
+      "bytes": 29750,
+      "sha256": "ea89ba8748ff63c6394c3896ee80fbfe5d9419f6cecb2dde225182535c47bfa9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbgenitals.py",
+      "bytes": 20247,
+      "sha256": "9dbea649d9c5407552f45b791a60d156e6836a0faad40947ddffb16396843805"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfblips.py",
+      "bytes": 24074,
+      "sha256": "173c5bc01c1a0d0448233819a2251ae545b3776dbc6ef9676d79b029f1a7660f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbmassadd.py",
+      "bytes": 10015,
+      "sha256": "b3244eb463b42d7cc453114a73f7ec48737e631ba72ff966bb1f93f7b12cfecc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbnails.py",
+      "bytes": 11705,
+      "sha256": "9a2016cf4e82274f3e8a3f57e83515102be23e49af3d692175af27511f510cb2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbnormalizevalue.py",
+      "bytes": 9339,
+      "sha256": "fb75c06fb43fd1416081c2d54f1282c2623d1fe34e1521b19e5db1124a7ef8bf"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter2.py",
+      "bytes": 6176,
+      "sha256": "dfdeabb00177f13a6caafde570bd32259598e1d81607fd6f08f2089b13c5096d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter3.py",
+      "bytes": 8802,
+      "sha256": "d36be0a1fa03b7470dcfcc3b3f37e04884e7860370f5cdc266c77e6e4a2a017d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter4.py",
+      "bytes": 11532,
+      "sha256": "b8226e2d1f3d366eff72cace2b23e02867a9a7dd602a633639dfa5080d114764"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter5.py",
+      "bytes": 14264,
+      "sha256": "2fd350ec5437e3741e541d1689c572a4106fca858cff235f8cea577bf07be370"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskin.py",
+      "bytes": 31786,
+      "sha256": "8dd6bd45193e2f570be2e6493cbf5a276ac314d57731104d0bc18dfa1169c6df"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskincolorvariation.py",
+      "bytes": 13127,
+      "sha256": "81d11ab54b3524e486b3078cc700099daabb5d5a243e0df8f4bb10ace1ad4195"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinmastercolor.py",
+      "bytes": 39973,
+      "sha256": "c6b48f181cd8dde52b6ba47b3d52045932e630320381afe31be7f0d593867334"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinnavel.py",
+      "bytes": 20573,
+      "sha256": "fed6686a5659b34e5bdb98847c2fce076e28ef6af3ea9cda9e7c8e400bd584a1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinnormaldermal.py",
+      "bytes": 10991,
+      "sha256": "cc1d722047f275af779c3ba683f24a5cc70c4719d751d963f320ad9fbeaa8b43"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinnormalunevenness.py",
+      "bytes": 10396,
+      "sha256": "33da2691a8119640e9a099f4e1e59c212f724191dc82efd71715d086990a0bd1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinspot.py",
+      "bytes": 14675,
+      "sha256": "8d8449b75b203c60db663eabb4a4261c2f471e45d9b9012409eeb63f91f344b7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinveins.py",
+      "bytes": 18297,
+      "sha256": "b98d159b6698a7db92ad17f6696aae6d7e31ba5f77e5177546407597f2654cf8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbssscontrol.py",
+      "bytes": 10517,
+      "sha256": "966f5716e9368beb8413efc209606ada127a2a2b53694d57688a003ea13cb6d3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexture.py",
+      "bytes": 5574,
+      "sha256": "5f0e7acc97301c240ca027b3a313ce3397ed345c7820b3a548d5757acc943be7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureaureolae.py",
+      "bytes": 422,
+      "sha256": "2d7225f872612772491b8d919c832531ff9f4d40c9150bb845af8cac08bc4da5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturecrotch.py",
+      "bytes": 412,
+      "sha256": "701248bce1ebda94b97940b1a5f3c19625b7d7026a4b41ac16876bdfa5ed061e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureears.py",
+      "bytes": 402,
+      "sha256": "65c5794427fddcd071f35a797e5321f193c237db749ff6b4c03aa98b5b309d65"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureeyelids.py",
+      "bytes": 417,
+      "sha256": "434bf357533479aa7d0f52127740e08129dc9475aa40ad21d8f7b9ccbb1e63a2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureface.py",
+      "bytes": 402,
+      "sha256": "6e2184f7fdaea364c666e1add0a2e8457762dfd643bea48e04f5cc1aa8d97c7f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturefingernails.py",
+      "bytes": 437,
+      "sha256": "7aa94f2fc591c32b53991855935d3639ed14560bfddb0f356f1874d6d1a21e9d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturegenitals.py",
+      "bytes": 422,
+      "sha256": "cb7540cba77cc7b50034f20b0c1f9ed28360dd040da144b8a1d369163743696d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureinsidemouth.py",
+      "bytes": 438,
+      "sha256": "8e8ed4dd2c765b2ad3cb28d1ce291ef09beff1171ae362480dd7149b5396d94b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturelips.py",
+      "bytes": 402,
+      "sha256": "7063d5df36fd156fd16298ffe6ee5c102eda84cf866ed69bfd01fd08caafdd23"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturetoenails.py",
+      "bytes": 422,
+      "sha256": "e6c0e8bf75d32cf6aa10b70c0a2af10ea9e560bb05772fcaa3c9b7b67168dece"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp1.py",
+      "bytes": 7826,
+      "sha256": "2349e444e6d53a090326761aa4f3f3dd31f8ff8b826e9d1ed20ffafdf9fccdf6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp2.py",
+      "bytes": 19087,
+      "sha256": "c7aceeddfa0ddf03a7694a834a0142a8ee8546f27e0736ef5d5e971a25a6c463"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp3.py",
+      "bytes": 29581,
+      "sha256": "a298bc204bb26f17707921332073b6b45c5aec5d2835c0eae72111d788b18a4e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp4.py",
+      "bytes": 40303,
+      "sha256": "f1252948b70447a9303a14acb2db2f538513f7c0742d4f3ad83063b9eedce499"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbwithindistance.py",
+      "bytes": 6511,
+      "sha256": "f9ab50ef13b0c4f9c20cedbff9b198ab2559490af4950e57e2bc1b8cef82793d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbwithindistanceofeither.py",
+      "bytes": 13019,
+      "sha256": "e5b883578b69836caee7b7f2a4878e6d6764021881529d33a065ab2fe1f53de1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/materials/__init__.py",
+      "bytes": 351,
+      "sha256": "15c6d2b34dd7d1cf8eff04b32dacfa39433461de7aa69400ed56416fa764ca19"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/materials/abstractmaterialwrapper.py",
+      "bytes": 3345,
+      "sha256": "d4909c9dbd357159a1cc502cf7041407a0bb55841c07eeb4440b2a282031fed8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/materials/nodewrappergameengine.py",
+      "bytes": 6342,
+      "sha256": "1e3b7622e10b919daa87d81c44b9f75812eb0e3c3f34fae061c89f26c5f6795f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/materials/nodewrapperskin.py",
+      "bytes": 19141,
+      "sha256": "ed6ef70c05142e9f903c054d9c7fec15f3fb43b48a2093e1bc7e0d07e588b2ca"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/__init__.py",
+      "bytes": 13642,
+      "sha256": "9167a7403bf336c186fe12de4451ff033c21a95d140624fa608b22c9e9d34ee5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/abstractnodewrapper.py",
+      "bytes": 14458,
+      "sha256": "a56cf12b3d52e1c48d4a547c201ce3aca51de3abd2415eeeb26ff078ec0c5522"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeaddshader.py",
+      "bytes": 1790,
+      "sha256": "b32946bf27dde8999e973cccfdebb73f0dd3a2960ecfb671d6503970eb82a8e5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeambientocclusion.py",
+      "bytes": 2820,
+      "sha256": "b1e26d2c19085be6ba60e0e8038096f4d1743e0eef6f6fd7ed1b6701d020fb89"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeattribute.py",
+      "bytes": 2396,
+      "sha256": "cdfc6d60d9c51b2e2b1167e551accdea53b17b6623051f94d20e2300f9e5009f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebackground.py",
+      "bytes": 2094,
+      "sha256": "54a299fd6cac5e9db6cefa63de07792ded3aeb70a5ff81fbee8b67e79de3b04a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebevel.py",
+      "bytes": 2024,
+      "sha256": "40f83fb4f08eb871bc109b3dc91e11a0ec5c431cb0d931c3c87912939056d5f5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeblackbody.py",
+      "bytes": 1677,
+      "sha256": "88a0fb57bfceb76f6df29c3927e14f175168772eddc69164bf6a1fe252071c9a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebrightcontrast.py",
+      "bytes": 2186,
+      "sha256": "7037c073ed817de97ed2793d8123dcc384e17fef31da5bfa3932f22f3b49f7ae"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfanisotropic.py",
+      "bytes": 3239,
+      "sha256": "b1bd53ed3afa57a8cb03cb59de1ac41e6a9f7e0a7ae90cbaa3bb18be80737798"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfdiffuse.py",
+      "bytes": 2370,
+      "sha256": "da03bd3be0dbe2379fd7a2e993c838c8e261824c8cff989aa0a2829d93777995"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfglass.py",
+      "bytes": 2694,
+      "sha256": "1ca94dbe3a38ef33f2132a677ddf364c12cda2b3c9fe2335c866329b0f3b0424"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfhair.py",
+      "bytes": 2926,
+      "sha256": "0cea701bc6f1616ea33a65b451d3927c808d8e6bd4a130f026939efa9a60b058"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfhairprincipled.py",
+      "bytes": 5884,
+      "sha256": "34f8f12b87a3d16f2168da46f94e86f068dc5caa3684b7ddf321f11d25ab3558"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfprincipled.py",
+      "bytes": 8790,
+      "sha256": "ebf230ffcb1958d406ef86a4bf58af0d454f7c4bb329349da747e7ed834803b3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfrefraction.py",
+      "bytes": 2713,
+      "sha256": "70d5cc37071af6db089f9dbe87edac9b2fafa7a9d41484300a94a319cf2743de"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfsheen.py",
+      "bytes": 2498,
+      "sha256": "e8b1affd6ab90cbc603e97db17055e4492c1181fdf77eca5ad18de530ec0efbe"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdftoon.py",
+      "bytes": 2681,
+      "sha256": "2c536b3e6223ca0ad49f23592bebf249bd5adcaeaaf1c25efe8068aaa17a9efa"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdftranslucent.py",
+      "bytes": 2166,
+      "sha256": "cbf74aed0e70120763a50d3b6af84e68350d78a7af06a30e5efa2ce9b6484401"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdftransparent.py",
+      "bytes": 1885,
+      "sha256": "87a4c337fd1e474a30a60b11cf1c58b8a8f6921f09631977385848030e3de398"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebump.py",
+      "bytes": 2450,
+      "sha256": "abc5bf6a795a18d1b08c25f8f9754fda83732e1ff85eb73755ec4c33394d7c3f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodecameradata.py",
+      "bytes": 1903,
+      "sha256": "eec0185e0b7b0f1a06658334421b2d4c355cbb74e53d5467d8a52bc141ad856e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeclamp.py",
+      "bytes": 2069,
+      "sha256": "b1cfe827cafe58239ecd39b7057f871cf2de148b1e6ced5da62e381f57ea913b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodecombinecolor.py",
+      "bytes": 2194,
+      "sha256": "c4aa33257b00273bb263bd668e6a89133d0ef1d9a073d01953434444812dda17"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodecombinexyz.py",
+      "bytes": 2013,
+      "sha256": "a377964185cfbbd04cfb4600e38c75c294f5ae0d30ed9ca90fe239ba8041ef1c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodedisplacement.py",
+      "bytes": 2486,
+      "sha256": "e4349a4e350380b3efa2bf37e1c0754ba12abd5f7f22fed18cfbbe91d60f37a2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeeeveespecular.py",
+      "bytes": 4281,
+      "sha256": "f7e99f5254929a71eae4d79fd4cc53b33de97755405691eaa96ad2788abe19ec"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeemission.py",
+      "bytes": 2080,
+      "sha256": "c8fe0194bd869232bae2009155c2cb6e74ee348b16bd839f57d03b7f6728022c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodefloatcurve.py",
+      "bytes": 1777,
+      "sha256": "4f764fc4ae10adfa4f8ae81489f6ece26593e2b7c56baa003b166c4255b43ad2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodefresnel.py",
+      "bytes": 1824,
+      "sha256": "2759b45a5b8147054e5262da43ef216a655a523ccd8eb51610e748c047eb3401"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodegamma.py",
+      "bytes": 1944,
+      "sha256": "0fb79b8d977409cdc86fe7770b8ff8707780f1b98b62df4a096271f2543ba122"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodegroup.py",
+      "bytes": 1134,
+      "sha256": "57ee69a7cbfc3bfa8620b53cf014eb62285c7795f9acaac80e9d7b9892a0fcc9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodehairinfo.py",
+      "bytes": 2507,
+      "sha256": "b9e27020f5bbf69846c7732fc6344f252c76fc888f637ba9ffd17fd4a63dc22e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeholdout.py",
+      "bytes": 1566,
+      "sha256": "0cf088d4485e77b3867608e5b0dc11d4bea152ea1f49538b5ac8b09bad252908"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodehuesaturation.py",
+      "bytes": 2583,
+      "sha256": "28da1acaa67defc2b8b57e28b128377f3b41458a5174ab526768e4cdd33ba057"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeinvert.py",
+      "bytes": 1940,
+      "sha256": "d3c7e1828f5ea9150df513e35d8a1d0dcceb0faca75ae8cae5e480adbb23179d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodelayerweight.py",
+      "bytes": 2062,
+      "sha256": "5380a276f39a7bbbe08a5447d6001088bb85895712bb14519e2a71b6ff627b8d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodelightfalloff.py",
+      "bytes": 2218,
+      "sha256": "a1413fa7cfaceb94a8179dc27c9f8244c5e29ae84653285d803c7ddd51cb72b7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodelightpath.py",
+      "bytes": 4134,
+      "sha256": "c8adeeb44e0c7987e4438a51baed474fe32c4ff596414c8f2d0668b4ebb82a79"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemapping.py",
+      "bytes": 2639,
+      "sha256": "85b731c38dbd757a6f27efefa62c056a60497c976c4a24c12a859b3aca5ac56d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemaprange.py",
+      "bytes": 5024,
+      "sha256": "1192a5d233bcef1200515d11e00d24e514d034b6f824949ec2a387d15657b224"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemath.py",
+      "bytes": 2208,
+      "sha256": "bf25b8cd22e1e530973bb3e4a8618d31e6dd46725c09d763c860465e0f29bfb8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemix.py",
+      "bytes": 5329,
+      "sha256": "3f631bde1d37e0ffaa19e871b5b84f9be996858a852f53435cefb6a5721d43c3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemixrgb.py",
+      "bytes": 2613,
+      "sha256": "cfcb0c274d666e1777193610ebc27f0fc7db097feb510d7a15b5a1760fb04ecd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemixshader.py",
+      "bytes": 1992,
+      "sha256": "752521d0bba67585ae9fbc860c3ed2b48c8447ef65fa4d99cad83db99b9d4ba0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodenewgeometry.py",
+      "bytes": 3562,
+      "sha256": "55fa5b2c511af6b8351da982a455c5f8304a8c73a55429a199b52e9b706d12f4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodenormal.py",
+      "bytes": 1922,
+      "sha256": "7e567f86fede4b417287649873c1f223fb90643d54a127d4f9e061b22a6211c9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodenormalmap.py",
+      "bytes": 2178,
+      "sha256": "2ec9683a6ae10728a340f84abb93bf23760bc66b6ac6f049c290315c6c60e41f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeobjectinfo.py",
+      "bytes": 2600,
+      "sha256": "65e27cee1281cbbf5713432c6e919a3a96615a9f18ce331e97512b5bcbf3bda5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputaov.py",
+      "bytes": 1652,
+      "sha256": "0d2ab0eb96d42c68becc087a9648bd71d12d5cd9e5b7937402fde4038764872f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputlight.py",
+      "bytes": 1626,
+      "sha256": "192efb9554fc91c7b7ae4cad50e8f5f3e48129eff83e138427454fe0def66aa6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputlinestyle.py",
+      "bytes": 2746,
+      "sha256": "1c3a205ffeae9ba4bd4607f3cbd90e6afc3f92bb1f297a4a94c2b4f2acbaa6ab"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputmaterial.py",
+      "bytes": 2359,
+      "sha256": "5b21ccc31a7c3716ac4c8bdaeb4448e27db67d297acfee132dfe94fa20b5c6bd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputworld.py",
+      "bytes": 1834,
+      "sha256": "bf570164d3e3e6be378456fe9d4f2166943acb7b176d8bc6946dce88e16bf610"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeparticleinfo.py",
+      "bytes": 3064,
+      "sha256": "01e98f83f451aa6fb9bf9df465512e81bd51939ab0bce09016dd6d512ebc743c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodepointinfo.py",
+      "bytes": 1851,
+      "sha256": "3f1d4857ad1a94244c65c468ab2d8254c35255001963f0f3532cdced7202832a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodergb.py",
+      "bytes": 1426,
+      "sha256": "d25a714b8937b85192a4ed18a80d0c65db36f0d5e8741cb11e1415da99abbfc3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodergbcurve.py",
+      "bytes": 1948,
+      "sha256": "6b60f013f06231bbd8a0d39d4a262761838f19b1453572709cc74fb112a088bd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodergbtobw.py",
+      "bytes": 1642,
+      "sha256": "f07a5b32528380cb13b598c3833cf65ed7c0228676bc9bd1f983ed3f71ab50d9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodescript.py",
+      "bytes": 1872,
+      "sha256": "f78884b80b7d1c8ad83400176d1ede55e507fd5134d15db0b1251e536aac19ea"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeseparatecolor.py",
+      "bytes": 2180,
+      "sha256": "294bfdaee2f95d174644597a27cf1613bf64e2e8bb9ee71ad1a429c5aa9f71b3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeseparatexyz.py",
+      "bytes": 2017,
+      "sha256": "8dc47bc3d9e06a542c124a4f2ea15bee92a0bd577ac3b1671cc30d063b373557"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeshadertorgb.py",
+      "bytes": 1872,
+      "sha256": "9042884621362cdedfd90f3f8aa386469bd0fa0a0eb285f75f122771f758aae8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodesqueeze.py",
+      "bytes": 1961,
+      "sha256": "3f5da96ffee7be0afe55fb4ba993298c29e7c06378751f6b8953bc0514f73fbc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodesubsurfacescattering.py",
+      "bytes": 3227,
+      "sha256": "b640bd14b98333ba18d6230bcec89cf2d6b0c3d993b5bf925431c2af82aacf47"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetangent.py",
+      "bytes": 1790,
+      "sha256": "9ed2007861627d57aa0c893745b01ae57c8eec399a376e057e11378f6afd5829"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexbrick.py",
+      "bytes": 4606,
+      "sha256": "0360d7943f553e9c12e712ccfffd348974b73ac9db77d17a2fd15ae644b17a54"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexchecker.py",
+      "bytes": 2735,
+      "sha256": "fa4d5708fcf78bcbe1a3aceddd6d496f5470383b24dc08fa264291a2d929684c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexcoord.py",
+      "bytes": 3379,
+      "sha256": "1187692aea43ed4008acfdae815eba74592d57ad21f70187011a1ee70e5408aa"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexenvironment.py",
+      "bytes": 2220,
+      "sha256": "38dc5f21af1e7f084c97cfc8746777e63d535243acddb4f70b69c7fb736138e4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexgradient.py",
+      "bytes": 2073,
+      "sha256": "9cb0df67e0bbe9e1afad589e9ffd7e5e891ea09b2e97237b46ad112dbd096ecd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexies.py",
+      "bytes": 2183,
+      "sha256": "30bc92e7ea5703f05ade2f914219b228a678ba9d622c1baccc79293e6998f670"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeteximage.py",
+      "bytes": 2649,
+      "sha256": "76abf61b2210e38cf7cb810220351fa93e3df8fa0b82e19579ab38f99210840f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexmagic.py",
+      "bytes": 2478,
+      "sha256": "566500517647410bc9deb8a5387239e380d8f319e646df43611284576077a2c4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexnoise.py",
+      "bytes": 3436,
+      "sha256": "c95fbf88d820346b1818b3bbd7c22f7416eeaa11bfeb05b8fde463f0f1bcc9b4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexsky.py",
+      "bytes": 3443,
+      "sha256": "4500d95fe6da705cbdf367dcb860d5b313662c6749319bbdb4b2586bf2fc0cc1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexvoronoi.py",
+      "bytes": 4831,
+      "sha256": "06ee8da55837460eac8ff152af4f6c8dc23ae215e0b6f16ce87a31d13789b86c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexwave.py",
+      "bytes": 3754,
+      "sha256": "bdd4fe2c1c9a12e9a2998c5041ff69d7b2a953b2b7f3c8ae4005d72ccad93eca"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexwhitenoise.py",
+      "bytes": 2279,
+      "sha256": "b036221c1e60bfe59567c134ebae047b526b9ac7b1c60cf5495a4c6170af8313"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeuvalongstroke.py",
+      "bytes": 1560,
+      "sha256": "458a60312380ed5c9e8fb5a60a667409e9d5a54637b8ed5e163802d957683621"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeuvmap.py",
+      "bytes": 1653,
+      "sha256": "6ae05b2f6d11f80e1833041c7bcd10e9e85e93d6a064a925604238f1a1204bb8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevaltorgb.py",
+      "bytes": 1854,
+      "sha256": "2338f5c0241e3bfcd47164c7c1177bb567c2e3761bcbd91b7d01707666fdfdcd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevalue.py",
+      "bytes": 1340,
+      "sha256": "e356033a4bca15fe560a8cb2d7b5fbb8f3b6cfd0c4378afe763883008fe5b220"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectorcurve.py",
+      "bytes": 1930,
+      "sha256": "bfde8fe4b0ccf4f140e20d35fdc39b99000f7c2e5031734c13330157e104f1f9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectordisplacement.py",
+      "bytes": 2324,
+      "sha256": "66f6109d9ba7b8572675ba19b9c0a3cf21b4b460ef768c74ed6d438bbf270a46"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectormath.py",
+      "bytes": 2829,
+      "sha256": "58423ee503474b2bd5e6e55d9648b5e9f1be88bf1b7fc653704b3ad00f7a8d95"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectorrotate.py",
+      "bytes": 2969,
+      "sha256": "1d8b9fb673962fa75609cc1ca9a9d01a812e74b28104f4a89cef88285fb0ce9a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectortransform.py",
+      "bytes": 2133,
+      "sha256": "5e1a2ac2d94a0051032e39b9d68d084a3f9dd7fae4c35c1350d224debedf6565"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevertexcolor.py",
+      "bytes": 1781,
+      "sha256": "9542973521d65cf973f680410acad86446e6bb116099d60db76e31560b2da888"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumeabsorption.py",
+      "bytes": 2103,
+      "sha256": "b7564b3919e12916ad473ed71573a86c85221983d3db768e4e3fbe7f328fefe6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumeinfo.py",
+      "bytes": 2084,
+      "sha256": "4ea78251ee804f6225a25b54fc8e7fc153e2224121f8ac410e3cb9c00cedbfdc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumeprincipled.py",
+      "bytes": 4753,
+      "sha256": "95817585dab422c0229cccfa31435e7d9e0636912165e3bf2dc120976a6bd0a1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumescatter.py",
+      "bytes": 2314,
+      "sha256": "d027184cc02af1f9e69562722feb4d8c3a499f3567d863d6d96307d80bc67ea4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodewavelength.py",
+      "bytes": 1677,
+      "sha256": "dd44411a74a23819272362b3eb03ac5b3d565d9eaa880f4308f31f90dca54227"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodewireframe.py",
+      "bytes": 1687,
+      "sha256": "06b0c2a25d92a84f01702c13940c0eae284ab4db05c40d6888bd4fb43193d6ba"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/objectproperties/__init__.py",
+      "bytes": 1680,
+      "sha256": "ada0453e4460d3a5d5d3949648f97fa3c5ca5e212dd6123464d31d31f34f4d7c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/primitiveprofiler.py",
+      "bytes": 1664,
+      "sha256": "ba0c2ba0183708732cddcc8e70167bc124d22cf8c90d9e1bce14f08c48025da6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rig.py",
+      "bytes": 66545,
+      "sha256": "21fc0a99dd7c72b8002ebfffd95e6d796e1004a05f8b4c38541eda8d9a50e959"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/__init__.py",
+      "bytes": 16,
+      "sha256": "4ff950e01cfe3182f762e16e842f7bc42f3c46959554edfb7ed6a5b967d90011"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/__init__.py",
+      "bytes": 715,
+      "sha256": "13bc45ad21031543b6e169aecd77de9e08f2417898983bd88ddf3d99aba535b9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/abstractrighelper.py",
+      "bytes": 1616,
+      "sha256": "d530481c519ff69c78737bf5fba4c3159bbc723ff7ee7391c354aa5cebb0759a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/armhelpers/__init__.py",
+      "bytes": 425,
+      "sha256": "d213d54177f800b4465cbef5cceebf0b7a6165d315db54598600b48f2300d316"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/armhelpers/armhelpers.py",
+      "bytes": 17086,
+      "sha256": "971c0a4ecc242de93cecd3d307e402e521d616be7930e4b9a64ae98f2fd10839"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/armhelpers/defaultarmhelpers.py",
+      "bytes": 4501,
+      "sha256": "66835927b8aa160b65d708f25495eb06c896e4c3681028ca9eb913062f70ea03"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/eyehelpers/__init__.py",
+      "bytes": 419,
+      "sha256": "6b62ccc85a0d5a7d938caa99b0e3ff43ff05973b06fcb0e78a16d2a78447280d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/eyehelpers/defaulteyehelpers.py",
+      "bytes": 2302,
+      "sha256": "6c8a724c4392b369ea730c7b92f4235162ae1c98d97991f397e0ff557f01b44d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/eyehelpers/eyehelpers.py",
+      "bytes": 6507,
+      "sha256": "d697be16449605f4da88a83e2d5a37ff9ce83d37e5b712b63127036afe508436"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/fingerhelpers/__init__.py",
+      "bytes": 472,
+      "sha256": "d5f0a61d599f43cd5dbc2b6fba7a14620a28cca818ab649e67589359716fe7b6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/fingerhelpers/defaultfingerhelpers.py",
+      "bytes": 4606,
+      "sha256": "b762d12fc92f544582719293ba2ce729fbc381de39a11bde27171e157fb91997"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/fingerhelpers/fingerhelpers.py",
+      "bytes": 17984,
+      "sha256": "56b82c95b639e2baaaf6ae552ddceed3cd7a6d5033c2d944fcbfaa87b4b4886a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/leghelpers/__init__.py",
+      "bytes": 455,
+      "sha256": "6c04e6cadb016941708c1f6aef625161bbb3dad43c04461c3fc065249dd5d620"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/leghelpers/defaultleghelpers.py",
+      "bytes": 4606,
+      "sha256": "82a003a99ef00613b2ba439eba7d90a157840706302ff1c0e701fc7a60dd5a2d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/righelpers/leghelpers/leghelpers.py",
+      "bytes": 15055,
+      "sha256": "8bf355906e6d7bcd822f109bb271a4ea95a5353bd126a4b8c3bcace4c98e3755"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/rigifyhelpers/__init__.py",
+      "bytes": 392,
+      "sha256": "6d4e84f9be1faff7af85edcd87ef1b7a8cacaf215927d16bc728811222138db3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/rigifyhelpers/gameenginerigifyhelpers.py",
+      "bytes": 2826,
+      "sha256": "19307768b36714e4ee76e206cd7347eb5e6ce547f210f77d38ab044ef75f2bd0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/rigging/rigifyhelpers/rigifyhelpers.py",
+      "bytes": 21107,
+      "sha256": "d39cd2c9bda3034c8a3c27f71a5aebd72087ea14308849dafb6fc4270ad92dde"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/socketobject/__init__.py",
+      "bytes": 382,
+      "sha256": "733c2ea000cdc7c263e789ac555564e3182741019ed076d23a0b523027997f41"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/socketobject/_extra_vertex_groups.py",
+      "bytes": 89161,
+      "sha256": "b27a9391a91344c3e63c4ae73c92f4d14c277e5d2e5cabaa3e2b8089bc5f5e79"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/socketobject/socketbodyobject.py",
+      "bytes": 9935,
+      "sha256": "24487235f03cb676186c2879a9818e61ab68b54b862e3dd905384d7d2a7a1ba7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/socketobject/socketmeshobject.py",
+      "bytes": 14975,
+      "sha256": "324ffcec5064381d28baceb6f7438a1799f68bb101046f7a5cd40f2b52bfa255"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/entities/socketobject/socketproxyobject.py",
+      "bytes": 6459,
+      "sha256": "afbf816edfd7bb440ff2cfdd1bb6489ea80df99d01f3fcdf60b76900cc01d631"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/__init__.py",
+      "bytes": 2885,
+      "sha256": "4cac5448bc11c44a4efb0628d142cc6f2cff260860ca5bcb4a5269509d8a0be0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/animationservice.py",
+      "bytes": 18880,
+      "sha256": "e36a4e9565ed42a8c77b76c2a0a05b0b4e894efd431aca7208360492b72d6ac2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/assetservice.py",
+      "bytes": 35000,
+      "sha256": "3003a7aa046a1126a6c4b48b4e5fd9c794ac2d67a3d73dbf57751a11e9019e14"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/blenderconfigset.py",
+      "bytes": 20303,
+      "sha256": "29ed9eb7b29fe1988eee16b42665a699ef8f1587b05b570fd066457a52c80565"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/clothesservice.py",
+      "bytes": 40732,
+      "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/configurationset.py",
+      "bytes": 5533,
+      "sha256": "ba620713085986acee874291251a97d5c3f1c0a6ccfaf50d75806bb8e3600e97"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/dynamicconfigset.py",
+      "bytes": 16682,
+      "sha256": "34f598f34cd42030f5655d19615760537f5576b3864aa8dd6e8433a522c93018"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/exportservice.py",
+      "bytes": 18134,
+      "sha256": "3c59c792961bcea68551d49b229e196a42fb70cd4df55e2127a6681b104f7100"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/faceservice.py",
+      "bytes": 42894,
+      "sha256": "389940c62dfa623409dadc5b2a38f4edeaa0fe45a8315ac887ad696a37bbd950"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/haireditorservices.py",
+      "bytes": 5140,
+      "sha256": "c0942a0f4734565657d003a953eb29548563431dfa4a9a5b9a1972f6beca0925"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/humanservice.py",
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/jsoncall.py",
+      "bytes": 4568,
+      "sha256": "0cae46fc6cd1efd19657511204e648ca7f6ac244d198d93b71f3f20d14409497"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/locationservice.py",
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/logservice.py",
+      "bytes": 16584,
+      "sha256": "98bd5ca5e3f5772e5d45c1923dfffea08ce6309444b4ccc16edafe6b1f425d3b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/materialservice.py",
+      "bytes": 42038,
+      "sha256": "336bfd58469545feaed6dc27ccb192a27637a2fe329abd1232ba345dced3c05c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/meshservice.py",
+      "bytes": 18267,
+      "sha256": "c863b8b4d26031fee881f5931dea19851d51fedcaba10306b5f14dffdc71a6af"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/modifierservice.py",
+      "bytes": 4877,
+      "sha256": "f783a20626d533072c178404b399f8bcb463be0c1e7c942ef87b1a97c075adc7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/nodeservice.py",
+      "bytes": 45827,
+      "sha256": "5adc6363afa3265307f321225d14b2edf63707ce668517a5f86a48248849464a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/nodetreeservice.py",
+      "bytes": 3970,
+      "sha256": "55e3e067a803ae3968c0fec424aa2598901e94ad4e9fb2cbcb00fa7068691a0a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/randomizationservice.py",
+      "bytes": 64104,
+      "sha256": "4cabcb36e8d46ac1f9453f8576b770a1b6afd7a496029def409f1f641e5c157e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/rigservice.py",
+      "bytes": 77405,
+      "sha256": "c3a1ef529cd5b68bf82272f08bc93f0f9a6974ac6e4b141e31345bff81209948"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/sceneconfigset.py",
+      "bytes": 1806,
+      "sha256": "b3005cbdab106bf5a692c4b10da6914d394b4ff5065b213b66b51829a4262bc1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/socketservice.py",
+      "bytes": 6973,
+      "sha256": "54586470e69e88e86a7b114856b15196d010c69531527cfe0df31eef36e49070"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/systemservice.py",
+      "bytes": 6612,
+      "sha256": "92cd771f9e11a498dad72d8427babcc60c468ec677ad7cda3e69576583aca875"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/targetservice.py",
+      "bytes": 62066,
+      "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/services/uiservice.py",
+      "bytes": 13979,
+      "sha256": "4c8f982f0579d9b94c7d0119ac8a2cd830dc586cdc4573acea230b2fcff8ab62"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/__init__.py",
+      "bytes": 2317,
+      "sha256": "da78d770702ef09c05d948b1bfb2c97d0f1f5bd7c9f6fec166357f9a1b4ab5d4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/abstractpanel.py",
+      "bytes": 1988,
+      "sha256": "18fa775dc9f458e281c103d75d69bdbd76583d7b1d442bb317083ed03f2bfdef"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/__init__.py",
+      "bytes": 300,
+      "sha256": "0776bd53f9b4b9aa67378f461b03c330033e099d6104500ed11fed84a61a2112"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/__init__.py",
+      "bytes": 365,
+      "sha256": "a444f28e975d2a3efbdec00d8f787bddd3788b6b72e85daaa43ab647ab475c1b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/alternativematerialpanel.py",
+      "bytes": 3574,
+      "sha256": "29a4f694daeb735bfa08bc10957859d9fa619e1ae6e5af9341c17e5491ba54e0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/assetlibrarypanel.py",
+      "bytes": 7119,
+      "sha256": "2fdd1bf15188b5f1414e3057c68f1623042878fbebc0cf454d2cc57d5eda5a54"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/assetsettingspanel.py",
+      "bytes": 5416,
+      "sha256": "a3d52aa73df484883f8517b02dc6e17e4f5673c4f171c6f937b9303823db427b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/__init__.py",
+      "bytes": 1186,
+      "sha256": "a36e450e148e2e9ad73b2b43ccf85221436fa6c2c9195b885934af825aa9edbe"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/installtarget.py",
+      "bytes": 1710,
+      "sha256": "9ba6095941a913dd4fd35b48d165ee2bfca984d691d4fafdadbe7cbb43493c5c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryclothes.py",
+      "bytes": 3382,
+      "sha256": "aeaf449690b1de202acc1a5add0cc7b9b70414f8130f2f940e400656904136dd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryink.py",
+      "bytes": 2094,
+      "sha256": "bc16797fc9ae5790c8990d48f4e48460c5feee2a44e5de0a233a6757c75f29da"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/loadlibrarymaterial.py",
+      "bytes": 3966,
+      "sha256": "d492966b32679782d099437bcf1d943601767255a21d87e6ea45ab80206ef0da"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/loadlibrarypose.py",
+      "bytes": 2253,
+      "sha256": "0ac8e92326733dd9d0938dbc18de3023ceef6cf278c66452b82444ef10715801"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryproxy.py",
+      "bytes": 5920,
+      "sha256": "a78a075a1b4bf923e29c6e082bce6322b2d18c7646f6b7abf16a734e8554a4ad"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryskin.py",
+      "bytes": 2130,
+      "sha256": "fb880bc64b54065d0d76ec355b6aaa9b7dc6c34eca4ba9042bb19cf1f7f807ba"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/loadpack.py",
+      "bytes": 2816,
+      "sha256": "724385fdf442de7db73838b2429aebc9305851340ba47395e8a944012e25a6a1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetlibrary/operators/unloadlibraryclothes.py",
+      "bytes": 2405,
+      "sha256": "e140418bd2d43de4ef46ac1d4087640c4800a255a612fd3094817ae7c4603fcd"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/assetspanel.py",
+      "bytes": 2762,
+      "sha256": "f168a3fd3b6009d2d5e714b6f3c1a3ccd2baa42f57e480725eb10ab2759ced46"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/loadclothes/__init__.py",
+      "bytes": 333,
+      "sha256": "73ced1a6e8f37214966cdb233ce0cfcd8c6c78988fe8418f2903c854303778ad"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/loadclothes/loadclothespanel.py",
+      "bytes": 1085,
+      "sha256": "6e223d5e79410495595082d2f5633c41a0f6692c4d7b266b7387b05d660e6e9a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/loadclothes/operators/__init__.py",
+      "bytes": 294,
+      "sha256": "3d89444125209c39c797a60495b852441792095ee5e4e55c2ff211fea2aaec1e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/loadclothes/operators/loadclothes.py",
+      "bytes": 6474,
+      "sha256": "3a27c4ce9293a7740adcede13e227b2353824306f7f98ee863ff4a3425200eea"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/useexpression/__init__.py",
+      "bytes": 6562,
+      "sha256": "fe9d6c9d66badbf06335220993b25ac81483b88be6e7785c39ae1a0fb202610f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/apply_assets/useexpression/useexpressionpanel.py",
+      "bytes": 2571,
+      "sha256": "a1fadc603ae7ebb891917ebe42094f9a98343c6f7b76377b8e3e3edbc98ea5b7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/__init__.py",
+      "bytes": 420,
+      "sha256": "f9481952c81d4d810c4d2129584a04761f1f3bc32a0b87e4119582f8b68da337"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/createpanel.py",
+      "bytes": 474,
+      "sha256": "94f87f4bf0239ff4888a1d7bd369503cd4e9ab12cd3d9cd372b131e905aa7b7c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/__init__.py",
+      "bytes": 765,
+      "sha256": "498465726da8eb08b93ad243a7dc7fec46190ffa14c16b905fe95b5280fabf8f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/makeclothespanel.py",
+      "bytes": 10441,
+      "sha256": "f71c265b73f88e138004c20c0fa67e9ee240958ef605ece84ce134a3e8daecbc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/__init__.py",
+      "bytes": 1057,
+      "sha256": "50eab847046d1896c08cd9a7e0bf6a736d8bb1573d4a7d80c7ef9bd11d9bc493"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/bmxref.py",
+      "bytes": 1900,
+      "sha256": "5981ec81c19afd17a4f0c008d2f7cd2a2e73ffe2db704080fd2b8af8cd7524b4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/checkclothes.py",
+      "bytes": 2555,
+      "sha256": "4759e4234045301026990e7ceed38cb512ad9a37be36bee960b9a439b1eb32ab"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/clothescommon.py",
+      "bytes": 4830,
+      "sha256": "6b280281aa70916ccf473bb40631f50385a990264b959b344c9c53d79795512c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/extractclothes.py",
+      "bytes": 1177,
+      "sha256": "589c86068cb8d0c3dc70c853af2688dac2252ed29c35f8efcd4215dccad7d0de"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/gendelete.py",
+      "bytes": 3028,
+      "sha256": "898bad39e5d4a7d55b5392980ed3aa33c6d156fa9dc6e11ff2b72ccd28d84976"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/genuuid.py",
+      "bytes": 1516,
+      "sha256": "4aa3d199a8261abe4511be076c5fc8adba58fc6fdb6b13ab495450fd3a8d5371"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/legacyimport.py",
+      "bytes": 2403,
+      "sha256": "cebd55be5d410ac407b2bd03c14a90501911dd921257dc54188d1c1df12345e5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/markclothes.py",
+      "bytes": 1157,
+      "sha256": "16d36994a14d913efd8e562640ac098e789245c36b7d2d423c063f418b7ad27b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/writeclothes.py",
+      "bytes": 1540,
+      "sha256": "36206aefd502cdb7bcb2bde4e6bfc7a5710ef459587c3483a323e882a272b6fe"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeclothes/operators/writeclotheslibrary.py",
+      "bytes": 3050,
+      "sha256": "0d1beb3ed7813367cd11315e0ae12d0ffb3bed35bb664090ca1b3cfa0c58560c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeexpression/__init__.py",
+      "bytes": 4390,
+      "sha256": "bd5ecc8ef4c25c80e84bf6a5c3649ef617f631f42e4be5a87c1dba6c51bce5c9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeexpression/makeexpressionpanel.py",
+      "bytes": 2846,
+      "sha256": "f85e63d4911fc2fb7abbdb73202efc99b370e7ff7819f971a47c6ffc57a21637"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeexpression/operators/__init__.py",
+      "bytes": 531,
+      "sha256": "32c52c95dde0d31833c5b24a536a4ca257cc675b747bfb503c6a2be9c9b6fea5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeexpression/operators/load.py",
+      "bytes": 3790,
+      "sha256": "ed1b35536e0f92751543194599a27e5c3943820abb98ac3845d863b5a93ea60f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeexpression/operators/reset.py",
+      "bytes": 1869,
+      "sha256": "244ff792b106896beead1aaca7d0f768d53f1c1df065f62792097f1f5e2d982c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeexpression/operators/save.py",
+      "bytes": 4350,
+      "sha256": "f9901e420fe83f75a83e1238bececd03f429b300ab9f00909494d09e3ac56dea"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makepose/__init__.py",
+      "bytes": 701,
+      "sha256": "ade0b0be78ffa0caa52f04bef92bd0f52cc9f62e5cf7f8b2d2f769699bf75c60"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makepose/makeposepanel.py",
+      "bytes": 3213,
+      "sha256": "e3bb1840e3ef056a56323156c7433a59cc0f1d1eec00ae0086824f096caac66d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makepose/operators/__init__.py",
+      "bytes": 466,
+      "sha256": "8455b67db36eb6d84fc39c9cd82e3b2196e59ec1205f7cdc6afbf8ec8c479779"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makepose/operators/loadanimation.py",
+      "bytes": 1889,
+      "sha256": "e617d0f21b4ba18621f7c1a91001e0b08c5c602e047a61e275ef59195a3440cf"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makepose/operators/saveanimation.py",
+      "bytes": 1911,
+      "sha256": "87aa1e4a1d8383240ea03aee8c6e404ba68d9bfcf59698b1535b19555cf7c4b2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makepose/operators/savepose.py",
+      "bytes": 3630,
+      "sha256": "2642dce78665afec956061cab43595a3b78d4f6a5042d496a4aaffc58d8e6b9d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/__init__.py",
+      "bytes": 2783,
+      "sha256": "6af9312d4cf568e9cb1a9a9b53285171e90a2c843234b6184ee3e35461db8ec0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/bonespanel.py",
+      "bytes": 2010,
+      "sha256": "8f84e42d01d5ac09b8208ea333696cf480f476fbba660019fd106cd8275d578d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/makerigpanel.py",
+      "bytes": 626,
+      "sha256": "f8d26cc8ab0c6ca48fda1d4040ac108a7303a5d26dfe5668f28bc52df9f1036e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/__init__.py",
+      "bytes": 845,
+      "sha256": "5331a39d37dc3b21fb8b113a5bdf0ea3c73796802fb388747f7742fd6de8bdbe"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/autotransferweights.py",
+      "bytes": 3302,
+      "sha256": "ea3f339cb0a63de38fdd442ee69ffb72e201086ebf735aacf38f4171de6ab467"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/loadrig.py",
+      "bytes": 3675,
+      "sha256": "a527c6aa23944d15116e7394c71bdbc66b5d76caccd5c71a7379556900532e93"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/loadweights.py",
+      "bytes": 2800,
+      "sha256": "11a8ff556cfe903475bd1c3d07cdc1758c1fc5d5559c91e1f68989fb73f055d6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/movetocube.py",
+      "bytes": 4337,
+      "sha256": "eba18991fa462629b14f3f5b9acb0cdac0469a4276317314bb21648abe104613"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/saverig.py",
+      "bytes": 3021,
+      "sha256": "3100055a4cd65e659aa91a45c09ebe366e01a3cda8dc5588eff55cbadc67be7f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/savetolibrary.py",
+      "bytes": 4444,
+      "sha256": "8b4941416c006f779934a939cdb1e13a949b7cb7c5baf11e92af8b2b1306d4d0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/operators/saveweights.py",
+      "bytes": 4538,
+      "sha256": "018d69db4b00c6bdf96b996e156d70162b174976b9cd0c8c99ddd106f02fd5e9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/rigiopanel.py",
+      "bytes": 1788,
+      "sha256": "039b8b19dd55eb49f1408d78658976b572b980fcf14b3b7cf0f7b7e885cba691"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makerig/weightspanel.py",
+      "bytes": 1792,
+      "sha256": "307b561648b3cbf143b9bd24e560fcf7f16f8c32ee33de17b4717d287167e8fc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/__init__.py",
+      "bytes": 737,
+      "sha256": "ee3aa7ada421f2697f20e68f58c2d61f2c2632f1cd71662508c7ad35d7f1f881"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/makeskinpanel.py",
+      "bytes": 4272,
+      "sha256": "0bd420c5d449576ebc79b5e19063c7294f462fdbc47b3c3d502d5a8f57d19ab9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/operators/__init__.py",
+      "bytes": 663,
+      "sha256": "5806717b2287d7cf29b3f20395f22b3284bffc1d298ba53524607ceb6c93f35c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/operators/creatematerial.py",
+      "bytes": 1686,
+      "sha256": "b004f0e01b531e95966d55df711e868326706911dd37162f0a68ee2841599796"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/operators/importmaterial.py",
+      "bytes": 1901,
+      "sha256": "47d5f89ce34a16c89de707fcc306db411e2ddf5c00e2ca826ef544a12059072b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/operators/writealternate.py",
+      "bytes": 3422,
+      "sha256": "f75107de3fdf694ce7e2e9ef615cfbfc5d6f050ea3387e2b274586a22a2c3ffb"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/operators/writelibrary.py",
+      "bytes": 2434,
+      "sha256": "26f322b5ac0876b6204b3c54e42f7682b0a1cc4d16e071fb3943e9a910d29c35"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeskin/operators/writematerial.py",
+      "bytes": 2710,
+      "sha256": "c9ee44ce3b9562bf64bb5ca914c9bb81d07daa1898f2bb978cf4bbf1490de73f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/__init__.py",
+      "bytes": 789,
+      "sha256": "6033bbd04fe7914072595a64209b1d5b74578d79b655c66520a5d6dd6c2260f3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/maketargetpanel.py",
+      "bytes": 2676,
+      "sha256": "04e1789c80ec48aace3562d1c6cd534f49f3e3f86f2f9878c914580ed0aad295"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/__init__.py",
+      "bytes": 957,
+      "sha256": "5918b6fc290dca4966f4a2d9895b66e5ce0c0bf5b3c11532ce17beed3cc6d3a8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/createtarget.py",
+      "bytes": 2211,
+      "sha256": "87a45740f5fc41f515b8812671077321b8e23c52f8e55804e3f2ddf5d5db15a6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/importptarget.py",
+      "bytes": 2529,
+      "sha256": "df386aba03078281fd835c783a278bab7dabaa73263a9702a8b412847afcb9bc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/importtarget.py",
+      "bytes": 2474,
+      "sha256": "662f4fe8099a5d1e366bcc9d8d16062d933094126aed38284546eab3ec8280ab"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/printtarget.py",
+      "bytes": 1571,
+      "sha256": "c73a445c5377becfb885aaf60dcc902ddbbab58fe2aabba6e7bcb07dc4380d98"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/symmetrizeleft.py",
+      "bytes": 1528,
+      "sha256": "331cd1e851f386910b58c8b3d1bc910cceaba735d2f264ccddb7be364f9e4e74"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/symmetrizeright.py",
+      "bytes": 1531,
+      "sha256": "c59b0816dc1420a691942aba78c956f937830599c187872a99eb16622265f798"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/writelibtarget.py",
+      "bytes": 2889,
+      "sha256": "efd6262d4f236f7ad05e32f990cefb03a8b5404f1cd6889e01f74d5b996f4dd3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/writeptarget.py",
+      "bytes": 2417,
+      "sha256": "bb36a36c6baeb0d3185ee88530a84da9dfeebdfd0d02f80311f34d16c3cedbee"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/maketarget/operators/writetarget.py",
+      "bytes": 3125,
+      "sha256": "5ceb96b9cb46f26ccafc9c0fda62ea8f41d9ad32714eac19fcf323a18ccc179b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/__init__.py",
+      "bytes": 323,
+      "sha256": "42402f719e45607c44c6936d777d4bf9ed5f168e411a4d3f288aaea08a1c8493"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/makeuppanel.py",
+      "bytes": 4507,
+      "sha256": "6f3d652ea6c83d783cd7c3af833c3c8bb2acd89e62305f1ba281ddfae6e1687c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/operators/__init__.py",
+      "bytes": 603,
+      "sha256": "fbb3478418fe6e517edde9fd9b83857e616721f6b382b47e58bc07de921a5a40"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/operators/createink.py",
+      "bytes": 5101,
+      "sha256": "49aee75a120f391f57070212d8bfac98f53d6e591b9f85a03d2031604e79792e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/operators/createuvmap.py",
+      "bytes": 1309,
+      "sha256": "3e912bdbca5cdd6befb2800686a8dd669101688b0b5be36e569ff1aaf8798a33"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/operators/importuvmap.py",
+      "bytes": 1762,
+      "sha256": "5c9586298a38524cd907d9d05ffa1aa88ea0babde2da0f060ae83cfe3925e36b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/operators/writeink.py",
+      "bytes": 3836,
+      "sha256": "2b8910cb429ebfb6dd67340482843c0fb612dbb5bacfe97c0d1b2a52181a82a2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeup/operators/writeuvmap.py",
+      "bytes": 2394,
+      "sha256": "51fb082a445873e59758cbb487bb79be6334509973e8539ef5f91b711e3a307c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/__init__.py",
+      "bytes": 392,
+      "sha256": "3c16aa6a38caf7d46e9b491609ff09fde2715ae5120413d5b958cc6a0bc4645a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/makeweightpanel.py",
+      "bytes": 3337,
+      "sha256": "fa90862945976648865d575406da9bcca4f5f3f36296ab7cde2b5ec4d200b948"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/operators/__init__.py",
+      "bytes": 672,
+      "sha256": "58bf9cd9e2c627ed6019b09c11917666def83752828ed5105847cb9eec7fffc4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/operators/importweights.py",
+      "bytes": 1808,
+      "sha256": "b870f0c11427693839510d268755543bcce4f86dca7d43d1150b943a2b83782a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/operators/saveweights.py",
+      "bytes": 2135,
+      "sha256": "c6a98837aab1753681b282400b1043a626c848f32bf7313fc7fd6f670f367bce"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/operators/symmetrizeleft.py",
+      "bytes": 1626,
+      "sha256": "efa9f8e33850eca7964f39928ad9a4b9f3f7b6ac421bc4adeef43662b7115ac6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/operators/symmetrizeright.py",
+      "bytes": 1629,
+      "sha256": "b0f85e7c12d1a36f82b9118fb79d493672afff555787e706a02215d549c1a19b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/create_assets/makeweight/operators/truncateweights.py",
+      "bytes": 1963,
+      "sha256": "69db1d422f57fffd65582e3bf68be8c8d575285c6823d03d952fc2ce6043095b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/__init__.py",
+      "bytes": 473,
+      "sha256": "a862b60be45d66400457f582df317eb02067a2fbbbc4fa32d7693addb4398440"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/developerpanel.py",
+      "bytes": 3697,
+      "sha256": "fb4c7c000851dfccf028e9923ca3802aae0bfca60c01414fa998c6c1db6ebbef"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/nodedeveloperpanel.py",
+      "bytes": 1771,
+      "sha256": "5588e495c3e5c45fece2abc4b41652d3368aaa8c7df4dae52906ac2a98528abc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/__init__.py",
+      "bytes": 1589,
+      "sha256": "9dbf716f01002d28f29658790e1f367b3a9c3e5654dd195d301c4faabec97c13"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/create_groups.py",
+      "bytes": 1036,
+      "sha256": "b614209c4aa3d8ce521bc30d29168ba83f868b624384d735ae2329f9a2dc4a6e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/destroygroups.py",
+      "bytes": 1392,
+      "sha256": "014d2ef79a817294b51f4ded563276a480b5a589fd42d6a07532fc888a351887"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/exportlog.py",
+      "bytes": 1311,
+      "sha256": "eeb8b9fd61cd978b260476d88d98104cbeb00a763ea22195dfcc35ce3dc4fe30"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/listloglevels.py",
+      "bytes": 1192,
+      "sha256": "a13bb064d0f8e29a1d4d5fc664c5608f1df9f2edc99bf7bdefa5e8ea31b1ed2d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/loadnodes.py",
+      "bytes": 1894,
+      "sha256": "5d5c037f08c19e2adf0bec424d00230290d9affb53efa0fa9e26d09cb530e825"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/loadtarget.py",
+      "bytes": 2551,
+      "sha256": "8a1cea4118ac328aff028902d0bafb956574b2dcbbf874ebf6ba083cd3ed6529"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/replacewithskin.py",
+      "bytes": 1362,
+      "sha256": "51e1727d9a6daeac318d61456e44b752b2cc8fd817f4b758413d6c2ac26ff721"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/resetloglevels.py",
+      "bytes": 815,
+      "sha256": "3a0963748b05169624876caa19cd53666e328bb6efdac823b670ef7836fe84b2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/rewritenodetypes.py",
+      "bytes": 5830,
+      "sha256": "93a53c398b0e5355d62f027566d867de06d3d1fb6e0fa2159ecab8f5d8d057bc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/savenodes.py",
+      "bytes": 1882,
+      "sha256": "41d1235485835dcb102fa64d96e1f4cdeb9cdcf41920bcb70ded6d1f77f10094"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/savetarget.py",
+      "bytes": 3518,
+      "sha256": "051967a51c41714af57d2f0dbc890b4f52bd2a839d4b790488be033c76ba1a96"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/setloglevel.py",
+      "bytes": 1386,
+      "sha256": "8c0fa00febfa0fc12f8cb153b84967d97f158aaf9ae601de9a7dd857a4d4a125"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/unittests.py",
+      "bytes": 1102,
+      "sha256": "6a05f2119b322c5702768988b77df2b79476fab32da54480259abf96bcebe4a1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/writecomposite.py",
+      "bytes": 12714,
+      "sha256": "3bfe166914e10718ddfca529ad8624c1e74c68ba0c69d1c1ce22567435f4be49"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/developer/operators/writematerial.py",
+      "bytes": 12698,
+      "sha256": "5eb6f7e2a5e2d69363f938b0db4eab274dee0b3c67b9b50acb23f7a7da8fd504"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/__init__.py",
+      "bytes": 1066,
+      "sha256": "09d23916fe833d416234a3a1da870f36a4f459f34f78b936187e6fe9cf756342"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/haireditorpanel.py",
+      "bytes": 12351,
+      "sha256": "db8323dd8cc91eb86e92147d5baf98798d9071d2eea800b54e45bf5d87dcdcde"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/hairproperties.py",
+      "bytes": 21818,
+      "sha256": "7f18c56c2b1b50c89b467a6a07d576de4939c90a7e1aafe55565d25c09645728"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/__init__.py",
+      "bytes": 1300,
+      "sha256": "7374f73a42f8cd828c8d82bc9eb82aea8e30b157829ce25cdbff5e864678cbe8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/apply_fur_operator.py",
+      "bytes": 7840,
+      "sha256": "015bf1cdac6b3c690718aa655ffc116895571b6141313dfce9dc1fe2b1827ed0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/apply_hair_operator.py",
+      "bytes": 7304,
+      "sha256": "9f35789c7a8df5d6437f189743ae6b7917904dad8dfa5559517930c33f42fe6a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/apply_material_operator.py",
+      "bytes": 1340,
+      "sha256": "f6826569813be0f4c89dc6c04767337d266ed7241155c3f95ab9e557f14813c6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/bake_hair_operator.py",
+      "bytes": 10731,
+      "sha256": "744b713343a072f07d3fcf84a8770447ab5d5a67ed1dc7cbf3d3dcdca743edac"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/delete_hair_operator.py",
+      "bytes": 5768,
+      "sha256": "4084e733ff29d64892ebf0a505f96d6257ff588f2b729ce11ad94c90a4dfb9a9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/generate_hair_cards_operator.py",
+      "bytes": 13005,
+      "sha256": "36532ca0ad58151621e8f0de9b46b37095bc307ddbac184c4502b8d2f42ddb13"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/haireditorpanel/operators/setup_hair_operator.py",
+      "bytes": 2239,
+      "sha256": "1683496727a25f19bb3bac1934c95c359a5e25b28be1a7b31fd3a8b35cea012b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/__init__.py",
+      "bytes": 365,
+      "sha256": "b18bf4fafc1b9171fa51d415c2c0755b85735452ca66a327fae2d36967f28434"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/_macrosubpanel.py",
+      "bytes": 5802,
+      "sha256": "8c450138b7948586d2fad8fce64b1f6a07e1b1fbe3f5b62b331cd9af5aa66351"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/_modelingicons.py",
+      "bytes": 715,
+      "sha256": "3f49deffce55e0d575144da0a5d34cfc11bb5593669fe518be37e556986e86c2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/_modelsubpanels.py",
+      "bytes": 16798,
+      "sha256": "67b1db5a2ccaa6979cd5b1c0fd79c29cda645a5107c0e6814e044864f5c00292"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/modelpanel.py",
+      "bytes": 2394,
+      "sha256": "9ed3ff0b6b99fdcaa25cd2d5ef9764ff8073502f0bd1e4f7bcd588a81058691f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/operators/__init__.py",
+      "bytes": 350,
+      "sha256": "026e6ad1548adb1ff43fddaf915bef404d71416030b10b550fda9db814a38b09"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/operators/prunehuman.py",
+      "bytes": 1075,
+      "sha256": "0d8c39e50d16a80f6ac633756f4e484152952bbe5a10b3b55676d1d87cad9e90"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/model/operators/refithuman.py",
+      "bytes": 1059,
+      "sha256": "e6173d1e6d6aa97ca6b8bcf1dba1eaa66a3b003b37ad485d92f836551fde4e2a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/mpfbcontext.py",
+      "bytes": 15628,
+      "sha256": "ca44aa287e7d0f971f0a570595dd53ffa0889624c71d50dd2b990a33a0235c41"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/mpfboperator.py",
+      "bytes": 5985,
+      "sha256": "2cd283ddbf107e6267e2e81f6b0665596f6e53182d74d1ba6dcad2489e7f39ab"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/__init__.py",
+      "bytes": 308,
+      "sha256": "e9b8af39cf45fee4e63aa02af66ab1d1bb959cfcb88012c2bc2181b421bcf4ff"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importer/__init__.py",
+      "bytes": 255,
+      "sha256": "291ba5270a68365051ddbdc17938bc278068c99eda95840a160914158e0d648a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importer/importerpanel.py",
+      "bytes": 3739,
+      "sha256": "62fe28a1566853d89fa1ab592ce1f7c23c75b17d7856469b9ebcd3e491524456"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importer/operators/__init__.py",
+      "bytes": 246,
+      "sha256": "e55e19f58ee5c0e1056a8fb2efab77b6a75573b85accfe8c7312d81c1e915a5c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importer/operators/importhuman.py",
+      "bytes": 20844,
+      "sha256": "a99a397ea1fadcbc56ea5c5d8dbefc8b9e49158b797ecb7240f79deedf8a6aea"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importerpresets/__init__.py",
+      "bytes": 424,
+      "sha256": "8facb32d0d7115de99e1448f75128a1c173a162daf6cf1fca1088023f46b1138"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importerpresets/importerpresetspanel.py",
+      "bytes": 4721,
+      "sha256": "f3aac542c76195a6af32041664934c6f8c2056faec8c7624a3e34085fe0ea715"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importerpresets/operators/__init__.py",
+      "bytes": 494,
+      "sha256": "c5bfbc962d8535f669176ae61f834edf4e8d8c5c05501ae7ad2e5b5067876414"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importerpresets/operators/loadpresets.py",
+      "bytes": 1289,
+      "sha256": "85b655f56f0ab42aa2c044e424a27e8c09bb2880dc269109693e95b242f8078b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importerpresets/operators/overwritepresets.py",
+      "bytes": 1370,
+      "sha256": "70ab07a4612bf0ea7937c93902751f5d8e3e3f96cb0bb3df7dc6657de0ce21f9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/importerpresets/operators/savenewpresets.py",
+      "bytes": 2046,
+      "sha256": "8ef7d9afa45048e48d534b0b03807d6ee3e272d297691e588292551978e93b91"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newhuman/__init__.py",
+      "bytes": 467,
+      "sha256": "8e9dae5782548e5d9431b392c8627eb460db8868b3afb02477ec2aa933eb5838"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newhuman/frompresetspanel.py",
+      "bytes": 4322,
+      "sha256": "0dceaed3de7429b87571f62fd8fb77417a543d772fdb2de225c7460de79382d2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newhuman/newhumanpanel.py",
+      "bytes": 2311,
+      "sha256": "4729a1b189da182b709f0d97e80f8401d4994c34e5138cece08eae60caf5ac40"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newhuman/operators/__init__.py",
+      "bytes": 471,
+      "sha256": "5c718d4c69dc96a93a42f7f0a44666d0de9a8f90690c4ad08debb6f582cc3d08"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newhuman/operators/createhuman.py",
+      "bytes": 5757,
+      "sha256": "33490fd4c773233e6209c2c42b8b8607c611287a99a78c5397a24729dfb01223"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newhuman/operators/humanfrommhm.py",
+      "bytes": 3152,
+      "sha256": "cbe3b05625b534f3be4a742690634a3768ee3530a654d87f8ff904e861a622a6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newhuman/operators/humanfrompresets.py",
+      "bytes": 4916,
+      "sha256": "f07a4af09949b9676fcfbcd07bf8d6aab2fa9bf6f2d90a5d7bde99f8abdc7b40"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/newpanel.py",
+      "bytes": 461,
+      "sha256": "e34da91762a32ee9420d4800b3685d7071bee32890f58cdb0ab60edf3b8d34c9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/__init__.py",
+      "bytes": 1616,
+      "sha256": "4d486197022da177b450e1f7a6f82a986861241d7f12386c620247f3a31e6baf"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/batchpanel.py",
+      "bytes": 833,
+      "sha256": "99770a9c624d7f9d7a64ccbdae566ad57c291cf93d1da1fb73d1fed61ce45d69"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/bodypartspanel.py",
+      "bytes": 886,
+      "sha256": "b9224149e5be399f022e0d9798adb4adbc506342fa27fc302603184bef34ec09"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/breastpanel.py",
+      "bytes": 1030,
+      "sha256": "9edf62058282d94103fd01aa05515c01d628c5326f14626100c98f600cae44ed"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/characterbuilder.py",
+      "bytes": 20474,
+      "sha256": "b8bc25e825a8fc5cd43e8940fbad0cc1895856c11374f464b458a3069534e35f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/clothespanel.py",
+      "bytes": 865,
+      "sha256": "c7132b6d70152b24ce8c95bb2a9c6b3adc9ad4573941fe84afa21b0e8f8db3d5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/creationpanel.py",
+      "bytes": 2190,
+      "sha256": "1d7b2c5fddc03f8307a97c8204082f5454a3da34a1a696eecf27021a972db2e0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/detailspanel.py",
+      "bytes": 842,
+      "sha256": "4af6c667bae40a5dd0fd2f56a85c52af24f602358263013841c43984c18a49c0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/generalpanel.py",
+      "bytes": 980,
+      "sha256": "ccbd237421b189482f00e91a85763a42dcba6cccb02b5b3729359b308c2a1093"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/macrodetailspanel.py",
+      "bytes": 1124,
+      "sha256": "da2eb3c0e08c21fac0738500e5e5b350ebce02cb5e5633afe1065c4ee965f579"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/operators/__init__.py",
+      "bytes": 888,
+      "sha256": "6d31377fae2f7f05ba908db6a8163e687026cb5036ea4bf0d4c04c5bafe157e2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/operators/applydetailtoall.py",
+      "bytes": 1874,
+      "sha256": "7d0222786832ff37eb3fe4ba418e9354f9626849e3cf74f8bce2ad8108517d4c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/operators/createrandombatch.py",
+      "bytes": 12026,
+      "sha256": "69d90a7da4a2c37240ebcabbac8b78c9c1165b2415dcc1a3263f0f19cbef1442"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/operators/createrandomhuman.py",
+      "bytes": 3225,
+      "sha256": "1ed79093d32e31b18f06e6b5dd514bb4b9c1a1bf7951559f73c64e26bed5d919"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/operators/loadpreset.py",
+      "bytes": 1522,
+      "sha256": "8567e5924cef92da1ca247e2817a8852a816c87384c007a03866bc727085fb14"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/operators/overwritepreset.py",
+      "bytes": 1499,
+      "sha256": "ca92b1f52cfd78b2a890403f73abeab3c406a60cdd7f86549c418a2b3ab1786c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/operators/savenewpreset.py",
+      "bytes": 1904,
+      "sha256": "4876a9395daa1270e48b4da820781eccb19e24ddf651ac00664925d827dc29d1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/presetspanel.py",
+      "bytes": 1155,
+      "sha256": "534a27832d2b387ce29c00ece5c21de151734e4d9b970f13f05e1b373d8e0e6d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/randomizepanel.py",
+      "bytes": 1624,
+      "sha256": "97aa75cac8f8e637cb3b62ef826a0c66289dd2fd9ce343e4c22fc1af1322136a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/randomizeproperties.py",
+      "bytes": 47690,
+      "sha256": "7d7d26ae2f41e952fced6e944176b0a2446cf483de1181c34f1f8e7161b9dc0c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/new_human/randomize/skinpanel.py",
+      "bytes": 1197,
+      "sha256": "444a220c773a52040e256a211c3adcf4824ea7125d6c4fcfdd099052c925f7f8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/__init__.py",
+      "bytes": 448,
+      "sha256": "f0d4dcc56637a1d5c30ba6473734c55b25931665ef8de9551cd3515a7787be22"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/__init__.py",
+      "bytes": 326,
+      "sha256": "515fe695cf0de1e2053296937a6993f59f6e7a2ba08274677621de91f99b5d26"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/aipanel.py",
+      "bytes": 3490,
+      "sha256": "badd160b80e5d83831fb58a30a381f6cef5fec583880d962a87cbfab92dcfff7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/operators/__init__.py",
+      "bytes": 593,
+      "sha256": "457f8d6c806a170f7393a4ae12d35a3b2c7ec5f79a93c38637585758b37a7c92"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/operators/_openposeconstants.py",
+      "bytes": 8734,
+      "sha256": "c35eaaec1eaa47176dd938ec8c93c48abcb93569b32dd2e6baa7cec9c832a7a9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/operators/addvisiblebones.py",
+      "bytes": 7099,
+      "sha256": "24e8d0c3ead84e5e5ae2c42f7e5e2e0b8a0816805df1558867f6db5a2e78f9f4"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/operators/boundingbox.py",
+      "bytes": 2062,
+      "sha256": "635ce501dec46a2ccb6db749e9a4a12317c5814d1439a9e7ebe2f433ae21d6ca"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/operators/saveopenpose.py",
+      "bytes": 9346,
+      "sha256": "cebea63c7ffd701692256e13e7be43dbf8058e42b28625dea4a921087a2d89c0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/ai/operators/scenesettings.py",
+      "bytes": 3427,
+      "sha256": "3280f8dba298f129ffd82f232c834e79c7629c36b7a1fc19147bd20506b6a162"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/animops/__init__.py",
+      "bytes": 289,
+      "sha256": "7c92ef1ba32d6ad01e295a4fe021f96bb176382f12f53834d6d0abbfaca985c7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/animops/animopspanel.py",
+      "bytes": 3658,
+      "sha256": "576325bdb7776a6de7a43c09c1ebd630c638c3b8ddaf6708161a8b85137fb0eb"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/animops/operators/__init__.py",
+      "bytes": 512,
+      "sha256": "8ccb3e9a37343b2dad023e1ab5193c880a69d3dd1da5263c48dbd4e92828a494"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/animops/operators/makecyclic.py",
+      "bytes": 1658,
+      "sha256": "be4d11a522152338ba95d7b7395db2dbbbe071e4c87250945a02225ba7be3e7f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/animops/operators/mapmixamo.py",
+      "bytes": 4474,
+      "sha256": "0f7aea43fb3915af3fc67e52ffd129ef557d575d17dc9d290868d65c13d52d58"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/animops/operators/reduceddoll.py",
+      "bytes": 2820,
+      "sha256": "fe6dff1888bbc6e4df38fb8e7cba793e8c999598d4463feb7a1b7959f131471d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/animops/operators/repeatanim.py",
+      "bytes": 2913,
+      "sha256": "045c4062e01546ecd5cbe5ed94aa5b2133291e9bf60c4319c297e90e8d2863f2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/basemeshops/__init__.py",
+      "bytes": 303,
+      "sha256": "e05cecabae07d761f130c82e8a3c38008cc6c4a36d1886a40be9668af8db97af"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/basemeshops/basemeshopspanel.py",
+      "bytes": 1313,
+      "sha256": "527ee7c8bb18067edb304756271c5f4b3724635b5b44481c040431c46ab9e3d7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/basemeshops/operators/__init__.py",
+      "bytes": 467,
+      "sha256": "b8a5617d88ab605e78bc2d9851e4c8887756ee5bf044e4716d22df411ecea2e3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/basemeshops/operators/addcorrectivesmooth.py",
+      "bytes": 3407,
+      "sha256": "7ed1b138f8c6333fff4afd3a30538d55d579674ba2b976642497c0a066037329"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/basemeshops/operators/bakeshapekeys.py",
+      "bytes": 1389,
+      "sha256": "321076f0c47e58ae9cbf72749c6a1409189856ff99168ef57d3e7baf8a2b721c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/basemeshops/operators/deletehelpers.py",
+      "bytes": 3193,
+      "sha256": "61dd6a965e597cb23dd3185cbcda9b4e8db6ba097e94e17681bad16649ca87d1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/__init__.py",
+      "bytes": 1253,
+      "sha256": "60fc6873fe47a334406fc4e3b5b4c07f24da09c6e808fb367540f5e5e67f49e5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/bonestratpanel.py",
+      "bytes": 9241,
+      "sha256": "eb73cf576f1bffc1ac80b19a1496a5809f6ab61c8a3f9cfd054c54af08078653"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/__init__.py",
+      "bytes": 979,
+      "sha256": "11c780ad3aa6b2f395699a758ec9868720d0262e4be9b431725df6d39d76af62"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/abstract.py",
+      "bytes": 6872,
+      "sha256": "0b34261ef211ef3ddc0f28362e0d4135dc3833f0e151dbb37bcfaba37eae8530"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/copy_connected_strategy.py",
+      "bytes": 2076,
+      "sha256": "fee11fe359dc5cc920fcdd0c3f06b384aecb84cad08fc751cc450f9f2578a609"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/reapply_strategy.py",
+      "bytes": 1360,
+      "sha256": "3e2b23763753c2da027439211fad1839819beebaec6d5f44142fd8f8ce70e741"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/save_strategy_vertices.py",
+      "bytes": 4409,
+      "sha256": "c53f10a7e1777450185f3cfa9244cf1e8a6f827237f0df7503f84d7dd8f4665e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/set_bone_end_offset.py",
+      "bytes": 2034,
+      "sha256": "4d7c98ca72e271625064cb369b7aed792e7ab41d30fae70d4176aa4a19ba2e3b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/set_bone_end_strategy.py",
+      "bytes": 3533,
+      "sha256": "5482f6b48096ae5cb199076f0152fef5fba989f457b18042473353e94b0c3ef5"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/set_roll_strategy.py",
+      "bytes": 2093,
+      "sha256": "6adb133be7da9ec3d2442a5b27d9f8540a98a95093f463de5e8d9f834ed4096b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/boneops/operators/show_strategy_vertices.py",
+      "bytes": 3057,
+      "sha256": "6fab2dff7028e3009afcc8385d2709ca1bfdf3b81900cc52194a27ef6894794d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/exportops/__init__.py",
+      "bytes": 294,
+      "sha256": "8ed0dcc547a74d153960fc77213ea15c94e58e15d3e6cbdc8043d10c54162937"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/exportops/exportopspanel.py",
+      "bytes": 2377,
+      "sha256": "20018d4feca815e049bd25d8bd4e55e82b27fa58ef356a89a188f74259b629b9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/exportops/operators/__init__.py",
+      "bytes": 256,
+      "sha256": "f357b71742af4ad6daa0106c7d9ec03fbc986a3ef2f36a184c7a842d566459ef"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/exportops/operators/createexportcopy.py",
+      "bytes": 4069,
+      "sha256": "ff992f0dc44f8b1fe0bfb5d35c1452914684e7780bbeeae4e8add6828ff1a5bb"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/faceops/__init__.py",
+      "bytes": 233,
+      "sha256": "41f4e5a5c5e20b962d8f640cb094b0dbdee933a010f4e01b76e95832313eff75"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/faceops/faceopspanel.py",
+      "bytes": 2519,
+      "sha256": "385b76af2532c84d3052d07856b9498dba64ece92855667962186c30d82f2c3a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/faceops/operators/__init__.py",
+      "bytes": 376,
+      "sha256": "49aced6852c02c88f78d4b5653814794d936d2c2b25158c4f49ee36d150c3a0a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/faceops/operators/configurelipsync.py",
+      "bytes": 1747,
+      "sha256": "e40d74f04152e4dd9c5de250c50c5a4bffce684d57e7edda1fa020bf21511d68"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/faceops/operators/loadfaceshapekeys.py",
+      "bytes": 1839,
+      "sha256": "de5c5f535d7b0033b2b01a9afc88b467dc5ec81b402c1da2f708f3578adb0839"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/matops/__init__.py",
+      "bytes": 284,
+      "sha256": "945a3ec30cb984562283f39ca5d18da7d6069c19220898d19522d0811fd70eaa"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/matops/matopspanel.py",
+      "bytes": 1927,
+      "sha256": "bac78c9ae7925c8d2b38007d5862d14a5cf8a5df854ff7da1122304457f81e33"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/matops/operators/__init__.py",
+      "bytes": 433,
+      "sha256": "c1184886a3b5d57c0dd0ac3af5bd40f448c8a61284d766be5c7724122c97df98"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/matops/operators/createv2skin.py",
+      "bytes": 5547,
+      "sha256": "9c66c121aaf732640d226fddef61c2768760cb9821402a2b08f09aa69e2dd5de"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/matops/operators/removemakeup.py",
+      "bytes": 1477,
+      "sha256": "501ee5a92dfc157b9fb453860c042f40428e3565c9589dc6d0f8eac0343e3475"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/matops/operators/setnormalmap.py",
+      "bytes": 1410,
+      "sha256": "16f60ba89699bc66bafae993ca6bed03625661a6a908c86416dd35b4ab3b4193"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/operationspanel.py",
+      "bytes": 488,
+      "sha256": "955736236a51e6b462333f798a7219e1f57d430661a2ffe3a5134773aea25a73"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/poseops/__init__.py",
+      "bytes": 289,
+      "sha256": "308bb632381540203faa98364beb045ef2942a64e4625861d99d354e99a8bb2a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/poseops/operators/__init__.py",
+      "bytes": 285,
+      "sha256": "c75359e092ef3fd390b671cc12e5523374a1b00b18e44c09691f3870ead76602"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/poseops/operators/apply_pose.py",
+      "bytes": 1265,
+      "sha256": "091edf41c537c2cac0326945c2edb5c519128bf729f75388d6abd45fe6e5179d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/poseops/operators/copy_pose.py",
+      "bytes": 2384,
+      "sha256": "08b5e79694543cb1be1e5713e9f9d40b424ba61df96f457961d59e4ae76ca5a7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/poseops/poseopspanel.py",
+      "bytes": 1539,
+      "sha256": "f8422eebf783aa1ab4658086eef7ef823a03adf11769f7eac53bf55c7dc8b600"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/rigops/__init__.py",
+      "bytes": 607,
+      "sha256": "63c93c5601920a1a33705ea83702dc423a16e602a3baf18911658a6a1eb8905e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/rigops/operators/__init__.py",
+      "bytes": 569,
+      "sha256": "c9197f968ab2d04e4ffa582c50cbf9f9317d2aaf96104b3f84f9e983f55db70d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/rigops/operators/converttorigify.py",
+      "bytes": 2332,
+      "sha256": "eebc4e2146fdf1bb947039151f4c8be1889dc63c47a3a6914b0f5a7fa10b42c1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/rigops/rigopspanel.py",
+      "bytes": 1822,
+      "sha256": "a821e677a073af4d7b3a452f889099a4e602b5733f24e04f76fa4c1731d448e0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/sculpt/__init__.py",
+      "bytes": 284,
+      "sha256": "b2e985212da01765ec76517f1506107b1062a616743522f4b3df16d8a514316a"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/sculpt/operators/__init__.py",
+      "bytes": 245,
+      "sha256": "1b09e9b665f0b50aa4764170cce6d4508eb9d3b25150756cc2474550e343e9bf"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/sculpt/operators/setupsculpt.py",
+      "bytes": 12167,
+      "sha256": "48d8dab9ff17affc5ccb76facb53dd6a490681a1a33126d7e5b5fa45c047a23d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/operations/sculpt/sculptpanel.py",
+      "bytes": 2462,
+      "sha256": "2d11534026b03462903aa561a4c4cdee795bfa1fcda416341371fd7f581b239c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/pollstrategy.py",
+      "bytes": 7270,
+      "sha256": "fcfc9dd589ca5da9445439225e52f1c68d924b479d70cca046b21f87babb0c4b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/__init__.py",
+      "bytes": 324,
+      "sha256": "4fb9c1bd0cc9b0415fefce26e408c1f229ec8c6f231b5a44e1e87295c4d09d03"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/enhancedsettings/__init__.py",
+      "bytes": 290,
+      "sha256": "5708d443ab425244c6b3616252ad9aae2be2de0c81f9dac4891d70f754a862ea"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/enhancedsettings/enhancedsettingspanel.py",
+      "bytes": 3172,
+      "sha256": "607a9c3e22a099049dcbd4ecd8b804741b3773d6aa49c30fbcefcac02c0033ed"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/enhancedsettings/operators/__init__.py",
+      "bytes": 506,
+      "sha256": "89e1940d087e2416d2e883d1e9c2903d82c5315e80a64191783ad498f43758ef"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/enhancedsettings/operators/_savematerial.py",
+      "bytes": 2079,
+      "sha256": "cbca9bf4d68033a1afea069c6d68e7ca86b22a7059ef1f2426b051ecb9b3a8c2"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/enhancedsettings/operators/applysettings.py",
+      "bytes": 3799,
+      "sha256": "974b4f2d5d5af96bcc6126eec2953d376283e5af2c01d0b3b88872c9f899b24e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/enhancedsettings/operators/overwritesettings.py",
+      "bytes": 1818,
+      "sha256": "f5450f3ec9fd9e3ce522dc0b0f8aea686df549dd41a88e87c23f4416254b8069"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/enhancedsettings/operators/savenewsettings.py",
+      "bytes": 2113,
+      "sha256": "8094045f6b9ebc32cec1eb068282144a12c2ceb5d87c78a0c7e10dc992067fd9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/eyesettings/__init__.py",
+      "bytes": 335,
+      "sha256": "230eb82ad7e407f786a85a7ceb5bb074c0f6202ffa2ad5f8d4f1acfae69b73ad"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/eyesettings/eyesettingspanel.py",
+      "bytes": 3461,
+      "sha256": "4c2e0fade733916a1aa7881f686a1fbba99a59fe61251d1cebe65ef6dbf97110"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/eyesettings/operators/__init__.py",
+      "bytes": 533,
+      "sha256": "5c76b0ef206346bc02c84c0ad39e0ff5a930fdcca93548352ececa2716b32987"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/eyesettings/operators/_savematerial.py",
+      "bytes": 1766,
+      "sha256": "3b27c81ab4dcd17df50ba263a97e116edd21a08480a84c596ac313f2dad56842"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/eyesettings/operators/applysettings.py",
+      "bytes": 3486,
+      "sha256": "6a925b25501124be310f9cadf822ece4f1a76b089da4ad0063634d1d5b3c4c22"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/eyesettings/operators/overwritesettings.py",
+      "bytes": 1669,
+      "sha256": "fc394864d5a3807fe45584c19b8d342cc3b899bd308ec666b59f71dcc1af1eeb"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/eyesettings/operators/savenewsettings.py",
+      "bytes": 1949,
+      "sha256": "210488e4325b0a6b4da16a6b5b5c365ff5e7d1243126ad0a93b48dd31d02633d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/humanpresets/__init__.py",
+      "bytes": 267,
+      "sha256": "96e0f1682fa7555e8fd6ceef2e899bcdd51374611dd9d63f6e7121b61c9366da"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/humanpresets/humanpresetspanel.py",
+      "bytes": 2215,
+      "sha256": "e9544d178b6fb736027df7723009e218dea4aa762510572ebb9bc5538cb1096e"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/humanpresets/operators/__init__.py",
+      "bytes": 389,
+      "sha256": "9d42fa6ad7e328c0f5f3186c8c140c005a79efa753841d96828f99f89ee82dbc"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/humanpresets/operators/overwritepresets.py",
+      "bytes": 2573,
+      "sha256": "8add40e30bfcd3fac26817c3bd333e24d4dc73feb6db7008ec9c7df9b9c15197"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/humanpresets/operators/savenewpresets.py",
+      "bytes": 2890,
+      "sha256": "903cefc2dcbb6e8312e86955e542025520178289b31b90e685800ec95523a521"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/makeuppresets/__init__.py",
+      "bytes": 334,
+      "sha256": "88df1403b183925d3ee870749ec8b9e84b8238dc94415a0bd9cdf8756c366b9f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/makeuppresets/makeuppresetspanel.py",
+      "bytes": 2582,
+      "sha256": "86fe7c33564be3d3c5f59bd4f7d67238fe3bda2e8f4383ed6b2d32f4c3e721bb"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/makeuppresets/operators/__init__.py",
+      "bytes": 524,
+      "sha256": "988dfb4ec223a6b8eeac00c92154fe97c148b3a457b2d798d40e2f820c454810"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/makeuppresets/operators/genericpresets.py",
+      "bytes": 6000,
+      "sha256": "9d1237040ba9993b491a1c8a33a2fe115e70590c73235a8fb064b9de5dcbab5f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/makeuppresets/operators/loadpresets.py",
+      "bytes": 2017,
+      "sha256": "d99749e1946322dc6d3e824a8b94d49657b83fce7d6e979922f55e5500d74ba1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/makeuppresets/operators/overwritepresets.py",
+      "bytes": 1618,
+      "sha256": "e4257c742d1dd68e60f1c47de686bc71230ad9d886bfc7f7d7d246332ed6c6a7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/makeuppresets/operators/savenewpresets.py",
+      "bytes": 1691,
+      "sha256": "d08c747d65e77dbe39340683b8cd19ccb46b418c38fd2b159b8237fdbc1f62e3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/presets/presetspanel.py",
+      "bytes": 485,
+      "sha256": "52d4bd7299684190e059b18ea1d53e0b7004ac1719d9107aac26df20825f5914"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/__init__.py",
+      "bytes": 302,
+      "sha256": "b43c630df7a52f9ab550e72a3883afc1087cbcdfa68c18ec438103ca2f231b01"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/applypose/__init__.py",
+      "bytes": 300,
+      "sha256": "a6244d0880ba2bba1af0b3aeb0473ddf2e33f458ef0bcc7b60bd99cce9b24151"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/applypose/applyposepanel.py",
+      "bytes": 4384,
+      "sha256": "2e13d645972b648e7985cf7b25eec8994207e1c071dd4be5ec35c940700bd373"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/applypose/operators/__init__.py",
+      "bytes": 424,
+      "sha256": "698a4b8abbb9b4780a27623a534aa7667e5537476db3d5aeff08b532b3774eea"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/applypose/operators/loadmhbvh.py",
+      "bytes": 1775,
+      "sha256": "e5ea1fc5897404e78344c7eff16cede0b449220be4a944f23d945311f7eeefd0"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/applypose/operators/loadpartial.py",
+      "bytes": 2338,
+      "sha256": "c54ba961340b4a171cbe42d9d3e50494adc50f9a7e30a16682ddb03f09208e88"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/applypose/operators/loadpose.py",
+      "bytes": 2427,
+      "sha256": "acf1e81c82d7d39b591824ab694d1b0c4d9d9c924573658e1bf7afbe4b7d62ba"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/customrig/__init__.py",
+      "bytes": 257,
+      "sha256": "efa443520654aaca5d917085f88dabfe499f2c79767e36643d3d1000fec963b3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/customrig/customrigpanel.py",
+      "bytes": 2636,
+      "sha256": "f6ca2d321eec3387b6285b6d2f53f546f240c9cb0992f70327ab32eded8626f1"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/customrig/operators/__init__.py",
+      "bytes": 300,
+      "sha256": "6b14c572643679eb2a058f72a0738fcc6c850fb7377d29d706bcba0256810972"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/customrig/operators/addcustomrig.py",
+      "bytes": 1593,
+      "sha256": "8966d0572e376ff7bf0ba9cb72befbb94986836eab680fe5bcf9d59285e8096f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/rigifyrig/__init__.py",
+      "bytes": 257,
+      "sha256": "8032b848e0ccfe427e947142a7077bbe2d06a83ff8f8951f7cffe194f7ef1766"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/rigifyrig/operators/__init__.py",
+      "bytes": 400,
+      "sha256": "063701a1c769c1199a21eb303c3d5cbb59ec2777b706540e89365532900d7063"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/rigifyrig/operators/addrigifyrig.py",
+      "bytes": 2421,
+      "sha256": "a402617a7b2f81520852eb5836eb469b61fe62c9f589392c6534367b3f3d2fc6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/rigifyrig/operators/generaterigifyrig.py",
+      "bytes": 2111,
+      "sha256": "fee8f3c35600cf198d97e4104030855179077c3f704481c1ae15281a09806764"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/rigifyrig/rigifyrigpanel.py",
+      "bytes": 2881,
+      "sha256": "24c52d719a3931150436d69482227c30cc8427f5bf160fa03868b0981deead38"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/rigpanel.py",
+      "bytes": 814,
+      "sha256": "bdd56c5be273bf2d2a59867f2d79cb73a4e73ba3708278bfed95e0c8380a4c4d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/standardrig/__init__.py",
+      "bytes": 653,
+      "sha256": "7fd3a287dff198a2c3642d052600c38b7b77265dddcd95e81e2318bd7e491dba"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/standardrig/operators/__init__.py",
+      "bytes": 528,
+      "sha256": "cb41a738b81b39a673e56e1b3d869445bcd89afe6afad933ce64c0a28979fa35"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/standardrig/operators/addhelpers.py",
+      "bytes": 4219,
+      "sha256": "19aa908ee7abef31e18111f35f893cb20b41b6e245ff919b3e078242b0b648a8"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/standardrig/operators/addstandardrig.py",
+      "bytes": 1351,
+      "sha256": "9d4919f8544105bc8877318df8189f27cc99e1d6841e5ded18ccd0355e64ef4f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/standardrig/operators/removehelpers.py",
+      "bytes": 3842,
+      "sha256": "5307a9dda5e546ead97b6e86512ea567360d4d4d4ed25fc07715f5f6ff87f6cf"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/rigging/standardrig/standardrigpanel.py",
+      "bytes": 4761,
+      "sha256": "9a8e7cfab91a19c834138c04a7c0f84b33ff118cd2a8e8006606b7acd22d537c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/__init__.py",
+      "bytes": 260,
+      "sha256": "28569a7b2d63ed46e73fd244ba9dc714cc9c8df97bd66a60b3639a2e8f0222b3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/dirresources/__init__.py",
+      "bytes": 335,
+      "sha256": "d4ddd9ae4e6330f3f0de5e83f8f2fed19e90504a052a6fa5da521a319b3539d9"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/dirresources/dirresourcespanel.py",
+      "bytes": 1268,
+      "sha256": "dcde99c131c79c95dfafef1d20141e6093cdf5a292e7e8ea9c287a1aa25f2681"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/dirresources/operators/__init__.py",
+      "bytes": 293,
+      "sha256": "abfccce55e33d2e79c5c29fd61a4b69d9e7d0714d26f930c8f4930f3d05cb8b3"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/dirresources/operators/dirresource.py",
+      "bytes": 765,
+      "sha256": "2c1c84eea74a61335591bb9463e34efb38e0aeede1b05d52218a2a51402902a7"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/systempanel.py",
+      "bytes": 1024,
+      "sha256": "221db9259e549abb2aa2c388cb92fe33a4ee9b613680bba3a929e6e29d29075b"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/webresources/__init__.py",
+      "bytes": 335,
+      "sha256": "378c62901f84d2f7b6959282d71cf3924df8bdb5d87a9a06d4e261e83658e330"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/webresources/operators/__init__.py",
+      "bytes": 293,
+      "sha256": "783c07e2c8fae115b9d1a6367cc1883a916fcb3119afc8209909d3685be8280c"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/webresources/operators/webresource.py",
+      "bytes": 721,
+      "sha256": "ba0dda2f44c198483625a85ade8e7e2156a02c2f6b635a88d7954af3d96cb05d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/mpfb/ui/system/webresources/webresourcespanel.py",
+      "bytes": 1352,
+      "sha256": "fde129ea4b72a794f6610202696eb491a192a20b03545513918736063bdccef6"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/tmp/skeleton-sep30/blender-mount.plist",
+      "bytes": 917,
+      "sha256": "53fb85b4b88029fef8071fcae2c6b54d373e5b600a9b2de7e9e74acb7367566d"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/tmp/skeleton-sep30/runtime-preflight.json",
+      "bytes": 2644,
+      "sha256": "99d9ad979821d80b76e344707fa75c3da0def14609d01c416c5127dd75dad63f"
+    },
+    {
+      "path": "captures/skeleton-native-oracle-2026-09-30-v1/source/tools/critic/skeleton-native-oracle.py",
+      "bytes": 11818,
+      "sha256": "0a9c1160dac85e22109e272e51aa3c3ffa008262cd6126de10275058b8a203d2"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/case-0.json.gz",
+      "bytes": 3077512,
+      "sha256": "faa4e4ea1770b9c4e8ce6bae226383656d118ae860b4d3e9ade839196cacc3b8"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/case-0_25.json.gz",
+      "bytes": 3172576,
+      "sha256": "3f486748cb2ecc8becf5b1afe361ad633e025c9fbfe4e3c941210975283f48a8"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/case-1.json.gz",
+      "bytes": 3094006,
+      "sha256": "c207d29a6cf03971d01f5e9bd94d8bfc703882e385424ee9392ff537d930efd0"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/injectedPointTwoMillimetres.json.gz",
+      "bytes": 4331,
+      "sha256": "ae90966f502c8ac4ad3250bec1cf0526d38ce300c78efeb99f9eff75f5f7eeec"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/omittedHelperDeltas.json.gz",
+      "bytes": 4525,
+      "sha256": "92b860c3a2cbf7999e614eaf9e3553ffc6d0219ff758d6e9f37ca37893fd7e9f"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/report.json",
+      "bytes": 28473,
+      "sha256": "b7096610aac66ab73830d1ca1ff09232cb0ec92cd6caa0380750bd2531ef4a0a"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/source/assets/identity/catalogue.json",
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/source/assets/identity/targets/legs.bin",
+      "bytes": 1185488,
+      "sha256": "97030d89413b199fa9110fcbe79f88d35f387e70eba9fae05e618023048a0fd2"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/source/assets/identity/targets/torso.bin",
+      "bytes": 3524384,
+      "sha256": "7d50189eafb722cadafb5dae7ed5e9f35f6d7a8ef49e3332f0adfc5383b2978e"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/source/docs/evidence/wardrobe-2026-09-30/skeleton-placement/PLAN.md",
+      "bytes": 3483,
+      "sha256": "9d373d36a5b3206bddec86963d3dcb8a8aee9456b2f2cdff9dc55af2f0b7d25e"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/source/packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/source/packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/source/tools/critic/compare-skeleton-native.mjs",
+      "bytes": 11348,
+      "sha256": "827f7566992a8d20dbccccb2087b443d3a18c8105ed5c595b9fdf42195b0ba3c"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/wrongAxis.json.gz",
+      "bytes": 4852,
+      "sha256": "c7d3c27e327d01ed5fd00ce74858a433d14e3843d577446c4ca7ebdc86edf3ee"
+    },
+    {
+      "path": "captures/skeleton-native-comparison-2026-09-30-v1/wrongShoulderGroup.json.gz",
+      "bytes": 4356,
+      "sha256": "bcc65303224c802b00f4becacd0328ce7cb676503238b98e77469a68bda025c9"
+    }
+  ]
+}

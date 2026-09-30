@@ -44,7 +44,11 @@ establishes cached helper arithmetic and exact source-to-export garment correspo
 adds a [native MPFB arithmetic oracle](evidence/wardrobe-2026-09-30/native-refit/README.md):
 three joint detail cases validate all19,158 body/helper positions and the original garment refit
 under the declared thresholds, with independent recomputation and corruption controls. Corrective
-behavior across identities, skeleton/foundation coupling and actual fit remain open. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
+behavior across identities, skeleton/foundation coupling and actual fit remain open.
+A subsequent [endpoint and rest-orientation study](evidence/wardrobe-2026-09-30/skeleton-placement/README.md)
+now reproduces all 106 native endpoints and the finite rest-matrix convention in three coupled
+g050 cases, independently reviewed. Actual exported hierarchy, runtime binds and posed skin
+are the next prerequisites; PUNCHLIST 10.7 remains open. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
 
