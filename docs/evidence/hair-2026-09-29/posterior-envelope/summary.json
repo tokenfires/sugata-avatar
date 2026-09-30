@@ -1,0 +1,37 @@
+{
+  "status": "frozen-static-candidate-awaiting-motion-qualification",
+  "acceptedAssetsChanged": false,
+  "candidate": "captures/bob-posterior-envelope-v3/candidate.glb",
+  "candidateSha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146",
+  "selectedCards": 266,
+  "changedCards": 265,
+  "restTriangles": 8512,
+  "restTriangleBodyPairs": 0,
+  "minimumRestVertexClearanceMm": 3.6120218227798135,
+  "staticPairs": 8,
+  "views": [
+    "back",
+    "rear-oblique",
+    "rear-left",
+    "right-profile",
+    "front"
+  ],
+  "decisions": [
+    "Reject marginal two-card projection ablation and change representation.",
+    "Preserve shared posterior field for clear actual-image gain.",
+    "Fit first control point with a40mm bound;retain failedcard47 rather than pushing individual vertices.",
+    "Restore exact accepted47 after its bound failure;actual images retain gain.",
+    "Freezev3forordinarymotion;no concurrenthem/material/shape changes."
+  ],
+  "limits": [
+    "Blunthem/crown/forward-sidefeaturesandface-openingasymmetryunfinished.",
+    "Body-onlyselectedrestaudit;notall-motion,garment,hair-hairorwholegroomqualification.",
+    "Two nonselectedlivecomponentsdifferby0.0000149012mm;authorednonselectedexact.",
+    "Rawimages,sourcesandcandidateassetslocalandignored;manifestretainedinGit."
+  ],
+  "archive": {
+    "fileCount": 197,
+    "totalBytes": 228931026,
+    "pngCount": 26
+  }
+}

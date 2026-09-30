@@ -1,0 +1,998 @@
+{
+  "generated": "2026-09-30T06:16:14.549848+00:00",
+  "roots": [
+    "captures/bob-posterior-envelope-v1",
+    "captures/bob-posterior-envelope-v2",
+    "captures/bob-posterior-envelope-v3"
+  ],
+  "fileCount": 197,
+  "totalBytes": 228931026,
+  "pngCount": 26,
+  "files": [
+    {
+      "path": "captures/bob-posterior-envelope-v1/bob-posterior-envelope.mjs",
+      "bytes": 8243,
+      "sha256": "d1e830b63f02e8bf25295b6ff69f60fde13c55c5a3679a5884655a2e235008e5"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/candidate-report.json",
+      "bytes": 355307,
+      "sha256": "ecbffd4b9e1ec973fc1143122a41140e5838b560663929487237623d896ab397"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/candidate.glb",
+      "bytes": 3347624,
+      "sha256": "c61424dca1635f518053f436a94c9831b3ba3ec301c561d5eb21aa739cbb9e1d"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/contact-card-mapping.json",
+      "bytes": 4671,
+      "sha256": "4a3f16ce58176723a810558d7bf8e619ec47eea2b22291f9d89219b36aae00fd"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-back-geometry.json",
+      "bytes": 6923112,
+      "sha256": "a426f1b3edd7ddfbdfd963c9c3494fd1961e4f8de2a03a035871f86f42489295"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-back-medium-brown.png",
+      "bytes": 668771,
+      "sha256": "40875cfc3f60d61711a1a2bdc13aca737c076f69114dc9661ad6940088bd1ab9"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-front-geometry.json",
+      "bytes": 6937890,
+      "sha256": "c8c89a4046f72e4abee73b2ed6d272a18acae51b278a7699e36b382f930dc2e7"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-front-medium-brown.png",
+      "bytes": 837523,
+      "sha256": "445ad2c48615d4392ff32e9188c078378a1a13c174156e9089ee1cfaaa6aed51"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-rear-left-geometry.json",
+      "bytes": 6922139,
+      "sha256": "639d4059439b2a275c31f3e727fe4e5b71cb3e3ac2206991c32ff2abeb9b38b6"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-rear-left-medium-brown.png",
+      "bytes": 652421,
+      "sha256": "4c89cc84cbff2b5215bc54f91a5cfaa2c056a79871e75f0d3e0b465d8fa34cac"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-rear-oblique-geometry.json",
+      "bytes": 6932010,
+      "sha256": "8646b0013d9d3db8d715ec89379f35627ac6415df98b29e83e48cfabbb118404"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-rear-oblique-medium-brown.png",
+      "bytes": 628489,
+      "sha256": "39278e8a2ea80195c156937af25ba7aad2a70e9fca9f337490627342d9232581"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-right-profile-geometry.json",
+      "bytes": 6942844,
+      "sha256": "5d3a4b41fbcd58785122693937e182abf3f8dcbf1f301c599bdeb3695ccaff06"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/casual-right-profile-medium-brown.png",
+      "bytes": 581704,
+      "sha256": "765bf94ff303d7367cea8ddbb4528ddd7f6bfdc85c8cb1e764cd6f5a518a678f"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/report.json",
+      "bytes": 210992,
+      "sha256": "a0512374bdfa851f0f7c399e5ed92ba1138005108436552e5e98f8f479777ccb"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/review.html",
+      "bytes": 1512,
+      "sha256": "bdb10077ef96e8f06d16bf05819e7c22a2b8bd2df1c44d34b21b35312ac34649"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/control/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-back-geometry.json",
+      "bytes": 6937414,
+      "sha256": "8f5b0e0a04804f92808979b2058d67549fe8fa145c09eb462a44f1401edf3f6a"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-back-medium-brown.png",
+      "bytes": 638538,
+      "sha256": "ddba3d4c40e0e43daa57e5a009e2ccc2dc211d62806174ecf35abefbe000d4c0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-front-geometry.json",
+      "bytes": 6950784,
+      "sha256": "bd853597ca93600bd7510df58b1b900fbddc6183408142687cd82a4fba74c857"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-front-medium-brown.png",
+      "bytes": 831600,
+      "sha256": "c37726ba3948f8ac4af5b250e91a894c103117a70c100b6f7d0d9ea9192dd6ae"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-rear-left-geometry.json",
+      "bytes": 6936971,
+      "sha256": "0459779cad7342b974f2022eb15f767b6b7d54a446584d84ab97e0c8166a39cb"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-rear-left-medium-brown.png",
+      "bytes": 646118,
+      "sha256": "1102b115357908f7b4e17f72ed3238ecd23b3e16b317de31b0287e1286770a7c"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-rear-oblique-geometry.json",
+      "bytes": 6944625,
+      "sha256": "2cd6c2d37dfd8da0bd550a7f446d0d404dcc9801fab5c52cee4b46261f685637"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-rear-oblique-medium-brown.png",
+      "bytes": 609987,
+      "sha256": "1fb4bfbc6020f1fcc24beed899aa6795ab0dcdf0c0c219656bd9bf6169ba4e32"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-right-profile-geometry.json",
+      "bytes": 6953552,
+      "sha256": "bf593af7dd17f6efbd204ed2cd859365362cff954c8862f4e3e61b39214ab351"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/casual-right-profile-medium-brown.png",
+      "bytes": 579242,
+      "sha256": "59a3081afcac66619ed2b33e6d5b2ac59fb7f0460ff00088a1969eb4a874a4ed"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/report.json",
+      "bytes": 211192,
+      "sha256": "f119516b3a2a6c3fa3bd4164ab3dfd28bce0148e26468b6c75fa4474b31b5c49"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/review.html",
+      "bytes": 1512,
+      "sha256": "bdb10077ef96e8f06d16bf05819e7c22a2b8bd2df1c44d34b21b35312ac34649"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/captures/bob-posterior-envelope-v1/candidate.glb",
+      "bytes": 3347624,
+      "sha256": "c61424dca1635f518053f436a94c9831b3ba3ec301c561d5eb21aa739cbb9e1d"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/neutral/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v1/render-comparison.json",
+      "bytes": 967,
+      "sha256": "86bc194d89bd565a6160b02c4834a6d1fd8c3e1889b45dc5d48e676315947d8f"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/accepted-card47-audit.json",
+      "bytes": 2190,
+      "sha256": "b005eb779a97f7c0ff9cad2f5affe29e2d6a266df7b4ae94711682e5542f3788"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/bob-envelope-clearance.mjs",
+      "bytes": 8069,
+      "sha256": "ae9e30d0c941b93bdf24f12523ec34ae9f6fde492a3d71d2fb4de625489dcea0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/candidate-report.json",
+      "bytes": 209413,
+      "sha256": "9e281f9875d20bd434332e680c6720591288f7772355896f8b56893be5b23a7d"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/candidate.glb",
+      "bytes": 3347504,
+      "sha256": "46bbd6aa8f4cbe1a0054cd4cdba4c3d55d0fefd4df37abfad6ab02278adae016"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/contact-card-mapping.json",
+      "bytes": 4528,
+      "sha256": "569a2978987e43ec0c8af62864a28efa97866cca4e0b738e87f371ef7db7c8f9"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-back-geometry.json",
+      "bytes": 6937428,
+      "sha256": "c3331a7c24387bb0526e6c1f1b854f2ca7c7564cad8b0318d87c4cdaab5b8e93"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-back-medium-brown.png",
+      "bytes": 638465,
+      "sha256": "a214158f6224cab25d9ec9466484752584bb96e9a6bc400d77510061bb145b04"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-front-geometry.json",
+      "bytes": 6950772,
+      "sha256": "960c228a787eaf63faa592c1fab2e52ac8a347c2d9dee401dd4d8571f0a67bf8"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-front-medium-brown.png",
+      "bytes": 831467,
+      "sha256": "6007d4c9787238db15883d7db199cee98abff4d8fb54808983e08a05b5286a54"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-rear-left-geometry.json",
+      "bytes": 6936980,
+      "sha256": "b29c8de5eef0d5ba8cb097bd272d4e6b2dc6d33de3a21839273809dda7aa5a1b"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-rear-left-medium-brown.png",
+      "bytes": 646251,
+      "sha256": "282e7c42a21cffb47ab3534f70f7f27a52fe0ac8d4a7deb0c7a751c028d04e5d"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-rear-oblique-geometry.json",
+      "bytes": 6944634,
+      "sha256": "0ca4d1efb248c5fde2574c510853032912506cc85d706505fa046f748e6552cb"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-rear-oblique-medium-brown.png",
+      "bytes": 609933,
+      "sha256": "c6419a2baab9229323c17d008dde8d7184e6bc3e0ae615242817ef8a0ef4afb9"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-right-profile-geometry.json",
+      "bytes": 6953461,
+      "sha256": "9e61c9014f119ac100586f97e5c87cce37a30c28bc0206ceebe1ccd8afb8fccf"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/casual-right-profile-medium-brown.png",
+      "bytes": 579159,
+      "sha256": "90250b543d1e741edd9ab472de43d152a3bcfc99599849b9b0ae2175aeb06180"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/report.json",
+      "bytes": 211177,
+      "sha256": "fc8508161d8ec8a0266b569a7679e56fff90411095fd3cbca140485376f7e43f"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/review.html",
+      "bytes": 1512,
+      "sha256": "bdb10077ef96e8f06d16bf05819e7c22a2b8bd2df1c44d34b21b35312ac34649"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/captures/bob-posterior-envelope-v2/candidate.glb",
+      "bytes": 3347504,
+      "sha256": "46bbd6aa8f4cbe1a0054cd4cdba4c3d55d0fefd4df37abfad6ab02278adae016"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v2/neutral/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/audit-bob-envelope-static.mjs",
+      "bytes": 5882,
+      "sha256": "cec3524b2e7309d8437a8eda51f3453cdd02eb7f17f99e8d067204ca1ecbdf39"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/bob-envelope-fallback.mjs",
+      "bytes": 3886,
+      "sha256": "a72243543381a3f28c6b038fc0607e869e2735dd5851613a34844594d337dcd1"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/candidate-report.json",
+      "bytes": 7863,
+      "sha256": "9fd854a76fc3d6ae335c71519dccd034e82a59ba09b6fad27aece1ea8f8292b4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/candidate.glb",
+      "bytes": 3347412,
+      "sha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/casual-back-exact-default.png",
+      "bytes": 647345,
+      "sha256": "f1fc2204229d20f34b5700e0a652834ce7e43890c1f00c5b79fcc051fc9bfad9"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/casual-back-geometry.json",
+      "bytes": 6937324,
+      "sha256": "708bcd15ed607f46a255a3f4dc5521a1f5e7d9a509f5cd566a9c5c6c01010918"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/casual-rear-oblique-exact-default.png",
+      "bytes": 637332,
+      "sha256": "ee3d5c31752269a38f0ae316ec893576200380641587e9e8ca4f981d83a50e86"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/casual-rear-oblique-geometry.json",
+      "bytes": 6944557,
+      "sha256": "67883340f5f5e2edf0abb471ca1e91e5086aa4db2a0b71ffbe669ca08c9f26db"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/casual-right-profile-exact-default.png",
+      "bytes": 596649,
+      "sha256": "3602fd5c0e7b3549565b61606cda3953db64371f61d3042137a15e548f1203c4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/casual-right-profile-geometry.json",
+      "bytes": 6953350,
+      "sha256": "566152c91272e758ce2f18e7e04802518b6b292fa3236b8bd2be601b7e9d8d4d"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/report.json",
+      "bytes": 118746,
+      "sha256": "41e663647c5d405ad528d6c67df89cb450a7a2639fb068e064021d5b1ed875a2"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/review.html",
+      "bytes": 1183,
+      "sha256": "bba69e989a0d0a16d9bfcdddcae28beae352462374cbaa8476932d64ce21372a"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/captures/bob-posterior-envelope-v3/candidate.glb",
+      "bytes": 3347412,
+      "sha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-candidate/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/casual-back-exact-default.png",
+      "bytes": 682347,
+      "sha256": "97eea4f89b8075da834d5c80b53fdf124bd18f3e26f2fbc0347b3418dab964d9"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/casual-back-geometry.json",
+      "bytes": 6923112,
+      "sha256": "a426f1b3edd7ddfbdfd963c9c3494fd1961e4f8de2a03a035871f86f42489295"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/casual-rear-oblique-exact-default.png",
+      "bytes": 659341,
+      "sha256": "501b26dd452aefda9ad162023ba7044fe6c1d872c3a726f35015beb0b15191a4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/casual-rear-oblique-geometry.json",
+      "bytes": 6932010,
+      "sha256": "8646b0013d9d3db8d715ec89379f35627ac6415df98b29e83e48cfabbb118404"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/casual-right-profile-exact-default.png",
+      "bytes": 606353,
+      "sha256": "af6b90a6d16b79d59ec68ef7fe0128e71991d6c2d605f461a835f47a7d594c01"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/casual-right-profile-geometry.json",
+      "bytes": 6942844,
+      "sha256": "5d3a4b41fbcd58785122693937e182abf3f8dcbf1f301c599bdeb3695ccaff06"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/report.json",
+      "bytes": 118561,
+      "sha256": "9e049706565f999659b1aff7236f5b7a8cb58959ec30e16508196b69114377bb"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/review.html",
+      "bytes": 1183,
+      "sha256": "bba69e989a0d0a16d9bfcdddcae28beae352462374cbaa8476932d64ce21372a"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/dark-control/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-back-geometry.json",
+      "bytes": 6937324,
+      "sha256": "708bcd15ed607f46a255a3f4dc5521a1f5e7d9a509f5cd566a9c5c6c01010918"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-back-medium-brown.png",
+      "bytes": 638434,
+      "sha256": "566c42755a960ff4f0b27f90cbdd3e03cc3e94148b10206192ae42c5a5fa320e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-front-geometry.json",
+      "bytes": 6950693,
+      "sha256": "c5dc6566d107cf4495241a7570f4ca77da9ad8e069586077f28ca3cba0738674"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-front-medium-brown.png",
+      "bytes": 831508,
+      "sha256": "98e0c1996b12575786389fb60b9e76a724e07a048c9be2507aedc0c2dd89b827"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-rear-left-geometry.json",
+      "bytes": 6936865,
+      "sha256": "6402bd676de27ba82aa6bc0e43b861cdfdcd4f40fe1e53710fb129a6bd6f439f"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-rear-left-medium-brown.png",
+      "bytes": 646255,
+      "sha256": "5a31d62b686eda6522a5c554fe5d96a2d35c04bc78924df25f97024c67414cc2"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-rear-oblique-geometry.json",
+      "bytes": 6944557,
+      "sha256": "67883340f5f5e2edf0abb471ca1e91e5086aa4db2a0b71ffbe669ca08c9f26db"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-rear-oblique-medium-brown.png",
+      "bytes": 610060,
+      "sha256": "9477893bf6c5a5393015abab3db7d363ae21c21b8ea3dc3163b35c38555675a5"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-right-profile-geometry.json",
+      "bytes": 6953350,
+      "sha256": "566152c91272e758ce2f18e7e04802518b6b292fa3236b8bd2be601b7e9d8d4d"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/casual-right-profile-medium-brown.png",
+      "bytes": 579200,
+      "sha256": "ba3a2a58888584087e62b0d426f540407443a639672531600314d6b4d966be28"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/report.json",
+      "bytes": 211192,
+      "sha256": "f5eb38a50cf7326d3b9f6f1887b2d651d0ccdfbff761e313b578c3013f5dadb5"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/review.html",
+      "bytes": 1512,
+      "sha256": "bdb10077ef96e8f06d16bf05819e7c22a2b8bd2df1c44d34b21b35312ac34649"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/captures/bob-posterior-envelope-v3/candidate.glb",
+      "bytes": 3347412,
+      "sha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/Avatar.js",
+      "bytes": 251151,
+      "sha256": "372cec7d803924272a7f7e2a42968c7ed718ed06e4c7823e801bd01bd5885ec3"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 381,
+      "sha256": "27084904714e5bbece084b8459864af69caaa091a424e3e330bfba70d613fe37"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/render/LightingRig.js",
+      "bytes": 168490,
+      "sha256": "6e1f53e2ccde100a45dbe51fafef13c8fd0f6c00765aaaaa1a109385e4c03374"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1039,
+      "sha256": "d906c0b88228c8023813bdac036e6f78484baea34337fb0859700b38b5510642"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 3507,
+      "sha256": "20a462b696c7942ea7cfef2daf057757ac5e8b0e217812449d082f481642f679"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 6630,
+      "sha256": "52605e16bd22185c0b4b37444476f04324e187f0a1f1d1742c099b346d8e79fa"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3523,
+      "sha256": "e136d64aa820c4a964a2c9afbd1b4a9f487b1145fe45a7ff3f5559a31b7b398e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/testbed/src/showcase.html",
+      "bytes": 17985,
+      "sha256": "6d634ad5868797256d9d1a3ea95a04d0faabb2140e5cf87256cba70d15384db6"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/testbed/src/showcase.js",
+      "bytes": 28122,
+      "sha256": "3186dee93f783cae8d9d6b4343b5ab789f168055ef08aec519159217a4d3e5b4"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/tools/critic/hair-attribution-browser.mjs",
+      "bytes": 2326,
+      "sha256": "ea818b9182b87cde8fc6c9358e64361df927071c587d56244cc3696bcfed0024"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/neutral/source/tools/critic/hair-colour-diagnostic.mjs",
+      "bytes": 24937,
+      "sha256": "9fb69bca6819b1b2415ed09442ed554ad3e9978d3723a2747d64a2fdbc40824e"
+    },
+    {
+      "path": "captures/bob-posterior-envelope-v3/static-isolation.json",
+      "bytes": 13941,
+      "sha256": "d2a0058c2b5704e654ad5d6aa04df4d18d82f74a0b80f28647a0ae7b545aabca"
+    }
+  ]
+}

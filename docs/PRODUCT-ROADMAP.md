@@ -13,6 +13,8 @@ remaining gates stay preserved; they are not today's prerequisite.
 
 September 29 [colour diagnostics and authored-card attribution](evidence/hair-2026-09-29/authored-attribution/README.md) now isolate a one-card nape-hook correction. It improves the sampled static silhouette in an experimental asset; rear flow, face framing and motion qualification remain open.
 
+September 29's [posterior support-envelope prototype](evidence/hair-2026-09-29/posterior-envelope/README.md) gives a substantial static rear-flow improvement in neutral and original-dark images. The frozen candidate clears all selected rest triangles after a bounded fit and exact original-card fallback. Ordinary movement qualification is in progress; accepted assets, front styling and the unfinished rounded hem remain unchanged.
+
 September 29 [hair-colour customization](evidence/hair-2026-09-29/colour-controls/README.md) is integrated locally: seven starting shades, custom tint/lightness and exact Original restoration, retained through applied looks, JSON and browser-local named looks. Actual native images cover both current cuts and selected Studio/Kitchen views; an independent critic approves this bounded feature. Geometry quality, motion across all colours and natural-dye fidelity remain open. The hub links to the [overnight review page](evidence/hair-2026-09-29/review.html).
 
 ## Phase 1 — AAA characters and expressive agent control
