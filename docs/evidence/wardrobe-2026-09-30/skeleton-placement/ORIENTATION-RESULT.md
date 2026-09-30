@@ -31,3 +31,5 @@ The independent critic cleared the source before execution, then independently r
 ## Next boundary
 
 Before a product change, establish the relationship between these native rest matrices and the actual exported figure's hierarchy, axis conversion, inverse binds and body vertex map. Then compare posed skin against native evidence. Native rest-matrix agreement alone does not establish those behaviors. The broader body range and visual qualification remain open.
+
+The subsequent [accepted neutral export bridge](../skeleton-export-bridge/README.md) completed this one-file coordinate/rest-bind prerequisite. Posed skin and runtime updates remain open.

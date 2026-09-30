@@ -2629,8 +2629,10 @@ Measurements, sources and the evidence behind every number below live in
       [orientation comparison](evidence/wardrobe-2026-09-30/skeleton-placement/ORIENTATION-RESULT.md)
       passes its 0.1 mm basis-witness bar (max 0.008103127 mm), including an independently
       verified roll-error control that leaves endpoints correct. Exported hierarchy, runtime
-      inverse binds/posed skin, broader identities and visual qualification remain open; this
-      item stays unchecked.
+      inverse binds/posed skin, broader identities and visual qualification remain open. The
+      [neutral accepted-export bridge](evidence/wardrobe-2026-09-30/skeleton-export-bridge/README.md)
+      subsequently verifies this one file's hierarchy/body map/rest binds; it does not qualify
+      body updates or posed skin. This item stays unchecked.
 - [ ] **10.8** Continuous gender. With 10.1 and 10.7 the five 11 MB bakes become one base plus a
       parameter, and `Identity.js`'s `NEAREST` / `LIVE_PREVIEW` split — which exists *only* because
       glTF cannot morph a skeleton — collapses into one exact mode.
