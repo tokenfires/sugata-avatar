@@ -1,0 +1,265 @@
+{
+  "generated": "2026-09-30T07:58:48.656064+00:00",
+  "status": "captures-and-paired-data-complete; sampled-appearance-positive; head-body-audits-complete; ordinary-body-audits-pending",
+  "candidateSha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+  "baselineSha256": "d477f9079577f1205b706941a789b608a3dbb6974a022a6888251737abb26146",
+  "selectedCards": 338,
+  "selectedTriangles": 10816,
+  "selectedVertices": 11492,
+  "protocols": {
+    "head": {
+      "pairedControlsSha256": "00fec7aa553f2551fae34361cc56f42c9c4945de698a5343c08e6a90d9683b3e",
+      "pairedControls": {
+        "status": "complete",
+        "generated": "2026-09-30T07:25:19.270Z",
+        "pid": 77901,
+        "candidateSha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+        "sourceHashesEqual": true,
+        "setupEquality": {
+          "seed": true,
+          "layers": true,
+          "originalLayers": true,
+          "protocol": true,
+          "keys": true,
+          "retainOtherVertices": true,
+          "configuration": true,
+          "camera": true,
+          "projection": true,
+          "canvas": true,
+          "lights": true,
+          "lightingChanges": true,
+          "material": true,
+          "backend": true,
+          "adapter": true,
+          "parameters": true,
+          "clock": true
+        },
+        "descriptorEquality": {
+          "selectedCards": true,
+          "selectedIndices": true,
+          "bodyIndices": true,
+          "otherCards": true
+        },
+        "frameCount": 556,
+        "mismatchCounts": {
+          "timeEqual": 0,
+          "clockEqual": 0,
+          "headEqual": 0,
+          "degreesEqual": 0,
+          "stepsEqual": 0,
+          "bodyEqual": 0,
+          "bodyNormalsEqual": 0,
+          "rigEqual": 0,
+          "otherVerticesHashEqual": 555,
+          "capsulesEqual": 0
+        },
+        "colliderDifference": {
+          "minimumSkullRadiusDeltaMm": 0.920332869868673,
+          "maximumSkullRadiusDeltaMm": 0.920332869868673,
+          "maximumSkullCentreDeltaMm": 1.10070612641958e-08
+        },
+        "otherVertices": {
+          "retainedFrames": 556,
+          "maximumDelta": {
+            "millimetres": 0.21660959200619878,
+            "witness": {
+              "frame": 373,
+              "card": 494,
+              "ring": 16,
+              "side": 0
+            }
+          }
+        },
+        "limits": [
+          "A difference in other-card geometry is a measured runtime consequence, not automatically a visible defect.",
+          "Body and normal equality establishes this matched pose comparison, not general motion coverage.",
+          "Image hashes establish preservation; actual visual inspection is still required."
+        ],
+        "sourceSha256": "81c9b00d07535373d7b3fdaeb9c6ac77729279e7da8b2dad5034539fc24694cb"
+      },
+      "arms": {
+        "baseline": {
+          "capturePid": 75978,
+          "started": "2026-09-30T07:14:41.546Z",
+          "finished": "2026-09-30T07:17:37.856Z",
+          "status": "captured",
+          "samples": 556,
+          "images": 186,
+          "reportSha256": "afc203ad8f773f4b868b94746811352334c4d2dad5a02a6af48e6fad09b52bc8",
+          "auditSnapshot": {
+            "status": "complete",
+            "pid": 76961,
+            "savedRows": 556,
+            "progressFile": "captures/side-head-v1/baseline-right-profile-brown/audit-progress.json",
+            "note": "Snapshot only; pending prefixes do not establish a pass."
+          },
+          "auditResult": {
+            "file": "captures/side-head-v1/baseline-right-profile-brown/numerical-checks.json",
+            "sha256": "e775048abc254046b02941a20405b448e2c857f9aad52751fe2e91b981faf9ab",
+            "summary": {
+              "frames": 556,
+              "crossingFrames": 556,
+              "totalTriangleBodyPairs": 29713,
+              "maximumPairsInFrame": 57,
+              "minimumVertexClearanceMm": 1.7120080329580212,
+              "contactCards": [
+                68
+              ]
+            },
+            "finished": "2026-09-30T07:48:58.402Z"
+          }
+        },
+        "candidate": {
+          "capturePid": 76984,
+          "started": "2026-09-30T07:20:02.844Z",
+          "finished": "2026-09-30T07:23:07.187Z",
+          "status": "captured",
+          "samples": 556,
+          "images": 186,
+          "reportSha256": "711e029c82b02bd1e392ac7b6aa29791835f00a6ee702526992e8a2a6647d033",
+          "auditSnapshot": {
+            "status": "complete",
+            "pid": 77899,
+            "savedRows": 556,
+            "progressFile": "captures/side-head-v1/candidate-right-profile-brown/audit-progress.json",
+            "note": "Snapshot only; pending prefixes do not establish a pass."
+          },
+          "auditResult": {
+            "file": "captures/side-head-v1/candidate-right-profile-brown/numerical-checks.json",
+            "sha256": "7e5e6c428a28943ea05c6279e097783228ab5fd14386cfd5c0cf3afb76eafaa7",
+            "summary": {
+              "frames": 556,
+              "crossingFrames": 0,
+              "totalTriangleBodyPairs": 0,
+              "maximumPairsInFrame": 0,
+              "minimumVertexClearanceMm": 1.379665112912428,
+              "contactCards": []
+            },
+            "finished": "2026-09-30T07:56:23.145Z"
+          }
+        }
+      }
+    },
+    "ordinary": {
+      "pairedControlsSha256": "2ab8a4e51d72f4ae5963467885a947db6b3c024ff589e6fc3ab2d349075d2ba7",
+      "pairedControls": {
+        "status": "complete",
+        "generated": "2026-09-30T07:39:28.426Z",
+        "pid": 80355,
+        "candidateSha256": "bbed05d0ce51eccc84fbfb1a9baca9f4e9a36ac2b3176869d2e7bfda27fa8ad9",
+        "sourceHashesEqual": true,
+        "setupEquality": {
+          "seed": true,
+          "layers": true,
+          "originalLayers": true,
+          "protocol": true,
+          "keys": true,
+          "retainOtherVertices": true,
+          "configuration": true,
+          "camera": true,
+          "projection": true,
+          "canvas": true,
+          "lights": true,
+          "lightingChanges": true,
+          "material": true,
+          "backend": true,
+          "adapter": true,
+          "parameters": true,
+          "clock": true
+        },
+        "descriptorEquality": {
+          "selectedCards": true,
+          "selectedIndices": true,
+          "bodyIndices": true,
+          "otherCards": true
+        },
+        "frameCount": 721,
+        "mismatchCounts": {
+          "timeEqual": 0,
+          "clockEqual": 0,
+          "headEqual": 0,
+          "degreesEqual": 0,
+          "stepsEqual": 0,
+          "bodyEqual": 0,
+          "bodyNormalsEqual": 0,
+          "rigEqual": 0,
+          "otherVerticesHashEqual": 720,
+          "capsulesEqual": 0
+        },
+        "colliderDifference": {
+          "minimumSkullRadiusDeltaMm": 0.920332869868673,
+          "maximumSkullRadiusDeltaMm": 0.920332869868673,
+          "maximumSkullCentreDeltaMm": 1.1007021051455596e-08
+        },
+        "otherVertices": {
+          "retainedFrames": 721,
+          "maximumDelta": {
+            "millimetres": 0.08053664164731192,
+            "witness": {
+              "frame": 400,
+              "card": 494,
+              "ring": 16,
+              "side": 1
+            }
+          }
+        },
+        "limits": [
+          "A difference in other-card geometry is a measured runtime consequence, not automatically a visible defect.",
+          "Body and normal equality establishes this matched pose comparison, not general motion coverage.",
+          "Image hashes establish preservation; actual visual inspection is still required."
+        ],
+        "sourceSha256": "81c9b00d07535373d7b3fdaeb9c6ac77729279e7da8b2dad5034539fc24694cb"
+      },
+      "arms": {
+        "baseline": {
+          "capturePid": 77910,
+          "started": "2026-09-30T07:25:05.497Z",
+          "finished": "2026-09-30T07:29:25.808Z",
+          "status": "captured",
+          "samples": 721,
+          "images": 241,
+          "reportSha256": "93e289ca1d8bf3f0748e07ad6c401501b3ed6fdca235a4ca6825d34e080f660e",
+          "auditSnapshot": {
+            "status": "running",
+            "pid": 79195,
+            "savedRows": 301,
+            "progressFile": "captures/side-ordinary-v1/baseline-left-profile-brown/audit-progress.json",
+            "note": "Snapshot only; pending prefixes do not establish a pass."
+          }
+        },
+        "candidate": {
+          "capturePid": 79203,
+          "started": "2026-09-30T07:32:21.512Z",
+          "finished": "2026-09-30T07:37:02.537Z",
+          "status": "captured",
+          "samples": 721,
+          "images": 241,
+          "reportSha256": "1f2e3d38506b8f519baf0806daea628999a9505058ba6cd121ae66bc7fec60b2",
+          "auditSnapshot": {
+            "status": "running",
+            "pid": 80354,
+            "savedRows": 361,
+            "progressFile": "captures/side-ordinary-v1/candidate-left-profile-brown/audit-progress.json",
+            "note": "Snapshot only; pending prefixes do not establish a pass."
+          }
+        }
+      }
+    }
+  },
+  "nativeReview": {
+    "1": {
+      "status": "passed",
+      "reportSha256": "7c7a832f199020639b4d4e75bd4e6c081d1a8e9af526483644c5856468cbcd21"
+    },
+    "2": {
+      "status": "passed",
+      "reportSha256": "88c772746c4daf6064f14d3bcb9ee3f5468a36d71bdd63c3d7f964d4f4e2a954"
+    }
+  },
+  "limits": [
+    "Four body audits are pending; no motion-clearance pass or promotion.",
+    "Selected body contacts omit garments, other-card contact, hair-hair, alpha and continuous time.",
+    "Discrete actual-image inspection, not continuous perceptual or settled-state acceptance.",
+    "Full archive manifest waits for mutable CPU audit outputs to finish; each capture report already records original-image/raw-data/source hashes."
+  ]
+}
