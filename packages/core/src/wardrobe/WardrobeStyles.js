@@ -7,7 +7,7 @@
 import { Color, MeshStandardNodeMaterial } from 'three/webgpu';
 import { vertexIndex, varying, vec3, float, texture, dot, uv, vec2, mix, smoothstep } from 'three/tsl';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { resolveWardrobeStyle } from './WardrobeStyleOptions.js';
+import { resolveWardrobeStyle, resolveWardrobeColours } from './WardrobeStyleOptions.js';
 
 const SOURCES = Object.freeze( {
     // The collar successor preserves every UV, vertex ordinal and colour region. Its
@@ -37,12 +37,14 @@ export async function validateStyledFragmentBytes( id, bytes ) {
 }
 
 /** Paired loader/factory; the factory accepts only meshes from this loader's verified GLBs. */
-export function createWardrobeStyle( value ) {
+export function createWardrobeStyle( value, overrides ) {
     const style = resolveWardrobeStyle( value );
+    const colours = resolveWardrobeColours( overrides, style );
     if ( style === 'original' ) return { materialStyle: style };
     const verified = new WeakMap();
     return {
         materialStyle: style,
+        ...( colours ? { materialColours: colours } : {} ),
         async loadFragment( url, id ) {
             const loader = new GLTFLoader();
             if ( !hasRecipe( id ) ) return loader.loadAsync( url );
@@ -57,12 +59,12 @@ export function createWardrobeStyle( value ) {
         createMaterial( id, mesh ) {
             if ( !hasRecipe( id ) ) return null;
             if ( verified.get( mesh ) !== id ) throw new Error( `Avatar wardrobe: unverified colourway mesh '${ id }'.` );
-            return styledMaterial( id, mesh.material, style );
+            return styledMaterial( id, mesh.material, style, colours );
         }
     };
 }
 
-function styledMaterial( id, original, style ) {
+function styledMaterial( id, original, style, colours ) {
     if ( Array.isArray( original ) || !original?.map || !original.normalScale ) {
         throw new Error( `Avatar wardrobe: '${ id }' needs its qualified source material.` );
     }
@@ -77,7 +79,11 @@ function styledMaterial( id, original, style ) {
             if ( original[ key ] !== undefined ) material[ key ] = original[ key ];
         }
         material.normalScale.copy( original.normalScale );
-        const palette = PALETTES[ style ], sampled = texture( original.map ).rgb;
+        const base = PALETTES[ style ];
+        const palette = colours ? { ...base, top: colours.top ?? base.top,
+            denim: colours.bottom ?? base.denim, skirt: colours.bottom ?? base.skirt,
+            shoes: colours.shoes ?? base.shoes } : base;
+        const sampled = texture( original.map ).rgb;
         if ( id === 'female_casualsuit01' ) {
             const region = varying( vertexIndex.greaterThanEqual( 1427 ).select( float( 1 ), float( 0 ) ), 'wardrobeDenimRegion' );
             const denim = palette.denim ? colour( palette.denim ).mul( luma( sampled ).div( .15 ).clamp( .35, 1.6 ) ) : sampled;

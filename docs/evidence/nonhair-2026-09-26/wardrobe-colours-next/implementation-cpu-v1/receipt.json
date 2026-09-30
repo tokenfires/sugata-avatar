@@ -1,0 +1,120 @@
+{
+  "kind": "custom-wardrobe-colour-cpu-checks",
+  "base": "31d797e",
+  "completed": false,
+  "tests": [
+    {
+      "command": [
+        "node",
+        "packages/core/src/wardrobe/WardrobeColourOptions.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "WardrobeColourOptions.selftest.mjs.log",
+      "logSHA256": "b14a73bc96441c09b39991f7476505ef05ea33f4c51d5f07075d6a363d11d645",
+      "testSHA256": "6cd416fd3a28aab40015e81212c6fe67c2fb87fb55b0cea8e3ed030330d1ddda"
+    },
+    {
+      "command": [
+        "node",
+        "packages/core/src/wardrobe/WardrobeStyles.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "WardrobeStyles.selftest.mjs.log",
+      "logSHA256": "bfd22c7db1b0784e39a6e60f654066ccc3d0c58d4cf1545d7352112340065974",
+      "testSHA256": "8ba67ce340f1e34f86f7f97b4cafef2b2d13f76aad320065e9578d7c2ee7bc24"
+    },
+    {
+      "command": [
+        "node",
+        "packages/core/src/wardrobe/AvatarWardrobe.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "AvatarWardrobe.selftest.mjs.log",
+      "logSHA256": "7cc2c61701d4556801a5c8b33fc03d4bc4c387541426842cacb1c4fd2a7edf85",
+      "testSHA256": "36b1efdfda80cd831b4b34838a59ddc985346bef33c76930293d585c9e24f116"
+    },
+    {
+      "command": [
+        "node",
+        "packages/core/src/wardrobe/wardrobe.selftest.mjs"
+      ],
+      "exitCode": 1,
+      "log": "wardrobe.selftest.mjs.log",
+      "logSHA256": "8b9b547b72db92cf8a561caf0db368179abb4ad338516b3f542e23b6c2823c54",
+      "testSHA256": "cf4ad2671caab6332bb4dbb74138e6a50a044a174f92a3728d5887976fc2c246"
+    },
+    {
+      "command": [
+        "node",
+        "packages/core/src/Avatar.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "Avatar.selftest.mjs.log",
+      "logSHA256": "d3267f9d679f71826d9afaa1cb00bd2d3b882ca96e08759cf2deda44feec25f5",
+      "testSHA256": "3332445e1c6b7820692e8537359313929e3316f68d1071c979aafd0f01f62e5e"
+    },
+    {
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-presets.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "showcase-presets.selftest.mjs.log",
+      "logSHA256": "d02bd1752f7527b8fb9bb911f43400de461791c28c8951c4d8a35cdc313895c0",
+      "testSHA256": "cf1f02f3354431f41a4532cf224c91e0b07d52130bc3eff894d90649c5abdffc"
+    },
+    {
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-settings.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "showcase-settings.selftest.mjs.log",
+      "logSHA256": "b1ac3eb854e7619f10d360fc402ffb794854f86cf05abe53ed0e6e437fa9d63b",
+      "testSHA256": "f5cc4384515e382ee2c84e758c836491201ed2cbbba460adbf08a8853d3e1724"
+    },
+    {
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-collection.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "showcase-collection.selftest.mjs.log",
+      "logSHA256": "9409d58d3b899fb9097c1f402ed2ab162973686953b6b32c493a4e54754db863",
+      "testSHA256": "c5973faef5156e6a09bedbf0a590d820836e5a36563d8b983a03d2c4debddad7"
+    },
+    {
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-colours.selftest.mjs"
+      ],
+      "exitCode": 0,
+      "log": "showcase-colours.selftest.mjs.log",
+      "logSHA256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56",
+      "testSHA256": "eb0474b6092050857f99c999798a6841aaa7655b0983a10e4dac630d4f0791e5"
+    }
+  ],
+  "sourceHashes": {
+    "docs/API.md": "16fc6699101c45eff7e1264021ffac717d596d601b895200633f6ca3c411ff39",
+    "packages/core/src/Avatar.js": "8671aedb43437051474f33d228f4e676a934b7d80a8e316aac796f566c4a9e2c",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10",
+    "packages/core/src/wardrobe/Wardrobe.js": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664",
+    "packages/core/src/wardrobe/WardrobeColourOptions.selftest.mjs": "6cd416fd3a28aab40015e81212c6fe67c2fb87fb55b0cea8e3ed030330d1ddda",
+    "packages/core/src/wardrobe/WardrobeStyleOptions.js": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5",
+    "packages/core/src/wardrobe/WardrobeStyles.js": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089",
+    "packages/core/src/wardrobe/WardrobeStyles.selftest.mjs": "8ba67ce340f1e34f86f7f97b4cafef2b2d13f76aad320065e9578d7c2ee7bc24",
+    "packages/testbed/src/showcase-colour-controls.css": "f35072f31f03bd6d74e5be216ea7f781311a1781afb2765c455588921134699e",
+    "packages/testbed/src/showcase-colour-controls.mjs": "9b92e464a82f3dd14c70aeb9d371d10a9887c37a0d5e69edca68f8169f076477",
+    "packages/testbed/src/showcase-colours.mjs": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a",
+    "packages/testbed/src/showcase-colours.selftest.mjs": "eb0474b6092050857f99c999798a6841aaa7655b0983a10e4dac630d4f0791e5",
+    "packages/testbed/src/showcase-palette-references.mjs": "82df6354262aa5d0fd364daf3a592e9fabb344eb0f217cfe3aa64d70ff15e98a",
+    "packages/testbed/src/showcase-presets.mjs": "21fb99aa3462d730e4bb23fb532c2ab0e85dfa9ff2d1b254e613b86b85923fd9",
+    "packages/testbed/src/showcase-settings.mjs": "af300172188bb9eb6f5833f7ced420365ee2ab4ee6f81413bfd37c0d06406966",
+    "packages/testbed/src/showcase.html": "ff7955bdeb60e5609e999af35305fc03606729606110fff89993c90204118b23",
+    "packages/testbed/src/showcase.js": "09a8b0e547905d294fb452c7ff84b316e59fb68afd1d31a18e370d18cba81df4"
+  },
+  "limits": [
+    "CPU only; no browser, GPU, build, focus/layout, native material rendering, or aesthetic acceptance.",
+    "Real GLB tests stub image decoding; texture ownership and source-byte qualification are checked, rendered texture appearance is not."
+  ]
+}

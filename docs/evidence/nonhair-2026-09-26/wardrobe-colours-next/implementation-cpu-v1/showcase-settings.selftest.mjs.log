@@ -1,0 +1,5 @@
+PASS 72 complete Studio/Kitchen exports reopen through JSON and page URL without losing settings
+PASS JSON object key order, garment order and explicit original fabric preserve the same look
+PASS unsupported or incomplete settings fail before they can become a partial restored look
+PASS malformed, oversized and unreadable files reject with actionable errors
+PASS 4 showcase settings groups

@@ -1,0 +1,59 @@
+PASS optional configuration preserves default and copies caller arrays
+PASS resolved g050 accepted; unsupported bake and cross-fade rejected by name
+PASS unsupported identity fails before changing identity, figure, or initiating a swap
+PASS manifest authority preserved with hashed mapping and external relative paths
+PASS existing FoundationLayer validates defaults and all four preference combinations
+PASS masked g050 preserves every baseline mesh index, attribute, morph, and bone transform
+PASS latest outfit wins with a slower older load (optional old-source comparison)
+PASS overlapping same-fragment requests share one load and apply only once
+PASS bad outfit and fragment failure preserve current foundation and clothing
+PASS loaded fragments reserved by an in-flight outfit cannot be released before atomic apply
+PASS active and cached resources disposed once; borrowed body/skeleton retained
+PASS disposal during fragment fetch frees late resources without attaching or revealing body
+PASS malformed fragment adoption frees loaded resources and preserves the active outfit
+{
+  "passed": 13,
+  "checks": [
+    "optional configuration preserves default and copies caller arrays",
+    "resolved g050 accepted; unsupported bake and cross-fade rejected by name",
+    "unsupported identity fails before changing identity, figure, or initiating a swap",
+    "manifest authority preserved with hashed mapping and external relative paths",
+    "existing FoundationLayer validates defaults and all four preference combinations",
+    "masked g050 preserves every baseline mesh index, attribute, morph, and bone transform",
+    "latest outfit wins with a slower older load (optional old-source comparison)",
+    "overlapping same-fragment requests share one load and apply only once",
+    "bad outfit and fragment failure preserve current foundation and clothing",
+    "loaded fragments reserved by an in-flight outfit cannot be released before atomic apply",
+    "active and cached resources disposed once; borrowed body/skeleton retained",
+    "disposal during fragment fetch frees late resources without attaching or revealing body",
+    "malformed fragment adoption frees loaded resources and preserves the active outfit"
+  ],
+  "evidence": {
+    "urls": {
+      "bodyUrl": "file:///Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "manifestUrl": "file:///Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar/assets/wardrobe/manifest.json",
+      "bundled": true
+    },
+    "bodyEquivalence": {
+      "meshes": 7,
+      "attributes": 35,
+      "morphAttributes": 236,
+      "exact": true,
+      "nodeHierarchyAndMaterialsExact": true,
+      "embeddedImagesExact": 6,
+      "baseSha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+      "maskedSha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "disposedImportedResources": 17
+  },
+  "limitations": "CPU ownership/geometry/API checks. No GPU timing or visual clothing fit certification."
+}
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.

@@ -491,6 +491,30 @@ exact reviewed g050 garment assets, including when served through an external `a
 Create a new Avatar to change the palette. See [coordinated colours](WARDROBE-COLOURWAYS-2026-09-13.md)
 for the recipes, ownership and current limits.
 
+With `ecru` or `charcoal`, optional `wardrobe.colours` overrides individual parts:
+
+```js
+wardrobe: {
+    style: 'ecru',
+    colours: { top: '#617a70', shoes: '#49342b' },
+    outfit: ['female_casualsuit01', 'shoes01'],
+    foundation: { TORSO: 'foundation_bra', HIPS: 'foundation_briefs' }
+}
+```
+
+The allowed parts are `top`, `bottom` and `shoes`. Values are six-digit sRGB hex strings
+(`#RRGGBB`), normalized to lowercase. Omitted parts keep the base palette; socks always keep
+the base palette. `top` applies to the tee or blouse, and `bottom` to denim or skirt, so these
+choices follow `dress()`. Fabric detail, normal maps, roughness and garment coverage remain
+owned by the existing material recipes. `original` rejects colour overrides and keeps its
+imported materials.
+
+Colours are copied at creation and fixed for that wardrobe's lifetime. Create a new Avatar to
+change them. Attached overrides are available from `avatar.report().wardrobe.appearance.colours`;
+this field is absent when no overrides apply. The Wardrobe demo's **Mix colours** controls keep
+edits as a draft until **Apply colours** opens a fresh preview. Saved settings and named looks
+use the applied configuration. Choosing a whole palette clears its custom colours.
+
 `avatar.report().wardrobe` distinguishes the requested outfit from attached garments and records
 loaded URLs, pending work and errors. The current clothes are stand-ins with remaining fit and
 coverage limitations. See [the wardrobe contract](WARDROBE-AVATAR-2026-09-09.md) and

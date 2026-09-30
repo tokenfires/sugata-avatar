@@ -1,0 +1,7 @@
+PASS representative partial/full colours round-trip through actual export, strict JSON and canonical URL
+PASS invalid or duplicated colours and Original combinations reject without changing the supplied settings
+PASS logical overrides follow mixed outfits; base selection removes every override URL key and keeps scene/frame/light
+PASS custom named looks preserve the version-1 envelope, actual normalized options and unrelated unsupported entries
+PASS unchecked and untouched picker drafts have no implicit colour value
+PASS actual draft controller requires Apply, preserves drafts on refresh, resets on outfit changes and obeys Original/busy ownership
+PASS 6 custom colour settings/draft groups; native rendering and UI qualification pending

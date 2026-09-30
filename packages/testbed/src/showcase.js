@@ -10,6 +10,9 @@ import './showcase-palette-references.css';
 import { mountHairColours, hairColourLabel } from './showcase-hair-colours.mjs';
 import { sameHairTint } from '../../core/src/material/HairColourOptions.js';
 import './showcase-hair-colours.css';
+import { coloursFromSelection, selectionWithColours, writeColourParams, customColourLabel } from './showcase-colours.mjs';
+import { mountColourControls } from './showcase-colour-controls.mjs';
+import './showcase-colour-controls.css';
 import casualEcru from './palette-references/casual-ecru.png';
 import casualCharcoal from './palette-references/casual-charcoal.png';
 import casualOriginal from './palette-references/casual-original.png';
@@ -40,6 +43,7 @@ const hairColours = mountHairColours(document.getElementById('hair-colours'), (h
     releaseAttention({immediate: true}); busy = true; enableControls();
     setStatus('Preparing hair colour…'); navigationPending = true; location.assign(next.href);
 });
+const colourControls = mountColourControls(document.getElementById('mix-colours'), applyColours);
 const paletteReferences = mountPaletteReferences(document.getElementById('style-controls'), [
     {outfit: 'casual', style: 'ecru', src: casualEcru},
     {outfit: 'casual', style: 'charcoal', src: casualCharcoal},
@@ -71,6 +75,7 @@ function updateCollectionControls() {
 }
 function enableControls() {
     for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
+    colourControls.setDisabled(busy || savingImage || failed);
     updateCollectionControls(); updateAttention();
 }
 function collectionFeedback(message, error = false) {
@@ -97,7 +102,7 @@ function renderCollection() {
             open.setAttribute('aria-describedby', description.id);
             try {
                 const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
-                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style} · ${hairColourLabel(look.hairColour, look.hairTint)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
+                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style}${customColourLabel(look) ? ` · ${customColourLabel(look)}` : ''} · ${hairColourLabel(look.hairColour, look.hairTint)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
             } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
             open.addEventListener('click', () => {
                 if (!collectionAvailable()) return;
@@ -159,6 +164,7 @@ function updateUrl() {
         if (value === normal) url.searchParams.delete(key); else url.searchParams.set(key, value);
     if (selected.hairColour) url.searchParams.set('hairColour', selected.hairColour); else url.searchParams.delete('hairColour');
     tintToUrl(url, selected.hairTint);
+    writeColourParams(url.searchParams, selected);
     history.replaceState(null, '', url);
     for (const link of document.querySelectorAll('[data-preset]')) {
         const next = new URL(location.href); next.search = ''; next.searchParams.set('preset', link.dataset.preset);
@@ -166,12 +172,18 @@ function updateUrl() {
         if (selected.hairColour) next.searchParams.set('hairColour', selected.hairColour);
         tintToUrl(next, selected.hairTint);
         if (selected.scene !== 'studio') next.searchParams.set('scene', selected.scene);
+        writeColourParams(next.searchParams, selected);
         if (captured) next.searchParams.set('capture', ''); link.href = next.href;
     }
 }
 function refresh() {
     const report = avatar.report(); selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
-    paletteReferences.update(selected.outfit, selected.style);
+    selected = selectionWithColours(selected, report.wardrobe.appearance.colours);
+    const colours = coloursFromSelection(selected);
+    paletteReferences.update(selected.outfit, selected.style, !!colours);
+    colourControls.update({style: selected.style, outfit: selected.outfit, colours});
+    const customLabel = document.getElementById('custom-colours-label');
+    customLabel.textContent = customColourLabel(selected); customLabel.hidden = !colours;
     const preset = SHOWCASE_PRESETS.find(p => p.id === selected.preset);
     for (const link of document.querySelectorAll('[data-preset]')) link.setAttribute('aria-current', String(link.dataset.preset === selected.preset));
     for (const [key, value] of [['style', selected.style], ['outfit', selected.outfit], ['frame', selected.frame], ['light', selected.light], ['scene', selected.scene]])
@@ -182,6 +194,16 @@ function refresh() {
     document.getElementById('pause').textContent = paused ? 'Resume motion' : 'Pause motion';
     document.getElementById('pause').setAttribute('aria-pressed', String(paused));
     enableControls(); updateUrl();
+}
+function applyColours(colours) {
+    if (busy || savingImage || failed || !avatar || avatar.disposed) return false;
+    const nextSelection = selectionWithColours(selected, colours);
+    // Validate the entire destination before interrupting attention or changing controls.
+    optionsForShowcase(nextSelection);
+    const next = showcaseSettingsUrl(nextSelection, location.href);
+    releaseAttention({immediate: true});
+    busy = true; enableControls(); setStatus('Applying colours to a fresh preview…');
+    navigationPending = true; location.assign(next.href); return true;
 }
 function frameView(mode) {
     releaseAttention({immediate: true});
@@ -340,8 +362,10 @@ try {
     // Like changing the starting haircut, a palette opens a fresh owned Avatar. Keep the current
     // outfit/framing/light in the URL; no in-place mutation of the garment-ID fragment cache.
     for (const button of document.querySelectorAll('[data-style]')) button.addEventListener('click', () => {
-        if (busy || savingImage || failed || button.dataset.style === selected.style) return;
+        if (busy || savingImage || failed) return;
+        if (button.dataset.style === selected.style && !coloursFromSelection(selected)) { colourControls.reset(); return; }
         const next = new URL(location.href); next.searchParams.set('style', button.dataset.style);
+        writeColourParams(next.searchParams, {style: button.dataset.style});
         releaseAttention({immediate: true});
         busy = true; enableControls(); setStatus('Preparing colours…'); navigationPending = true; location.assign(next.href);
     });

@@ -1,0 +1,65 @@
+{
+  "sourceHashes": {
+    "docs/API.md": "16fc6699101c45eff7e1264021ffac717d596d601b895200633f6ca3c411ff39",
+    "packages/core/src/Avatar.js": "8671aedb43437051474f33d228f4e676a934b7d80a8e316aac796f566c4a9e2c",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10",
+    "packages/core/src/wardrobe/Wardrobe.js": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664",
+    "packages/core/src/wardrobe/WardrobeColourOptions.selftest.mjs": "6cd416fd3a28aab40015e81212c6fe67c2fb87fb55b0cea8e3ed030330d1ddda",
+    "packages/core/src/wardrobe/WardrobeStyleOptions.js": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5",
+    "packages/core/src/wardrobe/WardrobeStyles.js": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089",
+    "packages/core/src/wardrobe/WardrobeStyles.selftest.mjs": "8ba67ce340f1e34f86f7f97b4cafef2b2d13f76aad320065e9578d7c2ee7bc24",
+    "packages/testbed/src/showcase-colour-controls.css": "f35072f31f03bd6d74e5be216ea7f781311a1781afb2765c455588921134699e",
+    "packages/testbed/src/showcase-colour-controls.mjs": "16042662a79de2ba1469c4addf3b4c8ad6607a8004681003e007dc28a9961b88",
+    "packages/testbed/src/showcase-colours.mjs": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a",
+    "packages/testbed/src/showcase-colours.selftest.mjs": "d21daef716eff29d1fdf8fb7d8239f406a67cb2933f3009b7ae95b88849d6be8",
+    "packages/testbed/src/showcase-palette-references.mjs": "82df6354262aa5d0fd364daf3a592e9fabb344eb0f217cfe3aa64d70ff15e98a",
+    "packages/testbed/src/showcase-presets.mjs": "21fb99aa3462d730e4bb23fb532c2ab0e85dfa9ff2d1b254e613b86b85923fd9",
+    "packages/testbed/src/showcase-settings.mjs": "af300172188bb9eb6f5833f7ced420365ee2ab4ee6f81413bfd37c0d06406966",
+    "packages/testbed/src/showcase.html": "ff7955bdeb60e5609e999af35305fc03606729606110fff89993c90204118b23",
+    "packages/testbed/src/showcase.js": "09a8b0e547905d294fb452c7ff84b316e59fb68afd1d31a18e370d18cba81df4"
+  },
+  "syntaxChecked": [
+    "packages/core/src/Avatar.js",
+    "packages/core/src/wardrobe/AvatarWardrobe.js",
+    "packages/core/src/wardrobe/Wardrobe.js",
+    "packages/core/src/wardrobe/WardrobeColourOptions.selftest.mjs",
+    "packages/core/src/wardrobe/WardrobeStyleOptions.js",
+    "packages/core/src/wardrobe/WardrobeStyles.js",
+    "packages/core/src/wardrobe/WardrobeStyles.selftest.mjs",
+    "packages/testbed/src/showcase-colour-controls.mjs",
+    "packages/testbed/src/showcase-colours.mjs",
+    "packages/testbed/src/showcase-colours.selftest.mjs",
+    "packages/testbed/src/showcase-palette-references.mjs",
+    "packages/testbed/src/showcase-presets.mjs",
+    "packages/testbed/src/showcase-settings.mjs",
+    "packages/testbed/src/showcase.js"
+  ],
+  "assetDiffs": [],
+  "testResults": {
+    "admission": 3,
+    "material": 7,
+    "avatarWardrobe": 13,
+    "wardrobeAssertions": 51,
+    "avatarAssertions": 138,
+    "presets": 4,
+    "settings": 4,
+    "collection": 5,
+    "customSettingsDraft": 6
+  },
+  "evidence": [
+    "receipt.json",
+    "hydration-retry.json"
+  ],
+  "limits": "CPU only; independent review and native rendering/UI pending. Main checkout untouched.",
+  "supersedesHandoffSHA256": "1bea808a96b0d5cc41ba394205661a2932a174b710107a1f79c610710a2efd3e",
+  "followup": {
+    "reason": "Keep the outfit-change draft-reset notice through immediate availability refresh.",
+    "command": [
+      "node",
+      "packages/testbed/src/showcase-colours.selftest.mjs"
+    ],
+    "exitCode": 0,
+    "log": "draft-notice-retry.log",
+    "logSHA256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56"
+  }
+}

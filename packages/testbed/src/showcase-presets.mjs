@@ -2,6 +2,8 @@
 import { resolveHairColour, resolveHairTint, sameHairTint, mixedHairColour, hairColourLinear } from '../../core/src/material/HairColourOptions.js';
 import { WARDROBE_STYLES } from '../../core/src/wardrobe/WardrobeStyleOptions.js';
 import { REVIEW_SCENES, reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
+import { coloursFromSelection, colourSelectionFromParams } from './showcase-colours.mjs';
+import { resolveWardrobeColours } from '../../core/src/wardrobe/WardrobeStyleOptions.js';
 export const SHOWCASE_PRESETS = Object.freeze([
     Object.freeze({ id: 'casual', number: '01', name: 'Everyday', hair: 'bob02', outfit: 'casual',
         description: 'A tonal tee, dark denim, and the chin-length bob.' }),
@@ -35,18 +37,19 @@ export function resolveShowcaseSelection(params) {
         frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio', scene: reviewSceneSelection(params),
         ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }) };
     optionsForReviewScene(selection.scene, selection.light);
-    return selection;
+    return colourSelectionFromParams(params, selection);
 }
 export function optionsForShowcase(selection) {
     const preset = SHOWCASE_PRESETS.find(p => p.id === selection.preset);
     if (!preset || !SHOWCASE_OUTFITS[selection.outfit] || !choices.frame.includes(selection.frame) || !choices.light.includes(selection.light) || !choices.style.includes(selection.style))
         throw new Error('Unsupported showcase selection.');
+    const colours = coloursFromSelection(selection);
     const hairColour = resolveHairColour(selection.hairColour);
     const hairTint = resolveHairTint(selection.hairTint, hairColour);
     return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, ...(hairColour === null ? {} : { hairColour }),
         ...(hairTint === null ? {} : { hairTint }), frame: selection.frame,
         quality: 'balanced', ...optionsForReviewScene(selection.scene ?? 'studio', selection.light), seed: SHOWCASE_SEED,
-        pose: 'relaxed-standing', wardrobe: { ...(selection.style === 'original' ? {} : {style: selection.style}), outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
+        pose: 'relaxed-standing', wardrobe: { ...(selection.style === 'original' ? {} : {style: selection.style}), ...(colours ? {colours: {...colours}} : {}), outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
 }
 export function outfitFromReport(report) {
     const worn = report.wardrobe?.state?.worn;
@@ -75,6 +78,7 @@ export function configurationFromReport(report) {
     const appearance = report.wardrobe.appearance;
     if (!appearance?.attached || !choices.style.includes(appearance.style))
         throw new Error('The selected clothing colours are not attached.');
+    const colours = resolveWardrobeColours(appearance.colours, appearance.style);
     const outfit = outfitFromReport(report), foundation = report.wardrobe.foundation;
     if (!foundation || !['foundation_bra','foundation_vest'].includes(foundation.TORSO) ||
         !['foundation_briefs','foundation_boxer_brief'].includes(foundation.HIPS)) throw new Error('The attached foundation is incomplete.');
@@ -89,5 +93,5 @@ export function configurationFromReport(report) {
         ...(appliedHairTint === null ? {} : { hairTint: appliedHairTint }),
         frame: report.framing.mode, quality: report.quality.requested,
         ...optionsForReviewScene(report.scene.id, report.scene.lighting.look), seed: report.motion.seed, pose: 'relaxed-standing',
-        wardrobe: { ...(appearance.style === 'original' ? {} : {style: appearance.style}), outfit: [...SHOWCASE_OUTFITS[outfit].garments], foundation: { TORSO: foundation.TORSO, HIPS: foundation.HIPS } } };
+        wardrobe: { ...(appearance.style === 'original' ? {} : {style: appearance.style}), ...(colours ? {colours: {...colours}} : {}), outfit: [...SHOWCASE_OUTFITS[outfit].garments], foundation: { TORSO: foundation.TORSO, HIPS: foundation.HIPS } } };
 }

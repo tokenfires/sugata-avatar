@@ -1,5 +1,6 @@
 import { resolveHairColour, resolveHairTint } from '../../core/src/material/HairColourOptions.js';
 import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, optionsForShowcase } from './showcase-presets.mjs';
+import { selectionWithColours, coloursFromSelection } from './showcase-colours.mjs';
 
 export const SHOWCASE_SETTINGS_MAX_BYTES = 16 * 1024;
 
@@ -25,10 +26,10 @@ export function selectionFromConfiguration(configuration) {
         SHOWCASE_OUTFITS[id].garments.every(garment => garments.includes(garment)));
     const hairColour = resolveHairColour(configuration.hairColour);
     const hairTint = resolveHairTint(configuration.hairTint, hairColour);
-    const selection = { ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }),
+    const selection = selectionWithColours({ ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }),
         preset: preset.id, outfit, style: configuration.wardrobe?.style ?? 'original',
         frame: configuration.frame, scene: configuration.scene,
-        light: configuration.scene === 'kitchen' && configuration.lighting === undefined ? 'studio' : configuration.lighting };
+        light: configuration.scene === 'kitchen' && configuration.lighting === undefined ? 'studio' : configuration.lighting }, configuration.wardrobe?.colours);
     let expected;
     try { expected = optionsForShowcase(selection); }
     catch { throw new Error('These clothes, colours, framing, scene or light are unavailable in this study.'); }
@@ -37,7 +38,14 @@ export function selectionFromConfiguration(configuration) {
     // Both hex cases are valid SDK input; reopened URLs and new exports are canonical lowercase.
     if (hairColour !== null) expected.hairColour = configuration.hairColour;
     if (hairTint !== null) expected.hairTint = configuration.hairTint;
-    sameOptions(configuration, expected);
+    // Validate the supplied object before normalizing its hex spelling for comparison.
+    // Empty styled colour objects are accepted as the canonical no-override configuration.
+    const normalized = { ...configuration, wardrobe: { ...configuration.wardrobe } };
+    if (Object.hasOwn(normalized.wardrobe, 'colours')) {
+        if (expected.wardrobe.colours) normalized.wardrobe.colours = expected.wardrobe.colours;
+        else delete normalized.wardrobe.colours;
+    }
+    sameOptions(normalized, expected);
     return selection;
 }
 
@@ -52,9 +60,10 @@ export async function readShowcaseSettings(file) {
 
 export function showcaseSettingsUrl(selection, href) {
     const url = new URL(href), capture = url.searchParams.has('capture');
+    const canonical = selectionWithColours(selection, coloursFromSelection(selection));
     // Discard unrelated/debug overrides instead of allowing them to change the restored options.
     url.search = '';
-    for (const [key, value] of Object.entries(selection)) {
+    for (const [key, value] of Object.entries(canonical)) {
         if (key === 'hairTint') {
             url.searchParams.set('hairTintColour', value.colour);
             url.searchParams.set('hairTintAmount', String(value.amount));

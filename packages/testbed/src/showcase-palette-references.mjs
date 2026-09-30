@@ -60,12 +60,12 @@ export function mountPaletteReferences(fieldset, references) {
     }
     fieldset.append(details);
     return Object.freeze({
-        update(outfit, style) {
+        update(outfit, style, customized = false) {
             if (!groups.has(outfit) || !STYLES.some(([id]) => id === style))
                 throw new Error('No references for this attached outfit/palette.');
             for (const [id, group] of groups) group.hidden = id !== outfit;
             for (const button of details.querySelectorAll('[data-reference-style]'))
-                button.setAttribute('aria-pressed', String(button.dataset.referenceStyle === style));
+                button.setAttribute('aria-pressed', String(!customized && button.dataset.referenceStyle === style));
         }
     });
 }

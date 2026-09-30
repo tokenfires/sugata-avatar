@@ -1,0 +1,4 @@
+PASS partial data canonicalizes in fixed order, copies input, and preserves no-override shapes
+PASS strict data rejects malformed hex, inherited, hidden, accessor, symbol and pollution keys without invoking getters
+PASS Original rejects even empty overrides before loading and every creation entrypoint copies the same contract
+PASS 3 wardrobe colour admission groups

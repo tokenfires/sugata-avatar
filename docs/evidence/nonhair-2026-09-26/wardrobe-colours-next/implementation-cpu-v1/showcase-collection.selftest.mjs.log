@@ -1,0 +1,6 @@
+PASS all 72 supported settings save canonically and reopen with names separate from options
+PASS names, duplicates, identity and cap reject without changing stored data
+PASS latest-read mutations preserve another tab, and scoped undo refuses any changed list
+PASS unsupported entries stay readable/removable, while malformed envelope blocks all writes
+PASS storage access/quota/interleaved changes fail visibly and preserve prior bytes
+PASS 5 saved collection groups

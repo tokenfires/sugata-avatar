@@ -1,0 +1,451 @@
+{
+  "kind": "exact-local-runtime-LFS-hydration",
+  "base": "31d797ed5aa05edf0bf9a725d154a05adeae1f49",
+  "sourceRoot": "/Users/robault/GitHub/sugata-avatar",
+  "worktree": "/Users/robault/.codex/worktrees/sugata-custom-colours/sugata-avatar",
+  "entries": [
+    {
+      "path": "assets/figures/figure_g000.glb",
+      "sha256": "26aa87c59a5e7cff800d3bf576426945aeb63d0bd2dff0e67db34f2240ae559d",
+      "bytes": 11567676,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/figures/figure_g025.glb",
+      "sha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
+      "bytes": 11568008,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/figures/figure_g050.glb",
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+      "bytes": 11567392,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/figures/figure_g075.glb",
+      "sha256": "dbfc23ac6987c2f4b33bcf366f09c2f8f43c8518610ebd3697714b78b34f21ec",
+      "bytes": 11567816,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/figures/figure_g100.glb",
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811",
+      "bytes": 11567784,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/albedo.png",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/depth.png",
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "bytes": 62903,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/flow.png",
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "bytes": 349906,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/g000.glb",
+      "sha256": "c179927e5701dd45c8e650a881bc689ad905030fea6f3e9569c4370819f25926",
+      "bytes": 3346148,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/g025.glb",
+      "sha256": "bdb1105f1cb663004ab06b1a7a164de2c54683af131eb9b0f65a0677e84520df",
+      "bytes": 3346472,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/g050.glb",
+      "sha256": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+      "bytes": 3346728,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/g075.glb",
+      "sha256": "1517e2cf1d5f193b5306f854e299dbc9c9351c7162ee866104f3e5cbe1f3eb0c",
+      "bytes": 3346284,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/g100.glb",
+      "sha256": "e4c238ef739d98107d0f237e76e1235c0a6fa2af777489638f1cba3118aac5f7",
+      "bytes": 3346252,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob01/normal.png",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob02/albedo.png",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob02/depth.png",
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "bytes": 62903,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob02/flow.png",
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "bytes": 349906,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob02/g050.glb",
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+      "bytes": 3347176,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/bob02/normal.png",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/crop01/albedo.png",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/crop01/depth.png",
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "bytes": 62903,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/crop01/flow.png",
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "bytes": 349906,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/crop01/g050.glb",
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+      "bytes": 3096380,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/crop01/normal.png",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/lob01/albedo.png",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/lob01/depth.png",
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "bytes": 62903,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/lob01/flow.png",
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "bytes": 349906,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/lob01/g050.glb",
+      "sha256": "fb33f37395a29b0305bc542ead84347d4aad124de71fb8b70c69188cd45cf96b",
+      "bytes": 3345988,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/lob01/normal.png",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/long01/albedo.png",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/long01/depth.png",
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "bytes": 62903,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/long01/flow.png",
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "bytes": 349906,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/long01/g050.glb",
+      "sha256": "e37e903482851e0ec3e29263d63b72c133dabdc861ff79ee877bbd2a1b0b7b1a",
+      "bytes": 3345760,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/long01/normal.png",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/pixie01/albedo.png",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/pixie01/depth.png",
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "bytes": 62903,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/pixie01/flow.png",
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "bytes": 349906,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/pixie01/g050.glb",
+      "sha256": "427b42e3a020deaa27fc770c9c5b8bdfff847254e2078967e4d6bb3b1d8f15e7",
+      "bytes": 3109904,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/pixie01/normal.png",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/quiff01/albedo.png",
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "bytes": 1096244,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/quiff01/depth.png",
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "bytes": 62903,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/quiff01/flow.png",
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "bytes": 349906,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/quiff01/g050.glb",
+      "sha256": "87766b82692acf777d98e9957b013d09ec39b3753d3f1490a85eb35c93a2537d",
+      "bytes": 3105068,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/hair/quiff01/normal.png",
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "bytes": 1077492,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/baked/suit_g050.glb",
+      "sha256": "d0823b87f76b69e3998d396e4117e03e905680960d1a4693be6e214b00f6381b",
+      "bytes": 20307776,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/baked/suit_shoes_g050.glb",
+      "sha256": "01d9eb13538b83c1adce04ee8326e5838d0198b40e2b6e091bbe4276391a691a",
+      "bytes": 22479048,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/body/g000.glb",
+      "sha256": "52dcc74b8e65fe3d8fd1c9ae140f4d3316930dab4a7d68a3b3fba56537e24d39",
+      "bytes": 11917060,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "bytes": 11916776,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/body/g100.glb",
+      "sha256": "0640ab09ab420128cb8fc48236fc25844db36f818105bb4f37637ece43d87c19",
+      "bytes": 11917172,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/fedora01/g000.glb",
+      "sha256": "6c6d500ea5ae518938e3be5059275f96256af99132769762425c60e6c7015486",
+      "bytes": 7639028,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/fedora01/g050.glb",
+      "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27",
+      "bytes": 7638760,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/fedora01/g100.glb",
+      "sha256": "3a3f51239b30414f2e7c4f757327ba39c7b9cd7da1e3eff6eeeb2c17fbaa48d5",
+      "bytes": 7639144,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g000.glb",
+      "sha256": "7e9f9c0c74fcbeeb3f79adc40983ae02e4b30cf32bf71c483a2494baf7bea708",
+      "bytes": 11084956,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "bytes": 11084628,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g100.glb",
+      "sha256": "6ee504745b25a2f5cabd0dfb6b370ea7bf5b7ca1b6fe920ea7dd4a8de3592a4d",
+      "bytes": 11085068,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/female_elegantsuit01/g000.glb",
+      "sha256": "9b2b731617a39ec4c7f4bf7628bfd94d5e0cd892d404235e08fced1ded4ef1b2",
+      "bytes": 5066800,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/female_elegantsuit01/g050.glb",
+      "sha256": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440",
+      "bytes": 5066532,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/female_elegantsuit01/g100.glb",
+      "sha256": "5fedaf8bc3f8b364361eeabfff9c6497c1d470106c0fa38a69a26d5ee3cd3d1e",
+      "bytes": 5066912,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_boxer_brief/g000.glb",
+      "sha256": "22f26e124fded4cf9a658710d86746a0613e97f98fa5f7041f272f9e44d39b85",
+      "bytes": 524752,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_boxer_brief/g050.glb",
+      "sha256": "4f0a206012250e980ad0f3f4f27101d8af023ce4b52775c986d7a7ee485cdaeb",
+      "bytes": 529836,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/foundation_boxer_brief/g100.glb",
+      "sha256": "a0dfd64cd0712eea8dda1b757c2684984ec490d8978c115aec2b2b48c1040aa3",
+      "bytes": 543264,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_bra/g000.glb",
+      "sha256": "719834aee090180bd3a05645ab0b66139c92333c1daf1ccc79573b2523940c13",
+      "bytes": 956028,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_bra/g050.glb",
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+      "bytes": 921176,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/foundation_bra/g100.glb",
+      "sha256": "71bdb54615779d954f964adf380e041008e06b30c7bac1973f176f694b94fb77",
+      "bytes": 898036,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_briefs/g000.glb",
+      "sha256": "046924114a9f617ba1f049924496a56b5cacdc324adc2938e4a665d4f012d536",
+      "bytes": 527888,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_briefs/g050.glb",
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+      "bytes": 529028,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/foundation_briefs/g100.glb",
+      "sha256": "3b6ad1aabeb0acca47a809a1c7a81c9436143caa809b5cb72ad494f6a9c4b5d3",
+      "bytes": 543280,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_vest/g000.glb",
+      "sha256": "d436771e202e88f967697c5cdae92b92738e06f57dd34b969d3ba55903752f7c",
+      "bytes": 1199336,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/foundation_vest/g050.glb",
+      "sha256": "4804bd9e11c7aafacc19ca9fa3ded25fbbd2c4d72c25a17d566087ee09ba6152",
+      "bytes": 1180828,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/foundation_vest/g100.glb",
+      "sha256": "db0339870e3a438435358f343d1232806aad0e7a3168ef78b88fda42749ec278",
+      "bytes": 1166188,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g000.glb",
+      "sha256": "096f02304cb86898ce2db1d4eafd2455e0c6200e10fd2263ab5e25f6bbc090e9",
+      "bytes": 2345868,
+      "state": "hydrated from exact main bytes"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g050.glb",
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "bytes": 2345604,
+      "state": "already hydrated"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g100.glb",
+      "sha256": "8d2f1cf4b4b07067cb003c01ae40a51a262b798e3a39636b622a9d17996dbee7",
+      "bytes": 2345984,
+      "state": "hydrated from exact main bytes"
+    }
+  ],
+  "hydratedCount": 61,
+  "alreadyHydratedCount": 12,
+  "totalBytes": 278493407,
+  "postAssetDiffs": [],
+  "scope": "Tracked LFS only under assets/, packages/testbed/src/palette-references/, tools/lut-bake/out/. Existing local bytes; no network, dependency modification or main writes."
+}

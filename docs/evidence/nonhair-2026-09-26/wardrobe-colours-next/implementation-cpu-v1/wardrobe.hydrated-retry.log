@@ -1,0 +1,79 @@
+==============================================================================
+wardrobe selftest — punch-list 9.1, 9.2, 9.3
+==============================================================================
+
+--- 9.1 the garment manifest ---
+  ok   the shipped manifest validates — 8 garments, 10 layers
+  ok   layer order is a total order — FOUNDATION=100 < HOSIERY=200 < BASE=300 < MID=400 < OUTER=500 < FOOTWEAR=600 < HANDWEAR=700 < NECKWEAR=800 < HEADWEAR=900 < ACCESSORY=1000
+  ok   garments sort innermost-first — female_casualsuit01 -> shoes01 -> fedora01
+  ok   RED: a duplicate layer name is rejected
+  ok   RED: two layer names at the same order are rejected — layers 'BASE' and 'OVERSHIRT' both claim order 300 — layer order would not be total
+  ok   RED: two suits at the same layer are rejected, not silently interpenetrated — 4 slot collisions: 'female_elegantsuit01' and 'female_casualsuit01' both claim TORSO at layer BASE — they would interpenetrate.
+  ok   a suit, shoes and a hat are wearable together
+  ok   RED: a garment with no alphaMode is rejected
+  ok   RED: a MASK garment with no alphaCutoff is rejected
+
+--- 9.2 the runtime hide-mask rebuild against the baked build ---
+  ok   the body carries the exported _HIDE_* attributes — _hide_female_casualsuit01, _hide_shoes01, _hide_female_elegantsuit01
+  ok   the whole body is 26756 triangles — 26756
+  ok   the body is BACKFACE CULLED, so triangle winding decides whether it renders at all — material.side = 0 (THREE.FrontSide = 0)
+  ok   suit + shoes: the rebuilt triangle COUNT equals the baked one — runtime 17012 = baked 17012 (research §2.4: 17012)
+  ok   suit + shoes: the rebuilt triangle SET equals the baked one — 0 only in the rebuild, 0 only in the bake
+  ok   suit + shoes: the rebuilt triangles equal the baked ones AS ORIENTED CORNER TRIPLES — 17012 triangles, 0 differing in winding, vertex or UV
+  ok   suit alone: the rebuilt triangle COUNT equals the baked one — runtime 21380 = baked 21380 (research §2.4: 21380)
+  ok   suit alone: the rebuilt triangle SET equals the baked one
+  ok   suit alone: the rebuilt triangles equal the baked ones AS ORIENTED CORNER TRIPLES — 21380 triangles, 0 differing
+  ok   every kept triangle FACES OUTWARD — geometric normal agrees with the shading normal — dressed 0/21380 inward (worst dot 0.263262), nude 0/26756 (worst dot 0.263262), 0 degenerate
+  ok   the runtime and baked vertices correspond 1:1, and their normals differ only ON the cut — 11779 kept vertices, 0 unmatched; 127 on the cut diverge up to 16.365°, off the cut 0.0316° — which is why the corner key is position + UV and NOT normal
+
+--- 9.2 RED: three mechanisms, one defect class ---
+  ok   RED 1: hide masks absent (export_attributes off) is caught — 26756 triangles, the whole body, against the baked 21380
+  ok   RED 2: the all-three-vertices keep rule is caught — 21626 triangles against the baked 21380, 246 too many
+  ok   RED 3: the corrupted mask flags the same number of vertices AND yields the same count — hid vertex 550 instead of 1486, both move 1 triangles; count 21380 = baked 21380
+  ok   RED 3: and the centroid clause catches it where the count clause cannot — 1 triangles in the rebuild that are not in the bake
+
+--- 9.2 RED: winding and seam twins, both invisible to count and centroid ---
+  ok   RED 4: reversed winding — the COUNT and CENTROID clauses both read GREEN on it — 21380 triangles, centroid multiset identical to the bake; this is why those two clauses alone were a decoration
+  ok   RED 4: the ORIENTED CORNER clause catches it — every triangle, not a sample — 21380 of 21380 triangles differ from the bake
+  ok   RED 4: and the intrinsic FACING clause catches it independently, with no bake to compare to — 21380/21380 triangles face inward, worst dot -1.000000 against +0.263262 when correct
+  ok   RED 5: a UV-seam twin — COUNT, CENTROID and FACING all read GREEN on it — 21380 triangles, centroid multiset identical, facing worst dot 0.263262 byte-identical to the correct rebuild's
+  ok   RED 5: only the ORIENTED CORNER clause catches it, because only its key carries UV — corner 524 -> its twin 525 (same position, same normal, UV 0.4468 away); 3 of 3 touched triangles differ from the bake
+
+--- 9.3 dress -> undress -> dress ---
+  ok   undress returns the body to 26756 triangles — 26756
+  ok   dress -> undress -> dress has no drift — 17012 -> 26756 -> 17012
+  ok   undress removes every garment mesh from the scene — 1 draw call
+  ok   garments are worn innermost-first — female_casualsuit01 -> shoes01 -> fedora01
+  ok   the qualified casual asset has its exact expected interior owner — 44ebc3eb3a09: 0 interior triangles, expected 0
+  ok   draw cost includes the body, each garment, and the qualified interior when present — 4, expected 4
+  ok   a dressed body draws fewer triangles than a nude one — 17012 body + 8800 garment = 25812 against 26756 nude
+  ok   every garment binds to the figure's own skeleton by bone name — the remap came out as the identity — both GLBs export the same 53-bone game_engine rig
+  ok   a dress step costs under 1 ms once the fragments are loaded — median 0.0992 ms over 30 runs (min 0.0847, max 0.3740); research §2.4 measured the rebuild alone at 0.1609 ms
+  ok   RED: dressing two suits at the same layer is refused
+  ok   a refused outfit leaves the previous one untouched — female_casualsuit01
+  ok   RED: releasing a worn garment is refused
+  ok   release() frees a garment that is no longer worn — 3 resident -> 2
+  ok   a released garment can be worn again — 21380 triangles
+
+--- 3.9 wardrobe half: every fragment casts, receives, and filters ---
+  ok   three garments were adopted — 3
+  ok   every worn fragment casts — 3 / 3
+  ok   every worn fragment receives — 3 / 3
+  ok   every garment texture samples at anisotropy >= 8 — female_casualsuit01 3 tex @ 8; shoes01 2 tex @ 8; fedora01 2 tex @ 8
+       AO maps present on 1 / 3 fragments (female_casualsuit01 uv1=true)
+  ok   no fragment carries an aoMap without a uv1 to sample it by — none
+
+--- 9.8 hook: the floor is unioned into every state, including undress ---
+  ok   dress() cannot omit a floor garment — female_casualsuit01, shoes01
+  ok   undress() returns to the floor, not to bare — shoes01
+  ok   takeOff() cannot remove a floor garment — shoes01
+
+==============================================================================
+PASS — 51 assertions.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Wardrobe: the body carries no _HIDE_* attributes. Rebuild it with `build_figure.py --hide-mask-attribute` — without them a garment will be worn over a body that is still fully drawn underneath it.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.

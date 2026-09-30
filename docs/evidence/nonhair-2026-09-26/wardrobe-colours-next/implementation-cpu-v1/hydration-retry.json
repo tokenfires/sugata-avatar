@@ -1,0 +1,18 @@
+{
+  "kind": "missing-local-LFS-fixture-recovery",
+  "priorReceiptSHA256": "def768499009b0d3bc3b3c487d5cd8d0fd6d42c75db56eedf4866340a16cdb71",
+  "hydrated": {
+    "path": "assets/wardrobe/fedora01/g050.glb",
+    "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27",
+    "bytes": 7638760,
+    "source": "existing exact main checkout bytes; pointer SHA/size verified"
+  },
+  "command": [
+    "node",
+    "packages/core/src/wardrobe/wardrobe.selftest.mjs"
+  ],
+  "exitCode": 0,
+  "log": "wardrobe.hydrated-retry.log",
+  "logSHA256": "ec46ef43c051a44ff282d88151b493bc31944ba563aabc9af626869d70460f2b",
+  "limits": "Only the failed existing wardrobe suite rerun; no product or test change, no GPU."
+}

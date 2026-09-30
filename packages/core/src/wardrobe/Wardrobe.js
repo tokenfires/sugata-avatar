@@ -114,6 +114,7 @@
 import { DoubleSide } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { createGarmentInterior } from './GarmentInterior.js';
+import { resolveWardrobeColours } from './WardrobeStyleOptions.js';
 
 /**
  * How a hide-mask attribute name in the manifest is matched against one in the GLB.
@@ -416,6 +417,8 @@ export class Wardrobe {
         this.loadFragment = options.loadFragment ?? defaultFragmentLoader;
         // Fixed for this wardrobe lifetime: cached fragments are keyed by garment ID.
         Object.defineProperty( this, 'materialStyle', { value: options.materialStyle ?? 'original', enumerable: true } );
+        const colours = resolveWardrobeColours( options.materialColours, this.materialStyle );
+        if ( colours ) Object.defineProperty( this, 'materialColours', { value: colours, enumerable: true } );
         this.createMaterial = options.createMaterial ?? null;
 
         this.body = figure.body;
@@ -579,6 +582,7 @@ export class Wardrobe {
     appearance() {
         return {
             style: this.materialStyle,
+            ...( this.materialColours ? { colours: Object.freeze( { ...this.materialColours } ) } : {} ),
             attached: !this.disposed && this.worn.every( id => {
                 const fragment = this.fragments.get( id );
                 return !!fragment && fragment.mesh.material === fragment.appliedMaterial;

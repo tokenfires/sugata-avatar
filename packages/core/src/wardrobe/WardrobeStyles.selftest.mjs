@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { MeshStandardNodeMaterial } from 'three/webgpu';
+import { Color, MeshStandardNodeMaterial } from 'three/webgpu';
 import { Figure } from '../figure/Figure.js';
 import { Wardrobe } from './Wardrobe.js';
 import { GarmentManifest } from './GarmentManifest.js';
@@ -43,8 +43,8 @@ function watches( scene ) {
         resource.dispose = function () { r.calls++; return dispose.call( this ); }; return r;
     } );
 }
-function owner( f, style, alter = null ) {
-    const options = createWardrobeStyle( style ), imported = [], replacements = [];
+function owner( f, style, alter = null, colours ) {
+    const options = createWardrobeStyle( style, colours ), imported = [], replacements = [];
     const w = new Wardrobe( f, manifest, { ...options, decencyFloor: new FoundationLayer( manifest, {
         preference: { TORSO: 'foundation_bra', HIPS: 'foundation_briefs' }
     } ).floor,
@@ -74,10 +74,17 @@ try {
     } );
     await check( 'same geometry and body/foundation indices under both palettes, unchanged cache identities across outfits', async () => {
         const states = [];
-        for ( const style of [ 'ecru', 'charcoal' ] ) {
-            const f = await figure(), borrowed = watches( f.root ), { w, imported, replacements } = owner( f, style );
+        for ( const [ style, colours ] of [ ['ecru'], ['charcoal'], ['ecru', {top: '#617a70', shoes: '#49342b'}],
+            ['charcoal', {top: '#ffffff', bottom: '#123456', shoes: '#000000'}] ] ) {
+            const f = await figure(), borrowed = watches( f.root ), { w, imported, replacements } = owner( f, style, null, colours );
             await w.dress( [ 'female_casualsuit01', 'shoes01' ] );
-            assert.deepEqual( w.appearance(), { style, attached: true } );
+            assert.deepEqual( w.appearance(), { style, ...(colours ? {colours} : {}), attached: true } );
+            if (colours) {
+                assert.notEqual(w.materialColours, colours); assert.ok(Object.isFrozen(w.materialColours));
+                assert.notEqual(w.appearance().colours, w.materialColours);
+                assert.throws(() => { w.appearance().colours.top = '#000000'; }, TypeError);
+                assert.throws(() => { w.materialColours = {}; }, TypeError);
+            }
             assert.throws( () => { w.materialStyle = 'original'; }, /read only/ );
             const snapshot = () => Object.fromEntries( [ [ 'body', f.body ], ...w.wornMeshes ].map( ( [ id, mesh ] ) => [ id, {
                 indices: Array.from( mesh.geometry.index.array.slice( 0, mesh.geometry.drawRange.count ) ),
@@ -95,27 +102,65 @@ try {
             w.dispose(); w.dispose(); assert.ok( imported.every( r => r.calls === 1 ) ); assert.ok( replacements.every( r => r.calls === 1 ) );
             assert.ok( borrowed.every( r => r.calls === 0 ) ); assert.equal( w.appearance().attached, false ); f.dispose();
         }
-        assert.deepEqual( states[ 0 ], states[ 1 ] );
+        for (const state of states.slice(1)) assert.deepEqual(states[0], state);
     } );
     await check( 'adoption failure after style creation frees both materials and preserves the existing outfit', async () => {
         const f = await figure(), { w, imported, replacements } = owner( f, 'ecru', ( gltf, id ) => {
             if ( id === 'female_elegantsuit01' ) gltf.scene.traverse( m => { if ( m.isSkinnedMesh ) m.skeleton.bones[ 0 ].name = 'invalid'; } );
-        } );
+        }, {top: '#617a70'} );
         await w.dress( [ 'female_casualsuit01', 'shoes01' ] ); const before = w.stats().worn;
         await assert.rejects( w.dress( [ 'female_elegantsuit01', 'shoes01' ] ), /joint|bone/ );
         assert.deepEqual( w.stats().worn, before ); assert.equal( w.appearance().attached, true );
         assert.equal( replacements.find( r => r.id === 'female_elegantsuit01' ).calls, 1 );
         w.dispose(); assert.ok( imported.every( r => r.calls === 1 ) ); assert.ok( replacements.every( r => r.calls === 1 ) ); f.dispose();
     } );
+    await check( 'real material graphs route independent tints and retain source maps, roughness and sock colour', async () => {
+        const constants = node => {
+            const found = [];
+            node.traverse(n => { if (n.isConstNode && typeof n.value === 'number') found.push(n.value); });
+            return found;
+        };
+        const hasColour = (node, hex) => {
+            const c = new Color(hex); let found = false;
+            node.traverse(n => { if (n.isConstNode && n.value?.isVector3 &&
+                n.value.x === c.r && n.value.y === c.g && n.value.z === c.b) found = true; });
+            return found;
+        };
+        for (const id of ['female_casualsuit01', 'female_elegantsuit01', 'shoes01']) {
+            const base = createWardrobeStyle('charcoal');
+            const loaded = await base.loadFragment(manifest.fragmentUrl(id, 'g050'), id);
+            let mesh; loaded.scene.traverse(m => { if (m.isSkinnedMesh) mesh = m; });
+            const original = mesh.material, material = base.createMaterial(id, mesh);
+            const custom = createWardrobeStyle('charcoal', {top: '#617a70', bottom: '#cbbbad', shoes: '#4b3639'});
+            const loadedCustom = await custom.loadFragment(manifest.fragmentUrl(id, 'g050'), id);
+            let customMesh; loadedCustom.scene.traverse(m => { if (m.isSkinnedMesh) customMesh = m; });
+            const sourceCustom = customMesh.material, changed = custom.createMaterial(id, customMesh);
+            for (const [replacement, source] of [[material, original], [changed, sourceCustom]]) {
+                for (const key of ['map', 'normalMap', 'aoMap', 'normalMapType', 'aoMapIntensity', 'side', 'shadowSide',
+                    'depthWrite', 'depthTest', 'transparent', 'opacity', 'alphaTest', 'metalness']) assert.equal(replacement[key], source[key], `${id}.${key}`);
+                assert.deepEqual(replacement.normalScale, source.normalScale);
+            }
+            assert.deepEqual(constants(changed.roughnessNode), constants(material.roughnessNode));
+            assert.equal(hasColour(changed.colorNode, id === 'shoes01' ? '#4b3639' : '#617a70'), true, id);
+            if (id !== 'shoes01') assert.equal(hasColour(changed.colorNode, '#cbbbad'), true, `${id} bottom`);
+            else {
+                assert.equal(hasColour(material.colorNode, '#303238'), true);
+                assert.equal(hasColour(changed.colorNode, '#303238'), true, 'socks remain base-owned');
+            }
+            assert.deepEqual(Object.keys(customMesh.geometry.attributes), Object.keys(mesh.geometry.attributes));
+            changed.dispose(); material.dispose();
+            for (const scene of [loaded.scene, loadedCustom.scene]) for (const r of watches(scene)) r.resource.dispose();
+        }
+    } );
     await check( 'late verified loads after disposal retire without creating or attaching a replacement', async () => {
         let release, arrived; const wait = new Promise( r => { release = r; } ), ready = new Promise( r => { arrived = r; } );
-        const f = await figure(), { w, imported, replacements } = owner( f, 'charcoal', async () => { arrived(); await wait; } );
+        const f = await figure(), { w, imported, replacements } = owner( f, 'charcoal', async () => { arrived(); await wait; }, {bottom: '#123456'} );
         const pending = w.dress( [ 'female_casualsuit01' ] ), rejected = assert.rejects( pending, /disposed/ );
         await ready; w.dispose(); release(); await rejected;
         assert.equal( replacements.length, 0 ); assert.ok( imported.every( r => r.calls === 1 ) ); assert.equal( w.wornMeshes.size, 0 ); f.dispose();
     } );
     await check( 'factory construction failure disposes its unreturned material and rejects unverified meshes', async () => {
-        const style = createWardrobeStyle( 'ecru' );
+        const style = createWardrobeStyle( 'ecru', {shoes: '#123456'} );
         assert.throws( () => style.createMaterial( 'shoes01', {} ), /unverified/ );
         const gltf = await style.loadFragment( manifest.fragmentUrl( 'shoes01', 'g050' ), 'shoes01' );
         let mesh; gltf.scene.traverse( m => { if ( m.isSkinnedMesh ) mesh = m; } );

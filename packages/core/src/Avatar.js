@@ -97,7 +97,7 @@
  * and a gate on their agreement is what keeps the liability visible instead of latent.
  */
 
-import { resolveWardrobeStyle } from './wardrobe/WardrobeStyleOptions.js';
+import { resolveWardrobeStyle, resolveWardrobeColours } from './wardrobe/WardrobeStyleOptions.js';
 import { resolveHairColour, resolveHairTint, mixedHairColour } from './material/HairColourOptions.js';
 import { Box3, Matrix4, SRGBColorSpace, Skeleton as SkinSkeleton } from 'three';
 import {
@@ -4669,8 +4669,9 @@ export function resolveWardrobeOption( value = false ) {
 
     }
     const style = resolveWardrobeStyle( value.style );
+    const colours = resolveWardrobeColours( value.colours, style );
     return { outfit: [ ...outfit ], foundation: { ...foundation },
-        ...( style === 'original' ? {} : { style } ) };
+        ...( style === 'original' ? {} : { style } ), ...( colours ? { colours } : {} ) };
 
 }
 

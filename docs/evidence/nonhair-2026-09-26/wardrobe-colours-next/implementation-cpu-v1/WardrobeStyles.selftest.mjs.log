@@ -1,0 +1,26 @@
+PASS finite styles copy into Avatar options while original keeps the prior configuration shape
+PASS all three reviewed byte streams pass; one-byte changes fail before GLTF parsing
+PASS same geometry and body/foundation indices under both palettes, unchanged cache identities across outfits
+PASS adoption failure after style creation frees both materials and preserves the existing outfit
+PASS real material graphs route independent tints and retain source maps, roughness and sock colour
+PASS late verified loads after disposal retire without creating or attaching a replacement
+PASS factory construction failure disposes its unreturned material and rejects unverified meshes
+{
+  "passed": 7,
+  "checks": [
+    "finite styles copy into Avatar options while original keeps the prior configuration shape",
+    "all three reviewed byte streams pass; one-byte changes fail before GLTF parsing",
+    "same geometry and body/foundation indices under both palettes, unchanged cache identities across outfits",
+    "adoption failure after style creation frees both materials and preserves the existing outfit",
+    "real material graphs route independent tints and retain source maps, roughness and sock colour",
+    "late verified loads after disposal retire without creating or attaching a replacement",
+    "factory construction failure disposes its unreturned material and rejects unverified meshes"
+  ],
+  "limits": "CPU API/geometry and no-throw resource retirement only. Rendering and arbitrary throwing dispose listeners are separate."
+}
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
