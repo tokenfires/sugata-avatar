@@ -1,0 +1,136 @@
+{
+  "status": "Freeze as next qualification lead; independently reviewed, not promoted",
+  "candidateSha256": "b418d97eacd6edd4312fb198959b69f0cb6dbf0531abe17bda7f0791ef9d04e4",
+  "runs": {
+    "motion-brown": {
+      "pid": 52334,
+      "started": "2026-09-30T05:12:55.722Z",
+      "finished": "2026-09-30T05:13:18.087Z",
+      "status": "captured",
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "errors": [],
+      "images": 186,
+      "geometryFrames": 38,
+      "numerical": {
+        "crossingFrames": 0,
+        "totalTriangleBodyPairs": 0,
+        "minimumVertexClearanceMm": 2.3892140237335724,
+        "maxRootErrorMm": 5.33997153461773,
+        "maxRootToRing1Degrees": 64.58371549992893,
+        "maxTipLagMm": 2.4094682465727493,
+        "finalTipLagMm": 0.00013750000222917364
+      },
+      "reportSha256": "3d3b58ddc2c8936d84bfdbc42331ac78b9bbe9a1ffd35ea5c4595d049eab7220"
+    },
+    "baseline-motion-dark": {
+      "pid": 52790,
+      "started": "2026-09-30T05:15:36.541Z",
+      "finished": "2026-09-30T05:15:58.883Z",
+      "status": "captured",
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "errors": [],
+      "images": 186,
+      "geometryFrames": 38,
+      "numerical": {
+        "crossingFrames": 1,
+        "totalTriangleBodyPairs": 26,
+        "minimumVertexClearanceMm": -5.08782867832648,
+        "maxRootErrorMm": 0.4150287107047658,
+        "maxRootToRing1Degrees": 4.868323086191658,
+        "maxTipLagMm": 4.988044360898615,
+        "finalTipLagMm": 0.0014559374294744944
+      },
+      "reportSha256": "8ab6254d900fef4a439fecd9f200801f68410bc4776c201621ded7b5bfd131d3"
+    },
+    "motion-dark": {
+      "pid": 52894,
+      "started": "2026-09-30T05:15:58.921Z",
+      "finished": "2026-09-30T05:16:21.380Z",
+      "status": "captured",
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "errors": [],
+      "images": 186,
+      "geometryFrames": 38,
+      "numerical": {
+        "crossingFrames": 0,
+        "totalTriangleBodyPairs": 0,
+        "minimumVertexClearanceMm": 2.3892140237335724,
+        "maxRootErrorMm": 5.33997153461773,
+        "maxRootToRing1Degrees": 64.58371549992893,
+        "maxTipLagMm": 2.4094682465727493,
+        "finalTipLagMm": 0.00013750000222917364
+      },
+      "reportSha256": "1bd8254c61453bef4572114aa3ffd3d29030c3fa2abaf669e018c454ed173885"
+    },
+    "baseline-motion-back": {
+      "pid": 52979,
+      "started": "2026-09-30T05:16:21.417Z",
+      "finished": "2026-09-30T05:16:43.842Z",
+      "status": "captured",
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "errors": [],
+      "images": 186,
+      "geometryFrames": 38,
+      "numerical": {
+        "crossingFrames": 1,
+        "totalTriangleBodyPairs": 26,
+        "minimumVertexClearanceMm": -5.08782867832648,
+        "maxRootErrorMm": 0.4150287107047658,
+        "maxRootToRing1Degrees": 4.868323086191658,
+        "maxTipLagMm": 4.988044360898615,
+        "finalTipLagMm": 0.0014559374294744944
+      },
+      "reportSha256": "7470a281e000ebb2701a545e64c9bb7061222f60404afa2626f82a53dc04a9c8"
+    },
+    "motion-back": {
+      "pid": 52789,
+      "started": "2026-09-30T05:16:43.880Z",
+      "finished": "2026-09-30T05:17:06.413Z",
+      "status": "captured",
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "errors": [],
+      "images": 186,
+      "geometryFrames": 38,
+      "numerical": {
+        "crossingFrames": 0,
+        "totalTriangleBodyPairs": 0,
+        "minimumVertexClearanceMm": 2.3892140237335724,
+        "maxRootErrorMm": 5.33997153461773,
+        "maxRootToRing1Degrees": 64.58371549992893,
+        "maxTipLagMm": 2.4094682465727493,
+        "finalTipLagMm": 0.00013750000222917364
+      },
+      "reportSha256": "d5fe06586ff888a01e8826f3820190dd72ef297454d404a57f8354b0c3890a8e"
+    }
+  },
+  "comparisons": [
+    {
+      "baseline": "baseline-motion-dark",
+      "candidate": "motion-dark",
+      "allNongeometrySetupEqual": true,
+      "all38SampleControlsEqual": true
+    },
+    {
+      "baseline": "baseline-motion-back",
+      "candidate": "motion-back",
+      "allNongeometrySetupEqual": true,
+      "all38SampleControlsEqual": true
+    }
+  ],
+  "next": "Trace wider authoring stages; ordinary procedural motion and continuous sequence review remain open"
+}

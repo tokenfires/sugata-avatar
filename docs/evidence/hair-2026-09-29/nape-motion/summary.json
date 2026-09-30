@@ -1,0 +1,81 @@
+{
+  "status": "Frozen v1 remains experimental; selected moving clearance fails in both arms",
+  "setupFieldsEqual": [
+    "disabled",
+    "keys",
+    "configuration",
+    "camera",
+    "projection",
+    "canvas",
+    "lights",
+    "lightingChanges",
+    "material",
+    "backend",
+    "adapter",
+    "parameters",
+    "clock"
+  ],
+  "equalAtAll38GeometrySamples": {
+    "headMatrix": true,
+    "clock": true,
+    "colliders": true,
+    "otherVertices": true,
+    "body": true,
+    "rig": true
+  },
+  "runs": [
+    {
+      "arm": "baseline",
+      "started": "2026-09-30T05:00:59.376Z",
+      "finished": "2026-09-30T05:01:21.711Z",
+      "pid": 50256,
+      "status": "captured",
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "errors": [],
+      "images": 186,
+      "geometryFrames": 38,
+      "reportPath": "captures/nape-motion-v2/baseline-rear-oblique-brown/report.json",
+      "reportSha256": "875f3ff95ab2e096796cae9f70466becd148d68509e82616996b789c597e5e65",
+      "numericalSummary": {
+        "crossingFrames": 1,
+        "totalTriangleBodyPairs": 26,
+        "minimumVertexClearanceMm": -5.08782867832648,
+        "maxRootErrorMm": 0.4150287107047658,
+        "maxRootToRing1Degrees": 4.868323086191658,
+        "maxTipLagMm": 4.988044360898615,
+        "finalTipLagMm": 0.0014559374294744944
+      },
+      "numericalSha256": "86b818237a61aa320bfc624e59768bb22856686e35a922e42d6a953ce64f2a02"
+    },
+    {
+      "arm": "candidate",
+      "started": "2026-09-30T05:01:21.749Z",
+      "finished": "2026-09-30T05:01:44.143Z",
+      "pid": 50255,
+      "status": "captured",
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "errors": [],
+      "images": 186,
+      "geometryFrames": 38,
+      "reportPath": "captures/nape-motion-v2/candidate-rear-oblique-brown/report.json",
+      "reportSha256": "dda3712b9f92789e254e926685d6338634e85894150593b4f4442a44c7d63b62",
+      "numericalSummary": {
+        "crossingFrames": 1,
+        "totalTriangleBodyPairs": 13,
+        "minimumVertexClearanceMm": -3.864073215517827,
+        "maxRootErrorMm": 5.326065542492296,
+        "maxRootToRing1Degrees": 64.56427917653657,
+        "maxTipLagMm": 2.330824970696954,
+        "finalTipLagMm": 0.00030167461902317147
+      },
+      "numericalSha256": "92e167cf552ce2d38a101e3a317d87719d774e015f9635c9b79aa4a5b7c4d2b5"
+    }
+  ],
+  "candidateSha256": "dc6d17fbd6b98facd81e420ee24b46e28c2514243e065446e30ab2ef6de27427"
+}
