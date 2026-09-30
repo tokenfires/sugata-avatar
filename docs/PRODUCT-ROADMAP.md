@@ -48,8 +48,11 @@ behavior across identities, skeleton/foundation coupling and actual fit remain o
 A subsequent [endpoint and rest-orientation study](evidence/wardrobe-2026-09-30/skeleton-placement/README.md)
 now reproduces all 106 native endpoints and the finite rest-matrix convention in three coupled
 g050 cases, independently reviewed. The [accepted neutral export bridge](evidence/wardrobe-2026-09-30/skeleton-export-bridge/README.md)
-also verifies actual hierarchy, body mapping and rest-bind arithmetic. Posed skin and runtime
-body updates across a broader range remain next; PUNCHLIST 10.7 remains open. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
+also verifies actual hierarchy, body mapping and rest-bind arithmetic. The [posed comparison](evidence/wardrobe-2026-09-30/skeleton-posed-skin/README.md)
+passes matched four-influence arithmetic but fails the unchanged full-native skin gate: a dropped
+thigh influence produces1.589mm error in the neutral coupled waist. Actual plain-body views
+show subtle local differences, not an obvious gross context defect. A full-influence isolated
+representation is next; broader range/runtime/appearance remain open, and PUNCHLIST10.7 stays unchecked. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
 

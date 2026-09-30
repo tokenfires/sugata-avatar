@@ -2632,7 +2632,10 @@ Measurements, sources and the evidence behind every number below live in
       inverse binds/posed skin, broader identities and visual qualification remain open. The
       [neutral accepted-export bridge](evidence/wardrobe-2026-09-30/skeleton-export-bridge/README.md)
       subsequently verifies this one file's hierarchy/body map/rest binds; it does not qualify
-      body updates or posed skin. This item stays unchecked.
+      body updates or posed skin. The subsequent [posed study](evidence/wardrobe-2026-09-30/skeleton-posed-skin/README.md)
+      passes matched four-influence arithmetic but fails full-native0.342mm fidelity in the
+      neutral coupled control (1.589mm waist witness, omitted thigh weight). Full source
+      influence preservation is the next isolated study; no runtime/appearance promotion. This item stays unchecked.
 - [ ] **10.8** Continuous gender. With 10.1 and 10.7 the five 11 MB bakes become one base plus a
       parameter, and `Identity.js`'s `NEAREST` / `LIVE_PREVIEW` split — which exists *only* because
       glTF cannot morph a skeleton — collapses into one exact mode.

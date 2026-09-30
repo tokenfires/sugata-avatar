@@ -1,0 +1,2308 @@
+{
+  "native": {
+    "pid": 43700,
+    "started": "2026-09-30T17:56:06.736570+00:00",
+    "finished": "2026-09-30T17:56:17.967909+00:00",
+    "status": "observed-awaiting-independent-comparison",
+    "scope": "Three bodies, full native and explicit exported-four influences, three local-bone poses. No production or visual qualification."
+  },
+  "comparison": {
+    "started": "2026-09-30T18:01:48.276Z",
+    "pid": 52932,
+    "node": "v24.13.1",
+    "status": "compared",
+    "errors": [],
+    "inputs": {
+      "captures/skeleton-native-pose-2026-09-30-v1/report.json": "226a55bc568bec712c847b5a12b91b6c7a019170d91dd26c2d56e60c140f2be1",
+      "captures/skeleton-export-bridge-2026-09-30-v1/report.json": "a1c1ec374c41f2fd1c197d666a6b25d7c0f11bf52b796c4a5b02cc03270ed3e9",
+      "captures/skeleton-orientation-2026-09-30-v1/report.json": "caecc9a7678e5ebc5d15af9979905a1c674d063f3df8d697cdc48ce8880065ed",
+      "captures/skeleton-native-comparison-2026-09-30-v1/report.json": "b7096610aac66ab73830d1ca1ff09232cb0ec92cd6caa0380750bd2531ef4a0a",
+      "tools/critic/compare-skeleton-posed.mjs": "be45cc1935ecba2413ad0c2185feac8c39f23cd48ed3d26e401e783139e47988",
+      "docs/evidence/wardrobe-2026-09-30/skeleton-posed-skin/PLAN.md": "07a68814b63289abefefbe77171bfb36f44df3bb32f01a11779bca2662af14e7"
+    },
+    "cases": [
+      {
+        "weight": 0,
+        "pose": "identity",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 8.005932084973443e-13,
+            "maxComponent": 4.440892098500626e-16,
+            "worst": {
+              "bone": "middle_02_r",
+              "point": "basisX",
+              "actual": [
+                0.08163577318191528,
+                -0.9480050802230828,
+                1.3972001075744633
+              ],
+              "expected": [
+                0.08163577318191528,
+                -0.9480050802230835,
+                1.397200107574463
+              ],
+              "mm": 8.005932084973443e-13
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.008103126995893968,
+            "maxComponent": 6.950622918763805e-06,
+            "worst": {
+              "bone": "ball_r",
+              "point": "basisX",
+              "actual": [
+                0.8073518102728532,
+                -0.0780804641158993,
+                -0.08454299548131489
+              ],
+              "expected": [
+                0.8073503077030182,
+                -0.07808429002761841,
+                -0.08453601226210594
+              ],
+              "mm": 0.008103126995893968
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00023899994733782217,
+            "rmsMm": 0.00013846753272300707,
+            "exact": 108,
+            "worst": {
+              "vertex": 18851,
+              "actual": [
+                0.06723452359437943,
+                0.04089106246829029,
+                1.558775901794434
+              ],
+              "expected": [
+                0.06723451614379883,
+                0.040891047567129135,
+                1.5587756633758545
+              ],
+              "mm": 0.00023899994733782217
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00023899994733782217,
+            "rmsMm": 0.00013847271378651945,
+            "exact": 114,
+            "worst": {
+              "vertex": 18851,
+              "actual": [
+                0.06723452359437943,
+                0.04089106246829029,
+                1.558775901794434
+              ],
+              "expected": [
+                0.06723451614379883,
+                0.040891047567129135,
+                1.5587756633758545
+              ],
+              "mm": 0.00023899994733782217
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.0001595449239191412,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.00015952404762716886,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00011926748300777467,
+            "rmsMm": 3.2099003355526437e-06,
+            "exact": 14431,
+            "worst": {
+              "vertex": 813,
+              "actual": [
+                -0.05892200395464897,
+                1.4061472415924072,
+                0.0342709943652153
+              ],
+              "expected": [
+                -0.05892200395464897,
+                1.4061473608016968,
+                0.034270990639925
+              ],
+              "mm": 0.00011926748300777467
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": true,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": true,
+        "artifact": {
+          "file": "case-0-identity.json.gz",
+          "sha256": "8a7b665a17cb9c6a7388fd489767b77c3b3c8c2ad632a85195822764833f50df",
+          "decodedSHA256": "1550490ba1b77355ea2a4062870a33072b9f3e960aa073ceb1d078f2c0f349cc",
+          "bytes": 4868758
+        }
+      },
+      {
+        "weight": 0,
+        "pose": "elbow",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.00025925653682047384,
+            "maxComponent": 1.7442288324787114e-07,
+            "worst": {
+              "bone": "ring_03_l",
+              "point": "basisX",
+              "actual": [
+                1.133221899549784,
+                -0.04416804702261973,
+                0.4809401390359387
+              ],
+              "expected": [
+                1.1332218050956726,
+                -0.044167935848236084,
+                0.48093992471694946
+              ],
+              "mm": 0.00025925653682047384
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.008103126995893968,
+            "maxComponent": 6.950622918763805e-06,
+            "worst": {
+              "bone": "ball_r",
+              "point": "basisX",
+              "actual": [
+                0.8073518102728532,
+                -0.0780804641158993,
+                -0.08454299548131489
+              ],
+              "expected": [
+                0.8073503077030182,
+                -0.07808429002761841,
+                -0.08453601226210594
+              ],
+              "mm": 0.008103126995893968
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0002679567372618827,
+            "rmsMm": 0.0001401334379637161,
+            "exact": 92,
+            "worst": {
+              "vertex": 9446,
+              "actual": [
+                0.31011503231472304,
+                -0.3477319997400878,
+                1.1121771596377152
+              ],
+              "expected": [
+                0.3101150691509247,
+                -0.34773197770118713,
+                1.1121768951416016
+              ],
+              "mm": 0.0002679567372618827
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0002679567372618827,
+            "rmsMm": 0.00014014054688822974,
+            "exact": 98,
+            "worst": {
+              "vertex": 9446,
+              "actual": [
+                0.31011503231472304,
+                -0.3477319997400878,
+                1.1121771596377152
+              ],
+              "expected": [
+                0.3101150691509247,
+                -0.34773197770118713,
+                1.1121768951416016
+              ],
+              "mm": 0.0002679567372618827
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.00016660816188048577,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.00016659648429691602,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0001264405455326821,
+            "rmsMm": 4.377162087550654e-06,
+            "exact": 14385,
+            "worst": {
+              "vertex": 9952,
+              "actual": [
+                0.3955579400062561,
+                1.058742880821228,
+                0.351948618888855
+              ],
+              "expected": [
+                0.3955579698085785,
+                1.0587427616119385,
+                0.3519485890865326
+              ],
+              "mm": 0.0001264405455326821
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": true,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": true,
+        "artifact": {
+          "file": "case-0-elbow.json.gz",
+          "sha256": "88891bdcb50a9a7348ce79500045b26d861cb48fffdac409ec78d87206d1bb6d",
+          "decodedSHA256": "0bbf30f40b1859f780e2f7272e550c6434b92cbbead5c632cf61a9d7ed134682",
+          "bytes": 4940784
+        }
+      },
+      {
+        "weight": 0,
+        "pose": "coupled",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.0004274904763155614,
+            "maxComponent": 3.129653404210231e-07,
+            "worst": {
+              "bone": "index_02_r",
+              "point": "basisZ",
+              "actual": [
+                0.1964189807820496,
+                0.3304576151540658,
+                0.49645542876955884
+              ],
+              "expected": [
+                0.19641897082328796,
+                0.3304577171802521,
+                0.49645501375198364
+              ],
+              "mm": 0.0004274904763155614
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.00811091480681375,
+            "maxComponent": 7.0965601347006135e-06,
+            "worst": {
+              "bone": "ball_l",
+              "point": "basisX",
+              "actual": [
+                1.2383431550631816,
+                -0.15821129870787112,
+                0.1894831760759571
+              ],
+              "expected": [
+                1.2383418679237366,
+                -0.1582076009362936,
+                0.18947607278823853
+              ],
+              "mm": 0.00811091480681375
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0002942147900556664,
+            "rmsMm": 8.69869659996412e-05,
+            "exact": 0,
+            "worst": {
+              "vertex": 1743,
+              "actual": [
+                -0.26119215886470387,
+                -0.041474383113442294,
+                1.1557635801834258
+              ],
+              "expected": [
+                -0.26119208335876465,
+                -0.04147438704967499,
+                1.155763864517212
+              ],
+              "mm": 0.0002942147900556664
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0002942147900556664,
+            "rmsMm": 8.695636201473095e-05,
+            "exact": 0,
+            "worst": {
+              "vertex": 1743,
+              "actual": [
+                -0.26119215886470387,
+                -0.041474383113442294,
+                1.1557635801834258
+              ],
+              "expected": [
+                -0.26119208335876465,
+                -0.04147438704967499,
+                1.155763864517212
+              ],
+              "mm": 0.0002942147900556664
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0005946982496671019,
+            "rmsMm": 0.0002124848825247469,
+            "exact": 0,
+            "worst": {
+              "vertex": 6984,
+              "actual": [
+                -0.12895940980027656,
+                0.4629409447096751,
+                0.15493295872275925
+              ],
+              "expected": [
+                -0.12895922362804413,
+                0.46294066309928894,
+                0.15493246912956238
+              ],
+              "mm": 0.0005946982496671019
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": false,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 1.5892395840427833,
+            "rmsMm": 0.047401733361531716,
+            "exact": 0,
+            "worst": {
+              "vertex": 4561,
+              "actual": [
+                -0.12759522504799806,
+                0.9839990299333591,
+                0.09066911631512412
+              ],
+              "expected": [
+                -0.12700346112251282,
+                0.9847267866134644,
+                0.08938620239496231
+              ],
+              "mm": 1.5892395840427833
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": false,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 1.5892170635055456,
+            "rmsMm": 0.047398811075617865,
+            "exact": 13372,
+            "worst": {
+              "vertex": 4561,
+              "actual": [
+                -0.1275952309370041,
+                0.9839990735054016,
+                0.09066911041736603
+              ],
+              "expected": [
+                -0.12700346112251282,
+                0.9847267866134644,
+                0.08938620239496231
+              ],
+              "mm": 1.5892170635055456
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": false,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": true,
+        "artifact": {
+          "file": "case-0-coupled.json.gz",
+          "sha256": "c37cce2061093de422a2a26d6d76f42a280335407fe229651be60998ccb0b8de",
+          "decodedSHA256": "8a38113533ac9f3a73cd905bc93e10aed8e213a537fe263f0dcad888901cf88a",
+          "bytes": 5482613
+        }
+      },
+      {
+        "weight": 0.25,
+        "pose": "identity",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 9.992007221626409e-13,
+            "maxComponent": 5.551115123125783e-16,
+            "worst": {
+              "bone": "thumb_03_l",
+              "point": "basisX",
+              "actual": [
+                1.3519484996795648,
+                -0.6327385306358341,
+                1.125391021370887
+              ],
+              "expected": [
+                1.3519484996795654,
+                -0.6327385306358337,
+                1.1253910213708878
+              ],
+              "mm": 9.992007221626409e-13
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.0052580165660760705,
+            "maxComponent": 5.130273861772561e-06,
+            "worst": {
+              "bone": "ball_l",
+              "point": "basisZ",
+              "actual": [
+                0.28313503096775516,
+                -0.1925215952329197,
+                -1.0114790946346817
+              ],
+              "expected": [
+                0.2831299155950546,
+                -0.19252069294452667,
+                -1.0114799104630947
+              ],
+              "mm": 0.0052580165660760705
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00023899994733782217,
+            "rmsMm": 0.00013869058336986732,
+            "exact": 58,
+            "worst": {
+              "vertex": 18851,
+              "actual": [
+                0.06723452359437943,
+                0.04089106246829029,
+                1.558775901794434
+              ],
+              "expected": [
+                0.06723451614379883,
+                0.040891047567129135,
+                1.5587756633758545
+              ],
+              "mm": 0.00023899994733782217
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00023899994733782217,
+            "rmsMm": 0.00013869623193853007,
+            "exact": 80,
+            "worst": {
+              "vertex": 18851,
+              "actual": [
+                0.06723452359437943,
+                0.04089106246829029,
+                1.558775901794434
+              ],
+              "expected": [
+                0.06723451614379883,
+                0.040891047567129135,
+                1.5587756633758545
+              ],
+              "mm": 0.00023899994733782217
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.00015913429079733937,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.0001591127704202144,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0001193256480846328,
+            "rmsMm": 3.2144165583175385e-06,
+            "exact": 14422,
+            "worst": {
+              "vertex": 818,
+              "actual": [
+                -0.04579799994826317,
+                1.4073742628097534,
+                0.04962851479649544
+              ],
+              "expected": [
+                -0.04579800367355347,
+                1.407374382019043,
+                0.04962851107120514
+              ],
+              "mm": 0.0001193256480846328
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": true,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": true,
+        "artifact": {
+          "file": "case-0_25-identity.json.gz",
+          "sha256": "4e482c82498748dc1e955489a79ba52220e896583db0fe03c73cc3e0e44556d7",
+          "decodedSHA256": "c1e65657a004d9767d0766c9910932dfab7d0ab4ae96d9e969c2555bfd163561",
+          "bytes": 4853090
+        }
+      },
+      {
+        "weight": 0.25,
+        "pose": "elbow",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.00019216854022994115,
+            "maxComponent": 1.6644376610308598e-07,
+            "worst": {
+              "bone": "thumb_03_l",
+              "point": "basisZ",
+              "actual": [
+                0.7722574861088003,
+                -0.3310558486385462,
+                0.22990250159993497
+              ],
+              "expected": [
+                0.7722574472427368,
+                -0.33105580508708954,
+                0.22990268468856812
+              ],
+              "mm": 0.00019216854022994115
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.0052580165660760705,
+            "maxComponent": 5.130273861772561e-06,
+            "worst": {
+              "bone": "ball_l",
+              "point": "basisZ",
+              "actual": [
+                0.28313503096775516,
+                -0.1925215952329197,
+                -1.0114790946346817
+              ],
+              "expected": [
+                0.2831299155950546,
+                -0.19252069294452667,
+                -1.0114799104630947
+              ],
+              "mm": 0.0052580165660760705
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.000305389390030985,
+            "rmsMm": 0.000140519442307063,
+            "exact": 52,
+            "worst": {
+              "vertex": 13909,
+              "actual": [
+                0.3782865374694673,
+                -0.4148016894594383,
+                1.075388389877136
+              ],
+              "expected": [
+                0.37828654050827026,
+                -0.41480156779289246,
+                1.0753886699676514
+              ],
+              "mm": 0.000305389390030985
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.000305389390030985,
+            "rmsMm": 0.00014052060490119453,
+            "exact": 74,
+            "worst": {
+              "vertex": 13909,
+              "actual": [
+                0.3782865374694673,
+                -0.4148016894594383,
+                1.075388389877136
+              ],
+              "expected": [
+                0.37828654050827026,
+                -0.41480156779289246,
+                1.0753886699676514
+              ],
+              "mm": 0.000305389390030985
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.00016426865783694287,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00047778209617538715,
+            "rmsMm": 0.00016422073798638443,
+            "exact": 0,
+            "worst": {
+              "vertex": 30,
+              "actual": [
+                -0.040394507348537445,
+                1.5500404834747312,
+                0.12842547893524148
+              ],
+              "expected": [
+                -0.040394511073827744,
+                1.5500400066375732,
+                0.1284254491329193
+              ],
+              "mm": 0.00047778209617538715
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0001264405455326821,
+            "rmsMm": 4.7796589082897265e-06,
+            "exact": 14383,
+            "worst": {
+              "vertex": 10108,
+              "actual": [
+                0.4048730432987213,
+                1.0410817861557007,
+                0.3559379279613495
+              ],
+              "expected": [
+                0.4048730731010437,
+                1.0410816669464111,
+                0.3559378981590271
+              ],
+              "mm": 0.0001264405455326821
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": true,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": true,
+        "artifact": {
+          "file": "case-0_25-elbow.json.gz",
+          "sha256": "a87126b243e9741b06eecda77e05622cd8d04f4d7b07c0ad7d50e078b209d769",
+          "decodedSHA256": "ca3d278b589fc43fb279b584cd6ce3e1b6fb55c6cdc840feced6250bc3f2f717",
+          "bytes": 4927045
+        }
+      },
+      {
+        "weight": 0.25,
+        "pose": "coupled",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.00037434769846197004,
+            "maxComponent": 3.2944296435299947e-07,
+            "worst": {
+              "bone": "index_01_l",
+              "point": "basisY",
+              "actual": [
+                0.04974333164611072,
+                -1.2972668308338593,
+                0.7880530313505891
+              ],
+              "expected": [
+                0.049743399024009705,
+                -1.297267198562622,
+                0.7880530506372452
+              ],
+              "mm": 0.00037434769846197004
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.005357493601453463,
+            "maxComponent": 5.157785119863645e-06,
+            "worst": {
+              "bone": "ball_l",
+              "point": "basisZ",
+              "actual": [
+                0.42401473187714156,
+                -0.1801554629633691,
+                -0.9860226564795971
+              ],
+              "expected": [
+                0.4240095317363739,
+                -0.1801547408103943,
+                -0.9860237240791321
+              ],
+              "mm": 0.005357493601453463
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00024944678369649687,
+            "rmsMm": 7.709374984956638e-05,
+            "exact": 0,
+            "worst": {
+              "vertex": 3455,
+              "actual": [
+                -0.43179633939193474,
+                -0.10524835068586143,
+                1.041429047021361
+              ],
+              "expected": [
+                -0.43179628252983093,
+                -0.105248361825943,
+                1.041428804397583
+              ],
+              "mm": 0.00024944678369649687
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00024944678369649687,
+            "rmsMm": 7.714223026861556e-05,
+            "exact": 0,
+            "worst": {
+              "vertex": 3455,
+              "actual": [
+                -0.43179633939193474,
+                -0.10524835068586143,
+                1.041429047021361
+              ],
+              "expected": [
+                -0.43179628252983093,
+                -0.105248361825943,
+                1.041428804397583
+              ],
+              "mm": 0.00024944678369649687
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0005163082512953077,
+            "rmsMm": 0.00015314264370631318,
+            "exact": 0,
+            "worst": {
+              "vertex": 1605,
+              "actual": [
+                -0.10787442458776528,
+                1.3981082219927758,
+                0.06010594322448359
+              ],
+              "expected": [
+                -0.10787441581487656,
+                1.398108720779419,
+                0.060106076300144196
+              ],
+              "mm": 0.0005163082512953077
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": false,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 1.5906658287657278,
+            "rmsMm": 0.04812481903281874,
+            "exact": 0,
+            "worst": {
+              "vertex": 4561,
+              "actual": [
+                -0.12759522504799806,
+                0.9839990299333591,
+                0.09066911631512412
+              ],
+              "expected": [
+                -0.12700782716274261,
+                0.9847274422645569,
+                0.08938280493021011
+              ],
+              "mm": 1.5906658287657278
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": false,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 1.5906432817000271,
+            "rmsMm": 0.048120213446497515,
+            "exact": 13351,
+            "worst": {
+              "vertex": 4561,
+              "actual": [
+                -0.1275952309370041,
+                0.9839990735054016,
+                0.09066911041736603
+              ],
+              "expected": [
+                -0.12700782716274261,
+                0.9847274422645569,
+                0.08938280493021011
+              ],
+              "mm": 1.5906432817000271
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": false,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": false,
+        "artifact": {
+          "file": "case-0_25-coupled.json.gz",
+          "sha256": "2363eee02955d78c61a28c69ea9b78ae006d06326ce64aabaf18a67e9ebc7485",
+          "decodedSHA256": "d68a234e79d54861b9bc23bad8a72e33643d8da1b244d828a43e93078ea6cc9a",
+          "bytes": 5487454
+        }
+      },
+      {
+        "weight": 1,
+        "pose": "identity",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 8.881784197001252e-13,
+            "maxComponent": 7.771561172376096e-16,
+            "worst": {
+              "bone": "pinky_02_r",
+              "point": "basisX",
+              "actual": [
+                -0.26105183362960815,
+                -1.135663390159607,
+                1.252816379070281
+              ],
+              "expected": [
+                -0.26105183362960815,
+                -1.135663390159607,
+                1.252816379070282
+              ],
+              "mm": 8.881784197001252e-13
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.006603109563021998,
+            "maxComponent": 5.146117500770542e-06,
+            "worst": {
+              "bone": "pinky_02_l",
+              "point": "basisZ",
+              "actual": [
+                -0.4179315377270222,
+                -0.011770999071149063,
+                0.7276151977494274
+              ],
+              "expected": [
+                -0.4179295301437378,
+                -0.011767297983169556,
+                0.7276101112365723
+              ],
+              "mm": 0.006603109563021998
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0002425733297482089,
+            "rmsMm": 9.177119948152842e-05,
+            "exact": 186,
+            "worst": {
+              "vertex": 14048,
+              "actual": [
+                0.1954810470342636,
+                -0.014773963019251815,
+                1.3147118091583252
+              ],
+              "expected": [
+                0.19548100233078003,
+                -0.014773963019251823,
+                1.314711570739746
+              ],
+              "mm": 0.0002425733297482089
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0002425733297482089,
+            "rmsMm": 9.175005259304496e-05,
+            "exact": 199,
+            "worst": {
+              "vertex": 14048,
+              "actual": [
+                0.1954810470342636,
+                -0.014773963019251815,
+                1.3147118091583252
+              ],
+              "expected": [
+                0.19548100233078003,
+                -0.014773963019251823,
+                1.314711570739746
+              ],
+              "mm": 0.0002425733297482089
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0004788266197118316,
+            "rmsMm": 0.00011942829105814783,
+            "exact": 0,
+            "worst": {
+              "vertex": 3806,
+              "actual": [
+                -0.4444280974566938,
+                1.0193042755126946,
+                0.14095051586627938
+              ],
+              "expected": [
+                -0.44442805647850037,
+                1.019303798675537,
+                0.1409505009651184
+              ],
+              "mm": 0.0004788266197118316
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0004788266197118316,
+            "rmsMm": 0.00011944169624594642,
+            "exact": 0,
+            "worst": {
+              "vertex": 3806,
+              "actual": [
+                -0.4444280974566938,
+                1.0193042755126946,
+                0.14095051586627938
+              ],
+              "expected": [
+                -0.44442805647850037,
+                1.019303798675537,
+                0.1409505009651184
+              ],
+              "mm": 0.0004788266197118316
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.00011920928955078125,
+            "rmsMm": 2.270828619373519e-06,
+            "exact": 14449,
+            "worst": {
+              "vertex": 812,
+              "actual": [
+                -0.05565950646996498,
+                1.401627779006958,
+                0.03974046930670738
+              ],
+              "expected": [
+                -0.05565950646996498,
+                1.4016276597976685,
+                0.03974046930670738
+              ],
+              "mm": 0.00011920928955078125
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": true,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": true,
+        "artifact": {
+          "file": "case-1-identity.json.gz",
+          "sha256": "0c60dc7ad069f9d1ecc60fe92b11fada12a8f983ccf1cf9be751cc0f82662235",
+          "decodedSHA256": "79c48468c6d30ba6cf75d666b67b95271ba36ba879278f414679b1258fefb2fa",
+          "bytes": 4743070
+        }
+      },
+      {
+        "weight": 1,
+        "pose": "elbow",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.00035227278880780823,
+            "maxComponent": 2.2344957972819657e-07,
+            "worst": {
+              "bone": "ring_03_l",
+              "point": "basisY",
+              "actual": [
+                0.2861448611156625,
+                -1.1561617832697912,
+                0.4250336398021788
+              ],
+              "expected": [
+                0.28614485263824463,
+                -1.1561618447303772,
+                0.4250339865684509
+              ],
+              "mm": 0.00035227278880780823
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.00666230293199292,
+            "maxComponent": 6.017583416229044e-06,
+            "worst": {
+              "bone": "pinky_02_l",
+              "point": "basisZ",
+              "actual": [
+                -0.3792647499078474,
+                0.10106768610560452,
+                0.677546031451296
+              ],
+              "expected": [
+                -0.37926185131073,
+                0.10106781125068665,
+                0.6775400340557098
+              ],
+              "mm": 0.00666230293199292
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0004234580446840081,
+            "rmsMm": 9.519793400928771e-05,
+            "exact": 179,
+            "worst": {
+              "vertex": 17103,
+              "actual": [
+                0.3452596738796644,
+                -0.064530114980891,
+                1.1772428181072943
+              ],
+              "expected": [
+                0.34525972604751587,
+                -0.06453009694814682,
+                1.177242398262024
+              ],
+              "mm": 0.0004234580446840081
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.0004234580446840081,
+            "rmsMm": 9.518318233959732e-05,
+            "exact": 190,
+            "worst": {
+              "vertex": 17103,
+              "actual": [
+                0.3452596738796644,
+                -0.064530114980891,
+                1.1772428181072943
+              ],
+              "expected": [
+                0.34525972604751587,
+                -0.06453009694814682,
+                1.177242398262024
+              ],
+              "mm": 0.0004234580446840081
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0005485157019325436,
+            "rmsMm": 0.00013144177764620743,
+            "exact": 0,
+            "worst": {
+              "vertex": 10925,
+              "actual": [
+                0.35083883190962295,
+                1.1737554654567484,
+                0.06366783209653509
+              ],
+              "expected": [
+                0.350838840007782,
+                1.1737549304962158,
+                0.06366795301437378
+              ],
+              "mm": 0.0005485157019325436
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0005485157019325436,
+            "rmsMm": 0.00013144174689313056,
+            "exact": 0,
+            "worst": {
+              "vertex": 10925,
+              "actual": [
+                0.35083883190962295,
+                1.1737554654567484,
+                0.06366783209653509
+              ],
+              "expected": [
+                0.350838840007782,
+                1.1737549304962158,
+                0.06366795301437378
+              ],
+              "mm": 0.0005485157019325436
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0001264405455326821,
+            "rmsMm": 4.083401201761216e-06,
+            "exact": 14416,
+            "worst": {
+              "vertex": 10641,
+              "actual": [
+                0.41762852668762207,
+                1.0594943761825562,
+                0.3347170650959015
+              ],
+              "expected": [
+                0.41762855648994446,
+                1.0594942569732666,
+                0.3347170352935791
+              ],
+              "mm": 0.0001264405455326821
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": true,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": true,
+        "artifact": {
+          "file": "case-1-elbow.json.gz",
+          "sha256": "500ae1729eb8cc4f04b3d3fc145ad6bec14b314bf2eb05a7d07d300276e99e39",
+          "decodedSHA256": "dbd200e4adc0a4ae8240b1c6a5ae5d40dc3d91709521c81df89008cbffcf1f95",
+          "bytes": 4815872
+        }
+      },
+      {
+        "weight": 1,
+        "pose": "coupled",
+        "comparisons": {
+          "observedBasisPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.000531908614562352,
+            "maxComponent": 3.201810321318277e-07,
+            "worst": {
+              "bone": "pinky_03_r",
+              "point": "basisY",
+              "actual": [
+                -0.586591479234323,
+                -0.44550489893224066,
+                -0.13613689023609477
+              ],
+              "expected": [
+                -0.5865917131304741,
+                -0.4455048590898514,
+                -0.13613736629486084
+              ],
+              "mm": 0.000531908614562352
+            }
+          },
+          "constructedCommandPropagation": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.1,
+            "bones": 53,
+            "witnesses": 265,
+            "maxMm": 0.006953104975973509,
+            "maxComponent": 6.622742183146069e-06,
+            "worst": {
+              "bone": "pinky_02_l",
+              "point": "basisZ",
+              "actual": [
+                -0.570105177389681,
+                0.09813853732169814,
+                0.8858896224883798
+              ],
+              "expected": [
+                -0.5701038539409637,
+                0.0981396734714508,
+                0.8858828917145729
+              ],
+              "mm": 0.006953104975973509
+            }
+          },
+          "nativeFullLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00030061569915856563,
+            "rmsMm": 6.966187451352309e-05,
+            "exact": 0,
+            "worst": {
+              "vertex": 16976,
+              "actual": [
+                0.24508805571066514,
+                -0.04330809474265638,
+                1.2637192495749903
+              ],
+              "expected": [
+                0.24508796632289886,
+                -0.043308086693286896,
+                1.2637189626693726
+              ],
+              "mm": 0.00030061569915856563
+            }
+          },
+          "nativeFourLinear": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 19158,
+            "maxMm": 0.00030061569915856563,
+            "rmsMm": 6.964297757116284e-05,
+            "exact": 0,
+            "worst": {
+              "vertex": 16976,
+              "actual": [
+                0.24508805571066514,
+                -0.04330809474265638,
+                1.2637192495749903
+              ],
+              "expected": [
+                0.24508796632289886,
+                -0.043308086693286896,
+                1.2637189626693726
+              ],
+              "mm": 0.00030061569915856563
+            }
+          },
+          "proposedVersusNativeFour": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0005870873371193935,
+            "rmsMm": 0.00016073598963351648,
+            "exact": 0,
+            "worst": {
+              "vertex": 8953,
+              "actual": [
+                0.19807977827316894,
+                1.3591081996660788,
+                0.059510219688667154
+              ],
+              "expected": [
+                0.19807974994182587,
+                1.3591076135635376,
+                0.059510238468647
+              ],
+              "mm": 0.0005870873371193935
+            }
+          },
+          "proposedVersusNativeFull": {
+            "passed": false,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 1.5927977556327764,
+            "rmsMm": 0.05035947514513542,
+            "exact": 0,
+            "worst": {
+              "vertex": 4561,
+              "actual": [
+                -0.12759522504799806,
+                0.9839990299333591,
+                0.09066911631512412
+              ],
+              "expected": [
+                -0.1270184963941574,
+                0.9847286343574524,
+                0.08937603235244751
+              ],
+              "mm": 1.5927977556327764
+            }
+          },
+          "nativeFourVersusNativeFull": {
+            "passed": false,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 1.592814541202468,
+            "rmsMm": 0.05035968592936775,
+            "exact": 13408,
+            "worst": {
+              "vertex": 4561,
+              "actual": [
+                -0.1275952309370041,
+                0.9839990139007568,
+                0.09066912531852722
+              ],
+              "expected": [
+                -0.1270184963941574,
+                0.9847286343574524,
+                0.08937603235244751
+              ],
+              "mm": 1.592814541202468
+            }
+          }
+        },
+        "matchedRepresentationPassed": true,
+        "unmodifiedNativePassed": false,
+        "interpretableAfterControls": true,
+        "fullReferenceInterpretableAfterControls": false,
+        "artifact": {
+          "file": "case-1-coupled.json.gz",
+          "sha256": "96107b8fe3f75d5540233c461480dc06ad43ad63ab96a55bba24533e8dcaf248",
+          "decodedSHA256": "0f14d0ae380d88a00f52cb98a1af1d570923617572434ac04f5f81d5da71927c",
+          "bytes": 5471787
+        }
+      }
+    ],
+    "corruptions": {
+      "staleNeutralInverseBinds": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 106.88573674249669,
+        "rmsMm": 50.00347878661432,
+        "exact": 0,
+        "worst": {
+          "vertex": 14356,
+          "actual": [
+            0.36305833146939326,
+            -0.17096492109328942,
+            0.1439172676567984
+          ],
+          "expected": [
+            0.32978731393814087,
+            -0.06939460337162018,
+            0.14495199918746948
+          ],
+          "mm": 106.88573674249669
+        },
+        "cleanParent": {
+          "weight": 1,
+          "pose": "coupled",
+          "result": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0005870873371193935,
+            "rmsMm": 0.00016073598963351648,
+            "exact": 0,
+            "worst": {
+              "vertex": 8953,
+              "actual": [
+                0.19807977827316894,
+                1.3591081996660788,
+                0.059510219688667154
+              ],
+              "expected": [
+                0.19807974994182587,
+                1.3591076135635376,
+                0.059510238468647
+              ],
+              "mm": 0.0005870873371193935
+            }
+          }
+        },
+        "mutationMaxMm": 106.88566715317401,
+        "changed": true,
+        "interpretable": true
+      },
+      "omittedElbowPropagation": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 247.11779911211838,
+        "rmsMm": 75.33510970359829,
+        "exact": 0,
+        "worst": {
+          "vertex": 9513,
+          "actual": [
+            0.5340861491858959,
+            0.8960332274436937,
+            0.3129310607910154
+          ],
+          "expected": [
+            0.3923988938331604,
+            1.0602550506591797,
+            0.43135032057762146
+          ],
+          "mm": 247.11779911211838
+        },
+        "cleanParent": {
+          "weight": 1,
+          "pose": "elbow",
+          "result": {
+            "passed": true,
+            "strict": true,
+            "gateMm": 0.342,
+            "vertices": 14517,
+            "maxMm": 0.0005485157019325436,
+            "rmsMm": 0.00013144177764620743,
+            "exact": 0,
+            "worst": {
+              "vertex": 10925,
+              "actual": [
+                0.35083883190962295,
+                1.1737554654567484,
+                0.06366783209653509
+              ],
+              "expected": [
+                0.350838840007782,
+                1.1737549304962158,
+                0.06366795301437378
+              ],
+              "mm": 0.0005485157019325436
+            }
+          }
+        },
+        "mutationMaxMm": 247.11763449926838,
+        "changed": true,
+        "interpretable": true
+      }
+    },
+    "artifacts": [
+      {
+        "file": "case-0-identity.json.gz",
+        "sha256": "8a7b665a17cb9c6a7388fd489767b77c3b3c8c2ad632a85195822764833f50df",
+        "decodedSHA256": "1550490ba1b77355ea2a4062870a33072b9f3e960aa073ceb1d078f2c0f349cc",
+        "bytes": 4868758
+      },
+      {
+        "file": "case-0-elbow.json.gz",
+        "sha256": "88891bdcb50a9a7348ce79500045b26d861cb48fffdac409ec78d87206d1bb6d",
+        "decodedSHA256": "0bbf30f40b1859f780e2f7272e550c6434b92cbbead5c632cf61a9d7ed134682",
+        "bytes": 4940784
+      },
+      {
+        "file": "case-0-coupled.json.gz",
+        "sha256": "c37cce2061093de422a2a26d6d76f42a280335407fe229651be60998ccb0b8de",
+        "decodedSHA256": "8a38113533ac9f3a73cd905bc93e10aed8e213a537fe263f0dcad888901cf88a",
+        "bytes": 5482613
+      },
+      {
+        "file": "case-0_25-identity.json.gz",
+        "sha256": "4e482c82498748dc1e955489a79ba52220e896583db0fe03c73cc3e0e44556d7",
+        "decodedSHA256": "c1e65657a004d9767d0766c9910932dfab7d0ab4ae96d9e969c2555bfd163561",
+        "bytes": 4853090
+      },
+      {
+        "file": "case-0_25-elbow.json.gz",
+        "sha256": "a87126b243e9741b06eecda77e05622cd8d04f4d7b07c0ad7d50e078b209d769",
+        "decodedSHA256": "ca3d278b589fc43fb279b584cd6ce3e1b6fb55c6cdc840feced6250bc3f2f717",
+        "bytes": 4927045
+      },
+      {
+        "file": "case-0_25-coupled.json.gz",
+        "sha256": "2363eee02955d78c61a28c69ea9b78ae006d06326ce64aabaf18a67e9ebc7485",
+        "decodedSHA256": "d68a234e79d54861b9bc23bad8a72e33643d8da1b244d828a43e93078ea6cc9a",
+        "bytes": 5487454
+      },
+      {
+        "file": "case-1-identity.json.gz",
+        "sha256": "0c60dc7ad069f9d1ecc60fe92b11fada12a8f983ccf1cf9be751cc0f82662235",
+        "decodedSHA256": "79c48468c6d30ba6cf75d666b67b95271ba36ba879278f414679b1258fefb2fa",
+        "bytes": 4743070
+      },
+      {
+        "file": "case-1-elbow.json.gz",
+        "sha256": "500ae1729eb8cc4f04b3d3fc145ad6bec14b314bf2eb05a7d07d300276e99e39",
+        "decodedSHA256": "dbd200e4adc0a4ae8240b1c6a5ae5d40dc3d91709521c81df89008cbffcf1f95",
+        "bytes": 4815872
+      },
+      {
+        "file": "case-1-coupled.json.gz",
+        "sha256": "96107b8fe3f75d5540233c461480dc06ad43ad63ab96a55bba24533e8dcaf248",
+        "decodedSHA256": "0f14d0ae380d88a00f52cb98a1af1d570923617572434ac04f5f81d5da71927c",
+        "bytes": 5471787
+      },
+      {
+        "file": "staleNeutralInverseBinds.json.gz",
+        "sha256": "a41dc4ba53a209cf226f70f148ea56a79893bd3c3a529c3c2edb00c2a7a9c764",
+        "decodedSHA256": "df100c5a389db71eaf5ceb6bd2144c76a7eb2af16a15f9a89bd6345f3187e529",
+        "bytes": 1996823
+      },
+      {
+        "file": "omittedElbowPropagation.json.gz",
+        "sha256": "c93ad6690c38190041463bcb0ca87eda5498d6998a280b35bf90756ca3a68c3a",
+        "decodedSHA256": "e2d865a916179aeed3738ef8ae5c671238521f73ab1aab3c01675c292b723ca7",
+        "bytes": 1723237
+      }
+    ],
+    "scope": "Three body cases and three commanded poses; native-full vs explicit export-four controls retained separately. No product, GPU or appearance qualification.",
+    "matchedRepresentationPassed": true,
+    "unmodifiedNativePassed": false,
+    "negativeControlsPassed": true,
+    "passed": false,
+    "finished": "2026-09-30T18:01:51.929Z"
+  },
+  "visual": {
+    "started": "2026-09-30T18:14:12.861Z",
+    "pid": 73048,
+    "status": "captured",
+    "inputs": {
+      "tools/critic/capture-posed-skin-witness.mjs": "67db51c3c4edb28aa5f637b2bc8aff16c74d2a07174ce44f44aa42f240b7d9bd",
+      "tools/critic/posed-skin-view.html": "ea47d37715c658b10e96864d5a38e52ab1601a0131d3639d54bf7a7b60241a75",
+      "tools/critic/posed-skin-view.mjs": "077fdd00016e695b9a55954ed4e49c588dcc43270263284cc090e695cd0dd272",
+      "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+      "vite.config.js": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+      "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+      "docs/evidence/wardrobe-2026-09-30/skeleton-posed-skin/VISUAL-PLAN.md": "34baf2ca068f953f78d41cb0d04451c539df8b536871a0ca8cbda41d4d54a0fb",
+      "captures/skeleton-native-pose-2026-09-30-v1/report.json": "226a55bc568bec712c847b5a12b91b6c7a019170d91dd26c2d56e60c140f2be1",
+      "captures/skeleton-export-bridge-2026-09-30-v1/report.json": "a1c1ec374c41f2fd1c197d666a6b25d7c0f11bf52b796c4a5b02cc03270ed3e9",
+      "captures/skeleton-export-bridge-2026-09-30-v1/parsed-asset.json.gz": "507608c4d7ba566856b005f3725b01559f51f81e2e3c220f49ac33ecd14dba07",
+      "captures/skeleton-native-pose-2026-09-30-v1/pose-0-native-full-coupled.json.gz": "d86ab9244d62d5146a754ff30e0f7ec126d1f4f1e8d509617dcc44c7f769fc8f",
+      "captures/skeleton-native-pose-2026-09-30-v1/pose-0-export-four-coupled.json.gz": "91aab81843e7526c7aab8478fde7126d366f2ffbedec47951a04017540d9d853",
+      "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    "views": [
+      {
+        "name": "context-full",
+        "file": "context-full.png",
+        "sha256": "e3d65fc8a9e4fef250dbbac733eacea1fe96adab98dbbd3334b12fe6158fc1cb",
+        "arm": "full",
+        "close": false,
+        "marked": false,
+        "label": "Native full influences \u00b7 neutral body \u00b7 coupled pose\nBody context\nActual geometry \u00b7 no displacement amplification",
+        "target": [
+          0,
+          0.94,
+          0
+        ],
+        "camera": {
+          "metadata": {
+            "version": 4.7,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+          },
+          "object": {
+            "uuid": "c06841e9-482c-4af8-ae65-a087e609e49c",
+            "type": "OrthographicCamera",
+            "layers": 1,
+            "matrix": [
+              0.8574929257125443,
+              -1.3877787807814457e-17,
+              0.5144957554275263,
+              0,
+              0.061324390296665705,
+              0.9928710809936356,
+              -0.10220731716110956,
+              0,
+              -0.5108279568579653,
+              0.11919318993352526,
+              0.8513799280966092,
+              0,
+              -2.4,
+              1.5,
+              4,
+              1
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ],
+            "zoom": 1,
+            "left": -1.17,
+            "right": 1.17,
+            "top": 0.975,
+            "bottom": -0.975,
+            "near": 0.01,
+            "far": 20
+          }
+        },
+        "lights": [
+          {
+            "type": "hemisphere",
+            "intensity": 2
+          },
+          {
+            "type": "directional",
+            "position": [
+              -3,
+              4,
+              4
+            ],
+            "intensity": 3
+          },
+          {
+            "type": "directional",
+            "position": [
+              3,
+              1,
+              -2
+            ],
+            "intensity": 1
+          }
+        ],
+        "positions": 14517,
+        "triangles": 26756,
+        "renderer": {
+          "three": "185",
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "renderCalls": 1
+      },
+      {
+        "name": "context-four",
+        "file": "context-four.png",
+        "sha256": "73af91dc29494b9aa29b8320327b0b737041480275a752344970b386678113fc",
+        "arm": "four",
+        "close": false,
+        "marked": false,
+        "label": "Native exported-four control \u00b7 neutral body \u00b7 coupled pose\nBody context\nActual geometry \u00b7 no displacement amplification",
+        "target": [
+          0,
+          0.94,
+          0
+        ],
+        "camera": {
+          "metadata": {
+            "version": 4.7,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+          },
+          "object": {
+            "uuid": "c06841e9-482c-4af8-ae65-a087e609e49c",
+            "type": "OrthographicCamera",
+            "layers": 1,
+            "matrix": [
+              0.8574929257125443,
+              -1.3877787807814457e-17,
+              0.5144957554275263,
+              0,
+              0.061324390296665705,
+              0.9928710809936356,
+              -0.10220731716110956,
+              0,
+              -0.5108279568579653,
+              0.11919318993352526,
+              0.8513799280966092,
+              0,
+              -2.4,
+              1.5,
+              4,
+              1
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ],
+            "zoom": 1,
+            "left": -1.17,
+            "right": 1.17,
+            "top": 0.975,
+            "bottom": -0.975,
+            "near": 0.01,
+            "far": 20
+          }
+        },
+        "lights": [
+          {
+            "type": "hemisphere",
+            "intensity": 2
+          },
+          {
+            "type": "directional",
+            "position": [
+              -3,
+              4,
+              4
+            ],
+            "intensity": 3
+          },
+          {
+            "type": "directional",
+            "position": [
+              3,
+              1,
+              -2
+            ],
+            "intensity": 1
+          }
+        ],
+        "positions": 14517,
+        "triangles": 26756,
+        "renderer": {
+          "three": "185",
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "renderCalls": 1
+      },
+      {
+        "name": "waist-full",
+        "file": "waist-full.png",
+        "sha256": "09547713202294819654061c33fbd512cf8673cefc9347f164fa9f823a9b095d",
+        "arm": "full",
+        "close": true,
+        "marked": false,
+        "label": "Native full influences \u00b7 neutral body \u00b7 coupled pose\nWaist detail \u00b7 180 mm vertical span\nActual geometry \u00b7 no displacement amplification",
+        "target": [
+          -0.12700346112251282,
+          0.9847267866134644,
+          0.08938620239496231
+        ],
+        "camera": {
+          "metadata": {
+            "version": 4.7,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+          },
+          "object": {
+            "uuid": "c06841e9-482c-4af8-ae65-a087e609e49c",
+            "type": "OrthographicCamera",
+            "layers": 1,
+            "matrix": [
+              0.7808688094430303,
+              -6.938893903907228e-18,
+              0.6246950475544243,
+              0,
+              0.07267390469753768,
+              0.993210030866349,
+              -0.09084238087192209,
+              0,
+              -0.620453387463585,
+              0.1163350101494221,
+              0.7755667343294813,
+              0,
+              -0.9270034611225129,
+              1.1347267866134643,
+              1.0893862023949623,
+              1
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ],
+            "zoom": 1,
+            "left": -0.108,
+            "right": 0.108,
+            "top": 0.09,
+            "bottom": -0.09,
+            "near": 0.01,
+            "far": 20
+          }
+        },
+        "lights": [
+          {
+            "type": "hemisphere",
+            "intensity": 2
+          },
+          {
+            "type": "directional",
+            "position": [
+              -3,
+              4,
+              4
+            ],
+            "intensity": 3
+          },
+          {
+            "type": "directional",
+            "position": [
+              3,
+              1,
+              -2
+            ],
+            "intensity": 1
+          }
+        ],
+        "positions": 14517,
+        "triangles": 26756,
+        "renderer": {
+          "three": "185",
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "renderCalls": 1
+      },
+      {
+        "name": "waist-four",
+        "file": "waist-four.png",
+        "sha256": "23e072d01e64dc21c5736f1d3b076e09f6e8bac7186a02e67e0b9ab05cf20d59",
+        "arm": "four",
+        "close": true,
+        "marked": false,
+        "label": "Native exported-four control \u00b7 neutral body \u00b7 coupled pose\nWaist detail \u00b7 180 mm vertical span\nActual geometry \u00b7 no displacement amplification",
+        "target": [
+          -0.12700346112251282,
+          0.9847267866134644,
+          0.08938620239496231
+        ],
+        "camera": {
+          "metadata": {
+            "version": 4.7,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+          },
+          "object": {
+            "uuid": "c06841e9-482c-4af8-ae65-a087e609e49c",
+            "type": "OrthographicCamera",
+            "layers": 1,
+            "matrix": [
+              0.7808688094430303,
+              -6.938893903907228e-18,
+              0.6246950475544243,
+              0,
+              0.07267390469753768,
+              0.993210030866349,
+              -0.09084238087192209,
+              0,
+              -0.620453387463585,
+              0.1163350101494221,
+              0.7755667343294813,
+              0,
+              -0.9270034611225129,
+              1.1347267866134643,
+              1.0893862023949623,
+              1
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ],
+            "zoom": 1,
+            "left": -0.108,
+            "right": 0.108,
+            "top": 0.09,
+            "bottom": -0.09,
+            "near": 0.01,
+            "far": 20
+          }
+        },
+        "lights": [
+          {
+            "type": "hemisphere",
+            "intensity": 2
+          },
+          {
+            "type": "directional",
+            "position": [
+              -3,
+              4,
+              4
+            ],
+            "intensity": 3
+          },
+          {
+            "type": "directional",
+            "position": [
+              3,
+              1,
+              -2
+            ],
+            "intensity": 1
+          }
+        ],
+        "positions": 14517,
+        "triangles": 26756,
+        "renderer": {
+          "three": "185",
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "renderCalls": 1
+      },
+      {
+        "name": "waist-four-marked",
+        "file": "waist-four-marked.png",
+        "sha256": "43528252846faa2b2760c5fa1c7ea70fb0ba91dd8ab99b3e29699837c76b3d6e",
+        "arm": "four",
+        "close": true,
+        "marked": true,
+        "label": "Native exported-four control \u00b7 neutral body \u00b7 coupled pose\nWaist detail \u00b7 180 mm vertical span\nOrange vertex data: arm difference \u2265 0.342 mm\nActual geometry \u00b7 no displacement amplification",
+        "target": [
+          -0.12700346112251282,
+          0.9847267866134644,
+          0.08938620239496231
+        ],
+        "camera": {
+          "metadata": {
+            "version": 4.7,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+          },
+          "object": {
+            "uuid": "c06841e9-482c-4af8-ae65-a087e609e49c",
+            "type": "OrthographicCamera",
+            "layers": 1,
+            "matrix": [
+              0.7808688094430303,
+              -6.938893903907228e-18,
+              0.6246950475544243,
+              0,
+              0.07267390469753768,
+              0.993210030866349,
+              -0.09084238087192209,
+              0,
+              -0.620453387463585,
+              0.1163350101494221,
+              0.7755667343294813,
+              0,
+              -0.9270034611225129,
+              1.1347267866134643,
+              1.0893862023949623,
+              1
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ],
+            "zoom": 1,
+            "left": -0.108,
+            "right": 0.108,
+            "top": 0.09,
+            "bottom": -0.09,
+            "near": 0.01,
+            "far": 20
+          }
+        },
+        "lights": [
+          {
+            "type": "hemisphere",
+            "intensity": 2
+          },
+          {
+            "type": "directional",
+            "position": [
+              -3,
+              4,
+              4
+            ],
+            "intensity": 3
+          },
+          {
+            "type": "directional",
+            "position": [
+              3,
+              1,
+              -2
+            ],
+            "intensity": 1
+          }
+        ],
+        "positions": 14517,
+        "triangles": 26756,
+        "renderer": {
+          "three": "185",
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "renderCalls": 1
+      }
+    ],
+    "errors": [],
+    "scope": "Actual native full/four geometry inspection only; no SDK rendering or acceptance gate.",
+    "geometry": {
+      "file": "geometry.json",
+      "sha256": "2782fa5b2a04b486d1b5cfc6960b84cb35ba4f5682fe2e0a25c896a4dd18db67",
+      "vertices": 14517,
+      "triangles": 26756,
+      "aboveThreshold": 49,
+      "witness": {
+        "vertex": 4561,
+        "original": 4169,
+        "full": [
+          -0.12700346112251282,
+          0.9847267866134644,
+          0.08938620239496231
+        ],
+        "four": [
+          -0.1275952309370041,
+          0.9839990735054016,
+          0.09066911041736603
+        ],
+        "mm": 1.5892170635055456
+      }
+    },
+    "baseUrl": "http://localhost:5301",
+    "finished": "2026-09-30T18:14:16.220Z",
+    "ownedBrowserAndServerClosed": true
+  }
+}
