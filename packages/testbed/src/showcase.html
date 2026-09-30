@@ -35,9 +35,14 @@ aside{padding:40px 0 36px}.eyebrow{margin:0 0 14px;font-size:10px;letter-spacing
 <details class="hair-colours" id="hair-colours"><summary>Hair colour</summary>
 <fieldset disabled id="hair-colour-controls"><legend class="field-label">Choose a shade</legend>
 <label for="hair-shade">Starting colour</label><select id="hair-shade"><option value="original">Original</option><option value="custom">Custom</option></select>
-<div id="hair-tint-controls" hidden><label for="hair-colour">Colour and tint <output id="hair-colour-value" for="hair-colour">Original</output></label><input id="hair-colour" type="color" value="#765344" aria-describedby="hair-colour-help" disabled>
-<label for="hair-lightness">Lightness <output id="hair-lightness-value" for="hair-lightness">36%</output></label><input id="hair-lightness" type="range" min="0" max="100" step="1" value="36" disabled>
-</div><p id="hair-colour-help">Choose a starting shade, then adjust its tint or lightness. Apply reloads your look with the new colour.</p>
+<div id="hair-tint-controls" hidden><label for="hair-colour">Base colour</label><input id="hair-colour" type="color" value="#765344" aria-describedby="hair-colour-help" disabled>
+<label for="hair-lightness">Base lightness <output id="hair-lightness-value" for="hair-lightness">36%</output></label><input id="hair-lightness" type="range" min="0" max="100" step="1" value="36" disabled>
+<label class="hair-tint-toggle" for="hair-tint-enabled"><input id="hair-tint-enabled" type="checkbox" disabled> Add a tint</label>
+<div id="hair-tint-mix" hidden><label for="hair-tint-colour">Tint colour</label><input id="hair-tint-colour" type="color" value="#8063ac" disabled>
+<label for="hair-tint-amount">Tint amount <output id="hair-tint-amount-value" for="hair-tint-amount">25%</output></label><input id="hair-tint-amount" type="range" min="0" max="100" step="any" value="25" aria-describedby="hair-tint-help" disabled>
+<p id="hair-tint-help">0% keeps the base colour. 100% uses only the tint.</p></div>
+<p class="hair-colour-preview"><span id="hair-colour-swatch" aria-hidden="true"></span> Colour to apply <output id="hair-colour-value" for="hair-colour hair-tint-colour hair-tint-amount">Original</output></p>
+</div><p id="hair-colour-help">Choose a base shade, adjust its lightness, or blend in a tint. Apply to see it on your hair.</p>
 <button class="secondary" id="apply-hair-colour" type="button" disabled>Apply hair colour</button><p id="hair-colour-status" role="status" aria-live="polite"></p>
 </fieldset></details>
 <fieldset disabled id="framing-controls"><legend>Framing</legend><div class="choices"><button class="choice" data-frame="body">Full look</button><button class="choice" data-frame="portrait">Portrait</button></div></fieldset>

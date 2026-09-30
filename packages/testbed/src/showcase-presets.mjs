@@ -1,5 +1,5 @@
 // Supported g050 wardrobe studies with authored colourways on the existing fitted garments.
-import { resolveHairColour } from '../../core/src/material/HairColourOptions.js';
+import { resolveHairColour, resolveHairTint, sameHairTint, mixedHairColour, hairColourLinear } from '../../core/src/material/HairColourOptions.js';
 import { WARDROBE_STYLES } from '../../core/src/wardrobe/WardrobeStyleOptions.js';
 import { REVIEW_SCENES, reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
 export const SHOWCASE_PRESETS = Object.freeze([
@@ -25,9 +25,15 @@ export function resolveShowcaseSelection(params) {
         throw new Error('This lookbook supports its two authored g050 clothing studies only.');
     if (params.getAll('hairColour').length > 1) throw new Error('Duplicate hair colour selection.');
     const hairColour = resolveHairColour(params.has('hairColour') ? params.get('hairColour') : undefined);
+    for (const key of ['hairTintColour', 'hairTintAmount']) if (params.getAll(key).length > 1) throw new Error('Duplicate hair tint selection.');
+    const hasTint = params.has('hairTintColour') || params.has('hairTintAmount');
+    if (hasTint && (!params.has('hairTintColour') || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(params.get('hairTintAmount') ?? '')))
+        throw new Error('Hair tint needs a colour and an amount from 0 to 1.');
+    const hairTint = resolveHairTint(hasTint ? {colour: params.get('hairTintColour'), amount: Number(params.get('hairTintAmount'))} : undefined, hairColour);
     const preset = SHOWCASE_PRESETS.find(p => p.id === (params.get('preset') ?? 'casual'));
     const selection = { preset: preset.id, style: params.get('style') ?? 'ecru', outfit: params.get('outfit') ?? preset.outfit,
-        frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio', scene: reviewSceneSelection(params), ...(hairColour === null ? {} : { hairColour }) };
+        frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio', scene: reviewSceneSelection(params),
+        ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }) };
     optionsForReviewScene(selection.scene, selection.light);
     return selection;
 }
@@ -36,7 +42,9 @@ export function optionsForShowcase(selection) {
     if (!preset || !SHOWCASE_OUTFITS[selection.outfit] || !choices.frame.includes(selection.frame) || !choices.light.includes(selection.light) || !choices.style.includes(selection.style))
         throw new Error('Unsupported showcase selection.');
     const hairColour = resolveHairColour(selection.hairColour);
-    return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, ...(hairColour === null ? {} : { hairColour }), frame: selection.frame,
+    const hairTint = resolveHairTint(selection.hairTint, hairColour);
+    return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, ...(hairColour === null ? {} : { hairColour }),
+        ...(hairTint === null ? {} : { hairTint }), frame: selection.frame,
         quality: 'balanced', ...optionsForReviewScene(selection.scene ?? 'studio', selection.light), seed: SHOWCASE_SEED,
         pose: 'relaxed-standing', wardrobe: { ...(selection.style === 'original' ? {} : {style: selection.style}), outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
 }
@@ -54,9 +62,16 @@ export function configurationFromReport(report) {
         report.hair.loadedStyle !== report.hair.style || !['bob01', 'bob02'].includes(report.hair.style))
         throw new Error('Wait for the supported look to finish loading before saving it.');
     const hairColour = report.hair.colour;
-    if (hairColour && (!hairColour.matchesAttached || hairColour.requested !== hairColour.applied))
+    if (hairColour && (!hairColour.matchesAttached || hairColour.requested !== hairColour.applied ||
+        !sameHairTint(hairColour.requestedTint, hairColour.appliedTint)))
         throw new Error('The attached hair colour does not match this saved look.');
     const appliedHairColour = resolveHairColour(hairColour?.applied ?? undefined);
+    const appliedHairTint = resolveHairTint(hairColour?.appliedTint ?? undefined, appliedHairColour);
+    if (appliedHairTint !== null && hairColour.resolved !== mixedHairColour(appliedHairColour, appliedHairTint))
+        throw new Error('The attached hair tint does not match this saved look.');
+    if (appliedHairTint !== null && (!Array.isArray(hairColour.linear) || hairColour.linear.length !== 3 ||
+        hairColourLinear(hairColour.resolved).some((value, index) => value !== hairColour.linear[index])))
+        throw new Error('The attached hair tint colour is different from the saved recipe.');
     const appearance = report.wardrobe.appearance;
     if (!appearance?.attached || !choices.style.includes(appearance.style))
         throw new Error('The selected clothing colours are not attached.');
@@ -71,6 +86,7 @@ export function configurationFromReport(report) {
         throw new Error('The current view is outside this lookbook’s supported configuration.');
     return { identity: { gender: report.identity.gender, mode: 'nearest' }, hair: report.hair.style,
         ...(appliedHairColour === null ? {} : { hairColour: appliedHairColour }),
+        ...(appliedHairTint === null ? {} : { hairTint: appliedHairTint }),
         frame: report.framing.mode, quality: report.quality.requested,
         ...optionsForReviewScene(report.scene.id, report.scene.lighting.look), seed: report.motion.seed, pose: 'relaxed-standing',
         wardrobe: { ...(appearance.style === 'original' ? {} : {style: appearance.style}), outfit: [...SHOWCASE_OUTFITS[outfit].garments], foundation: { TORSO: foundation.TORSO, HIPS: foundation.HIPS } } };

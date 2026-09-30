@@ -1,0 +1,830 @@
+{
+  "frozenAt": "2026-09-30T15:38:43.684037+00:00",
+  "roots": [
+    "captures/hair-tint-controls-v1",
+    "captures/hair-tint-controls-v2",
+    "captures/hair-tint-controls-v3",
+    "captures/hair-tint-repeat-diagnostic-v1",
+    "captures/hair-tint-review-page-v1"
+  ],
+  "files": [
+    {
+      "path": "captures/hair-tint-controls-v1/report.json",
+      "bytes": 4379,
+      "sha256": "f442706031f2110536167c6c8884bbf530c4b0dd90724fea22d39f91e1e5100f"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/Avatar.js",
+      "bytes": 251758,
+      "sha256": "be80904c84c380f30a7bbe061aebf50bab5d927802dfdec06477ed5e274c9f38"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1504,
+      "sha256": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 5238,
+      "sha256": "83f1d07853792ae544de63f01cdb2b1be51840cf517faf6f93c5ceea754ea70a"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8239,
+      "sha256": "0fc09ac548aaa878dc6e81168a0815f555a31ebe060cdacb81bddf6bb01cbd10"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3934,
+      "sha256": "3e51f3b2574650845039ec177c0925633e055cd44acb89afec5df6927d9f01d6"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/showcase.html",
+      "bytes": 18726,
+      "sha256": "a2401f1ce9f98fb36942d3ea6efc43e2e4dc6ff6222f8f52eae968cc954a4a94"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/showcase.js",
+      "bytes": 28639,
+      "sha256": "15d8d06800a35179efc8147bdd304427230ae6c9890608f0d219024b090d86b0"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/tools/critic/hair-tint-controls-review.mjs",
+      "bytes": 16695,
+      "sha256": "b4a72ee7724fec937b4cbb862373f027d98698d7b018e55b7373177071f25cc0"
+    },
+    {
+      "path": "captures/hair-tint-controls-v1/source/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/base-canvas.png",
+      "bytes": 904058,
+      "sha256": "5a6b87c5ba977b2fd6c1e84a061120e697632a020ffd6bffa67aaddc6b82379c"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/base-fixed.json",
+      "bytes": 1917046,
+      "sha256": "3d3bf9db8b75b13e8b2280c88ae0908896bdf7266859406fd4f7fc11a6a00ae8"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/base-ui.png",
+      "bytes": 780936,
+      "sha256": "e6c9ab43158276f18ea9af3504a3dfe2064dc5b8170843e04ba0e07c56bd8e20"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/original-canvas.png",
+      "bytes": 901921,
+      "sha256": "5c4f595c8a80ed1123961d98f77bb7cdb0b68bc1829992a7d5b8c110be6665eb"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/original-fixed.json",
+      "bytes": 1917046,
+      "sha256": "3d3bf9db8b75b13e8b2280c88ae0908896bdf7266859406fd4f7fc11a6a00ae8"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/original-ui.png",
+      "bytes": 776001,
+      "sha256": "d96cce72a41e65599f91398545768c722651c193092fa6739dabebcafb0d7405"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/report.json",
+      "bytes": 8920,
+      "sha256": "bb60de3da3c5c32a7e9ee0ea465163aef1e4961695eb3e3cf3bf4f4f50f04a7c"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/Avatar.js",
+      "bytes": 251758,
+      "sha256": "be80904c84c380f30a7bbe061aebf50bab5d927802dfdec06477ed5e274c9f38"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1504,
+      "sha256": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 5238,
+      "sha256": "83f1d07853792ae544de63f01cdb2b1be51840cf517faf6f93c5ceea754ea70a"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8239,
+      "sha256": "0fc09ac548aaa878dc6e81168a0815f555a31ebe060cdacb81bddf6bb01cbd10"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3934,
+      "sha256": "3e51f3b2574650845039ec177c0925633e055cd44acb89afec5df6927d9f01d6"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/showcase.html",
+      "bytes": 18726,
+      "sha256": "a2401f1ce9f98fb36942d3ea6efc43e2e4dc6ff6222f8f52eae968cc954a4a94"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/showcase.js",
+      "bytes": 28639,
+      "sha256": "15d8d06800a35179efc8147bdd304427230ae6c9890608f0d219024b090d86b0"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/tools/critic/hair-tint-controls-review.mjs",
+      "bytes": 16881,
+      "sha256": "07d2585d4dfe0caee0488a02cf8b6d0b6151bf0cf81b34b80bdf010a213f3997"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/source/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/zero-canvas.png",
+      "bytes": 904033,
+      "sha256": "476bff2b17ae1a502420d00a4aa1f50514a3ffe7cddf9de8c9d183cf07ab0724"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/zero-fixed.json",
+      "bytes": 1917046,
+      "sha256": "3d3bf9db8b75b13e8b2280c88ae0908896bdf7266859406fd4f7fc11a6a00ae8"
+    },
+    {
+      "path": "captures/hair-tint-controls-v2/zero-ui.png",
+      "bytes": 789109,
+      "sha256": "687a077046c4a4a5bbbcd77f29906a922a287a43a756dcbe16a358d0d4de2a79"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/base-canvas.png",
+      "bytes": 904058,
+      "sha256": "5a6b87c5ba977b2fd6c1e84a061120e697632a020ffd6bffa67aaddc6b82379c"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/base-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/base-repeat-canvas.png",
+      "bytes": 904033,
+      "sha256": "476bff2b17ae1a502420d00a4aa1f50514a3ffe7cddf9de8c9d183cf07ab0724"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/base-repeat-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/base-repeat-ui.png",
+      "bytes": 780924,
+      "sha256": "2fa06d3a8e8dde47d5612fb0a4b85c456502f9712be0bd4f6be38254c0ed4c0e"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/base-ui.png",
+      "bytes": 780936,
+      "sha256": "e6c9ab43158276f18ea9af3504a3dfe2064dc5b8170843e04ba0e07c56bd8e20"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/full-tint-canvas.png",
+      "bytes": 937205,
+      "sha256": "cc3bfea295b63799ea380f87e7e5b58f612c68a3932f86a86f9210802ef2c024"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/full-tint-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/full-tint-red-base-canvas.png",
+      "bytes": 937304,
+      "sha256": "1be98fef2ea6ad6aaa125edd3e2fa5ff2965d4ce55b9c058a818128ff0ffc3ca"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/full-tint-red-base-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/full-tint-red-base-ui.png",
+      "bytes": 820719,
+      "sha256": "670e1c5b1ed3eec70f386c17fe37272da6552676227bedb134763d0885cf7839"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/full-tint-ui.png",
+      "bytes": 821379,
+      "sha256": "fae67e1a8406f2a6d7fb1c8a501eb03907ab620ae0043162c59e5bd453bde659"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/json-reopened-canvas.png",
+      "bytes": 930012,
+      "sha256": "753cea055e07ab538d991def2c71f056f041143ef3c5d39af0d7ef16866e46ad"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/json-reopened-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/json-reopened-ui.png",
+      "bytes": 813339,
+      "sha256": "e2cab7361ee71dd3344070f6cfaa6498e7485c41782232dafa08913035dbd287"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/kitchen-canvas.png",
+      "bytes": 1242725,
+      "sha256": "a44421bee82a48003dbe3eb3871ddea46280f63fbf8fc93292b93adbff3ffe5b"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/kitchen-fixed.json",
+      "bytes": 1919518,
+      "sha256": "84a646be7c29b3bcc038b14f091a5b59d090ef7562e3dfe0a7431a701d609854"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/kitchen-ui.png",
+      "bytes": 1018218,
+      "sha256": "be75e26e2e40d0fa6f90708167af667138335c789b5178397f4fa6d3b19947d7"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/long-bob-canvas.png",
+      "bytes": 1282185,
+      "sha256": "0b3c7b90dbfdc12f5d1ff32b96590219021accd07409676521bd51145b705384"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/long-bob-fixed.json",
+      "bytes": 1920155,
+      "sha256": "5ecb7959a829ec0f2c42e0fd193d73f93e9d9ca3d81f562a0f19e97b17f3c276"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/long-bob-ui.png",
+      "bytes": 1058972,
+      "sha256": "ccb81d87d0e973a778baca29fc45fb94ae5bad7447dfcef56984d369b9a6ffdb"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/mixed-canvas.png",
+      "bytes": 929963,
+      "sha256": "d11abf8c04bb0cd464b9d209a376421ae0ba174a42d0a793e170ca7ceb1758c8"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/mixed-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/mixed-ui.png",
+      "bytes": 813337,
+      "sha256": "dc88c5231b50ef0d3f8772d6b1a565ce13e47dc3135e62acdad79895f08cf588"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/mobile-long-bob-canvas.png",
+      "bytes": 347940,
+      "sha256": "7ca449ee17f7aa69aa3b82a36fe43c67d2aadf51f2264e519e4e7f6e67c76b9e"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/mobile-long-bob-fixed.json",
+      "bytes": 1920155,
+      "sha256": "40702fd8ecf8ec4a6457df7fd55367188cabb61de0c769543d47034028e1502f"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/mobile-long-bob-ui.png",
+      "bytes": 345392,
+      "sha256": "50ad5be49d635566155c535c7c20275a80709f25240b8284b5400eed1b396759"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/named-reopened-canvas.png",
+      "bytes": 930035,
+      "sha256": "76f8e3da66f5f37745c705321f6892d48e62bc4da70d7fd1da1f0e9bb53d2655"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/named-reopened-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/named-reopened-ui.png",
+      "bytes": 813187,
+      "sha256": "3f404d7c4941f6a507fb8085e7ac8557bf4d44070bad3ed57861b4a10103b2f7"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/original-canvas.png",
+      "bytes": 901952,
+      "sha256": "1e2e24f7a7d3e407552724d6225c865986e8af7f51d411bbec73eb6fec83bb01"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/original-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/original-restored-canvas.png",
+      "bytes": 901833,
+      "sha256": "4d4f489df00334a78a41e57551ad456c2d9b8158a5d613dcca5343b91d61d9b1"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/original-restored-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/original-restored-ui.png",
+      "bytes": 775811,
+      "sha256": "e90c51f28b83b88942f496f06f2077f44dba894d689f07d89ce9395d5ed94f78"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/original-ui.png",
+      "bytes": 776056,
+      "sha256": "82e4014a5fc125490e1783b44d6e1e6db5ae40d62ab9c8e8459863ee25042065"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/picker-precision-canvas.png",
+      "bytes": 900531,
+      "sha256": "66e6f1817e1f67df39fd271d2d84cd946e6aaa002db925c70e9e6b658dd7d0f4"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/picker-precision-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/picker-precision-ui.png",
+      "bytes": 784862,
+      "sha256": "ae0bf0b01155f4bfa2822e02e2f96ff51c390507cd4f7c633a7ca918bc210c53"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/report.json",
+      "bytes": 40766,
+      "sha256": "ff220094a244b4604a9e61fd7171bee5bfc6cb0f8292d6d7f5f62da4e6c4341b"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/Avatar.js",
+      "bytes": 251758,
+      "sha256": "be80904c84c380f30a7bbe061aebf50bab5d927802dfdec06477ed5e274c9f38"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1504,
+      "sha256": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 5505,
+      "sha256": "dfa9f8a20d6f2f3de811daa09da04310fbb4117b3201ee699de93df7016c33ac"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8239,
+      "sha256": "0fc09ac548aaa878dc6e81168a0815f555a31ebe060cdacb81bddf6bb01cbd10"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3934,
+      "sha256": "3e51f3b2574650845039ec177c0925633e055cd44acb89afec5df6927d9f01d6"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/showcase.html",
+      "bytes": 18726,
+      "sha256": "a2401f1ce9f98fb36942d3ea6efc43e2e4dc6ff6222f8f52eae968cc954a4a94"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/showcase.js",
+      "bytes": 28639,
+      "sha256": "15d8d06800a35179efc8147bdd304427230ae6c9890608f0d219024b090d86b0"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/tools/critic/hair-tint-controls-review.mjs",
+      "bytes": 18472,
+      "sha256": "42b2676aef85e7f49cb3bbbc0ba639d49335e83fca70b00341ced1cc56cf0c79"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/source/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/tint-off-canvas.png",
+      "bytes": 931239,
+      "sha256": "92478977b4d77c73d9ef2ddfeb5d8d14fca74691f48cc9aaa2b9baacd0cd779a"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/tint-off-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/tint-off-ui.png",
+      "bytes": 820279,
+      "sha256": "eea13f9314c45b09b07b4730e00f30b61b4ccac61e3a30004c600f02887e67d8"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/tinted-look.json",
+      "bytes": 522,
+      "sha256": "728db155f790940d01a29f5a3d4eb85c5784c64e533e7adf623896c2c4049260"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/zero-canvas.png",
+      "bytes": 904057,
+      "sha256": "90b5d1177fb70c472209f29b9bab9b4b96dea24c3cfb20b778013df1adc9f99c"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/zero-fixed.json",
+      "bytes": 1919669,
+      "sha256": "adc974063c13c43b5e759104957722c2c3f1c9c138bac7242a1aa14dab34dfff"
+    },
+    {
+      "path": "captures/hair-tint-controls-v3/zero-ui.png",
+      "bytes": 789114,
+      "sha256": "1360e5e87d9948252148ef5b0d41c4bab1cd78c217cdbf6e202a5bd2dee9ad2e"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-0-repeat-0.json",
+      "bytes": 1966273,
+      "sha256": "65b5b347e32453059f645126c56ffc7d6064bd8d8ce4c543481ec1ef327c25df"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-0-repeat-0.png",
+      "bytes": 904033,
+      "sha256": "476bff2b17ae1a502420d00a4aa1f50514a3ffe7cddf9de8c9d183cf07ab0724"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-0-repeat-1.json",
+      "bytes": 1966273,
+      "sha256": "65b5b347e32453059f645126c56ffc7d6064bd8d8ce4c543481ec1ef327c25df"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-0-repeat-1.png",
+      "bytes": 904650,
+      "sha256": "7931e5eff402f3b296dd45fe1edb644bcdd715729c89b5a979f55855c31dfa2c"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-10000-repeat-0.json",
+      "bytes": 1966280,
+      "sha256": "dc2b271eddfa9b510d49ff33135ef284a0269930ee513efe46bf4264d91dfd8e"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-10000-repeat-0.png",
+      "bytes": 903979,
+      "sha256": "1c9edaafb21ab0f3718363d445af8269a1831060a2bb51cfefd80d88eb56634d"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-10000-repeat-1.json",
+      "bytes": 1966280,
+      "sha256": "dc2b271eddfa9b510d49ff33135ef284a0269930ee513efe46bf4264d91dfd8e"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-0-epoch-10000-repeat-1.png",
+      "bytes": 904098,
+      "sha256": "ee0aba9c3a816b2004bcd6ec1d06f267740b154f3d2fc032cc9e167bba8cf789"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-0-repeat-0.json",
+      "bytes": 1966273,
+      "sha256": "65b5b347e32453059f645126c56ffc7d6064bd8d8ce4c543481ec1ef327c25df"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-0-repeat-0.png",
+      "bytes": 904037,
+      "sha256": "11ed3e3a676160bd7f17a8eacb62482a721c900a552069e9b395d5c7fb61bd26"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-0-repeat-1.json",
+      "bytes": 1966273,
+      "sha256": "65b5b347e32453059f645126c56ffc7d6064bd8d8ce4c543481ec1ef327c25df"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-0-repeat-1.png",
+      "bytes": 904650,
+      "sha256": "7931e5eff402f3b296dd45fe1edb644bcdd715729c89b5a979f55855c31dfa2c"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-10000-repeat-0.json",
+      "bytes": 1966280,
+      "sha256": "dc2b271eddfa9b510d49ff33135ef284a0269930ee513efe46bf4264d91dfd8e"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-10000-repeat-0.png",
+      "bytes": 903979,
+      "sha256": "1c9edaafb21ab0f3718363d445af8269a1831060a2bb51cfefd80d88eb56634d"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-10000-repeat-1.json",
+      "bytes": 1966280,
+      "sha256": "dc2b271eddfa9b510d49ff33135ef284a0269930ee513efe46bf4264d91dfd8e"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-1-epoch-10000-repeat-1.png",
+      "bytes": 904098,
+      "sha256": "ee0aba9c3a816b2004bcd6ec1d06f267740b154f3d2fc032cc9e167bba8cf789"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-0-repeat-0.json",
+      "bytes": 1966273,
+      "sha256": "a7cd9aa972489778edcabd37b06327ade9ef5c0ff19647198b8a53b812722073"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-0-repeat-0.png",
+      "bytes": 904057,
+      "sha256": "90b5d1177fb70c472209f29b9bab9b4b96dea24c3cfb20b778013df1adc9f99c"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-0-repeat-1.json",
+      "bytes": 1966273,
+      "sha256": "a7cd9aa972489778edcabd37b06327ade9ef5c0ff19647198b8a53b812722073"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-0-repeat-1.png",
+      "bytes": 904650,
+      "sha256": "7931e5eff402f3b296dd45fe1edb644bcdd715729c89b5a979f55855c31dfa2c"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-10000-repeat-0.json",
+      "bytes": 1966280,
+      "sha256": "7f2c81b4c56a8eb93bc65be2af2b86a076dbb4cab9524c09984a90d32a667ee4"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-10000-repeat-0.png",
+      "bytes": 903979,
+      "sha256": "1c9edaafb21ab0f3718363d445af8269a1831060a2bb51cfefd80d88eb56634d"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-10000-repeat-1.json",
+      "bytes": 1966280,
+      "sha256": "7f2c81b4c56a8eb93bc65be2af2b86a076dbb4cab9524c09984a90d32a667ee4"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/load-2-epoch-10000-repeat-1.png",
+      "bytes": 904098,
+      "sha256": "ee0aba9c3a816b2004bcd6ec1d06f267740b154f3d2fc032cc9e167bba8cf789"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/report.json",
+      "bytes": 9076,
+      "sha256": "1a374d6d702b807f33577453f7e9feae7215ff310f12a057a3693687a98ef9e9"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/docs/evidence/hair-2026-09-30/tint-controls/PLAN.md",
+      "bytes": 2376,
+      "sha256": "e4b4fc22360363e127093c81df4399660c0b61d9d2e8d5bb3b11bcbdaf377cdd"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/Avatar.js",
+      "bytes": 251758,
+      "sha256": "be80904c84c380f30a7bbe061aebf50bab5d927802dfdec06477ed5e274c9f38"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1504,
+      "sha256": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 5505,
+      "sha256": "dfa9f8a20d6f2f3de811daa09da04310fbb4117b3201ee699de93df7016c33ac"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8239,
+      "sha256": "0fc09ac548aaa878dc6e81168a0815f555a31ebe060cdacb81bddf6bb01cbd10"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 3934,
+      "sha256": "3e51f3b2574650845039ec177c0925633e055cd44acb89afec5df6927d9f01d6"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/showcase.html",
+      "bytes": 18726,
+      "sha256": "a2401f1ce9f98fb36942d3ea6efc43e2e4dc6ff6222f8f52eae968cc954a4a94"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/showcase.js",
+      "bytes": 28639,
+      "sha256": "15d8d06800a35179efc8147bdd304427230ae6c9890608f0d219024b090d86b0"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/tools/critic/hair-tint-controls-review.mjs",
+      "bytes": 18472,
+      "sha256": "42b2676aef85e7f49cb3bbbc0ba639d49335e83fca70b00341ced1cc56cf0c79"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/tools/critic/hair-tint-repeat-diagnostic.mjs",
+      "bytes": 6176,
+      "sha256": "f64eac6e6879617c80176bc72b80eaa14cc30c68819f80a66a980ad73c753844"
+    },
+    {
+      "path": "captures/hair-tint-repeat-diagnostic-v1/source/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/hair-tint-review-page-v1/desktop.png",
+      "bytes": 374991,
+      "sha256": "5b9ec9606c159a7e88bb6c91d314a947e51ac895504f8381da9e008a452abb3b"
+    },
+    {
+      "path": "captures/hair-tint-review-page-v1/mobile.png",
+      "bytes": 423066,
+      "sha256": "4bece9a616e4fc8b4684c8c779b94d4ba3f2d4280532af7e7c6a0b475b112e31"
+    },
+    {
+      "path": "captures/hair-tint-review-page-v1/report.json",
+      "bytes": 5219,
+      "sha256": "513bb02c0ac4c97b737d7f8adf33e08db528c3d3725422c93adf76b5846081fe"
+    },
+    {
+      "path": "captures/hair-tint-review-page-v1/source/docs/evidence/hair-2026-09-30/review.html",
+      "bytes": 5672,
+      "sha256": "c01942474a00d1bc530556fc75e73cfd1dd67d26a9ab65415bc2c1a9ae2bd77a"
+    },
+    {
+      "path": "captures/hair-tint-review-page-v1/source/packages/testbed/today-review.js",
+      "bytes": 585,
+      "sha256": "1e0998639020d713a0428532a04d540cfa53772a5c6ae300482c8498a4b9ca21"
+    },
+    {
+      "path": "captures/hair-tint-review-page-v1/source/tools/critic/daytime-review-page.mjs",
+      "bytes": 2754,
+      "sha256": "840913246e85b064dad74e084047fa6ddc41d839b54b9f7273ee97ec0095b694"
+    }
+  ],
+  "fileCount": 163,
+  "totalBytes": 104049459,
+  "pngCount": 50
+}

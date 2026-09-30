@@ -105,7 +105,7 @@ At checkout `d75d970a81ba16d7a2bb1be1c2cca7cbc95e000c`, the [Showcase controls](
 
 ### Implementation checkpoint after the reference discussion
 
-Local commit `b170da4` adds seven starting shades, a custom colour picker and Lightness, explicit Apply, exact Original restoration, and JSON/URL/browser-local named-look retention. See [reviewed colour controls](../evidence/hair-2026-09-29/colour-controls/README.md) for actual native evidence and its limits. The preceding source-inspection note describes the earlier baseline. A separate tint-strength control, strand highlights/lowlights and mixed-strand grey remain proposals.
+Local commit `b170da4` adds seven starting shades, a custom colour picker and Lightness, explicit Apply, exact Original restoration, and JSON/URL/browser-local named-look retention. See [reviewed colour controls](../evidence/hair-2026-09-29/colour-controls/README.md) for actual native evidence and its limits. The preceding source-inspection note describes the earlier baseline. September 30 adds the separate base/tint/amount recipe with native editing and save/reopen observations: see [tint controls and limits](../evidence/hair-2026-09-30/tint-controls/README.md). Exact rendered-image reconstruction remains unqualified. Strand highlights/lowlights and mixed-strand grey remain proposals.
 
 ## Instructions for future implementation
 

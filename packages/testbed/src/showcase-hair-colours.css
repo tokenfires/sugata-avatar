@@ -7,4 +7,9 @@
 .hair-colours button{min-height:44px}.hair-colours p{font-size:11px;color:var(--muted);margin:4px 0}
 .hair-colours output{float:right;font-variant-numeric:tabular-nums}.hair-colours select:focus-visible,.hair-colours input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-#hair-tint-controls{display:grid;gap:9px}
+#hair-tint-controls,#hair-tint-mix{display:grid;gap:9px}
+.hair-colours [hidden]{display:none!important}
+.hair-tint-toggle{display:flex;align-items:center;gap:9px;min-height:44px;cursor:pointer}
+.hair-tint-toggle input{accent-color:var(--accent);width:18px;height:18px;margin:0}
+.hair-colour-preview{display:flex;align-items:center;gap:8px}.hair-colour-preview output{margin-left:auto}
+#hair-colour-swatch{display:inline-block;width:24px;height:24px;border:1px solid var(--line);border-radius:3px;flex:none}

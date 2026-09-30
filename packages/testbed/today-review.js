@@ -7,8 +7,8 @@ export function mountTodayReview( container ) {
 
     const link = container.ownerDocument.createElement( 'a' );
     link.dataset.todayReview = '';
-    link.textContent = 'Overnight work · September 29';
-    link.href = new URL( '../../docs/evidence/hair-2026-09-29/review.html', import.meta.url ).href;
+    link.textContent = 'Today’s work · September 30';
+    link.href = new URL( '../../docs/evidence/hair-2026-09-30/review.html', import.meta.url ).href;
     container.append( link );
     return link;
 }

@@ -1,4 +1,4 @@
-import { resolveHairColour } from '../../core/src/material/HairColourOptions.js';
+import { resolveHairColour, resolveHairTint } from '../../core/src/material/HairColourOptions.js';
 import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, optionsForShowcase } from './showcase-presets.mjs';
 
 export const SHOWCASE_SETTINGS_MAX_BYTES = 16 * 1024;
@@ -24,7 +24,9 @@ export function selectionFromConfiguration(configuration) {
         garments.length === SHOWCASE_OUTFITS[id].garments.length &&
         SHOWCASE_OUTFITS[id].garments.every(garment => garments.includes(garment)));
     const hairColour = resolveHairColour(configuration.hairColour);
-    const selection = { ...(hairColour === null ? {} : { hairColour }), preset: preset.id, outfit, style: configuration.wardrobe?.style ?? 'original',
+    const hairTint = resolveHairTint(configuration.hairTint, hairColour);
+    const selection = { ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }),
+        preset: preset.id, outfit, style: configuration.wardrobe?.style ?? 'original',
         frame: configuration.frame, scene: configuration.scene,
         light: configuration.scene === 'kitchen' && configuration.lighting === undefined ? 'studio' : configuration.lighting };
     let expected;
@@ -34,6 +36,7 @@ export function selectionFromConfiguration(configuration) {
     if (configuration.wardrobe.style === 'original') expected.wardrobe.style = 'original';
     // Both hex cases are valid SDK input; reopened URLs and new exports are canonical lowercase.
     if (hairColour !== null) expected.hairColour = configuration.hairColour;
+    if (hairTint !== null) expected.hairTint = configuration.hairTint;
     sameOptions(configuration, expected);
     return selection;
 }
@@ -51,7 +54,12 @@ export function showcaseSettingsUrl(selection, href) {
     const url = new URL(href), capture = url.searchParams.has('capture');
     // Discard unrelated/debug overrides instead of allowing them to change the restored options.
     url.search = '';
-    for (const [key, value] of Object.entries(selection)) url.searchParams.set(key, value);
+    for (const [key, value] of Object.entries(selection)) {
+        if (key === 'hairTint') {
+            url.searchParams.set('hairTintColour', value.colour);
+            url.searchParams.set('hairTintAmount', String(value.amount));
+        } else url.searchParams.set(key, value);
+    }
     if (capture) url.searchParams.set('capture', '');
     return url;
 }

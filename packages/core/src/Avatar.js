@@ -98,7 +98,7 @@
  */
 
 import { resolveWardrobeStyle } from './wardrobe/WardrobeStyleOptions.js';
-import { resolveHairColour } from './material/HairColourOptions.js';
+import { resolveHairColour, resolveHairTint, mixedHairColour } from './material/HairColourOptions.js';
 import { Box3, Matrix4, SRGBColorSpace, Skeleton as SkinSkeleton } from 'three';
 import {
     Color,
@@ -914,6 +914,7 @@ export class Avatar {
         const background = resolveBackgroundOption( options.background ?? backgroundRequestOf( scene ) );
         const hairStyle = resolveHairOption( options.hair ?? AVATAR_DEFAULTS.hair );
         const hairColour = resolveHairColour( options.hairColour );
+        const hairTint = resolveHairTint( options.hairTint, hairColour );
         if ( hairColour !== null && hairStyle === null ) throw new TypeError( 'Avatar hairColour requires a hair style.' );
 
         const identity = new Identity( options.identity ?? AVATAR_DEFAULTS.identity );
@@ -953,6 +954,7 @@ export class Avatar {
             background,
             hairStyle,
             hairColour,
+            hairTint,
             hairHistory,
             faceCardCoverage,
             wardrobeRequest
@@ -1036,6 +1038,7 @@ export class Avatar {
         // groom handle below cannot be confused for one another in `report()` or in a leak walk.
         this.hairStyle = session.hairStyle;
         this.hairColour = session.hairColour ?? null;
+        this.hairTint = session.hairTint ?? null;
 
         this.wardrobeRequest = session.wardrobeRequest ?? null;
         this.wardrobe = null;
@@ -2634,6 +2637,9 @@ export class Avatar {
                 colour: {
                     requested: this.hairColour,
                     applied: this.hairRoot?.userData.groomColour ?? null,
+                    requestedTint: this.hairTint,
+                    appliedTint: this.hairRoot?.userData.groomTint ?? null,
+                    resolved: this.hairRoot?.userData.groomResolvedColour ?? null,
                     linear: this.hairMaterial?.hair?.baseColour?.value?.toArray?.() ?? null,
                     matchesAttached: this.hairRoot !== null && typeof this.hairMaterial?.hair?.baseColour?.value?.toArray === 'function' &&
                         this.hairMaterial.hair.baseColour.value.toArray().every( ( value, index ) =>
@@ -3305,7 +3311,8 @@ export class Avatar {
 
         if ( token !== this.loadToken || this.disposed === true || this.hairStyle === null ) return;
 
-        const hairStyle = this.hairStyle, hairColour = this.hairColour;
+        const hairStyle = this.hairStyle, hairColour = this.hairColour, hairTint = this.hairTint;
+        const resolvedColour = mixedHairColour( hairColour, hairTint );
         const assets = resolveHairAssets( hairStyle, bakeName, this.assetBaseUrl );
         this.hairUnavailableReason = null;
 
@@ -3433,7 +3440,7 @@ export class Avatar {
         try {
 
             material = await createHairMaterial( {
-                baseColourHex: hairColour === null ? undefined : Number.parseInt( hairColour.slice( 1 ), 16 ),
+                baseColourHex: resolvedColour === null ? undefined : Number.parseInt( resolvedColour.slice( 1 ), 16 ),
                 flowMapUrl: assets.flowMapUrl,
                 depthMapUrl: assets.depthMapUrl,
 
@@ -3527,6 +3534,8 @@ export class Avatar {
         }
 
         hairRoot.userData.groomColour = hairColour;
+        hairRoot.userData.groomTint = hairTint;
+        hairRoot.userData.groomResolvedColour = resolvedColour;
         hairRoot.userData.groomBaseColour = material.hair.baseColour.value.toArray();
         this.hairSourceMaterials = sourceMaterials;
         this.hairHistory = history;
