@@ -1,0 +1,40 @@
+{
+  "created": "2026-09-30T21:36:54.862930+00:00",
+  "status": "plane-only-boundary-contract-failed-before-candidate-export",
+  "runs": {
+    "foundation-cut-band-2026-09-30-v1": {
+      "pid": 78780,
+      "started": "2026-09-30T21:27:44.441682+00:00",
+      "finished": "2026-09-30T21:27:49.266087+00:00",
+      "status": "failed",
+      "reportSHA256": "d280ab6d09b9cd69c5880cf8f77936f7faeb39c0448cf10262782f34b54110e9"
+    },
+    "foundation-cut-band-2026-09-30-v2": {
+      "pid": 80687,
+      "started": "2026-09-30T21:28:54.568326+00:00",
+      "finished": "2026-09-30T21:28:59.587057+00:00",
+      "status": "failed",
+      "reportSHA256": "1e6ede5d15bb6e4695fed70b02e6a8d0cc376c6cee5acb1296a7bf8f3a41ce77"
+    },
+    "foundation-cut-band-2026-09-30-v3": {
+      "pid": 88444,
+      "started": "2026-09-30T21:33:54.056186+00:00",
+      "finished": "2026-09-30T21:34:08.672509+00:00",
+      "status": "failed",
+      "reportSHA256": "839835a1d9fae340c2d11e6f0f193cdfcc011a3bc113c39e6342484891afed21"
+    }
+  },
+  "boundary": {
+    "sourceSHA256": "c1a74bc80e1e38d1054e77ba2a153fe4699b001173c32e2343955132d842d218",
+    "effectivePlanes": [
+      1.1523144245147705,
+      1.269508957862854
+    ],
+    "selectedVertices": 6925,
+    "boundaryVertices": 878,
+    "offPlaneBoundaryVertices": 128,
+    "allExcludedNeighborsInHeight": true,
+    "witnesses": "See boundary-diagnosis.json"
+  },
+  "jobs": "All exited; runtime disk14 detached21:36:15.981484UTC. Review PID2323 retained."
+}

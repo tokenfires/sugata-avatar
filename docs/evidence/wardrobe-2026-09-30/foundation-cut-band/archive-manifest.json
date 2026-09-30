@@ -1,0 +1,642 @@
+{
+  "created": "2026-09-30T21:36:54.862930+00:00",
+  "files": [
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/inserted-function.py",
+      "bytes": 2820,
+      "sha256": "b2cb0e505aee6e8216a2ece5d176a83b76a1e4124377882d19c3de11795dc1d4"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/native-body.json.gz",
+      "bytes": 2580195,
+      "sha256": "5055c7e87e6b69288dff81684141a6f3606fb4efe1b61d7d11a24daa339e75be"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/native-rig.json.gz",
+      "bytes": 5460,
+      "sha256": "d7aff88ea2b160f8b201fac122ea2396474213fde1db3ba940ee586cd0ef41c8"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/recovery/blender-mount.plist",
+      "bytes": 917,
+      "sha256": "31f60031ddabb4c50161ed89d6032f6ca62304575b67d9a601cb65e2f843b425"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/recovery/detach-runtime.py",
+      "bytes": 1279,
+      "sha256": "439894b38dc35a8c66ee5e3b8c5ecce6137dcf323708fa7216a16f39ea176316"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/recovery/mount-runtime.py",
+      "bytes": 2102,
+      "sha256": "ee561bb8d14c6c5c615b038cd15ae1bab5db4fdd58f5e08fbb2bb8eb37d53dc8"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/recovery/native-v1.log",
+      "bytes": 1773,
+      "sha256": "c4d57e7fb634fa35de667de0453dd70039d3a05428f8c33aa102d4fc35767882"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/recovery/runtime-detach.json",
+      "bytes": 463,
+      "sha256": "b0903694ed79c9a614f81d9ff4dbc67ad02daf349838bd58cf9753c59ddb6884"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/recovery/runtime-preflight.json",
+      "bytes": 2402,
+      "sha256": "35b6e787b0c3ec1a86a62c9156d9e4c25fba0d6c9214767022feba2e0a8c9e15"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/report.json",
+      "bytes": 21820,
+      "sha256": "d280ab6d09b9cd69c5880cf8f77936f7faeb39c0448cf10262782f34b54110e9"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/captures/foundation-native-band-2026-09-30-v1/band-native.json.gz",
+      "bytes": 1623328,
+      "sha256": "124370fda57558ba6a4b6efabe9b09355f275625bbd3b58446db9c4894532b35"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/captures/skeleton-native-pose-2026-09-30-v1/body-0.json.gz",
+      "bytes": 721309,
+      "sha256": "ccff3c6427938371ce942e645e8571c0c707d2c580a17f00a0d459600bc97085"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/docs/evidence/nonhair-2026-09-26/wardrobe-coupling/inventory-v1.json",
+      "bytes": 18329,
+      "sha256": "a5efb4f0882a47fa3276b4b059427a85d008fad28c4177030a17c358387e99f0"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/PLAN.md",
+      "bytes": 6588,
+      "sha256": "3344175295a4e1579be42d38fe9e72762cc18d10ebe31e2cb4d3be8ecc841110"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/SOURCE-REVIEW.md",
+      "bytes": 8064,
+      "sha256": "310e3dfbf334d8ab1fed8c83fa5e6fc27b3434929e82a2e971bfd34fa2c45c7a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/docs/evidence/wardrobe-2026-09-30/foundation-native-band/PLAN.md",
+      "bytes": 7161,
+      "sha256": "a4907c5cb5157943b878cda4c0d890aa2adfe2771574a5f9a928f4ee086d2c92"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tmp/foundation-band-sep30/accepted-inputs.json.gz",
+      "bytes": 484065,
+      "sha256": "a9d2cff4bd76b05a90d09f20dca008de4b1632bcc6c27e696b1ffa9b05324d9b"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tmp/foundation-band-sep30/input-receipt.json",
+      "bytes": 543,
+      "sha256": "c401d4350b9a7ca4698eb5d46e81d1ad123b6b4d9092c62295030c03555c4f5a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tmp/foundation-cut-band-sep30/blender-mount.plist",
+      "bytes": 917,
+      "sha256": "31f60031ddabb4c50161ed89d6032f6ca62304575b67d9a601cb65e2f843b425"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tmp/foundation-cut-band-sep30/runtime-preflight.json",
+      "bytes": 2402,
+      "sha256": "35b6e787b0c3ec1a86a62c9156d9e4c25fba0d6c9214767022feba2e0a8c9e15"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tmp/wardrobe-sep30/blender-isolated.sh",
+      "bytes": 661,
+      "sha256": "4fa3797b724158cbdca373987393d0338959dd8f5af46b300d580f16c254857a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/critic/foundation-cut-band.py",
+      "bytes": 28741,
+      "sha256": "9fd88f3a5541a5748aa8534ab9d6f39916597717a7ebd48830d7abb789ab2f59"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/critic/foundation-native-band-inputs.mjs",
+      "bytes": 3218,
+      "sha256": "b0964226fb6c9a0000bacde546aa0e3151bf7d2040675c896a1c0a5174b05099"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+      "bytes": 45031536,
+      "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/hair_texture.py",
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/print_user_data_dir.py",
+      "bytes": 531,
+      "sha256": "ebbe18e1e2c9633403a1cc5f23a24f4c89a54916749b58a401f927601a0251ba"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/tfx_export.py",
+      "bytes": 37597,
+      "sha256": "fdda683554e2b98e92600998aa24f3de132c8b47f3a654bfc6acc710e40edb8d"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/figure-pipeline/verify_install.py",
+      "bytes": 2194,
+      "sha256": "1a66bbe3b4092f673dc652df008c1b46ac9d062c79b826c8625655abfc75bafe"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v1/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/inserted-function.py",
+      "bytes": 2820,
+      "sha256": "b2cb0e505aee6e8216a2ece5d176a83b76a1e4124377882d19c3de11795dc1d4"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/native-body.json.gz",
+      "bytes": 2580195,
+      "sha256": "5055c7e87e6b69288dff81684141a6f3606fb4efe1b61d7d11a24daa339e75be"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/native-rig.json.gz",
+      "bytes": 5460,
+      "sha256": "d7aff88ea2b160f8b201fac122ea2396474213fde1db3ba940ee586cd0ef41c8"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/observed-control-native.json.gz",
+      "bytes": 1622683,
+      "sha256": "c0fda8bf9eef5137b6cc2af08ca2218e28c1aa8a4c0f14b82b48a992d1ed7d6d"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/recovery/blender-mount.plist",
+      "bytes": 917,
+      "sha256": "31f60031ddabb4c50161ed89d6032f6ca62304575b67d9a601cb65e2f843b425"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/recovery/detach-runtime.py",
+      "bytes": 1279,
+      "sha256": "439894b38dc35a8c66ee5e3b8c5ecce6137dcf323708fa7216a16f39ea176316"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/recovery/mount-runtime.py",
+      "bytes": 2102,
+      "sha256": "ee561bb8d14c6c5c615b038cd15ae1bab5db4fdd58f5e08fbb2bb8eb37d53dc8"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/recovery/native-v2.log",
+      "bytes": 1773,
+      "sha256": "c34a70068771109edbf411976e90ccb22fe58988e4c615744e728b05298a7377"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/recovery/runtime-detach.json",
+      "bytes": 463,
+      "sha256": "b0903694ed79c9a614f81d9ff4dbc67ad02daf349838bd58cf9753c59ddb6884"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/recovery/runtime-preflight.json",
+      "bytes": 2402,
+      "sha256": "35b6e787b0c3ec1a86a62c9156d9e4c25fba0d6c9214767022feba2e0a8c9e15"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/report.json",
+      "bytes": 22496,
+      "sha256": "1e6ede5d15bb6e4695fed70b02e6a8d0cc376c6cee5acb1296a7bf8f3a41ce77"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/captures/foundation-native-band-2026-09-30-v1/band-native.json.gz",
+      "bytes": 1623328,
+      "sha256": "124370fda57558ba6a4b6efabe9b09355f275625bbd3b58446db9c4894532b35"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/captures/skeleton-native-pose-2026-09-30-v1/body-0.json.gz",
+      "bytes": 721309,
+      "sha256": "ccff3c6427938371ce942e645e8571c0c707d2c580a17f00a0d459600bc97085"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/docs/evidence/nonhair-2026-09-26/wardrobe-coupling/inventory-v1.json",
+      "bytes": 18329,
+      "sha256": "a5efb4f0882a47fa3276b4b059427a85d008fad28c4177030a17c358387e99f0"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/CONTROL-RECOVERY.md",
+      "bytes": 1109,
+      "sha256": "af7c98317854c873d878e423d3210ffd39be581938d2e3dc3454056f86221fe1"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/PLAN.md",
+      "bytes": 6588,
+      "sha256": "3344175295a4e1579be42d38fe9e72762cc18d10ebe31e2cb4d3be8ecc841110"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/SOURCE-REVIEW.md",
+      "bytes": 8064,
+      "sha256": "310e3dfbf334d8ab1fed8c83fa5e6fc27b3434929e82a2e971bfd34fa2c45c7a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/docs/evidence/wardrobe-2026-09-30/foundation-native-band/PLAN.md",
+      "bytes": 7161,
+      "sha256": "a4907c5cb5157943b878cda4c0d890aa2adfe2771574a5f9a928f4ee086d2c92"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tmp/foundation-band-sep30/accepted-inputs.json.gz",
+      "bytes": 484065,
+      "sha256": "a9d2cff4bd76b05a90d09f20dca008de4b1632bcc6c27e696b1ffa9b05324d9b"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tmp/foundation-band-sep30/input-receipt.json",
+      "bytes": 543,
+      "sha256": "c401d4350b9a7ca4698eb5d46e81d1ad123b6b4d9092c62295030c03555c4f5a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tmp/foundation-cut-band-sep30/blender-mount.plist",
+      "bytes": 917,
+      "sha256": "31f60031ddabb4c50161ed89d6032f6ca62304575b67d9a601cb65e2f843b425"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tmp/foundation-cut-band-sep30/runtime-preflight.json",
+      "bytes": 2402,
+      "sha256": "35b6e787b0c3ec1a86a62c9156d9e4c25fba0d6c9214767022feba2e0a8c9e15"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tmp/wardrobe-sep30/blender-isolated.sh",
+      "bytes": 661,
+      "sha256": "4fa3797b724158cbdca373987393d0338959dd8f5af46b300d580f16c254857a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/critic/foundation-cut-band.py",
+      "bytes": 28927,
+      "sha256": "e61418dc75d2cb1d306a1dd3ce0c906d48d492f012c452ff8a46152f14d4a6e5"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/critic/foundation-native-band-inputs.mjs",
+      "bytes": 3218,
+      "sha256": "b0964226fb6c9a0000bacde546aa0e3151bf7d2040675c896a1c0a5174b05099"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+      "bytes": 45031536,
+      "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/hair_texture.py",
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/print_user_data_dir.py",
+      "bytes": 531,
+      "sha256": "ebbe18e1e2c9633403a1cc5f23a24f4c89a54916749b58a401f927601a0251ba"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/tfx_export.py",
+      "bytes": 37597,
+      "sha256": "fdda683554e2b98e92600998aa24f3de132c8b47f3a654bfc6acc710e40edb8d"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/figure-pipeline/verify_install.py",
+      "bytes": 2194,
+      "sha256": "1a66bbe3b4092f673dc652df008c1b46ac9d062c79b826c8625655abfc75bafe"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v2/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/band-control-native.json.gz",
+      "bytes": 1621839,
+      "sha256": "6fbeae40c361158691b26f17bf48cc294696366bbe8152e634ddf92b744f1d60"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/band-control.glb",
+      "bytes": 578844,
+      "sha256": "4694f1f1190f8f6f34714d5cef8a286a06061edfff082e9be529af02c139fca4"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/control-normal-residuals.json.gz",
+      "bytes": 801357,
+      "sha256": "5cf422593e87be0303f475c9b8d560d5bdd74ae23d87dcfe75260e4726e69106"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/inserted-function.py",
+      "bytes": 2820,
+      "sha256": "b2cb0e505aee6e8216a2ece5d176a83b76a1e4124377882d19c3de11795dc1d4"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/lower-after-cut.json.gz",
+      "bytes": 2438393,
+      "sha256": "b79ebd22cb06708ffb292e5e01820056d319283c19a9a60d2b60f6195a57c023"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/lower-before-cut.json.gz",
+      "bytes": 2336230,
+      "sha256": "35da36fe1e4e1d5c65b40172b616ba4d41eff6830935472b2768f77350f5ef91"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/lower-cut-receipts.json.gz",
+      "bytes": 101131,
+      "sha256": "d3717efb2072671cfbdfef935a68a2f6fe00fa9980685a9ea4bfb67ea909af5f"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/native-body.json.gz",
+      "bytes": 2580195,
+      "sha256": "5055c7e87e6b69288dff81684141a6f3606fb4efe1b61d7d11a24daa339e75be"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/native-rig.json.gz",
+      "bytes": 5460,
+      "sha256": "d7aff88ea2b160f8b201fac122ea2396474213fde1db3ba940ee586cd0ef41c8"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/observed-control-native.json.gz",
+      "bytes": 1621839,
+      "sha256": "6fbeae40c361158691b26f17bf48cc294696366bbe8152e634ddf92b744f1d60"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/recovery/blender-mount.plist",
+      "bytes": 917,
+      "sha256": "31f60031ddabb4c50161ed89d6032f6ca62304575b67d9a601cb65e2f843b425"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/recovery/detach-runtime.py",
+      "bytes": 1279,
+      "sha256": "439894b38dc35a8c66ee5e3b8c5ecce6137dcf323708fa7216a16f39ea176316"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/recovery/mount-runtime.py",
+      "bytes": 2102,
+      "sha256": "ee561bb8d14c6c5c615b038cd15ae1bab5db4fdd58f5e08fbb2bb8eb37d53dc8"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/recovery/native-v3.log",
+      "bytes": 3732,
+      "sha256": "6af1b7bad57345ba806b7204501dd0dfee948b253feb3acefafacd28e1c30023"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/recovery/runtime-detach.json",
+      "bytes": 463,
+      "sha256": "b0903694ed79c9a614f81d9ff4dbc67ad02daf349838bd58cf9753c59ddb6884"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/recovery/runtime-preflight.json",
+      "bytes": 2402,
+      "sha256": "35b6e787b0c3ec1a86a62c9156d9e4c25fba0d6c9214767022feba2e0a8c9e15"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/report.json",
+      "bytes": 51162,
+      "sha256": "839835a1d9fae340c2d11e6f0f193cdfcc011a3bc113c39e6342484891afed21"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/captures/foundation-native-band-2026-09-30-v1/band-native.json.gz",
+      "bytes": 1623328,
+      "sha256": "124370fda57558ba6a4b6efabe9b09355f275625bbd3b58446db9c4894532b35"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/captures/skeleton-native-pose-2026-09-30-v1/body-0.json.gz",
+      "bytes": 721309,
+      "sha256": "ccff3c6427938371ce942e645e8571c0c707d2c580a17f00a0d459600bc97085"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/docs/evidence/nonhair-2026-09-26/wardrobe-coupling/inventory-v1.json",
+      "bytes": 18329,
+      "sha256": "a5efb4f0882a47fa3276b4b059427a85d008fad28c4177030a17c358387e99f0"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/CONTROL-RECOVERY.md",
+      "bytes": 3344,
+      "sha256": "89b00069ac41ee55918bfe1cba703f57ed4ef92b76a9488f7ecf08cfbce6f972"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/PLAN.md",
+      "bytes": 6588,
+      "sha256": "3344175295a4e1579be42d38fe9e72762cc18d10ebe31e2cb4d3be8ecc841110"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/docs/evidence/wardrobe-2026-09-30/foundation-cut-band/SOURCE-REVIEW.md",
+      "bytes": 8064,
+      "sha256": "310e3dfbf334d8ab1fed8c83fa5e6fc27b3434929e82a2e971bfd34fa2c45c7a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/docs/evidence/wardrobe-2026-09-30/foundation-native-band/PLAN.md",
+      "bytes": 7161,
+      "sha256": "a4907c5cb5157943b878cda4c0d890aa2adfe2771574a5f9a928f4ee086d2c92"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tmp/foundation-band-sep30/accepted-inputs.json.gz",
+      "bytes": 484065,
+      "sha256": "a9d2cff4bd76b05a90d09f20dca008de4b1632bcc6c27e696b1ffa9b05324d9b"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tmp/foundation-band-sep30/input-receipt.json",
+      "bytes": 543,
+      "sha256": "c401d4350b9a7ca4698eb5d46e81d1ad123b6b4d9092c62295030c03555c4f5a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tmp/foundation-cut-band-sep30/blender-mount.plist",
+      "bytes": 917,
+      "sha256": "31f60031ddabb4c50161ed89d6032f6ca62304575b67d9a601cb65e2f843b425"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tmp/foundation-cut-band-sep30/runtime-preflight.json",
+      "bytes": 2402,
+      "sha256": "35b6e787b0c3ec1a86a62c9156d9e4c25fba0d6c9214767022feba2e0a8c9e15"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tmp/wardrobe-sep30/blender-isolated.sh",
+      "bytes": 661,
+      "sha256": "4fa3797b724158cbdca373987393d0338959dd8f5af46b300d580f16c254857a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/critic/foundation-cut-band.py",
+      "bytes": 31259,
+      "sha256": "07bdc4f144177f45fa118469325c368beae0fdeb37016485c2553de44910740a"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/critic/foundation-native-band-inputs.mjs",
+      "bytes": 3218,
+      "sha256": "b0964226fb6c9a0000bacde546aa0e3151bf7d2040675c896a1c0a5174b05099"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+      "bytes": 45031536,
+      "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/hair_texture.py",
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/print_user_data_dir.py",
+      "bytes": 531,
+      "sha256": "ebbe18e1e2c9633403a1cc5f23a24f4c89a54916749b58a401f927601a0251ba"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/tfx_export.py",
+      "bytes": 37597,
+      "sha256": "fdda683554e2b98e92600998aa24f3de132c8b47f3a654bfc6acc710e40edb8d"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/figure-pipeline/verify_install.py",
+      "bytes": 2194,
+      "sha256": "1a66bbe3b4092f673dc652df008c1b46ac9d062c79b826c8625655abfc75bafe"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/source/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/upper-after-cut.json.gz",
+      "bytes": 2543176,
+      "sha256": "c1a74bc80e1e38d1054e77ba2a153fe4699b001173c32e2343955132d842d218"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/upper-before-cut.json.gz",
+      "bytes": 2439772,
+      "sha256": "b0ce2c9658449093488d3b56af0c7a074abf1aae460ca7d132cc71d0cd7da2f1"
+    },
+    {
+      "path": "captures/foundation-cut-band-2026-09-30-v3/upper-cut-receipts.json.gz",
+      "bytes": 101009,
+      "sha256": "7152e59b9ead8ce9f9cbb5cfef73e6f145d82c56853d1df04a4358d0fb029900"
+    }
+  ],
+  "fileCount": 127,
+  "totalBytes": 207863969
+}
