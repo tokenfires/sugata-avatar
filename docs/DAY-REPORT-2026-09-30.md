@@ -1,6 +1,6 @@
 # Sugata day report — September 30
 
-**Draft while the daytime window is still active.** The final job, service, budget and automation receipt will be recorded at the 18:00 Pacific checkpoint. Nothing has been pushed or published.
+**The daytime window is complete.** The ten-minute timer is paused, confirmed at 18:00:32 Pacific. Work jobs are collected, accepted assets are preserved, and the visual review remains available. Nothing has been pushed or published.
 
 ## What you can use
 
@@ -45,8 +45,8 @@ The independent critic used actual image/source witnesses and supplied two alter
 
 ## Recovery and final checkpoint
 
-Branch: `codex/bob-appearance-2026-09-29`. The completed runtime/contact evidence is saved at `4a1c823`; final local commits will be listed in the shutdown receipt. The detailed [progress log](PROGRESS-2026-09-30.md) records each source, exact command, job, hash, failure and qualification limit. Frozen captures and reference photographs are local evidence, not an off-machine backup.
+Branch: `codex/bob-appearance-2026-09-29`. The runtime/contact evidence is saved at `4a1c823`, editor entry is integrated at `8f4630d`, and preservation is saved at `ced2a98`. The [final shutdown receipt](evidence/appearance-2026-09-30/day-shutdown/README.md) records the actual closeout and recovery state. The detailed [progress log](PROGRESS-2026-09-30.md) records each source, exact command, job, hash, failure and qualification limit. Frozen captures and reference photographs are local evidence, not an off-machine backup.
 
-The pre-checkpoint preservation review independently verified all 7,286 recorded evidence files, eight accepted asset/builder pins and six reference copies. Write permissions were removed from the exact older raw files that still allowed edits; their contents are unchanged. See the [preservation receipt](evidence/appearance-2026-09-30/day-preservation/README.md). At the latest budget check, 51% of the included weekly allowance was used and all 62,500 granted credits remained available.
+The pre-checkpoint preservation review independently verified all 7,286 recorded evidence files, eight accepted asset/builder pins and six reference copies. Write permissions were removed from the exact older raw files that still allowed edits; their contents are unchanged. See the [preservation receipt](evidence/appearance-2026-09-30/day-preservation/README.md). At the final budget check, 52% of the shared weekly allowance was used and all 62,500 granted credits remained available. No capacity purchase or reset-credit redemption was performed by this work.
 
-The 18:00 checkpoint will retain the review server, collect owned jobs, verify accepted asset hashes and pause the ten-minute automation. **That pause has not yet occurred in this draft.**
+The final command-pattern inventory found only the retained review Vite service among matching Sugata processes. Its three checked pages return HTTP 200, the probe port is unused, and the task’s temporary Blender mount is absent. All eight accepted asset/builder pins and six reference copies match again. The attached worktree remains preserved. Further product work awaits a new authorized window; this timer will not resume it automatically.
