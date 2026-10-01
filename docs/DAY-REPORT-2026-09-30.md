@@ -43,6 +43,18 @@ A finite native comparison showed why dropping skin influences can matter: one c
 
 The independent critic used actual image/source witnesses and supplied two alternatives for each actionable issue. We changed direction when a local approach stopped producing useful progress.
 
+## Working lesson for the next authorized session
+
+In the post-day conversation, Cora judged the day worthwhile but uneven: customization delivered usable improvements, while appearance research and evidence bookkeeping consumed considerable attention with less visible improvement. This is a qualitative retrospective, not a measured productivity result. Robert asked how those observations would carry into future sessions.
+
+- Start with one improvement someone can use and one bounded research question as a planning default. Preserve the wider roadmap and ambitious goals.
+- Before an investigation, state the decision its evidence can change and an effort limit or concrete stop condition. When repeated rounds add no decision-relevant evidence, reconsider the diagnosis, comparison method or representation and choose another useful step.
+- Ask the critic to assess whether the next experiment is worth doing, alongside correctness. Retain actual source/frame examples and two alternatives with tradeoffs for actionable findings.
+- Keep the exact evidence needed for recovery and qualification. Prefer one concise receipt linked from the handoff; repeat an audit when inputs change or a concrete uncertainty requires it.
+- Carry forward controlled hair-colour inspection as a useful diagnostic, with real rendered images still required for appearance decisions.
+
+At the next checkpoint, assess whether this approach increased usable progress. These are working habits to evaluate, not a guarantee or permission to weaken acceptance criteria. The completed automation remains paused; this retrospective does not open another work window.
+
 ## Recovery and final checkpoint
 
 Branch: `codex/bob-appearance-2026-09-29`. The runtime/contact evidence is saved at `4a1c823`, editor entry is integrated at `8f4630d`, and preservation is saved at `ced2a98`. The [final shutdown receipt](evidence/appearance-2026-09-30/day-shutdown/README.md) records the actual closeout and recovery state. The detailed [progress log](PROGRESS-2026-09-30.md) records each source, exact command, job, hash, failure and qualification limit. Frozen captures and reference photographs are local evidence, not an off-machine backup.
