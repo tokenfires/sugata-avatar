@@ -29,6 +29,16 @@ let paused = reducedMotion, frame = 0, previousTime = null;
 let savingImage = false, attention = null, attentionError = null;
 let navigationPending = false;
 const downloadUrls = new Set();
+// Review links enter the requested editor once controls are ready. Fragment-only
+// navigation changes disclosure/focus, leaving applied settings and drafts intact.
+function revealColourEditor() {
+    if (busy || failed || !['#mix-colours', '#hair-colours'].includes(location.hash)) return;
+    const section = document.getElementById(location.hash.slice(1));
+    section.open = true;
+    section.querySelector('summary').focus({ preventScroll: true });
+    section.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' });
+}
+addEventListener('hashchange', revealColourEditor);
 const setStatus = text => { status.textContent = text; };
 const savedLooks = new SavedLooks();
 function tintToUrl(url, tint) {
@@ -405,6 +415,7 @@ try {
     document.getElementById('dialog-save').addEventListener('click', saveLook); document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
     window.showcase = { avatar, controls, attention, framing, configuration: currentConfiguration, changeOutfit, saveImage, openLook,
         step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); if (savingImage) throw new Error('Wait for the image export before stepping.'); framing.update(); controls.update(); await avatar.step(paused ? 0 : delta); updateAttention(); } };
+    revealColourEditor();
     if (!captured) frame = requestAnimationFrame(animate);
 } catch (error) { showFailure(error); }
 
