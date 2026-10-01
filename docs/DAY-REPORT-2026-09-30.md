@@ -47,4 +47,6 @@ The independent critic used actual image/source witnesses and supplied two alter
 
 Branch: `codex/bob-appearance-2026-09-29`. The completed runtime/contact evidence is saved at `4a1c823`; final local commits will be listed in the shutdown receipt. The detailed [progress log](PROGRESS-2026-09-30.md) records each source, exact command, job, hash, failure and qualification limit. Frozen captures and reference photographs are local evidence, not an off-machine backup.
 
+The pre-checkpoint preservation review independently verified all 7,286 recorded evidence files, eight accepted asset/builder pins and six reference copies. Write permissions were removed from the exact older raw files that still allowed edits; their contents are unchanged. See the [preservation receipt](evidence/appearance-2026-09-30/day-preservation/README.md). At the latest budget check, 51% of the included weekly allowance was used and all 62,500 granted credits remained available.
+
 The 18:00 checkpoint will retain the review server, collect owned jobs, verify accepted asset hashes and pause the ten-minute automation. **That pause has not yet occurred in this draft.**
