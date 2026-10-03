@@ -1,0 +1,3 @@
+# Early documentation assembly check
+
+Tool7adc68 at21:29:50UTC exits1 after installing exact approved JSON/guide and appending theREADME link: AssertionError target `../docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md` absent. Root ran the link check before creating its planned receipt landing page. No native/runtime/resource/configuration/visual refusal, recipe change, rerender or retry; those passed earlier. Final delivery metadata was not emitted by this failed check. PythonPID was not recorded. Complete the receipt page and check only delivered bytes/links after it exists; no repeated mutation.

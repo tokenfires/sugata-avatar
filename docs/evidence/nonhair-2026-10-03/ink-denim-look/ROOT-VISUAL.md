@@ -1,0 +1,13 @@
+# Root actual image decision
+
+All six unchanged900×868 original PNGs viewed at original resolution by2026-10-03T21:23:54.770667+00:00, separately from the critic. Provisional accept only optional clothing-study legibility, pending independent critic postflight; no character/AAA/default promotion.
+
+Neutral body: neckline aroundx393–472/y165–190, smooth navy tee x325–538/y177–409, textured denim junctionx352–508/y401–441 and trouser legs to y793, brownbootsx365–509/y785–846 remain separable. Kitchenbody: corresponding tee/denim junction aroundx352–506/y401–443, legs to y792 and bootsx363–509/y786–846 also remain visible under room shadows. Top/bottom encoded hues nearly match but actual tee/denim textures and edges support following the whole outfit. No exclusive shader/light/pixel cause proved. A optionaltonalrecipe/guide retains useful choice; B retainexistingSageonly costsless but discards this actual tonalanswer.
+
+Both portraits expose eyes aroundx207–433/y352–395, mouthx242–361/y514–578, nose/cheek. Kitchenportrait has markedly warmer/shadowed lighting; Neutral Brown setting appears grey/ash in this image. Do not promise swatch fidelity/calibration. Hair card bands/stipple and jagged neckline facets aroundx190–222/y677–746 andx508–544/y685–750 are obvious. A deliverstudywithliteral limits and originalportrait witnesses; B deferallnew looksuntilbroadergroom/necklinefinish delaysavailable palette option. No cause attributions, oldfoundation/mask/offset/groom tuning or repair reopened.
+
+Held/released portraits show a readable face and a small mouth/head-position change. Currentactualreport heldtime1.2000000000000006/soft-smile/appliedamount.18 and releaseidle/amount0 support those two finite contexts, not continuousnaturalness/calm/approachable/coy intent or initialheadposerestoration. A includeexplicit existingactionguide+stillcontexts; B omitactioncontext reducespresentationcost but losesone witnessedface context.
+
+Root independent retained-byte/state reader verifies18 states/102steps/24actualassets/380source+5inputpins, exactactualdownloadbytes, sixPNGheaders/hashes,3reloadretirements+finalAvatar disposed/noleaksreported, page/browser/serverclosed and24readsdrained,0errors/resources/finalpins.18warnings remain4missingrigbones/4zeroindex/10inlineFnreturns; no unproven harmless/cause claim. These numerical/source facts support actualimage review, not characterfinish qualification. Fixedwarmup plusone ordinaryredraweach is not convergence/pixel isolation.
+
+No native rerun or palettechange. Review1023/5173 retained; new5307closed. FullAAAcharacter/hair/expression/wardrobe/representation remains open; humansteeringtakesprecedence.

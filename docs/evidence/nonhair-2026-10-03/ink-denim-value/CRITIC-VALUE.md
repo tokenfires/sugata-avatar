@@ -1,0 +1,44 @@
+# Independent Ink and denim value
+
+Value-only decision saved 2026-10-03T21:04:50.587533+00:00, before21:08. No product/recipe edits, browser/GPU/native, geometry/shader evaluation or new experiment by the critic. Initial source reads were preparatory at20:57–20:59; original-image review and decision occurred in the21:00–21:08 value window.
+
+**Conditionally worthwhile as one optional tonal wardrobe composition, with a complete-look/face review and actual reopening evidence.** It is not fixing a proved visual defect or a missing prior-image feature. `looks/README.md` explicitly carries accepted haircut portrait/control originals; the long recipe is actual downloaded/reopened bytes and the chin recipe is the recorded initial actual configuration. The existing separate attention guide also has native witnesses. Those facts should not be called source-only examples.
+
+## Actual source/image witnesses and decision
+
+I re-viewed all three original files at original resolution:
+
+- `docs/evidence/nonhair-2026-10-03/mobile-toolbar/archive/capture/mobile-body.png` (390×844): the sage tee approximately x101–257/y197–359, navy trousers x120–239/y357–632 and brown boots x125–245/y616–679 are visibly separable and complete in this current accepted UI. This is an existing composition/context witness, not a matched Brown/Ink image.
+- `docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png` (1440×2060): the large face and sage shoulders around x62–950/y410–950 show the delivered lavender-tinted chin bob. The current hair strips/stipple remain visible. This source-backed composition/control example already exists; removing its tint is a different proposed look, not proof of a corrected hair finish.
+- `packages/testbed/src/palette-references/casual-charcoal.png` (657×868): dark gray tee around x193–421/y166–411 contrasts with the brighter textured denim around x217–402/y409–790. Its blue rim/studio context differs from Neutral and Kitchen, so it is not a current matched dark-design acceptance witness.
+
+`looks/sage-lavender-chin.json` has Top#617a70, Bottom#35485c, Shoes#45434b, Brown base#413934 plus lavender tint25%. The proposal should explicitly retain Bottom#35485c and remove `hairTint`, with fixed Top#32495e and Shoes#48382e. Existing Ecru's default denim is actually#26364c (`WardrobeStyles.js:27`), so relying on the Ecru base would silently change the declared inherited denim.
+
+The useful **new** decision is whether a quiet tonal navy top/denim column with untinted Brown and warm boots remains legible in the two existing rooms, enough to merit another optional reopenable study. Top#32495e and inherited Bottom#35485c differ by only[-3,+1,+2] encodedRGB codes. `WardrobeStyles.js:102–120` applies different sampled-texture multipliers to tee and denim, so those literal colours do not establish rendered separation. The prior images have stronger garment contrast; they justify checking the whole tee/waist/legs/boots together rather than judging a shirt swatch. This is a design risk and missing candidate evidence, not an observed Ink defect or exclusive shader-cause claim.
+
+**A — recommended:** one fixed tonal Ink study, with the current source-supported body, bob02, accepted garments/foundation and existing colour controls. It supplies a new saveable composition plus actual complete-outfit/face context, at the cost of a small native review and possible tonal merging. **B:** retain existing Sage/lavender and the three palette references. It is cheaper and already supported; another new look is unnecessary unless it answers the declared whole-composition decision. B is preferable if the finite contract cannot be fully specified or the new composition is unhelpful. No hue/brightness retune follows a refusal.
+
+## Smallest useful exact packet and stop
+
+A fresh root plan could allow at most25–30minutes, one source admission before a named launch cutoff, one native packet and first failure closure. No execution is admitted by this note. Use the explicit supported recipe: g050/.5 nearest, bob02, Brown#413934, absent tint, balanced quality/seed20260807/relaxed-standing, casual garments and bra/briefs foundation, Ecru with explicit three colours above. The primary saved file should restore **Neutral Studio/Full look**; viewing controls and attention are not serialized.
+
+Six fixed images suffice: candidate Neutral Studio Full look and Portrait; candidate Kitchen Full look and Portrait; one Neutral Portrait existing **Look with a smile** held context and one after actual manual Release. The latter is an optional viewing-guide context only, not a new cue or behavior/naturalness qualification. `showcase.js:443–450` routes that button to existing `soft-smile` and Release; `:165–169` requires Resume when paused and distinguishes attending/releasing. `AttentionAction.js:170–199` has the existing manual fade/automatic lifetime. Record actual action state/timing rather than infer phase from a wall wait; no private clock/AA/history resets or phase search. Do not re-run the earlier neutral-attention comparison or claim continuous intent recognition from two stills.
+
+Use existing real settings-file reopening/export and actual attached configuration: expected colours/noTint/cut/scene/frame/outfit/foundation must match at each declared view, with only declared scene/frame changes. Preserve exact actual downloaded JSON and reopen it, and retain original native image bytes behind durable guide links. No storage write, new SDK/schema/UI/generic material-node oracle, texture/lighting/shader/fit/body/groom intervention. Capture/temporal differences must not be presented as exclusive colour effects. New scene images would qualify only these current static contexts, not calibration, broader motion, body/gender representation, all angles or AAA readiness.
+
+The visual decision is explicit: can both reviewers follow the neckline/tee-to-denim junction, trouser silhouette and boots in each complete-body original, and read the available eyes/mouth/cheek in each portrait without requiring a geometry/colour fix? The dark hairstyle itself may remain weak against the background; state that limit rather than claim all cut silhouettes are now legible. The optional smile context should be described literally from its image; do not brand the look calm/approachable or resolve coy/teasing intent without additional evidence.
+
+If any runtime/deadline/resource/configuration gate fails, or complete outfit/face presentation is unhelpful, preserve the refused study/source and defer publishing this as a reviewed look. Do not adjust the fixed palette or repeat the capture. If it succeeds, deliver one JSON plus concise opening/context/limits guide, not another comparison-widget or broader character-quality claim. At21:05 I independently viewed root's unchanged current browser JPEG `uniqlo-70000561.jpg` (1280×720), from [UNIQLO Official Styling70000561](https://www.uniqlo.com/us/en/stylingbook/officialstyling/70000561). Its photographed brown bob/face at approximately x246–383/y276–431 contrasts with a dark jacket and pale yellow neckline at x281–340/y422–518. The visible item labels say BLACK jacket and BLACK corduroy pants; it is not a navy tee/denim recipe, a complete lower-body photograph in this screenshot, or an equivalent Sugata hairstyle/material. It supports a dark-column/face-focal colour relationship only. The lighter neckline contributes to that photograph's separation and is absent from the proposed Ink tee, which reinforces the need for the actual portrait check. No product pricing recommendation or replicated garment/design claim follows. The failed/redirected earlier reference URLs are excluded.
+
+## Readback pins
+
+- `looks/README.md` — a05b36952a2945b75f49657352b9165bb47752a038e8b2ac86f32b1991a5e0fa
+- `looks/sage-lavender-chin.json` — 09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978
+- `packages/core/src/wardrobe/WardrobeStyles.js` — 7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089
+- `packages/testbed/src/showcase.js` — 46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189
+- `packages/core/src/motion/AttentionAction.js` — 762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34
+- `docs/evidence/nonhair-2026-10-03/mobile-toolbar/archive/capture/mobile-body.png` — 35762fafc996857da75b97fe6ad86e21c294ef0f97b9d939ada7156e515dd3b6
+- `docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png` — 37667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035
+- `packages/testbed/src/palette-references/casual-charcoal.png` — 43c387cd58068b21d0376a17762651635831b922a5d2ec817f1a822d15eeec64
+
+- `docs/evidence/nonhair-2026-10-03/ink-denim-value/uniqlo-70000561.jpg` — 2bf6834cb4b4b04f0559dc5e480803bf67337674c15be001a64c459c1f5a75f9 (actually viewed at original resolution; reference amendment 2026-10-03T21:06:04.305431+00:00)

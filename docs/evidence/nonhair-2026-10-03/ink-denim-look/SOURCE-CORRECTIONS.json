@@ -1,0 +1,12 @@
+{
+  "time": "2026-10-03T21:16:23.471814+00:00",
+  "pid": 52569,
+  "reversedExact": true,
+  "insertions": 2,
+  "reason": [
+    "critic/root source witness pending asset promises on failure: A bounded final drain\u22646s chosen; B incomplete-read refusal weaker",
+    "critic source witness parsed JSON assertion insufficient bytes: A exact hash gate chosen; B values-only contract cheaper but would change declared predicate"
+  ],
+  "before": "b9c236d6c6f52a309c694b87bf255c7a981d1326ecd626ce99f7faf0398f6a0d",
+  "after": "3a7e60d40ad51a9d449e052a93ec6a8bc70432e57acef89dd491070e3f005e16"
+}

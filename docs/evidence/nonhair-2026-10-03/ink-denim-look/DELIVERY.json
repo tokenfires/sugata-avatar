@@ -1,0 +1,205 @@
+{
+  "time": "2026-10-03T21:33:55.842624+00:00",
+  "pid": 86496,
+  "command": "python3 stdin final delivered-byte/local-link inspection (no repeated mutation/native)",
+  "decision": "deliver exact optional recipe/guide; no default or AAA promotion",
+  "inputs": {
+    "CRITIC-POSTFLIGHT.md": "a84f01492a05d13f815954f4f6cc27698f9e5dfd8e86f414cd6efe0f33601f7b",
+    "ROOT-HANDOFF.json": "0fd3196cb6db7658ee6b870b3c3d30feb621d6585f0adb15b741f460e23f752d",
+    "LOOKS-README-BEFORE.md.source": "a05b36952a2945b75f49657352b9165bb47752a038e8b2ac86f32b1991a5e0fa"
+  },
+  "outputs": {
+    "looks/ink-denim.json": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+    "looks/INK-DENIM.md": "bf552c07d5c396c5aa85c3826a83b6085070faa35781dfc965c5ae842dbe8cec",
+    "looks/README.md": "39412cbe152e54ab907cbf1da81ad64fca7606af33dedcb4316a323e765a7ee2"
+  },
+  "linkRows": [
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "ink-denim.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json"
+    },
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png"
+    },
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png"
+    },
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png"
+    },
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png"
+    },
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png"
+    },
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png"
+    },
+    {
+      "from": "looks/INK-DENIM.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "sage-lavender-chin.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/sage-lavender-chin.json"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "../captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "sage-lavender-long.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/sage-lavender-long.json"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "../captures/wardrobe-hair-cut-2026-10-03-v1/desktop-long-bob.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/captures/wardrobe-hair-cut-2026-10-03-v1/desktop-long-bob.png"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/hair-cut/review.html",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/review.html"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/representation-recipes/RECEIPT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/representation-recipes/RECEIPT.md"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "VIEWING-ATTENTION.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/VIEWING-ATTENTION.md"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/skin-finish/README.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/README.md"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "../docs/evidence/nonhair-2026-10-03/iris-pigment/README.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-pigment/README.md"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "INK-DENIM.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md"
+    },
+    {
+      "from": "looks/README.md",
+      "target": "ink-denim.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "../../../../looks/INK-DENIM.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "../../../../looks/ink-denim.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "archive/capture/report.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/report.json"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "archive/capture/neutral-body.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "archive/capture/neutral-portrait.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "archive/capture/kitchen-body.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "archive/capture/kitchen-portrait.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "archive/capture/smile-held.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "archive/capture/smile-released.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "ROOT-VISUAL.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/ROOT-VISUAL.md"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "CRITIC-POSTFLIGHT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/CRITIC-POSTFLIGHT.md"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "ROOT-READBACK.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/ROOT-READBACK.json"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "critic-state-readback.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/critic-state-readback.json"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "ROOT-HANDOFF.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/ROOT-HANDOFF.json"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "RECEIPT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/RECEIPT.md"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "CHECKPOINT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/CHECKPOINT.md"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "../ink-denim-value/uniqlo-70000561.jpg",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-value/uniqlo-70000561.jpg"
+    },
+    {
+      "from": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "../ink-denim-value/CRITIC-VALUE.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-value/CRITIC-VALUE.md"
+    }
+  ],
+  "productionSourceOrAssetMutation": false,
+  "earlierAssemblyCheck": "7adc68 receiptpageabsent; targetcompleted, native untouched"
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2026-10-03T21:18:33.806286+00:00",
+  "pid": 56540,
+  "scope": "exact synchronous encoding+limits insertion/row metadata reconstruction; no schema/API replay",
+  "before": "3a7e60d40ad51a9d449e052a93ec6a8bc70432e57acef89dd491070e3f005e16",
+  "after": "274f9685623fd57f0fbd636e550f9fd890f38c9095ca8cfa61faccb7daa2740f",
+  "witness": "showcase.js321\u2013323 draws before same-task encoding: yielding can lose WebGPU frame",
+  "alternatives": [
+    "A ordinaryStage.draw+same-taskPNG selected: bounded explicit extra6redraws/normalhistoryeffects",
+    "B encode in final publicstep: fixedstep budget but more hold/release wiring"
+  ]
+}

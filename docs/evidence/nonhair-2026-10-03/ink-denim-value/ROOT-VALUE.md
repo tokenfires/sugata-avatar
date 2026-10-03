@@ -1,0 +1,9 @@
+# Root value decision
+
+Saved 2026-10-03T21:05:42.565387+00:00; independent complete critic handoff/source reads and two actual accepted originals re-viewed. Conditional worth agrees: one tonal Ink composition can answer a useful garment/face legibility question beyond existing Sage portrait/control originals. Existing Sage toe/waist/tee separation and historical charcoal textured denim are visible; they are not matched Ink witnesses. Root independently checks Ecru denim default#26364c and distinct current top/denim texture modulation, literal proposed RGB delta[-3,+1,+2]. No Ink defect or exclusive shader cause is proved.
+
+A: fixed Ink recipe+six images across two scenes and one existing soft-smile/manual Release, useful new optional composition with possible tonal merging. B: retain accepted recipes, cheaper/readable but no tonal answer. A worth only a fresh exact contract with one native and first failure closure; no palette retune or observer/capture retry follows.
+
+Root actual primary UNIQLO Style70000561 https://www.uniqlo.com/us/en/stylingbook/officialstyling/70000561 loaded actual screenshot around21:04. Untouched1280×720 JPEG captures photographer's brown bob, dark jacket/trousers and pale yellow neck insert. Actual listed jacket/corduroy products are09BLACK. This is a quiet dark-column/face emphasis cue only, not navy/tee/denim/render replication. Original search80000223 actuallyPageNotFound; pairing-blues generic magazine redirect lacked requestedarticle, excluded. Temporary tab17 closed after capture. Critic has its own separate source/originalimage witnesses; no root approval based solely on its inference.
+
+No product/native mutation this value gate. Review1023/5173 verified live21:04:52; ACTIVErecovery/preserved roadmap remain. Fixed21:08 stop; fresh slice must obtain literal source/native admission.

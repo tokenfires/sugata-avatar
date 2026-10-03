@@ -1,0 +1,178 @@
+{
+  "time": "2026-10-03T21:11:40.293Z",
+  "pid": 44019,
+  "command": "node --input-type=module stdin exact schema/source readback",
+  "status": "source-only",
+  "pins": {
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/CANDIDATE.json": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/PLAN.md": "a2d567d4f3fcc6422031354b8dee7fe7c9e88ced2719d057033641e09bb01483",
+    "tools/critic/ink-denim-look.mjs": "274f9685623fd57f0fbd636e550f9fd890f38c9095ca8cfa61faccb7daa2740f",
+    "packages/testbed/src/showcase.js": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189",
+    "packages/testbed/src/showcase-settings.mjs": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+    "packages/testbed/src/showcase-presets.mjs": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+    "packages/testbed/src/viewer-scenes.mjs": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34"
+  },
+  "variants": [
+    {
+      "scene": "studio",
+      "frame": "body",
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "neutral",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#32495e",
+            "bottom": "#35485c",
+            "shoes": "#48382e"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5307/src/showcase.html?hairColour=%23413934&preset=casual&outfit=casual&style=ecru&frame=body&scene=studio&light=neutral&topColor=%2332495e&bottomColor=%2335485c&shoesColor=%2348382e&capture="
+    },
+    {
+      "scene": "studio",
+      "frame": "portrait",
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "neutral",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#32495e",
+            "bottom": "#35485c",
+            "shoes": "#48382e"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5307/src/showcase.html?hairColour=%23413934&preset=casual&outfit=casual&style=ecru&frame=portrait&scene=studio&light=neutral&topColor=%2332495e&bottomColor=%2335485c&shoesColor=%2348382e&capture="
+    },
+    {
+      "scene": "kitchen",
+      "frame": "body",
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#32495e",
+            "bottom": "#35485c",
+            "shoes": "#48382e"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5307/src/showcase.html?hairColour=%23413934&preset=casual&outfit=casual&style=ecru&frame=body&scene=kitchen&light=studio&topColor=%2332495e&bottomColor=%2335485c&shoesColor=%2348382e&capture="
+    },
+    {
+      "scene": "kitchen",
+      "frame": "portrait",
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "kitchen",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#32495e",
+            "bottom": "#35485c",
+            "shoes": "#48382e"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "url": "http://127.0.0.1:5307/src/showcase.html?hairColour=%23413934&preset=casual&outfit=casual&style=ecru&frame=portrait&scene=kitchen&light=studio&topColor=%2332495e&bottomColor=%2335485c&shoesColor=%2348382e&capture="
+    }
+  ],
+  "native": false,
+  "sourceSupplement": {
+    "time": "2026-10-03T21:16:23.471814+00:00",
+    "pid": 52569,
+    "scope": "exact two-insertion reversal and current input pins, no schema/API replay",
+    "beforeSHA256": "b9c236d6c6f52a309c694b87bf255c7a981d1326ecd626ce99f7faf0398f6a0d",
+    "afterSHA256": "3a7e60d40ad51a9d449e052a93ec6a8bc70432e57acef89dd491070e3f005e16",
+    "originalSchemaReaderPID": 44019
+  },
+  "encodingSupplement": {
+    "time": "2026-10-03T21:18:33.806286+00:00",
+    "pid": 56540,
+    "scope": "exact synchronous encoding+limits insertion/row metadata reconstruction; no schema/API replay",
+    "before": "3a7e60d40ad51a9d449e052a93ec6a8bc70432e57acef89dd491070e3f005e16",
+    "after": "274f9685623fd57f0fbd636e550f9fd890f38c9095ca8cfa61faccb7daa2740f",
+    "witness": "showcase.js321\u2013323 draws before same-task encoding: yielding can lose WebGPU frame",
+    "alternatives": [
+      "A ordinaryStage.draw+same-taskPNG selected: bounded explicit extra6redraws/normalhistoryeffects",
+      "B encode in final publicstep: fixedstep budget but more hold/release wiring"
+    ]
+  }
+}

@@ -20,3 +20,5 @@ To try a brief camera-facing attention action with the chin-length look, follow 
 A separate [softer skin finish preview](../docs/evidence/nonhair-2026-10-03/skin-finish/README.md) preserves two front/oblique comparisons and an isolated editable candidate. Both reviewers modestly prefer it in this portrait. The recipe and accepted skin defaults stay in place; it is not a saved-look option or a movement/lighting qualification.
 
 A separate [optional Blue iris study](../docs/evidence/nonhair-2026-10-03/iris-pigment/README.md) offers actual brown/blue-grey front and oblique comparisons. Blue remains a preview-only static colour direction; the recipe and accepted eye defaults stay in place.
+
+[Ink and denim](INK-DENIM.md) adds an optional navy tee/denim composition with the untinted Brown hair setting and warm shoes. Its [settings file](ink-denim.json) was downloaded and reopened in the app. The guide links six original complete-look, portrait and small-smile contexts across Neutral Studio and Kitchen, with the visible hair/neckline and finite-motion limits retained.

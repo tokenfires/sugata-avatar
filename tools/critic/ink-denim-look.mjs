@@ -1,0 +1,145 @@
+/** One fixed optional wardrobe composition; no product, clock or material mutation. */
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import { ROOT, collectSourceHashes, hashFile, sha256 } from '../figure-pipeline/collar_replacement_manifest.mjs';
+import { startProbeServer, launchProbeBrowser } from '../../packages/core/src/render/MotionProbe.mjs';
+const packet = ROOT + '/docs/evidence/nonhair-2026-10-03/ink-denim-look';
+const raw = ROOT + '/captures/ink-denim-look-2026-10-03-v1';
+const stop = Date.parse('2026-10-03T21:37:00Z');
+assert.ok(Date.now() < Date.parse('2026-10-03T21:23:00Z'), 'sole launch cutoff');
+assert.ok(!fs.existsSync(raw), 'fresh single capture directory');
+fs.mkdirSync(raw, { recursive: true });
+const source = new URL(import.meta.url), recipe = JSON.parse(fs.readFileSync(packet + '/CANDIDATE.json'));
+const inputFiles = ['PLAN.md', 'CANDIDATE.json', 'CRITIC-CONTRACT.md', 'CRITIC-SOURCE.md', 'ROOT-SOURCE.json'];
+const inputs = Object.fromEntries(inputFiles.map(n => [packet + '/' + n, hashFile(packet + '/' + n)]));
+const started = Date.now(), workEnd = Math.min(stop - 30000, started + 90000);
+const report = { pid: process.pid, started: new Date(started).toISOString(), stop: new Date(stop).toISOString(),
+    command: 'node tools/critic/ink-denim-look.mjs', status: 'running', instrumentSHA256: hashFile(source),
+    sources: collectSourceHashes(ROOT), inputs, recipe, states: [], images: [], steps: [], operations: [],
+    assets: [], errors: [], warnings: [], failedResources: [], retirements: [],
+    limits: ['One fixed design/six still contexts; no colour isolation/calibration/continuous intent/motion/fit/AAA/body breadth.',
+        'Public capture steps only; original clocks/AA/history are never reset. Fresh scene/JSON loads restart normally.',
+        'Fixed48 zero-delta warmup is not convergence; each PNG adds one ordinary Stage.draw and encodes in the same task.',
+        'Only configuration and attached public reports support images; no material-node/index/geometry oracle.'] };
+const save = () => fs.writeFileSync(raw + '/report.json', JSON.stringify(report, null, 2) + '\n');
+fs.copyFileSync(source, raw + '/instrument.mjs'); save();
+const remaining = () => Math.max(1, workEnd - Date.now());
+async function bounded(fn, label, cleanup = false) {
+    if (!cleanup) assert.ok(Date.now() < workEnd, label + ' work deadline');
+    let timer;
+    try { return await Promise.race([fn(), new Promise((_, reject) => { timer = setTimeout(() => reject(Error(label + ' timeout')), cleanup ? 6000 : remaining()); })]); }
+    finally { clearTimeout(timer); }
+}
+let server, browser, page, error, storage;
+const reads = [];
+const expected = (scene, frame) => { const r = { ...recipe, scene, frame }; if (scene === 'kitchen') delete r.lighting; return r; };
+async function state(label) {
+    const s = await page.evaluate(label => {
+        const r = showcase.avatar.report();
+        return { label, observedUTC: new Date().toISOString(), actualURL: location.href,
+            configuration: showcase.configuration(), backend: showcase.avatar.stage.backendName,
+            webGPU: showcase.avatar.stage.renderer.backend.isWebGPUBackend,
+            attached: { identity: r.identity, hair: r.hair, wardrobe: r.wardrobe, scene: r.scene, framing: r.framing, motion: r.motion },
+            camera: { position: showcase.avatar.stage.camera.position.toArray(), matrix: showcase.avatar.stage.camera.matrixWorld.toArray(), projection: showcase.avatar.stage.camera.projectionMatrix.toArray() },
+            attention: showcase.attention.report(), pausePressed: document.querySelector('#pause').getAttribute('aria-pressed'),
+            attentionText: document.querySelector('#attention-status').textContent,
+            storage: Object.fromEntries(Object.keys(localStorage).map(k => [k, localStorage.getItem(k)])) };
+    }, label);
+    report.states.push(s); save(); return s;
+}
+function check(s, scene, frame) {
+    assert.deepEqual(s.configuration, expected(scene, frame), s.label + ' exact attached recipe');
+    assert.equal(s.backend, 'webgpu'); assert.equal(s.webGPU, true);
+    storage ??= s.storage; assert.deepEqual(s.storage, storage, 'readonly collection');
+    assert.deepEqual(report.errors, []); assert.deepEqual(report.failedResources, []);
+}
+async function ready(label) {
+    await page.waitForFunction(() => window.showcase || !document.querySelector('#error').hidden, null, { timeout: remaining() });
+    assert.equal(await page.locator('#error').textContent(), '');
+    await page.waitForLoadState('networkidle', { timeout: remaining() });
+    await Promise.all(reads); report.operations.push({ kind: 'ready', label, utc: new Date().toISOString() }); save();
+    assert.deepEqual(report.errors, []); assert.deepEqual(report.failedResources, []);
+}
+async function retirement(label) {
+    await page.evaluate(label => { const owner = showcase.avatar; addEventListener('pagehide', event => console.log('INK_RETIRE ' + JSON.stringify({ label, persisted: event.persisted, disposal: owner.report().disposal })), { once: true }); }, label);
+}
+async function shot(label, scene, frame, settle = true) {
+    if (settle) await page.evaluate(async () => { for (let i = 0; i < 48; i++) await showcase.step(0); });
+    const before = await state(label + '-before'); check(before, scene, frame);
+    const data = await page.evaluate(() => { showcase.avatar.stage.draw(); return showcase.avatar.stage.canvas.toDataURL('image/png'); });
+    const bytes = Buffer.from(data.split(',')[1], 'base64'); fs.writeFileSync(raw + '/' + label + '.png', bytes);
+    const row = { file: label + '.png', sha256: sha256(bytes), bytes: bytes.length, encoding: 'one ordinary Stage.draw plus same-task canvas PNG', before, after: null, completed: false };
+    report.images.push(row); save();
+    row.after = await state(label + '-after'); save(); check(row.after, scene, frame);
+    assert.deepEqual(row.after.configuration, before.configuration); row.completed = true; save();
+}
+async function scene(id, label) {
+    await retirement(label); report.operations.push({ kind: 'scene button', requestedScene: id, utc: new Date().toISOString() }); save();
+    await Promise.all([page.waitForEvent('domcontentloaded', { timeout: remaining() }), page.locator(`[data-scene="${id}"]`).click()]);
+    await ready(label);
+}
+try { await bounded(async () => {
+    server = await startProbeServer({ port: 5307 }); report.baseURL = server.baseUrl; save();
+    browser = await launchProbeBrowser();
+    page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1, reducedMotion: 'reduce', acceptDownloads: true });
+    page.setDefaultTimeout(Math.min(30000, remaining()));
+    const event = row => ({ ...row, observedUTC: new Date().toISOString() });
+    page.on('pageerror', e => { report.errors.push(event({ kind: 'pageerror', message: e.stack ?? e.message })); save(); });
+    page.on('console', m => { const t = m.text(); if (m.type() === 'error') report.errors.push(event({ kind: 'console', message: t, location: m.location() }));
+        if (m.type() === 'warning') report.warnings.push(event({ message: t, location: m.location() }));
+        if (m.type() === 'log' && t.startsWith('INK_RETIRE ')) { try { report.retirements.push(JSON.parse(t.slice(11))); } catch (e) { report.errors.push(event({ kind: 'retirement parse', message: e.message })); } } save(); });
+    page.on('requestfailed', r => { report.failedResources.push(event({ kind: 'requestfailed', url: r.url(), failure: r.failure() })); save(); });
+    page.on('response', r => { if (r.status() >= 400) { report.failedResources.push(event({ kind: 'http', url: r.url(), status: r.status() })); save(); }
+        const u = new URL(r.url()); if (!r.ok() || !u.pathname.endsWith('.glb') || u.searchParams.has('import')) return;
+        reads.push((async () => { const at = u.pathname.indexOf('/assets/'); assert.ok(at >= 0); const file = u.pathname.slice(at + 1), bytes = await r.body();
+            report.assets.push(event({ url: r.url(), file, bytes: bytes.length, sha256: sha256(bytes), expectedSHA256: report.sources[file] })); save();
+            assert.equal(sha256(bytes), report.sources[file], 'actual loaded GLB ' + file);
+        })().catch(e => { report.errors.push(event({ kind: 'asset', message: e.stack })); save(); })); });
+    const query = new URLSearchParams({ preset: 'casual', outfit: 'casual', frame: 'body', scene: 'studio', light: 'neutral', style: 'ecru', hairColour: '#413934', topColor: '#32495e', bottomColor: '#35485c', shoesColor: '#48382e', capture: '' });
+    report.requestedInitialURL = server.baseUrl + '/src/showcase.html?' + query; save();
+    await page.goto(report.requestedInitialURL, { waitUntil: 'domcontentloaded', timeout: remaining() }); await ready('initial');
+    const initial = await state('initial'); check(initial, 'studio', 'body');
+    const downloaded = page.waitForEvent('download', { timeout: remaining() }); await page.locator('#save').click(); const d = await downloaded;
+    assert.equal(await d.failure(), null); await d.saveAs(raw + '/ink-denim.json');
+    report.download = { name: d.suggestedFilename(), sha256: hashFile(raw + '/ink-denim.json'), configuration: JSON.parse(fs.readFileSync(raw + '/ink-denim.json')) }; save();
+    assert.equal(hashFile(raw + '/ink-denim.json'), hashFile(packet + '/CANDIDATE.json'), 'actual exported bytes equal literal candidate');
+    assert.deepEqual(report.download.configuration, recipe);
+    await retirement('json-reopen'); report.operations.push({ kind: 'actual JSON reopen', utc: new Date().toISOString() }); save();
+    await Promise.all([page.waitForEvent('domcontentloaded', { timeout: remaining() }), page.locator('#settings-file').setInputFiles(raw + '/ink-denim.json')]); await ready('json-reopen');
+    await shot('neutral-body', 'studio', 'body');
+    await page.locator('[data-frame="portrait"]').click(); await shot('neutral-portrait', 'studio', 'portrait');
+    await scene('kitchen', 'kitchen-load'); await page.locator('[data-frame="body"]').click(); await shot('kitchen-body', 'kitchen', 'body');
+    await page.locator('[data-frame="portrait"]').click(); await shot('kitchen-portrait', 'kitchen', 'portrait');
+    await scene('studio', 'studio-return'); await page.locator('[data-light="neutral"]').click(); await page.locator('[data-frame="portrait"]').click();
+    await page.evaluate(async () => { for (let i = 0; i < 48; i++) await showcase.step(0); });
+    const beforeSmile = await state('before-smile'); check(beforeSmile, 'studio', 'portrait'); assert.equal(beforeSmile.pausePressed, 'true');
+    await page.locator('#pause').click(); await page.locator('#look-with-smile').click();
+    const startSmile = await state('smile-start'); check(startSmile, 'studio', 'portrait'); assert.equal(startSmile.attention.phase, 'attending'); assert.equal(startSmile.attention.expression, 'soft-smile');
+    const step = async (segment, count) => { for (let i = 1; i <= count; i++) { const s = await page.evaluate(async () => { await showcase.step(1 / 60); return showcase.attention.report(); }); report.steps.push({ segment, i, delta: 1 / 60, attention: s }); save(); } };
+    await step('held', 72); const held = await state('held-end'); check(held, 'studio', 'portrait'); assert.equal(held.attention.phase, 'attending'); assert.ok(Math.abs(held.attention.time - 1.2) < 1e-10);
+    await shot('smile-held', 'studio', 'portrait', false);
+    await page.locator('#release-attention').click(); const release = await state('manual-release'); check(release, 'studio', 'portrait'); assert.equal(release.attention.phase, 'releasing');
+    await step('released', 30); const released = await state('released-end'); check(released, 'studio', 'portrait'); assert.equal(released.attention.phase, 'idle');
+    await shot('smile-released', 'studio', 'portrait', false);
+    await Promise.all(reads); assert.equal(report.images.length, 6); assert.ok(report.images.every(x => x.completed));
+    const required = ['assets/wardrobe/body/g050.glb', 'assets/wardrobe/foundation_bra/g050.glb', 'assets/wardrobe/foundation_briefs/g050.glb', 'assets/wardrobe/female_casualsuit01/g050.glb', 'assets/wardrobe/shoes01/g050.glb', 'assets/hair/bob02/g050.glb'];
+    assert.deepEqual([...new Set(report.assets.map(a => a.file))].sort(), required.sort());
+    assert.equal(report.retirements.length, 3); for (const r of report.retirements) { assert.equal(r.persisted, false); assert.equal(r.disposal.disposed, true); assert.deepEqual(r.disposal.leaked, []); }
+    assert.deepEqual(report.errors, []); assert.deepEqual(report.failedResources, []); report.status = 'observed'; save();
+}, 'sole native packet'); } catch (e) { error = e; report.errors.push({ kind: 'assertion', message: e.stack, observedUTC: new Date().toISOString() }); report.status = 'failed'; save(); }
+finally {
+    report.cleanup = {};
+    try { if (page && !page.isClosed()) { report.retirement = await bounded(() => page.evaluate(() => { if (!window.showcase) return null; showcase.attention.dispose(); showcase.controls.dispose(); showcase.avatar.dispose(); return showcase.avatar.report().disposal; }), 'final Avatar disposal', true); save(); } }
+    catch (e) { report.errors.push({ kind: 'retirement', message: e.message }); error ??= e; }
+    for (const [name, o] of [['page', page], ['browser', browser], ['server', server]]) try { if (o) await bounded(() => o.close(), name + ' close', true); report.cleanup[name] = o ? 'closed' : 'not-created'; save(); }
+    catch (e) { report.cleanup[name] = 'failed'; report.errors.push({ kind: 'cleanup', message: e.message }); error ??= e; }
+    try { await bounded(() => Promise.all(reads), 'recorded GLB reads drain', true); report.cleanup.assetReads = { drained: true, recordedPromises: reads.length }; save(); }
+    catch (e) { report.cleanup.assetReads = { drained: false, recordedPromises: reads.length }; report.errors.push({ kind: 'read cleanup', message: e.message }); error ??= e; }
+    try { assert.deepEqual(collectSourceHashes(ROOT), report.sources); for (const [p, h] of Object.entries(inputs)) assert.equal(hashFile(p), h); assert.equal(hashFile(source), report.instrumentSHA256);
+        assert.equal(report.retirement?.disposed, true); assert.deepEqual(report.retirement?.leaked, []);
+        assert.deepEqual(report.errors, []); assert.deepEqual(report.failedResources, []); assert.ok(Date.now() < stop); report.finalPinsUnchanged = true;
+    } catch (e) { report.errors.push({ kind: 'final gate', message: e.stack }); error ??= e; }
+    if (error || report.errors.length || report.failedResources.length) report.status = 'failed'; report.finished = new Date().toISOString(); report.borrowedReviewServerRetained = true; save();
+    console.log(JSON.stringify({ pid: process.pid, started: report.started, finished: report.finished, status: report.status, images: report.images.length, errors: report.errors.length, resources: report.failedResources.length, warnings: report.warnings.length, cleanup: report.cleanup, reportSHA256: hashFile(raw + '/report.json') }));
+}
+if (error) throw error;
