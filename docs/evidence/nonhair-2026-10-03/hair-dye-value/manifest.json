@@ -1,0 +1,34 @@
+{
+  "recordedAtUTC": "2026-10-03T11:45:19.531041+00:00",
+  "pid": 34959,
+  "scope": "Concise read-only dye value receipt; exact originals remain at pinned existing paths",
+  "files": [
+    {
+      "path": "DYE-VALUE.md",
+      "bytes": 4175,
+      "sha256": "c00a943e8364a5d5a8cf8f63b7267d5addf0166894aef0741d2be22b06e9cbc3"
+    },
+    {
+      "path": "RECEIPT.md",
+      "bytes": 4670,
+      "sha256": "05a01dd8d400378f291a0dfc3612bcdaebde8f7d9a3d9305fcbce3c56ba51578"
+    },
+    {
+      "path": "independent.json",
+      "bytes": 3769,
+      "sha256": "081062374a34fd553766b7ee5488cea72a6bbf8cf13af9601813e1bacb861451"
+    },
+    {
+      "path": "root-pin-closeout.json",
+      "bytes": 3417,
+      "sha256": "3c06805b0ff66ff5d762983c15e29d080646288f6f67ddd165d564d693a20558"
+    },
+    {
+      "path": "root-pin-closeout.py",
+      "bytes": 1486,
+      "sha256": "6ec9686297283ce78c3cf596d9a7d1db2c0417693349d7ed6a2617440f0fac6a"
+    }
+  ],
+  "sourcePins": "independent.json",
+  "rootPinReadback": "root-pin-closeout.json"
+}

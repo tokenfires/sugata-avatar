@@ -1,0 +1,87 @@
+{
+  "pid": 33068,
+  "startedUTC": "2026-10-03T11:44:24.711689+00:00",
+  "finishedUTC": "2026-10-03T11:44:24.715362+00:00",
+  "command": "python3 stdin root pin closeout; exact source retained in root-pin-closeout.py",
+  "scope": "hash reconciliation only; no new dye calculation or appearance experiment",
+  "pins": [
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "docs/evidence/hair-2026-09-29/colour-controls/README.md",
+      "bytes": 6228,
+      "sha256": "3abe32abe5a66305913a0a7fd84b40ce512900a2de76f169fdc77630829ad555"
+    },
+    {
+      "path": "docs/evidence/hair-2026-09-30/tint-controls/README.md",
+      "bytes": 9655,
+      "sha256": "7976d33b070c113e68d51160b5151dd9e8e57da82aacf0932d3880a4b03dce63"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/README.md",
+      "bytes": 9016,
+      "sha256": "6208d1be4ed198e9367fe07f82c34308016bac42b52788760a43f7ffa340f1b7"
+    },
+    {
+      "path": "docs/research/bob-appearance-brief-2026-09-29.md",
+      "bytes": 19023,
+      "sha256": "12f4ab8ca6ba4bd4771d48e9229da4a1617564f750813cba23f33ae0c38c6799"
+    },
+    {
+      "path": "node_modules/three/src/math/Color.js",
+      "bytes": 25857,
+      "sha256": "cec06093018d8a4e9aad19a3a6825ceb1a76995fb7f3b8c21eff7ffea78f44f7"
+    },
+    {
+      "path": "node_modules/three/src/math/ColorManagement.js",
+      "bytes": 5639,
+      "sha256": "0c8ff5b0a220e736ceb68bb845ff30605b3c7850ebd8f37ff242907295fab949"
+    },
+    {
+      "path": "captures/wardrobe-hair-cut-2026-10-03-v1/report.json",
+      "bytes": 184627,
+      "sha256": "c5b08ca36d2dc97a60e402ef098527eb4ae2458c8ce82f758c6985d1757c2e33"
+    },
+    {
+      "path": "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png",
+      "bytes": 788268,
+      "sha256": "37667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/casual-front-exact-default.png",
+      "bytes": 892540,
+      "sha256": "ebc7093297a2d1d17be79222af3329d8b6bff4268d0c1cfb82f437c1f707c32d"
+    }
+  ],
+  "criticDecisionSHA256": "c00a943e8364a5d5a8cf8f63b7267d5addf0166894aef0741d2be22b06e9cbc3",
+  "criticReceiptSHA256": "081062374a34fd553766b7ee5488cea72a6bbf8cf13af9601813e1bacb861451",
+  "rootViewedOriginals": [
+    "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png",
+    "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-long-bob.png",
+    "captures/hair-colour-controls/calibration-v1/brown-low/casual-front-exact-default.png"
+  ],
+  "decision": "No dye experiment admitted; no matched Brown/lavender appearance claim"
+}

@@ -1,0 +1,7 @@
+from pathlib import Path
+import hashlib,json,os,datetime
+base=Path('docs/evidence/nonhair-2026-10-03/hair-dye-value'); started=datetime.datetime.now(datetime.timezone.utc).isoformat(); r=json.loads((base/'independent.json').read_text()); checks=[]
+for p in r['pins']:
+ data=Path(p['path']).read_bytes(); assert len(data)==p['bytes'] and hashlib.sha256(data).hexdigest()==p['sha256']; checks.append(p)
+out={'pid':os.getpid(),'startedUTC':started,'finishedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'command':'python3 stdin root pin closeout; exact source retained in root-pin-closeout.py','scope':'hash reconciliation only; no new dye calculation or appearance experiment','pins':checks,'criticDecisionSHA256':hashlib.sha256((base/'DYE-VALUE.md').read_bytes()).hexdigest(),'criticReceiptSHA256':hashlib.sha256((base/'independent.json').read_bytes()).hexdigest(),'rootViewedOriginals':['captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png','captures/wardrobe-hair-cut-2026-10-03-v1/desktop-long-bob.png','captures/hair-colour-controls/calibration-v1/brown-low/casual-front-exact-default.png'],'decision':'No dye experiment admitted; no matched Brown/lavender appearance claim'}
+(base/'root-pin-closeout.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({'pid':out['pid'],'startedUTC':out['startedUTC'],'finishedUTC':out['finishedUTC'],'pins':len(checks),'outputSHA256':hashlib.sha256((base/'root-pin-closeout.json').read_bytes()).hexdigest()}))

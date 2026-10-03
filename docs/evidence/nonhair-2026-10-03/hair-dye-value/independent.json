@@ -1,0 +1,104 @@
+{
+  "scope": "read-only source/image value review plus scalar CPU reconstruction; no native or GPU execution",
+  "pid": 18702,
+  "recordedAtUTC": "2026-10-03T11:37:30.233168+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "decodedBase": [
+    0.05286064701616471,
+    0.040915196900556984,
+    0.0343398068028541
+  ],
+  "decodedTint": [
+    0.21586050010324417,
+    0.12477181755144427,
+    0.41254261347374327
+  ],
+  "linearBlendBeforeQuantization": [
+    0.09361061028793458,
+    0.061879352063278804,
+    0.1288905084705764
+  ],
+  "resolved": "#564665",
+  "decodedResolved": [
+    0.09305896283800832,
+    0.061246054224174035,
+    0.13013647668074665
+  ],
+  "maxReportedLinearDifference": 0.0,
+  "beforeAfterColourEqual": true,
+  "reportedMatchesAttached": true,
+  "limits": "Source/report attachment equality is not independent GPU radiance measurement. No pixel prediction or physical dye fidelity inferred. Earlier generic rational sRGB calculation differed by 9.62e-12 owing to installed Three decimal constants; this reconstruction uses the actual pinned constants.",
+  "pins": [
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "docs/evidence/hair-2026-09-29/colour-controls/README.md",
+      "bytes": 6228,
+      "sha256": "3abe32abe5a66305913a0a7fd84b40ce512900a2de76f169fdc77630829ad555"
+    },
+    {
+      "path": "docs/evidence/hair-2026-09-30/tint-controls/README.md",
+      "bytes": 9655,
+      "sha256": "7976d33b070c113e68d51160b5151dd9e8e57da82aacf0932d3880a4b03dce63"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/README.md",
+      "bytes": 9016,
+      "sha256": "6208d1be4ed198e9367fe07f82c34308016bac42b52788760a43f7ffa340f1b7"
+    },
+    {
+      "path": "docs/research/bob-appearance-brief-2026-09-29.md",
+      "bytes": 19023,
+      "sha256": "12f4ab8ca6ba4bd4771d48e9229da4a1617564f750813cba23f33ae0c38c6799"
+    },
+    {
+      "path": "node_modules/three/src/math/Color.js",
+      "bytes": 25857,
+      "sha256": "cec06093018d8a4e9aad19a3a6825ceb1a76995fb7f3b8c21eff7ffea78f44f7"
+    },
+    {
+      "path": "node_modules/three/src/math/ColorManagement.js",
+      "bytes": 5639,
+      "sha256": "0c8ff5b0a220e736ceb68bb845ff30605b3c7850ebd8f37ff242907295fab949"
+    },
+    {
+      "path": "captures/wardrobe-hair-cut-2026-10-03-v1/report.json",
+      "bytes": 184627,
+      "sha256": "c5b08ca36d2dc97a60e402ef098527eb4ae2458c8ce82f758c6985d1757c2e33"
+    },
+    {
+      "path": "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png",
+      "bytes": 788268,
+      "sha256": "37667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035"
+    },
+    {
+      "path": "captures/hair-colour-controls/calibration-v1/brown-low/casual-front-exact-default.png",
+      "bytes": 892540,
+      "sha256": "ebc7093297a2d1d17be79222af3329d8b6bff4268d0c1cfb82f437c1f707c32d"
+    }
+  ]
+}
