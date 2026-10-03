@@ -1,0 +1,9 @@
+Root readback command: python3 docs/evidence/nonhair-2026-10-03/endpoint-starter-value/root-close.py
+Tool chunk 75e28e, exit 1. PID/start/end not separately retained. No ROOT-READBACK.json was written.
+Traceback (most recent call last):
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/endpoint-starter-value/root-close.py", line 17, in <module>
+    assert avatar.count('validateWardrobePlan( plan );') == 3
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+The nine critic source/doc pins and frozen prior receipt hash passed before this assertion. The readback wrongly expected all three entry calls to have the same argument spelling. Exact manual source inspection (tool chunk 71986c) finds await identity.resolve() at929, await candidate.resolve() at2425, and plan at3034. This is a root reader predicate error, not an Avatar/support defect. No repair or replay; the original reader/error are retained. Root manually verifies all three calls and the guard/helper source.
