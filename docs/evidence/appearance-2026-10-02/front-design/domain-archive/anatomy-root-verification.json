@@ -1,0 +1,25 @@
+{
+  "status": "root source and independent handoff agree",
+  "reportSha256": "f846be59e18ce5485a41ddac67a90342b19733a4a42209b862fd6c3fb22eb9ba",
+  "independentSha256": "6413c5afbf4e61f55081ce624b9702375c47947786b818c0afde1e1cd58c37d9",
+  "sourcePinsChecked": 5,
+  "allFourMeshWorldFrames": {
+    "base.001": {
+      "node": 53,
+      "maximumIdentityError": 0
+    },
+    "eyebrow001": {
+      "node": 55,
+      "maximumIdentityError": 0
+    },
+    "high-poly": {
+      "node": 57,
+      "maximumIdentityError": 0
+    },
+    "cornea": {
+      "node": 54,
+      "maximumIdentityError": 0
+    }
+  },
+  "scope": "Hashes/actual JSON/source-code handoff inspected; four mesh hierarchy frames verified separately. No math/guide/pose rerun."
+}

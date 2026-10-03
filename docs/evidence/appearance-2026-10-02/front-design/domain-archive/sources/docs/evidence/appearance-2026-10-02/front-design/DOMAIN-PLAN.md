@@ -1,0 +1,9 @@
+# Independent hairline/part responsibility step
+
+Root starts `2026-10-03T03:53:32Z`, stop `04:13:32Z` (20 minutes). The critic admits one read-only/source/image/document step. Decision: can intentional-open forehead/temple versus backing-needed scalp be anchored independently in source anatomy while retaining the measured cap baseline/single primitive/smooth-frame layout and exact protected338 records, or does a named anatomy/registration/record-role prerequisite block authoring?
+
+Use exact source anatomy and native/R2/R3/concept originals with hashes from existing receipts. Existing 80/108 scalp observations are historical controls, never the new target. The generated image is a relationship witness, never a fitting mask. Both admissible mirrored complementary framing orientations stay explicit; no averaged symmetric framing objective or silent part-side choice. Identify source-space anatomy support actually available before assigning thresholds or sample sets.
+
+Outputs: named anatomical anchors with actual source/image witnesses; independent intended open/backing domains if source-space mapping is justified; exact editable/preserved cap/guide/protected338 fields and material/frame responsibilities; the remaining finite-authoring prerequisite and next admission decision. A stable partial domain can be recorded honestly, without claiming an entire hairstyle is specified.
+
+Stop if anatomical support cannot map the relationships into a stable source-space domain without arbitrary offsets/widths/V/tessellation or a generated-mask fit. Then refuse a builder and name one bounded landmark/registration discriminator, instead of extending this specification loop. No cap/guide solver, candidate, source/runtime/accepted-asset edit, capture, browser/GPU job or new image generation in this step. Root independently checks critic handoff. Preserve all prior frozen evidence, closed experiments and AAA roadmap.

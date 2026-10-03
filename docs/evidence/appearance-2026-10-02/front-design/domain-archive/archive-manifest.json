@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "purpose": "Exact exported-anatomy inventory and independent receipts, not a styled-domain or candidate qualification.",
+  "files": [
+    {
+      "path": "anatomy-anchors.json",
+      "bytes": 61459,
+      "sha256": "f846be59e18ce5485a41ddac67a90342b19733a4a42209b862fd6c3fb22eb9ba"
+    },
+    {
+      "path": "anatomy-independent.json",
+      "bytes": 7401,
+      "sha256": "6413c5afbf4e61f55081ce624b9702375c47947786b818c0afde1e1cd58c37d9"
+    },
+    {
+      "path": "anatomy-root-verification.json",
+      "bytes": 736,
+      "sha256": "5886e4ed0ece1ddb6837b772e9e5e867882483bef7966d3f57e39016fa0be4c6"
+    },
+    {
+      "path": "domain-primary-reference.json",
+      "bytes": 1331,
+      "sha256": "0c0c264f3efd4fb68fa6bcf7625d107e496a2607d74527b621d4f31672ee1f11"
+    },
+    {
+      "path": "generic-independent-helper.py",
+      "bytes": 17204,
+      "sha256": "ec3da3322cea6439fd428f2b35f58bdc595b954258d1ae7bf756aa97385b626b"
+    },
+    {
+      "path": "sources/docs/evidence/appearance-2026-10-02/front-design/DOMAIN-PLAN.md",
+      "bytes": 1929,
+      "sha256": "06bd103e620328ac234b4f6b59806ab1e873b40d46e3326dd35c9941b2aa83ba"
+    },
+    {
+      "path": "sources/tools/critic/read-hair-anatomy.mjs",
+      "bytes": 4091,
+      "sha256": "1d56d58c0d4611e900a5c4e37ec260cd247b6fa52c5fccd9c375d14999859f49"
+    },
+    {
+      "path": "sources/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "sources/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "verify-anatomy-anchors.py",
+      "bytes": 4946,
+      "sha256": "17ef013b705ac53d4e2a287d9c26951ee75181a931f1f3932a95b80c7961211e"
+    }
+  ],
+  "externalInputPins": {
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/root-coverage-2026-10-02-beauty-v1/casual-front-medium-brown.png": "b9b1fb71c8492187e27253cb7e3040063444163e4e61a56e989200434d757a2d",
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503"
+  },
+  "fileCount": 10,
+  "totalBytes": 292776
+}

@@ -1,0 +1,35 @@
+{
+  "sourceUrl": "https://static.makehumancommunity.org/mpfb/docs/rigging_mesh_assets.html",
+  "title": "Rigging Mesh Assets :: MakeHuman Community",
+  "statusCode": 200,
+  "scrapeId": "01a0ffea-2e05-70f9-a4ab-60e369dceb55",
+  "collectionAdjacentClock": "2026-10-03T03:58:57Z",
+  "tool": "Firecrawl connector scrape",
+  "request": {
+    "url": "https://static.makehumancommunity.org/mpfb/docs/rigging_mesh_assets.html",
+    "formats": [
+      "markdown"
+    ],
+    "onlyMainContent": true,
+    "maxAge": 0
+  },
+  "searchRequest": {
+    "query": "site:static.makehumancommunity.org mpfb base mesh scalp vertex groups",
+    "sources": [
+      "web"
+    ],
+    "limit": 3,
+    "domainTools": false
+  },
+  "searchCredits": 2,
+  "scrapeCredits": 1,
+  "usedClaims": [
+    "The tutorial enables detailed helper vertex groups when creating a human.",
+    "The tutorial records explicit base-vertex references and mean-of-vertex fitting strategies for mesh-asset rigging."
+  ],
+  "limits": [
+    "The page is a primary MPFB tutorial, not proof of Sugata scalp-group export mapping or a styled hairline.",
+    "Tutorial image URLs were returned but were not visually inspected; actual design witnesses are the retained native/R2/R3/concept originals.",
+    "No sub-rig, new dependency, native job or new image generation was adopted."
+  ]
+}

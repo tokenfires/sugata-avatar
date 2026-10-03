@@ -1,0 +1,299 @@
+{
+  "status": "independent exported anchor records agree",
+  "started": "2026-10-03T04:00:13.359626+00:00",
+  "finished": "2026-10-03T04:00:13.380730+00:00",
+  "pid": 60286,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "numpyVersion": "2.4.6",
+  "reportSha256": "f846be59e18ce5485a41ddac67a90342b19733a4a42209b862fd6c3fb22eb9ba",
+  "sourcePins": {
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "tools/critic/read-hair-anatomy.mjs": "1d56d58c0d4611e900a5c4e37ec260cd247b6fa52c5fccd9c375d14999859f49",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "tools/figure-pipeline/hair_cards.py": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca",
+    "docs/evidence/appearance-2026-10-02/front-design/DOMAIN-PLAN.md": "06bd103e620328ac234b4f6b59806ab1e873b40d46e3326dd35c9941b2aa83ba"
+  },
+  "genericReaderSha256": "ec3da3322cea6439fd428f2b35f58bdc595b954258d1ae7bf756aa97385b626b",
+  "meshBounds": {
+    "base.001": {
+      "vertices": 14517,
+      "triangles": 26756,
+      "bounds": [
+        {
+          "min": -0.5255246162414551,
+          "max": 0.5255246162414551
+        },
+        {
+          "min": 1.1175870895385742e-08,
+          "max": 1.6594313383102417
+        },
+        {
+          "min": -0.09550102800130844,
+          "max": 0.33447206020355225
+        }
+      ]
+    },
+    "eyebrow001": {
+      "vertices": 124,
+      "triangles": 192,
+      "bounds": [
+        {
+          "min": -0.057311199605464935,
+          "max": 0.057311199605464935
+        },
+        {
+          "min": 1.5568345785140991,
+          "max": 1.567185640335083
+        },
+        {
+          "min": 0.11297065764665604,
+          "max": 0.14325882494449615
+        }
+      ],
+      "medialWitnesses": [
+        {
+          "sideSign": -1,
+          "vertex": 85,
+          "point": [
+            -0.009306550025939941,
+            1.561933994293213,
+            0.1416451632976532
+          ]
+        },
+        {
+          "sideSign": 1,
+          "vertex": 23,
+          "point": [
+            0.009306550025939941,
+            1.5619341135025024,
+            0.1416451632976532
+          ]
+        }
+      ]
+    },
+    "high-poly": {
+      "vertices": 552,
+      "triangles": 1060,
+      "bounds": [
+        {
+          "min": -0.043975699692964554,
+          "max": 0.043975699692964554
+        },
+        {
+          "min": 1.5387717485427856,
+          "max": 1.567696213722229
+        },
+        {
+          "min": 0.11143594980239868,
+          "max": 0.1323121041059494
+        }
+      ]
+    },
+    "cornea": {
+      "vertices": 524,
+      "triangles": 980,
+      "bounds": [
+        {
+          "min": -0.044380009174346924,
+          "max": 0.04438001289963722
+        },
+        {
+          "min": 1.53836190700531,
+          "max": 1.5681143999099731
+        },
+        {
+          "min": 0.11124511808156967,
+          "max": 0.13460412621498108
+        }
+      ]
+    }
+  },
+  "crownWitnesses": [
+    {
+      "vertex": 942,
+      "point": [
+        0,
+        1.6594313383102417,
+        0.050172947347164154
+      ]
+    },
+    {
+      "vertex": 943,
+      "point": [
+        0,
+        1.6594313383102417,
+        0.050172947347164154
+      ]
+    }
+  ],
+  "supports": {
+    "browInnerUp": {
+      "vertices": 498,
+      "bounds": [
+        {
+          "min": -0.05236101523041725,
+          "max": 0.05236101523041725
+        },
+        {
+          "min": 1.534960389137268,
+          "max": 1.598029375076294
+        },
+        {
+          "min": 0.10294247418642044,
+          "max": 0.14889347553253174
+        }
+      ],
+      "maxDisplacementMm": 5.200028419494629
+    },
+    "browOuterUpLeft": {
+      "vertices": 287,
+      "bounds": [
+        {
+          "min": 0.006770501844584942,
+          "max": 0.06494152545928955
+        },
+        {
+          "min": 1.515432357788086,
+          "max": 1.5909833908081055
+        },
+        {
+          "min": 0.07496396452188492,
+          "max": 0.14403897523880005
+        }
+      ],
+      "maxDisplacementMm": 6.9706908678742785
+    },
+    "browOuterUpRight": {
+      "vertices": 287,
+      "bounds": [
+        {
+          "min": -0.06494152545928955,
+          "max": -0.006770501844584942
+        },
+        {
+          "min": 1.515432357788086,
+          "max": 1.5909833908081055
+        },
+        {
+          "min": 0.07496396452188492,
+          "max": 0.14403897523880005
+        }
+      ],
+      "maxDisplacementMm": 6.9706908678742785
+    },
+    "browDownLeft": {
+      "vertices": 409,
+      "bounds": [
+        {
+          "min": -0.01844150386750698,
+          "max": 0.06494152545928955
+        },
+        {
+          "min": 1.5310473442077637,
+          "max": 1.6277998685836792
+        },
+        {
+          "min": 0.07818296551704407,
+          "max": 0.15176597237586975
+        }
+      ],
+      "maxDisplacementMm": 6.952015277087366
+    },
+    "browDownRight": {
+      "vertices": 409,
+      "bounds": [
+        {
+          "min": -0.06494152545928955,
+          "max": 0.01844150386750698
+        },
+        {
+          "min": 1.5310473442077637,
+          "max": 1.6277998685836792
+        },
+        {
+          "min": 0.07818296551704407,
+          "max": 0.15176597237586975
+        }
+      ],
+      "maxDisplacementMm": 6.952015277087366
+    },
+    "eyeWideLeft": {
+      "vertices": 265,
+      "bounds": [
+        {
+          "min": 0.010682503692805767,
+          "max": 0.05400601401925087
+        },
+        {
+          "min": 1.5437003374099731,
+          "max": 1.5661383867263794
+        },
+        {
+          "min": 0.11736046522855759,
+          "max": 0.14140097796916962
+        }
+      ],
+      "maxDisplacementMm": 3.6180119764169265
+    },
+    "eyeWideRight": {
+      "vertices": 265,
+      "bounds": [
+        {
+          "min": -0.05400601401925087,
+          "max": -0.010682503692805767
+        },
+        {
+          "min": 1.5437003374099731,
+          "max": 1.5661383867263794
+        },
+        {
+          "min": 0.11736046522855759,
+          "max": 0.14140097796916962
+        }
+      ],
+      "maxDisplacementMm": 3.6180119764169265
+    },
+    "eyeBlinkLeft": {
+      "vertices": 717,
+      "bounds": [
+        {
+          "min": -0.026295505464076996,
+          "max": 0.05198151245713234
+        },
+        {
+          "min": 1.5133898258209229,
+          "max": 1.5671818256378174
+        },
+        {
+          "min": 0.07439646869897842,
+          "max": 0.14153696596622467
+        }
+      ],
+      "maxDisplacementMm": 12.613429840270598
+    },
+    "eyeBlinkRight": {
+      "vertices": 717,
+      "bounds": [
+        {
+          "min": -0.05198151245713234,
+          "max": 0.026295505464076996
+        },
+        {
+          "min": 1.5133898258209229,
+          "max": 1.5671818256378174
+        },
+        {
+          "min": 0.07439646869897842,
+          "max": 0.14153696596622467
+        }
+      ],
+      "maxDisplacementMm": 12.613429840270598
+    }
+  },
+  "limits": [
+    "Source-coordinate inventory only, not registration/rendered landmarks.",
+    "Morph footprint does not specify styled hairline/part/open regions.",
+    "No domain selection, geometry construction, guide audit, capture or generator executed."
+  ]
+}
