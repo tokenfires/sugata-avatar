@@ -1,0 +1,23 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/cut-references/freeze.py",
+  "pid": 14311,
+  "startedUTC": "2026-10-03T12:58:42.232296+00:00",
+  "finishedUTC": "2026-10-03T12:58:42.707086+00:00",
+  "files": 26,
+  "bytes": 1919486,
+  "currentPreservationPins": 457,
+  "nativePins": 384,
+  "buildOutputs": 74,
+  "manifestSHA256": "d42ffd21429849b40140ca02a83cf54e446c9540d6387bde07d8a3dfa9580f4a",
+  "allRehashed": true,
+  "productionRestoredSHA256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189",
+  "criticSHA256": "56fe9b56f327810a5dbf8f19ff9c74abdbadd6956abb458e75114e4917e52a03",
+  "nativeAbsent": true,
+  "reviewProcess": "1023 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort",
+  "automation": {
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  },
+  "retainedImages": 0
+}

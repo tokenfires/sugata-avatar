@@ -1,0 +1,13 @@
+# Cut-reference value decision
+
+Entry f68d642; one read-only question, hard stop 2026-10-03T12:40:00Z. Is there enough useful cut-length information in the already-qualified same-recipe Portrait pair to offer fixed image references without implying live colour, complete shape quality or a new groom?
+
+Usable milestone remains the accepted independent Hair cut control. If the critic and root judge these exact images useful, a separate bounded implementation can expose an optional comparison using unchanged original bytes and existing guarded cut actions. This document does not yet admit implementation or a new browser/native capture.
+
+Root independently viewed both actual 1440×2060 originals from captures/wardrobe-hair-cut-2026-10-03-v1: desktop-before.png SHA25637667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035; desktop-long-bob.png SHA25682f8b02ff93380de2f88023b7f4c39da1411e213c47b8e845244cc4bb21567e5. The longer cut reaches farther over the tee; sparse/frayed strands remain visible. A fixed image does not improve those surfaces. The complete captured canvas bounds62,82,900,868 retain both crown and ends, plus the original overlaid HUD/view controls. Do not erase or cosmetically replace pixels.
+
+Alternatives: A, optional fixed references with truthful Portrait/tint/light context and a direct action to the unchanged cut controls; visible choice information, but extra loading/scrolling and fixed tint. B, retain text-only controls and defer a visual chooser until a better source view exists; simpler and avoids weak thumbnails, but dark full-look selection stays harder. Stop if compact rendering cannot show both length and context, or either reviewer judges the comparison misleading. No new character render, phase hunt, repair or asset construction under this value check.
+
+Primary Epic Hair Controls text was fetched at12:30–12:31UTC from https://dev.epicgames.com/documentation/en-us/metahuman/metahuman-creator-hair-controls?application_version=5.0-5.5. This is explicitly historical5.0–5.5 design documentation: style and colour/details are separate; base and lighting affect dye appearance. It does not qualify Sugata. The image request failed with a non-retryable unsafe redirect; no remote design-image pixels were received and no retry/download was made. Search/open failures before the exact page did not supply evidence. Local actual images govern this decision.
+
+Independent critic owns CRITIC-VALUE.md and must cite actual source/image witnesses, explanation and both alternatives. Root checks the complete handoff independently. Do not replay any closed resolution/observer/construction packet. Preserve the wider AAA roadmap and accepted/frozen/reference/unrelated work.

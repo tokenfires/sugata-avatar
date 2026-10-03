@@ -1,0 +1,31 @@
+# Independent fixed-cut reference packet critique
+
+**Refuse this packet and preserve it as a failed observer. No reference presentation or compact-legibility acceptance.** The optional-reference idea remains conditional; zero retained screenshots cannot settle it. The accepted independent Hair cut control remains the production milestone. I independently read the complete raw report and saved observer/fixture/product source, the three postflight HTTP witnesses, and the restored production binding. I did not run a browser, renderer, generator, repair or retry.
+
+The raw report `captures/cut-reference-html-2026-10-03-v1/report.json` SHA256 `a663aacd47618b9ee16ff792dbf86a464a7e1cd97b56d6b63c3ab5f6f70cfe45` records PID89415,12:49:36.983–12:50:24.917UTC, failed; zero cases, guards, images and verified image responses. It retains five errors: four byte-hash assertions, with each of two distinct observed bodies repeated twice, and a45second fixture-ready timeout. Four browser warnings comprise rig fallback, zero-index draw and two inline-TSL-return messages. These establish that the intended exclusion of production figure/render code did not hold. They do not establish a qualified live Avatar configuration, owner retirement, visual result or pixel cause. The report's substitution string describes the intended method and must not be presented as accomplished substitution.
+
+Saved instrument SHA256515c338bf3be3d3d84b6d2ed8ae4847c05363bfd8cac5e6f82497b6d478f4567 and fixture2d8e91c572faaa59eceb84bf89b0469f3cf4d096e52151f64260f8d43837bc42 agree with the admitted source. The final corrected deadline/fixture-pin checks are present; page/browser both record closed, finalPinsUnchanged true, and completion is before13:09. No explicit Avatar-disposal observation exists because this method assumed none would be constructed. Request URLs, served native HTML and substitution count were not retained on failure, so the exact native route miss cannot be reconstructed as an observed fact. Both source preflights missed the route and import-response predicates.
+
+## Actionable observer mismatch
+
+The saved observer route matches only `**/src/showcase.js`; its later assertion of one substitution occurs after waiting for `window.cutFixture`. Its rejection of core/GLB requests is at the end of observation, so it cannot prevent unintended production work before fixture admission. The same observer classifies a response as a PNG solely by pathname, ignoring its query/content type. Thus an asset-import JavaScript response can enter the image-byte assertion.
+
+Root's explicitly postflight HTTP receipt at12:52:05.703344UTC,PID95640 is useful corroboration, not retained native traffic. I independently rehashed all three retained response files and verified their recorded byte counts. `served-html.html` contains `./showcase.js?t=1791031293411`; this is incompatible with the exact unsuffixed route pattern and supports the proposed route explanation without proving that identical native URL. `chin-import.mjs` and `long-import.mjs` are200 `text/javascript` from the explicit `?import` URLs. They export the PNG paths. Their respective hashes6507cb6f3033c1ab87513d1c91158615791fbca1d9440b97a010d6f44b3d4c7b and54341acbbf20d89e4e419bbfade524aec1ac667e45684020299a6e1a19564c4a exactly match the report's unexpected body hashes. This supports metadata misclassification; it does not demonstrate corruption of the original PNGs.
+
+Two alternatives address the isolation failure, for a separately declared future method only:
+
+- **A:** admit the actually served entry URL before execution, match its explicitly declared origin/path/query semantics, and block unexpected production/core/GLB requests before they can execute. This preserves actual-page integration but requires verified served-entry admission and failure receipts.
+- **B:** use a dedicated script-free presentation fixture that imports only the candidate against the actual product markup/CSS, with canonical-handler equality established separately. This avoids accidental production ownership but qualifies fixture presentation rather than live integration. Retain text-only production until usable images are actually reviewed.
+
+Two alternatives address the asset-response mismatch:
+
+- **A:** qualify only explicit rendered-image responses, recording full URL, content type and PNG signature before the original-byte assertion; treat `?import` module metadata separately. This keeps a served-byte claim but adds a precise finite transport contract.
+- **B:** limit the presentation method to pinned original files and actual decoded-image dimensions/layout, making no served-byte-fidelity claim. This simplifies the observer while narrowing what it establishes. Neither alternative authorizes repair or another run of this closed packet.
+
+## Preservation and product boundary
+
+The source window mathematics and copied original bytes reviewed in CRITIC-PREFLIGHT remain source observations, not native DOM/window qualification. There is no desktop,390px or320px reference screenshot to assess. The earlier full-size original images remain the only actual hairstyle witnesses; they cannot substitute for the missing compact evidence. Preserve the rough/frayed ends and the wider AAA appearance goal without claiming this UI improves the groom.
+
+I independently verified the isolated candidate's showcase.js/module/CSS match the captured source copies. Current production `showcase.js` matches `before/showcase.js` exactly, SHA25646cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189. This restores the accepted Hair cut integration; the new candidate remains isolated and unqualified. This narrow audit deliberately does not duplicate the parent's384-source full preservation audit or targeted build inventory. A successful build does not overturn the failed browser admission.
+
+No critic-owned job remains. This critique was created at a previously absent, distinct critic-owned path with exclusive creation; no parent verifier or receipt was overwritten. The historical preflight hash association and its explicit corrected-source admission are retained in CRITIC-PREFLIGHT.md. Packet preservation is warranted; product-reference promotion is refused pending a separately admitted, genuinely reviewed presentation method.

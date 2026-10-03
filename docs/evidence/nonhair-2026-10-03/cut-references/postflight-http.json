@@ -1,0 +1,32 @@
+{
+  "pid": 95640,
+  "timeUTC": "2026-10-03T12:52:05.703344+00:00",
+  "scope": "Postflight HTTP bytes, not retained native requests or HTML; no browser replay",
+  "responses": [
+    {
+      "url": "http://127.0.0.1:5173/src/showcase.html",
+      "status": 200,
+      "mime": "text/html",
+      "file": "served-html.html",
+      "bytes": 21944,
+      "sha256": "992517461f245e20a7a74bdc9032b14cf792042dcd1db6c4042484cde4e11dc0"
+    },
+    {
+      "url": "http://127.0.0.1:5173/src/cut-references/chin-length.png?import",
+      "status": 200,
+      "mime": "text/javascript",
+      "file": "chin-import.mjs",
+      "bytes": 423,
+      "sha256": "6507cb6f3033c1ab87513d1c91158615791fbca1d9440b97a010d6f44b3d4c7b"
+    },
+    {
+      "url": "http://127.0.0.1:5173/src/cut-references/long.png?import",
+      "status": 200,
+      "mime": "text/javascript",
+      "file": "long-import.mjs",
+      "bytes": 384,
+      "sha256": "54341acbbf20d89e4e419bbfade524aec1ac667e45684020299a6e1a19564c4a"
+    }
+  ],
+  "nativeReportSHA256": "a663aacd47618b9ee16ff792dbf86a464a7e1cd97b56d6b63c3ab5f6f70cfe45"
+}
