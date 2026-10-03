@@ -1,0 +1,11 @@
+from pathlib import Path
+import hashlib,json,datetime,os,ast
+p=Path('docs/evidence/nonhair-2026-10-03/top-control-owned');sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest();now=datetime.datetime.now(datetime.timezone.utc)
+expected={'PLAN.md':'aec9eba54763137d9662754d73406337e3316733847790f3e642de18c310fa13','supervise.py':'a47f04cb43b6921e201c5f922cde773d588fe298d3ab82c99508f577f9dc45d6','capture.mjs':'3fadf113f372dd4bcf5466015e3709021c123588166fb32660f9f648979de63b','view.js':'96832366dfb6d40cc320ef502293e7b829971684707340cf57b407c4f6a06e94','view.html':'b7870fc78ecc4b0fe2bbc5c5360e91696bf18f9df50791f449e7b6166132ad5a','CRITIC-SOURCE.md':'caad830b03fb8cdfdc6d1664fb014a88a4d9e3f4e69ddf5f8791732dbc986636'}
+for n,h in expected.items():assert sha(p/n)==h,n
+pins=json.loads(Path('docs/evidence/nonhair-2026-10-03/relaxed-top-source/INPUTS.json').read_text())
+for n,h in pins.items():assert sha(Path(n))==h
+ast.parse((p/'supervise.py').read_text());assert now<datetime.datetime(2026,10,3,23,13,tzinfo=datetime.timezone.utc)
+assert not Path('captures/top-control-owned-2026-10-03-v1').exists() and not (p/'supervisor-v1.json').exists()
+r={'pid':os.getpid(),'utc':now.isoformat(),'files':expected,'protectedInputs':pins,'rootDecision':'Complete final critic14b85c read; independently matches literal source/corrections and last caught forced/ownership failure guard. GO for one supervised unchanged-source capture within fixed cutoff, no appearance/fit admission.'}
+(p/'ROOT-PREFLIGHT.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({'pid':r['pid'],'utc':r['utc'],'pins':len(pins),'GO':True}))

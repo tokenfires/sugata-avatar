@@ -1,0 +1,35 @@
+{
+  "recordedUTC": "2026-10-03T23:16:40.979961+00:00",
+  "jobs": [
+    {
+      "command": "python3 - via exact saved ROOT-PREFLIGHT-FAILED.py.source heredoc",
+      "chunk": "593c0b",
+      "exitCode": 1,
+      "error": "deadline assertion at line8",
+      "sourceSha256": "69b55114c9be86bfe65af92b753b9f6c387a2fd177f72d7acb088ef3bc84e098",
+      "logSha256": "81b778b22133b7685619591490f39c61e00b0ef49e1ff12ca1ad9f165647a6c2",
+      "pid": null,
+      "startedUTC": null,
+      "finishedUTC": null
+    },
+    {
+      "command": "python3 docs/evidence/nonhair-2026-10-03/top-control-owned/supervise.py",
+      "chunk": "d678b6",
+      "exitCode": 1,
+      "tty": true,
+      "error": "sole supervisor launch cutoff at line8 before report/Popen",
+      "sourceSha256": "a47f04cb43b6921e201c5f922cde773d588fe298d3ab82c99508f577f9dc45d6",
+      "logSha256": "04fb18b0aabe2869b1d676e996af60f38de0a7b4306d7c33339a3a69436abf33",
+      "pid": null,
+      "startedUTC": null,
+      "finishedUTC": null
+    }
+  ],
+  "limits": "Failed invocations did not reach their PID/time receipt writes; exact PIDs/start/end unavailable. Last prior observed clock23:12:43; the actual date predicate failed after cutoff. No guard replay, actor/control geometry/browser/GPU/native image or cleanup observation. Root incorrectly continued to supervisor after preflight exit1; independent first guard stopped before owned work.",
+  "absent": [
+    "ROOT-PREFLIGHT.json",
+    "supervisor-v1.json",
+    "job-v1.log"
+  ],
+  "rawAbsent": true
+}

@@ -1,0 +1,26 @@
+{
+  "pid": 88578,
+  "observedUTC": "2026-10-03T23:08:20.942618+00:00",
+  "files": {
+    "PLAN.md": "aec9eba54763137d9662754d73406337e3316733847790f3e642de18c310fa13",
+    "capture.mjs": "3fadf113f372dd4bcf5466015e3709021c123588166fb32660f9f648979de63b",
+    "view.js": "96832366dfb6d40cc320ef502293e7b829971684707340cf57b407c4f6a06e94",
+    "view.html": "b7870fc78ecc4b0fe2bbc5c5360e91696bf18f9df50791f449e7b6166132ad5a",
+    "supervise.py": "93c43646e4b441f204d00da23942ab773297c2187bc255eec95a3b9e09cd8468",
+    "SOURCE-CORRECTIONS.json": "71ed8e2655ab164d35ba15e060342006fffa2aedf91c9f52f3a11b2aa682ebd1"
+  },
+  "protectedInputs": {
+    "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.obj": "e07cbd1a43d21bd700e6598f01f74341a9dd66eac4e035c8be8de2650eac380f",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+  },
+  "rootReview": "Complete current sources independently checked against all critic first-pass issues: scratch retirement call now actual; every returned handle retained sequentially; direct actor bounded even on failed ps; exact recorded descendants reconciled after actor exit; kill/start matching enforces PID/start/command/PGID with PPID reparent permitted. Unseen/changed identity remains failure/limit, not global closure proof. No capture or source preparation executed.",
+  "launchAdmission": false,
+  "primaryReference": "https://docs.python.org/3/library/subprocess.html \u2014 current3.14.8 documentation read; start_new_session setsid onPOSIX, not proof of Chromium same-group ownership."
+}

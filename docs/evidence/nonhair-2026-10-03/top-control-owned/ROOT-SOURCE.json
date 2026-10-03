@@ -1,0 +1,24 @@
+{
+  "pid": 79405,
+  "observedUTC": "2026-10-03T23:03:58.061825+00:00",
+  "files": {
+    "PLAN.md": "aec9eba54763137d9662754d73406337e3316733847790f3e642de18c310fa13",
+    "view.html": "b7870fc78ecc4b0fe2bbc5c5360e91696bf18f9df50791f449e7b6166132ad5a",
+    "view.js": "96832366dfb6d40cc320ef502293e7b829971684707340cf57b407c4f6a06e94",
+    "capture.mjs": "508e173300de0480bae3307a60ecf34cf90869e8970283850b068a6183b2cc92",
+    "supervise.py": "7458c9e31576fe853a594bb419162fe73d13de96714206df4129ff57a887e0af"
+  },
+  "actualPSParserWitness": [
+    "1023",
+    "1",
+    "1023",
+    "Fri",
+    "Oct",
+    "2",
+    "06:29:53",
+    "2026",
+    "/opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort"
+  ],
+  "rootSourceDecision": "Fresh actor cannot continue after a logical timeout snapshot because acquisitions are sequential; actual returned handles held until cleanup, process ceiling is supervisor responsibility. Scratch owner visible before allocation; unreturned constructor resources excluded from explicit JS proof. Ancestry and start identity support only observed process ownership; forced shutdown fails appearance admission. Full final critic required before launch.",
+  "launchAdmission": false
+}
