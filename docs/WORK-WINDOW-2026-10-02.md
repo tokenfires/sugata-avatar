@@ -11,3 +11,5 @@ Each actionable critic finding needs actual source/image/frame evidence, an expl
 The setup account check showed ordinary usage allowed, 0% weekly allowance used, and 62,500 granted credits. It does not explain why usage reset. Work within available capacity; no capacity purchase, subscription/model change, reset-credit redemption, push, publication, or unrelated project resumption is authorized by this window.
 
 Recovery starts from clean `96c153b` on `codex/bob-appearance-2026-09-29`. Existing review Vite PID 1023 listens on loopback port 5173. Other recorded worktrees remain preserved. Do not rely on this PID after restart; verify live state first.
+
+October3 update: Robert explicitly paused for an app update, observed21:51UTC. The automation is now **PAUSED**, verified through the app API and saved TOML; critic work is stopped and review5173 retained. [Pause checkpoint](PAUSE-2026-10-03.md) supersedes the earlier active-window instructions until explicit human resume. App restart or a queued heartbeat does not resume work.

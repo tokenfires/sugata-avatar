@@ -1,0 +1,30 @@
+{
+  "pid": 24983,
+  "started": "2026-10-03T21:54:21.478016+00:00",
+  "finished": "2026-10-03T21:54:21.478354+00:00",
+  "scriptSha256": "69fcae89076655ca5f40527c6c03277d944324ba42243545483b4e34e2613876",
+  "criticSha256": "edc53ac038869d7558a435efe23d680e10213cfc03298245729cde85995f422e",
+  "inputs": {
+    "tools/figure-pipeline/build_figure.py": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/services/clothesservice.py": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/entities/clothes/mhclo.py": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/entities/clothes/vertexmatch.py": "81abf8f9fa3839687c5e29ce1a8c18dcd114c046b5a237e06175de115e6b91ab",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/ui/create_assets/makeclothes/operators/writeclotheslibrary.py": "0d1beb3ed7813367cd11315e0ae12d0ffb3bed35bb664090ca1b3cfa0c58560c",
+    "docs/evidence/nonhair-2026-10-03/capsule-source/AUTHORING-RESPONSIBILITY.md": "d9ea63005a1916145c0cfb0bf3fb1551521b40a82975869a0261b16a2c18d4f0",
+    "docs/evidence/nonhair-2026-10-03/capsule-method/RECEIPT.md": "2fbdb77f9f10f0bcc1bacecc114a211db009f0dfa69d5cb7c88a7df4bff83fd9",
+    "docs/evidence/wardrobe-2026-09-30/native-refit/README.md": "8b74ce05d019e59b0b44a10e588424679ec648a026b864ecd932d6d8a3143ec4",
+    "docs/evidence/wardrobe-2026-09-30/skeleton-export-bridge/README.md": "09fd637f25b1df76a7ad8d7d713226311f7fc808c1d6886133c530c30bbeeacd",
+    "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02.png": "e994394780be666443e70349b7f9e55704895e699054a45b4113037fdbab8e68",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+  },
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "status": "PAUSED",
+    "targetThreadId": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+    "updatedAt": 1791064325910,
+    "sha256": "168aab868c25de9c8b2ce1b42a1d8410013f42dde3144d9e3196f84af9aa4609"
+  },
+  "decision": "Explicit human pause. No final value or construction admission.",
+  "jobs": "Critic interrupted; no matching native/Blender/build job. Review PID1023 retained.",
+  "resume": "Await explicit human resume; timer remains paused across restart."
+}
