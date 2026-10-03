@@ -1,0 +1,9 @@
+# Recoverable checkpoint
+
+The new rigid whole-front trial is complete and refused, with editable source and four actual originals retained. Do not repair or rerun this literal proposal. Both actual appearance and the sole native error gate refuse it. The broader AAA character/expression/wardrobe/representation roadmap remains open; accepted assets/defaults and the usable attention guide remain intact.
+
+See [receipt](RECEIPT.md), [root visual decision](ROOT-VISUAL-DECISION.md), [native report](archive/capture/report.json), [root independent readback](ROOT-READBACK.json) and final independent critique. Investigation ended15:24UTC; subsequent work is full handoff, documentation, hash verification and preservation only.
+
+Owned native PID4860 has exited; owned proposal/Avatar disposed with no recorded leaks; page/browser closed. Borrowed review PID1023 still serves127.0.0.1:5173 (verified15:25UTC). Automation remains ACTIVE every10minutes in this chat, saved TOML hash5469ab3fcbcd20719bc40c1703e36db43625ae639ecd75035bb30e6f101a7a9e. Unrelated worktree HEADs are unchanged at current readback:2087931,37a28ed,e763a29,8c9b73e. No push/publication/capacity/model/subscription/reset-credit or other-project action.
+
+No next experiment is admitted. Ask the independent critic whether the next distinct usable character/expression/wardrobe improvement is worth doing, with actual witnesses, two alternatives and a decision/stop contract. A fresh artistic silhouette needs explicit scalp/hairline landmarks and crown-to-cheek curves; this is a possible future contract, not permission for the stopped parameter repair. Avoid another prerequisite inventory or observer/phase/atlas/offset/card loop. Human check-in should receive concise status and await steering before another substantial slice; explicit pause/stop requires safely collecting owned work, preserving a checkpoint and pausing the heartbeat through the app API with readback while retaining review.

@@ -1,0 +1,47 @@
+{
+  "pid": 98632,
+  "started": "2026-10-03T15:14:40.634Z",
+  "finished": "2026-10-03T15:14:40.640Z",
+  "sourceSHA256": "34ab9d3d344e3f3adad8378a4825f0957b95e547d149b414dc4f3b43c0cc9bc6",
+  "generatorSHA256": "f14caf23972ac3f2810bb53c59d51ac55d807936e1a6a6e29b37778b46c1b6c3",
+  "parametersSHA256": "23755aa2b05412384ec0c69a10afbbeac1343ae6c63c7f1d9720ee8ace776ecd",
+  "rows": [
+    {
+      "name": "left-modelling-mass",
+      "vertices": 709,
+      "triangles": 1336,
+      "minArea2": 0.00000832241012262967,
+      "bounds": {
+        "min": [
+          -0.11100000143051147,
+          1.4249999523162842,
+          -0.07999999821186066
+        ],
+        "max": [
+          -0.003000000026077032,
+          1.6959999799728394,
+          0.1459999978542328
+        ]
+      }
+    },
+    {
+      "name": "right-modelling-mass",
+      "vertices": 709,
+      "triangles": 1336,
+      "minArea2": 0.00000832241012262967,
+      "bounds": {
+        "min": [
+          0.003000000026077032,
+          1.4249999523162842,
+          -0.07999999821186066
+        ],
+        "max": [
+          0.11100000143051147,
+          1.6959999799728394,
+          0.1459999978542328
+        ]
+      }
+    }
+  ],
+  "kind": "CPU-only finite/nondegenerate authored surface counts/bounds; no body clearance/coverage/attachment/motion or appearance qualification"
+}

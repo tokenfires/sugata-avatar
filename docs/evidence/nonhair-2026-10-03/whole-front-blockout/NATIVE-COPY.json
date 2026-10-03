@@ -1,0 +1,45 @@
+{
+  "pid": 19481,
+  "started": "2026-10-03T15:26:27.868171+00:00",
+  "finished": "2026-10-03T15:26:27.873385+00:00",
+  "command": "python3 stdin: exact copy all raw native files; source and destination hashes asserted",
+  "files": [
+    {
+      "source": "captures/whole-front-blockout-2026-10-03-v1/instrument.mjs",
+      "copy": "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/instrument.mjs",
+      "sha256": "e762dafbe5c1af86a74c3360715d94425594fcf7ce9b8f01cdfc83c4752e46b4",
+      "bytes": 5420
+    },
+    {
+      "source": "captures/whole-front-blockout-2026-10-03-v1/original-front.png",
+      "copy": "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/original-front.png",
+      "sha256": "e7493e3a2d859e54f13778dce4492162b9c42b3b08aa721579650c457e5853cc",
+      "bytes": 570086
+    },
+    {
+      "source": "captures/whole-front-blockout-2026-10-03-v1/original-oblique.png",
+      "copy": "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/original-oblique.png",
+      "sha256": "d3c50ca12dff1049c400038c3c9b981eda5223f60738f9e91eade0876ab8fa8f",
+      "bytes": 597698
+    },
+    {
+      "source": "captures/whole-front-blockout-2026-10-03-v1/proposal-front.png",
+      "copy": "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/proposal-front.png",
+      "sha256": "86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752",
+      "bytes": 510397
+    },
+    {
+      "source": "captures/whole-front-blockout-2026-10-03-v1/proposal-oblique.png",
+      "copy": "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/proposal-oblique.png",
+      "sha256": "370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df",
+      "bytes": 511861
+    },
+    {
+      "source": "captures/whole-front-blockout-2026-10-03-v1/report.json",
+      "copy": "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/report.json",
+      "sha256": "b63bab44d1d6bdc36d7917ebeaf36dafceb004a781016e601d9e944ddda5b86e",
+      "bytes": 85449
+    }
+  ],
+  "totalBytes": 2280911
+}

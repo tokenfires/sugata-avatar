@@ -1,0 +1,5 @@
+# Sole modelling comparison admitted
+
+Root reads the complete literal and final source preflight a91839593b168b0cc8dfd48042a65d351c9829a4b4cfede960c5c6c2fac88997, exact generator/fixture/observer and actual Avatar/Figure interfaces. Contract admitted by critic15:06:42, inside first5minutes; source admission precedes the sole native launch. Root independently checks mirror intervals, shared-index crown/side, new material and finite invertible figure-root→world→head-local attachment, constant cameras/pose, original/proposal visibility and owned disposal. CPU construction98632 confirms finite/nondegenerate709v/1336tri perhalf, not contact/coverage or appearance.
+
+Native observere762dafb…, previewe0c10223…, generatorf14caf23…, parameters23755aa2…. One finite original/proposal front/oblique packet only, within15:24. No production groom/material/card/atlas/dynamics/history or accepted asset bytes change. Stop before further work on first refusal; actual images must decide helmet/face opening/continuous-flow value. No motion, fit, colour, strand orAAAclaim; no retry/retune/phase/pixel oracle. Full roadmap/preservation/user-steering boundaries retained.

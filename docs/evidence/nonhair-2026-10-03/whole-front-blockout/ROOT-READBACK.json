@@ -1,0 +1,55 @@
+{
+  "pid": 16867,
+  "started": "2026-10-03T15:24:58.026Z",
+  "finished": "2026-10-03T15:24:58.153Z",
+  "command": "node docs/evidence/nonhair-2026-10-03/whole-front-blockout/root-readback.mjs",
+  "sourceSHA256": "978e860bc3a3d861c3f13bf7e071aa70d3af1d3668d102a3d1ad124e0e897ad0",
+  "nativeReportSHA256": "b63bab44d1d6bdc36d7917ebeaf36dafceb004a781016e601d9e944ddda5b86e",
+  "sources": 380,
+  "inputs": 8,
+  "states": 8,
+  "dimensions": [
+    {
+      "file": "original-front.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 570086,
+      "sha256": "e7493e3a2d859e54f13778dce4492162b9c42b3b08aa721579650c457e5853cc"
+    },
+    {
+      "file": "proposal-front.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 510397,
+      "sha256": "86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752"
+    },
+    {
+      "file": "proposal-oblique.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 511861,
+      "sha256": "370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df"
+    },
+    {
+      "file": "original-oblique.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 597698,
+      "sha256": "d3c50ca12dff1049c400038c3c9b981eda5223f60738f9e91eade0876ab8fa8f"
+    }
+  ],
+  "disposal": {
+    "disposed": true,
+    "leaked": []
+  },
+  "cleanup": {
+    "page": "closed",
+    "browser": "closed"
+  },
+  "status": "readback passed; native run and artistic proposal remain refused",
+  "limits": [
+    "No native rerun, geometry construction, image edit or investigation after 15:24.",
+    "The three error entries contain one unattributed console404 and two assertion messages.",
+    "Matrix and state checks support provenance, not appearance, clearance, coverage, motion or AAA qualification."
+  ]
+}
