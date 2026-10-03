@@ -1,0 +1,20 @@
+{
+  "pid": 63014,
+  "started": "2026-10-03T22:12:26.695324+00:00",
+  "finished": "2026-10-03T22:12:26.696574+00:00",
+  "criticSha256": "fb75081b203cb181e0ac9b9ecd16b115dd5d3d34097e469224f5589c41425c05",
+  "inputs": {
+    "tools/figure-pipeline/build_figure.py": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/services/clothesservice.py": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/entities/clothes/mhclo.py": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/entities/clothes/vertexmatch.py": "81abf8f9fa3839687c5e29ce1a8c18dcd114c046b5a237e06175de115e6b91ab",
+    "captures/wardrobe-native-oracle-2026-09-30-v2/source/native-mpfb/services/objectservice.py": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6",
+    "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02.png": "e994394780be666443e70349b7f9e55704895e699054a45b4113037fdbab8e68",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+  },
+  "automation": {
+    "status": "ACTIVE",
+    "sha256": "f69648b59c2107f17177fde67cc5864bbd2956f20cfbe5d1101bdb2ddb5ef8db"
+  },
+  "decision": "One actual top-only authored-source attempt worth doing; no execution admitted by this receipt."
+}
