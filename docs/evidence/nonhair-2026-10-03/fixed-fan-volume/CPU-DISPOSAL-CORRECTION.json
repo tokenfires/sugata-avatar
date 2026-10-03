@@ -1,0 +1,10 @@
+{
+  "pid": 41841,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/fixed-fan-volume/record-cpu-disposal.py",
+  "recorded": "2026-10-03T19:26:17.062042+00:00",
+  "beforeSHA256": "2086694c01405cfae70d901c6cc1dff820851ef0b9c3b4af78b04736049deaf5",
+  "afterSHA256": "1fa10d60635565d025cfdb7a58efdd070d12be90bfb054479bc78cd05668677b",
+  "witness": "CPU finally geometryDisposed was !!geometry after dispose; it recorded ownership/invocation rather than event",
+  "selected": "A retain geometry UUID and actual dispose event; B would retain invocation flag with explicit limit, weaker evidence but less source change",
+  "limits": "No evaluator/geometry/native execution or formula/array/topology/gate/artist change; final source review still required"
+}

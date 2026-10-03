@@ -1,0 +1,18 @@
+{
+  "pid": 51009,
+  "command": "node docs/evidence/nonhair-2026-10-03/fixed-fan-volume/build.mjs",
+  "started": "2026-10-03T19:30:11.266Z",
+  "sourceSHA256": "1fa10d60635565d025cfdb7a58efdd070d12be90bfb054479bc78cd05668677b",
+  "status": "CPU worker passed; retired",
+  "timedOut": false,
+  "errors": [],
+  "limits": [
+    "One CPU-only worker, no native/GPU job. Forced worker retirement cannot attest an inner geometry disposal event."
+  ],
+  "workerThreadId": 1,
+  "workerExitCode": 0,
+  "workerRetired": true,
+  "finished": "2026-10-03T19:30:14.060Z",
+  "innerReceipt": "5d68a0fb6f509370cd46ce62a331105b06bf0a4c562681f729a2287ed6868057",
+  "pass": true
+}

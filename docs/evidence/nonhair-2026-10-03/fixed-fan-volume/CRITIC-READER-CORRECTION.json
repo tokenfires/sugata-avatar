@@ -1,0 +1,13 @@
+{
+  "observed": "2026-10-03T19:36:20.591360+00:00",
+  "failedCommand": "python3 docs/evidence/nonhair-2026-10-03/fixed-fan-volume/critic-native-refusal-readback.py",
+  "failedChunk": "dbc1b2",
+  "failedExit": 1,
+  "failedPID": null,
+  "failedStart": null,
+  "failedEnd": null,
+  "beforeSHA256": "36633005403025dbeed7aa50344965d01b84114d0457faf11862ac5acf2b28be",
+  "afterSHA256": "76c37a730f4f7dfe42db07bd09c5e15d31c7eb4b38a6168e87825ae448d3f61e",
+  "error": "AssertionError at line13: expected escaped first-error prefix contiguous inside Node formatted nested error. Node adds quote/concatenation delimiters between lines.",
+  "correction": "Receipt string parser only: check actual quoted nested AssertionError header instead. Native files/source/buffers/data/contract unchanged; no evaluator/geometry/native rerun."
+}

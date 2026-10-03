@@ -1,0 +1,29 @@
+{
+  "pid": 59866,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/fixed-fan-volume/root-native-readback.py",
+  "started": "2026-10-03T19:34:39.347918+00:00",
+  "finished": "2026-10-03T19:34:39.488963+00:00",
+  "sourceSHA256": "6ee10303a12be8982837747b6a766ec0964be3c4352ac3951079dcb869073b8e",
+  "reportSHA256": "8c37282c8fbb5c629d6bc28989685abeaa0e9c78784ef3cac9ed33cf0cbda083",
+  "instrumentSHA256": "2ec418cd9b39dc19feeb193e4230795dadf6f7558b91a7590895d7f426c3542c",
+  "sourcePinsExact": 380,
+  "inputPinsExact": 27,
+  "images": 0,
+  "firstFailure": "observer27:100 assumes runtime body.geometry.index.array equals pinned raw source body indices",
+  "secondaryError": "final error-list guard re-reports the existing first assertion; no separate rendering failure proved",
+  "fullWorldArraysOrFrameStatesSaved": false,
+  "worldWorkerCreated": false,
+  "proposalAdmitted": false,
+  "retirementExact": true,
+  "originalRestored": true,
+  "geometryAndMaterialUUIDEventsExact": true,
+  "AvatarDisposedNoReportedLeaks": true,
+  "pageBrowserClosed": true,
+  "WardrobeSourceSHA256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664",
+  "status": "native validation assumption refused; trial closed; no image/volume/world-contact verdict",
+  "limits": [
+    "Wardrobe fullIndex preservation/in-place hide-mask rewrite explains why raw/runtime index identity cannot be presumed; actual full mask/index/state arrays were not saved, so complete cause/count attribution is unqualified.",
+    "No world gate, pose/bind numeric qualification or actual appearance images; CPU gates remain narrowly retained.",
+    "No native/geometry/observer repair or rerun."
+  ]
+}

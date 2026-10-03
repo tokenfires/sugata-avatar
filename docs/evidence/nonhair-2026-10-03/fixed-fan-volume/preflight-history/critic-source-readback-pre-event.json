@@ -1,0 +1,30 @@
+{
+  "pid": 38182,
+  "observed": "2026-10-03T19:24:27.927671+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "scope": "Static file/hash/diff readback only; no evaluator, geometry, imported project code, browser or GPU.",
+  "allPrepareInputsUnchanged": true,
+  "allPrepareOutputsExact": true,
+  "allFiveDiffsExact": true,
+  "pins": {
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/PLAN.md": "aedd1c9973b4c13a708f723f917be631f53f097a185dbdd1295607bbbe02cd02",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/CRITIC-VALUE.md": "9d5718ec06db784f906e6c690f9a769a9a8f204f56375089af9ef236990625db",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/prepare.py": "92a32f9e0788e0185eb5e8a62c57ed6ca2b6d239896c67efe179fc4c6f6eca5d",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/PREPARE-RECEIPT.json": "423ecd053588a3ac3de1e1277e52dacfc48e5700176048cc88b69c812bfa6def",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/build.mjs": "2086694c01405cfae70d901c6cc1dff820851ef0b9c3b4af78b04736049deaf5",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/preview.mjs": "28edf288e34b3d966fa218aa13cae7dfdc8cb0e4d657c1ff19f70bb37dccd021",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/preview.html": "ad4aa050ff5d0b852e7c8d84a0ce7819d284d7e9f5780a0ec368d2b7b599053a",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/world-gate-worker.mjs": "da5f370d0d21902c19246740452c71a1dcd9241b527a6042fbe9f20dd0c570d3",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/build.mjs.diff": "950b46f6c42aabecff0f7dc35b9707e0fa4675cb7a44ca8302d2cc79c47f249d",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/preview.mjs.diff": "dd2375f127baa7744d2ef27e80aa8674834f92614337873a91aef7cb33cae6b2",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/preview.html.diff": "5d0396398b27d59111bdeeedd402140329d2adc98d4560abd3a1b19ace4966f6",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/world-gate-worker.mjs.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/observer.mjs.diff": "a25ae1ca16c97a113222857444b050e493b1489c30732967367f6738e37e15a5",
+    "tools/critic/fixed-fan-volume.mjs": "2ec418cd9b39dc19feeb193e4230795dadf6f7558b91a7590895d7f426c3542c",
+    "docs/evidence/nonhair-2026-10-03/cell-fan-contract/topology.json": "c057cc38b0e6cca4eb6d1d955f31b4b5263daf01260bfb65a21c218e93b4eeeb",
+    "docs/evidence/nonhair-2026-10-03/shared-boundary-interface/interface.json": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+    "tools/figure-pipeline/hair_surface.mjs": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+    "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e"
+  }
+}

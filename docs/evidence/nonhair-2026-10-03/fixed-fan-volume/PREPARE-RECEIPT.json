@@ -1,0 +1,30 @@
+{
+  "pid": 32441,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/fixed-fan-volume/prepare.py",
+  "started": "2026-10-03T19:21:39.638637+00:00",
+  "finished": "2026-10-03T19:21:39.642050+00:00",
+  "inputPins": {
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/build.mjs": "37467d6a8748d3315b6907ae2e75695b114506db4974bb9c9f4b73f325434a03",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.mjs": "0dbfeb37057550ea63a1938d39d94f20e65beab3f43b7eb6fb5dd3505774bea5",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.html": "68aed52a40e93530bb77ac8b2652d6c3b4dcba729e48c84f0e6b46989135f82c",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/world-gate-worker.mjs": "da5f370d0d21902c19246740452c71a1dcd9241b527a6042fbe9f20dd0c570d3",
+    "tools/critic/whole-head-volume.mjs": "9cc05e38b70cf7c03fd4ac15d975ecb38c0a5ce97b212905c35a1ed1d5455c77",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/PLAN.md": "aedd1c9973b4c13a708f723f917be631f53f097a185dbdd1295607bbbe02cd02",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/CRITIC-VALUE.md": "9d5718ec06db784f906e6c690f9a769a9a8f204f56375089af9ef236990625db"
+  },
+  "outputHashes": {
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/build.mjs": "2086694c01405cfae70d901c6cc1dff820851ef0b9c3b4af78b04736049deaf5",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/preview.mjs": "28edf288e34b3d966fa218aa13cae7dfdc8cb0e4d657c1ff19f70bb37dccd021",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/preview.html": "ad4aa050ff5d0b852e7c8d84a0ce7819d284d7e9f5780a0ec368d2b7b599053a",
+    "docs/evidence/nonhair-2026-10-03/fixed-fan-volume/world-gate-worker.mjs": "da5f370d0d21902c19246740452c71a1dcd9241b527a6042fbe9f20dd0c570d3",
+    "tools/critic/fixed-fan-volume.mjs": "2ec418cd9b39dc19feeb193e4230795dadf6f7558b91a7590895d7f426c3542c"
+  },
+  "status": "isolated source authored only; no geometry/evaluator/native execution",
+  "changes": [
+    "Renamed packet/global/instrument/capture paths and fixed times; unchanged world-worker duties.",
+    "Consume exact frozen point definitions and faces, once-evaluated rational node/curve/Coons/grid/centre positions; unchanged artist/interface.",
+    "Require exact topology/counts/faces and normalized finite area-weighted normals; enrich area-refusal witness.",
+    "Native metadata checks exact topology and counts; observer pins both symbolic topology and interface.",
+    "No accepted source/assets/old frozen instrument edited."
+  ]
+}

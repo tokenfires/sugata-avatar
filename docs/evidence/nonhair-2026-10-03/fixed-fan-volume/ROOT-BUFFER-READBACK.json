@@ -1,0 +1,25 @@
+{
+  "pid": 54167,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/fixed-fan-volume/root-buffer-readback.py",
+  "started": "2026-10-03T19:31:44.669408+00:00",
+  "finished": "2026-10-03T19:31:44.840271+00:00",
+  "sourceSHA256": "d99b89d5c600f84a908a0e780e81675f6b79e37a0fd757924bc30dc2d47ab9d4",
+  "buildSHA256": "5d68a0fb6f509370cd46ce62a331105b06bf0a4c562681f729a2287ed6868057",
+  "supervisorSHA256": "db2e58a386255df0a0a0ff3bf50136d219858bd70802732b251c3158056f71ee",
+  "inputPins": 17,
+  "checksPassed": 85349,
+  "allSavedBuffersExact": true,
+  "all8091StoredFloat64RecordsConvertExactlyOnceToSavedFloat32": true,
+  "all16000FacesExact": true,
+  "normalUnitTolerance": 1e-05,
+  "actualMatchingGeometryDisposalEvent": true,
+  "selfPairs": {
+    "tested": 5161,
+    "omittedAdjacent": 110646,
+    "pass": true
+  },
+  "rawBodyPairs": 0,
+  "minimumAreaWitnessExact": true,
+  "status": "saved-array/readback and retired CPU gates qualified; conditional native only",
+  "limits": "No curve/surface/position/crossing re-evaluation; no adjacent-fold/containment/clearance/native/appearance/motion proof"
+}

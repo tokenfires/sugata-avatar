@@ -1,0 +1,15 @@
+{
+  "pid": 49417,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/fixed-fan-volume/root-source-readback.py",
+  "started": "2026-10-03T19:29:37.519857+00:00",
+  "finished": "2026-10-03T19:29:37.522613+00:00",
+  "sourceSHA256": "cb8cf44eb08bfeeb7898bc682b85cf985ed47cf768f468ca5b2466d733d056d5",
+  "prepareInputsExact": 7,
+  "completeHistoricalDiffsExact": 5,
+  "eventOnlyChangedLines": 2,
+  "unchangedLiteralCurveSampleCoons": true,
+  "finalCriticPinsExact": 22,
+  "criticSourceSHA256": "1b1d9d7247ecc8af80bb35a98d0cc74882377f01634a8f0c303680d76149b088",
+  "criticReadbackSHA256": "050aedd96754534d773b06f04af40f3c54c8130ad90ab5d8569e3aef40cb9e0a",
+  "status": "complete final source/critic handoff reconciled independently; no evaluator/geometry/native execution"
+}
