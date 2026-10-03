@@ -1,0 +1,15 @@
+# Existing iris-input decision
+
+Root has not found the existing supported iris-pigment input required by this value gate. The eye-colour control is deferred under that contract; no material, API, schema or UI implementation follows from the current question.
+
+Root reads EyeMaterial's constructor at575–673 and globe albedo at980–1060, Avatar.applyEyeShading at3213–3282, complete strict Showcase settings and relevant actual Showcase controls. The constructor exposes pupil, sclera brightness/chroma, limbal ring, catchlight/caustic and optical parameters; it has no iris colour option/uniform. The globe samples the same original map for sclera and refracted/remapped iris coordinates, then uses `irisSample.rgb*(1+caustic)` in the existing radial iris mask and ring treatment. Sclera chroma is a separate white-of-eye responsibility; it cannot serve as iris colour. Avatar constructs EyeMaterial with figure only and keeps pupil scale owned by the motion sink. Current strict recipe reconstruction supports existing clothes/hair inputs and cannot silently accept an eye-colour field. No current eye-colour chooser appears in the inspected Showcase controls.
+
+Current original front/oblique face witnesses were actually inspected in the skin trial. Eyes remain visible under the hair; their sheen/dark appearance does not prove a defect or select a pigment. Source establishes a missing customization input, not the visual quality of new colours.
+
+A: separately design a narrow explicit optional iris-pigment responsibility around the existing sample/mask, with original behavior retained by default, owner/lifecycle/configuration/report semantics, meaningful pupil/sclera/ring/caustic preservation checks and actual colour renders before adopting a chooser. This could provide useful character customization, but requires shader/API/UI/recipe work and cannot be represented as an already-supported material setting. B: defer the chooser and preserve the exact original eye rendering. This is simpler and avoids misleading settings, but leaves eye-colour customization open. Root chooses B for the existing-input gate. A remains a possible separate worthwhile design question, not a construction admission.
+
+No generic shader rewrite, tint of the whole eyeball/sclera, cornea/light adjustment, new texture, owner inventory chain, native/browser/GPU/build/product/asset change or appearance qualification. Full character-customization/AAA scope remains open. An early broad eye-keyword search supplied local source leads only before the formal gate; one attempted nonexistent core index path supplied no evidence. No missing-name runtime selector is guessed.
+
+The complete independent handoff still needs root readback/reconciliation before this value gate closes.
+
+Root fully read the complete final critic handoff fecab78b… at16:28:49, independently verifies all five source hashes and current named constructor/albedo/Avatar/light/settings/preset/control responsibilities. Source and prior actual face originals agree with the existing-input refusal. No new appearance verdict or construction follows.

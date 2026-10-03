@@ -1,0 +1,9 @@
+# Iris existing-input receipt
+
+Source/value gate 16:18–16:30 UTC, entry eeebff5 before sculpt closeout204ee05. Early concrete answer: EyeMaterial has no supported iris-pigment option/uniform; existing sclera, caustic, catchlight and optics are separate. Avatar forwards figure/pupil, strict settings reject unsupported fields and the current controls have no eye-colour choice. A chooser is deferred under the existing-input contract. Current original face images were actually viewed in the preceding skin trial, and establish visibility only; no new pigment, eye defect, personality or appearance result.
+
+Critic full handoff fecab78b… saved16:27:05.723527UTC; root fully reads/reconciles by16:28:49 plus final source/hash verification. Root reads current constructor/globe albedo/pupil remap, Avatar eye/light lifecycle, settings and current control/preset responsibilities. Early broad eye-keyword source leads and one nonexistent core index path supplied no option/owner evidence. No selector guess, owner inventory chain, shader/schema/product/assets/build/browser/native/GPU/texture or eye-control change.
+
+Alternatives: retain authored brown eyes now; separately declare an optional iris-only pigment API/preview with explicit original, pupil/sclera/limbus/caustic/cornea/motion/lifecycle/settings and actual-render obligations. Retain now under this gate; no future method is admitted. Full character-customization/AAA/wardrobe/expression/representation goals and accepted/frozen/reference/unrelated boundaries remain. Review/ACTIVEten-minute recovery retained; no push/publication/capacity/model/subscription/reset-credit/other-project action. New human steering takes precedence.
+
+Next separate design value question may choose a preview-only new pigment responsibility, not pretend the missing field already exists. Stop if a literal narrow contract cannot be defined; no unsupported chooser follows this receipt.

@@ -1,0 +1,37 @@
+{
+  "pid": 52519,
+  "started": "2026-10-03T16:29:38.396623+00:00",
+  "finished": "2026-10-03T16:29:38.398040+00:00",
+  "kind": "Final source/hash preservation; no renderer or audit replay",
+  "sourcePins": {
+    "packages/core/src/material/EyeMaterial.js": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+    "packages/core/src/Avatar.js": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+    "packages/testbed/src/showcase-settings.mjs": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+    "packages/testbed/src/showcase-presets.mjs": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+    "packages/testbed/src/showcase.html": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb",
+    "captures/skin-finish-2026-10-03-v1/original-front.png": "9d31a5b3edb2f5ce860b370b38c283bda469b72efedf40f9d12ebd53a8e0f7fe",
+    "captures/skin-finish-2026-10-03-v1/original-oblique.png": "0a27d41db41f61a7ddd8498d5d5125150a542f83db03ab217447dcf8ed2ac83f"
+  },
+  "files": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-value/CRITIC-VALUE.md",
+      "bytes": 3819,
+      "sha256": "fecab78b1f69d99a0bc1dba3f39c4ab3b918f76f3a978c1f2a10c9826343b0d3"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-value/PLAN.md",
+      "bytes": 2018,
+      "sha256": "f75c2342febe249e0e21bcb0f401c6a17f39b6f0d863c9ee221878fcdcbac603"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-value/RECEIPT.md",
+      "bytes": 1930,
+      "sha256": "ed9ab5b8d5432a889ca9675a7868fbc531217b547a4bd9128a9a0a4b7049cc36"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-value/ROOT-DECISION.md",
+      "bytes": 3114,
+      "sha256": "e807d8457ab57c182d1bac09ba1deec88f3aa05c876b1e536413c97b58e88677"
+    }
+  ]
+}
