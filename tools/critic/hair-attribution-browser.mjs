@@ -36,3 +36,32 @@ export function installLayerColours(avatar) {
     return { layers, limits: ['Group colours pass through production hair lighting and grade.',
         'Source-group names rely on the calibrated card order; they are not GLB semantic metadata.'] };
 }
+
+/** A protection-boundary discriminator, preserving the original alpha and geometry. */
+export function installRootBoundaryColours(avatar, protectedCards) {
+    const g = avatar.hairDynamics.groom;
+    if (g.chainCount !== 496 || g.pointsPerChain !== 17 || g.cardVertexBase !== 652)
+        throw new Error('Root boundary requires the calibrated g050 bob layout.');
+    const protectedSet = new Set(protectedCards);
+    if (protectedSet.size !== 338 || protectedCards.some(c => !Number.isInteger(c) || c < 0 || c >= 462))
+        throw new Error('Invalid pinned side/posterior region.');
+    const protectedRoots = Array.from({ length: 78 }, (_, c) => c).filter(c => protectedSet.has(c));
+    const editableRoots = Array.from({ length: 78 }, (_, c) => c).filter(c => !protectedSet.has(c));
+    if (protectedRoots.length !== 52 || editableRoots.length !== 26) throw new Error('Unexpected root split.');
+    const legend = { cap: '808080', protectedRoots: '2858ff', editableRoots: 'ff3030', otherCards: 'b0b0b0' };
+    const linear = Object.fromEntries(Object.entries(legend).map(([key, hex]) => [key, new Color().setHex(parseInt(hex, 16), SRGBColorSpace).toArray()]));
+    let mesh; avatar.hairRoot.traverse(o => { if (o.isSkinnedMesh) mesh = o; });
+    const colours = new Float32Array(g.vertexCount * 3);
+    for (let v = 0; v < g.vertexCount; v++) {
+        const card = v < g.cardVertexBase ? -1 : Math.floor((v - g.cardVertexBase) / 34);
+        const key = card < 0 ? 'cap' : card >= 78 ? 'otherCards' : protectedSet.has(card) ? 'protectedRoots' : 'editableRoots';
+        colours.set(linear[key], v * 3);
+    }
+    mesh.geometry.setAttribute('diagnosticLayerColour', new Float32BufferAttribute(colours, 3));
+    const material = avatar.hairMaterial, colour = attribute('diagnosticLayerColour', 'vec3');
+    material.hair = { ...material.hair, baseColour: colour };
+    material.colorNode = vec4(colour, material.colorNode.a); material.needsUpdate = true;
+    return { legend, protectedRoots, editableRoots, protectedCards,
+        limits: ['Group colours pass through hair lighting/grade and alpha compositing.',
+            'A visible group colour is not exact card/pixel ownership or a geometry qualification.'] };
+}

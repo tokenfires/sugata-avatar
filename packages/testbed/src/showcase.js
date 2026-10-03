@@ -13,6 +13,8 @@ import './showcase-hair-colours.css';
 import { coloursFromSelection, selectionWithColours, writeColourParams, customColourLabel } from './showcase-colours.mjs';
 import { mountColourControls } from './showcase-colour-controls.mjs';
 import './showcase-colour-controls.css';
+import { savedColourRecipe } from './showcase-saved-colours.mjs';
+import './showcase-saved-colours.css';
 import casualEcru from './palette-references/casual-ecru.png';
 import casualCharcoal from './palette-references/casual-charcoal.png';
 import casualOriginal from './palette-references/casual-original.png';
@@ -104,6 +106,7 @@ function renderCollection() {
         document.getElementById('undo-look').hidden = !savedLooks.canUndo(current.raw);
         for (const item of current.looks) {
             const row = document.createElement('li'), name = document.createElement('strong'), description = document.createElement('small'), actions = document.createElement('div');
+            let recipe = null;
             name.textContent = item.name; description.id = `saved-description-${item.id}`; actions.className = 'saved-look-actions';
             const open = document.createElement('button'), rename = document.createElement('button'), remove = document.createElement('button');
             open.type = rename.type = remove.type = 'button'; open.className = rename.className = remove.className = 'secondary';
@@ -113,7 +116,12 @@ function renderCollection() {
             try {
                 const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
                 description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style}${customColourLabel(look) ? ` · ${customColourLabel(look)}` : ''} · ${hairColourLabel(look.hairColour, look.hairTint)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : look.light === 'neutral' ? 'Neutral Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
+                recipe = savedColourRecipe(look);
             } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
+            if (recipe) {
+                recipe.id = `saved-recipe-${item.id}`;
+                open.setAttribute('aria-describedby', `${description.id} ${recipe.id}`);
+            }
             open.addEventListener('click', () => {
                 if (!collectionAvailable()) return;
                 try {
@@ -130,7 +138,7 @@ function renderCollection() {
                     if (renderCollection()) { collectionFeedback(`Removed “${removed.name}”. You can undo this removal.`); document.getElementById('undo-look').focus(); }
                 } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
             });
-            actions.append(open, rename, remove); row.append(name, description, actions); list.append(row);
+            actions.append(open, rename, remove); row.append(name, description); if (recipe) row.append(recipe); row.append(actions); list.append(row);
         }
         updateCollectionControls(); return true;
     } catch (error) {

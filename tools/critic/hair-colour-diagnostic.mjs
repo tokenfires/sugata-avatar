@@ -41,6 +41,7 @@ const sourcePaths = [
     'packages/testbed/src/showcase.html', 'packages/testbed/src/showcase.js',
     'packages/testbed/src/showcase-presets.mjs', 'packages/testbed/src/viewer-framing.mjs',
     'packages/testbed/src/showcase-hair-colours.mjs', 'packages/testbed/src/showcase-hair-colours.css',
+    'packages/testbed/src/showcase-saved-colours.mjs', 'packages/testbed/src/showcase-saved-colours.css',
     'packages/testbed/src/showcase-settings.mjs', 'packages/core/src/material/HairColourOptions.js',
     'packages/core/src/Avatar.js', 'packages/core/src/render/Stage.js',
     'packages/core/src/render/LightingRig.js', 'packages/core/src/render/Grade.js',
@@ -48,11 +49,21 @@ const sourcePaths = [
     'packages/core/src/material/HairMaterial.js', 'packages/core/src/render/HairOIT.js',
     'packages/core/src/motion/HairDynamics.js',
     'assets/hair/bob01/g050.glb', 'assets/hair/bob02/g050.glb',
-    ...(candidate === null ? [] : [candidate])
+    ...(candidate === null ? [] : [candidate]),
+    ...(arg('identity', 'off') === 'root-boundary' ? ['captures/bob-side-envelope-v3/candidate-report.json'] : [])
 ];
 const sourceHashes = () => Object.fromEntries(sourcePaths.map(p => [p, sha(fs.readFileSync(path.join(root, p)))]));
 const identityMode = arg('identity', 'off');
-assert.ok(['off', 'layers'].includes(identityMode));
+assert.ok(['off', 'layers', 'root-boundary'].includes(identityMode));
+let protectedCards = null;
+if (identityMode === 'root-boundary') {
+    assert.equal(candidate, 'captures/bob-lower-fallback-v1/candidate.glb');
+    assert.equal(sha(fs.readFileSync(path.join(root, candidate))), '8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7');
+    const boundaryPath = path.join(root, 'captures/bob-side-envelope-v3/candidate-report.json');
+    assert.equal(sha(fs.readFileSync(boundaryPath)), 'dcbc7350777000eaba71c102214a4d1239179956a33684ff47000f68ef79fded');
+    protectedCards = JSON.parse(fs.readFileSync(boundaryPath)).selected;
+    assert.equal(protectedCards.length, 338);
+}
 const hideCards = arg('hide-cards', '').split(',').filter(Boolean).map(Number);
 assert.ok(hideCards.every(c => Number.isInteger(c) && c >= 0));
 const hideCaps = arg('hide-caps', 'off') === 'on';
@@ -104,7 +115,7 @@ try {
             await page.waitForFunction(() => window.showcase || !document.querySelector('#error').hidden, null, { timeout: 120000 });
             assert.equal(await page.locator('#error').textContent(), '');
             assert.equal(candidateLoads, candidate === null ? 0 : 1, 'Capture must load exactly the requested candidate.');
-            const setup = await page.evaluate(async ({ angle, hex, clockMode, lightingMode, hideCards, hideCaps, identityMode, attributionUrl }) => {
+            const setup = await page.evaluate(async ({ angle, hex, clockMode, lightingMode, hideCards, hideCaps, identityMode, protectedCards, attributionUrl }) => {
                 const a = showcase.avatar, controls = showcase.controls;
                 const nodeFrame = a.stage.renderer._nodes?.nodeFrame;
                 const bootFrame = nodeFrame?.frameId;
@@ -166,7 +177,8 @@ try {
                     const rgb = [0, 2, 4].map(i => parseInt(hex.slice(i, i + 2), 16) / 255);
                     node.value.fromArray(rgb.map(c => c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
                 }
-                const identity = identityMode === 'layers' ? (await import(attributionUrl)).installLayerColours(a) : null;
+                const identity = identityMode === 'layers' ? (await import(attributionUrl)).installLayerColours(a)
+                    : identityMode === 'root-boundary' ? (await import(attributionUrl)).installRootBoundaryColours(a, protectedCards) : null;
                 window.colourDiagnosticState = async () => {
                     const digest = async array => {
                         if (!ArrayBuffer.isView(array)) throw new Error('Expected typed GPU readback');
@@ -215,7 +227,7 @@ try {
                 return { exactDefault, applied: node.value.toArray(), backend: a.stage.backendName, bootFrame, lightingChanges, hidden, identity,
                     adapter: adapter ? { vendor: adapter.vendor, architecture: adapter.architecture, device: adapter.device, description: adapter.description } : null,
                     stats: a.stage.stats, state: await colourDiagnosticState() };
-            }, { angle: angles[view], hex: colour.hex, clockMode, lightingMode, hideCards, hideCaps, identityMode, attributionUrl: `/@fs/${root}tools/critic/hair-attribution-browser.mjs` });
+            }, { angle: angles[view], hex: colour.hex, clockMode, lightingMode, hideCards, hideCaps, identityMode, protectedCards, attributionUrl: `/@fs/${root}tools/critic/hair-attribution-browser.mjs` });
             assert.equal(setup.backend, 'webgpu', 'Native WebGPU is required.');
             const before = setup.state;
             await page.evaluate(async count => { for (let i = 0; i < count; i++) { colourDiagnosticTick(); await showcase.step(0); } }, frames);
@@ -251,7 +263,13 @@ try {
                         restVerticesScreen: project(restVertices), liveVerticesScreen: project(v.positions),
                         uv: Array.from(mesh.geometry.getAttribute('uv').array),
                         uv1: Array.from(mesh.geometry.getAttribute('uv1').array),
-                        indices: Array.from(mesh.geometry.index.array) };
+                        indices: Array.from(mesh.geometry.index.array),
+                        authoredAttributes: Object.fromEntries(Object.entries(mesh.geometry.attributes)
+                            .filter(([name]) => name !== 'diagnosticLayerColour')
+                            .map(([name, attr]) => [name, { itemSize: attr.itemSize, normalized: attr.normalized, array: Array.from(attr.array) }])),
+                        skin: { bindMatrix: mesh.bindMatrix.toArray(), bindMatrixInverse: mesh.bindMatrixInverse.toArray(),
+                            boneInverses: mesh.skeleton.boneInverses.map(m => m.toArray()),
+                            bones: mesh.skeleton.bones.map(b => ({ name: b.name, matrixWorld: b.matrixWorld.toArray() })) } };
                 });
                 const geometryFile = `${preset}-${view}-geometry.json`;
                 fs.writeFileSync(path.join(out, geometryFile), JSON.stringify(geometry) + '\n');
