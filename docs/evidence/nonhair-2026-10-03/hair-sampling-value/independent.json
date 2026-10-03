@@ -1,0 +1,116 @@
+{
+  "status": "verified refusal only",
+  "pid": 11746,
+  "startedUTC": "2026-10-03T12:17:43.685618+00:00",
+  "finishedUTC": "2026-10-03T12:17:43.818805+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/hair-sampling-value/verify-refusal.py",
+  "sourceSHA256": "4285b551e4f104a10bab2a1f765cb7a45eeda2d41370b1656349afa664dea868",
+  "reportSHA256": "6547b61b58ce5bb56f906cd76bd53af77da8f1503975b65ae54f151cd321f7ad",
+  "sourcePinCount": 380,
+  "dependencyPinCount": 12,
+  "distinctRehashedInputCount": 390,
+  "runtimeSnapshots": 4,
+  "expectedConfigurationIndependent": true,
+  "finiteNumericFields": true,
+  "nominalCameraProjectionMaxDifference": 0.0,
+  "quaternionWorldMatrixMaxDifference": 0.0,
+  "goldenDitherMaxDifference": 0.0,
+  "encodingDifferences": [
+    {
+      "path": ".report.hair.history.cachedDraws",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "path": ".camera.view.offsetX",
+      "before": 0.25,
+      "after": -0.375
+    },
+    {
+      "path": ".camera.view.offsetY",
+      "before": -0.3888888888888889,
+      "after": -0.05555555555555558
+    },
+    {
+      "path": ".rendering.temporal.jitterIndex",
+      "before": 3,
+      "after": 4
+    },
+    {
+      "path": ".rendering.receipts.length",
+      "before": 65,
+      "after": 66
+    }
+  ],
+  "observedCompleteFreshPasses": 65,
+  "additionalFreshPassesOnEncoding": 0,
+  "observedCachedReceipt": {
+    "frameId": 65,
+    "passes": 0,
+    "completed": 0
+  },
+  "assets": [
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "file": "assets/wardrobe/foundation_bra/g050.glb",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "file": "assets/wardrobe/foundation_briefs/g050.glb",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "file": "assets/wardrobe/shoes01/g050.glb",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "file": "assets/hair/bob02/g050.glb",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob02/g050.glb",
+      "bytes": 3347176,
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    }
+  ],
+  "imageInventory": [],
+  "warningCounts": {
+    "rig": 1,
+    "zeroIndex": 1,
+    "inlineReturn": 2
+  },
+  "deadlineOnlyReverseEquality": true,
+  "additionalSourcePins": [
+    {
+      "path": "node_modules/three/src/renderers/common/RenderPipeline.js",
+      "bytes": 5793,
+      "sha256": "9dcf203793aec85ab2faf21a1acfc3e61869a5b073e6e119c4ea8c1cfb386c17"
+    },
+    {
+      "path": "packages/core/src/render/CardRenderHistory.js",
+      "bytes": 14269,
+      "sha256": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f"
+    }
+  ],
+  "limits": [
+    "No second arm or saved image; no preference or pixel/history-texture claim.",
+    "GPU array digests are compared as recorded values, not independently recomputed from unretained buffers.",
+    "Actual API retirement/cleanup observations are rechecked, not a new browser process inspection."
+  ]
+}

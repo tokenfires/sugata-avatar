@@ -1,0 +1,30 @@
+{
+  "pid": 7945,
+  "startedUTC": "2026-10-03T12:16:04.971903+00:00",
+  "finishedUTC": "2026-10-03T12:16:05.110248+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/hair-sampling-value/verify-refusal.py",
+  "rawReportSHA256": "6547b61b58ce5bb56f906cd76bd53af77da8f1503975b65ae54f151cd321f7ad",
+  "pins": 390,
+  "assets": 6,
+  "differences": [
+    "/report/hair/history/cachedDraws",
+    "/camera/view/offsetX",
+    "/camera/view/offsetY",
+    "/rendering/temporal/jitterIndex",
+    "/rendering/receipts"
+  ],
+  "deadlineOnlyByteEquality": true,
+  "finalEqualsBeforeEncoding": true,
+  "clockAndPhysicalExact": true,
+  "retainedImages": 0,
+  "fullResolutionArms": 0,
+  "scope": "Already retained source/state refusal only; no pixel/radiance/history-texture difference or resolution preference established",
+  "postflightSourcePins": {
+    "node_modules/three/src/renderers/common/RenderPipeline.js": "9dcf203793aec85ab2faf21a1acfc3e61869a5b073e6e119c4ea8c1cfb386c17",
+    "node_modules/three/examples/jsm/tsl/display/TAAUNode.js": "ddc9d1eaa318dd45629799c48af6f7388b31edd9ad5e6648a4004fdead48d250",
+    "node_modules/three/src/nodes/core/NodeFrame.js": "50b38f505f83c8548bce8867594eb8f5a31eb2cea18690286ed6b91202e418b3",
+    "packages/core/src/render/Stage.js": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+    "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+    "packages/core/src/render/CardRenderHistory.js": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f"
+  }
+}

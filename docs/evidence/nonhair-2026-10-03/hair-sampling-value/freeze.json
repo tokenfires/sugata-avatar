@@ -1,0 +1,20 @@
+{
+  "pid": 38267,
+  "startedUTC": "2026-10-03T12:27:33.737259+00:00",
+  "finishedUTC": "2026-10-03T12:27:33.864117+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/hair-sampling-value/freeze-packet.py",
+  "files": 19,
+  "bytes": 370652,
+  "externalPins": 392,
+  "manifestSHA256": "b6d153e6cd58f7a76ebed11fee4b62600196db7dc46aebe8c3b5ecb127e4b659",
+  "allRehashed": true,
+  "nativeAbsent": true,
+  "reviewProcess": "1023 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort",
+  "automation": {
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  },
+  "retainedImages": 0,
+  "fullResolutionArms": 0
+}
