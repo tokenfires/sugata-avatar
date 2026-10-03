@@ -1,0 +1,5 @@
+# Iris checkpoint
+
+Closed fixed16:44–17:19UTC trial. Optional Blue-grey static study retained by root/critic, authored brown/default/core/recipes untouched. Reopen README/local labelled preview for human review; four untouched originals and complete native/source/lifecycle evidence are archived. No native/GPU/browser job remains. Review1023/5173 and ACTIVE ten-minute/currentchat recovery retained. Local branch codex/bob-appearance-2026-09-29, entry282d577; closeout commit recorded by Git.
+
+Do not retune/capture another colour, repair old closed hair/card/proxy/offset/history/observer routes or infer motion/physical/AAA qualification. Next requires a fresh worthwhile decision and explicit bound; conditionally20minute actual complete3Dcontrol-net authorship is design-only, not construction or automatic admission. Preserve all accepted/frozen/original/unrelated work. Human check-in reports concise status and waits for steering; explicit stop/pause safely collects owned jobs, checkpoints, retains review and API-pauses heartbeat with readback. No pushes/publication/capacity changes/other projects.

@@ -1,0 +1,44 @@
+--- packages/core/src/material/EyeMaterial.js
++++ preview-only/PreviewEyeMaterial.mjs
+@@ -131,7 +131,7 @@
+     buildCatchlightCubeTexture,
+     CATCHLIGHT_PRESETS,
+     resolveCatchlightRig
+-} from './EyeCatchlight.js';
++} from '../../../../packages/core/src/material/EyeCatchlight.js';
+ 
+ // --- what the meshes are called ----------------------------------------------------------------
+ //
+@@ -606,8 +606,12 @@
+         this.corneaMesh = meshes.cornea;
+         this.geometry = measureEyeGeometry( this.globeMesh, this.corneaMesh );
+ 
+-        this.originalGlobeMaterial = this.globeMesh.material;
++        this.originalGlobeMaterial = options.previewSourceGlobeMaterial ?? this.globeMesh.material;
+         this.originalCorneaMaterial = this.corneaMesh.material;
++
++        // Preview-only input; never a core Avatar setting or default.
++        this.previewIrisChromaticityUniform = options.previewIrisChromaticity === undefined
++            ? null : uniform( new Vector3( ...options.previewIrisChromaticity ) );
+ 
+         // Uniforms a consumer drives. `pupilScaleUniform` is the sink motion/Pupil.js expects:
+         // anything with a `.value`, clamped by Pupil to PUPIL_SCALE_BOUNDS so `1 - pupilEdge` here
+@@ -1035,7 +1039,17 @@
+         const tinted = scleraSample.rgb.mul( vec3( ...scleraTint ) );
+         const sclera = mix( scleraSample.rgb, tinted, this.scleraChromaUniform )
+             .mul( this.scleraBrightnessUniform );
+-        const iris = irisSample.rgb.mul( float( 1 ).add( caustic ) );
++        let irisRgb = irisSample.rgb;
++        if ( this.previewIrisChromaticityUniform !== null ) {
++
++            const sampleLuma = irisSample.rgb.dot( vec3( 0.2126, 0.7152, 0.0722 ) );
++            const pigment = sampleLuma.mul( this.previewIrisChromaticityUniform );
++            // Same pupil-side predicate as the existing radial remap; equality stays original.
++            const annulus = float( 1 ).sub( step( irisRadial, pupilEdge ) );
++            irisRgb = mix( irisSample.rgb, pigment, annulus );
++
++        }
++        const iris = irisRgb.mul( float( 1 ).add( caustic ) );
+         const albedo = mix( sclera, iris, irisMask ).mul( ring.mul( this.limbalRingUniform ).oneMinus() );
+ 
+         material.colorNode = vec4( albedo, 1 );

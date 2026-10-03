@@ -1,0 +1,45 @@
+{
+  "pid": 52149,
+  "started": "2026-10-03T17:12:59.663329+00:00",
+  "finished": "2026-10-03T17:12:59.667143+00:00",
+  "method": "CPU exact file copy; no bitmap edit",
+  "copies": [
+    {
+      "source": "captures/iris-pigment-2026-10-03-v1/candidate-front.png",
+      "archive": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/candidate-front.png",
+      "bytes": 569260,
+      "sha256": "e0c6a1ffe0962ac5cbd68a649803e2215c4a616c1bf4a2e8648d9fe75a94631b"
+    },
+    {
+      "source": "captures/iris-pigment-2026-10-03-v1/candidate-oblique.png",
+      "archive": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/candidate-oblique.png",
+      "bytes": 610474,
+      "sha256": "2f98090b34fa1301acbaf1be8b91a1a930c17b7e33b7e6f5efd1a80eb1605827"
+    },
+    {
+      "source": "captures/iris-pigment-2026-10-03-v1/instrument.mjs",
+      "archive": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/instrument.mjs",
+      "bytes": 8453,
+      "sha256": "35502e6f7d5f89d7687d335a61e2b21f65508bdb74e31263305390a24af9725c"
+    },
+    {
+      "source": "captures/iris-pigment-2026-10-03-v1/original-front.png",
+      "archive": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/original-front.png",
+      "bytes": 566043,
+      "sha256": "2bc2eeeb950179d35f81f409118f48912ad4b8c44730362499620f463cf68744"
+    },
+    {
+      "source": "captures/iris-pigment-2026-10-03-v1/original-oblique.png",
+      "archive": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/original-oblique.png",
+      "bytes": 593125,
+      "sha256": "426dae81627b03cc7969f3bfcb2409f14f2bf338caf82e1bab71136a5774b9ee"
+    },
+    {
+      "source": "captures/iris-pigment-2026-10-03-v1/report.json",
+      "archive": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/report.json",
+      "bytes": 314169,
+      "sha256": "dd4fcae12131fae2ada44e85dffcd52aaccc097a078cf68d0206b3e8450b190f"
+    }
+  ],
+  "bytes": 2661524
+}

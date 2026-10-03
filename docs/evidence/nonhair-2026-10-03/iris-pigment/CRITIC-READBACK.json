@@ -1,0 +1,48 @@
+{
+  "pid": 48956,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/iris-pigment/critic-readback.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "started": "2026-10-03T17:11:52.225736+00:00",
+  "finished": "2026-10-03T17:11:52.343394+00:00",
+  "verifierSHA256": "fec675db3b513ea2eedcdea9ad5c100fe8a45341a1ad15c9e2715cac2cc977cb",
+  "reportSHA256": "dd4fcae12131fae2ada44e85dffcd52aaccc097a078cf68d0206b3e8450b190f",
+  "sourcePins": 380,
+  "inputPins": 15,
+  "executedInstrumentSHA256": "35502e6f7d5f89d7687d335a61e2b21f65508bdb74e31263305390a24af9725c",
+  "imagePins": {
+    "original-front.png": "2bc2eeeb950179d35f81f409118f48912ad4b8c44730362499620f463cf68744",
+    "candidate-front.png": "e0c6a1ffe0962ac5cbd68a649803e2215c4a616c1bf4a2e8648d9fe75a94631b",
+    "candidate-oblique.png": "2f98090b34fa1301acbaf1be8b91a1a930c17b7e33b7e6f5efd1a80eb1605827",
+    "original-oblique.png": "426dae81627b03cc7969f3bfcb2409f14f2bf338caf82e1bab71136a5774b9ee"
+  },
+  "imageDimensions": [
+    1440,
+    1000
+  ],
+  "completeRecordedStates": 9,
+  "bindingsPerState": 16,
+  "pupilScale": 0.985,
+  "borrowedMap": "d7703b30-ec75-4e79-9991-ca95793a5ddf",
+  "donorDisposals": [
+    {
+      "name": "globe",
+      "uuid": "116ef771-1216-4176-8882-ed6a6f9a5dbc"
+    },
+    {
+      "name": "unusedCornea",
+      "uuid": "c7c37fe5-d74b-4a74-be28-ad2d024cd0b7"
+    },
+    {
+      "name": "unusedCatchlight",
+      "uuid": "51a0b7c9-3d12-4213-aa80-55bc619628f9"
+    }
+  ],
+  "mapDisposedByDonor": 0,
+  "status": "passed fs/copy/state/luma/retirement readback",
+  "limits": [
+    "No GPU, image crop/edit or render replay.",
+    "Observed frame/uniform equality, not independent reconstruction of physical skinning or texture sampling.",
+    "Image appearance reviewed separately; no pixel equality, perceptual/spectral/moving/default/API qualification."
+  ]
+}

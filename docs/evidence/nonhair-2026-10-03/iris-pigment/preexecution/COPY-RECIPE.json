@@ -1,0 +1,24 @@
+{
+  "original": "packages/core/src/material/EyeMaterial.js",
+  "originalSHA256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+  "copySHA256": "4cfd8e3e7b0a191040be5eb17e766a2112e7ba4791669878c7becf98c3137339",
+  "changes": [
+    {
+      "from": "} from './EyeCatchlight.js';",
+      "to": "} from '../../../../packages/core/src/material/EyeCatchlight.js';"
+    },
+    {
+      "from": "this.originalGlobeMaterial = this.globeMesh.material;",
+      "to": "this.originalGlobeMaterial = options.previewSourceGlobeMaterial ?? this.globeMesh.material;"
+    },
+    {
+      "from": "this.originalCorneaMaterial = this.corneaMesh.material;",
+      "to": "this.originalCorneaMaterial = this.corneaMesh.material;\n\n        // Preview-only input; never a core Avatar setting or default.\n        this.previewIrisChromaticityUniform = options.previewIrisChromaticity === undefined\n            ? null : uniform( new Vector3( ...options.previewIrisChromaticity ) );"
+    },
+    {
+      "from": "const iris = irisSample.rgb.mul( float( 1 ).add( caustic ) );",
+      "to": "let irisRgb = irisSample.rgb;\n        if ( this.previewIrisChromaticityUniform !== null ) {\n\n            const sampleLuma = irisSample.rgb.dot( vec3( 0.2126, 0.7152, 0.0722 ) );\n            const pigment = sampleLuma.mul( this.previewIrisChromaticityUniform );\n            // Same pupil-side predicate as the existing radial remap; equality stays original.\n            const annulus = float( 1 ).sub( step( irisRadial, pupilEdge ) );\n            irisRgb = mix( irisSample.rgb, pigment, annulus );\n\n        }\n        const iris = irisRgb.mul( float( 1 ).add( caustic ) );"
+    }
+  ],
+  "limit": "Only literal copy differences; no shader/pixel/physical or appearance qualification."
+}

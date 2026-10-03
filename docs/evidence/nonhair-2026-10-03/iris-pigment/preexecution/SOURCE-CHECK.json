@@ -1,0 +1,25 @@
+{
+  "pid": 5758,
+  "started": "2026-10-03T16:52:43.382Z",
+  "finished": "2026-10-03T16:52:43.384Z",
+  "command": "node docs/evidence/nonhair-2026-10-03/iris-pigment/source-check.mjs",
+  "sourceSHA256": "6c2df0bd1b7208e145ded1d18e442e3d374ee10f8f2b4c5169a6a21f3491ece1",
+  "originalSHA256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+  "copySHA256": "4cfd8e3e7b0a191040be5eb17e766a2112e7ba4791669878c7becf98c3137339",
+  "declaredDifferences": 4,
+  "completeCopyReversedExactly": true,
+  "blue": "#527b97",
+  "linear": [
+    0.08437621153575764,
+    0.19806931954941637,
+    0.3094689228067428
+  ],
+  "luma": 0.18194121614089148,
+  "chromaticity": [
+    0.46375534541012664,
+    1.0886445839519705,
+    1.7009280765008
+  ],
+  "colourManagement": true,
+  "status": "passed copy/normalization contract only; no constructor/GPU/uniform/appearance qualification"
+}

@@ -1,0 +1,44 @@
+{
+  "original": "packages/core/src/material/EyeMaterial.js",
+  "originalSHA256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+  "copySHA256": "798983d0b7ac6bb008226e460abfc083a6f01b24074f86c1d11e80ec3a43c7d1",
+  "changes": [
+    {
+      "from": "} from './EyeCatchlight.js';",
+      "to": "} from '../../../../packages/core/src/material/EyeCatchlight.js';"
+    },
+    {
+      "from": "this.originalGlobeMaterial = this.globeMesh.material;",
+      "to": "this.originalGlobeMaterial = options.previewSourceGlobeMaterial ?? this.globeMesh.material;"
+    },
+    {
+      "from": "this.originalCorneaMaterial = this.corneaMesh.material;",
+      "to": "this.originalCorneaMaterial = this.corneaMesh.material;\n\n        // Preview-only input; never a core Avatar setting or default.\n        this.previewIrisChromaticityUniform = options.previewIrisChromaticity === undefined\n            ? null : uniform( new Vector3( ...options.previewIrisChromaticity ) );"
+    },
+    {
+      "from": "const iris = irisSample.rgb.mul( float( 1 ).add( caustic ) );",
+      "to": "let irisRgb = irisSample.rgb;\n        if ( this.previewIrisChromaticityUniform !== null ) {\n\n            const sampleLuma = irisSample.rgb.dot( vec3( 0.2126, 0.7152, 0.0722 ) );\n            const pigment = sampleLuma.mul( this.previewIrisChromaticityUniform );\n            // Same pupil-side predicate as the existing radial remap; equality stays original.\n            const annulus = float( 1 ).sub( step( irisRadial, pupilEdge ) );\n            irisRgb = mix( irisSample.rgb, pigment, annulus );\n\n        }\n        const iris = irisRgb.mul( float( 1 ).add( caustic ) );"
+    },
+    {
+      "from": "        this.catchlight = this.catchlightRig === null",
+      "to": "        // Isolated-preview failure ledger; shared source materials/maps are never owned.\n        this.previewOwnedResources = [];\n        try {\n        this.catchlight = this.catchlightRig === null"
+    },
+    {
+      "from": "        this.globeMaterial = this.buildGlobeMaterial();",
+      "to": "        if ( this.catchlight ) this.previewOwnedResources.push( { name: 'unusedCatchlight', resource: this.catchlight, uuid: this.catchlight.texture.uuid } );\n        this.globeMaterial = this.buildGlobeMaterial();"
+    },
+    {
+      "from": "        this.attached = false;\n\n    }",
+      "to": "        this.attached = false;\n        } catch ( error ) {\n            const resources = [];\n            for ( const owned of this.previewOwnedResources ) {\n                try { owned.resource.dispose(); resources.push( { name: owned.name, uuid: owned.uuid, disposed: true } ); }\n                catch ( failure ) { resources.push( { name: owned.name, uuid: owned.uuid, disposed: false, error: failure.message } ); }\n            }\n            error.previewConstructionReceipt = { resources, borrowedResourcesDisposed: false };\n            throw error;\n        }\n\n    }"
+    },
+    {
+      "from": "        const material = new MeshPhysicalNodeMaterial();\n        material.name = 'sugata.eye.globe';",
+      "to": "        const material = new MeshPhysicalNodeMaterial();\n        this.previewOwnedResources.push( { name: 'globe', resource: material, uuid: material.uuid } );\n        material.name = 'sugata.eye.globe';"
+    },
+    {
+      "from": "        const material = new MeshPhysicalNodeMaterial();\n        material.name = 'sugata.eye.cornea';",
+      "to": "        const material = new MeshPhysicalNodeMaterial();\n        this.previewOwnedResources.push( { name: 'unusedCornea', resource: material, uuid: material.uuid } );\n        material.name = 'sugata.eye.cornea';"
+    }
+  ],
+  "limit": "Only literal copy differences; no shader/pixel/physical or appearance qualification."
+}
