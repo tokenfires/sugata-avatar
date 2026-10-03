@@ -102,6 +102,10 @@ image or JSON settings downloads. [Colour choices](docs/WARDROBE-COLOURWAYS-2026
 existing stand-in clothes, with remaining fit and styling work. See the [lookbook guide](docs/SHOWCASE-2026-09-09.md)
 and [wardrobe API](docs/WARDROBE-AVATAR-2026-09-09.md).
 
+The [reopenable Sage/lavender examples](looks/README.md) provide both accepted bob lengths as
+portable JSON settings, with the same outfit and applied colours. Open either through the
+lookbook's **Open settings (JSON)** control; these remain g050 clothing studies.
+
 For current work, start with the [September 26 non-hair workday](docs/PROGRESS-2026-09-26.md) and
 [product direction](docs/PRODUCT-ROADMAP.md). The workday checkpoint also records the persistent
 local review server and its service controls. Hair experiments are deferred for this window;

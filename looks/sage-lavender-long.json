@@ -1,0 +1,34 @@
+{
+  "identity": {
+    "gender": 0.5,
+    "mode": "nearest"
+  },
+  "hair": "bob01",
+  "hairColour": "#413934",
+  "hairTint": {
+    "colour": "#8063ac",
+    "amount": 0.25
+  },
+  "frame": "portrait",
+  "quality": "balanced",
+  "scene": "studio",
+  "lighting": "neutral",
+  "seed": 20260807,
+  "pose": "relaxed-standing",
+  "wardrobe": {
+    "style": "ecru",
+    "colours": {
+      "top": "#617a70",
+      "bottom": "#35485c",
+      "shoes": "#45434b"
+    },
+    "outfit": [
+      "female_casualsuit01",
+      "shoes01"
+    ],
+    "foundation": {
+      "TORSO": "foundation_bra",
+      "HIPS": "foundation_briefs"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+First independent readback attempt: chunk7a844f, exit1, before executing any readback checks or writing a verification receipt.
+Command: python3 docs/evidence/nonhair-2026-10-03/representation-recipes/root-check.py
+Initial source SHA256: 3288158decf5307db0263c0bf12a2b8d6da895654b3bd10ef00a9968784faa84
+SyntaxError: unterminated string literal (detected at line 44)
+The refusal-string f-string was missing its closing interpolation brace. Root repaired that verifier source only. The sole Node audit and all its outputs remain unchanged; no query or render replay.

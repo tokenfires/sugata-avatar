@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "pid": 80826,
+  "started": "2026-10-03T13:25:14.231833+00:00",
+  "finished": "2026-10-03T13:25:14.259806+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/representation-recipes/root-check.py",
+  "sourceSHA256": "664646935ffcfd783e3888e9201b3c33ae95d784f679344d217924b4fcc336db",
+  "receiptSHA256": "a8c91fd7351b79904c03c9ed0a22a113c6344af4aaebaccaf789af3a2a0579f6",
+  "inputPins": 24,
+  "physicalRecords": 35,
+  "existingPhysicalFiles": 21,
+  "recipes": 2,
+  "uniqueQueries": 35,
+  "admitted": 7,
+  "refused": 28,
+  "undeclaredEndpointFiles": 14,
+  "exactOrigins": true,
+  "noRuntimeQueryReplay": true
+}

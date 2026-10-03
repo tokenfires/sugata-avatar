@@ -1,0 +1,11 @@
+# Recovery after the recipe delivery
+
+Two exact g050 Sage/lavender examples are in `looks/`, discoverable through the root README. Open them with the existing Wardrobe study's **Open settings (JSON)** control. [Guide](../../../../looks/README.md), [receipt](RECEIPT.md), [raw audit](receipt.json), [independent root readback](root-verification.json).
+
+Entry `0edff65b3898098a8927dd0011224cf2e556890e`. The one CPU audit finished at 13:23:42.837 UTC. The separate corrected readback finished at 13:25:14.259806 UTC. Neither owns a live job. No Avatar, native capture, browser, GPU, builder or generation job was started in this slice. Existing loopback review PID 1023/port 5173 remains available; verify it after any restart. The app API view and saved automation TOML agree that the current-chat ten-minute recovery is ACTIVE. No human check-in or pause has superseded the October 2 authorization.
+
+The broader support decision is closed by the existing declarations and the finite audit: the seven selected garments support g050 only. The fourteen physical g000/g100 endpoint files are inventory, not qualified fits or permission to expose them. Do not repeat this table as an appearance experiment. Numeric gender0.5 does not constitute a curated representative character.
+
+Next substantial work needs a fresh independent worth-doing decision, one usable improvement and one bounded question with an explicit stop. Prefer a source-directed complete body/foundation/outfit authoring responsibility, or deliberately curate a supported g050 design with actual face/outfit/expression/motion criteria. No new construction or representative promotion has been admitted by this packet. Keep the complete male/female/neutral starter and wider AAA roadmap open.
+
+Retain all accepted assets, original references, frozen evidence and unrelated worktrees. All closed proxy, local foundation offset/weight/mask, card mesh-follow and observer packets stay closed. No capacity purchase, model/subscription/reset-credit changes, push/publication or other-project resumption. A human check-in receives concise status before a new substantial slice; a stop/pause requires collecting owned work, retaining the review server, checkpointing and pausing the timer through the app API with readback.

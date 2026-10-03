@@ -1,0 +1,34 @@
+Recorded critic filesystem/JSON readback — copied from completed tool evidence.
+Tool chunk: b0bf34. This file was not executed; no readback rerun.
+Recorded PID: 87907.
+Recorded observation time: 2026-10-03T13:28:50.258122+00:00.
+Start/end were not separately recorded.
+Working directory: /Users/robault/GitHub/sugata-avatar.
+
+Literal executed command/stdin:
+
+python3 - <<'PY'
+from pathlib import Path
+import json,hashlib,struct,datetime,os,sys
+b=Path('docs/evidence/nonhair-2026-10-03/representation-recipes');r=json.loads((b/'receipt.json').read_text());native=json.loads(Path('captures/wardrobe-hair-cut-2026-10-03-v1/report.json').read_text())
+for row in r['inputs']:
+ z=Path(row['path']).read_bytes();assert len(z)==row['bytes'] and hashlib.sha256(z).hexdigest()==row['sha256'],row['path']
+for row in r['physicalFiles']:
+ p=Path(row['path']);assert p.exists()==row['present'],row['path']
+ if row['present']:
+  z=p.read_bytes();assert len(z)==row['bytes'] and hashlib.sha256(z).hexdigest()==row['sha256'];assert z[:4]==b'glTF';assert struct.unpack('<II',z[4:12])==(2,len(z))
+chin=Path('looks/sage-lavender-chin.json').read_bytes();long=Path('looks/sage-lavender-long.json').read_bytes();assert long==Path('captures/wardrobe-hair-cut-2026-10-03-v1/changed-look.json').read_bytes();cfg=json.loads(chin);initial=next(g for g in native['guards'] if g['kind']=='initial supported complex recipe');assert cfg==initial['snapshot']['configuration'];assert {**cfg,'hair':'bob01'}==json.loads(long)
+for row in r['recipes']:
+ z=Path(row['path']).read_bytes();assert len(z)==row['bytes'] and hashlib.sha256(z).hexdigest()==row['sha256']
+assert len(set((x['id'],x['key'])for x in r['queries']))==35
+for x in r['queries']:
+ assert x['admitted']==(x['key']=='g050')
+ if not x['admitted']:assert x['error']==f"GarmentManifest: '{x['id']}' has no fragment for figure '{x['key']}'. It declares g050."
+assert r['finished']<r['stop'] and r['status']=='pass'
+v=json.loads((b/'root-verification.json').read_text());assert hashlib.sha256((b/'root-check.py').read_bytes()).hexdigest()==v['sourceSHA256'];assert hashlib.sha256((b/'receipt.json').read_bytes()).hexdigest()==v['receiptSHA256']
+print(json.dumps({'pid':os.getpid(),'timeUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'interpreter':sys.executable,'python':sys.version.split()[0],'pins':len(r['inputs']),'physical':len(r['physicalFiles']),'present':sum(x['present']for x in r['physicalFiles']),'recipes':[{ 'path':x['path'],'sha256':x['sha256']}for x in r['recipes']],'queryRecords':len(r['queries']),'runtimeQueryReplay':False,'exactOrigins':True}))
+PY
+
+Actual recorded output (exit code 0):
+
+{"pid": 87907, "timeUTC": "2026-10-03T13:28:50.258122+00:00", "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14", "python": "3.14.7", "pins": 24, "physical": 35, "present": 21, "recipes": [{"path": "looks/sage-lavender-chin.json", "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978"}, {"path": "looks/sage-lavender-long.json", "sha256": "45e2ea24c5c3c3aadfa74ead0908fcde0e8af6ab2a5675fa174a6256562e2710"}], "queryRecords": 35, "runtimeQueryReplay": false, "exactOrigins": true}

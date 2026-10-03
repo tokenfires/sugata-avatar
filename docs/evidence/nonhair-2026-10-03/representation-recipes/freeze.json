@@ -1,0 +1,111 @@
+{
+  "status": "pass",
+  "pid": 3545,
+  "started": "2026-10-03T13:34:57.059025+00:00",
+  "finished": "2026-10-03T13:34:57.090195+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/representation-recipes/freeze.py",
+  "purpose": "Documentation/preservation closeout after the investigation deadline; no new experiment",
+  "unchangedInputPins": 24,
+  "physicalRecords": 35,
+  "files": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/CHECKPOINT.md",
+      "bytes": 2280,
+      "sha256": "b5c5f363716183b45d4d1fd81bce17fcc788ad41ec51789cdcdac8976ac1db28"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/CRITIC-POSTFLIGHT.md",
+      "bytes": 5231,
+      "sha256": "fcc5c13e3a3bdda2f475bb9ee694aa3a7fca20c818e1e76a926a2e4592f93a4a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/CRITIC-READBACK.txt",
+      "bytes": 3164,
+      "sha256": "5b4578e10e4702abbf7890a4a9084bcdc820632503ac09a929530879778b51f5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/CRITIC-REVIEW.md",
+      "bytes": 3755,
+      "sha256": "d7d67bfa1bc07c08d574f3d16c093b9d5dd59da9f6432f551c0b448044ca3523"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/PLAN.md",
+      "bytes": 2600,
+      "sha256": "44bc53f9f8202d3e72c06ce48b723a1e937aad7b1aa1195dfccd457883fefaeb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/RECEIPT.md",
+      "bytes": 5684,
+      "sha256": "c3b435f26ac8b6a41154c557525c4293cbd3cb9301652af19beca83e93c373d8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/audit.mjs",
+      "bytes": 8200,
+      "sha256": "7acf72567e80d43ae3c1adf41b39902e1d2a5e3d0de46263ed7a2cbbf4b1c330"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/freeze.py",
+      "bytes": 2576,
+      "sha256": "3266eca685d39149d82f5c78f2108d157043a01c24a3751e6e2187b57f5dc5da"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/receipt.json",
+      "bytes": 23834,
+      "sha256": "a8c91fd7351b79904c03c9ed0a22a113c6344af4aaebaccaf789af3a2a0579f6"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/root-check-first-error.txt",
+      "bytes": 565,
+      "sha256": "e3dc6bcec61ee150a52c6acae7e3602e76512221d1adb6e23f8dd4135c5c1aca"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/root-check.py",
+      "bytes": 2998,
+      "sha256": "664646935ffcfd783e3888e9201b3c33ae95d784f679344d217924b4fcc336db"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-recipes/root-verification.json",
+      "bytes": 642,
+      "sha256": "0d090684ffbc63598a6313ef82a662b9965ef1649cec026082ad0717d5df59af"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-value/CRITIC-VALUE.md",
+      "bytes": 5468,
+      "sha256": "92c5bcaf59f87ad41f4f17dcbf8668fff52e9eaf0c0290f0135ec0b5f6d6a0b7"
+    }
+  ],
+  "delivery": [
+    {
+      "path": "looks/sage-lavender-chin.json",
+      "bytes": 623,
+      "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978",
+      "mode": "editable delivery/live document; closeout hash only"
+    },
+    {
+      "path": "looks/sage-lavender-long.json",
+      "bytes": 623,
+      "sha256": "45e2ea24c5c3c3aadfa74ead0908fcde0e8af6ab2a5675fa174a6256562e2710",
+      "mode": "editable delivery/live document; closeout hash only"
+    },
+    {
+      "path": "looks/README.md",
+      "bytes": 2014,
+      "sha256": "331a214f5c01a0a517f9b07225b4c9ddbdf07b06a4e05566f7eb474761afcc0a",
+      "mode": "editable delivery/live document; closeout hash only"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7465,
+      "sha256": "52ca0bc1bb2f8d89da40d8d56181a92401b8e3cbd20d2e1a0faf2b917727a008",
+      "mode": "editable delivery/live document; closeout hash only"
+    },
+    {
+      "path": "docs/PROGRESS-2026-10-02.md",
+      "bytes": 78882,
+      "sha256": "b6d5a22815f8fbb98952e54bd036a63517cb2c87bc53298520dcde365b5a6089",
+      "mode": "editable delivery/live document; closeout hash only"
+    }
+  ],
+  "frozenFiles": 13,
+  "frozenBytes": 66997
+}
