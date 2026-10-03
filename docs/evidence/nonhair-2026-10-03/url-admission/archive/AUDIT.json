@@ -1,0 +1,33 @@
+{
+  "started": "2026-10-03T10:52:43.617Z",
+  "pid": 92265,
+  "status": "failed",
+  "stop": "2026-10-03T11:01:00Z",
+  "command": "node tools/critic/qualify-vite-declared-resource.mjs",
+  "inputPins": {
+    "captures/current-review-2026-10-02-v1/report.json": "1df267e31d7af8a20a7fc86fce0268a2ba257609774cb46582484beea1028410",
+    "captures/october3-review-2026-10-03-v1/report.json": "20e2e393aee864766fe347b6ec5773fde6f5db337e7b35bc56eaec3dffaaaf5d",
+    "node_modules/vite/package.json": "3baf6fb19ca2a2da0b739d984620e2c9d4aeba83d5ac68da9bacfb37d43afd61",
+    "node_modules/vite/dist/node/chunks/node.js": "2b4bf92e357f655bbcc69e08c4a6dd187ef1068412afd65bae9180f687b36912",
+    "vite.config.js": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+    "tools/critic/october3-review-ui.mjs": "ca11a54eebeaf50668ce4e4cfa931ab429251c34d92d69d8eaa508f72e06e4f4"
+  },
+  "fixtureSHA256": "738cee231cd7d7e825d328eed4ef233860372f79f7f1a6b20696aca49f5e6b7f",
+  "helperSHA256": "364a69b7dd33d0c7aa270ac2d64d26518eb771fb69472fd8890be69a41d7d43f",
+  "instrumentSHA256": "e555e09240f96a52aa7e23cf58a7cd9886e79505e79856bab756a12029087a90",
+  "observed": [],
+  "synthetic": [],
+  "refusals": [],
+  "limits": [
+    "Offline declared URL/file identity only; no HTTP bytes, fragment target, browser or appearance qualification.",
+    "Current POSIX/macOS Vite8.2.1 routes only; no Windows/public/plugin/proxy/symlink equivalence.",
+    "Old closed observer and product unchanged."
+  ],
+  "installedOracleExcerpts": {
+    "normalizePath": "function normalizePath(filename) {\n\treturn filename.replace(normalizePathRegExp, posix$1.sep);\n}",
+    "fsPathFromId": "function fsPathFromId(id) {\n\tconst fsPath = normalizePath(id.startsWith(FS_PREFIX) ? id.slice(FS_PREFIX.length) : id);\n\treturn fsPath[0] === \"/\" || VOLUME_RE.test(fsPath) ? fsPath : `/${fsPath}`;\n}",
+    "getHtmlFilename": "function getHtmlFilename(url, server) {\n\tif (url.startsWith(FS_PREFIX)) return decodeURIComponent(fsPathFromId(url));\n\telse return decodeURIComponent(normalizePath(path.join(server.config.root, url.slice(1))));\n}"
+  },
+  "error": "ReferenceError: normalizePathRegExp is not defined\n    at normalizePath (evalmachine.<anonymous>:2:26)\n    at fsPathFromId (evalmachine.<anonymous>:5:17)\n    at getHtmlFilename (evalmachine.<anonymous>:9:59)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/critic/qualify-vite-declared-resource.mjs:29:16\n    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "finished": "2026-10-03T10:52:43.622Z"
+}

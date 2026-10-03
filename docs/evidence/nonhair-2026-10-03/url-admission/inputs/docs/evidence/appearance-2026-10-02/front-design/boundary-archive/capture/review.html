@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sugata · opening and part placement</title>
+<style>
+:root{color-scheme:dark}body{margin:0;background:#181c20;color:#e6ebef;font:16px/1.5 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:24px}h1{font-size:28px;line-height:1.2;margin:0 0 12px}p{max-width:85ch}nav{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}button{font:inherit;padding:10px 20px;border:1px solid #78838c;border-radius:8px;background:#303840;color:inherit;cursor:pointer}button[aria-pressed=true]{background:#d6ecf5;color:#14222a}button:focus-visible{outline:3px solid #ffc34a;outline-offset:3px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0;background:#080a0c;border-radius:12px;overflow:hidden}img{display:block;width:100%;height:auto}figcaption{padding:12px 16px}a{color:#9edcfa}.limits{color:#b8c4cc;font-size:14px}@media(max-width:700px){main{padding:16px}.grid{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+<main>
+<h1>Opening and part placement</h1>
+<p>One illustrated design proposal on Sugata’s posed head. Cyan marks the upper face-framing intent; amber marks the separate part-flow intent. A and B keep complementary part and temple choices.</p>
+<nav aria-label="Orientation"><button type="button" data-orientation="A" aria-pressed="true">Orientation A</button><button type="button" data-orientation="B" aria-pressed="false">Orientation B</button></nav>
+<div class="grid">
+<figure><a id="whole-link" href="front-full-A.png"><img id="whole" src="front-full-A.png" alt="Orientation A annotation over the whole inward groom"></a><figcaption>Whole groom · includes all fringe cards</figcaption></figure>
+<figure><a id="bare-link" href="front-bare-A.png"><img id="bare" src="front-bare-A.png" alt="Orientation A annotation on the exposed head"></a><figcaption>Hair hidden · same front pose and camera</figcaption></figure>
+<figure><a id="oblique-link" href="left-bare-A.png"><img id="oblique" src="left-bare-A.png" alt="Orientation A in the matching oblique view"></a><figcaption>Oblique · reveals part placement over the head</figcaption></figure>
+<figure><a href="front-full-beauty.png"><img src="front-full-beauty.png" alt="Unannotated whole inward groom"></a><figcaption>Unannotated comparison · diagnostic medium brown</figcaption></figure>
+</div>
+<p class="limits">The strokes are unoccluded SVG annotations. They do not prove visibility through hair, fit, a continuous surface boundary or a finished haircut. The cyan endpoints remain open and the joins are illustrative chords. A/B are semantic complements; their shared projected center is slightly off the midline. The capture used the WebGPU backend; its adapter fields were not retained, so a particular GPU model is not asserted.</p>
+<p><a href="report.json">Capture record</a> · <a href="root-verification.json">Independent root arithmetic</a></p>
+</main>
+<script>
+for(const button of document.querySelectorAll('[data-orientation]'))button.addEventListener('click',()=>{
+const o=button.dataset.orientation;for(const b of document.querySelectorAll('[data-orientation]'))b.setAttribute('aria-pressed',String(b===button));
+for(const [id,file,label]of [['whole',`front-full-${o}.png`,'over the whole inward groom'],['bare',`front-bare-${o}.png`,'on the exposed head'],['oblique',`${o==='A'?'left':'right'}-bare-${o}.png`,'in the matching oblique view']]){document.getElementById(id).src=file;document.getElementById(id).alt=`Orientation ${o} annotation ${label}`;document.getElementById(id+'-link').href=file;}
+});
+</script></html>

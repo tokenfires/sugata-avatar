@@ -1,0 +1,120 @@
+# Sugata product direction
+
+**October 2 work window active:** Robert authorized continuing until his check-in with a ten-minute recovery heartbeat, independent quality criticism, root verification, and online references. [Saved colour recipes](evidence/appearance-2026-10-02/saved-colours/README.md) now distinguish customized looks before Open with actual desktop/mobile review and unchanged saved values. See [current progress](PROGRESS-2026-10-02.md) and [the new work window](WORK-WINDOW-2026-10-02.md). Earlier completed-window pauses below remain historical.
+
+October 2 also adds [direct saved-entry JSON download](evidence/appearance-2026-10-02/saved-export/README.md): keep a portable supported recipe without replacing the active preview. Actual files, stale/removed refusals, downloaded-file reopening and complete desktop/mobile lists are independently reviewed. The bounded [joint local hair method plan](evidence/appearance-2026-10-02/root-coverage/METHOD-DECISION.md) stopped before construction because its continuous atlas mapping and useful shape target were undeclared. Broader front backing/hairline/part/guide authoring remains the next design direction; no UV/topology/runtime release has been silently chosen.
+
+A single [front design concept](evidence/appearance-2026-10-02/front-design/README.md), anchored to the actual fringe-hidden native diagnostic and Robert's original R2/R3, now makes five nonidentity shape relationships concrete. It is independently accepted as a contextual illustration only; no new groom or renderer result follows. Exact length/part side, full-view/motion qualification and the broader construction interface remain open.
+
+October 2's [root-group image discriminator](evidence/appearance-2026-10-02/root-coverage/README.md) supports a local forehead-coverage shortlist. Its subsequent [seven-card actual-mesh construction](evidence/appearance-2026-10-02/root-coverage/LOCAL-RESULT.md) fails one exported triangle's clearance margin and sampled alpha-coverage regression despite exact protected records and zero crossings. This fixed-root/fixed-width line closes before native capture; a new attachment/coverage contract is required. Accepted runtime geometry remains default and the broader crown/front/representative-character goal remains open.
+
+Rob's September 13, 2026 discussion with Ember, supplied as `sugata-avatar-tracking.md`, clarifies the intended experience and phase order. This roadmap carries that direction into the project. Its status column is grounded in current project evidence; the supplied note is a statement of goals, not a completion ledger.
+
+Sugata is an embodiment system for AI agents: a compelling, customizable character whose face, gaze, posture, gestures and actions communicate the agent's intended meaning to a human. The first visual target remains AAA quality, with Stellar Blade on PS5 and MetaHuman as quality references. These references do not choose a new engine or asset dependency. The present browser runtime remains the implementation under development.
+
+**September 30 continuation:** Robert has authorized renewed progress within his existing allowance and granted credits. A [bounded front-ribbon study](evidence/hair-2026-09-30/front-feasibility/README.md) now separates head clearance from usable flow: particular clear one-ring constructions can collapse a segment or move the bend upward. No geometry is promoted. The subsequent [whole-prefix observation](evidence/hair-2026-09-30/front-prefix-objective/README.md) failed its declared bend/spacing gates and that one-ring line is closed without retuning. The product slice adds [editable tint colour and amount](evidence/hair-2026-09-30/tint-controls/README.md), with reviewed recipe persistence and actual static images; its exact-image reproducibility gate remains failed. See [current progress](PROGRESS-2026-09-30.md).
+
+**September 30 daytime window completed:** the ten-minute wakeup is PAUSED, independently confirmed at 18:00:32 Pacific. See the [day report](DAY-REPORT-2026-09-30.md), [final recovery state](DAYTIME-2026-09-30.md) and [shutdown receipt](evidence/appearance-2026-09-30/day-shutdown/README.md). Further product work awaits a new authorized window.
+
+**September 29 overnight window completed:** the September 30 morning checkpoint is saved and its automation is paused. See the [morning report](MORNING-2026-09-30.md), [exact recovery state](OVERNIGHT-2026-09-29.md) and [appearance brief](research/bob-appearance-brief-2026-09-29.md). Colour controls are integrated locally; improved rear/side/inward-end candidates remain experimental. Every actionable critic finding retains actual evidence and two alternatives. Front construction stopped after two rejected approaches; a bounded feasibility study is the next step when work resumes.
+
+**Historical September 26 work window — paused at Robert's request:** Robert explicitly deferred hair and authorized autonomous non-hair
+progress with subagents and independent critique. Follow [today's checkpoint](PROGRESS-2026-09-26.md)
+and [the recovered work queue](NONHAIR-QUEUE-2026-09-26.md). The earlier hair experiments and their
+remaining gates stay preserved; they are not today's prerequisite.
+
+September 29 [colour diagnostics and authored-card attribution](evidence/hair-2026-09-29/authored-attribution/README.md) now isolate a one-card nape-hook correction. It improves the sampled static silhouette in an experimental asset; rear flow, face framing and motion qualification remain open.
+
+September 29's [posterior support-envelope prototype](evidence/hair-2026-09-29/posterior-envelope/README.md) gives a substantial static rear-flow improvement in neutral and original-dark images. The frozen candidate clears all selected rest triangles after a bounded fit and exact original-card fallback. The [ordinary movement comparison](evidence/hair-2026-09-29/envelope-motion/README.md) retains the rear-flow gain in reviewed images and has zero selected body intersections across 721 captured updates; the [head-turn/tilt sequence](evidence/hair-2026-09-29/envelope-head/README.md) also clears all 556 captured updates, with exact front-witness replay. Accepted assets, front styling and the unfinished rounded hem remain unchanged.
+
+September 29's [side continuation](evidence/hair-2026-09-29/side-envelope/README.md) removes the remaining side diagonal and ear-region crossed patches in the inspected neutral and original-dark views, while preserving the posterior geometry and an open face. The combined338-card region clears rest body contact after a bounded fit and original underlayer fallback. Its own [motion comparison](evidence/hair-2026-09-29/side-motion/README.md) retains the improvement in sampled head and ordinary images. All 556 captured head states and all 721 ordinary states clear the selected body audit. Front/fringe styling and the rounded hem remain open.
+
+September 30's [inward-end revision](evidence/hair-2026-09-29/lower-fallback/README.md) retains a modest inward contour after restoring19 inner cards from the side control. Its [fresh motion evidence](evidence/hair-2026-09-29/lower-fallback-motion/README.md) clears all556head and721ordinary states for the338-card region, with a close0.078131mm minimum head margin and one tiny front-frame exception. The [expanded audit](evidence/hair-2026-09-29/lower-fallback-full-audit/README.md) now covers all 496 ribbons: both arms clear the recorded ordinary sequence, but both retain a small head-motion contact on unchanged front card 58. The cap is excluded. This is the current experimental shape lead, not the default. Two separate front-flow constructions were rejected; [layer attribution](evidence/hair-2026-09-29/fringe-attribution/README.md) and preserved failures now support a more anatomically fitted front construction rather than further handle tuning.
+
+September 29 [hair-colour customization](evidence/hair-2026-09-29/colour-controls/README.md) is integrated locally: seven starting shades, custom colour/lightness and exact Original restoration, retained through applied looks, JSON and browser-local named looks. Actual native images cover both current cuts and selected Studio/Kitchen views; an independent critic approves this bounded feature. Geometry quality, motion across all colours and natural-dye fidelity remain open. September 30 adds a separate tint colour/amount while preserving the editable base through Apply and saved looks. See the [current review page](evidence/hair-2026-09-30/review.html); the earlier shape review remains linked there.
+
+## Phase 1 — AAA characters and expressive agent control
+
+| Area | Intended result | Current evidence / remaining work |
+| --- | --- | --- |
+| Current review pages | A cohesive place to see what works, what is experimental, and what still needs work. | The hub now inventories 17 destinations and distinguishes current previews, service-dependent features and older diagnostics. Current preview/Converse flows have fresh browser evidence; the catalogue explicitly labels historical pages whose behavior has not been rechecked. September 30 [colour-editor entry](evidence/appearance-2026-09-30/editor-entry/README.md) now opens the requested editor directly from review links, with desktop/mobile and keyboard/draft evidence. Continue updating status with each visible milestone. |
+| Hair, skin and character appearance | Convincing complete characters from useful viewpoints and during motion. | Accepted bob collision, crown-root, temporal-history and shading improvements; softer brow/lash edges. The studio shadow filter now softens card-shaped neck/chest patches with matched both-bob portrait/body and motion evidence; see SHADOW-SOFTNESS-2026-09-13.md. Broad hair strips, rear backing, silhouette, broader identities and overall AAA appearance remain open. |
+| Wardrobe and customization | Complete, attractive outfits with enough examples to understand customization. | Wardrobe has two starting outfits on one body study, three coordinated material palettes and verified image/settings export with reconstruction. September 26 adds strict JSON reopening, Studio/Kitchen selection and a browser-local list of up to 12 named looks with scoped removal Undo and metadata-only Rename; all supported current settings combinations and native failure/recovery paths are checked. See [today's saved-look evidence](evidence/nonhair-2026-09-26/next-look/README.md), [Rename qualification](evidence/nonhair-2026-09-26/saved-look-rename/RESULT.md), and WARDROBE-COLOURWAYS-2026-09-13.md. The casual trousers now clear the shoes/socks in matched resting and moving-pose views, with foundation coverage preserved; see WARDROBE-TROUSER-FIT-2026-09-13.md. September 30 integrates [individual Top/Bottom/Shoes colours](evidence/wardrobe-2026-09-30/custom-colours/README.md) with hair base/tint and saved looks; actual static detail and combined UI are reviewed, while exact-image reproducibility remains failed. An optional [Neutral Studio light](evidence/appearance-2026-09-30/neutral-studio/README.md) now supports static colour inspection and saved looks; exact-image and high-quality immediate-transition limits remain explicit. October 2 adds an explicit [Reset view action](evidence/nonhair-2026-10-02/wardrobe-reset-view/RECEIPT.md), with native desktop/mobile camera recovery and ownership evidence. October 3’s [single-case mobile support diagnostic](evidence/nonhair-2026-10-03/mobile-body-jitter/review.html) shows both boots inside the native canvas while overlaid view controls cover most footwear in the page. October 3’s [reserved mobile view-controls row](evidence/nonhair-2026-10-03/mobile-toolbar/review.html) now exposes those boots at unchanged canvas/camera size, with native five-layout control/focus/scroll checks and independent review. The66CSSpx row adds document height; short screens require scrolling. These static cases do not qualify every outfit, pose or viewport. Upper-garment fit, layering, style variety and wider-body coverage still need work. |
+| Agent outfit suggestions | The agent can suggest an outfit that fits today's mood or activity and preview an available combination. | Desired feature. It needs a usable wardrobe catalogue and checks that proposed combinations exist and fit. |
+| Representative builds | Curated handsome male, beautiful female and deliberate gender-neutral example builds, with starter templates that make onboarding easy. | Identity controls and a limited showcase exist. A neutral midpoint or a passing bake-load check is not yet a curated starter build. Each example needs full appearance, outfit, expression and motion review. |
+| Emotive gestures | Expressions and gestures convey intended nuance, including coyness and teasing, and produce the intended human reading. | The current Portrait controls have a timed visual inventory. An unobstructed face diagnostic confirms limited Curious/Determined differentiation. The attention action is available experimentally in Portrait and Wardrobe studies, with native measured eye focus, interrupt/release checks and continuous clothed recordings for both bobs. Production ownership is integrated; broad perceptual eye contact remains open, and some close views reach the existing eye movement limits. See POINT-AIM-INTEGRATION-2026-09-13.md and SHOWCASE-ATTENTION-2026-09-13.md. The stronger face reads as skeptical and remains unshipped. A September 26 fixed comparison passes native control checks; blind still-image review favors gaze hold for direct engagement but finds moderate eye-opening attenuation inconclusive. No behavior is promoted and determination remains open; see [the bounded decision](evidence/nonhair-2026-09-26/expression-next/DECISION.md). The restrained optional smile is now integrated in Portrait and Wardrobe studies, with native owned blending, a final-layer addition budget, repeated-choice/interruption checks and sampled actual speech/joy/sad compositions. It remains an explicit authored choice: a smile can soften a sad reading, and continuous speech/intent recognition are unqualified. See SMILE-INTEGRATION-2026-09-13.md. See ATTENTION-ACTION-2026-09-13.md and ATTENTION-STUDY-2026-09-13.md. No named coy/teasing action was found in the inspected controls; the reported sour reading remains unattributed. Converse connection/structured replies work with a tested installed model, while open-ended interpretation and complete expressive actions remain experimental. See EXPRESSION-INVENTORY-2026-09-13.md. |
+| Performance | Representative complete avatars run at a stated, measured interactive quality target. | Targeted renderer and ownership checks exist. A complete Phase 1 performance pass across representative avatars, outfits and gestures is outstanding. Establish explicit device, resolution, frame-time and memory budgets before claiming it passes. |
+
+Keep representation and customization present throughout Phase 1. Attractive examples are a design deliverable with visual review, not a side effect of exposing sliders.
+
+September 26's [wardrobe coupling study](evidence/nonhair-2026-09-26/wardrobe-coupling/README.md)
+establishes cached helper arithmetic and exact source-to-export garment correspondence. September 30
+adds a [native MPFB arithmetic oracle](evidence/wardrobe-2026-09-30/native-refit/README.md):
+three joint detail cases validate all19,158 body/helper positions and the original garment refit
+under the declared thresholds, with independent recomputation and corruption controls. Corrective
+behavior across identities, skeleton/foundation coupling and actual fit remain open.
+A subsequent [endpoint and rest-orientation study](evidence/wardrobe-2026-09-30/skeleton-placement/README.md)
+now reproduces all 106 native endpoints and the finite rest-matrix convention in three coupled
+g050 cases, independently reviewed. The [accepted neutral export bridge](evidence/wardrobe-2026-09-30/skeleton-export-bridge/README.md)
+also verifies actual hierarchy, body mapping and rest-bind arithmetic. The [posed comparison](evidence/wardrobe-2026-09-30/skeleton-posed-skin/README.md)
+passes matched four-influence arithmetic but fails the unchanged full-native skin gate: a dropped
+thigh influence produces1.589mm error in the neutral coupled waist. Actual plain-body views
+show subtle local differences, not an obvious gross context defect. A [full-influence CPU representation](evidence/wardrobe-2026-09-30/skeleton-full-influences/README.md)
+subsequently passes all nine native comparisons (max0.000595mm) without geometry/pose tuning.
+The [finite WebGPU position probe](evidence/wardrobe-2026-09-30/skeleton-full-influences/GPU-RESULT.md)
+then passes all nine cases (max0.000717mm), with actual paired visible-region review. Its original
+full-target context clips the feet. October2’s [supplementary complete-body comparison](evidence/appearance-2026-10-02/full-body-coverage/review.html)
+replays those retained positions in one wider shared camera: head, hands and feet are complete,
+with no obvious lower-body geometry difference at this static context scale. This closes that
+one view’s framing gap; no new skin compute or pixel-exact result is claimed. Production normals,
+history, queries, body range and coupling remain open; PUNCHLIST10.7 stays unchecked. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
+improves visible hands in its recorded sequence but changes the closed posture; it remains an
+isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.
+
+September 30's [continuous foundation boundary](evidence/wardrobe-2026-09-30/foundation-domain-native/README.md)
+removes large stepped/toothed band outlines and the casual neckline's grey foundation islands in
+actual static views. Required sampled coverage, finite native/export skinning and full rest-body
+clearance pass independently; fine close-up hem marks remain. The [completed runtime review](evidence/wardrobe-2026-09-30/foundation-domain-motion/README.md) then found body crossings in all four audited poses and exposed foundation patches through the elegant blouse. The candidate is rejected as a replacement; its static gains remain preserved. See the [interactive comparison](evidence/wardrobe-2026-09-30/foundation-domain-motion/review.html).
+
+The subsequent [exact runtime trace and bounded body-contact study](evidence/wardrobe-2026-09-30/foundation-runtime-fit/README.md)
+reproduce all saved coordinates and confirm three particular nonadjacent body self-intersections.
+They do not explain every garment crossing or establish a visible body defect. This foundation
+lead is closed with shipped assets retained. Future construction must address body, foundation,
+and outer garment together under the recorded poses, without erasing the separate coverage,
+full-body clearance, and actual-image gates.
+
+A September 26 [identity-aware eyelid instrument](evidence/nonhair-2026-09-26/identity-closure-next/README.md)
+now reproduces a sampled CPU red/green case at the native blink coefficient, independently
+checked by a second 3D intersection method. A body-only eye-height change exposes eye
+geometry while the baseline closes on the sampled grid. Fitted native identity behavior,
+continuous closure and corrective design remain unqualified; no identity control or blink
+calibration changed.
+
+Wardrobe now also offers [matched visual palette references](evidence/nonhair-2026-09-26/next-visual-audit/RESULTS.md)
+for each of the two current outfits. Compare palettes preserves the user's room, framing and cut
+when applying a choice, and works with the existing JSON and named-look controls. The images
+make the available compositions easier to compare; they do not expand the supported body or fit.
+
+A first [Wardrobe timing pilot](evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md)
+records 240 controlled stepped updates after an instrumented stable warmup. It provides a
+bounded baseline on the current M5 Max host; it does not establish live FPS, a budget pass
+or representative-build performance.
+
+Expression evaluation must distinguish control correctness from human readability. Record the intended meaning, the actual face/body sequence, the observed reading, and the evidence. An action can have valid numbers and still look annoyed when the agent meant playful. Use matched views and motion, and have the independent critic offer two concrete alternatives with tradeoffs for each proved issue.
+
+## Phase 2 — VTuber-style characters
+
+Develop the stylized polygonal interpretation after the Phase 1 foundation has earned its gates. Preserve agent expression, action and customization capabilities while deliberately redesigning proportions, materials and motion for that style. Do not treat lower geometric complexity as proof of an easier expressive-design problem. The technical effort remains an estimate until tested.
+
+## Phase 3 — Mii-like characters
+
+Develop a simplified, approachable aesthetic with the same clear agent intent and usable customization. Establish style-specific representation, gesture and performance checks. The expectation that this phase is quicker is a planning hypothesis, not a delivery promise.
+
+## Immediate work order
+
+1. Preserve the accepted dynamic hair shading and collision work. The bounded inner-hem study is closed and its geometry remains unshipped.
+2. Preserve the integrated eye-focus ownership and the attention action’s tested interruption/release/cancel behavior. The optional soft-smile cue is integrated with its reviewed final-layer budget and owned envelope. Preserve the neutral default, repeat continuity, final-layer composition and explicit-gaze-cue supersession semantics in SMILE-INTEGRATION-2026-09-13.md. Ordinary Avatar.say does not itself supersede attention. Return the next visual slice to character/wardrobe finish and representative builds; do not keep expanding cue infrastructure without a proved need. Resolve remains open: compare a gaze hold alone or moderate eye-opening attenuation without the rejected sustained squint/brow profile. Resolve the reported coy/teasing ambiguity without guessing its source. Each actionable critique needs two alternatives and visual or behavioral evidence.
+3. Develop representative starter looks and complete outfits alongside that expression work. Show configurations that humans can compare, save and customize.
+4. Continue the remaining Phase 1 character-quality work, then run the full performance pass on the resulting representative builds. Move to the stylized phases against explicit acceptance evidence.
+
+This is a phased route to the original ambition. It does not declare the ambition achieved. The supplied note's historical token-use estimate and “blocker cleared” wording are not current usage telemetry or a finished-hair claim; live usage and dated evidence govern those statements. Preserve the user's pacing boundary and reserve, and never redeem reset credits or push without authorization.

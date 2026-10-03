@@ -1,0 +1,148 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/url-admission/verify-refusal.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "pid": 95935,
+  "started": "2026-10-03T10:54:52.836144+00:00",
+  "finished": "2026-10-03T10:54:52.842586+00:00",
+  "status": "passed-narrow-refusal-audit",
+  "verifierSHA256": "f2de537b66330144eee7e948fdce849c6f0dba0659a15acb939a48f497cbcb8d",
+  "auditSHA256": "134b8df9bfa0fdd36750a667235b295658ba5c1a0ebd067dc68e8764ea00a1d1",
+  "rootAuditPID": 92265,
+  "rootStarted": "2026-10-03T10:52:43.617Z",
+  "rootFinished": "2026-10-03T10:52:43.622Z",
+  "inputPinCount": 6,
+  "fixtureCount": 19,
+  "uniqueCheckedFilePinCount": 46,
+  "fixtureSHA256": "738cee231cd7d7e825d328eed4ef233860372f79f7f1a6b20696aca49f5e6b7f",
+  "helperSHA256": "364a69b7dd33d0c7aa270ac2d64d26518eb771fb69472fd8890be69a41d7d43f",
+  "instrumentSHA256": "e555e09240f96a52aa7e23cf58a7cd9886e79505e79856bab756a12029087a90",
+  "wrongNamedFunctionExpressionLine": 1740,
+  "actualViteFunctionDeclarationLine": 2163,
+  "wrongExcerpt": "function normalizePath(filename) {\n\treturn filename.replace(normalizePathRegExp, posix$1.sep);\n}",
+  "actualSourceExcerpt": "function normalizePath(id) {\n\treturn path.posix.normalize(isWindows ? slash(id) : id);\n}",
+  "completedObserved": 0,
+  "completedSynthetic": 0,
+  "completedRefusals": 0,
+  "retainedURLWitnessAndBytes": [
+    {
+      "witness": "views[0].hub.entryHref",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+      "sha256": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6"
+    },
+    {
+      "witness": "views[0].review.imageResponses[0]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+      "sha256": "d100d3f9b9dbac28ad77c8dfd3734963bfcd1ce58a27985de7d7b24cf26663f5"
+    },
+    {
+      "witness": "views[0].review.imageResponses[1]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+      "sha256": "b00845b8db873777b8864f76981ece1103709a1ac8c2502c28cccfe0b8219948"
+    },
+    {
+      "witness": "views[0].review.imageResponses[2]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+      "sha256": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503"
+    },
+    {
+      "witness": "views[0].review.imageResponses[3]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+      "sha256": "e2b4f9df3c56d9a5e764ecc2c04c39e26fcb7b0fd34f720c4042c87adf118af4"
+    },
+    {
+      "witness": "linkedResponses[0]",
+      "url": "http://127.0.0.1:5173/",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/packages/testbed/index.html",
+      "sha256": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b"
+    },
+    {
+      "witness": "linkedResponses[1]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-09-30/review.html",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-09-30/review.html",
+      "sha256": "b8d790ad0841358f29d8b2427c9d7b2a5babe956b505b9e6b8f41a185e28816c"
+    },
+    {
+      "witness": "linkedResponses[2]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "sha256": "7de6ba403de2c686820be15afcd44deed13ff6b0c8bc329ab66c28332439534d"
+    },
+    {
+      "witness": "linkedResponses[3]",
+      "url": "http://127.0.0.1:5173/src/showcase.html#saved-looks",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "sha256": "34f6ec62d3da0f3edf34ccf0412a672e13baa23d0951ff598a02c2aba72cdd3c"
+    },
+    {
+      "witness": "linkedResponses[4]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/review.html",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/review.html",
+      "sha256": "f35eb650b70bfb8c8e70d19e7befce10d556575a760b21c10b8bf06c140aa1bc"
+    },
+    {
+      "witness": "linkedResponses[5]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "sha256": "c2ddff3acc2e03f1dd3ab9294b1479a45ca3e04331db10453615681c023c2a11"
+    },
+    {
+      "witness": "linkedResponses[6]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/review.html",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/review.html",
+      "sha256": "ab6af9fdeff73f4f4aa9011381c32152bbb9f21997662cbff4a08c5494c20673"
+    },
+    {
+      "witness": "linkedResponses[7]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "sha256": "203a7aef9e3932624281b5971a307b10218136b3ec2378f1fa4c9c4ba840bc16"
+    },
+    {
+      "witness": "linkedResponses[8]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/review.html",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/review.html",
+      "sha256": "4adb2d408a03de3144b188d79f900d9f436934fdcec75a0ba6da47f1240d6c65"
+    },
+    {
+      "witness": "linkedResponses[9]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/review.html",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/review.html",
+      "sha256": "7785c9ee8cc34f45284e7a6b6388256cc8d302e8408eaa3d9f412b8ed7a10204"
+    },
+    {
+      "witness": "linkedResponses[10]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/BOUNDARY-DECISION.md",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/BOUNDARY-DECISION.md",
+      "sha256": "9e93bda736419d93ad2b6cbf1485d350194215ccf167aac3c0c1ad5a7acda47e"
+    },
+    {
+      "witness": "linkedResponses[11]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md",
+      "sha256": "0841df018c1cc472957dfde2ec3b9c54309526d83a37d48bc445052cdb109dcb"
+    },
+    {
+      "witness": "linkedResponses[12]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-RECEIPT.md",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-RECEIPT.md",
+      "sha256": "1ccc9627facc5ca14bdfb1ca15615684e4567db5f1da60c73bcbb74e4eb24fbe"
+    },
+    {
+      "witness": "linkedResponses[13]",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PROGRESS-2026-10-02.md",
+      "declaredFile": "/Users/robault/GitHub/sugata-avatar/docs/PROGRESS-2026-10-02.md",
+      "sha256": "fa82e61ae29d795127241ce0d742f20aedb804a3af003c617c7bc96317c495d9"
+    }
+  ],
+  "limits": [
+    "No helper execution, root-audit rerun, VM oracle correction, network or browser.",
+    "Fixture witness and byte consistency do not qualify helper outputs.",
+    "Failure is an extraction-oracle error; no Vite resolver, mapping or browser-delivery contradiction established."
+  ]
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sugata — October 2 review</title><link rel="icon" href="data:,">
+<style>
+:root{color-scheme:dark;--bg:#101110;--panel:#1b1e19;--ink:#f1eee5;--dim:#b9bcaf;--line:#3b4135;--accent:#d3e0bb;--warm:#e6c795}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,sans-serif}
+main{max-width:1120px;margin:auto;padding:30px 28px 60px}a{color:var(--accent);text-underline-offset:4px}a:focus-visible{outline:3px solid var(--accent);outline-offset:5px;border-radius:3px}
+nav{display:flex;gap:16px 24px;flex-wrap:wrap;font-size:13px}.hero{max-width:790px;padding:42px 0 28px}.eyebrow,.tag{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}h1{font:normal clamp(36px,6vw,58px)/1.13 Georgia,serif;margin:12px 0 20px}h2{font-size:24px;line-height:1.3;font-weight:500;margin:0}h3{font-size:21px;line-height:1.35;font-weight:500;margin:7px 0 10px}p{color:var(--dim);margin:10px 0 18px}.hero p{font-size:18px}
+.open{display:inline-block;background:var(--accent);color:#182012;padding:10px 18px;border-radius:4px;text-decoration:none;font-weight:600;min-height:44px}
+section{margin-top:26px;padding-top:26px;border-top:1px solid var(--line);scroll-margin-top:20px}.note{max-width:78ch}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.card{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}.copy{padding:20px}.card p{font-size:14px}.card img{display:block;width:100%;height:auto}.tag{margin:0}.experimental .tag{color:var(--warm)}figure{margin:0}figcaption{font-size:12px;color:var(--dim);padding:12px 20px;border-top:1px solid var(--line)}.links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}.status{margin-top:20px;padding:17px 20px;border-left:3px solid var(--warm);background:#22231d}.status p{margin:0;font-size:14px}.more{font-size:13px}footer{border-top:1px solid var(--line);margin-top:32px;padding-top:20px;font-size:13px;color:var(--dim)}
+@media(max-width:680px){main{padding:24px 20px 44px}.hero{padding-top:30px}.hero p{font-size:16px}.grid{grid-template-columns:1fr}.copy{padding:18px}.links a{padding:6px 0}.open{display:block;text-align:center}nav a{padding:5px 0}}
+</style>
+</head>
+<body><main>
+<nav aria-label="Review navigation"><a href="/">Workshop</a><a href="../hair-2026-09-30/review.html">September 30 review</a><a href="../../PRODUCT-ROADMAP.md">Full roadmap</a></nav>
+<header class="hero"><div class="eyebrow">Sugata / October 2, 2026</div><h1>Keep your looks.<br>Shape the next character.</h1>
+<p>Saved recipes are easier to recognise and take with you. The hair studies below explore an open face and a connected sweep; the current hairstyle is still in progress.</p>
+<a class="open" href="/src/showcase.html#saved-looks">Try Saved looks</a></header>
+<section id="available" aria-labelledby="available-title"><h2 id="available-title">Available in the wardrobe study</h2><p class="note">Two reviewed improvements on the current supported body and outfits.</p>
+<div class="grid">
+<article class="card"><div class="copy"><p class="tag">Saved colour recipes</p><h3>Recognise a look before opening it.</h3><p>Labelled swatches show clothing colours, hair base and tint. Lighting and fabrics affect their appearance on the avatar.</p><div class="links"><a href="saved-colours/review.html">See the comparison</a><a href="saved-colours/README.md">Evidence and limits</a></div></div>
+<figure><img src="../../../captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png" alt="Recorded desktop feature review showing labelled colour swatches for saved looks" loading="lazy"><figcaption>Actual browser image from the colour-recipe review.</figcaption></figure></article>
+<article class="card"><div class="copy"><p class="tag">Direct saved-entry export</p><h3>Take a recipe with you.</h3><p>Each supported look has a Download JSON action. Keep its settings while the preview you are viewing stays in place.</p><div class="links"><a href="saved-export/review.html">See the workflow</a><a href="saved-export/README.md">Evidence and limits</a></div></div>
+<figure><img src="../../../captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png" alt="Recorded desktop feature review showing Download JSON beside each supported saved look" loading="lazy"><figcaption>Actual browser image from the saved-entry export review.</figcaption></figure></article>
+</div></section>
+<section id="hair-direction" class="experimental" aria-labelledby="hair-title"><h2 id="hair-title">Hair direction · experimental</h2><p class="note">Two ways to inspect the intended framing. These studies do not replace the shipped hair.</p>
+<div class="grid">
+<article class="card"><div class="copy"><p class="tag">Design illustration</p><h3>A connected sweep with an open face.</h3><p>One generated concept, compared with Robert's original reference images, explores part-to-side flow, rounded volume and inward ends. Its polish is an illustration.</p><div class="links"><a href="front-design/review.html">Concept and original references</a></div></div>
+<figure><img src="front-design/concept-v1.png" alt="Generated two-dimensional hair concept with swept framing, open forehead and rounded inward ends" loading="lazy"><figcaption>Generated 2D concept; this is not a native renderer result.</figcaption></figure></article>
+<article class="card"><div class="copy"><p class="tag">Actual posed placement review</p><h3>Opening and part, in two orientations.</h3><p>Registered markers show the opening and part on the actual head. Full and bare-head views reveal the current fringe and the proposal's placement.</p><div class="links"><a href="front-design/boundary-archive/capture/review.html">Open the A/B visual review</a><a href="front-design/BOUNDARY-DECISION.md">Placement limits</a></div></div>
+<figure><img src="front-design/boundary-archive/capture/front-bare-A.png" alt="Actual bare-head renderer image with cyan opening and amber part annotations for orientation A" loading="lazy"><figcaption>Actual posed head with unoccluded annotations. Joins are illustrative, not a continuous surface boundary.</figcaption></figure></article>
+</div>
+<div class="status"><p><strong>Current decision:</strong> illustrated opening and part placement is reviewed. The closed backing-boundary proposal did not meet its placement limits, so it was rejected. No new hairstyle is integrated.</p></div>
+<p class="more"><a href="front-design/SURFACE-DECISION.md">Latest boundary decision</a> · <a href="front-design/SURFACE-RECEIPT.md">Exact receipt</a> · <a href="../../PROGRESS-2026-10-02.md">Running progress</a></p>
+</section>
+<footer>AAA character quality, expression, wardrobe and broader representation remain the goal. This local review keeps usable features and experimental appearance work visible together.</footer>
+</main></body></html>

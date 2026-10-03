@@ -1,0 +1,22 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/url-admission/freeze.py",
+  "pid": 3435,
+  "started": "2026-10-03T10:58:59.402698+00:00",
+  "finishedVerification": "2026-10-03T10:58:59.530068+00:00",
+  "status": "root-independent-refusal-provenance-passed",
+  "rootAuditSHA256": "134b8df9bfa0fdd36750a667235b295658ba5c1a0ebd067dc68e8764ea00a1d1",
+  "criticReceiptSHA256": "2c96d258173afaaaf4899bc580682be6f39aed4e2cf9821290e4883edbe2fc92",
+  "checkedUniqueInputFiles": 46,
+  "retainedURLWitnesses": 19,
+  "priorPreservationPins": 397,
+  "sourceWitness": {
+    "namedExpressionLine": 1740,
+    "expression": "const normalizePath$1 = function normalizePath(filename) {\n\treturn filename.replace(normalizePathRegExp, posix$1.sep);\n};",
+    "ViteDeclarationLine": 2163,
+    "declaration": "function normalizePath(id) {\n\treturn path.posix.normalize(isWindows ? slash(id) : id);\n}"
+  },
+  "completedObserved": 0,
+  "completedSynthetic": 0,
+  "completedRefusals": 0,
+  "limit": "No helper/oracle execution or root rerun. Mutable live documentation equality is only at this verification instant; immutable snapshots preserve those bytes."
+}
