@@ -1,0 +1,188 @@
+{
+  "started": "2026-10-03T08:29:13.277Z",
+  "finished": "2026-10-03T08:29:13.461Z",
+  "pid": 19223,
+  "command": "node tools/critic/verify-mobile-toolbar.mjs",
+  "verifierSHA256": "ff6c9308d417c88b8d3c6a34eae0ef4cb455aa7e35c0317f5075407413e90daf",
+  "reportSHA256": "a7a2d152bdefe87af03d5c9e578dbd0f40f525c0b97eeaa0db27d1da20f54aae",
+  "status": "root independent CPU source/build/image/layout/camera checks passed",
+  "sourcePins": 380,
+  "dependencyPins": 2,
+  "referencePins": 2,
+  "images": 5,
+  "buildFiles": 72,
+  "buildBytes": 129948965,
+  "maxCamera": 7.771561172376096e-16,
+  "maxProjection": 0,
+  "maxFit": 0,
+  "maxQuaternion": 0,
+  "cases": [
+    {
+      "label": "desktop-body",
+      "canvas": {
+        "css": {
+          "x": 61.90625,
+          "y": 82,
+          "width": 900.1875,
+          "height": 868
+        },
+        "client": [
+          900,
+          868
+        ],
+        "buffer": [
+          900,
+          868
+        ]
+      },
+      "actualAspect": 1.0384615384615385,
+      "expectedAspect": 1.0384615384615385,
+      "fit": 1,
+      "zoom": 1,
+      "manualScroll": null,
+      "controls": {
+        "x": 61.90625,
+        "y": 876,
+        "width": 900.1875,
+        "height": 50
+      }
+    },
+    {
+      "label": "desktop-portrait",
+      "canvas": {
+        "css": {
+          "x": 61.90625,
+          "y": 82,
+          "width": 900.1875,
+          "height": 868
+        },
+        "client": [
+          900,
+          868
+        ],
+        "buffer": [
+          900,
+          868
+        ]
+      },
+      "actualAspect": 1.0384615384615385,
+      "expectedAspect": 1.0384615384615385,
+      "fit": 1,
+      "zoom": 1,
+      "manualScroll": null,
+      "controls": {
+        "x": 61.90625,
+        "y": 876,
+        "width": 900.1875,
+        "height": 50
+      }
+    },
+    {
+      "label": "mobile-portrait",
+      "canvas": {
+        "css": {
+          "x": 23.390625,
+          "y": 68,
+          "width": 343.21875,
+          "height": 624.546875
+        },
+        "client": [
+          343,
+          625
+        ],
+        "buffer": [
+          343,
+          625
+        ]
+      },
+      "actualAspect": 0.5485436893203883,
+      "expectedAspect": 0.5485436893203883,
+      "fit": 0.6084804446400182,
+      "zoom": 0.6084804446400182,
+      "manualScroll": [
+        0,
+        312
+      ],
+      "controls": {
+        "x": 23.390625,
+        "y": 708.546875,
+        "width": 343.21875,
+        "height": 50
+      }
+    },
+    {
+      "label": "mobile-body",
+      "canvas": {
+        "css": {
+          "x": 23.390625,
+          "y": 68,
+          "width": 343.21875,
+          "height": 624.546875
+        },
+        "client": [
+          343,
+          625
+        ],
+        "buffer": [
+          343,
+          625
+        ]
+      },
+      "actualAspect": 0.5485436893203883,
+      "expectedAspect": 0.5485436893203883,
+      "fit": 1,
+      "zoom": 1,
+      "manualScroll": [
+        0,
+        312
+      ],
+      "controls": {
+        "x": 23.390625,
+        "y": 708.546875,
+        "width": 343.21875,
+        "height": 50
+      }
+    },
+    {
+      "label": "narrow-body",
+      "canvas": {
+        "css": {
+          "x": 19.1875,
+          "y": 68,
+          "width": 281.625,
+          "height": 510
+        },
+        "client": [
+          282,
+          510
+        ],
+        "buffer": [
+          282,
+          510
+        ]
+      },
+      "actualAspect": 0.5535714285714286,
+      "expectedAspect": 0.5535714285714286,
+      "fit": 1,
+      "zoom": 1,
+      "manualScroll": [
+        0,
+        339
+      ],
+      "controls": {
+        "x": 19.1875,
+        "y": 594,
+        "width": 281.625,
+        "height": 50
+      }
+    }
+  ],
+  "warnings": {
+    "count": 4,
+    "unknown": []
+  },
+  "limits": [
+    "Native originals must separately qualify appearance.",
+    "Five static control/layout contexts and40fixed drift steps only; no all-viewport/outfit/pose/AAA/temporal-image claim."
+  ]
+}

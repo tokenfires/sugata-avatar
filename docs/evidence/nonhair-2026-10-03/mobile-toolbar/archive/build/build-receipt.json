@@ -1,0 +1,372 @@
+{
+  "started": "2026-10-03T08:18:02.309Z",
+  "finished": "2026-10-03T08:18:02.525Z",
+  "pid": 93759,
+  "command": "node tools/critic/build-mobile-toolbar.mjs",
+  "instrumentSHA256": "dedcec152b7ac3f5aa806d80a5f03e03056b985906efd2c861dd5a8617357168",
+  "showcaseHTMLSHA256": "34f6ec62d3da0f3edf34ccf0412a672e13baa23d0951ff598a02c2aba72cdd3c",
+  "status": "build-success",
+  "files": [
+    {
+      "file": "assets/AvatarWardrobe-Dxpses6r.js",
+      "bytes": 17582,
+      "sha256": "fd9594f227579bc256f4e8f7ef2538042ccded85f7dba7bec91e0aaf2384fbc2"
+    },
+    {
+      "file": "assets/CardRenderHistory-df__bxMF.js",
+      "bytes": 7723,
+      "sha256": "858e32a4a657cd512c03eda68f6f1c72b20885fc434ba4fd4312d8256184b5f7"
+    },
+    {
+      "file": "assets/GLTFLoader-C_YNn-L0.js",
+      "bytes": 69,
+      "sha256": "f157fb63022f1769966466f6f254ab58a91f94135285a8fedf96fe154fcb3422"
+    },
+    {
+      "file": "assets/GLTFLoader-DaKraQpC.js",
+      "bytes": 44242,
+      "sha256": "1dafb831574a99a97f8669d2a359fee9d9516914f4d9623c9d45994d57982784"
+    },
+    {
+      "file": "assets/GarmentManifest-DHOryuYg.js",
+      "bytes": 5159,
+      "sha256": "b736164b53505de4dac09a3ee52c3febe0a97d6b521c9762b78dfc3c0cfe1d79"
+    },
+    {
+      "file": "assets/GarmentManifest-DjJwYpUQ.js",
+      "bytes": 79,
+      "sha256": "ceddb84dd64155f7458e3575bf5f96a0f65bbf7389c300a3b88df1af1badbaa4"
+    },
+    {
+      "file": "assets/HairBodyContact-DFHwKZO7.js",
+      "bytes": 48117,
+      "sha256": "d0adff61a906b0ede8454650498af233b86c609ba949b6c1d0d9a59fc81aac18"
+    },
+    {
+      "file": "assets/HairBodyContactCalibration-BM-8OoGu.js",
+      "bytes": 57158,
+      "sha256": "6fb9ec22a5ca19d53733ec78142a6cc14160c2ebdd5c0bea29e82ee069bbbf4a"
+    },
+    {
+      "file": "assets/HairBodyContactCalibration-CyvmWttp.js",
+      "bytes": 107,
+      "sha256": "9b6ce88678c9b700a7304a6caaeea376bcc025b9a1abda11099967c290832371"
+    },
+    {
+      "file": "assets/HairCardFrame-D50qUYGC.js",
+      "bytes": 3591,
+      "sha256": "e5a106fa0dcee7e21218c962747a59833bd4215a852cd874b6a07f3dad61288d"
+    },
+    {
+      "file": "assets/HairDynamics-GpVMLyNf.js",
+      "bytes": 15258,
+      "sha256": "83cbece87056bd5e9acf826d09c7385f1047a42aedf4602ab79f59dcf5aa48ee"
+    },
+    {
+      "file": "assets/HairMaterial-CQiPfOox.js",
+      "bytes": 38650,
+      "sha256": "15a26832fd322083c92bc9ddbf32fbcc476d50e9001b90b970c5a33eae9b4642"
+    },
+    {
+      "file": "assets/HairMaterial-y_sTzFqZ.js",
+      "bytes": 2066,
+      "sha256": "d21c0c97fd6e4eb7f8f5bcbd6bd2c9e18b33fb3264e25803345704134b82177b"
+    },
+    {
+      "file": "assets/HairOIT-Bn0ETvnd.js",
+      "bytes": 671,
+      "sha256": "94ec9e173c332bc2d367490503ae483a1a8966d032cbe36ace1e176b9887a25f"
+    },
+    {
+      "file": "assets/HairOIT-Bn65ftmJ.js",
+      "bytes": 4277,
+      "sha256": "a852bfcd57c5a8ad07a57706b95eaef54b756e3a2e737034708c0cc0ab9b967a"
+    },
+    {
+      "file": "assets/HairSkinTransform-BEoIf_fM.js",
+      "bytes": 1366,
+      "sha256": "01804ebb4810ff5fe181490b5d8177672a83065ccefe1039f014c751eb7e9918"
+    },
+    {
+      "file": "assets/HairSkinTransform-D1idkN7R.js",
+      "bytes": 169,
+      "sha256": "42a1de2e9ecaa9bf2a92dc6327b2f29982887102acc5dc4f9e5a5ca3f7e8c680"
+    },
+    {
+      "file": "assets/HairVelocity-CmWuezLm.js",
+      "bytes": 640,
+      "sha256": "5ae6c89bebec3711f3e929c1c53dd9ad85d9baa6afbb73cc99c9e756210cd7a6"
+    },
+    {
+      "file": "assets/RenderParticipants-CCuWu7jj.js",
+      "bytes": 5707,
+      "sha256": "e9a8135f4c8aadd25b4a59b10a230b028bfa23d7666d612289e83a900b66c9a7"
+    },
+    {
+      "file": "assets/WardrobeStyleOptions-CI2WI87R.js",
+      "bytes": 1078,
+      "sha256": "a1592640caa99506505d54ef815807e8263e4da3e092b4da1f31075cc1c4f971"
+    },
+    {
+      "file": "assets/WardrobeStyles-DIzzA_Oe.js",
+      "bytes": 3709,
+      "sha256": "3399ce2c8c675b936c24254ddb8a35e98f4dfbfe796ef3362975b6ec41b3f4fc"
+    },
+    {
+      "file": "assets/casual-charcoal-BFitWzzF.png",
+      "bytes": 653274,
+      "sha256": "43c387cd58068b21d0376a17762651635831b922a5d2ec817f1a822d15eeec64"
+    },
+    {
+      "file": "assets/casual-ecru-BK-O8IdL.png",
+      "bytes": 634358,
+      "sha256": "cb03b3ab97a29a2b46f6eca0613b5d06ebb9084068d5b3edb9e93828f75ae33e"
+    },
+    {
+      "file": "assets/casual-original-D2DBYwI6.png",
+      "bytes": 669499,
+      "sha256": "0527c0b0f295efb770099a8977127699cff83caf0429f5314ef24cd6937e038d"
+    },
+    {
+      "file": "assets/depth-eP8PXHgV.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/elegant-charcoal-BIObcKuT.png",
+      "bytes": 634861,
+      "sha256": "911f684b21f6d5fd38593d38c61891b3fda7b6f62275a2b89f94ab0985ae2819"
+    },
+    {
+      "file": "assets/elegant-ecru-BugIJXKj.png",
+      "bytes": 647399,
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e"
+    },
+    {
+      "file": "assets/elegant-original-DzZY1lqw.png",
+      "bytes": 663518,
+      "sha256": "c6bc0176b2bf1873f52c6f34d40f0fd0c81956ee7c1533b8b6fb81403b4d7b54"
+    },
+    {
+      "file": "assets/figure_g000-BmqaODVG.glb",
+      "bytes": 11567676,
+      "sha256": "26aa87c59a5e7cff800d3bf576426945aeb63d0bd2dff0e67db34f2240ae559d"
+    },
+    {
+      "file": "assets/figure_g000-cavity-DFCwGayk.png",
+      "bytes": 144493,
+      "sha256": "81e35c01017e39b2cb7c39bbb9e695c3066dcdb4c908a768953a17108da2533e"
+    },
+    {
+      "file": "assets/figure_g000-curvature-ClijlxlW.png",
+      "bytes": 563667,
+      "sha256": "b321372c46ddafda97369fe15e19fd063eb645647631b24918c96dc4e62327b1"
+    },
+    {
+      "file": "assets/figure_g000-regions-Bqb8NL4Y.png",
+      "bytes": 231064,
+      "sha256": "8d403275fba54ce927199db617c3e09228d13a9590f8278112b180d6d7374f8b"
+    },
+    {
+      "file": "assets/figure_g025-DY0kJt4Z.glb",
+      "bytes": 11568008,
+      "sha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e"
+    },
+    {
+      "file": "assets/figure_g025-cavity-CsUlFPi0.png",
+      "bytes": 137849,
+      "sha256": "944f4f4952e10b278cca823b49eebb14d4462188b9b813ff8ca01576b52c05ee"
+    },
+    {
+      "file": "assets/figure_g025-curvature-C6HpnO_k.png",
+      "bytes": 532034,
+      "sha256": "b99cc8f74066599ba90595b9d7b56e91fd344f74ab130597dacc63104861e76b"
+    },
+    {
+      "file": "assets/figure_g025-regions-ZIRuTQkL.png",
+      "bytes": 228101,
+      "sha256": "c6cc6b553de3a832b99a5bc13cc16ca1ad2e864469f2aa9add031d7527095e25"
+    },
+    {
+      "file": "assets/figure_g050-4pzc9G3S.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "file": "assets/figure_g050-cavity-BII6jj0A.png",
+      "bytes": 135923,
+      "sha256": "0889d0447b5632073705eb316746dd30afdaafa96cb3480a1db2bebc37c0e313"
+    },
+    {
+      "file": "assets/figure_g050-curvature-CURZc0Cw.png",
+      "bytes": 527543,
+      "sha256": "b342a9f693479dfdf29421d98c4b132d0b59e2858829e01f04cda8b216beca0d"
+    },
+    {
+      "file": "assets/figure_g050-regions-CPDebhOL.png",
+      "bytes": 225935,
+      "sha256": "77095b2d1e2e3871505e500c795faf879ef9a70514f64dad6b225b12a6440e6a"
+    },
+    {
+      "file": "assets/figure_g075-DJWe9wE9.glb",
+      "bytes": 11567816,
+      "sha256": "dbfc23ac6987c2f4b33bcf366f09c2f8f43c8518610ebd3697714b78b34f21ec"
+    },
+    {
+      "file": "assets/figure_g075-cavity-CrMLW-yP.png",
+      "bytes": 134548,
+      "sha256": "12f141742e0040794d7dcd22ac96380b41d97b716965782f9a1c7a8ba8c9590b"
+    },
+    {
+      "file": "assets/figure_g075-curvature-C8hpBXBA.png",
+      "bytes": 545899,
+      "sha256": "a86e2cc53ae890b9f7734476839180bd53459be840b0e1a9d1c50473f2687369"
+    },
+    {
+      "file": "assets/figure_g075-regions-B1fYBEv8.png",
+      "bytes": 225373,
+      "sha256": "37cd0b5e6c6f289ffdd665a56ba24c9c2bb0ada0c96e398dc59c3f397e310413"
+    },
+    {
+      "file": "assets/figure_g100-DsuN8w0K.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    },
+    {
+      "file": "assets/figure_g100-cavity-Cj9NzGKU.png",
+      "bytes": 134209,
+      "sha256": "0586ecbb3468b2c782937fbe4225c911b63b2be394e7b21e74d9fc459201e85f"
+    },
+    {
+      "file": "assets/figure_g100-curvature-6-QrXzp9.png",
+      "bytes": 580584,
+      "sha256": "2f3b78f0980b781d20d3b50155b3e99421000f10356344dbea6e2375450073b5"
+    },
+    {
+      "file": "assets/figure_g100-regions-D1NgmJIC.png",
+      "bytes": 225010,
+      "sha256": "2a3a7a4ae48f6605fac0d78c8d0976510648105ad3a4af8d952f07ff62807352"
+    },
+    {
+      "file": "assets/flow-CDtcCpjq.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/g000-CBYuZF1p.glb",
+      "bytes": 3346148,
+      "sha256": "c179927e5701dd45c8e650a881bc689ad905030fea6f3e9569c4370819f25926"
+    },
+    {
+      "file": "assets/g025-CtX4MsfU.glb",
+      "bytes": 3346472,
+      "sha256": "bdb1105f1cb663004ab06b1a7a164de2c54683af131eb9b0f65a0677e84520df"
+    },
+    {
+      "file": "assets/g050-B4pBhMx5.glb",
+      "bytes": 1180828,
+      "sha256": "4804bd9e11c7aafacc19ca9fa3ded25fbbd2c4d72c25a17d566087ee09ba6152"
+    },
+    {
+      "file": "assets/g050-BZZi3FxG.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "file": "assets/g050-C1ZacNtP.glb",
+      "bytes": 529836,
+      "sha256": "4f0a206012250e980ad0f3f4f27101d8af023ce4b52775c986d7a7ee485cdaeb"
+    },
+    {
+      "file": "assets/g050-CO5Mlnke.glb",
+      "bytes": 5066532,
+      "sha256": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440"
+    },
+    {
+      "file": "assets/g050-CPKgyl1k.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "file": "assets/g050-DOTNqDkb.glb",
+      "bytes": 3346728,
+      "sha256": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7"
+    },
+    {
+      "file": "assets/g050-DY3GU_Fm.glb",
+      "bytes": 7638760,
+      "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27"
+    },
+    {
+      "file": "assets/g050-DqfWZ86u.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "file": "assets/g050-DwVJw10x.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "file": "assets/g050-EBFugioW.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "file": "assets/g050-yiqsxV00.glb",
+      "bytes": 3347176,
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    },
+    {
+      "file": "assets/g075-DYS656yx.glb",
+      "bytes": 3346284,
+      "sha256": "1517e2cf1d5f193b5306f854e299dbc9c9351c7162ee866104f3e5cbe1f3eb0c"
+    },
+    {
+      "file": "assets/g100-D745civX.glb",
+      "bytes": 3346252,
+      "sha256": "e4c238ef739d98107d0f237e76e1235c0a6fa2af777489638f1cba3118aac5f7"
+    },
+    {
+      "file": "assets/manifest-Cl-SSJjc.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "file": "assets/preload-helper-Czpn1I53.js",
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    {
+      "file": "assets/prosody-worklet-CkOTTYJp.js",
+      "bytes": 5273,
+      "sha256": "616f6b21132b80b64a8c3ee7ee12c883fbf7cb5f9fd940bb9c4461f1e12de7a8"
+    },
+    {
+      "file": "assets/showcase-fT0xwOGj.js",
+      "bytes": 752494,
+      "sha256": "918c8467950a9c2da1c456d3c369141d4ccd2fe82af8ac600756f7e5884925ec"
+    },
+    {
+      "file": "assets/showcase-wKR_ZuG3.css",
+      "bytes": 5377,
+      "sha256": "445df5316fd6999ede7eb3c3e8530c8e75dbb84e30871f9913835c117abc62ed"
+    },
+    {
+      "file": "assets/three.core-BG9jJk8N.js",
+      "bytes": 225932,
+      "sha256": "5dc2cdc317e74a3c80a69d5d22dde94e169da34373dab762b4d9be51e9a7c1ef"
+    },
+    {
+      "file": "assets/three.tsl-C6fGDzol.js",
+      "bytes": 650133,
+      "sha256": "5f00400a3d30aa6919b60c3e4121d463600040c43b78356ec9994b2b7a18f8a1"
+    },
+    {
+      "file": "src/showcase.html",
+      "bytes": 22137,
+      "sha256": "7f6499ddc4aebfbbb0ea116f8a6ad6c6b076b858c28b1ada43784cfa94c95274"
+    }
+  ],
+  "scope": "Targeted showcase bundling only; no serving/publishing or runtime visual qualification"
+}
