@@ -1,0 +1,11 @@
+{
+  "recorded": "2026-10-03T19:02:46.755575+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/cell-fan-contract/root-readback.py",
+  "failedToolChunk": "e92507",
+  "exitCode": 1,
+  "pid": "not retained",
+  "startEnd": "not retained; tool clock at19:01:49UTC after failure",
+  "historicalSourceSHA256": "a92145c62437bd08f899b8d246dd41d289b16c0c4ace32f19e5f27642b88753e",
+  "error": "TypeError: int object not subscriptable in final receipt pinsUnchanged len(a['pins']); receipt variable a was overwritten by link endpoint loop after graph assertions",
+  "resolution": "Rename receipt variable only; contract/author/output unchanged; separate reader rerun permitted because no contract predicate failed and no author rerun or surface evaluation"
+}

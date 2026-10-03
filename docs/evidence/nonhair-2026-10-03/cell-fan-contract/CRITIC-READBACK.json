@@ -1,0 +1,97 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/cell-fan-contract/critic-symbolic-reader.py",
+  "pid": 87421,
+  "started": "2026-10-03T19:02:36.018219+00:00",
+  "finished": "2026-10-03T19:02:36.111366+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "sourceSHA256": "78f73cbd029f60604b1afa56d9871ba1045fa9c97126c26d0da0df43a76f957f",
+  "authorSHA256": "9c042becbab1312a2589fedb349a49f771194b736c55f109121cb67bcc219fe8",
+  "topologySHA256": "c057cc38b0e6cca4eb6d1d955f31b4b5263daf01260bfb65a21c218e93b4eeeb",
+  "authorReceiptSHA256": "efa07365b6b6b26adc1438cdc363611d46ba21722e6d3dded9cc32e1c3759cc5",
+  "allAuthorPinsUnchanged": 4,
+  "definitionsByKind": {
+    "canonicalNode": 50,
+    "canonicalCurve": 801,
+    "CoonsPatch": 3240,
+    "CoonsCellCentre": 4000
+  },
+  "all8091DefinitionsAnd89CachesExact": true,
+  "all40Grids4000Centres16000OrientedFanFacesExact": true,
+  "uniqueFaces": 16000,
+  "edges": 24090,
+  "outerEdges": 180,
+  "Euler": 1,
+  "directedLinks": {
+    "boundaryPaths": 180,
+    "interiorCycles": 7911
+  },
+  "linkNodeRange": [
+    3,
+    8
+  ],
+  "formerFailedCorner": {
+    "minusX:0:3": {
+      "centre": 4400,
+      "key": "centre:minusX:0:3:0:9",
+      "firstOrdinal": 1236,
+      "faces": [
+        [
+          39,
+          40,
+          4400
+        ],
+        [
+          40,
+          282,
+          4400
+        ],
+        [
+          282,
+          1102,
+          4400
+        ],
+        [
+          1102,
+          39,
+          4400
+        ]
+      ]
+    },
+    "plusX:0:3": {
+      "centre": 6400,
+      "key": "centre:plusX:0:3:0:9",
+      "firstOrdinal": 9236,
+      "faces": [
+        [
+          39,
+          6400,
+          40
+        ],
+        [
+          40,
+          6400,
+          282
+        ],
+        [
+          282,
+          6400,
+          2722
+        ],
+        [
+          2722,
+          6400,
+          39
+        ]
+      ]
+    }
+  },
+  "part4DirectedLink": {
+    "4400": 39,
+    "282": 4400,
+    "39": 6400,
+    "6400": 282
+  },
+  "status": "PASS complete symbolic oriented disk only",
+  "limits": "No P/M/curve/Coons position/normal/contact/body/attachment/native/appearance evaluation; no geometry written"
+}

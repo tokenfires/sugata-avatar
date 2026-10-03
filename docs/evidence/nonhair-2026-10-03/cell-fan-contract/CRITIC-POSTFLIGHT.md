@@ -1,0 +1,23 @@
+# Independent cell-fan postflight
+
+Retain the complete symbolic source contract. No actionable contradiction remains in the declared definitions/ownership/topology. This is an oriented abstract disk, not a regular embedded surface, body fit or appearance result. No geometry/builder/native launch follows automatically.
+
+I read the complete author, actual topology and author receipt. Author source9c042becbab1312a2589fedb349a49f771194b736c55f109121cb67bcc219fe8 and outputc057cc38b0e6cca4eb6d1d955f31b4b5263daf01260bfb65a21c218e93b4eeeb match the executed receipt. All four input pins remain exact. The new source references the unchanged C0 interface; no artist coordinate/curve/tangent value was evaluated or changed.
+
+Independent retained checker: `python3 docs/evidence/nonhair-2026-10-03/cell-fan-contract/critic-symbolic-reader.py`, PID87421,19:02:36.018219–.111366UTC, Python3.14.7 at /opt/homebrew/opt/python@3.14/bin/python3.14, exit0/chunk77676c. Source78f73cbd029f60604b1afa56d9871ba1045fa9c97126c26d0da0df43a76f957f was saved before execution. CRITIC-READBACK.json retains exact command/source/runtime/pins/results. Root's checker was not read or executed.
+
+The checker validates every actual definition:50 canonical nodes,801 canonical curve records,3240 patch-grid interior rules and4000 cell-centre rules; all89 canonical caches and40 grids/corner references; exact rational u/v for every grid/centre; all16000 literal oriented fan faces with distinct indices and unique sorted triples. Every face contains exactly one cell-owned centre and every centre owns four faces. It independently derives24090 edges, opposite incidence on every internal edge,180 once-used outer edges with one connected cycle, a connected complex and Euler1.
+
+Vertex links were checked through directed successor/predecessor maps, rather than relying only on edge counts or an undirected Euler observation. Every7911 interior link traverses one complete closed directed cycle; every180 boundary link one complete directed path with its endpoints exactly the two boundary neighbours. All links have3–8 nodes. This establishes the required abstract oriented manifold/disk topology.
+
+The decisive former-failure witness is the same part/back corner, source patches minusX:0:3 and plusX:0:3, cell[0,9]. They now own centres4400 and6400. Faces1236/1237 are[39,40,4400]/[40,282,4400]; faces9236/9237 are[39,6400,40]/[40,6400,282]. Each additional centre is a different named evaluation responsibility. Vertex40(part-4) has the complete link282→4400→39→6400→282. The former boundary-only triple[39,40,282] is not a fan face. This resolves the witnessed symbolic duplication through whole-cell ownership, not a local diagonal flip or coordinate retune.
+
+No positions, areas, normals, contacts, body arrays, attachment operands, render pixels or source figure were evaluated by this checker. Distinct logical centres can still have coincident positions; cells can fold or intersect, and the proposed crown/cheek shape can still look like a hood. All are future rejection conditions. No new image was inspected in this symbolic step.
+
+Two next alternatives:
+
+A. One fresh fixed-fan gray-volume trial is conditionally worth doing because the complete index contract now removes a specific structural barrier to observing the artistic volume hypothesis. A future builder should consume these exact definitions/faces and unchanged interface, evaluate each canonical/grid/centre record once, retain exact Float32 buffers, and preserve the declared winding. Full finite/nondegenerate/normal/manifold/self-body-contact predicates, hidden actual-world gate, body-bind/head ownership, exact configuration/full pose/effective camera, independent disposal and actual eight-original review are prerequisites. Retain the same bounded worker/refusal discipline; do not adjust centres, resolution, artist net or triangulation after failure. Added4000 points/double faces increase contact work. A source pass cannot establish R2-like flow or moving/AAA hair.
+
+B. Keep this useful symbolic design deliverable, defer hair construction and return to another separately witnessed usable character/wardrobe goal. This saves another geometry/native stage and prevents a topology sequence from replacing visual progress, but leaves the volume hypothesis unobserved. Prefer B if A's concrete source/gates cannot fit a single fresh bounded window, or after its first actual failure.
+
+I recommend only A's separately valued fixed trial as the next possible decision, with B as the explicit stop. Nothing is repaired or rerun in either closed earlier trial, and the full AAA/representation roadmap remains open.

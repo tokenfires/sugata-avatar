@@ -1,0 +1,84 @@
+{
+  "pid": 87762,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/cell-fan-contract/root-readback.py",
+  "started": "2026-10-03T19:02:46.782065+00:00",
+  "finished": "2026-10-03T19:02:46.882769+00:00",
+  "sourceSHA256": "4bb71a637a4b4dbb26133bf72232a82956587832b71fbc43213a3c8ecf54a141",
+  "topologySHA256": "c057cc38b0e6cca4eb6d1d955f31b4b5263daf01260bfb65a21c218e93b4eeeb",
+  "pinsUnchanged": 4,
+  "allDefinitionsCachesGridCentresAnd16000FacesExact": true,
+  "definitionKinds": {
+    "canonicalNode": 50,
+    "canonicalCurve": 801,
+    "CoonsPatch": 3240,
+    "CoonsCellCentre": 4000
+  },
+  "edges": 24090,
+  "links": {
+    "boundaryPaths": 180,
+    "interiorCycles": 7911
+  },
+  "cornerWitness": [
+    {
+      "patch": "minusX:0:3",
+      "centre": 4400,
+      "centreKey": "centre:minusX:0:3:0:9",
+      "firstFace": 1236,
+      "faces": [
+        [
+          39,
+          40,
+          4400
+        ],
+        [
+          40,
+          282,
+          4400
+        ],
+        [
+          282,
+          1102,
+          4400
+        ],
+        [
+          1102,
+          39,
+          4400
+        ]
+      ]
+    },
+    {
+      "patch": "plusX:0:3",
+      "centre": 6400,
+      "centreKey": "centre:plusX:0:3:0:9",
+      "firstFace": 9236,
+      "faces": [
+        [
+          39,
+          6400,
+          40
+        ],
+        [
+          40,
+          6400,
+          282
+        ],
+        [
+          282,
+          6400,
+          2722
+        ],
+        [
+          2722,
+          6400,
+          39
+        ]
+      ]
+    }
+  ],
+  "status": "complete symbolic oriented disk/cell-owned fan and evaluator declarations qualified; no geometry/appearance",
+  "limits": [
+    "No numeric positions/curves/Coons/evaluator/area/normal/body/contact/attachment/native evaluation.",
+    "Logical manifold cannot establish regular or nonintersecting embedded geometry, moving fit or rendered quality."
+  ]
+}

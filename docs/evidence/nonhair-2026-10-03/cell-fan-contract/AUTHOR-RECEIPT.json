@@ -1,0 +1,36 @@
+{
+  "pid": 81069,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/cell-fan-contract/author.py",
+  "started": "2026-10-03T18:59:25.340536+00:00",
+  "authorSHA256": "9c042becbab1312a2589fedb349a49f771194b736c55f109121cb67bcc219fe8",
+  "status": "symbolic complete oriented disk/fan ownership/vertex links passed; no geometry admission",
+  "limits": [
+    "No P/M/S/curve/interior/position/normal/contact/body/attachment/native/appearance evaluation.",
+    "Combinatorial disk/vertex links do not prove regular embedding, area, nonintersection or fit."
+  ],
+  "pins": {
+    "docs/evidence/nonhair-2026-10-03/shared-boundary-interface/interface.json": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/BUILD-RECEIPT.json": "2c3523941089801e9130740721c153ff3bc1eaee017b9fa3b5ae945064ddd271",
+    "docs/evidence/nonhair-2026-10-03/cell-fan-contract/PLAN.md": "3201167815980ed58d679a0a4f2beb8f6801e12803476bdc59fa95503e352dea",
+    "docs/evidence/nonhair-2026-10-03/cell-fan-contract/CRITIC-VALUE.md": "b0742cb7545145fc5eda25a8818680f52c9442c5a7d9f95c9ec1a2d150d6151e"
+  },
+  "topologySHA256": "c057cc38b0e6cca4eb6d1d955f31b4b5263daf01260bfb65a21c218e93b4eeeb",
+  "vertices": 8091,
+  "faces": 16000,
+  "edges": 24090,
+  "outerEdges": 180,
+  "centreOwners": 4000,
+  "links": {
+    "boundaryPaths": 180,
+    "interiorCycles": 7911
+  },
+  "linkNodeRange": [
+    3,
+    8
+  ],
+  "allSortedFaceTriplesUnique": true,
+  "allInternalEdgesOpposed": true,
+  "connectedComplexAndBoundary": true,
+  "everyCentreOwnsFourFaces": true,
+  "finished": "2026-10-03T18:59:25.435874+00:00"
+}

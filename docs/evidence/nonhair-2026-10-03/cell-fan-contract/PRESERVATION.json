@@ -1,0 +1,94 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/cell-fan-contract/freeze.py",
+  "pid": 15734,
+  "started": "2026-10-03T19:13:41.370085+00:00",
+  "finished": "2026-10-03T19:13:41.373104+00:00",
+  "externalInputs": {
+    "docs/evidence/nonhair-2026-10-03/shared-boundary-interface/interface.json": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/BUILD-RECEIPT.json": "2c3523941089801e9130740721c153ff3bc1eaee017b9fa3b5ae945064ddd271",
+    "docs/evidence/nonhair-2026-10-03/cell-fan-contract/PLAN.md": "3201167815980ed58d679a0a4f2beb8f6801e12803476bdc59fa95503e352dea",
+    "docs/evidence/nonhair-2026-10-03/cell-fan-contract/CRITIC-VALUE.md": "b0742cb7545145fc5eda25a8818680f52c9442c5a7d9f95c9ec1a2d150d6151e"
+  },
+  "checks": {
+    "author.py": "9c042becbab1312a2589fedb349a49f771194b736c55f109121cb67bcc219fe8",
+    "topology.json": "c057cc38b0e6cca4eb6d1d955f31b4b5263daf01260bfb65a21c218e93b4eeeb",
+    "AUTHOR-RECEIPT.json": "efa07365b6b6b26adc1438cdc363611d46ba21722e6d3dded9cc32e1c3759cc5",
+    "root-readback.py": "4bb71a637a4b4dbb26133bf72232a82956587832b71fbc43213a3c8ecf54a141",
+    "reader-history/root-before-receipt-fix.py": "a92145c62437bd08f899b8d246dd41d289b16c0c4ace32f19e5f27642b88753e",
+    "critic-symbolic-reader.py": "78f73cbd029f60604b1afa56d9871ba1045fa9c97126c26d0da0df43a76f957f",
+    "CRITIC-READBACK.json": "c26d45d8d0dc90249231a831ed6a81594c285f7c400f2ea9b75ca3026ba94bca",
+    "CRITIC-POSTFLIGHT.md": "6f88eeefff4ea94a494b2e1d61f83310a870f4aee6284490686ff278118bb7fd"
+  },
+  "files": {
+    "AUTHOR-RECEIPT.json": {
+      "sha256": "efa07365b6b6b26adc1438cdc363611d46ba21722e6d3dded9cc32e1c3759cc5",
+      "bytes": 1646
+    },
+    "CHECKPOINT.md": {
+      "sha256": "8004bf6d5893fd117e34937b3d15432fb6867317ed2eef773131ba64f8cd1478",
+      "bytes": 847
+    },
+    "CRITIC-POSTFLIGHT.md": {
+      "sha256": "6f88eeefff4ea94a494b2e1d61f83310a870f4aee6284490686ff278118bb7fd",
+      "bytes": 4679
+    },
+    "CRITIC-READBACK.json": {
+      "sha256": "c26d45d8d0dc90249231a831ed6a81594c285f7c400f2ea9b75ca3026ba94bca",
+      "bytes": 2303
+    },
+    "CRITIC-VALUE.md": {
+      "sha256": "b0742cb7545145fc5eda25a8818680f52c9442c5a7d9f95c9ec1a2d150d6151e",
+      "bytes": 3088
+    },
+    "PLAN.md": {
+      "sha256": "3201167815980ed58d679a0a4f2beb8f6801e12803476bdc59fa95503e352dea",
+      "bytes": 4085
+    },
+    "READER-CORRECTION.json": {
+      "sha256": "9b60279d8151296d5cfe61690a983d299f5e362dc359075b32c79e3d102fdb3b",
+      "bytes": 759
+    },
+    "README.md": {
+      "sha256": "a8dbd87f1c06e8d0944f83ba4769280b18258cf29aee05c1384c0fa5e1f10236",
+      "bytes": 789
+    },
+    "RECEIPT.md": {
+      "sha256": "c3e777b41fa3a3ff53cd070a00a1a2c5ac704afa4fb93cec8463f67283032154",
+      "bytes": 3227
+    },
+    "ROOT-DECISION.md": {
+      "sha256": "1dc7a90f02aeb62c2e4405e1e94da715a081d09d0c175130dc30ebd53a0746c6",
+      "bytes": 2755
+    },
+    "ROOT-READBACK.json": {
+      "sha256": "b9b0a0fb427e077b8da5bcd9092ebef21e524c9c3fbbc3fdfb7d6a55c3aa00f5",
+      "bytes": 1915
+    },
+    "author.py": {
+      "sha256": "9c042becbab1312a2589fedb349a49f771194b736c55f109121cb67bcc219fe8",
+      "bytes": 7388
+    },
+    "critic-symbolic-reader.py": {
+      "sha256": "78f73cbd029f60604b1afa56d9871ba1045fa9c97126c26d0da0df43a76f957f",
+      "bytes": 7371
+    },
+    "freeze.py": {
+      "sha256": "7b70e658966642bb3f9ed80b63e3d5e2b429667dd0859a8b349612a85955ecee",
+      "bytes": 2023
+    },
+    "reader-history/root-before-receipt-fix.py": {
+      "sha256": "a92145c62437bd08f899b8d246dd41d289b16c0c4ace32f19e5f27642b88753e",
+      "bytes": 6215
+    },
+    "root-readback.py": {
+      "sha256": "4bb71a637a4b4dbb26133bf72232a82956587832b71fbc43213a3c8ecf54a141",
+      "bytes": 6275
+    },
+    "topology.json": {
+      "sha256": "c057cc38b0e6cca4eb6d1d955f31b4b5263daf01260bfb65a21c218e93b4eeeb",
+      "bytes": 1260899
+    }
+  },
+  "status": "exact symbolic output/source/readers/receipts/input pins retained; preservation only",
+  "limits": "abstract topology only; no geometry or appearance qualification"
+}
