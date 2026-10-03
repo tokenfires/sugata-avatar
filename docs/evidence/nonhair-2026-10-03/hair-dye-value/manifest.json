@@ -1,7 +1,7 @@
 {
-  "recordedAtUTC": "2026-10-03T11:45:19.531041+00:00",
-  "pid": 34959,
-  "scope": "Concise read-only dye value receipt; exact originals remain at pinned existing paths",
+  "recordedAtUTC": "2026-10-03T11:52:27.141789+00:00",
+  "pid": 49579,
+  "scope": "Concise read-only dye value receipt; exact originals remain at pinned existing paths. Verbatim critic command added after closeout without execution.",
   "files": [
     {
       "path": "DYE-VALUE.md",
@@ -10,8 +10,8 @@
     },
     {
       "path": "RECEIPT.md",
-      "bytes": 4670,
-      "sha256": "05a01dd8d400378f291a0dfc3612bcdaebde8f7d9a3d9305fcbce3c56ba51578"
+      "bytes": 5173,
+      "sha256": "9af0d169f7268a237668c4dd66600deacfbac90d21cbadda656c2a354220d900"
     },
     {
       "path": "independent.json",
@@ -27,6 +27,11 @@
       "path": "root-pin-closeout.py",
       "bytes": 1486,
       "sha256": "6ec9686297283ce78c3cf596d9a7d1db2c0417693349d7ed6a2617440f0fac6a"
+    },
+    {
+      "path": "scalar-command.txt",
+      "bytes": 7140,
+      "sha256": "41e43d4cca36fe42235230b911d444b12d738beae29da2c4d36d65d209d32e98"
     }
   ],
   "sourcePins": "independent.json",
