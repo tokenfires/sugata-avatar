@@ -1,0 +1,64 @@
+{
+  "pid": 49092,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/whole-head-volume/root-witness.py",
+  "started": "2026-10-03T18:43:36.550505+00:00",
+  "finished": "2026-10-03T18:43:36.566573+00:00",
+  "sourceSHA256": "851b664a37966014066bcbda60f27a4b1b5be7f09c4e07be8fc0227e981feeab",
+  "buildReceiptSHA256": "2c3523941089801e9130740721c153ff3bc1eaee017b9fa3b5ae945064ddd271",
+  "supervisorSHA256": "682556a726e7d0d85a25bf65493ef29f1704a3e4570863423e125474b1ec1333",
+  "pinsUnchanged": 16,
+  "witness": [
+    {
+      "patch": "minusX:0:3",
+      "cell": [
+        0,
+        9
+      ],
+      "triangle": 618,
+      "indices": [
+        39,
+        40,
+        282
+      ],
+      "sortedKey": [
+        39,
+        40,
+        282
+      ],
+      "boundaryKeys": [
+        "edge:part-3|part-4:9",
+        "node:part-4",
+        "edge:back-1|part-4:1"
+      ]
+    },
+    {
+      "patch": "plusX:0:3",
+      "cell": [
+        0,
+        9
+      ],
+      "triangle": 4618,
+      "indices": [
+        39,
+        282,
+        40
+      ],
+      "sortedKey": [
+        39,
+        40,
+        282
+      ],
+      "boundaryKeys": [
+        "edge:part-3|part-4:9",
+        "node:part-4",
+        "edge:back-1|part-4:1"
+      ]
+    }
+  ],
+  "status": "duplicate opposite-wound shared-corner triangle independently reconstructed from exact source ordering; executed gate refusal agrees",
+  "limits": [
+    "Index-only forensic reconstruction; no curve, position, full mesh or interior evaluation.",
+    "No geometry/normal/intersection/native/appearance pass; original runtime packed buffers were not exported.",
+    "This specific fixed-diagonal ownership failure does not refute the C0 function interface."
+  ]
+}

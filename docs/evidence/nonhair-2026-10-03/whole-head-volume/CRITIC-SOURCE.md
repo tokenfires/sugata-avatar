@@ -1,0 +1,28 @@
+# Independent final whole-head volume source admission
+
+GO for the sole supervised CPU construction, and conditionally for the sole native observer only after CPU/supervisor/world gates pass. Final full-source read completed before this receipt at 2026-10-03T18:39:15.228952+00:00; the soft 18:36 review target slipped, while builder18:41/native18:44/whole18:55 cutoffs remain unchanged. First executed failure closes the trial. This admits instrument execution, not a mesh, fit or appearance result.
+
+I read the entire current builder, preview, HTML, world worker, observer and PLAN, plus the unchanged triangle helper, HairSkinTransform, actual recipe and configuration helper. No geometry or render was executed by critic. The initial WITHHELD note is preserved byte-for-byte at preflight-history/critic-source-initial.md (SHA256 cdd9fbe11ea1c2e7d24993394089132552fd89facc2490352046e92844b80781); its original source-line witnesses and alternatives remain historical rather than descriptions of the final correction.
+
+The source-prescribed cache has 50 node records + 89*9 edge-interior records + 40*81 cell-interior records = 4091 vertices, 8000 triangles and 180 outer segments. Shared endpoints/edges use one indexed Float32 record; only cell interiors evaluate the literal Coons formula. Opposite panel winding, finite positions/triangle indices/areas, no duplicate triangles, oriented edge incidence, connectivity/outer-cycle checks and nonzero area-weighted normals are explicit predicates. Shared-vertex self pairs are omitted; neither adjacent folding nor analytic regularity follows. Normals are a rendering policy, not C1 repair.
+
+Pre-execution findings and selected resolutions:
+
+1. Initial build construction/pin/finally failures could leave no inner receipt, and synchronous crossing calls could block observational deadlines. Selected A adds an outer supervised build Worker, hard two-minute termination/absolute18:42 deadline and durable supervisor error/status receipt; native requires retired/pass/non-timeout plus exact inner receipt hash. A separately bounded world Worker reads the exact hidden-export file and unchanged Node helper, records result/error and retires before admission. This makes early/blocked failures refusals even if inner geometry disposal is unobservable. Alternative B was defer before construction; it remains the fallback on an observed failure. No retry or changed geometry was used to resolve this finding.
+
+2. Initial config/pose evidence could compare identically wrong or changed states. Selected A requires actualConfiguration==exact recipe at hidden export, retains complete current body morph influences and every skeleton bone world/inverse matrix plus geometry ownership, and compares these states through admission and every image. Raw positions/index match pinned body and saved proposal bytes. Alternative B re-export/re-gate before each image would increase CPU cost; not selected.
+
+3. Initial camera normalization omitted per-view equality. Selected A records aspect/projection/world-inverse/pose and explicitly compares each original/proposal view plus before/after states. Actual inactive TAA view fields are retained separately as rawViewOffset, while all equality guards remove only that auxiliary observation and require effective view disabled. Installed TAAUNode.clearViewOffset and PerspectiveCamera.clearViewOffset explain why copying inactive offsets into equality would create a phase-state refusal despite an unchanged nominal camera. Alternative B was explicitly demand phase-state identity and defer: draw-only RAF cannot promise it. No renderer clock/history reset or epoch search is introduced. Per-pass sampling and pixel identity remain unqualified.
+
+The existing Node-only helper is not browser-imported. Full infinite regions cover all shell triangles; epsilon1e-9 and conservative coplanar/boundary-contact behavior are explicit. Invalid/degenerate API inputs refuse. Whole-world admission occurs while proposal hidden/disabled; setArm/draw guard it thereafter. Full current body-bind/head inverse-bind/world transformation uses the actual head identity in the body's own skeleton and a proper-rigid check; proposal parents to figure.root through inverse(rootWorld)*W. Original visibility restoration precedes independent detach/geometry/material/Avatar disposal. Observer closes page/browser independently, checks errors/resources/disposal/leaks/pins and final deadline; installed Three module/core/webgpu source bytes are now pinned.
+
+No crossing count, current body clearance, rendered eye opening, crown flow, R2 match or hairstyle quality is asserted. CPU failure must preserve/refuse its candidate and prevents native; world-gate failure prevents proposal render. If eight native originals arrive, retain/refuse only this static gray volume. Complete strand finish, wardrobe/representation/moving fit and AAA ambitions remain open.
+
+Exact reviewed source hashes:
+
+- docs/evidence/nonhair-2026-10-03/whole-head-volume/build.mjs: 37467d6a8748d3315b6907ae2e75695b114506db4974bb9c9f4b73f325434a03
+- docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.mjs: 0dbfeb37057550ea63a1938d39d94f20e65beab3f43b7eb6fb5dd3505774bea5
+- docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.html: 68aed52a40e93530bb77ac8b2652d6c3b4dcba729e48c84f0e6b46989135f82c
+- docs/evidence/nonhair-2026-10-03/whole-head-volume/world-gate-worker.mjs: da5f370d0d21902c19246740452c71a1dcd9241b527a6042fbe9f20dd0c570d3
+- tools/critic/whole-head-volume.mjs: 9cc05e38b70cf7c03fd4ac15d975ecb38c0a5ce97b212905c35a1ed1d5455c77
+- docs/evidence/nonhair-2026-10-03/whole-head-volume/PLAN.md: f04ae1b88299592e96b17190a7b4a86c76cf051435464d12f0f9e9fea32047c8

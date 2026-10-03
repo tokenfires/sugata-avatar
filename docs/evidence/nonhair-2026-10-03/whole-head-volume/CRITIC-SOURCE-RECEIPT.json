@@ -1,0 +1,18 @@
+{
+  "pid": 39873,
+  "observed": "2026-10-03T18:39:15.228952+00:00",
+  "command": "inline Python fs preservation/hash/final preflight documentation; no builder or surface execution",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pins": {
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/build.mjs": "37467d6a8748d3315b6907ae2e75695b114506db4974bb9c9f4b73f325434a03",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.mjs": "0dbfeb37057550ea63a1938d39d94f20e65beab3f43b7eb6fb5dd3505774bea5",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.html": "68aed52a40e93530bb77ac8b2652d6c3b4dcba729e48c84f0e6b46989135f82c",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/world-gate-worker.mjs": "da5f370d0d21902c19246740452c71a1dcd9241b527a6042fbe9f20dd0c570d3",
+    "tools/critic/whole-head-volume.mjs": "9cc05e38b70cf7c03fd4ac15d975ecb38c0a5ce97b212905c35a1ed1d5455c77",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/PLAN.md": "f04ae1b88299592e96b17190a7b4a86c76cf051435464d12f0f9e9fea32047c8"
+  },
+  "initialPreservedSHA256": "cdd9fbe11ea1c2e7d24993394089132552fd89facc2490352046e92844b80781",
+  "finalCritiqueSHA256": "c514287088a19a0ab57374a1cea6e13f3528dca8e86f046c09d4697f64e37aac",
+  "decision": "GO sole CPU; native conditional on CPU/supervisor/world passes before fixed cutoffs"
+}

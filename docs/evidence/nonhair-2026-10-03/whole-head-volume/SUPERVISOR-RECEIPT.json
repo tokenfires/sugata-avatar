@@ -1,0 +1,18 @@
+{
+  "pid": 41986,
+  "command": "node docs/evidence/nonhair-2026-10-03/whole-head-volume/build.mjs",
+  "started": "2026-10-03T18:40:15.354Z",
+  "sourceSHA256": "37467d6a8748d3315b6907ae2e75695b114506db4974bb9c9f4b73f325434a03",
+  "status": "refused; CPU worker retired",
+  "timedOut": false,
+  "errors": [],
+  "limits": [
+    "One CPU-only worker, no native/GPU job. Forced worker retirement cannot attest an inner geometry disposal event."
+  ],
+  "workerThreadId": 1,
+  "workerExitCode": 2,
+  "workerRetired": true,
+  "finished": "2026-10-03T18:40:15.429Z",
+  "innerReceipt": "2c3523941089801e9130740721c153ff3bc1eaee017b9fa3b5ae945064ddd271",
+  "pass": false
+}

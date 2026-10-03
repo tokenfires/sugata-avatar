@@ -1,0 +1,142 @@
+{
+  "pid": 63971,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/whole-head-volume/freeze.py",
+  "started": "2026-10-03T18:50:56.151463+00:00",
+  "finished": "2026-10-03T18:50:56.168175+00:00",
+  "files": {
+    "BUILD-RECEIPT.json": {
+      "sha256": "2c3523941089801e9130740721c153ff3bc1eaee017b9fa3b5ae945064ddd271",
+      "bytes": 1691479
+    },
+    "CHECKPOINT.md": {
+      "sha256": "bfe213e4f877d644662d74f9717f59d928d2de0166a4541995e00801a87ae627",
+      "bytes": 1685
+    },
+    "CRITIC-POSTFLIGHT.md": {
+      "sha256": "5e65bf334d170fc3fa3b0d247aad070db22395678ee64486371e906a7fca2152",
+      "bytes": 4259
+    },
+    "CRITIC-SOURCE-RECEIPT.json": {
+      "sha256": "62aebe924ce2f30f29b616faa246a0f75d0bf99771a4df4ecf140dd0e21f985f",
+      "bytes": 1447
+    },
+    "CRITIC-SOURCE.md": {
+      "sha256": "c514287088a19a0ab57374a1cea6e13f3528dca8e86f046c09d4697f64e37aac",
+      "bytes": 5716
+    },
+    "CRITIC-TOPOLOGY-READBACK.json": {
+      "sha256": "8867513ae00efdc3dc9f3d91027e54cea7b3d25c2ff96adde8d77aef2ea83434",
+      "bytes": 1886
+    },
+    "CRITIC-VALUE.md": {
+      "sha256": "cbcfd9f4a1788d2d6e4091b2364079228f65804ca1e101dff5695cb01fe9722e",
+      "bytes": 3868
+    },
+    "PLAN.md": {
+      "sha256": "f04ae1b88299592e96b17190a7b4a86c76cf051435464d12f0f9e9fea32047c8",
+      "bytes": 6529
+    },
+    "PRE-FLIGHT.md": {
+      "sha256": "e794d75ec59892b2549eb5e81bf2f0b0e987ce0ac4ae87cf7ab6c70991265f15",
+      "bytes": 2498
+    },
+    "README.md": {
+      "sha256": "7ef89ce98e641e09bb4ae6b1f76d25d9a8aa37e8c4bdbb71b8900d29fb699504",
+      "bytes": 1093
+    },
+    "RECEIPT.md": {
+      "sha256": "1b4c519e525a2353e08b4676ef2530195539abd54a4f8ec1a9e832345afb11de",
+      "bytes": 4957
+    },
+    "ROOT-ADMISSION.md": {
+      "sha256": "17725e87e32ff8bd8bdb91549a8a2500afeda17e63b5be97f880ede104e0722b",
+      "bytes": 915
+    },
+    "ROOT-DECISION.md": {
+      "sha256": "5cabd8ce27cf24b1e658a275468e85637e2c66abad6c1a86226a77bf53a40f3c",
+      "bytes": 3264
+    },
+    "ROOT-WITNESS.json": {
+      "sha256": "357e179fd3ca21b096d001134fa2bbbe0b976ffeb0489e25e848f5416f03f131",
+      "bytes": 1711
+    },
+    "SUPERVISOR-RECEIPT.json": {
+      "sha256": "682556a726e7d0d85a25bf65493ef29f1704a3e4570863423e125474b1ec1333",
+      "bytes": 662
+    },
+    "build.mjs": {
+      "sha256": "37467d6a8748d3315b6907ae2e75695b114506db4974bb9c9f4b73f325434a03",
+      "bytes": 12082
+    },
+    "critic-topology-reader.py": {
+      "sha256": "3ec22b26b7d9ca0ee2eef759029ef5a0c399c6d032dd0b930b54996d24d5f6ad",
+      "bytes": 4364
+    },
+    "freeze.py": {
+      "sha256": "cdd8c91a0070ea42f20178c77534f25ae5a7447c13aa035bcb8917c1ae9160d4",
+      "bytes": 2755
+    },
+    "preflight-history/build-before-supervisor.mjs": {
+      "sha256": "9e1fba6c3c554a1b8e25da28449656da1666f8388867221254de4dd30423f8dc",
+      "bytes": 9689
+    },
+    "preflight-history/critic-source-initial.md": {
+      "sha256": "cdd9fbe11ea1c2e7d24993394089132552fd89facc2490352046e92844b80781",
+      "bytes": 4258
+    },
+    "preflight-history/observer-before-full-pose.mjs": {
+      "sha256": "c122470050e92cf61ca45833baf7e4679681452d11c4c5a8fe9a4d463096b236",
+      "bytes": 9157
+    },
+    "preflight-history/preview-before-full-pose.mjs": {
+      "sha256": "48a929b0ce14441e6c7c9224a846b24753705f59da497b2fa2eeface32972c60",
+      "bytes": 9219
+    },
+    "preview.html": {
+      "sha256": "68aed52a40e93530bb77ac8b2652d6c3b4dcba729e48c84f0e6b46989135f82c",
+      "bytes": 1036
+    },
+    "preview.mjs": {
+      "sha256": "0dbfeb37057550ea63a1938d39d94f20e65beab3f43b7eb6fb5dd3505774bea5",
+      "bytes": 10221
+    },
+    "root-witness.py": {
+      "sha256": "851b664a37966014066bcbda60f27a4b1b5be7f09c4e07be8fc0227e981feeab",
+      "bytes": 3199
+    },
+    "world-gate-worker.mjs": {
+      "sha256": "da5f370d0d21902c19246740452c71a1dcd9241b527a6042fbe9f20dd0c570d3",
+      "bytes": 1421
+    }
+  },
+  "externalInputs": {
+    "docs/evidence/nonhair-2026-10-03/shared-boundary-interface/interface.json": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "tools/figure-pipeline/hair_surface.mjs": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/build.mjs": "37467d6a8748d3315b6907ae2e75695b114506db4974bb9c9f4b73f325434a03",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.mjs": "0dbfeb37057550ea63a1938d39d94f20e65beab3f43b7eb6fb5dd3505774bea5",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/preview.html": "68aed52a40e93530bb77ac8b2652d6c3b4dcba729e48c84f0e6b46989135f82c",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/world-gate-worker.mjs": "da5f370d0d21902c19246740452c71a1dcd9241b527a6042fbe9f20dd0c570d3",
+    "tools/critic/whole-head-volume.mjs": "9cc05e38b70cf7c03fd4ac15d975ecb38c0a5ce97b212905c35a1ed1d5455c77",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/PLAN.md": "f04ae1b88299592e96b17190a7b4a86c76cf051435464d12f0f9e9fea32047c8",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/CRITIC-VALUE.md": "cbcfd9f4a1788d2d6e4091b2364079228f65804ca1e101dff5695cb01fe9722e",
+    "docs/evidence/nonhair-2026-10-03/whole-head-volume/CRITIC-SOURCE.md": "c514287088a19a0ab57374a1cea6e13f3528dca8e86f046c09d4697f64e37aac",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.webgpu.js": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340",
+    "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+    "docs/evidence/appearance-2026-10-02/front-design/DOMAIN-DECISION.md": "6d376ca2d1a80de81196b2aaf8c0602381bf7a4ef156c3901c468f346bac2244",
+    "docs/evidence/appearance-2026-10-02/front-design/anatomy-anchors.json": "f846be59e18ce5485a41ddac67a90342b19733a4a42209b862fd6c3fb22eb9ba",
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "captures/whole-front-blockout-2026-10-03-v1/proposal-front.png": "86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752",
+    "captures/whole-front-blockout-2026-10-03-v1/proposal-oblique.png": "370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df",
+    "docs/evidence/nonhair-2026-10-03/sculpt-value/CRITIC-VALUE.md": "74cc78a17cff9657aee27aab130f4ebe758a0b9286e9a501eb87ee9ec8338c56",
+    "docs/evidence/nonhair-2026-10-03/sculpt-value/PRIMARY-REFERENCE.md": "36e6e09eb29b200caaa15e27b4dc2f2befb4f9e18ab809ae3d0e8ce5da7dc33e"
+  },
+  "nativeSourceSHA256": "9cc05e38b70cf7c03fd4ac15d975ecb38c0a5ce97b212905c35a1ed1d5455c77",
+  "status": "exact refused single CPU candidate/source/receipts retained; no repair/export/native/appearance",
+  "limits": "Original CPU arrays not exported; separate index-only source witness, no position/surface reevaluation"
+}
