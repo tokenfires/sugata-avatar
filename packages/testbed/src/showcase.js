@@ -80,7 +80,7 @@ const collectionAvailable = () => !busy && !savingImage && !failed && avatar && 
 function updateCollectionControls() {
     document.getElementById('collection-controls').disabled = !collectionAvailable();
     document.getElementById('save-local-look').disabled = !collectionAvailable() || collectionCount >= SAVED_LOOKS_LIMIT;
-    for (const button of document.querySelectorAll('[data-open-look]')) button.disabled = !collectionAvailable() || button.dataset.unavailable === 'true';
+    for (const button of document.querySelectorAll('[data-open-look], [data-download-look]')) button.disabled = !collectionAvailable() || button.dataset.unavailable === 'true';
     document.getElementById('rename-look-save').disabled = !collectionAvailable() || !renameDraft || renameDraft.stale;
     document.getElementById('rename-look-retry').hidden = !collectionBlocked;
     document.getElementById('rename-look-retry').disabled = busy || savingImage || failed || !avatar || avatar.disposed;
@@ -108,20 +108,23 @@ function renderCollection() {
             const row = document.createElement('li'), name = document.createElement('strong'), description = document.createElement('small'), actions = document.createElement('div');
             let recipe = null;
             name.textContent = item.name; description.id = `saved-description-${item.id}`; actions.className = 'saved-look-actions';
-            const open = document.createElement('button'), rename = document.createElement('button'), remove = document.createElement('button');
-            open.type = rename.type = remove.type = 'button'; open.className = rename.className = remove.className = 'secondary';
+            const open = document.createElement('button'), rename = document.createElement('button'), download = document.createElement('button'), remove = document.createElement('button');
+            open.type = rename.type = download.type = remove.type = 'button'; open.className = rename.className = download.className = remove.className = 'secondary';
             open.textContent = 'Open'; rename.textContent = 'Rename'; remove.textContent = 'Remove'; open.dataset.openLook = item.id; rename.dataset.renameLook = item.id; remove.dataset.removeLook = item.id;
+            download.textContent = 'Download JSON'; download.dataset.downloadLook = item.id;
             open.setAttribute('aria-label', `Open saved look ${item.name}`); rename.setAttribute('aria-label', `Rename saved look ${item.name}`); remove.setAttribute('aria-label', `Remove saved look ${item.name}`);
+            download.setAttribute('aria-label', `Download JSON for saved look ${item.name}`);
             open.setAttribute('aria-describedby', description.id);
             try {
                 const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
                 description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style}${customColourLabel(look) ? ` · ${customColourLabel(look)}` : ''} · ${hairColourLabel(look.hairColour, look.hairTint)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : look.light === 'neutral' ? 'Neutral Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
                 recipe = savedColourRecipe(look);
-            } catch { open.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
+            } catch { open.dataset.unavailable = download.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
             if (recipe) {
                 recipe.id = `saved-recipe-${item.id}`;
                 open.setAttribute('aria-describedby', `${description.id} ${recipe.id}`);
             }
+            download.setAttribute('aria-describedby', open.getAttribute('aria-describedby'));
             open.addEventListener('click', () => {
                 if (!collectionAvailable()) return;
                 try {
@@ -131,6 +134,16 @@ function renderCollection() {
                 } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
             });
             rename.addEventListener('click', () => startRename(item));
+            download.addEventListener('click', () => {
+                if (!collectionAvailable()) return;
+                try {
+                    const { item: latest } = savedLooks.open(item.id);
+                    if (JSON.stringify(latest) !== JSON.stringify(item)) throw new Error('This saved look changed. Review it before downloading.');
+                    const filename = latest.name.replace(/[<>:"/\\|?*]/g, '-').replace(/[. ]+$/g, '') || 'saved-look';
+                    downloadBlob(new Blob([JSON.stringify(latest.configuration, null, 2) + '\n'], {type: 'application/json'}), `sugata-${filename}.json`);
+                    collectionFeedback(`Settings for “${latest.name}” downloaded.`);
+                } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
+            });
             remove.addEventListener('click', () => {
                 if (!collectionAvailable()) return;
                 try {
@@ -138,7 +151,7 @@ function renderCollection() {
                     if (renderCollection()) { collectionFeedback(`Removed “${removed.name}”. You can undo this removal.`); document.getElementById('undo-look').focus(); }
                 } catch (error) { renderCollection(); collectionFeedback(error.message, true); }
             });
-            actions.append(open, rename, remove); row.append(name, description); if (recipe) row.append(recipe); row.append(actions); list.append(row);
+            actions.append(open, rename, download, remove); row.append(name, description); if (recipe) row.append(recipe); row.append(actions); list.append(row);
         }
         updateCollectionControls(); return true;
     } catch (error) {

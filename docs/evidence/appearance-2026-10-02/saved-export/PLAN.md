@@ -1,0 +1,11 @@
+# Direct saved-look JSON download
+
+**Usable improvement:** download a supported saved recipe without opening it or replacing the active preview. Root and critic independently viewed the existing V2 desktop/mobile originals and source: rows have Open/Rename/Remove; the global download serializes the active avatar, and Open navigates to another preview. This slice starts `2026-10-03T02:41:46Z`, with a 25-minute stop at `03:06:46Z`.
+
+Add a row Download JSON action, with the saved name in a portable filename, two-column action layout and accessible description. Read the current saved entry through the existing strict Open validator, require it still equals the displayed record, and serialize its original supported configuration. Unsupported, changed or removed entries produce no download. No storage write, metadata/envelope migration, avatar change or accepted asset change is required.
+
+**Decision-changing question:** does a direct download retain the selected recipe and current viewing state without stale-entry ambiguity or mobile overflow? One actual native probe checks downloaded file bytes/JSON, reopens that file through the existing file input, checks active owner/configuration/URL/storage before reopening, stale/removed/unsupported controls and no-download errors, keyboard order, source binding and actual desktop/mobile screenshots. Stop on failed required behavior or unsafe serialization; save the failure before any repair. Root alone owns GPU/browser jobs and independently checks the critic handoff.
+
+**Alternative A (selected):** row download preserves the current preview and makes named recipes portable, at the cost of a fourth action and more row height. **B:** retain Open then global Save settings; less UI, but interrupts the active preview for each backup. Independent critic found A worth doing from actual source/image witnesses. This is a bounded customization feature, not character/hair/fit qualification. The separate broader front-guide design direction and full roadmap remain open.
+
+Entry checkpoint `a145900`; review server PID 1023 on loopback 5173, no native job retained from the previous slice. Exact commands/jobs, source/output hashes and independent verdict follow in the result receipt.
