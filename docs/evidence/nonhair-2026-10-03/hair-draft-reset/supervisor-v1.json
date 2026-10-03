@@ -1,0 +1,141 @@
+{
+  "pid": 59568,
+  "started": "2026-10-03T23:41:49.167508+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/hair-draft-reset/supervise.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "inputs": {
+    "PLAN.md": "1ef5e09d1b8c056d61de456f7ec2e5e29328abc0d5a2a1ac942b2e9624309e89",
+    "capture.mjs": "457238ac1f9bc297b6ab7f0d5c94db978b51882995e4ccdbeadb8ff1303f6123",
+    "supervise.py": "75e2403b6c112313c6b5b99d1f096fedbc204e3f5a171442180b92e24a64da6c",
+    "CRITIC-VALUE.md": "e0ed322af076c02ae85ea139b8551091ed2d56690bb2f86daebd84fe0164988d",
+    "CRITIC-SOURCE.md": "6e454f0c44d62dbb718600b5723cd87597f65e1cfc5f0c228d923bead47aa3d2",
+    "ROOT-PREFLIGHT.json": "30101dc38ba067b5c5b1f2070b8630aaa96b3934cbdcb7a9ac21db052928dd4c"
+  },
+  "owned": {
+    "59579": {
+      "pid": 59579,
+      "ppid": 59568,
+      "pgid": 59579,
+      "start": "Sat Oct 3 16:41:49 2026",
+      "command": "/Users/robault/.brv-cli/bin/node /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.mjs",
+      "firstObservedUTC": "2026-10-03T23:41:49.212104+00:00"
+    },
+    "59581": {
+      "pid": 59581,
+      "ppid": 59579,
+      "pgid": 59581,
+      "start": "Sat Oct 3 16:41:49 2026",
+      "command": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --enable-unsafe-webgpu --ignore-gpu-blocklist --hide-scrollbars --user-data-dir=/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/playwright_chromiumdev_profile-veCITm --remote-debugging-pipe --no-startup-window",
+      "firstObservedUTC": "2026-10-03T23:41:49.763223+00:00"
+    },
+    "59624": {
+      "pid": 59624,
+      "ppid": 59581,
+      "pgid": 59581,
+      "start": "Sat Oct 3 16:41:51 2026",
+      "command": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/149.0.7827.55/Helpers/Google Chrome for Testing Helper (GPU).app/Contents/MacOS/Google Chrome for Testing Helper (GPU) --type=gpu-process --no-sandbox --disable-breakpad --headless --enable-unsafe-swiftshader --noerrdialogs --user-data-dir=/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/playwright_chromiumdev_profile-veCITm --start-stack-profiler --gpu-preferences=SAAAAAAAAAAgAAAMAAAAAAAAAAAAAGAAAwAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=1718379636,r,17355308895885395699,14370969818378378226,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,RenderDocument,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,13734558265356802396,6664521789988892655,4 --trace-process-track-uuid=3190708988185955192",
+      "firstObservedUTC": "2026-10-03T23:41:51.398163+00:00"
+    },
+    "59627": {
+      "pid": 59627,
+      "ppid": 59581,
+      "pgid": 59581,
+      "start": "Sat Oct 3 16:41:51 2026",
+      "command": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/149.0.7827.55/Helpers/Google Chrome for Testing Helper.app/Contents/MacOS/Google Chrome for Testing Helper --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=network --no-sandbox --mute-audio --noerrdialogs --user-data-dir=/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/playwright_chromiumdev_profile-veCITm --start-stack-profiler --shared-files --field-trial-handle=1718379636,r,17355308895885395699,14370969818378378226,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,RenderDocument,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,13734558265356802396,6664521789988892655,4 --trace-process-track-uuid=3190708989122997041",
+      "firstObservedUTC": "2026-10-03T23:41:51.398199+00:00"
+    },
+    "59638": {
+      "pid": 59638,
+      "ppid": 59581,
+      "pgid": 59581,
+      "start": "Sat Oct 3 16:41:51 2026",
+      "command": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/149.0.7827.55/Helpers/Google Chrome for Testing Helper.app/Contents/MacOS/Google Chrome for Testing Helper --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --mute-audio --noerrdialogs --user-data-dir=/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/playwright_chromiumdev_profile-veCITm --shared-files --field-trial-handle=1718379636,r,17355308895885395699,14370969818378378226,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,RenderDocument,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,13734558265356802396,6664521789988892655,4 --trace-process-track-uuid=3190708990060038890",
+      "firstObservedUTC": "2026-10-03T23:41:51.398200+00:00"
+    },
+    "59662": {
+      "pid": 59662,
+      "ppid": 59581,
+      "pgid": 59581,
+      "start": "Sat Oct 3 16:41:51 2026",
+      "command": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/149.0.7827.55/Helpers/Google Chrome for Testing Helper (Renderer).app/Contents/MacOS/Google Chrome for Testing Helper (Renderer) --type=renderer --noerrdialogs --user-data-dir=/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/playwright_chromiumdev_profile-veCITm --no-sandbox --disable-back-forward-cache --disable-background-timer-throttling --disable-breakpad --enable-unsafe-webgpu --force-color-profile=srgb --remote-debugging-pipe --allow-pre-commit-input --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=7 --time-ticks-at-unix-epoch=-1790947763196453 --launch-time-ticks=123147984476 --shared-files --field-trial-handle=1718379636,r,17355308895885395699,14370969818378378226,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,RenderDocument,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,13734558265356802396,6664521789988892655,4 --trace-process-track-uuid=3190708992871164437",
+      "firstObservedUTC": "2026-10-03T23:41:51.398201+00:00"
+    },
+    "59663": {
+      "pid": 59663,
+      "ppid": 59581,
+      "pgid": 59581,
+      "start": "Sat Oct 3 16:41:51 2026",
+      "command": "/Users/robault/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/Frameworks/Google Chrome for Testing Framework.framework/Versions/149.0.7827.55/Helpers/Google Chrome for Testing Helper (Renderer).app/Contents/MacOS/Google Chrome for Testing Helper (Renderer) --type=renderer --noerrdialogs --user-data-dir=/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/playwright_chromiumdev_profile-veCITm --no-sandbox --disable-back-forward-cache --disable-background-timer-throttling --disable-breakpad --enable-unsafe-webgpu --force-color-profile=srgb --remote-debugging-pipe --allow-pre-commit-input --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1790947763196453 --launch-time-ticks=123147985056 --shared-files --field-trial-handle=1718379636,r,17355308895885395699,14370969818378378226,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,RenderDocument,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,13734558265356802396,6664521789988892655,4 --trace-process-track-uuid=3190708991934122588",
+      "firstObservedUTC": "2026-10-03T23:41:51.398202+00:00"
+    }
+  },
+  "observations": [
+    {
+      "utc": "2026-10-03T23:41:49.212129+00:00",
+      "newIdentities": [
+        59579
+      ],
+      "liveOwned": [
+        59579
+      ],
+      "ownedLeaderGroups": [
+        59579
+      ]
+    },
+    {
+      "utc": "2026-10-03T23:41:49.763248+00:00",
+      "newIdentities": [
+        59581
+      ],
+      "liveOwned": [
+        59579,
+        59581
+      ],
+      "ownedLeaderGroups": [
+        59579,
+        59581
+      ]
+    },
+    {
+      "utc": "2026-10-03T23:41:51.398207+00:00",
+      "newIdentities": [
+        59624,
+        59627,
+        59638,
+        59662,
+        59663
+      ],
+      "liveOwned": [
+        59579,
+        59581,
+        59624,
+        59627,
+        59638,
+        59662,
+        59663
+      ],
+      "ownedLeaderGroups": [
+        59579,
+        59581
+      ]
+    }
+  ],
+  "status": "failed",
+  "limits": "Concrete observed child ancestry/start identities; group membership recorded separately. No global absence/unobserved-descendant guarantee. Forced termination cannot establish JS disposal.",
+  "childPID": 59579,
+  "node": "/Users/robault/.brv-cli/bin/node",
+  "childCommand": [
+    "/Users/robault/.brv-cli/bin/node",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.mjs"
+  ],
+  "exitCode": 1,
+  "survivors": [],
+  "observedGroupRemainders": [],
+  "forced": false,
+  "failure": "AssertionError('source/browser actor failed or forced')",
+  "finalLiveRecordedIdentities": [],
+  "finalObservedGroupMembers": [],
+  "pinsUnchanged": true,
+  "finished": "2026-10-03T23:41:54.214494+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "pid": 42016,
+  "savedUTC": "2026-10-03T23:32:26.332215+00:00",
+  "command": "apply_patch: three owned showcase files",
+  "files": {
+    "packages/testbed/src/showcase.html": "0722d39d7b22a7c0ab685c1a75ced03034767ea46997e3ea63d75f2cc3148c73",
+    "packages/testbed/src/showcase-hair-colours.mjs": "9b529e78ed06541d60706f085ef977f20a69c99c6e4c2afcf96a2dc1ed4cbdc0",
+    "packages/testbed/src/showcase-hair-colours.css": "830f16573ac04ded2f7d106ab9b4a98d866464280ff0ff4ea97cb8e19ea0898e"
+  },
+  "decision": "A full draft/proposal reset; effective Apply unchanged",
+  "rootReadCriticSHA256": "e0ed322af076c02ae85ea139b8551091ed2d56690bb2f86daebd84fe0164988d"
+}

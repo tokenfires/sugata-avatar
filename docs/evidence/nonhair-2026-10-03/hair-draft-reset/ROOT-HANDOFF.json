@@ -1,0 +1,14 @@
+{
+  "pid": 85237,
+  "started": "2026-10-03T23:53:44.483224+00:00",
+  "finished": "2026-10-03T23:53:44.624111+00:00",
+  "command": "python3 stdin full critic note/reader/receipt/all399pins and independent raw hair state readback",
+  "criticSHA256": "52b8b7674574b9dc3bb78a76c2af62bd39177a2852131e032325aff7ed478aa7",
+  "readerSHA256": "ca4f1f84d5b8d609db5d7e651081128708a9584794582ebd70843623df72cb70",
+  "receiptSHA256": "1cda143548313082f72a36f17454935fc21ba289c0a17fee898a6cdb3c8e1c0d",
+  "verifiedDistinctPins": 399,
+  "rootEarlierIndependentReaderSHA256": "38bc65944061b9487da05ee72f637c390d4405adfc85f73f92b1f7ef63f6e285",
+  "rootEarlierReceiptSHA256": "f4eb6acba6df484dc5115a30112a57e14a59fcd45f28563f3ccb984af9c9af4e",
+  "rawHairEqual": true,
+  "status": "complete handoff independently reconciled; candidate deferred/restored"
+}

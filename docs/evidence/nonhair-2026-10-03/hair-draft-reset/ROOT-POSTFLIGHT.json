@@ -1,0 +1,38 @@
+{
+  "pid": 66186,
+  "started": "2026-10-03T23:44:55.782Z",
+  "finished": "2026-10-03T23:44:56.128Z",
+  "command": "node /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-draft-reset/root-postflight.mjs",
+  "status": "actual refusal/restoration independently verified",
+  "nativeReportSHA256": "de2542cc1c7edbbb279c8e946ca9edc84fda7b93433fb47fc8a43b264285ce78",
+  "supervisorSHA256": "ac46e3d336fe34b479c8b47c8bfd5fb5fe8ac18549e77e7e4304ad7a56e49fd4",
+  "restoreSHA256": "b09bcd6d08c5345f4b0df84885095d14528d5a071fa42b5dec69486d9f615efa",
+  "sourceCount": 380,
+  "assets": 6,
+  "initialStatePreservation": [
+    "configuration",
+    "url",
+    "storage",
+    "attached identity/colour",
+    "owner reference",
+    "paused clocks"
+  ],
+  "notExercised": [
+    "Reset",
+    "Brown",
+    "custom zero/nonzero",
+    "mobile",
+    "seven UI images"
+  ],
+  "recordedOwnedAbsent": [
+    59579,
+    59581,
+    59624,
+    59627,
+    59638,
+    59662,
+    59663
+  ],
+  "reviewRetained": true,
+  "attributionLimit": "navCount not saved at baseline nor event URLs/times/document IDs; 48 aborts have no timestamp/document attribution. Exact event/abort cause unproved."
+}

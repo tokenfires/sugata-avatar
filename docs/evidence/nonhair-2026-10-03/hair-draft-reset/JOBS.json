@@ -1,0 +1,73 @@
+{
+  "savedUTC": "2026-10-03T23:48:13.349633+00:00",
+  "jobs": [
+    {
+      "command": "apply_patch: three owned product files",
+      "pid": null,
+      "result": "isolated candidate preserved; exact restoration completed",
+      "editSHA256": "e51aa926ec377dcd19464148b6043c09c9edf71aaffe7e7a41b52599be906f54"
+    },
+    {
+      "command": "npm run build:pages > hair-draft-reset/build-pages.log 2>&1",
+      "pid": null,
+      "startEndUTC": null,
+      "exitCode": 0,
+      "toolChunk": "d873ca",
+      "result": "actual showcase built; existing large chunk warning retained",
+      "logSHA256": "5626d28d332ef143e790179e6801ba96722499df711340a804e8412547c6f06e"
+    },
+    {
+      "command": "root source-map reader",
+      "pid": 49145,
+      "utc": "2026-10-03T23:36:15.230Z",
+      "exitCode": 0,
+      "toolChunk": "5231ec"
+    },
+    {
+      "command": "root preflight (full critic17pins and380source/baseline7)",
+      "pid": 59248,
+      "started": "2026-10-03T23:41:40.583Z",
+      "finished": "2026-10-03T23:41:40.720Z",
+      "exitCode": 0,
+      "toolChunk": "947c2e"
+    },
+    {
+      "command": "python3 docs/evidence/nonhair-2026-10-03/hair-draft-reset/supervise.py",
+      "pid": 59568,
+      "started": "2026-10-03T23:41:49.167508+00:00",
+      "finished": "2026-10-03T23:41:54.214494+00:00",
+      "exitCode": 1,
+      "session": 25865,
+      "launchChunk": "47c043",
+      "finalChunk": "d1b46c",
+      "forced": false,
+      "reportSHA256": "ac46e3d336fe34b479c8b47c8bfd5fb5fe8ac18549e77e7e4304ad7a56e49fd4"
+    },
+    {
+      "command": "node /Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.mjs",
+      "pid": 59579,
+      "started": "2026-10-03T23:41:49.195Z",
+      "finished": "2026-10-03T23:41:53.947Z",
+      "exitCode": 1,
+      "reportSHA256": "de2542cc1c7edbbb279c8e946ca9edc84fda7b93433fb47fc8a43b264285ce78",
+      "logSHA256": "376fd9d77fd97944e674a055e8b29ca54d63e316116e9e8a457962a7739d9626"
+    },
+    {
+      "command": "guarded exact restore3",
+      "pid": 61860,
+      "started": "2026-10-03T23:42:56.139432+00:00",
+      "finished": "2026-10-03T23:42:56.140311+00:00",
+      "exitCode": 0,
+      "toolChunk": "eda42c"
+    },
+    {
+      "command": "node docs/evidence/nonhair-2026-10-03/hair-draft-reset/root-postflight.mjs",
+      "pid": 66186,
+      "started": "2026-10-03T23:44:55.782Z",
+      "finished": "2026-10-03T23:44:56.128Z",
+      "exitCode": 0,
+      "toolChunk": "ab45b0"
+    }
+  ],
+  "unknown": "No invented PID/start/end for apply_patch or build; tool status and exact generated receipts retained."
+}

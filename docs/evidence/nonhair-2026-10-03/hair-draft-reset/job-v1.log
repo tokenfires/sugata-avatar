@@ -1,0 +1,20 @@
+{"pid":59579,"started":"2026-10-03T23:41:49.195Z","finished":"2026-10-03T23:41:53.947Z","status":"failed","cases":1,"images":0,"errors":2,"failedResources":48,"warnings":4,"cleanup":{"partial-final":"page closed","browserIsConnected":false},"reportSHA256":"de2542cc1c7edbbb279c8e946ca9edc84fda7b93433fb47fc8a43b264285ce78"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: no Reset navigation
+
+3 !== 1
+
+    at preserve (file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.mjs:39:116)
+    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.mjs:111:60 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 3,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.13.1

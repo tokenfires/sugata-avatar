@@ -1,0 +1,32 @@
+{
+  "pid": 59248,
+  "started": "2026-10-03T23:41:40.583Z",
+  "finished": "2026-10-03T23:41:40.720Z",
+  "command": "node --input-type=module: full critic17pins/source380/baseline7/current originals and fresh output preflight",
+  "status": "GO source only",
+  "launchBeforeUTC": "2026-10-04T00:02:00Z",
+  "criticSHA256": "6e454f0c44d62dbb718600b5723cd87597f65e1cfc5f0c228d923bead47aa3d2",
+  "pins": {
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/PLAN.md": "1ef5e09d1b8c056d61de456f7ec2e5e29328abc0d5a2a1ac942b2e9624309e89",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/BASELINE.json": "00e3df992217e5d69a3f0d18f07b4950062f72e707ef7070e6e708d6561e1e49",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/EDIT.json": "e51aa926ec377dcd19464148b6043c09c9edf71aaffe7e7a41b52599be906f54",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.mjs": "457238ac1f9bc297b6ab7f0d5c94db978b51882995e4ccdbeadb8ff1303f6123",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/supervise.py": "75e2403b6c112313c6b5b99d1f096fedbc204e3f5a171442180b92e24a64da6c",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.before-review.mjs.source": "5464f469790dd3b5718842610fd76b1539571a7d37918adf1abdbe2245b0728f",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/capture.initial.mjs.source": "0b7b2e065424cfe7a56e3bdfcf711595c5e8f0cffa7521fd3901b0e0ab9ff9bd",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/ROOT-SOURCE.json": "11a56c0ae48e2a567c111595c125d8755794b5e295827b6cf8f0774712aaeb42",
+    "docs/evidence/nonhair-2026-10-03/hair-draft-reset/build-pages.log": "5626d28d332ef143e790179e6801ba96722499df711340a804e8412547c6f06e",
+    "packages/core/src/Avatar.js": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+    "packages/core/src/render/CardRenderHistory.js": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f",
+    "packages/testbed/src/showcase.js": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189",
+    "packages/testbed/src/showcase-presets.mjs": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+    "packages/core/src/material/HairColourOptions.js": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409",
+    "packages/testbed/src/showcase.html": "0722d39d7b22a7c0ab685c1a75ced03034767ea46997e3ea63d75f2cc3148c73",
+    "packages/testbed/src/showcase-hair-colours.mjs": "9b529e78ed06541d60706f085ef977f20a69c99c6e4c2afcf96a2dc1ed4cbdc0",
+    "packages/testbed/src/showcase-hair-colours.css": "830f16573ac04ded2f7d106ab9b4a98d866464280ff0ff4ea97cb8e19ea0898e"
+  },
+  "sourceCount": 380,
+  "actualSourceSHA256": "11a56c0ae48e2a567c111595c125d8755794b5e295827b6cf8f0774712aaeb42",
+  "rootIndependentReviewSHA256": "e18fec8ac48f1a45ca930f015b941b8159ce83fd31166aa1c89c2b8add8051b3",
+  "noRawOutputYet": true
+}
