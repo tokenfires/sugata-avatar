@@ -1,0 +1,229 @@
+{
+  "pid": 1428,
+  "started": "2026-10-03T17:35:00.696228+00:00",
+  "finished": "2026-10-03T17:35:00.696746+00:00",
+  "method": "root independent JSON/undirected connectivity/seam/tangent/dimension inspection; no mesh/surface/Avatar",
+  "netSHA256": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936",
+  "nodes": 50,
+  "cellEdges": 89,
+  "boundaryNodes": 18,
+  "boundaryComponents": 1,
+  "partSeamPositionAndReversedDvEqual": true,
+  "backSeamPositionAndReversedDuEqualAfterFirstSpan": true,
+  "rows": [
+    {
+      "side": "minusX",
+      "openingP": [
+        [
+          0.016,
+          1.643,
+          0.111
+        ],
+        [
+          0.0,
+          1.632,
+          0.15
+        ],
+        [
+          -0.05,
+          1.595,
+          0.159
+        ],
+        [
+          -0.067,
+          1.553,
+          0.14
+        ],
+        [
+          -0.07,
+          1.492,
+          0.122
+        ],
+        [
+          -0.06,
+          1.462,
+          0.095
+        ]
+      ],
+      "openingDv": [
+        [
+          -0.26,
+          0,
+          0
+        ],
+        [
+          -0.212903226,
+          -0.15483871,
+          0.15483871
+        ],
+        [
+          -0.163414634,
+          -0.192682927,
+          -0.024390244
+        ],
+        [
+          -0.040816327,
+          -0.210204082,
+          -0.075510204
+        ],
+        [
+          0.015555556,
+          -0.202222222,
+          -0.1
+        ],
+        [
+          0.05,
+          -0.15,
+          -0.135
+        ]
+      ],
+      "sectionDimensions": [
+        {
+          "section": "part/crown",
+          "Xspan": 0.002,
+          "Yspan": 0.056,
+          "Zspan": 0.201
+        },
+        {
+          "section": "root-lift/hairline",
+          "Xspan": 0.068,
+          "Yspan": 0.078,
+          "Zspan": 0.242
+        },
+        {
+          "section": "temple",
+          "Xspan": 0.099,
+          "Yspan": 0.063,
+          "Zspan": 0.256
+        },
+        {
+          "section": "cheek",
+          "Xspan": 0.105,
+          "Yspan": 0.017,
+          "Zspan": 0.24
+        },
+        {
+          "section": "jaw-turn",
+          "Xspan": 0.096,
+          "Yspan": 0.026,
+          "Zspan": 0.226
+        },
+        {
+          "section": "inward hem",
+          "Xspan": 0.079,
+          "Yspan": 0.009,
+          "Zspan": 0.191
+        }
+      ]
+    },
+    {
+      "side": "plusX",
+      "openingP": [
+        [
+          0.016,
+          1.643,
+          0.111
+        ],
+        [
+          0.047,
+          1.635,
+          0.139
+        ],
+        [
+          0.066,
+          1.603,
+          0.14
+        ],
+        [
+          0.071,
+          1.55,
+          0.133
+        ],
+        [
+          0.073,
+          1.5,
+          0.112
+        ],
+        [
+          0.064,
+          1.474,
+          0.089
+        ]
+      ],
+      "openingDv": [
+        [
+          0.26,
+          0,
+          0
+        ],
+        [
+          0.161290323,
+          -0.129032258,
+          0.093548387
+        ],
+        [
+          0.058536585,
+          -0.207317073,
+          -0.014634146
+        ],
+        [
+          0.014285714,
+          -0.210204082,
+          -0.057142857
+        ],
+        [
+          -0.015555556,
+          -0.168888889,
+          -0.097777778
+        ],
+        [
+          -0.045,
+          -0.13,
+          -0.115
+        ]
+      ],
+      "sectionDimensions": [
+        {
+          "section": "part/crown",
+          "Xspan": 0.002,
+          "Yspan": 0.056,
+          "Zspan": 0.201
+        },
+        {
+          "section": "root-lift/hairline",
+          "Xspan": 0.088,
+          "Yspan": 0.072,
+          "Zspan": 0.231
+        },
+        {
+          "section": "temple",
+          "Xspan": 0.105,
+          "Yspan": 0.061,
+          "Zspan": 0.237
+        },
+        {
+          "section": "cheek",
+          "Xspan": 0.108,
+          "Yspan": 0.017,
+          "Zspan": 0.233
+        },
+        {
+          "section": "jaw-turn",
+          "Xspan": 0.098,
+          "Yspan": 0.025,
+          "Zspan": 0.216
+        },
+        {
+          "section": "inward hem",
+          "Xspan": 0.079,
+          "Yspan": 0.008,
+          "Zspan": 0.185
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Not triangle winding or nonselfintersection/body-clearance/native/motion verification.",
+    "Projection curves inspect source only; no image pixels asserted."
+  ]
+}

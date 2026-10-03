@@ -1,0 +1,42 @@
+{
+  "pid": 10558,
+  "recorded": "2026-10-03T17:38:54.781585+00:00",
+  "method": "root direct scalar boundary Hermite arithmetic from pinned literal fields; no surface/mesh/native",
+  "netSHA256": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936",
+  "sharedEndpoints": [
+    "part-4",
+    "back-1"
+  ],
+  "vInterval": [
+    0,
+    0.14
+  ],
+  "localT": 0.3333333333333333,
+  "startDvMinus": [
+    -0.26,
+    0,
+    0
+  ],
+  "startDvPlus": [
+    0.26,
+    0,
+    0
+  ],
+  "endDvMinus": [
+    -0.058064516,
+    -0.164516129,
+    -0.022580645
+  ],
+  "endDvPlus": [
+    -0.058064516,
+    -0.164516129,
+    -0.022580645
+  ],
+  "boundaryDifferenceMetres": [
+    -0.010785185185185186,
+    0.0,
+    0.0
+  ],
+  "gapMillimetres": 10.785185185185187,
+  "decision": "First back seam is not G0 along full boundary; net incomplete; no builder/repair/re-authoring under this closed trial"
+}

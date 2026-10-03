@@ -1,0 +1,33 @@
+{
+  "pid": 6034,
+  "started": "2026-10-03T17:36:55.807510+00:00",
+  "finished": "2026-10-03T17:36:55.809123+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "command": "inline python3 stdin fs/JSON/XML reader (tool source is the literal command)",
+  "hashes": {
+    "control-net.json": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936",
+    "author-net.py": "9290b6205610c4a354918e9673ebd667a2035209b21c5b52e07c11b61a15fedd",
+    "control-net.svg": "43a850ff50232af5b2686f80d9d0a38a052584125f9548cd3e20bc8354b5b441"
+  },
+  "records": 60,
+  "uniquePositionIDs": 50,
+  "declaredCells": 40,
+  "allSVGPathElementsParsed": 294,
+  "firstBackInterval": {
+    "hv": 0.14,
+    "minusStartDv": [
+      -0.26,
+      0,
+      0
+    ],
+    "plusStartDv": [
+      0.26,
+      0,
+      0
+    ],
+    "differenceCoefficientMetres": -0.0728,
+    "maximumDifferenceMetres": 0.010785185185185186
+  },
+  "limits": "Read-only source/graph/XML and boundary-polynomial arithmetic; no surface tessellation, mesh, rendered SVG pixels, Avatar or native job."
+}

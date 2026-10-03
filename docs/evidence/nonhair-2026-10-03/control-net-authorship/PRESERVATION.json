@@ -1,0 +1,107 @@
+{
+  "pid": 25033,
+  "command": "inline python3 stdin preservation-only rehash/chmod/JSON, tool source retained",
+  "started": "2026-10-03T17:45:15.168324+00:00",
+  "finished": "2026-10-03T17:45:15.175939+00:00",
+  "inputs": {
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+    "docs/evidence/appearance-2026-10-02/front-design/DOMAIN-DECISION.md": "6d376ca2d1a80de81196b2aaf8c0602381bf7a4ef156c3901c468f346bac2244",
+    "docs/evidence/appearance-2026-10-02/front-design/anatomy-anchors.json": "f846be59e18ce5485a41ddac67a90342b19733a4a42209b862fd6c3fb22eb9ba",
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "captures/whole-front-blockout-2026-10-03-v1/proposal-front.png": "86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752",
+    "captures/whole-front-blockout-2026-10-03-v1/proposal-oblique.png": "370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df",
+    "docs/evidence/nonhair-2026-10-03/sculpt-value/CRITIC-VALUE.md": "74cc78a17cff9657aee27aab130f4ebe758a0b9286e9a501eb87ee9ec8338c56",
+    "docs/evidence/nonhair-2026-10-03/sculpt-value/PRIMARY-REFERENCE.md": "36e6e09eb29b200caaa15e27b4dc2f2befb4f9e18ab809ae3d0e8ce5da7dc33e"
+  },
+  "files": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/AUTHOR-RECEIPT.json",
+      "bytes": 658,
+      "sha256": "af51e263efaa5b55e341d8f9edc6565b5c1c6e48384bf4c786b87113001e0abf"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/CHECKPOINT.md",
+      "bytes": 1161,
+      "sha256": "1fe8adec8caa470323dd00adf4e02594277fbce241729af7f061cc656bb01da7"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/CRITIC-COMMAND-RECOVERY.json",
+      "bytes": 3106,
+      "sha256": "8b5c46564675292a00a22407b2c37e62243fd839a3502f7383b2a2228f48abec"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/CRITIC-POSTFLIGHT.md",
+      "bytes": 5109,
+      "sha256": "d01e0cdf7bb9a7b58747c3c2cd00a3c7cfb2b32c1c9fcfa5fc0c45f2dc1fa6c2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/CRITIC-READBACK.json",
+      "bytes": 1166,
+      "sha256": "b24526cc8a2728eccc461e5d89cd6c54074c457a0a2b3adf4a011609a7d37123"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/CRITIC-VALUE.md",
+      "bytes": 3591,
+      "sha256": "da9217f18a04eea307e54aea15136c4f7ecb6f3eff9cd638322fb0f281d8a63b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/INPUTS.json",
+      "bytes": 1330,
+      "sha256": "cd0db0c0f2921515d37f6d1a33a9ac1af23e2ebfa3ee3360c3a5fa3d1cd2f40b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/PLAN.md",
+      "bytes": 2967,
+      "sha256": "9cabdabdf91da3cd2ff7ddbae309deddc98024c2d04eb372028e0ae83e208c81"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/README.md",
+      "bytes": 1279,
+      "sha256": "1fa899dd6348a744eaee5d41d5236dc2cb643850bdf2b36a06d5d08e1ca0bafa"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/RECEIPT.md",
+      "bytes": 4118,
+      "sha256": "a7197464217eb7f7aa7380cc7b935606361833bce0b85631334ea6c31ed502f8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/ROOT-DECISION.md",
+      "bytes": 3301,
+      "sha256": "7733ea0ae89b70a51eebbc2f2edc64b7bdb83208852b9868b7853789a0490068"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/ROOT-SEAM-FINDING.json",
+      "bytes": 893,
+      "sha256": "18a9f2f0d4eb1997ab7f30685caf93f24c7ba8fb00f03be5dd27c839299ac26a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/ROOT-STRUCTURE.json",
+      "bytes": 4391,
+      "sha256": "675172d9ad2b0b44722d8e88dfd1cfb10601c617f5176557156d4658ee36fc7a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/author-net.py",
+      "bytes": 11958,
+      "sha256": "9290b6205610c4a354918e9673ebd667a2035209b21c5b52e07c11b61a15fedd"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/control-net.json",
+      "bytes": 42198,
+      "sha256": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/control-net.svg",
+      "bytes": 54946,
+      "sha256": "43a850ff50232af5b2686f80d9d0a38a052584125f9548cd3e20bc8354b5b441"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/control-net-authorship/critic-reader-original.py",
+      "bytes": 2171,
+      "sha256": "070dde43777f5e3103d3603c969d7730cc4ec665f4ee96cc57a1c9587fd5f7cc"
+    }
+  ],
+  "bytes": 144343,
+  "status": "exact one incomplete authoring candidate retained readonly; no reauthoring/surface/native"
+}

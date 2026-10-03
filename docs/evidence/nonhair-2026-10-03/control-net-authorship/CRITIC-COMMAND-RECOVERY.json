@@ -1,0 +1,15 @@
+{
+  "preservedAt": "2026-10-03T17:42:21.243646+00:00",
+  "sourceFile": "docs/evidence/nonhair-2026-10-03/control-net-authorship/critic-reader-original.py",
+  "sourceSHA256": "070dde43777f5e3103d3603c969d7730cc4ec665f4ee96cc57a1c9587fd5f7cc",
+  "oldExecutedCommand": "python3 stdin heredoc: python3 - <<'PY'\nfrom pathlib import Path\nfrom hashlib import sha256\nfrom datetime import datetime,timezone\nimport json,os,sys,xml.etree.ElementTree as E,math,re\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/nonhair-2026-10-03/control-net-authorship';started=datetime.now(timezone.utc).isoformat();j=json.loads((d/'control-net.json').read_text());svg=E.fromstring((d/'control-net.svg').read_text())\nrecords=[q for p in j['panels'].values() for row in p['nodes'] for q in row]; ids={}\nfor q in records:\n assert all(len(q[k])==3 and all(math.isfinite(v) for v in q[k]) for k in ['P','du','dv','duv'])\n if q['id'] in ids:assert ids[q['id']]==q['P']\n ids[q['id']]=q['P']\nassert len(records)==60 and len(ids)==50 and sum(len(p['cells']) for p in j['panels'].values())==40\npaths=[q for q in svg.iter() if q.tag.endswith('}path')]\nassert len(paths)==294\nassert all(math.isfinite(float(x)) for q in paths for x in re.findall(r'-?\\d+(?:\\.\\d+)?',q.attrib['d']))\na=j['panels']['minusX']['nodes'][0][4];b=j['panels']['plusX']['nodes'][0][4]\nassert a['P']==b['P'] and a['dv']==[-.26,0,0] and b['dv']==[.26,0,0]\nhead=r/'packages/core/src/motion/HairSkinTransform.js';assert sha256(head.read_bytes()).hexdigest()=='8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e'\nresult={'pid':os.getpid(),'started':started,'finished':datetime.now(timezone.utc).isoformat(),'interpreter':sys.executable,'version':sys.version,'command':'inline python3 stdin fs/JSON/XML reader (tool source is the literal command)','hashes':{f:sha256((d/f).read_bytes()).hexdigest() for f in ['control-net.json','author-net.py','control-net.svg']},'records':len(records),'uniquePositionIDs':len(ids),'declaredCells':40,'allSVGPathElementsParsed':len(paths),'firstBackInterval':{'hv':j['v'][1]-j['v'][0],'minusStartDv':a['dv'],'plusStartDv':b['dv'],'differenceCoefficientMetres':-.52*.14,'maximumDifferenceMetres':.52*.14*4/27},'limits':'Read-only source/graph/XML and boundary-polynomial arithmetic; no surface tessellation, mesh, rendered SVG pixels, Avatar or native job.'}\nwith (d/'CRITIC-READBACK.json').open('x') as f:json.dump(result,f,indent=2);f.write('\\n')\nprint(json.dumps(result,indent=2))\nPY",
+  "oldToolChunk": "a2797f",
+  "oldPID": 6034,
+  "oldStarted": "2026-10-03T17:36:55.807510+00:00",
+  "oldFinished": "2026-10-03T17:36:55.809123+00:00",
+  "oldInterpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "oldVersion": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "oldExitCode": 0,
+  "oldReceiptSHA256": "b24526cc8a2728eccc461e5d89cd6c54074c457a0a2b3adf4a011609a7d37123",
+  "note": "Verbatim already-executed stdin saved afterward under this filename. This file path was not the executed command. No rerun; old receipt/source data/net unchanged."
+}
