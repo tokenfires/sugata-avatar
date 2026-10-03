@@ -1,0 +1,51 @@
+{
+  "pid": 82081,
+  "started": "2026-10-03T16:43:14.271351+00:00",
+  "finished": "2026-10-03T16:43:14.273674+00:00",
+  "kind": "Final design file/hash preservation only; no native or source replay",
+  "sourcePins": {
+    "packages/core/src/material/EyeMaterial.js": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+    "packages/core/src/material/EyeCatchlight.js": "00ea06778cbd313bb80eca73ad5cf04b4b20ac36ee87e8e7a0d1d854759d1849",
+    "packages/core/src/Avatar.js": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+    "tools/figure-pipeline/cornea_geometry.mjs": "09bdd9140119743021bddb0fa449767ae2bbb4434e0b09327e7d0dad49128191",
+    "captures/skin-finish-2026-10-03-v1/original-front.png": "9d31a5b3edb2f5ce860b370b38c283bda469b72efedf40f9d12ebd53a8e0f7fe",
+    "captures/skin-finish-2026-10-03-v1/original-oblique.png": "0a27d41db41f61a7ddd8498d5d5125150a542f83db03ab217447dcf8ed2ac83f"
+  },
+  "files": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-pigment-design/CRITIC-DESIGN.md",
+      "bytes": 4893,
+      "sha256": "eb0f3e8b1db9c9ce45ea591cd8fb11e57547a68f9eb5e792f9a4e376e5c08bda"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-pigment-design/PLAN.md",
+      "bytes": 3136,
+      "sha256": "4adb8a4fd01570bfb2383dda7a92bb17fbfa161dbb4bfe707e54fd7bdf4ae6f9"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-pigment-design/PRIMARY-REFERENCE.md",
+      "bytes": 1499,
+      "sha256": "98242ca7f9ac84fe5fe413e5395c18ad8b984ec095c284cbd7e7ce44222704e8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-pigment-design/RECEIPT.md",
+      "bytes": 1664,
+      "sha256": "aa9d6005782b7c6a14842ab0d427f84809c690e11d963e0be4020259075e61bf"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-pigment-design/REFERENCE-IMAGE-RECEIPT.json",
+      "bytes": 678,
+      "sha256": "5b7bd7131ba2bd256d372f54d65f4623f52515173e5b8229a7deba16965ca1d3"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-pigment-design/ROOT-DESIGN.md",
+      "bytes": 3247,
+      "sha256": "63c8f328935c0437d6cee490bcab090c5c67fc941f08618da337c625375b0ea6"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/iris-pigment-design/epic-iris-example.jpg",
+      "bytes": 76147,
+      "sha256": "b4524672fd2412c06d6ac45d6e3ecc2ba99dfe8d75b660a336dbbae8da6ad0fe"
+    }
+  ]
+}

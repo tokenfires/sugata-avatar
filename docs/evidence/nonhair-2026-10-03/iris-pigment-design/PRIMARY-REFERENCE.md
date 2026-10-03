@@ -1,0 +1,7 @@
+# Current eye-customization example
+
+Root read the current official [MetaHuman Eye Material Tools](https://dev.epicgames.com/documentation/metahuman/eye-material-tools) page through a live Firecrawl scrape, HTTP200/MetaHuman5.8. Search01a1029f-4476-7739-9b28-c435a25f6a16 cost two existing credits; scrape01a102a0-0c6b-7087-887a-4f08bcc809b9 cost one. No purchase or autonomous cloud job.
+
+The page separates iris colour/pattern from pupil, cornea and sclera controls. This supports treating iris pigment as a distinct user choice; it does not validate Sugata's transform, choose its numeric colour or import MetaHuman's implementation. Root opened one hidden owned in-app tab16, followed the actual Iris link and actually viewed the original [page screenshot](epic-iris-example.jpg): nine grayscale radial-fibre previews with dark pupils and separate primary/detail colour controls. The lower control area is partly cut off. It is a current interface/texture-structure example, not a rendered Blue target, same-avatar comparison or source texture. No remote source-media download, pixel edit or video use. Owned tab16 was closed after saving the exact screenshot. Capture/browser PID/timestamps were not recorded; UI work completed during this16:31–16:44design bound.
+
+The proposed fixed Blue is an authored Sugata preview choice; actual new renders must establish its usefulness and limitations. Do not expand this page into MetaHuman's full multi-parameter/pattern editor in the current trial.

@@ -1,0 +1,12 @@
+{
+  "file": "epic-iris-example.jpg",
+  "sha256": "b4524672fd2412c06d6ac45d6e3ecc2ba99dfe8d75b660a336dbbae8da6ad0fe",
+  "bytes": 76147,
+  "format": "JPEG",
+  "width": 1280,
+  "height": 720,
+  "metadataCommand": "sips -g pixelWidth -g pixelHeight docs/evidence/nonhair-2026-10-03/iris-pigment-design/epic-iris-example.jpg",
+  "metadataExit": 0,
+  "metadataChunk": "44339c",
+  "note": "Native screenshot initially saved with PNG suffix; PNG header guess printed invalid dimensions. PIL metadata reader failed import before writes (chunk8ea861). Detected JPEG signature, renamed exact bytes, read dimensions with sips; no bitmap edit. Capture PID/times unrecorded; tab16 closed."
+}
