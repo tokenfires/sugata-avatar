@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "purpose": "Exact cap-only audit and independent receipts; original groom/body remain source-pinned in their retained locations.",
+  "files": [
+    {
+      "path": "cap-independent.json",
+      "bytes": 3365,
+      "sha256": "23540f305294001b1037ddcab7fb0b15c09f6c1dd66d4fbe013ef5c05199d69c"
+    },
+    {
+      "path": "generic-independent-helper.py",
+      "bytes": 17204,
+      "sha256": "ec3da3322cea6439fd428f2b35f58bdc595b954258d1ae7bf756aa97385b626b"
+    },
+    {
+      "path": "report.json",
+      "bytes": 43717,
+      "sha256": "c7493e0453537ea94471a5fe221ba05eebf075c97b05082374d534673c8a0001"
+    },
+    {
+      "path": "root-verification.json",
+      "bytes": 7271,
+      "sha256": "b96ad8aeac4c37a2e0c300ce1cea990f0c9d1a4ee3b82f7802916f64b67149f3"
+    },
+    {
+      "path": "sources/assets/hair/bob02/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "path": "sources/assets/hair/bob02/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "path": "sources/docs/evidence/appearance-2026-10-02/front-design/CAP-PLAN.md",
+      "bytes": 3082,
+      "sha256": "8ce81ba2381b5d8fab7799f3ad703144e7c43da4fc7fa9ca6897dc6e985a6246"
+    },
+    {
+      "path": "sources/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "sources/node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "sources/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "sources/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "sources/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "sources/packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "path": "sources/packages/core/src/render/HairCardFrame.js",
+      "bytes": 7057,
+      "sha256": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83"
+    },
+    {
+      "path": "sources/tools/critic/audit-cap-baseline.mjs",
+      "bytes": 13951,
+      "sha256": "d5fad264bf05ac272af2b1ca9cba9403536f8f30e5f6ef80d4117b97bb2758db"
+    },
+    {
+      "path": "sources/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "sources/tools/figure-pipeline/hair_geometry.mjs",
+      "bytes": 27179,
+      "sha256": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    },
+    {
+      "path": "sources/tools/figure-pipeline/hair_surface.mjs",
+      "bytes": 18753,
+      "sha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+    },
+    {
+      "path": "sources/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "path": "verify-cap-baseline.py",
+      "bytes": 9211,
+      "sha256": "a1f96343785e2015f81a9eae0f45a6739b8f2da82eafa6562e5b0b3efa69dcd6"
+    }
+  ],
+  "fileCount": 20,
+  "totalBytes": 3204410
+}

@@ -1,0 +1,141 @@
+{
+  "status": "independent cap-only predicates agree",
+  "reportSha256": "c7493e0453537ea94471a5fe221ba05eebf075c97b05082374d534673c8a0001",
+  "pins": {
+    "captures/bob-lower-fallback-v1/candidate.glb": {
+      "live": true,
+      "snapshot": null
+    },
+    "assets/figures/figure_g050.glb": {
+      "live": true,
+      "snapshot": null
+    },
+    "assets/hair/bob02/flow.png": {
+      "live": true,
+      "snapshot": true
+    },
+    "assets/hair/bob02/depth.png": {
+      "live": true,
+      "snapshot": true
+    },
+    "tools/critic/audit-cap-baseline.mjs": {
+      "live": true,
+      "snapshot": true
+    },
+    "tools/lut-bake/glb.mjs": {
+      "live": true,
+      "snapshot": true
+    },
+    "tools/figure-pipeline/hair_geometry.mjs": {
+      "live": true,
+      "snapshot": true
+    },
+    "tools/figure-pipeline/hair_surface.mjs": {
+      "live": true,
+      "snapshot": true
+    },
+    "tools/critic/png.mjs": {
+      "live": true,
+      "snapshot": true
+    },
+    "packages/core/src/Avatar.js": {
+      "live": true,
+      "snapshot": true
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "live": true,
+      "snapshot": true
+    },
+    "packages/core/src/render/HairCardFrame.js": {
+      "live": true,
+      "snapshot": true
+    },
+    "docs/evidence/appearance-2026-10-02/front-design/CAP-PLAN.md": {
+      "live": true,
+      "snapshot": true
+    },
+    "package-lock.json": {
+      "live": true,
+      "snapshot": true
+    },
+    "node_modules/three/package.json": {
+      "live": true,
+      "snapshot": true
+    },
+    "node_modules/three/build/three.module.js": {
+      "live": true,
+      "snapshot": true
+    },
+    "node_modules/three/build/three.core.js": {
+      "live": true,
+      "snapshot": true
+    }
+  },
+  "genericHelperSha256": "ec3da3322cea6439fd428f2b35f58bdc595b954258d1ae7bf756aa97385b626b",
+  "capComponents": [
+    {
+      "vertices": 326,
+      "first": 0,
+      "last": 325
+    },
+    {
+      "vertices": 326,
+      "first": 326,
+      "last": 651
+    }
+  ],
+  "capTriangles": 1128,
+  "bodyTriangles": 26756,
+  "bind": {
+    "hairMeshIdentityError": 0.0,
+    "bodyMeshIdentityError": 0.0,
+    "hairBindIdentityError": 9.328498416817654e-07,
+    "bodyBindIdentityError": 9.328498416817654e-07,
+    "jointNamesEqual": true,
+    "jointWorldMaximumError": 0.0,
+    "skinJoint44": "head"
+  },
+  "UV0Range": [
+    [
+      0.0009765625,
+      0.12394119054079056
+    ],
+    [
+      0.06326085329055786,
+      0.7407407760620117
+    ]
+  ],
+  "minimumAbsUvDet": 3.705795927322342e-05,
+  "nearZeroUvDets": 0,
+  "signedSamples": 17572,
+  "minimum": {
+    "vertex": 533,
+    "point": [
+      0.07723534852266312,
+      1.5610088109970093,
+      0.04184769466519356
+    ],
+    "signedMm": 3.5575520975052046,
+    "bodyTriangle": 24078,
+    "closest": [
+      0.07873384750915306,
+      1.557861610906653,
+      0.04255889738257702
+    ],
+    "bodyBary": [
+      0.763259748754197,
+      0.23674025124580303,
+      0.0
+    ],
+    "signNormalLength": 0.9658381764953505
+  },
+  "nonpositiveSamples": [],
+  "AABBpairs": 4009,
+  "independentSATcrossings": [],
+  "limits": [
+    "Raw authored-rest/bind premise only.",
+    "Finite samples and floating-point SAT, not a global clearance proof.",
+    "No scalp coverage, renderer, target design or motion qualification.",
+    "No guide metrics or construction executed."
+  ]
+}

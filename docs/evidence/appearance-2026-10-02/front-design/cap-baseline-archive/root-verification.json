@@ -1,0 +1,174 @@
+{
+  "method": "Independent brute-force Three Triangle.closestPointToPoint over all26756bodyfaces for the actual minimum cap witness; all current/archived source hashes independently checked.",
+  "reportSha256": "c7493e0453537ea94471a5fe221ba05eebf075c97b05082374d534673c8a0001",
+  "sourcePins": [
+    {
+      "file": "captures/bob-lower-fallback-v1/candidate.glb",
+      "expected": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7",
+      "current": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7",
+      "archived": null
+    },
+    {
+      "file": "assets/figures/figure_g050.glb",
+      "expected": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+      "current": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+      "archived": null
+    },
+    {
+      "file": "assets/hair/bob02/flow.png",
+      "expected": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "current": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "archived": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/bob02/depth.png",
+      "expected": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "current": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "archived": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "tools/critic/audit-cap-baseline.mjs",
+      "expected": "d5fad264bf05ac272af2b1ca9cba9403536f8f30e5f6ef80d4117b97bb2758db",
+      "current": "d5fad264bf05ac272af2b1ca9cba9403536f8f30e5f6ef80d4117b97bb2758db",
+      "archived": "d5fad264bf05ac272af2b1ca9cba9403536f8f30e5f6ef80d4117b97bb2758db"
+    },
+    {
+      "file": "tools/lut-bake/glb.mjs",
+      "expected": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "current": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "archived": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "file": "tools/figure-pipeline/hair_geometry.mjs",
+      "expected": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+      "current": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+      "archived": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    },
+    {
+      "file": "tools/figure-pipeline/hair_surface.mjs",
+      "expected": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+      "current": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+      "archived": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+    },
+    {
+      "file": "tools/critic/png.mjs",
+      "expected": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a",
+      "current": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a",
+      "archived": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "expected": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "current": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "archived": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "file": "packages/core/src/material/HairMaterial.js",
+      "expected": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613",
+      "current": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613",
+      "archived": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "file": "packages/core/src/render/HairCardFrame.js",
+      "expected": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83",
+      "current": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83",
+      "archived": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/front-design/CAP-PLAN.md",
+      "expected": "8ce81ba2381b5d8fab7799f3ad703144e7c43da4fc7fa9ca6897dc6e985a6246",
+      "current": "8ce81ba2381b5d8fab7799f3ad703144e7c43da4fc7fa9ca6897dc6e985a6246",
+      "archived": "8ce81ba2381b5d8fab7799f3ad703144e7c43da4fc7fa9ca6897dc6e985a6246"
+    },
+    {
+      "file": "package-lock.json",
+      "expected": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+      "current": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+      "archived": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "file": "node_modules/three/package.json",
+      "expected": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "current": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "archived": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "file": "node_modules/three/build/three.module.js",
+      "expected": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+      "current": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+      "archived": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "file": "node_modules/three/build/three.core.js",
+      "expected": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+      "current": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+      "archived": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    }
+  ],
+  "capWitness": {
+    "vertex": 533,
+    "point": [
+      0.07723534852266312,
+      1.5610088109970093,
+      0.04184769466519356
+    ],
+    "signedMm": 3.5575520975052046,
+    "bodyTriangle": 23553,
+    "closest": [
+      0.07873384750915306,
+      1.557861610906653,
+      0.04255889738257702
+    ],
+    "bodyBary": [
+      -2.0372592501871623e-14,
+      0.23674025124579962,
+      0.7632597487542208
+    ],
+    "signNormalLength": 0.9658381764953644
+  },
+  "minimumUnsignedMm": 3.5575520975052046,
+  "closestFaceTies": [
+    {
+      "bodyTriangle": 23553,
+      "closest": [
+        0.07873384750915306,
+        1.557861610906653,
+        0.04255889738257702
+      ],
+      "bary": [
+        -2.0372592501871623e-14,
+        0.23674025124579962,
+        0.7632597487542208
+      ],
+      "normal": [
+        0.12487049640650628,
+        0.9919004483507324,
+        0.023256390278991016
+      ],
+      "signedMm": 3.5575520975052046
+    },
+    {
+      "bodyTriangle": 24078,
+      "closest": [
+        0.07873384750915306,
+        1.557861610906653,
+        0.04255889738257702
+      ],
+      "bary": [
+        0.7632597487542019,
+        0.23674025124580902,
+        -1.0937898253062694e-14
+      ],
+      "normal": [
+        0.12487049640652961,
+        0.9919004483507293,
+        0.023256390278994614
+      ],
+      "signedMm": 3.5575520975052046
+    }
+  ],
+  "limits": [
+    "Verifies actual reported minimum witness against all body faces; does not independently rerun all17572signedsamples or establish global surface clearance.",
+    "Critic separately reproduces the complete cap predicates; no source geometry edited."
+  ]
+}
