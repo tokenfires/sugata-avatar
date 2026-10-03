@@ -1,0 +1,34 @@
+{
+  "started": "2026-10-03T10:37:53.621815+00:00",
+  "finished": "2026-10-03T10:37:53.901268+00:00",
+  "pid": 66679,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/current-review/freeze.py",
+  "files": 36,
+  "bytes": 424706,
+  "externalPins": 397,
+  "manifestSHA256": "e3fcc3306778b21e97bf83772229f1b51bf5069439fc00c778a443c2c108c957",
+  "rawArchiveBytesVerified": true,
+  "http": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/current-review/RECEIPT.md",
+      "status": 200,
+      "exactBytes": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/current-review/ROOT-DECISION.md",
+      "status": 200,
+      "exactBytes": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/current-review/CRITIQUE.md",
+      "status": 200,
+      "exactBytes": true
+    },
+    {
+      "path": "captures/october3-review-2026-10-03-v1/desktop-hub.png",
+      "status": 200,
+      "exactBytes": true
+    }
+  ],
+  "jobs": "No live owned job; review server retained; heartbeat ACTIVE"
+}

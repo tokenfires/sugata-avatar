@@ -1,0 +1,29 @@
+{
+  "started": "2026-10-03T10:24:33.552293+00:00",
+  "finished": "2026-10-03T10:24:33.650145+00:00",
+  "pid": 43749,
+  "receiptPID": 43741,
+  "command": [
+    "node",
+    "node_modules/vite/bin/vite.js",
+    "build",
+    "--outDir",
+    "/Users/robault/GitHub/sugata-avatar/captures/october3-review-build-2026-10-03-v1"
+  ],
+  "exitCode": 0,
+  "files": {
+    "index.html": {
+      "sha256": "837e07e373aa5b4e071f9ef9ef1e42fe069fefe4b1614bf5f531cd6aeab199a7",
+      "bytes": 7452
+    },
+    "assets/index-B-1XXuag.js": {
+      "sha256": "572d8d5aaa2a40454f9db26456271b5e1d343983f2181427dbf462de70a31022",
+      "bytes": 12662
+    },
+    "assets/review-DrSvOfrN.html": {
+      "sha256": "65632b27ac90574ac9837524c01989a962c83e1f4bf074ce150da81d6d17e316",
+      "bytes": 7646
+    }
+  },
+  "limit": "Targeted production hub build only; does not exercise native avatar or development-only review navigation."
+}

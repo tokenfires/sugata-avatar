@@ -1,0 +1,27 @@
+{
+  "recorded": "2026-10-03T10:31:14.611774+00:00",
+  "pid": 55201,
+  "command": "python3 stdlib heredoc raw failure/source/input/hash/leading-slash audit; no browser",
+  "status": "source-caused observer refusal verified",
+  "reportSHA256": "20e2e393aee864766fe347b6ec5773fde6f5db337e7b35bc56eaec3dffaaaf5d",
+  "sourcePins": 7,
+  "preservationPins": 391,
+  "imageInputPins": 2,
+  "unindexedImages": {
+    "desktop-hub.png": {
+      "sha256": "6e1a5b5ae33cfd3e8710c2f5f6021b0adc58f0ef2141bdd8772e42681960569b",
+      "bytes": 203637
+    }
+  },
+  "completedViews": 0,
+  "reviewImages": 0,
+  "wrongPath": "Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/mobile-body-jitter/archive/capture/page.png",
+  "sourceActualPath": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/mobile-body-jitter/archive/capture/page.png",
+  "sourcePathIsFile": true,
+  "restoredShortcutSHA256": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc",
+  "cleanup": {
+    "page": "closed",
+    "browser": "closed"
+  },
+  "limit": "The hub original only supports partial entry/focus appearance; no completed landing/layout or current feature/AAA acceptance. No retry."
+}

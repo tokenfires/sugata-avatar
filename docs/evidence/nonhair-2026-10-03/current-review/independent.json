@@ -1,0 +1,51 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/current-review/verify-refusal.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "pid": 63558,
+  "started": "2026-10-03T10:36:04.984930+00:00",
+  "finished": "2026-10-03T10:36:05.100905+00:00",
+  "status": "passed-narrow-refusal-audit",
+  "verifierSHA256": "ada422f0abcb6d51d1d362aa8366364d4837d6a7b0afe3a1cc746436738eb947",
+  "reportSHA256": "20e2e393aee864766fe347b6ec5773fde6f5db337e7b35bc56eaec3dffaaaf5d",
+  "sourceSnapshotCount": 7,
+  "preservationPinCount": 391,
+  "imageInputCount": 2,
+  "uniqueRuntimePinCount": 399,
+  "currentRuntimeSourcesMatching": 6,
+  "intentionalCurrentSourceRestoration": {
+    "created": "2026-10-03T10:29:57.850439+00:00",
+    "restored": "packages/testbed/today-review.js",
+    "restoredSHA256": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc",
+    "candidateCopy": "docs/evidence/nonhair-2026-10-03/current-review/candidate-today-review.js",
+    "candidateSHA256": "ceb9ea672e6907c983de64efac2793af26ba95c08b46ae4832dd6cdb7024da18",
+    "reason": "First observer failure closes packet; no visual promotion; previous existing shortcut restored exactly.",
+    "nativeRecaptures": 0
+  },
+  "pngInventory": [
+    {
+      "file": "desktop-hub.png",
+      "sha256": "6e1a5b5ae33cfd3e8710c2f5f6021b0adc58f0ef2141bdd8772e42681960569b",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    }
+  ],
+  "actualFailurePath": "Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/mobile-body-jitter/archive/capture/page.png",
+  "absolutePathRequired": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/mobile-body-jitter/archive/capture/page.png",
+  "completedViews": 0,
+  "reviewPNGs": 0,
+  "errors": 1,
+  "warnings": 0,
+  "cleanup": {
+    "page": "closed",
+    "browser": "closed"
+  },
+  "noFinalAcceptanceGatesRecorded": true,
+  "limits": [
+    "No browser, network, Avatar, native recapture or runtime renderer work performed.",
+    "Byte audit and source control flow do not qualify new destination layout or media delivery.",
+    "Hub PNG is unindexed in report; its existence is inventoried independently."
+  ]
+}
