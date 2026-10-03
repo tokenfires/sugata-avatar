@@ -1,0 +1,74 @@
+{
+  "pid": 93289,
+  "observation": "2026-10-03T14:15:45.129000+00:00",
+  "source": "assets/wardrobe/body/g050.glb",
+  "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+  "bytes": 11916776,
+  "meshes": [
+    {
+      "name": "base.001",
+      "primitives": [
+        {
+          "positionAccessor": 6,
+          "count": 14517
+        }
+      ]
+    },
+    {
+      "name": "cornea",
+      "primitives": [
+        {
+          "positionAccessor": 102,
+          "count": 524
+        }
+      ]
+    },
+    {
+      "name": "eyebrow001",
+      "primitives": [
+        {
+          "positionAccessor": 116,
+          "count": 124
+        }
+      ]
+    },
+    {
+      "name": "eyelashes01",
+      "primitives": [
+        {
+          "positionAccessor": 171,
+          "count": 250
+        }
+      ]
+    },
+    {
+      "name": "high-poly",
+      "primitives": [
+        {
+          "positionAccessor": 204,
+          "count": 552
+        }
+      ]
+    },
+    {
+      "name": "teeth_base",
+      "primitives": [
+        {
+          "positionAccessor": 218,
+          "count": 4494
+        }
+      ]
+    },
+    {
+      "name": "tongue01",
+      "primitives": [
+        {
+          "positionAccessor": 251,
+          "count": 253
+        }
+      ]
+    }
+  ],
+  "anyLiteralBodyMesh": false,
+  "limit": "Postfailure JSON-name diagnostic only; no semantic body selection, no failed-reader replay or transfer/construction readiness."
+}

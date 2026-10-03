@@ -1,0 +1,52 @@
+{
+  "pid": 7134,
+  "started": "2026-10-03T14:22:59.407669+00:00",
+  "finished": "2026-10-03T14:22:59.413954+00:00",
+  "kind": "root postflight filesystem readback and packet preservation only; no reader replay",
+  "inputs": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.obj",
+      "sha256": "e07cbd1a43d21bd700e6598f01f74341a9dd66eac4e035c8be8de2650eac380f"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.mhclo",
+      "sha256": "f9e6821704a1508a02d5e416b2360785b705cfe5a130c359021a4b4570dcc43a"
+    },
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    }
+  ],
+  "files": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-method/CRITIC-POSTFLIGHT.md",
+      "bytes": 4806,
+      "sha256": "b65f396116bf10944449850d8a9e194f450a49298f307ccb642bff2f528fd295"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-method/CRITIC-VALUE.md",
+      "bytes": 4894,
+      "sha256": "2141bb13b1e322e3e03d66d7faf6110509344f8dfe761bc1e7ec1543085e559b"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-method/PLAN.md",
+      "bytes": 2402,
+      "sha256": "610ef031a2735ce7034e3776b698bcc64802cb5a27153079ec030ee5456c1699"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-method/RECEIPT.md",
+      "bytes": 3691,
+      "sha256": "2fbdb77f9f10f0bcc1bacecc114a211db009f0dfa69d5cb7c88a7df4bff83fd9"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-method/body-name-diagnostic.json",
+      "bytes": 1444,
+      "sha256": "a1c65732705d7c95bbc10ccc0a1de52a4193ef3c326f8b74d6fe458feed27c52"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/capsule-method/source-ownership.py",
+      "bytes": 5043,
+      "sha256": "4c01a6920ee6d427667f194f6353f4e5fb542c004ccc626a571bc4964d36de2c"
+    }
+  ]
+}
