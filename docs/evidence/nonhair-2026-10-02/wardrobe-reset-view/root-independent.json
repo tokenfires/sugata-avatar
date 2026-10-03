@@ -1,0 +1,65 @@
+{
+  "started": "2026-10-03T07:06:37.758Z",
+  "finished": "2026-10-03T07:06:37.895Z",
+  "pid": 20595,
+  "status": "root numerical/source/image/guard verification passed",
+  "command": "node tools/critic/verify-wardrobe-reset-view.mjs",
+  "verifierSHA256": "f54245e057ed164640688ad6bffdbcf52111f10b2c2d5312ac43c57902bdcbe0",
+  "reportSHA256": "fa7b787ab84489d050983aca6084bcfe4d474e13b3efb98e6bfbd88712a4b68e",
+  "sourcePins": 380,
+  "dependencyPins": 2,
+  "assets": 7,
+  "images": 4,
+  "maxRecovery": 7.771561172376096e-16,
+  "maxDrift": 6.661338147750939e-16,
+  "maxFitError": 0,
+  "maxQuaternion": 0,
+  "cases": [
+    {
+      "label": "desktop-body",
+      "shift": 2.7931493401394896,
+      "dolly": 0.9675314825203589,
+      "expectedZoom": 1,
+      "actualZoom": 1,
+      "quaternionError": 0,
+      "keyboard": false
+    },
+    {
+      "label": "desktop-portrait",
+      "shift": 0.6312684237728153,
+      "dolly": 0.2186678904503898,
+      "expectedZoom": 1,
+      "actualZoom": 1,
+      "quaternionError": 0,
+      "keyboard": false
+    },
+    {
+      "label": "mobile-portrait",
+      "shift": 0.5018595888633024,
+      "dolly": 0.21866789045039048,
+      "expectedZoom": 0.6084804446400182,
+      "actualZoom": 0.6084804446400182,
+      "quaternionError": 0,
+      "keyboard": true
+    },
+    {
+      "label": "mobile-body",
+      "shift": 2.220558999448203,
+      "dolly": 0.9675314825203545,
+      "expectedZoom": 1,
+      "actualZoom": 1,
+      "quaternionError": 0,
+      "keyboard": true
+    }
+  ],
+  "warnings": {
+    "count": 10,
+    "unknownAgainstPriorExport": [],
+    "priorReportSHA256": "686cf9e902b8ba9e82074d3c05fceb9868f4faf44ce080f3a7d684404f1e462e"
+  },
+  "limits": [
+    "Four observed control contexts, finite32subsequent0dtupdates and guard cases only; no all-motion/perceptual/AAA/fit claim.",
+    "Canonical mobile Full look retains lower-leg crop; successful reset does not qualify full-body framing.",
+    "No second capture, epoch search or exact-image-reproducibility claim."
+  ]
+}

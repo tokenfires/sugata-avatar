@@ -1,0 +1,10 @@
+{
+  "retrieved": "2026-10-03T06:50:51Z",
+  "source": "https://threejs.org/docs/pages/OrbitControls.html",
+  "status": 200,
+  "scrapeId": "01a10087-7d5d-748f-b025-a3ede5c57b4b",
+  "creditsUsed": 1,
+  "claim": "OrbitControls.reset restores the saved state, or its initial state when none was explicitly saved.",
+  "localWitness": "node_modules/three/examples/jsm/controls/OrbitControls.js:600 and612; showcase frameView saves state after choosing framing.",
+  "limit": "Documentation supports public reset semantics only; native browser gates must establish this page's behavior."
+}

@@ -1,0 +1,69 @@
+{
+  "started": "2026-10-03T07:15:35.427Z",
+  "finished": "2026-10-03T07:15:35.606Z",
+  "pid": 41387,
+  "status": "archive/currentpins and reviewHTTP verified",
+  "archiveFiles": 24,
+  "externalPins": 383,
+  "manifestSHA256": "a28173c926c15f9d1b061512cd926698a95265bf48550d558c440157929e47f4",
+  "checks": [
+    {
+      "ref": "review.html",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "/src/showcase.html",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "../../../../packages/testbed/review.html",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "RECEIPT.md",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "ROOT-DECISION.md",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "CRITIQUE.md",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "archive/archive-manifest.json",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "archive/capture/desktop-body.png",
+      "status": 200,
+      "pngExact": true
+    },
+    {
+      "ref": "archive/capture/desktop-portrait.png",
+      "status": 200,
+      "pngExact": true
+    },
+    {
+      "ref": "archive/capture/mobile-portrait.png",
+      "status": 200,
+      "pngExact": true
+    },
+    {
+      "ref": "archive/capture/mobile-body.png",
+      "status": 200,
+      "pngExact": true
+    }
+  ],
+  "limits": [
+    "Static source/HTTP/media byte checks only; no extra browser layout or nativepacket."
+  ]
+}

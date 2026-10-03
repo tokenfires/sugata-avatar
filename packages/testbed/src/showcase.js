@@ -86,7 +86,7 @@ function updateCollectionControls() {
     document.getElementById('rename-look-retry').disabled = busy || savingImage || failed || !avatar || avatar.disposed;
 }
 function enableControls() {
-    for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
+    for (const control of document.querySelectorAll('fieldset, [data-angle], #reset-view, #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
     colourControls.setDisabled(busy || savingImage || failed);
     updateCollectionControls(); updateAttention();
 }
@@ -419,6 +419,12 @@ try {
         avatar.stage.camera.lookAt(target); controls.update();
     });
     controls.addEventListener('start', () => releaseAttention({immediate: true}));
+    document.getElementById('reset-view').addEventListener('click', () => {
+        if (busy || savingImage || failed || !avatar || avatar.disposed) return;
+        releaseAttention({immediate: true});
+        flushOrbitDamping(controls); framing.update(); controls.reset();
+        setStatus(paused ? 'View reset · motion paused' : 'View reset');
+    });
     for (const [id, expression] of [['look-toward-me', 'neutral'], ['look-with-smile', 'soft-smile']])
         document.getElementById(id).addEventListener('click', () => {
             if (busy || savingImage || failed || paused) return;
