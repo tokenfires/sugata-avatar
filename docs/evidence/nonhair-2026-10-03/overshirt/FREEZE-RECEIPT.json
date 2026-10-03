@@ -1,0 +1,50 @@
+{
+  "started": "2026-10-03T10:09:35.862230+00:00",
+  "finished": "2026-10-03T10:09:36.006661+00:00",
+  "pid": 17973,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/overshirt/freeze.py",
+  "files": 17,
+  "bytes": 2449612,
+  "externalPins": 391,
+  "manifestSHA256": "a9a746acafdffea454bc12a3f1ca16cddc6a7734bd2ffa401078a33fde473747",
+  "independentWitnessesReconciled": 5,
+  "http": [
+    {
+      "path": "review.html",
+      "status": 200
+    },
+    {
+      "path": "inputs/input1.png",
+      "status": 200
+    },
+    {
+      "path": "concept-v1.png",
+      "status": 200
+    },
+    {
+      "path": "inputs/input2.png",
+      "status": 200
+    },
+    {
+      "path": "ROOT-DECISION.md",
+      "status": 200
+    },
+    {
+      "path": "CRITIQUE.md",
+      "status": 200
+    },
+    {
+      "path": "LAYER-BRIEF.md",
+      "status": 200
+    },
+    {
+      "path": "PROMPT.txt",
+      "status": 200
+    },
+    {
+      "path": "RECEIPT.md",
+      "status": 200
+    }
+  ],
+  "jobs": "No live owned imagegen/native/browser/GPU job; review service retained"
+}

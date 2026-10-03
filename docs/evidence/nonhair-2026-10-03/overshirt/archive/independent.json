@@ -1,0 +1,69 @@
+{
+  "status": "independent byte provenance passed; artistic review separate from identity/runtime/fit proof",
+  "started": "2026-10-03T10:06:09.681200+00:00",
+  "finished": "2026-10-03T10:06:09.683431+00:00",
+  "pid": 12003,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "command": "python3 stdlib heredoc byte/PNG-IHDR audit, saved independent.json; no image edit",
+  "generationReceiptSHA256": "addcdc8e80d13f961472b73fea8b74bacfc7d1202577837e3302d62b469161da",
+  "generationCount": 1,
+  "toolPID": "not exposed by built-in tool",
+  "records": [
+    {
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-3f4d716a-b105-45da-bc32-c45326e68dc1.png",
+      "sha256": "0626172ca1a787fd8cf992d5403e32c6202c3e950d920ab952f2f32b76f9016f",
+      "bytes": 1456366,
+      "dimensions": [
+        928,
+        1694
+      ],
+      "bitDepth": 8,
+      "colourType": 2
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/overshirt/concept-v1.png",
+      "sha256": "0626172ca1a787fd8cf992d5403e32c6202c3e950d920ab952f2f32b76f9016f",
+      "bytes": 1456366,
+      "dimensions": [
+        928,
+        1694
+      ],
+      "bitDepth": 8,
+      "colourType": 2
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/overshirt/PROMPT.txt",
+      "sha256": "839c6ae3c7494bea699e83641d2a8d9b12fa8f2ec16afd89b02d08b8960e2d77",
+      "bytes": 2280
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/overshirt/inputs/input1.png",
+      "sha256": "092e9264e6f555fc223208baa2ebdeee7bf28ffe1e4d4840b14094b5d801c60f",
+      "bytes": 264267,
+      "dimensions": [
+        343,
+        625
+      ],
+      "bitDepth": 8,
+      "colourType": 6
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/overshirt/inputs/input2.png",
+      "sha256": "949bab89a9d415dbc74d7108b74c85f349bbcb380411bcaa4c6a30b517082b2f",
+      "bytes": 691077,
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "bitDepth": 8,
+      "colourType": 2
+    }
+  ],
+  "actuallyViewed": [
+    "inputs/input1.png",
+    "inputs/input2.png",
+    "concept-v1.png"
+  ],
+  "limits": "No pixel/identity equality, calibration, contact/source correspondence, native rendering, geometry or motion acceptance."
+}

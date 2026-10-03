@@ -1,0 +1,64 @@
+{
+  "recorded": "2026-10-03T10:02:32.444386+00:00",
+  "tool": "image_gen.imagegen via functions.exec",
+  "start_utc": "2026-10-03 10:00:50 UTC",
+  "end_utc": "2026-10-03 10:01:11 UTC",
+  "wall_seconds_reported": 21.0,
+  "process_id": "not exposed by built-in tool",
+  "generation_count": 1,
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/overshirt/inputs/input1.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/overshirt/inputs/input2.png"
+  ],
+  "prompt_file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/overshirt/PROMPT.txt",
+  "tool_original_retained": true,
+  "records": {
+    "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-3f4d716a-b105-45da-bc32-c45326e68dc1.png": {
+      "sha256": "0626172ca1a787fd8cf992d5403e32c6202c3e950d920ab952f2f32b76f9016f",
+      "bytes": 1456366,
+      "dimensions": [
+        928,
+        1694
+      ],
+      "bit_depth": 8,
+      "colour_type": 2
+    },
+    "docs/evidence/nonhair-2026-10-03/overshirt/concept-v1.png": {
+      "sha256": "0626172ca1a787fd8cf992d5403e32c6202c3e950d920ab952f2f32b76f9016f",
+      "bytes": 1456366,
+      "dimensions": [
+        928,
+        1694
+      ],
+      "bit_depth": 8,
+      "colour_type": 2
+    },
+    "docs/evidence/nonhair-2026-10-03/overshirt/PROMPT.txt": {
+      "sha256": "839c6ae3c7494bea699e83641d2a8d9b12fa8f2ec16afd89b02d08b8960e2d77",
+      "bytes": 2280
+    },
+    "docs/evidence/nonhair-2026-10-03/overshirt/inputs/input1.png": {
+      "sha256": "092e9264e6f555fc223208baa2ebdeee7bf28ffe1e4d4840b14094b5d801c60f",
+      "bytes": 264267,
+      "dimensions": [
+        343,
+        625
+      ],
+      "bit_depth": 8,
+      "colour_type": 6
+    },
+    "docs/evidence/nonhair-2026-10-03/overshirt/inputs/input2.png": {
+      "sha256": "949bab89a9d415dbc74d7108b74c85f349bbcb380411bcaa4c6a30b517082b2f",
+      "bytes": 691077,
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "bit_depth": 8,
+      "colour_type": 2
+    }
+  },
+  "copy_helper_initial_failure": "Python PIL unavailable, chunk80be28, exit1 before copy/write; corrected receipt reader to stdlib PNG IHDR, no image edit or regeneration",
+  "scope": "synthetic artistic design intent; no native rendering or fitting qualification"
+}
