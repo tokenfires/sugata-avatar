@@ -1,0 +1,525 @@
+{
+  "started": "2026-10-03T06:01:48.521Z",
+  "pid": 72658,
+  "status": "observed",
+  "inputs": {
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/report.json": "0b272c6531241d18992d8e99c90bc723654c233cf110aa832042e4d3133a478d",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/inputs.json": "7b6880c44fe4ccbcd3453c00ad1f00cc86a6ccb9a9e9ce732826983896488cea",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/1-coupled.json.gz": "02e39dde2756da96a416bc5cc5963781571174fcdf89627971164ec4229ca71a",
+    "tools/critic/eight-influence-gpu.mjs": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa",
+    "tools/critic/capture-eight-influence-gpu.mjs": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960",
+    "tools/critic/eight-influence-gpu.html": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "vite.config.js": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+    "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/build/three.webgpu.js": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340",
+    "node_modules/three/build/three.tsl.js": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-native.png": "44d5641863066190fd6512ce97da179a1adda6ff5f45361f6b1f41cb00c5731e",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-gpu.png": "12d6685d84a0e40e2dbf121601ac8277bf3e52d21bb5cdee6ac452830881f4c7",
+    "tools/critic/capture-full-body-coverage.mjs": "50d2daf5d277a83cd3c8cd6f2a258460909d02156d066a1690ece3b2df6d53a8",
+    "tools/critic/full-body-coverage.mjs": "3b23a43abc0b9d3bc3edd4f52f81a552961a956d8f03e9881daea823683f5040",
+    "tools/critic/full-body-coverage.html": "5cd178b49138ff3b0426342669fbb9bdff0f5de38fd2aae6a01bcd4fbed6573c",
+    "docs/evidence/appearance-2026-10-02/full-body-coverage/PLAN.md": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8",
+    "docs/evidence/appearance-2026-10-02/NEXT-SLICE-VALUE-CRITIQUE.md": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a",
+    "node_modules/three/src/cameras/OrthographicCamera.js": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54",
+    "node_modules/three/src/renderers/common/Renderer.js": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b"
+  },
+  "views": [
+    {
+      "arm": "native",
+      "label": "Native full reference · body target 1 · coupled\nComplete-body supplementary replay · shared camera\nSeptember 30 retained positions · geometric normals · no displacement amplification",
+      "labelRect": {
+        "x": 24,
+        "y": 20,
+        "width": 614.890625,
+        "height": 72,
+        "bottom": 92
+      },
+      "positionNode": "geometry-attribute",
+      "uploaded": null,
+      "common": {
+        "camera": {
+          "metadata": {
+            "version": 4.7,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+          },
+          "object": {
+            "uuid": "7343516d-31ed-4d9e-a880-dff3ee1b984e",
+            "type": "OrthographicCamera",
+            "layers": 1,
+            "matrix": [
+              0.8574929257125443,
+              -1.3877787807814457e-17,
+              0.5144957554275263,
+              0,
+              0.06132439029666572,
+              0.9928710809936356,
+              -0.10220731716110959,
+              0,
+              -0.5108279568579653,
+              0.11919318993352529,
+              0.8513799280966092,
+              0,
+              -2.565814256117072,
+              1.3641733327361765,
+              4.408404557978654,
+              1
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ],
+            "zoom": 1,
+            "left": -1.4938366032262833,
+            "right": 1.4938366032262833,
+            "top": 1.2448638360219029,
+            "bottom": -1.2448638360219029,
+            "near": 0.01,
+            "far": 20
+          }
+        },
+        "viewMatrix": [
+          0.8574929257125442,
+          0.061324390296665726,
+          -0.5108279568579651,
+          0,
+          6.938893903907227e-18,
+          0.9928710809936355,
+          0.11919318993352528,
+          0,
+          0.5144957554275263,
+          -0.10220731716110955,
+          0.851379928096609,
+          0,
+          -0.06793785997459476,
+          -0.7465300538337805,
+          -5.226516980873027,
+          1
+        ],
+        "projectionMatrix": [
+          0.6694172561043626,
+          0,
+          0,
+          0,
+          0,
+          0.8033007073252351,
+          0,
+          0,
+          0,
+          0,
+          -0.05002501250625313,
+          0,
+          0,
+          0,
+          -0.0005002501250625313,
+          1
+        ],
+        "target": [
+          -0.011674471827245472,
+          0.7682073830685501,
+          0.1515049174956095
+        ],
+        "viewport": [
+          1200,
+          1000
+        ],
+        "pixelRatio": 1,
+        "backend": "webgpu",
+        "adapter": {
+          "vendor": "apple",
+          "architecture": "metal-3",
+          "device": "",
+          "description": ""
+        },
+        "three": "185",
+        "coordinateSystem": 2001,
+        "reversedDepth": false,
+        "lights": [
+          {
+            "type": "hemisphere",
+            "sky": 16777215,
+            "ground": 5001312,
+            "intensity": 2
+          },
+          {
+            "type": "directional",
+            "color": 16777215,
+            "position": [
+              -3,
+              4,
+              4
+            ],
+            "intensity": 3
+          },
+          {
+            "type": "directional",
+            "color": 13885951,
+            "position": [
+              3,
+              1,
+              -2
+            ],
+            "intensity": 1
+          }
+        ],
+        "material": {
+          "color": 12171705,
+          "roughness": 0.7,
+          "metalness": 0
+        },
+        "colorSpace": "srgb",
+        "toneMapping": 4,
+        "exposure": 1,
+        "clearColor": 2369581,
+        "normals": "recomputed-from-each-retained-surface",
+        "triangles": 26756,
+        "replay": true,
+        "computeRuns": 0
+      },
+      "file": "body-complete-native.png",
+      "sha256": "25ebc0cfaa4c30cf01911ab0a52231e93bffbbc99bfc192fb2e68df20f323892",
+      "extrema": [
+        [
+          436.31947603507564,
+          763.6805239649248
+        ],
+        [
+          150.00000000000014,
+          850.0000000000001
+        ],
+        [
+          0.22911701416626581,
+          0.2701326106461403
+        ]
+      ],
+      "projections": {
+        "file": "native-projections.json.gz",
+        "sha256": "149aea4752a786921e5672e863359b4061d5f60988419c7db40b322bd5c4ea60",
+        "decodedSHA256": "386b05f9a84280044cfee8d2c02701ac59ec8833677026979805abeab91a4ed0",
+        "bytes": 350739
+      }
+    },
+    {
+      "arm": "gpu",
+      "label": "Retained eight-influence GPU positions · body target 1 · coupled\nComplete-body supplementary replay · shared camera\nSeptember 30 retained positions · geometric normals · no displacement amplification",
+      "labelRect": {
+        "x": 24,
+        "y": 20,
+        "width": 614.890625,
+        "height": 72,
+        "bottom": 92
+      },
+      "positionNode": "retained-observed-storage",
+      "uploaded": {
+        "stride": 4,
+        "vertices": 14517,
+        "exactFloat32XYZAndW": true
+      },
+      "common": {
+        "camera": {
+          "metadata": {
+            "version": 4.7,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+          },
+          "object": {
+            "uuid": "7343516d-31ed-4d9e-a880-dff3ee1b984e",
+            "type": "OrthographicCamera",
+            "layers": 1,
+            "matrix": [
+              0.8574929257125443,
+              -1.3877787807814457e-17,
+              0.5144957554275263,
+              0,
+              0.06132439029666572,
+              0.9928710809936356,
+              -0.10220731716110959,
+              0,
+              -0.5108279568579653,
+              0.11919318993352529,
+              0.8513799280966092,
+              0,
+              -2.565814256117072,
+              1.3641733327361765,
+              4.408404557978654,
+              1
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ],
+            "zoom": 1,
+            "left": -1.4938366032262833,
+            "right": 1.4938366032262833,
+            "top": 1.2448638360219029,
+            "bottom": -1.2448638360219029,
+            "near": 0.01,
+            "far": 20
+          }
+        },
+        "viewMatrix": [
+          0.8574929257125442,
+          0.061324390296665726,
+          -0.5108279568579651,
+          0,
+          6.938893903907227e-18,
+          0.9928710809936355,
+          0.11919318993352528,
+          0,
+          0.5144957554275263,
+          -0.10220731716110955,
+          0.851379928096609,
+          0,
+          -0.06793785997459476,
+          -0.7465300538337805,
+          -5.226516980873027,
+          1
+        ],
+        "projectionMatrix": [
+          0.6694172561043626,
+          0,
+          0,
+          0,
+          0,
+          0.8033007073252351,
+          0,
+          0,
+          0,
+          0,
+          -0.05002501250625313,
+          0,
+          0,
+          0,
+          -0.0005002501250625313,
+          1
+        ],
+        "target": [
+          -0.011674471827245472,
+          0.7682073830685501,
+          0.1515049174956095
+        ],
+        "viewport": [
+          1200,
+          1000
+        ],
+        "pixelRatio": 1,
+        "backend": "webgpu",
+        "adapter": {
+          "vendor": "apple",
+          "architecture": "metal-3",
+          "device": "",
+          "description": ""
+        },
+        "three": "185",
+        "coordinateSystem": 2001,
+        "reversedDepth": false,
+        "lights": [
+          {
+            "type": "hemisphere",
+            "sky": 16777215,
+            "ground": 5001312,
+            "intensity": 2
+          },
+          {
+            "type": "directional",
+            "color": 16777215,
+            "position": [
+              -3,
+              4,
+              4
+            ],
+            "intensity": 3
+          },
+          {
+            "type": "directional",
+            "color": 13885951,
+            "position": [
+              3,
+              1,
+              -2
+            ],
+            "intensity": 1
+          }
+        ],
+        "material": {
+          "color": 12171705,
+          "roughness": 0.7,
+          "metalness": 0
+        },
+        "colorSpace": "srgb",
+        "toneMapping": 4,
+        "exposure": 1,
+        "clearColor": 2369581,
+        "normals": "recomputed-from-each-retained-surface",
+        "triangles": 26756,
+        "replay": true,
+        "computeRuns": 0
+      },
+      "file": "body-complete-gpu.png",
+      "sha256": "5a8dc06807bf7d4c84a87d60fdae846738ffb36359a92a2499e1f6994774ced0",
+      "extrema": [
+        [
+          436.3194852729344,
+          763.6804829077746
+        ],
+        [
+          149.99994903526982,
+          849.9999931312967
+        ],
+        [
+          0.22911701513092594,
+          0.270132613914561
+        ]
+      ],
+      "projections": {
+        "file": "gpu-projections.json.gz",
+        "sha256": "9fe9bd330f0b7c1d0b0170b1f64bc616b443d07c81c58a599798980116c35f22",
+        "decodedSHA256": "a94e1a84e45d9dcbbdf1392d673c35e0fbbed40c7cf987eb9c9ef48ef11b2594",
+        "bytes": 350694
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "inputs.json.gz",
+      "sha256": "79449906e332732d69deb000f99608d0aa8690360739709631457ea1db137e2b",
+      "decodedSHA256": "0c88680bec9af9df4ffe5a0d0c953069fafb19413513b69876efa18b25c98373",
+      "bytes": 835179
+    },
+    {
+      "file": "native-projections.json.gz",
+      "sha256": "149aea4752a786921e5672e863359b4061d5f60988419c7db40b322bd5c4ea60",
+      "decodedSHA256": "386b05f9a84280044cfee8d2c02701ac59ec8833677026979805abeab91a4ed0",
+      "bytes": 350739
+    },
+    {
+      "file": "gpu-projections.json.gz",
+      "sha256": "9fe9bd330f0b7c1d0b0170b1f64bc616b443d07c81c58a599798980116c35f22",
+      "decodedSHA256": "a94e1a84e45d9dcbbdf1392d673c35e0fbbed40c7cf987eb9c9ef48ef11b2594",
+      "bytes": 350694
+    }
+  ],
+  "errors": [],
+  "scope": "Supplementary static complete-body replay of retained1-coupled native/GPU positions. No compute, kernel, geometry/pose tuning or production integration.",
+  "hardStop": "2026-10-03T06:16:00.000Z",
+  "computeRuns": 0,
+  "borrowedReviewServerRetained": true,
+  "retained": {
+    "case": "1-coupled",
+    "bodyTarget": 1,
+    "pose": "coupled",
+    "vertices": 14517,
+    "triangles": 26756,
+    "previousGPUObservedUTC": "2026-09-30T18:36:56.118Z",
+    "previousAdapter": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "device": "",
+      "description": ""
+    },
+    "decodedSHA256": "7c84a5b1703ba406ca2ac524dbb0982dcefebf202f86897d7cf1258f367aee13",
+    "nativeFloat32Sha256": "7f4ee61d82a753d2a9d4c98343976ee6f698828e091128179bc35cd408eb4a5c",
+    "gpuFloat32Sha256": "155dfa77c8ab1319928565bcbfef6106a2827cc6176063af2404d2076e22f4b4",
+    "previousVersusNative": {
+      "passed": true,
+      "strict": true,
+      "gateMm": 0.342,
+      "vertices": 14517,
+      "maxMm": 0.0007161186304392364,
+      "rmsMm": 0.0001705389017533428,
+      "worst": {
+        "vertex": 8953,
+        "actual": [
+          0.19807977974414825,
+          1.359108328819275,
+          0.05951021984219551
+        ],
+        "expected": [
+          0.19807974994182587,
+          1.3591076135635376,
+          0.059510238468647
+        ],
+        "mm": 0.0007161186304392364
+      }
+    },
+    "note": "Previous comparison metadata, not a new compute result."
+  },
+  "prepared": {
+    "file": "inputs.json",
+    "sha256": "0c88680bec9af9df4ffe5a0d0c953069fafb19413513b69876efa18b25c98373",
+    "archive": {
+      "file": "inputs.json.gz",
+      "sha256": "79449906e332732d69deb000f99608d0aa8690360739709631457ea1db137e2b",
+      "decodedSHA256": "0c88680bec9af9df4ffe5a0d0c953069fafb19413513b69876efa18b25c98373",
+      "bytes": 835179
+    }
+  },
+  "cameraDerivation": {
+    "basis": [
+      [
+        0.8574929257125442,
+        0,
+        0.5144957554275265
+      ],
+      [
+        0.06132439029666572,
+        0.9928710809936356,
+        -0.10220731716110955
+      ],
+      [
+        -0.5108279568579653,
+        0.11919318993352526,
+        0.851379928096609
+      ]
+    ],
+    "bounds": [
+      [
+        -0.33958206991550655,
+        0.4754577898646971
+      ],
+      [
+        -0.12487463138155162,
+        1.6179347390491123
+      ],
+      [
+        -0.18343390594331693,
+        0.6364678676893739
+      ]
+    ],
+    "target": [
+      -0.011674471827245472,
+      0.7682073830685501,
+      0.1515049174956095
+    ],
+    "position": [
+      -2.565814256117072,
+      1.3641733327361765,
+      4.408404557978654
+    ],
+    "halfSpan": 1.2448638360219029,
+    "aspect": 1.2,
+    "near": 0.01,
+    "far": 20,
+    "distance": 5,
+    "derivedFrom": "native-float32-only"
+  },
+  "baseUrl": "http://localhost:5301",
+  "cleanup": {
+    "gpu": {
+      "disposed": true,
+      "privateStorageAttributesReleased": 1,
+      "errors": []
+    },
+    "page": "closed",
+    "browser": "closed",
+    "server": "closed"
+  },
+  "finalInputHashesUnchanged": true,
+  "finished": "2026-10-03T06:01:51.802Z"
+}

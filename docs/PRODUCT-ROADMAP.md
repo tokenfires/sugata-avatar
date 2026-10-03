@@ -62,8 +62,11 @@ thigh influence produces1.589mm error in the neutral coupled waist. Actual plain
 show subtle local differences, not an obvious gross context defect. A [full-influence CPU representation](evidence/wardrobe-2026-09-30/skeleton-full-influences/README.md)
 subsequently passes all nine native comparisons (max0.000595mm) without geometry/pose tuning.
 The [finite WebGPU position probe](evidence/wardrobe-2026-09-30/skeleton-full-influences/GPU-RESULT.md)
-then passes all nine cases (max0.000717mm), with actual paired visible-region review. Full-target
-feet are clipped in context, so complete-body visual coverage is incomplete. Production normals,
+then passes all nine cases (max0.000717mm), with actual paired visible-region review. Its original
+full-target context clips the feet. October2’s [supplementary complete-body comparison](evidence/appearance-2026-10-02/full-body-coverage/review.html)
+replays those retained positions in one wider shared camera: head, hands and feet are complete,
+with no obvious lower-body geometry difference at this static context scale. This closes that
+one view’s framing gap; no new skin compute or pixel-exact result is claimed. Production normals,
 history, queries, body range and coupling remain open; PUNCHLIST10.7 stays unchecked. The separate [hand-placement comparison](evidence/nonhair-2026-09-26/hand-candidate/RESULTS.md)
 improves visible hands in its recorded sequence but changes the closed posture; it remains an
 isolated candidate. Neither study constitutes a representative starter build or AAA acceptance.

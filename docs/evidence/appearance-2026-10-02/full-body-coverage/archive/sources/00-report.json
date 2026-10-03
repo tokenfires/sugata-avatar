@@ -1,0 +1,1508 @@
+{
+  "started": "2026-09-30T18:36:51.367Z",
+  "pid": 11942,
+  "status": "observed",
+  "inputs": {
+    "captures/skeleton-full-influences-2026-09-30-v1/report.json": "eac81ac3b1f5e66b17e0dbdb1606bdc0d479290c2b7cd0d85c6ebd6a71f13df3",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/report.json": "ea6f19c3cef8e60e5d9bd8f9936cf0c83eeeb0d363bd08d7f7c635897a0a83ef",
+    "captures/skeleton-export-bridge-2026-09-30-v1/report.json": "a1c1ec374c41f2fd1c197d666a6b25d7c0f11bf52b796c4a5b02cc03270ed3e9",
+    "captures/skeleton-posed-visual-2026-09-30-v1/report.json": "00e66b52d462d9be2f97995a335f211a474872db064d01ef952200c04772e79c",
+    "tools/critic/capture-eight-influence-gpu.mjs": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960",
+    "tools/critic/eight-influence-gpu.mjs": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa",
+    "tools/critic/eight-influence-gpu.html": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906",
+    "docs/evidence/wardrobe-2026-09-30/skeleton-full-influences/GPU-PLAN.md": "56b09c82ed5de2455522b2d72b48ca342adde59321bdfe511a3f761ff6b04b08",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "vite.config.js": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+    "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/build/three.webgpu.js": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340",
+    "node_modules/three/build/three.tsl.js": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "docs/evidence/wardrobe-2026-09-30/skeleton-full-influences/GPU-RECOVERY.md": "0ff15cdd3d14fb8646b897666442b14893b31a5c0b2f511e63eca2e39cbafc60",
+    "captures/skeleton-full-influences-2026-09-30-v1/representation.json.gz": "bd174a4703a3e429c61123e266a4c6e2067320cf9ceb04c3d46977e53ab49c12",
+    "captures/skeleton-export-bridge-2026-09-30-v1/parsed-asset.json.gz": "507608c4d7ba566856b005f3725b01559f51f81e2e3c220f49ac33ecd14dba07",
+    "captures/skeleton-posed-visual-2026-09-30-v1/geometry.json": "2782fa5b2a04b486d1b5cfc6960b84cb35ba4f5682fe2e0a25c896a4dd18db67",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-0-identity.json.gz": "cdd8ee13d1f5d9a146f0c0c19fcb21ef51eb96f66ec836ca5a4c92a72fce51e5",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0-identity.json.gz": "8a7b665a17cb9c6a7388fd489767b77c3b3c8c2ad632a85195822764833f50df",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-0-elbow.json.gz": "c5d98e940c2c6277a65052cc1b9757e1990f1d929c4ad645c8247d5f511ecc8f",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0-elbow.json.gz": "88891bdcb50a9a7348ce79500045b26d861cb48fffdac409ec78d87206d1bb6d",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-0-coupled.json.gz": "a519ca91d12e1780cda8a753da3b8fc3e666cabb043b2e9e575af0169e51d153",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0-coupled.json.gz": "c37cce2061093de422a2a26d6d76f42a280335407fe229651be60998ccb0b8de",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-0_25-identity.json.gz": "7bcc7274f45fbd8b44e6a71fc422e42ff4879a8d87bcb36fd5135ee63f85f450",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0_25-identity.json.gz": "4e482c82498748dc1e955489a79ba52220e896583db0fe03c73cc3e0e44556d7",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-0_25-elbow.json.gz": "a600cd48714e731ca8e893b9cf213b5b459b0ab976d39b9696d5780ec899eb92",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0_25-elbow.json.gz": "a87126b243e9741b06eecda77e05622cd8d04f4d7b07c0ad7d50e078b209d769",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-0_25-coupled.json.gz": "4d609fa14e8f0e3a80edaafd0c735780aa6eb79c74f4046f88a5fc1ab49ccf59",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-0_25-coupled.json.gz": "2363eee02955d78c61a28c69ea9b78ae006d06326ce64aabaf18a67e9ebc7485",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-1-identity.json.gz": "a25a6e468f740210ee6bcb7f19c8db75c80b6236a67b18f655871d92352f7661",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-1-identity.json.gz": "0c60dc7ad069f9d1ecc60fe92b11fada12a8f983ccf1cf9be751cc0f82662235",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-1-elbow.json.gz": "dfc73a5f240507978748f31bb57425c46bc46a67908b3c57e96543ffeff113c1",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-1-elbow.json.gz": "500ae1729eb8cc4f04b3d3fc145ad6bec14b314bf2eb05a7d07d300276e99e39",
+    "captures/skeleton-full-influences-2026-09-30-v1/case-1-coupled.json.gz": "8523f2a80fa31cc50f3154e0cb7dbb8c6ac5bc3fbdc8ca27c033f87822c6b5d1",
+    "captures/skeleton-posed-comparison-2026-09-30-v1/case-1-coupled.json.gz": "96107b8fe3f75d5540233c461480dc06ad43ad63ab96a55bba24533e8dcaf248",
+    "captures/skeleton-full-influences-2026-09-30-v1/stale-neutral-binds.json.gz": "b228e5f2fab66f75e4fbd8c1f9366248e2a7ade2b24a6e9d6c769c22d46ac08e"
+  },
+  "cases": [
+    {
+      "name": "0-identity",
+      "weight": 0,
+      "pose": "identity",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0004777820964108429,
+        "rmsMm": 0.00016057546859014096,
+        "worst": {
+          "vertex": 30,
+          "actual": [
+            -0.040394507348537445,
+            1.5500404834747314,
+            0.1284254789352417
+          ],
+          "expected": [
+            -0.040394511073827744,
+            1.5500400066375732,
+            0.1284254491329193
+          ],
+          "mm": 0.0004777820964108429
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0001511325818885695,
+        "rmsMm": 0.000022073118649512883,
+        "worst": {
+          "vertex": 1626,
+          "actual": [
+            1.2919087752612182e-19,
+            1.3707232475280762,
+            0.06945747137069702
+          ],
+          "expected": [
+            1.2919081530698436e-19,
+            1.3707233986520055,
+            0.06945747298787973
+          ],
+          "mm": 0.0001511325818885695
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "0-identity.json.gz",
+        "sha256": "b4367c713935859f3879a7a9dbae971ff416989f5a03a1f3d02569d168e3205f",
+        "decodedSHA256": "b0e6b6fb2d62f53ace7c9d226c5ef9e2ef42b202aa71aaa3f3ee6e6c94b2fb10",
+        "bytes": 1781772
+      }
+    },
+    {
+      "name": "0-elbow",
+      "weight": 0,
+      "pose": "elbow",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0004777820964108429,
+        "rmsMm": 0.00016809914732460684,
+        "worst": {
+          "vertex": 30,
+          "actual": [
+            -0.040394507348537445,
+            1.5500404834747314,
+            0.1284254789352417
+          ],
+          "expected": [
+            -0.040394511073827744,
+            1.5500400066375732,
+            0.1284254491329193
+          ],
+          "mm": 0.0004777820964108429
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.00018351696610886798,
+        "rmsMm": 0.000029246791130535415,
+        "worst": {
+          "vertex": 11058,
+          "actual": [
+            0.3506051301956177,
+            1.101608157157898,
+            0.22379891574382782
+          ],
+          "expected": [
+            0.35060513579267305,
+            1.1016083403521986,
+            0.2237989250711019
+          ],
+          "mm": 0.00018351696610886798
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "0-elbow.json.gz",
+        "sha256": "8136fdba1c55fa421d5192fe0a1eb09cea7bb225444e85b58cd334b09ca1e5b1",
+        "decodedSHA256": "44ff44e16859ed50938e712bc1e725b534a68267aaa843eda29147ed758adf25",
+        "bytes": 1800341
+      }
+    },
+    {
+      "name": "0-coupled",
+      "weight": 0,
+      "pose": "coupled",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0006028988457961055,
+        "rmsMm": 0.00021698088308200677,
+        "worst": {
+          "vertex": 5074,
+          "actual": [
+            -0.18380583822727203,
+            0.48375725746154785,
+            0.20143179595470428
+          ],
+          "expected": [
+            -0.18380561470985413,
+            0.48375701904296875,
+            0.2014312893152237
+          ],
+          "mm": 0.0006028988457961055
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.00024236482117461354,
+        "rmsMm": 0.000052537755996430695,
+        "worst": {
+          "vertex": 8164,
+          "actual": [
+            0.0029373590368777514,
+            1.3755195140838623,
+            0.11325278878211975
+          ],
+          "expected": [
+            0.002937348879870178,
+            1.3755192720570586,
+            0.11325278099957349
+          ],
+          "mm": 0.00024236482117461354
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "0-coupled.json.gz",
+        "sha256": "10c968625cacdb20aecfa016cac602fe6db97282fb9a5a5337f702ac1c186f83",
+        "decodedSHA256": "ef9c43bc734a85854d6b2b82443e818940afa321f4ecbcd2b655f08d57c0ab38",
+        "bytes": 1995780
+      }
+    },
+    {
+      "name": "0.25-identity",
+      "weight": 0.25,
+      "pose": "identity",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0004777820964108429,
+        "rmsMm": 0.000159991804319713,
+        "worst": {
+          "vertex": 30,
+          "actual": [
+            -0.040394507348537445,
+            1.5500404834747314,
+            0.1284254789352417
+          ],
+          "expected": [
+            -0.040394511073827744,
+            1.5500400066375732,
+            0.1284254491329193
+          ],
+          "mm": 0.0004777820964108429
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0001511325818885695,
+        "rmsMm": 0.000023119442657025418,
+        "worst": {
+          "vertex": 1626,
+          "actual": [
+            1.422548511329015e-19,
+            1.3707232475280762,
+            0.06945747137069702
+          ],
+          "expected": [
+            1.4225479240860735e-19,
+            1.3707233986520055,
+            0.06945747298787973
+          ],
+          "mm": 0.0001511325818885695
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "0.25-identity.json.gz",
+        "sha256": "7fc5825fd94233ba0d907f67c3110971ed593328ce38ca7d9854250c1c3c6cb6",
+        "decodedSHA256": "1a40b8e68a2aeb0395673bce88efc0c63051a865e47c1043046b0253034c4bdf",
+        "bytes": 1800982
+      }
+    },
+    {
+      "name": "0.25-elbow",
+      "weight": 0.25,
+      "pose": "elbow",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0004915124923727108,
+        "rmsMm": 0.000167276022315773,
+        "worst": {
+          "vertex": 9596,
+          "actual": [
+            0.38505271077156067,
+            1.0791287422180176,
+            0.3954518437385559
+          ],
+          "expected": [
+            0.38505271077156067,
+            1.0791292190551758,
+            0.39545172452926636
+          ],
+          "mm": 0.0004915124923727108
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.00021212628770447738,
+        "rmsMm": 0.000031866484505063785,
+        "worst": {
+          "vertex": 11112,
+          "actual": [
+            0.35787448287010193,
+            1.1300510168075562,
+            0.27619269490242004
+          ],
+          "expected": [
+            0.35787450834408535,
+            1.130051226080612,
+            0.27619267137740716
+          ],
+          "mm": 0.00021212628770447738
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "0.25-elbow.json.gz",
+        "sha256": "fe67202663f9fed8ec8c95cf1b5c2d070aedfa51dbf3c436527d802614233fb0",
+        "decodedSHA256": "838d486a21711bde3367e5b917894b8a83ad90c87dae09a3255a62539cdc852e",
+        "bytes": 1817386
+      }
+    },
+    {
+      "name": "0.25-coupled",
+      "weight": 0.25,
+      "pose": "coupled",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0005209549101118249,
+        "rmsMm": 0.00015906123524327457,
+        "worst": {
+          "vertex": 9059,
+          "actual": [
+            0.17536532878875732,
+            1.2244220972061157,
+            -0.0032354965806007385
+          ],
+          "expected": [
+            0.17536553740501404,
+            1.224422574043274,
+            -0.0032354742288589478
+          ],
+          "mm": 0.0005209549101118249
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.00025095983165262066,
+        "rmsMm": 0.000050531024804254985,
+        "worst": {
+          "vertex": 1503,
+          "actual": [
+            -0.02265361323952675,
+            1.2566720247268677,
+            0.1546815037727356
+          ],
+          "expected": [
+            -0.02265361368652968,
+            1.256671776675186,
+            0.15468146568073476
+          ],
+          "mm": 0.00025095983165262066
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "0.25-coupled.json.gz",
+        "sha256": "b444fc68e5c42a415a983ccfb18de69057b5c057ab4bf1995b2052408d036ac1",
+        "decodedSHA256": "4fdb7763537a888d6a07ef5781ff9cf5c73c7d5a0fa44c8ad62c3fc6809c9462",
+        "bytes": 1995847
+      }
+    },
+    {
+      "name": "1-identity",
+      "weight": 1,
+      "pose": "identity",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.000477999893794818,
+        "rmsMm": 0.00012151281321006709,
+        "worst": {
+          "vertex": 3806,
+          "actual": [
+            -0.44442808628082275,
+            1.0193042755126953,
+            0.1409505158662796
+          ],
+          "expected": [
+            -0.44442805647850037,
+            1.019303798675537,
+            0.1409505009651184
+          ],
+          "mm": 0.000477999893794818
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0001511325818885695,
+        "rmsMm": 0.00002397221351169096,
+        "worst": {
+          "vertex": 1626,
+          "actual": [
+            1.0624782124013598e-19,
+            1.3707232475280762,
+            0.06945747137069702
+          ],
+          "expected": [
+            1.0624778049561814e-19,
+            1.3707233986520055,
+            0.06945747298787973
+          ],
+          "mm": 0.0001511325818885695
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "1-identity.json.gz",
+        "sha256": "2b471df29ae2dc018745ffa438a16dfee79f08d1f6294acc6d0874dad684c76d",
+        "decodedSHA256": "96dabf3bf1c558d294d4f3e66bf86d404c723e546c0be50f3003bb147925f356",
+        "bytes": 1784708
+      }
+    },
+    {
+      "name": "1-elbow",
+      "weight": 1,
+      "pose": "elbow",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0005075152625419617,
+        "rmsMm": 0.0001363003795576016,
+        "worst": {
+          "vertex": 10374,
+          "actual": [
+            0.4233491122722626,
+            1.0590146780014038,
+            0.38043302297592163
+          ],
+          "expected": [
+            0.4233492612838745,
+            1.059015154838562,
+            0.3804331123828888
+          ],
+          "mm": 0.0005075152625419617
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0002183670297573902,
+        "rmsMm": 0.00003287014099911486,
+        "worst": {
+          "vertex": 10301,
+          "actual": [
+            0.3753758668899536,
+            1.1157104969024658,
+            0.37003517150878906
+          ],
+          "expected": [
+            0.37537588432586216,
+            1.115710714399953,
+            0.37003516284900445
+          ],
+          "mm": 0.0002183670297573902
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "1-elbow.json.gz",
+        "sha256": "ec30d49cabd9595d8d519a884cc5c325f053bf05bf412b568a7023f00767e5c8",
+        "decodedSHA256": "14a32445de73f6fde600b4c923d85907f072d435925c510d6fb715f240c2d10b",
+        "bytes": 1801473
+      }
+    },
+    {
+      "name": "1-coupled",
+      "weight": 1,
+      "pose": "coupled",
+      "negative": false,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0007161186304392364,
+        "rmsMm": 0.0001705389017533428,
+        "worst": {
+          "vertex": 8953,
+          "actual": [
+            0.19807977974414825,
+            1.359108328819275,
+            0.05951021984219551
+          ],
+          "expected": [
+            0.19807974994182587,
+            1.3591076135635376,
+            0.059510238468647
+          ],
+          "mm": 0.0007161186304392364
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.00023949424411247498,
+        "rmsMm": 0.00005278474942136377,
+        "worst": {
+          "vertex": 1503,
+          "actual": [
+            -0.022652707993984222,
+            1.2566803693771362,
+            0.15468238294124603
+          ],
+          "expected": [
+            -0.02265270969597874,
+            1.2566801314629732,
+            0.15468235552870868
+          ],
+          "mm": 0.00023949424411247498
+        }
+      },
+      "interpretable": true,
+      "passed": true,
+      "artifact": {
+        "file": "1-coupled.json.gz",
+        "sha256": "02e39dde2756da96a416bc5cc5963781571174fcdf89627971164ec4229ca71a",
+        "decodedSHA256": "7c84a5b1703ba406ca2ac524dbb0982dcefebf202f86897d7cf1258f367aee13",
+        "bytes": 1987820
+      }
+    },
+    {
+      "name": "restore-accepted-four",
+      "weight": 0,
+      "pose": "coupled",
+      "negative": true,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 1.5892721196998536,
+        "rmsMm": 0.047401821973006956,
+        "worst": {
+          "vertex": 4561,
+          "actual": [
+            -0.1275952160358429,
+            0.9839989542961121,
+            0.09066911786794662
+          ],
+          "expected": [
+            -0.12700346112251282,
+            0.9847267866134644,
+            0.08938620239496231
+          ],
+          "mm": 1.5892721196998536
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.000250419679424221,
+        "rmsMm": 0.000054539074064090995,
+        "worst": {
+          "vertex": 9203,
+          "actual": [
+            0.11035332828760147,
+            1.195558786392212,
+            0.13476669788360596
+          ],
+          "expected": [
+            0.11035331779727392,
+            1.1955585371886759,
+            0.13476667557740724
+          ],
+          "mm": 0.000250419679424221
+        }
+      },
+      "interpretable": true,
+      "passed": false,
+      "artifact": {
+        "file": "restore-accepted-four.json.gz",
+        "sha256": "faf6526e16822f06ed0a459143b88dd64df784c0f3fb4138435f934e9122f153",
+        "decodedSHA256": "c011ab99d326570bc8a76b10bdb63ed2bb9b716022fbe67e935cd2c5f3951d64",
+        "bytes": 2003037
+      }
+    },
+    {
+      "name": "stale-neutral-binds",
+      "weight": 1,
+      "pose": "coupled",
+      "negative": true,
+      "adapter": {
+        "vendor": "apple",
+        "architecture": "metal-3",
+        "device": "",
+        "description": ""
+      },
+      "three": "185",
+      "versusNative": {
+        "passed": false,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 106.88574102761807,
+        "rmsMm": 50.003475094576544,
+        "worst": {
+          "vertex": 14356,
+          "actual": [
+            0.36305832862854004,
+            -0.17096492648124695,
+            0.1439172625541687
+          ],
+          "expected": [
+            0.32978731393814087,
+            -0.06939460337162018,
+            0.14495199918746948
+          ],
+          "mm": 106.88574102761807
+        }
+      },
+      "versusCPU": {
+        "passed": true,
+        "strict": true,
+        "gateMm": 0.342,
+        "vertices": 14517,
+        "maxMm": 0.0002495588049798509,
+        "rmsMm": 0.00005275359609946376,
+        "worst": {
+          "vertex": 1812,
+          "actual": [
+            -0.346473753452301,
+            1.2104015350341797,
+            0.09143851697444916
+          ],
+          "expected": [
+            -0.3464737548646912,
+            1.2104017844851243,
+            0.09143850977524423
+          ],
+          "mm": 0.0002495588049798509
+        }
+      },
+      "interpretable": true,
+      "passed": false,
+      "artifact": {
+        "file": "stale-neutral-binds.json.gz",
+        "sha256": "3dd6d62cd3a1bc0681a468ace3da1267bd7980d727cee9847a85a3c20d0038be",
+        "decodedSHA256": "4be301eb39398ee47dbeafc317eec1ae7ca130d13f0a4351a6c4d091c2c2b331",
+        "bytes": 2059030
+      }
+    }
+  ],
+  "views": [
+    {
+      "case": "0-coupled",
+      "file": "body-0-context-native.png",
+      "sha256": "7be721a6e81bf882d12e819b3bc9b4091854ecb2f961f5bcf7d70513f4f08e2c",
+      "arm": "native",
+      "close": false,
+      "label": "Native full reference · body target 0 · coupled\nBody context\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.8574929257125443,
+            -1.3877787807814457e-17,
+            0.5144957554275263,
+            0,
+            0.061324390296665705,
+            0.9928710809936356,
+            -0.10220731716110956,
+            0,
+            -0.5108279568579653,
+            0.11919318993352526,
+            0.8513799280966092,
+            0,
+            -2.4,
+            1.5,
+            4,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -1.17,
+          "right": 1.17,
+          "top": 0.975,
+          "bottom": -0.975,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        0,
+        0.94,
+        0
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "geometry-attribute",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    },
+    {
+      "case": "0-coupled",
+      "file": "body-0-context-gpu.png",
+      "sha256": "a9216c7b8c4e0636bcabf0fa4a363b82b4591896a30d9296a4f8b0cb6bce8279",
+      "arm": "gpu",
+      "close": false,
+      "label": "Eight-influence GPU candidate · body target 0 · coupled\nBody context\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.8574929257125443,
+            -1.3877787807814457e-17,
+            0.5144957554275263,
+            0,
+            0.061324390296665705,
+            0.9928710809936356,
+            -0.10220731716110956,
+            0,
+            -0.5108279568579653,
+            0.11919318993352526,
+            0.8513799280966092,
+            0,
+            -2.4,
+            1.5,
+            4,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -1.17,
+          "right": 1.17,
+          "top": 0.975,
+          "bottom": -0.975,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        0,
+        0.94,
+        0
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "actual-output-storage",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    },
+    {
+      "case": "0-coupled",
+      "file": "body-0-waist-native.png",
+      "sha256": "48343f5d3c10f7644d96f26bdaa34143ac38b60fc90fc4ad522ace8e8e4d9e4c",
+      "arm": "native",
+      "close": true,
+      "label": "Native full reference · body target 0 · coupled\nWaist detail · 180 mm vertical span\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.7808688094430303,
+            -6.938893903907228e-18,
+            0.6246950475544243,
+            0,
+            0.07267390469753768,
+            0.993210030866349,
+            -0.09084238087192209,
+            0,
+            -0.620453387463585,
+            0.1163350101494221,
+            0.7755667343294813,
+            0,
+            -0.9270034611225129,
+            1.1347267866134643,
+            1.0893862023949623,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -0.108,
+          "right": 0.108,
+          "top": 0.09,
+          "bottom": -0.09,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        -0.12700346112251282,
+        0.9847267866134644,
+        0.08938620239496231
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "geometry-attribute",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    },
+    {
+      "case": "0-coupled",
+      "file": "body-0-waist-gpu.png",
+      "sha256": "f78ea3db13b260297093472f48a95eb9b4c6bc07e6311023ce29600655e25c57",
+      "arm": "gpu",
+      "close": true,
+      "label": "Eight-influence GPU candidate · body target 0 · coupled\nWaist detail · 180 mm vertical span\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.7808688094430303,
+            -6.938893903907228e-18,
+            0.6246950475544243,
+            0,
+            0.07267390469753768,
+            0.993210030866349,
+            -0.09084238087192209,
+            0,
+            -0.620453387463585,
+            0.1163350101494221,
+            0.7755667343294813,
+            0,
+            -0.9270034611225129,
+            1.1347267866134643,
+            1.0893862023949623,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -0.108,
+          "right": 0.108,
+          "top": 0.09,
+          "bottom": -0.09,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        -0.12700346112251282,
+        0.9847267866134644,
+        0.08938620239496231
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "actual-output-storage",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    },
+    {
+      "case": "1-coupled",
+      "file": "body-1-context-native.png",
+      "sha256": "44d5641863066190fd6512ce97da179a1adda6ff5f45361f6b1f41cb00c5731e",
+      "arm": "native",
+      "close": false,
+      "label": "Native full reference · body target 1 · coupled\nBody context\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.8574929257125443,
+            -1.3877787807814457e-17,
+            0.5144957554275263,
+            0,
+            0.061324390296665705,
+            0.9928710809936356,
+            -0.10220731716110956,
+            0,
+            -0.5108279568579653,
+            0.11919318993352526,
+            0.8513799280966092,
+            0,
+            -2.4,
+            1.5,
+            4,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -1.17,
+          "right": 1.17,
+          "top": 0.975,
+          "bottom": -0.975,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        0,
+        0.94,
+        0
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "geometry-attribute",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    },
+    {
+      "case": "1-coupled",
+      "file": "body-1-context-gpu.png",
+      "sha256": "12d6685d84a0e40e2dbf121601ac8277bf3e52d21bb5cdee6ac452830881f4c7",
+      "arm": "gpu",
+      "close": false,
+      "label": "Eight-influence GPU candidate · body target 1 · coupled\nBody context\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.8574929257125443,
+            -1.3877787807814457e-17,
+            0.5144957554275263,
+            0,
+            0.061324390296665705,
+            0.9928710809936356,
+            -0.10220731716110956,
+            0,
+            -0.5108279568579653,
+            0.11919318993352526,
+            0.8513799280966092,
+            0,
+            -2.4,
+            1.5,
+            4,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -1.17,
+          "right": 1.17,
+          "top": 0.975,
+          "bottom": -0.975,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        0,
+        0.94,
+        0
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "actual-output-storage",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    },
+    {
+      "case": "1-coupled",
+      "file": "body-1-waist-native.png",
+      "sha256": "467cc3f98ce368d8bcb10e1ac16590318fc86f5255678b3904fdd1d9c58c5093",
+      "arm": "native",
+      "close": true,
+      "label": "Native full reference · body target 1 · coupled\nWaist detail · 180 mm vertical span\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.7808688094430303,
+            -6.938893903907228e-18,
+            0.6246950475544243,
+            0,
+            0.07267390469753768,
+            0.993210030866349,
+            -0.09084238087192209,
+            0,
+            -0.620453387463585,
+            0.1163350101494221,
+            0.7755667343294813,
+            0,
+            -0.9270184963941575,
+            1.1347286343574523,
+            1.0893760323524475,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -0.108,
+          "right": 0.108,
+          "top": 0.09,
+          "bottom": -0.09,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        -0.1270184963941574,
+        0.9847286343574524,
+        0.08937603235244751
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "geometry-attribute",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    },
+    {
+      "case": "1-coupled",
+      "file": "body-1-waist-gpu.png",
+      "sha256": "3c0bd8637ba31d665fac795bbb21a5f37fbb955530181a286b0a8bbd7e7ba004",
+      "arm": "gpu",
+      "close": true,
+      "label": "Eight-influence GPU candidate · body target 1 · coupled\nWaist detail · 180 mm vertical span\nActual positions · shared geometric normal method · no displacement amplification",
+      "camera": {
+        "metadata": {
+          "version": 4.7,
+          "type": "Object",
+          "generator": "Object3D.toJSON"
+        },
+        "object": {
+          "uuid": "4be3d3ab-8c6b-4646-81eb-7b3ccaf8387f",
+          "type": "OrthographicCamera",
+          "layers": 1,
+          "matrix": [
+            0.7808688094430303,
+            -6.938893903907228e-18,
+            0.6246950475544243,
+            0,
+            0.07267390469753768,
+            0.993210030866349,
+            -0.09084238087192209,
+            0,
+            -0.620453387463585,
+            0.1163350101494221,
+            0.7755667343294813,
+            0,
+            -0.9270184963941575,
+            1.1347286343574523,
+            1.0893760323524475,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "zoom": 1,
+          "left": -0.108,
+          "right": 0.108,
+          "top": 0.09,
+          "bottom": -0.09,
+          "near": 0.01,
+          "far": 20
+        }
+      },
+      "target": [
+        -0.1270184963941574,
+        0.9847286343574524,
+        0.08937603235244751
+      ],
+      "lights": [
+        {
+          "type": "hemisphere",
+          "intensity": 2
+        },
+        {
+          "type": "directional",
+          "position": [
+            -3,
+            4,
+            4
+          ],
+          "intensity": 3
+        },
+        {
+          "type": "directional",
+          "position": [
+            3,
+            1,
+            -2
+          ],
+          "intensity": 1
+        }
+      ],
+      "positionNode": "actual-output-storage",
+      "normals": "recomputed-from-each-observed-surface",
+      "triangles": 26756
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "0-identity.json.gz",
+      "sha256": "b4367c713935859f3879a7a9dbae971ff416989f5a03a1f3d02569d168e3205f",
+      "decodedSHA256": "b0e6b6fb2d62f53ace7c9d226c5ef9e2ef42b202aa71aaa3f3ee6e6c94b2fb10",
+      "bytes": 1781772
+    },
+    {
+      "file": "0-elbow.json.gz",
+      "sha256": "8136fdba1c55fa421d5192fe0a1eb09cea7bb225444e85b58cd334b09ca1e5b1",
+      "decodedSHA256": "44ff44e16859ed50938e712bc1e725b534a68267aaa843eda29147ed758adf25",
+      "bytes": 1800341
+    },
+    {
+      "file": "0-coupled.json.gz",
+      "sha256": "10c968625cacdb20aecfa016cac602fe6db97282fb9a5a5337f702ac1c186f83",
+      "decodedSHA256": "ef9c43bc734a85854d6b2b82443e818940afa321f4ecbcd2b655f08d57c0ab38",
+      "bytes": 1995780
+    },
+    {
+      "file": "0.25-identity.json.gz",
+      "sha256": "7fc5825fd94233ba0d907f67c3110971ed593328ce38ca7d9854250c1c3c6cb6",
+      "decodedSHA256": "1a40b8e68a2aeb0395673bce88efc0c63051a865e47c1043046b0253034c4bdf",
+      "bytes": 1800982
+    },
+    {
+      "file": "0.25-elbow.json.gz",
+      "sha256": "fe67202663f9fed8ec8c95cf1b5c2d070aedfa51dbf3c436527d802614233fb0",
+      "decodedSHA256": "838d486a21711bde3367e5b917894b8a83ad90c87dae09a3255a62539cdc852e",
+      "bytes": 1817386
+    },
+    {
+      "file": "0.25-coupled.json.gz",
+      "sha256": "b444fc68e5c42a415a983ccfb18de69057b5c057ab4bf1995b2052408d036ac1",
+      "decodedSHA256": "4fdb7763537a888d6a07ef5781ff9cf5c73c7d5a0fa44c8ad62c3fc6809c9462",
+      "bytes": 1995847
+    },
+    {
+      "file": "1-identity.json.gz",
+      "sha256": "2b471df29ae2dc018745ffa438a16dfee79f08d1f6294acc6d0874dad684c76d",
+      "decodedSHA256": "96dabf3bf1c558d294d4f3e66bf86d404c723e546c0be50f3003bb147925f356",
+      "bytes": 1784708
+    },
+    {
+      "file": "1-elbow.json.gz",
+      "sha256": "ec30d49cabd9595d8d519a884cc5c325f053bf05bf412b568a7023f00767e5c8",
+      "decodedSHA256": "14a32445de73f6fde600b4c923d85907f072d435925c510d6fb715f240c2d10b",
+      "bytes": 1801473
+    },
+    {
+      "file": "1-coupled.json.gz",
+      "sha256": "02e39dde2756da96a416bc5cc5963781571174fcdf89627971164ec4229ca71a",
+      "decodedSHA256": "7c84a5b1703ba406ca2ac524dbb0982dcefebf202f86897d7cf1258f367aee13",
+      "bytes": 1987820
+    },
+    {
+      "file": "restore-accepted-four.json.gz",
+      "sha256": "faf6526e16822f06ed0a459143b88dd64df784c0f3fb4138435f934e9122f153",
+      "decodedSHA256": "c011ab99d326570bc8a76b10bdb63ed2bb9b716022fbe67e935cd2c5f3951d64",
+      "bytes": 2003037
+    },
+    {
+      "file": "stale-neutral-binds.json.gz",
+      "sha256": "3dd6d62cd3a1bc0681a468ace3da1267bd7980d727cee9847a85a3c20d0038be",
+      "decodedSHA256": "4be301eb39398ee47dbeafc317eec1ae7ca130d13f0a4351a6c4d091c2c2b331",
+      "bytes": 2059030
+    }
+  ],
+  "errors": [],
+  "scope": "Finite WebGPU compute positions and eight static plain-body images; no production shader/motion/normals/performance/body-range integration.",
+  "prepared": {
+    "file": "inputs.json",
+    "sha256": "7b6880c44fe4ccbcd3453c00ad1f00cc86a6ccb9a9e9ce732826983896488cea",
+    "cases": 11
+  },
+  "baseUrl": "http://localhost:5301",
+  "cleanPassed": true,
+  "negativeControlsPassed": true,
+  "passed": true,
+  "disposal": {
+    "disposed": true,
+    "privateStorageAttributesReleased": 5,
+    "errors": []
+  },
+  "finished": "2026-09-30T18:36:56.118Z",
+  "ownedBrowserAndServerClosed": true
+}

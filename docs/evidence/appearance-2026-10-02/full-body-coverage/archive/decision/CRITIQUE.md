@@ -1,0 +1,27 @@
+# Independent complete-body replay critique
+
+Accept this packet as the supplementary static framing review of the retained `1-coupled` body-target-1 observations. It closes the previously clipped-foot view for this case. It does not add a skin-kernel run, a wider pose/body-range result, or production appearance acceptance. No new blocking discrepancy was found.
+
+## Actual image witnesses
+
+I viewed both original 1200×1000 PNGs, `captures/full-body-coverage-2026-10-02-v1/body-complete-native.png` and `body-complete-gpu.png`, at original detail. Both show the complete head, both hands and both feet. Approximate image witnesses: head x550–621/y150–250; image-left hand x434–493/y412–503 and image-right hand x719–766/y380–433; image-left foot x474–532/y789–850 and image-right foot x658–719/y789–834. Neither foot reaches the image boundary. Labels occupy y20–92 above the body. The image-left foot at y789–850 provides a useful contrast with the old pair's legs reaching y999 and feet clipped outside the frame.
+
+I see no obvious candidate-specific lower-body contour break, hole or crease defect at this context scale. This is a limited visual judgment, not a claim of pixel identity or imperceptibility under zoom, movement, different normals or different lighting. Root's separately recorded small raster differences are compatible with this narrow judgment; they are not an acceptance metric.
+
+## Independent bytes and arithmetic
+
+`verify-replay.py` reads the earlier prepared native positions and actual retained GPU output, then checks equality with the new replay input. All 43,551 native coordinates after the declared Float32 conversion, all 43,551 GPU Float32 coordinates, and all 80,268 index entries agree. All 23 live source/input pins, 14 available copied snapshots, three compressed and decoded artifact pins, and both original PNG hashes/dimensions agree. The earlier nine-case results are preserved; their numerical claims were not recomputed here.
+
+The verifier imports neither Three nor the capture helpers. A Gram-Schmidt basis from the declared direction and world-up, followed by closed-form orthographic WebGPU matrices, reproduces all 29,034 recorded point projections. Maximum XY discrepancy is 3.410605131648481e−13 px; maximum depth discrepancy is 5.551115123125783e−17. Native y extrema are 150.00000000000009 and 850.0000000000001; GPU y extrema are 149.99994903526985 and 849.9999931312967. GPU nominal margins satisfy the predeclared .001 px tolerance. Shared recorded camera, material, lights, exposure, colour space and per-surface geometric-normal method agree; all projected depths lie in [0,1].
+
+`tools/critic/full-body-coverage.mjs` uses the retained GPU storage directly for `positionNode`; it performs no compute dispatch. Its successful in-page readback comparison checks actual uploaded Float32 XYZ and W=1. That new GPU readback array is not separately retained, so the independent byte verifier validates its source and receipt rather than claiming a second independent GPU readback. The packet records zero errors, explicit GPU/page/browser/server cleanup, unchanged final input pins, and completion before the declared hard stop. The borrowed review service is retained as specified.
+
+Independent run: `python3 docs/evidence/appearance-2026-10-02/full-body-coverage/verify-replay.py > docs/evidence/appearance-2026-10-02/full-body-coverage/independent.json`; PID 81511; 2026-10-03T06:06:22.785594Z–06:06:23.084304Z; interpreter `/opt/homebrew/opt/python@3.14/bin/python3.14`; Python 3.14.7, NumPy 2.4.6; exit 0. Receipt SHA256 `9c4029af71c1e3ad2f0f95f422eb17a1bf75e6e0ed7fa5d844064721f38cd216`; verifier SHA256 `7aae8a6df56133cac70783ee6700f429ab62b09bc62b5e5034d6068db23ff986`. Report SHA256 `2f378f0772b1b6750f280d15b1e67fbdeb527669e4dadbc9d749f65e6dd92f75`.
+
+## Source and review-page assessment
+
+Read-only review of `review.html` finds accurate provenance: original native measurements uploaded as Float32, retained September 30 GPU positions, no skin-kernel rerun, one shared camera and geometric-normal method. Its captions and limits distinguish this static view from production normals/tangents, history, queries, movement, other poses, broader body range, clothing and AAA appearance. Relative navigation resolves to the October 2 overview, existing earlier GPU results and full roadmap. The two image links and capture-record link target the planned archive copy; those copies were pending the root-owned archival handoff at this source review. This is source sanity review, not another HTML browser capture or a claim that pending archive files already exist.
+
+The two pre-execution objections are recorded in `PRE-FLIGHT-CRITIQUE.md` and were corrected before the single capture: native-only framing with a strict 1e−5 px GPU tolerance would reject the retained residual, while an entry-only deadline would permit a late result. The concrete alternatives were native-only extra numerical padding versus a declared .001 px GPU margin tolerance, and bounded stage/final deadline guards versus an external terminating watchdog. Root chose the tolerance and stage/final guards; the observed packet meets both. No further adjustment or capture is justified by this review.
+
+The next work should address a separately declared production/runtime or visible-character question. This completed framing packet supplies no reason to reopen the frozen position-kernel experiment or qualify the entire character.

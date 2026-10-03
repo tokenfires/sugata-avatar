@@ -1,0 +1,60 @@
+{
+  "started": "2026-10-03T06:03:48.244Z",
+  "pid": 76399,
+  "method": "Three lookAt/extractRotation/Box3 fit and complete project path; root actual original images reviewed separately.",
+  "inputs": {
+    "captures/full-body-coverage-2026-10-02-v1/report.json": "2f378f0772b1b6750f280d15b1e67fbdeb527669e4dadbc9d749f65e6dd92f75",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/report.json": "0b272c6531241d18992d8e99c90bc723654c233cf110aa832042e4d3133a478d",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/inputs.json": "7b6880c44fe4ccbcd3453c00ad1f00cc86a6ccb9a9e9ce732826983896488cea",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/1-coupled.json.gz": "02e39dde2756da96a416bc5cc5963781571174fcdf89627971164ec4229ca71a",
+    "tools/critic/eight-influence-gpu.mjs": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa",
+    "tools/critic/capture-eight-influence-gpu.mjs": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960",
+    "tools/critic/eight-influence-gpu.html": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "vite.config.js": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+    "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/build/three.webgpu.js": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340",
+    "node_modules/three/build/three.tsl.js": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-native.png": "44d5641863066190fd6512ce97da179a1adda6ff5f45361f6b1f41cb00c5731e",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-gpu.png": "12d6685d84a0e40e2dbf121601ac8277bf3e52d21bb5cdee6ac452830881f4c7",
+    "tools/critic/capture-full-body-coverage.mjs": "50d2daf5d277a83cd3c8cd6f2a258460909d02156d066a1690ece3b2df6d53a8",
+    "tools/critic/full-body-coverage.mjs": "3b23a43abc0b9d3bc3edd4f52f81a552961a956d8f03e9881daea823683f5040",
+    "tools/critic/full-body-coverage.html": "5cd178b49138ff3b0426342669fbb9bdff0f5de38fd2aae6a01bcd4fbed6573c",
+    "docs/evidence/appearance-2026-10-02/full-body-coverage/PLAN.md": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8",
+    "docs/evidence/appearance-2026-10-02/NEXT-SLICE-VALUE-CRITIQUE.md": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a",
+    "node_modules/three/src/cameras/OrthographicCamera.js": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54",
+    "node_modules/three/src/renderers/common/Renderer.js": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+    "tools/critic/verify-full-body-coverage.mjs": "b8c4bfc6fa42b70c570eb5b2faba487e97014dc1f69d32d1deeec65aacaf779a",
+    "tools/critic/png.mjs": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+  },
+  "checks": [
+    "All retained/new positions and indices exact",
+    "All current input/source copies rehashed",
+    "Shared camera independently reconstructed from native via Three Box3",
+    "All29034image projections/frustum bounds reproduced",
+    "Actual originals1200×1000 PNGCRC/dimensions/hashes",
+    "Both common render records byte-equivalent JSON",
+    "Every compressed/decoded artifact hash",
+    "GPU/page/browser/server cleanup and timely finish"
+  ],
+  "maxMatrixError": 2.220446049250313e-16,
+  "maxPixelError": 2.2737367544323206e-13,
+  "maxDepthError": 0,
+  "projections": 29034,
+  "supportingPixelComparison": {
+    "region": {
+      "x": 0,
+      "y": 120,
+      "width": 1200,
+      "height": 880
+    },
+    "changedPixels": 75,
+    "maxCodeDifference": 42.999997437000275,
+    "note": "Labels excluded. Supporting observation only; no pixel-exact acceptance requirement and no new capture."
+  },
+  "finished": "2026-10-03T06:03:48.436Z",
+  "passed": true
+}

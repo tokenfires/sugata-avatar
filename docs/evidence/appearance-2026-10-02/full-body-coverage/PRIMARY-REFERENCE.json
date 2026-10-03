@@ -1,0 +1,10 @@
+{
+  "sourceURL": "https://threejs.org/docs/pages/OrthographicCamera.html",
+  "url": "https://threejs.org/docs/#OrthographicCamera",
+  "statusCode": 200,
+  "scrapeId": "01a10055-cf3b-7269-a9bd-b924de19d79e",
+  "creditsUsed": 1,
+  "accessedUTC": "2026-10-03T05:57Z",
+  "quote": "Updates the camera's projection matrix. Must be called after any change of camera properties.",
+  "interpretation": "Primary docs describe the six frustum planes and require projection refresh after camera changes. Installed pinned Three185 source additionally changes camera coordinate system at render; explicitly selecting WebGPU before recording matrices prevents stale metadata. Online documentation supports API semantics, not appearance or production skin qualification."
+}

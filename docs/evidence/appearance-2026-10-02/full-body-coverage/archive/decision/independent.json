@@ -1,0 +1,232 @@
+{
+  "status": "independent retained replay verification passed",
+  "started": "2026-10-03T06:06:22.785594+00:00",
+  "finished": "2026-10-03T06:06:23.084304+00:00",
+  "pid": 81511,
+  "command": "python3 docs/evidence/appearance-2026-10-02/full-body-coverage/verify-replay.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "numpyVersion": "2.4.6",
+  "reportSHA256": "2f378f0772b1b6750f280d15b1e67fbdeb527669e4dadbc9d749f65e6dd92f75",
+  "verifierSHA256": "7aae8a6df56133cac70783ee6700f429ab62b09bc62b5e5034d6068db23ff986",
+  "inputPins": {
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/report.json": {
+      "live": "0b272c6531241d18992d8e99c90bc723654c233cf110aa832042e4d3133a478d",
+      "snapshot": "0b272c6531241d18992d8e99c90bc723654c233cf110aa832042e4d3133a478d",
+      "expected": "0b272c6531241d18992d8e99c90bc723654c233cf110aa832042e4d3133a478d"
+    },
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/inputs.json": {
+      "live": "7b6880c44fe4ccbcd3453c00ad1f00cc86a6ccb9a9e9ce732826983896488cea",
+      "snapshot": null,
+      "expected": "7b6880c44fe4ccbcd3453c00ad1f00cc86a6ccb9a9e9ce732826983896488cea"
+    },
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/1-coupled.json.gz": {
+      "live": "02e39dde2756da96a416bc5cc5963781571174fcdf89627971164ec4229ca71a",
+      "snapshot": null,
+      "expected": "02e39dde2756da96a416bc5cc5963781571174fcdf89627971164ec4229ca71a"
+    },
+    "tools/critic/eight-influence-gpu.mjs": {
+      "live": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa",
+      "snapshot": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa",
+      "expected": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa"
+    },
+    "tools/critic/capture-eight-influence-gpu.mjs": {
+      "live": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960",
+      "snapshot": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960",
+      "expected": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960"
+    },
+    "tools/critic/eight-influence-gpu.html": {
+      "live": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906",
+      "snapshot": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906",
+      "expected": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906"
+    },
+    "packages/core/src/render/MotionProbe.mjs": {
+      "live": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+      "snapshot": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+      "expected": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    "vite.config.js": {
+      "live": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+      "snapshot": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+      "expected": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    "package-lock.json": {
+      "live": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+      "snapshot": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+      "expected": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    "node_modules/three/package.json": {
+      "live": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "snapshot": null,
+      "expected": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    "node_modules/three/build/three.webgpu.js": {
+      "live": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340",
+      "snapshot": null,
+      "expected": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340"
+    },
+    "node_modules/three/build/three.tsl.js": {
+      "live": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1",
+      "snapshot": null,
+      "expected": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1"
+    },
+    "node_modules/three/build/three.core.js": {
+      "live": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+      "snapshot": null,
+      "expected": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    "node_modules/three/build/three.module.js": {
+      "live": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+      "snapshot": null,
+      "expected": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-native.png": {
+      "live": "44d5641863066190fd6512ce97da179a1adda6ff5f45361f6b1f41cb00c5731e",
+      "snapshot": null,
+      "expected": "44d5641863066190fd6512ce97da179a1adda6ff5f45361f6b1f41cb00c5731e"
+    },
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-gpu.png": {
+      "live": "12d6685d84a0e40e2dbf121601ac8277bf3e52d21bb5cdee6ac452830881f4c7",
+      "snapshot": null,
+      "expected": "12d6685d84a0e40e2dbf121601ac8277bf3e52d21bb5cdee6ac452830881f4c7"
+    },
+    "tools/critic/capture-full-body-coverage.mjs": {
+      "live": "50d2daf5d277a83cd3c8cd6f2a258460909d02156d066a1690ece3b2df6d53a8",
+      "snapshot": "50d2daf5d277a83cd3c8cd6f2a258460909d02156d066a1690ece3b2df6d53a8",
+      "expected": "50d2daf5d277a83cd3c8cd6f2a258460909d02156d066a1690ece3b2df6d53a8"
+    },
+    "tools/critic/full-body-coverage.mjs": {
+      "live": "3b23a43abc0b9d3bc3edd4f52f81a552961a956d8f03e9881daea823683f5040",
+      "snapshot": "3b23a43abc0b9d3bc3edd4f52f81a552961a956d8f03e9881daea823683f5040",
+      "expected": "3b23a43abc0b9d3bc3edd4f52f81a552961a956d8f03e9881daea823683f5040"
+    },
+    "tools/critic/full-body-coverage.html": {
+      "live": "5cd178b49138ff3b0426342669fbb9bdff0f5de38fd2aae6a01bcd4fbed6573c",
+      "snapshot": "5cd178b49138ff3b0426342669fbb9bdff0f5de38fd2aae6a01bcd4fbed6573c",
+      "expected": "5cd178b49138ff3b0426342669fbb9bdff0f5de38fd2aae6a01bcd4fbed6573c"
+    },
+    "docs/evidence/appearance-2026-10-02/full-body-coverage/PLAN.md": {
+      "live": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8",
+      "snapshot": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8",
+      "expected": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8"
+    },
+    "docs/evidence/appearance-2026-10-02/NEXT-SLICE-VALUE-CRITIQUE.md": {
+      "live": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a",
+      "snapshot": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a",
+      "expected": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a"
+    },
+    "node_modules/three/src/cameras/OrthographicCamera.js": {
+      "live": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54",
+      "snapshot": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54",
+      "expected": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54"
+    },
+    "node_modules/three/src/renderers/common/Renderer.js": {
+      "live": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+      "snapshot": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+      "expected": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b"
+    }
+  },
+  "snapshotsChecked": 14,
+  "artifacts": {
+    "inputs.json.gz": {
+      "compressedSHA256": "79449906e332732d69deb000f99608d0aa8690360739709631457ea1db137e2b",
+      "decodedSHA256": "0c88680bec9af9df4ffe5a0d0c953069fafb19413513b69876efa18b25c98373"
+    },
+    "native-projections.json.gz": {
+      "compressedSHA256": "149aea4752a786921e5672e863359b4061d5f60988419c7db40b322bd5c4ea60",
+      "decodedSHA256": "386b05f9a84280044cfee8d2c02701ac59ec8833677026979805abeab91a4ed0"
+    },
+    "gpu-projections.json.gz": {
+      "compressedSHA256": "9fe9bd330f0b7c1d0b0170b1f64bc616b443d07c81c58a599798980116c35f22",
+      "decodedSHA256": "a94e1a84e45d9dcbbdf1392d673c35e0fbbed40c7cf987eb9c9ef48ef11b2594"
+    }
+  },
+  "screenshots": {
+    "captures/full-body-coverage-2026-10-02-v1/body-complete-native.png": {
+      "sha256": "25ebc0cfaa4c30cf01911ab0a52231e93bffbbc99bfc192fb2e68df20f323892",
+      "dimensions": [
+        1200,
+        1000
+      ]
+    },
+    "captures/full-body-coverage-2026-10-02-v1/body-complete-gpu.png": {
+      "sha256": "5a8dc06807bf7d4c84a87d60fdae846738ffb36359a92a2499e1f6994774ced0",
+      "dimensions": [
+        1200,
+        1000
+      ]
+    }
+  },
+  "camera": {
+    "halfSpan": 1.2448638360219029,
+    "target": [
+      -0.0116744718272455,
+      0.7682073830685501,
+      0.1515049174956095
+    ],
+    "position": [
+      -2.565814256117072,
+      1.3641733327361765,
+      4.408404557978654
+    ],
+    "matrixMaximumErrors": {
+      "view": 4.718447854656915e-16,
+      "projection": 0.0,
+      "cameraWorld": 2.220446049250313e-16
+    }
+  },
+  "observations": [
+    {
+      "arm": "native",
+      "vertices": 14517,
+      "maximumProjectionError": [
+        3.410605131648481e-13,
+        2.2737367544323206e-13,
+        5.551115123125783e-17
+      ],
+      "extrema": [
+        [
+          436.3194760350755,
+          763.6805239649246
+        ],
+        [
+          150.00000000000009,
+          850.0000000000001
+        ],
+        [
+          0.22911701416626581,
+          0.2701326106461403
+        ]
+      ]
+    },
+    {
+      "arm": "gpu",
+      "vertices": 14517,
+      "maximumProjectionError": [
+        3.410605131648481e-13,
+        2.8421709430404007e-13,
+        5.551115123125783e-17
+      ],
+      "extrema": [
+        [
+          436.3194852729343,
+          763.6804829077745
+        ],
+        [
+          149.99994903526985,
+          849.9999931312967
+        ],
+        [
+          0.22911701513092594,
+          0.270132613914561
+        ]
+      ]
+    }
+  ],
+  "projectedVertices": 29034,
+  "limits": [
+    "Read-only independent retained-byte and camera/matrix/projection audit; no new render, compute or network job.",
+    "Actual GPU storage equality is supported by the pinned in-page readback comparison and its successful receipt, not a separately retained new raw GPU-readback array.",
+    "Two static images at context scale do not qualify production normals/history/queries, movement, other poses or clothed avatar."
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "started": "2026-10-03T06:11:11.267Z",
+  "pid": 91015,
+  "scope": "Exact completed replay packet; old measured input paths remain separately pinned and preserved.",
+  "files": [
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/body-complete-gpu.png",
+      "file": "capture/body-complete-gpu.png",
+      "bytes": 108740,
+      "sha256": "5a8dc06807bf7d4c84a87d60fdae846738ffb36359a92a2499e1f6994774ced0"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/body-complete-native.png",
+      "file": "capture/body-complete-native.png",
+      "bytes": 107003,
+      "sha256": "25ebc0cfaa4c30cf01911ab0a52231e93bffbbc99bfc192fb2e68df20f323892"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/gpu-projections.json.gz",
+      "file": "capture/gpu-projections.json.gz",
+      "bytes": 350694,
+      "sha256": "9fe9bd330f0b7c1d0b0170b1f64bc616b443d07c81c58a599798980116c35f22"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/inputs.json",
+      "file": "capture/inputs.json",
+      "bytes": 2146457,
+      "sha256": "0c88680bec9af9df4ffe5a0d0c953069fafb19413513b69876efa18b25c98373"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/inputs.json.gz",
+      "file": "capture/inputs.json.gz",
+      "bytes": 835179,
+      "sha256": "79449906e332732d69deb000f99608d0aa8690360739709631457ea1db137e2b"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/native-projections.json.gz",
+      "file": "capture/native-projections.json.gz",
+      "bytes": 350739,
+      "sha256": "149aea4752a786921e5672e863359b4061d5f60988419c7db40b322bd5c4ea60"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/report.json",
+      "file": "capture/report.json",
+      "bytes": 15999,
+      "sha256": "2f378f0772b1b6750f280d15b1e67fbdeb527669e4dadbc9d749f65e6dd92f75"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/root-independent.json",
+      "file": "capture/root-independent.json",
+      "bytes": 4343,
+      "sha256": "3a23c8ae32e5a0b3bdbc8d60f546dca880b958920616206f2377427668730fbb"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/captures/skeleton-full-influences-gpu-2026-09-30-v2/report.json",
+      "file": "sources/00-report.json",
+      "bytes": 44356,
+      "sha256": "0b272c6531241d18992d8e99c90bc723654c233cf110aa832042e4d3133a478d"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/docs/evidence/appearance-2026-10-02/NEXT-SLICE-VALUE-CRITIQUE.md",
+      "file": "sources/01-NEXT-SLICE-VALUE-CRITIQUE.md",
+      "bytes": 4063,
+      "sha256": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/docs/evidence/appearance-2026-10-02/full-body-coverage/PLAN.md",
+      "file": "sources/02-PLAN.md",
+      "bytes": 4522,
+      "sha256": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/node_modules/three/src/cameras/OrthographicCamera.js",
+      "file": "sources/03-OrthographicCamera.js",
+      "bytes": 5806,
+      "sha256": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/node_modules/three/src/renderers/common/Renderer.js",
+      "file": "sources/04-Renderer.js",
+      "bytes": 102228,
+      "sha256": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/package-lock.json",
+      "file": "sources/05-package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/packages/core/src/render/MotionProbe.mjs",
+      "file": "sources/06-MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/tools/critic/capture-eight-influence-gpu.mjs",
+      "file": "sources/07-capture-eight-influence-gpu.mjs",
+      "bytes": 9767,
+      "sha256": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/tools/critic/capture-full-body-coverage.mjs",
+      "file": "sources/08-capture-full-body-coverage.mjs",
+      "bytes": 10512,
+      "sha256": "50d2daf5d277a83cd3c8cd6f2a258460909d02156d066a1690ece3b2df6d53a8"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/tools/critic/eight-influence-gpu.html",
+      "file": "sources/09-eight-influence-gpu.html",
+      "bytes": 468,
+      "sha256": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/tools/critic/eight-influence-gpu.mjs",
+      "file": "sources/10-eight-influence-gpu.mjs",
+      "bytes": 6260,
+      "sha256": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/tools/critic/full-body-coverage.html",
+      "file": "sources/11-full-body-coverage.html",
+      "bytes": 479,
+      "sha256": "5cd178b49138ff3b0426342669fbb9bdff0f5de38fd2aae6a01bcd4fbed6573c"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/tools/critic/full-body-coverage.mjs",
+      "file": "sources/12-full-body-coverage.mjs",
+      "bytes": 5608,
+      "sha256": "3b23a43abc0b9d3bc3edd4f52f81a552961a956d8f03e9881daea823683f5040"
+    },
+    {
+      "source": "captures/full-body-coverage-2026-10-02-v1/sources/vite.config.js",
+      "file": "sources/13-vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/PLAN.md",
+      "file": "decision/PLAN.md",
+      "bytes": 4522,
+      "sha256": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/PRE-FLIGHT-CRITIQUE.md",
+      "file": "decision/PRE-FLIGHT-CRITIQUE.md",
+      "bytes": 5575,
+      "sha256": "61fca4d7378268742f0461b38e1aa1e8344af0e11dcf843635815890d854577d"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/PRIMARY-REFERENCE.json",
+      "file": "decision/PRIMARY-REFERENCE.json",
+      "bytes": 758,
+      "sha256": "c096bf8121a37d55c7788e6e15b6769938dea649b3c22498f65da4d4bb88be8f"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/ROOT-DECISION.md",
+      "file": "decision/ROOT-DECISION.md",
+      "bytes": 2436,
+      "sha256": "1911b14c7795b1ffcdd3a323882c1a9ccfdabb6b6cbae9f04975b7185ef3fcfc"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/CRITIQUE.md",
+      "file": "decision/CRITIQUE.md",
+      "bytes": 5495,
+      "sha256": "b334ae2d531886bb06f20403a6e4733f856d8af5bc68ed53cd35387f9ac2dd50"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/independent.json",
+      "file": "decision/independent.json",
+      "bytes": 10300,
+      "sha256": "9c4029af71c1e3ad2f0f95f422eb17a1bf75e6e0ed7fa5d844064721f38cd216"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/verify-replay.py",
+      "file": "decision/verify-replay.py",
+      "bytes": 9364,
+      "sha256": "7aae8a6df56133cac70783ee6700f429ab62b09bc62b5e5034d6068db23ff986"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/full-body-coverage/review.html",
+      "file": "decision/review.html",
+      "bytes": 4022,
+      "sha256": "dc15e635d914326b7b9d5fa1735e9f9b3c2364fa088db07e2804eeef0e44cf02"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/NEXT-SLICE-VALUE-CRITIQUE.md",
+      "file": "decision/NEXT-SLICE-VALUE-CRITIQUE.md",
+      "bytes": 4063,
+      "sha256": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a"
+    },
+    {
+      "source": "tools/critic/verify-full-body-coverage.mjs",
+      "file": "verification/verify-full-body-coverage.mjs",
+      "bytes": 6253,
+      "sha256": "b8c4bfc6fa42b70c570eb5b2faba487e97014dc1f69d32d1deeec65aacaf779a"
+    },
+    {
+      "source": "tools/critic/freeze-full-body-coverage.mjs",
+      "file": "verification/freeze-full-body-coverage.mjs",
+      "bytes": 3195,
+      "sha256": "3d4fac2aeb3dc75510681f317cf60b50336160ce188c6b0f09622643b1edfe0b"
+    },
+    {
+      "source": "tools/critic/png.mjs",
+      "file": "verification/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "source": "node_modules/three/LICENSE",
+      "file": "sources/three-LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    }
+  ],
+  "externalInputs": {
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/report.json": "0b272c6531241d18992d8e99c90bc723654c233cf110aa832042e4d3133a478d",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/inputs.json": "7b6880c44fe4ccbcd3453c00ad1f00cc86a6ccb9a9e9ce732826983896488cea",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/1-coupled.json.gz": "02e39dde2756da96a416bc5cc5963781571174fcdf89627971164ec4229ca71a",
+    "tools/critic/eight-influence-gpu.mjs": "99378e5e10bed50c8d1cb037bf3889dbb30706d88a7797a1f13664aaade6ebaa",
+    "tools/critic/capture-eight-influence-gpu.mjs": "8a3233cc6afef5ba49c1c6d812bdbe32510101aa77d9f2c7efbc4937fc5e6960",
+    "tools/critic/eight-influence-gpu.html": "b0f51f155b7186d557d57dcde5771bbac1587856459d93a08b984246c9a68906",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "vite.config.js": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d",
+    "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/build/three.webgpu.js": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340",
+    "node_modules/three/build/three.tsl.js": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-native.png": "44d5641863066190fd6512ce97da179a1adda6ff5f45361f6b1f41cb00c5731e",
+    "captures/skeleton-full-influences-gpu-2026-09-30-v2/body-1-context-gpu.png": "12d6685d84a0e40e2dbf121601ac8277bf3e52d21bb5cdee6ac452830881f4c7",
+    "tools/critic/capture-full-body-coverage.mjs": "50d2daf5d277a83cd3c8cd6f2a258460909d02156d066a1690ece3b2df6d53a8",
+    "tools/critic/full-body-coverage.mjs": "3b23a43abc0b9d3bc3edd4f52f81a552961a956d8f03e9881daea823683f5040",
+    "tools/critic/full-body-coverage.html": "5cd178b49138ff3b0426342669fbb9bdff0f5de38fd2aae6a01bcd4fbed6573c",
+    "docs/evidence/appearance-2026-10-02/full-body-coverage/PLAN.md": "63480cc07c77743c4d49a15a62d29527796899c75fa6eb5ebea425f550b03ae8",
+    "docs/evidence/appearance-2026-10-02/NEXT-SLICE-VALUE-CRITIQUE.md": "f1733828e60f7142f9ecb4277293ede8b7fe2c28872fab10d03ce162aa61693a",
+    "node_modules/three/src/cameras/OrthographicCamera.js": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54",
+    "node_modules/three/src/renderers/common/Renderer.js": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+    "tools/critic/png.mjs": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+  },
+  "finished": "2026-10-03T06:11:11.296Z",
+  "count": 35,
+  "bytes": 4226637
+}
