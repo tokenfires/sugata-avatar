@@ -1,0 +1,7 @@
+# Primary formula context
+
+Live project-owner documentation: [nurbspy Coons patch](https://turbo-sim.github.io/nurbspy/examples/coons_patch.html), Firecrawl maxAge0 scrape200 at17:48UTC, scrapeId01a102e1-b2b2-7529-9496-990e07f4a3d0, one existing credit. This is an implementation author's primary technical example, not an imported dependency or source-code adoption. No script was copied or run, no library installed and no image pixels received.
+
+The documented construction combines two opposite-edge interpolants and removes the duplicated bilinear corner term. Each opposing pair uses the same parameter direction, with all four endpoint pairs agreeing. Boundary-position interpolation alone adds no tangent-plane or curvature guarantee. Root uses this standard mathematical identity to define an independent explicit curve graph; the page's specific NURBS degree/knot/weight conditions apply to its library and are not borrowed as proof of this candidate.
+
+One initial primary academic PDF at https://web.cs.ucdavis.edu/~hamann/HamannJean1996.pdf failed both web and Firecrawl size bounds (61,775,237 bytes exceeds50MiB), supplying no content/figure evidence. No download, size workaround or retry. The one project-owner documentation page resolves the required formula/orientation distinction; no further source hunt. Existing R2/R3 design examples and original frozen net remain the actual artistic witnesses.

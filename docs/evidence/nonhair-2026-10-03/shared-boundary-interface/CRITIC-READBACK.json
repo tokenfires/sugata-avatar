@@ -1,0 +1,38 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/shared-boundary-interface/critic-reader.py",
+  "pid": 56187,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "started": "2026-10-03T17:59:10.837127+00:00",
+  "finished": "2026-10-03T17:59:10.844533+00:00",
+  "sourceSHA256": "b0b96a181beb033129d0322bd407faa103c110214b36b95fde4eff1127e3fbf6",
+  "pins": {
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/shared-boundary-interface/interface.json": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/shared-boundary-interface/author-interface.py": "ac9c7e42d558dc9b3b3b2aecef2a0a563152e37a5d10598c0c5ab0fa90da5e96",
+    "docs/evidence/nonhair-2026-10-03/control-net-authorship/control-net.json": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936",
+    "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+  },
+  "all50OriginalPositionsExact": true,
+  "all89CurveDeclarationsRead": true,
+  "all40PatchCornersAnd160ReferencesExact": true,
+  "canonicalSharedEdges": 71,
+  "outerEdges": 18,
+  "outerCycleNodes": 18,
+  "outerRoles": "ten opening/front edges plus eight hem edges",
+  "backDerivativesExact": true,
+  "boundaryPolynomialResiduals": 160,
+  "firstBackLocalTangents": [
+    [
+      -0.018,
+      -0.030999999999999917,
+      -0.0020000000000000018
+    ],
+    [
+      0.0,
+      -0.0230322580645161,
+      -0.003161290322580648
+    ]
+  ],
+  "result": "PASS source C0 interface only; no surface/edge sampling, regularity, geometry, native or appearance inference"
+}

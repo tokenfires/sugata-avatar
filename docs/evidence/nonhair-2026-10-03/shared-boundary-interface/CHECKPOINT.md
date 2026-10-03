@@ -1,0 +1,7 @@
+# Recovery checkpoint
+
+Interface-only investigation closed18:02UTC. Root and critic pass exact source C0 shared-boundary responsibility; appearance/body fit/motion remain unqualified. The previous net stays frozen/refused. No mesh/evaluator/native job was launched. Source, all three exact commands, hashes and mathematical witness are retained in RECEIPT and JSON receipts.
+
+After18:02: documentation/readback/preservation only. ReviewPID1023/127.0.0.1:5173 retained;41428/48969/56187 absent at18:11UTC. Ten-minute current-chat recovery remains ACTIVE. Accepted/default/assets/original/frozen/unrelated boundaries retained; no push/publish/capacity/model/subscription/reset-credit/other-project action.
+
+Next: one fresh fixed whole-head gray-volume plan may be worthwhile. First declare concrete finite/nondegenerate/winding/self-intersection/body-contact/attachment/lifecycle rejection predicates, exact evaluator and canonical edge cache, actual original/gray image decision and effort limit. Obtain critic literal value admission before substantial implementation; full final source admission before sole construction/native. Defer before geometry if indispensable predicates cannot be named. One proposal/no repairs/sweeps, total40minutes including original-image review. Human check-in receives concise status and awaits steering before another substantial slice. Full AAA hair/character/expression/wardrobe/representation remains open.

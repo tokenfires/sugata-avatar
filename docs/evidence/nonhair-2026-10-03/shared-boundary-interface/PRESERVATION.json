@@ -1,0 +1,87 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/shared-boundary-interface/freeze.py",
+  "pid": 86524,
+  "started": "2026-10-03T18:13:11.357998+00:00",
+  "finished": "2026-10-03T18:13:11.364963+00:00",
+  "externalInputs": {
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+    "docs/evidence/appearance-2026-10-02/front-design/DOMAIN-DECISION.md": "6d376ca2d1a80de81196b2aaf8c0602381bf7a4ef156c3901c468f346bac2244",
+    "docs/evidence/appearance-2026-10-02/front-design/anatomy-anchors.json": "f846be59e18ce5485a41ddac67a90342b19733a4a42209b862fd6c3fb22eb9ba",
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "captures/whole-front-blockout-2026-10-03-v1/proposal-front.png": "86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752",
+    "captures/whole-front-blockout-2026-10-03-v1/proposal-oblique.png": "370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df",
+    "docs/evidence/nonhair-2026-10-03/sculpt-value/CRITIC-VALUE.md": "74cc78a17cff9657aee27aab130f4ebe758a0b9286e9a501eb87ee9ec8338c56",
+    "docs/evidence/nonhair-2026-10-03/sculpt-value/PRIMARY-REFERENCE.md": "36e6e09eb29b200caaa15e27b4dc2f2befb4f9e18ab809ae3d0e8ce5da7dc33e",
+    "docs/evidence/nonhair-2026-10-03/control-net-authorship/control-net.json": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936"
+  },
+  "files": {
+    "AUTHOR-RECEIPT.json": {
+      "sha256": "954013fa9288e20afff04b3bb10897ccb101316bcb7938c165893209a6a15f01",
+      "bytes": 831
+    },
+    "CHECKPOINT.md": {
+      "sha256": "b8394c0c36ca20cefedd72c11b26bdeaf7fbc36a0b16a57c96c25a7f59295aea",
+      "bytes": 1443
+    },
+    "CRITIC-POSTFLIGHT.md": {
+      "sha256": "223c292fec7b8bd0314faaa10aeaca84394a69d79b76a9cff8655f14448917ed",
+      "bytes": 4324
+    },
+    "CRITIC-READBACK.json": {
+      "sha256": "dbc747d2cd358120be0b07678c966a52bcfb39d3e638a8a5f303b164b9b9c3cd",
+      "bytes": 1889
+    },
+    "CRITIC-VALUE.md": {
+      "sha256": "0c7d2a2f4f7c290d06596c3db0c69a2e215bfbff9e98cf2dfee1aaf2de7bd046",
+      "bytes": 3377
+    },
+    "PLAN.md": {
+      "sha256": "b90c3938e14cfe69c223dd490b6abca6b72590c4ed380c123a047bf22dc19e9a",
+      "bytes": 2457
+    },
+    "PRIMARY-REFERENCE.md": {
+      "sha256": "aae01459d544d29e60b30eb8d9d17792df8cdae8d8d4094f253167d324e86418",
+      "bytes": 1418
+    },
+    "README.md": {
+      "sha256": "43a191899131ad6cc4998b95ecfd076117336140adf5e9d5f835a1492634923d",
+      "bytes": 987
+    },
+    "RECEIPT.md": {
+      "sha256": "e4c9c71ba345800547972b97bdffee9ff3e654413639b5c6455dab62f870fbbf",
+      "bytes": 3995
+    },
+    "ROOT-DECISION.md": {
+      "sha256": "cba66233fdbd68f17865afef6b8f374c05718e5996cef2269f6a0b9600aadb2c",
+      "bytes": 3654
+    },
+    "ROOT-READBACK.json": {
+      "sha256": "3b90f84085a1874429c74129587fd7a134b7a29c69e5d23cdee773f71190fa49",
+      "bytes": 30304
+    },
+    "author-interface.py": {
+      "sha256": "ac9c7e42d558dc9b3b3b2aecef2a0a563152e37a5d10598c0c5ab0fa90da5e96",
+      "bytes": 7782
+    },
+    "critic-reader.py": {
+      "sha256": "b0b96a181beb033129d0322bd407faa103c110214b36b95fde4eff1127e3fbf6",
+      "bytes": 5269
+    },
+    "freeze.py": {
+      "sha256": "b4fa66cd717a65d8a7d5d79c17482848f657121a9865ee7cc0e12d110ebfd3d3",
+      "bytes": 2323
+    },
+    "interface.json": {
+      "sha256": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+      "bytes": 94633
+    },
+    "root-readback.py": {
+      "sha256": "11aab0951617b8c37bc3e112fbb4744ec5554e4ece255195fbb64164d2c6a30d",
+      "bytes": 4700
+    }
+  },
+  "status": "exact interface/author/root/critic receipts and original inputs unchanged; preservation only",
+  "limits": "C0 source qualification only; no surface/native/appearance evaluation"
+}

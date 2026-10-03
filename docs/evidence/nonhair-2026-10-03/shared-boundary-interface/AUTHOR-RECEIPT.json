@@ -1,0 +1,18 @@
+{
+  "pid": 41428,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/shared-boundary-interface/author-interface.py",
+  "started": "2026-10-03T17:52:38.624921+00:00",
+  "finished": "2026-10-03T17:52:38.626378+00:00",
+  "authorSourceSHA256": "ac9c7e42d558dc9b3b3b2aecef2a0a563152e37a5d10598c0c5ab0fa90da5e96",
+  "interfaceSHA256": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+  "positionSourceSHA256": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936",
+  "nodes": 50,
+  "canonicalEdges": 89,
+  "patches": 40,
+  "all160EdgeReferencesEndpointCompatible": true,
+  "sharedEdges": 71,
+  "outerEdges": 18,
+  "outerBoundaryNodes": 18,
+  "outerComponents": 1,
+  "status": "source graph/corner identities passed; generic exact Coons boundary cancellation specified; no surface/native/appearance"
+}

@@ -1,0 +1,1004 @@
+{
+  "pid": 48969,
+  "command": "python3 docs/evidence/nonhair-2026-10-03/shared-boundary-interface/root-readback.py",
+  "started": "2026-10-03T17:55:54.449832+00:00",
+  "finished": "2026-10-03T17:55:54.451369+00:00",
+  "sourceSHA256": "11aab0951617b8c37bc3e112fbb4744ec5554e4ece255195fbb64164d2c6a30d",
+  "interfaceSHA256": "e734947c8e594b7396bf5f4359c0979b569d9ead92554a9b9a3d656b69248c2c",
+  "positionSourceSHA256": "ee2808f9c4c2a04d6582beee454786dde2c3303e91430a9f259d1158a4982936",
+  "all50PositionsUnchanged": true,
+  "canonicalEdges": 89,
+  "patches": 40,
+  "formalBoundaryReductions": [
+    {
+      "patch": "minusX:0:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-0|part-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-1-0|minusX-1-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-0|part-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-1-1|part-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-1|part-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-1-1|minusX-1-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-1|part-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-1-2|part-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-2|part-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-1-2|minusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-2|part-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-1-3|part-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-3|part-4",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-1|minusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-3|part-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:0:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-1|part-4",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-1-0|minusX-1-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-2-0|minusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-0|minusX-2-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-1-1|minusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-1-1|minusX-1-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-2-1|minusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-1|minusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-1-2|minusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-1-2|minusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-2-2|minusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-2|minusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-1-3|minusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-1|minusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-2|minusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-1-3|minusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:1:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-1|back-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-2-0|minusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-3-0|minusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-2-0|minusX-3-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-2-1|minusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-2-1|minusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-3-1|minusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-2-1|minusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-2-2|minusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-2-2|minusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-3-2|minusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-2-2|minusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-2-3|minusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-2|minusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-3|minusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-2-3|minusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:2:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-2|back-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-3-0|minusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-4-0|minusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-3-0|minusX-4-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-3-1|minusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-3-1|minusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-4-1|minusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-3-1|minusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-3-2|minusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-3-2|minusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-4-2|minusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-3-2|minusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-3-3|minusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-3|minusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-4|minusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-3-3|minusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:3:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-3|back-4",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-4-0|minusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-5-0|minusX-5-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-4-0|minusX-5-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-4-1|minusX-5-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-4-1|minusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-5-1|minusX-5-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-4-1|minusX-5-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-4-2|minusX-5-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:minusX-4-2|minusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:minusX-5-2|minusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-4-2|minusX-5-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:minusX-4-3|minusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-4|minusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-5|minusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:minusX-4-3|minusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "minusX:4:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-4|back-5",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-0|part-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-1-0|plusX-1-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:part-0|plusX-1-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:part-1|plusX-1-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-1|part-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-1-1|plusX-1-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:part-1|plusX-1-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:part-2|plusX-1-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-2|part-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-1-2|plusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:part-2|plusX-1-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:part-3|plusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:part-3|part-4",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-1|plusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:part-3|plusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:0:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-1|part-4",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-1-0|plusX-1-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-2-0|plusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-1-0|plusX-2-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-1-1|plusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-1-1|plusX-1-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-2-1|plusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-1-1|plusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-1-2|plusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-1-2|plusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-2-2|plusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-1-2|plusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-1-3|plusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-1|plusX-1-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-2|plusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-1-3|plusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:1:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-1|back-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-2-0|plusX-2-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-3-0|plusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-2-0|plusX-3-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-2-1|plusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-2-1|plusX-2-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-3-1|plusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-2-1|plusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-2-2|plusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-2-2|plusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-3-2|plusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-2-2|plusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-2-3|plusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-2|plusX-2-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-3|plusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-2-3|plusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:2:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-2|back-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-3-0|plusX-3-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-4-0|plusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-3-0|plusX-4-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-3-1|plusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-3-1|plusX-3-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-4-1|plusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-3-1|plusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-3-2|plusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-3-2|plusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-4-2|plusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-3-2|plusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-3-3|plusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-3|plusX-3-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-4|plusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-3-3|plusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:3:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-3|back-4",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:0",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-4-0|plusX-4-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:0",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-5-0|plusX-5-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:0",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-4-0|plusX-5-0",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:0",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-4-1|plusX-5-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:1",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-4-1|plusX-4-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:1",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-5-1|plusX-5-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:1",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-4-1|plusX-5-1",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:1",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-4-2|plusX-5-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:2",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:plusX-4-2|plusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:2",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:plusX-5-2|plusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:2",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-4-2|plusX-5-2",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:2",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:plusX-4-3|plusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:3",
+      "boundary": "south",
+      "remainingCanonicalCurve": "edge:back-4|plusX-4-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:3",
+      "boundary": "north",
+      "remainingCanonicalCurve": "edge:back-5|plusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:3",
+      "boundary": "west",
+      "remainingCanonicalCurve": "edge:plusX-4-3|plusX-5-3",
+      "allCornerPolynomialCoefficientsCancel": true
+    },
+    {
+      "patch": "plusX:4:3",
+      "boundary": "east",
+      "remainingCanonicalCurve": "edge:back-4|back-5",
+      "allCornerPolynomialCoefficientsCancel": true
+    }
+  ],
+  "sharedEdges": 71,
+  "outerEdges": 18,
+  "firstBackSharedReferences": [
+    {
+      "patch": "minusX:0:3",
+      "edge": "east",
+      "orientation": 1
+    },
+    {
+      "patch": "plusX:0:3",
+      "edge": "east",
+      "orientation": 1
+    }
+  ],
+  "firstBackM0": [
+    -0.018,
+    -0.030999999999999917,
+    -0.0020000000000000018
+  ],
+  "firstBackM1": [
+    0.0,
+    -0.0230322580645161,
+    -0.003161290322580648
+  ],
+  "status": "formal source C0 boundary/endpoint/parameter identity and position/frame provenance passed",
+  "limits": [
+    "No surface/mesh/regularity/C1/normal/clearance/native/appearance evaluation.",
+    "Exact symbolic cancellation plus one canonical function per edge is not bit-exact floating-point/GPU proof.",
+    "Actual rigid attachment matrix operands remain future observations."
+  ]
+}
