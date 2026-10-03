@@ -1,0 +1,16 @@
+# Placement is reviewable; a complete boundary is still unassigned
+
+Accept the single proposal as illustrated part/opening placement on the actual posed g050 head. Root inspected all ten original WebGPU-browser images and both original R2/R3 references. Central forehead/medial brows remain below the cyan framing intent, one temple is more exposed and the separate amber part is off-center. Both complementary orientations remain available. The front amber projection compresses the depth of the part; the oblique views are required to understand its placement over the head.
+
+Actual packet: `captures/hair-boundary-2026-10-02-v1/report.json` SHA256 `3a9d2349ae7fe0ea315eb2888c9ef3fec993396da3bc4d93fe951f9a6745cc0f`. Front full and bare states have the same body/morphs/bones/camera; each SVG arm keeps its underlying canvas bytes and state exactly. The actual13active morphs were included before skinning. Separate root matrix arithmetic reproduces77corner inputs and96displayed anchors, maximum world-corner residual4.4755e-16m and screen residual1.0801e-12px. This supports registration, not rendered hairstyle acceptance. The adapter object serialized empty, so no particular hardware GPU identity is asserted.
+
+The actual whole-groom comparison includes all34fringe cards. `front-full-beauty.png` shows strand groups entering the central forehead opening (approximatelyX300–485/Y220–340 in the900×868image). The cyan annotations in A/B expose the difference between the intended opening and the retained groom; a colored line over hair is not visibility proof. No asset was changed or promoted to satisfy it.
+
+Do not promote the sparse proposal to a complete open/backing domain. Its temple endpoints are open; the joins are illustrative chords between individually surface-bound landmarks. The shared center projects off the midline, causing3.8893mm geometric mirror discrepancy; complementary semantics do not mean exact mirror equality. Its18.8251mm wanted-to-surface projection is disclosed. No second curve was fitted to these images.
+
+Two next alternatives:
+
+- A: author a continuous surface path with explicit temple joins and label the intended face-open/backing sides, preserving these accepted placement landmarks as illustrative input. This can supply an independent target domain and clarify whether the fixed cap envelope carries it. It requires topology/closure work and still does not solve the visible guide mass, width, length or part flow.
+- B: author a finite visible-guide envelope that jointly owns part, crown and asymmetrical framing, then derive a separately declared attachment/backing contract. This addresses the witnessed whole-groom fringe/opening mismatch more directly, but needs explicit variables/bounds/objective and broader fit/motion obligations. The current packet supplies placement only and admits neither a solver nor record release.
+
+Select A as the next question to ask the critic for value, with a concrete continuous-domain deliverable and hard stop. If closure adds no decision-relevant target or would merely trace the current cap, stop and choose B under a new complete contract. Keep the closed source-recovery/local methods closed, accepted assets default and the wider AAA roadmap intact.

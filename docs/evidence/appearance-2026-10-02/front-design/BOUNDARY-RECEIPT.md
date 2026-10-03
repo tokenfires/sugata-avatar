@@ -1,0 +1,27 @@
+# Direct placement and overlay slice
+
+Entry `eaca095`;25-minute bound2026-10-03 `04:24:17Z–04:49:17Z`. One fixed landmark proposal and one WebGPU-browser capture packet; no candidate asset, solver, source recovery, runtime change or retune. [Root decision](BOUNDARY-DECISION.md) SHA256 `9e93bda736419d93ad2b6cbf1485d350194215ccf167aac3c0c1ad5a7acda47e` accepts illustrative placement only. Temple endpoints/chord joins still do not define a closed continuous domain.
+
+Exact commands from repo root:
+
+```sh
+node tools/critic/author-hair-boundary.mjs
+node tools/critic/capture-hair-boundary.mjs
+node tools/critic/verify-hair-boundary.mjs
+```
+
+Author PID8464, exit0, chunk `8257f4`, complete04:27:45Z.32landmarks:11opening/5part per semantic orientation. Landmarks SHA `4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8`; all7source pins embedded. Maximum projection18.8251mm<declared20mm. Critic found and root separately reproduced the shared center's3.8893mm mirror discrepancy; disclosure added without changing the proposal. No exact geometric symmetry claim.
+
+Capture PID20545, session10847, chunks `64ab90`/`86bd42`, `04:34:45.184Z–04:34:51.217Z`, exit0; browser/page/probe server independently closed and actual avatar explicitly retired.4views/10PNGs, zero errors. Original capture report SHA `3a9d2349ae7fe0ea315eb2888c9ef3fec993396da3bc4d93fe951f9a6745cc0f` binds all source/runtime/asset pins and every frame hash. Whole inward groom `8c4584…` includes all34fringe cards; hair-hidden views change the whole root's visibility only. Front camera/body/bones/morphs agree; A/B SVG arms retain exact underlying native canvas bytes and state.13active morphs and77distinct corners have actual runtime POS/JOINT/WEIGHT/morph-delta data. Backend WebGPU was observed, but adapter object serialized empty; hardware identity is unasserted.
+
+Critic preflight caused two useful instrument fixes before the single capture: save actual per-corner skin/morph inputs rather than infer them from matching positions, and independently catch each resource-close error so cleanup cannot be skipped. GLTFLoader's L1 float32 weight normalization is retained as source provenance. No capture retry occurred.
+
+Root verifier PID24782, `04:37:13.504Z`, chunk `0341bf`, exit0. Verifier SHA `00e2c495fe5937281457bad34a18ab3f9d610fa0f7d5256bea3bb16496c61938`; result `a90ac4bf9afb68bfd8b3a6be345361fd0bf50d4cc5b482d3261945946ebd0ba2`. It independently matches all77actual corner inputs to exact g050 attributes/13active morph deltas and reproduces96displayed anchors with direct matrix arithmetic. Max corner residual4.47545e-16m, anchor4.44143e-16m, pixel1.08002e-12px; runtime normalized weights match with0difference. Initial strict signed-zero equality refused JSON-normalized0 vs source−0 before output; corrected numerical equality with no tolerance/input change, then succeeded. This is reader repair, not geometry retry.
+
+Root viewed all ten original PNGs plus original R2/R3. Whole groom visibly crosses the intended central opening. [A/B review](http://localhost:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/hair-boundary-2026-10-02-v1/review.html) presents whole, bare and oblique views; actual links/inventory checked, HTTP200. Source syntax and authored diff checks pass. The retained review PID1023 and ACTIVE ten-minute heartbeat were read back04:40:42Z; no owned capture job remains. Broader AAA scope and accepted assets remain preserved.
+
+Root read the complete independent [critique](BOUNDARY-CRITIQUE.md), SHA256 `629d35df15f1b076cc2ee38fc81a8975515280835919ac723e196987a047c0a6`, every verifier line and raw receipt, and independently inspected each cited frame/triangle and hash. Critic command `python3 docs/evidence/appearance-2026-10-02/front-design/verify-boundary-pose.py > docs/evidence/appearance-2026-10-02/front-design/boundary-independent.json`, PID30351, `04:40:29.261907Z–04:40:29.299024Z`, exit0, Python3.14.7/NumPy2.4.6. Verifier `121b0b4d7f44a8359ee0a70648a6c26507028f5d82bd8d79900018cb62a21959`; receipt `2124b917a00a0c6597c99fe6af624b9c8e4469569063d9908d036c7b13d0353b`. Separate NumPy matrix path agrees on all77inputs/13morphs/96records; max pixel residual9.6634e-13px. First critic reader invocation lacked `struct` and failed before body computation; import repaired, unchanged inputs. No discrepancy or extra native job.
+
+Frozen [packet](boundary-archive/archive-manifest.json) retains all ten images, raw capture/model inputs, exact source snapshots, both verifiers/helpers and independent/root receipts. Copied native files, all input pins and critic final hashes were independently checked before making raw files read-only. Keep front+oblique part views together: frontal depth compression is a real limit. No finished boundary, visibility or hairstyle claim follows. Next value question: continuous surface/temple joins with independent open/backing semantics versus a coupled finite visible-guide envelope. Critic says the former is worthwhile only if its labeled domain changes fixed-cap admission; stop decorative/current-cap tracing and choose the latter under a finite contract. No next investigation is admitted by this receipt alone.
+
+Frozen inventory40files/7,776,009bytes/28external input pins; manifest SHA256 `97f17ad899019a16ffaaf9e9f57f3c2f556f5cf9954b80362b08f1e0b1629782`. Preservation completed04:47Z before the declared stop; exact archive copies retain upstream whitespace. No push/publication or capacity change.

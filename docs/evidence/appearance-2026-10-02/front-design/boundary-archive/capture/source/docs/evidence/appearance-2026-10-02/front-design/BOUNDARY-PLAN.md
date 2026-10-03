@@ -1,0 +1,11 @@
+# Direct styled boundary authorship and native overlay
+
+Entry `eaca095`; started2026-10-03 04:24:17UTC, hard stop04:49:17UTC. Critic admitted one visible boundary packet as more useful than further source inventories. No source recovery or groom solve is included.
+
+Decision: can an explicit forehead opening, complementary temple reveal and part-flow intent be made anatomically registered and visually reviewable on exact exported g050? Author one fixed proposal and preserve both mirrored orientations. Accept as a design input only if actual native images make those roles readable; otherwise stop without fitting another curve or changing assets. This does not accept a haircut or release groom records.
+
+Hairline marks the transition between intentionally open forehead/temple skin and future backing coverage. Part is a separate flow-intent path over the upper head; it is not an open skin polygon or a requirement for an opaque crease. Orientation A selects one heavier framing side and the complementary temple reveal; B mirrors that relationship. These are artistic choices grounded in the existing R2/R3 references, not a source-group union, the cap footprint, historical80/108 sample domains or generated pixel masks.
+
+Pin exact body and source readers. Record each authored point as an exported body triangle plus barycentric coordinates, surface point and provenance. Pose by morphing and skinning each triangle vertex in the actual captured state, then barycentrically interpolate. Do not skin an interpolated point with interpolated weights. A depth-disabled line is an unoccluded annotation and cannot prove hair visibility or fit.
+
+At most one root-owned native capture packet with fixed camera/state across its contextual/annotated views, both orientations and declared anatomical witnesses. If source registration or rendering cannot be made reviewable in this packet/bound, stop and retain a recoverable receipt. No second curve fit, candidate GLB, solver, generation, runtime change, installation or accepted-asset edit. Root independently checks the critic's actual source/image witnesses and two alternatives before carrying the authored target forward. Preserve whole-groom future qualification, known motion contacts and the wider AAA roadmap.
