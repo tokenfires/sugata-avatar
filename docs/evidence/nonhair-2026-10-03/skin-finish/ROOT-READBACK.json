@@ -1,0 +1,65 @@
+{
+  "pid": 86628,
+  "started": "2026-10-03T16:04:18.523Z",
+  "finished": "2026-10-03T16:04:18.646Z",
+  "command": "node docs/evidence/nonhair-2026-10-03/skin-finish/root-readback.mjs",
+  "sourceSHA256": "15a2e0e04cd6bafc2f72137536d948843845716dd1935b41204a33850eb135e3",
+  "nativeReportSHA256": "acb884858d91bbcfdb8e91d792d4a2438f27fb59b914d615ea9e7bbf08339aeb",
+  "sourcePins": 380,
+  "inputPins": 11,
+  "states": 8,
+  "images": [
+    {
+      "file": "original-front.png",
+      "bytes": 570969,
+      "sha256": "9d31a5b3edb2f5ce860b370b38c283bda469b72efedf40f9d12ebd53a8e0f7fe",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "file": "candidate-front.png",
+      "bytes": 541820,
+      "sha256": "d500f65951380140a122d4b40b448fd2dfa3de0c966d486f00538c7e076b330a",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "file": "candidate-oblique.png",
+      "bytes": 614044,
+      "sha256": "8d6ea28375c25ed98ec538298b591e5953d309a85c2ab5d9c334115a6b4fa98c",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "file": "original-oblique.png",
+      "bytes": 596842,
+      "sha256": "0a27d41db41f61a7ddd8498d5d5125150a542f83db03ab217447dcf8ed2ac83f",
+      "width": 1440,
+      "height": 1000
+    }
+  ],
+  "skinOwner": [
+    {
+      "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+      "name": "Human",
+      "materials": [
+        "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+      ]
+    }
+  ],
+  "restoredClearcoat": 0.34,
+  "disposal": {
+    "disposed": true,
+    "leaked": []
+  },
+  "cleanup": {
+    "page": "closed",
+    "browser": "closed"
+  },
+  "status": "complete provenance/state readback passed; appearance remains independently judged",
+  "limits": [
+    "No native rerun/image edit/clock/phase/pixel oracle.",
+    "Direct node/map identities are ownership observations, not radiance or physical skin proof.",
+    "No production/default/motion/light-range/AAA qualification."
+  ]
+}

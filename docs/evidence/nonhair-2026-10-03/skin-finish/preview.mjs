@@ -1,0 +1,18 @@
+import {Avatar} from '../../../../packages/core/src/Avatar.js';
+import {configurationFromReport} from '../../../../packages/testbed/src/showcase-presets.mjs';
+const recipe=await fetch(new URL('../../../../looks/sage-lavender-chin.json',import.meta.url)).then(r=>{if(!r.ok)throw Error('Recipe unavailable');return r.json();});
+const candidate=await fetch(new URL('./candidate.json',import.meta.url)).then(r=>{if(!r.ok)throw Error('Candidate unavailable');return r.json();});
+let avatar,frame,disposed=false;
+try{
+ avatar=await Avatar.create({canvas:document.querySelector('#stage'),...recipe,autoStart:false});await avatar.step(0);
+ const skin=avatar.skin,head=avatar.figure.bone('head');if(!skin?.isSkinNodeMaterial||skin!==avatar.figure.body.material||skin.clearcoat!==candidate.original||skin.clearcoatRoughness!==candidate.fixedClearcoatRoughness||skin.clearcoatNode!==null||skin.clearcoatRoughnessNode!==null||skin.clearcoatMap!==null||skin.clearcoatRoughnessMap!==null||!skin.useClearcoat||!head)throw Error('Exact skin owner/branch unavailable');
+ let arm='original',view='front';const setView=id=>{view=id;avatar.stage.camera.fov=26;avatar.stage.camera.position.set(...(id==='front'?[0,1.55,.88]:[.4235,1.55,.7665]));avatar.stage.camera.lookAt(0,1.55,.033);avatar.stage.camera.updateProjectionMatrix();};
+ const setArm=id=>{arm=id;skin.clearcoat=candidate[id];document.querySelector('#status').textContent=id==='original'?'Original skin second lobe · 0.34':'Preview-only skin second lobe · 0.12';};
+ const bindings=()=>{const rows=[];avatar.figure.root.traverse(o=>{if(o.isMesh)rows.push({mesh:o.uuid,name:o.name,materials:(Array.isArray(o.material)?o.material:[o.material]).map(m=>m?.uuid??null)});});return rows;};
+ const snapshot=()=>({arm,view,recipe,actualConfiguration:configurationFromReport(avatar.report()),camera:{position:avatar.stage.camera.position.toArray(),quaternion:avatar.stage.camera.quaternion.toArray(),fov:avatar.stage.camera.fov},headWorld:head.matrixWorld.toArray(),bindings:bindings(),skin:{uuid:skin.uuid,type:skin.type,bodyOwner:skin===avatar.figure.body.material,clearcoat:skin.clearcoat,clearcoatRoughness:skin.clearcoatRoughness,clearcoatNode:skin.clearcoatNode?.uuid??null,clearcoatRoughnessNode:skin.clearcoatRoughnessNode?.uuid??null,clearcoatMap:skin.clearcoatMap?.uuid??null,clearcoatRoughnessMap:skin.clearcoatRoughnessMap?.uuid??null,useClearcoat:skin.useClearcoat,roughness:skin.roughness,roughnessNode:skin.roughnessNode?.uuid??null,normalNode:skin.normalNode?.uuid??null,ior:skin.ior,map:skin.map?.uuid??null,skinMaps:Object.fromEntries(Object.entries(skin.skin).filter(([,n])=>n?.value?.isTexture).map(([k,n])=>[k,n.value.uuid])),settings:skin.skinSettings,uniforms:Object.fromEntries(Object.entries(skin.skinUniforms).map(([k,n])=>[k,n.value?.toArray?n.value.toArray():n.value]))},backend:avatar.stage.backendName,webGPU:avatar.stage.renderer.backend.isWebGPUBackend});
+ window.skinFinish={state:snapshot,dispose:()=>{if(disposed)return;disposed=true;cancelAnimationFrame(frame);skin.clearcoat=candidate.original;let restored,snapshotError;try{restored=snapshot();}catch(e){snapshotError=e.message;}avatar.dispose();return {restored,snapshotError,disposal:avatar.report().disposal};}};
+ for(const id of ['original','candidate'])document.querySelector('#'+id).onclick=()=>setArm(id);
+ for(const id of ['front','oblique'])document.querySelector('#'+id).onclick=()=>setView(id);
+ setView('front');setArm('original');const draw=()=>{if(disposed)return;avatar.stage.draw();frame=requestAnimationFrame(draw);};draw();
+}catch(e){document.querySelector('#error').textContent=e.stack??e.message;window.skinFinishFailure=e.message;avatar?.dispose();}
+addEventListener('pagehide',()=>window.skinFinish?.dispose(),{once:true});

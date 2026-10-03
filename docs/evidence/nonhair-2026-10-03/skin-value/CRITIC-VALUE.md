@@ -1,0 +1,26 @@
+# Skin finish value: one fixed current-composition alternative is worthwhile
+
+Decision: conditionally recommend one isolated artistic comparison of the current body-owned skin clearcoat weight **0.34 versus 0.12**, keeping clearcoat roughness **0.24** and everything else unchanged. This value step admits a literal alternative for a fresh bounded contract; it does not admit a native run, a default change or a physical defect diagnosis.
+
+## Actual images and useful design question
+
+I re-viewed the exact current `captures/whole-front-blockout-2026-10-03-v1/original-front.png` and `original-oblique.png` at original 1440×1000 detail in this value window. Front has a bright nose region (approximately x641–693,y605–690), a localized broad right-cheek sheen (approximately x735–774,y608–668), and a conspicuous upper-chest glint (approximately x739–780,y930–958). The oblique retains nose/cheek brightness and the neck/chest glint. Much of the forehead is hair-covered: I do not establish a broad forehead defect. These originals are useful observations from the refused modelling packet, not successful clean native acceptance of that packet.
+
+The concrete design question is: **does the lower second-lobe weight make this current Neutral portrait's cheek/nose/neck sheen less dominant while retaining readable face volume and a small highlight?** Either preference, no visible useful difference, or a flatter/less convincing result is a valid decision. Pixels alone do not identify clearcoat as their exclusive cause; albedo, geometry, primary specular, diffusion, light and grade remain involved.
+
+I also actually viewed the retained 1280×720 `skin-value/epic-example.png` and read the accompanying current primary-reference receipt. It shows a split face/shoulder example with localized nose and collarbone highlights, tonal skin detail, and an SSS treatment comparison. It is not a clearcoat A/B, transferable numeric target, Sugata pose/material match or permission to add pores. The [official Epic article](https://dev.epicgames.com/documentation/unreal-engine/creating-human-skin-in-unreal-engine), as retained by root, supports controlled viewing and regional response rather than one universally correct material value.
+
+## Literal viable ownership
+
+- `SkinMaterial.js:327–348` declares fallback roughness0.46, secondLobeWeight0.34 and secondLobeRoughness0.24. `createSkinMaterial:1003–1030` assigns these fields. `applyRegionMap:1087–1103` supplies active regional `roughnessNode`; changing scalar roughness would not be the clean requested lever.
+- `Avatar.js:3052–3057,3234–3235` creates and retains the actual skin material. `applySkinMaterial:1301–1320` assigns it to `figure.body` only, leaving teeth, tongue, eyebrows/lashes and eye shells separate. `avatar.skin.clearcoat` is an existing owned Three material property; there is no claim that clearcoat is a supported saved-look/Avatar.create option.
+- `SkinNodeMaterial:897–924` inherits physical variants and overrides only the lighting model. Installed `MeshPhysicalNodeMaterial.js:279–281,381–387` keeps `useClearcoat` true for both positive weights and uses `materialClearcoat` when `clearcoatNode` is null. `MaterialNode.js:258–266` reads the scalar material property (and any actual map). A fresh contract must observe the actual attached material, null override/map assumptions and changed value rather than rely solely on the defaults comment.
+- The existing `SkinMaterial.js:75–103,329–348` historical measurements explain why0.34 was chosen and why rig/grade can constrain brightness. They do not qualify0.12 in this current Neutral composition or prove a current bug. Preserve them and the accepted default; do not reopen the old sweep or imply reducing clearcoat closes the open SSS/skin roadmap gates.
+
+## Two alternatives and finite stop
+
+**A (recommended):** one new isolated .34/.12 current-scene preference comparison, front and30°oblique only, preserving the accepted recipe, pose, geometry, body/eye/hair/garment materials except this one property, maps, regional roughness, micro-normal, diffusion/transmission/cavity, lighting, grade, camera and renderer configuration. It yields a practical retained visual candidate/refusal with low material-authoring cost. It may show little benefit or remove desirable skin sheen; that ends the experiment without retuning.
+
+**B:** retain0.34 and defer the skin change until a different explicitly authored lighting/face appearance target merits its own contract. This preserves historical calibration and avoids spending time on a weak difference, but leaves the observed current shine preference unanswered. It is not permission for a lighting/texture/sampler sweep.
+
+A later contract should allow at most20minutes including source preflight, one four-image native packet and independent visual review. Use ordinary owned construction/draw/disposal with a fixed schedule; no private-clock reset, phase/capture-history search, generic node traversal oracle or repair/rerun. Refuse if actual body-only ownership cannot be shown, any undeclared input changes, a native/tool gate fails, or the deadline is reached. Judge the current visible finish; no default promotion, physical calibration, moving-face/lighting-range acceptance or AAA claim follows this limited pair. Full character/representation goals remain intact.

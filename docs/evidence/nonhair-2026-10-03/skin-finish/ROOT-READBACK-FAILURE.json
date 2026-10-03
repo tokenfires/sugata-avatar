@@ -1,0 +1,14 @@
+{
+  "command": "node docs/evidence/nonhair-2026-10-03/skin-finish/root-readback.mjs",
+  "sourceSHA256": "5688ba9759508d45b91307966b1327016fc2d8f0d23ddb7f90720e9b08ef9be9",
+  "preservedSource": "root-readback-failed.mjs",
+  "toolChunk": "2ba9d2",
+  "exitCode": 1,
+  "pid": null,
+  "started": null,
+  "finished": null,
+  "error": "AssertionError: 'Human' !== 'figure' at line10:807",
+  "errorRecord": "Essential assertion retained from tool output; raw stderr was not saved.",
+  "cause": "Root guessed the display name figure. Native ownership is identity skin===avatar.figure.body.material and exactly one binding owns that UUID. Actual mesh display name is Human.",
+  "nativeRerun": false
+}
