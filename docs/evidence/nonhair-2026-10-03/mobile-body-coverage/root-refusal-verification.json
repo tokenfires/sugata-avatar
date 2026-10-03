@@ -1,0 +1,39 @@
+{
+  "command": "inline Node assertion/hash audit (see ROOT-DECISION.md)",
+  "pid": 95605,
+  "verified": "2026-10-03T07:37:38.271Z",
+  "reportSHA256": "f1966580d62f10532878c5ef949ed118da03137471ab2246526c23949afba61b",
+  "sourcePins": 380,
+  "dependencyPins": 4,
+  "servedAssets": 6,
+  "images": 0,
+  "sample": false,
+  "coverage": false,
+  "started": "2026-10-03T07:36:21.092Z",
+  "finished": "2026-10-03T07:36:23.217Z",
+  "status": "refusal/cleanup/source pins verified",
+  "backend": {
+    "stats": {
+      "backend": "webgpu",
+      "deferred": true,
+      "msaa": false,
+      "temporalAA": "taau",
+      "ambientOcclusion": "off",
+      "hairOIT": "stochastic",
+      "morphVelocity": "exact",
+      "graded": true,
+      "resolutionScale": 0.66,
+      "fps": 59.53524102221268,
+      "frameMs": 1.5999999940395355,
+      "dpr": 1,
+      "drawCalls": 48,
+      "triangles": 83026
+    },
+    "isWebGPUBackend": true
+  },
+  "limits": [
+    "No rendered appearance or geometric coverage observation.",
+    "No explicit Avatar.dispose on early assertion path; closing page/browser retires its context.",
+    "Prepared numerical verifier not executed because its observed-packet precondition is false."
+  ]
+}

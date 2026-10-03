@@ -1,0 +1,17 @@
+# One mobile body/clothing coverage diagnostic
+
+Entry `b332bfd`. Window 2026-10-03 **07:32–07:47 UTC**, fifteen minutes including independent verification and checkpoint. The preceding value review admits this single case; no camera/layout candidate is admitted.
+
+Usable improvement: a reproducible complete-body/clothing coverage contract and page versus native canvas comparison. Research decision: distinguish frustum support loss, conservative UI-region overlap, both, or unresolved before selecting later camera/layout work.
+
+Use one current accepted g050/casual/bob02 look, neutral light, body framing, hair `#413934`, top `#617a70`, viewport390×844, deviceScaleFactor1, reduced motion and capture-paused mode. Eight predetermined zero-time settling steps, then no pose advancement. No history/epoch search, asset/source/product/camera/layout change, alternate viewport or retry. Root alone launches native browser capture. Deadline or structural/state failure closes incomplete.
+
+Retain current mesh inventory, included body and each attached worn garment/interior; current index and drawRange intersect applicable material groups. Exclude hair, facial accessory meshes, floor/background/shadow/helper support explicitly. Contract pertains to body and clothing, not hair or every facial detail. Retain used vertex IDs, source index offsets, posed local/world support, base/morph/skin inputs, matrix/bone/bind state and current materials. Material visibility, ancestor visibility and camera layers apply; backface/depth/alpha occlusion is not a support exclusion.
+
+Project homogeneous coordinates with actual camera coordinate system/matrices. Any nonfinite point, nonpositive w or near/far depth crossing refuses this finite method before a division; no general near-plane clipper is claimed. Canvas CSS mapping uses the actual fractional DOM rectangle, buffer mapping actual width/height. Enumerate positive-area triangle/rectangle intersection via polygon clipping (tangency is zero-area and is not an overlap failure), with original triangle IDs and edge witnesses. Rectangles for heading, pill and visible orbit hint are conservative annotation extents, not opaque alpha masks. Baseline separation is zero; later composition gutters require new authorship.
+
+Capture page original and true canvas pixel export after same-task draw/encoding with controls still present, without layout changes. Verify identical pose/camera/config/clock/DOM state around both images. Record actual temporal mode/view offset; temporal off is required for this method, otherwise stop unresolved. Nominal projection is not subpixel GPU raster coincidence. CPU getVertexPosition support is not exact shader/raster visibility; corroborate actionable lower-body findings in both originals.
+
+Root independently checks every projected vertex and triangle/region intersection with a separate implementation; critic independently verifies arithmetic and actual images. Preserve one raw packet and concise receipt, exact commands/jobs/hashes/outputs/limits/rejections. No shader/kernel or appearance acceptance, no all-pose/outfit claim.
+
+Alternatives after evidence: camera/framing work can recover clipped geometric support but may shrink the character; layout/usable-area work can uncover support beneath controls but cannot recover geometry outside the canvas. No choice before this baseline. Stop after one packet or by07:47; checkpoint partial evidence on failure, no extension/retune.

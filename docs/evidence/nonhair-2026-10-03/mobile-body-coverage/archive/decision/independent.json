@@ -1,0 +1,49 @@
+{
+  "status": "verified-refusal-only",
+  "reportSHA256": "f1966580d62f10532878c5ef949ed118da03137471ab2246526c23949afba61b",
+  "instrumentSHA256": "01b427599d7610c0389d8a1e328d99a678419546dfadf34c96f96d7c8e3f261f",
+  "verifierSHA256": "779cff388822a2f0d82fa8137420013baf7712de7b9dcbaf0dd91d0697a9761d",
+  "pins": {
+    "sources": 380,
+    "dependencies": 4,
+    "servedGLBs": 6
+  },
+  "observedBackend": {
+    "stats": {
+      "backend": "webgpu",
+      "deferred": true,
+      "msaa": false,
+      "temporalAA": "taau",
+      "ambientOcclusion": "off",
+      "hairOIT": "stochastic",
+      "morphVelocity": "exact",
+      "graded": true,
+      "resolutionScale": 0.66,
+      "fps": 59.53524102221268,
+      "frameMs": 1.5999999940395355,
+      "dpr": 1,
+      "drawCalls": 48,
+      "triangles": 83026
+    },
+    "isWebGPUBackend": true
+  },
+  "scope": "No posed support, coverage, image or completed avatar-retirement observation. Browser/page cleanup is recorded; no independent runtime visibility claim.",
+  "nativeRun": {
+    "started": "2026-10-03T07:36:21.092Z",
+    "finished": "2026-10-03T07:36:23.217Z",
+    "pid": 92590,
+    "status": "failed",
+    "cleanup": {
+      "page": "closed",
+      "browser": "closed"
+    }
+  },
+  "execution": {
+    "command": "python3 docs/evidence/nonhair-2026-10-03/mobile-body-coverage/verify-refusal.py > docs/evidence/nonhair-2026-10-03/mobile-body-coverage/independent.json",
+    "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "version": "3.14.7",
+    "pid": 97334,
+    "started": "2026-10-03T07:38:20.928501+00:00",
+    "finished": "2026-10-03T07:38:21.054770+00:00"
+  }
+}

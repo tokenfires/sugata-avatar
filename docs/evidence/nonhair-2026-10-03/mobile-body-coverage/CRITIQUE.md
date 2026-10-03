@@ -1,0 +1,16 @@
+# Independent baseline refusal
+
+Accept the observer's refusal, not the proposed body/clothing baseline. The sole native job stopped at the declared temporal-mode precondition: actual `stage.stats.temporalAA` was `taau`, while PLAN required `off`. No posed snapshot, coverage arithmetic or new image exists. This result changes neither the accepted Reset view feature nor the earlier mobile-crop witness, and supplies no new visibility/cause claim.
+
+Read the entire observer and report. Native report SHA256 `f1966580d62f10532878c5ef949ed118da03137471ab2246526c23949afba61b` records PID92590,07:36:21.092Z–07:36:23.217Z,failed status, one assertion error at instrument line19, four warnings, WebGPU/TAAU with resolutionScale.66, six served GLBs and page/browser closure. It contains no `sample`, `coverage`, `finalState`, `finalGeometryState` or completed avatar-disposal observation. Resource closure must not be inflated into successful avatar-retirement evidence.
+
+Independent `verify-refusal.py` rehashed380 current source/asset pins, four installed dependencies, all six served GLBs, and the original/snapshot instrument. Exact instrument SHA256 `01b427599d7610c0389d8a1e328d99a678419546dfadf34c96f96d7c8e3f261f` agrees. It confirms empty image list/no PNGs, no projection output, unchanged pins and recorded completion before07:47. Receipt SHA256 `f4a55cbf62b958732f998ed03e1432e970a114f93ebcd667889d5290d13c422e`; verifier SHA256 `779cff388822a2f0d82fa8137420013baf7712de7b9dcbaf0dd91d0697a9761d`.
+
+Exact successful command: `python3 docs/evidence/nonhair-2026-10-03/mobile-body-coverage/verify-refusal.py > docs/evidence/nonhair-2026-10-03/mobile-body-coverage/independent.json`; PID97334,07:38:20.928501Z–07:38:21.054770Z,Python3.14.7 at `/opt/homebrew/opt/python@3.14/bin/python3.14`,exit0. A preceding verifier call failed before report ingestion because its root-parent index pointed to GitHub rather than this repository; corrected that path and reran only the byte/scope verifier. No numerical/native rerun or data change occurred.
+
+**Actionable mismatch:** the admitted off-only instrument cannot observe this accepted TAAU study. Its source line19 and actual backend receipt are the precise witnesses. The guard worked; removing it and retaining an unjittered exact-projection claim would be unsupported.
+
+- Alternative A: separately declare a jitter-aware baseline using a synchronous actual scene-pass receipt, finite source-derived jitter bounds and the native canvas/page originals. This retains accepted temporal configuration and may resolve the crop cause, but requires fresh observer preflight and distinctions between geometric support, temporal history and raster visibility.
+- Alternative B: preserve the current honest crop limitation and defer the baseline. No additional work or renderer-state change, but complete mobile outfit inspection remains unavailable and cause remains unproved. Do not silently disable temporal rendering or retry this closed packet.
+
+No new original was viewed because none was captured. Existing mobile-body original remains the previously recorded presentation witness. No critic-owned jobs, browser/GPU work, product/asset change or support solver. Stop this named off-only attempt; any jitter-aware packet needs a separate parent-owned plan/admission.
