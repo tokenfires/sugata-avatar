@@ -1,0 +1,15 @@
+# One visual target concept — critic preflight
+
+**Worth one isolated generation and review, as design communication.** The deliverable is an explicit visible-shape target supported by a concept image; it does not admit a geometry builder or release any existing asset/runtime responsibility. No generation, native capture, geometry or product edit was performed by the critic.
+
+I directly reread the actual `captures/root-coverage-2026-10-02-beauty-v1/casual-front-medium-brown.png` (900×868), R2 `reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg` and R3 `03-medium-side-volume.jpg`. The native front's declared forehead region `[310,185,520,305]` shows disconnected short panels above the brows; the crown region `[305,60,520,150]` has a notch and abrupt overlapping fan. R2 shows continuous part-to-side groups that open the forehead. R3 supplies the rounded outward curve, downward fall and inward ends. These are visible appearance witnesses, not a diagnosis of geometry or materials.
+
+The source front intentionally hides all 34 fringe cards. Label that condition explicitly: it is the exact unchanged diagnostic lead, not the complete current-default hairstyle. A concept based on it must not turn fringe removal into a requirement for every future bob variation. The accepted brief also leaves the medium sweep's preferred side, exact length and fringe treatment open.
+
+**A — recommended for this bounded step:** one hair-only concept on the actual native front, with R2/R3 as shape references, followed by a short written target. Preserve Sugata's face, head/body proportions, wardrobe, camera/background intent and existing hair colour. Treat any part orientation as illustrative. This can reveal how open forehead, continuous crown-to-side flow and retained bob framing coexist on the actual avatar; one generation and review cost, with possible identity/context or photographic-finish drift.
+
+**B:** state region-based requirements directly from the originals and references without generating. Lower effort and exact evidence provenance; leaves their combined avatar-specific appearance less concrete. B is the fallback after one unusable concept, not authorization for a regeneration loop.
+
+Before generation, name the intended nonidentity relationships: replace exposed disconnected forehead panels with coherent root-to-side flow; keep the face open through complementary front placement; connect the crown into a rounded side envelope; retain readable strand groups/finer structure and inward bob tips. Do not set a mandatory side, exact new cut length, reference person's facial features or an implementation mechanism through the image prompt.
+
+After the one result, inspect the full frame and hair regions and extract three to five usable written shape requirements. Stop if identity/context drifts or those requirements cannot be stated. A generated raster supplies no protected-card ownership, full-width clearance, alpha correspondence, complete groom fit, motion, topology, V/material or runtime admission. Any later release/authoring plan must be declared separately from this illustration.
