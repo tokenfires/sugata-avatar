@@ -1,0 +1,74 @@
+Core completed source jobs, copied for recovery. Do not execute these again as a new investigation.
+Working directory: /Users/robault/GitHub/sugata-avatar
+
+Archive/source inventory: tool chunk e2d823, PID21144,13:42:44.244616–.381424UTC,exit0.
+Literal command/stdin:
+
+python3 - <<'PY'
+from pathlib import Path
+import zipfile,hashlib,json,os,datetime
+out=Path('docs/evidence/nonhair-2026-10-03/capsule-source')
+started=datetime.datetime.now(datetime.timezone.utc).isoformat()
+def digest(b):return hashlib.sha256(b).hexdigest()
+rows=[]
+archives=[]
+for rel in ['tools/figure-pipeline/.cache/mpfb-2.0.17.zip','tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip']:
+ p=Path(rel);h=hashlib.sha256()
+ with p.open('rb') as f:
+  for chunk in iter(lambda:f.read(1048576),b''):h.update(chunk)
+ archives.append(dict(path=rel,bytes=p.stat().st_size,sha256=h.hexdigest()))
+ with zipfile.ZipFile(p) as z:
+  if 'mpfb-2' in p.name:
+   names=['data/3dobjs/base.obj']
+  else:
+   names=[f'clothes/{n}/{n}.{ext}' for n in ['female_casualsuit01','male_casualsuit02','male_casualsuit04'] for ext in ['obj','mhclo','mhmat','thumb']]
+  for name in names:
+   b=z.read(name)
+   row=dict(archive=rel,entry=name,bytes=len(b),sha256=digest(b))
+   if name.endswith('.obj'):
+    lines=b.decode().splitlines();row['vertices']=sum(x.startswith('v ') for x in lines);row['faces']=sum(x.startswith('f ') for x in lines);row['groups']=sum(x.startswith('g ') for x in lines)
+   if name.endswith('.mhclo'):
+    row['header']='\n'.join(b.decode().splitlines()[:28]);row['cc0HeaderPresent']='explicitly released as CC0' in row['header']
+   if name.endswith('.thumb'):
+    target=out/'inputs'/(Path(name).stem+'.png');assert target.read_bytes()==b;row['exactLocalCopy']=str(target)
+   rows.append(row)
+record=dict(pid=os.getpid(),started=started,finished=datetime.datetime.now(datetime.timezone.utc).isoformat(),archives=archives,entries=rows,limits='Archive member existence/bytes and OBJ record counts only; no import, authoring, geometric fit, mapping or rendered target qualification. Three exact thumbnails copied earlier in chunk257b5d without separately recorded PID/times; no generated/edited images.')
+with (out/'source-inventory.json').open('x') as f:json.dump(record,f,indent=2);f.write('\n')
+print(json.dumps({k:v for k,v in record.items() if k not in ['entries']}))
+PY
+
+Unchanged control copies and historical path checks: chunk62b483,PID37930,13:50:28.249782–.273533UTC,exit0.
+Literal command/stdin:
+
+python3 - <<'PY'
+from pathlib import Path
+import zipfile,json,hashlib,os,datetime
+packet=Path('docs/evidence/nonhair-2026-10-03/capsule-source'); started=datetime.datetime.now(datetime.timezone.utc).isoformat()
+assert started < '2026-10-03T13:51:00'
+inv=json.loads((packet/'source-inventory.json').read_bytes()); byname={e['entry']:e for e in inv['entries']}
+folder=packet/'inputs'/'male_casualsuit02';folder.mkdir(exist_ok=False)
+controls=[]
+with zipfile.ZipFile('tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip') as z:
+ for ext in ['obj','mhclo','mhmat']:
+  name=f'clothes/male_casualsuit02/male_casualsuit02.{ext}';b=z.read(name);h=hashlib.sha256(b).hexdigest();assert h==byname[name]['sha256']
+  target=folder/Path(name).name
+  with target.open('xb') as f:f.write(b)
+  assert target.read_bytes()==b;controls.append(dict(path=str(target),archiveEntry=name,bytes=len(b),sha256=h))
+ textures=[]
+ for kind in ['diffuse','normal','ao']:
+  name=f'clothes/male_casualsuit02/male_casualsuit02_{kind}.png';b=z.read(name);textures.append(dict(archiveEntry=name,bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),copied=False))
+capsule=Path('docs/research/wardrobe-capsule.json');c=json.loads(capsule.read_bytes()); refs=sorted({i['file'] for k in ['mens','womens'] for i in c[k]})
+assert len(refs)==14;existence=[dict(path=p,present=Path(p).exists()) for p in refs];assert not any(r['present'] for r in existence)
+r=dict(pid=os.getpid(),started=started,finished=datetime.datetime.now(datetime.timezone.utc).isoformat(),controls=controls,textures=textures,capsuleSHA256=hashlib.sha256(capsule.read_bytes()).hexdigest(),historicalReferences=existence,referenceReadmePresent=Path('reference/README.md').exists(),historicalBlenderDataDirectoryPresent=Path('/Users/robault/Library/Application Support/Blender/5.2/extensions/.user/user_default/mpfb/data').exists(),limit='Exact unchanged source-control copies and historical path existence only; no source shape changes, builder or fit/appearance admission.')
+with (packet/'control-copy.json').open('x') as f:json.dump(r,f,indent=2);f.write('\n')
+print(json.dumps({k:v for k,v in r.items() if k not in ['controls','textures','historicalReferences']}))
+PY
+
+Earlier diagnostics/copy: chunks91ae2b,d3b648,a689a7,257b5d. The fixed three thumbnails were copied unchanged from their named ZIP .thumb members under PNG filenames; PID/start/end not separately recorded. Subsequent exact-byte inventory/control readbacks qualify the copied bytes, not a retroactively invented execution time.
+Root views the exact three local PNG originals via view_image; critic independently views them. No new native rendering/generation/bitmap transformation.
+
+Current primary source reads through web:
+https://static.makehumancommunity.org/mpfb/docs/assets/creating_clothes.html
+https://github.com/makehumancommunity/mpfb2/blob/master/docs/ui/create_assets/makeclothes.md
+Search: site.static.makehumancommunity.org mpfb clothes authoring clothes fitting helpers
+Only the official documentation is used. The local cached version is separately hashed; current web guidance does not confirm local import/build execution.

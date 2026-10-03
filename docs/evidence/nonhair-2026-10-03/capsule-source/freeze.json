@@ -1,0 +1,99 @@
+{
+  "pid": 58856,
+  "started": "2026-10-03T14:00:51.587571+00:00",
+  "finished": "2026-10-03T14:00:51.733498+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/capsule-source/freeze.py",
+  "status": "pass",
+  "scope": "Preservation-only closeout; no source probe, import, builder or new appearance qualification",
+  "archivePins": 2,
+  "memberPins": 13,
+  "copiedControls": 3,
+  "copiedThumbnails": 3,
+  "texturePins": 3,
+  "frozenFiles": 15,
+  "frozenBytes": 465706,
+  "files": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/AUTHORING-RESPONSIBILITY.md",
+      "bytes": 5657,
+      "sha256": "d9ea63005a1916145c0cfb0bf3fb1551521b40a82975869a0261b16a2c18d4f0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/COMMANDS.txt",
+      "bytes": 5632,
+      "sha256": "f5973e9db575629299501b3d1c0dc8bb0749bf179448d8d451517f51071ad16a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/CRITIC-VALUE.md",
+      "bytes": 6120,
+      "sha256": "a61e78604ccf525ad4883c7786ddf76b05e2a2ba5768fc705ece4971ce86990b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/PLAN.md",
+      "bytes": 2791,
+      "sha256": "b7e665f94b816453bbebad2c5d6561b6cc6fd5e0ba07f02e265384174190eaf1"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/RECEIPT.md",
+      "bytes": 5805,
+      "sha256": "440c7b1fc11025d404c805563ff5519ca5689980411ff18549ae21b817750f29"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/before/AUTHORING-RESPONSIBILITY.md",
+      "bytes": 5556,
+      "sha256": "2b36f4c62cbb668459a469012915229397cae05e90006a983dce2e04b943897e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/control-copy.json",
+      "bytes": 3789,
+      "sha256": "75c537556c7fec8842d61f978714877708891334781b702637bf18585c6a6282"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/freeze.py",
+      "bytes": 3269,
+      "sha256": "0982a5c55f529600f0dcc987e30177b6e6e7843d742e3f086c9a30023a2fc34a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/female_casualsuit01.png",
+      "bytes": 31184,
+      "sha256": "138a4bfb756f0cdfc8116d3f0ebcc14e1e20472bb225ead986b0cc3a8b291212"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.mhclo",
+      "bytes": 145975,
+      "sha256": "f9e6821704a1508a02d5e416b2360785b705cfe5a130c359021a4b4570dcc43a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.mhmat",
+      "bytes": 1396,
+      "sha256": "20ab695fd8f6986e243427e03f8f9ec5a1c394ce8736eb6359f135a129ffb36a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.obj",
+      "bytes": 170324,
+      "sha256": "e07cbd1a43d21bd700e6598f01f74341a9dd66eac4e035c8be8de2650eac380f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02.png",
+      "bytes": 37906,
+      "sha256": "e994394780be666443e70349b7f9e55704895e699054a45b4113037fdbab8e68"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit04.png",
+      "bytes": 32838,
+      "sha256": "1424bac2dc95c2d6906bc0435b8de77ce71c25a35c97eece9c6c589944a2c683"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/capsule-source/source-inventory.json",
+      "bytes": 7464,
+      "sha256": "8916e9ee47c5579afeebfc89b973bc71bc0218ee11f0f0ac048cc39a8a65300b"
+    }
+  ],
+  "automation": {
+    "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+    "sha256": "5469ab3fcbcd20719bc40c1703e36db43625ae639ecd75035bb30e6f101a7a9e",
+    "status": "ACTIVE",
+    "cadenceMinutes": 10,
+    "targetThread": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  }
+}
