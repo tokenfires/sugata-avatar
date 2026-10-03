@@ -1,0 +1,79 @@
+{
+  "started": "2026-10-03T06:47:55.053Z",
+  "finished": "2026-10-03T06:47:55.198Z",
+  "pid": 76757,
+  "status": "34archivefiles and19externalpins plus review HTTP passed",
+  "archiveManifestSHA256": "83f74101e3fbdd30f2db5fbbd60fbd3971187366c65b8f1a8edd4ec1d1577755",
+  "archiveFiles": 34,
+  "externalPins": 19,
+  "checks": [
+    {
+      "ref": "guide-target-review.html",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "review.html",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "../full-body-coverage/review.html",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "GUIDE-TARGET-RECEIPT.md",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "GUIDE-TARGET-ROOT-DECISION.md",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "GUIDE-TARGET-POSTFLIGHT-CRITIQUE.md",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "guide-target-archive/archive-manifest.json",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "guide-targets-v1.json",
+      "status": 200,
+      "pngExact": null
+    },
+    {
+      "ref": "guide-target-archive/capture/front-full-A.png",
+      "status": 200,
+      "pngExact": true
+    },
+    {
+      "ref": "guide-target-archive/capture/front-full-B.png",
+      "status": 200,
+      "pngExact": true
+    },
+    {
+      "ref": "guide-target-archive/capture/front-bare-A.png",
+      "status": 200,
+      "pngExact": true
+    },
+    {
+      "ref": "guide-target-archive/capture/front-bare-B.png",
+      "status": 200,
+      "pngExact": true
+    },
+    {
+      "ref": "guide-target-archive/capture/left-bare-A.png",
+      "status": 200,
+      "pngExact": true
+    }
+  ],
+  "limits": [
+    "Static source/HTTP/PNGbytes checks; no second browser capture or page layout qualification."
+  ]
+}

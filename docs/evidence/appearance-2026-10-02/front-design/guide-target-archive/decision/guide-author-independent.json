@@ -1,0 +1,159 @@
+{
+  "status": "independent author target arithmetic passed",
+  "started": "2026-10-03T06:34:28.161142+00:00",
+  "finished": "2026-10-03T06:34:28.218165+00:00",
+  "pid": 45307,
+  "command": "python3 docs/evidence/appearance-2026-10-02/front-design/verify-guide-target-author.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "numpyVersion": "2.4.6",
+  "verifierSHA256": "30ac775ddb30d379e29b7a445aa07ff5528825e599a4870a0c7a2155dac19762",
+  "authorSHA256": "f29520ec0819cd72b6cbfae4f894029ebf0b835f7376554e82cc641d68ccc3fe",
+  "inputPins": {
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/hair-boundary-2026-10-02-v1/report.json": "3a9d2349ae7fe0ea315eb2888c9ef3fec993396da3bc4d93fe951f9a6745cc0f",
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503",
+    "tools/critic/author-hair-guide-targets.mjs": "f63a4a65652e3df81af4eb1c3376eb90a3324bcea232d078b89c42843a27b66c",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-PLAN.md": "06cccbe305cfeffd3f3ca389fea6a1ef24e341cf7c704657e0fa5e407413ed5b",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-CRITIQUE.md": "8851ce837cd772582c338db037a23df63b6a6a0d3bf9bb10811f4e44bb76ece9",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-DECISION.md": "68af2f0542f2b50e7ed5de16b485013e18098fdc7b23559380a933a2e0856611",
+    "captures/hair-boundary-2026-10-02-v1/front-full-beauty.png": "0b159c5b5faeed187fde6c8a8757b41a7e964e9ab60c25bd0452729d7d53dc89",
+    "captures/hair-boundary-2026-10-02-v1/front-bare-beauty.png": "9517a301541feaf9c3b21090e6cf6fd686d5aeaffe883d97f7c8cf3905fc1d12",
+    "captures/hair-boundary-2026-10-02-v1/left-bare-beauty.png": "3cb83e98a6b9e16ee1af6277698c23f248293c7d7bd273ef699ccb6824261f95",
+    "captures/hair-boundary-2026-10-02-v1/right-bare-beauty.png": "c13bc1715f5e57cbe94f955ca3a2abbdcbcde7abfcf1d0aaa4aeb37761d8d3ad"
+  },
+  "rolesPerOrientation": 6,
+  "sampledFramesPerOrientation": 1644,
+  "maximumRecordComponentError": 4.496403249731884e-15,
+  "mirrorMaximumResidual": 0.0,
+  "observations": [
+    {
+      "orientation": "A",
+      "role": "dominant-inner-sweep",
+      "arcGaussLegendre64": 0.2789789974144772,
+      "arcDifferenceFromSimpson8192": 5.551115123125783e-17,
+      "polygon17": 0.2787474448172595,
+      "polygonDeficit": 0.00023155259721768795,
+      "derivativeLowerBound": 0.0389999999999997,
+      "projectedHintLowerBound": 0.09020602778952257
+    },
+    {
+      "orientation": "A",
+      "role": "dominant-outer-side",
+      "arcGaussLegendre64": 0.2969239073506639,
+      "arcDifferenceFromSimpson8192": 0.0,
+      "polygon17": 0.2966969631058586,
+      "polygonDeficit": 0.00022694424480529385,
+      "derivativeLowerBound": 0.03300000000000036,
+      "projectedHintLowerBound": 0.07281894473006388
+    },
+    {
+      "orientation": "A",
+      "role": "dominant-crown-return",
+      "arcGaussLegendre64": 0.2903259434497646,
+      "arcDifferenceFromSimpson8192": 1.7208456881689926e-15,
+      "polygon17": 0.2900945697422264,
+      "polygonDeficit": 0.00023137370753817388,
+      "derivativeLowerBound": 0.03900000000000037,
+      "projectedHintLowerBound": 0.095238734177661
+    },
+    {
+      "orientation": "A",
+      "role": "minor-inner-framing",
+      "arcGaussLegendre64": 0.23399814272578562,
+      "arcDifferenceFromSimpson8192": 3.885780586188048e-16,
+      "polygon17": 0.23383782945075787,
+      "polygonDeficit": 0.00016031327502774584,
+      "derivativeLowerBound": 0.05699999999999972,
+      "projectedHintLowerBound": 0.16549292080205855
+    },
+    {
+      "orientation": "A",
+      "role": "minor-outer-side",
+      "arcGaussLegendre64": 0.2516688222853299,
+      "arcDifferenceFromSimpson8192": 3.3306690738754696e-16,
+      "polygon17": 0.25149277631485606,
+      "polygonDeficit": 0.00017604597047382597,
+      "derivativeLowerBound": 0.05100000000000038,
+      "projectedHintLowerBound": 0.13159329577922377
+    },
+    {
+      "orientation": "A",
+      "role": "minor-crown-return",
+      "arcGaussLegendre64": 0.2396109481814018,
+      "arcDifferenceFromSimpson8192": 4.440892098500626e-16,
+      "polygon17": 0.23943217451787685,
+      "polygonDeficit": 0.0001787736635249504,
+      "derivativeLowerBound": 0.05400000000000005,
+      "projectedHintLowerBound": 0.15747724126202958
+    },
+    {
+      "orientation": "B",
+      "role": "dominant-inner-sweep",
+      "arcGaussLegendre64": 0.2789789974144772,
+      "arcDifferenceFromSimpson8192": 5.551115123125783e-17,
+      "polygon17": 0.2787474448172595,
+      "polygonDeficit": 0.00023155259721768795,
+      "derivativeLowerBound": 0.0389999999999997,
+      "projectedHintLowerBound": 0.09020602778952257
+    },
+    {
+      "orientation": "B",
+      "role": "dominant-outer-side",
+      "arcGaussLegendre64": 0.2969239073506639,
+      "arcDifferenceFromSimpson8192": 0.0,
+      "polygon17": 0.2966969631058586,
+      "polygonDeficit": 0.00022694424480529385,
+      "derivativeLowerBound": 0.03300000000000036,
+      "projectedHintLowerBound": 0.07281894473006388
+    },
+    {
+      "orientation": "B",
+      "role": "dominant-crown-return",
+      "arcGaussLegendre64": 0.2903259434497646,
+      "arcDifferenceFromSimpson8192": 1.7208456881689926e-15,
+      "polygon17": 0.2900945697422264,
+      "polygonDeficit": 0.00023137370753817388,
+      "derivativeLowerBound": 0.03900000000000037,
+      "projectedHintLowerBound": 0.095238734177661
+    },
+    {
+      "orientation": "B",
+      "role": "minor-inner-framing",
+      "arcGaussLegendre64": 0.23399814272578562,
+      "arcDifferenceFromSimpson8192": 3.885780586188048e-16,
+      "polygon17": 0.23383782945075787,
+      "polygonDeficit": 0.00016031327502774584,
+      "derivativeLowerBound": 0.05699999999999972,
+      "projectedHintLowerBound": 0.16549292080205855
+    },
+    {
+      "orientation": "B",
+      "role": "minor-outer-side",
+      "arcGaussLegendre64": 0.2516688222853299,
+      "arcDifferenceFromSimpson8192": 3.3306690738754696e-16,
+      "polygon17": 0.25149277631485606,
+      "polygonDeficit": 0.00017604597047382597,
+      "derivativeLowerBound": 0.05100000000000038,
+      "projectedHintLowerBound": 0.13159329577922377
+    },
+    {
+      "orientation": "B",
+      "role": "minor-crown-return",
+      "arcGaussLegendre64": 0.2396109481814018,
+      "arcDifferenceFromSimpson8192": 4.440892098500626e-16,
+      "polygon17": 0.23943217451787685,
+      "polygonDeficit": 0.0001787736635249504,
+      "derivativeLowerBound": 0.05400000000000005,
+      "projectedHintLowerBound": 0.15747724126202958
+    }
+  ],
+  "limits": [
+    "No author rerun, render, geometry asset, fit or solver; exact authored report is input.",
+    "Horner power-basis and Gram-Schmidt comparison differs from author Bernstein evaluation; Gauss-Legendre64 differs from author composite Simpson.",
+    "Pose/projection arithmetic and actual-image review remain pending the annotation packet.",
+    "Numerical arc agreement is not a certified integral or hairstyle acceptance."
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "started": "2026-10-03T06:47:28.238Z",
+  "pid": 75756,
+  "scope": "Refused artistic proposal and five-frame partial annotation packet. No sixth frame/retry/promotion.",
+  "files": [
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/front-bare-A.png",
+      "file": "capture/front-bare-A.png",
+      "bytes": 498069,
+      "sha256": "65d597db6b3fe416547bd256fc3a7bacdbfaa6d3a4ade8960c8b40c499e97868"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/front-bare-B.png",
+      "file": "capture/front-bare-B.png",
+      "bytes": 498760,
+      "sha256": "cd88d41fe02885952f935e884b3ab8e0c49e3903399dcf862c2a3f38d2bf5718"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/front-full-A.png",
+      "file": "capture/front-full-A.png",
+      "bytes": 642109,
+      "sha256": "b231ebb2af3e2b84e4c1612aad9c7e86c933173a77f3096de96e3eeff902fda7"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/front-full-B.png",
+      "file": "capture/front-full-B.png",
+      "bytes": 644953,
+      "sha256": "b0c4e6e7ef626a13c737cbaf06c74a79bb0bf57847b6c2681f848725cefccc14"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/inputs.json",
+      "file": "capture/inputs.json",
+      "bytes": 1771000,
+      "sha256": "126f0b707758bb3faef9a60d4d1ad235250614287b5ec6eb43b592f020c4efae"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/left-bare-A.png",
+      "file": "capture/left-bare-A.png",
+      "bytes": 532381,
+      "sha256": "f2489905ab5a16583b1ea8dc3e8e6faf1a930d6c270a00afa6f2e94b39d24f62"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/report.json",
+      "file": "capture/report.json",
+      "bytes": 6477446,
+      "sha256": "02f56b3209bac6f13da511ccec0012c831af3cf08c4a3667a231ee3e7621798d"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/captures/hair-boundary-2026-10-02-v1/report.json",
+      "file": "sources/00-report.json",
+      "bytes": 693632,
+      "sha256": "3a9d2349ae7fe0ea315eb2888c9ef3fec993396da3bc4d93fe951f9a6745cc0f"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-PLAN.md",
+      "file": "sources/01-GUIDE-TARGET-PLAN.md",
+      "bytes": 6503,
+      "sha256": "06cccbe305cfeffd3f3ca389fea6a1ef24e341cf7c704657e0fa5e407413ed5b"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-CRITIQUE.md",
+      "file": "sources/02-GUIDE-TARGET-VALUE-CRITIQUE.md",
+      "bytes": 7764,
+      "sha256": "8851ce837cd772582c338db037a23df63b6a6a0d3bf9bb10811f4e44bb76ece9"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-DECISION.md",
+      "file": "sources/03-GUIDE-TARGET-VALUE-DECISION.md",
+      "bytes": 2084,
+      "sha256": "68af2f0542f2b50e7ed5de16b485013e18098fdc7b23559380a933a2e0856611"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/docs/evidence/appearance-2026-10-02/front-design/guide-targets-v1.json",
+      "file": "sources/04-guide-targets-v1.json",
+      "bytes": 3528188,
+      "sha256": "f29520ec0819cd72b6cbfae4f894029ebf0b835f7376554e82cc641d68ccc3fe"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/node_modules/three/src/objects/SkinnedMesh.js",
+      "file": "sources/05-SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/packages/core/src/render/MotionProbe.mjs",
+      "file": "sources/06-MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/tools/critic/author-hair-guide-targets.mjs",
+      "file": "sources/07-author-hair-guide-targets.mjs",
+      "bytes": 9347,
+      "sha256": "f63a4a65652e3df81af4eb1c3376eb90a3324bcea232d078b89c42843a27b66c"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/tools/critic/capture-hair-guide-targets.mjs",
+      "file": "sources/08-capture-hair-guide-targets.mjs",
+      "bytes": 6543,
+      "sha256": "8eb1486de00d9f1663ac18c438714654cdd173fed7c7fa24ceb2541849f3a247"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/tools/critic/hair-guide-target-replay.html",
+      "file": "sources/09-hair-guide-target-replay.html",
+      "bytes": 628,
+      "sha256": "1595474d784ebaaf04ccb258961eee88a6d40c5ef8edef45bc125d8e16be9b7f"
+    },
+    {
+      "source": "captures/hair-guide-targets-2026-10-02-v1/sources/tools/critic/hair-guide-target-replay.mjs",
+      "file": "sources/10-hair-guide-target-replay.mjs",
+      "bytes": 3938,
+      "sha256": "4b75319285a4ae1955761a8dc219255ee58402007eac3d2b9cc3c211d46b75a5"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-PLAN.md",
+      "file": "decision/GUIDE-TARGET-PLAN.md",
+      "bytes": 6503,
+      "sha256": "06cccbe305cfeffd3f3ca389fea6a1ef24e341cf7c704657e0fa5e407413ed5b"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-CRITIQUE.md",
+      "file": "decision/GUIDE-TARGET-VALUE-CRITIQUE.md",
+      "bytes": 7764,
+      "sha256": "8851ce837cd772582c338db037a23df63b6a6a0d3bf9bb10811f4e44bb76ece9"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-DECISION.md",
+      "file": "decision/GUIDE-TARGET-VALUE-DECISION.md",
+      "bytes": 2084,
+      "sha256": "68af2f0542f2b50e7ed5de16b485013e18098fdc7b23559380a933a2e0856611"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-PREFLIGHT-CRITIQUE.md",
+      "file": "decision/GUIDE-TARGET-PREFLIGHT-CRITIQUE.md",
+      "bytes": 10196,
+      "sha256": "37470a00b7091d54db3f53172a1568c336382ce99072346ad01d801d452ca144"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-POSTFLIGHT-CRITIQUE.md",
+      "file": "decision/GUIDE-TARGET-POSTFLIGHT-CRITIQUE.md",
+      "bytes": 6437,
+      "sha256": "6ae1eb2fab60311db3fbdc9dc660d9d666c45ee7b3ff6d056bf4b7083819d797"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-ROOT-DECISION.md",
+      "file": "decision/GUIDE-TARGET-ROOT-DECISION.md",
+      "bytes": 3929,
+      "sha256": "b6d196356a1df8247b419b0afc931ec075ffbaf6b6ea62476baeeefe041a6ca0"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/guide-targets-v1.json",
+      "file": "decision/guide-targets-v1.json",
+      "bytes": 3528188,
+      "sha256": "f29520ec0819cd72b6cbfae4f894029ebf0b835f7376554e82cc641d68ccc3fe"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/guide-author-independent.json",
+      "file": "decision/guide-author-independent.json",
+      "bytes": 7450,
+      "sha256": "9b8d9b6a06f3ed746fbf1e4170c5d3ecd1fb5bec01ac6c41ac7b67085dff7763"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/guide-replay-independent.json",
+      "file": "decision/guide-replay-independent.json",
+      "bytes": 5825,
+      "sha256": "1575905ef6c56b0615209fb5f8340fed0dd77f44a5503fb06b69acb76c0cea5d"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/guide-replay-root.json",
+      "file": "decision/guide-replay-root.json",
+      "bytes": 1677,
+      "sha256": "0da971433c34f061d4fa721465b1f2178e182b17de7319286c81f0db82e118a5"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/verify-guide-target-author.py",
+      "file": "decision/verify-guide-target-author.py",
+      "bytes": 7231,
+      "sha256": "30ac775ddb30d379e29b7a445aa07ff5528825e599a4870a0c7a2155dac19762"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/verify-guide-target-replay.py",
+      "file": "decision/verify-guide-target-replay.py",
+      "bytes": 8592,
+      "sha256": "4ec034f122dec4c766b92b9cf33c8c24c75fed65e29a47f1d75cfd6b83277e97"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-02/front-design/guide-target-review.html",
+      "file": "decision/guide-target-review.html",
+      "bytes": 3877,
+      "sha256": "3ecfedc92fca2f7341328cde9796b483199680ee7206a0c1baf7e1c2f44806d2"
+    },
+    {
+      "source": "tools/critic/verify-guide-target-replay.mjs",
+      "file": "verification/verify-guide-target-replay.mjs",
+      "bytes": 4976,
+      "sha256": "b352d9c51aa6db013c8bff50a4ba9464e2ccb3c0e93ebb0a59c571518d06201a"
+    },
+    {
+      "source": "tools/critic/freeze-guide-targets.mjs",
+      "file": "verification/freeze-guide-targets.mjs",
+      "bytes": 2970,
+      "sha256": "9abbcf7a739ed6a05bba6a55907b4ccb3251b7e3b8755b5f2486fce7a508f130"
+    },
+    {
+      "source": "node_modules/three/LICENSE",
+      "file": "sources/three-LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    }
+  ],
+  "externalInputs": {
+    "docs/evidence/appearance-2026-10-02/front-design/guide-targets-v1.json": "f29520ec0819cd72b6cbfae4f894029ebf0b835f7376554e82cc641d68ccc3fe",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/hair-boundary-2026-10-02-v1/report.json": "3a9d2349ae7fe0ea315eb2888c9ef3fec993396da3bc4d93fe951f9a6745cc0f",
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503",
+    "tools/critic/author-hair-guide-targets.mjs": "f63a4a65652e3df81af4eb1c3376eb90a3324bcea232d078b89c42843a27b66c",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-PLAN.md": "06cccbe305cfeffd3f3ca389fea6a1ef24e341cf7c704657e0fa5e407413ed5b",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-CRITIQUE.md": "8851ce837cd772582c338db037a23df63b6a6a0d3bf9bb10811f4e44bb76ece9",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-DECISION.md": "68af2f0542f2b50e7ed5de16b485013e18098fdc7b23559380a933a2e0856611",
+    "captures/hair-boundary-2026-10-02-v1/front-full-beauty.png": "0b159c5b5faeed187fde6c8a8757b41a7e964e9ab60c25bd0452729d7d53dc89",
+    "captures/hair-boundary-2026-10-02-v1/front-bare-beauty.png": "9517a301541feaf9c3b21090e6cf6fd686d5aeaffe883d97f7c8cf3905fc1d12",
+    "captures/hair-boundary-2026-10-02-v1/left-bare-beauty.png": "3cb83e98a6b9e16ee1af6277698c23f248293c7d7bd273ef699ccb6824261f95",
+    "captures/hair-boundary-2026-10-02-v1/right-bare-beauty.png": "c13bc1715f5e57cbe94f955ca3a2abbdcbcde7abfcf1d0aaa4aeb37761d8d3ad",
+    "tools/critic/capture-hair-guide-targets.mjs": "8eb1486de00d9f1663ac18c438714654cdd173fed7c7fa24ceb2541849f3a247",
+    "tools/critic/hair-guide-target-replay.html": "1595474d784ebaaf04ccb258961eee88a6d40c5ef8edef45bc125d8e16be9b7f",
+    "tools/critic/hair-guide-target-replay.mjs": "4b75319285a4ae1955761a8dc219255ee58402007eac3d2b9cc3c211d46b75a5",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "node_modules/three/src/objects/SkinnedMesh.js": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+  },
+  "finished": "2026-10-03T06:47:28.280Z",
+  "count": 34,
+  "bytes": 18957663
+}

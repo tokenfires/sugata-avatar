@@ -1,0 +1,124 @@
+{
+  "status": "independent verification of refused packet passed; packet remains failed",
+  "started": "2026-10-03T06:45:04.769571+00:00",
+  "finished": "2026-10-03T06:45:04.934234+00:00",
+  "pid": 69811,
+  "command": "python3 docs/evidence/appearance-2026-10-02/front-design/verify-guide-target-packet.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "numpyVersion": "2.4.6",
+  "verifierSHA256": "4ec034f122dec4c766b92b9cf33c8c24c75fed65e29a47f1d75cfd6b83277e97",
+  "packetSHA256": "02f56b3209bac6f13da511ccec0012c831af3cf08c4a3667a231ee3e7621798d",
+  "inputPins": {
+    "docs/evidence/appearance-2026-10-02/front-design/guide-targets-v1.json": "f29520ec0819cd72b6cbfae4f894029ebf0b835f7376554e82cc641d68ccc3fe",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/hair-boundary-2026-10-02-v1/report.json": "3a9d2349ae7fe0ea315eb2888c9ef3fec993396da3bc4d93fe951f9a6745cc0f",
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503",
+    "tools/critic/author-hair-guide-targets.mjs": "f63a4a65652e3df81af4eb1c3376eb90a3324bcea232d078b89c42843a27b66c",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-PLAN.md": "06cccbe305cfeffd3f3ca389fea6a1ef24e341cf7c704657e0fa5e407413ed5b",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-CRITIQUE.md": "8851ce837cd772582c338db037a23df63b6a6a0d3bf9bb10811f4e44bb76ece9",
+    "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-VALUE-DECISION.md": "68af2f0542f2b50e7ed5de16b485013e18098fdc7b23559380a933a2e0856611",
+    "captures/hair-boundary-2026-10-02-v1/front-full-beauty.png": "0b159c5b5faeed187fde6c8a8757b41a7e964e9ab60c25bd0452729d7d53dc89",
+    "captures/hair-boundary-2026-10-02-v1/front-bare-beauty.png": "9517a301541feaf9c3b21090e6cf6fd686d5aeaffe883d97f7c8cf3905fc1d12",
+    "captures/hair-boundary-2026-10-02-v1/left-bare-beauty.png": "3cb83e98a6b9e16ee1af6277698c23f248293c7d7bd273ef699ccb6824261f95",
+    "captures/hair-boundary-2026-10-02-v1/right-bare-beauty.png": "c13bc1715f5e57cbe94f955ca3a2abbdcbcde7abfcf1d0aaa4aeb37761d8d3ad",
+    "tools/critic/capture-hair-guide-targets.mjs": "8eb1486de00d9f1663ac18c438714654cdd173fed7c7fa24ceb2541849f3a247",
+    "tools/critic/hair-guide-target-replay.html": "1595474d784ebaaf04ccb258961eee88a6d40c5ef8edef45bc125d8e16be9b7f",
+    "tools/critic/hair-guide-target-replay.mjs": "4b75319285a4ae1955761a8dc219255ee58402007eac3d2b9cc3c211d46b75a5",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "node_modules/three/src/objects/SkinnedMesh.js": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+  },
+  "snapshotsChecked": 11,
+  "preparedSHA256": "126f0b707758bb3faef9a60d4d1ad235250614287b5ec6eb43b592f020c4efae",
+  "authoredSHA256": "f29520ec0819cd72b6cbfae4f894029ebf0b835f7376554e82cc641d68ccc3fe",
+  "images": {
+    "front-full-A.png": "b231ebb2af3e2b84e4c1612aad9c7e86c933173a77f3096de96e3eeff902fda7",
+    "front-full-B.png": "b0c4e6e7ef626a13c737cbaf06c74a79bb0bf57847b6c2681f848725cefccc14",
+    "front-bare-A.png": "65d597db6b3fe416547bd256fc3a7bacdbfaa6d3a4ade8960c8b40c499e97868",
+    "front-bare-B.png": "cd88d41fe02885952f935e884b3ab8e0c49e3903399dcf862c2a3f38d2bf5718",
+    "left-bare-A.png": "f2489905ab5a16583b1ea8dc3e8e6faf1a930d6c270a00afa6f2e94b39d24f62"
+  },
+  "offlineProjectedPoints": 11232,
+  "recordedViewsChecked": 5,
+  "maximumComponentErrors": {
+    "world": 4.440892098500626e-16,
+    "ndc": 3.1086244689504383e-15,
+    "pixel": 1.3642420526593924e-12,
+    "svgPixel": 1.3642420526593924e-12
+  },
+  "views": [
+    {
+      "view": "front-full",
+      "orientation": "A",
+      "captured": true,
+      "renderedPointFailures": 0,
+      "nonrenderedControlFailures": 0
+    },
+    {
+      "view": "front-full",
+      "orientation": "B",
+      "captured": true,
+      "renderedPointFailures": 0,
+      "nonrenderedControlFailures": 0
+    },
+    {
+      "view": "front-bare",
+      "orientation": "A",
+      "captured": true,
+      "renderedPointFailures": 0,
+      "nonrenderedControlFailures": 0
+    },
+    {
+      "view": "front-bare",
+      "orientation": "B",
+      "captured": true,
+      "renderedPointFailures": 0,
+      "nonrenderedControlFailures": 0
+    },
+    {
+      "view": "left-bare",
+      "orientation": "A",
+      "captured": true,
+      "renderedPointFailures": 0,
+      "nonrenderedControlFailures": 0
+    },
+    {
+      "view": "right-bare",
+      "orientation": "B",
+      "captured": false,
+      "renderedPointFailures": 0,
+      "nonrenderedControlFailures": 1
+    }
+  ],
+  "failureWitnesses": [
+    {
+      "view": "right-bare",
+      "orientation": "B",
+      "role": "dominant-inner-sweep",
+      "category": "nonrendered-control",
+      "field": "control",
+      "sample": 2,
+      "rest": [
+        -0.124,
+        1.535,
+        0.15
+      ],
+      "pixel": [
+        -38.9551573627915,
+        421.84318122646397
+      ],
+      "ndc": [
+        -1.086567016361759,
+        0.02801110316482953,
+        0.9889937444843082
+      ]
+    }
+  ],
+  "limits": [
+    "Five actual screenshots and their SVG geometry; sixth is offline mathematical classification only, no sixth capture or retry.",
+    "Unoccluded sheet projection overlap does not establish physical visibility or body contact.",
+    "No author rerun, rendering, geometry asset, fit or solver."
+  ]
+}

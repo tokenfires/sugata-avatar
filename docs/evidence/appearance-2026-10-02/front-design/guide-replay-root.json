@@ -1,0 +1,62 @@
+{
+  "started": "2026-10-03T06:43:06.250Z",
+  "finished": "2026-10-03T06:43:06.287Z",
+  "pid": 65364,
+  "command": "node tools/critic/verify-guide-target-replay.mjs",
+  "reportSHA256": "02f56b3209bac6f13da511ccec0012c831af3cf08c4a3667a231ee3e7621798d",
+  "verifierSHA256": "b352d9c51aa6db013c8bff50a4ba9464e2ccb3c0e93ebb0a59c571518d06201a",
+  "status": "root five captured poses/projections verified; sixth failure classified offline",
+  "points": 9360,
+  "maxWorld": 0,
+  "maxPixel": 0,
+  "maxDepth": 0,
+  "failedSixth": [
+    {
+      "role": "dominant-inner-sweep",
+      "key": "control",
+      "index": 2,
+      "rest": [
+        -0.124,
+        1.535,
+        0.15
+      ],
+      "ndc": [
+        -1.086567016361759,
+        0.028011103164828462,
+        0.9889937444843084
+      ],
+      "pixel": [
+        -38.9551573627915,
+        421.8431812264644
+      ]
+    }
+  ],
+  "sixthBounds": {
+    "drawn": {
+      "min": [
+        14.36409700304937,
+        58.203483483280436
+      ],
+      "max": [
+        579.8362755855762,
+        576.3920935512073
+      ]
+    },
+    "control": {
+      "min": [
+        -38.9551573627915,
+        92.15615230883519
+      ],
+      "max": [
+        643.8787276098742,
+        565.4564106279489
+      ]
+    }
+  },
+  "limits": [
+    "Five actual screenshots only; sixth is CPU arithmetic, no sixth image or complete packet admission.",
+    "Only stricter unrendered control viewport rule failed; no drawn sheet/centreline clipping proven.",
+    "Retained-native camera/head registration only; no Avatar, new groom render, physical occlusion or motion qualification.",
+    "Actual five images separately inspected by root and critic."
+  ]
+}
