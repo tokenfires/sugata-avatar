@@ -1,0 +1,34 @@
+# One central short-coverage construction
+
+**Decision:** can the existing two-edge ribbon representation keep its short coverage role while following the actual scalp, without releasing its roots, width or surrounding groom? One deterministic construction and exported-rest admission are allowed. No offset, length, width, hue or epoch search follows a failure.
+
+The completed red/blue packet supports an editable-root group shortlist, not individual pixel ownership. This sector is chosen by source anatomy and role: among the 26 editable roots, original root-centre `abs(X) <= 0.035`, `Y >= 1.640`, `Z >= 0.080` metres selects exactly cards **11, 23, 28, 36, 38, 44, 52**. It is a central front coverage study, not an attribution claim that these seven own every exposed stub. It carries no preferred part side or temple endpoint.
+
+## Frozen inputs and editable records
+
+- Input: `captures/bob-lower-fallback-v1/candidate.glb`, SHA256 `8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7`.
+- Body: `assets/figures/figure_g050.glb`, SHA256 `b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14`, complete `base.001` in authored GLB coordinates. Protection-list report remains `dcbc7350777000eaba71c102214a4d1239179956a33684ff47000f68ef79fded`.
+- Only POSITION and NORMAL records for rings 1–16 of the seven selected cards may change. All ring-0 records, cap, remaining 489 cards including all 338 protected cards, topology, UVs, skinning, embedded images/materials and scene transforms remain exact. No production asset is written. Known moving witness card 58 stays authored-exact; global live interaction still requires later assessment.
+- Original per-ring edge-to-edge widths remain within 0.001 mm after float32 export. Original centreline arc lengths, measured 82.081–90.364 mm, stay within 1%; no arbitrary growth. These are existing short coverage cards, not long framing.
+
+## Single construction method
+
+Use the real source body mesh and its barycentrically interpolated vertex normal. Start at the unchanged root centre. Keep the root's measured centre standoff (5.979–7.001 mm). Project each original span direction into the current surface tangent plane, advance on that plane, and project the trial centre back to the mesh at the fixed standoff. Solve only the next span's scalar step by a fixed sixteen-iteration bisection in `[0, 4 * original span length]`; refuse an unbracketed or nonfinite result. This scalar distance solve retains short length; it is not a candidate offset search.
+
+Orient each later ring across the local tangent and mesh normal, choosing the sign nearest the previous ring; retain its original width. Ring 0 remains completely unchanged. Reject zero projected tangents, unbracketed/nonfinite solves and any per-span residual over 0.002 mm, both before and after float32 export. Total arc agreement cannot substitute for these local residuals; nearest-facet continuity is not assumed. Recompute normals only in the declared movable records. This deliberately keeps two vertices across each ring; if a wide planar ribbon cannot satisfy the full-surface gate, preserve that concrete conflict rather than adding tessellation or relaxing width silently.
+
+## Independent observations and admission
+
+Freeze **108** complete-body triangle-centroid samples with `abs(X) <= 0.055`, `Y >= 1.610`, `Z >= 0.070`, selected before any candidate. Save triangle IDs, positions and barycentrically averaged source normals. The witnesses are upper frontal skin in authored coordinates; they are finite observations, not a complete scalp target map. Use unchanged base-atlas alpha at nearest texels and a 0.15 m outward-normal ray. Record selected-only transmittance and full groom without the fringe, both with and without cap. The cap can conceal lost card coverage, so the selected-only observations remain independently visible.
+
+Export candidate bytes once even on failed admission, with an unqualified stamp; re-read those exact bytes for every gate. Admit a single matched native front/right/left beauty packet only if all preservation, finite, width, length and per-span gates pass; selected-card/full-body transverse or coplanar crossing count is zero; full-width vertex and the five-level triangular barycentric lattice (15 samples per triangle) have at least 3.5 mm signed clearance; and no frozen sample with baseline selected-card alpha coverage at least 0.5 drops below 0.5. Record the baseline positive-control IDs/count and require at least one: if the frozen 108 probes do not witness selected coverage, stop without selecting new probes after the result. Also require no cap-free full-card coverage regression greater than 0.05 transmittance at any frozen sample. Report the unchanged baseline and every failure together, not just the first error. A rest pass cannot qualify motion, hair-hair overlap or styling.
+
+If admitted, the next image packet must predict fewer exposed central forehead stubs while retaining the part/crown/side evidence; use the fixed beauty controls from the completed admission, with original fringe hidden in both arms. No follow-up geometry tuning in this round. Root and critic must inspect actual originals and separate improved local coverage from the unresolved whole-front obligations. If any rest gate fails, close before GPU capture.
+
+Effort bound: one constructor, one exact exported-rest report, no more than five minutes CPU per run (terminate and checkpoint on timeout); one native packet only after admission. The critic reviews the contract and instrument before execution and independently reviews the report afterward. Root checks the handoff.
+
+If a structural or per-span construction refusal prevents a complete export, retain `construction-failure.json` with PID/times, source pins, frozen observation hash, completed-card IDs and error. Write no partial GLB and do not run native capture. A complete but rejected export retains every rest-admission failure together.
+
+An unexpected frame/export/observer/deadline refusal after construction writes `admission-failure.json`, preserving any candidate's actual hash, accumulated checks, pins, PID/times and error with native admission false. Incomplete checks cannot be reported as a completed rejection audit or a pass. This covers degenerate-triangle observer refusals as well as construction exceptions.
+
+Alternative A retains this narrow two-edge source representation: small scope and easy preservation, but may not conform across 36–57 mm root widths. Alternative B explicitly releases transverse topology or reauthors the coverage domain while keeping the visible long sweep separate: more scalp-conforming freedom, with new solver/UV/coverage/motion qualification. A failed finite construction would choose between those next contracts; it would not prove general infeasibility.

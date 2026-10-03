@@ -1,0 +1,88 @@
+{
+  "status": "single local construction rejected before native capture",
+  "files": [
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/candidate-report.json",
+      "bytes": 191693,
+      "sha256": "1c790692e14fdbbd305f7efec574902e00f55e3c4bdfbebcaf98ec0e0f613764"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/candidate.glb",
+      "bytes": 3347784,
+      "sha256": "f942dc04f0d50e387e8b702f158e0978eff632a0b8348e79a2c6b8899b841d06"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/observations.json",
+      "bytes": 47806,
+      "sha256": "7730541e17d90bffbbfd9919b12e1a5bc2debfcc56ad3f1cb42014a1a24546e2"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/captures/bob-lower-fallback-v1/candidate.glb",
+      "bytes": 3347480,
+      "sha256": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/captures/bob-side-envelope-v3/candidate-report.json",
+      "bytes": 12871,
+      "sha256": "dcbc7350777000eaba71c102214a4d1239179956a33684ff47000f68ef79fded"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/docs/evidence/appearance-2026-10-02/root-coverage/LOCAL-CONTRACT.md",
+      "bytes": 6851,
+      "sha256": "0b522f6024307f7c511c88bd360be10ca6451c5751c8253beb99b5525480bebc"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/tools/critic/bob-local-coverage.mjs",
+      "bytes": 23213,
+      "sha256": "0a3625e5c6b644f5c3fa70f34080f9dbdb1327cc97a2ce60c20021610b7e2479"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/tools/critic/png.mjs",
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/tools/figure-pipeline/hair_fall.mjs",
+      "bytes": 17640,
+      "sha256": "ae6dcd35041256706796452be127d2463c6a5c4097bcca31b66cb28dbd9e9133"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/tools/figure-pipeline/hair_geometry.mjs",
+      "bytes": 27179,
+      "sha256": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/tools/figure-pipeline/hair_surface.mjs",
+      "bytes": 18753,
+      "sha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+    },
+    {
+      "path": "captures/bob-local-coverage-2026-10-02-v1/sources/tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    }
+  ],
+  "fileCount": 15,
+  "bytes": 18731656,
+  "candidateSha256": "f942dc04f0d50e387e8b702f158e0978eff632a0b8348e79a2c6b8899b841d06",
+  "reportSha256": "1c790692e14fdbbd305f7efec574902e00f55e3c4bdfbebcaf98ec0e0f613764",
+  "limits": [
+    "Local hash inventory, not immutable storage or an off-machine backup.",
+    "Frozen raw captures remain ignored local files; retain them with these source/report hashes."
+  ]
+}
