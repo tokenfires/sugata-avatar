@@ -1,0 +1,28 @@
+Recorded command from completed fs readback only. No rerun.
+Working directory: /Users/robault/GitHub/sugata-avatar
+Tool chunk: af5786; PID39089; Python3.14.7.
+Actual start/finish:14:40:13.604816–.724174UTC.
+Actual stdout JSON is retained in critic-readback.json, with the same values and ordering (pretty-printing only).
+
+python3 - <<'PY'
+from pathlib import Path
+from datetime import datetime,timezone
+import json,hashlib,struct,os,sys
+started=datetime.now(timezone.utc).isoformat()
+root=Path.cwd();base=root/'captures/listener-view-2026-10-03-v1'
+r=json.loads((base/'report.json').read_bytes());h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+sourceFailures=[p for p,v in r['sources'].items() if h(root/p)!=v]
+assert not sourceFailures
+items=[]
+for im in r['images']:
+ p=base/im['file'];b=p.read_bytes();assert h(p)==im['sha256'] and b[:8]==b'\x89PNG\r\n\x1a\n'
+ items.append({'file':im['file'],'sha256':h(p),'dimensions':list(struct.unpack('>II',b[16:24]))})
+assert h(root/'tools/critic/listener-view.mjs')==r['instrumentSHA256']==h(base/'instrument.mjs')
+assert h(Path(r['recipe']['file']))==r['recipe']['sha256']
+assert h(root/'docs/evidence/nonhair-2026-10-03/listener-view/PLAN.md')==r['planSHA256']
+assert h(base/r['video']['file'])==r['video']['sha256']
+receipt={'pid':os.getpid(),'started':started,'finished':datetime.now(timezone.utc).isoformat(),'interpreter':sys.executable,'python':sys.version,'kind':'filesystem/hash/header readback only; no runtime query, native run, video playback or motion oracle','reportSHA256':h(base/'report.json'),'sourcePins':len(r['sources']),'sourceFailures':sourceFailures,'instrumentAndSnapshotExact':True,'recipeAndPlanExact':True,'videoBytesExact_notContinuouslyViewed':True,'images':items}
+p=root/'docs/evidence/nonhair-2026-10-03/listener-view/critic-readback.json'
+with p.open('x') as f:json.dump(receipt,f,indent=2);f.write('\n')
+print(json.dumps(receipt,separators=(',',':')))
+PY

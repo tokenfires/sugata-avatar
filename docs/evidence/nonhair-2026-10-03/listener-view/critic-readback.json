@@ -1,0 +1,88 @@
+{
+  "pid": 39089,
+  "started": "2026-10-03T14:40:13.604816+00:00",
+  "finished": "2026-10-03T14:40:13.724174+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "kind": "filesystem/hash/header readback only; no runtime query, native run, video playback or motion oracle",
+  "reportSHA256": "3b14ff1dea70a81f20db9cd4a64d4a13623798ffc4befb11213662f80ab10ac5",
+  "sourcePins": 380,
+  "sourceFailures": [],
+  "instrumentAndSnapshotExact": true,
+  "recipeAndPlanExact": true,
+  "videoBytesExact_notContinuouslyViewed": true,
+  "images": [
+    {
+      "file": "context-before.png",
+      "sha256": "29cc64bf19da522e0ad3e27c5b6959ff19b5e2fe550bbabe004f9e4ddd3836d2",
+      "dimensions": [
+        1440,
+        2060
+      ]
+    },
+    {
+      "file": "baseline.png",
+      "sha256": "36d4b2a9c7f862a65cf26f1821136595d9b8dbd40dcdace6f7df54e5a578234a",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "entry.png",
+      "sha256": "2410c00275c6b94b690838a02e2357ac25126ba0980bb0f3764cd59f5c167a1a",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "hold-early.png",
+      "sha256": "1ae838eb74fec3ab24de05afeafde5146cf673209050894b4829cef57b9cccce",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "hold-late.png",
+      "sha256": "fc8a27dd0cca034d98568c0a422ccdfdc24a450ae824e0b01ab196c52deb9c53",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "release-entry.png",
+      "sha256": "d09fa3f566c2cb24c3f44e7b25d5a06acef12326a87d1c11bcd5b5b5fbfddd31",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "released.png",
+      "sha256": "e6af0566da546a1d85474ac277a898995c5fa38009575a8e72623c0c9deab8a9",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "return.png",
+      "sha256": "e74f9c51eafae91d5292f49bf380ea78f180c268af0baf09178bd6c68f88f208",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "context-after.png",
+      "sha256": "72d08414a960c80d10656c3ea109b696ff85f063bcceb07765fafef553716bc1",
+      "dimensions": [
+        1440,
+        2060
+      ]
+    }
+  ]
+}

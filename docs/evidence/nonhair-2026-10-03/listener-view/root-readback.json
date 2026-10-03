@@ -1,0 +1,294 @@
+{
+  "pid": 35040,
+  "started": "2026-10-03T14:38:10.600747+00:00",
+  "finished": "2026-10-03T14:38:10.721879+00:00",
+  "sourceSHA256": "95529c47f3467e8e3fe27e53be4130b0ec40e746a3e1e2415136eceba0fcb6f9",
+  "kind": "filesystem/JSON/header postflight only; no native replay or pixel oracle",
+  "reportSHA256": "3b14ff1dea70a81f20db9cd4a64d4a13623798ffc4befb11213662f80ab10ac5",
+  "sourcePins": 380,
+  "states": 24,
+  "images": [
+    {
+      "file": "context-before.png",
+      "bytes": 658325,
+      "sha256": "29cc64bf19da522e0ad3e27c5b6959ff19b5e2fe550bbabe004f9e4ddd3836d2",
+      "dimensions": [
+        1440,
+        2060
+      ],
+      "elapsed": null
+    },
+    {
+      "file": "baseline.png",
+      "bytes": 512829,
+      "sha256": "36d4b2a9c7f862a65cf26f1821136595d9b8dbd40dcdace6f7df54e5a578234a",
+      "dimensions": [
+        900,
+        868
+      ],
+      "elapsed": null
+    },
+    {
+      "file": "entry.png",
+      "bytes": 547651,
+      "sha256": "2410c00275c6b94b690838a02e2357ac25126ba0980bb0f3764cd59f5c167a1a",
+      "dimensions": [
+        900,
+        868
+      ],
+      "elapsed": 201
+    },
+    {
+      "file": "hold-early.png",
+      "bytes": 529613,
+      "sha256": "1ae838eb74fec3ab24de05afeafde5146cf673209050894b4829cef57b9cccce",
+      "dimensions": [
+        900,
+        868
+      ],
+      "elapsed": 853
+    },
+    {
+      "file": "hold-late.png",
+      "bytes": 521180,
+      "sha256": "fc8a27dd0cca034d98568c0a422ccdfdc24a450ae824e0b01ab196c52deb9c53",
+      "dimensions": [
+        900,
+        868
+      ],
+      "elapsed": 1802
+    },
+    {
+      "file": "release-entry.png",
+      "bytes": 530291,
+      "sha256": "d09fa3f566c2cb24c3f44e7b25d5a06acef12326a87d1c11bcd5b5b5fbfddd31",
+      "dimensions": [
+        900,
+        868
+      ],
+      "elapsed": 101
+    },
+    {
+      "file": "released.png",
+      "bytes": 541690,
+      "sha256": "e6af0566da546a1d85474ac277a898995c5fa38009575a8e72623c0c9deab8a9",
+      "dimensions": [
+        900,
+        868
+      ],
+      "elapsed": 452
+    },
+    {
+      "file": "return.png",
+      "bytes": 539987,
+      "sha256": "e74f9c51eafae91d5292f49bf380ea78f180c268af0baf09178bd6c68f88f208",
+      "dimensions": [
+        900,
+        868
+      ],
+      "elapsed": 1503
+    },
+    {
+      "file": "context-after.png",
+      "bytes": 688179,
+      "sha256": "72d08414a960c80d10656c3ea109b696ff85f063bcceb07765fafef553716bc1",
+      "dimensions": [
+        1440,
+        2060
+      ],
+      "elapsed": null
+    }
+  ],
+  "manualRelease": {
+    "label": "actual Release",
+    "at": 1791038086638,
+    "before": {
+      "url": "http://127.0.0.1:5173/src/showcase.html?hairColour=%23413934&hairTintColour=%238063ac&hairTintAmount=0.25&preset=casual&frame=portrait&light=neutral&topColor=%23617a70&bottomColor=%2335485c&shoesColor=%2345434b",
+      "wall": 4101.70000000298,
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "hairTint": {
+          "colour": "#8063ac",
+          "amount": 0.25
+        },
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "neutral",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#617a70",
+            "bottom": "#35485c",
+            "shoes": "#45434b"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "attention": {
+        "phase": "attending",
+        "time": 2.2000000000000006,
+        "poseWeight": 1,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 0.25,
+        "target": {
+          "yawDegrees": 14.985656534617345,
+          "pitchDegrees": 0.4537048111557872
+        },
+        "holdsGaze": true,
+        "eyeFocus": "aimed"
+      },
+      "attentionStatus": "Looking toward this view",
+      "pause": "false",
+      "lookDisabled": false,
+      "releaseDisabled": false,
+      "camera": [
+        0.1891185392793377,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "frame": {
+        "mode": "portrait",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": {
+          "minX": -0.817392910599199,
+          "maxX": 0.3773079974449422,
+          "minY": -0.5101225959479339,
+          "maxY": 0.8545925091687789
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "backend": "webgpu",
+      "webGPU": true,
+      "canvas": {
+        "width": 900,
+        "height": 868
+      }
+    },
+    "state": {
+      "url": "http://127.0.0.1:5173/src/showcase.html?hairColour=%23413934&hairTintColour=%238063ac&hairTintAmount=0.25&preset=casual&frame=portrait&light=neutral&topColor=%23617a70&bottomColor=%2335485c&shoesColor=%2345434b",
+      "wall": 4116.5,
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "hairTint": {
+          "colour": "#8063ac",
+          "amount": 0.25
+        },
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "neutral",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#617a70",
+            "bottom": "#35485c",
+            "shoes": "#45434b"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "attention": {
+        "phase": "releasing",
+        "time": 0,
+        "poseWeight": 1,
+        "expression": "neutral",
+        "smileWeight": 0,
+        "smile": {
+          "amount": 0,
+          "status": "inactive"
+        },
+        "headNoiseScale": 0.25,
+        "target": {
+          "yawDegrees": 14.985656534617345,
+          "pitchDegrees": 0.4537048111557872
+        },
+        "holdsGaze": false,
+        "eyeFocus": "aimed"
+      },
+      "attentionStatus": "Returning to idle",
+      "pause": "false",
+      "lookDisabled": false,
+      "releaseDisabled": true,
+      "camera": [
+        0.1891185392793377,
+        1.5227790690175487,
+        0.8897327741541562
+      ],
+      "frame": {
+        "mode": "portrait",
+        "zoom": 1,
+        "effectiveFov": 26,
+        "boundsAtUnitAspect": {
+          "minX": -0.817392910599199,
+          "maxX": 0.3773079974449422,
+          "minY": -0.5101225959479339,
+          "maxY": 0.8545925091687789
+        },
+        "skinCount": 4231,
+        "headFloorY": 1.4349272982560242,
+        "includedCardVertices": 17360,
+        "excludedLowerCardVertices": 156,
+        "cardEdgeIntersections": 346,
+        "support": "Neutral head skin and authored cards at or above its lower extent; lower tails excluded.",
+        "gutterPixels": 16
+      },
+      "backend": "webgpu",
+      "webGPU": true,
+      "canvas": {
+        "width": 900,
+        "height": 868
+      }
+    }
+  },
+  "disposal": {
+    "disposed": true,
+    "leaked": []
+  },
+  "video": {
+    "file": "video/page@268aaeb0e0a2ad5f298d0a9f857390e4.webm",
+    "sha256": "d74d513fd2c33721d1d43900d401f38502da22ad1bfe98857258af841c293d2f",
+    "bytes": 862755
+  },
+  "videoLimit": "Native video preserved; no continuous-naturalness qualification claimed by this reader."
+}
