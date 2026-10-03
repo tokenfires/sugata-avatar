@@ -1,0 +1,55 @@
+{
+  "pid": 32897,
+  "started": "2026-10-03T16:21:53.782638+00:00",
+  "finished": "2026-10-03T16:21:53.785395+00:00",
+  "kind": "Final file/hash preservation only; no construction or reader replay",
+  "sourcePins": {
+    "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e",
+    "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c",
+    "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503",
+    "docs/evidence/appearance-2026-10-02/front-design/README.md": "00629b9317ccb259d6814020f8f9a1320e49915242b2d631181f784221f5830c",
+    "docs/research/bob-appearance-brief-2026-09-29.md": "12f4ab8ca6ba4bd4771d48e9229da4a1617564f750813cba23f33ae0c38c6799",
+    "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/proposal-front.png": "86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752",
+    "docs/evidence/nonhair-2026-10-03/whole-front-blockout/archive/capture/proposal-oblique.png": "370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df",
+    "docs/evidence/nonhair-2026-10-03/whole-front-blockout/parameters.json": "23755aa2b05412384ec0c69a10afbbeac1343ae6c63c7f1d9720ee8ace776ecd",
+    "docs/evidence/nonhair-2026-10-03/whole-front-blockout/proposal.mjs": "f14caf23972ac3f2810bb53c59d51ac55d807936e1a6a6e29b37778b46c1b6c3",
+    "docs/evidence/nonhair-2026-10-03/whole-front-blockout/preview.mjs": "e0c102230d4841e36f64f08b978d60efacc791956c9631f3c82199dbbfdd709c",
+    "tools/figure-pipeline/hair_geometry.mjs": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+    "docs/evidence/appearance-2026-10-02/front-design/DOMAIN-DECISION.md": "6d376ca2d1a80de81196b2aaf8c0602381bf7a4ef156c3901c468f346bac2244",
+    "docs/evidence/appearance-2026-10-02/front-design/boundary-landmarks.json": "4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8",
+    "captures/skin-finish-2026-10-03-v1/original-front.png": "9d31a5b3edb2f5ce860b370b38c283bda469b72efedf40f9d12ebd53a8e0f7fe",
+    "captures/skin-finish-2026-10-03-v1/original-oblique.png": "0a27d41db41f61a7ddd8498d5d5125150a542f83db03ab217447dcf8ed2ac83f"
+  },
+  "files": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/sculpt-value/CRITIC-VALUE.md",
+      "bytes": 5404,
+      "sha256": "74cc78a17cff9657aee27aab130f4ebe758a0b9286e9a501eb87ee9ec8338c56"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/sculpt-value/PLAN.md",
+      "bytes": 2402,
+      "sha256": "ca06ecab75ffff665a689e3e083068efda43ebf0d00c9137daa4a5e275acf7a4"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/sculpt-value/PRIMARY-REFERENCE.md",
+      "bytes": 1686,
+      "sha256": "36e6e09eb29b200caaa15e27b4dc2f2befb4f9e18ab809ae3d0e8ce5da7dc33e"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/sculpt-value/RECEIPT.md",
+      "bytes": 2693,
+      "sha256": "e7dc743bb34f8b95de1d4feff9edf00fae734109412c2ccbb0eaddf5b4cdb286"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/sculpt-value/ROOT-DECISION.md",
+      "bytes": 3210,
+      "sha256": "fb647a21162251b9679e1f9db7446df836a7af704813907266b70e26c2e83bbe"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/sculpt-value/ROOT-WITNESS-PINS.json",
+      "bytes": 2069,
+      "sha256": "ba9068fd3957bddf4604f666fd6738f7e9f07330ba798142ca29c52706c55227"
+    }
+  ]
+}
