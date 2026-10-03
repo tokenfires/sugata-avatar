@@ -1,0 +1,719 @@
+{
+  "started": "2026-10-03T05:28:25.171Z",
+  "pid": 13381,
+  "status": "passed",
+  "baseUrl": "http://127.0.0.1:5173",
+  "sourceHashes": {
+    "tools/critic/current-review-ui.mjs": "3798006a59fe62e7ccec12805d3e1cfdb318ad7989e0470d998b2c6d3d579fb1",
+    "packages/testbed/today-review.js": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc",
+    "packages/testbed/index.html": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b",
+    "packages/testbed/pages.js": "abe518d8d5839e5f6a0e99bca51367a260f4de7e60fabe64f19073452e349d47",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "docs/evidence/appearance-2026-10-02/REVIEW-PLAN.md": "86be89e7a97d0dc74ac025362a591ec1a9c39cac7790036cf4379cd902173750",
+    "docs/evidence/appearance-2026-10-02/review.html": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6"
+  },
+  "imageInputHashes": {
+    "captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png": "d100d3f9b9dbac28ad77c8dfd3734963bfcd1ce58a27985de7d7b24cf26663f5",
+    "captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png": "b00845b8db873777b8864f76981ece1103709a1ac8c2502c28cccfe0b8219948",
+    "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503",
+    "docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png": "e2b4f9df3c56d9a5e764ecc2c04c39e26fcb7b0fd34f720c4042c87adf118af4"
+  },
+  "errors": [],
+  "views": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "hub": {
+        "file": "desktop-hub.png",
+        "sha256": "07d8f1c7626e91b3688dfed005410e1f1afa8dd43415856060b4538f9cfd5713",
+        "entryHref": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+        "destinations": [
+          {
+            "text": "Portrait",
+            "url": "http://127.0.0.1:5173/src/portrait.html"
+          },
+          {
+            "text": "Wardrobe studies",
+            "url": "http://127.0.0.1:5173/src/showcase.html"
+          },
+          {
+            "text": "Converse",
+            "url": "http://127.0.0.1:5173/src/converse.html"
+          },
+          {
+            "text": "Expression and posture",
+            "url": "http://127.0.0.1:5173/src/affect.html"
+          },
+          {
+            "text": "Mouth animation",
+            "url": "http://127.0.0.1:5173/src/voice.html"
+          },
+          {
+            "text": "Garment fitting",
+            "url": "http://127.0.0.1:5173/src/wardrobe.html"
+          },
+          {
+            "text": "Identity sculpting",
+            "url": "http://127.0.0.1:5173/src/identity.html"
+          },
+          {
+            "text": "Hair construction",
+            "url": "http://127.0.0.1:5173/src/hair.html"
+          },
+          {
+            "text": "Skin shading",
+            "url": "http://127.0.0.1:5173/src/skin.html"
+          },
+          {
+            "text": "Eye optics",
+            "url": "http://127.0.0.1:5173/src/eye.html"
+          },
+          {
+            "text": "Lighting rig",
+            "url": "http://127.0.0.1:5173/src/lighting.html"
+          },
+          {
+            "text": "Antialiasing and colour",
+            "url": "http://127.0.0.1:5173/src/post.html"
+          },
+          {
+            "text": "Render buffers",
+            "url": "http://127.0.0.1:5173/src/stage.html"
+          },
+          {
+            "text": "Minimal avatar",
+            "url": "http://127.0.0.1:5173/src/embed-example.html"
+          },
+          {
+            "text": "Browser support",
+            "url": "http://127.0.0.1:5173/src/scaffold.html"
+          },
+          {
+            "text": "Alive acceptance rig",
+            "url": "http://127.0.0.1:5173/alive.html"
+          },
+          {
+            "text": "Fabric weave",
+            "url": "http://127.0.0.1:5173/src/fabric.html"
+          }
+        ]
+      },
+      "review": {
+        "file": "desktop-review.png",
+        "sha256": "ee3fbf89a3cfcf64016af42c83ed2c5fc2e82b535798e38734f5a3cd926ff13b",
+        "state": {
+          "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "document": [
+            1440,
+            2377
+          ],
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+          "headings": [
+            "Keep your looks.Shape the next character.",
+            "Available in the wardrobe study",
+            "Recognise a look before opening it.",
+            "Take a recipe with you.",
+            "Hair direction · experimental",
+            "A connected sweep with an open face.",
+            "Opening and part, in two orientations."
+          ],
+          "links": [
+            {
+              "text": "Workshop",
+              "url": "http://127.0.0.1:5173/"
+            },
+            {
+              "text": "September 30 review",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-09-30/review.html"
+            },
+            {
+              "text": "Full roadmap",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md"
+            },
+            {
+              "text": "Try Saved looks",
+              "url": "http://127.0.0.1:5173/src/showcase.html#saved-looks"
+            },
+            {
+              "text": "See the comparison",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/review.html"
+            },
+            {
+              "text": "Evidence and limits",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md"
+            },
+            {
+              "text": "See the workflow",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/review.html"
+            },
+            {
+              "text": "Evidence and limits",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md"
+            },
+            {
+              "text": "Concept and original references",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/review.html"
+            },
+            {
+              "text": "Open the A/B visual review",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/review.html"
+            },
+            {
+              "text": "Placement limits",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/BOUNDARY-DECISION.md"
+            },
+            {
+              "text": "Latest boundary decision",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md"
+            },
+            {
+              "text": "Exact receipt",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-RECEIPT.md"
+            },
+            {
+              "text": "Running progress",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PROGRESS-2026-10-02.md"
+            }
+          ],
+          "images": [
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+              "alt": "Recorded desktop feature review showing labelled colour swatches for saved looks",
+              "loaded": true,
+              "width": 1440,
+              "height": 1000,
+              "rect": {
+                "x": 189,
+                "y": 758.421875,
+                "width": 520,
+                "height": 361.109375
+              }
+            },
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+              "alt": "Recorded desktop feature review showing Download JSON beside each supported saved look",
+              "loaded": true,
+              "width": 1440,
+              "height": 1000,
+              "rect": {
+                "x": 731,
+                "y": 758.421875,
+                "width": 520,
+                "height": 361.109375
+              }
+            },
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+              "alt": "Generated two-dimensional hair concept with swept framing, open forehead and rounded inward ends",
+              "loaded": true,
+              "width": 1277,
+              "height": 1231,
+              "rect": {
+                "x": 189,
+                "y": 1522.078125,
+                "width": 520,
+                "height": 501.265625
+              }
+            },
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+              "alt": "Actual bare-head renderer image with cyan opening and amber part annotations for orientation A",
+              "loaded": true,
+              "width": 900,
+              "height": 868,
+              "rect": {
+                "x": 731,
+                "y": 1522.078125,
+                "width": 520,
+                "height": 501.5
+              }
+            }
+          ],
+          "sections": [
+            {
+              "id": "available",
+              "label": "Available in the wardrobe study",
+              "cards": [
+                {
+                  "x": 188,
+                  "y": 561.703125,
+                  "width": 522,
+                  "height": 603.625
+                },
+                {
+                  "x": 730,
+                  "y": 561.703125,
+                  "width": 522,
+                  "height": 603.625
+                }
+              ]
+            },
+            {
+              "id": "hair-direction",
+              "label": "Hair direction · experimental",
+              "cards": [
+                {
+                  "x": 188,
+                  "y": 1302.265625,
+                  "width": 522,
+                  "height": 786.90625
+                },
+                {
+                  "x": 730,
+                  "y": 1302.265625,
+                  "width": 522,
+                  "height": 786.90625
+                }
+              ]
+            }
+          ],
+          "status": "Current decision: illustrated opening and part placement is reviewed. The closed backing-boundary proposal did not meet its placement limits, so it was rejected. No new hairstyle is integrated.",
+          "footer": "AAA character quality, expression, wardrobe and broader representation remain the goal. This local review keeps usable features and experimental appearance work visible together."
+        },
+        "imageResponses": [
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+            "file": "captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+            "status": 200,
+            "sha256": "d100d3f9b9dbac28ad77c8dfd3734963bfcd1ce58a27985de7d7b24cf26663f5"
+          },
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+            "file": "captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+            "status": 200,
+            "sha256": "b00845b8db873777b8864f76981ece1103709a1ac8c2502c28cccfe0b8219948"
+          },
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+            "file": "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+            "status": 200,
+            "sha256": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503"
+          },
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+            "file": "docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+            "status": 200,
+            "sha256": "e2b4f9df3c56d9a5e764ecc2c04c39e26fcb7b0fd34f720c4042c87adf118af4"
+          }
+        ]
+      }
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hub": {
+        "file": "mobile-hub.png",
+        "sha256": "283b99f6383b660aee7794e6339d96de06033de85595e925cb1d12c80c2e9de5",
+        "entryHref": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+        "destinations": [
+          {
+            "text": "Portrait",
+            "url": "http://127.0.0.1:5173/src/portrait.html"
+          },
+          {
+            "text": "Wardrobe studies",
+            "url": "http://127.0.0.1:5173/src/showcase.html"
+          },
+          {
+            "text": "Converse",
+            "url": "http://127.0.0.1:5173/src/converse.html"
+          },
+          {
+            "text": "Expression and posture",
+            "url": "http://127.0.0.1:5173/src/affect.html"
+          },
+          {
+            "text": "Mouth animation",
+            "url": "http://127.0.0.1:5173/src/voice.html"
+          },
+          {
+            "text": "Garment fitting",
+            "url": "http://127.0.0.1:5173/src/wardrobe.html"
+          },
+          {
+            "text": "Identity sculpting",
+            "url": "http://127.0.0.1:5173/src/identity.html"
+          },
+          {
+            "text": "Hair construction",
+            "url": "http://127.0.0.1:5173/src/hair.html"
+          },
+          {
+            "text": "Skin shading",
+            "url": "http://127.0.0.1:5173/src/skin.html"
+          },
+          {
+            "text": "Eye optics",
+            "url": "http://127.0.0.1:5173/src/eye.html"
+          },
+          {
+            "text": "Lighting rig",
+            "url": "http://127.0.0.1:5173/src/lighting.html"
+          },
+          {
+            "text": "Antialiasing and colour",
+            "url": "http://127.0.0.1:5173/src/post.html"
+          },
+          {
+            "text": "Render buffers",
+            "url": "http://127.0.0.1:5173/src/stage.html"
+          },
+          {
+            "text": "Minimal avatar",
+            "url": "http://127.0.0.1:5173/src/embed-example.html"
+          },
+          {
+            "text": "Browser support",
+            "url": "http://127.0.0.1:5173/src/scaffold.html"
+          },
+          {
+            "text": "Alive acceptance rig",
+            "url": "http://127.0.0.1:5173/alive.html"
+          },
+          {
+            "text": "Fabric weave",
+            "url": "http://127.0.0.1:5173/src/fabric.html"
+          }
+        ]
+      },
+      "review": {
+        "file": "mobile-review.png",
+        "sha256": "b4e9c6045a38d649cba95f7c291814fc141dd5da0679118fdc0e4d7f537d32fa",
+        "state": {
+          "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+          "viewport": [
+            390,
+            844
+          ],
+          "document": [
+            390,
+            3682
+          ],
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+          "headings": [
+            "Keep your looks.Shape the next character.",
+            "Available in the wardrobe study",
+            "Recognise a look before opening it.",
+            "Take a recipe with you.",
+            "Hair direction · experimental",
+            "A connected sweep with an open face.",
+            "Opening and part, in two orientations."
+          ],
+          "links": [
+            {
+              "text": "Workshop",
+              "url": "http://127.0.0.1:5173/"
+            },
+            {
+              "text": "September 30 review",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-09-30/review.html"
+            },
+            {
+              "text": "Full roadmap",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md"
+            },
+            {
+              "text": "Try Saved looks",
+              "url": "http://127.0.0.1:5173/src/showcase.html#saved-looks"
+            },
+            {
+              "text": "See the comparison",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/review.html"
+            },
+            {
+              "text": "Evidence and limits",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md"
+            },
+            {
+              "text": "See the workflow",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/review.html"
+            },
+            {
+              "text": "Evidence and limits",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md"
+            },
+            {
+              "text": "Concept and original references",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/review.html"
+            },
+            {
+              "text": "Open the A/B visual review",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/review.html"
+            },
+            {
+              "text": "Placement limits",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/BOUNDARY-DECISION.md"
+            },
+            {
+              "text": "Latest boundary decision",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md"
+            },
+            {
+              "text": "Exact receipt",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-RECEIPT.md"
+            },
+            {
+              "text": "Running progress",
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PROGRESS-2026-10-02.md"
+            }
+          ],
+          "images": [
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+              "alt": "Recorded desktop feature review showing labelled colour swatches for saved looks",
+              "loaded": true,
+              "width": 1440,
+              "height": 1000,
+              "rect": {
+                "x": 21,
+                "y": 871.75,
+                "width": 348,
+                "height": 241.65625
+              }
+            },
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+              "alt": "Recorded desktop feature review showing Download JSON beside each supported saved look",
+              "loaded": true,
+              "width": 1440,
+              "height": 1000,
+              "rect": {
+                "x": 21,
+                "y": 1407.015625,
+                "width": 348,
+                "height": 241.65625
+              }
+            },
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+              "alt": "Generated two-dimensional hair concept with swept framing, open forehead and rounded inward ends",
+              "loaded": true,
+              "width": 1277,
+              "height": 1231,
+              "rect": {
+                "x": 21,
+                "y": 2155.203125,
+                "width": 348,
+                "height": 335.453125
+              }
+            },
+            {
+              "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+              "alt": "Actual bare-head renderer image with cyan opening and amber part annotations for orientation A",
+              "loaded": true,
+              "width": 900,
+              "height": 868,
+              "rect": {
+                "x": 21,
+                "y": 2855.5,
+                "width": 348,
+                "height": 335.625
+              }
+            }
+          ],
+          "sections": [
+            {
+              "id": "available",
+              "label": "Available in the wardrobe study",
+              "cards": [
+                {
+                  "x": 20,
+                  "y": 615.59375,
+                  "width": 350,
+                  "height": 543.609375
+                },
+                {
+                  "x": 20,
+                  "y": 1179.203125,
+                  "width": 350,
+                  "height": 535.0625
+                }
+              ]
+            },
+            {
+              "id": "hair-direction",
+              "label": "Hair direction · experimental",
+              "cards": [
+                {
+                  "x": 20,
+                  "y": 1875.953125,
+                  "width": 350,
+                  "height": 680.296875
+                },
+                {
+                  "x": 20,
+                  "y": 2576.25,
+                  "width": 350,
+                  "height": 700.265625
+                }
+              ]
+            }
+          ],
+          "status": "Current decision: illustrated opening and part placement is reviewed. The closed backing-boundary proposal did not meet its placement limits, so it was rejected. No new hairstyle is integrated.",
+          "footer": "AAA character quality, expression, wardrobe and broader representation remain the goal. This local review keeps usable features and experimental appearance work visible together."
+        },
+        "imageResponses": [
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+            "file": "captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png",
+            "status": 200,
+            "sha256": "d100d3f9b9dbac28ad77c8dfd3734963bfcd1ce58a27985de7d7b24cf26663f5"
+          },
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+            "file": "captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png",
+            "status": 200,
+            "sha256": "b00845b8db873777b8864f76981ece1103709a1ac8c2502c28cccfe0b8219948"
+          },
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+            "file": "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+            "status": 200,
+            "sha256": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503"
+          },
+          {
+            "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+            "file": "docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png",
+            "status": 200,
+            "sha256": "e2b4f9df3c56d9a5e764ecc2c04c39e26fcb7b0fd34f720c4042c87adf118af4"
+          }
+        ]
+      }
+    }
+  ],
+  "linkedResponses": [
+    {
+      "text": "Workshop",
+      "url": "http://127.0.0.1:5173/",
+      "status": 200,
+      "contentType": "text/html",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "September 30 review",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-09-30/review.html",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Full roadmap",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "status": 200,
+      "contentType": "text/markdown",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Try Saved looks",
+      "url": "http://127.0.0.1:5173/src/showcase.html#saved-looks",
+      "status": 200,
+      "contentType": "text/html",
+      "fragment": "saved-looks",
+      "fragmentVerified": true
+    },
+    {
+      "text": "See the comparison",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/review.html",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Evidence and limits",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "status": 200,
+      "contentType": "text/markdown",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "See the workflow",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/review.html",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Evidence and limits",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "status": 200,
+      "contentType": "text/markdown",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Concept and original references",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/review.html",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Open the A/B visual review",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/review.html",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Placement limits",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/BOUNDARY-DECISION.md",
+      "status": 200,
+      "contentType": "text/markdown",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Latest boundary decision",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md",
+      "status": 200,
+      "contentType": "text/markdown",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Exact receipt",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/SURFACE-RECEIPT.md",
+      "status": 200,
+      "contentType": "text/markdown",
+      "fragment": null,
+      "fragmentVerified": null
+    },
+    {
+      "text": "Running progress",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PROGRESS-2026-10-02.md",
+      "status": 200,
+      "contentType": "text/markdown",
+      "fragment": null,
+      "fragmentVerified": null
+    }
+  ],
+  "limits": [
+    "New HTML layout/navigation qualification only; existing images retain their prior scope.",
+    "No Avatar, groom, feature-download, physics, hardware-performance or all-page qualification.",
+    "Review service is borrowed and retained; only this browser/page are owned."
+  ],
+  "cleanup": {
+    "page": "closed",
+    "browser": "closed"
+  },
+  "borrowedReviewServerRetained": true,
+  "finished": "2026-10-03T05:28:28.488Z"
+}

@@ -1,0 +1,138 @@
+{
+  "status": "independent packet checks passed",
+  "started": "2026-10-03T05:31:27.491735+00:00",
+  "finished": "2026-10-03T05:31:27.496570+00:00",
+  "pid": 18647,
+  "command": "python3 docs/evidence/appearance-2026-10-02/verify-current-review.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "reportSha256": "1df267e31d7af8a20a7fc86fce0268a2ba257609774cb46582484beea1028410",
+  "verifierSha256": "e39a2f4af5c08da7807f94cde69d9a2720b4905c268d62996665978ec5327a5b",
+  "sourcePins": {
+    "tools/critic/current-review-ui.mjs": {
+      "live": "3798006a59fe62e7ccec12805d3e1cfdb318ad7989e0470d998b2c6d3d579fb1",
+      "snapshot": "3798006a59fe62e7ccec12805d3e1cfdb318ad7989e0470d998b2c6d3d579fb1",
+      "expected": "3798006a59fe62e7ccec12805d3e1cfdb318ad7989e0470d998b2c6d3d579fb1"
+    },
+    "packages/testbed/today-review.js": {
+      "live": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc",
+      "snapshot": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc",
+      "expected": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc"
+    },
+    "packages/testbed/index.html": {
+      "live": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b",
+      "snapshot": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b",
+      "expected": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b"
+    },
+    "packages/testbed/pages.js": {
+      "live": "abe518d8d5839e5f6a0e99bca51367a260f4de7e60fabe64f19073452e349d47",
+      "snapshot": "abe518d8d5839e5f6a0e99bca51367a260f4de7e60fabe64f19073452e349d47",
+      "expected": "abe518d8d5839e5f6a0e99bca51367a260f4de7e60fabe64f19073452e349d47"
+    },
+    "packages/core/src/render/MotionProbe.mjs": {
+      "live": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+      "snapshot": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+      "expected": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    "docs/evidence/appearance-2026-10-02/REVIEW-PLAN.md": {
+      "live": "86be89e7a97d0dc74ac025362a591ec1a9c39cac7790036cf4379cd902173750",
+      "snapshot": "86be89e7a97d0dc74ac025362a591ec1a9c39cac7790036cf4379cd902173750",
+      "expected": "86be89e7a97d0dc74ac025362a591ec1a9c39cac7790036cf4379cd902173750"
+    },
+    "docs/evidence/appearance-2026-10-02/review.html": {
+      "live": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6",
+      "snapshot": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6",
+      "expected": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6"
+    }
+  },
+  "imagePins": {
+    "captures/saved-colour-recipe-2026-10-02-candidate-v2/desktop-recipes.png": {
+      "sha256": "d100d3f9b9dbac28ad77c8dfd3734963bfcd1ce58a27985de7d7b24cf26663f5",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "captures/saved-look-export-2026-10-02-v1/desktop-saved-export.png": {
+      "sha256": "b00845b8db873777b8864f76981ece1103709a1ac8c2502c28cccfe0b8219948",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png": {
+      "sha256": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503",
+      "dimensions": [
+        1277,
+        1231
+      ]
+    },
+    "docs/evidence/appearance-2026-10-02/front-design/boundary-archive/capture/front-bare-A.png": {
+      "sha256": "e2b4f9df3c56d9a5e764ecc2c04c39e26fcb7b0fd34f720c4042c87adf118af4",
+      "dimensions": [
+        900,
+        868
+      ]
+    }
+  },
+  "screenshots": {
+    "captures/current-review-2026-10-02-v1/desktop-hub.png": {
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "sha256": "07d8f1c7626e91b3688dfed005410e1f1afa8dd43415856060b4538f9cfd5713"
+    },
+    "captures/current-review-2026-10-02-v1/desktop-review.png": {
+      "dimensions": [
+        1440,
+        2377
+      ],
+      "sha256": "ee3fbf89a3cfcf64016af42c83ed2c5fc2e82b535798e38734f5a3cd926ff13b"
+    },
+    "captures/current-review-2026-10-02-v1/mobile-hub.png": {
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "283b99f6383b660aee7794e6339d96de06033de85595e925cb1d12c80c2e9de5"
+    },
+    "captures/current-review-2026-10-02-v1/mobile-review.png": {
+      "dimensions": [
+        390,
+        3682
+      ],
+      "sha256": "b4e9c6045a38d649cba95f7c291814fc141dd5da0679118fdc0e4d7f537d32fa"
+    }
+  },
+  "views": [
+    {
+      "label": "desktop",
+      "document": [
+        1440,
+        2377
+      ],
+      "catalogueDestinations": 17,
+      "links": 14,
+      "decodedExactMedia": 4,
+      "layout": "two columns"
+    },
+    {
+      "label": "mobile",
+      "document": [
+        390,
+        3682
+      ],
+      "catalogueDestinations": 17,
+      "links": 14,
+      "decodedExactMedia": 4,
+      "layout": "one column"
+    }
+  ],
+  "linkResponses": 14,
+  "limits": [
+    "Saved root browser observations independently reconciled with exact source/image/PNG bytes; no new network or browser run.",
+    "Recorded Enter activation starts with programmatic focus; no Tab traversal or screen-reader audit.",
+    "Destination existence/response is navigation evidence, not fresh all-page or Avatar behavior qualification."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "purpose": "Pixel-preserving crops for root inspection at390pxwidth after tool display resized the full-height original. No new native capture or source-image change.",
+  "codecSHA256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a",
+  "rows": [
+    {
+      "file": "inspection/mobile-0.png",
+      "source": "mobile-review.png",
+      "sourceSHA256": "b4e9c6045a38d649cba95f7c291814fc141dd5da0679118fdc0e4d7f537d32fa",
+      "rectangle": [
+        0,
+        0,
+        390,
+        1250
+      ],
+      "sha256": "532e63d405e6299488f493b25829ea2d42ae5d2095d979fe9fdfaac59f52d226",
+      "pixelEquality": true
+    },
+    {
+      "file": "inspection/mobile-1.png",
+      "source": "mobile-review.png",
+      "sourceSHA256": "b4e9c6045a38d649cba95f7c291814fc141dd5da0679118fdc0e4d7f537d32fa",
+      "rectangle": [
+        0,
+        1250,
+        390,
+        1250
+      ],
+      "sha256": "dfacc508050b2cf00eaf5f77eb4ffb5438210b6d42c63f11f89fc4a8c16e66a3",
+      "pixelEquality": true
+    },
+    {
+      "file": "inspection/mobile-2.png",
+      "source": "mobile-review.png",
+      "sourceSHA256": "b4e9c6045a38d649cba95f7c291814fc141dd5da0679118fdc0e4d7f537d32fa",
+      "rectangle": [
+        0,
+        2500,
+        390,
+        1182
+      ],
+      "sha256": "25d6bc0386e9ce01daaf9b9de7a690e721acc0c02eff78e469eeb5d9583c5ae9",
+      "pixelEquality": true
+    }
+  ]
+}
