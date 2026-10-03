@@ -1,0 +1,5 @@
+# Recoverable checkpoint
+
+This fixed packet is closed at first observer refusal. Zero new images and gray never constructed. Read ROOT-DECISION.md/RECEIPT.md/CRITIQUE.md before resuming; raw packet is captures/neutral-floor-2026-10-03-v1, immutable archived copies and lossless full report are in archive/. Do not rerun with a local assertion tweak or reinterpret correct olive input as shader/gray/appearance success. Prepared tools/critic/verify-neutral-floor.mjs is unexecuted.
+
+No owned CPU/native/browser/GPU job remains. Review server PID1023/loopback5173 retained; heartbeat ACTIVE/current-chat ten minutes last API/TOML verified08:32UTC. Recheck live state before reuse. Accepted mobile toolbar-row product checkpoint789bc3a and tee discriminator closurea67e913 remain intact. Full AAA character/expression/wardrobe/representation roadmap and all closed experimental routes stay preserved. No human check-in/stop/new steering has arrived. Next action is fresh critic value review, not an automatic retry; at human check-in report concise status and await steering, and at stop checkpoint/pause timer via API with readback.

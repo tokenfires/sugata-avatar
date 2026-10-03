@@ -1,0 +1,42 @@
+{
+  "started": "2026-10-03T09:15:41.069Z",
+  "finished": "2026-10-03T09:15:41.213Z",
+  "pid": 23493,
+  "command": "node tools/critic/verify-neutral-floor-refusal.mjs",
+  "verifierSHA256": "8d1765fee2a5093d1d5be3658940f8a5b545b6616a630a1680ea98a5c072f864",
+  "reportSHA256": "5951e77de9fe663acb67b84cb99e11b7412d05b9a8e7654dfb5bda869a5f0c16",
+  "status": "first observer refusal verified; zero visual comparison",
+  "sourcePins": 380,
+  "dependencyPins": 6,
+  "helperPins": 1,
+  "assets": 6,
+  "newImages": 0,
+  "grayConstructed": false,
+  "actualRoot": {
+    "type": "VarNode",
+    "albedoOperand": null,
+    "colors": [
+      {
+        "type": "ConstNode",
+        "nodeType": "color",
+        "linear": [
+          0.3049873140591091,
+          0.26225065751888765,
+          0.0343398068028541
+        ],
+        "hex": "968c34"
+      }
+    ]
+  },
+  "projectionError": 0,
+  "quaternionError": 1.3717005045583925e-17,
+  "sourceExplanationPins": {
+    "node_modules/three/src/nodes/tsl/TSLCore.js": "6deeda9575ef08802464222ca24c234ec6b81f154be229d1786f09a1ddc2e045",
+    "node_modules/three/src/nodes/math/OperatorNode.js": "7dd2e6f558a5053f6e6db2126d5a236760998aed45d3071ec237328799a43197",
+    "node_modules/three/src/nodes/core/VarNode.js": "d925cf88b8db25864ff6772412ac7a79cd05c6688e028e01b3d2eec26203e20b"
+  },
+  "limits": [
+    "Only first olive control input/cleanup/color-node recorded. No gray render, paired invariants, aesthetic/colorcalibration/defaultAPI/AAAqualification.",
+    "Prepared verify-neutral-floor.mjs was never executed; no renderer clock/epoch rewrite, native retry or candidate retune."
+  ]
+}

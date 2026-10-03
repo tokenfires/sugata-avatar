@@ -1,0 +1,8 @@
+{
+  "url": "https://threejs.org/manual/en/color-management.html",
+  "statusCode": 200,
+  "scrapeId": "01a100fd-ce0c-70df-9024-fece3ce14988",
+  "creditsUsed": 1,
+  "scope": "Current primary Three color-management documentation, consulted for linear working-space versus sRGB hex interpretation. The #8a8a8a choice is authored from installed arithmetic, not a claim of exact luminance calibration or reference design equivalence.",
+  "summary": "Three uses linear working colors for lighting; hexadecimal Color input converts from sRGB when color management is enabled. Record installed coefficients and actual native node input. Fixed eight-bit gray introduces quantization, so equal rendered luminance is unasserted."
+}
