@@ -1,0 +1,207 @@
+{
+  "started": "2026-10-03T09:36:49.784Z",
+  "pid": 60726,
+  "status": "CPU wrapper/inner operator/color edge witness and exact supported recipe roundtrip passed; no Avatar/render",
+  "controlGraph": [
+    {
+      "id": 0,
+      "type": "VarNode",
+      "nodeType": null,
+      "name": null,
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "node",
+          "index": null,
+          "to": 1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "type": "OperatorNode",
+      "nodeType": null,
+      "name": "",
+      "op": "*",
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "aNode",
+          "index": null,
+          "to": 2
+        },
+        {
+          "property": "bNode",
+          "index": null,
+          "to": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "VarNode",
+      "nodeType": null,
+      "name": null,
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "node",
+          "index": null,
+          "to": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "ConstNode",
+      "nodeType": "color",
+      "name": "",
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [],
+      "value": {
+        "kind": "color",
+        "linear": [
+          0.7083757798856457,
+          0.6653872982754769,
+          0.5647115056965487
+        ],
+        "hex": "dbd5c6"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VarNode",
+      "nodeType": null,
+      "name": null,
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "node",
+          "index": null,
+          "to": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ConstNode",
+      "nodeType": "float",
+      "name": "",
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [],
+      "value": 0.9
+    }
+  ],
+  "candidateGraph": [
+    {
+      "id": 0,
+      "type": "VarNode",
+      "nodeType": null,
+      "name": null,
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "node",
+          "index": null,
+          "to": 1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "type": "OperatorNode",
+      "nodeType": null,
+      "name": "",
+      "op": "*",
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "aNode",
+          "index": null,
+          "to": 2
+        },
+        {
+          "property": "bNode",
+          "index": null,
+          "to": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "VarNode",
+      "nodeType": null,
+      "name": null,
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "node",
+          "index": null,
+          "to": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "ConstNode",
+      "nodeType": "color",
+      "name": "",
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [],
+      "value": {
+        "kind": "color",
+        "linear": [
+          0.17788841597328695,
+          0.057805430183792694,
+          0.08650046202808521
+        ],
+        "hex": "754453"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VarNode",
+      "nodeType": null,
+      "name": null,
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [
+        {
+          "property": "node",
+          "index": null,
+          "to": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ConstNode",
+      "nodeType": "float",
+      "name": "",
+      "op": null,
+      "method": null,
+      "scope": null,
+      "edges": [],
+      "value": 0.9
+    }
+  ]
+}

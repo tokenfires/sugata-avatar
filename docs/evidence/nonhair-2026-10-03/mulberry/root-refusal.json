@@ -1,0 +1,47 @@
+{
+  "started": "2026-10-03T09:43:42.797Z",
+  "finished": "2026-10-03T09:43:42.943Z",
+  "pid": 72526,
+  "command": "node tools/critic/verify-mulberry-refusal.mjs",
+  "verifierSHA256": "080f64a60dbe64ee833efc8a8c86a71b780a9adcfb88b692ea1cc8d0616518ed",
+  "reportSHA256": "22ffa377a4a11c014fc50c8678448d6c12441a375cb9bd87dc907788da54184d",
+  "status": "first Ecru control correct vec3 inputs; observer kind assumption refused",
+  "pins": 388,
+  "assets": 6,
+  "top": {
+    "node": 35,
+    "data": [
+      0.7083757798856457,
+      0.6653872982754769,
+      0.5647115056965487
+    ]
+  },
+  "denim": {
+    "node": 18,
+    "data": [
+      0.019382360952473074,
+      0.036889450395083165,
+      0.0722718506743852
+    ]
+  },
+  "leather": {
+    "node": 35,
+    "data": [
+      0.06662593863608139,
+      0.0343398068028541,
+      0.024157632443547246
+    ]
+  },
+  "projectionError": 0,
+  "quaternionError": 0,
+  "images": 0,
+  "candidateConstructed": false,
+  "jsonNativeReopening": false,
+  "cleanup": {
+    "disposed": true,
+    "leaked": [],
+    "pageClosed": true,
+    "browserClosed": true
+  },
+  "limits": "No Mulberry/rendered preference/pair/reopening/AAA result. Complete retained public Node graph contains vector inputs, not kind=color. Fixed packet closed without observer or artist retune."
+}

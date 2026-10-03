@@ -1,0 +1,132 @@
+{
+  "status": "independent refusal audit passed; no candidate appearance or JSON navigation admission",
+  "started": "2026-10-03T09:44:54.285406+00:00",
+  "finished": "2026-10-03T09:44:54.447271+00:00",
+  "pid": 74563,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 docs/evidence/nonhair-2026-10-03/mulberry/verify-mulberry.py > docs/evidence/nonhair-2026-10-03/mulberry/independent.json",
+  "verifierSHA256": "f85f487885d84187cae4f69dc03916f18f451c88a9d0c7c8781cb1846be911d7",
+  "reportSHA256": "22ffa377a4a11c014fc50c8678448d6c12441a375cb9bd87dc907788da54184d",
+  "sourcePins": 380,
+  "dependencyPins": 7,
+  "helperPins": 2,
+  "uniquePins": 388,
+  "sourceCopies": [
+    "packages/testbed/src/showcase.html",
+    "packages/testbed/src/showcase-presets.mjs",
+    "packages/testbed/src/showcase-settings.mjs",
+    "packages/testbed/src/showcase.js",
+    "packages/testbed/src/viewer-framing.mjs",
+    "packages/core/src/wardrobe/WardrobeStyles.js",
+    "node_modules/three/LICENSE",
+    "node_modules/three/src/math/ColorManagement.js",
+    "node_modules/three/src/nodes/core/VarNode.js",
+    "node_modules/three/src/nodes/core/Node.js",
+    "node_modules/three/src/nodes/tsl/TSLCore.js",
+    "node_modules/three/src/nodes/math/OperatorNode.js",
+    "node_modules/three/examples/jsm/controls/OrbitControls.js",
+    "tools/figure-pipeline/collar_capture_browser.mjs",
+    "tools/critic/material-node-witness.mjs"
+  ],
+  "servedAssetPins": 6,
+  "images": 0,
+  "completeCases": 0,
+  "firstControlGraphWitnesses": [
+    {
+      "owner": "female_casualsuit01",
+      "hex": "dbd5c6",
+      "propertyPath": "elseNode.node.aNode.node",
+      "ids": [
+        0,
+        32,
+        33,
+        34,
+        35
+      ],
+      "vector": [
+        0.7083757798856457,
+        0.6653872982754769,
+        0.5647115056965487
+      ],
+      "maxLinearError": 0.0,
+      "observerColorKindMatches": 0
+    },
+    {
+      "owner": "female_casualsuit01",
+      "hex": "26364c",
+      "propertyPath": "ifNode.node.aNode.node",
+      "ids": [
+        0,
+        15,
+        16,
+        17,
+        18
+      ],
+      "vector": [
+        0.019382360952473074,
+        0.036889450395083165,
+        0.0722718506743852
+      ],
+      "maxLinearError": 0.0,
+      "observerColorKindMatches": 0
+    },
+    {
+      "owner": "shoes01",
+      "hex": "49342b",
+      "propertyPath": "elseNode.node.aNode.node",
+      "ids": [
+        0,
+        32,
+        33,
+        34,
+        35
+      ],
+      "vector": [
+        0.06662593863608139,
+        0.0343398068028541,
+        0.024157632443547246
+      ],
+      "maxLinearError": 0.0,
+      "observerColorKindMatches": 0
+    },
+    {
+      "owner": "shoes01",
+      "hex": "34363b",
+      "propertyPath": "ifNode.node.aNode.node",
+      "ids": [
+        0,
+        15,
+        16,
+        17,
+        18
+      ],
+      "vector": [
+        0.0343398068028541,
+        0.036889450395083165,
+        0.04373502925049377
+      ],
+      "maxLinearError": 0.0,
+      "observerColorKindMatches": 0
+    }
+  ],
+  "maxColourError": 0,
+  "maxProjectionError": 8.881784197001252e-16,
+  "maxCameraWorldError": 2.7755575615628914e-17,
+  "normalClocks": {
+    "motion": 0,
+    "utterance": 0,
+    "renderer": {
+      "frameId": 75,
+      "time": 0.9101000000089408,
+      "delta": 0.008400000005960464
+    },
+    "temporal": {
+      "jitterIndex": 17,
+      "jitterPeriod": 31,
+      "historyWidth": 900
+    },
+    "resetEpoch": 0
+  },
+  "scope": "Completed first-control source/material inputs and nominal camera only. No pixel evidence, candidate Avatar, paired invariant, file-input reopening or complete-look acceptance."
+}

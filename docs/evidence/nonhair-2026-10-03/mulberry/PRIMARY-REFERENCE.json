@@ -1,0 +1,11 @@
+{
+  "page": "https://www.uniqlo.com/us/en/special-feature/lifewear-collection",
+  "observedTitle": "LifeWear Collection 2026 Winter | UNIQLO US",
+  "observed": "2026-10-03 around09:25UTC",
+  "method": "Current primary web page HTTP200 plus temporary background IAB tab12 screenshot/AX hero and first grid; exact alt/source links read from observed DOM; tabclosed",
+  "examples": [
+    {"alt": "lookbook 1", "url": "https://www.uniqlo.com/jp/ja/special-feature/lifewear-collection/common_26fw/winter/img/styling01_26fw_winter.jpg", "relationship": "dark navy top with burgundy trousers, layered plaid outer"},
+    {"alt": "lookbook 4", "url": "https://www.uniqlo.com/jp/ja/special-feature/lifewear-collection/common_26fw/winter/img/styling04_26fw_winter.jpg", "relationship": "olive top with camel outer and plum-gray skirt"}
+  ],
+  "limits": "Root actual browser observation only; first direct web image fetch timedout, browser grid loaded. No downloaded/copied remote media. Critic did not independently view remote page. Literal recipe is original artist choice, not photographic color calibration or garment/identity copying. Search cache saidFall/Winter; actualpage saysWinter."
+}

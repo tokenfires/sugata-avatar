@@ -1,0 +1,5 @@
+# Recovery
+
+The fixed Mulberry packet is closed at first Ecru/control observer refusal. Read ROOT-DECISION/RECEIPT/CRITIQUE and exact archive first. There are no new appearance images, no Mulberry construction, no actual JSON reopening, no pair. JSON is a CPU-valid isolated artist proposal; do not present it as a visually qualified look. Executed instrument/helper and full lossless raw report are preserved. Never rerun this packet with a kind/vector predicate tweak or artist colour retune.
+
+No owned job remains; actual failed-control retirement disposed/leaked[], page/browserclosed. Review Vite1023/5173 retained; ACTIVE/current-chat10minuteheartbeat last API/TOML readback09:23UTC. Recheck live state before reuse. Latest accepted product is mobile toolbar-row789bc3a, other accepted assets unchanged. Root independently audits handoff and freezes before09:57; fresh value needed next. Human check-in receives concise status and steering before substantial slice; stop request requires checkpoint/pause timer viaAPI withreadback. All AAA and closed-line boundaries remain.
