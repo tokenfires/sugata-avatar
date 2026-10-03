@@ -1,0 +1,21 @@
+# Independent tee-neckline admission review
+
+PLAN read independently at08:42UTC. Admit its value and source inventory, with numerical execution pending the exact independent opening definition and full-source/posed/drawn correspondence. The20minute total bound and08:48 source admission stop are appropriate. The current visible notches are not yet attributed to body penetration, masks, material or opening topology.
+
+I read the retained raw mobile-jitter report (`65b8a492c799fe9930a6695bc335dca5edb9a9f7e1b2886340ea2c82c1496efb`) and current casual GLB JSON. Recorded owners: body9247 support vertices/17012 drawn triangles; foundation_bra224/327; foundation_briefs0/0; female_casualsuit01 2377/4236; shoes01 1846/3320. Each nonempty owner's vertices retain actual accessor base/joints/weights, active morph deltas, posed local/world positions; mesh records retain matrices/bind/bones/material/draw/group state. The original body configuration/geometry is qualified elsewhere; this new inquiry must bind its exact retained inputs rather than calling them current portrait pixels.
+
+Current casual GLB SHA256`44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783` has exactly one female_casualsuit01 primitive/material with POSITION,NORMAL,TEXCOORD_0,JOINTS_0,WEIGHTS_0 and indexed faces. It has no `sugataInterior` definition or explicit named neckline group in the inspected mesh metadata. The runtime `GarmentInterior.js:68–73` returns null when that definition is absent; the missing casual interior owner in the retained report is therefore consistent. Briefs' zero drawn support is a reported current masked state, not permission to remove its authored asset or inspect a replacement foundation.
+
+`Wardrobe.js:351–380` preserves directed triples while compacting the actual index range; `:846–878` separately handles full body indices, garment under-mask indices and matching interior masks. Thus drawn offsets cannot be treated as full-source face ordinals. `showcase-presets.mjs:14–20` binds the combined casual garment/shoes and bra/briefs starting foundation. Current casual material alone supplies no semantic separation between tee and jeans; source opening/component/anatomical reasoning is still required independently of the screenshot.
+
+Two precise admission obligations:
+
+1. ExactXYZ seam quotient is useful for source topology but does not by itself prove a single posed boundary. Aliases may have distinct skin data. Compare source joint-semantic normalized weights and the actual retained posed coordinates of any boundary aliases; preserve normal/UV discontinuities as records. If an alias changes current physical ownership, stop rather than distance-weld it.
+   - Alternative A: retain all original directed edges/vertices and admit only a quotient opening whose aliases also have qualified common posed support. Smallest faithful current-boundary interface; it may refuse an inconvenient export seam.
+   - Alternative B: classify rest topology only and explicitly leave posed seam ownership unresolved. Useful limited inventory, but insufficient for the proposed local contact or outer-only authoring admission.
+
+2. Map retained directed drawn triples to original directed full-source entities explicitly, including repeated-triple ambiguity. Preserve the compact draw offset separately; do not assume it is a source face number. Only actual drawn owners establish the current baseline contact duty; full-source boundaries and mask-created drawn edges must remain separate outputs.
+   - Alternative A: source/direct-triple identity map plus mask range records, refusing ambiguous entities. Enables exact later editor obligations without inventing a mask repair.
+   - Alternative B: leave results keyed only to current compact drawn geometry. Lower mapping effort but cannot supply the claimed source authoring interface, so narrow result/stop before that claim.
+
+No contact predicate, constructor or capture is admitted until these bindings and one unambiguous tee opening are recorded. No source calculations beyond reading input counts/metadata were performed here. Full shader/raster ownership, new fit aesthetics/motion and broader representative characters remain separate obligations.

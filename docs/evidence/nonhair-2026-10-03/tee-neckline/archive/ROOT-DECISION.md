@@ -1,0 +1,7 @@
+# Root: close the neckline discriminator
+
+Source admission was not established by08:48; stop before any topology/contact numerical pass. Root independently views both exact current portrait originals and agrees the cloth/skin boundary is visibly notched. Root independently reads native owner fields/currentGLBmetadata/runtime source and full critic handoff. There is no registered portrait pixel-owner cause, no independent current tee-neckline domain and no directed full-source/posed seam correspondence in this output. No topology/contact result or editability certificate follows.
+
+The source carries one combined casual garment primitive/material, no named neck group and no interior metadata; runtime's null interior is consistent. Historical collarBand rounds positions to1e−7 and uses an inherited source-spaceROI; it is not a substitute for this exact/independent declared domain. Source-accessor availability and old20-edge labels alone do not supply this new authoring contract.
+
+AlternativeA explicitly author a creative outer-tee design/entity contract with opening/skin/UV/pose responsibilities before a new constructor; narrow productimpact but must qualify actual boundary and fit. AlternativeB author a broader seam/body-hide/interior contract; more flexibility but much wider ownership and appearance/motion obligations. Neither is automatically admitted. Close this prerequisite discriminator; do not repeat source inventories or reopen foundation/mask/offset tuning. Actual intended outfit finish and wholeAAA/representation/expression goals remain open.

@@ -1,0 +1,184 @@
+{
+  "time": "2026-10-03T08:52:36.363026+00:00",
+  "scope": "Read-only actual metadata; no topology/contact computation or pixel attribution.",
+  "pins": {
+    "captures/mobile-body-jitter-2026-10-03-v1/report.json": "65b8a492c799fe9930a6695bc335dca5edb9a9f7e1b2886340ea2c82c1496efb",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "docs/evidence/nonhair-2026-10-03/NEXT-CHARACTER-VALUE.md": "f8300862aa2a3f0cf441668fff555f08cc5cd8436ece55ffe04fc29661e9cbe6",
+    "packages/core/src/wardrobe/Wardrobe.js": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664",
+    "packages/core/src/wardrobe/GarmentInterior.js": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0",
+    "packages/testbed/src/showcase-presets.mjs": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+    "tools/figure-pipeline/collar_lining_topology.mjs": "0d14a2a6239972243c65dfc5c4f219e0ccd50a8f99413d627df01ece042f1323",
+    "docs/WARDROBE-FIT-2026-09-09.md": "5c35382c67213cdc63d8afba0a80146ecaf1eb810ff8f8f35972fe272460857f",
+    "docs/WARDROBE-TROUSER-FIT-2026-09-13.md": "575b6c9c19aacfcaccbd659f9da68890146ea9ee85fb5aa419ede9f0a9f39690",
+    "captures/mobile-toolbar-ui-2026-10-03-v1/desktop-portrait.png": "949bab89a9d415dbc74d7108b74c85f349bbcb380411bcaa4c6a30b517082b2f",
+    "captures/mobile-toolbar-ui-2026-10-03-v1/mobile-portrait.png": "438f47859a836201dba33bb58fa12d3f53e2b169ab10f726eb0a355044ba1c15"
+  },
+  "owners": [
+    {
+      "owner": "body",
+      "positionCount": 14517,
+      "drawRange": {
+        "start": 0,
+        "count": 51036
+      },
+      "drawnVertices": 9247,
+      "drawnTriangles": 17012,
+      "materials": [
+        {
+          "name": "",
+          "type": "SkinNodeMaterial",
+          "visible": true,
+          "side": 0,
+          "transparent": false,
+          "opacity": 1,
+          "wireframe": false,
+          "positionNode": false,
+          "displacementMap": false,
+          "displacementScale": 1
+        }
+      ]
+    },
+    {
+      "owner": "garment:foundation_bra",
+      "positionCount": 12030,
+      "drawRange": {
+        "start": 0,
+        "count": 981
+      },
+      "drawnVertices": 224,
+      "drawnTriangles": 327,
+      "materials": [
+        {
+          "name": "foundation_bra",
+          "type": "MeshStandardMaterial",
+          "visible": true,
+          "side": 0,
+          "transparent": false,
+          "opacity": 1,
+          "wireframe": false,
+          "positionNode": false,
+          "displacementMap": false,
+          "displacementScale": 1
+        }
+      ]
+    },
+    {
+      "owner": "garment:foundation_briefs",
+      "positionCount": 6802,
+      "drawRange": {
+        "start": 0,
+        "count": 0
+      },
+      "drawnVertices": 0,
+      "drawnTriangles": 0,
+      "materials": [
+        {
+          "name": "foundation_briefs",
+          "type": "MeshStandardMaterial",
+          "visible": true,
+          "side": 0,
+          "transparent": false,
+          "opacity": 1,
+          "wireframe": false,
+          "positionNode": false,
+          "displacementMap": false,
+          "displacementScale": 1
+        }
+      ]
+    },
+    {
+      "owner": "garment:female_casualsuit01",
+      "positionCount": 2377,
+      "drawRange": {
+        "start": 0,
+        "count": 12708
+      },
+      "drawnVertices": 2377,
+      "drawnTriangles": 4236,
+      "materials": [
+        {
+          "name": "wardrobe.ecru.female_casualsuit01",
+          "type": "MeshStandardNodeMaterial",
+          "visible": true,
+          "side": 0,
+          "transparent": false,
+          "opacity": 1,
+          "wireframe": false,
+          "positionNode": false,
+          "displacementMap": false,
+          "displacementScale": 1
+        }
+      ]
+    },
+    {
+      "owner": "garment:shoes01",
+      "positionCount": 1846,
+      "drawRange": {
+        "start": 0,
+        "count": 9960
+      },
+      "drawnVertices": 1846,
+      "drawnTriangles": 3320,
+      "materials": [
+        {
+          "name": "wardrobe.ecru.shoes01",
+          "type": "MeshStandardNodeMaterial",
+          "visible": true,
+          "side": 0,
+          "transparent": false,
+          "opacity": 1,
+          "wireframe": false,
+          "positionNode": false,
+          "displacementMap": false,
+          "displacementScale": 1
+        }
+      ]
+    }
+  ],
+  "glb": {
+    "meshName": "female_casualsuit01",
+    "primitive": {
+      "attributes": {
+        "POSITION": 0,
+        "NORMAL": 1,
+        "TEXCOORD_0": 2,
+        "JOINTS_0": 3,
+        "WEIGHTS_0": 4
+      },
+      "indices": 5,
+      "material": 0
+    },
+    "meshExtras": null,
+    "meshNodes": [
+      {
+        "node": 53,
+        "name": "Human.female_casualsuit01",
+        "extras": {
+          "MPFB_GEN_asset_source": "female_casualsuit01/female_casualsuit01.mhclo",
+          "MPFB_GEN_object_type": "Clothes",
+          "MhObjectType": "Clothes",
+          "MPFB_GEN_uuid": "a8b0e841-144b-4f03-8b9e-ea8fdce8c863",
+          "MPFB_MC_author": "unknown",
+          "MhClothesAuthor": "unknown",
+          "MPFB_MC_delete_group": "Delete.female_casualsuit01",
+          "MhDeleteGroup": "Delete.female_casualsuit01",
+          "MPFB_MC_description": "no description",
+          "MhClothesDesc": "no description",
+          "MPFB_MC_license": 1,
+          "MhClothesLicense": 1,
+          "MPFB_MC_name": "female_casualsuit01",
+          "MhClothesName": "female_casualsuit01"
+        }
+      }
+    ],
+    "materialNames": [
+      "Human.female_casualsuit01"
+    ]
+  },
+  "rootCriticHandoff": {
+    "preflightSHA256": "9911fcc90c798db2b279791e1e5ae765978fbb02942c8f4fa1a0e9cb9047a15e",
+    "critiqueSHA256": "433c96e69ef6182f54727da499f2e5300892dd5afd834f9214dcb5858848c4e8",
+    "status": "root fully read and independently checked cited raw owner/GLB/runtime fields; agree stop/no cause"
+  }
+}
