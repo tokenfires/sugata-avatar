@@ -1,0 +1,9 @@
+{
+  "observedUTC": "2026-10-03T22:49:16.322405+00:00",
+  "initial": {
+    "view.js": "ebfd4a01d236fe69dcc43e29eb7b43a9989bca68132b4dbd6e9d796df6971927",
+    "capture.mjs": "443a96ef709b84d98b3bdc86f599d3af7288eb4e117770056a04183965cb618c"
+  },
+  "cause": "Root preexecution literal review: use original double-precision bbox center as PLAN requires; normalize @fs URL prefix before sole job. No geometry/material/view/duration change.",
+  "reportingAddition": "Actual ambient/directional light states recorded with each captured frame; no lighting change."
+}

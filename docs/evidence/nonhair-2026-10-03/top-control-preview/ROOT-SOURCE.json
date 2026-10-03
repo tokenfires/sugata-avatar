@@ -1,0 +1,25 @@
+{
+  "pid": 48537,
+  "observedUTC": "2026-10-03T22:50:10.852229+00:00",
+  "sourceFiles": {
+    "PLAN.md": "d3c60df251d4a067165b4ba67974f3db3fb323323c7897a2775b0c2abafb7ecd",
+    "view.html": "b7870fc78ecc4b0fe2bbc5c5360e91696bf18f9df50791f449e7b6166132ad5a",
+    "view.js": "6d84e33371e7a4d3ecd12ad359ec9ede50a8ce0c968af46f54043b0c2ba47680",
+    "capture.mjs": "a5a23b080ff9c682075c25b7d8459a1ddbcdcfd95e15118e5a85496e4f69bdfc",
+    "SOURCE-CORRECTIONS.json": "d1cb82128e599ed5ee19949047c1991af9e9fcf6c60f96dea688f56df51238aa"
+  },
+  "protectedInputs": {
+    "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.obj": "e07cbd1a43d21bd700e6598f01f74341a9dd66eac4e035c8be8de2650eac380f",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+  },
+  "noRawOutput": true,
+  "rootSourceReview": "Literal read: original OBJ and source/corner IDs alone supply immutable double values; Float32 copies/flat DoubleSide normals plus locked cameras/lights only affect presentation. No production/avatar/native fit/material offset edit. All module/page/resource errors fatal, one run, bounded cleanup and owner disposal. Final critic review remains required.",
+  "launchAdmission": false
+}

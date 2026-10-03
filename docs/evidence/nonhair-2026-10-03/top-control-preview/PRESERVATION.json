@@ -1,0 +1,59 @@
+{
+  "pid": 64274,
+  "started": "2026-10-03T22:56:46.439130+00:00",
+  "finished": "2026-10-03T22:56:46.454168+00:00",
+  "files": {
+    "SOURCE-CORRECTIONS.json": {
+      "sha256": "d1cb82128e599ed5ee19949047c1991af9e9fcf6c60f96dea688f56df51238aa",
+      "bytes": 559
+    },
+    "RECEIPT.md": {
+      "sha256": "405316db806bb4d19db2181bdc0db4dc685cbf1dc0c04904a53551c8957b59e7",
+      "bytes": 2902
+    },
+    "view.js.initial.source": {
+      "sha256": "ebfd4a01d236fe69dcc43e29eb7b43a9989bca68132b4dbd6e9d796df6971927",
+      "bytes": 6966
+    },
+    "ROOT-SOURCE.json": {
+      "sha256": "2c64b30d5afe72e8ffc946642d76760da4b88bd48d691dff0724322a94292216",
+      "bytes": 2035
+    },
+    "capture.mjs": {
+      "sha256": "a5a23b080ff9c682075c25b7d8459a1ddbcdcfd95e15118e5a85496e4f69bdfc",
+      "bytes": 11910
+    },
+    "CRITIC-SOURCE.md": {
+      "sha256": "dfdef77b86c7fd4e69e5f90d109a741de845d610b681e0f0d4f7da8bed1972cb",
+      "bytes": 4154
+    },
+    "capture.mjs.initial.source": {
+      "sha256": "443a96ef709b84d98b3bdc86f599d3af7288eb4e117770056a04183965cb618c",
+      "bytes": 11744
+    },
+    "view.html": {
+      "sha256": "b7870fc78ecc4b0fe2bbc5c5360e91696bf18f9df50791f449e7b6166132ad5a",
+      "bytes": 502
+    },
+    "PLAN.md": {
+      "sha256": "d3c60df251d4a067165b4ba67974f3db3fb323323c7897a2775b0c2abafb7ecd",
+      "bytes": 4669
+    },
+    "view.js": {
+      "sha256": "6d84e33371e7a4d3ecd12ad359ec9ede50a8ce0c968af46f54043b0c2ba47680",
+      "bytes": 7297
+    }
+  },
+  "protectedInputs": {
+    "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.obj": "e07cbd1a43d21bd700e6598f01f74341a9dd66eac4e035c8be8de2650eac380f",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+  },
+  "status": "Frozen unrun; complete critic independently read/source paths verified; no renderer/controlJSON/job"
+}
