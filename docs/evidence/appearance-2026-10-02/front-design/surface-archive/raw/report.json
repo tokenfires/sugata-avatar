@@ -1,0 +1,864 @@
+{
+  "pid": 76218,
+  "started": "2026-10-03T05:07:10.004Z",
+  "finished": "2026-10-03T05:07:10.141Z",
+  "sourceHashes": {
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "docs/evidence/appearance-2026-10-02/front-design/boundary-landmarks.json": "4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8",
+    "captures/bob-lower-fallback-v1/candidate.glb": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7",
+    "docs/evidence/appearance-2026-10-02/front-design/SURFACE-PLAN.md": "21fff40a1e98b070f6201e3b83956ecda15813f3622bd79c2947ebab3c33da7c",
+    "tools/critic/author-hair-surface-domain.mjs": "08c81b3cdec4afcec7d323b90a166861f4d04ae81bffc7ee11e3e0327947b731",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "tools/figure-pipeline/hair_geometry.mjs": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+  },
+  "sourcesUnchanged": true,
+  "status": "refused control bounds",
+  "stage": "global exact-position topology",
+  "checks": [
+    {
+      "name": "exact source assets/figures/figure_g050.glb",
+      "pass": true,
+      "witness": {
+        "expected": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+        "actual": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+      }
+    },
+    {
+      "name": "exact source docs/evidence/appearance-2026-10-02/front-design/boundary-landmarks.json",
+      "pass": true,
+      "witness": {
+        "expected": "4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8",
+        "actual": "4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8"
+      }
+    },
+    {
+      "name": "exact source captures/bob-lower-fallback-v1/candidate.glb",
+      "pass": true,
+      "witness": {
+        "expected": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7",
+        "actual": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7"
+      }
+    },
+    {
+      "name": "no collapsed quotient faces",
+      "pass": true,
+      "witness": []
+    },
+    {
+      "name": "no zero-area quotient faces",
+      "pass": true,
+      "witness": []
+    },
+    {
+      "name": "no duplicate quotient faces",
+      "pass": true,
+      "witness": []
+    },
+    {
+      "name": "every quotient edge has two incident faces",
+      "pass": true,
+      "witness": []
+    },
+    {
+      "name": "connected circular vertex links",
+      "pass": true,
+      "witness": []
+    },
+    {
+      "name": "one quotient body component",
+      "pass": true,
+      "witness": [
+        13380
+      ]
+    },
+    {
+      "name": "A fixed projection and snap bounds",
+      "pass": false,
+      "witness": [
+        {
+          "index": 0,
+          "projectionDistanceMm": 15.85756662381954,
+          "snapDistanceMm": 1.7250870661544888,
+          "y": 1.5725603280690372,
+          "triangle": 9364,
+          "vertex": 265
+        },
+        {
+          "index": 1,
+          "projectionDistanceMm": 16.246612466243327,
+          "snapDistanceMm": 2.0194061063230113,
+          "y": 1.592043650262018,
+          "triangle": 296,
+          "vertex": 242
+        },
+        {
+          "index": 2,
+          "projectionDistanceMm": 8.093819874509917,
+          "snapDistanceMm": 6.246331233375994,
+          "y": 1.6126032968919801,
+          "triangle": 1370,
+          "vertex": 248
+        },
+        {
+          "index": 3,
+          "projectionDistanceMm": 11.191392651098697,
+          "snapDistanceMm": 8.60043017009827,
+          "y": 1.6370963073944147,
+          "triangle": 1477,
+          "vertex": 1085
+        },
+        {
+          "index": 4,
+          "projectionDistanceMm": 15.373340588762531,
+          "snapDistanceMm": 5.684467340092409,
+          "y": 1.6441190690997827,
+          "triangle": 1572,
+          "vertex": 1129
+        },
+        {
+          "index": 5,
+          "projectionDistanceMm": 18.825106508000776,
+          "snapDistanceMm": 4.460145216418821,
+          "y": 1.6314474180632774,
+          "triangle": 1451,
+          "vertex": 1088
+        },
+        {
+          "index": 6,
+          "projectionDistanceMm": 8.387601954101974,
+          "snapDistanceMm": 4.270435250175696,
+          "y": 1.611742178596815,
+          "triangle": 14224,
+          "vertex": 12848
+        },
+        {
+          "index": 7,
+          "projectionDistanceMm": 0.9771690627346497,
+          "snapDistanceMm": 2.9806994714614707,
+          "y": 1.5907486608391388,
+          "triangle": 22568,
+          "vertex": 8066
+        },
+        {
+          "index": 8,
+          "projectionDistanceMm": 6.234357133635313,
+          "snapDistanceMm": 1.2197214990726721,
+          "y": 1.5727528290797177,
+          "triangle": 13541,
+          "vertex": 7613
+        },
+        {
+          "index": 9,
+          "projectionDistanceMm": 11.26480383567344,
+          "snapDistanceMm": 0.3004546525989829,
+          "y": 1.5641732828978339,
+          "triangle": 23395,
+          "vertex": 7638
+        },
+        {
+          "index": 10,
+          "projectionDistanceMm": 14.74224358357663,
+          "snapDistanceMm": 3.230976272391212,
+          "y": 1.5633892183353415,
+          "triangle": 23081,
+          "vertex": 8069
+        },
+        {
+          "index": 11,
+          "projectionDistanceMm": 3.612593009396545,
+          "snapDistanceMm": 2.0121026266360262,
+          "y": 1.550588663482609,
+          "triangle": 23548,
+          "vertex": 13043
+        },
+        {
+          "index": 12,
+          "projectionDistanceMm": 14.065312715254578,
+          "snapDistanceMm": 5.344696415269727,
+          "y": 1.544112981304519,
+          "triangle": 24208,
+          "vertex": 8348
+        },
+        {
+          "index": 13,
+          "projectionDistanceMm": 35.60208641205656,
+          "snapDistanceMm": 1.0577372393834008,
+          "y": 1.5376284591863179,
+          "triangle": 14580,
+          "vertex": 8295
+        },
+        {
+          "index": 14,
+          "projectionDistanceMm": 46.44925226096235,
+          "snapDistanceMm": 4.415271974748819,
+          "y": 1.5340956440231985,
+          "triangle": 1435,
+          "vertex": 1018
+        },
+        {
+          "index": 15,
+          "projectionDistanceMm": 35.60208641205656,
+          "snapDistanceMm": 1.0577372393834008,
+          "y": 1.5376284591863179,
+          "triangle": 1336,
+          "vertex": 1015
+        },
+        {
+          "index": 16,
+          "projectionDistanceMm": 14.065312715254578,
+          "snapDistanceMm": 5.344696415269727,
+          "y": 1.544112981304519,
+          "triangle": 10763,
+          "vertex": 1078
+        },
+        {
+          "index": 17,
+          "projectionDistanceMm": 3.612593009396545,
+          "snapDistanceMm": 2.0121026266360262,
+          "y": 1.550588663482609,
+          "triangle": 10103,
+          "vertex": 5914
+        }
+      ]
+    },
+    {
+      "name": "A distinct snapped controls",
+      "pass": true,
+      "witness": {
+        "vertices": [
+          265,
+          242,
+          248,
+          1012,
+          1054,
+          1015,
+          11853,
+          7437,
+          7005,
+          7030,
+          7440,
+          12046,
+          7699,
+          7646,
+          948,
+          946,
+          1005,
+          5447
+        ]
+      }
+    }
+  ],
+  "topology": {
+    "exportedVertices": 14517,
+    "quotientVertices": 13380,
+    "faces": 26756,
+    "edges": 40134,
+    "euler": 2,
+    "aliasGroups": 1122
+  },
+  "orientations": {
+    "A": {
+      "controls": [
+        {
+          "wanted": [
+            -0.076,
+            1.575,
+            0.1
+          ],
+          "bodyTriangle": 9364,
+          "indices": [
+            265,
+            5659,
+            5660
+          ],
+          "bary": [
+            0.7498131243624461,
+            0.17631509392615127,
+            0.07387178171140259
+          ],
+          "restSurface": [
+            -0.06069413821306146,
+            1.5725603280690372,
+            0.09664723769746757
+          ],
+          "projectionDistanceMm": 15.85756662381954,
+          "index": 0,
+          "exportedVertex": 265,
+          "q": 265,
+          "distanceMm": 1.7250870661544888,
+          "snapped": [
+            -0.061092015355825424,
+            1.5723533630371094,
+            0.09498146921396255
+          ]
+        },
+        {
+          "wanted": [
+            -0.066,
+            1.595,
+            0.12
+          ],
+          "bodyTriangle": 296,
+          "indices": [
+            5690,
+            242,
+            241
+          ],
+          "bary": [
+            0,
+            0.8471865737152476,
+            0.15281342628475236
+          ],
+          "restSurface": [
+            -0.05251047164951681,
+            1.592043650262018,
+            0.11144166851912489
+          ],
+          "projectionDistanceMm": 16.246612466243327,
+          "index": 1,
+          "exportedVertex": 242,
+          "q": 242,
+          "distanceMm": 2.0194061063230113,
+          "snapped": [
+            -0.053585514426231384,
+            1.5909558534622192,
+            0.11012296378612518
+          ]
+        },
+        {
+          "wanted": [
+            -0.052,
+            1.616,
+            0.115
+          ],
+          "bodyTriangle": 1370,
+          "indices": [
+            248,
+            246,
+            1053
+          ],
+          "bary": [
+            0.5875452408210405,
+            0.11641857829824646,
+            0.29603618088071304
+          ],
+          "restSurface": [
+            -0.04618716597332704,
+            1.6126032968919801,
+            0.11050741847760866
+          ],
+          "projectionDistanceMm": 8.093819874509917,
+          "index": 2,
+          "exportedVertex": 248,
+          "q": 248,
+          "distanceMm": 6.246331233375994,
+          "snapped": [
+            -0.04981951415538788,
+            1.6076059341430664,
+            0.1095859706401825
+          ]
+        },
+        {
+          "wanted": [
+            -0.031,
+            1.629,
+            0.09
+          ],
+          "bodyTriangle": 1477,
+          "indices": [
+            6017,
+            1089,
+            1085
+          ],
+          "bary": [
+            0.4449982893065705,
+            0.46560504718981055,
+            0.089396663503619
+          ],
+          "restSurface": [
+            -0.036728529396585566,
+            1.6370963073944147,
+            0.09518469160111447
+          ],
+          "projectionDistanceMm": 11.191392651098697,
+          "index": 3,
+          "exportedVertex": 1085,
+          "q": 1012,
+          "distanceMm": 8.60043017009827,
+          "snapped": [
+            -0.04242151230573654,
+            1.6371959447860718,
+            0.08873896300792694
+          ]
+        },
+        {
+          "wanted": [
+            -0.015,
+            1.632,
+            0.09
+          ],
+          "bodyTriangle": 1572,
+          "indices": [
+            6028,
+            1129,
+            1089
+          ],
+          "bary": [
+            0.4085396108058333,
+            0.4430912566656219,
+            0.14836913252854483
+          ],
+          "restSurface": [
+            -0.02030058848270385,
+            1.6441190690997827,
+            0.09783399813312532
+          ],
+          "projectionDistanceMm": 15.373340588762531,
+          "index": 4,
+          "exportedVertex": 1129,
+          "q": 1054,
+          "distanceMm": 5.684467340092409,
+          "snapped": [
+            -0.01870550401508808,
+            1.647555947303772,
+            0.0935964584350586
+          ]
+        },
+        {
+          "wanted": [
+            0,
+            1.619,
+            0.105
+          ],
+          "bodyTriangle": 1451,
+          "indices": [
+            1087,
+            1056,
+            1088
+          ],
+          "bary": [
+            0.24223384599457615,
+            0.2874709801302985,
+            0.47029517387512537
+          ],
+          "restSurface": [
+            -0.0019446536849318935,
+            1.6314474180632774,
+            0.11898802132687997
+          ],
+          "projectionDistanceMm": 18.825106508000776,
+          "index": 5,
+          "exportedVertex": 1088,
+          "q": 1015,
+          "distanceMm": 4.460145216418821,
+          "snapped": [
+            0,
+            1.634576439857483,
+            0.1164739727973938
+          ]
+        },
+        {
+          "wanted": [
+            0.019,
+            1.608,
+            0.123
+          ],
+          "bodyTriangle": 14224,
+          "indices": [
+            12836,
+            12848,
+            7628
+          ],
+          "bary": [
+            0.31971254984344544,
+            0.3891694336941643,
+            0.2911180164623903
+          ],
+          "restSurface": [
+            0.02170810839566219,
+            1.611742178596815,
+            0.1300010081279299
+          ],
+          "projectionDistanceMm": 8.387601954101974,
+          "index": 6,
+          "exportedVertex": 12848,
+          "q": 11853,
+          "distanceMm": 4.270435250175696,
+          "snapped": [
+            0.01829700544476509,
+            1.61431086063385,
+            0.1299474686384201
+          ]
+        },
+        {
+          "wanted": [
+            0.037,
+            1.591,
+            0.132
+          ],
+          "bodyTriangle": 22568,
+          "indices": [
+            8066,
+            11309,
+            11308
+          ],
+          "bary": [
+            0.5902771150035979,
+            0.18165015112453697,
+            0.22807273387186508
+          ],
+          "restSurface": [
+            0.03642818554472698,
+            1.5907486608391388,
+            0.13124852396437137
+          ],
+          "projectionDistanceMm": 0.9771690627346497,
+          "index": 7,
+          "exportedVertex": 8066,
+          "q": 7437,
+          "distanceMm": 2.9806994714614707,
+          "snapped": [
+            0.03508000448346138,
+            1.5934034585952759,
+            0.13138645887374878
+          ]
+        },
+        {
+          "wanted": [
+            0.052,
+            1.574,
+            0.132
+          ],
+          "bodyTriangle": 13541,
+          "indices": [
+            7613,
+            7606,
+            7607
+          ],
+          "bary": [
+            0.7004060513461687,
+            0,
+            0.2995939486538312
+          ],
+          "restSurface": [
+            0.04693026023152134,
+            1.5727528290797177,
+            0.12859272656729498
+          ],
+          "projectionDistanceMm": 6.234357133635313,
+          "index": 8,
+          "exportedVertex": 7613,
+          "q": 7005,
+          "distanceMm": 1.2197214990726721,
+          "snapped": [
+            0.04700201377272606,
+            1.5738579034805298,
+            0.12808147072792053
+          ]
+        },
+        {
+          "wanted": [
+            0.066,
+            1.565,
+            0.12
+          ],
+          "bodyTriangle": 23395,
+          "indices": [
+            7637,
+            12865,
+            7638
+          ],
+          "bary": [
+            0,
+            0.07083059887169252,
+            0.9291694011283075
+          ],
+          "restSurface": [
+            0.05574734370006238,
+            1.5641732828978339,
+            0.11540702894799688
+          ],
+          "projectionDistanceMm": 11.26480383567344,
+          "index": 9,
+          "exportedVertex": 7638,
+          "q": 7030,
+          "distanceMm": 0.3004546525989829,
+          "snapped": [
+            0.05564701184630394,
+            1.5640373229980469,
+            0.11565546691417694
+          ]
+        },
+        {
+          "wanted": [
+            0.076,
+            1.565,
+            0.1
+          ],
+          "bodyTriangle": 23081,
+          "indices": [
+            12805,
+            8069,
+            12804
+          ],
+          "bary": [
+            0.24528769701092717,
+            0.3270296299100406,
+            0.42768267307903224
+          ],
+          "restSurface": [
+            0.06159373335633269,
+            1.5633892183353415,
+            0.09731697750701468
+          ],
+          "projectionDistanceMm": 14.74224358357663,
+          "index": 10,
+          "exportedVertex": 8069,
+          "q": 7440,
+          "distanceMm": 3.230976272391212,
+          "snapped": [
+            0.06155651807785034,
+            1.56071138381958,
+            0.0991244688630104
+          ]
+        },
+        {
+          "wanted": [
+            0.078,
+            1.552,
+            0.055
+          ],
+          "bodyTriangle": 23548,
+          "indices": [
+            13011,
+            13021,
+            13043
+          ],
+          "bary": [
+            0.3225727149456111,
+            0.02971139728602125,
+            0.6477158877683676
+          ],
+          "restSurface": [
+            0.07625296068881077,
+            1.550588663482609,
+            0.05217036908212775
+          ],
+          "projectionDistanceMm": 3.612593009396545,
+          "index": 11,
+          "exportedVertex": 13043,
+          "q": 12046,
+          "distanceMm": 2.0121026266360262,
+          "snapped": [
+            0.07627901434898376,
+            1.5487818717956543,
+            0.05305545777082443
+          ]
+        },
+        {
+          "wanted": [
+            0.078,
+            1.542,
+            0.005
+          ],
+          "bodyTriangle": 24208,
+          "indices": [
+            12987,
+            8348,
+            8298
+          ],
+          "bary": [
+            0.08909602489733243,
+            0.4870112367530849,
+            0.4238927383495827
+          ],
+          "restSurface": [
+            0.06479507060994974,
+            1.544112981304519,
+            0.009358689205305047
+          ],
+          "projectionDistanceMm": 14.065312715254578,
+          "index": 12,
+          "exportedVertex": 8348,
+          "q": 7699,
+          "distanceMm": 5.344696415269727,
+          "snapped": [
+            0.06608651578426361,
+            1.5422219038009644,
+            0.014187951572239399
+          ]
+        },
+        {
+          "wanted": [
+            0.057,
+            1.527,
+            -0.055
+          ],
+          "bodyTriangle": 14580,
+          "indices": [
+            8295,
+            8296,
+            8302
+          ],
+          "bary": [
+            0.9471394249035539,
+            0,
+            0.052860575096446205
+          ],
+          "restSurface": [
+            0.0387493762937462,
+            1.5376284591863179,
+            -0.026338891393579294
+          ],
+          "projectionDistanceMm": 35.60208641205656,
+          "index": 13,
+          "exportedVertex": 8295,
+          "q": 7646,
+          "distanceMm": 1.0577372393834008,
+          "snapped": [
+            0.03915701061487198,
+            1.5368268489837646,
+            -0.025782058015465736
+          ]
+        },
+        {
+          "wanted": [
+            0,
+            1.512,
+            -0.08
+          ],
+          "bodyTriangle": 1435,
+          "indices": [
+            1101,
+            1018,
+            1010
+          ],
+          "bary": [
+            0,
+            0.6282293251113165,
+            0.3717706748886836
+          ],
+          "restSurface": [
+            0,
+            1.5340956440231985,
+            -0.03914274176107008
+          ],
+          "projectionDistanceMm": 46.44925226096235,
+          "index": 14,
+          "exportedVertex": 1018,
+          "q": 948,
+          "distanceMm": 4.415271974748819,
+          "snapped": [
+            0,
+            1.5379793643951416,
+            -0.0412430614233017
+          ]
+        },
+        {
+          "wanted": [
+            -0.057,
+            1.527,
+            -0.055
+          ],
+          "bodyTriangle": 1336,
+          "indices": [
+            1015,
+            1023,
+            1024
+          ],
+          "bary": [
+            0.9471394249035539,
+            0,
+            0.052860575096446205
+          ],
+          "restSurface": [
+            -0.0387493762937462,
+            1.5376284591863179,
+            -0.026338891393579294
+          ],
+          "projectionDistanceMm": 35.60208641205656,
+          "index": 15,
+          "exportedVertex": 1015,
+          "q": 946,
+          "distanceMm": 1.0577372393834008,
+          "snapped": [
+            -0.03915701061487198,
+            1.5368268489837646,
+            -0.025782058015465736
+          ]
+        },
+        {
+          "wanted": [
+            -0.078,
+            1.542,
+            0.005
+          ],
+          "bodyTriangle": 10763,
+          "indices": [
+            5858,
+            1020,
+            1078
+          ],
+          "bary": [
+            0.08909602489733237,
+            0.4238927383495827,
+            0.4870112367530849
+          ],
+          "restSurface": [
+            -0.06479507060994974,
+            1.544112981304519,
+            0.009358689205305047
+          ],
+          "projectionDistanceMm": 14.065312715254578,
+          "index": 16,
+          "exportedVertex": 1078,
+          "q": 1005,
+          "distanceMm": 5.344696415269727,
+          "snapped": [
+            -0.06608651578426361,
+            1.5422219038009644,
+            0.014187951572239399
+          ]
+        },
+        {
+          "wanted": [
+            -0.078,
+            1.552,
+            0.055
+          ],
+          "bodyTriangle": 10103,
+          "indices": [
+            5882,
+            5914,
+            5892
+          ],
+          "bary": [
+            0.3225727149456111,
+            0.6477158877683676,
+            0.02971139728602125
+          ],
+          "restSurface": [
+            -0.07625296068881077,
+            1.550588663482609,
+            0.05217036908212775
+          ],
+          "projectionDistanceMm": 3.612593009396545,
+          "index": 17,
+          "exportedVertex": 5914,
+          "q": 5447,
+          "distanceMm": 2.0121026266360262,
+          "snapped": [
+            -0.07627901434898376,
+            1.5487818717956543,
+            0.05305545777082443
+          ]
+        }
+      ],
+      "segments": []
+    }
+  },
+  "limits": [
+    "One construction; no retry or tolerance changes.",
+    "No asset or appearance qualification. Unexecuted gates stay unexecuted."
+  ]
+}

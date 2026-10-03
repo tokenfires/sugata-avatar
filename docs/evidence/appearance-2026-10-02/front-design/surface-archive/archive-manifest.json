@@ -1,0 +1,96 @@
+{
+  "created": "2026-10-03T05:17:45.663919+00:00",
+  "files": [
+    {
+      "path": "raw/report.json",
+      "source": "captures/hair-surface-domain-2026-10-02-v1/report.json",
+      "sha256": "71ec7693deb6886ba5be32c6a44797c6e98a981dedafb469076b8c860b83a28c",
+      "bytes": 22153
+    },
+    {
+      "path": "raw/root-independent.json",
+      "source": "captures/hair-surface-domain-2026-10-02-v1/root-independent.json",
+      "sha256": "c6da9b81d3e3d426d75d656f2c95d8011233698708350ab8ea7a6ff3de483555",
+      "bytes": 13131
+    },
+    {
+      "path": "sources/docs/evidence/appearance-2026-10-02/front-design/SURFACE-PLAN.md",
+      "source": "docs/evidence/appearance-2026-10-02/front-design/SURFACE-PLAN.md",
+      "sha256": "21fff40a1e98b070f6201e3b83956ecda15813f3622bd79c2947ebab3c33da7c",
+      "bytes": 5372
+    },
+    {
+      "path": "sources/tools/critic/author-hair-surface-domain.mjs",
+      "source": "tools/critic/author-hair-surface-domain.mjs",
+      "sha256": "08c81b3cdec4afcec7d323b90a166861f4d04ae81bffc7ee11e3e0327947b731",
+      "bytes": 15561
+    },
+    {
+      "path": "sources/tools/lut-bake/glb.mjs",
+      "source": "tools/lut-bake/glb.mjs",
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "bytes": 9892
+    },
+    {
+      "path": "sources/tools/figure-pipeline/hair_geometry.mjs",
+      "source": "tools/figure-pipeline/hair_geometry.mjs",
+      "sha256": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+      "bytes": 27179
+    },
+    {
+      "path": "root-verifier.mjs",
+      "source": "tools/critic/verify-hair-surface-refusal.mjs",
+      "sha256": "c834c76e02404d25c69e141527c898b1dca11444ae48633f83b0b4915a3fc690",
+      "bytes": 3641
+    },
+    {
+      "path": "primary-reference.json",
+      "source": "docs/evidence/appearance-2026-10-02/front-design/surface-primary-reference.json",
+      "sha256": "2e02a50a3b7b79383bfc238fa8aa31e2df95732124fc8e07aa66fad7db5adccb",
+      "bytes": 1800
+    },
+    {
+      "path": "SURFACE-DECISION.md",
+      "source": "docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md",
+      "sha256": "0841df018c1cc472957dfde2ec3b9c54309526d83a37d48bc445052cdb109dcb",
+      "bytes": 3851
+    },
+    {
+      "path": "SURFACE-CRITIQUE.md",
+      "source": "docs/evidence/appearance-2026-10-02/front-design/SURFACE-CRITIQUE.md",
+      "sha256": "368050edfd6ced5cda95eccb22938245e45e50e6bf231c1a29aac60c8e7baf28",
+      "bytes": 6821
+    },
+    {
+      "path": "independent/verify-surface-refusal.py",
+      "source": "docs/evidence/appearance-2026-10-02/front-design/verify-surface-refusal.py",
+      "sha256": "f5f9596ad033dfd1c85fce01f995d2a8d8699b6ec533ac3970c5edd8a0982fc6",
+      "bytes": 7657
+    },
+    {
+      "path": "independent/surface-independent.json",
+      "source": "docs/evidence/appearance-2026-10-02/front-design/surface-independent.json",
+      "sha256": "9bde5f7137d1bf71cf934ec60cc80cc442a8e02edb7e9593c43686b62cb7b6f2",
+      "bytes": 9369
+    },
+    {
+      "path": "independent/generic-verify-local-result.py",
+      "source": "docs/evidence/appearance-2026-10-02/root-coverage/verify-local-result.py",
+      "sha256": "ec3da3322cea6439fd428f2b35f58bdc595b954258d1ae7bf756aa97385b626b",
+      "bytes": 17204
+    }
+  ],
+  "externalPins": {
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "docs/evidence/appearance-2026-10-02/front-design/boundary-landmarks.json": "4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8",
+    "captures/bob-lower-fallback-v1/candidate.glb": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7",
+    "package-lock.json": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+  },
+  "limits": [
+    "No new images: admission failed before paths.",
+    "Copies reproduce completed observations only; no revised boundary acceptance."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "checked": "2026-10-03T05:04:23.967Z",
+  "url": "https://doc.cgal.org/latest/Polygon_mesh_processing/group__PMP__keep__connected__components__grp.html",
+  "metadata": {
+    "viewport": "width=device-width, initial-scale=1",
+    "title": "CGAL 6.2.1 - Polygon Mesh Processing: Connected Components",
+    "generator": "Doxygen 1.9.6",
+    "favicon": "https://doc.cgal.org/latest/Manual/g-196x196-doc.png",
+    "scrapeId": "01a10022-8009-74f9-977c-5efdb7945910",
+    "sourceURL": "https://doc.cgal.org/latest/Polygon_mesh_processing/group__PMP__keep__connected__components__grp.html",
+    "url": "https://doc.cgal.org/latest/Polygon_mesh_processing/group__PMP__keep__connected__components__grp.html",
+    "statusCode": 200,
+    "contentType": "text/html",
+    "timezone": "America/New_York",
+    "proxyUsed": "basic",
+    "indexId": "d2a5566c-51d0-40a8-be7c-ff16c93a7cc6",
+    "creditsUsed": 1,
+    "concurrencyLimited": false
+  },
+  "query": "site:doc.cgal.org Polygon Mesh Processing connected components edge_is_constrained_map",
+  "discovery": {
+    "firstGuessedUrl": "https://doc.cgal.org/latest/Polygon_mesh_processing/group__PMP__connected__components__grp.html",
+    "firstStatus": 404,
+    "searchCredits": 2,
+    "correctedScrapeCredits": 1,
+    "firstScrapeCredits": 1
+  },
+  "decision": "Primary current documentation supports computing face components while treating selected edges as constrained. The custom dual cut is a useful topology discriminator; this source does not supply Sugata boundary placement, seam semantics, cap coverage, or visual qualification.",
+  "quote": "Connected components are computed with respect to the constrained edges",
+  "implementation": "No CGAL installation/library adoption. Custom exact topology arrays and one graph cut in pinned constructor."
+}

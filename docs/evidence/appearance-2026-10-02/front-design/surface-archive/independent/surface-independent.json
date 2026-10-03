@@ -1,0 +1,308 @@
+{
+  "status": "independently reproduced refusal",
+  "started": "2026-10-03T05:14:37.002176+00:00",
+  "finished": "2026-10-03T05:14:37.292151+00:00",
+  "pid": 89008,
+  "command": "python3 docs/evidence/appearance-2026-10-02/front-design/verify-surface-refusal.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "numpyVersion": "2.4.6",
+  "reportSha256": "71ec7693deb6886ba5be32c6a44797c6e98a981dedafb469076b8c860b83a28c",
+  "verifierSha256": "f5f9596ad033dfd1c85fce01f995d2a8d8699b6ec533ac3970c5edd8a0982fc6",
+  "helperSha256": "ec3da3322cea6439fd428f2b35f58bdc595b954258d1ae7bf756aa97385b626b",
+  "sources": {
+    "assets/figures/figure_g050.glb": {
+      "live": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+      "snapshot": null,
+      "expected": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    "docs/evidence/appearance-2026-10-02/front-design/boundary-landmarks.json": {
+      "live": "4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8",
+      "snapshot": null,
+      "expected": "4df88cf6fda7f0633127b62cda3ad5ab0e2801acb8b5558437e1959af48b3bd8"
+    },
+    "captures/bob-lower-fallback-v1/candidate.glb": {
+      "live": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7",
+      "snapshot": null,
+      "expected": "8c458428551ca546d2aac511dec3b516067d53050de9663a563b9884a4ae5fe7"
+    },
+    "docs/evidence/appearance-2026-10-02/front-design/SURFACE-PLAN.md": {
+      "live": "21fff40a1e98b070f6201e3b83956ecda15813f3622bd79c2947ebab3c33da7c",
+      "snapshot": "21fff40a1e98b070f6201e3b83956ecda15813f3622bd79c2947ebab3c33da7c",
+      "expected": "21fff40a1e98b070f6201e3b83956ecda15813f3622bd79c2947ebab3c33da7c"
+    },
+    "tools/critic/author-hair-surface-domain.mjs": {
+      "live": "08c81b3cdec4afcec7d323b90a166861f4d04ae81bffc7ee11e3e0327947b731",
+      "snapshot": "08c81b3cdec4afcec7d323b90a166861f4d04ae81bffc7ee11e3e0327947b731",
+      "expected": "08c81b3cdec4afcec7d323b90a166861f4d04ae81bffc7ee11e3e0327947b731"
+    },
+    "tools/lut-bake/glb.mjs": {
+      "live": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "snapshot": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "expected": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    "tools/figure-pipeline/hair_geometry.mjs": {
+      "live": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+      "snapshot": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a",
+      "expected": "eecd5d29d4680b30f2da68edc990ba21ff9682c7b72351068ceb267973aa071a"
+    }
+  },
+  "topology": {
+    "exportedVertices": 14517,
+    "quotientVertices": 13380,
+    "faces": 26756,
+    "edges": 40134,
+    "euler": 2,
+    "aliasGroups": 1122
+  },
+  "controls": [
+    {
+      "index": 0,
+      "projectionDistanceMm": 15.857566623819583,
+      "snapDistanceMm": 1.7250870661544502,
+      "bodyTriangle": 9364,
+      "nearestFaceFromIndependentMethod": 9364,
+      "vertex": 265,
+      "quotientVertex": 265,
+      "causes": []
+    },
+    {
+      "index": 1,
+      "projectionDistanceMm": 16.246612466243327,
+      "snapDistanceMm": 2.0194061063230113,
+      "bodyTriangle": 296,
+      "nearestFaceFromIndependentMethod": 296,
+      "vertex": 242,
+      "quotientVertex": 242,
+      "causes": []
+    },
+    {
+      "index": 2,
+      "projectionDistanceMm": 8.093819874509917,
+      "snapDistanceMm": 6.246331233375994,
+      "bodyTriangle": 1370,
+      "nearestFaceFromIndependentMethod": 1370,
+      "vertex": 248,
+      "quotientVertex": 248,
+      "causes": []
+    },
+    {
+      "index": 3,
+      "projectionDistanceMm": 11.191392651098852,
+      "snapDistanceMm": 8.600430170098257,
+      "bodyTriangle": 1477,
+      "nearestFaceFromIndependentMethod": 1477,
+      "vertex": 1085,
+      "quotientVertex": 1012,
+      "causes": [
+        "snap > 8mm"
+      ]
+    },
+    {
+      "index": 4,
+      "projectionDistanceMm": 15.373340588762531,
+      "snapDistanceMm": 5.684467340092408,
+      "bodyTriangle": 1572,
+      "nearestFaceFromIndependentMethod": 1572,
+      "vertex": 1129,
+      "quotientVertex": 1054,
+      "causes": []
+    },
+    {
+      "index": 5,
+      "projectionDistanceMm": 18.82510650800079,
+      "snapDistanceMm": 4.460145216418828,
+      "bodyTriangle": 1451,
+      "nearestFaceFromIndependentMethod": 1451,
+      "vertex": 1088,
+      "quotientVertex": 1015,
+      "causes": []
+    },
+    {
+      "index": 6,
+      "projectionDistanceMm": 8.387601954102076,
+      "snapDistanceMm": 4.270435250175562,
+      "bodyTriangle": 14224,
+      "nearestFaceFromIndependentMethod": 14224,
+      "vertex": 12848,
+      "quotientVertex": 11853,
+      "causes": []
+    },
+    {
+      "index": 7,
+      "projectionDistanceMm": 0.9771690627345927,
+      "snapDistanceMm": 2.980699471461273,
+      "bodyTriangle": 22568,
+      "nearestFaceFromIndependentMethod": 22568,
+      "vertex": 8066,
+      "quotientVertex": 7437,
+      "causes": []
+    },
+    {
+      "index": 8,
+      "projectionDistanceMm": 6.234357133635357,
+      "snapDistanceMm": 1.2197214990728733,
+      "bodyTriangle": 13541,
+      "nearestFaceFromIndependentMethod": 13541,
+      "vertex": 7613,
+      "quotientVertex": 7005,
+      "causes": []
+    },
+    {
+      "index": 9,
+      "projectionDistanceMm": 11.264803835673447,
+      "snapDistanceMm": 0.3004546525989944,
+      "bodyTriangle": 23395,
+      "nearestFaceFromIndependentMethod": 23396,
+      "vertex": 7638,
+      "quotientVertex": 7030,
+      "causes": []
+    },
+    {
+      "index": 10,
+      "projectionDistanceMm": 14.742243583576627,
+      "snapDistanceMm": 3.2309762723912194,
+      "bodyTriangle": 23081,
+      "nearestFaceFromIndependentMethod": 23081,
+      "vertex": 8069,
+      "quotientVertex": 7440,
+      "causes": []
+    },
+    {
+      "index": 11,
+      "projectionDistanceMm": 3.612593009396459,
+      "snapDistanceMm": 2.0121026266362225,
+      "bodyTriangle": 23548,
+      "nearestFaceFromIndependentMethod": 23548,
+      "vertex": 13043,
+      "quotientVertex": 12046,
+      "causes": []
+    },
+    {
+      "index": 12,
+      "projectionDistanceMm": 14.065312715254567,
+      "snapDistanceMm": 5.344696415269724,
+      "bodyTriangle": 24208,
+      "nearestFaceFromIndependentMethod": 24208,
+      "vertex": 8348,
+      "quotientVertex": 7699,
+      "causes": []
+    },
+    {
+      "index": 13,
+      "projectionDistanceMm": 35.60208641205655,
+      "snapDistanceMm": 1.0577372393834026,
+      "bodyTriangle": 14580,
+      "nearestFaceFromIndependentMethod": 14581,
+      "vertex": 8295,
+      "quotientVertex": 7646,
+      "causes": [
+        "projection > 20mm"
+      ]
+    },
+    {
+      "index": 14,
+      "projectionDistanceMm": 46.449252260962346,
+      "snapDistanceMm": 4.415271974748819,
+      "bodyTriangle": 1435,
+      "nearestFaceFromIndependentMethod": 1435,
+      "vertex": 1018,
+      "quotientVertex": 948,
+      "causes": [
+        "projection > 20mm"
+      ]
+    },
+    {
+      "index": 15,
+      "projectionDistanceMm": 35.60208641205655,
+      "snapDistanceMm": 1.0577372393834026,
+      "bodyTriangle": 1336,
+      "nearestFaceFromIndependentMethod": 1337,
+      "vertex": 1015,
+      "quotientVertex": 946,
+      "causes": [
+        "projection > 20mm"
+      ]
+    },
+    {
+      "index": 16,
+      "projectionDistanceMm": 14.065312715254533,
+      "snapDistanceMm": 5.344696415269647,
+      "bodyTriangle": 10763,
+      "nearestFaceFromIndependentMethod": 10763,
+      "vertex": 1078,
+      "quotientVertex": 1005,
+      "causes": []
+    },
+    {
+      "index": 17,
+      "projectionDistanceMm": 3.6125930093965395,
+      "snapDistanceMm": 2.012102626636023,
+      "bodyTriangle": 10103,
+      "nearestFaceFromIndependentMethod": 10103,
+      "vertex": 5914,
+      "quotientVertex": 5447,
+      "causes": []
+    }
+  ],
+  "failureWitnesses": [
+    {
+      "index": 3,
+      "projectionDistanceMm": 11.191392651098852,
+      "snapDistanceMm": 8.600430170098257,
+      "bodyTriangle": 1477,
+      "nearestFaceFromIndependentMethod": 1477,
+      "vertex": 1085,
+      "quotientVertex": 1012,
+      "causes": [
+        "snap > 8mm"
+      ]
+    },
+    {
+      "index": 13,
+      "projectionDistanceMm": 35.60208641205655,
+      "snapDistanceMm": 1.0577372393834026,
+      "bodyTriangle": 14580,
+      "nearestFaceFromIndependentMethod": 14581,
+      "vertex": 8295,
+      "quotientVertex": 7646,
+      "causes": [
+        "projection > 20mm"
+      ]
+    },
+    {
+      "index": 14,
+      "projectionDistanceMm": 46.449252260962346,
+      "snapDistanceMm": 4.415271974748819,
+      "bodyTriangle": 1435,
+      "nearestFaceFromIndependentMethod": 1435,
+      "vertex": 1018,
+      "quotientVertex": 948,
+      "causes": [
+        "projection > 20mm"
+      ]
+    },
+    {
+      "index": 15,
+      "projectionDistanceMm": 35.60208641205655,
+      "snapDistanceMm": 1.0577372393834026,
+      "bodyTriangle": 1336,
+      "nearestFaceFromIndependentMethod": 1337,
+      "vertex": 1015,
+      "quotientVertex": 946,
+      "causes": [
+        "projection > 20mm"
+      ]
+    }
+  ],
+  "unexecuted": [
+    "Dijkstra paths",
+    "simple cycle",
+    "dual separation",
+    "seed and part predicates",
+    "used-alias pose equivalence",
+    "cap observations",
+    "orientation B",
+    "native capture"
+  ]
+}
