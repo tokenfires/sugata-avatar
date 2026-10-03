@@ -1,0 +1,35 @@
+{
+  "pid": 37743,
+  "started": "2026-10-03T15:37:02.139598+00:00",
+  "finished": "2026-10-03T15:37:02.140949+00:00",
+  "command": "python3 stdin: hash exact completed expression value sources/witnesses/packet, no replay; chmod readonly",
+  "files": {
+    "docs/evidence/nonhair-2026-10-03/expression-value/CRITIC-VALUE.md": {
+      "sha256": "600d956a45ad2379e444ffec41646e7116fcd8970b5af3fba333cfdb6c4aabe8",
+      "bytes": 4081
+    },
+    "docs/evidence/nonhair-2026-10-03/expression-value/PLAN.md": {
+      "sha256": "69d0b6357faeac6401438c08cc8668a5beacec7897ea0a54b88e6a95fe867520",
+      "bytes": 1707
+    },
+    "docs/evidence/nonhair-2026-10-03/expression-value/ROOT-DECISION.md": {
+      "sha256": "5440dfb3da285390be9897bbe2491b656325c006cd0d8c8d46992aa008ee600f",
+      "bytes": 2124
+    }
+  },
+  "inputs": {
+    "packages/testbed/src/portrait.html": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764",
+    "packages/testbed/src/portrait.js": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0",
+    "packages/testbed/src/showcase.html": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb",
+    "packages/testbed/src/showcase.js": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189",
+    "packages/testbed/src/showcase-settings.mjs": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+    "packages/core/src/Avatar.js": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+    "docs/PRODUCT-ROADMAP.md": "e26ab985a725cb6cc03ac5112c774df4657196e358e7e6164a47a29733c6e463",
+    "docs/SMILE-INTEGRATION-2026-09-13.md": "a3daed0cadf19b6c3ac5487ff7b7adb06d64b18acb68d772d2805f168c8d4865",
+    "looks/VIEWING-ATTENTION.md": "16591ec3c2f01d95f8773532540b0059df7f4ce5b30b008c810f1806fe530dbb",
+    "docs/evidence/nonhair-2026-10-03/listener-view/archive/capture/baseline.png": "36d4b2a9c7f862a65cf26f1821136595d9b8dbd40dcdace6f7df54e5a578234a",
+    "docs/evidence/nonhair-2026-10-03/listener-view/archive/capture/hold-late.png": "fc8a27dd0cca034d98568c0a422ccdfdc24a450ae824e0b01ab196c52deb9c53",
+    "docs/evidence/nonhair-2026-10-03/listener-view/archive/capture/return.png": "e74f9c51eafae91d5292f49bf380ea78f180c268af0baf09178bd6c68f88f208"
+  },
+  "status": "value refused; zero new native/product/asset jobs"
+}
