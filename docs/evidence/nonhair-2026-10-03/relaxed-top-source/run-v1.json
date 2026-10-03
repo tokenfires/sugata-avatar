@@ -1,0 +1,260 @@
+{
+  "pid": 93038,
+  "started": "2026-10-03T22:26:28.394185+00:00",
+  "scriptSha256": "ba7083de4a19d44b56a67a2fc6ce3b8cc024beb28969a3ac22f661c575809165",
+  "planSha256": "28cc4064a54880946f6683d7ebc5563db57f0d3b8d99ac86909e006f6b2d6f49",
+  "inputsSha256": "8c8f6ea2c6abe2ca8282db6b9ceed092becca925d078867adc272dc9f57cd1ba",
+  "ok": false,
+  "scope": "Top-only source geometry; no native/fit/appearance qualification",
+  "stage": "triangle orientation",
+  "gateWitness": {
+    "sourceFace": 1040,
+    "sourceVertices": [
+      1460,
+      1453,
+      1354
+    ],
+    "originalXYZ": [
+      [
+        1.8664,
+        4.8258,
+        -0.2073
+      ],
+      [
+        1.8572,
+        4.7448,
+        0.0123
+      ],
+      [
+        1.7959,
+        4.7182,
+        0.0162
+      ]
+    ],
+    "authoredXYZ": [
+      [
+        1.9268167243331868,
+        4.683803840969921,
+        -0.29996558283177377
+      ],
+      [
+        1.932990592027251,
+        4.583209354516283,
+        -0.011029154556359637
+      ],
+      [
+        1.9468454449163415,
+        4.621776019060202,
+        -0.0016294295682456293
+      ]
+    ],
+    "originalAreaVector": [
+      0.005525459999999843,
+      -0.01342559999999998,
+      -0.004720580000000021
+    ],
+    "authoredAreaVector": [
+      -0.012088874811800734,
+      0.003945139049617906,
+      0.0016318272955642757
+    ],
+    "authoredAreaLength": 0.012820603599626616,
+    "orientationDot": -0.00012746562433705553,
+    "minimumAreaLength": 1e-10
+  },
+  "components": [
+    {
+      "vertices": 886,
+      "maxY": 1.9246
+    },
+    {
+      "vertices": 1250,
+      "maxY": 6.9657
+    }
+  ],
+  "structural": {
+    "vertices": 1250,
+    "faces": 1204,
+    "edges": 2456,
+    "boundaryLoops": 4,
+    "euler": -2
+  },
+  "loopCandidates": [
+    {
+      "vertices": [
+        1053,
+        1322,
+        1118,
+        1357,
+        1117,
+        1340,
+        1094,
+        1348,
+        1095,
+        1323,
+        1055,
+        1325,
+        1056,
+        1928,
+        1640,
+        1930,
+        1639,
+        1927,
+        1686,
+        1958,
+        1685,
+        1949,
+        1708,
+        1967,
+        1709,
+        1925,
+        1637,
+        1929,
+        1638,
+        2050,
+        1884,
+        1926,
+        1290,
+        1438,
+        1054,
+        1324
+      ],
+      "centroid": [
+        0.009952777777777781,
+        0.8115222222222223,
+        0.10214444444444444
+      ],
+      "minimum": [
+        -1.8012,
+        0.7605,
+        -1.1963
+      ],
+      "maximum": [
+        1.836,
+        0.8418,
+        1.5142
+      ]
+    },
+    {
+      "vertices": [
+        2076,
+        2081,
+        2077,
+        2082,
+        2078,
+        2083,
+        2080,
+        2084,
+        2079,
+        2094,
+        2088,
+        2095,
+        2089,
+        2093,
+        2087,
+        2092,
+        2086,
+        2091,
+        2085,
+        2090
+      ],
+      "centroid": [
+        0.0,
+        6.768415,
+        0.26957
+      ],
+      "minimum": [
+        -0.7032,
+        6.4927,
+        -0.2463
+      ],
+      "maximum": [
+        0.7032,
+        6.9308,
+        0.8241
+      ]
+    },
+    {
+      "vertices": [
+        2096,
+        2106,
+        2103,
+        2115,
+        2104,
+        2109,
+        2105,
+        2110,
+        2098,
+        2111,
+        2102,
+        2112,
+        2099,
+        2113,
+        2100,
+        2114,
+        2101,
+        2108,
+        2097,
+        2107
+      ],
+      "centroid": [
+        -4.941155,
+        2.591455,
+        2.21368
+      ],
+      "minimum": [
+        -5.1953,
+        2.2799,
+        1.9684
+      ],
+      "maximum": [
+        -4.6381,
+        2.8165,
+        2.4079
+      ]
+    },
+    {
+      "vertices": [
+        2116,
+        2126,
+        2123,
+        2135,
+        2124,
+        2129,
+        2125,
+        2130,
+        2118,
+        2131,
+        2122,
+        2132,
+        2119,
+        2133,
+        2120,
+        2134,
+        2121,
+        2128,
+        2117,
+        2127
+      ],
+      "centroid": [
+        4.941155,
+        2.591455,
+        2.21368
+      ],
+      "minimum": [
+        4.6381,
+        2.2799,
+        1.9684
+      ],
+      "maximum": [
+        5.1953,
+        2.8165,
+        2.4079
+      ]
+    }
+  ],
+  "failure": "Authored triangle collapsed/inverted 1040/(1460, 1453, 1354)",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/relaxed-top-source/author.py\", line 213, in <module>\n    require(length(n)>1e-10 and dot(n,original_n)>0,f'Authored triangle collapsed/inverted {fid}/{tri}')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/relaxed-top-source/author.py\", line 16, in require\n    raise ValueError(message)\nValueError: Authored triangle collapsed/inverted 1040/(1460, 1453, 1354)\n",
+  "emittedFiles": {},
+  "finished": "2026-10-03T22:26:28.509435+00:00"
+}

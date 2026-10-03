@@ -1,0 +1,21 @@
+{
+  "pid": 79337,
+  "started": "2026-10-03T22:19:27.077255+00:00",
+  "finished": "2026-10-03T22:19:27.096618+00:00",
+  "syntaxParsed": true,
+  "protectedInputs": 9,
+  "imports": [
+    "collections",
+    "pathlib",
+    "datetime",
+    "hashlib",
+    "json",
+    "math",
+    "os",
+    "sys",
+    "traceback"
+  ],
+  "scriptSha256": "fde627391041c03f006fdab6206b5e1fc18a7c371b72c4cc5c4479eedc24244f",
+  "planSha256": "28cc4064a54880946f6683d7ebc5563db57f0d3b8d99ac86909e006f6b2d6f49",
+  "limit": "Source and byte preflight only. Author not executed, no OBJ parsing or construction."
+}

@@ -1,0 +1,85 @@
+{
+  "kind": "post-stop preservation and handoff reconciliation only",
+  "pid": 19895,
+  "started": "2026-10-03T22:37:11.445460+00:00",
+  "finished": "2026-10-03T22:37:11.462143+00:00",
+  "protectedInputs": {
+    "docs/evidence/nonhair-2026-10-03/capsule-source/inputs/male_casualsuit02/male_casualsuit02.obj": "e07cbd1a43d21bd700e6598f01f74341a9dd66eac4e035c8be8de2650eac380f",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "assets/hair/bob02/g050.glb": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+  },
+  "files": {
+    "CHECKPOINT.md": {
+      "sha256": "62f4c6e913421c464647723db20cfc53b7abb0dfbb3a257aeaec1449c60d5ce6",
+      "bytes": 861
+    },
+    "CRITIC-POSTFLIGHT.md": {
+      "sha256": "1cd206429fe169e14c5cb2cd86ee38abdbedb74af5348736902dc5ef79c43668",
+      "bytes": 5149
+    },
+    "CRITIC-SOURCE-INITIAL.md": {
+      "sha256": "9d47dbedf9e861a24d994e308a48d72ca270bb31e2fe01f2ecaba0e4891c6178",
+      "bytes": 2738
+    },
+    "CRITIC-SOURCE.md": {
+      "sha256": "27726d5774fed73fbabcf2142a89585b1340d0633ece446fdbc9d5cf8adc699f",
+      "bytes": 4015
+    },
+    "INPUTS.json": {
+      "sha256": "8c8f6ea2c6abe2ca8282db6b9ceed092becca925d078867adc272dc9f57cd1ba",
+      "bytes": 1030
+    },
+    "PLAN.md": {
+      "sha256": "28cc4064a54880946f6683d7ebc5563db57f0d3b8d99ac86909e006f6b2d6f49",
+      "bytes": 5930
+    },
+    "RECEIPT.md": {
+      "sha256": "f0aaa2275210a637e330d88d8a1bc2958182a024da0e26c86b68f42f70697af7",
+      "bytes": 4251
+    },
+    "ROOT-PREFLIGHT.json": {
+      "sha256": "0c4f32cbdb97ae01b85821e71185ef7a3059771f9d1e4b82d534b1fce2747854",
+      "bytes": 768
+    },
+    "ROOT-READBACK.json": {
+      "sha256": "1bd860d6c850c144f1821b19bd90dbe342faf30dc9b0d7b5ef21a387d6896d0c",
+      "bytes": 1012
+    },
+    "ROOT-SOURCE-INITIAL.json": {
+      "sha256": "d25c4f4ade9e8124eac172531d95a19d1a1cd85d50a92124ce47cc20606fc686",
+      "bytes": 581
+    },
+    "author-initial.py.source": {
+      "sha256": "fde627391041c03f006fdab6206b5e1fc18a7c371b72c4cc5c4479eedc24244f",
+      "bytes": 13765
+    },
+    "author.py": {
+      "sha256": "ba7083de4a19d44b56a67a2fc6ce3b8cc024beb28969a3ac22f661c575809165",
+      "bytes": 17152
+    },
+    "critic-readback.json": {
+      "sha256": "00cb630216493e36fe7a9844702730f387f1a16ef5cb8d357f06440231431ddd",
+      "bytes": 2798
+    },
+    "critic-readback.py": {
+      "sha256": "9ea56be75be2ce849d85c419d4b3db94ef51f72accbcbbf7b0dd213cea6527e3",
+      "bytes": 6479
+    },
+    "root-verify.py": {
+      "sha256": "9adf53c1ae3bb684b2214f4a22377a08bb4ae9095fa78a833cb4e3cfe457c3b7",
+      "bytes": 3932
+    },
+    "run-v1.json": {
+      "sha256": "49a14ab1c420a98287026a5838180ef925336d6f06c269a9672cada8822b746c",
+      "bytes": 5018
+    }
+  },
+  "emptyOutputDirectory": "artifacts-v1",
+  "decision": "Refuse fixed edit; no evaluation replay; complete critic source/note/receipt read by root and matched independent Decimal/source witness."
+}
