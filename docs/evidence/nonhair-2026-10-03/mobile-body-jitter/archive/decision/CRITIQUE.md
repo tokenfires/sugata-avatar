@@ -1,0 +1,30 @@
+# Independent mobile body/clothing result
+
+Accept the bounded baseline. For this exact mobile casual Full look, body/clothing support fits the canvas throughout the declared geometric jitter envelope, while the page pill obstructs most of both boots. This resolves the earlier cause question in favor of usable-area/layout work. It does not establish all-outfit/all-pose fit, exact raster ownership or a new camera requirement.
+
+## Actual originals and actionable finding
+
+I viewed both originals at native dimensions: canvas343×625, SHA256 `092e9264e6f555fc223208baa2ebdeee7bf28ffe1e4d4840b14094b5d801c60f`, and page390×844, SHA256 `4308597850ab2c4ed6ce2e7c3006c59c20dd7dcaa2e63fb8d202c34d25696e70`. Both complete boots, trouser hems and floor gap are plainly present in the canvas original. In the page original the Front/Side/Back/Reset pill covers most boots, around global x127–237/y629–678; a small lower boot sliver remains beneath it. The native pair supplies visible evidence beyond a CPU rectangle-overlap claim.
+
+Source witness: `showcase.html:9,14,25` places the pill absolutely over the canvas bottom, with mobile bottom18px; `viewer-framing.mjs` leaves body zoom1. This layout hides useful shoe/outfit detail even though the current camera's body/clothing support is inside the image. The successful Reset view recovery remains accepted.
+
+- **Alternative A — a separate mobile toolbar row (preferred next value):** place the view actions outside the image while explicitly preserving the current canvas size, apparent scale and canonical camera for the tested viewport. This directly addresses the proved obstruction and keeps the useful existing framing. It adds document height and requires fresh mobile/desktop, focus/keyboard and image/control separation checks; this result does not silently authorize that implementation.
+- **Alternative B — reserve usable insets and author a fit rule:** fit body/clothing outside an overlay region while retaining the toolbar placement. It can handle more composition constraints, but changes apparent scale/projection and needs a broader explicit support/gutter/state contract. This baseline supplies no reason to choose a zoom factor or retune the camera first.
+
+The heading rectangle also intersects body support, but includes empty space between text labels. Its182 robust body-triangle intersections are a conservative annotation-contract result, not182 triangles visibly hidden by opaque text. Do not turn that count into a new headline/appearance defect without an actual text-pixel witness. Existing dithered hair and earlier clothing/appearance limitations remain outside this slice.
+
+## Independent arithmetic and bytes
+
+`verify-independent.py` uses scalar weighted morph/bind/bone/world arithmetic and strict separating-axis triangle/rectangle tests, independently of the observer's polygon clipping. It reproduces13,694 currently drawn support vertices and24,895 triangles across five owned meshes: body, foundation bra, fully masked foundation briefs, casual suit and shoes. The empty briefs support is explicit; it is not reported as envelope-contained. There is no interior mesh in this case, so other-outfit interiors remain untested.
+
+Maximum discrepancy is6.661338147750939e−16m in local/world positions,3.1086244689504383e−15 in clip coordinates,2.8421709430404007e−13CSS pixels,1.343924971308752e−13CSS in nominal/actual shift and1.1368683772161603e−13CSS in edge minima. Every nominal/actual/robust lost count and nominal/actual/eroded/expanded UI count and first-eight source-offset witness list agrees. All four nonempty support owners are envelope-contained; no lost triangle occurs.
+
+Actual input226×412 maps to fractional CSS343.21875×624.546875. The conservative jitter bounds are[.7593335176991151,.7579452366504854]CSS pixels. Captured input offset[−.0625,.31481481481481466] at index13 produces expected CSS shift[.09491668971238938,−.47722477863178686]. Source Halton table/index and observed shift agree. The shoes' minimum nominal bottom margin14.721319288577092CSS pixels exceeds the vertical bound. Robust pill overlap is3,001 shoe triangles and138 casual-suit triangles; these counts describe positive-area support, not a visible-pixel count.
+
+The verifier checks380 current source/asset pins, eight dependency pins, six actual served GLBs, exact original/snapshot instrument and both PNG hashes/dimensions. It also checks effective camera/config/URL/storage/paused/clock equality, final recorded pose/bone/world/morph equality, one fresh completed pass, exact begin/end pass data, nominal projection, depth predicates and normal jitter-index progression. It independently recomputes positions from the recorded live accessor inputs; it does not reconstruct every original GLB accessor or prove shader/visibility identity.
+
+Report SHA256 `65b8a492c799fe9930a6695bc335dca5edb9a9f7e1b2886340ea2c82c1496efb`: native PID41366,07:55:31.247Z–07:55:37.046Z,observed status, zero errors, WebGPU/TAAU, normal index13→14, resetEpoch0, explicit avatar disposal with no leaks and page/browser closure. Accepted temporal configuration remains active; no history reset/search or converged-image claim was made. Inactive view fields are retained separately from effective camera equality.
+
+Exact independent command: `python3 docs/evidence/nonhair-2026-10-03/mobile-body-jitter/verify-independent.py > docs/evidence/nonhair-2026-10-03/mobile-body-jitter/independent.json`; PID44476,07:56:43.154380Z–07:56:44.433195Z,Python3.14.7 at `/opt/homebrew/opt/python@3.14/bin/python3.14`,exit0. Verifier SHA256 `ff5d707f056f4a80229cdd69896c89975b9ec57dabbd16d6bf179d4840835d59`. Receipt hash is supplied separately in the handoff.
+
+Close this successful diagnostic; assess the preferred toolbar product slice separately. No new body fit, wardrobe asset/shader, dynamic hair envelope, physical contact, all-motion coverage, screen-reader or production/AAA acceptance follows. No critic-owned browser/GPU job, product/asset mutation or additional capture.

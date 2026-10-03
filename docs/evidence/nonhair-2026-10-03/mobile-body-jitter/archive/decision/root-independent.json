@@ -1,0 +1,224 @@
+{
+  "started": "2026-10-03T07:55:52.965Z",
+  "finished": "2026-10-03T07:55:53.313Z",
+  "pid": 42255,
+  "command": "node tools/critic/verify-mobile-body-jitter.mjs",
+  "verifierSHA256": "b3e8253def970c06d1eab033c586ef11a6a25714a0dc900521cb8c357df8e5dd",
+  "reportSHA256": "65b8a492c799fe9930a6695bc335dca5edb9a9f7e1b2886340ea2c82c1496efb",
+  "sourcePins": 380,
+  "dependencyPins": 8,
+  "assets": 6,
+  "images": 2,
+  "method": "Three skin/world/homogeneous matrices plus independent SAT positive-area triangle/rectangle tests",
+  "maxSkin": 0,
+  "maxWorld": 0,
+  "maxClip": 0,
+  "maxCSS": 0,
+  "maxDelta": 1.343924971308752e-13,
+  "jitterBoundCSS": [
+    0.7593335176991151,
+    0.7579452366504854
+  ],
+  "meshes": [
+    {
+      "owner": "body",
+      "triangles": 17012,
+      "vertices": 9247,
+      "edges": {
+        "nominal": {
+          "left": 73.09975661297341,
+          "right": 99.0729280071134,
+          "top": 32.615712599981165,
+          "bottom": 259.3106837385765
+        },
+        "actual": {
+          "left": 73.19467330268583,
+          "right": 98.97801131740098,
+          "top": 32.13848782134935,
+          "bottom": 259.78790851720834
+        }
+      },
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 192,
+          "actual": 200,
+          "robust": 182,
+          "possible": 202
+        },
+        ".view-controls .pill": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        }
+      },
+      "containedForEnvelope": true
+    },
+    {
+      "owner": "garment:foundation_bra",
+      "triangles": 327,
+      "vertices": 224,
+      "edges": {
+        "nominal": {
+          "left": 131.1449312894427,
+          "right": 158.26320166819002,
+          "top": 122.56695196093345,
+          "bottom": 495.0148301475103
+        },
+        "actual": {
+          "left": 131.2398479791551,
+          "right": 158.1682849784776,
+          "top": 122.08972718230164,
+          "bottom": 495.49205492614203
+        }
+      },
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        }
+      },
+      "containedForEnvelope": true
+    },
+    {
+      "owner": "garment:foundation_briefs",
+      "triangles": 0,
+      "vertices": 0,
+      "edges": {
+        "nominal": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "actual": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        }
+      },
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        }
+      },
+      "containedForEnvelope": false
+    },
+    {
+      "owner": "garment:female_casualsuit01",
+      "triangles": 4236,
+      "vertices": 2377,
+      "edges": {
+        "nominal": {
+          "left": 82.37722421914124,
+          "right": 104.86752837714099,
+          "top": 118.80818607483296,
+          "bottom": 52.82864585343032
+        },
+        "actual": {
+          "left": 82.47214090885363,
+          "right": 104.77261168742857,
+          "top": 118.33096129620111,
+          "bottom": 53.305870632062124
+        }
+      },
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 144,
+          "actual": 140,
+          "robust": 138,
+          "possible": 144
+        }
+      },
+      "containedForEnvelope": true
+    },
+    {
+      "owner": "garment:shoes01",
+      "triangles": 3320,
+      "vertices": 1846,
+      "edges": {
+        "nominal": {
+          "left": 107.69304311355617,
+          "right": 130.05321839458486,
+          "top": 521.8150081875245,
+          "bottom": 14.721319288577092
+        },
+        "actual": {
+          "left": 107.78795980326856,
+          "right": 129.95830170487244,
+          "top": 521.3377834088927,
+          "bottom": 15.1985440672089
+        }
+      },
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 3053,
+          "actual": 3063,
+          "robust": 3001,
+          "possible": 3092
+        }
+      },
+      "containedForEnvelope": true
+    }
+  ],
+  "status": "passed",
+  "limits": [
+    "Geometric jitter bounds are not temporal filter footprints or exact shader/raster ownership.",
+    "One static accepted mobile case, no candidate or all-outfit/pose qualification."
+  ]
+}

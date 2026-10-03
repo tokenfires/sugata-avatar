@@ -1,0 +1,11 @@
+# Qualified single-case diagnostic checkpoint
+
+Root reads complete critic scalar LBS/projection/SAT verifier, receipt and critique, independently views both originals, and rehashes/reconciles every mesh count/edge/decision with its own Three/SAT replay. New handoff audit inline NodePID53988,08:00:47.825Z,exit0; ROOT-HANDOFF-CHECK.json records exact hashes, not a delegated-only verdict.
+
+Freeze exactcommand `node tools/critic/freeze-mobile-body-jitter.mjs`,PID53987,08:00:47.854–08:00:48.456Z,exit0/chunk4d59a9. Frozen27files/6,708,357bytes/389externalpins, manifestSHA256 `66cd23ef78d33c3b88fb3c04eeef27401f4a6ee7331d95fe0a75b2eb3869f574`. Full68,347,684byte input report is losslesslygzip-compressed; decodedSHA256 `65b8a492c799fe9930a6695bc335dca5edb9a9f7e1b2886340ea2c82c1496efb` is checked. Eight pinned dependency sources and original instrument/PNGs/verifiers/decisions retained. Raw/archive/owned decisions read-only; externalnode_modules/product/assets untouched.
+
+Final inlineNodehash/HTTPauditPID55175,08:01:19.698Z,exit0/chunk80c6c6: all27encoded+decodedarchivefiles/389externalpinsmatch; review+12referencesHTTP200, bothPNGbytesexact. Fetch/Vite automatically decodes gzip report response to its original68,347,684bytes; archive encoded bytes are separately verified. No second browser/layout/Avatar capture.
+
+Decision: one static acceptedmobilecase has no body/clothing frustumloss; actualpillcoveringboots is demonstrated. Headingboundingrectangle intersections are conservative, without text/head obscuration proof. No alloutfit/pose/viewport, hair/AAappearance, GPUshaderrasteridentity or candidatequalification. No camera/layout/assets/rendererchange; acceptedResetview remainsqualified. WiderAAA/expression/wardrobe/representation roadmappreserved.
+
+Avatarcleanlydisposed/leaked[], browser/pageclosed, noownednativejob. Review1023/5173retained; currentchatACTIVEten-minuterecovery readback07:39; no newerhumansteering. Next: separatefive-minute criticvalue for mobiletoolbaroutsideimage preservingcanvas/camera/apparentscale; optional bounded question whether that layout contract separates controls for both current framings. No automaticfitcandidate, no repeatedtemporalphase/framingsearch, no push/publication/purchase/model/subscription/reset-creditaction.

@@ -1,0 +1,264 @@
+{
+  "status": "verified-recorded-support",
+  "reportSHA256": "65b8a492c799fe9930a6695bc335dca5edb9a9f7e1b2886340ea2c82c1496efb",
+  "instrumentSHA256": "a7cffdcff88f0caf1f4a0fbdcc89617f28b5146acdd7fec57aec02e7af82f3f1",
+  "verifierSHA256": "ff5d707f056f4a80229cdd69896c89975b9ec57dabbd16d6bf179d4840835d59",
+  "pins": {
+    "sources": 380,
+    "dependencies": 8,
+    "servedGLBs": 6
+  },
+  "images": [
+    {
+      "file": "canvas.png",
+      "sha256": "092e9264e6f555fc223208baa2ebdeee7bf28ffe1e4d4840b14094b5d801c60f",
+      "dimensions": [
+        343,
+        625
+      ]
+    },
+    {
+      "file": "page.png",
+      "sha256": "4308597850ab2c4ed6ce2e7c3006c59c20dd7dcaa2e63fb8d202c34d25696e70",
+      "dimensions": [
+        390,
+        844
+      ]
+    }
+  ],
+  "vertices": 13694,
+  "triangles": 24895,
+  "maximumDiscrepancy": {
+    "local": 6.661338147750939e-16,
+    "world": 6.661338147750939e-16,
+    "clip": 3.1086244689504383e-15,
+    "ndc": 7.771561172376096e-16,
+    "css": 2.8421709430404007e-13,
+    "shift": 1.343924971308752e-13,
+    "edge": 1.1368683772161603e-13
+  },
+  "jitter": {
+    "input": [
+      226,
+      412
+    ],
+    "boundCSS": [
+      0.7593335176991151,
+      0.7579452366504854
+    ],
+    "offsetInput": [
+      -0.0625,
+      0.31481481481481466
+    ],
+    "expectedShiftCSS": [
+      0.09491668971238938,
+      -0.47722477863178686
+    ]
+  },
+  "results": [
+    {
+      "owner": "body",
+      "vertices": 9247,
+      "triangles": 17012,
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 192,
+          "actual": 200,
+          "robust": 182,
+          "possible": 202
+        },
+        ".view-controls .pill": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        }
+      },
+      "minEdgesCSS": {
+        "nominal": {
+          "left": 73.0997566129734,
+          "right": 99.07292800711352,
+          "top": 32.61571259998124,
+          "bottom": 259.3106837385765
+        },
+        "actual": {
+          "left": 73.1946733026858,
+          "right": 98.9780113174011,
+          "top": 32.13848782134942,
+          "bottom": 259.78790851720834
+        }
+      },
+      "containedForEnvelope": true
+    },
+    {
+      "owner": "garment:foundation_bra",
+      "vertices": 224,
+      "triangles": 327,
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        }
+      },
+      "minEdgesCSS": {
+        "nominal": {
+          "left": 131.1449312894427,
+          "right": 158.26320166819002,
+          "top": 122.56695196093345,
+          "bottom": 495.01483014751034
+        },
+        "actual": {
+          "left": 131.2398479791551,
+          "right": 158.1682849784776,
+          "top": 122.08972718230164,
+          "bottom": 495.49205492614215
+        }
+      },
+      "containedForEnvelope": true
+    },
+    {
+      "owner": "garment:foundation_briefs",
+      "vertices": 0,
+      "triangles": 0,
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        }
+      },
+      "minEdgesCSS": {
+        "nominal": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "actual": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        }
+      },
+      "containedForEnvelope": false
+    },
+    {
+      "owner": "garment:female_casualsuit01",
+      "vertices": 2377,
+      "triangles": 4236,
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 144,
+          "actual": 140,
+          "robust": 138,
+          "possible": 144
+        }
+      },
+      "minEdgesCSS": {
+        "nominal": {
+          "left": 82.37722421914121,
+          "right": 104.86752837714101,
+          "top": 118.80818607483296,
+          "bottom": 52.82864585343032
+        },
+        "actual": {
+          "left": 82.4721409088536,
+          "right": 104.7726116874286,
+          "top": 118.33096129620111,
+          "bottom": 53.305870632062124
+        }
+      },
+      "containedForEnvelope": true
+    },
+    {
+      "owner": "garment:shoes01",
+      "vertices": 1846,
+      "triangles": 3320,
+      "lost": {
+        "nominal": 0,
+        "actual": 0,
+        "robust": 0
+      },
+      "overlap": {
+        ".view-heading": {
+          "nominal": 0,
+          "actual": 0,
+          "robust": 0,
+          "possible": 0
+        },
+        ".view-controls .pill": {
+          "nominal": 3053,
+          "actual": 3063,
+          "robust": 3001,
+          "possible": 3092
+        }
+      },
+      "minEdgesCSS": {
+        "nominal": {
+          "left": 107.69304311355617,
+          "right": 130.05321839458486,
+          "top": 521.8150081875245,
+          "bottom": 14.721319288577092
+        },
+        "actual": {
+          "left": 107.78795980326856,
+          "right": 129.95830170487244,
+          "top": 521.3377834088927,
+          "bottom": 15.1985440672089
+        }
+      },
+      "containedForEnvelope": true
+    }
+  ],
+  "scope": "Recorded accessor inputs independently reproduce LBS/world/projection; strict separating-axis intersection agrees with polygon clipping. No shader/raster/physical visibility or all-pose acceptance.",
+  "execution": {
+    "command": "python3 docs/evidence/nonhair-2026-10-03/mobile-body-jitter/verify-independent.py > docs/evidence/nonhair-2026-10-03/mobile-body-jitter/independent.json",
+    "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "version": "3.14.7",
+    "pid": 44476,
+    "started": "2026-10-03T07:56:43.154380+00:00",
+    "finished": "2026-10-03T07:56:44.433195+00:00"
+  }
+}
