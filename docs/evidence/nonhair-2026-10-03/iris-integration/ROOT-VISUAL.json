@@ -1,0 +1,55 @@
+{
+  "recorded": "2026-10-03T20:17:32.559638+00:00",
+  "pid": 40518,
+  "view": "Root actually displayed all eight exact original files through view_image(detail original), front/oblique pairs then controls/held/released; no generated/resized/edited comparison image or native re-run.",
+  "images": {
+    "original-front.png": "d038a3c7d0dc8878d083989a1b75e0605742bdc073774c1f10d1f5bba6179baa",
+    "original-oblique.png": "4823a08c84d4f6e9e27faa48c6a4360ba7b3313ca94b26508c3dd859146278a5",
+    "blue-front.png": "8e6dea26840cadb438a69cdfae24cacd250605292473207372de3cb53be331d5",
+    "blue-oblique.png": "0256c05b69b2e10526aa439f53bb8b802dd2f34887698a66ddc1f732624bfcdc",
+    "desktop-blue-controls.png": "1cd9b4da4d8f0eabff42ab241fa38c0edd8314a87d46006e090f8cea66506667",
+    "mobile-blue-controls.png": "16810161779566ef87091e767e36557d385898c41a770870d548b9f5c4d2b75c",
+    "blue-attention-held.png": "1aaff9cccd756a294cb4dc7dc4ae78f87480f58b31f8e87925475e068b52b55d",
+    "blue-attention-released.png": "9c98e9bad53cf561c13b4c429bba6c49534cf4784ef76661e359a1504246e1cb"
+  },
+  "status": "REFUSE integration adoption after failed native resource guard, despite limited observed feature/visual evidence",
+  "findings": [
+    {
+      "witness": [
+        "original-oblique.png",
+        "blue-oblique.png"
+      ],
+      "observation": "Near iris around x280-310,y437-456 is cool slate/blue-grey versus warm brown. Front change is modest; dark pupil and bright corneal catchlight remain readable. No broad sclera colour spread apparent at this scale. This is optional customisation, not a brown-eye defect or physical/perceptual calibration.",
+      "alternatives": "A future separate qualified creation option would make this modest choice useful but requires network/lifetime qualification; B retain the fixed labelled static study, fewer schema/owner obligations but no user Apply/save. Current contract selects B after failure."
+    },
+    {
+      "witness": [
+        "desktop-blue-controls.png",
+        "mobile-blue-controls.png"
+      ],
+      "observation": "Labelled Blue select, Apply, explicit fresh-view help, Applied: Blue and named saved-look Blue eyes description are legible. Desktop full-page sticky canvas sits well below the editor amid a long blank region, so that artifact does not prove simultaneous viewport presentation. Mobile controls remain readable; iris colour is too small/contextually grainy to distinguish clearly here.",
+      "alternatives": "A later viewport-specific presentation proof would improve review but needs a new explicit capture contract; B retain only narrow observed control-text evidence and decline presentation/appearance qualification. Choose B now; no new capture."
+    },
+    {
+      "witness": [
+        "blue-attention-held.png",
+        "blue-attention-released.png",
+        "report.json states attention-before/held/manual-release-start/released"
+      ],
+      "observation": "Both sampled faces show a dark pupil/cornea highlight and cool annulus, with changed head/eye direction. Pigment/configuration stays exact while gaze/frame values change and observed pupil scale moves .985\u2192.9866929239813779\u2192.9881622871164382. One1.2s hold and.5s release do not qualify continuous naturalness or dilation extremes.",
+      "alternatives": "A later broader motion qualification could test continuity with greater effort; B retain finite state/frame observations with precise limits and stop. Choose B now."
+    },
+    {
+      "witness": [
+        "report.json failedResources",
+        "instrument.mjs:154"
+      ],
+      "observation": "31 module requests record net::ERR_ABORTED; no request timestamps, active-document or initiator attribution is saved. Successful ready/config/lifecycle observations cannot prove those cancellations benign. The global empty-resource guard fails and closes adoption.",
+      "alternatives": "A separately declared future network/document-lifetime provenance contract could distinguish requested cancellation from genuine missing input at cost of new observer responsibility; B preserve failure and defer integration with accepted source restored. Choose B now, without observer repair/filter/rerun."
+    }
+  ],
+  "limits": [
+    "Not production accepted; exact previous assets/default/configuration restored after independent postflight.",
+    "No all-motion/identity/light/physical/perceptual/AAA claim; wider roadmap remains open."
+  ]
+}

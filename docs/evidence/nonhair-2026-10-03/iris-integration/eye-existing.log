@@ -1,0 +1,163 @@
+
+EyeMaterial — geometry, gaze frame, pupil remap, catchlight, aperture
+
+the five bakes
+  figure  eye     sclera R   cornea R    R ratio   cap RMS   band RMS   iris plane   iris R
+  g000   left     14.722      7.621     1.932     0.019      0.180       12.683    6.299
+  g000   right    14.722      7.612     1.934     0.019      0.180       12.683    6.217
+  g025   left     14.807      7.498     1.975     0.023      0.199       12.783    6.325
+  g025   right    14.807      7.491     1.977     0.023      0.199       12.783    6.243
+  g050   left     14.894      7.376     2.019     0.027      0.218       12.887    6.352
+  g050   right    14.894      7.370     2.021     0.027      0.218       12.887    6.269
+  g075   left     14.987      7.268     2.062     0.032      0.239       13.001    6.381
+  g075   right    14.987      7.263     2.063     0.032      0.239       13.001    6.297
+  g100   left     15.084      7.166     2.105     0.038      0.261       13.122    6.411
+  g100   right    15.084      7.162     2.106     0.037      0.261       13.122    6.327
+
+  PASS  g000 sclera radius (mm)                           14.7219   target 14.4000 .. 15.3000   
+  PASS  g000 cornea anterior radius (mm)                   7.6213   target 6.8000 .. 7.8000   
+  PASS  g000 sclera / cornea radius ratio                  1.9317   target 1.8500 .. 2.2000   a single-radius shell reads 1.00
+  PASS  g000 band RMS / cap RMS                            9.5495   target 4 .. 30   the cap is a real surface, not a noisy corner of the band
+  PASS  g000 iris plane depth (mm)                        12.6834   target 12.3000 .. 13.4000   
+  PASS  g000 iris plane RMS (mm)                           0.3550   target 0 .. 0.5500   the dish is a bowl; this is how much of one
+  PASS  g000 iris radius (mm)                              6.2991   target 5.8000 .. 6.8000   
+  PASS  g000 anterior chamber, apex to iris plane (mm)     3.1406   target 2.8000 .. 3.8000   
+  PASS  g000 left/right sclera radius (mm apart)           6.2e-5   target 0 .. 0.0100   
+  PASS  g000 left/right cornea radius (mm apart)           0.0093   target 0 .. 0.0500   
+  PASS  g000 UV fit residual (texels at 1024)              8.8449   target 0 .. 14   the affine map really is the shipped layout
+  PASS  g025 sclera radius (mm)                           14.8074   target 14.4000 .. 15.3000   
+  PASS  g025 cornea anterior radius (mm)                   7.4983   target 6.8000 .. 7.8000   
+  PASS  g025 sclera / cornea radius ratio                  1.9748   target 1.8500 .. 2.2000   a single-radius shell reads 1.00
+  PASS  g025 band RMS / cap RMS                            8.7794   target 4 .. 30   the cap is a real surface, not a noisy corner of the band
+  PASS  g025 iris plane depth (mm)                        12.7831   target 12.3000 .. 13.4000   
+  PASS  g025 iris plane RMS (mm)                           0.3661   target 0 .. 0.5500   the dish is a bowl; this is how much of one
+  PASS  g025 iris radius (mm)                              6.3253   target 5.8000 .. 6.8000   
+  PASS  g025 anterior chamber, apex to iris plane (mm)     3.2356   target 2.8000 .. 3.8000   
+  PASS  g025 left/right sclera radius (mm apart)           6.9e-5   target 0 .. 0.0100   
+  PASS  g025 left/right cornea radius (mm apart)           0.0078   target 0 .. 0.0500   
+  PASS  g025 UV fit residual (texels at 1024)              8.9320   target 0 .. 14   the affine map really is the shipped layout
+  PASS  g050 sclera radius (mm)                           14.8939   target 14.4000 .. 15.3000   
+  PASS  g050 cornea anterior radius (mm)                   7.3763   target 6.8000 .. 7.8000   
+  PASS  g050 sclera / cornea radius ratio                  2.0192   target 1.8500 .. 2.2000   a single-radius shell reads 1.00
+  PASS  g050 band RMS / cap RMS                            8.0450   target 4 .. 30   the cap is a real surface, not a noisy corner of the band
+  PASS  g050 iris plane depth (mm)                        12.8870   target 12.3000 .. 13.4000   
+  PASS  g050 iris plane RMS (mm)                           0.3767   target 0 .. 0.5500   the dish is a bowl; this is how much of one
+  PASS  g050 iris radius (mm)                              6.3519   target 5.8000 .. 6.8000   
+  PASS  g050 anterior chamber, apex to iris plane (mm)     3.3281   target 2.8000 .. 3.8000   
+  PASS  g050 left/right sclera radius (mm apart)           7.5e-5   target 0 .. 0.0100   
+  PASS  g050 left/right cornea radius (mm apart)           0.0064   target 0 .. 0.0500   
+  PASS  g050 UV fit residual (texels at 1024)              9.0452   target 0 .. 14   the affine map really is the shipped layout
+  PASS  g075 sclera radius (mm)                           14.9870   target 14.4000 .. 15.3000   
+  PASS  g075 cornea anterior radius (mm)                   7.2681   target 6.8000 .. 7.8000   
+  PASS  g075 sclera / cornea radius ratio                  2.0620   target 1.8500 .. 2.2000   a single-radius shell reads 1.00
+  PASS  g075 band RMS / cap RMS                            7.4391   target 4 .. 30   the cap is a real surface, not a noisy corner of the band
+  PASS  g075 iris plane depth (mm)                        13.0007   target 12.3000 .. 13.4000   
+  PASS  g075 iris plane RMS (mm)                           0.3873   target 0 .. 0.5500   the dish is a bowl; this is how much of one
+  PASS  g075 iris radius (mm)                              6.3809   target 5.8000 .. 6.8000   
+  PASS  g075 anterior chamber, apex to iris plane (mm)     3.4188   target 2.8000 .. 3.8000   
+  PASS  g075 left/right sclera radius (mm apart)           8.4e-5   target 0 .. 0.0100   
+  PASS  g075 left/right cornea radius (mm apart)           0.0051   target 0 .. 0.0500   
+  PASS  g075 UV fit residual (texels at 1024)              9.1839   target 0 .. 14   the affine map really is the shipped layout
+  PASS  g100 sclera radius (mm)                           15.0838   target 14.4000 .. 15.3000   
+  PASS  g100 cornea anterior radius (mm)                   7.1656   target 6.8000 .. 7.8000   
+  PASS  g100 sclera / cornea radius ratio                  2.1050   target 1.8500 .. 2.2000   a single-radius shell reads 1.00
+  PASS  g100 band RMS / cap RMS                            6.9474   target 4 .. 30   the cap is a real surface, not a noisy corner of the band
+  PASS  g100 iris plane depth (mm)                        13.1215   target 12.3000 .. 13.4000   
+  PASS  g100 iris plane RMS (mm)                           0.3981   target 0 .. 0.5500   the dish is a bowl; this is how much of one
+  PASS  g100 iris radius (mm)                              6.4110   target 5.8000 .. 6.8000   
+  PASS  g100 anterior chamber, apex to iris plane (mm)     3.5101   target 2.8000 .. 3.8000   
+  PASS  g100 left/right sclera radius (mm apart)           9.0e-5   target 0 .. 0.0100   
+  PASS  g100 left/right cornea radius (mm apart)           0.0035   target 0 .. 0.0500   
+  PASS  g100 UV fit residual (texels at 1024)              9.3489   target 0 .. 14   the affine map really is the shipped layout
+  PASS  cornea steepens monotonically with gender               1   target 1 .. 1   7.621 > 7.498 > 7.376 > 7.268 > 7.166
+
+the other way — synthetic shells with a known answer
+  PASS  perfect sphere: sclera / cornea ratio              1.0000   target 0.9500 .. 1.0500   the real-asset band is 1.85-2.20, so a sphere FAILS it — that is the point
+  PASS  perfect sphere fails the real-asset band                1   target 1 .. 1   
+  PASS  synthetic domed shell: recovered cap radius (mm)     7.2500   target 6.9000 .. 7.7000   authored at 7.25
+  PASS  synthetic domed shell: sclera / cornea ratio       2.1103   target 1.8500 .. 2.3000   
+
+the gaze frame
+  PASS  gaze morphs recovered for the left eye                  4   target 4 .. 4   eyeLookDownLeft eyeLookInLeft eyeLookOutLeft eyeLookUpLeft
+  PASS  eyeLookDownLeft vs the spike's 11.32°             11.3553   target 10.8200 .. 11.8200   independent arithmetic, same answer
+  PASS  eyeLookInLeft vs the spike's 15.08°               14.6823   target 14.5800 .. 15.5800   independent arithmetic, same answer
+  PASS  eyeLookOutLeft vs the spike's 14.57°              14.6048   target 14.0700 .. 15.0700   independent arithmetic, same answer
+  PASS  eyeLookUpLeft vs the spike's 9.85°                 9.8443   target 9.3500 .. 10.3500   independent arithmetic, same answer
+  PASS  right eye recovers the mirrored four                    4   target 4 .. 4   eyeLookDownRight eyeLookInRight eyeLookOutRight eyeLookUpRight
+  PASS  left worldToEye is the inverse of eyeToWorld      1.1e-16   target 0 .. 1.0e-6   
+  PASS  right worldToEye is the inverse of eyeToWorld     1.4e-17   target 0 .. 1.0e-6   
+  PASS  eyeLookInLeft at 1.0 turns the eye frame (°)      14.6796   target 14.5800 .. 15.5800   
+  PASS  and returns to rest when the weight does                0   target 0 .. 0.0100   
+  PASS  a *Left morph leaves the right eye alone (°)       0.0011   target 0 .. 0.0500   
+
+the pupil remap
+  PASS  authored pupil radius, as a fraction of the iris     0.2203   target 0.1800 .. 0.2600   measured off brown_eye.png: pupil 0.025 uv, iris 0.1135 uv
+  PASS  pupilScale 0.5: the two pieces meet                2.9e-6   target 0 .. 0.0001   
+  PASS  pupilScale 0.5: r=0 maps to 0                           0   target 0 .. 1.0e-9   
+  PASS  pupilScale 0.5: r=1 maps to 1                           1   target 1.0000 .. 1.0000   
+  PASS  pupilScale 0.5: monotone                                1   target 1 .. 1   
+  PASS  pupilScale 1: the two pieces meet                  2.0e-6   target 0 .. 0.0001   
+  PASS  pupilScale 1: r=0 maps to 0                             0   target 0 .. 1.0e-9   
+  PASS  pupilScale 1: r=1 maps to 1                             1   target 1.0000 .. 1.0000   
+  PASS  pupilScale 1: monotone                                  1   target 1 .. 1   
+  PASS  pupilScale 1.6: the two pieces meet                1.8e-6   target 0 .. 0.0001   
+  PASS  pupilScale 1.6: r=0 maps to 0                           0   target 0 .. 1.0e-9   
+  PASS  pupilScale 1.6: r=1 maps to 1                           1   target 1.0000 .. 1.0000   
+  PASS  pupilScale 1.6: monotone                                1   target 1 .. 1   
+  PASS  opening the pupil pulls the annulus sample inward    -0.0796   target -0.3000 .. -0.0300   a plain circle scale would read exactly 0
+  PASS  closing the pupil pushes it outward                0.0483   target 0.0300 .. 0.3000   
+
+the catchlight
+  PASS  g000 left catchlight width (% of iris diameter)     2.0000   target 2 .. 4   
+  PASS  g000 left catchlight height (% of iris diameter)          3   target 2 .. 4   half-angle 0.0496 rad on a 7.621 mm cornea
+  PASS  g000 right catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g000 right catchlight height (% of iris diameter)          3   target 2 .. 4   half-angle 0.0490 rad on a 7.612 mm cornea
+  PASS  g025 left catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g025 left catchlight height (% of iris diameter)          3   target 2 .. 4   half-angle 0.0506 rad on a 7.498 mm cornea
+  PASS  g025 right catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g025 right catchlight height (% of iris diameter)     3.0000   target 2 .. 4   half-angle 0.0500 rad on a 7.491 mm cornea
+  PASS  g050 left catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g050 left catchlight height (% of iris diameter)     3.0000   target 2 .. 4   half-angle 0.0517 rad on a 7.376 mm cornea
+  PASS  g050 right catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g050 right catchlight height (% of iris diameter)          3   target 2 .. 4   half-angle 0.0510 rad on a 7.370 mm cornea
+  PASS  g075 left catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g075 left catchlight height (% of iris diameter)     3.0000   target 2 .. 4   half-angle 0.0527 rad on a 7.268 mm cornea
+  PASS  g075 right catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g075 right catchlight height (% of iris diameter)          3   target 2 .. 4   half-angle 0.0520 rad on a 7.263 mm cornea
+  PASS  g100 left catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g100 left catchlight height (% of iris diameter)          3   target 2 .. 4   half-angle 0.0537 rad on a 7.166 mm cornea
+  PASS  g100 right catchlight width (% of iris diameter)          2   target 2 .. 4   
+  PASS  g100 right catchlight height (% of iris diameter)          3   target 2 .. 4   half-angle 0.0530 rad on a 7.162 mm cornea
+  PASS  the size model is monotone in the fraction         0.0347   target 0.0010 .. 1   
+  PASS  the superseded 0.115 rad panel is REJECTED by the same band     6.6774   target 4 .. 40   6.7% — outside 2-4%, which is why it was replaced
+  PASS  the superseded 0.160 rad panel is REJECTED too     9.2903   target 4 .. 40   9.3%
+  PASS  exactly ONE emitter in the cubemap                      1   target 1 .. 1   the wash is a constant, so anything above 1 here is a second catchlight
+  PASS  the wash is far dimmer than the dominant emitter         50   target 20 .. 10000   
+  PASS  the key panel is the brightest direction           0.9735   target 0.5000 .. 3   
+  PASS  the texture is BLACK away from the panel                0   target 0 .. 1.0e-9   the wash is a shader constant, not a texel — see CATCHLIGHT_PRESETS.softbox.wash
+  PASS  panel against wash                                59.1327   target 20 .. 1000000   a catchlight that is not many times the field is not a catchlight
+  PASS  the panel is wider one way than the other          0.9735   target 0.2000 .. 2   short-axis 0.000, long-axis 0.973 — a round emitter gives 0
+  PASS  outside the panel entirely, the texture is black          0   target 0 .. 1.0e-9   
+
+the sclera tint
+  PASS  the sclera tint is luma-neutral on a neutral input          0   target 0 .. 1.0e-12   0.5 -> 0.5
+  PASS  the shipped map sclera is near-neutral             0.0938   target 0 .. 0.1400   saturation 0.0938 — scaling this can never make it pink
+  PASS  the albedo sits above the spec hex, so the render lands on it     1.1926   target 1.0500 .. 1.3500   0.3266 against spec 0.2739
+  PASS  the shipped blend is at least the spec chromaticity     1.1926   target 1 .. 1.3500   chroma 1: 0.0938 -> 0.3266, spec 0.2739
+  PASS  the blend is monotone                              0.0979   target 0.0010 .. 1   half 0.2288, full 0.3266
+  PASS  chroma 0 is REJECTED by the same band              0.3423   target 0 .. 0.9900   0.0938 — 0.34x the spec, which is the defect this fixes
+  PASS  a neutral target gives a unit gain                      0   target 0 .. 1.0e-12   1.000000 1.000000 1.000000
+  PASS  the tint is pink (red gain is the largest)         0.7942   target 0.0010 .. 5   1.6476 0.8223 0.8535
+
+the palpebral aperture
+  PASS  the eyelash mesh is present                             1   target 1 .. 1   Humaneyelashes01
+  PASS  the aperture is measured, not a fallback circle          1   target 1 .. 1   eyelash mesh
+  PASS  upper lid margin (mm from the eye axis)            4.9962   target 2.5000 .. 5   covers the top of a 6.352 mm iris
+  PASS  lateral canthus (mm)                               9.4872   target 7 .. 13   
+  PASS  medial canthus (mm)                                9.6804   target 7 .. 13   
+  PASS  the fissure is wider than it is tall               1.8989   target 1.6000 .. 5   
+  PASS  no lash mesh reports itself as a fallback               1   target 1 .. 1   fallback circle
+  PASS  the fallback is a circle                                0   target 0 .. 1.0e-9   
+
+132/132 gates passed
+

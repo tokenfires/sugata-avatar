@@ -1,0 +1,36 @@
+{
+  "pid": 22844,
+  "started": "2026-10-03T20:07:57.284631+00:00",
+  "finished": "2026-10-03T20:07:57.288959+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/iris-integration/root-source-readback.py",
+  "readerSHA256": "e7a27b50303f29e969e8bcbb9ffd50eb1abf3c9e4c0c5d9893f956f5b4ee75db",
+  "sources": {
+    "packages/core/src/Avatar.js": "d1dcaaed5acccb6fab1d1082f3da71ef940890e247ccd8c3070cc31d360e86d4",
+    "packages/core/src/material/EyeMaterial.js": "17624676a612e7f5e7724dce6932771073d5e6624e009799ef56c58fc2b6b570",
+    "packages/testbed/src/showcase.js": "693e2929b3e1e8a7b4ad789a8755225c89d517aa6f84e043f6a96c2de4c9597f",
+    "packages/testbed/src/showcase.html": "7c652f920947db5e964f105a6b4fca503af5e18b2879578a6fe3d41a85c48daf",
+    "packages/testbed/src/showcase-presets.mjs": "5052487aaff036b37a2ebf4df275cc44f73c86c15fd8508556b524219e0b812b",
+    "packages/testbed/src/showcase-settings.mjs": "3c67eef6b35f5f38e19612dbe4cab75f658dd8ca4a4c1aa650e5e1e91d1380f4",
+    "docs/API.md": "4f02cadcaf44b3c7a0f3cc748dd7a24a999d223f3960f93e47d5cde538d79434",
+    "packages/core/src/material/EyeColourOptions.js": "cea17ed860957defce94c925f3e22d8e0ed09fa89ffc4ca264a316bf71ebc3d0",
+    "packages/testbed/src/showcase-eye-colours.selftest.mjs": "f733bc8904c7c8d2dca905a8d728a12e727889fe44a052502bee33b6f9de6269",
+    "tools/critic/iris-integration.mjs": "c4bec378c990e3e05b0aeeeb04fbad7f3f478d3088e157b411c66ee5ffc784bd"
+  },
+  "reverseRecoveryFiles": 7,
+  "declaredReplacements": 36,
+  "sourceCorrections": 4,
+  "actualCPUJobs": 14,
+  "historicalCriticPinsVerified": 12,
+  "priorFixedBlue": [
+    0.46375534541012664,
+    1.0886445839519705,
+    1.7009280765008
+  ],
+  "status": "passed exact declared source/default scope and actual CPU receipts; native not admitted by this alone",
+  "limits": [
+    "Partial-constructor universal fault cleanup and missing-eyes full construction remain unqualified.",
+    "Null branch retains prior source expression/node responsibilities; temporal pixel identity is not inferred.",
+    "No GPU/native/capture clock/evaluator/contact rerun by this reader."
+  ],
+  "authorFailure": "First editor PID unavailable; exit1/chunkb2b516/by19:55:34. EDIT-INITIAL-FAILURE pid is rollback receipt recorder, not failed author."
+}

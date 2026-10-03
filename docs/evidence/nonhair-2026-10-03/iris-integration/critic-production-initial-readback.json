@@ -1,0 +1,71 @@
+{
+  "pid": 13312,
+  "started": "2026-10-03T20:03:04.434176+00:00",
+  "python": "3.14.7",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/iris-integration/critic-production-source-readback.py",
+  "scope": "Read bytes/hashes only; no constructor/evaluator or tests",
+  "sources": [
+    {
+      "path": "packages/core/src/material/EyeColourOptions.js",
+      "bytes": 701,
+      "sha256": "cea17ed860957defce94c925f3e22d8e0ed09fa89ffc4ca264a316bf71ebc3d0"
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.js",
+      "bytes": 76839,
+      "sha256": "17624676a612e7f5e7724dce6932771073d5e6624e009799ef56c58fc2b6b570"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 253372,
+      "sha256": "8d9ff957e7bd20b6c8fbd137f3307eeb848e26477da74fade40c5429eaf5d4dc"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 9843,
+      "sha256": "3555d293ebb6768925ff4cfba78bc39acad3fdda1194486b9507350ec755daaf"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 5036,
+      "sha256": "3c67eef6b35f5f38e19612dbe4cab75f658dd8ca4a4c1aa650e5e1e91d1380f4"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 35333,
+      "sha256": "693e2929b3e1e8a7b4ad789a8755225c89d517aa6f84e043f6a96c2de4c9597f"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 22547,
+      "sha256": "9e4860483dc2767b99589eeb22853cc42c8a761a52884f5f8c46b7d403cdcdfd"
+    },
+    {
+      "path": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/OWNERSHIP-CONTRACT.md",
+      "bytes": 5309,
+      "sha256": "edc62422047a656268b79ab7b11e91d374e9d00cf8d1e0bca186ce1cd853a27e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/EDIT-RECIPE.json",
+      "bytes": 13819,
+      "sha256": "cb5b1155ca583140346b60e67c426af71698021f66d8c9dc65a775f2d0263be1"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/CRITIC-PRODUCTION-INITIAL.md",
+      "bytes": 3195,
+      "sha256": "8a22792161d7af57cee8ce38342b15369a25071dc84aa1ebdb941e7b498723ef"
+    }
+  ],
+  "readerSha256": "08a534cb3af1da3a558a4f52438f8ca9b09c0dc4b5165bdd807e4fe389dff06a",
+  "finished": "2026-10-03T20:03:04.435015+00:00"
+}

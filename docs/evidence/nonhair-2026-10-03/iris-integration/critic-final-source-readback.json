@@ -1,0 +1,124 @@
+{
+  "pid": 26481,
+  "started": "2026-10-03T20:09:57.751445+00:00",
+  "python": "3.14.7",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/iris-integration/critic-final-source-readback.py",
+  "scope": "Literal source reconstruction, file/log hashes and scalar sRGB math only; no tests, constructor, shader/GPU/browser or evaluator rerun",
+  "reconstructedFiles": [
+    "packages/core/src/Avatar.js",
+    "packages/core/src/material/EyeMaterial.js",
+    "packages/testbed/src/showcase-presets.mjs",
+    "packages/testbed/src/showcase-settings.mjs",
+    "packages/testbed/src/showcase.html",
+    "packages/testbed/src/showcase.js"
+  ],
+  "declaredChanges": 36,
+  "cpuJobsVerified": 14,
+  "linear": [
+    0.08437621154414882,
+    0.19806931955994886,
+    0.30946892281750854
+  ],
+  "luma": 0.18194121615098557,
+  "normalizedBlue": [
+    0.4637553454305178,
+    1.0886445839494623,
+    1.7009280764656038
+  ],
+  "blueVectorResidual": 3.519606828206179e-11,
+  "scalarTolerance": 1e-09,
+  "sources": [
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 253424,
+      "sha256": "d1dcaaed5acccb6fab1d1082f3da71ef940890e247ccd8c3070cc31d360e86d4"
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.js",
+      "bytes": 76839,
+      "sha256": "17624676a612e7f5e7724dce6932771073d5e6624e009799ef56c58fc2b6b570"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 9954,
+      "sha256": "5052487aaff036b37a2ebf4df275cc44f73c86c15fd8508556b524219e0b812b"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 5036,
+      "sha256": "3c67eef6b35f5f38e19612dbe4cab75f658dd8ca4a4c1aa650e5e1e91d1380f4"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 22578,
+      "sha256": "7c652f920947db5e964f105a6b4fca503af5e18b2879578a6fe3d41a85c48daf"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 35333,
+      "sha256": "693e2929b3e1e8a7b4ad789a8755225c89d517aa6f84e043f6a96c2de4c9597f"
+    },
+    {
+      "path": "packages/core/src/material/EyeColourOptions.js",
+      "bytes": 701,
+      "sha256": "cea17ed860957defce94c925f3e22d8e0ed09fa89ffc4ca264a316bf71ebc3d0"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 50152,
+      "sha256": "4f02cadcaf44b3c7a0f3cc748dd7a24a999d223f3960f93e47d5cde538d79434"
+    },
+    {
+      "path": "packages/testbed/src/showcase-eye-colours.selftest.mjs",
+      "bytes": 8680,
+      "sha256": "f733bc8904c7c8d2dca905a8d728a12e727889fe44a052502bee33b6f9de6269"
+    },
+    {
+      "path": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "tools/critic/iris-integration.mjs",
+      "bytes": 17525,
+      "sha256": "c4bec378c990e3e05b0aeeeb04fbad7f3f478d3088e157b411c66ee5ffc784bd"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/PLAN.md",
+      "bytes": 4777,
+      "sha256": "a4c54fd303958a6301350ac3f0bd0edeb3a40bd585cfa4705a1d1cce974b5cfe"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/OWNERSHIP-CONTRACT.md",
+      "bytes": 5309,
+      "sha256": "edc62422047a656268b79ab7b11e91d374e9d00cf8d1e0bca186ce1cd853a27e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/CONTRACT-ADDENDUM.md",
+      "bytes": 956,
+      "sha256": "e820913f58ea6d6ce0c6512d7531ea7659a6ecbef065a755e535307dfcf38703"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/EDIT-RECIPE.json",
+      "bytes": 13819,
+      "sha256": "cb5b1155ca583140346b60e67c426af71698021f66d8c9dc65a775f2d0263be1"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/SOURCE-CORRECTIONS.json",
+      "bytes": 2095,
+      "sha256": "e02cc7b5e6283945f9cc482edc4686c5dc3715cfcf69d36602f3546099b39a74"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/CPU-JOBS.json",
+      "bytes": 7519,
+      "sha256": "a2bebcd82845319b0e077d2b70e2fbe54e272963ff914c3054d3198afcc4fad0"
+    }
+  ],
+  "readerSha256": "db1c1b0f7f4c145174db5bdfe34b9f8a574fb5e6468b5c313dc4183f9f3b32ce",
+  "finished": "2026-10-03T20:09:57.755011+00:00"
+}

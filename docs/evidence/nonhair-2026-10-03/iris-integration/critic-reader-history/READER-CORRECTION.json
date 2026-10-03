@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-03T20:09:57.691686+00:00",
+  "failedChunk": "fbf0d5",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/iris-integration/critic-final-source-readback.py",
+  "sourceSHA256": "c6428d7030cc8e26e39acfa95b917bbb34b8ce6e737fb6178209fffffeddf7d1",
+  "exit": 1,
+  "error": "AssertionError at line30 independent standard sRGB formula vs installed Three decimal approximations, tolerance2e-15",
+  "failedPID": null,
+  "failedStarted": null,
+  "failedFinished": null,
+  "inputChanges": false,
+  "sourceWitness": "node_modules/three/src/math/ColorManagement.js:207 uses rounded .9478672986 and .0521327014; standard formula is not bit-identical",
+  "correction": "Keep independent standard formula and report residual; use1e-9 numerical diagnostic tolerance, no production/native/test changes"
+}

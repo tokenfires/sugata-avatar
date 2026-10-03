@@ -1,0 +1,196 @@
+{
+  "supervisorPID": 5231,
+  "jobs": [
+    {
+      "name": "eye-options",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-eye-colours.selftest.mjs"
+      ],
+      "pid": 5232,
+      "started": "2026-10-03T19:58:48.226544+00:00",
+      "finished": "2026-10-03T19:58:48.351832+00:00",
+      "exit": 0,
+      "outputSHA256": "f3f34ea836ac62402b24cf76c19db5ced6547f38b49330307f6e9fcfcd88b6fd",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/eye-options.log"
+    },
+    {
+      "name": "eye-existing",
+      "command": [
+        "node",
+        "packages/core/src/material/EyeMaterial.selftest.mjs"
+      ],
+      "pid": 5233,
+      "started": "2026-10-03T19:58:48.352061+00:00",
+      "finished": "2026-10-03T19:58:48.506912+00:00",
+      "exit": 0,
+      "outputSHA256": "c50bdadc3ba5de7e1eae45a26875a39454eada0e57b536e0288f36719f077f00",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/eye-existing.log"
+    },
+    {
+      "name": "avatar",
+      "command": [
+        "node",
+        "packages/core/src/Avatar.selftest.mjs"
+      ],
+      "pid": 5243,
+      "started": "2026-10-03T19:58:48.507134+00:00",
+      "finished": "2026-10-03T19:58:48.622116+00:00",
+      "exit": 0,
+      "outputSHA256": "c758745ab83bf56beef030f8832a4390ceef1150e4ecfed840662ee2d46fb724",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/avatar.log"
+    },
+    {
+      "name": "showcase-presets",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-presets.selftest.mjs"
+      ],
+      "pid": 5251,
+      "started": "2026-10-03T19:58:48.622369+00:00",
+      "finished": "2026-10-03T19:58:48.666607+00:00",
+      "exit": 0,
+      "outputSHA256": "d02bd1752f7527b8fb9bb911f43400de461791c28c8951c4d8a35cdc313895c0",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/showcase-presets.log"
+    },
+    {
+      "name": "showcase-settings",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-settings.selftest.mjs"
+      ],
+      "pid": 5252,
+      "started": "2026-10-03T19:58:48.666798+00:00",
+      "finished": "2026-10-03T19:58:48.709238+00:00",
+      "exit": 0,
+      "outputSHA256": "8793dcfbd05fd488e473e9687ae0293e731e322246f025d91bac9c9cb4526841",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/showcase-settings.log"
+    },
+    {
+      "name": "showcase-collection",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-collection.selftest.mjs"
+      ],
+      "pid": 5253,
+      "started": "2026-10-03T19:58:48.709460+00:00",
+      "finished": "2026-10-03T19:58:48.751974+00:00",
+      "exit": 0,
+      "outputSHA256": "144b7316d47cd282dd4c788e99b15936e12292bcbcb7e38d3a3f2bbf9ffcc990",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/showcase-collection.log"
+    },
+    {
+      "name": "showcase-colours",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-colours.selftest.mjs"
+      ],
+      "pid": 5254,
+      "started": "2026-10-03T19:58:48.752165+00:00",
+      "finished": "2026-10-03T19:58:48.790427+00:00",
+      "exit": 0,
+      "outputSHA256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/showcase-colours.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "pid": 5255,
+      "started": "2026-10-03T19:58:48.790627+00:00",
+      "finished": "2026-10-03T19:58:48.992977+00:00",
+      "exit": 0,
+      "outputSHA256": "1eca36dbb979fe6215426b1b5767f2aa3061f0e767ac54da855bafadfd909b20",
+      "output": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/iris-integration/build.log"
+    },
+    {
+      "name": "build-pages",
+      "command": [
+        "npm",
+        "run",
+        "build:pages"
+      ],
+      "pid": 6924,
+      "started": "2026-10-03T19:59:42.909926+00:00",
+      "finished": "2026-10-03T19:59:43.311196+00:00",
+      "exit": 0,
+      "outputSHA256": "f9521297d09c02627bf30c63e3ac94d57d27c5cca591fd3002ad5cac506efb4e",
+      "output": "docs/evidence/nonhair-2026-10-03/iris-integration/build-pages.log",
+      "reason": "default build only index; actual multi-page build reaches showcase/core imports"
+    },
+    {
+      "name": "eye-options-owner-fix",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-eye-colours.selftest.mjs"
+      ],
+      "pid": 16346,
+      "started": "2026-10-03T20:04:23.427568+00:00",
+      "finished": "2026-10-03T20:04:23.551287+00:00",
+      "exit": 0,
+      "outputSHA256": "f3f34ea836ac62402b24cf76c19db5ced6547f38b49330307f6e9fcfcd88b6fd",
+      "output": "docs/evidence/nonhair-2026-10-03/iris-integration/eye-options-owner-fix.log",
+      "reason": "new actual-owner guard/red-proof cases plus Avatar report field and changed control text"
+    },
+    {
+      "name": "avatar-owner-fix",
+      "command": [
+        "node",
+        "packages/core/src/Avatar.selftest.mjs"
+      ],
+      "pid": 16347,
+      "started": "2026-10-03T20:04:23.551539+00:00",
+      "finished": "2026-10-03T20:04:23.662926+00:00",
+      "exit": 0,
+      "outputSHA256": "c758745ab83bf56beef030f8832a4390ceef1150e4ecfed840662ee2d46fb724",
+      "output": "docs/evidence/nonhair-2026-10-03/iris-integration/avatar-owner-fix.log",
+      "reason": "new actual-owner guard/red-proof cases plus Avatar report field and changed control text"
+    },
+    {
+      "name": "showcase-presets-owner-fix",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-presets.selftest.mjs"
+      ],
+      "pid": 16348,
+      "started": "2026-10-03T20:04:23.663182+00:00",
+      "finished": "2026-10-03T20:04:23.703426+00:00",
+      "exit": 0,
+      "outputSHA256": "d02bd1752f7527b8fb9bb911f43400de461791c28c8951c4d8a35cdc313895c0",
+      "output": "docs/evidence/nonhair-2026-10-03/iris-integration/showcase-presets-owner-fix.log",
+      "reason": "new actual-owner guard/red-proof cases plus Avatar report field and changed control text"
+    },
+    {
+      "name": "showcase-settings-owner-fix",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-settings.selftest.mjs"
+      ],
+      "pid": 16349,
+      "started": "2026-10-03T20:04:23.703630+00:00",
+      "finished": "2026-10-03T20:04:23.742001+00:00",
+      "exit": 0,
+      "outputSHA256": "8793dcfbd05fd488e473e9687ae0293e731e322246f025d91bac9c9cb4526841",
+      "output": "docs/evidence/nonhair-2026-10-03/iris-integration/showcase-settings-owner-fix.log",
+      "reason": "new actual-owner guard/red-proof cases plus Avatar report field and changed control text"
+    },
+    {
+      "name": "build-pages-owner-fix",
+      "command": [
+        "npm",
+        "run",
+        "build:pages"
+      ],
+      "pid": 16351,
+      "started": "2026-10-03T20:04:23.742214+00:00",
+      "finished": "2026-10-03T20:04:24.110302+00:00",
+      "exit": 0,
+      "outputSHA256": "8d860fdc99552ee205a45e0177a598661ece5a57a62e27281befb8e4f8165117",
+      "output": "docs/evidence/nonhair-2026-10-03/iris-integration/build-pages-owner-fix.log",
+      "reason": "new actual-owner guard/red-proof cases plus Avatar report field and changed control text"
+    }
+  ]
+}

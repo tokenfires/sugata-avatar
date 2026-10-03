@@ -1,0 +1,16 @@
+import { Color } from 'three';
+
+/** Creation-only named pigment; Original keeps the authored iris sample path. */
+export function resolveEyeColour(value) {
+    if (value === undefined || value === null || value === 'original') return null;
+    if (value === 'blue') return value;
+    throw new TypeError('Avatar eyeColour must be original or blue.');
+}
+
+/** Fixed optional Blue, normalized in linear RGB; not a rendered colour guarantee. */
+export function eyeChromaticity(value) {
+    if (resolveEyeColour(value) === null) return null;
+    const rgb = new Color('#527b97').toArray();
+    const luma = rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722;
+    return rgb.map(channel => channel / luma);
+}

@@ -1,0 +1,189 @@
+{
+  "pid": 99757,
+  "finished": "2026-10-03T19:56:13.563656+00:00",
+  "changes": [
+    {
+      "file": "packages/core/src/material/EyeMaterial.js",
+      "old": "import { fitSphere } from '../../../../tools/figure-pipeline/cornea_geometry.mjs';",
+      "new": "import { fitSphere } from '../../../../tools/figure-pipeline/cornea_geometry.mjs';\nimport { resolveEyeColour, eyeChromaticity } from './EyeColourOptions.js';"
+    },
+    {
+      "file": "packages/core/src/material/EyeMaterial.js",
+      "old": "    constructor( options = {} ) {\n\n        const meshes",
+      "new": "    constructor( options = {} ) {\n\n        const eyeColour = resolveEyeColour( options.eyeColour );\n        const meshes"
+    },
+    {
+      "file": "packages/core/src/material/EyeMaterial.js",
+      "old": "        this.pupilScaleUniform = uniform( 1 );",
+      "new": "        this.eyeColour = eyeColour;\n        const pigment = eyeChromaticity( eyeColour );\n        this.irisChromaticityUniform = pigment === null ? null : uniform( new Vector3( ...pigment ) );\n        this.pupilScaleUniform = uniform( 1 );"
+    },
+    {
+      "file": "packages/core/src/material/EyeMaterial.js",
+      "old": "    /** Every measured number, for a report or a HUD. Millimetres, because that is the scale. */",
+      "new": "    /** Observe the actual attached owner and the pigment node value, never only the request. */\n    colour() {\n\n        const attached = this.attached && this.globeMesh.material === this.globeMaterial &&\n            this.corneaMesh.material === this.corneaMaterial;\n        const chromaticity = this.irisChromaticityUniform?.value?.toArray() ?? null;\n        const expected = eyeChromaticity( this.eyeColour );\n        const matches = expected === null ? this.irisChromaticityUniform === null :\n            Array.isArray( chromaticity ) && chromaticity.length === 3 &&\n            expected.every( ( value, i ) => value === chromaticity[ i ] );\n        return { applied: this.eyeColour, attached, chromaticity, matchesAttached: attached && matches };\n\n    }\n\n    /** Every measured number, for a report or a HUD. Millimetres, because that is the scale. */"
+    },
+    {
+      "file": "packages/core/src/material/EyeMaterial.js",
+      "old": "        const iris = irisSample.rgb.mul( float( 1 ).add( caustic ) );",
+      "new": "        // Original retains the exact authored sample expression. Blue changes only the annulus\n        // before the existing caustic; the pupil side/equality retains its original sample.\n        let irisRgb = irisSample.rgb;\n        if ( this.irisChromaticityUniform !== null ) {\n\n            const sampleLuma = irisSample.rgb.dot( vec3( 0.2126, 0.7152, 0.0722 ) );\n            const pigment = sampleLuma.mul( this.irisChromaticityUniform );\n            const annulus = float( 1 ).sub( step( irisRadial, pupilEdge ) );\n            irisRgb = mix( irisSample.rgb, pigment, annulus );\n\n        }\n        const iris = irisRgb.mul( float( 1 ).add( caustic ) );"
+    },
+    {
+      "file": "packages/core/src/material/EyeMaterial.js",
+      "old": "     * @param {number} [options.corneaIor=1.3333]",
+      "new": "     * @param {'original'|'blue'} [options.eyeColour] - creation-only optional iris pigment.\n     * @param {number} [options.corneaIor=1.3333]"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "import { EyeMaterial } from './material/EyeMaterial.js';",
+      "new": "import { EyeMaterial } from './material/EyeMaterial.js';\nimport { resolveEyeColour } from './material/EyeColourOptions.js';"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "        const hairColour = resolveHairColour( options.hairColour );",
+      "new": "        const eyeColour = resolveEyeColour( options.eyeColour );\n        const hairColour = resolveHairColour( options.hairColour );"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "            hairStyle,\n            hairColour,",
+      "new": "            hairStyle,\n            eyeColour,\n            hairColour,"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "        this.hairColour = session.hairColour ?? null;",
+      "new": "        this.eyeColour = session.eyeColour ?? null;\n        this.hairColour = session.hairColour ?? null;"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "            subsystems: this.censusOfShading(),",
+      "new": "            eyes: {\n                requested: this.eyeColour,\n                ...( this.eyes?.colour() ?? { applied: null, attached: false, chromaticity: null, matchesAttached: false } ),\n                matchesRequest: this.eyes !== null && this.eyes.eyeColour === this.eyeColour\n            },\n            subsystems: this.censusOfShading(),"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "            eyes = new EyeMaterial( { figure: this.figure } );",
+      "new": "            eyes = new EyeMaterial( { figure: this.figure, eyeColour: this.eyeColour } );"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "            console.warn( `Avatar: eye material not applied \u2014 ${ error.message }` );",
+      "new": "            if ( this.eyeColour !== null ) throw error;\n            console.warn( `Avatar: eye material not applied \u2014 ${ error.message }` );"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "import { WARDROBE_STYLES }",
+      "new": "import { resolveEyeColour, eyeChromaticity } from '../../core/src/material/EyeColourOptions.js';\nimport { WARDROBE_STYLES }"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "    if (params.getAll('hairColour').length > 1)",
+      "new": "    if (params.getAll('eyeColour').length > 1) throw new Error('Duplicate eye colour selection.');\n    const eyeColour = resolveEyeColour(params.has('eyeColour') ? params.get('eyeColour') : undefined);\n    if (params.getAll('hairColour').length > 1)"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "        ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }) };",
+      "new": "        ...(eyeColour === null ? {} : { eyeColour }),\n        ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }) };"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "    const hairColour = resolveHairColour(selection.hairColour);",
+      "new": "    const eyeColour = resolveEyeColour(selection.eyeColour);\n    const hairColour = resolveHairColour(selection.hairColour);"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair,",
+      "new": "return { identity: { gender: .5, mode: 'nearest' }, ...(eyeColour === null ? {} : { eyeColour }), hair: preset.hair,"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "    const hairColour = report.hair.colour;",
+      "new": "    const eyes = report.eyes;\n    const appliedEyeColour = resolveEyeColour(eyes?.applied);\n    const requestedEyeColour = resolveEyeColour(eyes?.requested);\n    // Legacy Original/raw-GLB fallback is supported; an optional pigment needs a live owner.\n    if (requestedEyeColour !== appliedEyeColour || (appliedEyeColour !== null || eyes?.attached) &&\n        (!eyes.attached || !eyes.matchesAttached || !eyes.matchesRequest ||\n            JSON.stringify(eyes.chromaticity) !== JSON.stringify(eyeChromaticity(appliedEyeColour))))\n        throw new Error('The attached eye colour does not match this saved look.');\n    const hairColour = report.hair.colour;"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "    return { identity: { gender: report.identity.gender, mode: 'nearest' }, hair: report.hair.style,",
+      "new": "    return { identity: { gender: report.identity.gender, mode: 'nearest' },\n        ...(appliedEyeColour === null ? {} : { eyeColour: appliedEyeColour }), hair: report.hair.style,"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "old": "import { SHOWCASE_PRESETS",
+      "new": "import { resolveEyeColour } from '../../core/src/material/EyeColourOptions.js';\nimport { SHOWCASE_PRESETS"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "old": "    const hairColour = resolveHairColour(configuration.hairColour);",
+      "new": "    const eyeColour = resolveEyeColour(configuration.eyeColour);\n    const hairColour = resolveHairColour(configuration.hairColour);"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "old": "    const selection = selectionWithColours({ ...(hairColour",
+      "new": "    const selection = selectionWithColours({ ...(eyeColour === null ? {} : { eyeColour }), ...(hairColour"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "old": "    if (Object.hasOwn(normalized.wardrobe,",
+      "new": "    if (eyeColour === null) delete normalized.eyeColour;\n    if (Object.hasOwn(normalized.wardrobe,"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "old": "    // Discard unrelated/debug overrides",
+      "new": "    const eyeColour = resolveEyeColour(canonical.eyeColour);\n    if (eyeColour === null) delete canonical.eyeColour; else canonical.eyeColour = eyeColour;\n    // Discard unrelated/debug overrides"
+    },
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "old": "<fieldset disabled id=\"framing-controls\">",
+      "new": "<details class=\"hair-colours\" id=\"eye-colours\"><summary>Eye colour</summary>\n<fieldset disabled id=\"eye-colour-controls\"><legend class=\"field-label\">Choose eye colour</legend>\n<label for=\"eye-shade\">Colour</label><select id=\"eye-shade\" aria-describedby=\"eye-colour-help\"><option value=\"original\">Original</option><option value=\"blue\">Blue</option></select>\n<p id=\"eye-colour-help\">Apply opens a fresh preview with your current clothes and colours.</p>\n<button class=\"secondary\" id=\"apply-eye-colour\" type=\"button\">Apply eye colour</button><p id=\"eye-colour-status\" role=\"status\" aria-live=\"polite\">Preparing eye colour\u2026</p>\n</fieldset></details>\n<fieldset disabled id=\"framing-controls\">"
+    },
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "old": "restore its clothes, colours, cut, framing and scene.",
+      "new": "restore its clothes, hair and eye colours, cut, framing and scene."
+    },
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "old": "with the same clothes, colours, cut, framing, scene and studio light.",
+      "new": "with the same clothes, hair and eye colours, cut, framing, scene and studio light."
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": "import { sameHairTint }",
+      "new": "import { resolveEyeColour } from '../../core/src/material/EyeColourOptions.js';\nimport { sameHairTint }"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": "['#mix-colours', '#hair-colours']",
+      "new": "['#mix-colours', '#hair-colours', '#eye-colours']"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": "const colourControls = mountColourControls",
+      "new": "document.getElementById('apply-eye-colour').addEventListener('click', () => {\n    if (busy || savingImage || failed || !avatar || avatar.disposed) return;\n    const eyeColour = resolveEyeColour(document.getElementById('eye-shade').value);\n    if (eyeColour === (selected.eyeColour ?? null)) return;\n    const nextSelection = {...selected};\n    if (eyeColour === null) delete nextSelection.eyeColour; else nextSelection.eyeColour = eyeColour;\n    optionsForShowcase(nextSelection);\n    const next = showcaseSettingsUrl(nextSelection, location.href);\n    releaseAttention({immediate: true}); busy = true; enableControls();\n    setStatus('Preparing eye colour\u2026'); navigationPending = true; location.assign(next.href);\n});\nconst colourControls = mountColourControls"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": " \u00b7 ${hairColourLabel(look.hairColour, look.hairTint)} \u00b7 ",
+      "new": " \u00b7 ${hairColourLabel(look.hairColour, look.hairTint)}${look.eyeColour === 'blue' ? ' \u00b7 Blue eyes' : ''} \u00b7 "
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": "    tintToUrl(url, selected.hairTint);",
+      "new": "    if (selected.eyeColour) url.searchParams.set('eyeColour', selected.eyeColour); else url.searchParams.delete('eyeColour');\n    tintToUrl(url, selected.hairTint);"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": "        tintToUrl(next, selected.hairTint);",
+      "new": "        if (selected.eyeColour) next.searchParams.set('eyeColour', selected.eyeColour);\n        tintToUrl(next, selected.hairTint);"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": "    const report = avatar.report(); selected.outfit",
+      "new": "    const report = avatar.report();\n    document.getElementById('eye-colour-status').textContent = `Applied: ${report.eyes.applied === 'blue' ? 'Blue' : 'Original'}`;\n    selected.outfit"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "old": "    hairColours.load(selected.hairColour, selected.hairTint);",
+      "new": "    hairColours.load(selected.hairColour, selected.hairTint);\n    document.getElementById('eye-shade').value = selected.eyeColour ?? 'original';"
+    }
+  ],
+  "newFiles": [
+    "packages/core/src/material/EyeColourOptions.js"
+  ]
+}

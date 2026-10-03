@@ -1,0 +1,84 @@
+{
+  "pid": 35646,
+  "started": "2026-10-03T20:15:09.730Z",
+  "finished": "2026-10-03T20:15:09.868Z",
+  "command": "node docs/evidence/nonhair-2026-10-03/iris-integration/root-native-readback.mjs",
+  "readerSHA256": "7297fa4d441d6d08d2d5e9fded34b7da437167e897e674be51625a4a6796bab7",
+  "reportSHA256": "3e13426fd1571db5b9498e6f4aff178c0871b271ea39f38ed012968e266a3b1f",
+  "instrumentSHA256": "c4bec378c990e3e05b0aeeeb04fbad7f3f478d3088e157b411c66ee5ffc784bd",
+  "images": [
+    {
+      "file": "original-front.png",
+      "at": "2026-10-03T20:11:56.835Z",
+      "sha256": "d038a3c7d0dc8878d083989a1b75e0605742bdc073774c1f10d1f5bba6179baa",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "file": "original-oblique.png",
+      "at": "2026-10-03T20:11:56.962Z",
+      "sha256": "4823a08c84d4f6e9e27faa48c6a4360ba7b3313ca94b26508c3dd859146278a5",
+      "before": 3,
+      "after": 4
+    },
+    {
+      "file": "blue-front.png",
+      "at": "2026-10-03T20:11:57.802Z",
+      "sha256": "8e6dea26840cadb438a69cdfae24cacd250605292473207372de3cb53be331d5",
+      "before": 7,
+      "after": 8
+    },
+    {
+      "file": "blue-oblique.png",
+      "at": "2026-10-03T20:11:57.932Z",
+      "sha256": "0256c05b69b2e10526aa439f53bb8b802dd2f34887698a66ddc1f732624bfcdc",
+      "before": 9,
+      "after": 10
+    },
+    {
+      "file": "desktop-blue-controls.png",
+      "at": "2026-10-03T20:11:58.118Z",
+      "sha256": "1cd9b4da4d8f0eabff42ab241fa38c0edd8314a87d46006e090f8cea66506667",
+      "before": 11,
+      "after": 12
+    },
+    {
+      "file": "mobile-blue-controls.png",
+      "at": "2026-10-03T20:11:58.240Z",
+      "sha256": "16810161779566ef87091e767e36557d385898c41a770870d548b9f5c4d2b75c",
+      "before": 13,
+      "after": 14
+    },
+    {
+      "file": "blue-attention-held.png",
+      "at": "2026-10-03T20:12:02.700Z",
+      "sha256": "1aaff9cccd756a294cb4dc7dc4ae78f87480f58b31f8e87925475e068b52b55d",
+      "before": 20,
+      "after": 21
+    },
+    {
+      "file": "blue-attention-released.png",
+      "at": "2026-10-03T20:12:03.399Z",
+      "sha256": "9c98e9bad53cf561c13b4c429bba6c49534cf4784ef76661e359a1504246e1cb",
+      "before": 24,
+      "after": 25
+    }
+  ],
+  "sourceInputPinsVerified": 394,
+  "states": 26,
+  "retirements": 6,
+  "resourceEvents": 18,
+  "pupilScales": [
+    0.985,
+    0.9866929239813779,
+    0.9881622871164382
+  ],
+  "status": "REFUSE adoption after sole failed native resource guard; observed successful feature/state/lifecycle evidence retained separately",
+  "firstFailure": "31 aborted module requests at global failedResources guard; timing/active-document context absent, benign unload/HMR or causal source failure not proven",
+  "secondError": "Final errors-empty guard repeats first refusal; no independent extra capture/resource failure",
+  "limits": [
+    "FinalPinsUnchanged absent because errors guard stops assignment; independent readback rehashed every recorded source/input/instrument before rollback.",
+    "No additional native launch, observer/resource filter fix or pigment/hue/lighting/phase change.",
+    "This reader inspects bytes/state only; actual images require separate root view receipt."
+  ]
+}

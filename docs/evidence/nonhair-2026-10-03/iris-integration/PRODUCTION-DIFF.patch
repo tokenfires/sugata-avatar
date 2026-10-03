@@ -1,0 +1,389 @@
+diff --git a/docs/API.md b/docs/API.md
+index 240a00e..8bd4b3e 100644
+--- a/docs/API.md
++++ b/docs/API.md
+@@ -110,6 +110,7 @@ const avatar = await Avatar.create( {
+     lighting: 'studio',            // 'studio'|'neutral'|'warm'|'cool'|'soft'|'dramatic', or the object below
+     background: 'studio',          // 'studio'|'void', a hex, or the object below
+     scene: 'studio',               // 'studio'|'void', or a scene description — the WIDER form
++    eyeColour: undefined,         // optional 'original'|'blue'; creation-only, omitted keeps authored iris
+     hair: false,                   // 'bob01' | 'bob02' (g050 only) | false
+     hairColour: undefined,         // optional '#rrggbb' sRGB; requires hair; omitted keeps exact default
+     hairTint: undefined,           // optional {colour:'#rrggbb', amount:0..1}; requires hairColour
+@@ -455,6 +456,12 @@ So a transparent capture must be composited over `#08080a` before the critic run
+ transparent plate and the studio plate are then compared on the same pixels. That rule is declared
+ now, ahead of the option, so the two cannot arrive in different rounds.
+ 
++### Eye colour
++
++Optional `eyeColour: 'blue'` selects a fixed blue iris pigment. Omission, `null` or `'original'` retains the exact authored sample path. Other values are rejected before allocation. This choice is fixed for an Avatar and follows eye rebuilds; create a new Avatar to change it. Existing pupil, gaze, refraction, cornea and sclera responsibilities remain. Blue is a colour customization, not a calibrated or physical iris model.
++
++`avatar.report().eyes` observes the requested/applied option, actual globe/cornea attachment, pigment vector and whether attachment and request match. A requested Blue that cannot construct eye shading fails instead of silently falling back. Original retains the existing catch/report policy when eye shading is unavailable; complete construction on a figure without eyes is not qualified here. Showcase offers Original/Blue and Apply; Apply opens a fresh preview and resets orbit, motion and attention. JSON and named saved looks preserve Blue; Original is omitted. Export refuses a mismatched or detached custom eye owner.
++
+ ### Hair colour
+ 
+ With a hair style enabled, optional `hairColour: '#765344'` supplies a six-digit sRGB material colour. Uppercase hex is accepted and normalized to lowercase. Named CSS colours, shorthand hex, numeric values, null and colour without a hair style are rejected. Omit the option to retain the exact existing derived default; a rounded hex is not substituted for that default.
+diff --git a/packages/core/src/Avatar.js b/packages/core/src/Avatar.js
+index e397d1c..6fab351 100644
+--- a/packages/core/src/Avatar.js
++++ b/packages/core/src/Avatar.js
+@@ -124,6 +124,7 @@ import { RestPose } from './figure/RestPose.js';
+ import { Skeleton } from './figure/Skeleton.js';
+ 
+ import { EyeMaterial } from './material/EyeMaterial.js';
++import { resolveEyeColour } from './material/EyeColourOptions.js';
+ import { buildEyeOcclusion } from './material/EyeOcclusion.js';
+ import {
+     applySkinMaterial,
+@@ -920,6 +921,7 @@ export class Avatar {
+             ?? { look: AVATAR_DEFAULTS.lighting, ...lightingRequestOf( scene ) } );
+         const background = resolveBackgroundOption( options.background ?? backgroundRequestOf( scene ) );
+         const hairStyle = resolveHairOption( options.hair ?? AVATAR_DEFAULTS.hair );
++        const eyeColour = resolveEyeColour( options.eyeColour );
+         const hairColour = resolveHairColour( options.hairColour );
+         const hairTint = resolveHairTint( options.hairTint, hairColour );
+         if ( hairColour !== null && hairStyle === null ) throw new TypeError( 'Avatar hairColour requires a hair style.' );
+@@ -960,6 +962,7 @@ export class Avatar {
+             lighting,
+             background,
+             hairStyle,
++            eyeColour,
+             hairColour,
+             hairTint,
+             hairHistory,
+@@ -1044,6 +1047,7 @@ export class Avatar {
+         // The style id, or null. Named `hairStyle` rather than `hair` so the option and the live
+         // groom handle below cannot be confused for one another in `report()` or in a leak walk.
+         this.hairStyle = session.hairStyle;
++        this.eyeColour = session.eyeColour ?? null;
+         this.hairColour = session.hairColour ?? null;
+         this.hairTint = session.hairTint ?? null;
+ 
+@@ -2509,6 +2513,12 @@ export class Avatar {
+                 backendMismatch: this.backendMismatch
+             },
+ 
++            eyes: {
++                ownerAvailable: this.eyes !== null,
++                requested: this.eyeColour,
++                ...( this.eyes?.colour() ?? { applied: null, attached: false, chromaticity: null, matchesAttached: false } ),
++                matchesRequest: this.eyes !== null && this.eyes.eyeColour === this.eyeColour
++            },
+             subsystems: this.censusOfShading(),
+             faceCardCoverage: this.faceCardCoverage?.report() ?? { requested: this.faceCardCoverageMode,
+                 live: false, managedMaterials: 0, lastObservedMode: 'binary', reason: 'no card coverage owner' },
+@@ -3261,10 +3271,11 @@ export class Avatar {
+ 
+         try {
+ 
+-            eyes = new EyeMaterial( { figure: this.figure } );
++            eyes = new EyeMaterial( { figure: this.figure, eyeColour: this.eyeColour } );
+ 
+         } catch ( error ) {
+ 
++            if ( this.eyeColour !== null ) throw error;
+             console.warn( `Avatar: eye material not applied — ${ error.message }` );
+             return;
+ 
+diff --git a/packages/core/src/material/EyeMaterial.js b/packages/core/src/material/EyeMaterial.js
+index 96c8f25..c7aaf2d 100644
+--- a/packages/core/src/material/EyeMaterial.js
++++ b/packages/core/src/material/EyeMaterial.js
+@@ -126,6 +126,7 @@ import {
+ // deliberate and narrow: this is the one module both sides have to agree on, and duplicating a
+ // least-squares sphere fit is exactly how two answers to one question get born.
+ import { fitSphere } from '../../../../tools/figure-pipeline/cornea_geometry.mjs';
++import { resolveEyeColour, eyeChromaticity } from './EyeColourOptions.js';
+ 
+ import {
+     buildCatchlightCubeTexture,
+@@ -569,6 +570,7 @@ export class EyeMaterial {
+      * @param {Object} [options.figure]      - a `Figure`; its `root` is searched for the two shells.
+      * @param {Object} [options.globeMesh]   - or pass the two meshes directly.
+      * @param {Object} [options.corneaMesh]
++     * @param {'original'|'blue'} [options.eyeColour] - creation-only optional iris pigment.
+      * @param {number} [options.corneaIor=1.3333]
+      * @param {number} [options.scleraBrightness=1.26]
+      * @param {number} [options.scleraChroma=0.85] - 0 keeps the map's near-grey sclera, 1 is the
+@@ -582,6 +584,7 @@ export class EyeMaterial {
+      */
+     constructor( options = {} ) {
+ 
++        const eyeColour = resolveEyeColour( options.eyeColour );
+         const meshes = options.figure !== undefined
+             ? findEyeMeshes( options.figure.root ?? options.figure )
+             : { globe: options.globeMesh ?? null, cornea: options.corneaMesh ?? null };
+@@ -612,6 +615,9 @@ export class EyeMaterial {
+         // Uniforms a consumer drives. `pupilScaleUniform` is the sink motion/Pupil.js expects:
+         // anything with a `.value`, clamped by Pupil to PUPIL_SCALE_BOUNDS so `1 - pupilEdge` here
+         // can never reach zero.
++        this.eyeColour = eyeColour;
++        const pigment = eyeChromaticity( eyeColour );
++        this.irisChromaticityUniform = pigment === null ? null : uniform( new Vector3( ...pigment ) );
+         this.pupilScaleUniform = uniform( 1 );
+         this.scleraBrightnessUniform = uniform( options.scleraBrightness ?? SCLERA_BRIGHTNESS );
+         this.scleraChromaUniform = uniform( options.scleraChroma ?? SCLERA_CHROMA );
+@@ -727,6 +733,20 @@ export class EyeMaterial {
+ 
+     }
+ 
++    /** Observe the actual attached owner and the pigment node value, never only the request. */
++    colour() {
++
++        const attached = this.attached && this.globeMesh.material === this.globeMaterial &&
++            this.corneaMesh.material === this.corneaMaterial;
++        const chromaticity = this.irisChromaticityUniform?.value?.toArray() ?? null;
++        const expected = eyeChromaticity( this.eyeColour );
++        const matches = expected === null ? this.irisChromaticityUniform === null :
++            Array.isArray( chromaticity ) && chromaticity.length === 3 &&
++            expected.every( ( value, i ) => value === chromaticity[ i ] );
++        return { applied: this.eyeColour, attached, chromaticity, matchesAttached: attached && matches };
++
++    }
++
+     /** Every measured number, for a report or a HUD. Millimetres, because that is the scale. */
+     describe() {
+ 
+@@ -1035,7 +1055,18 @@ export class EyeMaterial {
+         const tinted = scleraSample.rgb.mul( vec3( ...scleraTint ) );
+         const sclera = mix( scleraSample.rgb, tinted, this.scleraChromaUniform )
+             .mul( this.scleraBrightnessUniform );
+-        const iris = irisSample.rgb.mul( float( 1 ).add( caustic ) );
++        // Original retains the exact authored sample expression. Blue changes only the annulus
++        // before the existing caustic; the pupil side/equality retains its original sample.
++        let irisRgb = irisSample.rgb;
++        if ( this.irisChromaticityUniform !== null ) {
++
++            const sampleLuma = irisSample.rgb.dot( vec3( 0.2126, 0.7152, 0.0722 ) );
++            const pigment = sampleLuma.mul( this.irisChromaticityUniform );
++            const annulus = float( 1 ).sub( step( irisRadial, pupilEdge ) );
++            irisRgb = mix( irisSample.rgb, pigment, annulus );
++
++        }
++        const iris = irisRgb.mul( float( 1 ).add( caustic ) );
+         const albedo = mix( sclera, iris, irisMask ).mul( ring.mul( this.limbalRingUniform ).oneMinus() );
+ 
+         material.colorNode = vec4( albedo, 1 );
+diff --git a/packages/testbed/src/showcase-presets.mjs b/packages/testbed/src/showcase-presets.mjs
+index 78071ce..1bbb463 100644
+--- a/packages/testbed/src/showcase-presets.mjs
++++ b/packages/testbed/src/showcase-presets.mjs
+@@ -1,5 +1,6 @@
+ // Supported g050 wardrobe studies with authored colourways on the existing fitted garments.
+ import { resolveHairColour, resolveHairTint, sameHairTint, mixedHairColour, hairColourLinear } from '../../core/src/material/HairColourOptions.js';
++import { resolveEyeColour, eyeChromaticity } from '../../core/src/material/EyeColourOptions.js';
+ import { WARDROBE_STYLES } from '../../core/src/wardrobe/WardrobeStyleOptions.js';
+ import { REVIEW_SCENES, reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
+ import { coloursFromSelection, colourSelectionFromParams } from './showcase-colours.mjs';
+@@ -25,6 +26,8 @@ export function resolveShowcaseSelection(params) {
+     }
+     for (const key of ['gender', 'bake', 'hair', 'foundation']) if (params.has(key))
+         throw new Error('This lookbook supports its two authored g050 clothing studies only.');
++    if (params.getAll('eyeColour').length > 1) throw new Error('Duplicate eye colour selection.');
++    const eyeColour = resolveEyeColour(params.has('eyeColour') ? params.get('eyeColour') : undefined);
+     if (params.getAll('hairColour').length > 1) throw new Error('Duplicate hair colour selection.');
+     const hairColour = resolveHairColour(params.has('hairColour') ? params.get('hairColour') : undefined);
+     for (const key of ['hairTintColour', 'hairTintAmount']) if (params.getAll(key).length > 1) throw new Error('Duplicate hair tint selection.');
+@@ -35,6 +38,7 @@ export function resolveShowcaseSelection(params) {
+     const preset = SHOWCASE_PRESETS.find(p => p.id === (params.get('preset') ?? 'casual'));
+     const selection = { preset: preset.id, style: params.get('style') ?? 'ecru', outfit: params.get('outfit') ?? preset.outfit,
+         frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio', scene: reviewSceneSelection(params),
++        ...(eyeColour === null ? {} : { eyeColour }),
+         ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }) };
+     optionsForReviewScene(selection.scene, selection.light);
+     return colourSelectionFromParams(params, selection);
+@@ -44,9 +48,10 @@ export function optionsForShowcase(selection) {
+     if (!preset || !SHOWCASE_OUTFITS[selection.outfit] || !choices.frame.includes(selection.frame) || !choices.light.includes(selection.light) || !choices.style.includes(selection.style))
+         throw new Error('Unsupported showcase selection.');
+     const colours = coloursFromSelection(selection);
++    const eyeColour = resolveEyeColour(selection.eyeColour);
+     const hairColour = resolveHairColour(selection.hairColour);
+     const hairTint = resolveHairTint(selection.hairTint, hairColour);
+-    return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, ...(hairColour === null ? {} : { hairColour }),
++    return { identity: { gender: .5, mode: 'nearest' }, ...(eyeColour === null ? {} : { eyeColour }), hair: preset.hair, ...(hairColour === null ? {} : { hairColour }),
+         ...(hairTint === null ? {} : { hairTint }), frame: selection.frame,
+         quality: 'balanced', ...optionsForReviewScene(selection.scene ?? 'studio', selection.light), seed: SHOWCASE_SEED,
+         pose: 'relaxed-standing', wardrobe: { ...(selection.style === 'original' ? {} : {style: selection.style}), ...(colours ? {colours: {...colours}} : {}), outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
+@@ -64,6 +69,15 @@ export function configurationFromReport(report) {
+         !report.wardrobe?.attached || report.wardrobe.pendingCandidates !== 0 || !report.hair?.attached ||
+         report.hair.loadedStyle !== report.hair.style || !['bob01', 'bob02'].includes(report.hair.style))
+         throw new Error('Wait for the supported look to finish loading before saving it.');
++    const eyes = report.eyes;
++    const appliedEyeColour = resolveEyeColour(eyes?.applied);
++    const requestedEyeColour = resolveEyeColour(eyes?.requested);
++    // Preserve legacy no-owner Original report policy. Any present owner must still match.
++    const ownerAvailable = eyes?.ownerAvailable ?? eyes?.attached ?? false;
++    if (requestedEyeColour !== appliedEyeColour || (appliedEyeColour !== null || ownerAvailable || eyes?.attached) &&
++        (!ownerAvailable || !eyes.attached || !eyes.matchesAttached || !eyes.matchesRequest ||
++            JSON.stringify(eyes.chromaticity) !== JSON.stringify(eyeChromaticity(appliedEyeColour))))
++        throw new Error('The attached eye colour does not match this saved look.');
+     const hairColour = report.hair.colour;
+     if (hairColour && (!hairColour.matchesAttached || hairColour.requested !== hairColour.applied ||
+         !sameHairTint(hairColour.requestedTint, hairColour.appliedTint)))
+@@ -88,7 +102,8 @@ export function configurationFromReport(report) {
+     if (!choices.frame.includes(report.framing?.mode) || !choices.light.includes(report.scene?.lighting?.look) ||
+         !REVIEW_SCENES.includes(report.scene.id) || report.quality?.requested !== 'balanced' || !Number.isFinite(report.motion?.seed))
+         throw new Error('The current view is outside this lookbook’s supported configuration.');
+-    return { identity: { gender: report.identity.gender, mode: 'nearest' }, hair: report.hair.style,
++    return { identity: { gender: report.identity.gender, mode: 'nearest' },
++        ...(appliedEyeColour === null ? {} : { eyeColour: appliedEyeColour }), hair: report.hair.style,
+         ...(appliedHairColour === null ? {} : { hairColour: appliedHairColour }),
+         ...(appliedHairTint === null ? {} : { hairTint: appliedHairTint }),
+         frame: report.framing.mode, quality: report.quality.requested,
+diff --git a/packages/testbed/src/showcase-settings.mjs b/packages/testbed/src/showcase-settings.mjs
+index 18fa69d..0664ac7 100644
+--- a/packages/testbed/src/showcase-settings.mjs
++++ b/packages/testbed/src/showcase-settings.mjs
+@@ -1,4 +1,5 @@
+ import { resolveHairColour, resolveHairTint } from '../../core/src/material/HairColourOptions.js';
++import { resolveEyeColour } from '../../core/src/material/EyeColourOptions.js';
+ import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, optionsForShowcase } from './showcase-presets.mjs';
+ import { selectionWithColours, coloursFromSelection } from './showcase-colours.mjs';
+ 
+@@ -24,9 +25,10 @@ export function selectionFromConfiguration(configuration) {
+     const outfit = Object.keys(SHOWCASE_OUTFITS).find(id => Array.isArray(garments) &&
+         garments.length === SHOWCASE_OUTFITS[id].garments.length &&
+         SHOWCASE_OUTFITS[id].garments.every(garment => garments.includes(garment)));
++    const eyeColour = resolveEyeColour(configuration.eyeColour);
+     const hairColour = resolveHairColour(configuration.hairColour);
+     const hairTint = resolveHairTint(configuration.hairTint, hairColour);
+-    const selection = selectionWithColours({ ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }),
++    const selection = selectionWithColours({ ...(eyeColour === null ? {} : { eyeColour }), ...(hairColour === null ? {} : { hairColour }), ...(hairTint === null ? {} : { hairTint }),
+         preset: preset.id, outfit, style: configuration.wardrobe?.style ?? 'original',
+         frame: configuration.frame, scene: configuration.scene,
+         light: configuration.scene === 'kitchen' && configuration.lighting === undefined ? 'studio' : configuration.lighting }, configuration.wardrobe?.colours);
+@@ -41,6 +43,7 @@ export function selectionFromConfiguration(configuration) {
+     // Validate the supplied object before normalizing its hex spelling for comparison.
+     // Empty styled colour objects are accepted as the canonical no-override configuration.
+     const normalized = { ...configuration, wardrobe: { ...configuration.wardrobe } };
++    if (eyeColour === null) delete normalized.eyeColour;
+     if (Object.hasOwn(normalized.wardrobe, 'colours')) {
+         if (expected.wardrobe.colours) normalized.wardrobe.colours = expected.wardrobe.colours;
+         else delete normalized.wardrobe.colours;
+@@ -61,6 +64,8 @@ export async function readShowcaseSettings(file) {
+ export function showcaseSettingsUrl(selection, href) {
+     const url = new URL(href), capture = url.searchParams.has('capture');
+     const canonical = selectionWithColours(selection, coloursFromSelection(selection));
++    const eyeColour = resolveEyeColour(canonical.eyeColour);
++    if (eyeColour === null) delete canonical.eyeColour; else canonical.eyeColour = eyeColour;
+     // Discard unrelated/debug overrides instead of allowing them to change the restored options.
+     url.search = '';
+     for (const [key, value] of Object.entries(canonical)) {
+diff --git a/packages/testbed/src/showcase.html b/packages/testbed/src/showcase.html
+index a388b2d..18bc1ff 100644
+--- a/packages/testbed/src/showcase.html
++++ b/packages/testbed/src/showcase.html
+@@ -59,6 +59,12 @@ aside{padding:40px 0 36px}.eyebrow{margin:0 0 14px;font-size:10px;letter-spacing
+ </div><p id="hair-colour-help">Choose a base shade, adjust its lightness, or blend in a tint. Apply to see it on your hair.</p>
+ <button class="secondary" id="apply-hair-colour" type="button" disabled>Apply hair colour</button><p id="hair-colour-status" role="status" aria-live="polite"></p>
+ </fieldset></details>
++<details class="hair-colours" id="eye-colours"><summary>Eye colour</summary>
++<fieldset disabled id="eye-colour-controls"><legend class="field-label">Choose eye colour</legend>
++<label for="eye-shade">Colour</label><select id="eye-shade" aria-describedby="eye-colour-help"><option value="original">Original</option><option value="blue">Blue</option></select>
++<p id="eye-colour-help">Apply keeps your clothes and colours in a fresh preview. Orbit, motion and attention start again.</p>
++<button class="secondary" id="apply-eye-colour" type="button">Apply eye colour</button><p id="eye-colour-status" role="status" aria-live="polite">Preparing eye colour…</p>
++</fieldset></details>
+ <fieldset disabled id="framing-controls"><legend>Framing</legend><div class="choices"><button class="choice" data-frame="body">Full look</button><button class="choice" data-frame="portrait">Portrait</button></div></fieldset>
+ <fieldset disabled id="scene-controls"><legend>Scene</legend><div class="choices"><button class="choice" data-scene="studio">Studio</button><button class="choice" data-scene="kitchen">Kitchen</button></div></fieldset>
+ <fieldset disabled id="lighting-controls"><legend>Light</legend><div class="choices"><button class="choice" data-light="studio">Studio</button><button class="choice" data-light="warm">Warm</button><button class="choice" data-light="neutral">Neutral</button></div></fieldset>
+@@ -66,7 +72,7 @@ aside{padding:40px 0 36px}.eyebrow{margin:0 0 14px;font-size:10px;letter-spacing
+ <p class="details"><span>Androgynous body study</span><span id="cut-label">Chin-length bob</span></p>
+ <div class="export"><button class="primary image-save" id="save-image" disabled>Save image (PNG) ↓</button><button class="secondary" id="save" disabled>Save settings (JSON)</button><button class="secondary" id="copy" disabled>Copy settings</button></div>
+ <div class="export" style="margin-top:9px"><button class="secondary image-save" id="open-settings" aria-describedby="settings-help" disabled>Open settings (JSON) ↑</button></div><input id="settings-file" type="file" accept=".json,application/json" aria-label="Open saved wardrobe settings" hidden>
+-<p id="settings-help" style="font-size:11px;color:var(--muted);margin:8px 0 0">Reopen a saved look to restore its clothes, colours, cut, framing and scene.</p>
++<p id="settings-help" style="font-size:11px;color:var(--muted);margin:8px 0 0">Reopen a saved look to restore its clothes, hair and eye colours, cut, framing and scene.</p>
+ <p id="settings-error" role="alert" style="font-size:12px;color:#f3cdb7;margin:10px 0" hidden></p>
+ <details id="saved-looks" class="saved-looks"><summary>Saved looks <span id="saved-look-count">0 / 12</span></summary>
+ <p>Keep up to 12 named looks in this browser. They stay on this site's address and browser profile; clearing browser data removes them. Use a look's Download JSON button to keep a portable copy without opening it.</p>
+@@ -75,7 +81,7 @@ aside{padding:40px 0 36px}.eyebrow{margin:0 0 14px;font-size:10px;letter-spacing
+ <p id="saved-look-empty">Your named looks will appear here.</p><ul id="saved-look-list" aria-label="Saved looks in this browser"></ul><button class="secondary" id="undo-look" type="button" hidden>Undo removal</button></fieldset>
+ <p id="collection-status" role="status" aria-live="polite"></p><p id="collection-error" role="alert" hidden></p></details>
+ <div class="motion-row"><button class="text-button" id="pause" aria-pressed="false" disabled>Pause motion</button><span class="status" id="status" aria-live="polite">Preparing the avatar</span></div>
+-<div class="study-note"><strong>Clothing studies, still in progress.</strong><p>Try coordinated ecru or charcoal colours on both outfits, or revisit their original fabrics in Studio or Kitchen.</p><details><summary>About this study</summary><p>These clothes are available on the current androgynous body only. The denim now falls over the shoes with a roomier lower leg. Neckline and skirt fit still need work; socks remain visible with the skirt. Other body fits are not available here. The foundation layer stays on in every outfit.</p><p>Save image captures the avatar at the current view and canvas size, without the page controls. Saved settings are supported Avatar options. Open settings restores files saved from this study, including mixed combinations. It reloads the look with the same clothes, colours, cut, framing, scene and studio light. Kitchen uses its own lighting. Camera orbit, the motion clock and the current attention action are viewing controls and start fresh. Files stay on your device.</p></details></div>
++<div class="study-note"><strong>Clothing studies, still in progress.</strong><p>Try coordinated ecru or charcoal colours on both outfits, or revisit their original fabrics in Studio or Kitchen.</p><details><summary>About this study</summary><p>These clothes are available on the current androgynous body only. The denim now falls over the shoes with a roomier lower leg. Neckline and skirt fit still need work; socks remain visible with the skirt. Other body fits are not available here. The foundation layer stays on in every outfit.</p><p>Save image captures the avatar at the current view and canvas size, without the page controls. Saved settings are supported Avatar options. Open settings restores files saved from this study, including mixed combinations. It reloads the look with the same clothes, hair and eye colours, cut, framing, scene and studio light. Kitchen uses its own lighting. Camera orbit, the motion clock and the current attention action are viewing controls and start fresh. Files stay on your device.</p></details></div>
+ </aside>
+ </main>
+ <footer><span>Sugata 姿 · A body for an AI</span><span>Wardrobe studies · 01—02</span></footer>
+diff --git a/packages/testbed/src/showcase.js b/packages/testbed/src/showcase.js
+index f36ac00..79c99e7 100644
+--- a/packages/testbed/src/showcase.js
++++ b/packages/testbed/src/showcase.js
+@@ -8,6 +8,7 @@ import { SavedLooks, SAVED_LOOKS_KEY, SAVED_LOOKS_LIMIT, savedLookSelection } fr
+ import { mountPaletteReferences } from './showcase-palette-references.mjs';
+ import './showcase-palette-references.css';
+ import { mountHairColours, hairColourLabel } from './showcase-hair-colours.mjs';
++import { resolveEyeColour } from '../../core/src/material/EyeColourOptions.js';
+ import { sameHairTint } from '../../core/src/material/HairColourOptions.js';
+ import './showcase-hair-colours.css';
+ import { coloursFromSelection, selectionWithColours, writeColourParams, customColourLabel } from './showcase-colours.mjs';
+@@ -34,7 +35,7 @@ const downloadUrls = new Set();
+ // Review links enter the requested editor once controls are ready. Fragment-only
+ // navigation changes disclosure/focus, leaving applied settings and drafts intact.
+ function revealColourEditor() {
+-    if (busy || failed || !['#mix-colours', '#hair-colours'].includes(location.hash)) return;
++    if (busy || failed || !['#mix-colours', '#hair-colours', '#eye-colours'].includes(location.hash)) return;
+     const section = document.getElementById(location.hash.slice(1));
+     section.open = true;
+     section.querySelector('summary').focus({ preventScroll: true });
+@@ -55,6 +56,17 @@ const hairColours = mountHairColours(document.getElementById('hair-colours'), (h
+     releaseAttention({immediate: true}); busy = true; enableControls();
+     setStatus('Preparing hair colour…'); navigationPending = true; location.assign(next.href);
+ });
++document.getElementById('apply-eye-colour').addEventListener('click', () => {
++    if (busy || savingImage || failed || !avatar || avatar.disposed) return;
++    const eyeColour = resolveEyeColour(document.getElementById('eye-shade').value);
++    if (eyeColour === (selected.eyeColour ?? null)) return;
++    const nextSelection = {...selected};
++    if (eyeColour === null) delete nextSelection.eyeColour; else nextSelection.eyeColour = eyeColour;
++    optionsForShowcase(nextSelection);
++    const next = showcaseSettingsUrl(nextSelection, location.href);
++    releaseAttention({immediate: true}); busy = true; enableControls();
++    setStatus('Preparing eye colour…'); navigationPending = true; location.assign(next.href);
++});
+ const colourControls = mountColourControls(document.getElementById('mix-colours'), applyColours);
+ const paletteReferences = mountPaletteReferences(document.getElementById('style-controls'), [
+     {outfit: 'casual', style: 'ecru', src: casualEcru},
+@@ -117,7 +129,7 @@ function renderCollection() {
+             open.setAttribute('aria-describedby', description.id);
+             try {
+                 const look = savedLookSelection(item), style = { ecru: 'Ecru', charcoal: 'Charcoal', original: 'Original' }[look.style];
+-                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style}${customColourLabel(look) ? ` · ${customColourLabel(look)}` : ''} · ${hairColourLabel(look.hairColour, look.hairTint)} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : look.light === 'neutral' ? 'Neutral Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
++                description.textContent = `${look.preset === 'casual' ? 'Chin-length bob' : 'Long bob'} · ${SHOWCASE_OUTFITS[look.outfit].label} · ${style}${customColourLabel(look) ? ` · ${customColourLabel(look)}` : ''} · ${hairColourLabel(look.hairColour, look.hairTint)}${look.eyeColour === 'blue' ? ' · Blue eyes' : ''} · ${look.scene === 'kitchen' ? 'Kitchen' : look.light === 'warm' ? 'Warm Studio' : look.light === 'neutral' ? 'Neutral Studio' : 'Studio'} · ${look.frame === 'portrait' ? 'Portrait' : 'Full look'}`;
+                 recipe = savedColourRecipe(look);
+             } catch { open.dataset.unavailable = download.dataset.unavailable = 'true'; description.textContent = 'Unavailable in this version. You can keep, rename or remove this saved entry.'; }
+             if (recipe) {
+@@ -194,6 +206,7 @@ function updateUrl() {
+     for (const [key, value, normal] of [['style', selected.style, 'ecru'], ['outfit', selected.outfit, preset.outfit], ['frame', selected.frame, 'body'], ['light', selected.light, 'studio'], ['scene', selected.scene, 'studio']])
+         if (value === normal) url.searchParams.delete(key); else url.searchParams.set(key, value);
+     if (selected.hairColour) url.searchParams.set('hairColour', selected.hairColour); else url.searchParams.delete('hairColour');
++    if (selected.eyeColour) url.searchParams.set('eyeColour', selected.eyeColour); else url.searchParams.delete('eyeColour');
+     tintToUrl(url, selected.hairTint);
+     writeColourParams(url.searchParams, selected);
+     history.replaceState(null, '', url);
+@@ -201,6 +214,7 @@ function updateUrl() {
+         const next = new URL(location.href); next.search = ''; next.searchParams.set('preset', link.dataset.preset);
+         if (selected.style !== 'ecru') next.searchParams.set('style', selected.style);
+         if (selected.hairColour) next.searchParams.set('hairColour', selected.hairColour);
++        if (selected.eyeColour) next.searchParams.set('eyeColour', selected.eyeColour);
+         tintToUrl(next, selected.hairTint);
+         if (selected.scene !== 'studio') next.searchParams.set('scene', selected.scene);
+         writeColourParams(next.searchParams, selected);
+@@ -208,7 +222,9 @@ function updateUrl() {
+     }
+ }
+ function refresh() {
+-    const report = avatar.report(); selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
++    const report = avatar.report();
++    document.getElementById('eye-colour-status').textContent = `Applied: ${report.eyes.applied === 'blue' ? 'Blue' : 'Original'}`;
++    selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
+     selected = selectionWithColours(selected, report.wardrobe.appearance.colours);
+     const colours = coloursFromSelection(selected);
+     paletteReferences.update(selected.outfit, selected.style, !!colours);
+@@ -392,6 +408,7 @@ try {
+     // Attachment is observed before controls or export become available; a requested garment is insufficient.
+     configurationFromReport(avatar.report());
+     hairColours.load(selected.hairColour, selected.hairTint);
++    document.getElementById('eye-shade').value = selected.eyeColour ?? 'original';
+     busy = false; refresh(); document.getElementById('loading').hidden = true; setStatus(paused ? 'Motion paused' : 'Live view');
+     for (const button of document.querySelectorAll('[data-cut]')) button.addEventListener('click', () => {
+         if (busy || savingImage || failed || !avatar || avatar.disposed) return;

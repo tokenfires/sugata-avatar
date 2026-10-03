@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-03T20:03:05.120962+00:00",
+  "witness": "Original detached existing owner skips null-applied/false-attached guard; root independently read actual lines. Calibration later dereferences this.eyes, so only catch/report policy retained, no full fallback-construction qualification.",
+  "alternatives": "A actual ownerAvailable plus require matches when present; B all exports require eyes, removing legacy catch/report policy. Choose A. For historical calibration choose precise limited wording, not new calibration behavior.",
+  "changes": [
+    {
+      "file": "packages/core/src/Avatar.js",
+      "old": "            eyes: {\n                requested:",
+      "new": "            eyes: {\n                ownerAvailable: this.eyes !== null,\n                requested:"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "old": "    // Legacy Original/raw-GLB fallback is supported; an optional pigment needs a live owner.\n    if (requestedEyeColour !== appliedEyeColour || (appliedEyeColour !== null || eyes?.attached) &&\n        (!eyes.attached || !eyes.matchesAttached || !eyes.matchesRequest ||",
+      "new": "    // Preserve legacy no-owner Original report policy. Any present owner must still match.\n    const ownerAvailable = eyes?.ownerAvailable ?? eyes?.attached ?? false;\n    if (requestedEyeColour !== appliedEyeColour || (appliedEyeColour !== null || ownerAvailable || eyes?.attached) &&\n        (!ownerAvailable || !eyes.attached || !eyes.matchesAttached || !eyes.matchesRequest ||"
+    },
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "old": "Apply opens a fresh preview with your current clothes and colours.",
+      "new": "Apply keeps your clothes and colours in a fresh preview. Orbit, motion and attention start again."
+    },
+    {
+      "file": "docs/API.md",
+      "old": "Original retains the existing raw-eye fallback.",
+      "new": "Original retains the existing catch/report policy when eye shading is unavailable; complete construction on a figure without eyes is not qualified here."
+    }
+  ]
+}

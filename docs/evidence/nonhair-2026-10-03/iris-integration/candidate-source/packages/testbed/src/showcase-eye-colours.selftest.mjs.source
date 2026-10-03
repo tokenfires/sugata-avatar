@@ -1,0 +1,112 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { resolveEyeColour, eyeChromaticity } from '../../core/src/material/EyeColourOptions.js';
+import { Avatar } from '../../core/src/Avatar.js';
+import { EyeMaterial, findEyeMeshes } from '../../core/src/material/EyeMaterial.js';
+import { optionsForShowcase, resolveShowcaseSelection, configurationFromReport } from './showcase-presets.mjs';
+import { selectionFromConfiguration, showcaseSettingsUrl } from './showcase-settings.mjs';
+import { SavedLooks } from './showcase-collection.mjs';
+
+let groups = 0;
+const check = async (name, fn) => { await fn(); groups++; console.log('PASS ' + name); };
+const selection = query => resolveShowcaseSelection(new URLSearchParams(query));
+const legacy = optionsForShowcase(selection(''));
+const blueVector = [0.46375534541012664, 1.0886445839519705, 1.7009280765008];
+function report(eyes) {
+    return {disposal: {disposed: false}, identity: {gender: .5, bake: 'figure_g050'},
+        eyes, hair: {style: 'bob02', loadedStyle: 'bob02', attached: true},
+        wardrobe: {attached: true, pendingCandidates: 0, appearance: {attached: true, style: 'ecru'},
+            foundation: legacy.wardrobe.foundation, state: {worn: [...legacy.wardrobe.outfit, ...Object.values(legacy.wardrobe.foundation)]}},
+        framing: {mode: 'body'}, scene: {id: 'studio', lighting: {look: 'studio'}},
+        quality: {requested: 'balanced'}, motion: {seed: legacy.seed}};
+}
+const blueReport = () => ({ownerAvailable: true, requested: 'blue', applied: 'blue', attached: true, matchesAttached: true,
+    matchesRequest: true, chromaticity: [...blueVector]});
+await check('strict named option refuses before Avatar allocation and direct eye measurement', async () => {
+    for (const value of [undefined, null, 'original']) assert.equal(resolveEyeColour(value), null);
+    assert.equal(resolveEyeColour('blue'), 'blue');
+    for (const value of ['Blue', '', '#527b97', 'brown', 1, false, [], {}, NaN]) {
+        assert.throws(() => resolveEyeColour(value), /eyeColour/);
+        await assert.rejects(Avatar.create({canvas: {getContext() {throw Error('GPU allocation forbidden');}}, eyeColour: value}), /eyeColour/);
+        assert.throws(() => new EyeMaterial({eyeColour: value}), /eyeColour/);
+    }
+    assert.deepEqual(eyeChromaticity('blue'), blueVector);
+    assert.equal(eyeChromaticity('original'), null);
+});
+await check('legacy default and explicit Original remain exact old options and canonical omission', () => {
+    assert.equal(Object.hasOwn(legacy, 'eyeColour'), false);
+    for (const value of [undefined, null, 'original']) {
+        const input = {...legacy, eyeColour: value};
+        const restored = selectionFromConfiguration(input);
+        assert.deepEqual(optionsForShowcase(restored), legacy);
+        assert.equal(showcaseSettingsUrl(restored, 'http://localhost/src/showcase.html').searchParams.has('eyeColour'), false);
+        assert.deepEqual(input, {...legacy, eyeColour: value});
+    }
+    assert.deepEqual(configurationFromReport(report()), legacy);
+    assert.deepEqual(configurationFromReport(report({requested: null, applied: null, attached: false, matchesAttached: false, matchesRequest: false, chromaticity: null})), legacy);
+    for (const query of ['eyeColour=blue&eyeColour=blue', 'eyeColour=blue&eyeColour=original', 'eyeColour=BLUE', 'eyeColour=#527b97', 'eyeColour='])
+        assert.throws(() => selection(query));
+});
+await check('Blue survives full URL/JSON/settings/local storage and independently combined looks', () => {
+    for (const query of ['', 'preset=elegant&outfit=casual&frame=portrait&style=charcoal&light=neutral', 'scene=kitchen&hairColour=%23765344&hairTintColour=%238063ac&hairTintAmount=.25', 'topColor=%23abb099']) {
+        const current = selection(query + '&eyeColour=blue'), expected = optionsForShowcase(current);
+        const restored = selectionFromConfiguration(JSON.parse(JSON.stringify(expected)));
+        const url = showcaseSettingsUrl(restored, 'http://localhost/src/showcase.html?capture=&debug=old');
+        assert.equal(url.searchParams.get('eyeColour'), 'blue'); assert.equal(url.searchParams.has('debug'), false);
+        assert.deepEqual(optionsForShowcase(selection(url.searchParams.toString())), expected);
+        const values = new Map(), store = {getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value)};
+        const saved = new SavedLooks(() => store, () => 'blue-test');
+        const item = saved.add('Blue look', expected);
+        assert.deepEqual(optionsForShowcase(saved.open(item.id).selection), expected);
+        assert.deepEqual(item.configuration, expected);
+    }
+    assert.deepEqual(configurationFromReport(report(blueReport())), {...legacy, eyeColour: 'blue'});
+});
+await check('requested fallback, detached/replaced owner and altered pigment cannot be saved as applied Blue', () => {
+    for (const mutate of [e => e.applied = null, e => e.requested = null, e => e.attached = false,
+        e => e.ownerAvailable = false, e => e.matchesAttached = false, e => e.matchesRequest = false, e => e.chromaticity[0] += .001,
+        e => e.chromaticity = null]) {
+        const e = blueReport(); mutate(e); assert.throws(() => configurationFromReport(report(e)), /eye colour/);
+    }
+    const original = {ownerAvailable: true, requested: null, applied: null, attached: true, matchesAttached: true, matchesRequest: true, chromaticity: null};
+    assert.deepEqual(configurationFromReport(report(original)), legacy);
+    const detachedOriginal = {...original, attached: false, matchesAttached: false};
+    assert.throws(() => configurationFromReport(report(detachedOriginal)), /eye colour/);
+    const replacedOriginal = {...original, matchesAttached: false};
+    assert.throws(() => configurationFromReport(report(replacedOriginal)), /eye colour/);
+    original.chromaticity = [...blueVector]; assert.throws(() => configurationFromReport(report(original)), /eye colour/);
+});
+await check('actual g050 material owns one pigment node, restores both originals and never disposes borrowed map', async () => {
+    globalThis.self ??= globalThis;
+    globalThis.createImageBitmap ??= async () => ({width: 1, height: 1, close() {}});
+    const {GLTFLoader} = await import('three/addons/loaders/GLTFLoader.js');
+    const bytes = fs.readFileSync(new URL('../../../assets/figures/figure_g050.glb', import.meta.url));
+    const gltf = await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength), '');
+    const {globe, cornea} = findEyeMeshes(gltf.scene), rawGlobe = globe.material, rawCornea = cornea.material;
+    let sourceMapDisposals = 0; rawGlobe.map.addEventListener('dispose', () => sourceMapDisposals++);
+    for (const eyeColour of [undefined, 'original', 'blue']) {
+        const e = new EyeMaterial({globeMesh: globe, corneaMesh: cornea, catchlight: null, eyeColour});
+        assert.equal(e.originalGlobeMaterial, rawGlobe); assert.equal(e.originalCorneaMaterial, rawCornea);
+        assert.equal(e.colour().attached, false); e.attach();
+        assert.deepEqual(e.colour(), {applied: resolveEyeColour(eyeColour), attached: true,
+            chromaticity: eyeColour === 'blue' ? blueVector : null, matchesAttached: true});
+        if (eyeColour === 'blue') {
+            e.irisChromaticityUniform.value.x += .001; assert.equal(e.colour().matchesAttached, false);
+            e.irisChromaticityUniform.value.x = blueVector[0];
+        }
+        globe.material = rawGlobe; assert.equal(e.colour().matchesAttached, false); globe.material = e.globeMaterial;
+        const disposed = []; for (const [name, resource] of [['globe', e.globeMaterial], ['cornea', e.corneaMaterial]])
+            resource.addEventListener('dispose', () => disposed.push(name));
+        e.dispose(); assert.deepEqual(disposed, ['globe', 'cornea']);
+        assert.equal(globe.material, rawGlobe); assert.equal(cornea.material, rawCornea); assert.equal(sourceMapDisposals, 0);
+    }
+    // Missing shells preserve legacy Original fallback but explicitly refuse requested Blue.
+    for (const eyeColour of [null, 'blue']) {
+        const fake = {figure: {root: {traverse() {}}}, eyeColour};
+        const oldWarn = console.warn; console.warn = () => {};
+        try { if (eyeColour === null) assert.doesNotThrow(() => Avatar.prototype.applyEyeShading.call(fake));
+            else assert.throws(() => Avatar.prototype.applyEyeShading.call(fake), /no mesh/); }
+        finally { console.warn = oldWarn; }
+    }
+});
+console.log(`PASS ${groups} eye-colour groups; CPU/schema/lifecycle only, no rendered appearance or GPU qualification`);
