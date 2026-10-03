@@ -1,0 +1,47 @@
+{
+  "archive": "tools/figure-pipeline/.cache/mpfb-2.0.17.zip",
+  "exists": true,
+  "sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87",
+  "relevantMembers": [
+    {
+      "name": "ui/new_human/importerpresets/properties/extra_vertex_groups.json",
+      "bytes": 360
+    },
+    {
+      "name": "ui/new_human/randomize/properties/extra_vertex_groups.json",
+      "bytes": 229
+    },
+    {
+      "name": "ui/new_human/newhuman/properties/extra_vertex_groups.json",
+      "bytes": 346
+    },
+    {
+      "name": "entities/socketobject/_extra_vertex_groups.py",
+      "bytes": 89161
+    },
+    {
+      "name": "data/3dobjs/base.obj",
+      "bytes": 1749303
+    },
+    {
+      "name": "data/mesh_metadata/basemesh_vertex_groups.json",
+      "bytes": 81984
+    },
+    {
+      "name": "data/uv_layers/scalp_solid.json.gz",
+      "bytes": 29269
+    },
+    {
+      "name": "services/exportservice.py",
+      "bytes": 18134
+    },
+    {
+      "name": "services/humanservice.py",
+      "bytes": 86233
+    },
+    {
+      "name": "services/locationservice.py",
+      "bytes": 15297
+    }
+  ]
+}

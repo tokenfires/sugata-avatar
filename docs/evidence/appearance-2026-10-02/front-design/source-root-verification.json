@@ -1,0 +1,62 @@
+{
+  "completed": "2026-10-03T04:20:40.094458+00:00",
+  "decision": "inconclusive-stop-source-recovery-closed",
+  "sourceHashes": {
+    "tools/figure-pipeline/install_deps.sh": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37",
+    "tools/figure-pipeline/mpfb_bridge.py": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88",
+    "tools/figure-pipeline/print_user_data_dir.py": "ebbe18e1e2c9633403a1cc5f23a24f4c89a54916749b58a401f927601a0251ba",
+    "tools/figure-pipeline/verify_install.py": "1a66bbe3b4092f673dc652df008c1b46ac9d062c79b826c8625655abfc75bafe",
+    "tools/figure-pipeline/build_figure.py": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2",
+    "tools/identity-pipeline/build_from_blender.mjs": "7aa732d98ef90c9c30c13910ca5991166fe46ec274699c29cf2530267a245c7b",
+    "tools/identity-pipeline/probe.py": "3ca05191fec91fae6d367b6a5f0044727665a6b801ba10456f2d1ed07a5d9490",
+    "assets/identity/figure-vertex-map.json": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291",
+    "assets/identity/figure-vertex-map.bin": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "docs/evidence/nonhair-2026-09-26/wardrobe-coupling/native-oracle-recovery/README.md": "694adfd0c3d4692cc086955bf622b97aeeea05c3b36fd2194e6b1b134d53a01c",
+    "tools/figure-pipeline/foundation_band_feasibility.mjs": "be46016bd297339c674fe40e3b7a55b47ae92893570fb790845a72ae734a0f94"
+  },
+  "archiveMembers": {
+    "data/3dobjs/base.obj": {
+      "bytes": 1749303,
+      "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+    },
+    "data/mesh_metadata/basemesh_vertex_groups.json": {
+      "bytes": 81984,
+      "sha256": "8cb1417bc55ae5ec8aa99f90734e81ed5fbb556511ff6a2c00e0534b70911444"
+    },
+    "entities/socketobject/_extra_vertex_groups.py": {
+      "bytes": 89161,
+      "sha256": "b27a9391a91344c3e63c4ae73c92f4d14c277e5d2e5cabaa3e2b8089bc5f5e79"
+    },
+    "services/exportservice.py": {
+      "bytes": 18134,
+      "sha256": "3c59c792961bcea68551d49b229e196a42fb70cd4df55e2127a6681b104f7100"
+    },
+    "services/humanservice.py": {
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    "services/locationservice.py": {
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    "services/objectservice.py": {
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    }
+  },
+  "limitations": [
+    "Source group data is present and installer archive hash agrees; exact loaded historical source/deformed neutral dump provenance is not retained in current map metadata.",
+    "Existing map is preserved; historical builder/metadata claims are not rerun or independently qualified here.",
+    "No machine-wide absence claim; no runtime source path query or Blender launch."
+  ],
+  "mapInventory": {
+    "positionCount": 14517,
+    "distinctSources": 13380,
+    "minimum": 0,
+    "maximum": 13379,
+    "inputDeformedDumpHashInMetadata": false,
+    "reportedHistoricalUnmatched": 0,
+    "reportedHistoricalAmbiguous": 0
+  }
+}
