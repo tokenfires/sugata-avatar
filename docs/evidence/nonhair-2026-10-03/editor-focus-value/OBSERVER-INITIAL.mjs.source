@@ -1,0 +1,46 @@
+/** One finite inspection of clothing-editor applied descriptions; no Apply/reload. */
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {ROOT,collectSourceHashes,hashFile} from '../figure-pipeline/collar_replacement_manifest.mjs';
+import {launchProbeBrowser} from '../../packages/core/src/render/MotionProbe.mjs';
+const packet='docs/evidence/nonhair-2026-10-03/editor-focus-value',raw=ROOT+'/captures/clothing-descriptions-2026-10-03-v1';
+assert.ok(Date.now()<Date.parse('2026-10-03T20:49:00Z'),'sole native launch cutoff');assert.ok(!fs.existsSync(raw),'new sole packet');fs.mkdirSync(raw,{recursive:true});
+const matrix=JSON.parse(fs.readFileSync(ROOT+'/'+packet+'/ID-MATRIX.json'));
+const r={pid:process.pid,started:new Date().toISOString(),command:'node tools/critic/clothing-descriptions.mjs',status:'running',sources:collectSourceHashes(ROOT),inputs:Object.fromEntries(['PLAN.md','PROPOSED-CONTRACT.md','ID-MATRIX.json','CRITIC-VALUE.md','CRITIC-CONTRACT.md','CRITIC-PREFLIGHT.md','EDIT.json'].map(n=>[packet+'/'+n,hashFile(ROOT+'/'+packet+'/'+n)])),instrumentSHA256:hashFile(new URL(import.meta.url)),states:[],images:[],errors:[],warnings:[],resources:[],cleanup:{},limits:['Computed Chromium AX descriptions only, not screen-reader speech or accessibility compliance.','UI focus/context images only; no new character/appearance/pose/renderer qualification.','No Apply/navigation/clock/material/asset/storage intervention; one current accepted recipe and mobile viewport.']};
+fs.copyFileSync(new URL(import.meta.url),raw+'/instrument.mjs');const save=()=>fs.writeFileSync(raw+'/report.json',JSON.stringify(r,null,2)+'\n');save();
+const end=Date.now()+90000;let browser,page,cdp,baseline,error;
+async function bounded(fn,label,cleanup=false){let t;try{return await Promise.race([fn(),new Promise((_,rej)=>{t=setTimeout(()=>rej(Error(label+' deadline')),cleanup?10000:Math.max(1,end-Date.now()));})]);}finally{clearTimeout(t);}}
+async function state(label){
+ const s=await page.evaluate(()=>({label:null,url:location.href,configuration:showcase.configuration(),owner:showcase.avatar.bodyMesh.uuid,materials:showcase.avatar.bodyMesh.material.uuid,backend:showcase.avatar.stage.backendName,storage:localStorage.getItem('sugata-saved-looks'),feedback:document.querySelector('[data-colour-feedback]').textContent,applyDisabled:document.querySelector('[data-apply-colours]').disabled,resetDisabled:document.querySelector('[data-reset-colours]').disabled,focused:document.activeElement.outerHTML,focusVisible:document.activeElement.matches(':focus-visible'),rows:Object.fromEntries(['top','bottom','shoes'].map(part=>{const row=document.querySelector(`[data-colour-part=${part}]`);return[part,{applied:row.querySelector('small').textContent,inputs:[...row.querySelectorAll('input')].map(x=>({type:x.type,outerHTML:x.outerHTML,value:x.value,checked:x.checked,disabled:x.disabled,invalid:x.getAttribute('aria-invalid'),refs:x.getAttribute('aria-describedby')?.split(' ').map(id=>({id,count:document.querySelectorAll(`[id="${id}"]`).length,text:document.getElementById(id)?.textContent}))}))}];}))}));
+ s.label=label;assert.equal(s.backend,'webgpu');if(baseline){assert.deepEqual(s.configuration,baseline.configuration);assert.equal(s.owner,baseline.owner);assert.equal(s.materials,baseline.materials);assert.equal(s.storage,baseline.storage);assert.equal(s.url,baseline.url);}else baseline=s;
+ const {root}=await cdp.send('DOM.getDocument');s.ax=[];
+ for(const [part,row]of Object.entries(s.rows))for(const input of row.inputs){
+  assert.deepEqual(input.refs.map(x=>x.id),matrix[part][input.type]);assert.ok(input.refs.every(x=>x.count===1&&x.text));
+  const selector=`[data-colour-part=${part}] input[type=${input.type}]`,{nodeId}=await cdp.send('DOM.querySelector',{nodeId:root.nodeId,selector});assert.ok(nodeId);
+  const ax=await cdp.send('Accessibility.getPartialAXTree',{nodeId,fetchRelatives:false});assert.equal(ax.nodes.length,1);const node=ax.nodes[0];assert.equal(node.ignored,false);
+  const expected=input.type==='checkbox'?`Use custom ${part[0].toUpperCase()+part.slice(1)} colour`:input.type==='text'?`${part[0].toUpperCase()+part.slice(1)} hex colour`:`Pick a new ${part[0].toUpperCase()+part.slice(1)} tint; initial grey is only a proposal`;
+  assert.equal(node.name?.value,expected);const normalized=x=>x.replace(/\s+/g,' ').trim();const description=node.description?.value??'';assert.equal(normalized(description),normalized(input.refs.map(x=>x.text).join(' ')));assert.ok(!description.includes(s.feedback));s.ax.push({part,type:input.type,node});
+ }
+ r.states.push(s);save();return s;
+}
+async function focusTop(){await page.locator('#mix-colours > summary').focus();await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement.type),'checkbox');await page.keyboard.press('Tab');assert.ok(await page.locator('[data-colour-part=top] input[type=text]').evaluate(x=>x===document.activeElement&&x.matches(':focus-visible')));await page.locator('[data-colour-part=top] input[type=text]').scrollIntoViewIfNeeded();}
+async function image(file,s){await page.screenshot({path:raw+'/'+file});assert.deepEqual(await page.evaluate(()=>showcase.configuration()),baseline.configuration);r.images.push({file,sha256:hashFile(raw+'/'+file),state:s.label,viewport:page.viewportSize()});save();}
+try{
+ browser=await bounded(()=>launchProbeBrowser(),'browser');page=await bounded(()=>browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1,reducedMotion:'reduce'}),'page');page.setDefaultTimeout(15000);
+ page.on('pageerror',e=>r.errors.push({at:new Date().toISOString(),text:e.stack??e.message}));page.on('console',m=>{if(m.type()==='error')r.errors.push({at:new Date().toISOString(),text:m.text()});if(m.type()==='warning')r.warnings.push({at:new Date().toISOString(),text:m.text()});});page.on('requestfailed',q=>r.resources.push({at:new Date().toISOString(),url:q.url(),failure:q.failure()}));page.on('response',q=>{if(q.status()>=400)r.resources.push({at:new Date().toISOString(),url:q.url(),status:q.status()});});
+ await bounded(()=>page.goto('http://127.0.0.1:5173/packages/testbed/src/showcase.html?capture&preset=casual&frame=portrait&topColor=%23617a70#mix-colours'),'initial navigation');await bounded(()=>page.waitForFunction(()=>window.showcase||!document.querySelector('#error').hidden),'ready');assert.equal(await page.locator('#error').textContent(),'');
+ cdp=await page.context().newCDPSession(page);await cdp.send('Accessibility.enable');await focusTop();let s=await state('initial');assert.equal(s.rows.top.applied,'Applied: #617a70');await image('desktop-top-focus.png',s);
+ await page.locator('[data-colour-part=top] input[type=text]').fill('#bad');s=await state('invalidTop');assert.equal(s.rows.top.inputs[1].invalid,'true');assert.equal(s.applyDisabled,true);
+ await page.locator('[data-colour-part=top] input[type=text]').fill('#123456');s=await state('validTopDraft');assert.equal(s.rows.top.inputs[1].invalid,'false');assert.equal(s.applyDisabled,false);assert.match(s.feedback,/Draft only/);assert.equal(s.rows.top.applied,'Applied: #617a70');
+ await page.locator('[data-colour-part=bottom] input[type=checkbox]').check();s=await state('unrelatedBottomInvalid');assert.equal(s.rows.bottom.inputs[1].invalid,'true');assert.equal(s.rows.top.inputs[1].invalid,'false');assert.equal(s.applyDisabled,true);
+ await page.locator('[data-reset-colours]').click();s=await state('reset');assert.deepEqual(s.rows,baseline.rows);assert.equal(s.applyDisabled,true);assert.equal(s.resetDisabled,true);
+ await page.setViewportSize({width:390,height:844});await focusTop();s=await state('mobileReset');await image('mobile-top-focus.png',s);
+ assert.deepEqual(collectSourceHashes(ROOT),r.sources);r.sourcePinsUnchanged=true;assert.equal(r.resources.length,0);assert.equal(r.errors.length,0);r.status='passed';
+}catch(e){error=e;r.status='failed';r.errors.push({at:new Date().toISOString(),text:e.stack??e.message});}
+finally{
+ if(page&&!page.isClosed())try{r.cleanup.avatar=await bounded(()=>page.evaluate(()=>{showcase.attention.dispose();showcase.controls.dispose();showcase.avatar.dispose();return showcase.avatar.report().disposal;}),'Avatar retirement',true);assert.deepEqual(r.cleanup.avatar,{disposed:true,leaked:[]});}catch(e){error??=e;r.status='failed';r.errors.push({at:new Date().toISOString(),text:e.stack??e.message});}
+ if(page)try{await bounded(()=>page.close(),'page close',true);r.cleanup.page='closed';}catch(e){error??=e;r.status='failed';r.errors.push({at:new Date().toISOString(),text:e.stack??e.message});}
+ if(browser)try{await bounded(()=>browser.close(),'browser close',true);r.cleanup.browser='closed';}catch(e){error??=e;r.status='failed';r.errors.push({at:new Date().toISOString(),text:e.stack??e.message});}
+ if(r.errors.length||r.resources.length)r.status='failed';r.finished=new Date().toISOString();save();console.log(JSON.stringify({pid:r.pid,status:r.status,states:r.states.length,images:r.images.length,errors:r.errors.length,resources:r.resources.length,cleanup:r.cleanup}));
+}
+if(error||r.status!=='passed')process.exitCode=1;

@@ -1,0 +1,73 @@
+{
+  "status": "source-qualified",
+  "pid": 95433,
+  "startedUTC": "2026-10-03T20:46:59.772195+00:00",
+  "finishedUTC": "2026-10-03T20:46:59.773686+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/editor-focus-value/critic-source-check.py",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "readerSHA256": "a0afef865d77365cc59a931b8721eecf8f0acc4f3c61795f4cfebfef6434e3af",
+  "exact14AttributesReverseToBefore": true,
+  "allIDsUnique": true,
+  "nineControls": [
+    {
+      "part": "top",
+      "type": "checkbox",
+      "describedBy": "top-colour-applied clothing-colour-guidance"
+    },
+    {
+      "part": "top",
+      "type": "text",
+      "describedBy": "top-colour-applied clothing-colour-guidance"
+    },
+    {
+      "part": "top",
+      "type": "color",
+      "describedBy": "top-colour-applied clothing-colour-guidance clothing-picker-help"
+    },
+    {
+      "part": "bottom",
+      "type": "checkbox",
+      "describedBy": "bottom-colour-applied clothing-colour-guidance"
+    },
+    {
+      "part": "bottom",
+      "type": "text",
+      "describedBy": "bottom-colour-applied clothing-colour-guidance"
+    },
+    {
+      "part": "bottom",
+      "type": "color",
+      "describedBy": "bottom-colour-applied clothing-colour-guidance clothing-picker-help"
+    },
+    {
+      "part": "shoes",
+      "type": "checkbox",
+      "describedBy": "shoes-colour-applied clothing-colour-guidance"
+    },
+    {
+      "part": "shoes",
+      "type": "text",
+      "describedBy": "shoes-colour-applied clothing-colour-guidance"
+    },
+    {
+      "part": "shoes",
+      "type": "color",
+      "describedBy": "shoes-colour-applied clothing-colour-guidance clothing-picker-help"
+    }
+  ],
+  "pins": {
+    "packages/testbed/src/showcase.html": "77a045a1c885662f7847fe2f59acde24c166502d99e37e180cc4fc8cdb03802b",
+    "packages/testbed/src/showcase.js": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189",
+    "packages/testbed/src/showcase-colour-controls.mjs": "16042662a79de2ba1469c4addf3b4c8ad6607a8004681003e007dc28a9961b88",
+    "packages/testbed/src/showcase-colour-controls.css": "f35072f31f03bd6d74e5be216ea7f781311a1781afb2765c455588921134699e",
+    "packages/testbed/src/showcase-hair-colours.css": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678",
+    "packages/testbed/src/showcase-presets.mjs": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+    "packages/testbed/src/showcase-collection.mjs": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "tools/critic/clothing-descriptions.mjs": "64277d78eb94e69b9023e080c9250090f7077b8ed451d4ed2f112ba5bd38f445",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/PROPOSED-CONTRACT.md": "d49e203e63230dd5ab7aca43650f082705d77b5a67e2b130189e37576b2a22e2",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/ID-MATRIX.json": "3806ad5c325f97f411dbeae37b5d2c5b1e525e1ab790d5b9039aab5cec12b0fd",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/EDIT.json": "94b5e3a9556fcc740ffaba8d4defb3c3773b4768f5ac6b667cb4b5e131a9ff98"
+  },
+  "scope": "fs/HTML source-only readback, no runtime, browser, AX, shader, geometry or appearance qualification"
+}

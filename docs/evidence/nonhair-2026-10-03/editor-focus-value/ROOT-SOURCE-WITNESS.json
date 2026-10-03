@@ -1,0 +1,51 @@
+{
+  "pid": 70833,
+  "started": "2026-10-03T20:33:54.795000+00:00",
+  "finished": "2026-10-03T20:33:54.795409+00:00",
+  "htmlSHA256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb",
+  "rows": [
+    {
+      "part": "top",
+      "inputs": [
+        "<input type=\"checkbox\">",
+        "<input type=\"text\" aria-label=\"Top hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled>",
+        "<input type=\"color\" aria-label=\"Pick a new Top tint; initial grey is only a proposal\" value=\"#808080\" disabled>"
+      ],
+      "hasNearbyAppliedText": true,
+      "allDescriptionsAbsent": true
+    },
+    {
+      "part": "bottom",
+      "inputs": [
+        "<input type=\"checkbox\">",
+        "<input type=\"text\" aria-label=\"Bottom hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled>",
+        "<input type=\"color\" aria-label=\"Pick a new Bottom tint; initial grey is only a proposal\" value=\"#808080\" disabled>"
+      ],
+      "hasNearbyAppliedText": true,
+      "allDescriptionsAbsent": true
+    },
+    {
+      "part": "shoes",
+      "inputs": [
+        "<input type=\"checkbox\">",
+        "<input type=\"text\" aria-label=\"Shoes hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled>",
+        "<input type=\"color\" aria-label=\"Pick a new Shoes tint; initial grey is only a proposal\" value=\"#808080\" disabled>"
+      ],
+      "hasNearbyAppliedText": true,
+      "allDescriptionsAbsent": true
+    }
+  ],
+  "scope": "literal HTML/CSS source witness only; no speech/AX/viewport/compliance finding",
+  "focusDecision": "no new focus styling justified",
+  "alternatives": [
+    {
+      "option": "Associate existing per-part Applied text and existing guidance with controls",
+      "tradeoff": "small semantic markup change, current visual/behavior owners retained; repeated guidance may be verbose"
+    },
+    {
+      "option": "Include applied value and instructions in each accessible/visible label",
+      "tradeoff": "more self-contained naming but verbose names and broader visible-label/dynamic synchronization work"
+    }
+  ],
+  "next": "critic worth and exact contract before production mutation/native"
+}

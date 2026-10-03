@@ -1,0 +1,5 @@
+# Recovery after deferred description slice
+
+Accepted HTML restored exactly. Fourteen-attribute source candidate retained; pages build/source predicates pass, but sole late node99261 refuses at launch guard before any browser/AX/image. Do not execute again, change cutoff, or treat source proofs as runtime qualification. Root/critic receipts and all logs bind exact history. Hair, iris integration and this semantic slice stay deferred.
+
+No owned work job remains; review1023/5173 and ACTIVEsame-chatten-minute recovery retained. Verify current jobs/latest human steering before work. Next fresh worth decision should choose a useful supported character/wardrobe design with actual references and finite face/outfit/expression/motion evidence, without a new geometry, representation or AAA claim. Full roadmap remains open. Human check-in receives concise status before new substantial slice; stop safely checkpoints and pauses app automation with readback. No push/publish/capacity/model/subscription/reset-credit/other-project action.

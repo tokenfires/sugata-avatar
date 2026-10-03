@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-03T20:41:25.756363+00:00",
+  "reason": "Root source read found Avatar exposes figure.root/body, not nonexistent bodyMesh; compare exact actual body/root/material UUID arrays before any execution",
+  "beforeSHA256": "6f78e4155a7809d64c1845e11cd18e09d2b57d650fb9b0170735e9bbba200180",
+  "afterSHA256": "f149788956f08afb3941223150c8c5e1c7f6a6d5704f14ad9303999b9b28a2d7",
+  "URLStorageCorrection": {
+    "at": "2026-10-03T20:41:44.140876+00:00",
+    "reason": "actual Vite testbed root uses /src/showcase.html; collection uses exact SAVED_LOOKS_KEY. Corrected before native execution.",
+    "beforeSHA256": "f149788956f08afb3941223150c8c5e1c7f6a6d5704f14ad9303999b9b28a2d7",
+    "afterSHA256": "6ed6c94c31effb2f4baf5e4b00ce554ece57c69a34be4bc024e44cc08aeda4f9"
+  },
+  "WholeBoundRequestedFinalReadback": {
+    "at": "2026-10-03T20:42:35.072626+00:00",
+    "reason": "whole90-second observer bound including AX/input/screenshot; literal initial configuration comparison; final source/input/instrument pins after independent cleanup before terminal status",
+    "beforeSHA256": "6ed6c94c31effb2f4baf5e4b00ce554ece57c69a34be4bc024e44cc08aeda4f9",
+    "afterSHA256": "d0ed8061be61d89f3c847a5fdbc3cf5b24a44bc5cb0ec05aa00dbf2ff0ba8652"
+  },
+  "ActualFailureRetention": {
+    "at": "2026-10-03T20:44:20.578950+00:00",
+    "reason": "critic source finding: persist whole actual state before gates and each complete AX response before its assertions; completed marker only after all nine qualify; no predicate/recipe/product change",
+    "beforeSHA256": "d0ed8061be61d89f3c847a5fdbc3cf5b24a44bc5cb0ec05aa00dbf2ff0ba8652",
+    "afterSHA256": "6931fa26b3a215283dd7e4769cac1684c8537884351a871225b075ad5b787be5"
+  },
+  "LiteralURL": {
+    "at": "2026-10-03T20:44:45.218707+00:00",
+    "reason": "critic: resolve/save requestedConfiguration from exact declared requestedURL before navigation rather than potentially canonicalized page.url(); no predicate/recipe/product change",
+    "beforeSHA256": "6931fa26b3a215283dd7e4769cac1684c8537884351a871225b075ad5b787be5",
+    "afterSHA256": "64277d78eb94e69b9023e080c9250090f7077b8ed451d4ed2f112ba5bd38f445"
+  }
+}

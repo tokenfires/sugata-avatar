@@ -1,0 +1,6 @@
+import urllib.request,json,datetime,hashlib,pathlib,os
+start=datetime.datetime.now(datetime.timezone.utc).isoformat();url='https://raw.githubusercontent.com/ChromeDevTools/devtools-protocol/master/json/browser_protocol.json'
+data=urllib.request.urlopen(url,timeout=20).read();r=json.loads(data);a=next(d for d in r['domains'] if d['domain']=='Accessibility');d=next(d for d in r['domains'] if d['domain']=='DOM')
+chosen=dict(accessibilityCommands=[x for x in a['commands'] if x['name'] in ['enable','getPartialAXTree']],accessibilityTypes=[x for x in a['types'] if x['id'] in ['AXNode','AXValue']],domCommands=[x for x in d['commands'] if x['name']in['getDocument','querySelector']])
+out=dict(pid=os.getpid(),started=start,finished=datetime.datetime.now(datetime.timezone.utc).isoformat(),url=url,sourceSHA256=hashlib.sha256(data).hexdigest(),schema=chosen,scope='Current official protocol source relevant excerpt; documentation only, not runtime support qualification')
+q=pathlib.Path('docs/evidence/nonhair-2026-10-03/editor-focus-value/CDP-REFERENCE.json');q.write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:out[k]for k in ['pid','started','finished','sourceSHA256']}));print(json.dumps(chosen['accessibilityCommands']))

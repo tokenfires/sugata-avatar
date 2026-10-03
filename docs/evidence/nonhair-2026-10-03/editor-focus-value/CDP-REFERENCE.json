@@ -1,0 +1,237 @@
+{
+  "pid": 76261,
+  "started": "2026-10-03T20:36:57.935504+00:00",
+  "finished": "2026-10-03T20:36:58.381413+00:00",
+  "url": "https://raw.githubusercontent.com/ChromeDevTools/devtools-protocol/master/json/browser_protocol.json",
+  "sourceSHA256": "37b77cd1dadbef05c627f7c0578b15c212577493cbb6f234aef144633646ee6c",
+  "schema": {
+    "accessibilityCommands": [
+      {
+        "name": "enable",
+        "description": "Enables the accessibility domain which causes `AXNodeId`s to remain consistent between method calls.\nThis turns on accessibility for the page, which can impact performance until accessibility is disabled."
+      },
+      {
+        "name": "getPartialAXTree",
+        "description": "Fetches the accessibility node and partial accessibility tree for this DOM node, if it exists.",
+        "experimental": true,
+        "parameters": [
+          {
+            "name": "nodeId",
+            "description": "Identifier of the node to get the partial accessibility tree for.",
+            "optional": true,
+            "$ref": "DOM.NodeId"
+          },
+          {
+            "name": "backendNodeId",
+            "description": "Identifier of the backend node to get the partial accessibility tree for.",
+            "optional": true,
+            "$ref": "DOM.BackendNodeId"
+          },
+          {
+            "name": "objectId",
+            "description": "JavaScript object id of the node wrapper to get the partial accessibility tree for.",
+            "optional": true,
+            "$ref": "Runtime.RemoteObjectId"
+          },
+          {
+            "name": "fetchRelatives",
+            "description": "Whether to fetch this node's ancestors, siblings and children. Defaults to true.",
+            "optional": true,
+            "type": "boolean"
+          }
+        ],
+        "returns": [
+          {
+            "name": "nodes",
+            "description": "The `Accessibility.AXNode` for this DOM node, if it exists, plus its ancestors, siblings and\nchildren, if requested.",
+            "type": "array",
+            "items": {
+              "$ref": "AXNode"
+            }
+          }
+        ]
+      }
+    ],
+    "accessibilityTypes": [
+      {
+        "id": "AXValue",
+        "description": "A single computed AX property.",
+        "type": "object",
+        "properties": [
+          {
+            "name": "type",
+            "description": "The type of this value.",
+            "$ref": "AXValueType"
+          },
+          {
+            "name": "value",
+            "description": "The computed value of this property.",
+            "optional": true,
+            "type": "any"
+          },
+          {
+            "name": "relatedNodes",
+            "description": "One or more related nodes, if applicable.",
+            "optional": true,
+            "type": "array",
+            "items": {
+              "$ref": "AXRelatedNode"
+            }
+          },
+          {
+            "name": "sources",
+            "description": "The sources which contributed to the computation of this property.",
+            "optional": true,
+            "type": "array",
+            "items": {
+              "$ref": "AXValueSource"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AXNode",
+        "description": "A node in the accessibility tree.",
+        "type": "object",
+        "properties": [
+          {
+            "name": "nodeId",
+            "description": "Unique identifier for this node.",
+            "$ref": "AXNodeId"
+          },
+          {
+            "name": "ignored",
+            "description": "Whether this node is ignored for accessibility",
+            "type": "boolean"
+          },
+          {
+            "name": "ignoredReasons",
+            "description": "Collection of reasons why this node is hidden.",
+            "optional": true,
+            "type": "array",
+            "items": {
+              "$ref": "AXProperty"
+            }
+          },
+          {
+            "name": "role",
+            "description": "This `Node`'s role, whether explicit or implicit.",
+            "optional": true,
+            "$ref": "AXValue"
+          },
+          {
+            "name": "chromeRole",
+            "description": "This `Node`'s Chrome raw role.",
+            "optional": true,
+            "$ref": "AXValue"
+          },
+          {
+            "name": "name",
+            "description": "The accessible name for this `Node`.",
+            "optional": true,
+            "$ref": "AXValue"
+          },
+          {
+            "name": "description",
+            "description": "The accessible description for this `Node`.",
+            "optional": true,
+            "$ref": "AXValue"
+          },
+          {
+            "name": "value",
+            "description": "The value for this `Node`.",
+            "optional": true,
+            "$ref": "AXValue"
+          },
+          {
+            "name": "properties",
+            "description": "All other properties",
+            "optional": true,
+            "type": "array",
+            "items": {
+              "$ref": "AXProperty"
+            }
+          },
+          {
+            "name": "parentId",
+            "description": "ID for this node's parent.",
+            "optional": true,
+            "$ref": "AXNodeId"
+          },
+          {
+            "name": "childIds",
+            "description": "IDs for each of this node's child nodes.",
+            "optional": true,
+            "type": "array",
+            "items": {
+              "$ref": "AXNodeId"
+            }
+          },
+          {
+            "name": "backendDOMNodeId",
+            "description": "The backend ID for the associated DOM node, if any.",
+            "optional": true,
+            "$ref": "DOM.BackendNodeId"
+          },
+          {
+            "name": "frameId",
+            "description": "The frame ID for the frame associated with this nodes document.",
+            "optional": true,
+            "$ref": "Page.FrameId"
+          }
+        ]
+      }
+    ],
+    "domCommands": [
+      {
+        "name": "getDocument",
+        "description": "Returns the root DOM node (and optionally the subtree) to the caller.\nImplicitly enables the DOM domain events for the current target.",
+        "parameters": [
+          {
+            "name": "depth",
+            "description": "The maximum depth at which children should be retrieved, defaults to 1. Use -1 for the\nentire subtree or provide an integer larger than 0.",
+            "optional": true,
+            "type": "integer"
+          },
+          {
+            "name": "pierce",
+            "description": "Whether or not iframes and shadow roots should be traversed when returning the subtree\n(default is false).",
+            "optional": true,
+            "type": "boolean"
+          }
+        ],
+        "returns": [
+          {
+            "name": "root",
+            "description": "Resulting node.",
+            "$ref": "Node"
+          }
+        ]
+      },
+      {
+        "name": "querySelector",
+        "description": "Executes `querySelector` on a given node.",
+        "parameters": [
+          {
+            "name": "nodeId",
+            "description": "Id of the node to query upon.",
+            "$ref": "NodeId"
+          },
+          {
+            "name": "selector",
+            "description": "Selector string.",
+            "type": "string"
+          }
+        ],
+        "returns": [
+          {
+            "name": "nodeId",
+            "description": "Query selector result.",
+            "$ref": "NodeId"
+          }
+        ]
+      }
+    ]
+  },
+  "scope": "Current official protocol source relevant excerpt; documentation only, not runtime support qualification"
+}

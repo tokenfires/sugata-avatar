@@ -1,0 +1,57 @@
+{
+  "pid": 90062,
+  "started": "2026-10-03T20:44:20.625793+00:00",
+  "finished": "2026-10-03T20:44:20.628701+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/editor-focus-value/root-source-readback.py",
+  "readerSHA256": "ed0a9a8a5a5178fbd61ef24dd3aeab2189e1a2cb57b68d6679de2919377599e4",
+  "pins": {
+    "packages/testbed/src/showcase.html": "77a045a1c885662f7847fe2f59acde24c166502d99e37e180cc4fc8cdb03802b",
+    "packages/testbed/src/showcase.js": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189",
+    "packages/testbed/src/showcase-colour-controls.mjs": "16042662a79de2ba1469c4addf3b4c8ad6607a8004681003e007dc28a9961b88",
+    "packages/testbed/src/showcase-colour-controls.css": "f35072f31f03bd6d74e5be216ea7f781311a1781afb2765c455588921134699e",
+    "packages/testbed/src/showcase-hair-colours.mjs": "dfa9f8a20d6f2f3de811daa09da04310fbb4117b3201ee699de93df7016c33ac",
+    "packages/testbed/src/showcase-hair-colours.css": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/PLAN.md": "237613df6a77761ce47748ca24c998bce4af52d27ca45a67201c40bc0bd42671",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/PROPOSED-CONTRACT.md": "d49e203e63230dd5ab7aca43650f082705d77b5a67e2b130189e37576b2a22e2",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/ID-MATRIX.json": "3806ad5c325f97f411dbeae37b5d2c5b1e525e1ab790d5b9039aab5cec12b0fd",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/CRITIC-VALUE.md": "20315368dfad665a757fc8be53d052b8c6ffa48035be3af3eced29beba245ece",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/CRITIC-CONTRACT.md": "337918170c77a3b56877227c35d4ecf6249ae4f5d482a06dbee7695739b1575b",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/EDIT.json": "94b5e3a9556fcc740ffaba8d4defb3c3773b4768f5ac6b667cb4b5e131a9ff98",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/ROOT-SOURCE-WITNESS.json": "bcd9477b4a2b6d8dbd9c0ef12d7c6d98ce5da588e8e44440cf5ce4b6d97aab31",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/CDP-REFERENCE.json": "4196d1c6d0e33e4c39160fcf9473f1644c66f5a1e8b9f84c80c28e3a9b341837",
+    "docs/evidence/nonhair-2026-10-03/editor-focus-value/OBSERVER-CORRECTIONS.json": "d149aa645f63495d5fce3a1f864da7ad435d8afc48c8eed721da46b81d9d36cc",
+    "tools/critic/clothing-descriptions.mjs": "6931fa26b3a215283dd7e4769cac1684c8537884351a871225b075ad5b787be5",
+    "docs/evidence/nonhair-2026-10-03/mobile-toolbar/archive/capture/mobile-body.png": "35762fafc996857da75b97fe6ad86e21c294ef0f97b9d939ada7156e515dd3b6",
+    "docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png": "82f8b02ff93380de2f88023b7f4c39da1411e213c47b8e845244cc4bb21567e5",
+    "docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/mobile-chin-bob.png": "8aa09475e8127b0318addb6ef8d86ce1e46edfa898d82cbfabfbf91d191078bd"
+  },
+  "insertions": {
+    "newIDs": 5,
+    "newDescriptions": 9
+  },
+  "imagesViewedUnedited": {
+    "docs/evidence/nonhair-2026-10-03/mobile-toolbar/archive/capture/mobile-body.png": {
+      "sha256": "35762fafc996857da75b97fe6ad86e21c294ef0f97b9d939ada7156e515dd3b6",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png": {
+      "sha256": "82f8b02ff93380de2f88023b7f4c39da1411e213c47b8e845244cc4bb21567e5",
+      "size": [
+        1440,
+        2060
+      ]
+    },
+    "docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/mobile-chin-bob.png": {
+      "sha256": "8aa09475e8127b0318addb6ef8d86ce1e46edfa898d82cbfabfbf91d191078bd",
+      "size": [
+        390,
+        2616
+      ]
+    }
+  },
+  "decision": "only semantic source admission; no native/AX/speech/compliance/appearance pass",
+  "limits": "existing Reset ring confirms focus witness; both cut originals show collapsed editor and do not witness expanded descriptions"
+}

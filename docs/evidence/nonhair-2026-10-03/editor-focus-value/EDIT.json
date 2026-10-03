@@ -1,0 +1,33 @@
+{
+  "pid": 83608,
+  "started": "2026-10-03T20:40:53.094902+00:00",
+  "finished": "2026-10-03T20:40:53.095657+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/editor-focus-value/edit.py",
+  "sourceSHA256": "32b71d4f10b49e1a3a24987b6d438b24206db8c378cbe3241a27c8fb3cb10ac2",
+  "beforeSHA256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb",
+  "afterSHA256": "77a045a1c885662f7847fe2f59acde24c166502d99e37e180cc4fc8cdb03802b",
+  "changes": [
+    {
+      "before": "<p data-colour-guidance>",
+      "after": "<p id=\"clothing-colour-guidance\" data-colour-guidance>"
+    },
+    {
+      "before": "<p>The picker starts with a proposed grey,",
+      "after": "<p id=\"clothing-picker-help\">The picker starts with a proposed grey,"
+    },
+    {
+      "before": "<div class=\"colour-part\" data-colour-part=\"top\"><label><input type=\"checkbox\">Use custom Top colour</label><small>Applied: <span data-current-colour>Base palette</span></small><input type=\"text\" aria-label=\"Top hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled><input type=\"color\" aria-label=\"Pick a new Top tint; initial grey is only a proposal\" value=\"#808080\" disabled>",
+      "after": "<div class=\"colour-part\" data-colour-part=\"top\"><label><input type=\"checkbox\" aria-describedby=\"top-colour-applied clothing-colour-guidance\">Use custom Top colour</label><small id=\"top-colour-applied\">Applied: <span data-current-colour>Base palette</span></small><input type=\"text\" aria-describedby=\"top-colour-applied clothing-colour-guidance\" aria-label=\"Top hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled><input type=\"color\" aria-describedby=\"top-colour-applied clothing-colour-guidance clothing-picker-help\" aria-label=\"Pick a new Top tint; initial grey is only a proposal\" value=\"#808080\" disabled>"
+    },
+    {
+      "before": "<div class=\"colour-part\" data-colour-part=\"bottom\"><label><input type=\"checkbox\">Use custom Bottom colour</label><small>Applied: <span data-current-colour>Base palette</span></small><input type=\"text\" aria-label=\"Bottom hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled><input type=\"color\" aria-label=\"Pick a new Bottom tint; initial grey is only a proposal\" value=\"#808080\" disabled>",
+      "after": "<div class=\"colour-part\" data-colour-part=\"bottom\"><label><input type=\"checkbox\" aria-describedby=\"bottom-colour-applied clothing-colour-guidance\">Use custom Bottom colour</label><small id=\"bottom-colour-applied\">Applied: <span data-current-colour>Base palette</span></small><input type=\"text\" aria-describedby=\"bottom-colour-applied clothing-colour-guidance\" aria-label=\"Bottom hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled><input type=\"color\" aria-describedby=\"bottom-colour-applied clothing-colour-guidance clothing-picker-help\" aria-label=\"Pick a new Bottom tint; initial grey is only a proposal\" value=\"#808080\" disabled>"
+    },
+    {
+      "before": "<div class=\"colour-part\" data-colour-part=\"shoes\"><label><input type=\"checkbox\">Use custom Shoes colour</label><small>Applied: <span data-current-colour>Base palette</span></small><input type=\"text\" aria-label=\"Shoes hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled><input type=\"color\" aria-label=\"Pick a new Shoes tint; initial grey is only a proposal\" value=\"#808080\" disabled>",
+      "after": "<div class=\"colour-part\" data-colour-part=\"shoes\"><label><input type=\"checkbox\" aria-describedby=\"shoes-colour-applied clothing-colour-guidance\">Use custom Shoes colour</label><small id=\"shoes-colour-applied\">Applied: <span data-current-colour>Base palette</span></small><input type=\"text\" aria-describedby=\"shoes-colour-applied clothing-colour-guidance\" aria-label=\"Shoes hex colour\" placeholder=\"#RRGGBB\" maxlength=\"7\" spellcheck=\"false\" autocomplete=\"off\" disabled><input type=\"color\" aria-describedby=\"shoes-colour-applied clothing-colour-guidance clothing-picker-help\" aria-label=\"Pick a new Shoes tint; initial grey is only a proposal\" value=\"#808080\" disabled>"
+    }
+  ],
+  "attributes": 14,
+  "scope": "only HTML attribute insertions; no text/CSS/JS/runtime change"
+}
