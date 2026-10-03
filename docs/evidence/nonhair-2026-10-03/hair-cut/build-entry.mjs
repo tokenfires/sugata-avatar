@@ -1,0 +1,8 @@
+import {build} from 'vite';import fs from 'node:fs';import path from 'node:path';import{createHash}from'node:crypto';
+const root='/Users/robault/GitHub/sugata-avatar',base=root+'/docs/evidence/nonhair-2026-10-03/hair-cut/checks',out=root+'/captures/wardrobe-hair-cut-targeted-build-2026-10-03-v1',started=new Date().toISOString();
+const sha=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex');assertAbsent(out);function assertAbsent(p){if(fs.existsSync(p))throw Error('One targeted build only');}
+const options={build:{outDir:out,rollupOptions:{input:root+'/packages/testbed/src/showcase.html'}}};let result,error;
+try{await build(options);if(!fs.existsSync(out+'/src/showcase.html'))throw Error('Showcase entry missing');result='passed';}catch(e){result='failed';error=e;}
+const walk=p=>fs.existsSync(p)?fs.readdirSync(p,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(p,e.name)):[path.join(p,e.name)]):[];
+const outputs=Object.fromEntries(walk(out).map(p=>[path.relative(root,p),{sha256:sha(p),bytes:fs.statSync(p).size}]));
+const receipt={command:'node docs/evidence/nonhair-2026-10-03/hair-cut/build-entry.mjs',pid:process.pid,started,finished:new Date().toISOString(),result,error:error?.stack,options,sourceHashes:Object.fromEntries(['showcase.js','showcase.html'].map(n=>['packages/testbed/src/'+n,sha(root+'/packages/testbed/src/'+n)])),scriptSHA256:sha(new URL(import.meta.url)),outputs};fs.writeFileSync(base+'/targeted-build.json',JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify({pid:process.pid,result,files:Object.keys(outputs).length,bytes:Object.values(outputs).reduce((sum,e)=>sum+e.bytes,0),receiptSHA256:sha(base+'/targeted-build.json')}));if(error)throw error;

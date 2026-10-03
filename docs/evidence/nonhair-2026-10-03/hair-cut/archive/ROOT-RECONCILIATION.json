@@ -1,0 +1,71 @@
+{
+  "pid": 71734,
+  "started": "2026-10-03T11:18:50.062034+00:00",
+  "finished": "2026-10-03T11:18:50.487521+00:00",
+  "status": "root-native-data-and-source-provenance-passed",
+  "reportSHA256": "c5b08ca36d2dc97a60e402ef098527eb4ae2458c8ce82f758c6985d1757c2e33",
+  "instrumentSHA256": "a1c6252187335700523627777f851b821000ce742aa87fab321e33055abe9906",
+  "sourcePins": 380,
+  "priorPreservationPins": 397,
+  "intentionalProductChanges": [
+    "packages/testbed/src/showcase.html",
+    "packages/testbed/src/showcase.js"
+  ],
+  "cutTransitions": 2,
+  "actualJSONReopen": true,
+  "layoutRecords": 5,
+  "assetResponses": 31,
+  "uniqueGLBs": 8,
+  "navigationRetirements": 4,
+  "finalManualRetirement": {
+    "disposed": true,
+    "leaked": []
+  },
+  "targetedBuildFiles": 72,
+  "targetedBuildBytes": 129949900,
+  "images": [
+    {
+      "file": "desktop-before.png",
+      "sha256": "37667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035",
+      "width": 1440,
+      "height": 2060,
+      "bytes": 788268
+    },
+    {
+      "file": "desktop-long-bob.png",
+      "sha256": "82f8b02ff93380de2f88023b7f4c39da1411e213c47b8e845244cc4bb21567e5",
+      "width": 1440,
+      "height": 2060,
+      "bytes": 866140
+    },
+    {
+      "file": "mobile-before.png",
+      "sha256": "a38224e7a5bcd0bc6796d41ca88ab70f4b05d7877e1586954215dfeaf79f2b20",
+      "width": 390,
+      "height": 2616,
+      "bytes": 306065
+    },
+    {
+      "file": "mobile-chin-bob.png",
+      "sha256": "8aa09475e8127b0318addb6ef8d86ce1e46edfa898d82cbfabfbf91d191078bd",
+      "width": 390,
+      "height": 2616,
+      "bytes": 304961
+    },
+    {
+      "file": "narrow-short-control.png",
+      "sha256": "a4071fadbea76596321832e37b0cc33ce9494597325c20b6d22cb1347bbfb850",
+      "width": 320,
+      "height": 560,
+      "bytes": 27718
+    }
+  ],
+  "warnings": {
+    "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back \u2014 jaw to the jawOpen morph, gaze to the eyeLook* morphs.": 5,
+    "Calling [RenderPassEncoder (unlabeled)].Draw with an index count of 0 is unusual.": 4,
+    "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces.": 10,
+    "Compilation log for [ShaderModule \"compute_surface adaptive contact ring-major queries\"]:\n\n2 warning(s) generated while compiling the shader:\n:825:7 warning: code is unreachable\n            break;\n            ^^^^^\n\n:1062:7 warning: code is unreachable\n            break;\n            ^^^^^\n": 3
+  },
+  "visualLimit": "Root viewed all five UI originals and guard export. Desktop tinted cut/controls readable; mobile dark Kitchen hair silhouette is low contrast at this body scale. No broad appearance/fit claim.",
+  "limit": "Same-cut historical owner equality is established by observer source assertion and completed packet, not a separately persisted owner boolean. No recapture or new API evaluation."
+}

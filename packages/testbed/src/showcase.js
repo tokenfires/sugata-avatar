@@ -216,7 +216,11 @@ function refresh() {
     const customLabel = document.getElementById('custom-colours-label');
     customLabel.textContent = customColourLabel(selected); customLabel.hidden = !colours;
     const preset = SHOWCASE_PRESETS.find(p => p.id === selected.preset);
-    for (const link of document.querySelectorAll('[data-preset]')) link.setAttribute('aria-current', String(link.dataset.preset === selected.preset));
+    for (const link of document.querySelectorAll('[data-preset]')) {
+        const starter = SHOWCASE_PRESETS.find(item => item.id === link.dataset.preset);
+        link.setAttribute('aria-current', String(starter.id === selected.preset && starter.outfit === selected.outfit));
+    }
+    for (const button of document.querySelectorAll('[data-cut]')) button.setAttribute('aria-pressed', String(button.dataset.cut === report.hair.loadedStyle));
     for (const [key, value] of [['style', selected.style], ['outfit', selected.outfit], ['frame', selected.frame], ['light', selected.light], ['scene', selected.scene]])
         for (const button of document.querySelectorAll(`[data-${key}]`)) button.setAttribute('aria-pressed', String(button.dataset[key] === value));
     document.getElementById('lighting-controls').hidden = selected.scene === 'kitchen';
@@ -389,6 +393,17 @@ try {
     configurationFromReport(avatar.report());
     hairColours.load(selected.hairColour, selected.hairTint);
     busy = false; refresh(); document.getElementById('loading').hidden = true; setStatus(paused ? 'Motion paused' : 'Live view');
+    for (const button of document.querySelectorAll('[data-cut]')) button.addEventListener('click', () => {
+        if (busy || savingImage || failed || !avatar || avatar.disposed) return;
+        const cut = SHOWCASE_PRESETS.find(item => item.hair === button.dataset.cut);
+        if (!cut || cut.id === selected.preset) return;
+        const nextSelection = {...selected, preset: cut.id};
+        optionsForShowcase(nextSelection);
+        const next = showcaseSettingsUrl(nextSelection, location.href);
+        releaseAttention({immediate: true});
+        busy = true; enableControls(); setStatus('Preparing hair cut…');
+        navigationPending = true; location.assign(next.href);
+    });
     for (const button of document.querySelectorAll('[data-outfit]')) button.addEventListener('click', () => changeOutfit(button.dataset.outfit));
     // Like changing the starting haircut, a palette opens a fresh owned Avatar. Keep the current
     // outfit/framing/light in the URL; no in-place mutation of the garment-ID fragment cache.

@@ -1,0 +1,18 @@
+{
+  "verified": "2026-10-03T11:13:48.712454+00:00",
+  "priorPinCount": 397,
+  "intentionalChanges": [
+    "packages/testbed/src/showcase.html",
+    "packages/testbed/src/showcase.js"
+  ],
+  "before": {
+    "showcase.html": "34f6ec62d3da0f3edf34ccf0412a672e13baa23d0951ff598a02c2aba72cdd3c",
+    "showcase.js": "83686e9fbde9d23699a874fc6196453baef364e7a2d8e69cd88dce91e9f1870d"
+  },
+  "candidate": {
+    "showcase.html": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb",
+    "showcase.js": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+  },
+  "instrumentSHA256": "a1c6252187335700523627777f851b821000ce742aa87fab321e33055abe9906",
+  "limit": "Two-file product candidate only; all prior other preservation pins match; no native job launched yet."
+}

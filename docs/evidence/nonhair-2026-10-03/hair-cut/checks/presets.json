@@ -1,0 +1,18 @@
+{
+  "args": [
+    "node",
+    "packages/testbed/src/showcase-presets.selftest.mjs"
+  ],
+  "pid": 42286,
+  "runnerPID": 42283,
+  "started": "2026-10-03T11:10:21.673516+00:00",
+  "finished": "2026-10-03T11:10:21.720950+00:00",
+  "exit": 0,
+  "stdoutSHA256": "d02bd1752f7527b8fb9bb911f43400de461791c28c8951c4d8a35cdc313895c0",
+  "sourceHashes": {
+    "showcase.js": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189",
+    "showcase.html": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb",
+    "showcase-settings.mjs": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+    "showcase-presets.mjs": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+  }
+}

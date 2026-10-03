@@ -1,0 +1,222 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/hair-cut/verify-cut.py",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "pid": 78128,
+  "started": "2026-10-03T11:20:31.452747+00:00",
+  "finished": "2026-10-03T11:20:31.740799+00:00",
+  "status": "passed-bounded-control-audit",
+  "verifierSHA256": "c49eb68bfc99ee5c55b2af4f1f26a052d9c8e9e154bc86731321f04f8fb8bdaf",
+  "reportSHA256": "c5b08ca36d2dc97a60e402ef098527eb4ae2458c8ce82f758c6985d1757c2e33",
+  "sourcePinCount": 380,
+  "sourceSnapshots": 5,
+  "configurationSnapshotCount": 16,
+  "transitionCount": 2,
+  "snapshotConfigurationsMatchIndependentURLReconstruction": true,
+  "jsonReopenSHA256": "45e2ea24c5c3c3aadfa74ead0908fcde0e8af6ab2a5675fa174a6256562e2710",
+  "servedGLBRecords": 31,
+  "uniqueServedGLBs": 8,
+  "retirementLabels": [
+    "desktop-long-bob",
+    "json-reopen",
+    "context-change",
+    "mobile-chin-bob"
+  ],
+  "finalRetirement": {
+    "disposed": true,
+    "leaked": []
+  },
+  "cleanup": {
+    "page": "closed",
+    "browser": "closed"
+  },
+  "finishedBeforeDeadline": true,
+  "images": [
+    {
+      "file": "desktop-before.png",
+      "sha256": "37667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "dimensions": [
+        1440,
+        2060
+      ]
+    },
+    {
+      "file": "desktop-long-bob.png",
+      "sha256": "82f8b02ff93380de2f88023b7f4c39da1411e213c47b8e845244cc4bb21567e5",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "dimensions": [
+        1440,
+        2060
+      ]
+    },
+    {
+      "file": "mobile-before.png",
+      "sha256": "a38224e7a5bcd0bc6796d41ca88ab70f4b05d7877e1586954215dfeaf79f2b20",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "dimensions": [
+        390,
+        2616
+      ]
+    },
+    {
+      "file": "mobile-chin-bob.png",
+      "sha256": "8aa09475e8127b0318addb6ef8d86ce1e46edfa898d82cbfabfbf91d191078bd",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "dimensions": [
+        390,
+        2616
+      ]
+    },
+    {
+      "file": "narrow-short-control.png",
+      "sha256": "a4071fadbea76596321832e37b0cc33ce9494597325c20b6d22cb1347bbfb850",
+      "viewport": {
+        "width": 320,
+        "height": 560
+      },
+      "fullPage": false,
+      "dimensions": [
+        320,
+        560
+      ]
+    }
+  ],
+  "guardExport": {
+    "file": "guard-export.png",
+    "sha256": "903f5df5c4bcf8ce3eaeb7efea0a5f1bc2a286eeaafcdf12841ebb2f8e180e7d",
+    "dimensions": [
+      282,
+      510
+    ]
+  },
+  "layouts": [
+    {
+      "label": "desktop-before",
+      "width": 1440,
+      "buttonRects": [
+        {
+          "x": 1008.09375,
+          "y": 502.421875,
+          "width": 181,
+          "height": 43
+        },
+        {
+          "x": 1197.09375,
+          "y": 502.421875,
+          "width": 181,
+          "height": 43
+        }
+      ],
+      "focused": []
+    },
+    {
+      "label": "desktop-long-bob",
+      "width": 1440,
+      "buttonRects": [
+        {
+          "x": 1008.09375,
+          "y": 502.421875,
+          "width": 181,
+          "height": 43
+        },
+        {
+          "x": 1197.09375,
+          "y": 502.421875,
+          "width": 181,
+          "height": 43
+        }
+      ],
+      "focused": []
+    },
+    {
+      "label": "mobile-before",
+      "width": 390,
+      "buttonRects": [
+        {
+          "x": 23.390625,
+          "y": 1154.5,
+          "width": 167.609375,
+          "height": 43
+        },
+        {
+          "x": 199,
+          "y": 1154.5,
+          "width": 167.609375,
+          "height": 43
+        }
+      ],
+      "focused": []
+    },
+    {
+      "label": "mobile-chin-bob",
+      "width": 390,
+      "buttonRects": [
+        {
+          "x": 23.390625,
+          "y": 1154.5,
+          "width": 167.609375,
+          "height": 43
+        },
+        {
+          "x": 199,
+          "y": 1154.5,
+          "width": 167.609375,
+          "height": 43
+        }
+      ],
+      "focused": []
+    },
+    {
+      "label": "narrow-short-control",
+      "width": 320,
+      "buttonRects": [
+        {
+          "x": 19.1875,
+          "y": 258.953125,
+          "width": 136.8125,
+          "height": 43
+        },
+        {
+          "x": 164,
+          "y": 258.953125,
+          "width": 136.8125,
+          "height": 43
+        }
+      ],
+      "focused": [
+        "bob02"
+      ]
+    }
+  ],
+  "warningCounts": {
+    "rig fallback": 5,
+    "zero-index draw": 4,
+    "inline Fn return": 10,
+    "adaptive-contact shader compilation": 3
+  },
+  "targetedBuildSHA256": "6f330e19c678c24aebdc2124b35cf0bb2dd70adef42af83ac02d71a842d0ffa9",
+  "targetedBuildOutputs": 72,
+  "targetedBuildBytes": 129949900,
+  "limits": [
+    "No browser, native capture, renderer, SDK helper execution, API mutation or product edit.",
+    "Same-owner no-op and during-export disabled condition are assertions in the pinned observed instrument; owner identifiers were not separately retained for independent reconstruction.",
+    "Finite report/URL/configuration/source/image/served-byte identity audit; no geometric, fit, temporal, colour-fidelity, shader-warning or AAA qualification."
+  ]
+}
