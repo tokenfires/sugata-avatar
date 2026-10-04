@@ -1,0 +1,52 @@
+{
+  "runnerPID": 51491,
+  "started": "2026-10-04T22:24:55.063804+00:00",
+  "maximumInvocations": 1,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/reader.py"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger",
+  "timeoutSeconds": 30,
+  "recordingErrors": [],
+  "childStarted": true,
+  "childExit": 0,
+  "timedOut": false,
+  "childReaped": true,
+  "childFinished": "2026-10-04T22:24:56.272347+00:00",
+  "capturedStreams": {
+    "STDOUT.txt": {
+      "bytes": 409,
+      "sha256": "ce7e4eecc924203dd379fc4fa38060b02456f1b5b17958c816292465ed635bd9"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "actualFiles": {
+    "LEDGER-PARTIAL.json": {
+      "exists": true,
+      "bytes": 28552104,
+      "sha256": "d86aea3bc061d608bd27437f22b554505b2d899512ec5a4bae02cafb9d474ee5"
+    },
+    "LEDGER.json": {
+      "exists": true,
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    "INVENTORY.md": {
+      "exists": true,
+      "bytes": 626,
+      "sha256": "fc9eab9fc745ac4e6f9d658082229bee5965b232b91a090c71cd4ac1db407a32"
+    },
+    "READER-JOB.json": {
+      "exists": true,
+      "bytes": 437,
+      "sha256": "0eb667363e101ac278c18e381d9d4192b374d7bf5ed96de8914858f5c80ae18d"
+    }
+  },
+  "completed": "2026-10-04T22:24:56.293682+00:00",
+  "late": false,
+  "status": "A process only; independent data pending"
+}

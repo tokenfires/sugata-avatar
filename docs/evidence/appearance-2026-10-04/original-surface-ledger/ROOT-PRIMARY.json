@@ -1,0 +1,116 @@
+{
+  "utc": "2026-10-04T22:25:43.433469+00:00",
+  "actualPrimaryFullReturnClockUTC": "2026-10-04T22:25:03Z",
+  "fullReturnChunks": [
+    "de17a7",
+    "e15b07"
+  ],
+  "runnerPID": 51491,
+  "readerPID": 51501,
+  "processExit": 0,
+  "actualFileInventoryVerified": {
+    "LEDGER-PARTIAL.json": {
+      "exists": true,
+      "bytes": 28552104,
+      "sha256": "d86aea3bc061d608bd27437f22b554505b2d899512ec5a4bae02cafb9d474ee5"
+    },
+    "LEDGER.json": {
+      "exists": true,
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    "INVENTORY.md": {
+      "exists": true,
+      "bytes": 626,
+      "sha256": "fc9eab9fc745ac4e6f9d658082229bee5965b232b91a090c71cd4ac1db407a32"
+    },
+    "READER-JOB.json": {
+      "exists": true,
+      "bytes": 437,
+      "sha256": "0eb667363e101ac278c18e381d9d4192b374d7bf5ed96de8914858f5c80ae18d"
+    }
+  },
+  "actualStreamsVerified": {
+    "STDOUT.txt": {
+      "bytes": 409,
+      "sha256": "ce7e4eecc924203dd379fc4fa38060b02456f1b5b17958c816292465ed635bd9"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "stdoutEqualsJob": true,
+  "completePartialEqualsLedgerOwnerData": true,
+  "roles": [
+    [
+      "body",
+      "Human",
+      14517,
+      26756
+    ],
+    [
+      "body",
+      "Humancornea",
+      524,
+      980
+    ],
+    [
+      "body",
+      "Humaneyebrow001",
+      124,
+      192
+    ],
+    [
+      "body",
+      "Humaneyelashes01",
+      250,
+      368
+    ],
+    [
+      "body",
+      "Humanhigh-poly",
+      552,
+      1060
+    ],
+    [
+      "body",
+      "Humanteeth_base",
+      4494,
+      7120
+    ],
+    [
+      "body",
+      "Humantongue01",
+      253,
+      448
+    ],
+    [
+      "bra",
+      "Humanfoundation_bra",
+      12030,
+      22090
+    ],
+    [
+      "briefs",
+      "Humanfoundation_briefs",
+      6802,
+      12498
+    ]
+  ],
+  "vertices": 39546,
+  "bounds": {
+    "min": [
+      -0.5255244218334508,
+      -1.6936865634861654e-07,
+      -0.09737648659850003
+    ],
+    "max": [
+      0.5255244218334508,
+      1.6594312539439782,
+      0.3344723911014091
+    ]
+  },
+  "maximumNativeBoundErrorMetres": 5.551115123125783e-17,
+  "decision": "A process/completeness only; proceed with the already admitted sole original-seeded installed CPU oracle; independent data pending"
+}

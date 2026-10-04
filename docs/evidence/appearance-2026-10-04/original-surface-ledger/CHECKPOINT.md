@@ -1,0 +1,11 @@
+# Recoverable original-surface checkpoint
+
+A complete original zero-morph CPU source ledger; no garment/fit/appearance acceptance. [README](README.md), [inventory](INVENTORY.md), [receipt](RECEIPT.md), [critic](RESULT.md) and [root](ROOT-RESULT.json) retain exact state.
+
+Baselineab043d1 was clean02d77f. The previous coupled-source-ledger draft remains frozen B/unrun. A separately declared stronger first-data contract adds all-point installed CPU correspondence. Fresh worth/root22:14:28, full source/root22:24:50 precede the sole primary reader and sole installed oracle. Both external wrappers and the one independent saved-data checker exited0, reaped children and retained exact output/stream inventories before their fixed gates. No reruns, loosened limits or producer/source imports by critic.
+
+All9 owners/39,546 points/71,512 original triangles are retained. Portable-engine maximum4.44e-16m and independent-equation maximum6.66e-16m pass1e-9m; installed-native CPU union bounds error0 passes1e-6m. Root independently verified the full handoff and every saved engine/portable comparison.
+
+Next conditional A is contract definition only: identify enclosed original triangles and intentionally exposed neck/cuff/hem regions; own the entire proposed artist surface, source pose and clearance predicate before construction. No further constructor/native is admitted now. Old fixed-net radius/offset/frame/material/rerender, point-map and local-foundation loops remain closed. Full AAA character/expression/wardrobe/representation/fit/motion/performance scope and all accepted/default/original/frozen/unrelated work are preserved.
+
+No owned primary/oracle/checker remains live; critic is collected. No browser/GPU/native action occurred in this slice. Six pre-existing tabs were preserved at the prior owned-tab closure; this slice does not re-inventory them. Review5173/ACTIVE ten-minute recovery/current human resume are retained and reverified in STATE.json. Newer check-in/pause takes precedence. On pause collect or safely stop owned work, save checkpoint, retain review and pause automation through app API/readback. No push/publication/purchase/install/model/subscription/reset-credit/other-project action.

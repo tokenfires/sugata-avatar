@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-04T22:14:28.110648+00:00",
+  "fullWorthRead": "fb5101",
+  "verifiedInputs": {
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/PLAN.md": {
+      "bytes": 3424,
+      "sha256": "19e34ff1d9879c9cdc1ab26a26dd5c9afbf65ed923555034fb80e92759ecc363"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/MANIFEST.json": {
+      "bytes": 2866,
+      "sha256": "396a736363e273ba5ad6d4d3c40176c3bf0ce9535ba664945a939261ec03e576"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/SOURCE-RESULT.md": {
+      "bytes": 3633,
+      "sha256": "187315d313623ea40c69d51cb01aa4c602be6c151a4959470d1e0808725b1c32"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/SOURCE-RECEIPT.json": {
+      "bytes": 4976,
+      "sha256": "c4c22b12d87e5d84af41d46c344a88848c8af8dddf590a44614ea65bf33e8f0f"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/ROOT-SOURCE.json": {
+      "bytes": 7740,
+      "sha256": "86ba6d01829d64cb9f7e501abddd2ed5825e2f3649e4a4b121425a67b97822b9"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/CLOSED.json": {
+      "bytes": 574,
+      "sha256": "8cea174bd21b5e56a0dd9a45004ebd4e7258be63276b5735482c1c48674fd29e"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/reader.py": {
+      "bytes": 10694,
+      "sha256": "c6d1cd94d3b7540112b364a72e178cce85842ca4d217533d24e2fbeb951ab7ac"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/runner.py": {
+      "bytes": 3124,
+      "sha256": "18c9741202bb1490b7120923461fa047beee898834680ddaa27068e813026d14"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/RESULT.md": {
+      "bytes": 3787,
+      "sha256": "4952149801413e72ad576960c0695346ed2f462d09c2efbcd9e02fc71160d379"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/OBSERVATIONS.json": {
+      "bytes": 1634484,
+      "sha256": "bb4069a041b9bbb9d5a1c8a5bfd70e16e2677649eb225d4772f5f56be5d2ef7b"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/front-back.jpg": {
+      "bytes": 45259,
+      "sha256": "4a0c4172599501f7e3ce51db631b863a5b8037732a868e4b9d6fbcc1df462c61"
+    }
+  },
+  "directHandoffBindings": {
+    "WORTH.md": "2256bc8ae30d9d89fa91d0423d884dc903e05a92091b3347dde4bfcf62881b50",
+    "WORTH-RECEIPT.json": "f9d3baa01c9ec198e66d134f7dbe8cf20cbe5e74bf3d7c52640facd080d5a6fb",
+    "PLAN.md": "19e34ff1d9879c9cdc1ab26a26dd5c9afbf65ed923555034fb80e92759ecc363",
+    "WORTH-INPUTS.json": "4c5a3834241fb5e95d6f8a10b300656f323a3de5e5ed8896627367f26a953543"
+  },
+  "decision": "A source preparation only: complete original surface data plus installed unmodified CPU oracle can test interior points; question never executed. Fresh full source/root admission required.",
+  "boundsToleranceMetres": 1e-06,
+  "perPointOracleToleranceMetres": 1e-09
+}

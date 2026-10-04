@@ -1,0 +1,47 @@
+{
+  "runnerPID": 53041,
+  "started": "2026-10-04T22:25:48.309806+00:00",
+  "maximumInvocations": 1,
+  "command": [
+    "/Users/robault/.brv-cli/bin/node",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/cpu-oracle.mjs"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger",
+  "timeoutSeconds": 30,
+  "recordingErrors": [],
+  "childStarted": true,
+  "childExit": 0,
+  "timedOut": false,
+  "childReaped": true,
+  "childFinished": "2026-10-04T22:25:48.644504+00:00",
+  "capturedStreams": {
+    "ORACLE-STDOUT.txt": {
+      "bytes": 533,
+      "sha256": "31303d2f1da2146f1666a97a02ef6bd5fc07b8e7c61e752c97a2d9a7bd0fe571"
+    },
+    "ORACLE-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "actualFiles": {
+    "CPU-ORACLE-PARTIAL.json": {
+      "exists": true,
+      "bytes": 4461320,
+      "sha256": "016c71fbcc4a492fb5958c1d2595196b80d271b898df581fdce39cb127cfe5a7"
+    },
+    "CPU-ORACLE.json": {
+      "exists": true,
+      "bytes": 4462153,
+      "sha256": "0c751a0ca7f1a7b359dfbefdaa1c189c1a0cbc25686afff3b17a43f6833f4f47"
+    },
+    "CPU-ORACLE-JOB.json": {
+      "exists": true,
+      "bytes": 591,
+      "sha256": "38afee27ff22e53fd8aa236bb158f9c6b8d1d4c43adba0b15312512e077c898b"
+    }
+  },
+  "completed": "2026-10-04T22:25:48.648008+00:00",
+  "late": false,
+  "status": "A process only; independent data pending"
+}

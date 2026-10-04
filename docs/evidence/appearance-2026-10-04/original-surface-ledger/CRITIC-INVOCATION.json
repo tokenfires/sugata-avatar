@@ -1,0 +1,37 @@
+{
+  "wrapperPID": 60258,
+  "started": "2026-10-04T22:30:00.489338+00:00",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/critic-data.py"
+  ],
+  "checkerSourceBeforeInvocation": {
+    "bytes": 10955,
+    "sha256": "2b98c1904547ba20daef09496c485ba4ea07f47e39984c3aaf1ecd0e67a2dbb2"
+  },
+  "maximumInvocations": 1,
+  "exitCode": 0,
+  "fullReturnUTC": "2026-10-04T22:30:01.702509+00:00",
+  "sourceAfter": {
+    "bytes": 10955,
+    "sha256": "2b98c1904547ba20daef09496c485ba4ea07f47e39984c3aaf1ecd0e67a2dbb2"
+  },
+  "actualFiles": {
+    "critic-data.py": {
+      "bytes": 10955,
+      "sha256": "2b98c1904547ba20daef09496c485ba4ea07f47e39984c3aaf1ecd0e67a2dbb2"
+    },
+    "CRITIC-DATA.json": {
+      "bytes": 11236,
+      "sha256": "8baa27443e94f078623a2dc685d3d2b97da498b3ad967f42e49b87a39d3b6cf6"
+    },
+    "CRITIC-STDOUT.txt": {
+      "bytes": 9610,
+      "sha256": "be329948cbafdbf9bfa3ea33b3d8211f5473a6384f7fb885223ce1dbaf270bc3"
+    },
+    "CRITIC-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

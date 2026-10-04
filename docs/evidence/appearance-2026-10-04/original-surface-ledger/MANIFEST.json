@@ -1,0 +1,195 @@
+{
+  "utc": "2026-10-04T22:38:30.019620+00:00",
+  "baseline": "ab043d1",
+  "decision": "A complete original zero-morph CPU source surfaces only",
+  "payloads": {
+    "AUTHORING-NOTE.json": {
+      "bytes": 667,
+      "sha256": "36028389c2f59066dce5462883ab3205ff8b6a04d082dea78168fd3d3d1c856c"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 2503,
+      "sha256": "c2e4032b382703f25cdd6c0776ef4bda98889f4512a5743b87dd924606e9d68b"
+    },
+    "CPU-ORACLE-JOB.json": {
+      "bytes": 591,
+      "sha256": "38afee27ff22e53fd8aa236bb158f9c6b8d1d4c43adba0b15312512e077c898b"
+    },
+    "STDOUT.txt": {
+      "bytes": 409,
+      "sha256": "ce7e4eecc924203dd379fc4fa38060b02456f1b5b17958c816292465ed635bd9"
+    },
+    "ROOT-SOURCE-PREFLIGHT.json": {
+      "bytes": 5219,
+      "sha256": "8c238839ba63bb7039edf0e93521bcdc87beade9f72849585797052d464228af"
+    },
+    "RECEIPT.md": {
+      "bytes": 5977,
+      "sha256": "c10ad58dde4dba1c408b7bbf9c3bd03db98803d87f0c2b0435429ce50b18b776"
+    },
+    "critic-data.py": {
+      "bytes": 10955,
+      "sha256": "2b98c1904547ba20daef09496c485ba4ea07f47e39984c3aaf1ecd0e67a2dbb2"
+    },
+    "runner.py": {
+      "bytes": 3124,
+      "sha256": "18c9741202bb1490b7120923461fa047beee898834680ddaa27068e813026d14"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 6045,
+      "sha256": "3f66c5cacefec8ddd2249b10b6e14d350bf97408b12b59465403c0b12cb8ca8d"
+    },
+    "ORACLE-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RESULT.md": {
+      "bytes": 3058,
+      "sha256": "828fc8caa7c57ca7f8b8a600291d6966ea9a19f698a0d4b3fe54efb9e7d9c1b8"
+    },
+    "STATE.json": {
+      "bytes": 524,
+      "sha256": "306f73316774172e8700e1fdb88d846249583d876f20eb6891dc39bc393b3a4f"
+    },
+    "RUN-PROCESS.json": {
+      "bytes": 1650,
+      "sha256": "db89d998c2e539a5626b9f9ec98936b7e5b17eb5efd7bfae826cb6c3bb33f4b5"
+    },
+    "PREP-ERROR.json": {
+      "bytes": 432,
+      "sha256": "5c0ed90402cbcf43493bd53d002c8ab58216a8a191d04c0963f28dfdd27f3c08"
+    },
+    "CRITIC-INVOCATION.json": {
+      "bytes": 1201,
+      "sha256": "caeb15bac96a34b32cae52a5dd65de2cdd4ae98e653970b870f87b34bc23c017"
+    },
+    "SOURCE.md": {
+      "bytes": 4446,
+      "sha256": "668f8aa9b1393fb065373ec378c770d883903b2b953d0b482ea547583efb3ff5"
+    },
+    "READER-JOB.json": {
+      "bytes": 437,
+      "sha256": "0eb667363e101ac278c18e381d9d4192b374d7bf5ed96de8914858f5c80ae18d"
+    },
+    "CRITIC-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "INVENTORY.md": {
+      "bytes": 626,
+      "sha256": "fc9eab9fc745ac4e6f9d658082229bee5965b232b91a090c71cd4ac1db407a32"
+    },
+    "ROOT-ORACLE.json": {
+      "bytes": 9721,
+      "sha256": "e78048e0d12a69d2fa1960df671175935599499ae8d3cda83aae1f2358ee7adf"
+    },
+    "ROOT-PRIMARY.json": {
+      "bytes": 2400,
+      "sha256": "68297d0f03a7e0ce7fe66c8ab92dbb03d43222742f935a548e681c611c600fe7"
+    },
+    "ORACLE-RUNNER-DRAFT.py": {
+      "bytes": 3215,
+      "sha256": "d8a03d6d13678f01977c9f823f423bdf31f2eda7821318755a128e85f677c0f2"
+    },
+    "ORACLE-PROCESS.json": {
+      "bytes": 1513,
+      "sha256": "63ec6e5bf08e798565713b5d2c17570b56a7b50a495177d482ad343ab10f997a"
+    },
+    "cpu-oracle.mjs": {
+      "bytes": 11057,
+      "sha256": "838fadd0671f94190668793795cc64205e26c165c1e5d14335f848722238f59a"
+    },
+    "ROOT-WORTH.json": {
+      "bytes": 2872,
+      "sha256": "8edfee7ba39050242e2ce68e7d53f510ab119f06f49802e20018cc189eb872b9"
+    },
+    "oracle-runner.py": {
+      "bytes": 3177,
+      "sha256": "4e6cc66c51da6269e6994f29536e6ad11b82a82106e38b29512f98f016d35973"
+    },
+    "CHECKPOINT.md": {
+      "bytes": 2220,
+      "sha256": "9328a6793c02e0c83aad48f1efc87b75755b02c2c799cddb4893a22470102b09"
+    },
+    "README.md": {
+      "bytes": 1655,
+      "sha256": "6731d7e9c0f588d6bfbf3e292dd6f90d2ec57f5094cd653df18a69768991da3b"
+    },
+    "reader.py": {
+      "bytes": 10694,
+      "sha256": "c6d1cd94d3b7540112b364a72e178cce85842ca4d217533d24e2fbeb951ab7ac"
+    },
+    "VERIFICATION.md": {
+      "bytes": 1960,
+      "sha256": "43036c9d478ad7729278dd0716c6252c8d073a49b9468506f723f1e69f4f619a"
+    },
+    "LEDGER-PARTIAL.json": {
+      "bytes": 28552104,
+      "sha256": "d86aea3bc061d608bd27437f22b554505b2d899512ec5a4bae02cafb9d474ee5"
+    },
+    "WORTH-RECEIPT.json": {
+      "bytes": 2607,
+      "sha256": "f9d3baa01c9ec198e66d134f7dbe8cf20cbe5e74bf3d7c52640facd080d5a6fb"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "CRITIC-DATA.json": {
+      "bytes": 11236,
+      "sha256": "8baa27443e94f078623a2dc685d3d2b97da498b3ad967f42e49b87a39d3b6cf6"
+    },
+    "ORACLE-STDOUT.txt": {
+      "bytes": 533,
+      "sha256": "31303d2f1da2146f1666a97a02ef6bd5fc07b8e7c61e752c97a2d9a7bd0fe571"
+    },
+    "PLAN.md": {
+      "bytes": 3424,
+      "sha256": "19e34ff1d9879c9cdc1ab26a26dd5c9afbf65ed923555034fb80e92759ecc363"
+    },
+    "CRITIC-STDOUT.txt": {
+      "bytes": 9610,
+      "sha256": "be329948cbafdbf9bfa3ea33b3d8211f5473a6384f7fb885223ce1dbaf270bc3"
+    },
+    "WORTH-INPUTS.json": {
+      "bytes": 2165,
+      "sha256": "4c5a3834241fb5e95d6f8a10b300656f323a3de5e5ed8896627367f26a953543"
+    },
+    "SOURCE-RECEIPT.json": {
+      "bytes": 6240,
+      "sha256": "80afee1b8a8c9fd2eb4c3c3f9cbb2d3cce59cf65da7fb306a02be8016d561a1c"
+    },
+    "CPU-ORACLE.json": {
+      "bytes": 4462153,
+      "sha256": "0c751a0ca7f1a7b359dfbefdaa1c189c1a0cbc25686afff3b17a43f6833f4f47"
+    },
+    "WORTH.md": {
+      "bytes": 2370,
+      "sha256": "2256bc8ae30d9d89fa91d0423d884dc903e05a92091b3347dde4bfcf62881b50"
+    },
+    "CRITIC-RECEIPT.json": {
+      "bytes": 11367,
+      "sha256": "e4e8198d96858b5e032911dbb96c52e8c42fc31fb7e259224613a14ffc34d20c"
+    },
+    "SOURCE-INPUTS.json": {
+      "bytes": 4849,
+      "sha256": "da9d03f37cbbe1821692b6e7d9c804db6df730921d096f161a4b8d66cc05f72b"
+    },
+    "LEDGER.json": {
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    "CPU-ORACLE-PARTIAL.json": {
+      "bytes": 4461320,
+      "sha256": "016c71fbcc4a492fb5958c1d2595196b80d271b898df581fdce39cb127cfe5a7"
+    },
+    "CONTRACT.json": {
+      "bytes": 4258,
+      "sha256": "d23d278e11cac535240fb7bc9eb135c589e4cd2c88482651a2416127a457b39b"
+    },
+    "SOURCE-RESULT.md": {
+      "bytes": 3259,
+      "sha256": "995bf2e7f528fb098f6d0b0a179b82e362f2f7e0b213b49038c02833a2c1f5ef"
+    }
+  }
+}

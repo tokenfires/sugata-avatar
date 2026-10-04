@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-04T22:12:03.866640+00:00",
+  "chunk": "9076ee",
+  "exit": 1,
+  "error": "KeyError: payloads",
+  "source": "Root preflight assumed both prior manifest schemas were payloads; shared-quad uses files, actual31aa4f proves it.",
+  "correction": "Explicit actual manifest field/count only; no author/reader/oracle imported or executed, no predicate/gate/source/equation changed.",
+  "originalGLBDecodeInvocations": 0
+}

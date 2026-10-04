@@ -1,0 +1,309 @@
+{
+  "pid": 60259,
+  "started": "2026-10-04T22:30:00.519144+00:00",
+  "command": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/critic-data.py"
+  ],
+  "maximumInvocations": 1,
+  "scope": "saved JSON/text only; no GLB decoding or primary/oracle import or CPU engine objects",
+  "currentOwner": [
+    "briefs",
+    "Humanfoundation_briefs"
+  ],
+  "currentVertex": 6801,
+  "verifiedSourcePins": {
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/PLAN.md": {
+      "bytes": 3424,
+      "sha256": "19e34ff1d9879c9cdc1ab26a26dd5c9afbf65ed923555034fb80e92759ecc363"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/WORTH.md": {
+      "bytes": 2370,
+      "sha256": "2256bc8ae30d9d89fa91d0423d884dc903e05a92091b3347dde4bfcf62881b50"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/WORTH-RECEIPT.json": {
+      "bytes": 2607,
+      "sha256": "f9d3baa01c9ec198e66d134f7dbe8cf20cbe5e74bf3d7c52640facd080d5a6fb"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/ROOT-WORTH.json": {
+      "bytes": 2872,
+      "sha256": "8edfee7ba39050242e2ce68e7d53f510ab119f06f49802e20018cc189eb872b9"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/CONTRACT.json": {
+      "bytes": 4258,
+      "sha256": "d23d278e11cac535240fb7bc9eb135c589e4cd2c88482651a2416127a457b39b"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/SOURCE.md": {
+      "bytes": 4446,
+      "sha256": "668f8aa9b1393fb065373ec378c770d883903b2b953d0b482ea547583efb3ff5"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/reader.py": {
+      "bytes": 10694,
+      "sha256": "c6d1cd94d3b7540112b364a72e178cce85842ca4d217533d24e2fbeb951ab7ac"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/runner.py": {
+      "bytes": 3124,
+      "sha256": "18c9741202bb1490b7120923461fa047beee898834680ddaa27068e813026d14"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/cpu-oracle.mjs": {
+      "bytes": 11057,
+      "sha256": "838fadd0671f94190668793795cc64205e26c165c1e5d14335f848722238f59a"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/oracle-runner.py": {
+      "bytes": 3177,
+      "sha256": "4e6cc66c51da6269e6994f29536e6ad11b82a82106e38b29512f98f016d35973"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/OBSERVATIONS.json": {
+      "bytes": 1634484,
+      "sha256": "bb4069a041b9bbb9d5a1c8a5bfd70e16e2677649eb225d4772f5f56be5d2ef7b"
+    },
+    "assets/wardrobe/body/g050.glb": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "assets/wardrobe/foundation_bra/g050.glb": {
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    "assets/wardrobe/foundation_briefs/g050.glb": {
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    "node_modules/three/package.json": {
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    "node_modules/three/src/objects/Mesh.js": {
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    "node_modules/three/src/objects/SkinnedMesh.js": {
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    "node_modules/three/src/math/Vector3.js": {
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    "node_modules/three/src/math/Vector4.js": {
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28"
+    },
+    "node_modules/three/src/math/Matrix4.js": {
+      "bytes": 34258,
+      "sha256": "11d813da5b4a03de3e75dcb9780657a9cc276f682c30aa876c461d6429dcf39c"
+    },
+    "node_modules/three/examples/jsm/loaders/GLTFLoader.js": {
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    "node_modules/three/src/core/BufferAttribute.js": {
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    "node_modules/three/src/core/BufferGeometry.js": {
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+    },
+    "node_modules/three/src/core/Object3D.js": {
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    "node_modules/three/src/objects/Bone.js": {
+      "bytes": 612,
+      "sha256": "2af7e9223d192b917ac9109d8dddb00f435c68ebf0f6d31e812d78f6fc4c7031"
+    },
+    "node_modules/three/src/objects/Skeleton.js": {
+      "bytes": 7906,
+      "sha256": "37eaa7755b39775411fe32bafbf9a0273bdad6bb7976114ed63f8700f4b4b0e9"
+    },
+    "/Users/robault/.brv-cli/bin/node": {
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    }
+  },
+  "status": "A saved original-source CPU ledger only",
+  "owners": [
+    {
+      "key": "body",
+      "name": "Human",
+      "vertices": 14517,
+      "triangles": 26756,
+      "independentToPortableMaximum": 4.440892098500626e-16,
+      "independentToEngineMaximum": 6.661338147750939e-16,
+      "portableToEngineMaximum": 4.440892098500626e-16
+    },
+    {
+      "key": "body",
+      "name": "Humancornea",
+      "vertices": 524,
+      "triangles": 980,
+      "independentToPortableMaximum": 2.220446049250313e-16,
+      "independentToEngineMaximum": 4.440892098500626e-16,
+      "portableToEngineMaximum": 2.220446049250313e-16
+    },
+    {
+      "key": "body",
+      "name": "Humaneyebrow001",
+      "vertices": 124,
+      "triangles": 192,
+      "independentToPortableMaximum": 2.220446049250313e-16,
+      "independentToEngineMaximum": 4.440892098500626e-16,
+      "portableToEngineMaximum": 2.220446049250313e-16
+    },
+    {
+      "key": "body",
+      "name": "Humaneyelashes01",
+      "vertices": 250,
+      "triangles": 368,
+      "independentToPortableMaximum": 2.220446049250313e-16,
+      "independentToEngineMaximum": 4.440892098500626e-16,
+      "portableToEngineMaximum": 2.220446049250313e-16
+    },
+    {
+      "key": "body",
+      "name": "Humanhigh-poly",
+      "vertices": 552,
+      "triangles": 1060,
+      "independentToPortableMaximum": 2.220446049250313e-16,
+      "independentToEngineMaximum": 4.440892098500626e-16,
+      "portableToEngineMaximum": 2.220446049250313e-16
+    },
+    {
+      "key": "body",
+      "name": "Humanteeth_base",
+      "vertices": 4494,
+      "triangles": 7120,
+      "independentToPortableMaximum": 2.220446049250313e-16,
+      "independentToEngineMaximum": 4.440892098500626e-16,
+      "portableToEngineMaximum": 2.220446049250313e-16
+    },
+    {
+      "key": "body",
+      "name": "Humantongue01",
+      "vertices": 253,
+      "triangles": 448,
+      "independentToPortableMaximum": 2.220446049250313e-16,
+      "independentToEngineMaximum": 4.440892098500626e-16,
+      "portableToEngineMaximum": 2.220446049250313e-16
+    },
+    {
+      "key": "bra",
+      "name": "Humanfoundation_bra",
+      "vertices": 12030,
+      "triangles": 22090,
+      "independentToPortableMaximum": 6.661338147750939e-16,
+      "independentToEngineMaximum": 6.661338147750939e-16,
+      "portableToEngineMaximum": 4.440892098500626e-16
+    },
+    {
+      "key": "briefs",
+      "name": "Humanfoundation_briefs",
+      "vertices": 6802,
+      "triangles": 12498,
+      "independentToPortableMaximum": 2.220446049250313e-16,
+      "independentToEngineMaximum": 3.3306690738754696e-16,
+      "portableToEngineMaximum": 3.3306690738754696e-16
+    }
+  ],
+  "vertexCount": 39546,
+  "triangleCount": 71512,
+  "maximumIndependentPortableResidual": 6.661338147750939e-16,
+  "maximumIndependentEngineResidual": 6.661338147750939e-16,
+  "maximumPortableEngineResidual": 4.440892098500626e-16,
+  "maximumSkinMatrixResidual": 0.0,
+  "bounds": {
+    "min": [
+      -0.5255244218334508,
+      -1.6936865634677384e-07,
+      -0.09737648659850005
+    ],
+    "max": [
+      0.5255244218334508,
+      1.6594312539439782,
+      0.33447239110140914
+    ]
+  },
+  "bindings": {
+    "LEDGER.json": {
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    "LEDGER-PARTIAL.json": {
+      "bytes": 28552104,
+      "sha256": "d86aea3bc061d608bd27437f22b554505b2d899512ec5a4bae02cafb9d474ee5"
+    },
+    "INVENTORY.md": {
+      "bytes": 626,
+      "sha256": "fc9eab9fc745ac4e6f9d658082229bee5965b232b91a090c71cd4ac1db407a32"
+    },
+    "READER-JOB.json": {
+      "bytes": 437,
+      "sha256": "0eb667363e101ac278c18e381d9d4192b374d7bf5ed96de8914858f5c80ae18d"
+    },
+    "RUN-PROCESS.json": {
+      "bytes": 1650,
+      "sha256": "db89d998c2e539a5626b9f9ec98936b7e5b17eb5efd7bfae826cb6c3bb33f4b5"
+    },
+    "STDOUT.txt": {
+      "bytes": 409,
+      "sha256": "ce7e4eecc924203dd379fc4fa38060b02456f1b5b17958c816292465ed635bd9"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "CPU-ORACLE.json": {
+      "bytes": 4462153,
+      "sha256": "0c751a0ca7f1a7b359dfbefdaa1c189c1a0cbc25686afff3b17a43f6833f4f47"
+    },
+    "CPU-ORACLE-PARTIAL.json": {
+      "bytes": 4461320,
+      "sha256": "016c71fbcc4a492fb5958c1d2595196b80d271b898df581fdce39cb127cfe5a7"
+    },
+    "CPU-ORACLE-JOB.json": {
+      "bytes": 591,
+      "sha256": "38afee27ff22e53fd8aa236bb158f9c6b8d1d4c43adba0b15312512e077c898b"
+    },
+    "ORACLE-PROCESS.json": {
+      "bytes": 1513,
+      "sha256": "63ec6e5bf08e798565713b5d2c17570b56a7b50a495177d482ad343ab10f997a"
+    },
+    "ORACLE-STDOUT.txt": {
+      "bytes": 533,
+      "sha256": "31303d2f1da2146f1666a97a02ef6bd5fc07b8e7c61e752c97a2d9a7bd0fe571"
+    },
+    "ORACLE-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "SOURCE-RESULT.md": {
+      "bytes": 3259,
+      "sha256": "995bf2e7f528fb098f6d0b0a179b82e362f2f7e0b213b49038c02833a2c1f5ef"
+    },
+    "SOURCE-RECEIPT.json": {
+      "bytes": 6240,
+      "sha256": "80afee1b8a8c9fd2eb4c3c3f9cbb2d3cce59cf65da7fb306a02be8016d561a1c"
+    },
+    "SOURCE-INPUTS.json": {
+      "bytes": 4849,
+      "sha256": "da9d03f37cbbe1821692b6e7d9c804db6df730921d096f161a4b8d66cc05f72b"
+    },
+    "CONTRACT.json": {
+      "bytes": 4258,
+      "sha256": "d23d278e11cac535240fb7bc9eb135c589e4cd2c88482651a2416127a457b39b"
+    },
+    "ROOT-PRIMARY.json": {
+      "bytes": 2400,
+      "sha256": "68297d0f03a7e0ce7fe66c8ab92dbb03d43222742f935a548e681c611c600fe7"
+    },
+    "critic-data.py": {
+      "bytes": 10955,
+      "sha256": "2b98c1904547ba20daef09496c485ba4ea07f47e39984c3aaf1ecd0e67a2dbb2"
+    }
+  },
+  "limitations": [
+    "Original GLB arrays independently decoded by admitted oracle, not decoded again by this saved-only checker.",
+    "No GPU/fit/contact/enclosure/morph-motion/appearance/cause qualification."
+  ],
+  "completed": "2026-10-04T22:30:01.660401+00:00"
+}

@@ -1,0 +1,11 @@
+# Worth — conditional A for the first complete CPU surface authority
+
+The full new PLAN and eleven exact witness bindings were read/verified. The frozen SOURCE-RESULT/CLOSED establish that the previous window exported no ledger: its B was timing, not an answered source-surface question. OBSERVATIONS has nine owners/39,546 vertex counts and bone/bind/world operands, but no original position/triangle arrays. The actual rear original previously viewed shows beige/teal interruptions (right panel x842–1058/y327–422); their exclusive cause remains unproven.
+
+**A** the complete portable ledger plus independently installed Three CPU evaluation can supply the missing surface authority. Checking every39,546 point at the newly declared1e−9m addresses a weakness of bounds alone: equal extrema can coexist with incorrect interior points. This is a distinct stronger data question that has never run, not a new appearance method or repair of the frozen sweater. It costs the first decoder and one independent CPU oracle/review; a first mismatch must stop rather than loosen tolerance or retune geometry.
+
+**B** retain existing skeleton/bounds/image records and defer: cheaper and avoids decoder/CPU-object risk, but leaves the full source-surface input absent. Choose conditional A for implementation and complete fresh source review only. The oracle must actually use original binary-array/owner authority and installed unmodified normalization/skin/world functions, not merely recalculate the portable reader's output or borrow its transformed points. The proposed no-renderer/no-loader-scene CPU route keeps texture/browser acquisition outside this question; its exact source remains unreviewed and is not admitted by worth.
+
+No per-point GPU equivalence, fit, contact, enclosure, morph/pose range or rear-pixel cause follows. Current source-native garment B remains closed. Fresh22:15/22:25/22:28 gates govern this window; prior21:58/22:03 permission is neither inherited nor extended.
+
+Bindings: PLAN `19e34ff1d9879c9cdc1ab26a26dd5c9afbf65ed923555034fb80e92759ecc363`; WORTH-INPUTS `4c5a3834241fb5e95d6f8a10b300656f323a3de5e5ed8896627367f26a953543`; WORTH-RECEIPT `f9d3baa01c9ec198e66d134f7dbe8cf20cbe5e74bf3d7c52640facd080d5a6fb` owns all eleven examined source/image/witness pins and exact scope. No source copy, execution, decode or native action occurred.

@@ -1,0 +1,387 @@
+{
+  "utc": "2026-10-04T22:27:17.020644+00:00",
+  "actualOracleFullReturnUTC": "2026-10-04T22:25:48Z",
+  "actualReturnChunk": "8567c1",
+  "runnerPID": 53041,
+  "oraclePID": 53043,
+  "processExit": 0,
+  "actualFileInventoryVerified": {
+    "CPU-ORACLE-PARTIAL.json": {
+      "exists": true,
+      "bytes": 4461320,
+      "sha256": "016c71fbcc4a492fb5958c1d2595196b80d271b898df581fdce39cb127cfe5a7"
+    },
+    "CPU-ORACLE.json": {
+      "exists": true,
+      "bytes": 4462153,
+      "sha256": "0c751a0ca7f1a7b359dfbefdaa1c189c1a0cbc25686afff3b17a43f6833f4f47"
+    },
+    "CPU-ORACLE-JOB.json": {
+      "exists": true,
+      "bytes": 591,
+      "sha256": "38afee27ff22e53fd8aa236bb158f9c6b8d1d4c43adba0b15312512e077c898b"
+    }
+  },
+  "actualStreamsVerified": {
+    "ORACLE-STDOUT.txt": {
+      "bytes": 533,
+      "sha256": "31303d2f1da2146f1666a97a02ef6bd5fc07b8e7c61e752c97a2d9a7bd0fe571"
+    },
+    "ORACLE-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "stdoutEqualsJob": true,
+  "sourceReaderLedgerSHA256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e",
+  "pointAndBoundRecalculation": [
+    {
+      "key": "body",
+      "name": "Human",
+      "vertices": 14517,
+      "triangles": 26756,
+      "maximumInstalledPointErrorMetres": 4.440892098500626e-16,
+      "worstPoint": {
+        "vertexID": 831,
+        "base": [
+          0,
+          1.438869833946228,
+          0.08688297867774963
+        ],
+        "portable": [
+          -4.304761241644178e-11,
+          1.43886979833896,
+          0.08688311346351947
+        ],
+        "installed": [
+          -4.304761241618536e-11,
+          1.4388697983389596,
+          0.08688311346351947
+        ],
+        "residualMetres": 4.440892098500626e-16
+      },
+      "bounds": {
+        "min": [
+          -0.5255244218334508,
+          -1.693686563408554e-07,
+          -0.09550099525450491
+        ],
+        "max": [
+          0.5255244218334508,
+          1.6594312539439782,
+          0.33447239110140914
+        ]
+      }
+    },
+    {
+      "key": "body",
+      "name": "Humancornea",
+      "vertices": 524,
+      "triangles": 980,
+      "maximumInstalledPointErrorMetres": 2.220446049250313e-16,
+      "worstPoint": {
+        "vertexID": 0,
+        "base": [
+          0.025650618597865105,
+          1.5525705814361572,
+          0.1336960643529892
+        ],
+        "portable": [
+          0.025650618597865105,
+          1.5525704954440391,
+          0.13369622313107932
+        ],
+        "installed": [
+          0.025650618597865105,
+          1.552570495444039,
+          0.13369622313107932
+        ],
+        "residualMetres": 2.220446049250313e-16
+      },
+      "bounds": {
+        "min": [
+          -0.044380009174346924,
+          1.5383618243378996,
+          0.11124527744529414
+        ],
+        "max": [
+          0.04438001289963722,
+          1.5681143144926404,
+          0.13460428505735827
+        ]
+      }
+    },
+    {
+      "key": "body",
+      "name": "Humaneyebrow001",
+      "vertices": 124,
+      "triangles": 192,
+      "maximumInstalledPointErrorMetres": 2.220446049250313e-16,
+      "worstPoint": {
+        "vertexID": 0,
+        "base": [
+          0.01852814108133316,
+          1.559779167175293,
+          0.13831467926502228
+        ],
+        "portable": [
+          0.01852814108133316,
+          1.559779079961584,
+          0.1383148387047732
+        ],
+        "installed": [
+          0.01852814108133316,
+          1.5597790799615838,
+          0.1383148387047732
+        ],
+        "residualMetres": 2.220446049250313e-16
+      },
+      "bounds": {
+        "min": [
+          -0.057311199605464935,
+          1.5568344948451693,
+          0.1129708178355967
+        ],
+        "max": [
+          0.057311199605464935,
+          1.5671855523831968,
+          0.14325898467337092
+        ]
+      }
+    },
+    {
+      "key": "body",
+      "name": "Humaneyelashes01",
+      "vertices": 250,
+      "triangles": 368,
+      "maximumInstalledPointErrorMetres": 2.220446049250313e-16,
+      "worstPoint": {
+        "vertexID": 1,
+        "base": [
+          0.029655002057552338,
+          1.55581796169281,
+          0.13302697241306305
+        ],
+        "portable": [
+          0.029655002057552338,
+          1.5558178755074124,
+          0.13302713160872728
+        ],
+        "installed": [
+          0.029655002057552338,
+          1.5558178755074121,
+          0.13302713160872728
+        ],
+        "residualMetres": 2.220446049250313e-16
+      },
+      "bounds": {
+        "min": [
+          -0.04734501615166664,
+          1.5444512704566267,
+          0.1257546047662473
+        ],
+        "max": [
+          0.04734501615166664,
+          1.5587016664689182,
+          0.13865215609097378
+        ]
+      }
+    },
+    {
+      "key": "body",
+      "name": "Humanhigh-poly",
+      "vertices": 552,
+      "triangles": 1060,
+      "maximumInstalledPointErrorMetres": 2.220446049250313e-16,
+      "worstPoint": {
+        "vertexID": 2,
+        "base": [
+          0.02110179141163826,
+          1.5526727437973022,
+          0.1313668191432953
+        ],
+        "portable": [
+          0.02110179141163826,
+          1.5526726580988066,
+          0.13136697803483732
+        ],
+        "installed": [
+          0.02110179141163826,
+          1.5526726580988064,
+          0.13136697803483732
+        ],
+        "residualMetres": 2.220446049250313e-16
+      },
+      "bounds": {
+        "min": [
+          -0.043975699692964554,
+          1.5387716658414714,
+          0.11143610873165574
+        ],
+        "max": [
+          0.043975699692964554,
+          1.567696128344558,
+          0.1323122631453014
+        ]
+      }
+    },
+    {
+      "key": "body",
+      "name": "Humanteeth_base",
+      "vertices": 4494,
+      "triangles": 7120,
+      "maximumInstalledPointErrorMetres": 2.220446049250313e-16,
+      "worstPoint": {
+        "vertexID": 0,
+        "base": [
+          0.00045303060323931277,
+          1.4778352975845337,
+          0.13354171812534332
+        ],
+        "portable": [
+          0.00045303060323931277,
+          1.4778352180599839,
+          0.13354186796930587
+        ],
+        "installed": [
+          0.00045303060323931277,
+          1.4778352180599836,
+          0.13354186796930584
+        ],
+        "residualMetres": 2.220446049250313e-16
+      },
+      "bounds": {
+        "min": [
+          -0.029768262058496475,
+          1.4565990471090733,
+          0.0680615915978417
+        ],
+        "max": [
+          0.029767952859401703,
+          1.50463263407424,
+          0.13964020073183675
+        ]
+      }
+    },
+    {
+      "key": "body",
+      "name": "Humantongue01",
+      "vertices": 253,
+      "triangles": 448,
+      "maximumInstalledPointErrorMetres": 2.220446049250313e-16,
+      "worstPoint": {
+        "vertexID": 0,
+        "base": [
+          0,
+          1.4814693927764893,
+          0.12998497486114502
+        ],
+        "portable": [
+          0,
+          1.4814693134002388,
+          0.1299851252944441
+        ],
+        "installed": [
+          0,
+          1.4814693134002386,
+          0.1299851252944441
+        ],
+        "residualMetres": 2.220446049250313e-16
+      },
+      "bounds": {
+        "min": [
+          -0.021747004240751266,
+          1.4705971958514188,
+          0.06202562672356683
+        ],
+        "max": [
+          0.021747004240751266,
+          1.4967033112465709,
+          0.13079263430571586
+        ]
+      }
+    },
+    {
+      "key": "bra",
+      "name": "Humanfoundation_bra",
+      "vertices": 12030,
+      "triangles": 22090,
+      "maximumInstalledPointErrorMetres": 4.440892098500626e-16,
+      "worstPoint": {
+        "vertexID": 469,
+        "base": [
+          0.12602771818637848,
+          1.233860731124878,
+          0.12775982916355133
+        ],
+        "portable": [
+          0.1260277132307806,
+          1.2338607263679184,
+          0.12775988187962684
+        ],
+        "installed": [
+          0.1260277132307806,
+          1.2338607263679189,
+          0.12775988187962686
+        ],
+        "residualMetres": 4.440892098500626e-16
+      },
+      "bounds": {
+        "min": [
+          -0.16265195762625542,
+          1.1516804532253813,
+          -0.07759351603603744
+        ],
+        "max": [
+          0.16265194079341064,
+          1.409609977541876,
+          0.1541548284431931
+        ]
+      }
+    },
+    {
+      "key": "briefs",
+      "name": "Humanfoundation_briefs",
+      "vertices": 6802,
+      "triangles": 12498,
+      "maximumInstalledPointErrorMetres": 3.3306690738754696e-16,
+      "worstPoint": {
+        "vertexID": 1578,
+        "base": [
+          0.1575123518705368,
+          0.8999817967414856,
+          0.042702656239271164
+        ],
+        "portable": [
+          0.15751239144261014,
+          0.8999818496575449,
+          0.0427026861621715
+        ],
+        "installed": [
+          0.15751239144261014,
+          0.8999818496575446,
+          0.0427026861621715
+        ],
+        "residualMetres": 3.3306690738754696e-16
+      },
+      "bounds": {
+        "min": [
+          -0.17180205965899892,
+          0.6745396833822481,
+          -0.09737648659850003
+        ],
+        "max": [
+          0.171802060635068,
+          0.9102361724713904,
+          0.1305489738090566
+        ]
+      }
+    }
+  ],
+  "vertices": 39546,
+  "triangles": 71512,
+  "maximumInstalledPointErrorMetres": 4.440892098500626e-16,
+  "maximumNativeUnionBoundErrorMetres": 0.0,
+  "decision": "A process plus complete saved original CPU correspondence; independent critic final pending",
+  "limits": "No GPU/contact/manifold/enclosure/fit or prior pixel-cause qualification"
+}
