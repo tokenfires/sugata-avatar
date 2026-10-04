@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-04T16:42:10.531040+00:00",
+  "criticPinsChecked": 19,
+  "criticHandoffFullyRead": true,
+  "criticCheckerFullyRead": true,
+  "rootIndependentSavedData": "5197cd/exit0, Fraction masks and complete manifold/OBJ checks",
+  "decision": "A for fixed native front, then remaining original views only if first is usable",
+  "meshSha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1",
+  "sourcePins": {
+    "author.py": "7c03752e8ea9ab30108a9c0615fae43334833bb9529b9ff6ffdc50ec067d23fb",
+    "index.html": "04fc7be512927517ae89eedcc340960da6efdf324cd9df814a9ffe7d2de4d413",
+    "viewer.mjs": "7e7363b2f5c2da5f82a1547b6136f97b9259afebb11146f8d728b673a66a5446",
+    "DATA-REVIEW.md": "26f32becf22ebc77472b94be13a3bdb6b9d47481b0eeb5d0b63ddf48f9aeea81",
+    "CRITIC-DATA.json": "346b0daeafb8d240607ad6e52d6506323b4855323cfc7fef43af01bc00f8885c",
+    "ROOT-DATA.json": "eae94fa3718dfde1d7184772c4dc4d7a0fe14626170d7727287524eec4f6e208"
+  },
+  "limits": "No native image yet; first setup or artistic failure stops; no resize/reframe/reload/recapture. Hash reconciliation with actual DOM record required."
+}

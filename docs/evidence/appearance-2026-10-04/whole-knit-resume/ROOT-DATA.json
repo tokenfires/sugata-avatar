@@ -1,0 +1,70 @@
+{
+  "startedAt": "2026-10-04T16:37:04.374190+00:00",
+  "endedAt": "2026-10-04T16:37:04.410564+00:00",
+  "pid": 69816,
+  "status": "passed",
+  "levels": [
+    {
+      "level": 0,
+      "V": 76,
+      "E": 144,
+      "F": 66,
+      "openings": {
+        "positive-X-cuff": 4,
+        "neck": 4,
+        "negative-X-cuff": 4,
+        "hem": 12
+      }
+    },
+    {
+      "level": 1,
+      "V": 286,
+      "E": 552,
+      "F": 264,
+      "openings": {
+        "positive-X-cuff": 8,
+        "neck": 8,
+        "negative-X-cuff": 8,
+        "hem": 24
+      }
+    },
+    {
+      "level": 2,
+      "V": 1102,
+      "E": 2160,
+      "F": 1056,
+      "openings": {
+        "positive-X-cuff": 16,
+        "neck": 16,
+        "negative-X-cuff": 16,
+        "hem": 48
+      }
+    }
+  ],
+  "maximumRationalSubdivisionResidual": 1.1102230246251565e-16,
+  "rationalResidualCeiling": 7.105427357601002e-15,
+  "JSONandOBJmatchFinalLevel": true,
+  "inputs": {
+    "RAW.json": {
+      "bytes": 390426,
+      "sha256": "f9c263252db2500772b2c9ef70a48670abb3d1ffb841968dd1be4d036b0c68a4"
+    },
+    "mesh.json": {
+      "bytes": 145508,
+      "sha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1"
+    },
+    "sweater.obj": {
+      "bytes": 76813,
+      "sha256": "fd1292de5042eb98f22402909851bb9808126a509aa2f57b2385c2162b606067"
+    },
+    "AUTHOR-JOB.json": {
+      "bytes": 2530,
+      "sha256": "f1f0fe45b2ea6bc17683bea94810e20680c390e3289b5da73a6f8c88aef7628d"
+    },
+    "AUTHOR-RETURN.json": {
+      "bytes": 510,
+      "sha256": "7f90e5851efa2735b4e15dfb0b21f96ac1c9811ff71b5badf83f9ee16a04bd9e"
+    }
+  },
+  "limits": "Saved geometry/arithmetic verification only; not actual appearance, global self-intersection, fit or motion."
+}

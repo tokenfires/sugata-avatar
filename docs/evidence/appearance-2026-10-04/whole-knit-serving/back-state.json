@@ -1,0 +1,53 @@
+{
+  "observedAt": "2026-10-04T16:58:31.502Z",
+  "tabId": "22",
+  "record": {
+    "meshSha": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1",
+    "vertices": 1102,
+    "quads": 1056,
+    "triangles": 2112,
+    "renderer": "WebGL clay study",
+    "viewport": [
+      1208,
+      418
+    ],
+    "camera": {
+      "verticalHalfExtent": 0.6,
+      "near": 0.1,
+      "far": 10,
+      "target": [
+        0,
+        0.375,
+        0
+      ],
+      "position": [
+        0,
+        0.375,
+        -3
+      ]
+    },
+    "bounds": {
+      "min": [
+        -0.75,
+        0,
+        -0.14000000059604645
+      ],
+      "max": [
+        0.75,
+        0.75,
+        0.14000000059604645
+      ]
+    },
+    "limits": [
+      "No physical units, flat-piece folding, fit, material, rig, motion or Avatar qualification."
+    ],
+    "view": "back",
+    "draws": 3,
+    "error": null,
+    "lifetime": {
+      "closed": false,
+      "reason": null,
+      "attempts": []
+    }
+  }
+}

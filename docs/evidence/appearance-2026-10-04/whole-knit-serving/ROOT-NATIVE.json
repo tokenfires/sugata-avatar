@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-04T17:00:35.898134+00:00",
+  "meshSha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1",
+  "views": [
+    {
+      "name": "front",
+      "observedAt": "2026-10-04T16:56:36.326Z",
+      "imageBytes": 37822,
+      "imageSha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986",
+      "stateSha256": "ff897e52c00a3138b8f8f4e146dd5f6520975cf111444510bd3d6644f4707202",
+      "camera": {
+        "verticalHalfExtent": 0.6,
+        "near": 0.1,
+        "far": 10,
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "position": [
+          0,
+          0.375,
+          3
+        ]
+      }
+    },
+    {
+      "name": "oblique",
+      "observedAt": "2026-10-04T16:57:39.461Z",
+      "imageBytes": 38279,
+      "imageSha256": "e8aea263efd6a2707177c92535ccad26c3b70d7142b548823383bcf7d9200cb5",
+      "stateSha256": "ff0362050894432e017df0ef584569bf4bd82ea5b0e62d358378c5ab93647ec0",
+      "camera": {
+        "verticalHalfExtent": 0.6,
+        "near": 0.1,
+        "far": 10,
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "position": [
+          2,
+          0.85,
+          2
+        ]
+      }
+    },
+    {
+      "name": "back",
+      "observedAt": "2026-10-04T16:58:31.502Z",
+      "imageBytes": 37859,
+      "imageSha256": "e88551bd3909860ff8897cb85505f4bdd44606e3b02aa8afec026d551f3dbf0f",
+      "stateSha256": "6da6c6c15e10d46ebd1c87e13a8b76e9844946bba9402c023782ee2d2dc0ca6c",
+      "camera": {
+        "verticalHalfExtent": 0.6,
+        "near": 0.1,
+        "far": 10,
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "position": [
+          0,
+          0.375,
+          -3
+        ]
+      }
+    }
+  ],
+  "closure": {
+    "closedAt": "2026-10-04T16:59:16.611Z",
+    "knownTabClosed": "22",
+    "remaining": [
+      {
+        "id": "1",
+        "providerTabId": "54be7203-4fbf-490c-92d2-2ef750bf1944",
+        "title": "Sugata \u2014 six-guide proposal refusal",
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/guide-target-review.html",
+        "browserId": "3"
+      }
+    ],
+    "limits": "Known tab closure; post-pagehide owner ledger not observed, no exhaustive GPU destruction claim."
+  },
+  "rootActualInspection": "All three complete unchanged original images viewed. Front/back full T-rest outline, hem and sleeve ends inside frame. Oblique owns readable torso depth, open neck and shoulder/sleeve transitions. Simplified box-like torso and taper are an artist blockout, not a finished relaxed knit or worn-fit evidence.",
+  "rootDecision": "A retain isolated artist source/viewer, pending independent critic result",
+  "limits": "No physical dimensions, flat-piece folding, global self-intersection, body/foundation fit, material, rig, motion, representative build or accepted-avatar claim; no post-close renderer ledger observed."
+}

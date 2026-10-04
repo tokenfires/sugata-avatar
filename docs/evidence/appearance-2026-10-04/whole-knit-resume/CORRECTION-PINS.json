@@ -1,0 +1,37 @@
+{
+  "geometryAndPredicatesASTIdentical": true,
+  "constructionAndExportASTIdentical": true,
+  "viewerGeometryAndCamerasTextIdentical": true,
+  "pins": {
+    "author.py": {
+      "sha256": "7c03752e8ea9ab30108a9c0615fae43334833bb9529b9ff6ffdc50ec067d23fb",
+      "bytes": 14332
+    },
+    "viewer.mjs": {
+      "sha256": "7e7363b2f5c2da5f82a1547b6136f97b9259afebb11146f8d728b673a66a5446",
+      "bytes": 3929
+    },
+    "index.html": {
+      "sha256": "04fc7be512927517ae89eedcc340960da6efdf324cd9df814a9ffe7d2de4d413",
+      "bytes": 2650
+    },
+    "PLAN.md": {
+      "sha256": "f122e99b6fdc00ce9502a0f06254273002ad767e432a778ebdcbd05612e8652b",
+      "bytes": 4318
+    },
+    "SOURCE-REVIEW.md": {
+      "sha256": "4094711fecf1cb8c11edcdd5a029ff6775529ebad92a3a009e4447d5fbe5c646",
+      "bytes": 4974
+    },
+    "author.py.pre-bookkeeping": {
+      "sha256": "062182b28083a37b1c943797d4f2a1387284ada4e754f8a4f5a3a8b6e713cec7",
+      "bytes": 13190
+    },
+    "viewer.mjs.pre-bookkeeping": {
+      "sha256": "cb6024eb1281848da856c1d56cbe3f2b3acb86017f85f5d77dc5694795f667cd",
+      "bytes": 3222
+    }
+  },
+  "priorChecker": "fa176c failed from passing a list to ast.dump; no source or geometry failure; corrected diagnostic wraps ast.Module",
+  "authorUnrun": true
+}

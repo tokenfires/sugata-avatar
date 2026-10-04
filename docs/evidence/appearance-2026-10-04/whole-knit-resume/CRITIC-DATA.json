@@ -1,0 +1,196 @@
+{
+  "startedAt": "2026-10-04T16:39:08.468762+00:00",
+  "pid": 76382,
+  "argv": [
+    "docs/evidence/appearance-2026-10-04/whole-knit-resume/critic-data-check.py"
+  ],
+  "activity": "Saved-data readback only; no author execution or new mesh",
+  "status": "passed",
+  "failure": null,
+  "tolerance": 1e-12,
+  "pins": {
+    "PLAN.md": {
+      "bytes": 4318,
+      "sha256": "f122e99b6fdc00ce9502a0f06254273002ad767e432a778ebdcbd05612e8652b"
+    },
+    "WORTH.md": {
+      "bytes": 2889,
+      "sha256": "3851d4c8261bf19c367b4f7284e1c6dd2603cb7b42b5cea07fd0346550be5e8f"
+    },
+    "author.py": {
+      "bytes": 14332,
+      "sha256": "7c03752e8ea9ab30108a9c0615fae43334833bb9529b9ff6ffdc50ec067d23fb"
+    },
+    "viewer.mjs": {
+      "bytes": 3929,
+      "sha256": "7e7363b2f5c2da5f82a1547b6136f97b9259afebb11146f8d728b673a66a5446"
+    },
+    "index.html": {
+      "bytes": 2650,
+      "sha256": "04fc7be512927517ae89eedcc340960da6efdf324cd9df814a9ffe7d2de4d413"
+    },
+    "SOURCE-ADMISSION.md": {
+      "bytes": 4424,
+      "sha256": "ca5f6f0983da1d5a6c4a45f4e175a7008c661cfd4e9b38df9bb39624f253106a"
+    },
+    "SOURCE-REVIEW.md": {
+      "bytes": 4974,
+      "sha256": "4094711fecf1cb8c11edcdd5a029ff6775529ebad92a3a009e4447d5fbe5c646"
+    },
+    "SOURCE-PINS.json": {
+      "bytes": 1526,
+      "sha256": "06316af41de1094007f92517117d7aa25bafafe88ae0d19739e85e8685644611"
+    },
+    "CORRECTION-PINS.json": {
+      "bytes": 1270,
+      "sha256": "e853deb39b96afaa717274a87ded2e1d4186fb605694547bb9c02a31ebc14c18"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 606,
+      "sha256": "f810c50d25c4dba73c6e0c3f31757b650deaa06953dcdc5d298f0ac68b6057f3"
+    },
+    "RAW.json": {
+      "bytes": 390426,
+      "sha256": "f9c263252db2500772b2c9ef70a48670abb3d1ffb841968dd1be4d036b0c68a4"
+    },
+    "mesh.json": {
+      "bytes": 145508,
+      "sha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1"
+    },
+    "sweater.obj": {
+      "bytes": 76813,
+      "sha256": "fd1292de5042eb98f22402909851bb9808126a509aa2f57b2385c2162b606067"
+    },
+    "AUTHOR-JOB.json": {
+      "bytes": 2530,
+      "sha256": "f1f0fe45b2ea6bc17683bea94810e20680c390e3289b5da73a6f8c88aef7628d"
+    },
+    "AUTHOR-RETURN.json": {
+      "bytes": 510,
+      "sha256": "7f90e5851efa2735b4e15dfb0b21f96ac1c9811ff71b5badf83f9ee16a04bd9e"
+    },
+    "AUTHOR.stdout.txt": {
+      "bytes": 1069,
+      "sha256": "3eb77f08c2612351b62b7a91f191e6dd54b352a8d38a6dcfc9a26e7cb46f109f"
+    },
+    "AUTHOR.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "work-window-input.md": {
+      "bytes": 4010,
+      "sha256": "308ab0509e45d61cce1cb191fd3a1ee014199dda8e95a84f01dd5696a155030e"
+    },
+    "critic-data-check.py": {
+      "bytes": 11754,
+      "sha256": "3e7f41a9c3b21807dadc8d7790762b4b85f7f957c5b8a072d93d66ed5413f186"
+    }
+  },
+  "levels": [
+    {
+      "level": 0,
+      "V": 76,
+      "E": 144,
+      "F": 66,
+      "euler": -2,
+      "openings": {
+        "hem": {
+          "vertices": 12,
+          "edges": 12
+        },
+        "neck": {
+          "vertices": 4,
+          "edges": 4
+        },
+        "negative-X-cuff": {
+          "vertices": 4,
+          "edges": 4
+        },
+        "positive-X-cuff": {
+          "vertices": 4,
+          "edges": 4
+        }
+      },
+      "minimumTriangleArea": 0.0012500000000000015
+    },
+    {
+      "level": 1,
+      "V": 286,
+      "E": 552,
+      "F": 264,
+      "euler": -2,
+      "openings": {
+        "hem": {
+          "vertices": 24,
+          "edges": 24
+        },
+        "neck": {
+          "vertices": 8,
+          "edges": 8
+        },
+        "negative-X-cuff": {
+          "vertices": 8,
+          "edges": 8
+        },
+        "positive-X-cuff": {
+          "vertices": 8,
+          "edges": 8
+        }
+      },
+      "minimumTriangleArea": 0.00032583896491533807
+    },
+    {
+      "level": 2,
+      "V": 1102,
+      "E": 2160,
+      "F": 1056,
+      "euler": -2,
+      "openings": {
+        "hem": {
+          "vertices": 48,
+          "edges": 48
+        },
+        "neck": {
+          "vertices": 16,
+          "edges": 16
+        },
+        "negative-X-cuff": {
+          "vertices": 16,
+          "edges": 16
+        },
+        "positive-X-cuff": {
+          "vertices": 16,
+          "edges": 16
+        }
+      },
+      "minimumTriangleArea": 6.898324433558998e-05
+    }
+  ],
+  "masks": [
+    {
+      "level": 1,
+      "comparedVertices": 286,
+      "maxCoordinateDelta": 1.1102230246251565e-16,
+      "formula": "Equivalent Favg/2Ravg interior mask; primary crease/edge/face masks"
+    },
+    {
+      "level": 2,
+      "comparedVertices": 1102,
+      "maxCoordinateDelta": 1.1102230246251565e-16,
+      "formula": "Equivalent Favg/2Ravg interior mask; primary crease/edge/face masks"
+    }
+  ],
+  "control": {
+    "occupiedCells": 34,
+    "faceOwners": 66,
+    "omittedFaces": 12,
+    "maxCoordinateDelta": 0
+  },
+  "obj": {
+    "vertices": 1102,
+    "quads": 1056,
+    "exactFloatRoundtrip": true
+  },
+  "endedAt": "2026-10-04T16:39:08.491096+00:00",
+  "exitCode": 0
+}

@@ -1,0 +1,78 @@
+import * as THREE from '/node_modules/three/build/three.module.js';
+
+const stage=document.querySelector('#stage');
+const canvas=stage.querySelector('canvas');
+const status=document.querySelector('#status');
+const buttons=[...document.querySelectorAll('[data-view]')];
+const record=document.querySelector('#observed-record');
+let renderer,geometry,material;
+let observed={error:null};
+const lifetime={closed:false,reason:null,attempts:[]};
+function publish(){record.textContent=JSON.stringify({...observed,lifetime});}
+function cleanup(reason){
+  if(lifetime.closed)return;
+  lifetime.closed=true;lifetime.reason=reason;
+  for(const [name,owner] of [['geometry',geometry],['material',material],['renderer',renderer]]){
+    const attempt={name,present:!!owner,error:null};
+    try{owner?.dispose();}catch(error){attempt.error=String(error);}
+    lifetime.attempts.push(attempt);
+  }
+  publish();
+}
+function stop(error){
+  observed.error=String(error);
+  status.textContent=`Study stopped: ${error.message}`;
+  for(const button of buttons)button.disabled=true;
+  cleanup('error');publish();
+}
+addEventListener('pagehide',()=>cleanup('pagehide'),{once:true});
+try {
+  const response=await fetch('./mesh.json');
+  if(!response.ok) throw new Error(`Mesh retrieval ${response.status}`);
+  const bytes=await response.arrayBuffer();
+  const meshSha=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');
+  if(lifetime.closed)throw new Error('Study closed during loading');
+  const mesh=JSON.parse(new TextDecoder().decode(bytes));
+  const triangles=mesh.quads.flatMap(q=>[q[0],q[1],q[2],q[0],q[2],q[3]]);
+  geometry=new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute(mesh.positions.flat(),3));
+  geometry.setIndex(triangles);
+  geometry.computeVertexNormals();
+  geometry.computeBoundingBox();
+  material=new THREE.MeshStandardMaterial({color:0x9dacc4,roughness:1,metalness:0,side:THREE.DoubleSide});
+  const scene=new THREE.Scene();
+  scene.background=new THREE.Color(0x192b32);
+  scene.add(new THREE.Mesh(geometry,material));
+  scene.add(new THREE.HemisphereLight(0xe5edf5,0x56696c,2.1));
+  const key=new THREE.DirectionalLight(0xfff1dc,3.2);key.position.set(-1,2,3);scene.add(key);
+  const fill=new THREE.DirectionalLight(0xc8dfff,1.1);fill.position.set(1,1,-2);scene.add(fill);
+  renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+  renderer.setPixelRatio(1);
+  renderer.setSize(stage.clientWidth,stage.clientHeight,false);
+  renderer.outputColorSpace=THREE.SRGBColorSpace;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure=1;
+  const aspect=stage.clientWidth/stage.clientHeight;
+  const camera=new THREE.OrthographicCamera(-.60*aspect,.60*aspect,.60,-.60,.1,10);
+  const views={front:[0,.375,3],oblique:[2,.85,2],back:[0,.375,-3]};
+  const state={meshSha,vertices:mesh.positions.length,quads:mesh.quads.length,triangles:triangles.length/3,
+    renderer:'WebGL clay study',viewport:[stage.clientWidth,stage.clientHeight],
+    camera:{verticalHalfExtent:.60,near:.1,far:10,target:[0,.375,0]},bounds:geometry.boundingBox,
+    limits:mesh.limits,view:null,draws:0,error:null};
+  observed=state;
+  function draw(view){
+    camera.position.set(...views[view]);camera.lookAt(0,.375,0);camera.updateMatrixWorld();
+    renderer.render(scene,camera);
+    state.view=view;state.draws++;
+    state.camera.position=views[view];
+    publish();
+    status.textContent=`Ready · ${view} · ${state.vertices} vertices / ${state.quads} quads · unitless`;
+    for(const button of buttons)button.setAttribute('aria-pressed',String(button.dataset.view===view));
+  }
+  for(const button of buttons){button.disabled=false;button.addEventListener('click',()=>{
+    try{if(!lifetime.closed)draw(button.dataset.view);}catch(error){stop(error);}
+  });}
+  draw('front');
+} catch(error){
+  stop(error);
+}
