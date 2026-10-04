@@ -1,0 +1,112 @@
+{
+  "utc": "2026-10-04T18:41:10.329867+00:00",
+  "decision": "A retain numeric worksheet; B fixed uniform registration, closed; B another point-map/warp on current inputs",
+  "criticResult": {
+    "bytes": 5691,
+    "sha256": "b2432743ce3a87c0bb61e9f1105c5d28127f5dc18075c12f91192e441776a299"
+  },
+  "verifiedCriticBindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/PLAN.md",
+      "bytes": 4290,
+      "sha256": "ca684f659d12af5ffcebbbaacdd71acf6601bc990e3ba2cd50c259d17f1aa1fb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/SOURCE-PINS.json",
+      "bytes": 2112,
+      "sha256": "01e84c4c9267b84e063ecf9690b9ae8fb2ca9b5d8c6fb80529f1191796128830"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/CONVENTION.json",
+      "bytes": 4451,
+      "sha256": "eafaf8135478d33ddfe5c366f8d5827ef9ca8e197d8450a23e7e585be386c954"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/measure.py",
+      "bytes": 11470,
+      "sha256": "b16b964131dc9fc89cc35815d9085615d4cbe3eeeb11c21ba3c5efaeb7bc80dc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-registration-repaired/PARTIAL-DATA.json",
+      "bytes": 6051441,
+      "sha256": "2934a0bf92f505d0b8b27452cd90e30a959382b0214fd10ac1b761606f0d74c8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json",
+      "bytes": 145508,
+      "sha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/worksheet.json",
+      "bytes": 28424,
+      "sha256": "5f27765e184e54f7e508c510533562523fa9beff04a33e48a1b562c481f9587e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/WORKSHEET.md",
+      "bytes": 2565,
+      "sha256": "c117f4e7427e12b507854d278a3ec0cef57d78871dfed3d2cdef06e09a052695"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/JOB.json",
+      "bytes": 5135,
+      "sha256": "9df95fef230c9c09833f1a27f264d8c7da6495c061917ad48d1b8a446a60d53f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/TOOL-RETURN.json",
+      "bytes": 283,
+      "sha256": "c2eec83f73fef370f26e4190688cc68826173f5bd115ea40278d6d5fb3eac65d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/RUN.stdout.txt",
+      "bytes": 4229,
+      "sha256": "87597e20732d1651f924125129881db436e8f400e8f86cc2625c4df87ccad93e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/RUN.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/ROOT-DATA.json",
+      "bytes": 2088,
+      "sha256": "a5ec2a287deb43bdf07cbdaaf87278f197949fdd12f414e5bece7e296ab5a038"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/critic-check.py",
+      "bytes": 6475,
+      "sha256": "a42039e1bdfa28e2bb4bdf6e96e2efebf4ac3c7e268f30a8477a9dabe9650b75"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/CRITIC-CHECK.json",
+      "bytes": 4331,
+      "sha256": "865aa4d7563374e183b7fa1d41d88590aaeccaf8a608bad6926ab82f53460962"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/README.md",
+      "bytes": 1789,
+      "sha256": "0b9f6e8d2358ac0af9ce2167366b3f296f6881f6af4e511ac92ea599c56e2412"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-body-landmarks/RECEIPT.md",
+      "bytes": 5445,
+      "sha256": "6ac14611acef101ab8f4ebc8fca72ad952a826d0e1281545b78340b87a757470"
+    }
+  ],
+  "verifiedSourceInputs": 11,
+  "independentRootSources": "6ad892 independently reconstructs four origins via ancestor quaternion points and means/scale/translation/math.dist;473ad7 independently uses iterative scene stack to reconstruct all7candidates/selected owner. b763ec/50c47c fully read critic checker/receipt; exact-fraction/Decimal method and receipt agree with independent root values. No checker rerun or original source decode.",
+  "nextWorth": "No next experiment admitted. Complete coupled-pose surface correspondence and shoulder-to-cuff responsibility remain a separate authored scope; source origins alone do not own those surfaces.",
+  "limits": "No worn, fit, skin, contact, coverage, foundation or appearance qualification.",
+  "reviewedDraftSnapshots": {
+    "README.md": {
+      "path": "reviewed-drafts/README.md",
+      "bytes": 1789,
+      "sha256": "0b9f6e8d2358ac0af9ce2167366b3f296f6881f6af4e511ac92ea599c56e2412"
+    },
+    "RECEIPT.md": {
+      "path": "reviewed-drafts/RECEIPT.md",
+      "bytes": 5445,
+      "sha256": "6ac14611acef101ab8f4ebc8fca72ad952a826d0e1281545b78340b87a757470"
+    }
+  },
+  "draftQualification": "17bindings verified before delivery text updates; two explicitly reviewed draft bytes preserved under reviewed-drafts; final guides may record collected outcome separately."
+}

@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-04T18:21:02.182163+00:00",
+  "pid": 11176,
+  "mode": "source read/AST only, no author execution",
+  "syntaxCommandChunk": "fa6055",
+  "imports": [
+    "from pathlib import Path",
+    "import datetime, hashlib, json, math, os, sys, traceback"
+  ],
+  "conventionChangedFields": [
+    "bodyAuthority",
+    "referenceFoundation",
+    "decision"
+  ],
+  "originalNumericChoicesByteEquivalentAsParsed": true,
+  "source": {
+    "bytes": 11470,
+    "sha256": "b16b964131dc9fc89cc35815d9085615d4cbe3eeeb11c21ba3c5efaeb7bc80dc"
+  },
+  "outputsAbsent": true,
+  "rootWitness": "Actual unchanged front original inspected at18:15:54, continuous T-rest simple volume, supports source scaffold utility only."
+}

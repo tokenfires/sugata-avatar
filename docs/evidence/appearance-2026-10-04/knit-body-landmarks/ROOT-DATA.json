@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-04T18:27:47.594177+00:00",
+  "pid": 23964,
+  "mode": "independent saved-data verification, no author import/run or asset decode",
+  "childPid": 20631,
+  "status": "worksheet usable; fixed source proposal incompatible",
+  "originsViaAncestorQuaternionPoint": {
+    "neck": {
+      "nodeIndex": 39,
+      "originMeters": [
+        0.0,
+        1.4136317307986137,
+        0.005130273575210786
+      ]
+    },
+    "hem": {
+      "nodeIndex": 51,
+      "originMeters": [
+        0.0,
+        0.8738863462358448,
+        0.013216651186851891
+      ]
+    },
+    "negative-X-cuff": {
+      "nodeIndex": 34,
+      "originMeters": [
+        -0.4530948557759919,
+        1.0155319980738877,
+        0.18322858378187767
+      ]
+    },
+    "positive-X-cuff": {
+      "nodeIndex": 15,
+      "originMeters": [
+        0.4530948557759919,
+        1.0155319980738877,
+        0.18322858378187767
+      ]
+    }
+  },
+  "maxOriginDifferenceMeters": 2.220446049250313e-16,
+  "independentScale": 0.812993846083692,
+  "independentTranslationMeters": [
+    0.0,
+    0.8238863462358448,
+    0.005130273575210786
+  ],
+  "independentResiduals": {
+    "hem": {
+      "distanceMeters": 0.008086377611641105,
+      "limitMeters": 0.05,
+      "withinLimit": true
+    },
+    "negative-X-cuff": {
+      "distanceMeters": 0.379425364473208,
+      "limitMeters": 0.05,
+      "withinLimit": false
+    },
+    "positive-X-cuff": {
+      "distanceMeters": 0.379425364473208,
+      "limitMeters": 0.05,
+      "withinLimit": false
+    }
+  },
+  "stdoutEqualsJob": true,
+  "stderrEmpty": true,
+  "onlyFailedGate": {
+    "message": "fixed held-out residual limits",
+    "ok": false
+  },
+  "outputs": {
+    "worksheet.json": {
+      "bytes": 28424,
+      "sha256": "5f27765e184e54f7e508c510533562523fa9beff04a33e48a1b562c481f9587e"
+    },
+    "WORKSHEET.md": {
+      "bytes": 2565,
+      "sha256": "c117f4e7427e12b507854d278a3ec0cef57d78871dfed3d2cdef06e09a052695"
+    }
+  },
+  "limits": "Source-origin compatibility only; no changed mesh, body-contact, foundation, pose/skin, fit or appearance qualification."
+}

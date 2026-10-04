@@ -1,0 +1,97 @@
+{
+  "pid": 33189,
+  "startedAt": "2026-10-04T18:32:43.006830+00:00",
+  "endedAt": "2026-10-04T18:32:43.033554+00:00",
+  "status": "verified B mapping / retain diagnostic",
+  "maxArithmeticDeviationMetres": 1.1102230246251565e-16,
+  "arithmeticBoundMetres": 1.4210854715202004e-14,
+  "independentScale": "0.8129938460836921826865825496695824756241366866646240976881396466092618",
+  "landmarks": {
+    "neck": {
+      "nodeIndex": 39,
+      "independentOriginMeters": [
+        "0",
+        "1.413631730798613971366384770469332614821030869558858362673328198015418",
+        "0.005130273575210780111566857055315532472837303520617092740807599912810867"
+      ]
+    },
+    "hem": {
+      "nodeIndex": 51,
+      "independentOriginMeters": [
+        "0",
+        "0.8738863462358448375433390540144708118208694003214986878447234630584717",
+        "0.01321665118685182711068383590709241978689014729297923622652888298034668"
+      ],
+      "independentResidualMeters": "0.008086377611641046999116978851776887314052843772362143485721283067535813"
+    },
+    "negative-X-cuff": {
+      "nodeIndex": 34,
+      "independentOriginMeters": [
+        "-0.4530948557759918451901854504268819609802306628229637629089276259025699",
+        "1.015531998073887515798402372127206257554771271204435088628924481535485",
+        "0.1832285837818777686076871128760153128045220179827703576297045516759508"
+      ],
+      "independentResidualMeters": "0.3794253644732084160985231759253673199940967706131208119089882101962621"
+    },
+    "positive-X-cuff": {
+      "nodeIndex": 15,
+      "independentOriginMeters": [
+        "0.4530948557759918451901854504268819609802306628229637629089276259025699",
+        "1.015531998073887515798402372127206257554771271204435088628924481535485",
+        "0.1832285837818777686076871128760153128045220179827703576297045516759508"
+      ],
+      "independentResidualMeters": "0.3794253644732084160985231759253673199940967706131208119089882101962621"
+    }
+  },
+  "checkerPin": {
+    "bytes": 6475,
+    "sha256": "a42039e1bdfa28e2bb4bdf6e96e2efebf4ac3c7e268f30a8477a9dabe9650b75"
+  },
+  "sourceInputs": {
+    "docs/evidence/appearance-2026-10-04/knit-body-landmarks/PLAN.md": {
+      "bytes": 4290,
+      "sha256": "ca684f659d12af5ffcebbbaacdd71acf6601bc990e3ba2cd50c259d17f1aa1fb"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-registration-repaired/PARTIAL-DATA.json": {
+      "bytes": 6051441,
+      "sha256": "2934a0bf92f505d0b8b27452cd90e30a959382b0214fd10ac1b761606f0d74c8"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-registration-inputs/ARTIST-CONVENTION.json": {
+      "bytes": 4487,
+      "sha256": "c12f998040fa9aa33bf6788e3748b2615cde70a742af0453071b08cb25efafca"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-registration-inputs/SOURCE-LANDMARKS.json": {
+      "bytes": 10798,
+      "sha256": "850067cb576a5530432f76fc5319ec83044f252b1cc9a0d06f38d71c36fa70a1"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-registration-inputs/SPEC-READ.json": {
+      "bytes": 5986,
+      "sha256": "dd93394c98d629f6969c887264cf07380d6d2a96f7e014bf76be4e8fb9618193"
+    },
+    "docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json": {
+      "bytes": 145508,
+      "sha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1"
+    },
+    "packages/core/src/figure/Figure.js": {
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-body-landmarks/measure.py": {
+      "bytes": 11470,
+      "sha256": "b16b964131dc9fc89cc35815d9085615d4cbe3eeeb11c21ba3c5efaeb7bc80dc"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-body-landmarks/CONVENTION.json": {
+      "bytes": 4451,
+      "sha256": "eafaf8135478d33ddfe5c366f8d5827ef9ca8e197d8450a23e7e585be386c954"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-body-landmarks/WORTH.md": {
+      "bytes": 4011,
+      "sha256": "6fa55e7a2b026493e5479ed4523fcd1d8acdbdb9afac731f62c99f0c79545884"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-body-landmarks/ROOT-WORTH.json": {
+      "bytes": 1990,
+      "sha256": "dd20d842dad33bf345441c907a5fa53a39022916a44364461d2c58f8fd93f2b1"
+    }
+  },
+  "limits": "Saved raw JSON and mesh operands only; no author import/rerun, GLB decode, skinning, new geometry or native."
+}

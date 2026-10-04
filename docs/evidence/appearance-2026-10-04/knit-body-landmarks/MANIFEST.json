@@ -1,0 +1,112 @@
+{
+  "frozenAt": "2026-10-04T18:43:54.386525+00:00",
+  "baseline": "b77de9e",
+  "status": "A worksheet / B uniform registration / no next point-map",
+  "files": {
+    "CHECKPOINT.md": {
+      "bytes": 2446,
+      "sha256": "4a4e8225bbc359a56eb716de6992a0627cb533e0cfa5ab31208d51cac33f6070"
+    },
+    "CONVENTION.json": {
+      "bytes": 4451,
+      "sha256": "eafaf8135478d33ddfe5c366f8d5827ef9ca8e197d8450a23e7e585be386c954"
+    },
+    "CRITIC-CHECK.json": {
+      "bytes": 4331,
+      "sha256": "865aa4d7563374e183b7fa1d41d88590aaeccaf8a608bad6926ab82f53460962"
+    },
+    "INPUTS.json": {
+      "bytes": 1380,
+      "sha256": "9bae586891ed28758f996403b2be4be661f05eaf060de0a77d3756a9592967e8"
+    },
+    "JOB.json": {
+      "bytes": 5135,
+      "sha256": "9df95fef230c9c09833f1a27f264d8c7da6495c061917ad48d1b8a446a60d53f"
+    },
+    "PLAN.md": {
+      "bytes": 4290,
+      "sha256": "ca684f659d12af5ffcebbbaacdd71acf6601bc990e3ba2cd50c259d17f1aa1fb"
+    },
+    "PREFLIGHT.json": {
+      "bytes": 714,
+      "sha256": "3103f831128edb5d5ecae07b03d451a630903fb19e7ad09a06b0fd503cd4dca6"
+    },
+    "README.md": {
+      "bytes": 1990,
+      "sha256": "40cfc88dde30ef37df1e7705b3e32676811a42d56bce6746fa50843dd674393b"
+    },
+    "RECEIPT.md": {
+      "bytes": 6638,
+      "sha256": "3d11c74acc6d6351799723a6de78fdb49a5ac4eb8bb98e7b175a010863e49350"
+    },
+    "RESULT.md": {
+      "bytes": 5691,
+      "sha256": "b2432743ce3a87c0bb61e9f1105c5d28127f5dc18075c12f91192e441776a299"
+    },
+    "ROOT-DATA.json": {
+      "bytes": 2088,
+      "sha256": "a5ec2a287deb43bdf07cbdaaf87278f197949fdd12f414e5bece7e296ab5a038"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 5134,
+      "sha256": "b1b3611c54614fd759dd6c457626365ee12485635843ca70d773c49df37441b7"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 3252,
+      "sha256": "d044c54267f8eba605412cd92db7871300e0ca1586de2ea785fdbe33be86d1f1"
+    },
+    "ROOT-WORTH.json": {
+      "bytes": 1990,
+      "sha256": "dd20d842dad33bf345441c907a5fa53a39022916a44364461d2c58f8fd93f2b1"
+    },
+    "RUN.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RUN.stdout.txt": {
+      "bytes": 4229,
+      "sha256": "87597e20732d1651f924125129881db436e8f400e8f86cc2625c4df87ccad93e"
+    },
+    "SOURCE-PINS.json": {
+      "bytes": 2112,
+      "sha256": "01e84c4c9267b84e063ecf9690b9ae8fb2ca9b5d8c6fb80529f1191796128830"
+    },
+    "SOURCE.md": {
+      "bytes": 3831,
+      "sha256": "54c5998cf8d237cf6e9957aa4dfa43c553c72a72db8befd14bf4b81564cc5d1d"
+    },
+    "TOOL-RETURN.json": {
+      "bytes": 283,
+      "sha256": "c2eec83f73fef370f26e4190688cc68826173f5bd115ea40278d6d5fb3eac65d"
+    },
+    "WORKSHEET.md": {
+      "bytes": 2565,
+      "sha256": "c117f4e7427e12b507854d278a3ec0cef57d78871dfed3d2cdef06e09a052695"
+    },
+    "WORTH.md": {
+      "bytes": 4011,
+      "sha256": "6fa55e7a2b026493e5479ed4523fcd1d8acdbdb9afac731f62c99f0c79545884"
+    },
+    "critic-check.py": {
+      "bytes": 6475,
+      "sha256": "a42039e1bdfa28e2bb4bdf6e96e2efebf4ac3c7e268f30a8477a9dabe9650b75"
+    },
+    "measure.py": {
+      "bytes": 11470,
+      "sha256": "b16b964131dc9fc89cc35815d9085615d4cbe3eeeb11c21ba3c5efaeb7bc80dc"
+    },
+    "reviewed-drafts/README.md": {
+      "bytes": 1789,
+      "sha256": "0b9f6e8d2358ac0af9ce2167366b3f296f6881f6af4e511ac92ea599c56e2412"
+    },
+    "reviewed-drafts/RECEIPT.md": {
+      "bytes": 5445,
+      "sha256": "6ac14611acef101ab8f4ebc8fca72ad952a826d0e1281545b78340b87a757470"
+    },
+    "worksheet.json": {
+      "bytes": 28424,
+      "sha256": "5f27765e184e54f7e508c510533562523fa9beff04a33e48a1b562c481f9587e"
+    }
+  },
+  "historicalDrafts": "reviewed-drafts preserve the two explicit draft bindings in RESULT; current README/RECEIPT record collected outcome."
+}
