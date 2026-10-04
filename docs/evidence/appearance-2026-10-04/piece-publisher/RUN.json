@@ -1,0 +1,16 @@
+{
+  "dispatch": {
+    "current_time": "2026-10-04 15:18:59 UTC"
+  },
+  "command": "python3 docs/evidence/appearance-2026-10-04/piece-publisher/publisher.py",
+  "result": {
+    "chunk_id": "fbde3c",
+    "wall_time_seconds": 6.041e-06,
+    "exit_code": 0,
+    "original_token_count": 227,
+    "output": "{\"pid\": 54628, \"startedAt\": \"2026-10-04T15:18:59.318174+00:00\", \"completedAt\": \"2026-10-04T15:18:59.320878+00:00\", \"exitCode\": 0, \"outputs\": [{\"file\": \"pattern.json\", \"bytes\": 23811, \"sha256\": \"12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1\"}, {\"file\": \"pattern.svg\", \"bytes\": 11395, \"sha256\": \"8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455\"}], \"actualFiles\": [{\"file\": \"ARTIST-DATA.json\", \"exists\": true, \"bytes\": 13691, \"sha256\": \"7fffae2260b9f3e50ac97e1a921d10187071c8894409a24e814436e70ef8c97f\"}, {\"file\": \"pattern.json\", \"exists\": true, \"bytes\": 23811, \"sha256\": \"12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1\"}, {\"file\": \"pattern.svg\", \"exists\": true, \"bytes\": 11395, \"sha256\": \"8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455\"}], \"failure\": null, \"inventoryError\": null, \"receiptError\": null, \"completionDeadlineFailure\": null}\n"
+  },
+  "returned": {
+    "current_time": "2026-10-04 15:18:59 UTC"
+  }
+}

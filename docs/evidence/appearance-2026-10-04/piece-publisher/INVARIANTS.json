@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-04T15:06:48.907469+00:00",
+  "pid": 30285,
+  "oldSource": {
+    "file": "docs/evidence/appearance-2026-10-04/knit-piece-draft/draft.py",
+    "sha256": "283b88240203ea59a0dd5af1175d81f1d58b956a0ad6c93f16ba786ae98b94f2"
+  },
+  "publisher": {
+    "file": "docs/evidence/appearance-2026-10-04/piece-publisher/publisher.py",
+    "bytes": 20041,
+    "sha256": "75ffc8a16360190d457fd914fc9195718e2e355a0f9c283e95379c1f191d4d3f"
+  },
+  "syntax": "ast.parse only, no import/author execution",
+  "unchangedHelperAndRendererAst": {
+    "quad_length": "50278f114fafca455c5f67ad9e75ae64e231d1c020572b1a929c64e4a5954b80",
+    "point": "011e00d67723536a480703ffdf0a1d8436f7e95fada071023739d48162a4a09c",
+    "render_svg": "4aa8d765653c9c9de034ce068b4b413074dc90d6bcea052149585431fe2d3b43"
+  },
+  "allOldAuthorAssignmentsPresentUnchanged": 82,
+  "unchangedGeometryPredicateOperands": [
+    {
+      "label": "simple monotone neck cuts inside body bounds",
+      "booleanAstSha256": "8803f2241f1855919b1bb4bf130cb16afdd0403f7835156e8153afee625f54b7"
+    },
+    {
+      "label": "complete exclusive edge responsibility",
+      "booleanAstSha256": "ed38b1009113cb8ca62cbe2f480de1c15e8929098bf5fa96f24c1755260b4f39"
+    },
+    {
+      "label": "connected abstract patches",
+      "booleanAstSha256": "84ff4ad460d0359be63486fbf4fed413ec0e07f1a525c47281504e7c8c0485a9"
+    },
+    {
+      "label": "free boundary degree two",
+      "booleanAstSha256": "1dc8b1fc4b8eb98cf8be19d04ccbf4752e96629ef8611bc9d71d33f7c6136aaf"
+    },
+    {
+      "label": "four named opening loops",
+      "booleanAstSha256": "1cb33157c81e3e67476069e7e09bcd3e774e9fc3ac848bb528bd6b4bbcea268a"
+    },
+    {
+      "label": "declared abstract quotient counts",
+      "booleanAstSha256": "2f6610f229704445537bde98c12a622cfeab67651de348743e1a8e4171a4c814"
+    },
+    {
+      "label": "finite positive canonical piece",
+      "booleanAstSha256": "0f3a1d46be55c726549fd9009415646c7b97c66ac01e835daff1a509a30d2c14"
+    },
+    {
+      "label": "unique paired edges",
+      "booleanAstSha256": "0d5558ffe53b42fd3b0ae4c1aefee0014c65a2f17166dc831ebdfe586298991d"
+    },
+    {
+      "label": "equal authored seam length",
+      "booleanAstSha256": "6d3c6a7e3feea5160f6f16c5641c0333d8503f4185b49d0928be4b0e83356c7f"
+    },
+    {
+      "label": "single owned free-loop role",
+      "booleanAstSha256": "635d606915f388794efb81fabbb166ef93d00a053864e495e486de400ce3c116"
+    },
+    {
+      "label": "abstract manifold corner link",
+      "booleanAstSha256": "35f881c81b7ff2a41edb680b2ebbb7c11bc38050b2f173ff7a961c22985c8435"
+    },
+    {
+      "label": "two incident edges per source corner",
+      "booleanAstSha256": "79ea3ee6a04aa2cd3f02e23d795531649b90b9f005840affb3520e7c0aaf38c0"
+    }
+  ],
+  "limits": "AST comparisons bind data/arithmetic/render expressions, not runtime graph success, recovery I/O success or actual image readability. New bookkeeping/moved check order is explicit source repair.",
+  "receiptNewlineConstantCheck": "Four writer newline constants are actual LF. 9e87ed attempted a suspected escape correction but assertion failed before writes; e12955 and this ordinal check confirm no correction needed or source change. No execution.",
+  "updatedAt": "2026-10-04T15:10:56.467448+00:00"
+}

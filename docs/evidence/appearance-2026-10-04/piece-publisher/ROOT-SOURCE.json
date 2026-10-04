@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-04T15:18:52.718796+00:00",
+  "pid": 54433,
+  "decision": "A one first publisher execution; native admission not yet granted",
+  "source": {
+    "sha256": "75ffc8a16360190d457fd914fc9195718e2e355a0f9c283e95379c1f191d4d3f",
+    "bytes": 20041
+  },
+  "criticSha256": "1c725f9f086f0114148d220764370649841e244b29a6a693926be9efdac2167f",
+  "inputCount": 5,
+  "unchangedFunctionsAndClass": [
+    "quad_length",
+    "point",
+    "render_svg",
+    "Union"
+  ],
+  "retainedOldAssignments": 82,
+  "unchangedGeometryPredicates": 12,
+  "sourceReads": [
+    "525ed9 full saved packet/source",
+    "266c1a full old/new diff; exit1 is expected difference",
+    "833ea8 full saved-data independent checker"
+  ],
+  "independentInspection": "Operands deep-copied before predicates; mutable seam/union/free/link/count evidence retained; finally inventories all three actual files; receipt error nonzero externally; root binds observed full process return before deadline. No current source invariant failure or bookkeeping correction. AST proof supports fixed data, not runtime success.",
+  "checker": {
+    "bytes": 6257,
+    "sha256": "a5cdfc7e21a7ac44e491cd4f6cf00eb093ae827977260e8837f263004aa23c32",
+    "change": "Copy only; one metadata source filename draft.py to publisher.py, arithmetic and graph checks unchanged; ast.parse only, no import/execution"
+  },
+  "absence": [
+    "ARTIST-DATA.json",
+    "pattern.json",
+    "pattern.svg",
+    "AUTHOR-JOB.json"
+  ]
+}

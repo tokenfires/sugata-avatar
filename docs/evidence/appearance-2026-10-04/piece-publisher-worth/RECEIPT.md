@@ -1,0 +1,7 @@
+# Fixed-data publishing repair worth
+
+Entry clean ea71b42. [PLAN](PLAN.md) transparently reconsiders the earlier self-imposed no-correction limit under Robert's continuing authorization; same artistic method, not a new3D representation. Original author283b8824…/source6fbc44b4…/refusal/manifests stay frozen/unrun. Actual source witnesses: full graph167–174 only after predicates, write178 before ledger179, finally224–227 no actual-file inventory. No actual geometry/graph/readability test occurred.
+
+[WORTH](WORTH.md),231words2140bytes/SHA26627d886fb757eca186781fcebb07b0e231e9abe28c2bde8e0d666cc5e58773, reviewed14:54:14.844925UTC, conditionally A for one repaired publisher implementation/preflight with all artist data/arithmetic/layout fixed. A adds bounded recovery work and could supply the promised usable editable sheet; B saves effort but leaves the original evidence question untested. Root FULL34ad03 and [ROOT](ROOT.json) independently reconcile six inputs/four literal critic pins and source paths. No execution/3D/fit admission. First actual graph/arithmetic/native refusal under a fresh contract must stop without shape, threshold or capture rescue.
+
+No implementation/native/online/imagegen/product/asset changes in worth; no old script imported or run. FullAAA/character/expression/wardrobe/representation/coupled coverage/poses, accepted/frozen/reference/unrelated work/review5173/user1/ACTIVErecovery preserved. Human check-in/pause takes precedence; no push/publication/purchase/install/model/subscription/reset-credit/other-project resume.

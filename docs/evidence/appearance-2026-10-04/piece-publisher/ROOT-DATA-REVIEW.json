@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-04T15:26:47.403651+00:00",
+  "pid": 68059,
+  "fullRead": "2e97a5/0",
+  "critic": {
+    "bytes": 2917,
+    "sha256": "a51a7979e39aa50174cc147dd0c530c47866549e282c4b3066bbaa2117c6f115"
+  },
+  "literalPins": {
+    "ARTIST-DATA.json": {
+      "bytes": 13691,
+      "sha256": "7fffae2260b9f3e50ac97e1a921d10187071c8894409a24e814436e70ef8c97f"
+    },
+    "pattern.json": {
+      "bytes": 23811,
+      "sha256": "12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1"
+    },
+    "pattern.svg": {
+      "bytes": 11395,
+      "sha256": "8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455"
+    },
+    "AUTHOR-JOB.json": {
+      "bytes": 56228,
+      "sha256": "980a3f8feae560cee6517d3093d4de6f5b1e8561ff63128bb72dd9e09bd7577b"
+    },
+    "RUN.json": {
+      "bytes": 1366,
+      "sha256": "6e032a182442b373180285442298bfc1177aac2553b1bac2569a2d1a4f0c701b"
+    },
+    "ROOT-CHECK.json": {
+      "bytes": 3942,
+      "sha256": "326b007ff08b960493621496ad15169aa8e49ff7af5ce2a9faf8410cfe761f94"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 1473,
+      "sha256": "fee966470bb641b887f68dc2712fbe66332b56e281a59311b2a9342192e856f3"
+    },
+    "root-check.py": {
+      "bytes": 6257,
+      "sha256": "a5cdfc7e21a7ac44e491cd4f6cf00eb093ae827977260e8837f263004aa23c32"
+    },
+    "INVARIANTS.json": {
+      "bytes": 3268,
+      "sha256": "3eea6c1c1950d7a130e8e933270c99ba5d2089b3f04dd21838f9ee4c45d10754"
+    },
+    "INPUTS.json": {
+      "bytes": 1123,
+      "sha256": "0c5db7179baf785c9f58c9e59e7169a4fcd80843d5f7f2467ebf2ec368a2d19e"
+    },
+    "ROOT-POSTFILE.json": {
+      "bytes": 12559,
+      "sha256": "c63a8fd235ff760e4deec63a424acb787b5e8c883820f87a7aac85ac11c13ce1"
+    }
+  },
+  "rootDecision": "A exactly one first native static SVG original state/untouched screenshot at unchanged current defaultviewport, no renderer/evaluation/resize/reframe/retry. Saved data verified93b65a/c17188 and independent checker c562d7. Actual image still unresolved. First native/readability refusal closes."
+}

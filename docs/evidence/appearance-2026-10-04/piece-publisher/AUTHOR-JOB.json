@@ -1,0 +1,2844 @@
+{
+  "pid": 54628,
+  "startedAt": "2026-10-04T15:18:59.318174+00:00",
+  "sourceSha256": "75ffc8a16360190d457fd914fc9195718e2e355a0f9c283e95379c1f191d4d3f",
+  "checks": [
+    {
+      "check": "within deadline",
+      "okay": true,
+      "witness": {
+        "actual": "2026-10-04T15:18:59.318338+00:00",
+        "deadline": "2026-10-04T16:15:00+00:00"
+      }
+    },
+    {
+      "check": "input hash",
+      "okay": true,
+      "witness": {
+        "file": "docs/evidence/appearance-2026-10-04/piece-publisher/PLAN.md"
+      }
+    },
+    {
+      "check": "input hash",
+      "okay": true,
+      "witness": {
+        "file": "docs/evidence/appearance-2026-10-04/piece-publisher/publisher.py"
+      }
+    },
+    {
+      "check": "input hash",
+      "okay": true,
+      "witness": {
+        "file": "docs/evidence/appearance-2026-10-04/piece-publisher/INVARIANTS.json"
+      }
+    },
+    {
+      "check": "input hash",
+      "okay": true,
+      "witness": {
+        "file": "docs/evidence/appearance-2026-10-04/piece-publisher-worth/WORTH.md"
+      }
+    },
+    {
+      "check": "input hash",
+      "okay": true,
+      "witness": {
+        "file": "docs/evidence/appearance-2026-10-04/knit-piece-draft/draft.py"
+      }
+    },
+    {
+      "check": "no prior candidate overwrite",
+      "okay": true,
+      "witness": {
+        "file": "ARTIST-DATA.json"
+      }
+    },
+    {
+      "check": "no prior candidate overwrite",
+      "okay": true,
+      "witness": {
+        "file": "pattern.json"
+      }
+    },
+    {
+      "check": "no prior candidate overwrite",
+      "okay": true,
+      "witness": {
+        "file": "pattern.svg"
+      }
+    },
+    {
+      "check": "simple monotone neck cuts inside body bounds",
+      "okay": true,
+      "witness": {
+        "neck_depths": [
+          60,
+          20
+        ],
+        "underarm": 200,
+        "hem": 600
+      }
+    },
+    {
+      "check": "finite positive canonical piece",
+      "okay": true,
+      "witness": {
+        "piece": "F",
+        "sampledAreaAU2": 229600.29296875
+      }
+    },
+    {
+      "check": "finite positive canonical piece",
+      "okay": true,
+      "witness": {
+        "piece": "B",
+        "sampledAreaAU2": 232800.09765625
+      }
+    },
+    {
+      "check": "finite positive canonical piece",
+      "okay": true,
+      "witness": {
+        "piece": "L",
+        "sampledAreaAU2": 96000.0
+      }
+    },
+    {
+      "check": "finite positive canonical piece",
+      "okay": true,
+      "witness": {
+        "piece": "R",
+        "sampledAreaAU2": 96000.0
+      }
+    },
+    {
+      "check": "finite positive canonical piece",
+      "okay": true,
+      "witness": {
+        "piece": "N",
+        "sampledAreaAU2": 7952.027953146393
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S01",
+        "edges": [
+          "F01",
+          "B01"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S01",
+        "lengthsAU": [
+          145.60219778561037,
+          145.60219778561037
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S02",
+        "edges": [
+          "F03",
+          "B03"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S02",
+        "lengthsAU": [
+          145.60219778561037,
+          145.60219778561037
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S03",
+        "edges": [
+          "F07",
+          "B07"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S03",
+        "lengthsAU": [
+          400.0,
+          400.0
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S04",
+        "edges": [
+          "F05",
+          "B05"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S04",
+        "lengthsAU": [
+          400.0,
+          400.0
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S05",
+        "edges": [
+          "F08",
+          "L01"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S05",
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S06",
+        "edges": [
+          "B08",
+          "L02"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S06",
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S07",
+        "edges": [
+          "F04",
+          "R01"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S07",
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S08",
+        "edges": [
+          "B04",
+          "R02"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S08",
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S09",
+        "edges": [
+          "L03",
+          "L05"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S09",
+        "lengthsAU": [
+          407.9215610874228,
+          407.9215610874228
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S10",
+        "edges": [
+          "R03",
+          "R05"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S10",
+        "lengthsAU": [
+          407.9215610874228,
+          407.9215610874228
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S11",
+        "edges": [
+          "N02",
+          "N05"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S11",
+        "lengthsAU": [
+          26.0,
+          26.0
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S12",
+        "edges": [
+          "F02",
+          "N04"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S12",
+        "lengthsAU": [
+          177.4731429053517,
+          177.4731429053517
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "unique paired edges",
+      "okay": true,
+      "witness": {
+        "seam": "S13",
+        "edges": [
+          "B02",
+          "N03"
+        ]
+      }
+    },
+    {
+      "check": "equal authored seam length",
+      "okay": true,
+      "witness": {
+        "seam": "S13",
+        "lengthsAU": [
+          128.37408606181728,
+          128.37408606181728
+        ],
+        "deltaAU": 0.0,
+        "limitAU": 1e-09
+      }
+    },
+    {
+      "check": "complete exclusive edge responsibility",
+      "okay": true,
+      "witness": {
+        "paired": 26,
+        "free": {
+          "F06": "hem",
+          "B06": "hem",
+          "L04": "left cuff",
+          "R04": "right cuff",
+          "N01": "neck"
+        },
+        "total": 31
+      }
+    },
+    {
+      "check": "connected abstract patches",
+      "okay": true,
+      "witness": {
+        "reached": [
+          "B",
+          "F",
+          "L",
+          "N",
+          "R"
+        ]
+      }
+    },
+    {
+      "check": "free boundary degree two",
+      "okay": true,
+      "witness": {
+        "degrees": {
+          "B:v5": 2,
+          "B:v6": 2,
+          "L:v3": 2,
+          "R:v3": 2,
+          "N:v0": 2
+        }
+      }
+    },
+    {
+      "check": "single owned free-loop role",
+      "okay": true,
+      "witness": {
+        "edges": [
+          "B06",
+          "F06"
+        ],
+        "names": [
+          "hem"
+        ]
+      }
+    },
+    {
+      "check": "single owned free-loop role",
+      "okay": true,
+      "witness": {
+        "edges": [
+          "L04"
+        ],
+        "names": [
+          "left cuff"
+        ]
+      }
+    },
+    {
+      "check": "single owned free-loop role",
+      "okay": true,
+      "witness": {
+        "edges": [
+          "N01"
+        ],
+        "names": [
+          "neck"
+        ]
+      }
+    },
+    {
+      "check": "single owned free-loop role",
+      "okay": true,
+      "witness": {
+        "edges": [
+          "R04"
+        ],
+        "names": [
+          "right cuff"
+        ]
+      }
+    },
+    {
+      "check": "four named opening loops",
+      "okay": true,
+      "witness": {
+        "loops": [
+          {
+            "name": "hem",
+            "vertices": [
+              "B:v5",
+              "B:v6"
+            ],
+            "edges": [
+              "B06",
+              "F06"
+            ]
+          },
+          {
+            "name": "left cuff",
+            "vertices": [
+              "L:v3"
+            ],
+            "edges": [
+              "L04"
+            ]
+          },
+          {
+            "name": "neck",
+            "vertices": [
+              "N:v0"
+            ],
+            "edges": [
+              "N01"
+            ]
+          },
+          {
+            "name": "right cuff",
+            "vertices": [
+              "R:v3"
+            ],
+            "edges": [
+              "R04"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v0",
+        "edges": [
+          "F01",
+          "F08"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v1",
+        "edges": [
+          "F01",
+          "F02"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v2",
+        "edges": [
+          "F02",
+          "F03"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v3",
+        "edges": [
+          "F03",
+          "F04"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v4",
+        "edges": [
+          "F04",
+          "F05"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v5",
+        "edges": [
+          "F05",
+          "F06"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v6",
+        "edges": [
+          "F06",
+          "F07"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "F:v7",
+        "edges": [
+          "F07",
+          "F08"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v0",
+        "edges": [
+          "B01",
+          "B08"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v1",
+        "edges": [
+          "B01",
+          "B02"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v2",
+        "edges": [
+          "B02",
+          "B03"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v3",
+        "edges": [
+          "B03",
+          "B04"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v4",
+        "edges": [
+          "B04",
+          "B05"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v5",
+        "edges": [
+          "B05",
+          "B06"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v6",
+        "edges": [
+          "B06",
+          "B07"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "B:v7",
+        "edges": [
+          "B07",
+          "B08"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "L:v0",
+        "edges": [
+          "L01",
+          "L05"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "L:v1",
+        "edges": [
+          "L01",
+          "L02"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "L:v2",
+        "edges": [
+          "L02",
+          "L03"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "L:v3",
+        "edges": [
+          "L03",
+          "L04"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "L:v4",
+        "edges": [
+          "L04",
+          "L05"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "R:v0",
+        "edges": [
+          "R01",
+          "R05"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "R:v1",
+        "edges": [
+          "R01",
+          "R02"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "R:v2",
+        "edges": [
+          "R02",
+          "R03"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "R:v3",
+        "edges": [
+          "R03",
+          "R04"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "R:v4",
+        "edges": [
+          "R04",
+          "R05"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "N:v0",
+        "edges": [
+          "N01",
+          "N05"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "N:v1",
+        "edges": [
+          "N01",
+          "N02"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "N:v2",
+        "edges": [
+          "N02",
+          "N03"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "N:v3",
+        "edges": [
+          "N03",
+          "N04"
+        ]
+      }
+    },
+    {
+      "check": "two incident edges per source corner",
+      "okay": true,
+      "witness": {
+        "node": "N:v4",
+        "edges": [
+          "N04",
+          "N05"
+        ]
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v0",
+        "boundary": false,
+        "degrees": [
+          2,
+          2,
+          2
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v1",
+        "boundary": false,
+        "degrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v2",
+        "boundary": false,
+        "degrees": [
+          2,
+          2,
+          2
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v3",
+        "boundary": false,
+        "degrees": [
+          2,
+          2,
+          2
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v4",
+        "boundary": false,
+        "degrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v5",
+        "boundary": true,
+        "degrees": [
+          2,
+          1,
+          1
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v6",
+        "boundary": true,
+        "degrees": [
+          1,
+          2,
+          1
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "B:v7",
+        "boundary": false,
+        "degrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "L:v3",
+        "boundary": true,
+        "degrees": [
+          2,
+          1,
+          1
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "N:v0",
+        "boundary": true,
+        "degrees": [
+          1,
+          2,
+          1
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "abstract manifold corner link",
+      "okay": true,
+      "witness": {
+        "vertex": "R:v3",
+        "boundary": true,
+        "degrees": [
+          2,
+          1,
+          1
+        ],
+        "connected": true
+      }
+    },
+    {
+      "check": "declared abstract quotient counts",
+      "okay": true,
+      "witness": {
+        "counts": {
+          "V": 11,
+          "E": 18,
+          "F": 5,
+          "Euler": -2
+        }
+      }
+    },
+    {
+      "check": "before output deadline",
+      "okay": true,
+      "witness": {}
+    }
+  ],
+  "outputs": [
+    {
+      "file": "pattern.json",
+      "bytes": 23811,
+      "sha256": "12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1"
+    },
+    {
+      "file": "pattern.svg",
+      "bytes": 11395,
+      "sha256": "8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455"
+    }
+  ],
+  "scope": "one fixed-data 2D publisher repair; no artist geometry changes or3D",
+  "inputs": {
+    "docs/evidence/appearance-2026-10-04/piece-publisher/PLAN.md": {
+      "bytes": 3906,
+      "sha256": "c19196584adc808fe3ee997c0e3432da8e0eb34e49baf33b6515b124623f24f4"
+    },
+    "docs/evidence/appearance-2026-10-04/piece-publisher/publisher.py": {
+      "bytes": 20041,
+      "sha256": "75ffc8a16360190d457fd914fc9195718e2e355a0f9c283e95379c1f191d4d3f"
+    },
+    "docs/evidence/appearance-2026-10-04/piece-publisher/INVARIANTS.json": {
+      "bytes": 3268,
+      "sha256": "3eea6c1c1950d7a130e8e933270c99ba5d2089b3f04dd21838f9ee4c45d10754"
+    },
+    "docs/evidence/appearance-2026-10-04/piece-publisher-worth/WORTH.md": {
+      "bytes": 2140,
+      "sha256": "26627d886fb757eca186781fcebb07b0e231e9abe28c2bde8e0d666cc5e58773"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-piece-draft/draft.py": {
+      "bytes": 16655,
+      "sha256": "283b88240203ea59a0dd5af1175d81f1d58b956a0ad6c93f16ba786ae98b94f2"
+    }
+  },
+  "phase": "output publication",
+  "ownership": {
+    "vertices": {
+      "F:v0": [
+        -200,
+        40
+      ],
+      "F:v1": [
+        -60,
+        0
+      ],
+      "F:v2": [
+        60,
+        0
+      ],
+      "F:v3": [
+        200,
+        40
+      ],
+      "F:v4": [
+        200,
+        200
+      ],
+      "F:v5": [
+        200,
+        600
+      ],
+      "F:v6": [
+        -200,
+        600
+      ],
+      "F:v7": [
+        -200,
+        200
+      ],
+      "B:v0": [
+        -200,
+        40
+      ],
+      "B:v1": [
+        -60,
+        0
+      ],
+      "B:v2": [
+        60,
+        0
+      ],
+      "B:v3": [
+        200,
+        40
+      ],
+      "B:v4": [
+        200,
+        200
+      ],
+      "B:v5": [
+        200,
+        600
+      ],
+      "B:v6": [
+        -200,
+        600
+      ],
+      "B:v7": [
+        -200,
+        200
+      ],
+      "L:v0": [
+        -160,
+        0
+      ],
+      "L:v1": [
+        0,
+        0
+      ],
+      "L:v2": [
+        160,
+        0
+      ],
+      "L:v3": [
+        80,
+        400
+      ],
+      "L:v4": [
+        -80,
+        400
+      ],
+      "R:v0": [
+        -160,
+        0
+      ],
+      "R:v1": [
+        0,
+        0
+      ],
+      "R:v2": [
+        160,
+        0
+      ],
+      "R:v3": [
+        80,
+        400
+      ],
+      "R:v4": [
+        -80,
+        400
+      ],
+      "N:v0": [
+        0,
+        0
+      ],
+      "N:v1": [
+        305.847228967169,
+        0
+      ],
+      "N:v2": [
+        305.847228967169,
+        26
+      ],
+      "N:v3": [
+        177.4731429053517,
+        26
+      ],
+      "N:v4": [
+        0,
+        26
+      ]
+    },
+    "vertexSemantics": {
+      "F:v0": "outer shoulder left",
+      "F:v1": "neck left",
+      "F:v2": "neck right",
+      "F:v3": "outer shoulder right",
+      "F:v4": "underarm right",
+      "F:v5": "hem right",
+      "F:v6": "hem left",
+      "F:v7": "underarm left",
+      "B:v0": "outer shoulder left",
+      "B:v1": "neck left",
+      "B:v2": "neck right",
+      "B:v3": "outer shoulder right",
+      "B:v4": "underarm right",
+      "B:v5": "hem right",
+      "B:v6": "hem left",
+      "B:v7": "underarm left",
+      "L:v0": "front underarm",
+      "L:v1": "shoulder join",
+      "L:v2": "back underarm",
+      "L:v3": "back cuff",
+      "L:v4": "front cuff",
+      "R:v0": "front underarm",
+      "R:v1": "shoulder join",
+      "R:v2": "back underarm",
+      "R:v3": "back cuff",
+      "R:v4": "front cuff",
+      "N:v0": "free left",
+      "N:v1": "free right",
+      "N:v2": "neck left at band right end",
+      "N:v3": "neck right",
+      "N:v4": "neck left at band left end"
+    },
+    "edges": {
+      "F01": {
+        "id": "F01",
+        "piece": "F",
+        "role": "shoulder left",
+        "canonical_from": "F:v0",
+        "canonical_to": "F:v1",
+        "from": "F:v0",
+        "to": "F:v1",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 145.60219778561037,
+        "seam": "S01"
+      },
+      "F02": {
+        "id": "F02",
+        "piece": "F",
+        "role": "neck",
+        "canonical_from": "F:v1",
+        "canonical_to": "F:v2",
+        "from": "F:v1",
+        "to": "F:v2",
+        "kind": "quadratic",
+        "control": [
+          0,
+          120
+        ],
+        "lengthAU": 177.4731429053517,
+        "seam": "S12"
+      },
+      "F03": {
+        "id": "F03",
+        "piece": "F",
+        "role": "shoulder right",
+        "canonical_from": "F:v2",
+        "canonical_to": "F:v3",
+        "from": "F:v2",
+        "to": "F:v3",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 145.60219778561037,
+        "seam": "S02"
+      },
+      "F04": {
+        "id": "F04",
+        "piece": "F",
+        "role": "armhole right",
+        "canonical_from": "F:v3",
+        "canonical_to": "F:v4",
+        "from": "F:v3",
+        "to": "F:v4",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S07"
+      },
+      "F05": {
+        "id": "F05",
+        "piece": "F",
+        "role": "body side right",
+        "canonical_from": "F:v4",
+        "canonical_to": "F:v5",
+        "from": "F:v4",
+        "to": "F:v5",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 400.0,
+        "seam": "S04"
+      },
+      "F06": {
+        "id": "F06",
+        "piece": "F",
+        "role": "hem free",
+        "canonical_from": "F:v5",
+        "canonical_to": "F:v6",
+        "from": "F:v5",
+        "to": "F:v6",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 400.0,
+        "freeOpening": "hem"
+      },
+      "F07": {
+        "id": "F07",
+        "piece": "F",
+        "role": "body side left",
+        "canonical_from": "F:v6",
+        "canonical_to": "F:v7",
+        "from": "F:v6",
+        "to": "F:v7",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 400.0,
+        "seam": "S03"
+      },
+      "F08": {
+        "id": "F08",
+        "piece": "F",
+        "role": "armhole left",
+        "canonical_from": "F:v7",
+        "canonical_to": "F:v0",
+        "from": "F:v7",
+        "to": "F:v0",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S05"
+      },
+      "B01": {
+        "id": "B01",
+        "piece": "B",
+        "role": "shoulder left",
+        "canonical_from": "B:v0",
+        "canonical_to": "B:v1",
+        "from": "B:v1",
+        "to": "B:v0",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 145.60219778561037,
+        "seam": "S01"
+      },
+      "B02": {
+        "id": "B02",
+        "piece": "B",
+        "role": "neck",
+        "canonical_from": "B:v1",
+        "canonical_to": "B:v2",
+        "from": "B:v2",
+        "to": "B:v1",
+        "kind": "quadratic",
+        "control": [
+          0,
+          40
+        ],
+        "lengthAU": 128.37408606181728,
+        "seam": "S13"
+      },
+      "B03": {
+        "id": "B03",
+        "piece": "B",
+        "role": "shoulder right",
+        "canonical_from": "B:v2",
+        "canonical_to": "B:v3",
+        "from": "B:v3",
+        "to": "B:v2",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 145.60219778561037,
+        "seam": "S02"
+      },
+      "B04": {
+        "id": "B04",
+        "piece": "B",
+        "role": "armhole right",
+        "canonical_from": "B:v3",
+        "canonical_to": "B:v4",
+        "from": "B:v4",
+        "to": "B:v3",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S08"
+      },
+      "B05": {
+        "id": "B05",
+        "piece": "B",
+        "role": "body side right",
+        "canonical_from": "B:v4",
+        "canonical_to": "B:v5",
+        "from": "B:v5",
+        "to": "B:v4",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 400.0,
+        "seam": "S04"
+      },
+      "B06": {
+        "id": "B06",
+        "piece": "B",
+        "role": "hem free",
+        "canonical_from": "B:v5",
+        "canonical_to": "B:v6",
+        "from": "B:v6",
+        "to": "B:v5",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 400.0,
+        "freeOpening": "hem"
+      },
+      "B07": {
+        "id": "B07",
+        "piece": "B",
+        "role": "body side left",
+        "canonical_from": "B:v6",
+        "canonical_to": "B:v7",
+        "from": "B:v7",
+        "to": "B:v6",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 400.0,
+        "seam": "S03"
+      },
+      "B08": {
+        "id": "B08",
+        "piece": "B",
+        "role": "armhole left",
+        "canonical_from": "B:v7",
+        "canonical_to": "B:v0",
+        "from": "B:v0",
+        "to": "B:v7",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S06"
+      },
+      "L01": {
+        "id": "L01",
+        "piece": "L",
+        "role": "front attachment",
+        "canonical_from": "L:v0",
+        "canonical_to": "L:v1",
+        "from": "L:v1",
+        "to": "L:v0",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S05"
+      },
+      "L02": {
+        "id": "L02",
+        "piece": "L",
+        "role": "back attachment",
+        "canonical_from": "L:v1",
+        "canonical_to": "L:v2",
+        "from": "L:v2",
+        "to": "L:v1",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S06"
+      },
+      "L03": {
+        "id": "L03",
+        "piece": "L",
+        "role": "underarm back",
+        "canonical_from": "L:v2",
+        "canonical_to": "L:v3",
+        "from": "L:v3",
+        "to": "L:v2",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 407.9215610874228,
+        "seam": "S09"
+      },
+      "L04": {
+        "id": "L04",
+        "piece": "L",
+        "role": "cuff free",
+        "canonical_from": "L:v3",
+        "canonical_to": "L:v4",
+        "from": "L:v4",
+        "to": "L:v3",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "freeOpening": "left cuff"
+      },
+      "L05": {
+        "id": "L05",
+        "piece": "L",
+        "role": "underarm front",
+        "canonical_from": "L:v4",
+        "canonical_to": "L:v0",
+        "from": "L:v0",
+        "to": "L:v4",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 407.9215610874228,
+        "seam": "S09"
+      },
+      "R01": {
+        "id": "R01",
+        "piece": "R",
+        "role": "front attachment",
+        "canonical_from": "R:v0",
+        "canonical_to": "R:v1",
+        "from": "R:v0",
+        "to": "R:v1",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S07"
+      },
+      "R02": {
+        "id": "R02",
+        "piece": "R",
+        "role": "back attachment",
+        "canonical_from": "R:v1",
+        "canonical_to": "R:v2",
+        "from": "R:v1",
+        "to": "R:v2",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "seam": "S08"
+      },
+      "R03": {
+        "id": "R03",
+        "piece": "R",
+        "role": "underarm back",
+        "canonical_from": "R:v2",
+        "canonical_to": "R:v3",
+        "from": "R:v2",
+        "to": "R:v3",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 407.9215610874228,
+        "seam": "S10"
+      },
+      "R04": {
+        "id": "R04",
+        "piece": "R",
+        "role": "cuff free",
+        "canonical_from": "R:v3",
+        "canonical_to": "R:v4",
+        "from": "R:v3",
+        "to": "R:v4",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 160.0,
+        "freeOpening": "right cuff"
+      },
+      "R05": {
+        "id": "R05",
+        "piece": "R",
+        "role": "underarm front",
+        "canonical_from": "R:v4",
+        "canonical_to": "R:v0",
+        "from": "R:v4",
+        "to": "R:v0",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 407.9215610874228,
+        "seam": "S10"
+      },
+      "N01": {
+        "id": "N01",
+        "piece": "N",
+        "role": "neck free",
+        "canonical_from": "N:v0",
+        "canonical_to": "N:v1",
+        "from": "N:v0",
+        "to": "N:v1",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 305.847228967169,
+        "freeOpening": "neck"
+      },
+      "N02": {
+        "id": "N02",
+        "piece": "N",
+        "role": "band end right",
+        "canonical_from": "N:v1",
+        "canonical_to": "N:v2",
+        "from": "N:v1",
+        "to": "N:v2",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 26.0,
+        "seam": "S11"
+      },
+      "N03": {
+        "id": "N03",
+        "piece": "N",
+        "role": "back neck attachment",
+        "canonical_from": "N:v2",
+        "canonical_to": "N:v3",
+        "from": "N:v2",
+        "to": "N:v3",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 128.37408606181728,
+        "seam": "S13"
+      },
+      "N04": {
+        "id": "N04",
+        "piece": "N",
+        "role": "front neck attachment",
+        "canonical_from": "N:v3",
+        "canonical_to": "N:v4",
+        "from": "N:v3",
+        "to": "N:v4",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 177.4731429053517,
+        "seam": "S12"
+      },
+      "N05": {
+        "id": "N05",
+        "piece": "N",
+        "role": "band end left",
+        "canonical_from": "N:v4",
+        "canonical_to": "N:v0",
+        "from": "N:v4",
+        "to": "N:v0",
+        "kind": "line",
+        "control": null,
+        "lengthAU": 26.0,
+        "seam": "S11"
+      }
+    },
+    "pieces": [
+      {
+        "id": "F",
+        "title": "Front",
+        "orientation": 1,
+        "vertices": [
+          "F:v0",
+          "F:v1",
+          "F:v2",
+          "F:v3",
+          "F:v4",
+          "F:v5",
+          "F:v6",
+          "F:v7"
+        ],
+        "edges": [
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F05",
+          "F06",
+          "F07",
+          "F08"
+        ],
+        "sampledCanonicalAreaAU2": 229600.29296875,
+        "integratedTrimIntent": "hem"
+      },
+      {
+        "id": "B",
+        "title": "Back",
+        "orientation": -1,
+        "vertices": [
+          "B:v0",
+          "B:v1",
+          "B:v2",
+          "B:v3",
+          "B:v4",
+          "B:v5",
+          "B:v6",
+          "B:v7"
+        ],
+        "edges": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08"
+        ],
+        "sampledCanonicalAreaAU2": 232800.09765625,
+        "integratedTrimIntent": "hem"
+      },
+      {
+        "id": "L",
+        "title": "Left sleeve",
+        "orientation": -1,
+        "vertices": [
+          "L:v0",
+          "L:v1",
+          "L:v2",
+          "L:v3",
+          "L:v4"
+        ],
+        "edges": [
+          "L01",
+          "L02",
+          "L03",
+          "L04",
+          "L05"
+        ],
+        "sampledCanonicalAreaAU2": 96000.0,
+        "integratedTrimIntent": "cuff"
+      },
+      {
+        "id": "R",
+        "title": "Right sleeve",
+        "orientation": 1,
+        "vertices": [
+          "R:v0",
+          "R:v1",
+          "R:v2",
+          "R:v3",
+          "R:v4"
+        ],
+        "edges": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05"
+        ],
+        "sampledCanonicalAreaAU2": 96000.0,
+        "integratedTrimIntent": "cuff"
+      },
+      {
+        "id": "N",
+        "title": "Neck band",
+        "orientation": 1,
+        "vertices": [
+          "N:v0",
+          "N:v1",
+          "N:v2",
+          "N:v3",
+          "N:v4"
+        ],
+        "edges": [
+          "N01",
+          "N02",
+          "N03",
+          "N04",
+          "N05"
+        ],
+        "sampledCanonicalAreaAU2": 7952.027953146393,
+        "integratedTrimIntent": "neck band"
+      }
+    ],
+    "declaredPairs": [
+      [
+        "F01",
+        "B01",
+        "shoulder left"
+      ],
+      [
+        "F03",
+        "B03",
+        "shoulder right"
+      ],
+      [
+        "F07",
+        "B07",
+        "body side left"
+      ],
+      [
+        "F05",
+        "B05",
+        "body side right"
+      ],
+      [
+        "F08",
+        "L01",
+        "left sleeve front"
+      ],
+      [
+        "B08",
+        "L02",
+        "left sleeve back"
+      ],
+      [
+        "F04",
+        "R01",
+        "right sleeve front"
+      ],
+      [
+        "B04",
+        "R02",
+        "right sleeve back"
+      ],
+      [
+        "L03",
+        "L05",
+        "left sleeve underarm"
+      ],
+      [
+        "R03",
+        "R05",
+        "right sleeve underarm"
+      ],
+      [
+        "N02",
+        "N05",
+        "band ends"
+      ],
+      [
+        "F02",
+        "N04",
+        "front neck"
+      ],
+      [
+        "B02",
+        "N03",
+        "back neck"
+      ]
+    ],
+    "declaredFree": {
+      "F06": "hem",
+      "B06": "hem",
+      "L04": "left cuff",
+      "R04": "right cuff",
+      "N01": "neck"
+    },
+    "seams": [
+      {
+        "id": "S01",
+        "role": "shoulder left",
+        "edges": [
+          "F01",
+          "B01"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v0",
+            "B:v0"
+          ],
+          [
+            "F:v1",
+            "B:v1"
+          ]
+        ],
+        "lengthsAU": [
+          145.60219778561037,
+          145.60219778561037
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S02",
+        "role": "shoulder right",
+        "edges": [
+          "F03",
+          "B03"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v2",
+            "B:v2"
+          ],
+          [
+            "F:v3",
+            "B:v3"
+          ]
+        ],
+        "lengthsAU": [
+          145.60219778561037,
+          145.60219778561037
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S03",
+        "role": "body side left",
+        "edges": [
+          "F07",
+          "B07"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v6",
+            "B:v6"
+          ],
+          [
+            "F:v7",
+            "B:v7"
+          ]
+        ],
+        "lengthsAU": [
+          400.0,
+          400.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S04",
+        "role": "body side right",
+        "edges": [
+          "F05",
+          "B05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v4",
+            "B:v4"
+          ],
+          [
+            "F:v5",
+            "B:v5"
+          ]
+        ],
+        "lengthsAU": [
+          400.0,
+          400.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S05",
+        "role": "left sleeve front",
+        "edges": [
+          "F08",
+          "L01"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v7",
+            "L:v0"
+          ],
+          [
+            "F:v0",
+            "L:v1"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S06",
+        "role": "left sleeve back",
+        "edges": [
+          "B08",
+          "L02"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "B:v0",
+            "L:v1"
+          ],
+          [
+            "B:v7",
+            "L:v2"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S07",
+        "role": "right sleeve front",
+        "edges": [
+          "F04",
+          "R01"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v3",
+            "R:v1"
+          ],
+          [
+            "F:v4",
+            "R:v0"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S08",
+        "role": "right sleeve back",
+        "edges": [
+          "B04",
+          "R02"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "B:v4",
+            "R:v2"
+          ],
+          [
+            "B:v3",
+            "R:v1"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S09",
+        "role": "left sleeve underarm",
+        "edges": [
+          "L03",
+          "L05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "L:v3",
+            "L:v4"
+          ],
+          [
+            "L:v2",
+            "L:v0"
+          ]
+        ],
+        "lengthsAU": [
+          407.9215610874228,
+          407.9215610874228
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S10",
+        "role": "right sleeve underarm",
+        "edges": [
+          "R03",
+          "R05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "R:v2",
+            "R:v0"
+          ],
+          [
+            "R:v3",
+            "R:v4"
+          ]
+        ],
+        "lengthsAU": [
+          407.9215610874228,
+          407.9215610874228
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S11",
+        "role": "band ends",
+        "edges": [
+          "N02",
+          "N05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "N:v1",
+            "N:v0"
+          ],
+          [
+            "N:v2",
+            "N:v4"
+          ]
+        ],
+        "lengthsAU": [
+          26.0,
+          26.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S12",
+        "role": "front neck",
+        "edges": [
+          "F02",
+          "N04"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v1",
+            "N:v4"
+          ],
+          [
+            "F:v2",
+            "N:v3"
+          ]
+        ],
+        "lengthsAU": [
+          177.4731429053517,
+          177.4731429053517
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S13",
+        "role": "back neck",
+        "edges": [
+          "B02",
+          "N03"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "B:v2",
+            "N:v3"
+          ],
+          [
+            "B:v1",
+            "N:v2"
+          ]
+        ],
+        "lengthsAU": [
+          128.37408606181728,
+          128.37408606181728
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      }
+    ],
+    "vertexUnionParents": {
+      "F:v0": "B:v0",
+      "F:v1": "B:v1",
+      "F:v2": "B:v2",
+      "F:v3": "B:v3",
+      "F:v4": "B:v4",
+      "F:v5": "B:v5",
+      "F:v6": "B:v6",
+      "F:v7": "B:v7",
+      "B:v0": "B:v0",
+      "B:v1": "B:v1",
+      "B:v2": "B:v2",
+      "B:v3": "B:v3",
+      "B:v4": "B:v4",
+      "B:v5": "B:v5",
+      "B:v6": "B:v6",
+      "B:v7": "B:v7",
+      "L:v0": "B:v7",
+      "L:v1": "B:v0",
+      "L:v2": "B:v7",
+      "L:v3": "L:v3",
+      "L:v4": "L:v3",
+      "R:v0": "B:v4",
+      "R:v1": "B:v3",
+      "R:v2": "B:v4",
+      "R:v3": "R:v3",
+      "R:v4": "R:v3",
+      "N:v0": "N:v0",
+      "N:v1": "N:v0",
+      "N:v2": "B:v1",
+      "N:v3": "B:v2",
+      "N:v4": "N:v2"
+    },
+    "germUnionParents": {
+      "F01:start": "B01:end",
+      "F01:end": "B01:start",
+      "F02:start": "F02:start",
+      "F02:end": "F02:end",
+      "F03:start": "B03:end",
+      "F03:end": "B03:start",
+      "F04:start": "F04:start",
+      "F04:end": "F04:end",
+      "F05:start": "B05:end",
+      "F05:end": "B05:start",
+      "F06:start": "F06:start",
+      "F06:end": "F06:end",
+      "F07:start": "B07:end",
+      "F07:end": "B07:start",
+      "F08:start": "F08:start",
+      "F08:end": "F08:end",
+      "B01:start": "B01:start",
+      "B01:end": "B01:end",
+      "B02:start": "B02:start",
+      "B02:end": "B02:end",
+      "B03:start": "B03:start",
+      "B03:end": "B03:end",
+      "B04:start": "B04:start",
+      "B04:end": "B04:end",
+      "B05:start": "B05:start",
+      "B05:end": "B05:end",
+      "B06:start": "B06:start",
+      "B06:end": "B06:end",
+      "B07:start": "B07:start",
+      "B07:end": "B07:end",
+      "B08:start": "B08:start",
+      "B08:end": "B08:end",
+      "L01:start": "F08:end",
+      "L01:end": "F08:start",
+      "L02:start": "B08:end",
+      "L02:end": "B08:start",
+      "L03:start": "L03:start",
+      "L03:end": "L03:end",
+      "L04:start": "L04:start",
+      "L04:end": "L04:end",
+      "L05:start": "L03:end",
+      "L05:end": "L03:start",
+      "R01:start": "F04:end",
+      "R01:end": "F04:start",
+      "R02:start": "B04:end",
+      "R02:end": "B04:start",
+      "R03:start": "R03:start",
+      "R03:end": "R03:end",
+      "R04:start": "R04:start",
+      "R04:end": "R04:end",
+      "R05:start": "R03:end",
+      "R05:end": "R03:start",
+      "N01:start": "N01:start",
+      "N01:end": "N01:end",
+      "N02:start": "N02:start",
+      "N02:end": "N02:end",
+      "N03:start": "B02:end",
+      "N03:end": "B02:start",
+      "N04:start": "F02:end",
+      "N04:end": "F02:start",
+      "N05:start": "N02:end",
+      "N05:end": "N02:start"
+    },
+    "patchAdjacency": {
+      "F": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "L",
+        "R",
+        "N"
+      ],
+      "B": [
+        "F",
+        "F",
+        "F",
+        "F",
+        "L",
+        "R",
+        "N"
+      ],
+      "L": [
+        "F",
+        "B",
+        "L",
+        "L"
+      ],
+      "R": [
+        "F",
+        "B",
+        "R",
+        "R"
+      ],
+      "N": [
+        "N",
+        "N",
+        "F",
+        "B"
+      ]
+    },
+    "freeAdjacency": {
+      "B:v5": [
+        [
+          "B:v6",
+          "F06"
+        ],
+        [
+          "B:v6",
+          "B06"
+        ]
+      ],
+      "B:v6": [
+        [
+          "B:v5",
+          "F06"
+        ],
+        [
+          "B:v5",
+          "B06"
+        ]
+      ],
+      "L:v3": [
+        [
+          "L:v3",
+          "L04"
+        ],
+        [
+          "L:v3",
+          "L04"
+        ]
+      ],
+      "R:v3": [
+        [
+          "R:v3",
+          "R04"
+        ],
+        [
+          "R:v3",
+          "R04"
+        ]
+      ],
+      "N:v0": [
+        [
+          "N:v0",
+          "N01"
+        ],
+        [
+          "N:v0",
+          "N01"
+        ]
+      ]
+    },
+    "freeLoops": [
+      {
+        "name": "hem",
+        "vertices": [
+          "B:v5",
+          "B:v6"
+        ],
+        "edges": [
+          "B06",
+          "F06"
+        ]
+      },
+      {
+        "name": "left cuff",
+        "vertices": [
+          "L:v3"
+        ],
+        "edges": [
+          "L04"
+        ]
+      },
+      {
+        "name": "neck",
+        "vertices": [
+          "N:v0"
+        ],
+        "edges": [
+          "N01"
+        ]
+      },
+      {
+        "name": "right cuff",
+        "vertices": [
+          "R:v3"
+        ],
+        "edges": [
+          "R04"
+        ]
+      }
+    ],
+    "cornerLinkGraphs": {
+      "B:v0": {
+        "B01:end": [
+          "F08:end",
+          "B08:start"
+        ],
+        "F08:end": [
+          "B01:end",
+          "B08:start"
+        ],
+        "B08:start": [
+          "B01:end",
+          "F08:end"
+        ]
+      },
+      "B:v1": {
+        "B01:start": [
+          "F02:start",
+          "B02:end"
+        ],
+        "F02:start": [
+          "B01:start",
+          "N02:end"
+        ],
+        "B02:end": [
+          "B01:start",
+          "N02:end"
+        ],
+        "N02:end": [
+          "B02:end",
+          "F02:start"
+        ]
+      },
+      "B:v2": {
+        "F02:end": [
+          "B03:end",
+          "B02:start"
+        ],
+        "B03:end": [
+          "F02:end",
+          "B02:start"
+        ],
+        "B02:start": [
+          "B03:end",
+          "F02:end"
+        ]
+      },
+      "B:v3": {
+        "B03:start": [
+          "F04:start",
+          "B04:end"
+        ],
+        "F04:start": [
+          "B03:start",
+          "B04:end"
+        ],
+        "B04:end": [
+          "B03:start",
+          "F04:start"
+        ]
+      },
+      "B:v4": {
+        "F04:end": [
+          "B05:end",
+          "R03:start"
+        ],
+        "B05:end": [
+          "F04:end",
+          "B04:start"
+        ],
+        "B04:start": [
+          "B05:end",
+          "R03:start"
+        ],
+        "R03:start": [
+          "F04:end",
+          "B04:start"
+        ]
+      },
+      "B:v5": {
+        "B05:start": [
+          "F06:start",
+          "B06:end"
+        ],
+        "F06:start": [
+          "B05:start"
+        ],
+        "B06:end": [
+          "B05:start"
+        ]
+      },
+      "B:v6": {
+        "F06:end": [
+          "B07:end"
+        ],
+        "B07:end": [
+          "F06:end",
+          "B06:start"
+        ],
+        "B06:start": [
+          "B07:end"
+        ]
+      },
+      "B:v7": {
+        "B07:start": [
+          "F08:start",
+          "B08:end"
+        ],
+        "F08:start": [
+          "B07:start",
+          "L03:end"
+        ],
+        "B08:end": [
+          "B07:start",
+          "L03:end"
+        ],
+        "L03:end": [
+          "F08:start",
+          "B08:end"
+        ]
+      },
+      "L:v3": {
+        "L03:start": [
+          "L04:end",
+          "L04:start"
+        ],
+        "L04:end": [
+          "L03:start"
+        ],
+        "L04:start": [
+          "L03:start"
+        ]
+      },
+      "R:v3": {
+        "R03:end": [
+          "R04:start",
+          "R04:end"
+        ],
+        "R04:start": [
+          "R03:end"
+        ],
+        "R04:end": [
+          "R03:end"
+        ]
+      },
+      "N:v0": {
+        "N01:start": [
+          "N02:start"
+        ],
+        "N02:start": [
+          "N01:start",
+          "N01:end"
+        ],
+        "N01:end": [
+          "N02:start"
+        ]
+      }
+    },
+    "cornerLinks": [
+      {
+        "vertex": "B:v0",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v1",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v2",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v3",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v4",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v5",
+        "boundary": true,
+        "germDegrees": [
+          2,
+          1,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "B:v6",
+        "boundary": true,
+        "germDegrees": [
+          1,
+          2,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "B:v7",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "L:v3",
+        "boundary": true,
+        "germDegrees": [
+          2,
+          1,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "N:v0",
+        "boundary": true,
+        "germDegrees": [
+          1,
+          2,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "R:v3",
+        "boundary": true,
+        "germDegrees": [
+          2,
+          1,
+          1
+        ],
+        "kind": "path"
+      }
+    ],
+    "quotientCounts": {
+      "V": 11,
+      "E": 18,
+      "F": 5,
+      "Euler": -2
+    },
+    "cornerEquivalences": {
+      "B:v0": [
+        "F:v0",
+        "B:v0",
+        "L:v1"
+      ],
+      "B:v1": [
+        "F:v1",
+        "B:v1",
+        "N:v2",
+        "N:v4"
+      ],
+      "B:v2": [
+        "F:v2",
+        "B:v2",
+        "N:v3"
+      ],
+      "B:v3": [
+        "F:v3",
+        "B:v3",
+        "R:v1"
+      ],
+      "B:v4": [
+        "F:v4",
+        "B:v4",
+        "R:v0",
+        "R:v2"
+      ],
+      "B:v5": [
+        "F:v5",
+        "B:v5"
+      ],
+      "B:v6": [
+        "F:v6",
+        "B:v6"
+      ],
+      "B:v7": [
+        "F:v7",
+        "B:v7",
+        "L:v0",
+        "L:v2"
+      ],
+      "L:v3": [
+        "L:v3",
+        "L:v4"
+      ],
+      "R:v3": [
+        "R:v3",
+        "R:v4"
+      ],
+      "N:v0": [
+        "N:v0",
+        "N:v1"
+      ]
+    }
+  },
+  "artistDataSha256": "7fffae2260b9f3e50ac97e1a921d10187071c8894409a24e814436e70ef8c97f",
+  "counts": {
+    "V": 11,
+    "E": 18,
+    "F": 5,
+    "Euler": -2
+  },
+  "openingLoops": [
+    {
+      "name": "hem",
+      "vertices": [
+        "B:v5",
+        "B:v6"
+      ],
+      "edges": [
+        "B06",
+        "F06"
+      ]
+    },
+    {
+      "name": "left cuff",
+      "vertices": [
+        "L:v3"
+      ],
+      "edges": [
+        "L04"
+      ]
+    },
+    {
+      "name": "neck",
+      "vertices": [
+        "N:v0"
+      ],
+      "edges": [
+        "N01"
+      ]
+    },
+    {
+      "name": "right cuff",
+      "vertices": [
+        "R:v3"
+      ],
+      "edges": [
+        "R04"
+      ]
+    }
+  ],
+  "actualFiles": [
+    {
+      "file": "ARTIST-DATA.json",
+      "exists": true,
+      "bytes": 13691,
+      "sha256": "7fffae2260b9f3e50ac97e1a921d10187071c8894409a24e814436e70ef8c97f"
+    },
+    {
+      "file": "pattern.json",
+      "exists": true,
+      "bytes": 23811,
+      "sha256": "12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1"
+    },
+    {
+      "file": "pattern.svg",
+      "exists": true,
+      "bytes": 11395,
+      "sha256": "8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455"
+    }
+  ],
+  "bookkeepingReadyAt": "2026-10-04T15:18:59.320630+00:00",
+  "exitCode": 0
+}

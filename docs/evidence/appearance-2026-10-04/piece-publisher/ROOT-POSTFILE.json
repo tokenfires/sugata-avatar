@@ -1,0 +1,567 @@
+{
+  "utc": "2026-10-04T15:20:20.825532+00:00",
+  "pid": 57015,
+  "actualAuthorRun": {
+    "pid": 54628,
+    "startedAt": "2026-10-04T15:18:59.318174+00:00",
+    "postReceiptCompletedAt": "2026-10-04T15:18:59.320878+00:00",
+    "chunk": "fbde3c",
+    "actualExitCode": 0,
+    "rootReturnedSecondBucket": "2026-10-04 15:18:59 UTC",
+    "precision": "Root clocks whole seconds; completed process result returned in the bucket before16:15UTC. Not a microsecond tool-return clock."
+  },
+  "pins": [
+    {
+      "file": "publisher.py",
+      "bytes": 20041,
+      "sha256": "75ffc8a16360190d457fd914fc9195718e2e355a0f9c283e95379c1f191d4d3f"
+    },
+    {
+      "file": "SOURCE.md",
+      "bytes": 2490,
+      "sha256": "1c725f9f086f0114148d220764370649841e244b29a6a693926be9efdac2167f"
+    },
+    {
+      "file": "ROOT-SOURCE.json",
+      "bytes": 1473,
+      "sha256": "fee966470bb641b887f68dc2712fbe66332b56e281a59311b2a9342192e856f3"
+    },
+    {
+      "file": "RUN.json",
+      "bytes": 1366,
+      "sha256": "6e032a182442b373180285442298bfc1177aac2553b1bac2569a2d1a4f0c701b"
+    },
+    {
+      "file": "ARTIST-DATA.json",
+      "bytes": 13691,
+      "sha256": "7fffae2260b9f3e50ac97e1a921d10187071c8894409a24e814436e70ef8c97f"
+    },
+    {
+      "file": "pattern.json",
+      "bytes": 23811,
+      "sha256": "12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1"
+    },
+    {
+      "file": "pattern.svg",
+      "bytes": 11395,
+      "sha256": "8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455"
+    },
+    {
+      "file": "AUTHOR-JOB.json",
+      "bytes": 56228,
+      "sha256": "980a3f8feae560cee6517d3093d4de6f5b1e8561ff63128bb72dd9e09bd7577b"
+    },
+    {
+      "file": "root-check.py",
+      "bytes": 6257,
+      "sha256": "a5cdfc7e21a7ac44e491cd4f6cf00eb093ae827977260e8837f263004aa23c32"
+    },
+    {
+      "file": "ROOT-CHECK.json",
+      "bytes": 3942,
+      "sha256": "326b007ff08b960493621496ad15169aa8e49ff7af5ce2a9faf8410cfe761f94"
+    }
+  ],
+  "rawToPattern": "Copied artist vertices, semantics, pieces, every unannotated edge, declared pairs/free roles preserved; only seam/free edge annotations added. Final owned graph and output hash inventory agree with actual files.",
+  "checks": 93,
+  "counts": {
+    "V": 11,
+    "E": 18,
+    "F": 5,
+    "Euler": -2
+  },
+  "maxIndependentLengthDeltaAU": 0.0,
+  "geometry": {
+    "pieceIds": [
+      "F",
+      "B",
+      "L",
+      "R",
+      "N"
+    ],
+    "seams": [
+      {
+        "id": "S01",
+        "role": "shoulder left",
+        "edges": [
+          "F01",
+          "B01"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v0",
+            "B:v0"
+          ],
+          [
+            "F:v1",
+            "B:v1"
+          ]
+        ],
+        "lengthsAU": [
+          145.60219778561037,
+          145.60219778561037
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S02",
+        "role": "shoulder right",
+        "edges": [
+          "F03",
+          "B03"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v2",
+            "B:v2"
+          ],
+          [
+            "F:v3",
+            "B:v3"
+          ]
+        ],
+        "lengthsAU": [
+          145.60219778561037,
+          145.60219778561037
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S03",
+        "role": "body side left",
+        "edges": [
+          "F07",
+          "B07"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v6",
+            "B:v6"
+          ],
+          [
+            "F:v7",
+            "B:v7"
+          ]
+        ],
+        "lengthsAU": [
+          400.0,
+          400.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S04",
+        "role": "body side right",
+        "edges": [
+          "F05",
+          "B05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v4",
+            "B:v4"
+          ],
+          [
+            "F:v5",
+            "B:v5"
+          ]
+        ],
+        "lengthsAU": [
+          400.0,
+          400.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S05",
+        "role": "left sleeve front",
+        "edges": [
+          "F08",
+          "L01"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v7",
+            "L:v0"
+          ],
+          [
+            "F:v0",
+            "L:v1"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S06",
+        "role": "left sleeve back",
+        "edges": [
+          "B08",
+          "L02"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "B:v0",
+            "L:v1"
+          ],
+          [
+            "B:v7",
+            "L:v2"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S07",
+        "role": "right sleeve front",
+        "edges": [
+          "F04",
+          "R01"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v3",
+            "R:v1"
+          ],
+          [
+            "F:v4",
+            "R:v0"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S08",
+        "role": "right sleeve back",
+        "edges": [
+          "B04",
+          "R02"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "B:v4",
+            "R:v2"
+          ],
+          [
+            "B:v3",
+            "R:v1"
+          ]
+        ],
+        "lengthsAU": [
+          160.0,
+          160.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S09",
+        "role": "left sleeve underarm",
+        "edges": [
+          "L03",
+          "L05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "L:v3",
+            "L:v4"
+          ],
+          [
+            "L:v2",
+            "L:v0"
+          ]
+        ],
+        "lengthsAU": [
+          407.9215610874228,
+          407.9215610874228
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S10",
+        "role": "right sleeve underarm",
+        "edges": [
+          "R03",
+          "R05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "R:v2",
+            "R:v0"
+          ],
+          [
+            "R:v3",
+            "R:v4"
+          ]
+        ],
+        "lengthsAU": [
+          407.9215610874228,
+          407.9215610874228
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S11",
+        "role": "band ends",
+        "edges": [
+          "N02",
+          "N05"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "N:v1",
+            "N:v0"
+          ],
+          [
+            "N:v2",
+            "N:v4"
+          ]
+        ],
+        "lengthsAU": [
+          26.0,
+          26.0
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S12",
+        "role": "front neck",
+        "edges": [
+          "F02",
+          "N04"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "F:v1",
+            "N:v4"
+          ],
+          [
+            "F:v2",
+            "N:v3"
+          ]
+        ],
+        "lengthsAU": [
+          177.4731429053517,
+          177.4731429053517
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      },
+      {
+        "id": "S13",
+        "role": "back neck",
+        "edges": [
+          "B02",
+          "N03"
+        ],
+        "reverseBoundaryDirection": true,
+        "endpointPairs": [
+          [
+            "B:v2",
+            "N:v3"
+          ],
+          [
+            "B:v1",
+            "N:v2"
+          ]
+        ],
+        "lengthsAU": [
+          128.37408606181728,
+          128.37408606181728
+        ],
+        "lengthDeltaAU": 0.0,
+        "correspondence": "reversed normalized arclength intent, no 3D coincidence or physical stretch claim"
+      }
+    ],
+    "freeLoops": [
+      {
+        "name": "hem",
+        "vertices": [
+          "B:v5",
+          "B:v6"
+        ],
+        "edges": [
+          "B06",
+          "F06"
+        ]
+      },
+      {
+        "name": "left cuff",
+        "vertices": [
+          "L:v3"
+        ],
+        "edges": [
+          "L04"
+        ]
+      },
+      {
+        "name": "neck",
+        "vertices": [
+          "N:v0"
+        ],
+        "edges": [
+          "N01"
+        ]
+      },
+      {
+        "name": "right cuff",
+        "vertices": [
+          "R:v3"
+        ],
+        "edges": [
+          "R04"
+        ]
+      }
+    ],
+    "cornerLinks": [
+      {
+        "vertex": "B:v0",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v1",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v2",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v3",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v4",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "B:v5",
+        "boundary": true,
+        "germDegrees": [
+          2,
+          1,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "B:v6",
+        "boundary": true,
+        "germDegrees": [
+          1,
+          2,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "B:v7",
+        "boundary": false,
+        "germDegrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "kind": "cycle"
+      },
+      {
+        "vertex": "L:v3",
+        "boundary": true,
+        "germDegrees": [
+          2,
+          1,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "N:v0",
+        "boundary": true,
+        "germDegrees": [
+          1,
+          2,
+          1
+        ],
+        "kind": "path"
+      },
+      {
+        "vertex": "R:v3",
+        "boundary": true,
+        "germDegrees": [
+          2,
+          1,
+          1
+        ],
+        "kind": "path"
+      }
+    ]
+  },
+  "svgSource": "XML parses;31 edge labels,13 seam legend records, original1280\u00d7720viewBox; source facts only, no readable-pixel claim",
+  "decision": "All saved provenance/graph checks pass. Wait for independently verified critic data/native worth handoff before first native."
+}

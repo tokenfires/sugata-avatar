@@ -1,0 +1,212 @@
+{
+  "pid": 55043,
+  "startedAt": "2026-10-04T15:19:12.620872+00:00",
+  "endedAt": "2026-10-04T15:19:12.671528+00:00",
+  "pins": {
+    "pattern.json": {
+      "sha256": "12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1",
+      "bytes": 23811
+    },
+    "pattern.svg": {
+      "sha256": "8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455",
+      "bytes": 11395
+    },
+    "AUTHOR-JOB.json": {
+      "sha256": "980a3f8feae560cee6517d3093d4de6f5b1e8561ff63128bb72dd9e09bd7577b",
+      "bytes": 56228
+    },
+    "publisher.py": {
+      "sha256": "75ffc8a16360190d457fd914fc9195718e2e355a0f9c283e95379c1f191d4d3f",
+      "bytes": 20041
+    },
+    "root-check.py": {
+      "sha256": "a5cdfc7e21a7ac44e491cd4f6cf00eb093ae827977260e8837f263004aa23c32",
+      "bytes": 6257
+    }
+  },
+  "independentMethod": "Saved JSON only: Simpson 65536 intervals for quadratic lengths, Euclidean line lengths, explicit equivalence-set closure, seam-endpoint keyed corner links and free-loop components. No author import or rerun.",
+  "lengthsAU": {
+    "F01": 145.60219778561037,
+    "F02": 177.4731429053517,
+    "F03": 145.60219778561037,
+    "F04": 160.0,
+    "F05": 400.0,
+    "F06": 400.0,
+    "F07": 400.0,
+    "F08": 160.0,
+    "B01": 145.60219778561037,
+    "B02": 128.37408606181728,
+    "B03": 145.60219778561037,
+    "B04": 160.0,
+    "B05": 400.0,
+    "B06": 400.0,
+    "B07": 400.0,
+    "B08": 160.0,
+    "L01": 160.0,
+    "L02": 160.0,
+    "L03": 407.9215610874228,
+    "L04": 160.0,
+    "L05": 407.9215610874228,
+    "R01": 160.0,
+    "R02": 160.0,
+    "R03": 407.9215610874228,
+    "R04": 160.0,
+    "R05": 407.9215610874228,
+    "N01": 305.847228967169,
+    "N02": 26.0,
+    "N03": 128.37408606181728,
+    "N04": 177.4731429053517,
+    "N05": 26.0
+  },
+  "counts": {
+    "V": 11,
+    "E": 18,
+    "F": 5,
+    "Euler": -2
+  },
+  "freeLoops": [
+    {
+      "name": "hem",
+      "vertices": [
+        "B:v5",
+        "B:v6"
+      ],
+      "edges": [
+        "B06",
+        "F06"
+      ]
+    },
+    {
+      "name": "left cuff",
+      "vertices": [
+        "L:v3"
+      ],
+      "edges": [
+        "L04"
+      ]
+    },
+    {
+      "name": "neck",
+      "vertices": [
+        "N:v0"
+      ],
+      "edges": [
+        "N01"
+      ]
+    },
+    {
+      "name": "right cuff",
+      "vertices": [
+        "R:v3"
+      ],
+      "edges": [
+        "R04"
+      ]
+    }
+  ],
+  "cornerLinks": [
+    {
+      "vertex": "B:v0",
+      "degrees": [
+        2,
+        2,
+        2
+      ],
+      "boundary": false
+    },
+    {
+      "vertex": "B:v1",
+      "degrees": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "boundary": false
+    },
+    {
+      "vertex": "B:v2",
+      "degrees": [
+        2,
+        2,
+        2
+      ],
+      "boundary": false
+    },
+    {
+      "vertex": "B:v3",
+      "degrees": [
+        2,
+        2,
+        2
+      ],
+      "boundary": false
+    },
+    {
+      "vertex": "B:v4",
+      "degrees": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "boundary": false
+    },
+    {
+      "vertex": "B:v5",
+      "degrees": [
+        1,
+        1,
+        2
+      ],
+      "boundary": true
+    },
+    {
+      "vertex": "B:v6",
+      "degrees": [
+        1,
+        1,
+        2
+      ],
+      "boundary": true
+    },
+    {
+      "vertex": "B:v7",
+      "degrees": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "boundary": false
+    },
+    {
+      "vertex": "L:v3",
+      "degrees": [
+        1,
+        1,
+        2
+      ],
+      "boundary": true
+    },
+    {
+      "vertex": "N:v0",
+      "degrees": [
+        1,
+        1,
+        2
+      ],
+      "boundary": true
+    },
+    {
+      "vertex": "R:v3",
+      "degrees": [
+        1,
+        1,
+        2
+      ],
+      "boundary": true
+    }
+  ],
+  "qualification": "All independent arithmetic/abstract graph checks pass; SVG readability still requires original native inspection. No 3D, physical pattern or fit claim."
+}

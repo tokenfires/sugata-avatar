@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-04T15:30:05.935241+00:00",
+  "pid": 73830,
+  "actualImageSeen": "Full unchanged native original emitted by getAXStateAndScreenshot15:27:13.078\u2013.352UTC; no image transform or second capture.",
+  "imageDimensions": {
+    "value": [
+      1280,
+      720
+    ],
+    "witness": "Existing macOS file command882046/exit0 reads JPEG header; optional PIL import3b857b unavailable, failed before writes, no image or native activity."
+  },
+  "pins": {
+    "original-frame.jpg": {
+      "bytes": 98488,
+      "sha256": "caa25095b801c0d1c7b2c6761fdef703225dfabcf9e9282e45f675486a01ce55"
+    },
+    "NATIVE.json": {
+      "bytes": 681,
+      "sha256": "fb26e10f99ff8ef6f85a3587ad751d9c434df3dbc0b74d037b62f3f31cc5446c"
+    },
+    "native-state.txt": {
+      "bytes": 2581,
+      "sha256": "55bc24c14ccb3a08db10adf0be7de145db5ce390b42dc495529282cc4e4eb5b9"
+    },
+    "CLOSURE.json": {
+      "bytes": 593,
+      "sha256": "7a411074bbc7c5d3b76847ec0fded7cd89136c7b97ac2a943d08a3d770d7cae4"
+    },
+    "pattern.json": {
+      "bytes": 23811,
+      "sha256": "12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1"
+    },
+    "pattern.svg": {
+      "bytes": 11395,
+      "sha256": "8a55b17d61eb4e91fad8779931d31efd80a739396f17a4629aa00c21a4e4c455"
+    }
+  },
+  "observations": {
+    "fivePieces": "FrontF,BackB,leftL/rightR sleeves, separate neckbandN visibly complete. Deeper front and shallower back cuts, flat sleeve cap/taper and shaded integrated trims are explicit artist shape choices.",
+    "labelsRead": "F01\u2013F08/B01\u2013B08/L01\u2013L05/R01\u2013R05/N01\u2013N05 including seam/free suffixes read on actual original. All13 three-column seam legend entries, four opening roles and \u00b1 patch orientations visible.",
+    "limitsRead": "Unitless art/no sewing/folding/body-fit/accepted-garment text above; abstract graph and physical shape/stretch/manufacture/fit unqualified footer visible.",
+    "edgeContrast": "Paired brown and free blue outlines/arrows discernible. Band-end strokes run behind narrow N05/S11 and N02/S11 labels but root can still read both; no claim of unobstructed label placement.",
+    "scope": "Editable diagram readability only; flat artwork does not supply assembled3D geometry, physical sewing pattern, fit, material or moving-avatar qualification."
+  },
+  "rootDecision": "A original readability for bounded artist sheet, pending independent actual-image RESULT handoff. No further render/label correction/geometry changes.",
+  "closure": "Owned20closed; only original userguide1 remains."
+}
