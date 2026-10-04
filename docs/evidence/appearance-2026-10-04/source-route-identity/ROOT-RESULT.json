@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-04T19:40:22.718960+00:00",
+  "decision": "A specificbodytransport only; B source-layer guide unknown",
+  "criticBindingsVerified": {
+    "JOB.json": "c1ad39d012747cc3157bc598bdb4698f742c7eab1dd64251e709bcd03ab1c12c",
+    "STDOUT.json": "c1ad39d012747cc3157bc598bdb4698f742c7eab1dd64251e709bcd03ab1c12c",
+    "STDERR.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "response-0.bin": "364c81c24da47ab282d4423f13c2c9b5a44725d0bbb7e9eb3011503c2f570812",
+    "response-1.bin": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "probe.py": "01ec45b45ae4c118564489518d76f99bcb38136960b53d725c45381eb43bfb3c",
+    "PLAN.md": "cb212557f43be1ed849f99b1d1272472354c17f18e613c2ed91f564c07fd8133",
+    "INPUTS.json": "f6a17029f0df2db322f8b22d8dd56b1f7fc938ce6e6dcf38c7a2808007ba0f7e"
+  },
+  "originalBodyByteEqualityIndependentlyVerified": true,
+  "all7InputsStillExact": true,
+  "capturedResultSHA256": "4bbd66006da383ed605de6c0052903da71aaf8e1ac1a7ae01e2bb612087a282d",
+  "rootActualWitness": "209dab fullJOB/headerpairs,14a9fb retainedHTMLprefixand directfullbodyequality,ddd9bc saved-data independent length/hash/magic/header/source coherence. No HTTP/probe replay/decode.",
+  "criticNumericWitness": "4324fb ownbyteequality/no decode andd6e99c fullactualtextresponse observed; root verifies actualdata ratherthan claiming independent operation reproduction.",
+  "laterWorth": "ConditionalA isolated explicitroute-only observer repair with freshsource/root/native gates; no edit/trial inherited.",
+  "noNativeOrDecode": true
+}

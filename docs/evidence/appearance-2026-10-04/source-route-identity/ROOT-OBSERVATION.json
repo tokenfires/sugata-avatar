@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-04T19:38:26.056398+00:00",
+  "decision": "A specificbodytransportaddress; no source/appearance acceptance",
+  "files": {
+    "JOB.json": {
+      "bytes": 2723,
+      "sha256": "c1ad39d012747cc3157bc598bdb4698f742c7eab1dd64251e709bcd03ab1c12c"
+    },
+    "STDOUT.json": {
+      "bytes": 2723,
+      "sha256": "c1ad39d012747cc3157bc598bdb4698f742c7eab1dd64251e709bcd03ab1c12c"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "response-0.bin": {
+      "bytes": 7501,
+      "sha256": "364c81c24da47ab282d4423f13c2c9b5a44725d0bbb7e9eb3011503c2f570812"
+    },
+    "response-1.bin": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "WORKSHEET.md": {
+      "bytes": 1902,
+      "sha256": "c63e284e95bd21917f3dc04c0d8a60b25a52ab4e41d1e97025c5fdb82e641bc2"
+    },
+    "PLAN.md": {
+      "bytes": 3572,
+      "sha256": "cb212557f43be1ed849f99b1d1272472354c17f18e613c2ed91f564c07fd8133"
+    },
+    "probe.py": {
+      "bytes": 2864,
+      "sha256": "01ec45b45ae4c118564489518d76f99bcb38136960b53d725c45381eb43bfb3c"
+    },
+    "INPUTS.json": {
+      "bytes": 1297,
+      "sha256": "f6a17029f0df2db322f8b22d8dd56b1f7fc938ce6e6dcf38c7a2808007ba0f7e"
+    }
+  },
+  "all7InputsStillExact": true,
+  "jobAndStdoutIdentical": true,
+  "stderrEmpty": true,
+  "actualRootReads": "209dab complete JOB/headers,14a9fb actual textprefixand complete binarybytecompare; both rows/first16/bytes/hash independently reconciled with retained response bodies and original asset. No HTTP/probe replay/decode.",
+  "actualContentIdentity": "Response0 retainedHTML/testbedtitle and SHA exactly matches priornative wrongresponse. Response1 equals original byte-for-byte, preserving rawheaders/content.",
+  "requests": 2,
+  "parses": 0,
+  "nativeJobs": 0,
+  "nextAdmission": null,
+  "limits": "Specific bodyfile address on retainedlocalserver only; bra/briefs/source skeletal frame/fit/material/appearance remain unobserved."
+}

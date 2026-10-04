@@ -1,0 +1,73 @@
+{
+  "frozenUTC": "2026-10-04T19:42:08.955098+00:00",
+  "files": {
+    "INPUTS.json": {
+      "bytes": 1297,
+      "sha256": "f6a17029f0df2db322f8b22d8dd56b1f7fc938ce6e6dcf38c7a2808007ba0f7e"
+    },
+    "JOB.json": {
+      "bytes": 2723,
+      "sha256": "c1ad39d012747cc3157bc598bdb4698f742c7eab1dd64251e709bcd03ab1c12c"
+    },
+    "PLAN.md": {
+      "bytes": 3572,
+      "sha256": "cb212557f43be1ed849f99b1d1272472354c17f18e613c2ed91f564c07fd8133"
+    },
+    "RECEIPT.md": {
+      "bytes": 3637,
+      "sha256": "0d36c817849c56f27ddd6172c9a51361d76412d57f32e42cdb64201376f1f9bf"
+    },
+    "RESULT.md": {
+      "bytes": 2164,
+      "sha256": "4bbd66006da383ed605de6c0052903da71aaf8e1ac1a7ae01e2bb612087a282d"
+    },
+    "ROOT-OBSERVATION.json": {
+      "bytes": 2071,
+      "sha256": "c2f2e9d8d1ffca98c4babc9b2a7a982ae7688ec48009d6eab4f82312f2779ffa"
+    },
+    "ROOT-PREFLIGHT.json": {
+      "bytes": 1673,
+      "sha256": "5e2214f3aa2ab77186bd328529ec636621a5b513191762bb04137eb7b8db7073"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 1590,
+      "sha256": "d1e63bfee4c18443ce64b29acd2801550b6d84ce9920263eeb3b7ace28e73694"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 833,
+      "sha256": "05ffdcccbbbb22c301749d5b54f86959fab4cf4aaf0456b14083ca3573207ddc"
+    },
+    "SOURCE.md": {
+      "bytes": 1193,
+      "sha256": "4068ba481e1472a3682d531cde233a69ae47d95270f159dd379e905179b09f89"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "STDOUT.json": {
+      "bytes": 2723,
+      "sha256": "c1ad39d012747cc3157bc598bdb4698f742c7eab1dd64251e709bcd03ab1c12c"
+    },
+    "WORKSHEET.md": {
+      "bytes": 1902,
+      "sha256": "c63e284e95bd21917f3dc04c0d8a60b25a52ab4e41d1e97025c5fdb82e641bc2"
+    },
+    "probe.py": {
+      "bytes": 2864,
+      "sha256": "01ec45b45ae4c118564489518d76f99bcb38136960b53d725c45381eb43bfb3c"
+    },
+    "response-0.bin": {
+      "bytes": 7501,
+      "sha256": "364c81c24da47ab282d4423f13c2c9b5a44725d0bbb7e9eb3011503c2f570812"
+    },
+    "response-1.bin": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    }
+  },
+  "decision": "A specificbodytransport address; no source-reference admission",
+  "requests": 2,
+  "parses": 0,
+  "nativeJobs": 0
+}

@@ -1,0 +1,111 @@
+{
+  "pid": 55764,
+  "startedUTC": "2026-10-04T19:36:37.923155+00:00",
+  "responses": [
+    {
+      "index": 0,
+      "url": "http://127.0.0.1:5173/assets/wardrobe/body/g050.glb",
+      "requestedUTC": "2026-10-04T19:36:37.944504+00:00",
+      "status": 200,
+      "headers": [
+        [
+          "Vary",
+          "Origin"
+        ],
+        [
+          "Content-Type",
+          "text/html"
+        ],
+        [
+          "Cache-Control",
+          "no-cache"
+        ],
+        [
+          "Etag",
+          "W/\"1d4d-vAFDqEd3Y8UrwrXw/fG/G8LddZw\""
+        ],
+        [
+          "Date",
+          "Sun, 04 Oct 2026 19:36:37 GMT"
+        ],
+        [
+          "Connection",
+          "close"
+        ],
+        [
+          "Content-Length",
+          "7501"
+        ]
+      ],
+      "receivedUTC": "2026-10-04T19:36:37.951169+00:00",
+      "observedBytes": 7501,
+      "complete": true,
+      "sha256": "364c81c24da47ab282d4423f13c2c9b5a44725d0bbb7e9eb3011503c2f570812",
+      "first16Hex": "3c21646f63747970652068746d6c3e0a",
+      "bodyFile": "response-0.bin",
+      "savedUTC": "2026-10-04T19:36:37.951387+00:00",
+      "matchesOriginal": false
+    },
+    {
+      "index": 1,
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "requestedUTC": "2026-10-04T19:36:37.951390+00:00",
+      "status": 200,
+      "headers": [
+        [
+          "Vary",
+          "Origin"
+        ],
+        [
+          "Content-Length",
+          "11916776"
+        ],
+        [
+          "Content-Type",
+          "model/gltf-binary"
+        ],
+        [
+          "Last-Modified",
+          "Tue, 08 Sep 2026 21:58:56 GMT"
+        ],
+        [
+          "ETag",
+          "W/\"11916776-1788904736201\""
+        ],
+        [
+          "Cache-Control",
+          "no-cache"
+        ],
+        [
+          "Date",
+          "Sun, 04 Oct 2026 19:36:37 GMT"
+        ],
+        [
+          "Connection",
+          "close"
+        ]
+      ],
+      "receivedUTC": "2026-10-04T19:36:37.964662+00:00",
+      "observedBytes": 11916776,
+      "complete": true,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "first16Hex": "676c544602000000e8d5b500c8d30100",
+      "bodyFile": "response-1.bin",
+      "savedUTC": "2026-10-04T19:36:37.969441+00:00",
+      "matchesOriginal": true
+    }
+  ],
+  "maximumRequests": 2,
+  "noRedirects": true,
+  "timeoutSeconds": 5,
+  "capBytes": 16777216,
+  "status": "complete",
+  "parseCount": 0,
+  "nativeCount": 0,
+  "expectedBody": {
+    "bytes": 11916776,
+    "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+  },
+  "endedUTC": "2026-10-04T19:36:37.972835+00:00",
+  "exitCode": 0
+}
