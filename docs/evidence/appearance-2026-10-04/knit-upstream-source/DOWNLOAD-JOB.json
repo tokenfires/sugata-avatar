@@ -1,0 +1,48 @@
+{
+  "pid": 90107,
+  "started": "2026-10-04T10:48:11.263284+00:00",
+  "url": "http://www.makehumancommunity.org/sites/default/files/clothes/1968/1552483805/sweater_fisherman.obj",
+  "limitBytes": 2097152,
+  "status": "downloaded-source-only",
+  "scope": "One size HEAD then one GET only if <=2MiB; original source bytes only; no decode/extraction/parse/edit/execute",
+  "sourcePage": "http://www.makehumancommunity.org/clothes/fisherman_sweater.html",
+  "primaryDocumentedLicense": "CC0 - Creative Commons Zero",
+  "catalogDocumentedAuthor": "MargaretToigo",
+  "requests": [
+    {
+      "method": "HEAD",
+      "status": 200,
+      "finalURL": "http://www.makehumancommunity.org/sites/default/files/clothes/1968/1552483805/sweater_fisherman.obj",
+      "headers": {
+        "Date": "Sun, 04 Oct 2026 10:48:11 GMT",
+        "Server": "Apache/2.4.7 (Ubuntu)",
+        "Last-Modified": "Tue, 05 Dec 2017 16:30:42 GMT",
+        "ETag": "\"2a2fe-55f9a5b205080\"",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "172798",
+        "Connection": "close"
+      }
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "finalURL": "http://www.makehumancommunity.org/sites/default/files/clothes/1968/1552483805/sweater_fisherman.obj",
+      "headers": {
+        "Date": "Sun, 04 Oct 2026 10:48:12 GMT",
+        "Server": "Apache/2.4.7 (Ubuntu)",
+        "Last-Modified": "Tue, 05 Dec 2017 16:30:42 GMT",
+        "ETag": "\"2a2fe-55f9a5b205080\"",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "172798",
+        "Connection": "close"
+      }
+    }
+  ],
+  "output": {
+    "file": "original-fisherman.obj",
+    "bytes": 172798,
+    "sha256": "2844465f4e798666a90f631ea4a89ae30d3e526ef045a978d338908750d21d09",
+    "qualification": "Original received source bytes only; geometry/header/fit unparsed"
+  },
+  "finished": "2026-10-04T10:48:13.832873+00:00"
+}

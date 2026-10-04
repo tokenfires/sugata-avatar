@@ -24,6 +24,8 @@ The resumed work was uneven: useful guidance and concrete refusals, but too much
 
 Later October4 produced a [complete synthetic knitwear character target](research/KNIT-CHARACTER-TARGET-2026-10-04.md), independently retained for artist discussion: relaxed long sleeves/untucked hem, wider trousers, practical boots and clear face framing. Current COS photo observations informed it. Side/back shape, actual3D/source/fit, material physics and representative builds remain unqualified; no runtime/default/asset changed.
 
+A short primary search then retained a [literal original sweater source lead](research/KNIT-UPSTREAM-SOURCE-2026-10-04.md): MakeHuman's catalog/artist page document MargaretToigo/CC0 and editable OBJ/fitting/material links. One small original OBJ is received unchanged; both agents inspect its more fitted maroon catalog picture. Geometry, hidden interfaces, source units and Sugata compatibility remain unparsed/unqualified. It supplies a concrete input for a future source-control study, rather than another speculative procedural construction.
+
 ## Experiments retained, not promoted
 
 - [Surface-rooted bob study](evidence/hair-2026-10-03/surface-guides/RECEIPT.md): 36 authored roots/full curves construct, but a declared framing-margin check stops before any candidate image is drawn. Appearance is unresolved; visible clipping is unproved. No camera/margin retry is authorized by that result.

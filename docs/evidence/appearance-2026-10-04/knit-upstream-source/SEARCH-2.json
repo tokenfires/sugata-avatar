@@ -1,0 +1,49 @@
+{
+  "query": "site.github.com makehumancommunity assets sweater clothes",
+  "requestedClock": "2026-10-04 10:44:11 UTC",
+  "returnedClock": "2026-10-04 10:44:14 UTC",
+  "result": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://github.com/makehuman-js/makehuman-data/issues/1\",\"title\":\"How to add assets · Issue #1 · makehuman-js ... - GitHub\",\"description\":\"# How to add assets#1\\n## Description\\nI want to add clothing to makehuman-data using resources that could be provided in any number of formats.\\n\\n## Activity\\n### wassname commented on Sep 15, 2017on Sep 15, 2017\\nClothing is modular, I used a [jupyter-notebook](https://github.com/makehuman-js/makehuman-data/blob/master/scripts/notebooks/Export_proxies_to_threejs.ipynb) to convert all proxies (clothing, accessories) to threejs format.\\n\\n- put your clothing/proxies into your makehuman data directory (this changes based on system) so makehuman loads it\",\"position\":1,\"category\":\"github\"},{\"url\":\"https://static.makehumancommunity.org/assets/assetpacks.html\",\"title\":\"Asset Packs - MakeHuman Community\",\"description\":\"# Asset Packs\\n## Available asset packs\\n- [Shirts 01](https://static.makehumancommunity.org/assets/assetpacks/shirts01.html): A set of t-shirts, sweaters and tops\\n\\n- [Shirts 02](https://static.makehumancommunity.org/assets/assetpacks/shirts02.html): A set of long sleeved cardigans, sweaters and shirts\",\"position\":2},{\"url\":\"https://github.com/makehumancommunity/makehuman/issues/222\",\"title\":\"assets downloaded from community not showing up in clothing geometries\",\"description\":\"# assets downloaded from community not showing up in clothing geometries #222\\n## Description\\nI was adding assets to character in MakeHuman and then all of a sudden all of the clothes disappeared!\\n\\n## Activity\\n### joepal1976 commented on Mar 11, 2023on Mar 11, 2023\\nThey are in DOCUMENTS\\\\makehuman\\\\v1py3\\\\data\\\\clothes.\",\"position\":3,\"category\":\"github\"}]},\"creditsUsed\":2,\"id\":\"01a10683-a374-73df-9d01-e66645949db9\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://github.com/makehuman-js/makehuman-data/issues/1\\\", #2 \\\"https://static.makehumancommunity.org/assets/assetpacks.html\\\", #3 \\\"https://github.com/makehumancommunity/makehuman/issues/222\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+        }
+      ],
+      "structuredContent": {
+        "agent_hints": [
+          "All 3 web results are excerpts only (#1 \"https://github.com/makehuman-js/makehuman-data/issues/1\", #2 \"https://static.makehumancommunity.org/assets/assetpacks.html\", #3 \"https://github.com/makehumancommunity/makehuman/issues/222\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+        ],
+        "success": true,
+        "data": {
+          "web": [
+            {
+              "url": "https://github.com/makehuman-js/makehuman-data/issues/1",
+              "title": "How to add assets · Issue #1 · makehuman-js ... - GitHub",
+              "description": "# How to add assets#1\n## Description\nI want to add clothing to makehuman-data using resources that could be provided in any number of formats.\n\n## Activity\n### wassname commented on Sep 15, 2017on Sep 15, 2017\nClothing is modular, I used a [jupyter-notebook](https://github.com/makehuman-js/makehuman-data/blob/master/scripts/notebooks/Export_proxies_to_threejs.ipynb) to convert all proxies (clothing, accessories) to threejs format.\n\n- put your clothing/proxies into your makehuman data directory (this changes based on system) so makehuman loads it",
+              "position": 1,
+              "category": "github"
+            },
+            {
+              "url": "https://static.makehumancommunity.org/assets/assetpacks.html",
+              "title": "Asset Packs - MakeHuman Community",
+              "description": "# Asset Packs\n## Available asset packs\n- [Shirts 01](https://static.makehumancommunity.org/assets/assetpacks/shirts01.html): A set of t-shirts, sweaters and tops\n\n- [Shirts 02](https://static.makehumancommunity.org/assets/assetpacks/shirts02.html): A set of long sleeved cardigans, sweaters and shirts",
+              "position": 2
+            },
+            {
+              "url": "https://github.com/makehumancommunity/makehuman/issues/222",
+              "title": "assets downloaded from community not showing up in clothing geometries",
+              "description": "# assets downloaded from community not showing up in clothing geometries #222\n## Description\nI was adding assets to character in MakeHuman and then all of a sudden all of the clothes disappeared!\n\n## Activity\n### joepal1976 commented on Mar 11, 2023on Mar 11, 2023\nThey are in DOCUMENTS\\makehuman\\v1py3\\data\\clothes.",
+              "position": 3,
+              "category": "github"
+            }
+          ]
+        },
+        "id": "01a10683-a374-73df-9d01-e66645949db9",
+        "creditsUsed": 2
+      },
+      "isError": false
+    }
+  }
+}
