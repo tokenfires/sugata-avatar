@@ -1,0 +1,28 @@
+{
+  "pid": 58516,
+  "started": "2026-10-04T08:33:04.128982+00:00",
+  "finished": "2026-10-04T08:33:04.156752+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/archive-candidate.py",
+  "removedOnlyExactOwnedUntracked": [
+    {
+      "path": "packages/testbed/src/portrait-outfit-recovery-candidate.html",
+      "bytes": 10473,
+      "sha256": "bf320634740a543bd3bc57ad470236cb73ede7e4bcb7017aeae1ab31276c925c",
+      "snapshot": "candidate-portrait.html.source"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit-recovery-candidate.js",
+      "bytes": 12890,
+      "sha256": "6185813893b9cf0e12f64f3ca61b750bcf8d07af898ac713b3673ee97754b22f",
+      "snapshot": "candidate-portrait.js.source"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit.mjs",
+      "bytes": 1621,
+      "sha256": "3e8d5233f44b7c1d8a3a4fcf3e6323fdb26c793ba8ceaed85cf55cbbe99d5058",
+      "snapshot": "portrait-outfit.mjs.source"
+    }
+  ],
+  "noNativeOpened": true,
+  "acceptedOriginalsExact": true
+}

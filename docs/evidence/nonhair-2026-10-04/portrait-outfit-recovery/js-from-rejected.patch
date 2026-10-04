@@ -1,0 +1,58 @@
+--- rejected/portrait.js
++++ recovery/portrait.js
+@@ -1,7 +1,7 @@
+ import { AttentionAction } from '../../core/src/motion/AttentionAction.js';
+ import { Avatar } from '../../core/src/Avatar.js';
+ import { portraitSelection, validatePortraitHair } from './portrait-selection.mjs';
+-import { portraitOutfitSelection, portraitOutfitOptions, portraitOutfitUrl } from './portrait-outfit.mjs';
++import { PortraitOutfitUnavailableError, portraitOutfitSelection, portraitOutfitOptions, portraitOutfitUrl } from './portrait-outfit.mjs';
+ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+ import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
+ import { reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
+@@ -22,6 +22,7 @@
+ let easingExpression = false;
+ let changingView = false;
+ let failed = false;
++let outfitRecoveryHref = null;
+ let frame = 0;
+ let previousTime = null;
+ 
+@@ -80,7 +81,6 @@
+ try {
+     const selection = portraitSelection( params );
+     const scene = reviewSceneSelection( params );
+-    const outfit = portraitOutfitSelection( params, selection.bake );
+     if ( params.getAll( 'hair' ).length > 1 ) throw new Error( 'Duplicate URL hair selection.' );
+     validatePortraitHair( hair, selection.bake );
+     if ( selection.bake !== 'g050' ) document.querySelector( '#hair-style option[value="bob02"]' ).disabled = true;
+@@ -90,6 +90,8 @@
+     for ( const button of document.querySelectorAll( '[data-scene]' ) )
+         button.setAttribute( 'aria-pressed', String( button.dataset.scene === scene ) );
+     document.getElementById( 'light-controls' ).hidden = scene === 'kitchen';
++    outfitRecoveryHref = portraitOutfitUrl( location.href, 'none', selection.bake ).href;
++    const outfit = portraitOutfitSelection( params, selection.bake );
+     for ( const button of document.querySelectorAll( '[data-outfit]' ) )
+         button.setAttribute( 'aria-pressed', String( button.dataset.outfit === outfit ) );
+     document.querySelector( '[data-outfit="ink"]' ).disabled = selection.bake !== 'g050';
+@@ -220,7 +222,20 @@
+         updateAttention();
+     } };
+     if ( !captured ) frame = requestAnimationFrame( animate );
+-} catch ( error ) { showFailure( error ); }
++} catch ( error ) {
++    showFailure( error );
++    if ( error instanceof PortraitOutfitUnavailableError && outfitRecoveryHref !== null ) {
++        for ( const button of document.querySelectorAll( '[data-outfit]' ) )
++            button.setAttribute( 'aria-pressed', 'false' );
++        document.querySelector( '.caption' ).hidden = true;
++        const link = document.createElement( 'a' );
++        link.id = 'continue-without-outfit';
++        link.className = 'text-button';
++        link.href = outfitRecoveryHref;
++        link.textContent = 'Continue without an outfit';
++        document.getElementById( 'error' ).append( '\n', link );
++    }
++}
+ 
+ addEventListener( 'pagehide', event => {
+     cancelAnimationFrame( frame );

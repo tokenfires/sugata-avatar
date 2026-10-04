@@ -1,0 +1,40 @@
+{
+  "pid": 56579,
+  "started": "2026-10-04T08:27:43.575574+00:00",
+  "finished": "2026-10-04T08:27:43.579950+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/make-candidate.py",
+  "frozenPriorPayloadsVerified": 50,
+  "snapshots": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/original-portrait.html.source",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/original-portrait.js.source",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/candidate-portrait.html.source",
+      "bytes": 10473,
+      "sha256": "bf320634740a543bd3bc57ad470236cb73ede7e4bcb7017aeae1ab31276c925c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/candidate-portrait.js.source",
+      "bytes": 12890,
+      "sha256": "6185813893b9cf0e12f64f3ca61b750bcf8d07af898ac713b3673ee97754b22f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/portrait-outfit.mjs.source",
+      "bytes": 1621,
+      "sha256": "3e8d5233f44b7c1d8a3a4fcf3e6323fdb26c793ba8ceaed85cf55cbbe99d5058"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/outfit-check.mjs",
+      "bytes": 3099,
+      "sha256": "866e2be2deacce3c68ce44c5b0e03113c56bd0983bbc020b0b0942a2330e51ff"
+    }
+  ],
+  "acceptedOriginalsExact": true
+}

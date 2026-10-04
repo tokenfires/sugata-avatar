@@ -1,0 +1,86 @@
+{
+  "pid": 57379,
+  "started": "2026-10-04T08:29:44.271138+00:00",
+  "finished": "2026-10-04T08:29:44.271767+00:00",
+  "inputs": [
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit-recovery-candidate.html",
+      "bytes": 10473,
+      "sha256": "bf320634740a543bd3bc57ad470236cb73ede7e4bcb7017aeae1ab31276c925c"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit-recovery-candidate.js",
+      "bytes": 12890,
+      "sha256": "6185813893b9cf0e12f64f3ca61b750bcf8d07af898ac713b3673ee97754b22f"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit.mjs",
+      "bytes": 1621,
+      "sha256": "3e8d5233f44b7c1d8a3a4fcf3e6323fdb26c793ba8ceaed85cf55cbbe99d5058"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/PLAN.md",
+      "bytes": 6014,
+      "sha256": "7f3e119808ae9af307df323a141d9be4bb91b95694bf97ab8884844d9922147b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/W3C-LINK-REF.json",
+      "bytes": 4274,
+      "sha256": "8e19e43893afccb4eb6033714dc5c904ffb752b8b42c602c357b396c49e2d943"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/make-candidate.py",
+      "bytes": 6878,
+      "sha256": "afa9c532b2ea1a6518ef7a17ae4b1cc4b80657ffb49018bbbe81211b8a577380"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/outfit-check.mjs",
+      "bytes": 3099,
+      "sha256": "866e2be2deacce3c68ce44c5b0e03113c56bd0983bbc020b0b0942a2330e51ff"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery/CANDIDATE-SOURCE.json",
+      "bytes": 1627,
+      "sha256": "5cf6496f3185ab05001dfa0ea68d3ce69d07d14ce4ba48d768adceaf78ed215c"
+    }
+  ],
+  "snapshotPairs": 5,
+  "rootFullRead": "Fresh complete HTML/JS/test/selection/scene0251a9; complete helper/recovery diffs0479aa and full author source/current failure branch independently inspected. Relevant SDK/wardrobe source read in previous admission and currently unchanged; current hashes bind exact bytes. Current typed branch after validated href preserves strict unsupported refusal before Avatar.create; ordinary anchor outside disabledcontrols; no auto navigation.",
+  "CPU": "Realrecipe/allbare/strictinvalid/types/copy/URL checks5a6285 exit0; syntax309327/0f3449 exit0; no exactNodePID/start/end returned.",
+  "remaining": "Fresh complete independent source handoff+rootverification beforefirstopen08:34; generic malformed error wording concern explicitly sent to critic, no blanket GO inferred."
+}

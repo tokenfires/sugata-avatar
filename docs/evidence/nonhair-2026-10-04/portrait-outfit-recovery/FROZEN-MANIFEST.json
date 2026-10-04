@@ -1,0 +1,109 @@
+{
+  "pid": 59261,
+  "started": "2026-10-04T08:33:44.070320+00:00",
+  "finished": "2026-10-04T08:33:44.071180+00:00",
+  "command": "python3 inline manifest/readback for docs/evidence/nonhair-2026-10-04/portrait-outfit-recovery; chmod0444",
+  "decision": "B source; preservation only",
+  "files": [
+    {
+      "file": "ARCHIVE.json",
+      "bytes": 1038,
+      "sha256": "3d7a0aa24850e2d52be4b0b626694877680cb889497bd4c43d9015c59cf4d0e5"
+    },
+    {
+      "file": "CANDIDATE-SOURCE.json",
+      "bytes": 1627,
+      "sha256": "5cf6496f3185ab05001dfa0ea68d3ce69d07d14ce4ba48d768adceaf78ed215c"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 7085,
+      "sha256": "d08ba097fa76dc5fc56412044ea9c4e30eb8f9a1a49ece02bc60e7c204fe6831"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 6014,
+      "sha256": "7f3e119808ae9af307df323a141d9be4bb91b95694bf97ab8884844d9922147b"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 3214,
+      "sha256": "4718795612df6f1277412f47788bd7620a1178cfaad40b2491451bfcd8a934ce"
+    },
+    {
+      "file": "ROOT-FINAL.json",
+      "bytes": 1078,
+      "sha256": "bb3eed200bab100b8682204b7c887e7a29a0977b1ebf3ae14ed0dff6349519c4"
+    },
+    {
+      "file": "ROOT-SOURCE.json",
+      "bytes": 3740,
+      "sha256": "6088fd56c253301bf1e940de449cb0243912783292d75483413628e7b42833a9"
+    },
+    {
+      "file": "W3C-LINK-REF.json",
+      "bytes": 4274,
+      "sha256": "8e19e43893afccb4eb6033714dc5c904ffb752b8b42c602c357b396c49e2d943"
+    },
+    {
+      "file": "archive-candidate.py",
+      "bytes": 1861,
+      "sha256": "321e60cc28316d3b49b28d80761ade47d7df6c8c1e53f244e583ff2667c84ad7"
+    },
+    {
+      "file": "candidate-portrait.html.source",
+      "bytes": 10473,
+      "sha256": "bf320634740a543bd3bc57ad470236cb73ede7e4bcb7017aeae1ab31276c925c"
+    },
+    {
+      "file": "candidate-portrait.js.source",
+      "bytes": 12890,
+      "sha256": "6185813893b9cf0e12f64f3ca61b750bcf8d07af898ac713b3673ee97754b22f"
+    },
+    {
+      "file": "html-from-original.patch",
+      "bytes": 2278,
+      "sha256": "68e7177d132164f96a912d92be281f8feb8c9c2d0ef3c18410fb39b9c2cc0f1c"
+    },
+    {
+      "file": "html-from-rejected.patch",
+      "bytes": 1498,
+      "sha256": "3a0afd23c78b8a6bee057c463ff9a9a9451e576ca26fcdb00ad311c320518f8c"
+    },
+    {
+      "file": "js-from-original.patch",
+      "bytes": 5396,
+      "sha256": "94dec99524d5588d2a8608abed9ade5f72c60d7748a8f9a4d0fdbc24aabc0fa5"
+    },
+    {
+      "file": "js-from-rejected.patch",
+      "bytes": 2981,
+      "sha256": "ed45632d731d51d10722a1d3823b3d5757d906f2eb248e6b741ea112786bfc99"
+    },
+    {
+      "file": "make-candidate.py",
+      "bytes": 6878,
+      "sha256": "afa9c532b2ea1a6518ef7a17ae4b1cc4b80657ffb49018bbbe81211b8a577380"
+    },
+    {
+      "file": "original-portrait.html.source",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "file": "original-portrait.js.source",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "file": "outfit-check.mjs",
+      "bytes": 3099,
+      "sha256": "866e2be2deacce3c68ce44c5b0e03113c56bd0983bbc020b0b0942a2330e51ff"
+    },
+    {
+      "file": "portrait-outfit.mjs.source",
+      "bytes": 1621,
+      "sha256": "3e8d5233f44b7c1d8a3a4fcf3e6323fdb26c793ba8ceaed85cf55cbbe99d5058"
+    }
+  ]
+}

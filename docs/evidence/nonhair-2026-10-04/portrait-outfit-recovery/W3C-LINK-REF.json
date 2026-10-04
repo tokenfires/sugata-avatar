@@ -1,0 +1,43 @@
+{
+  "markdown": "| Key | Description |\n| --- | --- |\n| r | Next region |\n| R | Previous region |\n| m | Main regions |\n| n | Navigation regions |\n| c | Complementary regions |\n\nLandmark Regions\n\n| Key | Description |\n| --- | --- |\n| h | Next heading |\n| H | Previous heading |\n| 1 | Level 1 headings |\n| 2 | Level 2 headings |\n| 3 | Level 3 headings |\n| 4 | Level 4 headings |\n| 5 | Level 5 headings |\n| 6 | Level 6 headings |\n\nHeadings\n\nSkipTo.js is a free and open source utility to support the WCAG 2.4.1 Bypass Block requirement.\n\n\nPrivacy\n\n\nSkipTo.js does not collect or store any information about users or work with any other parties to collect or share user browsing information.\n\n\nHappy Skipping!\n\n\nVersion 5.9.2\n\n\nBSD License, Copyright 2021-2025\n\n\nMore Information\n\nClose\n\n\n[Skip to content](https://www.w3.org/WAI/ARIA/apg/patterns/link/#main)\n\nLink Pattern\n\n## About This Pattern\n\nA [link](https://w3c.github.io/aria/#link) widget provides an interactive reference to a resource.\nThe target resource can be either external or local, i.e., either outside or within the current page or application.\n\n\n### note\n\nAuthors are strongly encouraged to use a native host language link element, such as an HTML `<A>` element with an `href` attribute.\nAs with other WAI-ARIA widget roles, applying the link role to an element will not cause browsers to enhance the element with standard link behaviors, such as navigation to the link target or context menu actions.\nWhen using the `link` role, providing these features of the element is the author's responsibility.\n\n![](https://www.w3.org/WAI/content-images/wai-aria-practices/images/pattern-link.svg)\n\n## Examples\n\n[Link Examples](https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/): Link widgets constructed from HTML `span` and `img` elements.\n\n## Keyboard Interaction\n\n- `Enter`: Executes the link and moves focus to the link target.\n- `Shift` \\+ `F10` (Optional): Opens a context menu for the link.\n\n## WAI-ARIA Roles, States, and Properties\n\nThe element containing the link text or graphic has role of [link](https://w3c.github.io/aria/#link).\n\n[Back to Top](https://www.w3.org/WAI/ARIA/apg/patterns/link/#top)",
+  "metadata": {
+    "og:site_name": "Web Accessibility Initiative (WAI)",
+    "ogLocale": "en",
+    "og:locale": "en",
+    "twitter:creator": "@W3C Web Accessibility Initiative (WAI)",
+    "ogImage": "https://www.w3.org/WAI/assets/images/social-sharing-default.jpg",
+    "ogSiteName": "Web Accessibility Initiative (WAI)",
+    "author": "W3C Web Accessibility Initiative (WAI)",
+    "ogUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/link/",
+    "language": "en",
+    "twitter:card": "summary_large_image",
+    "twitter:site": "@w3c_wai",
+    "twitter:title": "Link Pattern",
+    "twitter:image": "https://www.w3.org/WAI/assets/images/social-sharing-default.jpg",
+    "og:type": "website",
+    "ogTitle": "Link Pattern",
+    "viewport": [
+      "width=device-width, initial-scale=1, viewport-fit=cover",
+      "width=device-width, initial-scale=1.0"
+    ],
+    "og:url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/",
+    "ogDescription": "Accessibility resources free online from the international standards organization: W3C Web Accessibility Initiative (WAI).",
+    "og:description": "Accessibility resources free online from the international standards organization: W3C Web Accessibility Initiative (WAI).",
+    "og:title": "Link Pattern",
+    "title": " Link Pattern | APG | WAI | W3C",
+    "generator": "Jekyll v4.4.1",
+    "description": "Accessibility resources free online from the international standards organization: W3C Web Accessibility Initiative (WAI).",
+    "favicon": "https://www.w3.org/assets/logos/w3c-2025/favicons/favicon-32.png",
+    "scrapeId": "01a10604-4a0f-73b9-9243-7465fa7b837e",
+    "sourceURL": "https://www.w3.org/WAI/ARIA/apg/patterns/link/",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/",
+    "statusCode": 200,
+    "contentType": "text/html; charset=utf-8",
+    "timezone": "America/New_York",
+    "proxyUsed": "basic",
+    "cacheState": "miss",
+    "indexId": "cdd2e2fd-1994-4d37-b713-6a93a7c2c9e6",
+    "creditsUsed": 1,
+    "concurrencyLimited": false
+  }
+}

@@ -1,0 +1,104 @@
+--- accepted/portrait.js
++++ recovery/portrait.js
+@@ -1,6 +1,7 @@
+ import { AttentionAction } from '../../core/src/motion/AttentionAction.js';
+ import { Avatar } from '../../core/src/Avatar.js';
+ import { portraitSelection, validatePortraitHair } from './portrait-selection.mjs';
++import { PortraitOutfitUnavailableError, portraitOutfitSelection, portraitOutfitOptions, portraitOutfitUrl } from './portrait-outfit.mjs';
+ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+ import { ViewerFraming, flushOrbitDamping } from './viewer-framing.mjs';
+ import { reviewSceneSelection, optionsForReviewScene } from './viewer-scenes.mjs';
+@@ -19,8 +20,9 @@
+ let attentionError = null;
+ let paused = reducedMotion;
+ let easingExpression = false;
+-let changingRoom = false;
++let changingView = false;
+ let failed = false;
++let outfitRecoveryHref = null;
+ let frame = 0;
+ let previousTime = null;
+ 
+@@ -88,7 +90,15 @@
+     for ( const button of document.querySelectorAll( '[data-scene]' ) )
+         button.setAttribute( 'aria-pressed', String( button.dataset.scene === scene ) );
+     document.getElementById( 'light-controls' ).hidden = scene === 'kitchen';
++    outfitRecoveryHref = portraitOutfitUrl( location.href, 'none', selection.bake ).href;
++    const outfit = portraitOutfitSelection( params, selection.bake );
++    for ( const button of document.querySelectorAll( '[data-outfit]' ) )
++        button.setAttribute( 'aria-pressed', String( button.dataset.outfit === outfit ) );
++    document.querySelector( '[data-outfit="ink"]' ).disabled = selection.bake !== 'g050';
++    if ( selection.bake !== 'g050' ) document.getElementById( 'outfit-note' ).textContent =
++        'Clothes are not available for this body study.';
+     avatar = await Avatar.create( { canvas, identity: { gender: selection.gender }, hair,
++        ...portraitOutfitOptions( outfit, selection.bake ),
+         autoStart: false, frame: 'portrait', ...optionsForReviewScene( scene ), seed: 20260807 } );
+     attention = new AttentionAction( avatar );
+     controls = new OrbitControls( avatar.stage.camera, canvas );
+@@ -112,6 +122,7 @@
+     await avatar.step( 0 );
+     const report = avatar.report();
+     if ( report.hair?.attached !== true ) throw new Error( `The ${ hair } groom did not attach.` );
++    if ( outfit === 'ink' && report.wardrobe?.attached !== true ) throw new Error( 'The Ink outfit did not attach.' );
+     document.getElementById( 'loading' ).hidden = true;
+     for ( const el of document.querySelectorAll( 'fieldset, #pause, #reset-view' ) ) el.disabled = false;
+     updatePause();
+@@ -144,7 +155,7 @@
+             const url = new URL( location.href );
+             url.searchParams.set( 'scene', button.dataset.scene );
+             attention.cancel( { immediate: true } );
+-            changingRoom = true;
++            changingView = true;
+             for ( const el of document.querySelectorAll( 'fieldset, #pause, #reset-view' ) ) el.disabled = true;
+             status.textContent = 'Preparing room…';
+             location.assign( url.href );
+@@ -193,6 +204,16 @@
+         url.searchParams.set( 'hair', event.target.value );
+         location.assign( url );
+     } );
++    for ( const button of document.querySelectorAll( '[data-outfit]' ) )
++        button.addEventListener( 'click', () => {
++            if ( button.dataset.outfit === outfit ) return;
++            const url = portraitOutfitUrl( location.href, button.dataset.outfit, selection.bake );
++            attention.cancel( { immediate: true } );
++            changingView = true;
++            for ( const el of document.querySelectorAll( 'fieldset, #pause, #reset-view' ) ) el.disabled = true;
++            status.textContent = 'Preparing outfit…';
++            location.assign( url.href );
++        } );
+     window.avatar = avatar;
+     window.portrait = { avatar, controls, attention, framing, step: async delta => {
+         if ( !captured ) throw new Error( 'Manual stepping requires ?capture.' );
+@@ -201,7 +222,20 @@
+         updateAttention();
+     } };
+     if ( !captured ) frame = requestAnimationFrame( animate );
+-} catch ( error ) { showFailure( error ); }
++} catch ( error ) {
++    showFailure( error );
++    if ( error instanceof PortraitOutfitUnavailableError && outfitRecoveryHref !== null ) {
++        for ( const button of document.querySelectorAll( '[data-outfit]' ) )
++            button.setAttribute( 'aria-pressed', 'false' );
++        document.querySelector( '.caption' ).hidden = true;
++        const link = document.createElement( 'a' );
++        link.id = 'continue-without-outfit';
++        link.className = 'text-button';
++        link.href = outfitRecoveryHref;
++        link.textContent = 'Continue without an outfit';
++        document.getElementById( 'error' ).append( '\n', link );
++    }
++}
+ 
+ addEventListener( 'pagehide', event => {
+     cancelAnimationFrame( frame );
+@@ -215,8 +249,8 @@
+ addEventListener( 'pageshow', event => {
+     if ( !event.persisted || avatar === null || avatar.disposed || failed ) return;
+     // A cached document keeps its Avatar and view, including the navigation's disabled UI.
+-    if ( changingRoom ) {
+-        changingRoom = false;
++    if ( changingView ) {
++        changingView = false;
+         for ( const el of document.querySelectorAll( 'fieldset, #pause, #reset-view' ) ) el.disabled = false;
+         updatePause();
+     }
