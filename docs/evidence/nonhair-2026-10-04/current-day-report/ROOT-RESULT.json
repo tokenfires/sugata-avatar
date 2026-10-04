@@ -1,0 +1,211 @@
+{
+  "pid": 64005,
+  "startedAt": "2026-10-04T09:13:54.501215+00:00",
+  "endedAt": "2026-10-04T09:13:54.523859+00:00",
+  "status": "A",
+  "worthInputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/current-day-report/PLAN.md",
+      "bytes": 1991,
+      "sha256": "5664c8504f830840ac5123ab0442245a4c533fe4a27ede198db78d6bcca4f6de",
+      "epoch": "retained initial plan"
+    },
+    {
+      "path": "docs/DAY-REPORT-2026-09-30.md",
+      "bytes": 8218,
+      "sha256": "e1f9fbf7b0dc6dc78f5380214e1a9604f14449ccac788bbc166c510c23e01743",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-02.md",
+      "bytes": 3325,
+      "sha256": "b21585d3b491219cba5a1f821289cf903895ad236cff17891654560be4ac079b",
+      "epoch": "entry Git blob"
+    },
+    {
+      "path": "docs/PROGRESS-2026-10-02.md",
+      "bytes": 176753,
+      "sha256": "4fb148f6a567cf445f2a023c6dde54a0d69abb3e560ceb0a3b7fce8190ed42e0",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 24647,
+      "sha256": "2000f0141f2cfb10591bbaced3e57945efe2bf4ce774aefc31ac8888c61f8ada",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "bytes": 6104,
+      "sha256": "ca4e33586c29a0393848c512082e4d3c5c556233a87e9aebc44f2156e7545477",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-review-page/RECEIPT.md",
+      "bytes": 4467,
+      "sha256": "b91073bd0b18cbbeeb955f8234887f4fd539463da4aabdab0fc04baca65da3f5",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/hair-contact-docs-worth/RECEIPT.md",
+      "bytes": 3532,
+      "sha256": "8da277956d3e64cb4e35c7b2c1e48bccf157eb03e52a685dfc21cd47361f502c",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 49745,
+      "sha256": "524541f8e1abd3ed578ae13dd64d8f3b471ddadf065629e961cdcdb71ca28190",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/ARTISTIC-STOP.md",
+      "bytes": 2492,
+      "sha256": "0860fb17e7e29468fefa243827e0407d2f95d1bb5c5a1b5f93651c0b4fdfd59b",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644",
+      "epoch": "current unchanged input"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/front.jpg",
+      "bytes": 53638,
+      "sha256": "05f0b6e884b36798099a586fc163cc8fdaa56d73b6bc20cd3a45cb0d5ac6e473",
+      "epoch": "current unchanged input"
+    }
+  ],
+  "report": {
+    "bytes": 6571,
+    "sha256": "6d500ae2cb0e40ade7c5c3182bbeec689caccf4f18d0e604bc2232410c06eac4"
+  },
+  "links": [
+    {
+      "target": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+      "local": "/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "http://127.0.0.1:5173/src/showcase.html?frame=body#mix-colours",
+      "local": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "http://127.0.0.1:5173/src/showcase.html?frame=portrait#hair-colours",
+      "local": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "../looks/INK-DENIM.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/wardrobe-2026-09-30/foundation-domain-motion/review.html",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/wardrobe-2026-09-30/foundation-domain-motion/review.html",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/appearance-2026-10-02/saved-colours/README.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/appearance-2026-10-02/saved-export/README.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "../looks/INK-DENIM.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-03/ink-review-page/RECEIPT.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/RECEIPT.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-04/current-day-report/RECEIPT.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/current-day-report/RECEIPT.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/hair-2026-10-03/surface-guides/RECEIPT.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-10-03/surface-guides/RECEIPT.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-04/rowan-portrait/front.jpg",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/front.jpg",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-04/portrait-neutral-ax/RECEIPT.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/portrait-neutral-ax/RECEIPT.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-04/portrait-outfit-final/CHECKPOINT.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/portrait-outfit-final/CHECKPOINT.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "PRODUCT-ROADMAP.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "WARDROBE-SEPARATES-CONTRACT-2026-10-03.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/WARDROBE-SEPARATES-CONTRACT-2026-10-03.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-04/portrait-outfit-final/CHECKPOINT.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/portrait-outfit-final/CHECKPOINT.md",
+      "check": "file exists; no HTTP/native claim"
+    },
+    {
+      "target": "evidence/nonhair-2026-10-04/portrait-outfit-final-receipt-precision.md",
+      "local": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/portrait-outfit-final-receipt-precision.md",
+      "check": "file exists; no HTTP/native claim"
+    }
+  ],
+  "trackedAvatarDiff": {
+    "command": [
+      "git",
+      "diff",
+      "--name-status",
+      "68662cd..089a7a8",
+      "--",
+      "packages",
+      "assets",
+      "tools/figure-pipeline"
+    ],
+    "output": ""
+  },
+  "limits": "FS/source reconciliation only; no runtime, capture, ignored-asset audit or all-motion acceptance"
+}
