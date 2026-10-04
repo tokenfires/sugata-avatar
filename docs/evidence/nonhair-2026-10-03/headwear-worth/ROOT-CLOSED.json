@@ -1,0 +1,36 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/headwear-worth/root-close.py",
+  "pid": 79951,
+  "started": "2026-10-04T02:28:58.543666+00:00",
+  "ended": "2026-10-04T02:28:58.544140+00:00",
+  "readerSha256": "ea629d5c2850a702b02ed82ea6a9f9f20a058f40945b7ad20462ac9ec01f2131",
+  "pins": [
+    {
+      "file": "packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "file": "packages/testbed/src/wardrobe.html",
+      "bytes": 5184,
+      "sha256": "050d37694421856b0574717ef516128a35b65d088cbc40863b9708c4872f4922"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "file": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    }
+  ],
+  "decision": "B for current diagnostic/Showcase route; no hat appearance defect inferred",
+  "scope": "Full critic note and5 source hashes independently reconciled; existing setup/strict settings independently read; no asset parse/runtime"
+}
