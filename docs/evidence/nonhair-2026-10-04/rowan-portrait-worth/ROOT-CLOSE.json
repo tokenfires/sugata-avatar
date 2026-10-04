@@ -1,0 +1,148 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/root-close.py",
+  "pid": 41925,
+  "started": "2026-10-04T06:12:31.927969+00:00",
+  "ended": "2026-10-04T06:12:31.938016+00:00",
+  "externalPins": [
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/body-breadth-worth/WORTH.md",
+      "bytes": 6018,
+      "sha256": "52753a047f270a046cf6c2acb7098c03ac19be655db452860512fea9ff111d9d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644"
+    },
+    {
+      "path": "assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    },
+    {
+      "path": "assets/hair/bob01/g100.glb",
+      "bytes": 3346252,
+      "sha256": "e4c238ef739d98107d0f237e76e1235c0a6fa2af777489638f1cba3118aac5f7"
+    },
+    {
+      "path": "assets/hair/bob01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "path": "assets/hair/bob01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "path": "assets/hair/bob01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "path": "assets/hair/bob01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    }
+  ],
+  "packetPins": [
+    {
+      "file": "ARTIST-DECISION.md",
+      "bytes": 2898,
+      "sha256": "00ae6737fad4932ce508e35e643aa51baa687bd4e152b1faf21cd9880114c47b"
+    },
+    {
+      "file": "CRITIC-VALUE.md",
+      "bytes": 9732,
+      "sha256": "d944ee0e3518e64709e5d09ab65226791cc9dc350f023a8dd17bea8e50d42aa9"
+    },
+    {
+      "file": "OFFICIAL-METADATA.json",
+      "bytes": 733,
+      "sha256": "318ce42f6da1a109ea3ff55e08d8ff369272f6567b8a7b560ba62bce3372eab9"
+    },
+    {
+      "file": "OFFICIAL-STATE.txt",
+      "bytes": 16615,
+      "sha256": "904bd3f373aa019a38e53bd5a580e675aa4392f19cec7e87d35b3dfedbba2f3d"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3054,
+      "sha256": "12cc36127a776cc82b5626b2df42d4196a98bea81f066a1a3d29da79aeaea026"
+    },
+    {
+      "file": "PRIMARY-SEARCH.json",
+      "bytes": 3316,
+      "sha256": "613da68779a5fb90bc8fbf6b9bb06368dd7eca3ede7cc5a0d24cd62f900fddb3"
+    },
+    {
+      "file": "ROOT-DECISION.md",
+      "bytes": 3274,
+      "sha256": "ef85f884f73f4c9144bac67f0ed4ce7e0e204dc311b950267abd7948679c0412"
+    },
+    {
+      "file": "SOURCE-CORRECTION.md",
+      "bytes": 1668,
+      "sha256": "018a8bb431afc01baabed946f41821066474bea135981e45c86447d62f424363"
+    },
+    {
+      "file": "official-face-framing.jpg",
+      "bytes": 93916,
+      "sha256": "b635a8e0d9dd3e77394ea3e2583f7230f7c5e700b32e397c4558241877ba1813"
+    },
+    {
+      "file": "official-hair-context.jpg",
+      "bytes": 59438,
+      "sha256": "5f66469c08a00995e33535098949d38c30060be3bbf6f98104eec3bc9f6080da"
+    },
+    {
+      "file": "official-hair-photo.jpg",
+      "bytes": 82793,
+      "sha256": "2196a9ffbe66e1a41e9f13bce929804a6a93db011f6a22b5700382d73c05d271"
+    },
+    {
+      "file": "official-page-context.jpg",
+      "bytes": 77501,
+      "sha256": "8b322e57644ae529a3fc76590b5985e6f7854384bee39d0d1cd10ea7da537054"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 3190,
+      "sha256": "3ac06af85fae938d2c813287e118cc52459abe858e1c2b554a765ca85a22c6f0"
+    }
+  ],
+  "criticBindingsIndependentlyChecked": 9,
+  "decision": "Conditional A for exact g100 unchanged bob01 artistic portrait screening; no native/adoption admitted here",
+  "scope": "Root independently reads complete critic and actual current source, actually sees final on-page photo and accepted portrait; hashes only, no asset parse/runtime/import/geometry calculation."
+}

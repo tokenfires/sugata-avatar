@@ -1,0 +1,39 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.americancrew.com/\",\"title\":\"American Crew: Official Supplier to Men Grooming & Styling\",\"description\":\"American Crew is a landmark in the history of men's grooming. It's the leading salon brand created specifically for men and the stylists they trust.\",\"position\":1},{\"url\":\"https://www.americancrew.com/collections/straight-hair\",\"title\":\"Straight Hair Products for Men's Sleek Hairstyles - American Crew\",\"description\":\"Discover styling solutions for men's straight hair. Achieve smooth, polished looks with top products for control and shine from American Crew.\",\"position\":2},{\"url\":\"https://www.youtube.com/watch?v=75vq2gg9TOk\",\"title\":\"The American Crew Cut: A Timeless Men's Hairstyle - YouTube\",\"description\":\"He Cut ALL of His Long Hair OFF for a WARRIOR Cut | Messy TEXTURED Scissor Cut ... MEN OVER 50 HAIR STYLE. Elevated Man•41K views · 12:25 · Go ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a1057f-bbf4-75ed-96f4-d3f526af7959\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.americancrew.com/\\\", #2 \\\"https://www.americancrew.com/collections/straight-hair\\\", #3 \\\"https://www.youtube.com/watch?v=75vq2gg9TOk\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://www.americancrew.com/\", #2 \"https://www.americancrew.com/collections/straight-hair\", #3 \"https://www.youtube.com/watch?v=75vq2gg9TOk\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.americancrew.com/",
+          "title": "American Crew: Official Supplier to Men Grooming & Styling",
+          "description": "American Crew is a landmark in the history of men's grooming. It's the leading salon brand created specifically for men and the stylists they trust.",
+          "position": 1
+        },
+        {
+          "url": "https://www.americancrew.com/collections/straight-hair",
+          "title": "Straight Hair Products for Men's Sleek Hairstyles - American Crew",
+          "description": "Discover styling solutions for men's straight hair. Achieve smooth, polished looks with top products for control and shine from American Crew.",
+          "position": 2
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=75vq2gg9TOk",
+          "title": "The American Crew Cut: A Timeless Men's Hairstyle - YouTube",
+          "description": "He Cut ALL of His Long Hair OFF for a WARRIOR Cut | Messy TEXTURED Scissor Cut ... MEN OVER 50 HAIR STYLE. Elevated Man•41K views · 12:25 · Go ...",
+          "position": 3
+        }
+      ]
+    },
+    "id": "01a1057f-bbf4-75ed-96f4-d3f526af7959",
+    "creditsUsed": 2
+  },
+  "isError": false
+}

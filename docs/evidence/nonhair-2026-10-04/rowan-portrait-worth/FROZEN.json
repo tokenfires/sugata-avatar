@@ -1,0 +1,89 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/freeze.py",
+  "pid": 43077,
+  "started": "2026-10-04T06:13:09.809111+00:00",
+  "ended": "2026-10-04T06:13:09.809920+00:00",
+  "pins": [
+    {
+      "file": "ARTIST-DECISION.md",
+      "bytes": 2898,
+      "sha256": "00ae6737fad4932ce508e35e643aa51baa687bd4e152b1faf21cd9880114c47b"
+    },
+    {
+      "file": "CRITIC-VALUE.md",
+      "bytes": 9732,
+      "sha256": "d944ee0e3518e64709e5d09ab65226791cc9dc350f023a8dd17bea8e50d42aa9"
+    },
+    {
+      "file": "OFFICIAL-METADATA.json",
+      "bytes": 733,
+      "sha256": "318ce42f6da1a109ea3ff55e08d8ff369272f6567b8a7b560ba62bce3372eab9"
+    },
+    {
+      "file": "OFFICIAL-STATE.txt",
+      "bytes": 16615,
+      "sha256": "904bd3f373aa019a38e53bd5a580e675aa4392f19cec7e87d35b3dfedbba2f3d"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3054,
+      "sha256": "12cc36127a776cc82b5626b2df42d4196a98bea81f066a1a3d29da79aeaea026"
+    },
+    {
+      "file": "PRIMARY-SEARCH.json",
+      "bytes": 3316,
+      "sha256": "613da68779a5fb90bc8fbf6b9bb06368dd7eca3ede7cc5a0d24cd62f900fddb3"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 3155,
+      "sha256": "7547f8d97b4bc8218d7bcc28ab3d4b23378c62ef6725e8831a7fbb444a443c3f"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 5047,
+      "sha256": "0d148b699c054d57d87c4c59a2cba9636df853479153799f30c80f93e780c552"
+    },
+    {
+      "file": "ROOT-DECISION.md",
+      "bytes": 3274,
+      "sha256": "ef85f884f73f4c9144bac67f0ed4ce7e0e204dc311b950267abd7948679c0412"
+    },
+    {
+      "file": "SOURCE-CORRECTION.md",
+      "bytes": 1668,
+      "sha256": "018a8bb431afc01baabed946f41821066474bea135981e45c86447d62f424363"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "official-face-framing.jpg",
+      "bytes": 93916,
+      "sha256": "b635a8e0d9dd3e77394ea3e2583f7230f7c5e700b32e397c4558241877ba1813"
+    },
+    {
+      "file": "official-hair-context.jpg",
+      "bytes": 59438,
+      "sha256": "5f66469c08a00995e33535098949d38c30060be3bbf6f98104eec3bc9f6080da"
+    },
+    {
+      "file": "official-hair-photo.jpg",
+      "bytes": 82793,
+      "sha256": "2196a9ffbe66e1a41e9f13bce929804a6a93db011f6a22b5700382d73c05d271"
+    },
+    {
+      "file": "official-page-context.jpg",
+      "bytes": 77501,
+      "sha256": "8b322e57644ae529a3fc76590b5985e6f7854384bee39d0d1cd10ea7da537054"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 3190,
+      "sha256": "3ac06af85fae938d2c813287e118cc52459abe858e1c2b554a765ca85a22c6f0"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}
