@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "scope": "FS-only input/provenance readback; no helper import/execution, image transform, asset parse, geometry, Avatar, browser or GPU",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/stone-slate-value/critic-value-pins.py",
+  "pid": 2962,
+  "python": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7",
+  "started": "2026-10-04T01:59:31.267585+00:00",
+  "ended": "2026-10-04T01:59:31.269751+00:00",
+  "sourceSha256": "a284547389aa99aa3d25fa0fa35cb4b5c37ee47be1967165a854cf7b3b87c56f",
+  "pins": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/stone-slate-value/PLAN.md",
+      "bytes": 3472,
+      "sha256": "0afc202b3d63cf81f7d169424c1c2c1542b1432ce19a20563fc30ff42a169c39"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/stone-slate-value/CRITIC-VALUE.md",
+      "bytes": 5595,
+      "sha256": "23b00601ec0abf3c2c195cd30a51802a290f86ca2917453ed5e8f4a10db69614"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/stone-slate-value/proposed-options.mjs",
+      "bytes": 2456,
+      "sha256": "b50a5de13a370017969ace3f12681c090515ba1d9df47115d0282146cbff1b5c"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/stone-slate-value/ROOT-OPTIONS.json",
+      "bytes": 3458,
+      "sha256": "7c29c4d7a957cf36a4a740168dfada49727db2223742160a250274cac604b112"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/stone-slate-value/PRIMARY-SEARCH.json",
+      "bytes": 795,
+      "sha256": "cc45c4def13512b02649f00baea581df8131a0fd88c7a4d6ea62877ced68dee4"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/stone-slate-value/PRIMARY-REFERENCE.json",
+      "bytes": 2698,
+      "sha256": "32193de1826a736023f92c1ce31da787f56c065b09712c358ee1c47e88499861"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "file": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "file": "packages/testbed/src/showcase-palette-references.mjs",
+      "bytes": 4998,
+      "sha256": "82df6354262aa5d0fd364daf3a592e9fabb344eb0f217cfe3aa64d70ff15e98a"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "looks/README.md",
+      "bytes": 3301,
+      "sha256": "39412cbe152e54ab907cbf1da81ad64fca7606af33dedcb4316a323e765a7ee2"
+    },
+    {
+      "file": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 23595,
+      "sha256": "e26ab985a725cb6cc03ac5112c774df4657196e358e7e6164a47a29733c6e463"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/elegant-ecru.png",
+      "bytes": 647399,
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e",
+      "dimensions": [
+        657,
+        868
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-value/uniqlo-70000561.jpg",
+      "bytes": 59918,
+      "sha256": "2bf6834cb4b4b04f0559dc5e480803bf67337674c15be001a64c459c1f5a75f9"
+    }
+  ],
+  "rootHelperReceiptOnly": {
+    "pid": 90092,
+    "started": "2026-10-04T01:55:09.761Z",
+    "ended": "2026-10-04T01:55:09.764Z",
+    "status": "passed"
+  },
+  "targetsAbsent": [
+    "looks/stone-slate.json",
+    "looks/STONE-SLATE.md"
+  ],
+  "actualImagesViewed": [
+    "packages/testbed/src/palette-references/elegant-ecru.png",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-value/uniqlo-70000561.jpg"
+  ],
+  "roadmapReadScope": "Lines 13\u201351 and 116\u2013122 plus relevant search witnesses; full file pinned, not represented as full prose review"
+}

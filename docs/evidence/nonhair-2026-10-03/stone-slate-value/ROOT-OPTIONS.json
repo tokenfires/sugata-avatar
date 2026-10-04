@@ -1,0 +1,124 @@
+{
+  "command": "node docs/evidence/nonhair-2026-10-03/stone-slate-value/proposed-options.mjs",
+  "pid": 90092,
+  "node": "v24.13.1",
+  "started": "2026-10-04T01:55:09.761Z",
+  "ended": "2026-10-04T01:55:09.764Z",
+  "status": "passed",
+  "scope": "Supported option helper only; no Avatar/render/geometry/material factory",
+  "candidate": {
+    "identity": {
+      "gender": 0.5,
+      "mode": "nearest"
+    },
+    "hair": "bob02",
+    "hairColour": "#413934",
+    "frame": "body",
+    "quality": "balanced",
+    "scene": "studio",
+    "lighting": "neutral",
+    "seed": 20260807,
+    "pose": "relaxed-standing",
+    "wardrobe": {
+      "style": "ecru",
+      "colours": {
+        "top": "#dbd5c6",
+        "bottom": "#303643",
+        "shoes": "#49342b"
+      },
+      "outfit": [
+        "female_elegantsuit01",
+        "shoes01"
+      ],
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      }
+    }
+  },
+  "selection": {
+    "hairColour": "#413934",
+    "preset": "casual",
+    "outfit": "elegant",
+    "style": "ecru",
+    "frame": "body",
+    "scene": "studio",
+    "light": "neutral",
+    "topColor": "#dbd5c6",
+    "bottomColor": "#303643",
+    "shoesColor": "#49342b"
+  },
+  "url": "http://127.0.0.1:5173/src/showcase.html?hairColour=%23413934&preset=casual&outfit=elegant&style=ecru&frame=body&scene=studio&light=neutral&topColor=%23dbd5c6&bottomColor=%23303643&shoesColor=%2349342b",
+  "recovered": {
+    "identity": {
+      "gender": 0.5,
+      "mode": "nearest"
+    },
+    "hair": "bob02",
+    "hairColour": "#413934",
+    "frame": "body",
+    "quality": "balanced",
+    "scene": "studio",
+    "lighting": "neutral",
+    "seed": 20260807,
+    "pose": "relaxed-standing",
+    "wardrobe": {
+      "style": "ecru",
+      "colours": {
+        "top": "#dbd5c6",
+        "bottom": "#303643",
+        "shoes": "#49342b"
+      },
+      "outfit": [
+        "female_elegantsuit01",
+        "shoes01"
+      ],
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      }
+    }
+  },
+  "targetsAbsent": [
+    "looks/stone-slate.json",
+    "looks/STONE-SLATE.md"
+  ],
+  "pins": [
+    {
+      "file": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "looks/README.md",
+      "bytes": 3301,
+      "sha256": "39412cbe152e54ab907cbf1da81ad64fca7606af33dedcb4316a323e765a7ee2"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "file": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/elegant-ecru.png",
+      "bytes": 647399,
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e"
+    }
+  ],
+  "readerSha256": "b50a5de13a370017969ace3f12681c090515ba1d9df47115d0282146cbff1b5c"
+}

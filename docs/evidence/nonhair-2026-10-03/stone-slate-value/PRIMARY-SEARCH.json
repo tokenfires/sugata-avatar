@@ -1,0 +1,21 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[],\"tools\":[]},\"creditsUsed\":0,\"id\":\"01a1049c-7a8d-749f-a16e-e4bf59bf7d42\",\"agent_hints\":[\"No web results were returned. If the task is still unresolved, use firecrawl_search again with {\\\"query\\\":\\\"<broader or alternative query>\\\",\\\"sources\\\":[\\\"web\\\"]}.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "No web results were returned. If the task is still unresolved, use firecrawl_search again with {\"query\":\"<broader or alternative query>\",\"sources\":[\"web\"]}."
+    ],
+    "success": true,
+    "data": {
+      "web": [],
+      "tools": []
+    },
+    "id": "01a1049c-7a8d-749f-a16e-e4bf59bf7d42",
+    "creditsUsed": 0
+  },
+  "isError": false
+}

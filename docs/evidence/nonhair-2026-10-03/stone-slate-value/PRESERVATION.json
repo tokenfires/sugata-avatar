@@ -1,0 +1,74 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/stone-slate-value/freeze.py",
+  "pid": 20891,
+  "started": "2026-10-04T02:06:51.304024+00:00",
+  "ended": "2026-10-04T02:06:51.304680+00:00",
+  "files": [
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 493,
+      "sha256": "adebe6546a71017f40d52984a573bdee3fbb797c02cb743c64a2d2a5adb0f54b"
+    },
+    {
+      "file": "CRITIC-VALUE-PINS.json",
+      "bytes": 4871,
+      "sha256": "5a9d527c998f7567c96e858bf335174ade38f6188b4a70cc54734d69288eec25"
+    },
+    {
+      "file": "CRITIC-VALUE.md",
+      "bytes": 5595,
+      "sha256": "23b00601ec0abf3c2c195cd30a51802a290f86ca2917453ed5e8f4a10db69614"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3472,
+      "sha256": "0afc202b3d63cf81f7d169424c1c2c1542b1432ce19a20563fc30ff42a169c39"
+    },
+    {
+      "file": "PRIMARY-REFERENCE.json",
+      "bytes": 2698,
+      "sha256": "32193de1826a736023f92c1ce31da787f56c065b09712c358ee1c47e88499861"
+    },
+    {
+      "file": "PRIMARY-SEARCH.json",
+      "bytes": 795,
+      "sha256": "cc45c4def13512b02649f00baea581df8131a0fd88c7a4d6ea62877ced68dee4"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 2155,
+      "sha256": "920ad9b238050c3265f65526dafae1fe202ae0ff9f99738393524e9946a3448c"
+    },
+    {
+      "file": "ROOT-CLOSED.json",
+      "bytes": 4519,
+      "sha256": "32cccd505861cd806b56f35fe0dddf035f682a4696ec4855cd88b482ed729200"
+    },
+    {
+      "file": "ROOT-OPTIONS.json",
+      "bytes": 3458,
+      "sha256": "7c29c4d7a957cf36a4a740168dfada49727db2223742160a250274cac604b112"
+    },
+    {
+      "file": "critic-value-pins.py",
+      "bytes": 4026,
+      "sha256": "a284547389aa99aa3d25fa0fa35cb4b5c37ee47be1967165a854cf7b3b87c56f"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1013,
+      "sha256": "de4e9606b2c5bff4035c9cc3eafc21decf57337f0a2c19f6229d3aa58e47c20a"
+    },
+    {
+      "file": "proposed-options.mjs",
+      "bytes": 2456,
+      "sha256": "b50a5de13a370017969ace3f12681c090515ba1d9df47115d0282146cbff1b5c"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 2238,
+      "sha256": "51123d67e2f36c45ee0081f1fc81bbb65215b6080dab7a0ddd95babdd183b195"
+    }
+  ],
+  "scope": "Only this closed evidence directory"
+}
