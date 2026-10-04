@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-04T15:43:19.046465+00:00",
+  "pid": 5344,
+  "pins": {
+    "docs/evidence/appearance-2026-10-04/whole-knit-worth/PLAN.md": {
+      "bytes": 5044,
+      "sha256": "2ef33f005d5ed8e328df6239d7d0a11e8c56444b39af11e73b92b71ff789d879"
+    },
+    "docs/evidence/appearance-2026-10-04/piece-publisher/pattern.json": {
+      "bytes": 23811,
+      "sha256": "12b1508c044b1f02426f5565c6f2320d79b6a65f907cff74a3861fc12c5212a1"
+    },
+    "docs/evidence/appearance-2026-10-04/piece-publisher/original-frame.jpg": {
+      "bytes": 98488,
+      "sha256": "caa25095b801c0d1c7b2c6761fdef703225dfabcf9e9282e45f675486a01ce55"
+    },
+    "docs/evidence/appearance-2026-10-04/piece-publisher/RESULT.md": {
+      "bytes": 2644,
+      "sha256": "34b0113e06f6d765c112dada6e57032a7eec8a33490b3c183c75acaf39a6ecef"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-shape-sheet/shape-sheet-v1.png": {
+      "bytes": 2486294,
+      "sha256": "19f321df064f048432dce11b05cb3db1318ff7af3f9de6a70fdb586f32f0d992"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png": {
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    "docs/research/RELAXED-KNIT-SHAPE-2026-10-04.md": {
+      "bytes": 3159,
+      "sha256": "ed934875e1766c6f46a834bf247c5fa4ae24623a6f9dbbacbfbc81eab5f91f78"
+    }
+  },
+  "activity": "Worth-only; no construction/source/runtime/native/online/imagegen activity.",
+  "initialInputPathError": "220999 created PLAN then guard found nonexistent knit-character-target/concept-v1.png before INPUTS write;17f691 finds actual knit-character-concept/concept-v1.png; corrected input inventory only. Same plan and frozen image, no artist constructor/native failure or retry."
+}

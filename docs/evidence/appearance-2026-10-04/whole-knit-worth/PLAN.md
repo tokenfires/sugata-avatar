@@ -1,0 +1,25 @@
+# Whole-surface relaxed-knit blockout — worth only
+
+October4 after clean117e2bc. Current explicit Sugata resume remains active. Stop16:05UTC for this worth decision. No implementation, author execution, new online lookup, native capture, or source/asset alteration in worth. Ask the independent critic A/B and root independently inspect witnesses/pins before any next contract. Human check-in/pause takes precedence.
+
+Usable improvement if separately admitted: the first complete editable3D relaxed-knit artist blockout and original front/side/back clay views, isolated from avatar assets. Bounded research decision: can a globally owned surface retain exactly four named boundaries and readable body/sleeve/neck volume at one fixed nominal shape? Flat-sheet graph A currently owns abstract joins, not assembled3D. No physical folding/sewing correspondence to that sheet, material, fit, motion or accepted-avatar claim. The complete concept and garment-only sheet provide actual artist silhouettes; their hidden armhole depths are not measured. The following depth is an explicit new artist choice, not image inference.
+
+Proposed representation: a single shared-coordinate extruded quad control surface from the outer faces of a finite union of rectangular occupied cells, followed by exactly two declared Catmull–Clark steps with one fixed boundary interpolation rule. Complete topology/surface ownership comes from the cell complex, not independently placed rings or sewn patch frames. It explicitly revisits the3D goal with a different global representation; old ellipse/circular-port/local-frame/radial-normal failures, unknown original aperture/source query and hair/foundation/capture rescues remain closed. No old constructor, script, source mesh or numerical thresholds reused/replayed. If artist geometry would need correction, decline or stop rather than disguise a parameter retry.
+
+Artist coordinate choices in new unitless3D world: Y up, front+Z; body width0.50, original shoulder height0.70, centre collar height0.75, total front/back depth0.28. Sleeves in an explicit T rest placement, extending0.50 beyond x±0.25, underarmY0.50/outer shoulderY0.70; cuff sections taper toward0.50 of root height/depth. Gravity pose is unresolved; rest placement is not a worn-photo match. Hem/cuff rib intent uses retained shape references, not manufactured dimensions. Collar is continuous in this prototype, unlike the separate flat neckband: no five-piece physical correspondence claim.
+
+One proposed nominal shared grid:
+- X=[−0.75,−0.50,−0.25,−0.10,0.10,0.25,0.50,0.75].
+- Y=[0,0.08,0.50,0.70,0.75].
+- Z=[−0.14,−0.09,0.09,0.14].
+- Body occupied cells: centre|X|<0.25,Y<0.70, allZ.
+- Centre collar occupied: centre|X|<0.10,Y0.70–0.75, allZ.
+- Sleeves occupied: centre|X|≥0.25,Y0.50–0.70, centre|Z|<0.09.
+- Emit only outward cube faces with no occupied neighbour. Explicitly omit bottom body faces (hem), sleeve far-end±X faces (left/right cuff) and centre collar top middle-Z face (neck). Every omitted boundary has one named role. Share original vertices by exact original grid-key identity before qualification; no after-failure weld/hole-fill/topology repair.
+- For sleeve points|X|>0.25, t=(|X|−0.25)/0.50; k=1−0.50t; Y'=0.60+(Y−0.60)k,Z'=Zk. Shared attachment plane stays fixed. Other points unchanged. This explicitly authors sleeve taper/depth; no inferred projection or body fit.
+
+A later source contract must fully specify face winding, two subdivision steps, named boundary propagation/creases and export/recovery before any first execution. Primary subdivision documentation and local available runtime must be inspected under that later bounded contract, no package installation. Source proof needs complete grid/surface/free-boundary responsibility, not a guessed disconnected sleeve attachment. First actual graph/finite-area/output or native-readability failure closes without nominal-coordinate/subdivision/threshold/normal/framing/capture rescue. Numerical checks cannot qualify shape; original views and root/critic actual inspection decide limited artist usability. No automatic construction merely from worthA.
+
+A: new global surface ownership and explicit authored depth/rest/taper could give a usable editable3D silhouette study, with implementation and source/visual checks as bounded cost. B: global box/subdivision treatment may not buy enough artist evidence or be underspecified; retain the readable flat sheet and illustrative targets without another constructor. Require the critic to assess actual original artist images/current graph and this method, source/image witnesses, explanation and two alternatives/tradeoffs; do not infer hidden fit or automatically recommend tuning.
+
+Preserve fullAAA whole characters, expression, wardrobe/representation/coupled coverage/poses and accepted/frozen/original/unrelated work. ReviewVite1023/5173/userguide1 and ACTIVEten-minute recovery retained. No push/publication/purchase/install/model/subscription/reset-credit/other-project resume.
