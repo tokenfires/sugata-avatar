@@ -1,0 +1,88 @@
+{
+  "pid": 3170,
+  "started": "2026-10-04T07:02:13.702676+00:00",
+  "finished": "2026-10-04T07:02:13.705185+00:00",
+  "bindings": [
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/README.md",
+      "bytes": 9016,
+      "sha256": "6208d1be4ed198e9367fe07f82c34308016bac42b52788760a43f7ffa340f1b7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/CRITIQUE.md",
+      "bytes": 10624,
+      "sha256": "acd62aa2c4b3fb47d49954223fb116ea56a5976a9ed1bfff9f154aa57e155fe8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/INTEGRATION.md",
+      "bytes": 2028,
+      "sha256": "c6577a36084583d8c60bec449c325a984e2dafd5bd825bf522592362f956e6d9"
+    },
+    {
+      "path": "captures/neutral-studio-2026-09-30-v2/feature-casual-portrait-studio.png",
+      "bytes": 939799,
+      "sha256": "5a570169f2d21a4f256e43f32047363317a3eb95a8cc702b90a85aff1d8c0286"
+    },
+    {
+      "path": "captures/neutral-studio-2026-09-30-v2/feature-casual-portrait-neutral.png",
+      "bytes": 835140,
+      "sha256": "84fbee48560288eea09db2ffb165f7db7444966bd38f0a01f18b2e7bbf590c16"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-worth/PLAN.md",
+      "bytes": 2292,
+      "sha256": "cf60fc804456c427b40b606758dc14189fef935baf716ed274b2e36f08c63405"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.selftest.mjs",
+      "bytes": 1282,
+      "sha256": "27cf8be3cf74c5dddb41217b8e3fb5a233fc071df975cbd7ea4c2af2cbd790af"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/core/src/render/LightingRig.js",
+      "bytes": 169377,
+      "sha256": "8f8996daf35401635ce2b57d4668ab9caaf3512feb2080e1a5223639fb74ceb8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/CRITIC-POSTFLIGHT.md",
+      "bytes": 8640,
+      "sha256": "a84f01492a05d13f815954f4f6cc27698f9e5dfd8e86f414cd6efe0f33601f7b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-worth/CRITIC-WORTH.md",
+      "bytes": 8858,
+      "sha256": "39348aa1037a6c2800bb122b4ba527a0b287475eaad0d03d8b1d19624e0990d0"
+    }
+  ],
+  "decision": "A; stop source/value gate; preserve current auto/defaults; no actual tier/backend/lifetime claim"
+}

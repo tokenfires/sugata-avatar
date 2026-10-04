@@ -1,0 +1,49 @@
+{
+  "pid": 4112,
+  "started": "2026-10-04T07:03:34.191307+00:00",
+  "finished": "2026-10-04T07:03:34.191913+00:00",
+  "command": "FS-only inline Python: hash current packet payloads/chmod444/write manifest",
+  "payloads": [
+    {
+      "path": "CRITIC-WORTH.md",
+      "bytes": 8858,
+      "sha256": "39348aa1037a6c2800bb122b4ba527a0b287475eaad0d03d8b1d19624e0990d0"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 2292,
+      "sha256": "cf60fc804456c427b40b606758dc14189fef935baf716ed274b2e36f08c63405"
+    },
+    {
+      "path": "PRIMARY-REFERENCE.md",
+      "bytes": 1076,
+      "sha256": "62efe13ffe51159ffaec06bc1efc864002db31348818d77286cc1be30abd8cea"
+    },
+    {
+      "path": "RECEIPT.md",
+      "bytes": 2627,
+      "sha256": "72ebafca76b39f01e9a49196106b17c1eb5b3ef93124370f1389aafee233fd72"
+    },
+    {
+      "path": "ROOT-DECISION.md",
+      "bytes": 2363,
+      "sha256": "3b7932f7c9245b5681f35c41cf3c483ee4a28fcbbd23dabe8f5b9bed20c881b6"
+    },
+    {
+      "path": "ROOT-INPUTS.json",
+      "bytes": 2025,
+      "sha256": "1497daafaf0fde89938363ad94919b8476c7cb91c212f463197d4390f42ee36a"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 3300,
+      "sha256": "902c6edd179f2b8891f47c9a1a9e9834f58b0dacbd67cf62ec173bbb8905340b"
+    },
+    {
+      "path": "ROOT-SOURCE-CHECK.json",
+      "bytes": 675,
+      "sha256": "86ad51033954377d1bca6875d59b3129bbd909634034da54cd5dd29c9b052d58"
+    }
+  ],
+  "totalBytes": 23216
+}

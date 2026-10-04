@@ -1,0 +1,53 @@
+{
+  "pid": 97139,
+  "started": "2026-10-04T06:54:27.633528+00:00",
+  "finished": "2026-10-04T06:54:27.634912+00:00",
+  "inputs": [
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/README.md",
+      "bytes": 9016,
+      "sha256": "6208d1be4ed198e9367fe07f82c34308016bac42b52788760a43f7ffa340f1b7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/CRITIQUE.md",
+      "bytes": 10624,
+      "sha256": "acd62aa2c4b3fb47d49954223fb116ea56a5976a9ed1bfff9f154aa57e155fe8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-09-30/neutral-studio/INTEGRATION.md",
+      "bytes": 2028,
+      "sha256": "c6577a36084583d8c60bec449c325a984e2dafd5bd825bf522592362f956e6d9"
+    },
+    {
+      "path": "captures/neutral-studio-2026-09-30-v2/feature-casual-portrait-studio.png",
+      "bytes": 939799,
+      "sha256": "5a570169f2d21a4f256e43f32047363317a3eb95a8cc702b90a85aff1d8c0286"
+    },
+    {
+      "path": "captures/neutral-studio-2026-09-30-v2/feature-casual-portrait-neutral.png",
+      "bytes": 835140,
+      "sha256": "84fbee48560288eea09db2ffb165f7db7444966bd38f0a01f18b2e7bbf590c16"
+    }
+  ],
+  "decisionScope": "Direct existing light affordance in Portrait only; no current native appearance qualification. Root actual view of two original prior Wardrobe portraits, source/accepted note reads."
+}
