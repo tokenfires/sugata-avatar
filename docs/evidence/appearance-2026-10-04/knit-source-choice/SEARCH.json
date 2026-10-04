@@ -1,0 +1,30 @@
+{
+  "dispatchClock": {
+    "current_time": "2026-10-04 11:27:16 UTC"
+  },
+  "returnedClock": {
+    "current_time": "2026-10-04 11:27:17 UTC"
+  },
+  "query": "site:makehumancommunity.org/clothes sweater pullover",
+  "limit": 3,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[]},\"creditsUsed\":0,\"id\":\"01a106ab-1436-760a-88a1-f911c453370c\",\"agent_hints\":[\"No web results were returned. If the task is still unresolved, use firecrawl_search again with {\\\"query\\\":\\\"<broader or alternative query>\\\",\\\"sources\\\":[\\\"web\\\"]}.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "No web results were returned. If the task is still unresolved, use firecrawl_search again with {\"query\":\"<broader or alternative query>\",\"sources\":[\"web\"]}."
+      ],
+      "success": true,
+      "data": {
+        "web": []
+      },
+      "id": "01a106ab-1436-760a-88a1-f911c453370c",
+      "creditsUsed": 0
+    },
+    "isError": false
+  }
+}

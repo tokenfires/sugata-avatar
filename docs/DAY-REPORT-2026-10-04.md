@@ -26,6 +26,8 @@ Later October4 produced a [complete synthetic knitwear character target](researc
 
 A short primary search then retained a [literal original sweater source lead](research/KNIT-UPSTREAM-SOURCE-2026-10-04.md): MakeHuman's catalog/artist page document MargaretToigo/CC0 and editable OBJ/fitting/material links. One small original OBJ is received unchanged; both agents inspect its more fitted maroon catalog picture. The subsequent one-time source inventory finds a connected manifold shell with an unexplained fifth boundary opening near its centre. Native control is deferred; no original mesh image, fit or appearance is qualified. This gives a concrete source-selection limit while retaining the artist's original bytes.
 
+The next [bounded distinct-source search](evidence/appearance-2026-10-04/knit-source-choice/RECEIPT.md) returns no results for its one literal query. It closes without broadening, a second candidate or a download. That is a finite query result, not evidence that suitable sources do not exist. Further activity needs a genuinely different supported artistic decision; the independent critic identifies no distinct next experiment from the current evidence.
+
 ## Experiments retained, not promoted
 
 - [Surface-rooted bob study](evidence/hair-2026-10-03/surface-guides/RECEIPT.md): 36 authored roots/full curves construct, but a declared framing-margin check stops before any candidate image is drawn. Appearance is unresolved; visible clipping is unproved. No camera/margin retry is authorized by that result.
