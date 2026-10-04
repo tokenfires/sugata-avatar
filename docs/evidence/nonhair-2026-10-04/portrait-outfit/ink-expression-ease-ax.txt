@@ -1,0 +1,59 @@
+Browser tab: 14, Title: "Sugata 姿 — portrait", URL: "http://127.0.0.1:5173/src/portrait-outfit-candidate.html?hair=bob02&bake=g050&scene=studio&outfit=ink".
+1 AXWebArea Sugata 姿 — portrait, URL: 127.0.0.1:5173/src/portrait-outfit-candidate.html?hair=bob02&bake=g050&scene=studio&outfit=ink
+	2 container
+		3 link Description: SUGATA, Value: 127.0.0.1:5173/
+		4 link Description: Explore the testbed ↗, Value: 127.0.0.1:5173/
+	5 container
+		6 container Interactive avatar portrait
+			7 image Description: Avatar portrait. Drag to rotate and scroll to zoom., ID: stage
+			9 container
+				10 text The chin-length bob
+				11 text Drag to turn · scroll to move closer
+		12 text PORTRAIT STUDY / 01
+		13 heading A body for an AI., Value: 1
+			14 text A body
+			15 text for an AI.
+		16 text Expression, posture, and the small movements in between.
+		17 container Description: EXPRESSION, ID: expressions
+			18 text EXPRESSION
+			19 checkbox At ease, Value: 0
+			20 checkbox Warm, Value: 0
+			21 checkbox Curious, Value: 0
+			22 checkbox Determined, Value: 0
+			23 button Ease to neutral, ID: release-expression
+			61 text Returning gradually toward neutral.
+		25 container Description: ATTENTION · EXPERIMENTAL, ID: attention-controls
+			26 text ATTENTION · EXPERIMENTAL
+			27 button Look toward me, ID: look-toward-me
+			28 button Look with a smile, ID: look-with-smile
+			29 button (disabled) Release, ID: release-attention
+			30 text Choose a simple look or add a small smile. Dragging releases it.
+			59 text Ready when you are
+		32 container hair-controls
+			33 text SILHOUETTE
+			34 pop up button (collapsed, settable) SILHOUETTE, Value: Chin-length bob, ID: hair-style, Secondary Actions: Expand
+				35 menu
+					36 (disabled) Chin-length bob
+					37 (disabled) Original long bob
+			38 text Two cuts, on the same figure and under the same light.
+		39 container Description: OUTFIT, ID: outfit-controls
+			40 text OUTFIT
+			41 checkbox No outfit, Value: 0
+			42 checkbox Ink outfit, Value: 1
+			43 text Ink adds a navy tee. Changing outfits starts a fresh view.
+		44 container Description: ROOM, ID: scene-controls
+			45 text ROOM
+			46 checkbox Studio, Value: 1
+			47 checkbox Kitchen, Value: 0
+			48 text Changing rooms returns the pose and expression to their starting state.
+		49 container Description: LIGHT, ID: light-controls
+			50 text LIGHT
+			51 checkbox Studio, Value: 1
+			52 checkbox Warm, Value: 0
+		53 checkbox Pause motion, Value: 0, ID: pause
+		54 button Reset view ↗, ID: reset-view
+		60 text Live portrait
+	56 container
+		57 text Sugata 姿 · An embodied presence A work in progress
+
+The focused UI element is 23 button Ease to neutral, ID: release-expression

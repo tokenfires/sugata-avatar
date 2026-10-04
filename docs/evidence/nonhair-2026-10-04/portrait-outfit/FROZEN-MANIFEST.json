@@ -1,0 +1,259 @@
+{
+  "pid": 55263,
+  "started": "2026-10-04T08:23:24.587557+00:00",
+  "finished": "2026-10-04T08:23:24.589300+00:00",
+  "command": "python3 inline manifest/readback for docs/evidence/nonhair-2026-10-04/portrait-outfit; preserve all current payloads and chmod0444",
+  "decision": "B; preservation only, no investigation",
+  "files": [
+    {
+      "file": "ARCHIVE.json",
+      "bytes": 1227,
+      "sha256": "e18cdb5d17d2905b1f4095c3fe2d72d19593c2582b25129fbde531ca72bf83da"
+    },
+    {
+      "file": "CANDIDATE-CLOSED.json",
+      "bytes": 335,
+      "sha256": "b420908b7c8d17f7f9c7ac5cf866d54e525f6b7f34dbf56ce2ec87a0a61fcbb6"
+    },
+    {
+      "file": "CANDIDATE-SOURCE.json",
+      "bytes": 1039,
+      "sha256": "97379218eded5338a8d42d8a5a21ccbaf2316591e4c83383c86e84a25f412cc1"
+    },
+    {
+      "file": "CPU-CHECKS.md",
+      "bytes": 1350,
+      "sha256": "6123891d3969fcdfeff88db3eefb95b21f3506f28abcb7e4ae17422ff1960872"
+    },
+    {
+      "file": "CRITIC-CANDIDATE.md",
+      "bytes": 14433,
+      "sha256": "dab10e05cbb3ea4ae2961743b2b0453b0d1bb7a8d14f814886d99b9e4e343cbf"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 11016,
+      "sha256": "37998bf4223b45492c8a84dca4d54305033353e24c9f701aa723872404930465"
+    },
+    {
+      "file": "NATIVE-JOB.json",
+      "bytes": 313,
+      "sha256": "91385c16494af25263ff843b69f374ce4aad3beaff184e3e12fdd9dee0f459b2"
+    },
+    {
+      "file": "NATIVE-OBSERVATIONS.md",
+      "bytes": 3611,
+      "sha256": "feea0bd7b757f9d27e240a43f6afc269bddbd095bbec281821835f2287679cbf"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 6139,
+      "sha256": "e169a6586a6b238900d7f6065a101cc0bf8439396e4ee341e9e30871bd78aac5"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 4654,
+      "sha256": "8b67de24f97db02832784c000e96d32b745fcd1c03710abd86e9dc50394a1ac5"
+    },
+    {
+      "file": "ROOT-CANDIDATE.json",
+      "bytes": 7069,
+      "sha256": "e0ca4174d1aec30073b272fbc0bdef270d8a21a0ae67250073fa0f5dcd184dc5"
+    },
+    {
+      "file": "ROOT-DECISION.md",
+      "bytes": 3247,
+      "sha256": "dcf9dc23d2aeea2149da61dbeb2992206eab8d30f440e4e2cb696724ea24bbd6"
+    },
+    {
+      "file": "ROOT-FINAL.json",
+      "bytes": 1352,
+      "sha256": "faa3bd6022d6246110d5a7dbd5884bf06df66e39ee8c5426f8592c029e2a0cfb"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 3169,
+      "sha256": "760dff1c8714732e0a76b34f6c2b2ded5d24c1392ed4a5b2f911bf5de3ec37a4"
+    },
+    {
+      "file": "ROOT-SOURCE.json",
+      "bytes": 2723,
+      "sha256": "d29373c049302c1512f6807fe67d7904b8e45c181df52a041656c2f7458fafff"
+    },
+    {
+      "file": "TABS-AFTER-CLOSE.json",
+      "bytes": 386,
+      "sha256": "9c918c0836356f0c700893963b05a73d5db9537c0b66187ba61add08406adcb7"
+    },
+    {
+      "file": "archive-candidate.py",
+      "bytes": 2433,
+      "sha256": "c56055886c861d4069404c299f0bba5f868f881e664a6d1c88e0b703e1bc1672"
+    },
+    {
+      "file": "candidate-portrait.html.source",
+      "bytes": 10377,
+      "sha256": "20941fa967168bd744d74921238e9f67bdf95642816c1df2e3db71b0a7ac9709"
+    },
+    {
+      "file": "candidate-portrait.js.source",
+      "bytes": 12139,
+      "sha256": "1bde3a3c5f4161e3977629b6c922247fd8bbf5f1263ca1107682046ac9cb3f1a"
+    },
+    {
+      "file": "html-diff.patch",
+      "bytes": 1153,
+      "sha256": "9d3a26aa4c43adb14d70abec34a811bebf4c1b192a613ec061a12cd8ec445176"
+    },
+    {
+      "file": "initial-context.jpg",
+      "bytes": 53484,
+      "sha256": "70e1509237bd0ecb846f47493405b8f1dd4cd9d828fe06f8a9a47b1e1f04147b"
+    },
+    {
+      "file": "ink-console.json",
+      "bytes": 4939,
+      "sha256": "b500626f791fc5c07ea903a1b5ad0fa02612597017419d70b6ba5f768d58adff"
+    },
+    {
+      "file": "ink-desktop.jpg",
+      "bytes": 55013,
+      "sha256": "59c18c22eab300672ca85c136d799d9325859f35ba25a6f776da47f4632a97d6"
+    },
+    {
+      "file": "ink-expression-ease-ax.txt",
+      "bytes": 2692,
+      "sha256": "9686d2e2833e84473b67c2891c2a9ceb2193309ccf5d7ab173443666ff351bc9"
+    },
+    {
+      "file": "ink-expression-warm-ax.txt",
+      "bytes": 2662,
+      "sha256": "88045d50fd816f70c746194f8dd6911b32bcb55990c65ec135ac1ea0cbee7eef"
+    },
+    {
+      "file": "ink-first-ax.txt",
+      "bytes": 3000,
+      "sha256": "b5ed36426dba287fd43285ec44cf81bbfb126cec06d128f3678c3618cc95fc49"
+    },
+    {
+      "file": "ink-initial-context.jpg",
+      "bytes": 52493,
+      "sha256": "fba35d3e730d5a23552b3013d44dcb6c1668f6a6fd1cc1f627efc6d2ea92e053"
+    },
+    {
+      "file": "ink-mobile-ax.txt",
+      "bytes": 2738,
+      "sha256": "5f26668827184cb8b418d2416d63ba735b7f3d5d92f3e034ae2884ce61c6b805"
+    },
+    {
+      "file": "ink-mobile-context-ax.txt",
+      "bytes": 2738,
+      "sha256": "5f26668827184cb8b418d2416d63ba735b7f3d5d92f3e034ae2884ce61c6b805"
+    },
+    {
+      "file": "ink-mobile-context.jpg",
+      "bytes": 32258,
+      "sha256": "e612ae6345a912c899966ff6e14c3dea4145faffead78f679cb6022a55951263"
+    },
+    {
+      "file": "ink-mobile.jpg",
+      "bytes": 32271,
+      "sha256": "31b1eb4771fdcf3dd9a4ea8ffc20f2bf6daa9174251c341007a30889fd7dcafd"
+    },
+    {
+      "file": "ink-paused-ax.txt",
+      "bytes": 2755,
+      "sha256": "6fc94c21466005bc3c2e97d085768332eeb8ac3f3027883fdc5cfeac358f1ae0"
+    },
+    {
+      "file": "ink-ready-ax.txt",
+      "bytes": 2772,
+      "sha256": "e6740ac144c9d743959a173232bd0181644260c61cac77350adc342faa449083"
+    },
+    {
+      "file": "js-diff.patch",
+      "bytes": 4731,
+      "sha256": "b0800c452297da525e84a5be3b345fb91b5205c794bef99f59f870c53506b28a"
+    },
+    {
+      "file": "make-candidate.py",
+      "bytes": 4784,
+      "sha256": "08aa391da9cc3d0fb056ec1af9ad8d61f16e211021ceec7c4894bc1350e34574"
+    },
+    {
+      "file": "none-console.json",
+      "bytes": 2053,
+      "sha256": "dd9c887769e957ffbb854352decdc53c5751321d56cdf15cc8038fb1905ed152"
+    },
+    {
+      "file": "none-desktop.jpg",
+      "bytes": 55886,
+      "sha256": "1e8177d52e0f42a128d1d74e30ddc4e6209b23b119882cb6b00173e0a86744ba"
+    },
+    {
+      "file": "none-paused-ax.txt",
+      "bytes": 2732,
+      "sha256": "fe08ffeaffd200ff8b9a886d37178682c8e7dfb5af007f71a05c5186b294dddd"
+    },
+    {
+      "file": "none-ready-ax.txt",
+      "bytes": 2738,
+      "sha256": "33101d6f6920e581e3c352055b41d6f93ac32d004a9ca358f7857d771f9667b9"
+    },
+    {
+      "file": "original-portrait.html.source",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "file": "original-portrait.js.source",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "file": "outfit-check.mjs",
+      "bytes": 2090,
+      "sha256": "f38a870c5e4070ef0a37108772023540e6b33f7d8bacf09f649c5448e62e176c"
+    },
+    {
+      "file": "portrait-outfit.mjs.source",
+      "bytes": 1454,
+      "sha256": "44f9030c92145dace041b2fd439154356a9546915d27713ba6c38c731ad2f458"
+    },
+    {
+      "file": "return-console.json",
+      "bytes": 6989,
+      "sha256": "e7b36cf4cb58bf8b447bf559c01eae303048205b831337c87c8fd4f6fa298f58"
+    },
+    {
+      "file": "return-first-ax.txt",
+      "bytes": 2738,
+      "sha256": "f0a05c9375fd323a198aca7be3740f862ecaaf386f8a84a4fe6f1080debc48fd"
+    },
+    {
+      "file": "return-none-desktop.jpg",
+      "bytes": 55215,
+      "sha256": "0dcac10a560dc734445381003013d508452331f931ca104d153ebf0f67545031"
+    },
+    {
+      "file": "return-paused-ax.txt",
+      "bytes": 2732,
+      "sha256": "59c20bb4f58266937bbe1d701b5ebed2797f501d4ee87801bba5a9d90f085c56"
+    },
+    {
+      "file": "unsupported-ax.txt",
+      "bytes": 3063,
+      "sha256": "5feb903e09166d428dae3a975a6105fbeaaa6d77706e281ab84f4a40c5c2b534"
+    },
+    {
+      "file": "unsupported-console.json",
+      "bytes": 6989,
+      "sha256": "e7b36cf4cb58bf8b447bf559c01eae303048205b831337c87c8fd4f6fa298f58"
+    },
+    {
+      "file": "unsupported-desktop.jpg",
+      "bytes": 39325,
+      "sha256": "f0542aa97e07d1ce5c0f002232086180d8bf1c4ab7283f8f058ee84c6be6010a"
+    }
+  ]
+}

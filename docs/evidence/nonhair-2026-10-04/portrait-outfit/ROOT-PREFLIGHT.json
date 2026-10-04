@@ -1,0 +1,83 @@
+{
+  "pid": 47202,
+  "started": "2026-10-04T08:05:11.318626+00:00",
+  "finished": "2026-10-04T08:05:11.319990+00:00",
+  "criticBytes": 11016,
+  "criticSHA256": "37998bf4223b45492c8a84dca4d54305033353e24c9f701aa723872404930465",
+  "criticInputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit/PLAN.md",
+      "bytes": 6139,
+      "sha256": "e169a6586a6b238900d7f6065a101cc0bf8439396e4ee341e9e30871bd78aac5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit/CANDIDATE-SOURCE.json",
+      "bytes": 1039,
+      "sha256": "97379218eded5338a8d42d8a5a21ccbaf2316591e4c83383c86e84a25f412cc1"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit/make-candidate.py",
+      "bytes": 4784,
+      "sha256": "08aa391da9cc3d0fb056ec1af9ad8d61f16e211021ceec7c4894bc1350e34574"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit/outfit-check.mjs",
+      "bytes": 2090,
+      "sha256": "f38a870c5e4070ef0a37108772023540e6b33f7d8bacf09f649c5448e62e176c"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit.mjs",
+      "bytes": 1454,
+      "sha256": "44f9030c92145dace041b2fd439154356a9546915d27713ba6c38c731ad2f458"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit-candidate.html",
+      "bytes": 10377,
+      "sha256": "20941fa967168bd744d74921238e9f67bdf95642816c1df2e3db71b0a7ac9709"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit-candidate.js",
+      "bytes": 12139,
+      "sha256": "1bde3a3c5f4161e3977629b6c922247fd8bbf5f1263ca1107682046ac9cb3f1a"
+    },
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    }
+  ],
+  "rootInputBindingsChecked": 12,
+  "snapshotBindingsChecked": 5,
+  "completeHandoffRead": "Root fullf2942e read; complete current candidates/helper/tests/diff/current owner independently inspected",
+  "decision": "Fresh exact-source GO for new outfit UI contract, firstopen before08:12, no appearance/adoption yet; finite nativeAX/screenshot only, default auto and lifecycle/fit limits"
+}

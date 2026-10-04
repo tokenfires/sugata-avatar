@@ -1,0 +1,33 @@
+{
+  "pid": 44828,
+  "started": "2026-10-04T08:00:02.109149+00:00",
+  "finished": "2026-10-04T08:00:02.110435+00:00",
+  "scope": "Isolated cloned candidate only; accepted original HTML/JS untouched",
+  "snapshots": [
+    {
+      "path": "original-portrait.html.source",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "original-portrait.js.source",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "candidate-portrait.html.source",
+      "bytes": 10377,
+      "sha256": "20941fa967168bd744d74921238e9f67bdf95642816c1df2e3db71b0a7ac9709"
+    },
+    {
+      "path": "candidate-portrait.js.source",
+      "bytes": 12139,
+      "sha256": "1bde3a3c5f4161e3977629b6c922247fd8bbf5f1263ca1107682046ac9cb3f1a"
+    },
+    {
+      "path": "portrait-outfit.mjs.source",
+      "bytes": 1454,
+      "sha256": "44f9030c92145dace041b2fd439154356a9546915d27713ba6c38c731ad2f458"
+    }
+  ]
+}

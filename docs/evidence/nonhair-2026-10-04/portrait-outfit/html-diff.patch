@@ -1,0 +1,25 @@
+--- original/portrait.html
++++ candidate/portrait.html
+@@ -100,6 +100,14 @@
+                 </select>
+                 <p class="note">Two cuts, on the same figure and under the same light.</p>
+             </fieldset>
++            <fieldset id="outfit-controls" disabled>
++                <legend>Outfit</legend>
++                <div class="choices">
++                    <button class="choice" data-outfit="none" aria-pressed="true">No outfit</button>
++                    <button class="choice" data-outfit="ink" aria-pressed="false">Ink outfit</button>
++                </div>
++                <p class="note" id="outfit-note">Ink adds a navy tee. Changing outfits starts a fresh view.</p>
++            </fieldset>
+             <fieldset id="scene-controls" disabled>
+                 <legend>Room</legend>
+                 <div class="choices">
+@@ -123,6 +131,6 @@
+         </aside>
+     </main>
+     <footer><span>Sugata 姿 · An embodied presence</span><span>A work in progress</span></footer>
+-    <script type="module" src="./portrait.js"></script>
++    <script type="module" src="./portrait-outfit-candidate.js"></script>
+ </body>
+ </html>
