@@ -1,0 +1,22 @@
+# Original sweater interface receipt — October4
+
+Entry cleanf99d318; PLAN absolute11:45UTC, one inventory/no repair/native only after trustworthy interface responsibility. One proposed usable improvement was an unchanged original-source static control. One bounded question was whether this named source supplies complete torso/shoulder/armhole/sleeve interfaces worth retaining. The current delivered improvement is the corrected source-reference note with exact interface limits; the static control is withheld.
+
+## Exact inputs and jobs
+
+- Frozen original172798bytes/SHA2844465f4e798666a90f631ea4a89ae30d3e526ef045a978d338908750d21d09, received in [prior discovery](../knit-upstream-source/RECEIPT.md); unchanged here. Primary catalog77cd8f06…, artist pagea56cd70d… and actual image480890c7… retain provenance and visible fitted maroon design, not source completeness.
+- PLAN7fc7e6a5…, critic WORTH71bd60f7…, root e18957/exit0 at11:11:23 reconcile5literal input pins after full reading. Script6fa88588… syntax check00fb06/exit0 only; source text independently read e18957. No original decode before admission.
+- Critic SOURCEd21cbb0d… conditionalGO for one strict inventory, with final-time/hash reconciliation required before further admission. Root fullread e48687/exit0; ROOT-SOURCE at11:13:58.176 binds4literal source/review pins, original unchanged and absent outputs.
+- Sole command `node docs/evidence/appearance-2026-10-04/knit-original-control/inventory.mjs`, PID17838,11:13:58.200–.221UTC, e48687/exit0. Job211e4608645228c3a34000aa78432d8d7b33c157fcc7dc47305b18c56a86ddf0. Inventory31521bytes/SHA c9773175be2eec1296277076829acde9a211475a7d19973be7b7ddf0f098ef8f; isolated preview961184bytes/SHA36c046e92e781f1b2359223ed04989e28e40463f65a83a1a4ea8433533c12065. Exact original positions/faces/corner UV associations/winding retained; fixed corner-0 fan maps all4164 triangles. No authored geometry.
+
+## Actual result and root verification
+
+2126vertices/2511UVs/0normal entries/2082quads; no groups/material statements. Header says Exported from MakeClothes, authorMRT/licenseCC0/homepage; primary MargaretToigo relation is documented provenance, not independent legal chain. One edge-connected manifold/oriented shell,4211edges,94boundaryedges, five loops[4,26,14,14,36], Euler−3; no recorded edge/link/degree issues or unused source vertices. Unknown source units and global embedding/contact/UV appearance remain unqualified.
+
+The four-corner extra opening [935,39,1010,934] has source boundsX±.0039/Y5.1677..5.5045/Z1.2199..1.3599. Root0c1be6/exit0 at11:16:36 independently confirms each sole-incident original edge using literal faces280/288/1169/1177 at source lines4922/4930/5811/5819 and all4164 preview-to-original-corner maps. [ROOT-INVENTORY](ROOT-INVENTORY.json) retains exact operands/pins/endtime. Its purpose/location in a fitted garment is unknown; no visual damage, self-intersection or fit diagnosis follows.
+
+Initial root f4dc03/exit1 stopped on exact cross-language hypot equality after hash/endtime checks. Diagnostic565ce8/exit0 confirms identical cross products and a1.0842021724855044e-19 Python/JavaScript length difference, both positive. [Numerical limit](ROOT-CHECK-LIMIT.md) retains the failed verification; no mesh gate/geometry/source was changed or inventory replayed. Minimum triangle face1721/corners[0,1,2]/indices[1341,1344,1778] remains noncollapsed.
+
+No viewer source, temporary tab, avatar, GPU/native frame, camera/resize/capture retry, body inventory, source repair, weld, re-selection, MHCLO/texture fetch, install or model job. Original/preview remain isolated and unpromoted. All accepted/frozen/original/unrelated work and fullAAA character/expression/wardrobe/representation/coupled coverage/poses are retained. Next decision requires distinct complete source/interface ownership and independent worth; this result admits no next construction. Review1023/5173 was live at11:12; user tab and ACTIVEten-minute recovery retained. Human steering takes precedence; no push/publication/purchase/capacity/model change or other-project resume.
+
+Independent RESULTe255dd66… saved11:18:28, fullroot read aff416/exit0 at11:19:24 reconciles3output pins+RESULT. Both select B for native control: the opening's role is unresolved, not an established defect. Critic8feb2c checks saved maps without raw OBJ parsing; root already independently checks literal source lines. Source-reference note and current-day report record this qualified decision. No reinterpretation/adoption from structuralControlEligible:true.

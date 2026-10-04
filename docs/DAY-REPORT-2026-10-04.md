@@ -24,7 +24,7 @@ The resumed work was uneven: useful guidance and concrete refusals, but too much
 
 Later October4 produced a [complete synthetic knitwear character target](research/KNIT-CHARACTER-TARGET-2026-10-04.md), independently retained for artist discussion: relaxed long sleeves/untucked hem, wider trousers, practical boots and clear face framing. Current COS photo observations informed it. Side/back shape, actual3D/source/fit, material physics and representative builds remain unqualified; no runtime/default/asset changed.
 
-A short primary search then retained a [literal original sweater source lead](research/KNIT-UPSTREAM-SOURCE-2026-10-04.md): MakeHuman's catalog/artist page document MargaretToigo/CC0 and editable OBJ/fitting/material links. One small original OBJ is received unchanged; both agents inspect its more fitted maroon catalog picture. Geometry, hidden interfaces, source units and Sugata compatibility remain unparsed/unqualified. It supplies a concrete input for a future source-control study, rather than another speculative procedural construction.
+A short primary search then retained a [literal original sweater source lead](research/KNIT-UPSTREAM-SOURCE-2026-10-04.md): MakeHuman's catalog/artist page document MargaretToigo/CC0 and editable OBJ/fitting/material links. One small original OBJ is received unchanged; both agents inspect its more fitted maroon catalog picture. The subsequent one-time source inventory finds a connected manifold shell with an unexplained fifth boundary opening near its centre. Native control is deferred; no original mesh image, fit or appearance is qualified. This gives a concrete source-selection limit while retaining the artist's original bytes.
 
 ## Experiments retained, not promoted
 

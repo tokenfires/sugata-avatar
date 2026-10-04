@@ -1,0 +1,9 @@
+# Exact original-control checkpoint
+
+October4 source study closes B for native review before11:45UTC. Sole strict inventory completed11:13:58/PID17838/exit0; original2844465f… unchanged; isolated preview36c046e9… never rendered or installed. Structural checks pass, but the fifth four-corner central boundary has no established garment role. Root and critic independently confirm actual source/map witnesses and agree to defer. No wearable/source-shape/fit/appearance acceptance; no original mesh or Avatar frame exists from this study.
+
+[Receipt](RECEIPT.md), [inventory job](INVENTORY-JOB.json), [inventory](INVENTORY.json), [root exact source witnesses](ROOT-INVENTORY.json), [independent result](RESULT.md), [checker rounding limit](ROOT-CHECK-LIMIT.md). Root's initial exact cross-language hypot assertion failed; identical cross and one-last-bit length difference are retained, with unchanged positive-area geometry. Do not rerun parser/source or fill/weld/reframe this original.
+
+Current [source-reference note](../../../research/KNIT-UPSTREAM-SOURCE-2026-10-04.md) and [October4 report](../../../DAY-REPORT-2026-10-04.md) carry the decision. Existing accepted Ink/customization and [whole knitwear target](../../../research/KNIT-CHARACTER-TARGET-2026-10-04.md) remain. Preserve fullAAA character/expression/wardrobe/representation/coupled coverage/poses, all accepted/frozen/original/unrelated work. A distinct complete garment/interface owner and separate worth/contract are required for another substantial source slice; none is admitted here.
+
+No owned live inventory/model/GPU/browser job, no owned temporary tab. Vite1023 listens127.0.0.1:5173 at11:12; retain review service/user1/ACTIVEten-minute recovery. Robert's newer check-in/pause overrides continuing authorization. No push/publication/purchase/model/subscription/reset-credit/other-project resume.

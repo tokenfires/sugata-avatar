@@ -1,0 +1,49 @@
+{
+  "started": "2026-10-04T11:13:58.200Z",
+  "pid": 17838,
+  "command": "node docs/evidence/appearance-2026-10-04/knit-original-control/inventory.mjs",
+  "stage": "complete",
+  "inputs": {
+    "PLAN.md": "7fc7e6a5e63905a50b887b208ac108adc034ec9dff90d0ee73395fd5586e376e",
+    "WORTH.md": "71bd60f712ced75033fdf1564dd4bca21b93bf9d18954f7078fd05ea22a66808",
+    "inventory.mjs": "6fa88588c6f0d6cdb93e51b291a7335932809593c21f2d7b971c85f7e87b1e2e",
+    "original": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-upstream-source/original-fisherman.obj",
+      "bytes": 172798,
+      "sha256": "2844465f4e798666a90f631ea4a89ae30d3e526ef045a978d338908750d21d09"
+    }
+  },
+  "outputs": [
+    {
+      "file": "INVENTORY.json",
+      "bytes": 31521,
+      "sha256": "c9773175be2eec1296277076829acde9a211475a7d19973be7b7ddf0f098ef8f"
+    },
+    {
+      "file": "preview.json",
+      "bytes": 961184,
+      "sha256": "36c046e92e781f1b2359223ed04989e28e40463f65a83a1a4ea8433533c12065"
+    }
+  ],
+  "failure": null,
+  "ended": "2026-10-04T11:13:58.221Z",
+  "countsAtStop": {
+    "vertices": 2126,
+    "uvs": 2511,
+    "normals": 0,
+    "faces": 2082,
+    "triangles": 4164
+  },
+  "actualOutputs": [
+    {
+      "file": "INVENTORY.json",
+      "bytes": 31521,
+      "sha256": "c9773175be2eec1296277076829acde9a211475a7d19973be7b7ddf0f098ef8f"
+    },
+    {
+      "file": "preview.json",
+      "bytes": 961184,
+      "sha256": "36c046e92e781f1b2359223ed04989e28e40463f65a83a1a4ea8433533c12065"
+    }
+  ]
+}
