@@ -36,6 +36,8 @@ A new [garment-only design sheet](research/RELAXED-KNIT-SHAPE-2026-10-04.md) the
 
 A separate [five-piece flat-draft attempt](evidence/appearance-2026-10-04/knit-piece-draft/RECEIPT.md) closes before execution at source review. Directed seam and neck-length source responsibilities appear coherent, but refusal paths omit the promised partial ownership graph and can leave unrecorded partial output files. Root verifies the critic's actual source witnesses. No draft output, graph pass, native frame or garment is produced; this is a recovery-path refusal, not an observed shape/topology failure. Exact author and unrun independent checker are retained without correction/replay.
 
+The full concept also supports a distinct [wider-trouser source question](evidence/appearance-2026-10-04/wide-trouser-source/RECEIPT.md): broad charcoal legs/boot break differ accepted Ink denim without implying a denim defect. Root/critic inspect both unchanged originals and admit one narrow primary query. It returns one excerpt; the sole live page fetch fails before any actual image, creator/reuse/editable-source or width authority is established. The finite lookup closes without retry, fallback or another page/component hunt. No new wearable or fit is qualified.
+
 ## Experiments retained, not promoted
 
 - [Surface-rooted bob study](evidence/hair-2026-10-03/surface-guides/RECEIPT.md): 36 authored roots/full curves construct, but a declared framing-margin check stops before any candidate image is drawn. Appearance is unresolved; visible clipping is unproved. No camera/margin retry is authorized by that result.

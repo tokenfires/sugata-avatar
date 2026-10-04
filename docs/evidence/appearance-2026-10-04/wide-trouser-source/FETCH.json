@@ -1,0 +1,29 @@
+{
+  "args": {
+    "url": "http://www.makehumancommunity.org/clothes/m_trousers_01.html",
+    "formats": [
+      "markdown",
+      "links"
+    ],
+    "maxAge": 0
+  },
+  "dispatchClock": {
+    "current_time": "2026-10-04 14:28:56 UTC"
+  },
+  "returnedClock": {
+    "current_time": "2026-10-04 14:30:26 UTC"
+  },
+  "selection": "Sole primary long-trouser artist page. Excerpt mentions a comment about another boot-cut model; current asset width unproved. This one allowed page read resolves owner/editability and relevance, no shape inference from the search wording.",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Tool 'firecrawl_scrape' execution failed: All scraping engines failed to retrieve content from this URL. Engines tried: [fire-engine;chrome-cdp;stealth, fire-engine(retry);chrome-cdp;stealth, pdf, document, image]. This usually happens when: (1) The URL is invalid or the page doesn't exist (404), (2) The website is blocking automated access, (3) The website is down or unreachable, (4) The page requires authentication. Double check the URL is correct and accessible in a browser. If the issue persists, contact us at help@firecrawl.com with your request ID for investigation."
+      }
+    ],
+    "structuredContent": {
+      "error_code": "INVALID_ARGUMENT"
+    },
+    "isError": true
+  }
+}

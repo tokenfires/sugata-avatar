@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-04T14:37:42.731404+00:00",
+  "pid": 25390,
+  "status": "Closed finite lookup B, no native/source/geometry activity; local read-only write-bit checkpoint",
+  "files": {
+    "FETCH.json": {
+      "bytes": 1341,
+      "sha256": "36b38e97eaa03510fe410c51ea6b45ee120c3d502aebbe086aecdd5d44592dcd"
+    },
+    "INPUTS.json": {
+      "bytes": 1275,
+      "sha256": "497e95c279f4465b1082d5b083bb6fa0402da25e644500bfe0e65a3df99afa2c"
+    },
+    "PLAN.md": {
+      "bytes": 2873,
+      "sha256": "20836e13b46e0e9ab6cbda5afa7d191e497ae26919bef327aacec515a6a16c5f"
+    },
+    "RECEIPT.md": {
+      "bytes": 4269,
+      "sha256": "c23c94d7dda5adcc6ab0e07562d092f5986705b5d25b8baf8dd2fe4108def9de"
+    },
+    "RECOVERY.json": {
+      "bytes": 591,
+      "sha256": "ab406014e792812b2131eb5158279cf45e53296f74cb95fe1f40c988dacfc4a3"
+    },
+    "RESULT.md": {
+      "bytes": 1964,
+      "sha256": "0c00261bdee20e096bd83c1412a7427691fdd33e033379f69ce1da8f4bdca269"
+    },
+    "ROOT-ADMISSION.json": {
+      "bytes": 1049,
+      "sha256": "54b7c94e055474958dab7c154eaad086a3f7fad0e8f63d84295de491fb18198a"
+    },
+    "ROOT-CLOSEOUT.json": {
+      "bytes": 1767,
+      "sha256": "c5e1cfcf81d14d0fe0286ce335315561a0484faa196bf77a77b26bd77803c3cb"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 2874,
+      "sha256": "b78732002e654a7fa8dbb976f1e37e93e32c581e6865f2d4993e3ccc7d819af6"
+    },
+    "SEARCH.json": {
+      "bytes": 2146,
+      "sha256": "cb22a1d8f17b748eabdc94fbd00f966b8912e8f54cd6b869d6c4ceafdfb22137"
+    },
+    "SOURCE.md": {
+      "bytes": 1639,
+      "sha256": "fb71883dc0666beefd24e479f2ecc5def4849c12f0505b2178df2ac031757600"
+    }
+  }
+}

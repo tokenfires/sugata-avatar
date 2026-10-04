@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-04T14:27:27.470751+00:00",
+  "pid": 24303,
+  "inputPinsVerified": 6,
+  "criticLiteralPinsVerified": 3,
+  "sourceFullRead": "5b59d8/exit0",
+  "decision": "A one exact root-owned primary lookup; follow contract conditional page/image limits; empty/error/irrelevant B stop. No editability/completeness/fit acceptance.",
+  "pins": {
+    "PLAN.md": {
+      "sha256": "20836e13b46e0e9ab6cbda5afa7d191e497ae26919bef327aacec515a6a16c5f",
+      "bytes": 2873
+    },
+    "INPUTS.json": {
+      "sha256": "497e95c279f4465b1082d5b083bb6fa0402da25e644500bfe0e65a3df99afa2c",
+      "bytes": 1275
+    },
+    "SOURCE.md": {
+      "sha256": "fb71883dc0666beefd24e479f2ecc5def4849c12f0505b2178df2ac031757600",
+      "bytes": 1639
+    }
+  },
+  "searchArguments": {
+    "query": "site:makehumancommunity.org/clothes \"baggy\" pants",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "domainTools": false
+  },
+  "activity": "No provider call yet; independent actual originals already reviewed in worth. No previous live owned research job."
+}

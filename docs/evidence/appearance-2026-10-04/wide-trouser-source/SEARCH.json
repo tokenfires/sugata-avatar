@@ -1,0 +1,43 @@
+{
+  "args": {
+    "query": "site:makehumancommunity.org/clothes \"baggy\" pants",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "domainTools": false
+  },
+  "dispatchClock": {
+    "current_time": "2026-10-04 14:27:44 UTC"
+  },
+  "returnedClock": {
+    "current_time": "2026-10-04 14:27:46 UTC"
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"http://www.makehumancommunity.org/clothes/m_trousers_01.html\",\"title\":\"M Trousers 01 | www.makehumancommunity.org\",\"description\":\"I have been looking for some decent jeans for my male character I am currently working on. And the boot cut jeans model is too baggy and loose ...\",\"position\":1}]},\"creditsUsed\":2,\"id\":\"01a10750-4fb5-77df-9c9b-54754e9f6f8e\",\"agent_hints\":[\"All 1 web results are excerpts only (#1 \\\"http://www.makehumancommunity.org/clothes/m_trousers_01.html\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 1 web results are excerpts only (#1 \"http://www.makehumancommunity.org/clothes/m_trousers_01.html\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "http://www.makehumancommunity.org/clothes/m_trousers_01.html",
+            "title": "M Trousers 01 | www.makehumancommunity.org",
+            "description": "I have been looking for some decent jeans for my male character I am currently working on. And the boot cut jeans model is too baggy and loose ...",
+            "position": 1
+          }
+        ]
+      },
+      "id": "01a10750-4fb5-77df-9c9b-54754e9f6f8e",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}
