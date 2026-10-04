@@ -1,0 +1,39 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-ao/freeze.py",
+  "pid": 69071,
+  "started": "2026-10-04T03:56:58.081078+00:00",
+  "ended": "2026-10-04T03:56:58.081567+00:00",
+  "pins": [
+    {
+      "file": "PLAN.md",
+      "bytes": 1333,
+      "sha256": "414ca37bdc55e5e9deb02f694e2489949d88930e425311df401d180be481f905"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 1791,
+      "sha256": "5d953d586e65d3aff095f41eb0c6443fd4bb8a354f4e0481f5df573bae5208b0"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 2215,
+      "sha256": "90a720a10ed4d6621fcbfc1296dc4f75c3ed60c1d11000cda8fe90200ff48a08"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4868,
+      "sha256": "3879dc0e385c74134dc916f4f9ca0e5598a2cf08d82ea7ea334ed3545fbf9c5f"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 976,
+      "sha256": "3cc58b0616a108fca85c8733294ca0e60027284b113a4003a305736aacba8ffd"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 1686,
+      "sha256": "76e61bbb54c7ebdae7ff5b5e804eaf3ad6cf4175fd53ccfe36c0c616e8bd6ea7"
+    }
+  ],
+  "scope": "Exact evidence packet only; no accepted/frozen/reference/unrelated source mutation."
+}

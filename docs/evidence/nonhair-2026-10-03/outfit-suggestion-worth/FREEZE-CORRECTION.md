@@ -1,0 +1,3 @@
+# Freeze invocation correction
+
+Actual command was `python3 docs/evidence/nonhair-2026-10-03/outfit-suggestion-worth/freeze.py`, PID69071,03:56:58.081078–.081567UTC, exit0/chunkce1626. The copied freeze source retained the earlier Ink command string in its metadata; that field is an attribution error. `__file__.parent` correctly selected this outfit-suggestion-worth folder. Six payload files12869bytes and FROZEN.json SHA256c659de14af5b8bc889877b0595703a89f6287418c1da52b5f77a07d0ff1fa671 remain unchanged/read-only. No Ink packet or accepted source was modified by this invocation. Preserve this sidecar with the original rather than rewriting frozen provenance.

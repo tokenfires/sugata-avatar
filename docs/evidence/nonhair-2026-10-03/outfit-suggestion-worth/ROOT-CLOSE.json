@@ -1,0 +1,60 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/outfit-suggestion-worth/root-close.py",
+  "pid": 69007,
+  "started": "2026-10-04T03:56:24.699418+00:00",
+  "ended": "2026-10-04T03:56:24.700628+00:00",
+  "pins": [
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "file": "packages/testbed/src/showcase-palette-references.mjs",
+      "bytes": 4998,
+      "sha256": "82df6354262aa5d0fd364daf3a592e9fabb344eb0f217cfe3aa64d70ff15e98a"
+    },
+    {
+      "file": "looks/README.md",
+      "bytes": 3301,
+      "sha256": "39412cbe152e54ab907cbf1da81ad64fca7606af33dedcb4316a323e765a7ee2"
+    },
+    {
+      "file": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    {
+      "file": "looks/ink-denim-review.html",
+      "bytes": 6505,
+      "sha256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e"
+    },
+    {
+      "file": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 24013,
+      "sha256": "afd40d6e0848553cf6585a6381693f0d8cf7ed56cf833abe9fae27e3f76822ad"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    }
+  ],
+  "criticSha256": "3879dc0e385c74134dc916f4f9ca0e5598a2cf08d82ea7ea334ed3545fbf9c5f",
+  "decision": "B: root full handoff/source-guides read and actual accepted original viewed; static card duplicates guided choice. No product/helper/runtime job or suitability claim."
+}
