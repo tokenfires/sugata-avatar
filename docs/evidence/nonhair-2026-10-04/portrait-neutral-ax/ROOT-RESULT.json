@@ -1,0 +1,197 @@
+{
+  "pid": 31872,
+  "started": "2026-10-04T07:38:02.308868+00:00",
+  "finished": "2026-10-04T07:38:02.310751+00:00",
+  "inputsChecked": [
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait-neutral-candidate.html",
+      "bytes": 10105,
+      "sha256": "0e8c682ded5282e4dc68710b19edf637b694e986dc3a7d342107c378c528348c"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ax/PLAN.md",
+      "bytes": 5070,
+      "sha256": "b329ea1fa5e161d427ab0397b957e76141bd26f79b973181e737f86897c8755d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ax/CRITIC-SOURCE.md",
+      "bytes": 9292,
+      "sha256": "40219429abc213ec567c606cd415aa5fc78ae2803cb9a74940d95a47f79596ef"
+    }
+  ],
+  "payloads": [
+    {
+      "path": "CLOSED.json",
+      "bytes": 268,
+      "sha256": "3fa8ae418aeee6933dc7555de6ee10c5667074963e7e64bf1812caf0d42e7dd7",
+      "filesystemMtimeUTC": "2026-10-04T07:36:20.792420+00:00"
+    },
+    {
+      "path": "CRITIC-SOURCE.md",
+      "bytes": 9292,
+      "sha256": "40219429abc213ec567c606cd415aa5fc78ae2803cb9a74940d95a47f79596ef",
+      "filesystemMtimeUTC": "2026-10-04T07:27:47.887079+00:00"
+    },
+    {
+      "path": "NATIVE-JOB.json",
+      "bytes": 292,
+      "sha256": "59f5665ca330cc8a49375df8e3742c7d338c7017a6e026b3c34c15f39cbf6fce",
+      "filesystemMtimeUTC": "2026-10-04T07:29:51.305412+00:00"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 5070,
+      "sha256": "b329ea1fa5e161d427ab0397b957e76141bd26f79b973181e737f86897c8755d",
+      "filesystemMtimeUTC": "2026-10-04T07:25:18.614972+00:00"
+    },
+    {
+      "path": "ROOT-INPUTS.json",
+      "bytes": 1610,
+      "sha256": "3920ef084b2a843d8df1c3362655d96d9ef9a482dcbba935ca552372a1ba167c",
+      "filesystemMtimeUTC": "2026-10-04T07:26:59.455353+00:00"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 1852,
+      "sha256": "549ccf0ab03485f7ffcaa997cf391ad7a624509c117e0e0859917024f0b0bdf2",
+      "filesystemMtimeUTC": "2026-10-04T07:29:31.065818+00:00"
+    },
+    {
+      "path": "STOP.json",
+      "bytes": 943,
+      "sha256": "66503b1f3efb4a0a0bc31aebbef1fe544931dd28846e4f6a8de3471753fe3321",
+      "filesystemMtimeUTC": "2026-10-04T07:36:20.788769+00:00"
+    },
+    {
+      "path": "console.json",
+      "bytes": 3347,
+      "sha256": "b9de50c9948fb6b9ae0ec2e6b5d319475f1c7ff05468726a289d48b7778bb2bf",
+      "filesystemMtimeUTC": "2026-10-04T07:36:20.788519+00:00"
+    },
+    {
+      "path": "desktop-neutral-enter-ax.txt",
+      "bytes": 2577,
+      "sha256": "b9322a69831f8a4955377384775929dc9ea5235fc2e4813acbfc4eb92e847c67",
+      "filesystemMtimeUTC": "2026-10-04T07:34:43.517251+00:00"
+    },
+    {
+      "path": "desktop-neutral.jpg",
+      "bytes": 54164,
+      "sha256": "80c5c917ed66910e13fa3fb7120782fd9a5ed4a47eacbfa3a4cf6dbeae8a9fce",
+      "filesystemMtimeUTC": "2026-10-04T07:34:43.612008+00:00"
+    },
+    {
+      "path": "desktop-paused-ax.txt",
+      "bytes": 2594,
+      "sha256": "56baa90f6ced2ed2da3f23efd6182dfe668b205d150959c4e8fa516b6634ba7b",
+      "filesystemMtimeUTC": "2026-10-04T07:34:29.669068+00:00"
+    },
+    {
+      "path": "desktop-studio-return-ax.txt",
+      "bytes": 2576,
+      "sha256": "871aa6abd3a46362522c2ec6675787fccdb10e583683493f3e0fab678c4b61f1",
+      "filesystemMtimeUTC": "2026-10-04T07:35:12.043124+00:00"
+    },
+    {
+      "path": "desktop-studio.jpg",
+      "bytes": 53528,
+      "sha256": "3dd84209c291fe8960943828d0f1474053a76e0b9b315f105527cc46b3dfbdcb",
+      "filesystemMtimeUTC": "2026-10-04T07:34:29.760624+00:00"
+    },
+    {
+      "path": "desktop-warm-space-ax.txt",
+      "bytes": 2574,
+      "sha256": "fd6713d971215597ba08a009bba6d85707d231d770401dac44ed7cdab3581e88",
+      "filesystemMtimeUTC": "2026-10-04T07:35:00.118415+00:00"
+    },
+    {
+      "path": "desktop-warm.jpg",
+      "bytes": 53604,
+      "sha256": "fc7a8ff32f8f8ca2cb1441949863972d863c0632ff049219279ba9678732b3a7",
+      "filesystemMtimeUTC": "2026-10-04T07:35:00.138599+00:00"
+    },
+    {
+      "path": "mobile-before-ax.txt",
+      "bytes": 2576,
+      "sha256": "871aa6abd3a46362522c2ec6675787fccdb10e583683493f3e0fab678c4b61f1",
+      "filesystemMtimeUTC": "2026-10-04T07:35:12.247343+00:00"
+    },
+    {
+      "path": "mobile-neutral-ax.txt",
+      "bytes": 2577,
+      "sha256": "b9322a69831f8a4955377384775929dc9ea5235fc2e4813acbfc4eb92e847c67",
+      "filesystemMtimeUTC": "2026-10-04T07:35:19.579275+00:00"
+    },
+    {
+      "path": "mobile-neutral.jpg",
+      "bytes": 28382,
+      "sha256": "31afd0ed9d7203438c610d323752dd41d64f45aaa1eaa8abc203473c2c4cc3a0",
+      "filesystemMtimeUTC": "2026-10-04T07:35:19.673144+00:00"
+    },
+    {
+      "path": "mobile-upper-ax.txt",
+      "bytes": 2577,
+      "sha256": "b9322a69831f8a4955377384775929dc9ea5235fc2e4813acbfc4eb92e847c67",
+      "filesystemMtimeUTC": "2026-10-04T07:35:30.366228+00:00"
+    },
+    {
+      "path": "mobile-upper.jpg",
+      "bytes": 32547,
+      "sha256": "4b0af5863143de4e00bb304f828f5b54b47ba80c13b62999418c231714d16b07",
+      "filesystemMtimeUTC": "2026-10-04T07:35:30.467627+00:00"
+    },
+    {
+      "path": "ready-ax.txt",
+      "bytes": 2602,
+      "sha256": "aa58c6e4e3febd3b675881e5d71fc1d3a76cd87d97e618927e58ca2da2193ee1",
+      "filesystemMtimeUTC": "2026-10-04T07:30:30.919698+00:00"
+    },
+    {
+      "path": "root-check.py",
+      "bytes": 3694,
+      "sha256": "5f0ca26779be198f4649544bd7fe04c4b6188f2f36f6f520a830c902264d27f9",
+      "filesystemMtimeUTC": "2026-10-04T07:37:55.162734+00:00"
+    },
+    {
+      "path": "stopped-kitchen-context-ax.txt",
+      "bytes": 2395,
+      "sha256": "5f9e2c9142cc9d87ee2fe35d06cc127981e7efd30bb8bbe5de2b35b699a7706b",
+      "filesystemMtimeUTC": "2026-10-04T07:35:59.605161+00:00"
+    },
+    {
+      "path": "stopped-kitchen-context.jpg",
+      "bytes": 55155,
+      "sha256": "5163d4013d6a1b5dc1cc9216312f04befc3b71a90d0fec575d48d7c2df3e987b",
+      "filesystemMtimeUTC": "2026-10-04T07:35:59.640886+00:00"
+    }
+  ],
+  "decision": "B: first declared readiness failure; exact accepted Portrait untouched; no adoption or retry",
+  "successfulSubset": "Native Studio/Neutral/Warm exclusive selection and focus; readable 390x844 Neutral row",
+  "imageReview": "Root actually viewed all six untouched native JPEGs in Cua; mobile-upper is partial adjacent content, Kitchen context is top viewport only",
+  "limits": "No numeric overflow, matched appearance, actual tier/backend, calibration, motion/AAA acceptance, SDK/GPU/late-owner ledger or proven timeout cause. Filesystem mtimes are not capture acquisition timestamps."
+}

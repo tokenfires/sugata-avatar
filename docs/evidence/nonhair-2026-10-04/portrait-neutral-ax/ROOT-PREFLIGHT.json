@@ -1,0 +1,50 @@
+{
+  "pid": 25417,
+  "started": "2026-10-04T07:29:31.064548+00:00",
+  "finished": "2026-10-04T07:29:31.065692+00:00",
+  "inputs": [
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait-neutral-candidate.html",
+      "bytes": 10105,
+      "sha256": "0e8c682ded5282e4dc68710b19edf637b694e986dc3a7d342107c378c528348c"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ax/PLAN.md",
+      "bytes": 5070,
+      "sha256": "b329ea1fa5e161d427ab0397b957e76141bd26f79b973181e737f86897c8755d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ax/CRITIC-SOURCE.md",
+      "bytes": 9292,
+      "sha256": "40219429abc213ec567c606cd415aa5fc78ae2803cb9a74940d95a47f79596ef"
+    }
+  ],
+  "priorFrozenPayloadsChecked": 16,
+  "decision": "Fresh source GO: AX-only controls; ready enabled/status/noalert plus loading wait; no evaluator/oldGO/actual tier/lifetime assertion",
+  "criticSourceSHA256": "40219429abc213ec567c606cd415aa5fc78ae2803cb9a74940d95a47f79596ef"
+}

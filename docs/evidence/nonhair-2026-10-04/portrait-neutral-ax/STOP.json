@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-10-04T07:36:20.788Z",
+  "stop": "First Kitchen ready-selector observation failed; no repair or retry.",
+  "error": "Timed out after 3000ms waiting for selector #loading[hidden]: Timed out running CDP command \"Runtime.evaluate\" for tab 13; locator.waitFor(attached) timed out, no_matches matchCount 0.",
+  "postStop": "One saved AX/context image; Kitchen selected, Live portrait, Light absent from AX; screenshot top viewport does not show the room/light region. No full Kitchen checkpoint or adoption.",
+  "sequence": [
+    "Pause49",
+    "Neutral47 Return",
+    "Warm46 space",
+    "Studio45 click",
+    "viewport390x844",
+    "Neutral47 click",
+    "one ordinary up scroll",
+    "viewport reset",
+    "RoomKitchen41 click",
+    "first ready wait error",
+    "read-only stopped AX/context/log collection"
+  ],
+  "scope": "Tool observation only; no proven renderer, evaluator, source, allocator or lighting cause."
+}

@@ -1,0 +1,56 @@
+Browser tab: 13, Title: "Sugata 姿 — portrait", URL: "http://127.0.0.1:5173/src/portrait-neutral-candidate.html?hair=bob02&bake=g050&scene=studio".
+0 AXWebArea Sugata 姿 — portrait, URL: 127.0.0.1:5173/src/portrait-neutral-candidate.html?hair=bob02&bake=g050&scene=studio
+	1 container
+		2 link Description: SUGATA, Value: 127.0.0.1:5173/
+		3 link Description: Explore the testbed ↗, Value: 127.0.0.1:5173/
+	4 container
+		5 container Interactive avatar portrait
+			6 image Description: Avatar portrait. Drag to rotate and scroll to zoom., ID: stage
+			8 container
+				9 text The chin-length bob
+				10 text Drag to turn · scroll to move closer
+		11 text PORTRAIT STUDY / 01
+		12 heading A body for an AI., Value: 1
+			13 text A body
+			14 text for an AI.
+		15 text Expression, posture, and the small movements in between.
+		16 container Description: EXPRESSION, ID: expressions
+			17 text EXPRESSION
+			18 checkbox At ease, Value: 0
+			19 checkbox Warm, Value: 0
+			20 checkbox Curious, Value: 0
+			21 checkbox Determined, Value: 0
+			22 button Ease to neutral, ID: release-expression
+			54 text Expressions blend gradually.
+		24 container Description: ATTENTION · EXPERIMENTAL, ID: attention-controls
+			25 text ATTENTION · EXPERIMENTAL
+			26 button Look toward me, ID: look-toward-me
+			27 button Look with a smile, ID: look-with-smile
+			28 button (disabled) Release, ID: release-attention
+			29 text Choose a simple look or add a small smile. Dragging releases it.
+			55 text Ready when you are
+		31 container hair-controls
+			32 text SILHOUETTE
+			33 pop up button (collapsed, settable) SILHOUETTE, Value: Chin-length bob, ID: hair-style, Secondary Actions: Expand
+				34 menu
+					35 (disabled) Chin-length bob
+					36 (disabled) Original long bob
+			37 text Two cuts, on the same figure and under the same light.
+		38 container Description: ROOM, ID: scene-controls
+			39 text ROOM
+			40 checkbox Studio, Value: 1
+			41 checkbox Kitchen, Value: 0
+			42 text Changing rooms returns the pose and expression to their starting state.
+		43 container Description: LIGHT, ID: light-controls
+			44 text LIGHT
+			45 checkbox Studio, Value: 1
+			46 checkbox Warm, Value: 0
+			47 checkbox Neutral, Value: 0
+			48 text Use Neutral to inspect colour.
+		49 checkbox Pause motion, Value: 0, ID: pause
+		50 button Reset view ↗, ID: reset-view
+		56 text Live portrait
+	52 container
+		53 text Sugata 姿 · An embodied presence A work in progress
+
+The focused UI element is 0 AXWebArea Sugata 姿 — portrait, URL: 127.0.0.1:5173/src/portrait-neutral-candidate.html?hair=bob02&bake=g050&scene=studio
