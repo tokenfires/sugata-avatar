@@ -1,0 +1,55 @@
+{
+  "args": {
+    "query": "site:blog.tincanknits.com drop shoulder sweater construction",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "domainTools": false
+  },
+  "started": {
+    "current_time": "2026-10-04 13:12:13 UTC"
+  },
+  "ended": {
+    "current_time": "2026-10-04 13:12:15 UTC"
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://blog.tincanknits.com/2021/07/29/sweater-construction-the-many-ways-to-knit-a-sweater/\",\"title\":\"Sweater Construction: The Many Ways to Knit a Sweater – tin can knits\",\"description\":\"Drop-shoulder garments have little to no underarm shaping; the body is a box, and the sleeves are picked up and knit from openings on either ...Bottom-up or top-down... · Raglan sweater construction\",\"position\":1},{\"url\":\"https://blog.tincanknits.com/2017/03/28/lets-knit-a-bottom-up-sweater/\",\"title\":\"Bottom-up Sweater Construction - Tin Can Knits\",\"description\":\"To make a pullover from the bottom up, you knit with 3 tubes (2 sleeve tubes and a body tube), then you join them all together for the yoke.\",\"position\":2},{\"url\":\"https://blog.tincanknits.com/2023/04/12/simple-sweater/\",\"title\":\"Simple Sweater: How to Knit a Top-Down Round Yoke Pullover\",\"description\":\"The yoke is knit first, and then the body and sleeves are separated. The body is worked in the round to the hem, and the sleeves are worked in ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a1070b-2d09-74fb-910b-501bf959c051\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://blog.tincanknits.com/2021/07/29/sweater-construction-the-many-ways-to-knit-a-sweater/\\\", #2 \\\"https://blog.tincanknits.com/2017/03/28/lets-knit-a-bottom-up-sweater/\\\", #3 \\\"https://blog.tincanknits.com/2023/04/12/simple-sweater/\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://blog.tincanknits.com/2021/07/29/sweater-construction-the-many-ways-to-knit-a-sweater/\", #2 \"https://blog.tincanknits.com/2017/03/28/lets-knit-a-bottom-up-sweater/\", #3 \"https://blog.tincanknits.com/2023/04/12/simple-sweater/\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://blog.tincanknits.com/2021/07/29/sweater-construction-the-many-ways-to-knit-a-sweater/",
+            "title": "Sweater Construction: The Many Ways to Knit a Sweater – tin can knits",
+            "description": "Drop-shoulder garments have little to no underarm shaping; the body is a box, and the sleeves are picked up and knit from openings on either ...Bottom-up or top-down... · Raglan sweater construction",
+            "position": 1
+          },
+          {
+            "url": "https://blog.tincanknits.com/2017/03/28/lets-knit-a-bottom-up-sweater/",
+            "title": "Bottom-up Sweater Construction - Tin Can Knits",
+            "description": "To make a pullover from the bottom up, you knit with 3 tubes (2 sleeve tubes and a body tube), then you join them all together for the yoke.",
+            "position": 2
+          },
+          {
+            "url": "https://blog.tincanknits.com/2023/04/12/simple-sweater/",
+            "title": "Simple Sweater: How to Knit a Top-Down Round Yoke Pullover",
+            "description": "The yoke is knit first, and then the body and sleeves are separated. The body is worked in the round to the hem, and the sleeves are worked in ...",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a1070b-2d09-74fb-910b-501bf959c051",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}

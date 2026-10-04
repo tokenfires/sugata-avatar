@@ -1,0 +1,15 @@
+# Relaxed knit: front, side and back target
+
+**Retained illustrative design target, October4.** Root and the independent quality critic inspected the complete unchanged image and each panel. It supplements the [whole-character concept](KNIT-CHARACTER-TARGET-2026-10-04.md) with explicit side/back choices. It does not implement a garment or qualify body fit.
+
+![Garment-only pale-blue sweater design sheet: complete front, side and back views with dropped shoulders, relaxed torso and straight ribbed hem](/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-shape-sheet/shape-sheet-v1.png)
+
+The front establishes broad near-vertical sides, lower shoulder joins, full sleeves tapering to snug rib cuffs, a shallow crew neck and a straight untucked hem. The side chooses gentle continuous torso depth and a rear contour without waist pinching. The back is plain and roomy, carrying the same shoulder, sleeve and trim family. The lower front neck opening and higher rear arc belong to the same intended crew neckline. These are deliberate artist choices for the relaxed target, distinct from the [more fitted original Fisherman source](../evidence/appearance-2026-10-04/knit-original-diagnostic/index.html).
+
+The [Tin Can Knits author's construction overview](https://blog.tincanknits.com/2021/07/29/sweater-construction-the-many-ways-to-knit-a-sweater/) and its actually inspected diagram informed the broad drop-shoulder vocabulary. Existing COS photo observations and the original character concept informed pale-blue matte knit and ribbed trims. This sheet does not reproduce a knitting pattern. [Exact reference distinctions](../evidence/appearance-2026-10-04/knit-shape-sheet/REFERENCES.md).
+
+The near sleeve hides part of the side armhole/body. Both depth contours remain readable, which is sufficient for this silhouette discussion; those hidden surfaces still need explicit authoring. Straight-looking views and visual agreement do not prove orthographic correspondence, dimensions, pattern ownership, physical knit, topology, material reproduction or fit. The source's unexplained fifth opening stays unexplained. No accepted asset, body, identity, hair or default changed.
+
+Future construction must own complete editable front/back/shoulder/armhole/sleeve/neck/cuff/hem surfaces and exact seam/interface responsibility. Coupled body/foundation/outer coverage, representative builds, skinning and all-view/posed appearance remain required under the [pose-aware proposal](POSE-AWARE-FIT-NEXT-2026-09-30.md). The full [character, outfit and expression roadmap](../PRODUCT-ROADMAP.md) remains open. This target supplies no automatic construction admission and reopens none of the rejected source/cage/foundation/hair/capture methods.
+
+One built-in imagegen call made this1536×1024 original; no regeneration or pixel edits. The project copy is byte-identical to the retained Codex original. [Final prompt](../evidence/appearance-2026-10-04/knit-shape-sheet/PROMPT.txt), [independent decision](../evidence/appearance-2026-10-04/knit-shape-sheet/RESULT.md), [receipt](../evidence/appearance-2026-10-04/knit-shape-sheet/RECEIPT.md).
