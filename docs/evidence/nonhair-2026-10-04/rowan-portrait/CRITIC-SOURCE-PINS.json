@@ -1,0 +1,84 @@
+{
+  "scope": "Filesystem source-byte readback only; no import, asset parsing, evaluator, renderer or browser execution.",
+  "command": "python3 docs/evidence/nonhair-2026-10-04/rowan-portrait/critic-source-pins.py",
+  "pid": 60343,
+  "startedAt": "2026-10-04T06:20:19.351760+00:00",
+  "finishedAt": "2026-10-04T06:20:19.352539+00:00",
+  "pins": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/PLAN.md",
+      "bytes": 3971,
+      "sha256": "84ae599a9eb13fb2eb45b552219b5cf3c92bf8d446da958c6006ea3acb47f016"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/ROWAN.json",
+      "bytes": 310,
+      "sha256": "cac2af29e9d02349a167e296fb52727a2c924ec23487fb6e76fbcabbdec1f0b0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/preview.html",
+      "bytes": 1309,
+      "sha256": "5d8fb8919f1038a144facc332c9f2867d0021524ec33e67d35aa246514d7245c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/preview.mjs",
+      "bytes": 5419,
+      "sha256": "bcdf50bcbb1eb201ab41126a850bc649ae382b50ad01ce8573b134e701275d3a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/SOURCE-FINDING.md",
+      "bytes": 817,
+      "sha256": "1d682d21fa301ad9517d85e13edc8c10f8b04b8f175cc83eae5265e4ba2e54e6"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/CHECKS.md",
+      "bytes": 957,
+      "sha256": "dd8a06e665a3098e8c083de64d3aa24066c0fdb96af91f16d28b17e42f02909f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/PREVIOUS-CLOSEOUT.md",
+      "bytes": 624,
+      "sha256": "0adb1d362ae75798be8036e33fbaeba17cffed1cb6d090f61467a094b2879149"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/CRITIC-VALUE.md",
+      "bytes": 9732,
+      "sha256": "d944ee0e3518e64709e5d09ab65226791cc9dc350f023a8dd17bea8e50d42aa9"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/SOURCE-CORRECTION.md",
+      "bytes": 1668,
+      "sha256": "018a8bb431afc01baabed946f41821066474bea135981e45c86447d62f424363"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/critic-source-pins.py",
+      "bytes": 1971,
+      "sha256": "c498fbf388c06f0b0ab52d1db54cf46b3d3204ecf262cf3cd1bed60afddec129"
+    }
+  ]
+}

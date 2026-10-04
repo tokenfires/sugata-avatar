@@ -1,0 +1,814 @@
+{
+  "createdAt": "2026-10-04T06:23:26.218Z",
+  "recipe": {
+    "identity": {
+      "gender": 1,
+      "mode": "nearest"
+    },
+    "quality": "balanced",
+    "frame": "portrait",
+    "framedHeightMetres": 0.55,
+    "seed": 20260807,
+    "autoStart": false,
+    "scene": "studio",
+    "lighting": "neutral",
+    "background": "studio",
+    "hair": "bob01",
+    "hairColour": "#2f251f",
+    "wardrobe": false
+  },
+  "recipeSHA256": "cac2af29e9d02349a167e296fb52727a2c924ec23487fb6e76fbcabbdec1f0b0",
+  "creation": {
+    "at": "2026-10-04T06:23:39.007Z",
+    "report": {
+      "quality": {
+        "requested": "balanced",
+        "tier": "balanced",
+        "backend": "webgpu",
+        "selectedBy": "caller",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      },
+      "subsystems": {
+        "skinMaterial": 1,
+        "eyeMaterial": 2,
+        "eyeOcclusion": 4,
+        "cardShading": 2,
+        "hairMaterial": 1,
+        "shadowCastingLights": 1,
+        "temporalResolve": 1,
+        "grade": 1,
+        "ambientOcclusion": null
+      },
+      "faceCardCoverage": {
+        "requested": "auto",
+        "live": true,
+        "managedMaterials": 2,
+        "registered": true,
+        "lastObservedMode": "coverage",
+        "reason": null,
+        "shadowAlphaTest": 0.1,
+        "ownedStorageBuffers": 0
+      },
+      "wardrobe": null,
+      "scene": {
+        "id": "studio",
+        "kind": "studio",
+        "background": "#08080a",
+        "backdrop": "#070a0e",
+        "ground": true,
+        "environment": null,
+        "groundMaterial": {
+          "albedo": "#968c34",
+          "roughness": 0.9
+        },
+        "lighting": {
+          "look": "neutral",
+          "exposure": 0.85,
+          "ambientFractionOfKey": 0.22,
+          "calibrated": false,
+          "designedKeyToFill": 1.3636363636363635,
+          "ambientAttached": true,
+          "shadowsEnabled": true,
+          "placements": [
+            {
+              "name": "key",
+              "azimuthDegrees": 42,
+              "elevationDegrees": 17.999999999999996,
+              "irradiance": 2.5500000000000007,
+              "colour": "#f0f0f0",
+              "position": [
+                1.100271864540153,
+                1.9644405692783615,
+                0.7993943019561748
+              ],
+              "panelMetres": [
+                1.1,
+                1.54
+              ],
+              "radiance": 2.177923376237455,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 2.3465227500000005
+            },
+            {
+              "name": "fill",
+              "azimuthDegrees": -51.99999999999999,
+              "elevationDegrees": 2.0000000000000044,
+              "irradiance": 1.8699999999999997,
+              "colour": "#d9d9d9",
+              "position": [
+                -0.8126309916654567,
+                1.5666941306508506,
+                0.9684559037707036
+              ],
+              "panelMetres": [
+                2.3100000000000005,
+                2.3100000000000005
+              ],
+              "radiance": 1.168724717797948,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "rim",
+              "azimuthDegrees": -168,
+              "elevationDegrees": 26.000000000000004,
+              "irradiance": 13.599999999999996,
+              "colour": "#575757",
+              "position": [
+                -0.18095837423807812,
+                1.7395399849827802,
+                -0.4064391630846448
+              ],
+              "panelMetres": [
+                0.045705,
+                0.171325
+              ],
+              "radiance": 434.61237203641264,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            },
+            {
+              "name": "kicker",
+              "azimuthDegrees": 166,
+              "elevationDegrees": -5.999999999999989,
+              "irradiance": 0.059500000000000004,
+              "colour": "#dedede",
+              "position": [
+                0.016512480198991767,
+                1.4728168509226007,
+                -0.47285556530745676
+              ],
+              "panelMetres": [
+                0.045705,
+                0.16181
+              ],
+              "radiance": 1.8586820074109944,
+              "visible": true,
+              "attached": true,
+              "shadowCasterIntensity": 0
+            }
+          ]
+        }
+      },
+      "hair": {
+        "style": "bob01",
+        "loadedStyle": "bob01",
+        "colour": {
+          "requested": "#2f251f",
+          "applied": "#2f251f",
+          "requestedTint": null,
+          "appliedTint": null,
+          "resolved": "#2f251f",
+          "linear": [
+            0.028426039499072558,
+            0.018500220124016652,
+            0.013702083043526807
+          ],
+          "matchesAttached": true
+        },
+        "bake": "figure_g100",
+        "unavailableReason": null,
+        "attached": true,
+        "meshes": 1,
+        "oit": "stochastic",
+        "stageReportsOit": "stochastic",
+        "solver": {
+          "chains": 496,
+          "particles": 8432,
+          "steps": 0
+        },
+        "velocityRepaired": true,
+        "history": {
+          "requested": "auto",
+          "mode": "hold",
+          "reason": "awaiting first beauty",
+          "live": true,
+          "valid": false,
+          "commits": 0,
+          "cachedDraws": 0,
+          "invalidations": 0,
+          "lastDraw": null,
+          "cardVertexBase": 652,
+          "cardVertexCount": 16864,
+          "ownedHistoryBuffers": 1,
+          "paddedHistoryBytes": 269824,
+          "caps": "native hold; exact cards only"
+        },
+        "cardFrame": {
+          "mode": "derivative",
+          "available": false,
+          "reason": "source awaiting a completed rebuild",
+          "live": true,
+          "layout": {
+            "base": 652,
+            "count": 16864,
+            "rings": 17,
+            "cards": 496,
+            "width": 0.123046875
+          },
+          "ownedBuffers": 0,
+          "addedVertexBytes": 0
+        },
+        "bodyContact": null,
+        "bodyContactUnavailableReason": "No body-contact calibration for bob01 on figure_g100.",
+        "frameBudgetWarning": null,
+        "undisposable": [
+          "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+        ]
+      },
+      "motion": {
+        "seed": 20260807,
+        "frame": 0,
+        "timeSeconds": 0,
+        "layers": [
+          "affectPosture",
+          "breath",
+          "sway",
+          "idle",
+          "bodyIdle",
+          "handIdle",
+          "gesture",
+          "gazeHead",
+          "gaze",
+          "pupil",
+          "expression",
+          "viseme",
+          "blink",
+          "facialIdle"
+        ],
+        "clampingConflicts": 0,
+        "pupilScale": 1,
+        "fingerClaim": {
+          "claimsFrom": "bodyIdle",
+          "resolved": false,
+          "yieldedTo": null
+        }
+      },
+      "affect": {
+        "pad": {
+          "pleasure": 0,
+          "arousal": 0,
+          "dominance": 0
+        },
+        "moodOctant": "neutral",
+        "activations": [],
+        "postureDegrees": {
+          "approach": 0,
+          "armSpread": 0,
+          "armSpreadLeft": 0,
+          "armSpreadRight": 0,
+          "headTiltUp": 0,
+          "kneeAdded": 0,
+          "kneeLeft": 0,
+          "kneeRight": 0,
+          "pelvisDropMillimetres": 0
+        },
+        "clockOwner": "expression"
+      },
+      "speech": {
+        "speaking": false,
+        "timelineSupplied": null,
+        "utteranceEndsAt": null,
+        "clockSeconds": 0,
+        "gesture": {
+          "speaking": false,
+          "utteranceTime": 0,
+          "spatialExtent": 0,
+          "dominanceDrivesAmplitude": true,
+          "appliedSpatialExtent": 0,
+          "temporalExtent": 0,
+          "strokeSeconds": 0.38,
+          "yieldToPosture": true,
+          "sagittalShare": 0.75,
+          "armSidesMeasured": true,
+          "armSides": {
+            "left": 1,
+            "right": -1
+          },
+          "applied": {
+            "activation": 0,
+            "phase": "end",
+            "hand": null,
+            "yield": 1,
+            "spatialExtent": 0,
+            "shoulderDegrees": 0,
+            "elbowDegrees": 0
+          },
+          "schedule": null
+        }
+      },
+      "identity": {
+        "gender": 1,
+        "bake": "figure_g100"
+      },
+      "framing": {
+        "mode": "portrait",
+        "heightMetres": 0.55,
+        "fps": 0,
+        "frameMs": 1.4000000059604645,
+        "drawCalls": 40,
+        "triangles": 86748
+      },
+      "disposal": {
+        "disposed": false,
+        "leaked": []
+      }
+    },
+    "camera": {
+      "position": [
+        0.24765523000865658,
+        1.5225462673221868,
+        1.165126251868538
+      ],
+      "matrix": [
+        0.9781476007338057,
+        0,
+        -0.20791169081775931,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0.20791169081775931,
+        0,
+        0.9781476007338057,
+        0,
+        0.24765523000865658,
+        1.5225462673221868,
+        1.165126251868538,
+        1
+      ],
+      "projection": [
+        5.5973890444935845,
+        0,
+        0,
+        0,
+        0,
+        4.3314758742841555,
+        0,
+        0,
+        0,
+        0,
+        -1.0002000400080016,
+        -1,
+        0,
+        0,
+        -0.010002000400080016,
+        0
+      ],
+      "target": [
+        0,
+        1.5225462673221868,
+        0
+      ]
+    },
+    "canvas": {
+      "width": 960,
+      "height": 1240,
+      "cssWidth": 480,
+      "cssHeight": 620
+    }
+  },
+  "composition": {
+    "sourceFocus": [
+      0,
+      1.5225462673221868,
+      0
+    ],
+    "distanceMetres": 1.191155865428143,
+    "offsetY": 0.045,
+    "anglesDegrees": [
+      0,
+      35
+    ]
+  },
+  "views": [
+    {
+      "name": "front",
+      "degrees": 0,
+      "at": "2026-10-04T06:23:39.698Z",
+      "report": {
+        "quality": {
+          "requested": "balanced",
+          "tier": "balanced",
+          "backend": "webgpu",
+          "selectedBy": "caller",
+          "temporalResolve": 1,
+          "resolutionScale": 0.66,
+          "backendMismatch": false
+        },
+        "subsystems": {
+          "skinMaterial": 1,
+          "eyeMaterial": 2,
+          "eyeOcclusion": 4,
+          "cardShading": 2,
+          "hairMaterial": 1,
+          "shadowCastingLights": 1,
+          "temporalResolve": 1,
+          "grade": 1,
+          "ambientOcclusion": null
+        },
+        "faceCardCoverage": {
+          "requested": "auto",
+          "live": true,
+          "managedMaterials": 2,
+          "registered": true,
+          "lastObservedMode": "coverage",
+          "reason": null,
+          "shadowAlphaTest": 0.1,
+          "ownedStorageBuffers": 0
+        },
+        "wardrobe": null,
+        "scene": {
+          "id": "studio",
+          "kind": "studio",
+          "background": "#08080a",
+          "backdrop": "#070a0e",
+          "ground": true,
+          "environment": null,
+          "groundMaterial": {
+            "albedo": "#968c34",
+            "roughness": 0.9
+          },
+          "lighting": {
+            "look": "neutral",
+            "exposure": 0.85,
+            "ambientFractionOfKey": 0.22,
+            "calibrated": false,
+            "designedKeyToFill": 1.3636363636363635,
+            "ambientAttached": true,
+            "shadowsEnabled": true,
+            "placements": [
+              {
+                "name": "key",
+                "azimuthDegrees": 42,
+                "elevationDegrees": 17.999999999999996,
+                "irradiance": 2.5500000000000007,
+                "colour": "#f0f0f0",
+                "position": [
+                  1.100271864540153,
+                  1.9644405692783615,
+                  0.7993943019561748
+                ],
+                "panelMetres": [
+                  1.1,
+                  1.54
+                ],
+                "radiance": 2.177923376237455,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 2.3465227500000005
+              },
+              {
+                "name": "fill",
+                "azimuthDegrees": -51.99999999999999,
+                "elevationDegrees": 2.0000000000000044,
+                "irradiance": 1.8699999999999997,
+                "colour": "#d9d9d9",
+                "position": [
+                  -0.8126309916654567,
+                  1.5666941306508506,
+                  0.9684559037707036
+                ],
+                "panelMetres": [
+                  2.3100000000000005,
+                  2.3100000000000005
+                ],
+                "radiance": 1.168724717797948,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              },
+              {
+                "name": "rim",
+                "azimuthDegrees": -168,
+                "elevationDegrees": 26.000000000000004,
+                "irradiance": 13.599999999999996,
+                "colour": "#575757",
+                "position": [
+                  -0.18095837423807812,
+                  1.7395399849827802,
+                  -0.4064391630846448
+                ],
+                "panelMetres": [
+                  0.045705,
+                  0.171325
+                ],
+                "radiance": 434.61237203641264,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              },
+              {
+                "name": "kicker",
+                "azimuthDegrees": 166,
+                "elevationDegrees": -5.999999999999989,
+                "irradiance": 0.059500000000000004,
+                "colour": "#dedede",
+                "position": [
+                  0.016512480198991767,
+                  1.4728168509226007,
+                  -0.47285556530745676
+                ],
+                "panelMetres": [
+                  0.045705,
+                  0.16181
+                ],
+                "radiance": 1.8586820074109944,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              }
+            ]
+          }
+        },
+        "hair": {
+          "style": "bob01",
+          "loadedStyle": "bob01",
+          "colour": {
+            "requested": "#2f251f",
+            "applied": "#2f251f",
+            "requestedTint": null,
+            "appliedTint": null,
+            "resolved": "#2f251f",
+            "linear": [
+              0.028426039499072558,
+              0.018500220124016652,
+              0.013702083043526807
+            ],
+            "matchesAttached": true
+          },
+          "bake": "figure_g100",
+          "unavailableReason": null,
+          "attached": true,
+          "meshes": 1,
+          "oit": "stochastic",
+          "stageReportsOit": "stochastic",
+          "solver": {
+            "chains": 496,
+            "particles": 8432,
+            "steps": 1
+          },
+          "velocityRepaired": true,
+          "history": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 31,
+            "cachedDraws": 1,
+            "invalidations": 0,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                5.5973890444935845,
+                0,
+                0,
+                0,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                0,
+                0,
+                -1.0002000400080016,
+                -1,
+                0,
+                -6.789788838730233,
+                1.1813921438569142,
+                1.191155865428143
+              ],
+              "previousMVP": [
+                5.5973890444935845,
+                0,
+                0,
+                0,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                0,
+                0,
+                -1.0002000400080016,
+                -1,
+                0,
+                -6.789788838730233,
+                1.1813921438569142,
+                1.191155865428143
+              ],
+              "source": {
+                "write": 1,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "cardFrame": {
+            "mode": "smooth",
+            "available": true,
+            "reason": null,
+            "live": true,
+            "layout": {
+              "base": 652,
+              "count": 16864,
+              "rings": 17,
+              "cards": 496,
+              "width": 0.123046875
+            },
+            "ownedBuffers": 0,
+            "addedVertexBytes": 0
+          },
+          "bodyContact": null,
+          "bodyContactUnavailableReason": "No body-contact calibration for bob01 on figure_g100.",
+          "frameBudgetWarning": null,
+          "undisposable": [
+            "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+          ]
+        },
+        "motion": {
+          "seed": 20260807,
+          "frame": 32,
+          "timeSeconds": 0,
+          "layers": [
+            "affectPosture",
+            "breath",
+            "sway",
+            "idle",
+            "bodyIdle",
+            "handIdle",
+            "gesture",
+            "gazeHead",
+            "gaze",
+            "pupil",
+            "expression",
+            "viseme",
+            "blink",
+            "facialIdle"
+          ],
+          "clampingConflicts": 0,
+          "pupilScale": 0.985,
+          "fingerClaim": {
+            "claimsFrom": "bodyIdle",
+            "resolved": true,
+            "yieldedTo": "bodyIdle"
+          }
+        },
+        "affect": {
+          "pad": {
+            "pleasure": 0,
+            "arousal": 0,
+            "dominance": 0
+          },
+          "moodOctant": "neutral",
+          "activations": [],
+          "postureDegrees": {
+            "approach": 0,
+            "armSpread": 0,
+            "armSpreadLeft": 0,
+            "armSpreadRight": 0,
+            "headTiltUp": 0,
+            "kneeAdded": 0,
+            "kneeLeft": 0,
+            "kneeRight": 0,
+            "pelvisDropMillimetres": 0
+          },
+          "clockOwner": "expression"
+        },
+        "speech": {
+          "speaking": false,
+          "timelineSupplied": null,
+          "utteranceEndsAt": null,
+          "clockSeconds": 0,
+          "gesture": {
+            "speaking": false,
+            "utteranceTime": 0,
+            "spatialExtent": 0,
+            "dominanceDrivesAmplitude": true,
+            "appliedSpatialExtent": 0,
+            "temporalExtent": 0,
+            "strokeSeconds": 0.38,
+            "yieldToPosture": true,
+            "sagittalShare": 0.75,
+            "armSidesMeasured": true,
+            "armSides": {
+              "left": 1,
+              "right": -1
+            },
+            "applied": {
+              "activation": 0,
+              "phase": "end",
+              "hand": null,
+              "yield": 1,
+              "spatialExtent": 0,
+              "shoulderDegrees": 0,
+              "elbowDegrees": 0
+            },
+            "schedule": null
+          }
+        },
+        "identity": {
+          "gender": 1,
+          "bake": "figure_g100"
+        },
+        "framing": {
+          "mode": "portrait",
+          "heightMetres": 0.55,
+          "fps": 0,
+          "frameMs": 1.4000000059604645,
+          "drawCalls": 40,
+          "triangles": 86748
+        },
+        "disposal": {
+          "disposed": false,
+          "leaked": []
+        }
+      },
+      "clockSeconds": 0,
+      "canvas": {
+        "width": 960,
+        "height": 1240,
+        "cssWidth": 480,
+        "cssHeight": 620
+      },
+      "camera": {
+        "target": [
+          0,
+          1.5675462673221867,
+          0
+        ],
+        "position": [
+          0,
+          1.5675462673221867,
+          1.191155865428143
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1.5675462673221867,
+          1.191155865428143,
+          1
+        ],
+        "projection": [
+          5.5973890444935845,
+          0,
+          0,
+          0,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          0,
+          0,
+          -1.0002000400080016,
+          -1,
+          0,
+          0,
+          -0.010002000400080016,
+          0
+        ]
+      },
+      "complete": true
+    }
+  ],
+  "failure": null,
+  "retirement": {
+    "reason": "manual",
+    "at": "2026-10-04T06:24:55.352Z",
+    "pendingAtRetirement": false,
+    "error": null,
+    "disposal": {
+      "disposed": true,
+      "leaked": []
+    }
+  },
+  "pending": false,
+  "limits": [
+    "Fixed g100/Long bob portrait screening, no endpoint wardrobe or body-axis qualification.",
+    "No endpoint hair/body-contact calibration or motion/fit/AAA/human-attractiveness claim.",
+    "Native page JPEGs qualify only actual captured static context; no PNG/export, pixel/phase/served-byte/allocator or convergence claim."
+  ]
+}

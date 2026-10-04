@@ -1,0 +1,5 @@
+# Root native admission
+
+Root fully reads complete final source critique56a92fe9…/reader/15-pin metadata and independently reads current publicstep and Stageviewport code(d456db). Original-camera omission is resolved before native in final sourcebcdf50bc…. Final syntax2998a8 exits0. Root65576 executes saved-first root-preflight.py at06:22:36.640539–.662071UTC,exit0/chunk95670a before06:23: all15 critic bindings,14 current worth inputs,16 frozen worth payloads, exact recipe and eleven packet source inputs independently reconcile. ROOT-PREFLIGHT041057bc…. Product/packages/assets/looks diff is empty.
+
+GO only for one new known hidden browser tab, one creation and the fixed front0°/three-quarter35° native context screenshots, first native by06:26/full stop06:39. Actual owner/appearance/framing/media/retirement remain unproved. Source numeric authority does not qualify pixels. Stop on the first declared failure; no retuning or replay. Collect full actual failure/retirement/pending state, finite console and close only owned tab; retain usertab1/review/accepted/fullroadmap. No endpoint contact/wardrobe/whole-starter or source/default change.

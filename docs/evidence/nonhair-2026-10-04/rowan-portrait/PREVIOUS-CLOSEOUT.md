@@ -1,0 +1,3 @@
+# Raw official state whitespace qualification
+
+Worth commita2b53ba preserves exact native OFFICIAL-STATE.txt. Initial staged gitdiff--check6348aa exits2 for two literal trailing spaces in that captured AX text (lines106/246). The separately issued commit84474b still runs; do not call the initial whitespace check passing or normalize frozen raw source data. No product source is changed. The follow-up check excludes only this exact raw AX witness while retaining all other committed files in scope; its actual result is recorded separately. This is preservation metadata, not a product test or broad whitespace exemption.

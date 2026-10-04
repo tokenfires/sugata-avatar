@@ -1,0 +1,233 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-04/rowan-portrait/root-preflight.py 56a92fe98963f107f7a5ef1e466cbfdfe29353d6ca033cac8ed230d0b53acc63",
+  "pid": 65576,
+  "started": "2026-10-04T06:22:36.640539+00:00",
+  "ended": "2026-10-04T06:22:36.662071+00:00",
+  "criticSHA256": "56a92fe98963f107f7a5ef1e466cbfdfe29353d6ca033cac8ed230d0b53acc63",
+  "criticInputPins": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/PLAN.md",
+      "bytes": 3971,
+      "sha256": "84ae599a9eb13fb2eb45b552219b5cf3c92bf8d446da958c6006ea3acb47f016"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/ROWAN.json",
+      "bytes": 310,
+      "sha256": "cac2af29e9d02349a167e296fb52727a2c924ec23487fb6e76fbcabbdec1f0b0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/preview.html",
+      "bytes": 1309,
+      "sha256": "5d8fb8919f1038a144facc332c9f2867d0021524ec33e67d35aa246514d7245c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/preview.mjs",
+      "bytes": 5419,
+      "sha256": "bcdf50bcbb1eb201ab41126a850bc649ae382b50ad01ce8573b134e701275d3a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/SOURCE-FINDING.md",
+      "bytes": 817,
+      "sha256": "1d682d21fa301ad9517d85e13edc8c10f8b04b8f175cc83eae5265e4ba2e54e6"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/CHECKS.md",
+      "bytes": 957,
+      "sha256": "dd8a06e665a3098e8c083de64d3aa24066c0fdb96af91f16d28b17e42f02909f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/PREVIOUS-CLOSEOUT.md",
+      "bytes": 624,
+      "sha256": "0adb1d362ae75798be8036e33fbaeba17cffed1cb6d090f61467a094b2879149"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/CRITIC-VALUE.md",
+      "bytes": 9732,
+      "sha256": "d944ee0e3518e64709e5d09ab65226791cc9dc350f023a8dd17bea8e50d42aa9"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/SOURCE-CORRECTION.md",
+      "bytes": 1668,
+      "sha256": "018a8bb431afc01baabed946f41821066474bea135981e45c86447d62f424363"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/critic-source-pins.py",
+      "bytes": 1971,
+      "sha256": "c498fbf388c06f0b0ab52d1db54cf46b3d3204ecf262cf3cd1bed60afddec129"
+    }
+  ],
+  "inputPins": [
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/body-breadth-worth/WORTH.md",
+      "bytes": 6018,
+      "sha256": "52753a047f270a046cf6c2acb7098c03ac19be655db452860512fea9ff111d9d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644"
+    },
+    {
+      "path": "assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    },
+    {
+      "path": "assets/hair/bob01/g100.glb",
+      "bytes": 3346252,
+      "sha256": "e4c238ef739d98107d0f237e76e1235c0a6fa2af777489638f1cba3118aac5f7"
+    },
+    {
+      "path": "assets/hair/bob01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "path": "assets/hair/bob01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "path": "assets/hair/bob01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "path": "assets/hair/bob01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    }
+  ],
+  "worthPayloadCount": 16,
+  "packetPins": [
+    {
+      "file": "CHECKS.md",
+      "bytes": 957,
+      "sha256": "dd8a06e665a3098e8c083de64d3aa24066c0fdb96af91f16d28b17e42f02909f"
+    },
+    {
+      "file": "CRITIC-SOURCE-PINS.json",
+      "bytes": 3187,
+      "sha256": "fec24920ac5381971c3cd7e92934c65e02574ed2655d1e528243d217053878a7"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 8845,
+      "sha256": "56a92fe98963f107f7a5ef1e466cbfdfe29353d6ca033cac8ed230d0b53acc63"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3971,
+      "sha256": "84ae599a9eb13fb2eb45b552219b5cf3c92bf8d446da958c6006ea3acb47f016"
+    },
+    {
+      "file": "PREVIOUS-CLOSEOUT.md",
+      "bytes": 624,
+      "sha256": "0adb1d362ae75798be8036e33fbaeba17cffed1cb6d090f61467a094b2879149"
+    },
+    {
+      "file": "ROWAN.json",
+      "bytes": 310,
+      "sha256": "cac2af29e9d02349a167e296fb52727a2c924ec23487fb6e76fbcabbdec1f0b0"
+    },
+    {
+      "file": "SOURCE-FINDING.md",
+      "bytes": 817,
+      "sha256": "1d682d21fa301ad9517d85e13edc8c10f8b04b8f175cc83eae5265e4ba2e54e6"
+    },
+    {
+      "file": "critic-source-pins.py",
+      "bytes": 1971,
+      "sha256": "c498fbf388c06f0b0ab52d1db54cf46b3d3204ecf262cf3cd1bed60afddec129"
+    },
+    {
+      "file": "preview.html",
+      "bytes": 1309,
+      "sha256": "5d8fb8919f1038a144facc332c9f2867d0021524ec33e67d35aa246514d7245c"
+    },
+    {
+      "file": "preview.mjs",
+      "bytes": 5419,
+      "sha256": "bcdf50bcbb1eb201ab41126a850bc649ae382b50ad01ce8573b134e701275d3a"
+    },
+    {
+      "file": "root-preflight.py",
+      "bytes": 2634,
+      "sha256": "ee7cbcf7d54ba82e112c4acc34e54d911a278bbbdb111e04b36b1e608c81764f"
+    }
+  ],
+  "recipe": {
+    "identity": {
+      "gender": 1,
+      "mode": "nearest"
+    },
+    "quality": "balanced",
+    "frame": "portrait",
+    "framedHeightMetres": 0.55,
+    "seed": 20260807,
+    "autoStart": false,
+    "scene": "studio",
+    "lighting": "neutral",
+    "background": "studio",
+    "hair": "bob01",
+    "hairColour": "#2f251f",
+    "wardrobe": false
+  },
+  "passed": true,
+  "scope": "Root fully reads complete source handoff and independently verifies current input/source/recipe pins before first open; metadata/hash only, no import/render/topology or appearance proof."
+}

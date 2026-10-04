@@ -1,0 +1,93 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-04/rowan-portrait/critic-result-reader.py",
+  "pid": 77224,
+  "startedAt": "2026-10-04T06:28:51.131812+00:00",
+  "finishedAt": "2026-10-04T06:28:51.133419+00:00",
+  "scope": "Saved source/state/media filesystem readback only; no import, evaluator, asset parser, renderer or browser.",
+  "sourcePinsUnchanged": 15,
+  "pins": [
+    {
+      "file": "FRONT-STATE.json",
+      "bytes": 21686,
+      "sha256": "0750ac1a398ead10f45752c941d35c3147c08bc2cd7a7c20f2c640257bc94a99"
+    },
+    {
+      "file": "RETIRED-STATE.json",
+      "bytes": 21869,
+      "sha256": "9f2a2f2145e78b53a872c1193f8b61f80c6c8edb77b5935d4234dbe58c4bbec3"
+    },
+    {
+      "file": "NATIVE-JOB.json",
+      "bytes": 326,
+      "sha256": "75fb92adebee79b58f495158ec88649fa84f4e0e8c82beb4587009fd1068459a"
+    },
+    {
+      "file": "NATIVE-CLOSE.json",
+      "bytes": 472,
+      "sha256": "76d63bce7fdb99d7899b0866448602824b9e84bf9d6cb9865033ac7b07b16cd7"
+    },
+    {
+      "file": "NATIVE-CONSOLE.json",
+      "bytes": 1217,
+      "sha256": "58582060818384f7a3e5f46d044a57a0ee72af49eb2b0aba52f91d052d74f467"
+    },
+    {
+      "file": "NATIVE-ADMISSION.md",
+      "bytes": 1163,
+      "sha256": "9385d191b87f022a3f72c2f8769958d3d75539a92dcbb96170a0f077ad168fbf"
+    },
+    {
+      "file": "ARTISTIC-STOP.md",
+      "bytes": 2492,
+      "sha256": "0860fb17e7e29468fefa243827e0407d2f95d1bb5c5a1b5f93651c0b4fdfd59b"
+    },
+    {
+      "file": "front.jpg",
+      "bytes": 53638,
+      "sha256": "05f0b6e884b36798099a586fc163cc8fdaa56d73b6bc20cd3a45cb0d5ac6e473"
+    },
+    {
+      "file": "critic-result-reader.py",
+      "bytes": 6271,
+      "sha256": "593e7f25041533b4f61f40a47ae507e2aa97cc625485607fa01700fc172b1a0e"
+    },
+    {
+      "file": "CRITIC-SOURCE-PINS.json",
+      "bytes": 3187,
+      "sha256": "fec24920ac5381971c3cd7e92934c65e02574ed2655d1e528243d217053878a7"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 8845,
+      "sha256": "56a92fe98963f107f7a5ef1e466cbfdfe29353d6ca033cac8ed230d0b53acc63"
+    }
+  ],
+  "jpegDimensions": [
+    1280,
+    720
+  ],
+  "creationFrame": 0,
+  "completedViews": [
+    "front"
+  ],
+  "frontFrame": 32,
+  "clockSeconds": 0,
+  "cameraOperandResiduals": {
+    "distance": 0.0,
+    "target": 0,
+    "position": 0
+  },
+  "retirement": {
+    "reason": "manual",
+    "at": "2026-10-04T06:24:55.352Z",
+    "pendingAtRetirement": false,
+    "error": null,
+    "disposal": {
+      "disposed": true,
+      "leaked": []
+    }
+  },
+  "consoleWarnings": 3,
+  "consoleErrors": 0,
+  "limits": "Header/state checks do not qualify appearance, served asset bytes, full pose equality, allocator reclamation or the absent three-quarter view."
+}

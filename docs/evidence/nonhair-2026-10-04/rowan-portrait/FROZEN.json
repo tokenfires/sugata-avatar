@@ -1,0 +1,154 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-04/rowan-portrait/freeze.py",
+  "pid": 81486,
+  "started": "2026-10-04T06:36:48.625352+00:00",
+  "ended": "2026-10-04T06:36:48.626342+00:00",
+  "pins": [
+    {
+      "file": "ARTISTIC-STOP.md",
+      "bytes": 2492,
+      "sha256": "0860fb17e7e29468fefa243827e0407d2f95d1bb5c5a1b5f93651c0b4fdfd59b"
+    },
+    {
+      "file": "CHECKS.md",
+      "bytes": 957,
+      "sha256": "dd8a06e665a3098e8c083de64d3aa24066c0fdb96af91f16d28b17e42f02909f"
+    },
+    {
+      "file": "CRITIC-RESULT-PINS.json",
+      "bytes": 2709,
+      "sha256": "887f26fe96323a3e2ce38c8b69b45a15407bb022ef88033cb1f10c52d522860a"
+    },
+    {
+      "file": "CRITIC-RESULT.md",
+      "bytes": 9752,
+      "sha256": "3c774a4883578862a88540ecc555374094091c58462fac419d8092c0448d9df5"
+    },
+    {
+      "file": "CRITIC-SOURCE-PINS.json",
+      "bytes": 3187,
+      "sha256": "fec24920ac5381971c3cd7e92934c65e02574ed2655d1e528243d217053878a7"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 8845,
+      "sha256": "56a92fe98963f107f7a5ef1e466cbfdfe29353d6ca033cac8ed230d0b53acc63"
+    },
+    {
+      "file": "FRONT-STATE.json",
+      "bytes": 21686,
+      "sha256": "0750ac1a398ead10f45752c941d35c3147c08bc2cd7a7c20f2c640257bc94a99"
+    },
+    {
+      "file": "NATIVE-ADMISSION.md",
+      "bytes": 1163,
+      "sha256": "9385d191b87f022a3f72c2f8769958d3d75539a92dcbb96170a0f077ad168fbf"
+    },
+    {
+      "file": "NATIVE-CLOSE.json",
+      "bytes": 472,
+      "sha256": "76d63bce7fdb99d7899b0866448602824b9e84bf9d6cb9865033ac7b07b16cd7"
+    },
+    {
+      "file": "NATIVE-CONSOLE.json",
+      "bytes": 1217,
+      "sha256": "58582060818384f7a3e5f46d044a57a0ee72af49eb2b0aba52f91d052d74f467"
+    },
+    {
+      "file": "NATIVE-JOB.json",
+      "bytes": 326,
+      "sha256": "75fb92adebee79b58f495158ec88649fa84f4e0e8c82beb4587009fd1068459a"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3971,
+      "sha256": "84ae599a9eb13fb2eb45b552219b5cf3c92bf8d446da958c6006ea3acb47f016"
+    },
+    {
+      "file": "PREVIOUS-CLOSEOUT.md",
+      "bytes": 624,
+      "sha256": "0adb1d362ae75798be8036e33fbaeba17cffed1cb6d090f61467a094b2879149"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 3777,
+      "sha256": "8eb5b1cf934ebb97b77bffe027c943e21957d7fddc98589ec3876be30e499a4b"
+    },
+    {
+      "file": "RETIRED-STATE.json",
+      "bytes": 21869,
+      "sha256": "9f2a2f2145e78b53a872c1193f8b61f80c6c8edb77b5935d4234dbe58c4bbec3"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 7936,
+      "sha256": "041057bcdae3edbdf5e093f2694cb1b999f9d036b0d74eff216e329d5c4e2ba3"
+    },
+    {
+      "file": "ROOT-REPORT-READBACK.json",
+      "bytes": 10300,
+      "sha256": "d24e278014e4f85d22826366bffb3f8e7b08e4a90a832486dacfe1bd9dc3173d"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 4510,
+      "sha256": "fa19340442d1b793521ca6519ab3b6019947a8af3253f150a226303e2b6c3dfe"
+    },
+    {
+      "file": "ROOT-RESULT.md",
+      "bytes": 2560,
+      "sha256": "a964b9505a6dc216ae883a658fdf172dc9eb7e25278553a44ea50b5112accf99"
+    },
+    {
+      "file": "ROWAN.json",
+      "bytes": 310,
+      "sha256": "cac2af29e9d02349a167e296fb52727a2c924ec23487fb6e76fbcabbdec1f0b0"
+    },
+    {
+      "file": "SOURCE-FINDING.md",
+      "bytes": 817,
+      "sha256": "1d682d21fa301ad9517d85e13edc8c10f8b04b8f175cc83eae5265e4ba2e54e6"
+    },
+    {
+      "file": "critic-result-reader.py",
+      "bytes": 6271,
+      "sha256": "593e7f25041533b4f61f40a47ae507e2aa97cc625485607fa01700fc172b1a0e"
+    },
+    {
+      "file": "critic-source-pins.py",
+      "bytes": 1971,
+      "sha256": "c498fbf388c06f0b0ab52d1db54cf46b3d3204ecf262cf3cd1bed60afddec129"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "front.jpg",
+      "bytes": 53638,
+      "sha256": "05f0b6e884b36798099a586fc163cc8fdaa56d73b6bc20cd3a45cb0d5ac6e473"
+    },
+    {
+      "file": "preview.html",
+      "bytes": 1309,
+      "sha256": "5d8fb8919f1038a144facc332c9f2867d0021524ec33e67d35aa246514d7245c"
+    },
+    {
+      "file": "preview.mjs",
+      "bytes": 5419,
+      "sha256": "bcdf50bcbb1eb201ab41126a850bc649ae382b50ad01ce8573b134e701275d3a"
+    },
+    {
+      "file": "root-preflight.py",
+      "bytes": 2634,
+      "sha256": "ee7cbcf7d54ba82e112c4acc34e54d911a278bbbdb111e04b36b1e608c81764f"
+    },
+    {
+      "file": "root-result.py",
+      "bytes": 4770,
+      "sha256": "206000aa70661ddeda08722f7cc517f1bda7487291d6a0319f5ef4e87407ca1e"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}

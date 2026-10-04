@@ -49,6 +49,8 @@ September 29 [hair-colour customization](evidence/hair-2026-09-29/colour-control
 
 Keep representation and customization present throughout Phase 1. Attractive examples are a design deliverable with visual review, not a side effect of exposing sliders.
 
+October4's deliberately authored [Rowan masculine portrait screening](evidence/nonhair-2026-10-04/rowan-portrait/RECEIPT.md) uses the supported g100/Long bob route but declines its first actual front: fringe partly obscures one eye and a striped neck band interrupts the hair's fall. The whole head is inside the view and creation/retirement succeed. This is an artistic refusal without an exclusive source/material/contact diagnosis, not a curated starter, endpoint wardrobe or motion pass. Preserve that real witness and the complete representation ambition; further grooming needs an independently owned creative source contract.
+
 October 3's [separates source contract](WARDROBE-SEPARATES-CONTRACT-2026-10-03.md) identifies exact tee/denim/blouse/skirt triangle partitions in the two current g050 garments. This is a geometry reuse lead only: independent body/foundation coverage, material/slot ownership, exposed boundaries and complete combination fit/appearance remain unqualified. No separate garments or mix-and-match feature are integrated.
 
 September 26's [wardrobe coupling study](evidence/nonhair-2026-09-26/wardrobe-coupling/README.md)
