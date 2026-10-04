@@ -1,0 +1,180 @@
+{
+  "startUTC": "2026-10-04T21:05:00Z",
+  "stopUTC": "2026-10-04T21:50:00Z",
+  "sourceGateUTC": "2026-10-04T21:17:00Z",
+  "authorGateUTC": "2026-10-04T21:21:00Z",
+  "dataGateUTC": "2026-10-04T21:26:00Z",
+  "nativeCreationGateUTC": "2026-10-04T21:36:00Z",
+  "acquisitionGateUTC": "2026-10-04T21:40:00Z",
+  "criticGateUTC": "2026-10-04T21:46:00Z",
+  "units": "metres; original initial g050 A-rest worlds; identity parent",
+  "torsoAngularCount": 16,
+  "torsoRowsYWidthDepthCenterZ": [
+    [
+      0.9,
+      0.22,
+      0.1375,
+      0.04
+    ],
+    [
+      1,
+      0.225,
+      0.1525,
+      0.04
+    ],
+    [
+      1.16,
+      0.235,
+      0.1675,
+      0.04
+    ],
+    [
+      1.22,
+      0.235,
+      0.1675,
+      0.04
+    ],
+    [
+      1.28,
+      0.23,
+      0.1575,
+      0.04
+    ],
+    [
+      1.35,
+      0.22,
+      0.1525,
+      0.04
+    ],
+    [
+      1.4,
+      0.075,
+      0.07,
+      0.04
+    ]
+  ],
+  "omittedTorsoQuadRowColumns": [
+    [
+      3,
+      15
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      4,
+      15
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      8
+    ]
+  ],
+  "sharedRootOldIDs": {
+    "positive-X-cuff": [
+      80,
+      95,
+      79,
+      63,
+      48,
+      49,
+      65,
+      81
+    ],
+    "negative-X-cuff": [
+      88,
+      87,
+      71,
+      55,
+      56,
+      57,
+      73,
+      89
+    ]
+  },
+  "positiveSleeveCentres": [
+    [
+      0.28,
+      1.24,
+      0.0275
+    ],
+    [
+      0.34,
+      1.14,
+      0.035
+    ],
+    [
+      0.44,
+      1.035,
+      0.166
+    ]
+  ],
+  "sleeveRadiiUV": [
+    [
+      0.075,
+      0.075
+    ],
+    [
+      0.062,
+      0.062
+    ],
+    [
+      0.043,
+      0.043
+    ]
+  ],
+  "sleeveAngularCount": 8,
+  "frames": "C0 mean of declared shared root vertices; d1=unit(C2-C0),d2=unit(C3-C1),d3=unit(C3-C2); U=unit(Y-dot(Y,d)*d); V=unit(U cross d). Negative side mirrors centre X, computes same formula, no correction. j phase zero along U, increment towards V.",
+  "torsoQuadOrder": "[r,j; r+1,j; r+1,j+1; r,j+1] modulo16",
+  "sleeveQuadOrder": "[prior,j; next,j; next,j+1; prior,j+1] modulo8; prior first is exact shared root IDs",
+  "freeLoops": "hem original IDs0..15; neck96..111; cuffs each final sleeve ring, all named before validation",
+  "removeUnusedOldIDs": [
+    64,
+    72
+  ],
+  "expectedRaw": {
+    "V": 158,
+    "E": 296,
+    "F": 136,
+    "Euler": -2,
+    "boundaryEdges": 48
+  },
+  "expectedSmooth": {
+    "V": 590,
+    "E": 1136,
+    "F": 544,
+    "Euler": -2,
+    "boundaryEdges": 96
+  },
+  "smoothing": {
+    "operator": "one Catmull-Clark pass",
+    "boundary": "original boundary vertices locked; boundary edge midpoints"
+  },
+  "quadDiagonal": "0-2",
+  "minimumTriangleArea": 1e-12,
+  "requiredEuler": -2,
+  "roles": [
+    "hem",
+    "neck",
+    "negative-X-cuff",
+    "positive-X-cuff"
+  ],
+  "globalOutwardGate": "positive signed volume of 0-2 triangles plus temporary oppositely oriented fan caps at the four declared free loops; caps are check-only, never exported; no local intersection/contact proof"
+}

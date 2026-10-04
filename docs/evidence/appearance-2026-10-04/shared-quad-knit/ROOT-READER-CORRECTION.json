@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-04T21:30:52.925787+00:00",
+  "failedCommand": "python3 docs/evidence/appearance-2026-10-04/shared-quad-knit/root-observed.py",
+  "failedChunk": "2e36d7/exit1",
+  "failedPID": "not separately observed before assertion; do not infer",
+  "initialSourceSHA256": "e4ef4104efa61b9a410e26b7a5329e004b01d72ea462a98b95dd3d017930c083",
+  "correctedSourceSHA256": "74b20757f677efaf52d77e8db65a2b7ae8ebdd40118e1dfd264f65331919067d",
+  "oneReplacement": {
+    "before": "assert counts=={'body':7,'bra':1,'briefs':1} and nodes==171 and bones==477",
+    "after": "assert counts=={'body':7,'bra':1,'briefs':1} and nodes==174 and sum(len(v['rawDocument']['nodes']) for v in o['sources'])==171 and bones==477"
+  },
+  "actualWitness": "0c35a4 current and accepted observations both have loader62/56/56=174 nodes versus raw61/55/55=171; each added scene root is already in full operand-equality comparison;9owners/477bones unchanged",
+  "classification": "Root reader premise error, not source asset/native candidate defect or gate relaxation; no constructor/native rerun; appearanceB remains"
+}

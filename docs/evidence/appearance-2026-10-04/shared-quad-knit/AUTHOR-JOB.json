@@ -1,0 +1,233 @@
+{
+  "started": "2026-10-04T21:12:53.346608+00:00",
+  "pid": 27391,
+  "maximumInvocations": 1,
+  "status": "A artist topology only; appearance pending",
+  "completed": "2026-10-04T21:12:53.360034+00:00",
+  "checks": {
+    "raw": {
+      "V": 158,
+      "E": 296,
+      "F": 136,
+      "Euler": -2,
+      "cycles": [
+        {
+          "role": "hem",
+          "vertices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "role": "neck",
+          "vertices": [
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109
+          ]
+        },
+        {
+          "role": "negative-X-cuff",
+          "vertices": [
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133
+          ]
+        },
+        {
+          "role": "positive-X-cuff",
+          "vertices": [
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157
+          ]
+        }
+      ],
+      "minimumTriangleArea": 0.0005916500910992452,
+      "edgeAndVertexManifold": true,
+      "connectedOrientable": true,
+      "boundaryEdges": 48,
+      "signedCappedVolume": 0.06003593027090165
+    },
+    "smooth": {
+      "V": 590,
+      "E": 1136,
+      "F": 544,
+      "Euler": -2,
+      "cycles": [
+        {
+          "role": "hem",
+          "vertices": [
+            0,
+            161,
+            1,
+            164,
+            2,
+            167,
+            3,
+            170,
+            4,
+            173,
+            5,
+            176,
+            6,
+            179,
+            7,
+            182,
+            8,
+            185,
+            9,
+            188,
+            10,
+            191,
+            11,
+            194,
+            12,
+            197,
+            13,
+            200,
+            14,
+            203,
+            15,
+            205
+          ]
+        },
+        {
+          "role": "neck",
+          "vertices": [
+            94,
+            323,
+            95,
+            326,
+            96,
+            328,
+            97,
+            330,
+            98,
+            332,
+            99,
+            334,
+            100,
+            336,
+            101,
+            338,
+            102,
+            341,
+            103,
+            344,
+            104,
+            346,
+            105,
+            348,
+            106,
+            350,
+            107,
+            352,
+            108,
+            354,
+            109,
+            356
+          ]
+        },
+        {
+          "role": "negative-X-cuff",
+          "vertices": [
+            126,
+            391,
+            127,
+            393,
+            128,
+            395,
+            129,
+            397,
+            130,
+            399,
+            131,
+            401,
+            132,
+            403,
+            133,
+            405
+          ]
+        },
+        {
+          "role": "positive-X-cuff",
+          "vertices": [
+            150,
+            439,
+            151,
+            441,
+            152,
+            443,
+            153,
+            445,
+            154,
+            447,
+            155,
+            449,
+            156,
+            451,
+            157,
+            453
+          ]
+        }
+      ],
+      "minimumTriangleArea": 1.760206786182531e-05,
+      "edgeAndVertexManifold": true,
+      "connectedOrientable": true,
+      "boundaryEdges": 96,
+      "signedCappedVolume": 0.05796313954634645
+    }
+  },
+  "outputs": {
+    "RAW.json": {
+      "bytes": 191683,
+      "sha256": "ae171ac2adb914827ae631746dd6e4603862fbd9012b1974c5bacf4a5e333925"
+    },
+    "mesh.json": {
+      "bytes": 92038,
+      "sha256": "710e5da66cf7278706b90c7c5fce2492bf4b0ac31f902d159c1b98d60dd1d330"
+    },
+    "sweater.obj": {
+      "bytes": 44730,
+      "sha256": "c77b4ad97621cbdc59ca32ab4a2b0a12ebc3f44aca021e63a8764c4d1a596e4a"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "source": "docs/evidence/appearance-2026-10-04/source-rest-addressed/viewer.mjs",
+  "unchangedFunctionSHA256": {
+    "snapshot": "40d954b5bbfa1e6add43173004934de21356c7203b948d06560ba62ec47fbeab",
+    "delta": "182e23b11e35af679d55e251bcb2520b8e5c85a2f5e29a2fe67f6d69d9f1bd2d",
+    "compare": "1e07a04b7561ac2071dea430ca22aa0e494c6c5920a192cdc3d42f90268a4758"
+  },
+  "changes": "candidate loader, third fixed camera/clip, all-source paired modes, title/control names; no original importer/snapshot/compare changes",
+  "sourcePreparationCorrection": "97a329 first textual authority extractor accidentally included new async loadGarment in compare span and refused before metadata; fixed only extractor; viewer unchanged; no browser/native created"
+}

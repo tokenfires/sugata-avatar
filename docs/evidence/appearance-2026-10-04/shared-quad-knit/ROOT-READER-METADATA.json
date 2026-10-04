@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-04T21:31:52.757873+00:00",
+  "secondFailure": "4e549e/exit1 PIL unavailable after all source/mesh/clip/draw/cleanup/tab/hash comparisons passed; reader did not save final receipt",
+  "sourceBeforeSHA": "74b20757f677efaf52d77e8db65a2b7ae8ebdd40118e1dfd264f65331919067d",
+  "sourceAfterSHA": "8a0f6332961c93b735ced19370165b2ee41c0d2f32c734385daec9125e0fd206",
+  "change": "Only read-only JPEG dimension observer replaces unavailablePIL with standard-library SOF parser; no library install or image edit",
+  "limits": "Candidate/source/native unchanged and appearanceB unchanged; root verification reader, not author/native rerun"
+}

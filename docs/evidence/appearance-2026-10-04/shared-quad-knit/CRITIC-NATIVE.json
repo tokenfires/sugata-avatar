@@ -1,0 +1,75 @@
+{
+  "pid": 58836,
+  "startedUTC": "2026-10-04T21:31:09.675250+00:00",
+  "completedUTC": "2026-10-04T21:31:09.712123+00:00",
+  "status": "saved operands pass; contextual visual decision separate",
+  "pins": {
+    "OBSERVATIONS.json": {
+      "bytes": 1634484,
+      "sha256": "bb4069a041b9bbb9d5a1c8a5bfd70e16e2677649eb225d4772f5f56be5d2ef7b"
+    },
+    "NATIVE-JOB.json": {
+      "bytes": 6436,
+      "sha256": "74511c9bcd85d8b8779fcd18906bfe447e6965ca9f5d21ad57d0b1715d763826"
+    },
+    "CONSOLE.json": {
+      "bytes": 172,
+      "sha256": "3d56de9c80858228eca565e36fa7d6ae3f363c9add856c408aeae93bca4002ac"
+    },
+    "front-oblique.jpg": {
+      "bytes": 46396,
+      "sha256": "3e45012601ec50f2731e68dbebd4de8cf660a8d8a73b2ed6f37fe72c6398fb3d"
+    },
+    "front-back.jpg": {
+      "bytes": 45259,
+      "sha256": "4a0c4172599501f7e3ce51db631b863a5b8037732a868e4b9d6fbcc1df462c61"
+    },
+    "NATIVE-INPUTS.json": {
+      "bytes": 3646,
+      "sha256": "b26363f26694b3292991c50fd8da4c326ae76c89862a578d0f0c8ab9fd96716c"
+    },
+    "NATIVE-CONTRACT.md": {
+      "bytes": 3498,
+      "sha256": "f632b1da79769268897f99769f845bd6debda908b8be1d17e910803add544761"
+    },
+    "NATIVE-SOURCE.md": {
+      "bytes": 3919,
+      "sha256": "2ab4ab6ca64c5876838d7298f87f352d71c727be9356e36f4556b2ad30e8de9f"
+    },
+    "DATA.md": {
+      "bytes": 3213,
+      "sha256": "72d8719a0d3318817f4967c0db5b005ee3b58ba2e8a455c764591fcd7824c685"
+    },
+    "viewer.mjs": {
+      "bytes": 15180,
+      "sha256": "4aa5801b065a7bdc6b473839279eb16c99e3c10e8f60f1d3c52bac81f98e538a"
+    },
+    "index.html": {
+      "bytes": 1290,
+      "sha256": "9b1edacf8c43537748e39e82027d5a036af5af6553cb1588c2a32d41342c2cf0"
+    },
+    "mesh.json": {
+      "bytes": 92038,
+      "sha256": "710e5da66cf7278706b90c7c5fce2492bf4b0ac31f902d159c1b98d60dd1d330"
+    },
+    "critic-native.py": {
+      "bytes": 11815,
+      "sha256": "187e695400e205e1a3c74208e9e540dd5569f0a0c8a4b02f98677f781e8f3b0c"
+    }
+  },
+  "verifiedNativeInputCount": 20,
+  "drawCounts": [
+    2,
+    1088
+  ],
+  "Float32PositionIndexExact": true,
+  "normalResidual": 0.0,
+  "minimumFloat32TriangleArea": 1.7601269150295404e-05,
+  "associatedSourceNodes": 171,
+  "rawWorldMaximumResidual": 3.3306690738754696e-16,
+  "namedComparisons": 477,
+  "comparisonMetricResidual": 0.0,
+  "cameraClipResidual": 1.1102230246251565e-16,
+  "returnedDisposalAttempts": 33,
+  "limits": "No GLB decode, author/helper import or execution, new geometry, renderer, HTTP or browser. Original source position buffers are not exported: framing bounds are recorded operands, not independently re-evaluated source vertices. Inverse-bind values compared from exported operands, not independently decoded accessors. No pixel-cause, contact/fit/coverage/morph-range/motion or post-close GPU-memory proof."
+}

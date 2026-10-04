@@ -1,0 +1,114 @@
+{
+  "started": "2026-10-04T21:13:23.250940+00:00",
+  "pid": 28352,
+  "savedOnly": true,
+  "bindings": {
+    "ARTIST.json": {
+      "bytes": 3123,
+      "sha256": "4e3b7d26bad9505f4b600874a525c2edebee8b08fc8baf4818dffb14048ea76a"
+    },
+    "INPUTS.json": {
+      "bytes": 2917,
+      "sha256": "c3f783d613ee78412b64eeb2b7d46c14f9ba88030c9ecedbef92f868723f105d"
+    },
+    "author.py": {
+      "bytes": 11613,
+      "sha256": "c7bb5a19b351c6a4300724df0fad5053242d7bc9efca4e464cff71b17f315890"
+    },
+    "runner.py": {
+      "bytes": 3108,
+      "sha256": "7b416bc33f46373a41389f35a3e9502efda4055afa3adea6547af8347c1d5e32"
+    },
+    "RAW.json": {
+      "bytes": 191683,
+      "sha256": "ae171ac2adb914827ae631746dd6e4603862fbd9012b1974c5bacf4a5e333925"
+    },
+    "mesh.json": {
+      "bytes": 92038,
+      "sha256": "710e5da66cf7278706b90c7c5fce2492bf4b0ac31f902d159c1b98d60dd1d330"
+    },
+    "sweater.obj": {
+      "bytes": 44730,
+      "sha256": "c77b4ad97621cbdc59ca32ab4a2b0a12ebc3f44aca021e63a8764c4d1a596e4a"
+    },
+    "AUTHOR-JOB.json": {
+      "bytes": 4346,
+      "sha256": "b5ed6d022e67686ce87656a698f1ba0426f8f8f6944922315fbd068b4952c6ad"
+    },
+    "RUN-PROCESS.json": {
+      "bytes": 1621,
+      "sha256": "151ab689f7f763462443e848356ba16ef55efbbfc6aa99c61d4328005506d37e"
+    },
+    "STDOUT.txt": {
+      "bytes": 1972,
+      "sha256": "16c652478c08cec4d47b44ecbd5d9ffa3975b7442fe42708d6a78cb551b193bd"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "authoredCoordinateMaxDifference": 2.220446049250313e-16,
+  "stages": {
+    "raw": {
+      "V": 158,
+      "E": 296,
+      "F": 136,
+      "Euler": -2,
+      "boundaryEdges": 48,
+      "loops": [
+        {
+          "role": "hem",
+          "vertices": 16
+        },
+        {
+          "role": "neck",
+          "vertices": 16
+        },
+        {
+          "role": "negative-X-cuff",
+          "vertices": 8
+        },
+        {
+          "role": "positive-X-cuff",
+          "vertices": 8
+        }
+      ],
+      "minimumTriangleArea": 0.0005916500910992452,
+      "signedCappedVolume": 0.06003593027090165,
+      "allEdgeOrientationAndVertexLinksPass": true
+    },
+    "smooth": {
+      "V": 590,
+      "E": 1136,
+      "F": 544,
+      "Euler": -2,
+      "boundaryEdges": 96,
+      "loops": [
+        {
+          "role": "hem",
+          "vertices": 32
+        },
+        {
+          "role": "neck",
+          "vertices": 32
+        },
+        {
+          "role": "negative-X-cuff",
+          "vertices": 16
+        },
+        {
+          "role": "positive-X-cuff",
+          "vertices": 16
+        }
+      ],
+      "minimumTriangleArea": 1.760206786182531e-05,
+      "signedCappedVolume": 0.05796313954634645,
+      "allEdgeOrientationAndVertexLinksPass": true
+    }
+  },
+  "subdivisionAllVertexMaxDifference": 0,
+  "subdivisionAllFaceAndRoleIdentity": true,
+  "completed": "2026-10-04T21:13:23.269584+00:00",
+  "status": "A saved artist data only; appearance pending"
+}
