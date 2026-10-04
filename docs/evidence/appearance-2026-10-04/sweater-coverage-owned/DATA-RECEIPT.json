@@ -1,0 +1,274 @@
+{
+  "utc": "2026-10-04T23:16:01.021600+00:00",
+  "pid": 39808,
+  "decision": "A saved source coverage intent; conditional one native only after root handoff admission",
+  "checker": {
+    "started": "2026-10-04T23:12:52.772505+00:00",
+    "wrapperPID": 34415,
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/critic-partition.py"
+    ],
+    "maximumInvocations": 1,
+    "sourceBeforeInvocation": {
+      "bytes": 12150,
+      "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+    },
+    "exitCode": 0,
+    "fullReturnUTC": "2026-10-04T23:12:54.481827+00:00",
+    "sourceAfter": {
+      "bytes": 12150,
+      "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+    },
+    "actualFiles": {
+      "critic-partition.py": {
+        "bytes": 12150,
+        "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+      },
+      "CRITIC-DATA.json": {
+        "bytes": 9441,
+        "sha256": "faf198364f1f4f972e4448d6779b55d7599d1eb69ca2bb70594a5f0b7abfc9d0"
+      },
+      "CRITIC-STDOUT.txt": {
+        "bytes": 7889,
+        "sha256": "86d0a34b70339849f427b04a19f2119bb2f14f5e9012e958546244a8618834d3"
+      },
+      "CRITIC-STDERR.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "checkerStdoutEqualsSavedData": true,
+  "nineSourcePins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/author.py",
+      "bytes": 8852,
+      "sha256": "e5aee20fe45f5f222b782c91a52509b180121c2f983174062158e46cd855acae"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/viewer.mjs",
+      "bytes": 9297,
+      "sha256": "2272ec42d3f5903e9baacbf504cba2dd72b9260e37c5aa652acbb00c1d1d177e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/runner.py",
+      "bytes": 1556,
+      "sha256": "a886bd6d9b23255f23e64386c0b02cc74833ade639d9d7845cd7a1fa207d17fd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/index.html",
+      "bytes": 1982,
+      "sha256": "9a51d7cb4a0ac929f80c21b40bff1d8ef9f039908d652aa01d195e7643232e46"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/INPUTS.json",
+      "bytes": 2274,
+      "sha256": "08df6e08eed3d12489103f1e5b39f662d7b48cd2aa0d47f6193b5bb87fe6c302"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/SOURCE.md",
+      "bytes": 1430,
+      "sha256": "8e3cb5ad2b23fbd5296fe394cb1a999037c701f664e86d5ccf9ad58e132da707"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PLAN.md",
+      "bytes": 2520,
+      "sha256": "6b7742747f2c9763f7313122a527e854af5031aa97cc697ff41f85d7e803b4a3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/REPAIR.diff",
+      "bytes": 9451,
+      "sha256": "2ebdfa205fff8b47cc51d6d1a53108b66ac66f428fc7a10bc28f2b43328f19e3"
+    }
+  ],
+  "elevenOriginalInputPins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/ROOT-RESULT.json",
+      "bytes": 2503,
+      "sha256": "c2e4032b382703f25cdd6c0776ef4bda98889f4512a5743b87dd924606e9d68b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/shared-quad-knit/OBSERVATIONS.json",
+      "bytes": 1634484,
+      "sha256": "bb4069a041b9bbb9d5a1c8a5bfd70e16e2677649eb225d4772f5f56be5d2ef7b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/shared-quad-knit/front-back.jpg",
+      "bytes": 45259,
+      "sha256": "4a0c4172599501f7e3ce51db631b863a5b8037732a868e4b9d6fbcc1df462c61"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/shared-quad-knit/RESULT.md",
+      "bytes": 3787,
+      "sha256": "4952149801413e72ad576960c0695346ed2f462d09c2efbcd9e02fc71160d379"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/REFERENCES.md",
+      "bytes": 2381,
+      "sha256": "b9109f0655b6f07250ba731745ba1f11eff4cad49319b83c22cd3f689618513e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/primary-whole.jpg",
+      "bytes": 21438,
+      "sha256": "082f8bfc6eed3ab91eeb145ab80f5f6809c02eeaaa3f1bc94498f40116a2dabc"
+    },
+    {
+      "path": "node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    }
+  ],
+  "dataBindings": {
+    "PARTITION.json": {
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    "PARTIAL.json": {
+      "bytes": 581814,
+      "sha256": "5ac76aae8d5363c1a7af131222d3361212322b1747242c62eec28bc5926bf532"
+    },
+    "WORKSHEET.md": {
+      "bytes": 1010,
+      "sha256": "2b50c0346b93cca909d6bf5a760d0246046363a051cc6167ec83c7ce03543fcc"
+    },
+    "POLICY.json": {
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    },
+    "author.py": {
+      "bytes": 8852,
+      "sha256": "e5aee20fe45f5f222b782c91a52509b180121c2f983174062158e46cd855acae"
+    },
+    "runner.py": {
+      "bytes": 1556,
+      "sha256": "a886bd6d9b23255f23e64386c0b02cc74833ade639d9d7845cd7a1fa207d17fd"
+    },
+    "viewer.mjs": {
+      "bytes": 9297,
+      "sha256": "2272ec42d3f5903e9baacbf504cba2dd72b9260e37c5aa652acbb00c1d1d177e"
+    },
+    "index.html": {
+      "bytes": 1982,
+      "sha256": "9a51d7cb4a0ac929f80c21b40bff1d8ef9f039908d652aa01d195e7643232e46"
+    },
+    "PLAN.md": {
+      "bytes": 2520,
+      "sha256": "6b7742747f2c9763f7313122a527e854af5031aa97cc697ff41f85d7e803b4a3"
+    },
+    "INPUTS.json": {
+      "bytes": 2274,
+      "sha256": "08df6e08eed3d12489103f1e5b39f662d7b48cd2aa0d47f6193b5bb87fe6c302"
+    },
+    "SOURCE-INPUTS.json": {
+      "bytes": 2035,
+      "sha256": "4fe6ff0007a2078a03e53363433cfcf59d7babe5d1c54c837947e9c230680c31"
+    },
+    "SOURCE-RESULT.md": {
+      "bytes": 3427,
+      "sha256": "e1892a01ce311cc94018e7e287aaa16ee01dabec625fd276f48ffec04b411a44"
+    },
+    "SOURCE-RECEIPT.json": {
+      "bytes": 5514,
+      "sha256": "bcb7682378181daf19da1fb802284c53970811f738a65e47e9b8cb5a90977c51"
+    },
+    "REPAIR.diff": {
+      "bytes": 9451,
+      "sha256": "2ebdfa205fff8b47cc51d6d1a53108b66ac66f428fc7a10bc28f2b43328f19e3"
+    },
+    "RUN.json": {
+      "bytes": 1280,
+      "sha256": "f011409ba4408eb0c2f122a8fb106c8ec842d8b7897334789912cc6384e1f765"
+    },
+    "JOB.json": {
+      "bytes": 262,
+      "sha256": "ebacaa041b73639104134cdb448eb0a1807051767fa514220833e8ecd2616da9"
+    },
+    "stdout.txt": {
+      "bytes": 276,
+      "sha256": "8f675a1cb91df0bb6c52e6ff2869e78180940b261ef97054913b0635441bb1d5"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "critic-partition.py": {
+      "bytes": 12150,
+      "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+    }
+  },
+  "extraBindings": {
+    "CRITIC-INVOCATION.json": {
+      "bytes": 1202,
+      "sha256": "75948089d3f04db226f76dd27c62c49811a47aaa04979af36171ed7428f7ff8b"
+    },
+    "CRITIC-DATA.json": {
+      "bytes": 9441,
+      "sha256": "faf198364f1f4f972e4448d6779b55d7599d1eb69ca2bb70594a5f0b7abfc9d0"
+    },
+    "critic-partition.py": {
+      "bytes": 12150,
+      "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+    },
+    "CRITIC-STDOUT.txt": {
+      "bytes": 7889,
+      "sha256": "86d0a34b70339849f427b04a19f2119bb2f14f5e9012e958546244a8618834d3"
+    },
+    "CRITIC-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 702,
+      "sha256": "07891f7aed686415621c2eec01cd0e31e1450326356dd73fcae6e2196bcca028"
+    },
+    "ROOT-PRIMARY.json": {
+      "bytes": 2080,
+      "sha256": "f16e35a259d126a834830fcfbe5fc468b6a5d45f581c2555859c43f5b7438ea6"
+    },
+    "NATIVE-INPUTS.json": {
+      "bytes": 407,
+      "sha256": "9c37f6660d3df517c599728bb0ccd3b86dcac867e1b3c772533a68048702cfab"
+    },
+    "DATA-RESULT.md": {
+      "bytes": 2894,
+      "sha256": "f778932173b1f778cd225b6d11f2f6903f8d1752780d7423faa38f3b5ddefa58"
+    }
+  },
+  "totals": {
+    "triangles": 71512,
+    "fragments": 71951,
+    "cutTriangles": 439,
+    "degenerate": 0
+  },
+  "maximum3DAreaErrorSquareMetres": 2.100641709190665e-18,
+  "maximumLinearSideViolationMetres": 1.734723475976807e-18,
+  "maximumSharedReplayErrorMetres": 0.0,
+  "noProducerRootCheckerImportClipRerunGLBDecodeNativeGPUOrSourceEdit": true,
+  "noGarmentBuildOrFitAdmitted": true
+}

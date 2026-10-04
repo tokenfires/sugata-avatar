@@ -1,0 +1,71 @@
+--- ../sweater-coverage-brief/author.py
++++ author.py
+@@ -67,6 +67,7 @@
+                 ds=[distances[pi][v] for v in ids]
+                 def signed(b): return math.fsum(b[j]*ds[j] for j in range(3))
+                 def intersection(a,b,da,db):
++                    global shared_error
+                     zero=[j for j in range(3) if a[j]==0. and b[j]==0.]
+                     if len(zero)==1:
+                         inds=sorted([j for j in range(3) if j!=zero[0]],key=lambda j:ids[j])
+--- ../sweater-coverage-brief/viewer.mjs
++++ viewer.mjs
+@@ -4,9 +4,10 @@
+ const resources=new Set(),status=document.querySelector('#status'),output=document.querySelector('#record'),link=document.querySelector('#download');
+ const scene=new THREE.Scene();let renderer,cameras,width,height,finished=false,blob;
+ const finite=vs=>vs.every(Number.isFinite);
+-async function sha(bytes){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');}
++function ensureOpen(){if(finished)throw Error('Review already finished');}
++async function sha(bytes){const hash=await crypto.subtle.digest('SHA-256',bytes);ensureOpen();return Array.from(new Uint8Array(hash),b=>b.toString(16).padStart(2,'0')).join('');}
+ function publish(){output.textContent=JSON.stringify(record);if(blob)URL.revokeObjectURL(blob);blob=URL.createObjectURL(new Blob([output.textContent],{type:'application/json'}));link.href=blob;}
+-async function read(pin){const row={...pin};record.inputs.push(row);const response=await fetch(pin.url);row.status=response.status;if(!response.ok)throw Error('Fetch refused '+pin.url);const bytes=await response.arrayBuffer();row.observedBytes=bytes.byteLength;row.observedSHA256=await sha(bytes);publish();if(bytes.byteLength!==pin.bytes||row.observedSHA256!==pin.sha256)throw Error('Input changed '+pin.url);if(finished)throw Error('Finished during data read');return JSON.parse(new TextDecoder().decode(bytes));}
++async function read(pin){ensureOpen();const row={...pin};record.inputs.push(row);const response=await fetch(pin.url);ensureOpen();row.status=response.status;if(!response.ok)throw Error('Fetch refused '+pin.url);const bytes=await response.arrayBuffer();ensureOpen();row.observedBytes=bytes.byteLength;row.observedSHA256=await sha(bytes);publish();if(bytes.byteLength!==pin.bytes||row.observedSHA256!==pin.sha256)throw Error('Input changed '+pin.url);if(finished)throw Error('Finished during data read');return JSON.parse(new TextDecoder().decode(bytes));}
+ function cleanup(reason){finished=true;record.cleanupReason=reason;for(const r of resources){const row={type:r.type||r.constructor.name,attempted:true};try{r.dispose();row.returned=true;}catch(e){row.error=String(e);}record.disposals.push(row);}resources.clear();document.querySelectorAll('[data-mode]').forEach(b=>b.disabled=true);publish();}
+ document.querySelector('#finish').addEventListener('click',()=>{record.finished=new Date().toISOString();cleanup('explicit Finish');status.textContent='Review finished; observations retained';});
+ window.addEventListener('pagehide',()=>cleanup('pagehide'));
+@@ -14,6 +15,7 @@
+ function world(owner,tid,b){const ids=owner.triangles[tid];return [0,1,2].map(k=>b.reduce((s,v,j)=>s+v*owner.worldPositions[ids[j]][k],0));}
+ const colors={body:{required:0x91bad1,exposed:0xbea087},bra:{required:0x178fa8,exposed:0xd55e69},briefs:{required:0x697eaf,exposed:0x8767aa}};
+ async function construct(ledger,partition){
++  ensureOpen();
+   if(partition.status!=='complete'||partition.owners.length!==9||partition.triangleCount!==71512)throw Error('Incomplete partition');
+   record.planes=partition.planes;record.bounds=ledger.bounds;record.owners=[];
+   const all=[];
+@@ -31,16 +33,17 @@
+     record.owners.push({uuid:p.uuid,key:p.key,name:p.name,sourceTriangles:p.sourceTriangles,wholeRequired:p.required.length,wholeExposed:Object.fromEntries(Object.entries(p.exposed).map(([k,v])=>[k,v.length])),cut:p.cut.length,degenerate:p.degenerate.length});
+     for(const [kind,positions] of Object.entries(arrays)){
+       if(!positions.length)continue;if(!finite(positions))throw Error('Nonfinite source fragments');
+-      const buffer=new Float32Array(positions),geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(buffer,3));geometry.computeVertexNormals();resources.add(geometry);
++      ensureOpen();const buffer=new Float32Array(positions),geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(buffer,3));geometry.computeVertexNormals();resources.add(geometry);
+       const material=new THREE.MeshStandardMaterial({color:colors[p.key][kind],side:THREE.DoubleSide,roughness:1,metalness:0});resources.add(material);
+       const mesh=new THREE.Mesh(geometry,material);mesh.frustumCulled=false;scene.add(mesh);all.push(buffer);
+       record.groups.push({uuid:p.uuid,key:p.key,name:p.name,kind,vertices:buffer.length/3,triangles:buffer.length/9,positionsSHA256:await sha(buffer),normalsSHA256:await sha(geometry.attributes.normal.array),color:material.color.getHex(),side:material.side,matrix:mesh.matrix.toArray()});
+     }
+-    if(line.length){const buffer=new Float32Array(line),geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(buffer,3));resources.add(geometry);const material=new THREE.LineBasicMaterial({color:0xf8cf70,depthTest:false});resources.add(material);const lines=new THREE.LineSegments(geometry,material);lines.renderOrder=2;lines.frustumCulled=false;scene.add(lines);record.boundary={segments:buffer.length/6,positionsSHA256:await sha(buffer),depthTest:false,scope:'Main-body cut provenance; not welded loops'};}
++    if(line.length){ensureOpen();const buffer=new Float32Array(line),geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(buffer,3));resources.add(geometry);const material=new THREE.LineBasicMaterial({color:0xf8cf70,depthTest:false});resources.add(material);const lines=new THREE.LineSegments(geometry,material);lines.renderOrder=2;lines.frustumCulled=false;scene.add(lines);record.boundary={segments:buffer.length/6,positionsSHA256:await sha(buffer),depthTest:false,scope:'Main-body cut provenance; not welded loops'};}
+   }
+   return all;
+ }
+ function configure(ledger,buffers){
++  ensureOpen();
+   const min=new THREE.Vector3(...ledger.bounds.min),max=new THREE.Vector3(...ledger.bounds.max),size=max.clone().sub(min),center=min.clone().add(max).multiplyScalar(.5);
+   const canvas=document.querySelector('#view');width=Math.floor(canvas.getBoundingClientRect().width);height=560;const aspect=Math.floor(width/2)/height;
+   const half=.6*Math.max(size.y,Math.hypot(size.x,size.z)/aspect),span=Math.max(size.x,size.y,size.z),eye=3*span;
+@@ -53,5 +56,5 @@
+   renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true});resources.add(renderer);renderer.setPixelRatio(1);renderer.setSize(width,height,false);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+ }
+ function draw(mode){if(finished)return;const indices=[0,mode==='Front/Back'?1:2],left=Math.floor(width/2);renderer.setScissorTest(true);indices.forEach((ci,i)=>{const x=i?left:0,w=i?width-left:left;renderer.setViewport(x,0,w,height);renderer.setScissor(x,0,w,height);renderer.render(scene,cameras[ci]);});record.draws.push({utc:new Date().toISOString(),mode,cameraIndices:indices});record.status='ready';publish();document.querySelector('#right').textContent=mode==='Front/Back'?'Back':'Oblique';status.textContent='Ready — '+mode;}
+-async function main(){const pins=await fetch('./NATIVE-INPUTS.json').then(r=>{if(!r.ok)throw Error('Native input manifest refused');return r.json();});const ledger=await read(pins.ledger),partition=await read(pins.partition);const buffers=await construct(ledger,partition);configure(ledger,buffers);draw('Front/Back');document.querySelectorAll('[data-mode]').forEach(b=>{b.disabled=false;b.addEventListener('click',()=>{try{draw(b.dataset.mode);}catch(e){fail(e);}});});}
++async function main(){const pins=await fetch('./NATIVE-INPUTS.json').then(r=>{if(!r.ok)throw Error('Native input manifest refused');return r.json();});ensureOpen();const ledger=await read(pins.ledger),partition=await read(pins.partition);const buffers=await construct(ledger,partition);ensureOpen();configure(ledger,buffers);draw('Front/Back');ensureOpen();document.querySelectorAll('[data-mode]').forEach(b=>{b.disabled=false;b.addEventListener('click',()=>{try{draw(b.dataset.mode);}catch(e){fail(e);}});});}
+ publish();main().catch(fail);
+--- ../sweater-coverage-brief/runner.py
++++ runner.py
+@@ -10,7 +10,7 @@
+ try:
+  for p in json.loads((HERE/'SOURCE-INPUTS.json').read_text())['sources']:
+   if pin(ROOT/p['path'])!={k:p[k] for k in ['bytes','sha256']}:raise ValueError('Source pin changed')
+- if datetime.datetime.now(datetime.timezone.utc)>=datetime.datetime.fromisoformat('2026-10-04T23:12:00+00:00'):raise ValueError('Author gate expired')
++ if datetime.datetime.now(datetime.timezone.utc)>=datetime.datetime.fromisoformat('2026-10-04T23:25:00+00:00'):raise ValueError('Author gate expired')
+  with (HERE/'stdout.txt').open('wb') as out,(HERE/'stderr.txt').open('wb') as err:
+   child=subprocess.Popen(r['command'],cwd=ROOT,stdout=out,stderr=err);r['child']=child.pid;r['childStarted']=now()
+   try:r['childExit']=child.wait(timeout=20)

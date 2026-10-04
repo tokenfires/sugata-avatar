@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-04T23:07:48.277400+00:00",
+  "sourceResult": {
+    "bytes": 3427,
+    "sha256": "e1892a01ce311cc94018e7e287aaa16ee01dabec625fd276f48ffec04b411a44"
+  },
+  "sourceReceipt": {
+    "bytes": 5514,
+    "sha256": "bcb7682378181daf19da1fb802284c53970811f738a65e47e9b8cb5a90977c51"
+  },
+  "all20SourceOriginalPlus4ExtraPinsMatch": true,
+  "originalFrozenManifestMatch": true,
+  "fullRead": [
+    "043c65",
+    "e385e4",
+    "f01375"
+  ],
+  "rootPreflight": "4b64a9",
+  "decision": "A exactly one first saved-data author through runner; native withheld until independent/root data and new native pins",
+  "primaryFullReturnCutoff": "2026-10-04T23:25:00+00:00",
+  "firstFailureCloses": true
+}

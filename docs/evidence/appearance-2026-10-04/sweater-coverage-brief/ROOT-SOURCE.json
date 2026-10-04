@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-04T23:00:30.163667+00:00",
+  "decision": "B source/unrun",
+  "producerRun": false,
+  "nativeRun": false,
+  "witnesses": [
+    {
+      "path": "author.py",
+      "line": 78,
+      "defect": "nested assignment creates unbound local shared_error on repeated original edge",
+      "rootRead": "eeb16f"
+    },
+    {
+      "path": "viewer.mjs",
+      "lines": [
+        37,
+        39,
+        56
+      ],
+      "defect": "awaited hashes can continue after Finish and allocate/enable resources",
+      "rootRead": "315899"
+    }
+  ],
+  "scope": "Implementation refusal only; artist plane policy and source authority not refuted",
+  "verifiedUTC": "2026-10-04T23:02:54.673351+00:00",
+  "fullCriticResult": {
+    "bytes": 2784,
+    "sha256": "c5c76b9a46379fe14dd011eae10d7bb53f849da5750f8ec4c9d747803cb71aba"
+  },
+  "fullCriticReceipt": {
+    "bytes": 5321,
+    "sha256": "fe59e167a53f048e94cd8921f034770e6d520b5a6786ceade336c27b076d1e83"
+  },
+  "all19SourceOriginalPlus4ExtraAnd2HistoryPinsMatch": true,
+  "rootStaticScopeAuditChunk": "8230e0",
+  "rootFullHandoffReadChunks": [
+    "a0adb2",
+    "7aeabc"
+  ],
+  "producerOutputsAbsent": true
+}

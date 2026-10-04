@@ -1,0 +1,55 @@
+{
+  "utc": "2026-10-04T23:09:22.528011+00:00",
+  "actualRunChunk": "358fb7",
+  "actualFullReturnUTC": "2026-10-04T23:07:49+00:00",
+  "run": {
+    "pid": 25645,
+    "started": "2026-10-04T23:07:48.344019+00:00",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/author.py"
+    ],
+    "timeoutSeconds": 20,
+    "child": 25646,
+    "childStarted": "2026-10-04T23:07:48.345930+00:00",
+    "childExit": 0,
+    "childReturned": "2026-10-04T23:07:49.245460+00:00",
+    "returned": "2026-10-04T23:07:49.245565+00:00",
+    "outputs": {
+      "stdout.txt": {
+        "bytes": 276,
+        "sha256": "8f675a1cb91df0bb6c52e6ff2869e78180940b261ef97054913b0635441bb1d5"
+      },
+      "stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "JOB.json": {
+        "bytes": 262,
+        "sha256": "ebacaa041b73639104134cdb448eb0a1807051767fa514220833e8ecd2616da9"
+      },
+      "PARTIAL.json": {
+        "bytes": 581814,
+        "sha256": "5ac76aae8d5363c1a7af131222d3361212322b1747242c62eec28bc5926bf532"
+      },
+      "PARTITION.json": {
+        "bytes": 635671,
+        "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+      },
+      "WORKSHEET.md": {
+        "bytes": 1010,
+        "sha256": "2b50c0346b93cca909d6bf5a760d0246046363a051cc6167ec83c7ce03543fcc"
+      }
+    }
+  },
+  "jobStdoutMatch": true,
+  "partialCompleteOwnersMatch": true,
+  "independentRootReader": "7c5359",
+  "rootData": {
+    "bytes": 683,
+    "sha256": "94322ec3a2eadfde6ce7135d4f8e933aa567d1826a648e0fb22aa6001d90949e"
+  },
+  "allSourceAndOriginalPinsRemain": true,
+  "currentSourceNoteFullRead": "76ed26",
+  "editorialNote": "Source note changed27bytes only to correct Viewer.py/mjs wording during initial read; root6025ff verified current exact receipt/note and unchanged9source/11original pins before execution; latest full note read76ed26. No source/predicate/decision change."
+}

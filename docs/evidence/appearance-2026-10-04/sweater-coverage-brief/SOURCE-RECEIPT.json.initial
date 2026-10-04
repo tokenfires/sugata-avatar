@@ -1,0 +1,112 @@
+{
+  "utc": "2026-10-04T23:00:30.335553+00:00",
+  "pid": 12995,
+  "sourceReadChunk": "58ab9c",
+  "sourceReadExit": 0,
+  "sourceReadUTC": "2026-10-04T22:58:06.164652+00:00",
+  "decisions": {
+    "savedDataProducer": "A conditional exact single invocation after root complete handoff verification before23:05",
+    "nativeViewer": "B withheld unchanged/unrun"
+  },
+  "allEightSourcePins": {
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/author.py": {
+      "bytes": 8812,
+      "sha256": "d01138821e7669269b87373098ffc71e303ebf29747eb7ae17077007ffed47d2"
+    },
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/POLICY.json": {
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    },
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/viewer.mjs": {
+      "bytes": 9057,
+      "sha256": "d9f62acf0c904a9b6a1722c744214e8fdca0b6803634ef27d440cae6af7a34e6"
+    },
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/index.html": {
+      "bytes": 1982,
+      "sha256": "9a51d7cb4a0ac929f80c21b40bff1d8ef9f039908d652aa01d195e7643232e46"
+    },
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/SOURCE.md": {
+      "bytes": 2347,
+      "sha256": "b1b40a1bcf60eb07867898fe70af2ae416489498a62f7fc7552575ab24414023"
+    },
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/PLAN.md": {
+      "bytes": 2687,
+      "sha256": "200bbde35017c376de624130168b8a4d0b5ab7520b81f959fcdbc522a17b9cce"
+    },
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/INPUTS.json": {
+      "bytes": 2274,
+      "sha256": "08df6e08eed3d12489103f1e5b39f662d7b48cd2aa0d47f6193b5bb87fe6c302"
+    },
+    "docs/evidence/appearance-2026-10-04/sweater-coverage-brief/runner.py": {
+      "bytes": 1556,
+      "sha256": "9059dc28f27f5f3f6b51fc46558ddbd3dffc362300347dc114a50a825fd0a5ed"
+    }
+  },
+  "allElevenOriginalInputPins": {
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json": {
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/ROOT-RESULT.json": {
+      "bytes": 2503,
+      "sha256": "c2e4032b382703f25cdd6c0776ef4bda98889f4512a5743b87dd924606e9d68b"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/OBSERVATIONS.json": {
+      "bytes": 1634484,
+      "sha256": "bb4069a041b9bbb9d5a1c8a5bfd70e16e2677649eb225d4772f5f56be5d2ef7b"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/front-back.jpg": {
+      "bytes": 45259,
+      "sha256": "4a0c4172599501f7e3ce51db631b863a5b8037732a868e4b9d6fbcc1df462c61"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/RESULT.md": {
+      "bytes": 3787,
+      "sha256": "4952149801413e72ad576960c0695346ed2f462d09c2efbcd9e02fc71160d379"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png": {
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-character-concept/REFERENCES.md": {
+      "bytes": 2381,
+      "sha256": "b9109f0655b6f07250ba731745ba1f11eff4cad49319b83c22cd3f689618513e"
+    },
+    "docs/evidence/appearance-2026-10-04/knit-character-concept/primary-whole.jpg": {
+      "bytes": 21438,
+      "sha256": "082f8bfc6eed3ab91eeb145ab80f5f6809c02eeaaa3f1bc94498f40116a2dabc"
+    },
+    "node_modules/three/package.json": {
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    "node_modules/three/build/three.module.js": {
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    "node_modules/three/build/three.core.js": {
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    }
+  },
+  "extraBindings": {
+    "SOURCE-INPUTS.json": {
+      "bytes": 1695,
+      "sha256": "e382b806903c40f7d640878ced2861c9d585ff1d49930a4352076e2d49dc326e"
+    },
+    "WORTH.md": {
+      "bytes": 3148,
+      "sha256": "3a2d2e570da297e1099bb0a7660939b34b519b9ae9efc260984b12f680e0fc3d"
+    },
+    "WORTH-RECEIPT.json": {
+      "bytes": 2289,
+      "sha256": "3738411639e47452a63eea360b9b5a84db212c14c3b11c7c2e721b9fb213305d"
+    },
+    "SOURCE-RESULT.md": {
+      "bytes": 3058,
+      "sha256": "5173ffcda6e974782f9b4799bb2e9e96d790dd6e6495195fa26d4ca843c67660"
+    }
+  },
+  "noProducerImportExecutionDecodeNativeGPUOrDerivedPartition": true,
+  "actualSourceWitness": "viewer37/39 await SHA, cleanup10 clears resource set, main56 configures/enables without finished guards",
+  "externalRootFullReturnGateStillRequired": "23:12 UTC"
+}

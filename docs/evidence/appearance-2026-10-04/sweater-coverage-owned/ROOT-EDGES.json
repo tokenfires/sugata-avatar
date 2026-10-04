@@ -1,0 +1,5813 @@
+{
+  "utc": "2026-10-04T23:16:05.116144+00:00",
+  "method": "Original edge membership across all9owners + canonical affine point + direct world plane; independent of producer/critic readers",
+  "partition": {
+    "bytes": 635671,
+    "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+  },
+  "witnessCount": 446,
+  "allOwnersRecoveredUniquely": true,
+  "maximumWorldErrorMetres": 0.0,
+  "maximumPlaneErrorMetres": 2.220446049250313e-16,
+  "explicitOwnerJoin": [
+    {
+      "witnessOrdinal": 0,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        793,
+        794
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 1,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        792,
+        794
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 2,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        793,
+        795
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 3,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        807,
+        808
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 4,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        806,
+        808
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 5,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        808,
+        809
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 6,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        809,
+        810
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 7,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        809,
+        811
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 8,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        834,
+        837
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 9,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        834,
+        839
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 10,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        833,
+        837
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 11,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        836,
+        838
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 12,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        838,
+        1111
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 13,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        836,
+        842
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 14,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        806,
+        817
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 15,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        816,
+        817
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 16,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        792,
+        811
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 17,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        795,
+        868
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 18,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        868,
+        869
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 19,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        868,
+        876
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 20,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        875,
+        876
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 21,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        875,
+        883
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 22,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        882,
+        883
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 23,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        882,
+        890
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 24,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        889,
+        890
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 25,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        889,
+        897
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 26,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        896,
+        897
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 27,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        896,
+        904
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 28,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        903,
+        904
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 29,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        917,
+        1106
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 30,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        915,
+        917
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 31,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        1090,
+        1106
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 32,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        833,
+        841
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 33,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        835,
+        841
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 34,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        858,
+        1111
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 35,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        858,
+        1112
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 36,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        839,
+        1112
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 37,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        816,
+        996
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 38,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        995,
+        996
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 39,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        1090,
+        1114
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 40,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        1114,
+        1120
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 41,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        903,
+        1120
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 42,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3817,
+        3835
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.691355389077387e-17
+    },
+    {
+      "witnessOrdinal": 43,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3818,
+        3835
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.0357660829594124e-17
+    },
+    {
+      "witnessOrdinal": 44,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3817,
+        3834
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.204170427930421e-17
+    },
+    {
+      "witnessOrdinal": 45,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3820,
+        3827
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.5052130349130266e-18
+    },
+    {
+      "witnessOrdinal": 46,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3810,
+        3827
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.071532165918825e-18
+    },
+    {
+      "witnessOrdinal": 47,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3820,
+        3837
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.049848122469115e-17
+    },
+    {
+      "witnessOrdinal": 48,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3821,
+        3834
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.949029909160572e-17
+    },
+    {
+      "witnessOrdinal": 49,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3821,
+        3838
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.505213034913027e-17
+    },
+    {
+      "witnessOrdinal": 50,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3826,
+        3839
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.767955557622884e-17
+    },
+    {
+      "witnessOrdinal": 51,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3826,
+        3843
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 8.673617379884035e-19
+    },
+    {
+      "witnessOrdinal": 52,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3822,
+        3839
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.551115123125783e-17
+    },
+    {
+      "witnessOrdinal": 53,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3822,
+        3838
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.7972416050126014e-17
+    },
+    {
+      "witnessOrdinal": 54,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3810,
+        3833
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 7.719519468096792e-17
+    },
+    {
+      "witnessOrdinal": 55,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3816,
+        3833
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.049848122469115e-17
+    },
+    {
+      "witnessOrdinal": 56,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3816,
+        3828
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.516055056637882e-17
+    },
+    {
+      "witnessOrdinal": 57,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3811,
+        3828
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.095750210681871e-18
+    },
+    {
+      "witnessOrdinal": 58,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3819,
+        3837
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.252606517456513e-17
+    },
+    {
+      "witnessOrdinal": 59,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3819,
+        3836
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.7564075194265172e-17
+    },
+    {
+      "witnessOrdinal": 60,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3811,
+        3829
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.469446951953614e-18
+    },
+    {
+      "witnessOrdinal": 61,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3812,
+        3829
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.946495907847236e-17
+    },
+    {
+      "witnessOrdinal": 62,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3818,
+        3836
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.7730235602495554e-17
+    },
+    {
+      "witnessOrdinal": 63,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3840,
+        4281
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.3393426912553537e-17
+    },
+    {
+      "witnessOrdinal": 64,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4243,
+        4281
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.7755575615628914e-17
+    },
+    {
+      "witnessOrdinal": 65,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3840,
+        4271
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 8.847089727481716e-17
+    },
+    {
+      "witnessOrdinal": 66,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3841,
+        4271
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 4.85722573273506e-17
+    },
+    {
+      "witnessOrdinal": 67,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3841,
+        4274
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.211772431870429e-17
+    },
+    {
+      "witnessOrdinal": 68,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3842,
+        4274
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.859759734048396e-17
+    },
+    {
+      "witnessOrdinal": 69,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3842,
+        4277
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.594483210025203e-17
+    },
+    {
+      "witnessOrdinal": 70,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3832,
+        4277
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.5052130349130266e-18
+    },
+    {
+      "witnessOrdinal": 71,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3832,
+        4270
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.722053469410127e-17
+    },
+    {
+      "witnessOrdinal": 72,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3830,
+        4279
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.7755575615628914e-17
+    },
+    {
+      "witnessOrdinal": 73,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3830,
+        4267
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.5587171270657905e-17
+    },
+    {
+      "witnessOrdinal": 74,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4100,
+        4279
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.0816681711721685e-17
+    },
+    {
+      "witnessOrdinal": 75,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        995,
+        4016
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 76,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        995,
+        4017
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 77,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        1110,
+        4017
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 78,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4017,
+        4018
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 79,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        842,
+        4018
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 80,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3829,
+        4100
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 7.112366251504909e-17
+    },
+    {
+      "witnessOrdinal": 81,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3843,
+        4136
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.6020852139652106e-18
+    },
+    {
+      "witnessOrdinal": 82,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4136,
+        4137
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.946495907847236e-17
+    },
+    {
+      "witnessOrdinal": 83,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4137,
+        4242
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1275702593849246e-17
+    },
+    {
+      "witnessOrdinal": 84,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4137,
+        4244
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 7.960754451474816e-17
+    },
+    {
+      "witnessOrdinal": 85,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4244,
+        4280
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.5294310796760726e-18
+    },
+    {
+      "witnessOrdinal": 86,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4244,
+        4282
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.7755575615628914e-17
+    },
+    {
+      "witnessOrdinal": 87,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3830,
+        4266
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.1250362580715887e-17
+    },
+    {
+      "witnessOrdinal": 88,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3831,
+        4266
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.516055056637882e-17
+    },
+    {
+      "witnessOrdinal": 89,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        3831,
+        4270
+      ],
+      "plane": "cuff_r",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.228741480929223e-17
+    },
+    {
+      "witnessOrdinal": 90,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4625,
+        4634
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 91,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4625,
+        4635
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 92,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4624,
+        4634
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 93,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4626,
+        4635
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 94,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4626,
+        4636
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 95,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4627,
+        4636
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 96,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4627,
+        4637
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 97,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4628,
+        4637
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 98,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4637,
+        4638
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 99,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4640,
+        4649
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 100,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4640,
+        4650
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 101,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4639,
+        4649
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 102,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4642,
+        4643
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 103,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4642,
+        4652
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 104,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4633,
+        4643
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 105,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4638,
+        4647
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 106,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4638,
+        4648
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 107,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4639,
+        4648
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 108,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4703,
+        4708
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 109,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4703,
+        4709
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 110,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4702,
+        4708
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 111,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4702,
+        4711
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 112,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4705,
+        4711
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 113,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4706,
+        4713
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 114,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4706,
+        4712
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 115,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4707,
+        4713
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 116,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4705,
+        4710
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 117,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4704,
+        4710
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 118,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4704,
+        4712
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 119,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4643,
+        4703
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 120,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4749,
+        4753
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 121,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4749,
+        4755
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 122,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4747,
+        4753
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 123,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4748,
+        4755
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 124,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4754,
+        4755
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 125,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4750,
+        4764
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 126,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4764,
+        4765
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 127,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4744,
+        4750
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 128,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4747,
+        4752
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 129,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4746,
+        4752
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 130,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4751,
+        4758
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 131,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4751,
+        4756
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 132,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4754,
+        4758
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 133,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4754,
+        4759
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 134,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4746,
+        4765
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 135,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4707,
+        4756
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 136,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4624,
+        4652
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 137,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8106,
+        8107
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 138,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8106,
+        8108
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 139,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8105,
+        8107
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 140,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8120,
+        8121
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 141,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8121,
+        8122
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 142,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8119,
+        8121
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 143,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8122,
+        8123
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 144,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8122,
+        8124
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 145,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8143,
+        8145
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 146,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8142,
+        8145
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 147,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8143,
+        8147
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 148,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8144,
+        8146
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 149,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8144,
+        8149
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 150,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8146,
+        8379
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 151,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8119,
+        8130
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 152,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8129,
+        8130
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 153,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8105,
+        8124
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 154,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8108,
+        8172
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 155,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8172,
+        8173
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 156,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8172,
+        8180
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 157,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8179,
+        8180
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 158,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8179,
+        8187
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 159,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8186,
+        8187
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 160,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8186,
+        8194
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 161,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8193,
+        8194
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 162,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8193,
+        8201
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 163,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8200,
+        8201
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 164,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8200,
+        8208
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 165,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8207,
+        8208
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 166,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        918,
+        8374
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 167,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8358,
+        8374
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 168,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        916,
+        918
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 169,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        841,
+        8142
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 170,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8163,
+        8379
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 171,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8163,
+        8380
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 172,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8147,
+        8380
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 173,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8129,
+        8280
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 174,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8279,
+        8280
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 175,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8358,
+        8382
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 176,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8382,
+        8388
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 177,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8207,
+        8388
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 178,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11050,
+        11068
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.903127820947816e-17
+    },
+    {
+      "witnessOrdinal": 179,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11050,
+        11067
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 7.892991815694472e-17
+    },
+    {
+      "witnessOrdinal": 180,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11051,
+        11068
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.591949208711867e-17
+    },
+    {
+      "witnessOrdinal": 181,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11053,
+        11060
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.984795992119984e-17
+    },
+    {
+      "witnessOrdinal": 182,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11053,
+        11070
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.168404344971009e-18
+    },
+    {
+      "witnessOrdinal": 183,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11043,
+        11060
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.8189256484623115e-17
+    },
+    {
+      "witnessOrdinal": 184,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11054,
+        11067
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.8406096919120216e-17
+    },
+    {
+      "witnessOrdinal": 185,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11054,
+        11071
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.3744027577432547e-17
+    },
+    {
+      "witnessOrdinal": 186,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11059,
+        11072
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.599551212651875e-17
+    },
+    {
+      "witnessOrdinal": 187,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11055,
+        11072
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.5052130349130266e-18
+    },
+    {
+      "witnessOrdinal": 188,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11059,
+        11076
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.117434254131581e-17
+    },
+    {
+      "witnessOrdinal": 189,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11055,
+        11071
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 4.456070928915423e-17
+    },
+    {
+      "witnessOrdinal": 190,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11043,
+        11066
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.1250362580715887e-17
+    },
+    {
+      "witnessOrdinal": 191,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11049,
+        11066
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.883977778811442e-17
+    },
+    {
+      "witnessOrdinal": 192,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11049,
+        11061
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 4.889751797909625e-17
+    },
+    {
+      "witnessOrdinal": 193,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11044,
+        11061
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 8.456776945386935e-18
+    },
+    {
+      "witnessOrdinal": 194,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11052,
+        11070
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 5.074066167232161e-17
+    },
+    {
+      "witnessOrdinal": 195,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11052,
+        11069
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.0842021724855044e-17
+    },
+    {
+      "witnessOrdinal": 196,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11044,
+        11062
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 8.673617379884035e-18
+    },
+    {
+      "witnessOrdinal": 197,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11045,
+        11062
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.642919299551295e-17
+    },
+    {
+      "witnessOrdinal": 198,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11051,
+        11069
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.903127820947816e-17
+    },
+    {
+      "witnessOrdinal": 199,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11073,
+        11508
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.3877787807814457e-17
+    },
+    {
+      "witnessOrdinal": 200,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11073,
+        11497
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.903127820947816e-17
+    },
+    {
+      "witnessOrdinal": 201,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11470,
+        11508
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.0599841277224584e-17
+    },
+    {
+      "witnessOrdinal": 202,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11074,
+        11497
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.903127820947816e-17
+    },
+    {
+      "witnessOrdinal": 203,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11074,
+        11500
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 4.206704429243757e-17
+    },
+    {
+      "witnessOrdinal": 204,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11075,
+        11500
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 4.119968255444917e-17
+    },
+    {
+      "witnessOrdinal": 205,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11075,
+        11503
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.382710778154774e-17
+    },
+    {
+      "witnessOrdinal": 206,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11065,
+        11503
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.6479873021779667e-17
+    },
+    {
+      "witnessOrdinal": 207,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11065,
+        11496
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 9.75781955236954e-18
+    },
+    {
+      "witnessOrdinal": 208,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11063,
+        11505
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.765421556309548e-17
+    },
+    {
+      "witnessOrdinal": 209,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11332,
+        11505
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.071532165918825e-17
+    },
+    {
+      "witnessOrdinal": 210,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11063,
+        11493
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.6479873021779667e-17
+    },
+    {
+      "witnessOrdinal": 211,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8279,
+        11249
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 212,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8279,
+        11250
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.220446049250313e-16
+    },
+    {
+      "witnessOrdinal": 213,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8378,
+        11250
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 214,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11250,
+        11251
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 215,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        8149,
+        11251
+      ],
+      "plane": "neck",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 216,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11062,
+        11332
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 6.071532165918825e-18
+    },
+    {
+      "witnessOrdinal": 217,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11076,
+        11366
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 8.673617379884035e-19
+    },
+    {
+      "witnessOrdinal": 218,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11366,
+        11367
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 3.469446951953614e-18
+    },
+    {
+      "witnessOrdinal": 219,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11367,
+        11467
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.0816681711721685e-17
+    },
+    {
+      "witnessOrdinal": 220,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11367,
+        11469
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.0299920638612292e-17
+    },
+    {
+      "witnessOrdinal": 221,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11469,
+        11506
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 4.7813315806610746e-17
+    },
+    {
+      "witnessOrdinal": 222,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11469,
+        11507
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.0599841277224584e-17
+    },
+    {
+      "witnessOrdinal": 223,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11063,
+        11492
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 2.3852447794681098e-17
+    },
+    {
+      "witnessOrdinal": 224,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11064,
+        11492
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.5937771935536915e-17
+    },
+    {
+      "witnessOrdinal": 225,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11064,
+        11496
+      ],
+      "plane": "cuff_l",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 4.586175189613684e-17
+    },
+    {
+      "witnessOrdinal": 226,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11804,
+        11811
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 227,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11803,
+        11811
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 228,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11804,
+        11812
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 229,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11805,
+        11812
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 230,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11805,
+        11813
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 231,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11806,
+        11813
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 232,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11806,
+        11814
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 233,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11807,
+        11814
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 234,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11814,
+        11815
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 235,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4641,
+        11824
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 236,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11816,
+        11824
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 237,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4641,
+        4651
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 238,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11817,
+        11818
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 239,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11810,
+        11818
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 240,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11817,
+        11825
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 241,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11815,
+        11822
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 242,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11815,
+        11823
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 243,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11816,
+        11823
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 244,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11872,
+        11877
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 245,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11871,
+        11877
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 246,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11872,
+        11878
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 247,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11871,
+        11880
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 248,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11874,
+        11880
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 249,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11875,
+        11882
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 250,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11876,
+        11882
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 251,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11875,
+        11881
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 252,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11874,
+        11879
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 253,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11873,
+        11879
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 254,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11873,
+        11881
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 255,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11818,
+        11872
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 256,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11913,
+        11916
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 257,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11911,
+        11916
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 258,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11913,
+        11918
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 259,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11912,
+        11918
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 260,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11917,
+        11918
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 261,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        4750,
+        11927
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 262,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11927,
+        11928
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 263,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11911,
+        11915
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 264,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11910,
+        11915
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 265,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11914,
+        11921
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 266,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11917,
+        11921
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 267,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11914,
+        11919
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 268,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11917,
+        11922
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 269,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11910,
+        11928
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 270,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11876,
+        11919
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 271,
+      "sourceOwnerUUID": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "sourceKey": "body",
+      "sourceName": "Human",
+      "originalEdge": [
+        11803,
+        11825
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 272,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        30,
+        1228
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 273,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        648,
+        1228
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 274,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        30,
+        572
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 275,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        31,
+        1226
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 276,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        711,
+        1226
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 277,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        31,
+        647
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 278,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        32,
+        1225
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 279,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        32,
+        786
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 280,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        32,
+        710
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 281,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        42,
+        1223
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 282,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        407,
+        1223
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 283,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        329,
+        1223
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 284,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        103,
+        1177
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 285,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        796,
+        1177
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 286,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        344,
+        1177
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 287,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        105,
+        1176
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 288,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        105,
+        872
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 289,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        105,
+        508
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 290,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        199,
+        1085
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 291,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        199,
+        816
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 292,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        817,
+        1085
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 293,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        200,
+        1083
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 294,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        200,
+        902
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 295,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        903,
+        1083
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 296,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        201,
+        1082
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 297,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        201,
+        372
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 298,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        201,
+        373
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 299,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        209,
+        1080
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 300,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        532,
+        1080
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 301,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        533,
+        1080
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 302,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        259,
+        1018
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 303,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        468,
+        1018
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 304,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        831,
+        1018
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 305,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        261,
+        1017
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 306,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        261,
+        626
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 307,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        261,
+        923
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 308,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        253,
+        1009
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 309,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        392,
+        1009
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 310,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        253,
+        390
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 311,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        392,
+        469
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 312,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        269,
+        469
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 313,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        260,
+        1013
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 314,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        923,
+        1013
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 315,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        260,
+        924
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 316,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        391,
+        923
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 317,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        692,
+        1405
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 318,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        692,
+        1014
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 319,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        691,
+        1014
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 320,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        691,
+        924
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 321,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        254,
+        1015
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 322,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        389,
+        1015
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 323,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        254,
+        468
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 324,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        389,
+        390
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 325,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        269,
+        1016
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 326,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        764,
+        1016
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 327,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        726,
+        764
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 328,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        94,
+        726
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 329,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        626,
+        831
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 330,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        467,
+        468
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 331,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        203,
+        1075
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 332,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        449,
+        1075
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 333,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        203,
+        532
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 334,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        449,
+        450
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 335,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        202,
+        450
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 336,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        202,
+        1076
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 337,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        373,
+        1076
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 338,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        373,
+        374
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 339,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        406,
+        533
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 340,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        44,
+        406
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 341,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        447,
+        532
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 342,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        372,
+        903
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 343,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        817,
+        902
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 344,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        429,
+        875
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 345,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        875,
+        1169
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 346,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        113,
+        429
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 347,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        96,
+        1169
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 348,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        96,
+        873
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 349,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        345,
+        872
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 350,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        872,
+        1172
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 351,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        104,
+        1172
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 352,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        104,
+        874
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 353,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        656,
+        874
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 354,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        656,
+        1173
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 355,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1173,
+        1655
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 356,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        657,
+        1173
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 357,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        657,
+        1383
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 358,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        871,
+        873
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 359,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        871,
+        1174
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 360,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        97,
+        1174
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 361,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        97,
+        344
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 362,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        725,
+        726
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 363,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        725,
+        1175
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 364,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        113,
+        1175
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 365,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        342,
+        344
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 366,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        508,
+        796
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 367,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        855,
+        856
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 368,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        855,
+        1218
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 369,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        33,
+        856
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 370,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        34,
+        1218
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 371,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        34,
+        329
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 372,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        786,
+        787
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 373,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        786,
+        1219
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 374,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        33,
+        1219
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 375,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        328,
+        329
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 376,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        405,
+        407
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 377,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        43,
+        405
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 378,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        710,
+        711
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 379,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        647,
+        648
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 380,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        30,
+        1229
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 381,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1229,
+        2272
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 382,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2174,
+        5455
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 383,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        3999,
+        5455
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 384,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2174,
+        3258
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 385,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2387,
+        5454
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 386,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2387,
+        4000
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 387,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2387,
+        4001
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 388,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4012,
+        5446
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 389,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2396,
+        4012
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 390,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        199,
+        1086
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 391,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1086,
+        1433
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 392,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1086,
+        2037
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 393,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2596,
+        5131
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 394,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2596,
+        4482
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 395,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2596,
+        4483
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 396,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1870,
+        5130
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 397,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1870,
+        3641
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 398,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4484,
+        5130
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 399,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4519,
+        5105
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 400,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2611,
+        4519
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 401,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1870,
+        1873
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 402,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1873,
+        2675
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 403,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1405,
+        1873
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 404,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1086,
+        2711
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 405,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2038,
+        2711
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 406,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1383,
+        2171
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 407,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2171,
+        2747
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 408,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2747,
+        3258
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 409,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1229,
+        2768
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 410,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2271,
+        2768
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 411,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        492,
+        2768
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 412,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        492,
+        3339
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 413,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        748,
+        2711
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 414,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        748,
+        4752
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 415,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        748,
+        3402
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 416,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4519,
+        4521
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 417,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4521,
+        5104
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 418,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        748,
+        5105
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 419,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        3111,
+        5105
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 420,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4482,
+        4484
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 421,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1465,
+        5132
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 422,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4483,
+        5132
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 423,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1465,
+        2906
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 424,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4481,
+        4483
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 425,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        3793,
+        5446
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 426,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        492,
+        5446
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 427,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4010,
+        4012
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 428,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4010,
+        5447
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 429,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4000,
+        4002
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 430,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4000,
+        5453
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 431,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1249,
+        5453
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 432,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        1249,
+        2774
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 433,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        3999,
+        4001
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 434,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2906,
+        4717
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 435,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4717,
+        5752
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 436,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        2774,
+        4863
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 437,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4863,
+        5792
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 438,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        5447,
+        6349
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 439,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        6349,
+        6717
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 440,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4717,
+        6793
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    },
+    {
+      "witnessOrdinal": 441,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        6517,
+        6793
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 442,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        4521,
+        6635
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 443,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        6462,
+        6635
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 444,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        5792,
+        6551
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 0.0
+    },
+    {
+      "witnessOrdinal": 445,
+      "sourceOwnerUUID": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "sourceKey": "briefs",
+      "sourceName": "Humanfoundation_briefs",
+      "originalEdge": [
+        6551,
+        6800
+      ],
+      "plane": "hem",
+      "worldErrorMetres": 0.0,
+      "planeErrorMetres": 1.1102230246251565e-16
+    }
+  ],
+  "limit": "Raw shared-edge witness rows omit ownerUUID; source fragments retain it. This saved-data join supplies unique original-owner identity for every actual row without source/output modification."
+}

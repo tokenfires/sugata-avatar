@@ -1,0 +1,7 @@
+# Corrected source ownership
+
+Read all corrected source and exact REPAIR.diff in full. The original frozen policy and all11 original/runtime input pins are unchanged. The producer's equations, partition predicates, original IDs and output schema are unchanged; one module-scope declaration repairs the shared-edge accumulator. The only viewer changes are closed-state guards. Hash semantics are unchanged (compute same SHA, then check finished before returning it).
+
+The guarded hash continuation throws if Finish occurs during either geometry or boundary SHA. read() checks before fetching and after response/array-buffer awaits; main() checks after native-manifest acquisition, after construct(), and before enabling controls; construct/configure check before subsequent allocation. Synchronous blocks cannot interleave Finish. catch(fail) retires any resource still registered. No closed continuation creates a new renderer or additional geometry/material. Normal ready/draw/explicit-Finish paths remain the same finite viewer. No animation or new primitive/garment.
+
+Only the external author's deadline changes to fresh23:25 under PLAN. All artist/data/visual decision gates remain identical. SOURCE-INPUTS pins corrected source and full delta witnesses; source admission precedes execution. Actual new PARTITION pin/native manifest and independent/root data success precede any native creation. Original draft stays B/unrun.

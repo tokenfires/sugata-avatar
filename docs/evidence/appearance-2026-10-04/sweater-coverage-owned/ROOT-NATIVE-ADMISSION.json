@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-04T23:17:17.659995+00:00",
+  "decision": "A exactly one finite fixed viewer; two originals Front/Back then Front/Oblique; no native retry/reframe",
+  "all20SourceOriginal19Data9ExtraPinsMatch": true,
+  "sourceAndDataFullReads": [
+    "3c195a",
+    "dd1938",
+    "767e71",
+    "6b7d19"
+  ],
+  "independentRootProof": [
+    "7c5359",
+    "d12806"
+  ],
+  "criticInvocationAndActualStreamsMatch": true,
+  "dataResult": {
+    "bytes": 2894,
+    "sha256": "f778932173b1f778cd225b6d11f2f6903f8d1752780d7423faa38f3b5ddefa58"
+  },
+  "dataReceipt": {
+    "bytes": 9773,
+    "sha256": "bacceb280038f47f5d828495171b9aeed34d9ac20f14cf1af2e7701f7bb06a63"
+  },
+  "nativeManifest": {
+    "bytes": 407,
+    "sha256": "9c37f6660d3df517c599728bb0ccd3b86dcac867e1b3c772533a68048702cfab"
+  },
+  "nativeCaptureCutoff": "2026-10-04T23:35:00+00:00",
+  "viewerSource": {
+    "bytes": 9297,
+    "sha256": "2272ec42d3f5903e9baacbf504cba2dd72b9260e37c5aa652acbb00c1d1d177e"
+  },
+  "index": {
+    "bytes": 1982,
+    "sha256": "9a51d7cb4a0ac929f80c21b40bff1d8ef9f039908d652aa01d195e7643232e46"
+  },
+  "oneReadyWaitSeconds": 10,
+  "limits": "Readability of source coverage intent only; no garment, fit, enclosure, body manifold or GPU source equivalence"
+}

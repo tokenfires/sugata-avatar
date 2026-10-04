@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-04T22:51:18.679449+00:00",
+  "pid": 96669,
+  "decision": "Conditional A separate source contract only",
+  "scopeAuthority": "Parent fresh worth-only request; no implementation/native admission",
+  "inventoryBeforeWrite": {
+    "folderAbsent": true,
+    "worthAbsent": true
+  },
+  "inputs": {
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/RESULT.md": {
+      "bytes": 3058,
+      "sha256": "828fc8caa7c57ca7f8b8a600291d6966ea9a19f698a0d4b3fe54efb9e7d9c1b8"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json": {
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/CPU-ORACLE.json": {
+      "bytes": 4462153,
+      "sha256": "0c751a0ca7f1a7b359dfbefdaa1c189c1a0cbc25686afff3b17a43f6833f4f47"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/CRITIC-DATA.json": {
+      "bytes": 11236,
+      "sha256": "8baa27443e94f078623a2dc685d3d2b97da498b3ad967f42e49b87a39d3b6cf6"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/CRITIC-RECEIPT.json": {
+      "bytes": 11367,
+      "sha256": "e4e8198d96858b5e032911dbb96c52e8c42fc31fb7e259224613a14ffc34d20c"
+    },
+    "docs/evidence/appearance-2026-10-04/original-surface-ledger/INVENTORY.md": {
+      "bytes": 626,
+      "sha256": "fc9eab9fc745ac4e6f9d658082229bee5965b232b91a090c71cd4ac1db407a32"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/RESULT.md": {
+      "bytes": 3787,
+      "sha256": "4952149801413e72ad576960c0695346ed2f462d09c2efbcd9e02fc71160d379"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/front-back.jpg": {
+      "bytes": 45259,
+      "sha256": "4a0c4172599501f7e3ce51db631b863a5b8037732a868e4b9d6fbcc1df462c61"
+    }
+  },
+  "fullImageActuallyViewed": "docs/evidence/appearance-2026-10-04/shared-quad-knit/front-back.jpg",
+  "directCurrentReadChunk": "bb681c",
+  "directCurrentReadExit": 0,
+  "imageScope": "Original local file re-viewed, no crop/edit or native capture",
+  "worth": {
+    "bytes": 3148,
+    "sha256": "3a2d2e570da297e1099bb0a7660939b34b519b9ae9efc260984b12f680e0fc3d"
+  },
+  "noProducerDecoderNativeBrowserGPUOrFrozenEdit": true
+}

@@ -1,0 +1,40 @@
+{
+  "pid": 25645,
+  "started": "2026-10-04T23:07:48.344019+00:00",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/author.py"
+  ],
+  "timeoutSeconds": 20,
+  "child": 25646,
+  "childStarted": "2026-10-04T23:07:48.345930+00:00",
+  "childExit": 0,
+  "childReturned": "2026-10-04T23:07:49.245460+00:00",
+  "returned": "2026-10-04T23:07:49.245565+00:00",
+  "outputs": {
+    "stdout.txt": {
+      "bytes": 276,
+      "sha256": "8f675a1cb91df0bb6c52e6ff2869e78180940b261ef97054913b0635441bb1d5"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "JOB.json": {
+      "bytes": 262,
+      "sha256": "ebacaa041b73639104134cdb448eb0a1807051767fa514220833e8ecd2616da9"
+    },
+    "PARTIAL.json": {
+      "bytes": 581814,
+      "sha256": "5ac76aae8d5363c1a7af131222d3361212322b1747242c62eec28bc5926bf532"
+    },
+    "PARTITION.json": {
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    "WORKSHEET.md": {
+      "bytes": 1010,
+      "sha256": "2b50c0346b93cca909d6bf5a760d0246046363a051cc6167ec83c7ce03543fcc"
+    }
+  }
+}

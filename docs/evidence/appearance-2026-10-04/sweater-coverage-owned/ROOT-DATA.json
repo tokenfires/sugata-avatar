@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-04T23:08:23.372445+00:00",
+  "pid": 26605,
+  "method": "all original IDs + convex barycentric polygon simplex areas + direct world halfspace sides; no author import/rerun",
+  "triangleCount": 71512,
+  "fragmentsChecked": 71951,
+  "maximumSimplexAreaError": 5.551115123125783e-17,
+  "maximumWorldSideErrorMetres": 2.220446049250313e-16,
+  "partition": {
+    "bytes": 635671,
+    "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+  },
+  "reader": {
+    "bytes": 4494,
+    "sha256": "d4cc257a8257df6862068b47568e025da7fce8e68992e3edfc854b9455bac418"
+  },
+  "allBraRequired": true,
+  "result": "A original-source coverage partition only"
+}

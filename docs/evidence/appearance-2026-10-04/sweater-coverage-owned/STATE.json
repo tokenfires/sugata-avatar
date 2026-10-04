@@ -1,0 +1,61 @@
+{
+  "utc": "2026-10-04T23:36:32.757252+00:00",
+  "review": "1023 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort",
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10"
+  },
+  "ownedCompletedJobs": [
+    {
+      "pid": 25645,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 25646,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 26605,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 34415,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 34416,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 45838,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 60550,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 60551,
+      "observed": "",
+      "exitCode": 1
+    },
+    {
+      "pid": 74332,
+      "observed": "",
+      "exitCode": 1
+    }
+  ],
+  "criticCollected": true,
+  "noBrowserAction": true,
+  "baselineTabs": "Native receipt records six preserved tabs; no new inventory or browser capture",
+  "latestHumanSteering": "Continue after update; no later pause/check-in in current context"
+}

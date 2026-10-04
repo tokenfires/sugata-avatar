@@ -1,0 +1,37 @@
+{
+  "started": "2026-10-04T23:12:52.772505+00:00",
+  "wrapperPID": 34415,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/critic-partition.py"
+  ],
+  "maximumInvocations": 1,
+  "sourceBeforeInvocation": {
+    "bytes": 12150,
+    "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+  },
+  "exitCode": 0,
+  "fullReturnUTC": "2026-10-04T23:12:54.481827+00:00",
+  "sourceAfter": {
+    "bytes": 12150,
+    "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+  },
+  "actualFiles": {
+    "critic-partition.py": {
+      "bytes": 12150,
+      "sha256": "6d63a7eaaafd5ae3aa5db83e4961a8cbcc9fb99f857f888d05e57fb22506bc48"
+    },
+    "CRITIC-DATA.json": {
+      "bytes": 9441,
+      "sha256": "faf198364f1f4f972e4448d6779b55d7599d1eb69ca2bb70594a5f0b7abfc9d0"
+    },
+    "CRITIC-STDOUT.txt": {
+      "bytes": 7889,
+      "sha256": "86d0a34b70339849f427b04a19f2119bb2f14f5e9012e958546244a8618834d3"
+    },
+    "CRITIC-STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

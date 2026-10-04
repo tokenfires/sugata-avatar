@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-04T23:02:52.512222+00:00",
+  "pid": 17128,
+  "decision": "Conditional A new isolated repair source preparation only",
+  "authority": "Parent fresh repair-worth request, plan not yet present; no inherited source/native admission",
+  "folderAbsentBeforeWrite": true,
+  "bindings": {
+    "sweater-coverage-brief/author.py": {
+      "bytes": 8812,
+      "sha256": "d01138821e7669269b87373098ffc71e303ebf29747eb7ae17077007ffed47d2"
+    },
+    "sweater-coverage-brief/viewer.mjs": {
+      "bytes": 9057,
+      "sha256": "d9f62acf0c904a9b6a1722c744214e8fdca0b6803634ef27d440cae6af7a34e6"
+    },
+    "sweater-coverage-brief/POLICY.json": {
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    },
+    "sweater-coverage-brief/SOURCE-RESULT.md": {
+      "bytes": 2784,
+      "sha256": "c5c76b9a46379fe14dd011eae10d7bb53f849da5750f8ec4c9d747803cb71aba"
+    },
+    "sweater-coverage-brief/SOURCE-RECEIPT.json": {
+      "bytes": 5321,
+      "sha256": "fe59e167a53f048e94cd8921f034770e6d520b5a6786ceade336c27b076d1e83"
+    },
+    "shared-quad-knit/front-back.jpg": {
+      "bytes": 45259,
+      "sha256": "4a0c4172599501f7e3ce51db631b863a5b8037732a868e4b9d6fbcc1df462c61"
+    },
+    "original-surface-ledger/LEDGER.json": {
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    "original-surface-ledger/RESULT.md": {
+      "bytes": 3058,
+      "sha256": "828fc8caa7c57ca7f8b8a600291d6966ea9a19f698a0d4b3fe54efb9e7d9c1b8"
+    }
+  },
+  "originalPacketBUnrunRetained": true,
+  "scope": "Only Python accumulator scope and viewer closed-continuation ownership changes proposed; no geometry/policy/camera/material changes",
+  "worth": {
+    "bytes": 2074,
+    "sha256": "f786d6fd19f578071ae3a60149f1bd5a36aa7a6d874b5423d1bdea1489d20641"
+  },
+  "noProducerViewerCopyRepairExecutionOrNative": true
+}

@@ -1,0 +1,37 @@
+{
+  "supervisorPid": 60550,
+  "started": "2026-10-04T23:28:07.483127+00:00",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/critic-native.py"
+  ],
+  "sourceBefore": {
+    "bytes": 10764,
+    "sha256": "399bffd6d865d08c4673186e8550d0178e377853e2f83899e4f78322ad6af193"
+  },
+  "maximumInvocations": 1,
+  "childPid": 60551,
+  "exitCode": 0,
+  "fullReturn": "2026-10-04T23:28:08.978176+00:00",
+  "sourceAfter": {
+    "bytes": 10764,
+    "sha256": "399bffd6d865d08c4673186e8550d0178e377853e2f83899e4f78322ad6af193"
+  },
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/CRITIC-NATIVE.json",
+      "bytes": 11517,
+      "sha256": "b701b84d6211d2d82990c43232bba628594a02b2a0dbacb73d03bcd875622370"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/CRITIC-NATIVE-STDOUT.txt",
+      "bytes": 9941,
+      "sha256": "c219362733e8a8d289044ff08de84f02035a691b9a264bf2bdf2faad6109b5ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/CRITIC-NATIVE-STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

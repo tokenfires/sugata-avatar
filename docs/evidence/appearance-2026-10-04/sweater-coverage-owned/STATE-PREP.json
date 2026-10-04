@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-04T23:13:08.092091+00:00",
+  "review": {
+    "exit": 0,
+    "output": "1023 02-09:43:15 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort"
+  },
+  "ownedCompletedReaders": {
+    "exit": 1,
+    "output": ""
+  },
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "kind": "heartbeat",
+    "destination": null,
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+    "targetThreadId": null
+  },
+  "automationMutation": false,
+  "browserInventory": "CUA actual list before any new creation",
+  "preservedTabIDs": [
+    "1",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28"
+  ]
+}
