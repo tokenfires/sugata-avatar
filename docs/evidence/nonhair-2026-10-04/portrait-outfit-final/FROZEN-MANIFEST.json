@@ -1,0 +1,164 @@
+{
+  "pid": 62330,
+  "started": "2026-10-04T08:56:27.896136+00:00",
+  "finished": "2026-10-04T08:56:27.897232+00:00",
+  "command": "python3 inline manifest/readback for docs/evidence/nonhair-2026-10-04/portrait-outfit-final; preserve exact payloads/chmod0444",
+  "decision": "B; postdecision preservation only",
+  "files": [
+    {
+      "file": "ARCHIVE.json",
+      "bytes": 1122,
+      "sha256": "a02b6a3d2261e703bccffe96f5ffee8ff5c013cdb073605993fd2e11e7b9ce8c"
+    },
+    {
+      "file": "CANDIDATE-SOURCE.json",
+      "bytes": 1706,
+      "sha256": "7d108e9c23b152c4c3b03b8e04a04d5a394cdfdb33286dea7d411ddb6030f162"
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 1944,
+      "sha256": "bce3d30b9735a9af2469cbc8fbd0453f7b0fee2084df7899119ef6bbbce5985d"
+    },
+    {
+      "file": "CRITIC-READBACK.json",
+      "bytes": 6951,
+      "sha256": "06841bfd821e8b3a660ae0648f0dda84e6235bf92789c9bde69676cc29f88ff0"
+    },
+    {
+      "file": "CRITIC-READBACK.py",
+      "bytes": 4281,
+      "sha256": "2fd90473daf068a58656d503866b166a380c2d01b29c53984acf81506990c272"
+    },
+    {
+      "file": "CRITIC-RESULT.md",
+      "bytes": 9098,
+      "sha256": "0606ce8dc0b7e983653339f22f37fd5dc4c8f680b849795a4b561b8a976aa6db"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 8882,
+      "sha256": "83da0f2569c1afd3a155652ef37c84ddf5d889dee2d44b90d6caab2714cc315b"
+    },
+    {
+      "file": "DIFFS.json",
+      "bytes": 8769,
+      "sha256": "042eaaaf0f0616f85c4cf81f47ab120f391e083a79589e90db1ace09cdbcf6d7"
+    },
+    {
+      "file": "NATIVE-JOB.json",
+      "bytes": 235,
+      "sha256": "7652b6f4ad1d4de56e591be910a737f7d9634734b18e403ca977997149cc5fdb"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 4735,
+      "sha256": "8146a85e192d84f7fa4eeeb45fafd0674da28e02892cc92037e18b539fb0729e"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 5381,
+      "sha256": "445f0fd7d6e028eff9ce1f9e554b29385332f730ed8a06519ab0c5a1cd88a6ee"
+    },
+    {
+      "file": "ROOT-FINAL.json",
+      "bytes": 1809,
+      "sha256": "341ea7bd0517dcd20fe158af9ffe2668f2248c49b2575ee845892b6a801d1291"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 871,
+      "sha256": "1b9f7054cba73eec6ab1550b325bcab7cb7a3ca63a71cd096022c056812787b2"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 2802,
+      "sha256": "0bb2205341753f1712fd649037e86a6237ba1df7d0db42564462fd09cb1b2632"
+    },
+    {
+      "file": "ROOT-SOURCE.json",
+      "bytes": 3734,
+      "sha256": "461993c121060c6239031b10db48f61e5668a1de2a440b763df509011473d60f"
+    },
+    {
+      "file": "STOP.json",
+      "bytes": 347,
+      "sha256": "ccf349e9f59c13d303e8256cdf1179ded5f5b2d2f1c6937c049b03f92ac01b2f"
+    },
+    {
+      "file": "TABS-AFTER-CLOSE.json",
+      "bytes": 386,
+      "sha256": "a94172c6dbbbe5b20ad57681d6f75aac219e9983b2a938843fc6b86522cee15c"
+    },
+    {
+      "file": "adopt.py",
+      "bytes": 2607,
+      "sha256": "562ebabea767860e49dc632b5cdb00b1526a9fb3517e58907d43586408d8e8f9"
+    },
+    {
+      "file": "archive.py",
+      "bytes": 1973,
+      "sha256": "42253cf194869c5c584c595b21373886872218d23582365c43b57ef503411ddc"
+    },
+    {
+      "file": "candidate-portrait.html.source",
+      "bytes": 10470,
+      "sha256": "577d98b90941ec242bb9fcea46bc65599c1570a3a8d00c161c96a4ae5362f873"
+    },
+    {
+      "file": "candidate-portrait.js.source",
+      "bytes": 12890,
+      "sha256": "6185813893b9cf0e12f64f3ca61b750bcf8d07af898ac713b3673ee97754b22f"
+    },
+    {
+      "file": "make-candidate.py",
+      "bytes": 3411,
+      "sha256": "1f94a59bfa8ce27561f28a92ee69e6d986a2f768b61e2f3c7e256599143c5ef2"
+    },
+    {
+      "file": "original-portrait.html.source",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "file": "original-portrait.js.source",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "file": "outfit-check.mjs",
+      "bytes": 3099,
+      "sha256": "866e2be2deacce3c68ce44c5b0e03113c56bd0983bbc020b0b0942a2330e51ff"
+    },
+    {
+      "file": "portrait-outfit.mjs.source",
+      "bytes": 1629,
+      "sha256": "d0ba865f3f215b1d3507d829b5f510d004abd1534f772c22fe58184a263d4b0f"
+    },
+    {
+      "file": "refused-console.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "file": "refused-desktop-ax.txt",
+      "bytes": 3168,
+      "sha256": "12d1939f155b1319dbf69d3aa8f785d218ffa3efcd21b34147baa4152128fed3"
+    },
+    {
+      "file": "refused-desktop.jpg",
+      "bytes": 36070,
+      "sha256": "9b9d04b47ec3106c4dfd8e9dc7c3f052a70493d0dcc4bb43b82047dd9aece3e6"
+    },
+    {
+      "file": "refused-mobile-ax.txt",
+      "bytes": 3168,
+      "sha256": "12d1939f155b1319dbf69d3aa8f785d218ffa3efcd21b34147baa4152128fed3"
+    },
+    {
+      "file": "refused-mobile.jpg",
+      "bytes": 3345,
+      "sha256": "81e4b5e4ad018069a1a14bd752d1f92f4623a12e5b4697e49bee93662b8b6d09"
+    }
+  ]
+}

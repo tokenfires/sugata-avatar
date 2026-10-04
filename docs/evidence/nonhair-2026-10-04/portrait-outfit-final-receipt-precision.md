@@ -1,0 +1,3 @@
+# Construction versus root readback
+
+The frozen final RECEIPT's construction paragraph groups twenty frozen-payload checks, five current source/snapshot pairs and six snapshot rows under the construction job. Precise attribution: author60024 explicitly verifies twenty previous payloads and the two accepted originals, writes the three isolated current sources and six snapshot files, and records six snapshot hashes. Root60229 subsequently verifies all five current-source/snapshot pairs and those six recorded rows. The five-pair current readback is root evidence, not an explicit construction assertion. Source/metadata are retained verbatim in the frozen packet; this correction changes no bytes, native qualification or B decision.

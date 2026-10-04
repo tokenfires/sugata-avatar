@@ -1,0 +1,60 @@
+Browser tab: 15, Title: "Sugata 姿 — portrait", URL: "http://127.0.0.1:5173/src/portrait-outfit-final-candidate.html?hair=bob01&bake=g100&scene=studio&outfit=ink".
+0 AXWebArea Sugata 姿 — portrait, URL: 127.0.0.1:5173/src/portrait-outfit-final-candidate.html?hair=bob01&bake=g100&scene=studio&outfit=ink
+	1 container
+		2 link Description: SUGATA, Value: 127.0.0.1:5173/
+		3 link Description: Explore the testbed ↗, Value: 127.0.0.1:5173/
+	4 container
+		5 container Interactive avatar portrait
+			6 image Description: Avatar portrait. Drag to rotate and scroll to zoom., ID: stage
+			7 container error
+				8 text The portrait could not load.
+The Ink outfit is unavailable for this body study.
+				9 link Description: Continue without an outfit, Value: 127.0.0.1:5173/src/portrait-outfit-final-candidate.html?hair=bob01&bake=g100&scene=studio, ID: continue-without-outfit
+		10 text PORTRAIT STUDY / 01
+		11 heading A body for an AI., Value: 1
+			12 text A body
+			13 text for an AI.
+		14 text Expression, posture, and the small movements in between.
+		15 container Description: EXPRESSION, ID: expressions
+			16 text EXPRESSION
+			17 checkbox (disabled) At ease, Value: 0
+			18 checkbox (disabled) Warm, Value: 0
+			19 checkbox (disabled) Curious, Value: 0
+			20 checkbox (disabled) Determined, Value: 0
+			21 button (disabled) Ease to neutral, ID: release-expression
+			22 text Expressions blend gradually.
+		23 container Description: ATTENTION · EXPERIMENTAL, ID: attention-controls
+			24 text ATTENTION · EXPERIMENTAL
+			25 button (disabled) Look toward me, ID: look-toward-me
+			26 button (disabled) Look with a smile, ID: look-with-smile
+			27 button (disabled) Release, ID: release-attention
+			28 text Choose a simple look or add a small smile. Dragging releases it.
+			29 text Preparing attention
+		30 container hair-controls
+			31 text SILHOUETTE
+			32 pop up button (disabled, collapsed, settable) SILHOUETTE, Value: Original long bob, ID: hair-style, Secondary Actions: Expand
+				33 menu
+					34 (disabled) Chin-length bob
+					35 (disabled) Original long bob
+			36 text Two cuts, on the same figure and under the same light.
+		37 container Description: OUTFIT, ID: outfit-controls
+			38 text OUTFIT
+			39 checkbox (disabled) No outfit, Value: 0
+			40 checkbox (disabled) Ink outfit, Value: 0
+			41 text Ink adds a navy tee. Changing outfits starts a fresh view.
+		42 container Description: ROOM, ID: scene-controls
+			43 text ROOM
+			44 checkbox (disabled) Studio, Value: 1
+			45 checkbox (disabled) Kitchen, Value: 0
+			46 text Changing rooms returns the pose and expression to their starting state.
+		47 container Description: LIGHT, ID: light-controls
+			48 text LIGHT
+			49 checkbox (disabled) Studio, Value: 1
+			50 checkbox (disabled) Warm, Value: 0
+		51 checkbox (disabled) Pause motion, Value: 0, ID: pause
+		52 button (disabled) Reset view ↗, ID: reset-view
+		53 text Portrait unavailable
+	54 container
+		55 text Sugata 姿 · An embodied presence A work in progress
+
+The focused UI element is 0 AXWebArea Sugata 姿 — portrait, URL: 127.0.0.1:5173/src/portrait-outfit-final-candidate.html?hair=bob01&bake=g100&scene=studio&outfit=ink

@@ -1,0 +1,60 @@
+{
+  "pid": 61681,
+  "started": "2026-10-04T08:49:10.684148+00:00",
+  "finished": "2026-10-04T08:49:10.685691+00:00",
+  "sourceInputsReconciled": 15,
+  "snapshotsReconciled": 6,
+  "images": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/refused-desktop.jpg",
+      "bytes": 36070,
+      "sha256": "9b9d04b47ec3106c4dfd8e9dc7c3f052a70493d0dcc4bb43b82047dd9aece3e6",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/refused-mobile.jpg",
+      "bytes": 3345,
+      "sha256": "81e4b5e4ad018069a1a14bd752d1f92f4623a12e5b4697e49bee93662b8b6d09",
+      "width": 390,
+      "height": 219
+    }
+  ],
+  "native": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/NATIVE-JOB.json",
+      "bytes": 235,
+      "sha256": "7652b6f4ad1d4de56e591be910a737f7d9634734b18e403ca977997149cc5fdb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/STOP.json",
+      "bytes": 347,
+      "sha256": "ccf349e9f59c13d303e8256cdf1179ded5f5b2d2f1c6937c049b03f92ac01b2f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/refused-desktop-ax.txt",
+      "bytes": 3168,
+      "sha256": "12d1939f155b1319dbf69d3aa8f785d218ffa3efcd21b34147baa4152128fed3"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/refused-mobile-ax.txt",
+      "bytes": 3168,
+      "sha256": "12d1939f155b1319dbf69d3aa8f785d218ffa3efcd21b34147baa4152128fed3"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/refused-console.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ],
+  "recordedRequestSecondsAfterHardCutoff": 4.978,
+  "finiteConsole": {
+    "entries": 0,
+    "warn": 0,
+    "error": 0
+  },
+  "rootActualView": "Both untouched originals viewed natively, mobile againviaoriginalview_image; desktop clearrefusal/realmatchinghref/bothdisabledchoices0/captionabsent. Mobile actual390x219 shows verysmall unreadable content despite requested390x844; noapplicationCSS/capturecause assigned.",
+  "correction": "Root followup falsely assumed native firstopenbefore44; actual job request04.978/handle05.368 after44. Sourcepreflight51.973before44doesnotadmitthatlateopen. STOP israwlatermobile-stop receipt, not firstformalcutofffailure discovery.",
+  "decision": "B; first-open cut off missed, later mobilecontextunqualified; noEnter/recoveredbare/g050Ink/adoptedmain/currentnativequalification. No source/capture/timingcorrection/replay.",
+  "metadataHelperLimit": "First PIL metadata import failed ModuleNotFoundError/c6a9e4; noinstall/retry. Purestandard-byteSOFchecks support actual rootview, not imageediting or newcapture."
+}

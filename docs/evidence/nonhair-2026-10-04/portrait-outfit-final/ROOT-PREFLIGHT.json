@@ -1,0 +1,16 @@
+{
+  "pid": 60939,
+  "started": "2026-10-04T08:43:51.973082+00:00",
+  "finished": "2026-10-04T08:43:51.974569+00:00",
+  "critic": {
+    "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/CRITIC-SOURCE.md",
+    "bytes": 8882,
+    "sha256": "83da0f2569c1afd3a155652ef37c84ddf5d889dee2d44b90d6caab2714cc315b"
+  },
+  "criticPins": 15,
+  "rootPins": 15,
+  "snapshots": 6,
+  "fullHandoffRead": "Root4e0b60 complete8882/currenthelper+diff82d414/currentunchangedfullJSHTML0251a9 equality60229; independent current sourcepin reconciling beforefirstopen.",
+  "precision": "Critic prose says soft08:41missed byseconds; exactsaved08:42:36 is96seconds after thatsofttarget, not the unchangedhard08:44. No inheritedGO/retroactivecutoff.",
+  "decision": "Fresh exact-source GO only for new4doc recovery/currentInk contract; currentnative/appearance/adoption unqualified."
+}

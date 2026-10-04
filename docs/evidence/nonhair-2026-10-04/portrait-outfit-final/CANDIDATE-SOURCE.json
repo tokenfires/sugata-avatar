@@ -1,0 +1,41 @@
+{
+  "pid": 60024,
+  "started": "2026-10-04T08:36:35.367659+00:00",
+  "finished": "2026-10-04T08:36:35.370831+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-04/portrait-outfit-final/make-candidate.py",
+  "priorFrozenPayloadsVerified": 20,
+  "acceptedOriginalsExact": true,
+  "snapshots": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/original-portrait.html.source",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/original-portrait.js.source",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/candidate-portrait.html.source",
+      "bytes": 10470,
+      "sha256": "577d98b90941ec242bb9fcea46bc65599c1570a3a8d00c161c96a4ae5362f873"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/candidate-portrait.js.source",
+      "bytes": 12890,
+      "sha256": "6185813893b9cf0e12f64f3ca61b750bcf8d07af898ac713b3673ee97754b22f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/portrait-outfit.mjs.source",
+      "bytes": 1629,
+      "sha256": "d0ba865f3f215b1d3507d829b5f510d004abd1534f772c22fe58184a263d4b0f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-outfit-final/outfit-check.mjs",
+      "bytes": 3099,
+      "sha256": "866e2be2deacce3c68ce44c5b0e03113c56bd0983bbc020b0b0942a2330e51ff"
+    }
+  ],
+  "delta": "One exact generic helper terminal message plus HTML module entry; JS exact unchanged."
+}

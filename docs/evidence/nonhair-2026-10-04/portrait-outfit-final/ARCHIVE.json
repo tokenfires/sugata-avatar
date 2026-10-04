@@ -1,0 +1,30 @@
+{
+  "pid": 61974,
+  "started": "2026-10-04T08:52:31.528330+00:00",
+  "finished": "2026-10-04T08:52:31.555845+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-04/portrait-outfit-final/archive.py",
+  "removedOnlyExactOwnedUntrackedClosedSources": [
+    {
+      "path": "packages/testbed/src/portrait-outfit-final-candidate.html",
+      "bytes": 10470,
+      "sha256": "577d98b90941ec242bb9fcea46bc65599c1570a3a8d00c161c96a4ae5362f873",
+      "retainedSnapshot": "candidate-portrait.html.source"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit-final-candidate.js",
+      "bytes": 12890,
+      "sha256": "6185813893b9cf0e12f64f3ca61b750bcf8d07af898ac713b3673ee97754b22f",
+      "retainedSnapshot": "candidate-portrait.js.source"
+    },
+    {
+      "path": "packages/testbed/src/portrait-outfit.mjs",
+      "bytes": 1629,
+      "sha256": "d0ba865f3f215b1d3507d829b5f510d004abd1534f772c22fe58184a263d4b0f",
+      "retainedSnapshot": "portrait-outfit.mjs.source"
+    }
+  ],
+  "acceptedOriginalsExact": true,
+  "knownTabClosed": "15",
+  "privateLifetimeUnexposed": true,
+  "adoptNeverExecuted": true
+}

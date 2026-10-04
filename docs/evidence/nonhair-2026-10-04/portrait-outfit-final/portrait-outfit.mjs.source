@@ -1,0 +1,41 @@
+// A wardrobe-only choice for the existing g050 Portrait, not a complete saved look.
+const INK_WARDROBE = Object.freeze({
+    style: 'ecru',
+    colours: Object.freeze({ top: '#32495e', bottom: '#35485c', shoes: '#48382e' }),
+    outfit: Object.freeze(['female_casualsuit01', 'shoes01']),
+    foundation: Object.freeze({ TORSO: 'foundation_bra', HIPS: 'foundation_briefs' })
+});
+
+export class PortraitOutfitUnavailableError extends Error {
+    constructor() {
+        super('The Ink outfit is unavailable for this body study.');
+        this.name = 'PortraitOutfitUnavailableError';
+    }
+}
+
+function validateOutfit(outfit, bake) {
+    if (!['none', 'ink'].includes(outfit)) throw new Error('The requested outfit is not recognized.');
+    if (outfit === 'ink' && bake !== 'g050')
+        throw new PortraitOutfitUnavailableError();
+    return outfit;
+}
+
+export function portraitOutfitSelection(params, bake) {
+    if (params.getAll('outfit').length > 1) throw new Error('Duplicate outfit selection.');
+    return validateOutfit(params.get('outfit') ?? 'none', bake);
+}
+
+export function portraitOutfitOptions(outfit, bake) {
+    validateOutfit(outfit, bake);
+    if (outfit === 'none') return {};
+    return { wardrobe: { style: INK_WARDROBE.style, colours: { ...INK_WARDROBE.colours },
+        outfit: [...INK_WARDROBE.outfit], foundation: { ...INK_WARDROBE.foundation } } };
+}
+
+export function portraitOutfitUrl(href, outfit, bake) {
+    validateOutfit(outfit, bake);
+    const url = new URL(href);
+    if (outfit === 'none') url.searchParams.delete('outfit');
+    else url.searchParams.set('outfit', outfit);
+    return url;
+}
