@@ -1,0 +1,36 @@
+{
+  "scope": "Post-stop preservation and independent filesystem/JSON readback only; no browser, Avatar, renderer or geometry execution",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-kitchen/root-handoff-reader.py",
+  "pid": 95747,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "started": "2026-10-04T00:44:42.293003+00:00",
+  "ended": "2026-10-04T00:44:42.470441+00:00",
+  "sourceSha256": "1702e9e59d777888c8ffaeca206b2c1f9b232dbb6c2a7d18831f789b81ad6056",
+  "criticReceiptSha256": "1a81eea33cee38df3b1dd8534ab0f628240b47121397bec60366b97da5c39eb8",
+  "criticMetadata": {
+    "scope": "Source/FS/JSON only; no Avatar/renderer/guard/API or numerical geometry execution",
+    "command": "python3 docs/evidence/nonhair-2026-10-03/skin-kitchen/critic-source-pins.py",
+    "pid": 83909,
+    "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "started": "2026-10-04T00:38:57.613765+00:00",
+    "ended": "2026-10-04T00:38:57.735307+00:00",
+    "sourceSha256": "410c00b5f445449521906bb270219b09017e1adc67418d129bc186c26c1b54d0",
+    "sourceInputs": 380,
+    "recipeExactClone": true
+  },
+  "checkedPins": 393,
+  "acceptedSources": 380,
+  "exactRecipe": true,
+  "renderOutputsAbsent": [
+    "original-front.jpg",
+    "candidate-front.jpg",
+    "candidate-oblique.jpg",
+    "original-oblique.jpg",
+    "UI.json"
+  ],
+  "firstRecoveryClock": "2026-10-04T00:43:36Z",
+  "firstOpenCutoff": "2026-10-04T00:42:00Z",
+  "decision": "STOP: missed first-open cutoff; no launch, correction, replay or appearance qualification"
+}

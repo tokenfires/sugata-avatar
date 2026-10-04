@@ -1,0 +1,7 @@
+{
+  "pid": 78249,
+  "utc": "2026-10-04T00:35:57.314196+00:00",
+  "oldSHA256": "d81c342502a0f633469800f914cb8adae8b44715bd31b100bcca280bc3ad97f1",
+  "newSHA256": "8c430faf77e485f5d0b197d06e5676339f0a466edec411c8d2e75c2e13bf6f5b",
+  "change": "Source-only observation records all actual bone local/world matrices and geometry attribute/index versions to support declared invariant; no geometry/material/renderer/runtime change. Initial source retained. motion.pose may be absent; actual complete matrices are pose witness."
+}

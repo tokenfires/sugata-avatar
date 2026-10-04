@@ -1,0 +1,127 @@
+import { Avatar } from '../../../../packages/core/src/Avatar.js';
+import { configurationFromReport } from '../../../../packages/testbed/src/showcase-presets.mjs';
+const element = id => document.getElementById(id);
+const output = value => { element('receipt').textContent = JSON.stringify(value, null, 2); };
+const weights = Object.freeze({ original: .34, candidate: .12 });
+let avatar = null, skin = null, recipe = null, frame = null, retired = false, disposed = false;
+let arm = 'original', view = 'front', draws = 0, baseline = null, firstError = null, retirementReceipt = null;
+const controls = ['original', 'candidate', 'front', 'oblique'];
+const disable = value => controls.forEach(id => { element(id).disabled = value; });
+const clone = value => JSON.parse(JSON.stringify(value));
+const check = (condition, message) => { if (!condition) throw Error(message); };
+function snapshot() {
+    const report = avatar.report();
+    const bindings = [], bones = [];
+    avatar.figure.root.traverse(object => {
+        if (object.isBone) bones.push({ name:object.name, uuid:object.uuid, local:object.matrix.toArray(), world:object.matrixWorld.toArray() });
+        if (object.isMesh) bindings.push({ mesh: object.uuid, name: object.name,
+            geometry: object.geometry.uuid, attributes:Object.fromEntries(Object.entries(object.geometry.attributes).map(([key,a]) => [key,{count:a.count,itemSize:a.itemSize,version:a.version}])), indexVersion:object.geometry.index?.version ?? null, world: object.matrixWorld.toArray(),
+            morphs: object.morphTargetInfluences ? [...object.morphTargetInfluences] : null,
+            materials: (Array.isArray(object.material) ? object.material : [object.material]).map(material => material?.uuid ?? null) });
+    });
+    return { arm, view, draws, requestedConfiguration: recipe,
+        actualConfiguration: configurationFromReport(report), room: clone(report.scene),
+        motion: { seed: report.motion.seed, pose: report.motion.pose },
+        backend: avatar.stage.backendName, webGPU: avatar.stage.renderer.backend.isWebGPUBackend,
+        camera: { position: avatar.stage.camera.position.toArray(), quaternion: avatar.stage.camera.quaternion.toArray(),
+            fov: avatar.stage.camera.fov, projection: avatar.stage.camera.projectionMatrix.toArray() },
+        headWorld: avatar.figure.bone('head').matrixWorld.toArray(), bones, bindings,
+        skin: { uuid: skin.uuid, type: skin.type, bodyOwner: skin === avatar.figure.body.material,
+            clearcoat: skin.clearcoat, clearcoatRoughness: skin.clearcoatRoughness,
+            clearcoatNode: skin.clearcoatNode?.uuid ?? null, clearcoatRoughnessNode: skin.clearcoatRoughnessNode?.uuid ?? null,
+            clearcoatMap: skin.clearcoatMap?.uuid ?? null, clearcoatRoughnessMap: skin.clearcoatRoughnessMap?.uuid ?? null,
+            useClearcoat: skin.useClearcoat, roughness: skin.roughness, roughnessNode: skin.roughnessNode?.uuid ?? null,
+            normalNode: skin.normalNode?.uuid ?? null, map: skin.map?.uuid ?? null, ior: skin.ior,
+            maps: Object.fromEntries(Object.entries(skin.skin).filter(([,node]) => node?.value?.isTexture).map(([key,node]) => [key,node.value.uuid])),
+            settings: clone(skin.skinSettings),
+            uniforms: Object.fromEntries(Object.entries(skin.skinUniforms).map(([key,node]) => [key,node.value?.toArray ? node.value.toArray() : node.value])) } };
+}
+function invariant(state) {
+    const value = clone(state);
+    delete value.arm; delete value.view; delete value.draws; delete value.camera;
+    delete value.skin.clearcoat;
+    return value;
+}
+function guard(state) {
+    check(state.webGPU === true, 'Actual WebGPU backend unavailable.');
+    check(state.skin.bodyOwner && state.skin.type === 'SkinNodeMaterial', 'Exact body skin owner unavailable.');
+    check(state.skin.useClearcoat && state.skin.clearcoat === weights[arm] && state.skin.clearcoatRoughness === .24,
+        'Fixed active skin field/branch differs.');
+    for (const key of ['clearcoatNode','clearcoatRoughnessNode','clearcoatMap','clearcoatRoughnessMap'])
+        check(state.skin[key] === null, 'Undeclared clearcoat override/map: ' + key);
+    check(state.skin.settings.secondLobeWeight === .34, 'Construction metadata/default changed.');
+    check(JSON.stringify(state.actualConfiguration) === JSON.stringify(recipe), 'Attached Kitchen recipe differs.');
+    check(state.room.id === 'kitchen' && !Object.hasOwn(recipe, 'lighting'), 'Wrong room or inherited lighting.');
+    if (baseline) check(JSON.stringify(invariant(state)) === JSON.stringify(baseline), 'Undeclared subject/room/material/pose change.');
+}
+function setCamera() {
+    const camera = avatar.stage.camera;
+    camera.fov = 26;
+    camera.position.set(...(view === 'front' ? [0,1.55,.88] : [.4235,1.55,.7665]));
+    camera.lookAt(0,1.55,.033);
+    camera.updateProjectionMatrix();
+}
+function observe() {
+    const state = snapshot(); guard(state);
+    if (!baseline) baseline = invariant(state);
+    output({ state: 'ready', observation: state, firstError });
+    element('status').textContent = `Ready · Kitchen · ${arm === 'original' ? 'Original' : 'Softer candidate'} · ${view === 'front' ? 'Front' : '30° oblique'}`;
+    for (const id of controls) element(id).setAttribute('aria-pressed', String(id === arm || id === view));
+}
+function retire(reason) {
+    if (retirementReceipt) return retirementReceipt;
+    retired = true; disable(true); cancelAnimationFrame(frame);
+    const result = { state: 'retiring', reason, firstError, ownerReturned: avatar !== null, errors: [] };
+    if (!avatar) { output(result); element('status').textContent = 'Retiring · waiting for creation to settle'; return; }
+    retirementReceipt = result; // One durable attempt; pending pre-create cancellation leaves this unset.
+    if (skin) { try { skin.clearcoat = .34; } catch (error) { result.errors.push('restore: ' + error.message); } }
+    try { result.restored = snapshot(); } catch (error) { result.errors.push('snapshot: ' + error.message); }
+    try { avatar.dispose(); disposed = true; } catch (error) { result.errors.push('dispose: ' + error.message); }
+    try { result.disposal = clone(avatar.report().disposal); } catch (error) { result.errors.push('disposal report: ' + error.message); }
+    if (result.errors.length) {
+        firstError ??= 'Retirement failed: ' + result.errors.join('; ');
+        result.firstError = firstError; element('error').textContent = firstError; console.error(firstError);
+    }
+    result.state = result.errors.length ? 'retirement-failed' : 'retired';
+    output(result); element('status').textContent = result.errors.length ? 'Retirement reported a failure' : 'Retired · original skin restored';
+    return retirementReceipt;
+}
+function fail(error) {
+    if (!firstError) firstError = error.stack ?? String(error);
+    element('error').textContent = firstError;
+    console.error(firstError);
+    retire('first failure');
+}
+// Publish retirement/cancellation before any asynchronous fetch or Avatar.create.
+element('retire').onclick = () => retire('explicit UI retirement');
+addEventListener('pagehide', () => retire('pagehide'), { once: true });
+addEventListener('error', event => fail(event.error ?? Error(event.message)));
+addEventListener('unhandledrejection', event => fail(event.reason ?? Error('Unhandled rejection')));
+for (const id of controls) element(id).onclick = () => {
+    if (retired || !avatar) return;
+    try {
+        if (Object.hasOwn(weights,id)) { arm = id; skin.clearcoat = weights[arm]; }
+        else view = id;
+        setCamera(); avatar.stage.draw(); draws++; observe();
+    } catch (error) { fail(error); }
+};
+(async () => {
+    try {
+        const response = await fetch(new URL('./recipe.json', import.meta.url));
+        check(response.ok, 'Exact recipe unavailable.'); recipe = await response.json();
+        check(recipe.scene === 'kitchen' && !Object.hasOwn(recipe,'lighting'), 'Recipe has wrong room/lighting.');
+        if (retired) { output({ state:'retired-before-create', firstError, ownerReturned:false }); element('status').textContent = 'Retired before avatar creation'; return; }
+        avatar = await Avatar.create({ ...recipe, canvas:element('stage'), autoStart:false });
+        skin = avatar.skin;
+        if (retired) { retire('late owner after cancellation'); return; }
+        await avatar.step(0);
+        if (retired) { retire('cancelled during initial step'); return; }
+        setCamera(); avatar.stage.draw(); draws++; observe(); disable(false);
+        const draw = () => {
+            if (retired) return;
+            try { avatar.stage.draw(); draws++; frame = requestAnimationFrame(draw); }
+            catch (error) { fail(error); }
+        };
+        frame = requestAnimationFrame(draw);
+    } catch (error) { fail(error); }
+})();

@@ -1,0 +1,42 @@
+{
+  "scope": "FS hash readback only; no runtime/API/parser/evaluator/render qualification",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-kitchen/critic-contract-pins.py",
+  "pid": 69885,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "started": "2026-10-04T00:31:38.699032+00:00",
+  "ended": "2026-10-04T00:31:38.699861+00:00",
+  "sourceSha256": "a9f750ffcc826e999d4059db8cbeaf0668984aaa43e8c004f5b4ab4dae62ace2",
+  "pins": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/skin-kitchen/PLAN.md",
+      "bytes": 5168,
+      "sha256": "a5b9a49884fa509b2e339737384eda4d075f4a3ab306fca8ea57f617e1bf603f"
+    },
+    {
+      "path": "looks/sage-lavender-chin.json",
+      "bytes": 623,
+      "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978"
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/skin-lighting-value/CRITIC-VALUE.md",
+      "bytes": 7143,
+      "sha256": "c8529c23a6e9691b19bb8095f9c81eb126047ebb141ee0fa32b946402f2b5a4e"
+    }
+  ]
+}
