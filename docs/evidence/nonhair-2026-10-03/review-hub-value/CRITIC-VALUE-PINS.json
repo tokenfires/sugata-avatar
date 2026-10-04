@@ -1,0 +1,126 @@
+{
+  "scope": "FS-only bounded value metadata; no browser/build/SDK/geometry job",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/review-hub-value/critic-value-pins.py",
+  "pid": 3835,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "started": "2026-10-04T01:22:05.701354+00:00",
+  "ended": "2026-10-04T01:22:05.703776+00:00",
+  "status": "passed",
+  "pins": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub-value/PLAN.md",
+      "bytes": 2905,
+      "sha256": "d51e649d69237302011e805f6e46a5f5d5b094f90eb19a380c1901293fefeb56"
+    },
+    {
+      "file": "packages/testbed/index.html",
+      "bytes": 10037,
+      "sha256": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b"
+    },
+    {
+      "file": "packages/testbed/pages.js",
+      "bytes": 14624,
+      "sha256": "abe518d8d5839e5f6a0e99bca51367a260f4de7e60fabe64f19073452e349d47"
+    },
+    {
+      "file": "packages/testbed/today-review.js",
+      "bytes": 585,
+      "sha256": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/review.html",
+      "bytes": 7019,
+      "sha256": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "bytes": 4920,
+      "sha256": "573b891855ea3a69d5c7bc400fa9fc02f8967fd6addbe07bf83d08e6c17bf3dc"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/hair-cut/ROOT-DECISION.md",
+      "bytes": 3486,
+      "sha256": "d978297f4dc8467a0bcfe2d8982a56ddaf3e810a0097b3c50578bb33f209f117"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "bytes": 2571,
+      "sha256": "ebe3f81f93f77a74687af564070aae1449e6de548ae640cf7716f4d8a2cada00"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/RECEIPT.md",
+      "bytes": 3902,
+      "sha256": "6400c3f1cd56df0d721a5bc3b57f5d111c48853fdc2d40f629d8fe621b0db40f"
+    },
+    {
+      "file": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    {
+      "file": "looks/VIEWING-ATTENTION.md",
+      "bytes": 1857,
+      "sha256": "16591ec3c2f01d95f8773532540b0059df7f4ce5b30b008c810f1806fe530dbb"
+    },
+    {
+      "file": "looks/ink-denim-review.html",
+      "bytes": 6505,
+      "sha256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e"
+    },
+    {
+      "file": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png",
+      "bytes": 788268,
+      "sha256": "37667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035",
+      "dimensions": [
+        1440,
+        2060
+      ]
+    },
+    {
+      "file": "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-long-bob.png",
+      "bytes": 866140,
+      "sha256": "82f8b02ff93380de2f88023b7f4c39da1411e213c47b8e845244cc4bb21567e5",
+      "dimensions": [
+        1440,
+        2060
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "bytes": 1009568,
+      "sha256": "4e7c174fbea2cc223b79cbe073c6fc40bacfaa1af7d800b62064d29ff16b7bc8",
+      "dimensions": [
+        900,
+        868
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub-value/CRITIC-VALUE.md",
+      "bytes": 5570,
+      "sha256": "6e9a81fc0563b6de130cad6fff1765084ec859e0a7724d7cca25d439a7226b7f"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub-value/critic-value-pins.py",
+      "bytes": 2635,
+      "sha256": "42175b3e82b4ec85aaa69b3acf83053a1f573cdbaf8f5fd9d8c18dcaebaa1254"
+    }
+  ],
+  "sourceSha256": "42175b3e82b4ec85aaa69b3acf83053a1f573cdbaf8f5fd9d8c18dcaebaa1254",
+  "noteSha256": "6e9a81fc0563b6de130cad6fff1765084ec859e0a7724d7cca25d439a7226b7f",
+  "originalInspection": "All four exact source files viewed during this worth gate; tall UI image display resized by tool; no bitmap edits/crops"
+}
