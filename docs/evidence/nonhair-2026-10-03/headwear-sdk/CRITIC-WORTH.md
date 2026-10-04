@@ -1,0 +1,29 @@
+# Fedora with bob02: worthwhile SDK-only screening
+
+Independent source-only decision, 2026-10-04 02:30 UTC: **conditional A is worthwhile for one unchanged-hat/bob02 static screening and exact experimental SDK-options example**. This is a distinct composed-Avatar responsibility, not a repair of the bare-Figure diagnostic or unsupported Showcase import route. Inventory confirmed this note absent before creation. No SDK/helper/test/asset parser, construction, browser or GPU was run by the critic. Source/native admission still requires a fresh literal plan and full source review.
+
+## Actual owner makes the scope concrete
+
+`Avatar.js:4656–4699` accepts a wardrobe array of nonempty manifest IDs and refuses clothing unless the actual resolved bake is g050. The complete `AvatarWardrobe.js` explicitly bundles `fedora01/g050.glb`; its loader checks manifest conflicts and all requested paths, adds the configured foundation floor, then returns a Wardrobe owning the actual figure. Fedora's HEADWEAR/HEAD declaration does not conflict with the casual BASE slots. `Avatar.js:3030–3089` attaches clothing through that owner, while2520–2533 exposes attached state, actual URLs, pending work and errors. The composition therefore has a current source owner without a new garment, source ID guess, fit/mask algorithm or shipping identity claim.
+
+Ecru applies to the known suit/shoes; `WardrobeStyles.js:48–62` loads unknown-to-the-colour-recipe manifest IDs normally and returns null from its material factory for them. Fedora consequently retains its imported material rather than becoming an Ecru-authored hat. Its source is resident MPFB/MakeHuman CC0, not newly authored Sugata clothing. The trial must bind the actual loaded hat bytes; the suit's colourway hash gate does not automatically qualify Fedora.
+
+The entire `AvatarWardrobe.browser.selftest.mjs` provides a concrete existing API/lifetime precedent: actual Avatar creation, public steps, actual wardrobe reports, same-renderer rebuild and retirement. This source was read, not executed. It is not hat aesthetic evidence and its current general test/route/private-backend probes should not be blindly rerun as this new appearance study.
+
+## Useful decision, modest scope
+
+The previously viewed complete Ink Neutral/Kitchen body originals show the actual short bob and visible face without headwear. They establish a recognizable current character context. No Fedora original has been viewed by this critic, so neither suitability nor failure is established. Four new whole views — frontal Body, frontal Portrait, and complementary ±35° Portrait — could decide whether the unchanged brim/crown frames the face usefully or visibly intersects/obscures the short bob. That is a new accessory/composition decision, not another palette or source-preview inventory.
+
+**A:** one fixed SDK-only creation/recreation and four reviewed originals can deliver a real experimental headwear example; its cost is one finite native owner and static review. **B:** stop now and retain the current bare-headed examples, avoiding a new study while leaving this actual catalogue accessory uncurated. A now has enough source-backed value because the composed Avatar supplies the hair that the rejected diagnostic route omitted. No change to that previous B decision is implied.
+
+## Smallest fresh contract and hard stop
+
+Use one literal g050/nearest, bob02, Ecru casual+shoes+Fedora, explicit bra/briefs, Neutral Studio, balanced/seed/pose/options set, with public `autoStart:false` and a declared fixed public-step sequence. Record actual attached hair/hat/garments/configuration/asset bytes and explicit disposal. Recreate from the exact saved developer input excluding the canvas, then compare the supported request/attachment data; this is not Showcase JSON export/import, pixel reconstruction or new serialization infrastructure. The current Showcase/diagnostic source and public defaults stay unchanged.
+
+Avatar's source at1521–1540 explicitly says public fixed simulation steps do not pin renderer epochs. Use ordinary rendering and honest static samples, with no clock/AA-history manipulation or equality oracle. Camera obliques do not qualify head motion. One fresh maximum30-minute source/native/image-review window, an absolute launch cutoff, and first substantive observed failure stop are sufficient. No correction, new fit, hair suppression, hat/hair mask, geometry/material edit, both-cut promotion or gesture test follows a failure.
+
+Retain the optional SDK example only if the actual face remains legible and all four current views show no gross visible crown/brim breakthrough. **A:** preserve a bounded useful accessory direction with explicit rest/view limitations. **B:** keep the input/evidence experimental and defer if the composition fails or adds little. Even success would not qualify unseen intersections, all angles, both cuts, head/body motion, hair transparency, physical fit, broader identities, calibrated materials, API/UI feature adoption or AAA finish.
+
+Read scope: complete AvatarWardrobe.js and its129-line browser selftest; API470–527; Avatar4656–4705/1518–1540/2507–2538/3028–3089; WardrobeStyles48–62 and prior complete factory review. The initial broad source search was truncated; all decisive source sections were read separately. No current hat image or remote example was qualified. No critic-owned job remains.
+
+FS-only `shasum -a 256` readback exit0/chunk7f3807, observed02:31:07UTC (PID/full start/end unrecorded): Avatar `fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18`; AvatarWardrobe `f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10`; browser-selftest source `f3fd6e9d8ac3e369ec463a4faa1aae89bc0f483bc0f5e0ec31f9242fbab2abdc`; API `71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353`.

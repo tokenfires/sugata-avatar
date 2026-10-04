@@ -1,0 +1,13 @@
+# SDK headwear capture deferred before execution
+
+Entrydda1bb5. Fixed02:33–03:03UTC/sole native admission before02:48. Conditional worth established an unanswered Fedora/chin-bob static appearance question, not a runtime pass. Exact saved developer options c0dcc37cd10b061d91509818ddf46939a4cace613bc59eb85348c9dbb7c60016 equal accepted Ink plus fedora01. Fedora g050 is7638760bytes/f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27. Whole exact source/asset inputs are in SOURCE.json.
+
+Sole FS preparation `node docs/evidence/nonhair-2026-10-03/headwear-sdk/prepare.mjs`, PID94311,02:35:24.934–.952UTC,exit0/chunk03d3a5. No option resolver, asset parsing or runtime work. Native candidate d430f383c06609d7ae48205032b311a72b0d772e62f601baaa426f300d45c4f2 was never executed or corrected.
+
+Independent critic full source note f33180a114832e895c74cc9caa7ae5f598acd41e1e3b926879f5cd271c69913a withholds native admission: guard expects absent wardrobe.error while actual report publishes lastError; more substantially, Promise.race does not cancel/join async setup, so a late owner could be acquired after cleanup. This is an unexecuted source path, not an observed leak or renderer failure. A separately owned acquisition/retirement contract costs new work; B defers this script and preserves the appearance question. B selected; no patch/replay/cutoff extension.
+
+Critic saved-first FS reader PID13649,02:44:00.563394–.578480UTC,exit0/be9a96 checks24pins. Root fully reads worth/source/checker/metadata, independently verifies actual lastError publication and timeout path, then runs saved `python3 docs/evidence/nonhair-2026-10-03/headwear-sdk/root-close.py`, PID23245,02:48:25.448142–.464353UTC,exit0/e5cc03. Reader58ea9d931e65742edb36f0b7fe63468659b1fbdd76ba87f4719843e8198b0ee4; ROOT-CLOSED.json independently reconciles all24bytes/hashes/options and absent capture/ROOT-SOURCE outputs.
+
+No Avatar, browser/tab, GPU/native, asset parse, test/build, accepted source/asset/default mutation or actual headwear image exists from this packet. Current Showcase still excludes this third garment. Accepted Ink and wider AAA character/expression/wardrobe/representation roadmap remain unchanged. Review1023/5173 and ACTIVE ten-minute recovery retained. No owned runtime job; unrelated worktrees/originals/frozen evidence preserved. No push/publication/purchase/model/subscription/reset-credit/other-project action. Human pause/check-in takes precedence.
+
+Recovery: this exact script remains closed. A managed provider-owned tab with explicit late-Avatar retirement is only a new worth question, not admission; otherwise choose a distinct source/artistic responsibility. Do not repair the closed Node harness or create another deadline extension.

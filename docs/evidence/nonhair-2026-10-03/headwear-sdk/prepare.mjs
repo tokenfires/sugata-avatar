@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+const started=new Date().toISOString(),root=new URL('../../../../',import.meta.url),folder=new URL('./',import.meta.url);
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const files=['packages/core/src/Avatar.js','packages/core/src/wardrobe/AvatarWardrobe.js','packages/core/src/wardrobe/Wardrobe.js','packages/core/src/wardrobe/WardrobeStyles.js','packages/core/src/wardrobe/GarmentManifest.js','packages/core/src/render/MotionProbe.mjs','assets/wardrobe/manifest.json','assets/wardrobe/body/g050.glb','assets/wardrobe/foundation_bra/g050.glb','assets/wardrobe/foundation_briefs/g050.glb','assets/wardrobe/female_casualsuit01/g050.glb','assets/wardrobe/shoes01/g050.glb','assets/wardrobe/fedora01/g050.glb','assets/hair/bob02/g050.glb','looks/ink-denim.json','packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs','docs/API.md'];
+const pins=files.map(file=>{const b=fs.readFileSync(new URL(file,root));return {file,bytes:b.length,sha256:sha(b)};});
+const worth=fs.readFileSync(new URL('CRITIC-WORTH.md',folder));
+assert.equal(sha(worth),'cf2e298880bb207067f56a70dfc8e1fb52f1ac7480ac095a4fabbe2059ce1d52');
+for(const hash of [...worth.toString().matchAll(/`([a-f0-9]{64})`/g)].map(x=>x[1]))assert.ok(pins.some(p=>p.sha256===hash));
+const ink=fs.readFileSync(new URL('looks/ink-denim.json',root));assert.equal(sha(ink),'80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407');
+const candidate=JSON.parse(ink);candidate.wardrobe.outfit.push('fedora01');
+fs.writeFileSync(new URL('SDK-OPTIONS.json',folder),JSON.stringify(candidate,null,2)+'\n',{flag:'wx'});
+const output={command:'node docs/evidence/nonhair-2026-10-03/headwear-sdk/prepare.mjs',pid:process.pid,started,ended:new Date().toISOString(),readerSha256:sha(fs.readFileSync(new URL(import.meta.url))),worthSha256:sha(worth),planSha256:sha(fs.readFileSync(new URL('PLAN.md',folder))),candidateSha256:sha(fs.readFileSync(new URL('SDK-OPTIONS.json',folder))),candidate,pins,scope:'Independent full worth-note hash reconciliation and exact source/assets/input binding. No Avatar option resolver/import, asset parse, GPU/browser/render.'};
+fs.writeFileSync(new URL('SOURCE.json',folder),JSON.stringify(output,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({pid:output.pid,started,ended:output.ended,pins:pins.length,readerSha256:output.readerSha256,candidateSha256:output.candidateSha256,sourceReceiptSha256:sha(fs.readFileSync(new URL('SOURCE.json',folder)))}));

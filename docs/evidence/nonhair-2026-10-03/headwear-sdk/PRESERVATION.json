@@ -1,0 +1,73 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/headwear-sdk/freeze.py",
+  "pid": 33473,
+  "started": "2026-10-04T02:52:54.638905+00:00",
+  "ended": "2026-10-04T02:52:54.639576+00:00",
+  "files": [
+    {
+      "file": "CRITIC-SOURCE-PINS.json",
+      "bytes": 4638,
+      "sha256": "ab0c4a23cc6995d324e4b4c2937d4180d07528b313498f253986c87cc22601b1"
+    },
+    {
+      "file": "CRITIC-SOURCE-READ.py",
+      "bytes": 1557,
+      "sha256": "aba319ee379191e0b42a046d2df62701ed71147990de87de8ee1440c9d47a155"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 4311,
+      "sha256": "f33180a114832e895c74cc9caa7ae5f598acd41e1e3b926879f5cd271c69913a"
+    },
+    {
+      "file": "CRITIC-WORTH.md",
+      "bytes": 5851,
+      "sha256": "cf2e298880bb207067f56a70dfc8e1fb52f1ac7480ac095a4fabbe2059ce1d52"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3038,
+      "sha256": "47053d2ea900436d816d8dd4e0b6696c5ee868d21fd86302d0e6e68e79c54fb9"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 2763,
+      "sha256": "89131e5c86b01efc91a331a422cdb008bb9e43c1b12dd3b7c3594fd549775426"
+    },
+    {
+      "file": "ROOT-CLOSED.json",
+      "bytes": 5331,
+      "sha256": "2acaf069ba72459405544ed6070b9b9c5753952b76c2ee3827b4f5fb1b3a8ef5"
+    },
+    {
+      "file": "SDK-OPTIONS.json",
+      "bytes": 572,
+      "sha256": "c0dcc37cd10b061d91509818ddf46939a4cace613bc59eb85348c9dbb7c60016"
+    },
+    {
+      "file": "SOURCE.json",
+      "bytes": 4282,
+      "sha256": "1f221e271b4a430364d37d3021f7aa8a6944f966957894eaeebb21527dbf3bed"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 864,
+      "sha256": "c63d3ec3314554a1a40dc60291e9339520500e8026493f269b3499b1bb02e3e7"
+    },
+    {
+      "file": "native.mjs",
+      "bytes": 11003,
+      "sha256": "d430f383c06609d7ae48205032b311a72b0d772e62f601baaa426f300d45c4f2"
+    },
+    {
+      "file": "prepare.mjs",
+      "bytes": 2563,
+      "sha256": "b84b9339bb51b402ed51e00da5ee80b4b604d0b2201402f2cfb53a171cdc72ec"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 2031,
+      "sha256": "58ea9d931e65742edb36f0b7fe63468659b1fbdd76ba87f4719843e8198b0ee4"
+    }
+  ]
+}

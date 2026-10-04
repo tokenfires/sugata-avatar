@@ -1,0 +1,130 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/headwear-sdk/CRITIC-SOURCE-READ.py",
+  "pid": 13649,
+  "started": "2026-10-04T02:44:00.563394+00:00",
+  "finished": "2026-10-04T02:44:00.578480+00:00",
+  "status": "source-only-readback",
+  "decision": "WITHHELD; substantive async ownership blocker; no runtime execution",
+  "pins": [
+    {
+      "file": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "file": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "file": "packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "file": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "file": "assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "file": "assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "file": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "file": "assets/wardrobe/fedora01/g050.glb",
+      "bytes": 7638760,
+      "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27"
+    },
+    {
+      "file": "assets/hair/bob02/g050.glb",
+      "bytes": 3347176,
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    },
+    {
+      "file": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs",
+      "bytes": 12071,
+      "sha256": "f3fd6e9d8ac3e369ec463a4faa1aae89bc0f483bc0f5e0ec31f9242fbab2abdc"
+    },
+    {
+      "file": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/headwear-sdk/PLAN.md",
+      "bytes": 3038,
+      "sha256": "47053d2ea900436d816d8dd4e0b6696c5ee868d21fd86302d0e6e68e79c54fb9"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/headwear-sdk/SDK-OPTIONS.json",
+      "bytes": 572,
+      "sha256": "c0dcc37cd10b061d91509818ddf46939a4cace613bc59eb85348c9dbb7c60016"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/headwear-sdk/SOURCE.json",
+      "bytes": 4282,
+      "sha256": "1f221e271b4a430364d37d3021f7aa8a6944f966957894eaeebb21527dbf3bed"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/headwear-sdk/native.mjs",
+      "bytes": 11003,
+      "sha256": "d430f383c06609d7ae48205032b311a72b0d772e62f601baaa426f300d45c4f2"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/headwear-sdk/CRITIC-WORTH.md",
+      "bytes": 5851,
+      "sha256": "cf2e298880bb207067f56a70dfc8e1fb52f1ac7480ac095a4fabbe2059ce1d52"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/headwear-sdk/CRITIC-SOURCE.md",
+      "bytes": 4311,
+      "sha256": "f33180a114832e895c74cc9caa7ae5f598acd41e1e3b926879f5cd271c69913a"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/headwear-sdk/CRITIC-SOURCE-READ.py",
+      "bytes": 1557,
+      "sha256": "aba319ee379191e0b42a046d2df62701ed71147990de87de8ee1440c9d47a155"
+    }
+  ]
+}
