@@ -1,0 +1,90 @@
+{
+  "pid": 65296,
+  "startUTC": "2026-10-04T03:41:37.246001+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-ao/critic-result-readback.py",
+  "pins": {
+    "PLAN.md": {
+      "bytes": 4130,
+      "sha256": "9486c0ed45965c6b9f3d10a56dc4a9915f1e0b17d72079f48dbc0aeb3b2319e6"
+    },
+    "preview.mjs": {
+      "bytes": 5276,
+      "sha256": "8e112b14193eb73d24ba16925ed0a272c7d7050f39cdbed8a8e42a830a0635bd"
+    },
+    "preview.html": {
+      "bytes": 1486,
+      "sha256": "696c55825795f7fe79b0d2f7851199c6bfcc3bd9e1d3f81d57da48ab07712c59"
+    },
+    "CONTROL-STOP.md": {
+      "bytes": 2190,
+      "sha256": "e4f33657559fc0abd9b1e04d227d96400e124c19311f2a16bdc49a330c50f50b"
+    },
+    "INK-balanced.json": {
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    "INK-high.json": {
+      "bytes": 550,
+      "sha256": "fe203ddcbb2f95099c94753b3f8363e670f634126f6221f4bb55f4a0c876afcb"
+    },
+    "capture/balanced-body.png": {
+      "bytes": 3795997,
+      "sha256": "b2f0e9c356a6884b24c1e91fe3e5d9157cd554284815a92a07d43aaeecd7351b",
+      "dimensions": [
+        1800,
+        2100
+      ]
+    },
+    "capture/balanced-portrait.png": {
+      "bytes": 4976609,
+      "sha256": "53ae97d0b1ba78783f7d228e28f16ff157ea3e2a9d7faf2b0a8c4f230bd85c0d",
+      "dimensions": [
+        1800,
+        2100
+      ]
+    },
+    "capture/high-body.png": {
+      "bytes": 3912661,
+      "sha256": "1580a9b80fea317c1019ee870ec6f67fc48b5db6abe3fd9bdc17ea4130093960",
+      "dimensions": [
+        1800,
+        2100
+      ]
+    },
+    "capture/balanced-body-state.json": {
+      "bytes": 15805,
+      "sha256": "b61b190dee466068c25fb9304de418ec12241b5a31f6f9653df0af7bed31ed52"
+    },
+    "capture/balanced-portrait-state.json": {
+      "bytes": 30517,
+      "sha256": "3e7aaa11d1c1adb3829766e82cca4e9544d9461be7b3a8031515b43565f68bfc"
+    },
+    "capture/high-body-state.json": {
+      "bytes": 16632,
+      "sha256": "48bb5e11fdd536bd8e82562ff5e57ab762a756cd03ab0935786a3f3fa6b68f2c"
+    },
+    "capture/balanced-retirement.json": {
+      "bytes": 30727,
+      "sha256": "41214cc0109b40ed0123ea0043b2771d94da7a18b9f0ae63aebabcc50e4ad325"
+    },
+    "capture/high-retirement.json": {
+      "bytes": 16842,
+      "sha256": "6e45580e505e287a574a9bdb5ac25642a864b433e6e5e939aa882ee31ea488ca"
+    },
+    "capture/balanced-console.json": {
+      "bytes": 1217,
+      "sha256": "12bf176a4f6bf30d111887057a7f0fd29ed6e813eac8c9bcd34e455cd9dffca2"
+    },
+    "capture/high-console.json": {
+      "bytes": 1217,
+      "sha256": "9f87d85171bc083c27b062ed1151c201b41c647b1d02a6a7288349ac9cf0dd87"
+    }
+  },
+  "status": "READBACK-PASS",
+  "states": 3,
+  "images": 3,
+  "highPortraitPresent": false,
+  "bodyCameraEquality": true,
+  "endUTC": "2026-10-04T03:41:37.253197+00:00",
+  "limits": "FS/JSON/header readback only; no rendering, pixel metrics, asset parser, guard replay, network or allocator proof."
+}

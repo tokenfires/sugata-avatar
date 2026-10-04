@@ -1,0 +1,178 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-ao/preflight.py",
+  "pid": 63114,
+  "started": "2026-10-04T03:32:44.783411+00:00",
+  "ended": "2026-10-04T03:32:44.797872+00:00",
+  "pins": [
+    {
+      "file": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "file": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "file": "packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "file": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "file": "assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "file": "assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "file": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "file": "assets/hair/bob02/g050.glb",
+      "bytes": 3347176,
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    },
+    {
+      "file": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs",
+      "bytes": 12071,
+      "sha256": "f3fd6e9d8ac3e369ec463a4faa1aae89bc0f483bc0f5e0ec31f9242fbab2abdc"
+    },
+    {
+      "file": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "file": "packages/core/src/render/GTAO.js",
+      "bytes": 52453,
+      "sha256": "6ec17333adc951164f1bf5a0a62ad8a9d9b58923278efddac7c5f57723c7cf7f"
+    },
+    {
+      "file": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "file": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/PLAN.md",
+      "bytes": 4130,
+      "sha256": "9486c0ed45965c6b9f3d10a56dc4a9915f1e0b17d72079f48dbc0aeb3b2319e6"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preview.html",
+      "bytes": 1486,
+      "sha256": "696c55825795f7fe79b0d2f7851199c6bfcc3bd9e1d3f81d57da48ab07712c59"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preview.mjs",
+      "bytes": 5276,
+      "sha256": "8e112b14193eb73d24ba16925ed0a272c7d7050f39cdbed8a8e42a830a0635bd"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/prepare.py",
+      "bytes": 1793,
+      "sha256": "3b5d38175640b8570d6c5005585ae66935410d0666f93550d78f623526d71428"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/INK-balanced.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/INK-high.json",
+      "bytes": 550,
+      "sha256": "fe203ddcbb2f95099c94753b3f8363e670f634126f6221f4bb55f4a0c876afcb"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/PRIMARY-GTAO.json",
+      "bytes": 287595,
+      "sha256": "27c997e812aa8e02b572811ff4be94d90e8c0af076666854425a3e3e6b6d831f"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/CRITIC-SOURCE.md",
+      "bytes": 4942,
+      "sha256": "513273180bc9d3e0b4b1257f25ed497ad94914d6369a3b942328bd74010e497b"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/CRITIC-WORTH.md",
+      "bytes": 2331,
+      "sha256": "079e25f6a7a6030d409bf8a82fb86101c1a32579937eac464ae91d20a7c5df04"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preflight.py",
+      "bytes": 2353,
+      "sha256": "c8909e96ac5bce2bb7f822c72990966eaed26590373940076a9491c7f8aa79d6"
+    },
+    {
+      "file": "packages/core/src/render/LightingRig.js",
+      "bytes": 169377,
+      "sha256": "8f8996daf35401635ce2b57d4668ab9caaf3512feb2080e1a5223639fb74ceb8"
+    }
+  ],
+  "criticBindings": {
+    "PLAN.md": "9486c0ed45965c6b9f3d10a56dc4a9915f1e0b17d72079f48dbc0aeb3b2319e6",
+    "preview.html": "696c55825795f7fe79b0d2f7851199c6bfcc3bd9e1d3f81d57da48ab07712c59",
+    "preview.mjs": "8e112b14193eb73d24ba16925ed0a272c7d7050f39cdbed8a8e42a830a0635bd",
+    "INK-balanced.json": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+    "INK-high.json": "fe203ddcbb2f95099c94753b3f8363e670f634126f6221f4bb55f4a0c876afcb",
+    "INPUTS.json": "1c9ad0a62fc5a53d40ccdd8f29107a92da7227f75afe25012122b70f604ff870"
+  },
+  "decision": "Source GO only: root read full handoff/fixture and actual tier/ambient/AO source; first-open before03:38/whole stop03:53.",
+  "scope": "FS/hash/literal checks only; no SDK resolution/asset parse/runtime."
+}

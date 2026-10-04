@@ -1,0 +1,14 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-ao/root-close.py",
+  "pid": 65756,
+  "started": "2026-10-04T03:45:46.558124+00:00",
+  "ended": "2026-10-04T03:45:46.583889+00:00",
+  "bindings": {
+    "CRITIC-RESULT.md": "090ae3b7606c4a2d3e2c22e6898d8d062fbf1c3457960678630515d9759a5820",
+    "critic-result-readback.py": "5487036eae4078e2028b649d657a8d8f5e9ce36577e27a8ebc56bff0dba4afe5",
+    "CRITIC-RESULT-READBACK.json": "0f69c1ea47e91de35b06a8674f2b98e18bd706be025b2c68e0eb1ba3a30636ac"
+  },
+  "rootRowsVerified": 58,
+  "criticRowsVerified": 16,
+  "decision": "B confirmed: root full critic/checker/metadata read, three whole images viewed, all handoff bytes independently reconciled. No SDK recommendation or native retry."
+}

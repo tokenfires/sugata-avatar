@@ -1,0 +1,1041 @@
+{
+  "createdAt": "2026-10-04T03:32:51.021Z",
+  "tier": "balanced",
+  "options": {
+    "identity": {
+      "gender": 0.5,
+      "mode": "nearest"
+    },
+    "hair": "bob02",
+    "hairColour": "#413934",
+    "frame": "body",
+    "quality": "balanced",
+    "scene": "studio",
+    "lighting": "neutral",
+    "seed": 20260807,
+    "pose": "relaxed-standing",
+    "wardrobe": {
+      "style": "ecru",
+      "colours": {
+        "top": "#32495e",
+        "bottom": "#35485c",
+        "shoes": "#48382e"
+      },
+      "outfit": [
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "foundation": {
+        "TORSO": "foundation_bra",
+        "HIPS": "foundation_briefs"
+      }
+    }
+  },
+  "states": [
+    {
+      "name": "balanced-body",
+      "frame": "body",
+      "at": "2026-10-04T03:32:58.110Z",
+      "report": {
+        "quality": {
+          "requested": "balanced",
+          "tier": "balanced",
+          "backend": "webgpu",
+          "selectedBy": "caller",
+          "temporalResolve": 1,
+          "resolutionScale": 0.66,
+          "backendMismatch": false
+        },
+        "subsystems": {
+          "skinMaterial": 1,
+          "eyeMaterial": 2,
+          "eyeOcclusion": 4,
+          "cardShading": 2,
+          "hairMaterial": 1,
+          "shadowCastingLights": 1,
+          "temporalResolve": 1,
+          "grade": 1,
+          "ambientOcclusion": null
+        },
+        "faceCardCoverage": {
+          "requested": "auto",
+          "live": true,
+          "managedMaterials": 2,
+          "registered": true,
+          "lastObservedMode": "coverage",
+          "reason": null,
+          "shadowAlphaTest": 0.1,
+          "ownedStorageBuffers": 0
+        },
+        "wardrobe": {
+          "supportedBake": "g050",
+          "assetStatus": "existing plumbing stand-ins",
+          "requestedOutfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "requestedStyle": "ecru",
+          "appearance": {
+            "style": "ecru",
+            "colours": {
+              "top": "#32495e",
+              "bottom": "#35485c",
+              "shoes": "#48382e"
+            },
+            "attached": true
+          },
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          },
+          "floor": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "attached": true,
+          "bodyUrl": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+          "manifestUrl": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+          "fragmentUrls": {
+            "foundation_bra": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+            "foundation_briefs": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+            "female_casualsuit01": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+            "shoes01": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb"
+          },
+          "pendingCandidates": 0,
+          "state": {
+            "disposed": false,
+            "pendingFragments": 0,
+            "worn": [
+              "foundation_bra",
+              "foundation_briefs",
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "bodyVisible": true,
+            "bodyTriangles": 17012,
+            "fullBodyTriangles": 26756,
+            "hiddenTriangles": 9744,
+            "garmentTriangles": 7883,
+            "occlusion": [
+              {
+                "id": "foundation_bra",
+                "drawnTriangles": 327,
+                "fullTriangles": 22090,
+                "occludedBy": [
+                  "female_casualsuit01",
+                  "shoes01"
+                ],
+                "carriesUnderMasks": true
+              },
+              {
+                "id": "foundation_briefs",
+                "drawnTriangles": 0,
+                "fullTriangles": 12498,
+                "occludedBy": [
+                  "female_casualsuit01",
+                  "shoes01"
+                ],
+                "carriesUnderMasks": true
+              },
+              {
+                "id": "female_casualsuit01",
+                "drawnTriangles": 4236,
+                "fullTriangles": 4236,
+                "occludedBy": [],
+                "carriesUnderMasks": false
+              },
+              {
+                "id": "shoes01",
+                "drawnTriangles": 3320,
+                "fullTriangles": 3320,
+                "occludedBy": [],
+                "carriesUnderMasks": false
+              }
+            ],
+            "drawCalls": 5,
+            "residentFragments": 4,
+            "insulation": {
+              "clo": 0.46,
+              "unrated": []
+            },
+            "lastDressMs": 1.0999999940395355,
+            "lastRebuildMs": 1,
+            "jointRemapIsIdentity": true
+          },
+          "lastError": null
+        },
+        "scene": {
+          "id": "studio",
+          "kind": "studio",
+          "background": "#08080a",
+          "backdrop": "#070a0e",
+          "ground": true,
+          "environment": null,
+          "groundMaterial": {
+            "albedo": "#968c34",
+            "roughness": 0.9
+          },
+          "lighting": {
+            "look": "neutral",
+            "exposure": 0.85,
+            "ambientFractionOfKey": 0.22,
+            "calibrated": false,
+            "designedKeyToFill": 2.5,
+            "ambientAttached": true,
+            "shadowsEnabled": true,
+            "placements": [
+              {
+                "name": "key",
+                "azimuthDegrees": 42,
+                "elevationDegrees": 17.999999999999996,
+                "irradiance": 2.5500000000000007,
+                "colour": "#f0f0f0",
+                "position": [
+                  3.717634576543999,
+                  2.334616481023999,
+                  2.7010196234424164
+                ],
+                "panelMetres": [
+                  3.716715991740387,
+                  5.203402388436541
+                ],
+                "radiance": 2.177923376237454,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 26.789101726843565
+              },
+              {
+                "name": "fill",
+                "azimuthDegrees": -52,
+                "elevationDegrees": 1.9999999999999996,
+                "irradiance": 1.0199999999999998,
+                "colour": "#d9d9d9",
+                "position": [
+                  -2.745744183733502,
+                  0.9906978000197658,
+                  3.272250495309057
+                ],
+                "panelMetres": [
+                  7.805103582654813,
+                  7.805103582654813
+                ],
+                "radiance": 0.6374862097079717,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              },
+              {
+                "name": "rim",
+                "azimuthDegrees": -168,
+                "elevationDegrees": 40.00000000000001,
+                "irradiance": 18.7,
+                "colour": "#575757",
+                "position": [
+                  -0.37636567099220164,
+                  1.6179737260669331,
+                  -0.8453311374836203
+                ],
+                "panelMetres": [
+                  0.25886926882471795,
+                  0.8628356174825308
+                ],
+                "radiance": 133.2243374024246,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              },
+              {
+                "name": "kicker",
+                "azimuthDegrees": 166,
+                "elevationDegrees": 15.999999999999993,
+                "irradiance": 0.08499999999999999,
+                "colour": "#dedede",
+                "position": [
+                  0.04052318182014104,
+                  1.1744809295901828,
+                  -1.160432098431198
+                ],
+                "panelMetres": [
+                  0.25886926882471795,
+                  0.8197217119783423
+                ],
+                "radiance": 0.6328081849381876,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              }
+            ]
+          }
+        },
+        "hair": {
+          "style": "bob02",
+          "loadedStyle": "bob02",
+          "colour": {
+            "requested": "#413934",
+            "applied": "#413934",
+            "requestedTint": null,
+            "appliedTint": null,
+            "resolved": "#413934",
+            "linear": [
+              0.05286064701616471,
+              0.040915196900556984,
+              0.0343398068028541
+            ],
+            "matchesAttached": true
+          },
+          "bake": "figure_g050",
+          "unavailableReason": null,
+          "attached": true,
+          "meshes": 1,
+          "oit": "stochastic",
+          "stageReportsOit": "stochastic",
+          "solver": {
+            "chains": 496,
+            "particles": 8432,
+            "steps": 1
+          },
+          "velocityRepaired": true,
+          "history": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 31,
+            "cachedDraws": 1,
+            "invalidations": 0,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.942959856411977,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0506585515518758,
+                0,
+                -0.978343269387683,
+                -0.9781476007338055,
+                -5.610388287278423e-16,
+                -3.64506496453434,
+                4.015519516350668,
+                4.024716412447399
+              ],
+              "previousMVP": [
+                4.942959856411977,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0506585515518758,
+                0,
+                -0.978343269387683,
+                -0.9781476007338055,
+                -5.610388287278423e-16,
+                -3.64506496453434,
+                4.015519516350668,
+                4.024716412447399
+              ],
+              "source": {
+                "write": 1,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "cardFrame": {
+            "mode": "smooth",
+            "available": true,
+            "reason": null,
+            "live": true,
+            "layout": {
+              "base": 652,
+              "count": 16864,
+              "rings": 17,
+              "cards": 496,
+              "width": 0.123046875
+            },
+            "ownedBuffers": 0,
+            "addedVertexBytes": 0
+          },
+          "bodyContact": null,
+          "bodyContactUnavailableReason": null,
+          "frameBudgetWarning": null,
+          "undisposable": [
+            "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+          ]
+        },
+        "motion": {
+          "seed": 20260807,
+          "frame": 32,
+          "timeSeconds": 0,
+          "layers": [
+            "affectPosture",
+            "breath",
+            "sway",
+            "idle",
+            "bodyIdle",
+            "handIdle",
+            "gesture",
+            "gazeHead",
+            "gaze",
+            "pupil",
+            "expression",
+            "viseme",
+            "blink",
+            "facialIdle"
+          ],
+          "clampingConflicts": 0,
+          "pupilScale": 0.985,
+          "fingerClaim": {
+            "claimsFrom": "bodyIdle",
+            "resolved": true,
+            "yieldedTo": "bodyIdle"
+          }
+        },
+        "affect": {
+          "pad": {
+            "pleasure": 0,
+            "arousal": 0,
+            "dominance": 0
+          },
+          "moodOctant": "neutral",
+          "activations": [],
+          "postureDegrees": {
+            "approach": 0,
+            "armSpread": 0,
+            "armSpreadLeft": 0,
+            "armSpreadRight": 0,
+            "headTiltUp": 0,
+            "kneeAdded": 0,
+            "kneeLeft": 0,
+            "kneeRight": 0,
+            "pelvisDropMillimetres": 0
+          },
+          "clockOwner": "expression"
+        },
+        "speech": {
+          "speaking": false,
+          "timelineSupplied": null,
+          "utteranceEndsAt": null,
+          "clockSeconds": 0,
+          "gesture": {
+            "speaking": false,
+            "utteranceTime": 0,
+            "spatialExtent": 0,
+            "dominanceDrivesAmplitude": true,
+            "appliedSpatialExtent": 0,
+            "temporalExtent": 0,
+            "strokeSeconds": 0.38,
+            "yieldToPosture": true,
+            "sagittalShare": 0.75,
+            "armSidesMeasured": true,
+            "armSides": {
+              "left": 1,
+              "right": -1
+            },
+            "applied": {
+              "activation": 0,
+              "phase": "end",
+              "hand": null,
+              "yield": 1,
+              "spatialExtent": 0,
+              "shoulderDegrees": 0,
+              "elbowDegrees": 0
+            },
+            "schedule": null
+          }
+        },
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "framing": {
+          "mode": "body",
+          "heightMetres": 1.8583579958701935,
+          "fps": 0,
+          "frameMs": 1.300000011920929,
+          "drawCalls": 48,
+          "triangles": 83026
+        },
+        "disposal": {
+          "disposed": false,
+          "leaked": []
+        }
+      },
+      "clockSeconds": 0,
+      "camera": {
+        "position": [
+          0.836785594373925,
+          0.8415295548972082,
+          3.936766702469393
+        ],
+        "matrix": [
+          0.9781476007338057,
+          0,
+          -0.2079116908177593,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.2079116908177593,
+          0,
+          0.9781476007338057,
+          0,
+          0.836785594373925,
+          0.8415295548972082,
+          3.936766702469393,
+          1
+        ],
+        "projection": [
+          5.053388519998181,
+          0,
+          0,
+          0,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          0,
+          0,
+          -1.0002000400080016,
+          -1,
+          0,
+          0,
+          -0.010002000400080016,
+          0
+        ]
+      },
+      "canvas": {
+        "width": 1800,
+        "height": 2100
+      },
+      "complete": true
+    },
+    {
+      "name": "balanced-portrait",
+      "frame": "portrait",
+      "at": "2026-10-04T03:33:22.443Z",
+      "report": {
+        "quality": {
+          "requested": "balanced",
+          "tier": "balanced",
+          "backend": "webgpu",
+          "selectedBy": "caller",
+          "temporalResolve": 1,
+          "resolutionScale": 0.66,
+          "backendMismatch": false
+        },
+        "subsystems": {
+          "skinMaterial": 1,
+          "eyeMaterial": 2,
+          "eyeOcclusion": 4,
+          "cardShading": 2,
+          "hairMaterial": 1,
+          "shadowCastingLights": 1,
+          "temporalResolve": 1,
+          "grade": 1,
+          "ambientOcclusion": null
+        },
+        "faceCardCoverage": {
+          "requested": "auto",
+          "live": true,
+          "managedMaterials": 2,
+          "registered": true,
+          "lastObservedMode": "coverage",
+          "reason": null,
+          "shadowAlphaTest": 0.1,
+          "ownedStorageBuffers": 0
+        },
+        "wardrobe": {
+          "supportedBake": "g050",
+          "assetStatus": "existing plumbing stand-ins",
+          "requestedOutfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "requestedStyle": "ecru",
+          "appearance": {
+            "style": "ecru",
+            "colours": {
+              "top": "#32495e",
+              "bottom": "#35485c",
+              "shoes": "#48382e"
+            },
+            "attached": true
+          },
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          },
+          "floor": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "attached": true,
+          "bodyUrl": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+          "manifestUrl": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+          "fragmentUrls": {
+            "foundation_bra": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+            "foundation_briefs": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+            "female_casualsuit01": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+            "shoes01": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb"
+          },
+          "pendingCandidates": 0,
+          "state": {
+            "disposed": false,
+            "pendingFragments": 0,
+            "worn": [
+              "foundation_bra",
+              "foundation_briefs",
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "bodyVisible": true,
+            "bodyTriangles": 17012,
+            "fullBodyTriangles": 26756,
+            "hiddenTriangles": 9744,
+            "garmentTriangles": 7883,
+            "occlusion": [
+              {
+                "id": "foundation_bra",
+                "drawnTriangles": 327,
+                "fullTriangles": 22090,
+                "occludedBy": [
+                  "female_casualsuit01",
+                  "shoes01"
+                ],
+                "carriesUnderMasks": true
+              },
+              {
+                "id": "foundation_briefs",
+                "drawnTriangles": 0,
+                "fullTriangles": 12498,
+                "occludedBy": [
+                  "female_casualsuit01",
+                  "shoes01"
+                ],
+                "carriesUnderMasks": true
+              },
+              {
+                "id": "female_casualsuit01",
+                "drawnTriangles": 4236,
+                "fullTriangles": 4236,
+                "occludedBy": [],
+                "carriesUnderMasks": false
+              },
+              {
+                "id": "shoes01",
+                "drawnTriangles": 3320,
+                "fullTriangles": 3320,
+                "occludedBy": [],
+                "carriesUnderMasks": false
+              }
+            ],
+            "drawCalls": 5,
+            "residentFragments": 4,
+            "insulation": {
+              "clo": 0.46,
+              "unrated": []
+            },
+            "lastDressMs": 1.0999999940395355,
+            "lastRebuildMs": 1,
+            "jointRemapIsIdentity": true
+          },
+          "lastError": null
+        },
+        "scene": {
+          "id": "studio",
+          "kind": "studio",
+          "background": "#08080a",
+          "backdrop": "#070a0e",
+          "ground": true,
+          "environment": null,
+          "groundMaterial": {
+            "albedo": "#968c34",
+            "roughness": 0.9
+          },
+          "lighting": {
+            "look": "neutral",
+            "exposure": 0.85,
+            "ambientFractionOfKey": 0.22,
+            "calibrated": false,
+            "designedKeyToFill": 1.3636363636363635,
+            "ambientAttached": true,
+            "shadowsEnabled": true,
+            "placements": [
+              {
+                "name": "key",
+                "azimuthDegrees": 42,
+                "elevationDegrees": 18.000000000000004,
+                "irradiance": 2.55,
+                "colour": "#f0f0f0",
+                "position": [
+                  0.8402076056488441,
+                  1.8152256268749916,
+                  0.6104465578574426
+                ],
+                "panelMetres": [
+                  0.84,
+                  1.176
+                ],
+                "radiance": 2.177923376237455,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 1.3683524400000002
+              },
+              {
+                "name": "fill",
+                "azimuthDegrees": -52,
+                "elevationDegrees": 2.0000000000000004,
+                "irradiance": 1.8699999999999997,
+                "colour": "#d9d9d9",
+                "position": [
+                  -0.6205545754536215,
+                  1.511491982832165,
+                  0.7395481446976281
+                ],
+                "panelMetres": [
+                  1.764,
+                  1.764
+                ],
+                "radiance": 1.168724717797948,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              },
+              {
+                "name": "rim",
+                "azimuthDegrees": -168,
+                "elevationDegrees": 25.999999999999986,
+                "irradiance": 13.600000000000001,
+                "colour": "#575757",
+                "position": [
+                  -0.13818639487271414,
+                  1.64348336250382,
+                  -0.31037172453736506
+                ],
+                "panelMetres": [
+                  0.034901999999999996,
+                  0.13083
+                ],
+                "radiance": 434.61237203641264,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              },
+              {
+                "name": "kicker",
+                "azimuthDegrees": 166,
+                "elevationDegrees": -5.99999999999999,
+                "irradiance": 0.059500000000000004,
+                "colour": "#dedede",
+                "position": [
+                  0.01260953033377555,
+                  1.4398038783124105,
+                  -0.36108970441660326
+                ],
+                "panelMetres": [
+                  0.034901999999999996,
+                  0.12356400000000001
+                ],
+                "radiance": 1.8586820074109944,
+                "visible": true,
+                "attached": true,
+                "shadowCasterIntensity": 0
+              }
+            ]
+          }
+        },
+        "hair": {
+          "style": "bob02",
+          "loadedStyle": "bob02",
+          "colour": {
+            "requested": "#413934",
+            "applied": "#413934",
+            "requestedTint": null,
+            "appliedTint": null,
+            "resolved": "#413934",
+            "linear": [
+              0.05286064701616471,
+              0.040915196900556984,
+              0.0343398068028541
+            ],
+            "matchesAttached": true
+          },
+          "bake": "figure_g050",
+          "unavailableReason": null,
+          "attached": true,
+          "meshes": 1,
+          "oit": "stochastic",
+          "stageReportsOit": "stochastic",
+          "solver": {
+            "chains": 496,
+            "particles": 8432,
+            "steps": 1
+          },
+          "velocityRepaired": true,
+          "history": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 64,
+            "cachedDraws": 1,
+            "invalidations": 0,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.942959856411977,
+                0,
+                -0.207953281474054,
+                -0.2079116908177592,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0506585515518756,
+                0,
+                -0.978343269387683,
+                -0.9781476007338055,
+                -1.4025970718196058e-16,
+                -6.400964384971612,
+                0.8997898915779879,
+                0.9096099335996725
+              ],
+              "previousMVP": [
+                4.942959856411977,
+                0,
+                -0.207953281474054,
+                -0.2079116908177592,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0506585515518756,
+                0,
+                -0.978343269387683,
+                -0.9781476007338055,
+                -1.4025970718196058e-16,
+                -6.400964384971612,
+                0.8997898915779879,
+                0.9096099335996725
+              ],
+              "source": {
+                "write": 1,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "cardFrame": {
+            "mode": "smooth",
+            "available": true,
+            "reason": null,
+            "live": true,
+            "layout": {
+              "base": 652,
+              "count": 16864,
+              "rings": 17,
+              "cards": 496,
+              "width": 0.123046875
+            },
+            "ownedBuffers": 0,
+            "addedVertexBytes": 0
+          },
+          "bodyContact": null,
+          "bodyContactUnavailableReason": null,
+          "frameBudgetWarning": null,
+          "undisposable": [
+            "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+          ]
+        },
+        "motion": {
+          "seed": 20260807,
+          "frame": 64,
+          "timeSeconds": 0,
+          "layers": [
+            "affectPosture",
+            "breath",
+            "sway",
+            "idle",
+            "bodyIdle",
+            "handIdle",
+            "gesture",
+            "gazeHead",
+            "gaze",
+            "pupil",
+            "expression",
+            "viseme",
+            "blink",
+            "facialIdle"
+          ],
+          "clampingConflicts": 0,
+          "pupilScale": 0.985,
+          "fingerClaim": {
+            "claimsFrom": "bodyIdle",
+            "resolved": true,
+            "yieldedTo": "bodyIdle"
+          }
+        },
+        "affect": {
+          "pad": {
+            "pleasure": 0,
+            "arousal": 0,
+            "dominance": 0
+          },
+          "moodOctant": "neutral",
+          "activations": [],
+          "postureDegrees": {
+            "approach": 0,
+            "armSpread": 0,
+            "armSpreadLeft": 0,
+            "armSpreadRight": 0,
+            "headTiltUp": 0,
+            "kneeAdded": 0,
+            "kneeLeft": 0,
+            "kneeRight": 0,
+            "pelvisDropMillimetres": 0
+          },
+          "clockOwner": "expression"
+        },
+        "speech": {
+          "speaking": false,
+          "timelineSupplied": null,
+          "utteranceEndsAt": null,
+          "clockSeconds": 0,
+          "gesture": {
+            "speaking": false,
+            "utteranceTime": 0,
+            "spatialExtent": 0,
+            "dominanceDrivesAmplitude": true,
+            "appliedSpatialExtent": 0,
+            "temporalExtent": 0,
+            "strokeSeconds": 0.38,
+            "yieldToPosture": true,
+            "sagittalShare": 0.75,
+            "armSidesMeasured": true,
+            "armSides": {
+              "left": 1,
+              "right": -1
+            },
+            "applied": {
+              "activation": 0,
+              "phase": "end",
+              "hand": null,
+              "yield": 1,
+              "spatialExtent": 0,
+              "shoulderDegrees": 0,
+              "elbowDegrees": 0
+            },
+            "schedule": null
+          }
+        },
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "framing": {
+          "mode": "portrait",
+          "heightMetres": 0.42,
+          "fps": 0,
+          "frameMs": 1.300000011920929,
+          "drawCalls": 48,
+          "triangles": 83026
+        },
+        "disposal": {
+          "disposed": false,
+          "leaked": []
+        }
+      },
+      "clockSeconds": 0,
+      "camera": {
+        "position": [
+          0.1891185392793377,
+          1.477779069017549,
+          0.8897327741541561
+        ],
+        "matrix": [
+          0.9781476007338057,
+          0,
+          -0.20791169081775926,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.20791169081775926,
+          0,
+          0.9781476007338057,
+          0,
+          0.1891185392793377,
+          1.477779069017549,
+          0.8897327741541561,
+          1
+        ],
+        "projection": [
+          5.053388519998181,
+          0,
+          0,
+          0,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          0,
+          0,
+          -1.0002000400080016,
+          -1,
+          0,
+          0,
+          -0.010002000400080016,
+          0
+        ]
+      },
+      "canvas": {
+        "width": 1800,
+        "height": 2100
+      },
+      "complete": true
+    }
+  ],
+  "failure": null,
+  "retirement": {
+    "reason": "manual",
+    "at": "2026-10-04T03:33:57.437Z",
+    "pendingAtRetirement": false,
+    "ownerReturned": true,
+    "disposal": {
+      "disposed": true,
+      "leaked": []
+    },
+    "error": null
+  },
+  "limits": [
+    "One Body/Portrait static sample per fresh owner, fixed32 public zero-delta steps each.",
+    "No pixel/physical-state equality, in-pass jitter, convergence, served-byte/network or allocator proof.",
+    "No motion/performance/frame-budget/fit/Showcase-import/default qualification."
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-ao/freeze.py",
+  "pid": 65799,
+  "started": "2026-10-04T03:46:05.321658+00:00",
+  "ended": "2026-10-04T03:46:05.328785+00:00",
+  "pins": [
+    {
+      "file": "CONTROL-STOP.md",
+      "bytes": 2190,
+      "sha256": "e4f33657559fc0abd9b1e04d227d96400e124c19311f2a16bdc49a330c50f50b"
+    },
+    {
+      "file": "CRITIC-RESULT-READBACK.json",
+      "bytes": 2956,
+      "sha256": "0f69c1ea47e91de35b06a8674f2b98e18bd706be025b2c68e0eb1ba3a30636ac"
+    },
+    {
+      "file": "CRITIC-RESULT.md",
+      "bytes": 5153,
+      "sha256": "090ae3b7606c4a2d3e2c22e6898d8d062fbf1c3457960678630515d9759a5820"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 4942,
+      "sha256": "513273180bc9d3e0b4b1257f25ed497ad94914d6369a3b942328bd74010e497b"
+    },
+    {
+      "file": "CRITIC-WORTH.md",
+      "bytes": 2331,
+      "sha256": "079e25f6a7a6030d409bf8a82fb86101c1a32579937eac464ae91d20a7c5df04"
+    },
+    {
+      "file": "INK-balanced.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "INK-high.json",
+      "bytes": 550,
+      "sha256": "fe203ddcbb2f95099c94753b3f8363e670f634126f6221f4bb55f4a0c876afcb"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 5309,
+      "sha256": "1c9ad0a62fc5a53d40ccdd8f29107a92da7227f75afe25012122b70f604ff870"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 4130,
+      "sha256": "9486c0ed45965c6b9f3d10a56dc4a9915f1e0b17d72079f48dbc0aeb3b2319e6"
+    },
+    {
+      "file": "PREFLIGHT.json",
+      "bytes": 6667,
+      "sha256": "38bba0c1df6717fe13b01bb41269ac37d5097713f54033ba6df042f03fdd0117"
+    },
+    {
+      "file": "PRIMARY-GTAO.json",
+      "bytes": 287595,
+      "sha256": "27c997e812aa8e02b572811ff4be94d90e8c0af076666854425a3e3e6b6d831f"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 3984,
+      "sha256": "18732d89a7f310ae9f41ba8e32afac11e404a268ed500797db4eb2dc74526a83"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 743,
+      "sha256": "f04b0333ab8305d3eebf89545a30578b751db891ef7b0c7a1ccd3981f07134d9"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 24409,
+      "sha256": "80b2f5825463ccc664ac48a422e397810dc9111d878813b8584ef6ac861a90f0"
+    },
+    {
+      "file": "capture/balanced-body-state.json",
+      "bytes": 15805,
+      "sha256": "b61b190dee466068c25fb9304de418ec12241b5a31f6f9653df0af7bed31ed52"
+    },
+    {
+      "file": "capture/balanced-body.png",
+      "bytes": 3795997,
+      "sha256": "b2f0e9c356a6884b24c1e91fe3e5d9157cd554284815a92a07d43aaeecd7351b"
+    },
+    {
+      "file": "capture/balanced-console.json",
+      "bytes": 1217,
+      "sha256": "12bf176a4f6bf30d111887057a7f0fd29ed6e813eac8c9bcd34e455cd9dffca2"
+    },
+    {
+      "file": "capture/balanced-context.jpg",
+      "bytes": 84382,
+      "sha256": "f87fc137a22802e0e3f2743c20bdb87589c306941813d4d1c012c79f5309cd08"
+    },
+    {
+      "file": "capture/balanced-portrait-state.json",
+      "bytes": 30517,
+      "sha256": "3e7aaa11d1c1adb3829766e82cca4e9544d9461be7b3a8031515b43565f68bfc"
+    },
+    {
+      "file": "capture/balanced-portrait.png",
+      "bytes": 4976609,
+      "sha256": "53ae97d0b1ba78783f7d228e28f16ff157ea3e2a9d7faf2b0a8c4f230bd85c0d"
+    },
+    {
+      "file": "capture/balanced-retirement.json",
+      "bytes": 30727,
+      "sha256": "41214cc0109b40ed0123ea0043b2771d94da7a18b9f0ae63aebabcc50e4ad325"
+    },
+    {
+      "file": "capture/high-body-state.json",
+      "bytes": 16632,
+      "sha256": "48bb5e11fdd536bd8e82562ff5e57ab762a756cd03ab0935786a3f3fa6b68f2c"
+    },
+    {
+      "file": "capture/high-body.png",
+      "bytes": 3912661,
+      "sha256": "1580a9b80fea317c1019ee870ec6f67fc48b5db6abe3fd9bdc17ea4130093960"
+    },
+    {
+      "file": "capture/high-console.json",
+      "bytes": 1217,
+      "sha256": "9f87d85171bc083c27b062ed1151c201b41c647b1d02a6a7288349ac9cf0dd87"
+    },
+    {
+      "file": "capture/high-context.jpg",
+      "bytes": 53313,
+      "sha256": "011dce787ada7fd036d4f7245431f1d30be92c9c49e974f51f9da3ae4b39f01a"
+    },
+    {
+      "file": "capture/high-retirement.json",
+      "bytes": 16842,
+      "sha256": "6e45580e505e287a574a9bdb5ac25642a864b433e6e5e939aa882ee31ea488ca"
+    },
+    {
+      "file": "critic-result-readback.py",
+      "bytes": 2941,
+      "sha256": "5487036eae4078e2028b649d657a8d8f5e9ce36577e27a8ebc56bff0dba4afe5"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 976,
+      "sha256": "3cc58b0616a108fca85c8733294ca0e60027284b113a4003a305736aacba8ffd"
+    },
+    {
+      "file": "preflight.py",
+      "bytes": 2353,
+      "sha256": "c8909e96ac5bce2bb7f822c72990966eaed26590373940076a9491c7f8aa79d6"
+    },
+    {
+      "file": "prepare.py",
+      "bytes": 1793,
+      "sha256": "3b5d38175640b8570d6c5005585ae66935410d0666f93550d78f623526d71428"
+    },
+    {
+      "file": "preview.html",
+      "bytes": 1486,
+      "sha256": "696c55825795f7fe79b0d2f7851199c6bfcc3bd9e1d3f81d57da48ab07712c59"
+    },
+    {
+      "file": "preview.mjs",
+      "bytes": 5276,
+      "sha256": "8e112b14193eb73d24ba16925ed0a272c7d7050f39cdbed8a8e42a830a0635bd"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 1626,
+      "sha256": "480131ee431ad389bc3d85b010aa92f04e7d595a08b622f267f5e2658fbf6a45"
+    },
+    {
+      "file": "root-result.py",
+      "bytes": 4409,
+      "sha256": "e800e74ca35a0c674525648806fd1bfb6a43367975e5a8aaaed0656267bddc4b"
+    }
+  ],
+  "scope": "Exact evidence packet only; no accepted/frozen/reference/unrelated source mutation."
+}

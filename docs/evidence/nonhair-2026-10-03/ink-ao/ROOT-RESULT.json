@@ -1,0 +1,794 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-ao/root-result.py",
+  "pid": 65072,
+  "started": "2026-10-04T03:39:25.831100+00:00",
+  "ended": "2026-10-04T03:39:25.858699+00:00",
+  "pins": [
+    {
+      "file": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "file": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "file": "packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "file": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "file": "assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "file": "assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "file": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "file": "assets/hair/bob02/g050.glb",
+      "bytes": 3347176,
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    },
+    {
+      "file": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs",
+      "bytes": 12071,
+      "sha256": "f3fd6e9d8ac3e369ec463a4faa1aae89bc0f483bc0f5e0ec31f9242fbab2abdc"
+    },
+    {
+      "file": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "file": "packages/core/src/render/GTAO.js",
+      "bytes": 52453,
+      "sha256": "6ec17333adc951164f1bf5a0a62ad8a9d9b58923278efddac7c5f57723c7cf7f"
+    },
+    {
+      "file": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "file": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/PLAN.md",
+      "bytes": 4130,
+      "sha256": "9486c0ed45965c6b9f3d10a56dc4a9915f1e0b17d72079f48dbc0aeb3b2319e6"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preview.html",
+      "bytes": 1486,
+      "sha256": "696c55825795f7fe79b0d2f7851199c6bfcc3bd9e1d3f81d57da48ab07712c59"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preview.mjs",
+      "bytes": 5276,
+      "sha256": "8e112b14193eb73d24ba16925ed0a272c7d7050f39cdbed8a8e42a830a0635bd"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/prepare.py",
+      "bytes": 1793,
+      "sha256": "3b5d38175640b8570d6c5005585ae66935410d0666f93550d78f623526d71428"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/INK-balanced.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/INK-high.json",
+      "bytes": 550,
+      "sha256": "fe203ddcbb2f95099c94753b3f8363e670f634126f6221f4bb55f4a0c876afcb"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/PRIMARY-GTAO.json",
+      "bytes": 287595,
+      "sha256": "27c997e812aa8e02b572811ff4be94d90e8c0af076666854425a3e3e6b6d831f"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/CRITIC-SOURCE.md",
+      "bytes": 4942,
+      "sha256": "513273180bc9d3e0b4b1257f25ed497ad94914d6369a3b942328bd74010e497b"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/CRITIC-WORTH.md",
+      "bytes": 2331,
+      "sha256": "079e25f6a7a6030d409bf8a82fb86101c1a32579937eac464ae91d20a7c5df04"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preflight.py",
+      "bytes": 2353,
+      "sha256": "c8909e96ac5bce2bb7f822c72990966eaed26590373940076a9491c7f8aa79d6"
+    },
+    {
+      "file": "packages/core/src/render/LightingRig.js",
+      "bytes": 169377,
+      "sha256": "8f8996daf35401635ce2b57d4668ab9caaf3512feb2080e1a5223639fb74ceb8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/CONTROL-STOP.md",
+      "bytes": 2190,
+      "sha256": "e4f33657559fc0abd9b1e04d227d96400e124c19311f2a16bdc49a330c50f50b"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/CRITIC-SOURCE.md",
+      "bytes": 4942,
+      "sha256": "513273180bc9d3e0b4b1257f25ed497ad94914d6369a3b942328bd74010e497b"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/CRITIC-WORTH.md",
+      "bytes": 2331,
+      "sha256": "079e25f6a7a6030d409bf8a82fb86101c1a32579937eac464ae91d20a7c5df04"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/INK-balanced.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/INK-high.json",
+      "bytes": 550,
+      "sha256": "fe203ddcbb2f95099c94753b3f8363e670f634126f6221f4bb55f4a0c876afcb"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/INPUTS.json",
+      "bytes": 5309,
+      "sha256": "1c9ad0a62fc5a53d40ccdd8f29107a92da7227f75afe25012122b70f604ff870"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/PLAN.md",
+      "bytes": 4130,
+      "sha256": "9486c0ed45965c6b9f3d10a56dc4a9915f1e0b17d72079f48dbc0aeb3b2319e6"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/PREFLIGHT.json",
+      "bytes": 6667,
+      "sha256": "38bba0c1df6717fe13b01bb41269ac37d5097713f54033ba6df042f03fdd0117"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/PRIMARY-GTAO.json",
+      "bytes": 287595,
+      "sha256": "27c997e812aa8e02b572811ff4be94d90e8c0af076666854425a3e3e6b6d831f"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/balanced-body-state.json",
+      "bytes": 15805,
+      "sha256": "b61b190dee466068c25fb9304de418ec12241b5a31f6f9653df0af7bed31ed52"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/balanced-body.png",
+      "bytes": 3795997,
+      "sha256": "b2f0e9c356a6884b24c1e91fe3e5d9157cd554284815a92a07d43aaeecd7351b"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/balanced-console.json",
+      "bytes": 1217,
+      "sha256": "12bf176a4f6bf30d111887057a7f0fd29ed6e813eac8c9bcd34e455cd9dffca2"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/balanced-context.jpg",
+      "bytes": 84382,
+      "sha256": "f87fc137a22802e0e3f2743c20bdb87589c306941813d4d1c012c79f5309cd08"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/balanced-portrait-state.json",
+      "bytes": 30517,
+      "sha256": "3e7aaa11d1c1adb3829766e82cca4e9544d9461be7b3a8031515b43565f68bfc"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/balanced-portrait.png",
+      "bytes": 4976609,
+      "sha256": "53ae97d0b1ba78783f7d228e28f16ff157ea3e2a9d7faf2b0a8c4f230bd85c0d"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/balanced-retirement.json",
+      "bytes": 30727,
+      "sha256": "41214cc0109b40ed0123ea0043b2771d94da7a18b9f0ae63aebabcc50e4ad325"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/high-body-state.json",
+      "bytes": 16632,
+      "sha256": "48bb5e11fdd536bd8e82562ff5e57ab762a756cd03ab0935786a3f3fa6b68f2c"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/high-body.png",
+      "bytes": 3912661,
+      "sha256": "1580a9b80fea317c1019ee870ec6f67fc48b5db6abe3fd9bdc17ea4130093960"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/high-console.json",
+      "bytes": 1217,
+      "sha256": "9f87d85171bc083c27b062ed1151c201b41c647b1d02a6a7288349ac9cf0dd87"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/high-context.jpg",
+      "bytes": 53313,
+      "sha256": "011dce787ada7fd036d4f7245431f1d30be92c9c49e974f51f9da3ae4b39f01a"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/capture/high-retirement.json",
+      "bytes": 16842,
+      "sha256": "6e45580e505e287a574a9bdb5ac25642a864b433e6e5e939aa882ee31ea488ca"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preflight.py",
+      "bytes": 2353,
+      "sha256": "c8909e96ac5bce2bb7f822c72990966eaed26590373940076a9491c7f8aa79d6"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/prepare.py",
+      "bytes": 1793,
+      "sha256": "3b5d38175640b8570d6c5005585ae66935410d0666f93550d78f623526d71428"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preview.html",
+      "bytes": 1486,
+      "sha256": "696c55825795f7fe79b0d2f7851199c6bfcc3bd9e1d3f81d57da48ab07712c59"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/preview.mjs",
+      "bytes": 5276,
+      "sha256": "8e112b14193eb73d24ba16925ed0a272c7d7050f39cdbed8a8e42a830a0635bd"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-ao/root-result.py",
+      "bytes": 4409,
+      "sha256": "e800e74ca35a0c674525648806fd1bfb6a43367975e5a8aaaed0656267bddc4b"
+    }
+  ],
+  "observations": [
+    {
+      "name": "balanced-body",
+      "at": "2026-10-04T03:32:58.110Z",
+      "bytes": 3795997,
+      "sha256": "b2f0e9c356a6884b24c1e91fe3e5d9157cd554284815a92a07d43aaeecd7351b",
+      "dimensions": [
+        1800,
+        2100
+      ],
+      "camera": {
+        "position": [
+          0.836785594373925,
+          0.8415295548972082,
+          3.936766702469393
+        ],
+        "matrix": [
+          0.9781476007338057,
+          0,
+          -0.2079116908177593,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.2079116908177593,
+          0,
+          0.9781476007338057,
+          0,
+          0.836785594373925,
+          0.8415295548972082,
+          3.936766702469393,
+          1
+        ],
+        "projection": [
+          5.053388519998181,
+          0,
+          0,
+          0,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          0,
+          0,
+          -1.0002000400080016,
+          -1,
+          0,
+          0,
+          -0.010002000400080016,
+          0
+        ]
+      },
+      "quality": {
+        "requested": "balanced",
+        "tier": "balanced",
+        "backend": "webgpu",
+        "selectedBy": "caller",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      },
+      "lighting": {
+        "look": "neutral",
+        "exposure": 0.85,
+        "ambientFractionOfKey": 0.22,
+        "calibrated": false,
+        "designedKeyToFill": 2.5,
+        "ambientAttached": true,
+        "shadowsEnabled": true,
+        "placements": [
+          {
+            "name": "key",
+            "azimuthDegrees": 42,
+            "elevationDegrees": 17.999999999999996,
+            "irradiance": 2.5500000000000007,
+            "colour": "#f0f0f0",
+            "position": [
+              3.717634576543999,
+              2.334616481023999,
+              2.7010196234424164
+            ],
+            "panelMetres": [
+              3.716715991740387,
+              5.203402388436541
+            ],
+            "radiance": 2.177923376237454,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 26.789101726843565
+          },
+          {
+            "name": "fill",
+            "azimuthDegrees": -52,
+            "elevationDegrees": 1.9999999999999996,
+            "irradiance": 1.0199999999999998,
+            "colour": "#d9d9d9",
+            "position": [
+              -2.745744183733502,
+              0.9906978000197658,
+              3.272250495309057
+            ],
+            "panelMetres": [
+              7.805103582654813,
+              7.805103582654813
+            ],
+            "radiance": 0.6374862097079717,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          },
+          {
+            "name": "rim",
+            "azimuthDegrees": -168,
+            "elevationDegrees": 40.00000000000001,
+            "irradiance": 18.7,
+            "colour": "#575757",
+            "position": [
+              -0.37636567099220164,
+              1.6179737260669331,
+              -0.8453311374836203
+            ],
+            "panelMetres": [
+              0.25886926882471795,
+              0.8628356174825308
+            ],
+            "radiance": 133.2243374024246,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          },
+          {
+            "name": "kicker",
+            "azimuthDegrees": 166,
+            "elevationDegrees": 15.999999999999993,
+            "irradiance": 0.08499999999999999,
+            "colour": "#dedede",
+            "position": [
+              0.04052318182014104,
+              1.1744809295901828,
+              -1.160432098431198
+            ],
+            "panelMetres": [
+              0.25886926882471795,
+              0.8197217119783423
+            ],
+            "radiance": 0.6328081849381876,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          }
+        ]
+      },
+      "ambientOcclusion": null
+    },
+    {
+      "name": "balanced-portrait",
+      "at": "2026-10-04T03:33:22.443Z",
+      "bytes": 4976609,
+      "sha256": "53ae97d0b1ba78783f7d228e28f16ff157ea3e2a9d7faf2b0a8c4f230bd85c0d",
+      "dimensions": [
+        1800,
+        2100
+      ],
+      "camera": {
+        "position": [
+          0.1891185392793377,
+          1.477779069017549,
+          0.8897327741541561
+        ],
+        "matrix": [
+          0.9781476007338057,
+          0,
+          -0.20791169081775926,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.20791169081775926,
+          0,
+          0.9781476007338057,
+          0,
+          0.1891185392793377,
+          1.477779069017549,
+          0.8897327741541561,
+          1
+        ],
+        "projection": [
+          5.053388519998181,
+          0,
+          0,
+          0,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          0,
+          0,
+          -1.0002000400080016,
+          -1,
+          0,
+          0,
+          -0.010002000400080016,
+          0
+        ]
+      },
+      "quality": {
+        "requested": "balanced",
+        "tier": "balanced",
+        "backend": "webgpu",
+        "selectedBy": "caller",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      },
+      "lighting": {
+        "look": "neutral",
+        "exposure": 0.85,
+        "ambientFractionOfKey": 0.22,
+        "calibrated": false,
+        "designedKeyToFill": 1.3636363636363635,
+        "ambientAttached": true,
+        "shadowsEnabled": true,
+        "placements": [
+          {
+            "name": "key",
+            "azimuthDegrees": 42,
+            "elevationDegrees": 18.000000000000004,
+            "irradiance": 2.55,
+            "colour": "#f0f0f0",
+            "position": [
+              0.8402076056488441,
+              1.8152256268749916,
+              0.6104465578574426
+            ],
+            "panelMetres": [
+              0.84,
+              1.176
+            ],
+            "radiance": 2.177923376237455,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 1.3683524400000002
+          },
+          {
+            "name": "fill",
+            "azimuthDegrees": -52,
+            "elevationDegrees": 2.0000000000000004,
+            "irradiance": 1.8699999999999997,
+            "colour": "#d9d9d9",
+            "position": [
+              -0.6205545754536215,
+              1.511491982832165,
+              0.7395481446976281
+            ],
+            "panelMetres": [
+              1.764,
+              1.764
+            ],
+            "radiance": 1.168724717797948,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          },
+          {
+            "name": "rim",
+            "azimuthDegrees": -168,
+            "elevationDegrees": 25.999999999999986,
+            "irradiance": 13.600000000000001,
+            "colour": "#575757",
+            "position": [
+              -0.13818639487271414,
+              1.64348336250382,
+              -0.31037172453736506
+            ],
+            "panelMetres": [
+              0.034901999999999996,
+              0.13083
+            ],
+            "radiance": 434.61237203641264,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          },
+          {
+            "name": "kicker",
+            "azimuthDegrees": 166,
+            "elevationDegrees": -5.99999999999999,
+            "irradiance": 0.059500000000000004,
+            "colour": "#dedede",
+            "position": [
+              0.01260953033377555,
+              1.4398038783124105,
+              -0.36108970441660326
+            ],
+            "panelMetres": [
+              0.034901999999999996,
+              0.12356400000000001
+            ],
+            "radiance": 1.8586820074109944,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          }
+        ]
+      },
+      "ambientOcclusion": null
+    },
+    {
+      "name": "high-body",
+      "at": "2026-10-04T03:34:14.553Z",
+      "bytes": 3912661,
+      "sha256": "1580a9b80fea317c1019ee870ec6f67fc48b5db6abe3fd9bdc17ea4130093960",
+      "dimensions": [
+        1800,
+        2100
+      ],
+      "camera": {
+        "position": [
+          0.836785594373925,
+          0.8415295548972082,
+          3.936766702469393
+        ],
+        "matrix": [
+          0.9781476007338057,
+          0,
+          -0.2079116908177593,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.2079116908177593,
+          0,
+          0.9781476007338057,
+          0,
+          0.836785594373925,
+          0.8415295548972082,
+          3.936766702469393,
+          1
+        ],
+        "projection": [
+          5.053388519998181,
+          0,
+          0,
+          0,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          0,
+          0,
+          -1.0002000400080016,
+          -1,
+          0,
+          0,
+          -0.010002000400080016,
+          0
+        ]
+      },
+      "quality": {
+        "requested": "high",
+        "tier": "high",
+        "backend": "webgpu",
+        "selectedBy": "caller",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      },
+      "lighting": {
+        "look": "neutral",
+        "exposure": 0.85,
+        "ambientFractionOfKey": 0.22,
+        "calibrated": false,
+        "designedKeyToFill": 2.5,
+        "ambientAttached": false,
+        "shadowsEnabled": true,
+        "placements": [
+          {
+            "name": "key",
+            "azimuthDegrees": 42,
+            "elevationDegrees": 17.999999999999996,
+            "irradiance": 2.5500000000000007,
+            "colour": "#f0f0f0",
+            "position": [
+              3.717634576543999,
+              2.334616481023999,
+              2.7010196234424164
+            ],
+            "panelMetres": [
+              3.716715991740387,
+              5.203402388436541
+            ],
+            "radiance": 2.177923376237454,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 26.789101726843565
+          },
+          {
+            "name": "fill",
+            "azimuthDegrees": -52,
+            "elevationDegrees": 1.9999999999999996,
+            "irradiance": 1.0199999999999998,
+            "colour": "#d9d9d9",
+            "position": [
+              -2.745744183733502,
+              0.9906978000197658,
+              3.272250495309057
+            ],
+            "panelMetres": [
+              7.805103582654813,
+              7.805103582654813
+            ],
+            "radiance": 0.6374862097079717,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          },
+          {
+            "name": "rim",
+            "azimuthDegrees": -168,
+            "elevationDegrees": 40.00000000000001,
+            "irradiance": 18.7,
+            "colour": "#575757",
+            "position": [
+              -0.37636567099220164,
+              1.6179737260669331,
+              -0.8453311374836203
+            ],
+            "panelMetres": [
+              0.25886926882471795,
+              0.8628356174825308
+            ],
+            "radiance": 133.2243374024246,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          },
+          {
+            "name": "kicker",
+            "azimuthDegrees": 166,
+            "elevationDegrees": 15.999999999999993,
+            "irradiance": 0.08499999999999999,
+            "colour": "#dedede",
+            "position": [
+              0.04052318182014104,
+              1.1744809295901828,
+              -1.160432098431198
+            ],
+            "panelMetres": [
+              0.25886926882471795,
+              0.8197217119783423
+            ],
+            "radiance": 0.6328081849381876,
+            "visible": true,
+            "attached": true,
+            "shadowCasterIntensity": 0
+          }
+        ]
+      },
+      "ambientOcclusion": {
+        "quality": "low",
+        "samples": 8,
+        "radius": 0.035,
+        "resolutionScale": 0.5,
+        "strength": 1,
+        "bentNormal": true,
+        "specularOcclusion": true,
+        "ambientSpecular": true,
+        "specularF0": 0.04,
+        "defect": "none",
+        "view": "off",
+        "skyColour": "c5c5c5",
+        "groundColour": "464646",
+        "skyLinear": [
+          0.5573465630763124,
+          0.5573465630763124,
+          0.5573465630763124
+        ],
+        "groundLinear": [
+          0.061259747263320306,
+          0.061259747263320306,
+          0.061259747263320306
+        ],
+        "intensity": 0.5609999999999999
+      }
+    }
+  ],
+  "bodyNominalCameraEqual": true,
+  "decision": "B: no four-image recommendation; first readiness-control failure stopped before High Portrait. Three actual originals retained; root viewed each whole original.",
+  "limits": [
+    "Readiness deadline is not proof of Avatar.create/render failure: next AX Ready/high-body actual nullfailure/complete true.",
+    "No performance/motion/fit/representation/whole-groom/convergence/in-pass camera/network/allocator qualification.",
+    "No retry/sourcefix/default/Showcase/asset change."
+  ]
+}
