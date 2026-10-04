@@ -1,0 +1,22 @@
+# Whole-character knit concept — independent worth
+
+**A: worthwhile as one new artistic target, conditional on fresh reference/prompt admission.** No generation or construction is admitted by this note. Stop after one unchanged generated original and one retain/refuse decision, before 10:15 UTC; no regeneration. The reference gate remains at most two primary pages/actual examples and 15 minutes.
+
+**Distinct silhouette, rather than another palette.** I independently viewed both accepted Ink originals at original detail on October4 around 09:19:23 UTC. In neutral-body.png (900×868), the close tee torso at approximately x326–542/y171–406, short sleeves and narrow denim legs x358–533/y407–794 create the current casual outline. Both boots remain visible. The whole knit proposal can instead articulate relaxed shoulder/torso room, full sleeves, a deliberate hem and a wider trouser-to-shoe junction. The current guide identifies Ink as a supported composition, not a new garment. PRODUCT-ROADMAP.md:44–50 explicitly leaves style variety/layering and attractive complete example builds open.
+
+A: author a relaxed fine-knit sweater plus straight/wider trousers and practical shoes as a complete new composition, with shape/material distinctions visible in the full view and closeup. It can change the concrete decision “retain this as a future third-outfit design target”; subsequent source authoring/fit obligations remain substantial. B: retain current Ink/Sage/palette examples and stop conceptual expansion until 3D authoring is available. B avoids an unrealizable illustration becoming mistaken for progress, but supplies no different silhouette intent. Select A because this finite concept produces a usable artist reference without pretending to construct an asset.
+
+**Readable character must accompany the clothes.** In neutral-portrait.png (900×868), both eyes and the face are legible, while coarse/stippled fringe and irregular neckline edges remain visible. These are current appearance limits, not established shader/contact causes. A new full-body three-quarter view plus a closeup of the same face/hair/neckline can state coherent face-framing and garment design together. Require matching hair part/length, neckline, fabric and proportions between panels, with full head/hands/feet in the body panel; reject the artistic target if those materially disagree. A: one consistent whole-character reference that makes the complete outfit and face relationship explicit. B: an outfit-only flat or garment board, easier to keep consistent but unable to answer this complete-character question. Select A; neither panel proves all-angle hair continuity, 3D anatomy, garment/body coverage or motion.
+
+“Gender-neutral adult” is deliberate presentation intent, not proof of perceived gender, representative body breadth or current runtime support. The concept must be labelled synthetic/non-native. It supplies desired silhouette and finish, not executable geometry, editable source ownership, masks, skinning, attachment or a fitted SDK recipe. Actual primary clothing examples should inform knit construction/hem and trouser/footwear relationships only; none has yet been inspected in this gate. No reference or transferred material/fit claim is made now. This is distinct from the closed overshirt edit and local hair/neckline rescue lines: it creates a complete new design, not a preservation or repair experiment on their pixels.
+
+Full PLAN, current Ink guide and roadmap excerpt were read; no browser, source/asset parser, model, capture, product edit or checker framework ran. FS read d5af81 exited0 (PID/process timestamps not returned). This note is the only critic write. Root must independently inspect and admit the exact prompt before the sole imagegen call.
+
+Bindings, SHA-256:
+- docs/evidence/appearance-2026-10-04/knit-character-concept/PLAN.md: f07e2bbe977970abe9ada0b5e9442306a51971dc78f40e4d3ea76722b93fb618
+- looks/INK-DENIM.md: bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6
+- docs/PRODUCT-ROADMAP.md: 2000f0141f2cfb10591bbaced3e57945efe2bf4ce774aefc31ac8888c61f8ada
+- docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png: f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8
+- docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png: bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644
+
+Saved 2026-10-04T09:20:52.503643+00:00.

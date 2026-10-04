@@ -1,0 +1,39 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.uniqlo.com/us/en/products/E487636-000/00?srsltid=AU7gw4WGPYhFdyTuAh3h5i72prNEu9Slpb2HnH4BFD-tbyRiFzzs5mdT\",\"title\":\"Men's Wide Chino Pants | UNIQLO US\",\"description\":\"Voluminous wide tapered cut delivers a modern profile. Loose fit offers comfort and ease compared with slim or straight‐leg chino styles.\",\"position\":1},{\"url\":\"https://www.uniqlo.com/au/en/products/E470549-000/00\",\"title\":\"Men's Uniqlo U Wide Fit Chino Pants\",\"description\":\"Out of stock Rating 4.7(321)Size: Men 31inch 29inch. Voluminous wide tapered cut. 100% Cotton/ Pocket Lining: 65% Polyester, 35% Cotton\",\"position\":2},{\"url\":\"https://www.uniqlo.com/ca/en/products/E470549-000/00?srsltid=AU7gw4UMV4kDIZHZ_5TJpYUtKZq0TF7mAZTWOFAsKPXZ5vB5sh1ZgMV6\",\"title\":\"Men's Wide Fit Chino Pants | UNIQLO CA\",\"description\":\"Out of stock Rating 4.7(391)Shop men's Wide Fit Chino Pants at UNIQLO Canada. Read customer reviews ... Wide Fit Chino Pants. CA $ 12.90. Sale. Fit. Loose. Silhouette. Tapered. Barrel ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10637-047c-77d8-8ab5-d848021d8eb0\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.uniqlo.com/us/en/products/E487636-000/00?srsltid=AU7gw4WGPYhFdyTuAh3h5i72prNEu9Slpb2HnH4BFD-tbyRiFzzs5mdT\\\", #2 \\\"https://www.uniqlo.com/au/en/products/E470549-000/00\\\", #3 \\\"https://www.uniqlo.com/ca/en/products/E470549-000/00?srsltid=AU7gw4UMV4kDIZHZ_5TJpYUtKZq0TF7mAZTWOFAsKPXZ5vB5sh1ZgMV6\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://www.uniqlo.com/us/en/products/E487636-000/00?srsltid=AU7gw4WGPYhFdyTuAh3h5i72prNEu9Slpb2HnH4BFD-tbyRiFzzs5mdT\", #2 \"https://www.uniqlo.com/au/en/products/E470549-000/00\", #3 \"https://www.uniqlo.com/ca/en/products/E470549-000/00?srsltid=AU7gw4UMV4kDIZHZ_5TJpYUtKZq0TF7mAZTWOFAsKPXZ5vB5sh1ZgMV6\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.uniqlo.com/us/en/products/E487636-000/00?srsltid=AU7gw4WGPYhFdyTuAh3h5i72prNEu9Slpb2HnH4BFD-tbyRiFzzs5mdT",
+          "title": "Men's Wide Chino Pants | UNIQLO US",
+          "description": "Voluminous wide tapered cut delivers a modern profile. Loose fit offers comfort and ease compared with slim or straight‐leg chino styles.",
+          "position": 1
+        },
+        {
+          "url": "https://www.uniqlo.com/au/en/products/E470549-000/00",
+          "title": "Men's Uniqlo U Wide Fit Chino Pants",
+          "description": "Out of stock Rating 4.7(321)Size: Men 31inch 29inch. Voluminous wide tapered cut. 100% Cotton/ Pocket Lining: 65% Polyester, 35% Cotton",
+          "position": 2
+        },
+        {
+          "url": "https://www.uniqlo.com/ca/en/products/E470549-000/00?srsltid=AU7gw4UMV4kDIZHZ_5TJpYUtKZq0TF7mAZTWOFAsKPXZ5vB5sh1ZgMV6",
+          "title": "Men's Wide Fit Chino Pants | UNIQLO CA",
+          "description": "Out of stock Rating 4.7(391)Shop men's Wide Fit Chino Pants at UNIQLO Canada. Read customer reviews ... Wide Fit Chino Pants. CA $ 12.90. Sale. Fit. Loose. Silhouette. Tapered. Barrel ...",
+          "position": 3
+        }
+      ]
+    },
+    "id": "01a10637-047c-77d8-8ab5-d848021d8eb0",
+    "creditsUsed": 2
+  },
+  "isError": false
+}

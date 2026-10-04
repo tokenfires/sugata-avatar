@@ -1,0 +1,47 @@
+{
+  "pid": 65700,
+  "startedAt": "2026-10-04T09:30:18.422945+00:00",
+  "endedAt": "2026-10-04T09:30:18.423612+00:00",
+  "decision": "GO for one built-in concept generation only",
+  "sourceNoteSha256": "88a21a410dba68217588445fadc132569aa6cc00eeabba735dbafca13c8a48bf",
+  "inputs": [
+    {
+      "path": "PLAN.md",
+      "bytes": 3023,
+      "sha256": "f07e2bbe977970abe9ada0b5e9442306a51971dc78f40e4d3ea76722b93fb618"
+    },
+    {
+      "path": "REFERENCES.md",
+      "bytes": 2381,
+      "sha256": "b9109f0655b6f07250ba731745ba1f11eff4cad49319b83c22cd3f689618513e"
+    },
+    {
+      "path": "PROMPT.txt",
+      "bytes": 2745,
+      "sha256": "8487dd03912b19d0e155efea1ee7de9a97815db0efbbf19384831cb35718dd09"
+    },
+    {
+      "path": "BRIEF.md",
+      "bytes": 2416,
+      "sha256": "6c65ece98c0bc33f3ba9991abf3ad04de0d59661600392c19ee39f3272d303f6"
+    },
+    {
+      "path": "primary-whole.jpg",
+      "bytes": 21438,
+      "sha256": "082f8bfc6eed3ab91eeb145ab80f5f6809c02eeaaa3f1bc94498f40116a2dabc"
+    },
+    {
+      "path": "primary-close.jpg",
+      "bytes": 72498,
+      "sha256": "8c02828915b13be26edbd2efadb51236275c036e5bb031c0d450279750cd1a46"
+    },
+    {
+      "path": "REFERENCE-JOB.json",
+      "bytes": 814,
+      "sha256": "05287333f5022b493073b8fa771f665c5dea35f08bdc059b767e21baca289f9b"
+    }
+  ],
+  "scriptSha256": "dac67057e7c0fc7ab3329c9a39f1bae532b78ec3ce69763f5365cc71fd40d09f",
+  "rootWitness": "Root actually viewed Ink body/portrait and both unchanged native COS whole/close images: matte fine wool, ribbing, relaxed shoulders and long leg folds. Full critic notes/source/limits independently read. Uniqlo contributes no actual image. Artist choices and matching-panel obligations are explicit.",
+  "limits": "Concept only: no 3D source, fit, runtime, perceived gender or AAA acceptance; no further references or regeneration; hard close10:15UTC."
+}

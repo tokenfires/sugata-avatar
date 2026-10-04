@@ -1,0 +1,30 @@
+{
+  "pid": 67527,
+  "startedAt": "2026-10-04T09:48:15.941980+00:00",
+  "verifiedAt": "2026-10-04T09:48:15.942446+00:00",
+  "decision": "A: exact artist-reference delivery only",
+  "finalCriticSha256": "37c203e593b00bfe4cd321b904a52ffe48ea3caf2afb3a82cb9780a4bea22ce8",
+  "inputs": [
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3607,
+      "sha256": "f7f798cf5534fd525411c2d17d39f377b605741338c83426d51c7bef14ee1170"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 25227,
+      "sha256": "fc5cddd37866faca50f6f0aea9008b84c44408650b9acc07efc03f94f227ebf5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/RECEIPT.md",
+      "bytes": 4774,
+      "sha256": "6f832ba277211b2ab97711dd4bb9dcf73b176444ed29a5b8e6de0a6dfe6e1465"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/RESULT.md",
+      "bytes": 5009,
+      "sha256": "9c6cba885bba33eee6539d4cfc36f8b8554f3ec3a56a8c4ae50c81cc0b065745"
+    }
+  ],
+  "root": "Complete final handoff independently read; source/image/result limits accepted; all four delivered hashes reconciled. No next experiment admitted."
+}

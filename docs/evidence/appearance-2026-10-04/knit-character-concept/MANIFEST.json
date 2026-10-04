@@ -1,0 +1,150 @@
+{
+  "pid": 67527,
+  "startedAt": "2026-10-04T09:48:15.941980+00:00",
+  "endedAt": "2026-10-04T09:48:15.944598+00:00",
+  "payloads": [
+    {
+      "path": "BRIEF.md",
+      "bytes": 2416,
+      "sha256": "6c65ece98c0bc33f3ba9991abf3ad04de0d59661600392c19ee39f3272d303f6"
+    },
+    {
+      "path": "DELIVERY.json",
+      "bytes": 2226,
+      "sha256": "7e95190639176c59e20e08f045b27682c9a52858f0d5977e39a4b3cb8a13fdf2"
+    },
+    {
+      "path": "FINAL-ROOT.json",
+      "bytes": 1198,
+      "sha256": "dbc26c95865ea5352677e0839b46e621deafaf18e07df68d0584cb1e2fb4bd11"
+    },
+    {
+      "path": "FINAL.md",
+      "bytes": 2179,
+      "sha256": "37c203e593b00bfe4cd321b904a52ffe48ea3caf2afb3a82cb9780a4bea22ce8"
+    },
+    {
+      "path": "IMAGEGEN-JOB.json",
+      "bytes": 426,
+      "sha256": "8ba6f9cc6dbcc9338ff6d4fade0da8db810bfb86520710590c145778d0fed991"
+    },
+    {
+      "path": "IMAGEGEN-OUTPUT.json",
+      "bytes": 839,
+      "sha256": "655a7baf942264355aabb8e918701b94c8c711cb1feb9efcd69e96ee98fade81"
+    },
+    {
+      "path": "KNIT-PRIMARY.json",
+      "bytes": 29020,
+      "sha256": "8a5090a552396b8ef5301e5f1fb761f02dbe04fea18fd2e83b49f334d2bf9ee9"
+    },
+    {
+      "path": "KNIT-SEARCH.json",
+      "bytes": 11486,
+      "sha256": "6d8317bcbe7e80aaa38b62d4b58224e1ca05e8915e51446e9081ed709dab7276"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 3023,
+      "sha256": "f07e2bbe977970abe9ada0b5e9442306a51971dc78f40e4d3ea76722b93fb618"
+    },
+    {
+      "path": "PRESERVE.py",
+      "bytes": 2124,
+      "sha256": "f5bd45af80aad3d7215392b7f5f4a830f4842dce3e9a8ba6495e882ecef4315d"
+    },
+    {
+      "path": "PROMPT.txt",
+      "bytes": 2745,
+      "sha256": "8487dd03912b19d0e155efea1ee7de9a97815db0efbbf19384831cb35718dd09"
+    },
+    {
+      "path": "RECEIPT.md",
+      "bytes": 4774,
+      "sha256": "6f832ba277211b2ab97711dd4bb9dcf73b176444ed29a5b8e6de0a6dfe6e1465"
+    },
+    {
+      "path": "REFERENCE-JOB.json",
+      "bytes": 814,
+      "sha256": "05287333f5022b493073b8fa771f665c5dea35f08bdc059b767e21baca289f9b"
+    },
+    {
+      "path": "REFERENCES.md",
+      "bytes": 2381,
+      "sha256": "b9109f0655b6f07250ba731745ba1f11eff4cad49319b83c22cd3f689618513e"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 5009,
+      "sha256": "9c6cba885bba33eee6539d4cfc36f8b8554f3ec3a56a8c4ae50c81cc0b065745"
+    },
+    {
+      "path": "ROOT-ADMISSION.json",
+      "bytes": 1883,
+      "sha256": "fdae469825f8b3408b5e98288bd11834e9b11c52a8f0142b101c7b62daa0599e"
+    },
+    {
+      "path": "ROOT-ADMIT.py",
+      "bytes": 1850,
+      "sha256": "dac67057e7c0fc7ab3329c9a39f1bae532b78ec3ce69763f5365cc71fd40d09f"
+    },
+    {
+      "path": "ROOT-CLOSE.py",
+      "bytes": 2383,
+      "sha256": "dc6213d84befd45b910e2294477b330b9725363e716f0f38590eab8d50a21479"
+    },
+    {
+      "path": "ROOT-IMAGE.md",
+      "bytes": 2083,
+      "sha256": "e327eca4b14f056216ff8d32cd99177296f8035516703cdbbbc3a395442ff1b6"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 2482,
+      "sha256": "ae488654d255aa0776097e6a72c363c7abfb4742679f34deb2c46918f693f61d"
+    },
+    {
+      "path": "SOURCE.md",
+      "bytes": 4653,
+      "sha256": "88a21a410dba68217588445fadc132569aa6cc00eeabba735dbafca13c8a48bf"
+    },
+    {
+      "path": "TROUSER-PRIMARY.json",
+      "bytes": 738,
+      "sha256": "23b103b89fd52103b5fdbaef6971c8e25e0010f663e222724c8c82967a28c0d7"
+    },
+    {
+      "path": "TROUSER-SEARCH.json",
+      "bytes": 3848,
+      "sha256": "7f6c355d6ce5b649047a6a6131e7fa42dc26b82fe603512c5331b059f816f989"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 4478,
+      "sha256": "e7afc8a22d4a4a05f058261edb5334434b04bc54f86e7dbada5957f0223679da"
+    },
+    {
+      "path": "concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "primary-close-ax.txt",
+      "bytes": 591,
+      "sha256": "6ec6d806a21c07498f13ff93fd7e628581822ccc9d570dfd4919e2e5f62af02e"
+    },
+    {
+      "path": "primary-close.jpg",
+      "bytes": 72498,
+      "sha256": "8c02828915b13be26edbd2efadb51236275c036e5bb031c0d450279750cd1a46"
+    },
+    {
+      "path": "primary-whole.jpg",
+      "bytes": 21438,
+      "sha256": "082f8bfc6eed3ab91eeb145ab80f5f6809c02eeaaa3f1bc94498f40116a2dabc"
+    }
+  ],
+  "payloadCount": 28,
+  "payloadBytes": 2628921,
+  "preservation": "Only new owned packet files; contents unchanged; readonly. Editable target/roadmap remain outside. Existing frozen evidence/default original/user tab untouched."
+}
