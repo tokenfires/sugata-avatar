@@ -1,0 +1,98 @@
+{
+  "pid": 13679,
+  "started": "2026-10-04T07:17:01.595047+00:00",
+  "finished": "2026-10-04T07:17:01.595996+00:00",
+  "sourceInputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/PLAN.md",
+      "bytes": 4597,
+      "sha256": "994a1eb862d84b9b0d8102d69d1611b6c87ef5012566f02660ef20ab2ec2fbcb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/original-portrait-source.txt",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/candidate-portrait-source.txt",
+      "bytes": 10105,
+      "sha256": "0e8c682ded5282e4dc68710b19edf637b694e986dc3a7d342107c378c528348c"
+    },
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait-neutral-candidate.html",
+      "bytes": 10105,
+      "sha256": "0e8c682ded5282e4dc68710b19edf637b694e986dc3a7d342107c378c528348c"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/CRITIC-SOURCE.md",
+      "bytes": 8097,
+      "sha256": "f1449ab39d2bfc08d4bb1d7c99f45fcd74516bdad15f25d13e5bff31647ce3dc"
+    }
+  ],
+  "resultInputs": [
+    {
+      "path": "NATIVE-JOB.json",
+      "bytes": 329,
+      "sha256": "b86e06e43ababd2b2230457d2d1de76d89fffe5f26cb617c7d7931de7d8f4aeb"
+    },
+    {
+      "path": "NATIVE-STOP.json",
+      "bytes": 369,
+      "sha256": "b287dd9a9f25342336146ac83036f8a71332cc18a08ad28e41faada52040b10b"
+    },
+    {
+      "path": "NATIVE-CLOSE.json",
+      "bytes": 180,
+      "sha256": "7899ef6f8a002a745b3433d363860cef6304147571a62301ce9a5c1380a915df"
+    },
+    {
+      "path": "DOM-READ.txt",
+      "bytes": 1262,
+      "sha256": "f25655fc6f18accf2e363e858b4dd702e4f88c30a99693484ee103388ff0713a"
+    },
+    {
+      "path": "STOPPED-AX.txt",
+      "bytes": 2595,
+      "sha256": "8e7ebe74b609f6a388d6788df3b7a4cc0d24553eaab9aa674c57f2fef7a5da07"
+    },
+    {
+      "path": "stopped-context.jpg",
+      "bytes": 54781,
+      "sha256": "8074f9318548e6648778c33f4a261dc2374ebc9680b9a2cff75a0928e715931f"
+    },
+    {
+      "path": "CONSOLE.json",
+      "bytes": 2053,
+      "sha256": "c46d96ea081ec7609bec385bd4458cf291e16f2cb6c2ef18d0df465b918ff663"
+    }
+  ],
+  "warnings": 5,
+  "errors": 0,
+  "decision": "B/incomplete: readiness andPause AX only; firstDOMreader yielded no usable data; no controlscreenshot/newlightchoice observed; stoppedcontext only",
+  "limits": "Exact read method cause unproved. CurrentPortrait untouched; closedknownTab12/resetviewport, fullSDK/GPUledger unexposed."
+}

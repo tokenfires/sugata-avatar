@@ -1,0 +1,60 @@
+{
+  "pid": 9887,
+  "started": "2026-10-04T07:09:45.269477+00:00",
+  "finished": "2026-10-04T07:09:45.270269+00:00",
+  "decision": "GO before firstopen cutoff, exact isolatedthree-line affordance only; reducedmotion already-paused guard retained",
+  "inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/PLAN.md",
+      "bytes": 4597,
+      "sha256": "994a1eb862d84b9b0d8102d69d1611b6c87ef5012566f02660ef20ab2ec2fbcb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/original-portrait-source.txt",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/candidate-portrait-source.txt",
+      "bytes": 10105,
+      "sha256": "0e8c682ded5282e4dc68710b19edf637b694e986dc3a7d342107c378c528348c"
+    },
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait-neutral-candidate.html",
+      "bytes": 10105,
+      "sha256": "0e8c682ded5282e4dc68710b19edf637b694e986dc3a7d342107c378c528348c"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ui/CRITIC-SOURCE.md",
+      "bytes": 8097,
+      "sha256": "f1449ab39d2bfc08d4bb1d7c99f45fcd74516bdad15f25d13e5bff31647ce3dc"
+    }
+  ],
+  "diff": "--- \n+++ \n@@ -38,6 +38,7 @@\n         .choice:hover { border-color:var(--muted); color:var(--ink); }\n         .choice[aria-pressed=\"true\"] { color:#171513; background:var(--accent); border-color:var(--accent); }\n         #release-attention,#release-expression { grid-column:1/-1; }\n+        #light-controls [data-light=\"neutral\"] { grid-column:1/-1; }\n         .choice:disabled { opacity:.45; cursor:wait; }\n         select { width:100%; min-height:46px; background:#151515; color:var(--ink); border:1px solid var(--line); border-radius:3px; padding:10px 12px; cursor:pointer; }\n         .note { margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }\n@@ -113,7 +114,9 @@\n                 <div class=\"choices\">\n                     <button class=\"choice\" data-light=\"studio\" aria-pressed=\"true\">Studio</button>\n                     <button class=\"choice\" data-light=\"warm\" aria-pressed=\"false\">Warm</button>\n+                    <button class=\"choice\" data-light=\"neutral\" aria-pressed=\"false\">Neutral</button>\n                 </div>\n+                <p class=\"note\">Use Neutral to inspect colour.</p>\n             </fieldset>\n             <div class=\"actions\">\n                 <button class=\"text-button\" id=\"pause\" aria-pressed=\"false\" disabled>Pause motion</button>\n",
+  "limits": "Complete final critic source note/rootsource independently read; no backend/tier/allocator/lateowner/appearance promise."
+}

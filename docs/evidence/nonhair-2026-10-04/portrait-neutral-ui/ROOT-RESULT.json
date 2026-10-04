@@ -1,0 +1,65 @@
+{
+  "pid": 15098,
+  "started": "2026-10-04T07:19:16.157384+00:00",
+  "finished": "2026-10-04T07:19:16.158342+00:00",
+  "criticResultSHA256": "d981777d1379f54058ab6119beff113aa7aec68a1dfe2e76e84e0372d42b2aba",
+  "bindings": [
+    {
+      "path": "NATIVE-JOB.json",
+      "bytes": 329,
+      "sha256": "b86e06e43ababd2b2230457d2d1de76d89fffe5f26cb617c7d7931de7d8f4aeb"
+    },
+    {
+      "path": "NATIVE-STOP.json",
+      "bytes": 369,
+      "sha256": "b287dd9a9f25342336146ac83036f8a71332cc18a08ad28e41faada52040b10b"
+    },
+    {
+      "path": "DOM-READ.txt",
+      "bytes": 1262,
+      "sha256": "f25655fc6f18accf2e363e858b4dd702e4f88c30a99693484ee103388ff0713a"
+    },
+    {
+      "path": "STOPPED-AX.txt",
+      "bytes": 2595,
+      "sha256": "8e7ebe74b609f6a388d6788df3b7a4cc0d24553eaab9aa674c57f2fef7a5da07"
+    },
+    {
+      "path": "CONSOLE.json",
+      "bytes": 2053,
+      "sha256": "c46d96ea081ec7609bec385bd4458cf291e16f2cb6c2ef18d0df465b918ff663"
+    },
+    {
+      "path": "NATIVE-CLOSE.json",
+      "bytes": 180,
+      "sha256": "7899ef6f8a002a745b3433d363860cef6304147571a62301ce9a5c1380a915df"
+    },
+    {
+      "path": "stopped-context.jpg",
+      "bytes": 54781,
+      "sha256": "8074f9318548e6648778c33f4a261dc2374ebc9680b9a2cff75a0928e715931f"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 3628,
+      "sha256": "726cdb98d99291c34600733cc92ed5431c81b684fc32169e7d82ee1f3d3e6b65"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 4597,
+      "sha256": "994a1eb862d84b9b0d8102d69d1611b6c87ef5012566f02660ef20ab2ec2fbcb"
+    },
+    {
+      "path": "CRITIC-SOURCE.md",
+      "bytes": 8097,
+      "sha256": "f1449ab39d2bfc08d4bb1d7c99f45fcd74516bdad15f25d13e5bff31647ce3dc"
+    },
+    {
+      "path": "CRITIC-RESULT.md",
+      "bytes": 9225,
+      "sha256": "d981777d1379f54058ab6119beff113aa7aec68a1dfe2e76e84e0372d42b2aba"
+    }
+  ],
+  "sourceBindingsChecked": 10,
+  "decision": "B currenttrial incomplete, no adoption. Conditional A only for a fresh AX/native-screenshot-only contract; no evaluate repair or oldgatepass."
+}

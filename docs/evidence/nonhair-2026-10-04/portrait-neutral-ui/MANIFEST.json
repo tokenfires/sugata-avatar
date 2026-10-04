@@ -1,0 +1,89 @@
+{
+  "pid": 15654,
+  "started": "2026-10-04T07:20:29.994499+00:00",
+  "finished": "2026-10-04T07:20:29.995326+00:00",
+  "command": "FS-only inline Python: hash current stopped packet/chmod444/save manifest/append unique progress",
+  "payloads": [
+    {
+      "path": "CONSOLE.json",
+      "bytes": 2053,
+      "sha256": "c46d96ea081ec7609bec385bd4458cf291e16f2cb6c2ef18d0df465b918ff663"
+    },
+    {
+      "path": "CRITIC-RESULT.md",
+      "bytes": 9225,
+      "sha256": "d981777d1379f54058ab6119beff113aa7aec68a1dfe2e76e84e0372d42b2aba"
+    },
+    {
+      "path": "CRITIC-SOURCE.md",
+      "bytes": 8097,
+      "sha256": "f1449ab39d2bfc08d4bb1d7c99f45fcd74516bdad15f25d13e5bff31647ce3dc"
+    },
+    {
+      "path": "DOM-READ.txt",
+      "bytes": 1262,
+      "sha256": "f25655fc6f18accf2e363e858b4dd702e4f88c30a99693484ee103388ff0713a"
+    },
+    {
+      "path": "NATIVE-CLOSE.json",
+      "bytes": 180,
+      "sha256": "7899ef6f8a002a745b3433d363860cef6304147571a62301ce9a5c1380a915df"
+    },
+    {
+      "path": "NATIVE-JOB.json",
+      "bytes": 329,
+      "sha256": "b86e06e43ababd2b2230457d2d1de76d89fffe5f26cb617c7d7931de7d8f4aeb"
+    },
+    {
+      "path": "NATIVE-STOP.json",
+      "bytes": 369,
+      "sha256": "b287dd9a9f25342336146ac83036f8a71332cc18a08ad28e41faada52040b10b"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 4597,
+      "sha256": "994a1eb862d84b9b0d8102d69d1611b6c87ef5012566f02660ef20ab2ec2fbcb"
+    },
+    {
+      "path": "RECEIPT.md",
+      "bytes": 4353,
+      "sha256": "4619bc0ba8301c5210995e5599203fc704867d8e528c74859d416f4e5dc90f3b"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 3628,
+      "sha256": "726cdb98d99291c34600733cc92ed5431c81b684fc32169e7d82ee1f3d3e6b65"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 2066,
+      "sha256": "46ffbfa7dc318487e0549ff35847047ec9faa6a72fcc9d14751d7e6ad8da190e"
+    },
+    {
+      "path": "ROOT-STOP-CHECK.json",
+      "bytes": 3419,
+      "sha256": "1d1c46f2e0835506ecdf5a1d0991345f8a9102fa8e2a30d61211e596062cdb47"
+    },
+    {
+      "path": "STOPPED-AX.txt",
+      "bytes": 2595,
+      "sha256": "8e7ebe74b609f6a388d6788df3b7a4cc0d24553eaab9aa674c57f2fef7a5da07"
+    },
+    {
+      "path": "candidate-portrait-source.txt",
+      "bytes": 10105,
+      "sha256": "0e8c682ded5282e4dc68710b19edf637b694e986dc3a7d342107c378c528348c"
+    },
+    {
+      "path": "original-portrait-source.txt",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "stopped-context.jpg",
+      "bytes": 54781,
+      "sha256": "8074f9318548e6648778c33f4a261dc2374ebc9680b9a2cff75a0928e715931f"
+    }
+  ],
+  "totalBytes": 116926
+}
