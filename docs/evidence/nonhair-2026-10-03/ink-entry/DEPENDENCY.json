@@ -1,0 +1,15 @@
+{
+  "scope": "Bundled runtime metadata availability only; no import/render/geometry/native/browser job",
+  "command": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -c 'from importlib.metadata import version; print(\"matplotlib\",version(\"matplotlib\")); print(\"numpy\",version(\"numpy\"))'",
+  "exitCode": 1,
+  "chunk": "2f414c",
+  "observedClock": "2026-10-04 01:13:47 UTC",
+  "pid": null,
+  "started": null,
+  "ended": null,
+  "exception": "importlib.metadata.PackageNotFoundError: No package metadata was found for matplotlib",
+  "selectedRuntime": "Bundled Python3.12 path returned by load_workspace_dependencies",
+  "numpyLineReached": false,
+  "limits": "No host-wide library absence claim; no installation/dependency/backend recovery, parser, source edit or plot",
+  "decision": "Defer source-plate intent without execution"
+}

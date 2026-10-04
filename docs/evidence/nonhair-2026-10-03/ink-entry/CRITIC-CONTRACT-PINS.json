@@ -1,0 +1,103 @@
+{
+  "scope": "FS provenance only; no source candidate/browser/SDK/helper/build execution",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-entry/critic-contract-pins.py",
+  "pid": 39186,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "started": "2026-10-04T00:56:21.400350+00:00",
+  "ended": "2026-10-04T00:56:21.402052+00:00",
+  "readerSha256": "d10877bf514fb9f921a3265c94f169ad9526846aecd4f6301838a7e0cbb7b926",
+  "inheritedPins": 15,
+  "pins": [
+    {
+      "path": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    {
+      "path": "looks/ink-denim-review.html",
+      "bytes": 6505,
+      "sha256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/PLAN.md",
+      "bytes": 2711,
+      "sha256": "2b9d5240ef4bd8e9bdf3fc834457dd0a7ea920aa35ac013b598e37973efd1fbb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/root-options.mjs",
+      "bytes": 1729,
+      "sha256": "937d8ce44b6b50a2f0336e556f38c13bf7fbada45a60630e676f4928f1a14d61"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-review-page/desktop-body.jpg",
+      "bytes": 108764,
+      "sha256": "01fe620b3c6efa6a2ec127422fc7148a8e8294dde47f5f062c5df3a591ee9258"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/ROOT-OPTIONS.json",
+      "bytes": 2178,
+      "sha256": "aaf9a21056bb7585d01a7a2769f94d2c01a3d5e3455679ab163b068a9559f725"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/CRITIC-VALUE.md",
+      "bytes": 7512,
+      "sha256": "d6e4b1323fff7273eb64bbd6774b1ccc7efc44967afd62968e09f9ea19bdf179"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/CRITIC-PINS.json",
+      "bytes": 4568,
+      "sha256": "22275984c4b7cceb01f07a46579b6b9a2d34e685e613ec2a633bff0d6067b81c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry/PLAN.md",
+      "bytes": 5034,
+      "sha256": "6482ed4e1178d800c891156e25b7d17233eb68a5e5a2207a446e1c7e62822e3b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry/CRITIC-CONTRACT.md",
+      "bytes": 3799,
+      "sha256": "3ac87e7a3795b552750ef91b61177af184678655c6405eb4c56580f1ab9f0275"
+    }
+  ]
+}

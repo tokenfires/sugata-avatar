@@ -1,0 +1,109 @@
+{
+  "scope": "Closed candidate, complete log and limited successor/dependency evidence; actual172 outputs preserved at ROOT-HANDOFF archive",
+  "command": "Preservation-only Python stdin",
+  "pid": 90665,
+  "started": "2026-10-04T01:17:48.907156+00:00",
+  "ended": "2026-10-04T01:17:48.908369+00:00",
+  "files": {
+    "AUTHOR.json": {
+      "bytes": 46388,
+      "sha256": "c643f5784363202c12b1116cf77e71da46e1991b00039d707e80aff8c79ee8b3"
+    },
+    "BUILD.log": {
+      "bytes": 17871,
+      "sha256": "475c7638486f8989501d8cbdb53ae6f7b6c47498e90149150a3cd638fdf5cb0b"
+    },
+    "CHECKPOINT.md": {
+      "bytes": 1236,
+      "sha256": "c7e411bb49f54c12601aba67869b594979796c53d2e4b9abacddac1b3a18ed10"
+    },
+    "CRITIC-CLOSED-PINS.json": {
+      "bytes": 106729,
+      "sha256": "657a168b3abadd30bff2951d1d839e9123d0842f8283306dad3c5e59eb0a9246"
+    },
+    "CRITIC-CLOSED.md": {
+      "bytes": 4530,
+      "sha256": "3e4dc663e88a591952330b2af15a1ddf81116c12addc4a1c6804dac0264d75af"
+    },
+    "CRITIC-CONTRACT-PINS.json": {
+      "bytes": 3921,
+      "sha256": "2a2263b995b2e6b7c010f2e43ce264de6fdbbe19d74c74cee7738137c5a27464"
+    },
+    "CRITIC-CONTRACT.md": {
+      "bytes": 3799,
+      "sha256": "3ac87e7a3795b552750ef91b61177af184678655c6405eb4c56580f1ab9f0275"
+    },
+    "CRITIC-SOURCE-PLATE-CLOSED.md": {
+      "bytes": 2371,
+      "sha256": "ffb24bc096f678cd411280a573f91df88fea84447dc57d4bcc1cfc8ec6c08834"
+    },
+    "CRITIC-SOURCE-PLATE-VALUE.md": {
+      "bytes": 5226,
+      "sha256": "af870e63aae03049c9b442669bb2d6d9ec323a9e51b8b0b0240074fc2ac516c9"
+    },
+    "DEPENDENCY.json": {
+      "bytes": 882,
+      "sha256": "6a7ca87427d0ffc2e51cf6f9986712a75a1d856a332520c4c4258fa3594addc9"
+    },
+    "INK-DENIM.candidate.md.source": {
+      "bytes": 3216,
+      "sha256": "dc037130ad621af6b6ea4f9ca6883d59520f48bcb7da44d227feff968099b7ac"
+    },
+    "INK-DENIM.original.md.source": {
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    "ISOLATION.md": {
+      "bytes": 1926,
+      "sha256": "a879ed13d71d7e3563c564f7aad8345bdbfc457363a89abf464538210ce9d271"
+    },
+    "PLAN.md": {
+      "bytes": 5034,
+      "sha256": "6482ed4e1178d800c891156e25b7d17233eb68a5e5a2207a446e1c7e62822e3b"
+    },
+    "RECEIPT.md": {
+      "bytes": 4841,
+      "sha256": "12409046beca0adc022e1c4f3d3be3a184b886c21210392824758612e1801af7"
+    },
+    "ROOT-CONTRACT.json": {
+      "bytes": 929,
+      "sha256": "9998d318e0829f1269630a6b5a867fd9b79ef55702dacd2c27cc9b467ae84acb"
+    },
+    "ROOT-HANDOFF.json": {
+      "bytes": 1892,
+      "sha256": "1fbfc64f07d10cb5064343ba28b2ea2100bfeaca82aca48ecfeec09fe931c93d"
+    },
+    "author.py": {
+      "bytes": 4277,
+      "sha256": "a72d3433a1feaea3ab39624751e3b21141d00c22ab0c8de111014d8a16ba41b2"
+    },
+    "build-candidate.mjs": {
+      "bytes": 1764,
+      "sha256": "e01258f6863426dba94cbebb2f29abcbbb400184456677025cbb249b34956ede"
+    },
+    "close-owned.py": {
+      "bytes": 2735,
+      "sha256": "d910872d6ce30c5b5f640bc56dcdbe547e251fc5be67fd3fdbd231a0bc51a6df"
+    },
+    "critic-closed-readback.py": {
+      "bytes": 3460,
+      "sha256": "a2c68644717c8fd941ba9b00387c4b4a4633ef0235331fee1746a836d4802461"
+    },
+    "critic-contract-pins.py": {
+      "bytes": 1634,
+      "sha256": "d10877bf514fb9f921a3265c94f169ad9526846aecd4f6301838a7e0cbb7b926"
+    },
+    "showcase.candidate.html.source": {
+      "bytes": 22945,
+      "sha256": "4374db642daf1745a408737394ab2dfe8d22fc2c7ab1814d72c6dc50b377d461"
+    },
+    "showcase.original.html.source": {
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    }
+  },
+  "fileCount": 24,
+  "bytes": 272297,
+  "externalArchive": "/Users/robault/.codex/artifacts/sugata-ink-entry-build-2026-10-03",
+  "outputsPinnedIn": "CRITIC-CLOSED-PINS.json"
+}

@@ -1,0 +1,39 @@
+{
+  "scope": "Post-stop independent readback and guarded owned-output preservation/removal only; no build/browser/API replay",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-entry/close-owned.py",
+  "pid": 70511,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "started": "2026-10-04T01:09:06.338338+00:00",
+  "ended": "2026-10-04T01:09:06.681394+00:00",
+  "sourceSha256": "d910872d6ce30c5b5f640bc56dcdbe547e251fc5be67fd3fdbd231a0bc51a6df",
+  "criticReceiptSha256": "657a168b3abadd30bff2951d1d839e9123d0842f8283306dad3c5e59eb0a9246",
+  "metadata": {
+    "scope": "FS-only independent failure readback; no build/author/guard/browser execution",
+    "command": "python3 docs/evidence/nonhair-2026-10-03/ink-entry/critic-closed-readback.py",
+    "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "pythonVersion": "3.14.7",
+    "pid": 65536,
+    "started": "2026-10-04T01:07:12.527340+00:00",
+    "ended": "2026-10-04T01:07:12.758248+00:00",
+    "status": "passed",
+    "sourceSha256": "a2c68644717c8fd941ba9b00387c4b4a4633ef0235331fee1746a836d4802461",
+    "outputCount": 172,
+    "outputBytes": 141437131,
+    "absent": [
+      "dist-ink-entry-candidate/src/showcase-ink-entry-review.html",
+      "docs/evidence/nonhair-2026-10-03/ink-entry/compiled.candidate.html.source",
+      "docs/evidence/nonhair-2026-10-03/ink-entry/BUILD.json"
+    ],
+    "qualification": "wrapper output lookup failure; no UI/adoption evidence"
+  },
+  "acceptedPins": 380,
+  "packetPins": 15,
+  "outputCount": 172,
+  "outputBytes": 141437131,
+  "archive": "/Users/robault/.codex/artifacts/sugata-ink-entry-build-2026-10-03",
+  "archiveExact": true,
+  "ownedRouteRemoved": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-ink-entry-review.html",
+  "htmlCount": 19,
+  "candidateMarkerAbsentFromAllHtml": true,
+  "currentProductAndGuideUnchanged": true
+}

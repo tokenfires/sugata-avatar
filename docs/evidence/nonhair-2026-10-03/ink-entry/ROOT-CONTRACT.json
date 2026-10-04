@@ -1,0 +1,20 @@
+{
+  "scope": "Independent FS contract readback before authoring",
+  "command": "Python stdin18-pin readback",
+  "pid": 45110,
+  "started": "2026-10-04T00:58:59.164449+00:00",
+  "ended": "2026-10-04T00:58:59.169240+00:00",
+  "checkedPins": 18,
+  "criticReceiptSha256": "2a2263b995b2e6b7c010f2e43ce264de6fdbbe19d74c74cee7738137c5a27464",
+  "metadata": {
+    "scope": "FS provenance only; no source candidate/browser/SDK/helper/build execution",
+    "command": "python3 docs/evidence/nonhair-2026-10-03/ink-entry/critic-contract-pins.py",
+    "pid": 39186,
+    "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "started": "2026-10-04T00:56:21.400350+00:00",
+    "ended": "2026-10-04T00:56:21.402052+00:00",
+    "readerSha256": "d10877bf514fb9f921a3265c94f169ad9526846aecd4f6301838a7e0cbb7b926",
+    "inheritedPins": 15
+  }
+}
