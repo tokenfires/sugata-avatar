@@ -1,0 +1,5 @@
+# Previous skin packet closeout
+
+6047ccc at05:46UTC commits only progress/evidence, including forced explicit retention of five otherwiseignored check logs. Current product files exactly8e929e6; no currentoptionalfinishAPI/default/material/Showcasechange. Both freezes checked allpayload/modes/perfoldercommand; SDKmanifestb4b756fa…52payloads1070930bytes, worthfe1c4e80…8payloads115247bytes. Candidatepatch and source snapshots recover the unadopted input.
+
+The initial gitdiff--cached--check warned only on archival candidate.patch's literal blank context lines (rawdiffprefixspace). Shell execution did not stop before commit; do not report that initialcheck as passing. Frozen rawpatch must not be reformatted. Root then checked6047ccc diff with only that exact archivalpatch excluded, exit0/fc5da5; allotherpayloads pass, currentproductdiff8e929e6→6047ccc empty and checkoutclean. This is a metadata/patch-format explanation, not ignored productionwhitespace. No tests repeated after exactownedsource restoration.

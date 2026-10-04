@@ -1,0 +1,97 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/neckline-source-worth/root-close.py",
+  "pid": 8051,
+  "started": "2026-10-04T05:57:33.703081+00:00",
+  "ended": "2026-10-04T05:57:33.709520+00:00",
+  "decision": "B; duplicate cause-led discriminator, no parse admitted",
+  "externalPins": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/skin-finish-sdk/native-context.jpg",
+      "bytes": 89576,
+      "sha256": "65a0c29f13b8c90f0d14d7cd5966b919cdc8bd78945a667908913c761ca51e86"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/tee-neckline/ROOT-DECISION.md",
+      "bytes": 1578,
+      "sha256": "d01ff46b76a7df4ec60901cded35759484d93ead624c6dac8e122d200a93b40b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/tee-neckline/RECEIPT.md",
+      "bytes": 2418,
+      "sha256": "a48e91d68e34962185df3412992e0c952a23a448fd5daffdcdc8e50b52982d0c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/read-ownership.mjs",
+      "bytes": 7183,
+      "sha256": "26360d09dabea054d9ae5dd4ab5eabc4b73dde4ad916bca406a1f75253716486"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/OWNERSHIP.json",
+      "bytes": 193899,
+      "sha256": "1e611a61b9c1ebb4d7ff2d52234243bae6e74f439f39e632a2fd7343e181c727"
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "docs/DAY-REPORT-2026-09-30.md",
+      "bytes": 8218,
+      "sha256": "e1f9fbf7b0dc6dc78f5380214e1a9604f14449ccac788bbc166c510c23e01743"
+    },
+    {
+      "path": "docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "bytes": 6104,
+      "sha256": "ca4e33586c29a0393848c512082e4d3c5c556233a87e9aebc44f2156e7545477"
+    }
+  ],
+  "packetPins": [
+    {
+      "file": "CRITIC-VALUE.md",
+      "bytes": 6913,
+      "sha256": "2eae8ed041dc3deb1473a59cf3f7a8bb1071ebe0d56f9c04e87dc11380d2d5de"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2793,
+      "sha256": "b808093d7c671cc03f96eaa888d8b57fa1cb06b83c8241dc1822867b8302157b"
+    },
+    {
+      "file": "PREVIOUS-CLOSEOUT.md",
+      "bytes": 1024,
+      "sha256": "c0eccf3f9627306f537c51ee0ad87995d8e16b366a4bef0611dbe7eb711a54bb"
+    },
+    {
+      "file": "PRIMARY-SEARCH.json",
+      "bytes": 4280,
+      "sha256": "79752133044ad15e6a36704e38d4ae02b63e111d2338fa2d9d198d39d2e2914f"
+    },
+    {
+      "file": "ROOT-DECISION.md",
+      "bytes": 2493,
+      "sha256": "0081a6b9faae87edf76f80ed16b144670e171f44091c8ec7c82c1617d9a2f0b9"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 2408,
+      "sha256": "ecf581915a0b70825b4495a55d51007bc1548e06aa5202b2c2355fa6fe2cbb1d"
+    }
+  ],
+  "scope": "Hash readback only; root independently read complete handoff/source and viewed actual original. No asset topology computation or runtime."
+}

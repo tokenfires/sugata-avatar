@@ -1,0 +1,39 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.uniqlo.com/us/en/products/E424873-000/00?srsltid=AU7gw4XtdGVHsohN5DFuHxbG9xve_Dm7-ud-hBAzukFElhbevnJdJsS_\",\"title\":\"Women's Crew Neck T-Shirt | UNIQLO US\",\"description\":\"In stock Rating 4.7(2,859)Shop women's Crew Neck T-Shirt at UNIQLO US. Read customer reviews ... AIRism Cotton T-Shirt | Striped. $14.90. Limited-Time Offer until 10/1. 4.7.\",\"position\":1},{\"url\":\"https://www.uniqlo.com/us/en/products/E476510-000/00?srsltid=AU7gw4VBkZRW2F8upkbykUX72dI1nd5PzFNhWaRPiOWnUa9mk47f_4r3\",\"title\":\"Women's Crew Neck Short-Sleeve T-Shirt | UNIQLO US\",\"description\":\"The fabric is soft to the touch, made from a breathable cotton blend, making it perfect for warmer days or layering under a jacket in cooler weather. The crew ...\",\"position\":2},{\"url\":\"https://www.uniqlo.com/us/en/products/E462666-000/00/reviews?srsltid=AU7gw4VjrO33GHPoKHxWBj_416W3-tBESEoLvIhlWPhf0H6sxIJ3GkXx\",\"title\":\"Reviews for U Crew Neck Short-Sleeve T-Shirt | UNIQLO US\",\"description\":\"Thick cotton material. It fit tighter around my shoulders and arm pits, I can still wear it but I will definitely size up next time I buy one. JLH77Female45 ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10576-e190-700e-97b8-3fe1b14ae9c4\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.uniqlo.com/us/en/products/E424873-000/00?srsltid=AU7gw4XtdGVHsohN5DFuHxbG9xve_Dm7-ud-hBAzukFElhbevnJdJsS_\\\", #2 \\\"https://www.uniqlo.com/us/en/products/E476510-000/00?srsltid=AU7gw4VBkZRW2F8upkbykUX72dI1nd5PzFNhWaRPiOWnUa9mk47f_4r3\\\", #3 \\\"https://www.uniqlo.com/us/en/products/E462666-000/00/reviews?srsltid=AU7gw4VjrO33GHPoKHxWBj_416W3-tBESEoLvIhlWPhf0H6sxIJ3GkXx\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://www.uniqlo.com/us/en/products/E424873-000/00?srsltid=AU7gw4XtdGVHsohN5DFuHxbG9xve_Dm7-ud-hBAzukFElhbevnJdJsS_\", #2 \"https://www.uniqlo.com/us/en/products/E476510-000/00?srsltid=AU7gw4VBkZRW2F8upkbykUX72dI1nd5PzFNhWaRPiOWnUa9mk47f_4r3\", #3 \"https://www.uniqlo.com/us/en/products/E462666-000/00/reviews?srsltid=AU7gw4VjrO33GHPoKHxWBj_416W3-tBESEoLvIhlWPhf0H6sxIJ3GkXx\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.uniqlo.com/us/en/products/E424873-000/00?srsltid=AU7gw4XtdGVHsohN5DFuHxbG9xve_Dm7-ud-hBAzukFElhbevnJdJsS_",
+          "title": "Women's Crew Neck T-Shirt | UNIQLO US",
+          "description": "In stock Rating 4.7(2,859)Shop women's Crew Neck T-Shirt at UNIQLO US. Read customer reviews ... AIRism Cotton T-Shirt | Striped. $14.90. Limited-Time Offer until 10/1. 4.7.",
+          "position": 1
+        },
+        {
+          "url": "https://www.uniqlo.com/us/en/products/E476510-000/00?srsltid=AU7gw4VBkZRW2F8upkbykUX72dI1nd5PzFNhWaRPiOWnUa9mk47f_4r3",
+          "title": "Women's Crew Neck Short-Sleeve T-Shirt | UNIQLO US",
+          "description": "The fabric is soft to the touch, made from a breathable cotton blend, making it perfect for warmer days or layering under a jacket in cooler weather. The crew ...",
+          "position": 2
+        },
+        {
+          "url": "https://www.uniqlo.com/us/en/products/E462666-000/00/reviews?srsltid=AU7gw4VjrO33GHPoKHxWBj_416W3-tBESEoLvIhlWPhf0H6sxIJ3GkXx",
+          "title": "Reviews for U Crew Neck Short-Sleeve T-Shirt | UNIQLO US",
+          "description": "Thick cotton material. It fit tighter around my shoulders and arm pits, I can still wear it but I will definitely size up next time I buy one. JLH77Female45 ...",
+          "position": 3
+        }
+      ]
+    },
+    "id": "01a10576-e190-700e-97b8-3fe1b14ae9c4",
+    "creditsUsed": 2
+  },
+  "isError": false
+}

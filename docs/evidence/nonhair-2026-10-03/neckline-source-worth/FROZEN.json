@@ -1,0 +1,54 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/neckline-source-worth/freeze.py",
+  "pid": 9240,
+  "started": "2026-10-04T05:58:03.619846+00:00",
+  "ended": "2026-10-04T05:58:03.620396+00:00",
+  "pins": [
+    {
+      "file": "CRITIC-VALUE.md",
+      "bytes": 6913,
+      "sha256": "2eae8ed041dc3deb1473a59cf3f7a8bb1071ebe0d56f9c04e87dc11380d2d5de"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2793,
+      "sha256": "b808093d7c671cc03f96eaa888d8b57fa1cb06b83c8241dc1822867b8302157b"
+    },
+    {
+      "file": "PREVIOUS-CLOSEOUT.md",
+      "bytes": 1024,
+      "sha256": "c0eccf3f9627306f537c51ee0ad87995d8e16b366a4bef0611dbe7eb711a54bb"
+    },
+    {
+      "file": "PRIMARY-SEARCH.json",
+      "bytes": 4280,
+      "sha256": "79752133044ad15e6a36704e38d4ae02b63e111d2338fa2d9d198d39d2e2914f"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 2562,
+      "sha256": "26f05a407976ceae092cafa3feac4133ecd2b377710c798c0c26d56bca78ff58"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 3486,
+      "sha256": "06c867565f64a5741b30c6a952fb0904e345b761396ffb15ef71ea69bde3ba85"
+    },
+    {
+      "file": "ROOT-DECISION.md",
+      "bytes": 2493,
+      "sha256": "0081a6b9faae87edf76f80ed16b144670e171f44091c8ec7c82c1617d9a2f0b9"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 2408,
+      "sha256": "ecf581915a0b70825b4495a55d51007bc1548e06aa5202b2c2355fa6fe2cbb1d"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}
