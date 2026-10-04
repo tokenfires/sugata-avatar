@@ -1,0 +1,263 @@
+Browser tab: 18, Title: "Original sweater — source geometry diagnostic", URL: "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-original-diagnostic/review.html".
+0 AXWebArea Original sweater — source geometry diagnostic, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-original-diagnostic/review.html
+	1 text Original sweater · source geometry diagnostic
+	2 container
+		3 container Description: Untouched original mesh clay view, ID: surface
+		4 heading MargaretToigo / MakeClothes, Value: 2
+			5 text MargaretToigo / MakeClothes
+		6 text Exact original shape in clay. Source units are unknown. Display normals are derived; the original provides none.
+		7 container Fixed source-axis views
+			8 checkbox (disabled) View +Z, Value: 0
+			9 checkbox (disabled) View +X, Value: 0
+			10 checkbox (disabled) View −Z, Value: 0
+			11 checkbox (disabled) View XZ, Value: 1
+		20 text Diagnostic disposed
+		13 container
+			14 text Known fifth opening:  vertices935,39,1010,934. Its garment role is unresolved. Small or absent-looking gaps do not establish intent or completeness.
+		15 text Reference utility only. Complete-control verdict remains deferred. Fit, body scale, mapping, knit texture, motion and avatar appearance are unqualified.
+		16 link Description: Download unchanged original OBJ, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-upstream-source/original-fisherman.obj
+		17 link Description: Exact source opening witnesses, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-original-control/ROOT-INVENTORY.json
+		18 button (disabled) Dispose diagnostic, ID: dispose
+		19 container Description: Diagnostic state, ID: receipt
+			21 text {
+  "started": "2026-10-04T12:23:54.442Z",
+  "phase": "disposed",
+  "sourceUnits": "unknown",
+  "originalSha256": "2844465f4e798666a90f631ea4a89ae30d3e526ef045a978d338908750d21d09",
+  "previewSha256": "36c046e92e781f1b2359223ed04989e28e40463f65a83a1a4ea8433533c12065",
+  "knownOpening": [
+    935,
+    39,
+    1010,
+    934
+  ],
+  "limit": "Visual source-reference diagnostic only; original complete-control B remains unchanged.",
+  "resources": [
+    "scene clear",
+    "geometry",
+    "material",
+    "renderer dispose",
+    "renderer context",
+    "canvas remove"
+  ],
+  "cleanup": [
+    {
+      "name": "canvas remove",
+      "okay": true
+    },
+    {
+      "name": "renderer context",
+      "okay": true
+    },
+    {
+      "name": "renderer dispose",
+      "okay": true
+    },
+    {
+      "name": "material",
+      "okay": true
+    },
+    {
+      "name": "geometry",
+      "okay": true
+    },
+    {
+      "name": "scene clear",
+      "okay": true
+    }
+  ],
+  "views": {
+    "+Z": {
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "position": [
+        0,
+        0,
+        24.332678722245113
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "left": -5.523336000000001,
+      "rightExtent": 5.523336000000001,
+      "top": 3.7695344659793824,
+      "bottom": -3.7695344659793824,
+      "near": 0.01,
+      "far": 48.665357444490226,
+      "margin": 1.08
+    },
+    "+X": {
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "right": [
+        0,
+        0,
+        -1
+      ],
+      "position": [
+        24.332678722245113,
+        0,
+        0
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "left": -4.572014410876134,
+      "rightExtent": 4.572014410876134,
+      "top": 3.120282000000001,
+      "bottom": -3.120282000000001,
+      "near": 0.01,
+      "far": 48.665357444490226,
+      "margin": 1.08
+    },
+    "−Z": {
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "right": [
+        -1,
+        0,
+        0
+      ],
+      "position": [
+        0,
+        0,
+        -24.332678722245113
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "left": -5.523336000000001,
+      "rightExtent": 5.523336000000001,
+      "top": 3.7695344659793824,
+      "bottom": -3.7695344659793824,
+      "near": 0.01,
+      "far": 48.665357444490226,
+      "margin": 1.08
+    },
+    "XZ": {
+      "direction": [
+        0.7071067811865476,
+        0,
+        0.7071067811865476
+      ],
+      "right": [
+        0.7071067811865476,
+        0,
+        -0.7071067811865476
+      ],
+      "position": [
+        17.205802128933136,
+        0,
+        17.205802128933136
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "left": -4.896991645575067,
+      "rightExtent": 4.896991645575067,
+      "top": 3.3420705869800975,
+      "bottom": -3.3420705869800975,
+      "near": 0.01,
+      "far": 48.665357444490226,
+      "margin": 1.08
+    }
+  },
+  "capturesExpected": 4,
+  "buffers": {
+    "positionsSha256": "4c7abcca3ff95a2c0172ab6025dffc93dc74915258dff27f4c905f458ecbfea4",
+    "indicesSha256": "7e463ca037358c1c5ea69273cdf7915d98d7bb6750f6935cae23967c90dc1a2f",
+    "vertices": 2126,
+    "triangles": 4164,
+    "maxFloat32CastError": 2.3803710913483656e-7,
+    "minFloat32TwiceArea": 0.0008689468042248998
+  },
+  "displayTransform": {
+    "translation": [
+      0,
+      -4.0443500000000006,
+      -0.6212
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "sourcePositionsUnchanged": true
+  },
+  "sourceBounds": {
+    "min": [
+      -5.1142,
+      1.1552,
+      -0.9608
+    ],
+    "max": [
+      5.1142,
+      6.9335,
+      2.2032
+    ]
+  },
+  "displayNormals": "Three indexed area-weighted derived normals from fixed fans, without altering original positions/faces/UVs/winding",
+  "viewport": {
+    "cssWidth": 970,
+    "cssHeight": 662,
+    "drawingWidth": 970,
+    "drawingHeight": 662,
+    "devicePixelRatio": 2,
+    "rendererPixelRatio": 1,
+    "windowWidth": 1280,
+    "windowHeight": 720
+  },
+  "view": "XZ",
+  "lastRenderedAt": "2026-10-04T12:25:38.101Z",
+  "closedAt": "2026-10-04T12:26:22.183Z",
+  "closedReason": "explicit dispose"
+}
+
+The focused UI element is 0 AXWebArea Original sweater — source geometry diagnostic, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-original-diagnostic/review.html

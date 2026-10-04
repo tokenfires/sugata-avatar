@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Original sweater — source geometry diagnostic</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1efe8;color:#252831;font:15px/1.45 system-ui,sans-serif}header{height:58px;padding:13px 20px;border-bottom:1px solid #d2d2ca;font-size:21px;font-weight:650}.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;height:calc(100vh - 58px)}#surface{min-width:0;min-height:0}canvas{display:block;width:100%;height:100%}aside{padding:17px 20px;border-left:1px solid #d2d2ca;overflow:auto}h2{font-size:17px;margin:0 0 10px}p{margin:10px 0}button{font:inherit;padding:7px 11px;margin:3px 1px;border:1px solid #949b9e;border-radius:4px;background:#fff;color:#222;cursor:pointer}button[aria-pressed=true]{background:#263b50;color:white}button:disabled{opacity:.55;cursor:default}output{display:block;font-weight:650;margin:12px 0}a{color:#244c77}pre{font:11px/1.35 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;border-top:1px solid #ccc;padding-top:12px}
+</style>
+<header>Original sweater · source geometry diagnostic</header>
+<main class="layout">
+  <div id="surface" aria-label="Untouched original mesh clay view"></div>
+  <aside>
+    <h2>MargaretToigo / MakeClothes</h2>
+    <p>Exact original shape in clay. Source units are unknown. Display normals are derived; the original provides none.</p>
+    <nav aria-label="Fixed source-axis views">
+      <button data-view="+Z" disabled>View +Z</button><button data-view="+X" disabled>View +X</button><button data-view="−Z" disabled>View −Z</button><button data-view="XZ" disabled>View XZ</button>
+    </nav>
+    <output id="status" role="status">Loading source diagnostic</output>
+    <p><strong>Known fifth opening:</strong> vertices935,39,1010,934. Its garment role is unresolved. Small or absent-looking gaps do not establish intent or completeness.</p>
+    <p>Reference utility only. Complete-control verdict remains deferred. Fit, body scale, mapping, knit texture, motion and avatar appearance are unqualified.</p>
+    <p><a download="original-fisherman.obj" href="../knit-upstream-source/original-fisherman.obj">Download unchanged original OBJ</a></p>
+    <p><a href="../knit-original-control/ROOT-INVENTORY.json">Exact source opening witnesses</a></p>
+    <button id="dispose" disabled>Dispose diagnostic</button>
+    <pre id="receipt" aria-label="Diagnostic state"></pre>
+  </aside>
+</main>
+<script type="module" src="./review.mjs"></script>
+</html>

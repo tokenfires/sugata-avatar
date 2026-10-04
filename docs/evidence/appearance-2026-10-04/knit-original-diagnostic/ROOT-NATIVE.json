@@ -1,0 +1,100 @@
+{
+  "utc": "2026-10-04T12:29:32.586188+00:00",
+  "pid": 83647,
+  "images": [
+    {
+      "file": "source-plus-z.jpg",
+      "sha256": "8f10e9edbf999c743124fb05566c1a38f99f00c77d32bffed526ea564d41c5db",
+      "bytes": 66514,
+      "meta": {
+        "tabId": "18",
+        "openRequested": "2026-10-04T12:23:54.254Z",
+        "openReturned": "2026-10-04T12:23:54.767Z",
+        "captureRequested": "2026-10-04T12:24:28.388Z",
+        "captureReturned": "2026-10-04T12:24:28.597Z",
+        "sourceAxis": "+Z",
+        "bytes": 66514,
+        "sha256": "8f10e9edbf999c743124fb05566c1a38f99f00c77d32bffed526ea564d41c5db",
+        "stateSha256": "f655dc632b29cf50e5b78b6b55064c2bdbf1a29d4ee7d803b5f38c3da92ebf1b"
+      },
+      "renderedAt": "2026-10-04T12:23:54.566Z"
+    },
+    {
+      "file": "source-plus-x.jpg",
+      "sha256": "1ac358a129fa5825150c8f4c46968c046878d579b4089236dbb3bd51b4f30084",
+      "bytes": 61715,
+      "meta": {
+        "tabId": "18",
+        "captureRequested": "2026-10-04T12:24:54.525Z",
+        "captureReturned": "2026-10-04T12:24:54.782Z",
+        "sourceAxis": "+X",
+        "bytes": 61715,
+        "sha256": "1ac358a129fa5825150c8f4c46968c046878d579b4089236dbb3bd51b4f30084",
+        "stateSha256": "d2b9bac0d8e677436f4ca78006bead409e005d96b2c9f18e6bf4a4fce652621d"
+      },
+      "renderedAt": "2026-10-04T12:24:54.524Z"
+    },
+    {
+      "file": "source-minus-z.jpg",
+      "sha256": "cd4b81fcbae9c28799097822f34431c2c4be07bb92dc467b98f3f8bbdcbe39ae",
+      "bytes": 66676,
+      "meta": {
+        "tabId": "18",
+        "captureRequested": "2026-10-04T12:25:17.916Z",
+        "captureReturned": "2026-10-04T12:25:18.186Z",
+        "sourceAxis": "\u2212Z",
+        "bytes": 66676,
+        "sha256": "cd4b81fcbae9c28799097822f34431c2c4be07bb92dc467b98f3f8bbdcbe39ae",
+        "stateSha256": "fe72a0e0133e6d3ee8778699af25a20ae283d736e633acd153bc902ad5cc28d5"
+      },
+      "renderedAt": "2026-10-04T12:25:17.915Z"
+    },
+    {
+      "file": "source-xz.jpg",
+      "sha256": "d7f473890aeefb4e1b7c2b089dd2b0922445f1997f21c3b4b5ed92d95148bef7",
+      "bytes": 66538,
+      "meta": {
+        "tabId": "18",
+        "captureRequested": "2026-10-04T12:25:38.103Z",
+        "captureReturned": "2026-10-04T12:25:38.477Z",
+        "sourceAxis": "XZ",
+        "bytes": 66538,
+        "sha256": "d7f473890aeefb4e1b7c2b089dd2b0922445f1997f21c3b4b5ed92d95148bef7",
+        "stateSha256": "bbcb95c844955589735cb18ce328508a0f09799c7d2871d99dd81b70ac975a84"
+      },
+      "renderedAt": "2026-10-04T12:25:38.101Z"
+    }
+  ],
+  "positionsSha256": "4c7abcca3ff95a2c0172ab6025dffc93dc74915258dff27f4c905f458ecbfea4",
+  "indicesSha256": "7e463ca037358c1c5ea69273cdf7915d98d7bb6750f6935cae23967c90dc1a2f",
+  "float32MaxErrorObserved": 2.3803710913483656e-07,
+  "minDisplayTwiceAreaObserved": 0.0008689468042248998,
+  "cleanup": [
+    {
+      "name": "canvas remove",
+      "okay": true
+    },
+    {
+      "name": "renderer context",
+      "okay": true
+    },
+    {
+      "name": "renderer dispose",
+      "okay": true
+    },
+    {
+      "name": "material",
+      "okay": true
+    },
+    {
+      "name": "geometry",
+      "okay": true
+    },
+    {
+      "name": "scene clear",
+      "okay": true
+    }
+  ],
+  "closedAt": "2026-10-04T12:26:22.439Z",
+  "root": "Every native original independently viewed in CUA; metadata/ready/camera/Float32 buffers/source pins/closure verified here. Numerical checks support reference utility only. No original OBJ decoding, inventory replay, geometry edit, native recapture or complete/fit/material/Avatar qualification."
+}
