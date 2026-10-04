@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-04T17:45:19.024231+00:00",
+  "syntaxOnly": "AST parse; reader not imported or executed",
+  "identicalMathHelpers": [
+    "local",
+    "mul",
+    "now",
+    "sha"
+  ],
+  "identicalOriginalPredicateArgumentCount": 30,
+  "exactCopies": [
+    "ARTIST-CONVENTION.json",
+    "AUTHORITY-PINS.json",
+    "SOURCE-LANDMARKS.json"
+  ],
+  "sourceBytes": 10709,
+  "sourceSha256": "1eadf8cd6cc0d2ffc727ab0a592d0e46598b5aafabb26b665a7f5f33db43b953",
+  "recordingSerialization": "Source-author preflight caught byte-valued magic header and nonfinite refusal encoding; metadata uses hex and tagged nonfinite floats without changing decoding/math/predicates. No decoder run or source admission existed during these authorship corrections."
+}

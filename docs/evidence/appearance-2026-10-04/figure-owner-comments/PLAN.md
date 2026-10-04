@@ -1,0 +1,5 @@
+# Narrow Figure ownership comment correction
+
+Independent critic RESULT0d88c498… recommendsA; root verifies14bindings and actual saved source witnesses. Current Figure constructor79–80/body368 assume auxiliary meshes are plain children, and350 says six. Exact wardrobe g050 data instead has seven morphed skin-0 source siblings under Human.rig; code344/369 chooses first eligible morphed SkinnedMesh.
+
+Usable improvement: correct three comments to describe this actual selection and a narrowly scoped g050 source example. Decision: retain if exact source diff contains comments only and source witnesses support all text; otherwise revert only our comment edit. No runtime or loaded/posed appearance claim. Original source snapshot retained in ../knit-registration-repaired/SOURCE-FIGURE.js before editing. Other bakes and live scene behavior are not inferred. Independent critic reviews final diff; root checks handoff. Whole stop18:10UTC. No new test/native/source/asset read, decoder or model job. Full AAA roadmap and all accepted/default/frozen/reference/unrelated work preserved; no push/publication/capacity/model/subscription/reset-credit/other-project action.

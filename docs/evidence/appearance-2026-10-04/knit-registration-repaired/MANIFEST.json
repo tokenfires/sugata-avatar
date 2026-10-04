@@ -1,0 +1,172 @@
+{
+  "frozenAt": "2026-10-04T18:04:35.211093+00:00",
+  "decision": "B strict source study closed; A three comments only",
+  "localLinksVerified": [
+    [
+      "CHECKPOINT.md",
+      "README.md"
+    ],
+    [
+      "CHECKPOINT.md",
+      "RECEIPT.md"
+    ],
+    [
+      "CHECKPOINT.md",
+      "PARTIAL-DATA.json"
+    ],
+    [
+      "CHECKPOINT.md",
+      "RESULT.md"
+    ],
+    [
+      "CHECKPOINT.md",
+      "ROOT-RESULT.json"
+    ],
+    [
+      "CHECKPOINT.md",
+      "../figure-owner-comments/PLAN.md"
+    ],
+    [
+      "README.md",
+      "ARTIST-CONVENTION.json"
+    ],
+    [
+      "README.md",
+      "SOURCE-LANDMARKS.json"
+    ],
+    [
+      "README.md",
+      "../whole-knit-serving/README.md"
+    ],
+    [
+      "README.md",
+      "PARTIAL-DATA.json"
+    ],
+    [
+      "README.md",
+      "READ-JOB.json"
+    ],
+    [
+      "README.md",
+      "READ-RETURN.json"
+    ],
+    [
+      "README.md",
+      "RESULT.md"
+    ],
+    [
+      "README.md",
+      "ROOT-DATA.json"
+    ],
+    [
+      "README.md",
+      "ROOT-RESULT.json"
+    ],
+    [
+      "README.md",
+      "RECEIPT.md"
+    ],
+    [
+      "README.md",
+      "CHECKPOINT.md"
+    ],
+    [
+      "README.md",
+      "../figure-owner-comments/PLAN.md"
+    ],
+    [
+      "README.md",
+      "SOURCE-FIGURE.js"
+    ]
+  ],
+  "files": {
+    "ARTIST-CONVENTION.json": {
+      "bytes": 4487,
+      "sha256": "c12f998040fa9aa33bf6788e3748b2615cde70a742af0453071b08cb25efafca"
+    },
+    "AUTHORITY-PINS.json": {
+      "bytes": 1305,
+      "sha256": "4630583b7e2a0d3e11cc584b001ae6d17c00055b4cb987d2b8bdf60a6cbcc68c"
+    },
+    "CHECKPOINT.md": {
+      "bytes": 2274,
+      "sha256": "2b91b691393d25497e98ff113028314aa83192fcc6fc489de09e20cf8aa5b36e"
+    },
+    "INPUTS.json": {
+      "bytes": 1442,
+      "sha256": "ad5ab5611c6b1661a6f04ddc245a918278744d98aa02abb9197ca5c197a88b11"
+    },
+    "PARTIAL-DATA.json": {
+      "bytes": 6051441,
+      "sha256": "2934a0bf92f505d0b8b27452cd90e30a959382b0214fd10ac1b761606f0d74c8"
+    },
+    "PLAN.md": {
+      "bytes": 3018,
+      "sha256": "19f8fb1fec53f3f5099c59e7c4a2f001b50f83df486eaf846962b94b16db2b90"
+    },
+    "READ-JOB.json": {
+      "bytes": 3709,
+      "sha256": "b6696af186b72dfe3bff3c7ca1b89448b1db0baa4e9ad97becf53dae91cc3b9c"
+    },
+    "READ-RETURN.json": {
+      "bytes": 722,
+      "sha256": "abf9a1074b236d92df003fafc13c2e8ee5867a1664a7f673332b90eb289269a9"
+    },
+    "READ.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "READ.stdout.txt": {
+      "bytes": 3253,
+      "sha256": "11b6f989ac038fb3564feb7aba55af2b351f1b69bb9be29898e13aa5eba8cf68"
+    },
+    "README.md": {
+      "bytes": 2406,
+      "sha256": "46b8e089a12b15cd08f2d0c6f2b6f84432608ab4dbb482921e0e3283567fd7a6"
+    },
+    "RECEIPT.md": {
+      "bytes": 5522,
+      "sha256": "2724f0c84f0e7c3d92204799471fd72a64b811424b8f70380161437586855348"
+    },
+    "RESULT.md": {
+      "bytes": 5861,
+      "sha256": "0d88c4986a9428fe2d761f5896ffd1b3930217270609b68ccdc8c74cf176e810"
+    },
+    "ROOT-DATA.json": {
+      "bytes": 2750,
+      "sha256": "7cd90db6789e7d4868f2166902cd4d15458ae067e050d9ecb17e8a01cd8dc796"
+    },
+    "ROOT-PREFLIGHT.json": {
+      "bytes": 744,
+      "sha256": "9f16fe76f3f342a74c4af20fa9fa8571cde5017e30226941e283e42538b05ae4"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 938,
+      "sha256": "33978312a22d787939f98efef9123eb0febdb9ff620576b8577c3c84da3c6925"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 726,
+      "sha256": "6a43ecc600cccd99a5075529e42fce15e789b4e170b13522fab5390512383225"
+    },
+    "SOURCE-DIFF.patch": {
+      "bytes": 12514,
+      "sha256": "3407f5a46b606530d136c94fc565edfb2c8a351cce9a1bcdd2d1666922f00802"
+    },
+    "SOURCE-FIGURE.js": {
+      "bytes": 15766,
+      "sha256": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da"
+    },
+    "SOURCE-LANDMARKS.json": {
+      "bytes": 10798,
+      "sha256": "850067cb576a5530432f76fc5319ec83044f252b1cc9a0d06f38d71c36fa70a1"
+    },
+    "SOURCE.md": {
+      "bytes": 4835,
+      "sha256": "58cee55086c18ec704ffa0d9255e5b8953afc6a71f1c28eb69c1a0c445aa33ee"
+    },
+    "read_inputs.py": {
+      "bytes": 10709,
+      "sha256": "1eadf8cd6cc0d2ffc727ab0a592d0e46598b5aafabb26b665a7f5f33db43b953"
+    }
+  }
+}

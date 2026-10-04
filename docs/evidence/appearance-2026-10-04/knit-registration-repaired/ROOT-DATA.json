@@ -1,0 +1,90 @@
+{
+  "utc": "2026-10-04T17:53:04.567408+00:00",
+  "decision": "B current strict single-candidate study; actual source has7candidates, whereas Figure runtime selectsfirst by traversal. No asset defect/fit failure or unresolved runtime ownership inferred.",
+  "externalAndJobExitCode": 1,
+  "jobEqualsStdout": true,
+  "stderrBytes": 0,
+  "readerPid": 42945,
+  "readerStartedAt": "2026-10-04T17:50:19.604429+00:00",
+  "readerEndedAt": "2026-10-04T17:50:19.675706+00:00",
+  "partialData": {
+    "bytes": 6051441,
+    "sha256": "2934a0bf92f505d0b8b27452cd90e30a959382b0214fd10ac1b761606f0d74c8"
+  },
+  "savedCandidateWitnesses": [
+    {
+      "nodeIndex": 53,
+      "meshIndex": 0,
+      "primitiveIndex": 0,
+      "nodeName": "Human",
+      "meshName": "base.001",
+      "skinIndex": 0,
+      "morphTargetCount": 89,
+      "positionAccessor": 6
+    },
+    {
+      "nodeIndex": 54,
+      "meshIndex": 1,
+      "primitiveIndex": 0,
+      "nodeName": "Human.cornea",
+      "meshName": "cornea",
+      "skinIndex": 0,
+      "morphTargetCount": 8,
+      "positionAccessor": 102
+    },
+    {
+      "nodeIndex": 55,
+      "meshIndex": 2,
+      "primitiveIndex": 0,
+      "nodeName": "Human.eyebrow001",
+      "meshName": "eyebrow001",
+      "skinIndex": 0,
+      "morphTargetCount": 49,
+      "positionAccessor": 116
+    },
+    {
+      "nodeIndex": 56,
+      "meshIndex": 3,
+      "primitiveIndex": 0,
+      "nodeName": "Human.eyelashes01",
+      "meshName": "eyelashes01",
+      "skinIndex": 0,
+      "morphTargetCount": 27,
+      "positionAccessor": 171
+    },
+    {
+      "nodeIndex": 57,
+      "meshIndex": 4,
+      "primitiveIndex": 0,
+      "nodeName": "Human.high-poly",
+      "meshName": "high-poly",
+      "skinIndex": 0,
+      "morphTargetCount": 8,
+      "positionAccessor": 204
+    },
+    {
+      "nodeIndex": 58,
+      "meshIndex": 5,
+      "primitiveIndex": 0,
+      "nodeName": "Human.teeth_base",
+      "meshName": "teeth_base",
+      "skinIndex": 0,
+      "morphTargetCount": 27,
+      "positionAccessor": 218
+    },
+    {
+      "nodeIndex": 59,
+      "meshIndex": 6,
+      "primitiveIndex": 0,
+      "nodeName": "Human.tongue01",
+      "meshName": "tongue01",
+      "skinIndex": 0,
+      "morphTargetCount": 28,
+      "positionAccessor": 251
+    }
+  ],
+  "initialHierarchyIndependentResidualMeters": 6.661338147750939e-16,
+  "initialSceneNodesChecked": 61,
+  "scope": "Saved original JSON/candidate/gate/matrix operands checked only; no second GLB decode, reader rerun, foundation decode, literal joint extraction, mapping, skinning or native capture.",
+  "next": "No predicate relaxation or rescue within this contract. Any future runtime-owner contract needs explicit independent worth; preserve current refusal and wider AAA/fit roadmap."
+}

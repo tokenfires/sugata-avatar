@@ -1,0 +1,19 @@
+{
+  "command": "python3 /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-registration-repaired/read_inputs.py",
+  "shellRedirections": {
+    "stdout": "READ.stdout.txt",
+    "stderr": "READ.stderr.txt"
+  },
+  "sourceSha256": "1eadf8cd6cc0d2ffc727ab0a592d0e46598b5aafabb26b665a7f5f33db43b953",
+  "toolResult": {
+    "chunk_id": "085f90",
+    "wall_time_seconds": 0.000007,
+    "exit_code": 1,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "actualFullReturnClock": {
+    "current_time": "2026-10-04 17:50:19 UTC"
+  },
+  "limits": "Whole-second external observation, not independently captured child subprocess start/end. READ-JOB owns child clocks/PID. One invocation only; no retry."
+}

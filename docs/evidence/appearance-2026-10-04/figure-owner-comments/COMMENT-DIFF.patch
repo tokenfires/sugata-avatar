@@ -1,0 +1,31 @@
+--- original/Figure.js
++++ comment-corrected/Figure.js
+@@ -76,8 +76,8 @@
+         this.gltf = gltf;
+         this.root = gltf.scene;
+ 
+-        // Every mesh that carries at least one morph target. The body is the skinned one; the
+-        // other five are plain meshes parented under it.
++        // Every mesh carrying morph targets. Body ownership follows the first eligible
++        // SkinnedMesh in scene traversal. Wardrobe g050 has seven siblings sharing one skin.
+         this.meshes = [];
+         this.body = null;
+         this.skeleton = null;
+@@ -347,7 +347,7 @@
+ 
+             // Morphed and skinned bounds move with the animation, and three.js culls against
+             // the static bind-pose bounding sphere. A face at the edge of frame can pop out.
+-            // Six meshes is not a culling budget worth defending.
++            // Keep this small set of animated anatomy meshes visible at the frame edges.
+             object.frustumCulled = false;
+ 
+             for ( const name in object.morphTargetDictionary ) {
+@@ -365,7 +365,7 @@
+ 
+             }
+ 
+-            // The body is the skinned mesh; the face parts hang off it as plain meshes.
++            // Select the first morphed SkinnedMesh; auxiliary anatomy may also be skinned.
+             if ( object.isSkinnedMesh === true && this.body === null ) {
+ 
+                 this.body = object;

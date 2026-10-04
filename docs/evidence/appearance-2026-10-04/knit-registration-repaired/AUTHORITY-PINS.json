@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-04T17:25:31.827045+00:00",
+  "selection": "Exact bundled g050 body and Ink-selected upper foundation bra; briefs/all-layer authority excluded and open",
+  "files": {
+    "assets/wardrobe/body/g050.glb": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "assets/wardrobe/foundation_bra/g050.glb": {
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    "packages/core/src/figure/Figure.js": {
+      "bytes": 15766,
+      "sha256": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da"
+    },
+    "packages/core/src/wardrobe/AvatarWardrobe.js": {
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    "packages/core/src/Avatar.js": {
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    "looks/ink-denim.json": {
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    "docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json": {
+      "bytes": 145508,
+      "sha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1"
+    }
+  }
+}
