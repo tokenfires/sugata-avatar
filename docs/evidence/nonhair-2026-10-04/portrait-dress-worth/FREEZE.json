@@ -1,0 +1,41 @@
+{
+  "pid": 42291,
+  "started": "2026-10-04T07:56:53.733645+00:00",
+  "finished": "2026-10-04T07:56:53.734213+00:00",
+  "payloads": 6,
+  "bytes": 28339,
+  "manifestSHA256": "ce7b8ae708c3b0411938024d99947d8b4a7cf83641ce44b7b2702eddf679770c",
+  "scope": "Preservation only; no new investigation or admission",
+  "files": [
+    {
+      "path": "CRITIC-VALUE.md",
+      "bytes": 9553,
+      "sha256": "d7df5c4124f69aea490842d97ef1de35f815c87648e8371021382e430e1edc9d"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 2625,
+      "sha256": "48297a16b528913a49c6666a3f50ab8ef85ceb0e226819a455ea17af073d903c"
+    },
+    {
+      "path": "RECEIPT.md",
+      "bytes": 4716,
+      "sha256": "32ab0c7357501ed4464040b571acc0069adf9cf99cd4f6f5c1f1d2839647eb1a"
+    },
+    {
+      "path": "ROOT-FINAL.json",
+      "bytes": 3424,
+      "sha256": "ea2ad36d6757a1500ffe979cd329f7b06bf94d52494c2c4cb3d2139de7d8c230"
+    },
+    {
+      "path": "ROOT-INPUTS.json",
+      "bytes": 3124,
+      "sha256": "a2ad246747bf05c11b05c9e49fe00870a2445198f808630b385d5d0528418fe7"
+    },
+    {
+      "path": "ROOT-VALUE.md",
+      "bytes": 4897,
+      "sha256": "08de5589df0614cae8f752a002373f2568536dcb1d295d2ebe583b213d751140"
+    }
+  ]
+}

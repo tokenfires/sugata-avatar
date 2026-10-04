@@ -1,0 +1,80 @@
+{
+  "pid": 37173,
+  "started": "2026-10-04T07:49:25.369738+00:00",
+  "finished": "2026-10-04T07:49:25.371039+00:00",
+  "inputs": [
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "bytes": 2571,
+      "sha256": "ebe3f81f93f77a74687af564070aae1449e6de548ae640cf7716f4d8a2cada00"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-neutral-ax/mobile-upper.jpg",
+      "bytes": 32547,
+      "sha256": "4b0af5863143de4e00bb304f828f5b54b47ba80c13b62999418c231714d16b07"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/portrait-dress-worth/PLAN.md",
+      "bytes": 2625,
+      "sha256": "48297a16b528913a49c6666a3f50ab8ef85ceb0e226819a455ea17af073d903c"
+    }
+  ],
+  "rootActualImageReview": "Both original bare mobile-upper and accepted Ink Neutral portrait viewed; different contexts, no matched image or candidate appearance qualification",
+  "sourceFindings": "Portrait four PAD choices/no wardrobe; Showcase attention/dressed portrait already present but no four PAD choices; literal current g050-only wardrobe owner; default auto, no full Ink option copy",
+  "scope": "Worth-only FS/source reconciliation, no new runtime, asset parse or implementation"
+}
