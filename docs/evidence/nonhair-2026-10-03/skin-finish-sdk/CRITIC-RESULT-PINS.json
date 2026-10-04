@@ -1,0 +1,859 @@
+{
+  "scope": "Read all saved native JSON as data, rehash admitted/current snapshots, PNG structure and source call order. No native/test/material/module/asset evaluation or image repair.",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/critic-result-reader.py",
+  "pid": 82237,
+  "startUTC": "2026-10-04T05:37:21.092940+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "sourceSHA256": "a12a1eaa9dc09fcddd71e6f1bac5049323a2571cc70a107b1b73ddfa7baef970",
+  "passed": true,
+  "nativeQualification": "REFUSED; first declared rebuild event predicate failed; no rebuilt PNG; incomplete two collected PNGs provide no original appearance comparison.",
+  "admittedPinsUnchanged": 21,
+  "reportsRead": 8,
+  "requestOptions": [
+    {
+      "identity": {
+        "gender": 0.5,
+        "mode": "nearest"
+      },
+      "hair": "bob02",
+      "hairColour": "#413934",
+      "hairTint": {
+        "colour": "#8063ac",
+        "amount": 0.25
+      },
+      "frame": "portrait",
+      "quality": "balanced",
+      "scene": "studio",
+      "lighting": "neutral",
+      "seed": 20260807,
+      "pose": "relaxed-standing",
+      "wardrobe": {
+        "style": "ecru",
+        "colours": {
+          "top": "#617a70",
+          "bottom": "#35485c",
+          "shoes": "#45434b"
+        },
+        "outfit": [
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "foundation": {
+          "TORSO": "foundation_bra",
+          "HIPS": "foundation_briefs"
+        }
+      },
+      "autoStart": false
+    },
+    {
+      "identity": {
+        "gender": 0.5,
+        "mode": "nearest"
+      },
+      "hair": "bob02",
+      "hairColour": "#413934",
+      "hairTint": {
+        "colour": "#8063ac",
+        "amount": 0.25
+      },
+      "frame": "portrait",
+      "quality": "balanced",
+      "scene": "studio",
+      "lighting": "neutral",
+      "seed": 20260807,
+      "pose": "relaxed-standing",
+      "wardrobe": {
+        "style": "ecru",
+        "colours": {
+          "top": "#617a70",
+          "bottom": "#35485c",
+          "shoes": "#45434b"
+        },
+        "outfit": [
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "foundation": {
+          "TORSO": "foundation_bra",
+          "HIPS": "foundation_briefs"
+        }
+      },
+      "autoStart": false,
+      "skinFinish": "reduced-sheen"
+    }
+  ],
+  "failure": {
+    "at": "2026-10-04T05:29:31.198Z",
+    "message": "Error: old skin disposal event mismatch\n    at same (http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/preview.mjs:6:73)\n    at HTMLButtonElement.<anonymous> (http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/preview.mjs:62:3)"
+  },
+  "rebuild": {
+    "startedAt": "2026-10-04T05:29:30.960Z",
+    "beforeSkinUUID": "f8a9c686-724a-4e74-add0-77eab3855337",
+    "disposeEvents": 2,
+    "complete": false,
+    "afterSkinUUID": "50af1672-fcd2-4a26-b6a1-9e4e7ff159a8"
+  },
+  "retirements": [
+    {
+      "reason": "before-reduced",
+      "at": "2026-10-04T05:29:29.820Z",
+      "error": null,
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "skinAfter": {
+        "requestedFinish": "original",
+        "attached": false,
+        "clearcoat": null,
+        "clearcoatRoughness": null,
+        "settings": null
+      }
+    },
+    {
+      "reason": "failure",
+      "at": "2026-10-04T05:29:31.198Z",
+      "error": null,
+      "disposal": {
+        "disposed": true,
+        "leaked": []
+      },
+      "skinAfter": {
+        "requestedFinish": "reduced-sheen",
+        "attached": false,
+        "clearcoat": null,
+        "clearcoatRoughness": null,
+        "settings": null
+      }
+    }
+  ],
+  "mediaStructure": [
+    {
+      "file": "original.png",
+      "dimensions": [
+        900,
+        1120
+      ],
+      "completeChunks": [
+        {
+          "type": "IHDR",
+          "dataBytes": 13,
+          "offset": 8,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 33,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 4141,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 8249,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 12357,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 16465,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 20573,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 24681,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 28789,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 32897,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 37005,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 41113,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 45221,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 49329,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 53437,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 57545,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 61653,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 65761,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 69869,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 73977,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 78085,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 82193,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 86301,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 90409,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 94517,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 98625,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 102733,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 106841,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 110949,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 115057,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 119165,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 123273,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 127381,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 131489,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 135597,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 139705,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 143813,
+          "crcValid": true
+        }
+      ],
+      "truncatedChunk": {
+        "offset": 147921,
+        "type": "IDAT",
+        "declaredDataBytes": 4096,
+        "requiredEnd": 152029,
+        "fileBytes": 149990,
+        "bytesMissing": 2039
+      },
+      "hasIEND": false,
+      "scope": "Structure/CRC only; no image decoding, crop or pixel interpretation."
+    },
+    {
+      "file": "reduced.png",
+      "dimensions": [
+        900,
+        1120
+      ],
+      "completeChunks": [
+        {
+          "type": "IHDR",
+          "dataBytes": 13,
+          "offset": 8,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 33,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 4141,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 8249,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 12357,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 16465,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 20573,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 24681,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 28789,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 32897,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 37005,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 41113,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 45221,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 49329,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 53437,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 57545,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 61653,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 65761,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 69869,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 73977,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 78085,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 82193,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 86301,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 90409,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 94517,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 98625,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 102733,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 106841,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 110949,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 115057,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 119165,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 123273,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 127381,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 131489,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 135597,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 139705,
+          "crcValid": true
+        },
+        {
+          "type": "IDAT",
+          "dataBytes": 4096,
+          "offset": 143813,
+          "crcValid": true
+        }
+      ],
+      "truncatedChunk": {
+        "offset": 147921,
+        "type": "IDAT",
+        "declaredDataBytes": 4096,
+        "requiredEnd": 152029,
+        "fileBytes": 149990,
+        "bytesMissing": 2039
+      },
+      "hasIEND": false,
+      "scope": "Structure/CRC only; no image decoding, crop or pixel interpretation."
+    }
+  ],
+  "consoleWarnCount": 7,
+  "close": {
+    "at": "2026-10-04T05:32:01.896Z",
+    "closedTab": "9",
+    "tabs": [
+      {
+        "id": "1",
+        "providerTabId": "54be7203-4fbf-490c-92d2-2ef750bf1944",
+        "title": "Sugata \u2014 six-guide proposal refusal",
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/guide-target-review.html",
+        "browserId": "3"
+      }
+    ],
+    "scope": "Known owned tab close; user tab retained."
+  },
+  "sourceExplanation": "Source has skin.dispose through disposeShading then old Figure body material traversal. Every Three Material.dispose emits an event; count two is consistent with that call order, not proof of a leak or executed call stacks.",
+  "limits": [
+    "No original PNG decode/appearance available; context JPEG only visually inspected separately.",
+    "No runtime replay/test/material constructor/asset parse/GPU performed.",
+    "Report fields and event counts are recorded observations, not allocator or exhaustive process/network proof."
+  ],
+  "endUTC": "2026-10-04T05:37:21.099149+00:00",
+  "exitCode": 0,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CRITIC-SOURCE-PINS.json",
+      "bytes": 7784,
+      "sha256": "f318c2a8983d95410148759cf546180734311ab8110618b6cbd7c4d1e350a5f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 253996,
+      "sha256": "75139c804a38ee9c6b3ae3371a361e1d7d69e151e48d2932a7338f8b67474013"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinFinishOptions.js",
+      "bytes": 638,
+      "sha256": "5f99b9cd7d62a8f1a3643716b81a8592e6fb334669c678a544896cd6a3af3e1e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinFinishOptions.selftest.mjs",
+      "bytes": 4413,
+      "sha256": "7f4d5660faf7d9acd5b5d05e4c932471a757fcc60282a032cd3c2bf25159c671"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 9099,
+      "sha256": "e5996f76901e8500f43c46c956f8cf54c89e5a96fd2795235a24e0a99c5f04c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 6703,
+      "sha256": "8ab26938c1e1d69fd53289884cd19978dc0f808c456032c7af110c902d4444a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/API.md",
+      "bytes": 50353,
+      "sha256": "93fbdacb890cc5dff89f3e55798d0bbade1525bb756de08bd225f0baca6d7fc3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/looks/sage-lavender-chin.json",
+      "bytes": 623,
+      "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-0.log",
+      "bytes": 145,
+      "sha256": "c08a8541e8614638bd52ca86177c80637f65e367dd809ddcc7a312eb243ebc32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-1.log",
+      "bytes": 26710,
+      "sha256": "c758745ab83bf56beef030f8832a4390ceef1150e4ecfed840662ee2d46fb724"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-2.log",
+      "bytes": 495,
+      "sha256": "47a875d8faa65dec24c4866da482eaab15db08e812fccf8fb3f00809a5a26078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-3.log",
+      "bytes": 744,
+      "sha256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-4.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/PLAN.md",
+      "bytes": 3239,
+      "sha256": "ae0501ce26ff6cabb14559d8df28e3bf0a40e50624524f08fc7566b024c1a94e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/EXECUTION.md",
+      "bytes": 2817,
+      "sha256": "100ea0abd8c1f48541faa5c08fb4262167bd5c972ea403a44f146c38191630f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/preview.mjs",
+      "bytes": 7446,
+      "sha256": "22a1335bab0e52967f4c71a14d165b2ca4feedf70a424c2937a0c7931dc34c91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/review.html",
+      "bytes": 1077,
+      "sha256": "6ec6d09b41197bc22f9d4f511dd82230f9c9e975bfa58e37a66db5b4d1a41fea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CHECKS.json",
+      "bytes": 3868,
+      "sha256": "9e34ab83c2d90138246bc1286927ea173e22e7e7244866ad5b0b61db497ec246"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/run-checks.py",
+      "bytes": 2105,
+      "sha256": "822ac1ff0884ec06d357ec260a498022ecf1a4fff875e661d50da56efe7577b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CRITIC-CONTRACT.md",
+      "bytes": 4227,
+      "sha256": "d5eca232d5583d0d1b0b47abf9cee8c8a3e46336f57b73dabe94c7be95858a87"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CRITIC-PRODUCTION-INITIAL.md",
+      "bytes": 3033,
+      "sha256": "f0c2ae3bcd3e23e824faf4d9cec2e53f13e61d4036a74bee94acdba19ba282f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CRITIC-SOURCE.md",
+      "bytes": 7399,
+      "sha256": "5f30bf976e4ac4943ccfc2a970bb142ae03a4318c06d8678ab87516246c90513"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/NATIVE-STATE.json",
+      "bytes": 114472,
+      "sha256": "e00aa87c92912d4329f777ae1e23cb4e5f853da47f0f448a1e2ff73ded0e2b36"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/NATIVE-IMAGES.json",
+      "bytes": 687,
+      "sha256": "54337fac10dfd35e795f2021117ea49303a857174d1b5a5bb1e6899a86afcc66"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CONSOLE.json",
+      "bytes": 3002,
+      "sha256": "df10b5bcc056c03de474a14f47b6baff00e06fd3fbe44b9b4d22c312168097ab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CLOSE.json",
+      "bytes": 454,
+      "sha256": "6da2805b1a9207d942e90f40fef25bf2ab069d0934312efd5724f099f0c97909"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/NATIVE-CALLS.md",
+      "bytes": 1517,
+      "sha256": "951f712424d4aa1140e61104483b17247db3281e06fa3b8b298fda469f1cfa24"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/ROOT-PREFLIGHT.json",
+      "bytes": 6565,
+      "sha256": "64431c7c287adb02d5cff235a84d098d8b2773f9abc2ddd725fa28681acf55d9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/looks/sage-lavender-chin.json",
+      "bytes": 623,
+      "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/original.png",
+      "bytes": 149990,
+      "sha256": "e955885a0579fb81fada0d1f5a0c9a1d08d0501ffebed305aba691f37510907b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/reduced.png",
+      "bytes": 149990,
+      "sha256": "af3aaef54ed4a2e38995999413847843e61c8e704bbff85080992014b7da5a74"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/native-context.jpg",
+      "bytes": 89576,
+      "sha256": "65a0c29f13b8c90f0d14d7cd5966b919cdc8bd78945a667908913c761ca51e86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/source-Avatar.js",
+      "bytes": 253996,
+      "sha256": "75139c804a38ee9c6b3ae3371a361e1d7d69e151e48d2932a7338f8b67474013"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/source-SkinFinishOptions.js",
+      "bytes": 638,
+      "sha256": "5f99b9cd7d62a8f1a3643716b81a8592e6fb334669c678a544896cd6a3af3e1e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/source-SkinFinishOptions.selftest.mjs",
+      "bytes": 4413,
+      "sha256": "7f4d5660faf7d9acd5b5d05e4c932471a757fcc60282a032cd3c2bf25159c671"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/source-API.md",
+      "bytes": 50353,
+      "sha256": "93fbdacb890cc5dff89f3e55798d0bbade1525bb756de08bd225f0baca6d7fc3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/source-showcase-presets.mjs",
+      "bytes": 9099,
+      "sha256": "e5996f76901e8500f43c46c956f8cf54c89e5a96fd2795235a24e0a99c5f04c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/source-showcase-settings.selftest.mjs",
+      "bytes": 6703,
+      "sha256": "8ab26938c1e1d69fd53289884cd19978dc0f808c456032c7af110c902d4444a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 253996,
+      "sha256": "75139c804a38ee9c6b3ae3371a361e1d7d69e151e48d2932a7338f8b67474013"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15766,
+      "sha256": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CRITIC-STATE-READBACK.json",
+      "bytes": 53072,
+      "sha256": "34cbb62d52e9bbd310935951aaf61b9bba493d262fdc6098e5381df2d6e7f1f8"
+    }
+  ]
+}

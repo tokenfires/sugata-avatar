@@ -1,0 +1,59 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/isolate-candidate.py",
+  "pid": 88838,
+  "startUTC": "2026-10-04T05:43:12.138759+00:00",
+  "endUTC": "2026-10-04T05:43:12.318878+00:00",
+  "exitCode": 0,
+  "passed": true,
+  "entryHEAD": "8e929e6",
+  "gitRestore": {
+    "command": [
+      "git",
+      "restore",
+      "--",
+      "packages/core/src/Avatar.js",
+      "docs/API.md",
+      "packages/testbed/src/showcase-presets.mjs",
+      "packages/testbed/src/showcase-settings.selftest.mjs"
+    ],
+    "pid": 88843,
+    "startUTC": "2026-10-04T05:43:12.174016+00:00",
+    "exitCode": 0,
+    "output": ""
+  },
+  "patchSHA256": "1d42c4ecc84812eea5f00d8c369e0bd72d7c9af10640bd1f9f3292e74f71f904",
+  "candidateModules": [
+    {
+      "file": "candidate-SkinFinishOptions.js",
+      "sha256": "5f99b9cd7d62a8f1a3643716b81a8592e6fb334669c678a544896cd6a3af3e1e"
+    },
+    {
+      "file": "candidate-SkinFinishOptions.selftest.mjs",
+      "sha256": "7f4d5660faf7d9acd5b5d05e4c932471a757fcc60282a032cd3c2bf25159c671"
+    }
+  ],
+  "restored": [
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 5777,
+      "sha256": "da7a10d5c0676c63de89dee23668eb1500ec67a831314dc4473ca3df0c107360"
+    }
+  ],
+  "scope": "Only root-owned unqualified edits restored exactly; candidates/source snapshots preserved, assets/defaults/unrelated work untouched",
+  "sourceSHA256": "eb1ced0551c3991055ba7de5880caeb9f9a0defd18922e1067a72c5ff5b38b37"
+}

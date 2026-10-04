@@ -1,0 +1,3043 @@
+{
+  "scope": "Read-only source/image/header/report-state metadata; no material constructor/setter/import, GLB parse, runtime or GPU",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-choice-worth/critic-pins.py",
+  "pid": 76841,
+  "startUTC": "2026-10-04T05:07:50.959265+00:00",
+  "endUTC": "2026-10-04T05:07:50.963870+00:00",
+  "exitCode": 0,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "sourceSHA256": "883cee07a67da9279090204d29255c20c26a7573848a7bfaafb1302947046f1f",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-choice-worth/PLAN.md",
+      "bytes": 2870,
+      "sha256": "c77b8d831c153e8e17e9881a9661b3ddf86dcecd86cf69e35b4fa6e6f6c89038"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/preview.mjs",
+      "bytes": 3767,
+      "sha256": "097d22f29fe2301ccfcb315eb5d3e41c4aee8aac299055540247ef8877f6534f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/candidate.json",
+      "bytes": 254,
+      "sha256": "5731b1dda84be88cbc9e941bd35dbee3dbc989cf2513da37f379c6376dcd0324"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/README.md",
+      "bytes": 1660,
+      "sha256": "8dc9b10e48a2a71d8de02d001671581c0bc0f84f02efb8a1e5ff6862ed22307e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/ROOT-VISUAL-DECISION.md",
+      "bytes": 2422,
+      "sha256": "d604208350a7d4f84f9a077e759e1dfc629000473a95f62bcb1aa11210c2f5ca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/CRITIQUE.md",
+      "bytes": 5093,
+      "sha256": "9bc96249a4376520e257d4b58e5afbd83ce6b0a542f002cc3680903758c5ead0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/RECEIPT.md",
+      "bytes": 6739,
+      "sha256": "deaae6651bff01bb07fe50e3da18dd831d61a9702e5ff722ae98b82488d0b9ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-lighting-value/CRITIC-VALUE.md",
+      "bytes": 7143,
+      "sha256": "c8529c23a6e9691b19bb8095f9c81eb126047ebb141ee0fa32b946402f2b5a4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/report.json",
+      "bytes": 130090,
+      "sha256": "acb884858d91bbcfdb8e91d792d4a2438f27fb59b914d615ea9e7bbf08339aeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/original-front.png",
+      "bytes": 570969,
+      "sha256": "9d31a5b3edb2f5ce860b370b38c283bda469b72efedf40f9d12ebd53a8e0f7fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/candidate-front.png",
+      "bytes": 541820,
+      "sha256": "d500f65951380140a122d4b40b448fd2dfa3de0c966d486f00538c7e076b330a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/candidate-oblique.png",
+      "bytes": 614044,
+      "sha256": "8d6ea28375c25ed98ec538298b591e5953d309a85c2ab5d9c334115a6b4fa98c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/original-oblique.png",
+      "bytes": 596842,
+      "sha256": "0a27d41db41f61a7ddd8498d5d5125150a542f83db03ab217447dcf8ed2ac83f"
+    }
+  ],
+  "images": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/original-front.png",
+      "sha256": "9d31a5b3edb2f5ce860b370b38c283bda469b72efedf40f9d12ebd53a8e0f7fe",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "arm": "original",
+      "view": "front"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/candidate-front.png",
+      "sha256": "d500f65951380140a122d4b40b448fd2dfa3de0c966d486f00538c7e076b330a",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "arm": "candidate",
+      "view": "front"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/candidate-oblique.png",
+      "sha256": "8d6ea28375c25ed98ec538298b591e5953d309a85c2ab5d9c334115a6b4fa98c",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "arm": "candidate",
+      "view": "oblique"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/original-oblique.png",
+      "sha256": "0a27d41db41f61a7ddd8498d5d5125150a542f83db03ab217447dcf8ed2ac83f",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "arm": "original",
+      "view": "oblique"
+    }
+  ],
+  "completeRetainedStates": [
+    {
+      "file": "original-front.png",
+      "phase": "before",
+      "state": {
+        "arm": "original",
+        "view": "front",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0,
+            1.55,
+            0.88
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.34,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    },
+    {
+      "file": "original-front.png",
+      "phase": "after",
+      "state": {
+        "arm": "original",
+        "view": "front",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0,
+            1.55,
+            0.88
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.34,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    },
+    {
+      "file": "candidate-front.png",
+      "phase": "before",
+      "state": {
+        "arm": "candidate",
+        "view": "front",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0,
+            1.55,
+            0.88
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.12,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    },
+    {
+      "file": "candidate-front.png",
+      "phase": "after",
+      "state": {
+        "arm": "candidate",
+        "view": "front",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0,
+            1.55,
+            0.88
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.12,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    },
+    {
+      "file": "candidate-oblique.png",
+      "phase": "before",
+      "state": {
+        "arm": "candidate",
+        "view": "oblique",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0.4235,
+            1.55,
+            0.7665
+          ],
+          "quaternion": [
+            0,
+            0.25882575000452257,
+            0,
+            0.96592402969105
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.12,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    },
+    {
+      "file": "candidate-oblique.png",
+      "phase": "after",
+      "state": {
+        "arm": "candidate",
+        "view": "oblique",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0.4235,
+            1.55,
+            0.7665
+          ],
+          "quaternion": [
+            0,
+            0.25882575000452257,
+            0,
+            0.96592402969105
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.12,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    },
+    {
+      "file": "original-oblique.png",
+      "phase": "before",
+      "state": {
+        "arm": "original",
+        "view": "oblique",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0.4235,
+            1.55,
+            0.7665
+          ],
+          "quaternion": [
+            0,
+            0.25882575000452257,
+            0,
+            0.96592402969105
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.34,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    },
+    {
+      "file": "original-oblique.png",
+      "phase": "after",
+      "state": {
+        "arm": "original",
+        "view": "oblique",
+        "recipe": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "actualConfiguration": {
+          "identity": {
+            "gender": 0.5,
+            "mode": "nearest"
+          },
+          "hair": "bob02",
+          "hairColour": "#413934",
+          "hairTint": {
+            "colour": "#8063ac",
+            "amount": 0.25
+          },
+          "frame": "portrait",
+          "quality": "balanced",
+          "scene": "studio",
+          "lighting": "neutral",
+          "seed": 20260807,
+          "pose": "relaxed-standing",
+          "wardrobe": {
+            "style": "ecru",
+            "colours": {
+              "top": "#617a70",
+              "bottom": "#35485c",
+              "shoes": "#45434b"
+            },
+            "outfit": [
+              "female_casualsuit01",
+              "shoes01"
+            ],
+            "foundation": {
+              "TORSO": "foundation_bra",
+              "HIPS": "foundation_briefs"
+            }
+          }
+        },
+        "camera": {
+          "position": [
+            0.4235,
+            1.55,
+            0.7665
+          ],
+          "quaternion": [
+            0,
+            0.25882575000452257,
+            0,
+            0.96592402969105
+          ],
+          "fov": 26
+        },
+        "headWorld": [
+          0.9999293021205262,
+          -0.0055922546157131815,
+          -0.0104936848551723,
+          0,
+          0.005665869821403027,
+          0.9999593161030931,
+          0.006998503462779415,
+          0,
+          0.010454121749892117,
+          -0.007057510921514465,
+          0.9999203435126058,
+          0,
+          -0.02954579669134702,
+          1.5131816917928524,
+          0.06824541141475371,
+          1
+        ],
+        "bindings": [
+          {
+            "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+            "name": "Human",
+            "materials": [
+              "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+            ]
+          },
+          {
+            "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+            "name": "Humancornea",
+            "materials": [
+              "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+            ]
+          },
+          {
+            "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+            "name": "Humaneyebrow001",
+            "materials": [
+              "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+            ]
+          },
+          {
+            "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+            "name": "Humaneyelashes01",
+            "materials": [
+              "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+            ]
+          },
+          {
+            "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+            "name": "Humanhigh-poly",
+            "materials": [
+              "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+            ]
+          },
+          {
+            "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+            "name": "Humanteeth_base",
+            "materials": [
+              "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+            ]
+          },
+          {
+            "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+            "name": "Humantongue01",
+            "materials": [
+              "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+            ]
+          },
+          {
+            "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+            "name": "eyeOcclusion.left",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+            "name": "eyeLacrimal.left",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+            "name": "eyeOcclusion.right",
+            "materials": [
+              "e0111fea-3125-4a41-b88d-de03232ee9af"
+            ]
+          },
+          {
+            "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+            "name": "eyeLacrimal.right",
+            "materials": [
+              "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+            ]
+          },
+          {
+            "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+            "name": "garment_foundation_bra",
+            "materials": [
+              "13501c69-2aca-4bb3-97e1-34763536d9a5"
+            ]
+          },
+          {
+            "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+            "name": "garment_foundation_briefs",
+            "materials": [
+              "831ac5a6-4f30-464a-9e60-4fab5a514685"
+            ]
+          },
+          {
+            "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+            "name": "garment_female_casualsuit01",
+            "materials": [
+              "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+            ]
+          },
+          {
+            "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+            "name": "garment_shoes01",
+            "materials": [
+              "c2e6c342-8876-43be-be4f-a81d719f051c"
+            ]
+          },
+          {
+            "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+            "name": "Humanhair_bob02",
+            "materials": [
+              "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+            ]
+          }
+        ],
+        "skin": {
+          "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+          "type": "SkinNodeMaterial",
+          "bodyOwner": true,
+          "clearcoat": 0.34,
+          "clearcoatRoughness": 0.24,
+          "clearcoatNode": null,
+          "clearcoatRoughnessNode": null,
+          "clearcoatMap": null,
+          "clearcoatRoughnessMap": null,
+          "useClearcoat": true,
+          "roughness": 0.46,
+          "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+          "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+          "ior": 1.42,
+          "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+          "skinMaps": {
+            "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+            "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+            "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+            "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+          },
+          "settings": {
+            "scatterDistanceMillimetres": 1.25,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "runtimeCurvatureBlend": 0,
+            "roughness": 0.46,
+            "secondLobeWeight": 0.34,
+            "secondLobeRoughness": 0.24,
+            "transmissionDistanceMillimetres": 4,
+            "transmissionChannelRatio": [
+              1,
+              0.35,
+              0.22
+            ],
+            "transmissionStrength": 1,
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "fittedThinTissueDepthMillimetres": 10,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "fittedLipTint": [
+              0.2,
+              0.3,
+              0.56
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          },
+          "uniforms": {
+            "scatterDistanceMillimetres": 1.25,
+            "runtimeCurvatureBlend": 0,
+            "maxScatterGain": 6,
+            "scatterGainFloor": 0.02,
+            "transmissionStrength": 1,
+            "transmissionDistances": [
+              4,
+              1.4,
+              0.88
+            ],
+            "lipTint": [
+              1,
+              1,
+              1
+            ],
+            "cavityStrength": 1,
+            "cavityAlbedo": [
+              0.89,
+              0.737,
+              0.659
+            ],
+            "cavityChroma": 1,
+            "thinTissueDepthMillimetres": 0,
+            "thinTissueTint": [
+              1,
+              0.72,
+              0.76
+            ],
+            "microNormalScale": 0.25,
+            "microNormalRepeat": 48
+          }
+        },
+        "backend": "webgpu",
+        "webGPU": true
+      }
+    }
+  ],
+  "retirement": {
+    "restored": {
+      "arm": "original",
+      "view": "oblique",
+      "recipe": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "hairTint": {
+          "colour": "#8063ac",
+          "amount": 0.25
+        },
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "neutral",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#617a70",
+            "bottom": "#35485c",
+            "shoes": "#45434b"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "actualConfiguration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "hairColour": "#413934",
+        "hairTint": {
+          "colour": "#8063ac",
+          "amount": 0.25
+        },
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "neutral",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "style": "ecru",
+          "colours": {
+            "top": "#617a70",
+            "bottom": "#35485c",
+            "shoes": "#45434b"
+          },
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "camera": {
+        "position": [
+          0.4235,
+          1.55,
+          0.7665
+        ],
+        "quaternion": [
+          0,
+          0.25882575000452257,
+          0,
+          0.96592402969105
+        ],
+        "fov": 26
+      },
+      "headWorld": [
+        0.9999293021205262,
+        -0.0055922546157131815,
+        -0.0104936848551723,
+        0,
+        0.005665869821403027,
+        0.9999593161030931,
+        0.006998503462779415,
+        0,
+        0.010454121749892117,
+        -0.007057510921514465,
+        0.9999203435126058,
+        0,
+        -0.02954579669134702,
+        1.5131816917928524,
+        0.06824541141475371,
+        1
+      ],
+      "bindings": [
+        {
+          "mesh": "c8fa95e2-7634-4baf-a06b-2cb621da7812",
+          "name": "Human",
+          "materials": [
+            "7c6c1c55-41c1-4659-8eb2-072a03fc34d2"
+          ]
+        },
+        {
+          "mesh": "71b35c01-4593-4743-b0d4-74eacc3d908d",
+          "name": "Humancornea",
+          "materials": [
+            "0f8615ad-ad7b-4d68-93c5-aa6589d04740"
+          ]
+        },
+        {
+          "mesh": "91490cc7-9203-4eea-a925-42c268aa09a4",
+          "name": "Humaneyebrow001",
+          "materials": [
+            "80780c36-3e29-427a-8cbf-bd80aa52f8b4"
+          ]
+        },
+        {
+          "mesh": "3e74d03a-276c-426e-9fe3-3d64a5aef989",
+          "name": "Humaneyelashes01",
+          "materials": [
+            "15bd1bbf-c329-4528-bb77-078bda0e3ef1"
+          ]
+        },
+        {
+          "mesh": "2e1eabe2-179b-4745-a4d6-f74008027ef4",
+          "name": "Humanhigh-poly",
+          "materials": [
+            "410f00a1-a9ea-4e5e-8edf-a216f78344bb"
+          ]
+        },
+        {
+          "mesh": "c4fd9b94-5b7c-407b-97c5-42935d446106",
+          "name": "Humanteeth_base",
+          "materials": [
+            "dd5541a4-40f9-463e-b1b0-edc0208733f4"
+          ]
+        },
+        {
+          "mesh": "ad04c067-a4bb-4375-a728-249a50ff233c",
+          "name": "Humantongue01",
+          "materials": [
+            "5dd76973-c9fb-492c-8661-4a7dd01d8469"
+          ]
+        },
+        {
+          "mesh": "70335c50-388c-453f-8f73-066739e27b4c",
+          "name": "eyeOcclusion.left",
+          "materials": [
+            "e0111fea-3125-4a41-b88d-de03232ee9af"
+          ]
+        },
+        {
+          "mesh": "f9b75d47-c8f6-4d74-bdcf-7f6dc370419c",
+          "name": "eyeLacrimal.left",
+          "materials": [
+            "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+          ]
+        },
+        {
+          "mesh": "556f5393-926f-4b88-99c3-ff2755914b54",
+          "name": "eyeOcclusion.right",
+          "materials": [
+            "e0111fea-3125-4a41-b88d-de03232ee9af"
+          ]
+        },
+        {
+          "mesh": "0e4d3395-14aa-47ab-995e-84ded19e6a88",
+          "name": "eyeLacrimal.right",
+          "materials": [
+            "62a28ada-d549-4009-b5ae-f27f680bd8c1"
+          ]
+        },
+        {
+          "mesh": "a6e26f9b-eb54-4c87-93c4-b3824d38d1d1",
+          "name": "garment_foundation_bra",
+          "materials": [
+            "13501c69-2aca-4bb3-97e1-34763536d9a5"
+          ]
+        },
+        {
+          "mesh": "453ff4ad-42e4-4f69-ac0f-c7a157374784",
+          "name": "garment_foundation_briefs",
+          "materials": [
+            "831ac5a6-4f30-464a-9e60-4fab5a514685"
+          ]
+        },
+        {
+          "mesh": "e42612ea-1075-437c-a816-0c350622163d",
+          "name": "garment_female_casualsuit01",
+          "materials": [
+            "1bc53956-6477-4143-87b0-ed80bc1cbfdb"
+          ]
+        },
+        {
+          "mesh": "874717f9-2f54-4f4c-80fc-b333e2c4161e",
+          "name": "garment_shoes01",
+          "materials": [
+            "c2e6c342-8876-43be-be4f-a81d719f051c"
+          ]
+        },
+        {
+          "mesh": "d5737546-a2aa-48ae-ab10-721d4fd24c37",
+          "name": "Humanhair_bob02",
+          "materials": [
+            "ff9b50d0-1adf-4411-bd3a-51265587abbd"
+          ]
+        }
+      ],
+      "skin": {
+        "uuid": "7c6c1c55-41c1-4659-8eb2-072a03fc34d2",
+        "type": "SkinNodeMaterial",
+        "bodyOwner": true,
+        "clearcoat": 0.34,
+        "clearcoatRoughness": 0.24,
+        "clearcoatNode": null,
+        "clearcoatRoughnessNode": null,
+        "clearcoatMap": null,
+        "clearcoatRoughnessMap": null,
+        "useClearcoat": true,
+        "roughness": 0.46,
+        "roughnessNode": "c0d8e8b7-93cf-46bf-952a-193df893eb89",
+        "normalNode": "c45d1f6e-3be7-4482-b682-c1f79c2f43a6",
+        "ior": 1.42,
+        "map": "3c4af25b-8c8d-4029-8ab7-a454da75ae23",
+        "skinMaps": {
+          "lut": "fe1cedee-6cd7-472e-9163-cbf8d437ddb0",
+          "curvatureMap": "e372e403-b8d8-4359-bc7c-4576c7a56910",
+          "regionMap": "60f42f31-a06e-4160-863f-50acdc98d57c",
+          "cavityMap": "e7688376-460c-4341-981a-e8f9a2aff8ea"
+        },
+        "settings": {
+          "scatterDistanceMillimetres": 1.25,
+          "maxScatterGain": 6,
+          "scatterGainFloor": 0.02,
+          "runtimeCurvatureBlend": 0,
+          "roughness": 0.46,
+          "secondLobeWeight": 0.34,
+          "secondLobeRoughness": 0.24,
+          "transmissionDistanceMillimetres": 4,
+          "transmissionChannelRatio": [
+            1,
+            0.35,
+            0.22
+          ],
+          "transmissionStrength": 1,
+          "cavityStrength": 1,
+          "cavityAlbedo": [
+            0.89,
+            0.737,
+            0.659
+          ],
+          "cavityChroma": 1,
+          "thinTissueDepthMillimetres": 0,
+          "fittedThinTissueDepthMillimetres": 10,
+          "thinTissueTint": [
+            1,
+            0.72,
+            0.76
+          ],
+          "lipTint": [
+            1,
+            1,
+            1
+          ],
+          "fittedLipTint": [
+            0.2,
+            0.3,
+            0.56
+          ],
+          "microNormalScale": 0.25,
+          "microNormalRepeat": 48
+        },
+        "uniforms": {
+          "scatterDistanceMillimetres": 1.25,
+          "runtimeCurvatureBlend": 0,
+          "maxScatterGain": 6,
+          "scatterGainFloor": 0.02,
+          "transmissionStrength": 1,
+          "transmissionDistances": [
+            4,
+            1.4,
+            0.88
+          ],
+          "lipTint": [
+            1,
+            1,
+            1
+          ],
+          "cavityStrength": 1,
+          "cavityAlbedo": [
+            0.89,
+            0.737,
+            0.659
+          ],
+          "cavityChroma": 1,
+          "thinTissueDepthMillimetres": 0,
+          "thinTissueTint": [
+            1,
+            0.72,
+            0.76
+          ],
+          "microNormalScale": 0.25,
+          "microNormalRepeat": 48
+        }
+      },
+      "backend": "webgpu",
+      "webGPU": true
+    },
+    "disposal": {
+      "disposed": true,
+      "leaked": []
+    }
+  },
+  "cleanup": {
+    "page": "closed",
+    "browser": "closed"
+  },
+  "warnings": [
+    "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back \u2014 jaw to the jawOpen morph, gaze to the eyeLook* morphs.",
+    "Calling [RenderPassEncoder (unlabeled)].Draw with an index count of 0 is unusual.",
+    "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces.",
+    "THREE.TSL: Return statement used in an inline 'Fn()'. Define a layout struct to allow return values. Stack trace not available. Enable \"THREE.Node.captureStackTrace\" to capture stack traces."
+  ],
+  "passed": true
+}

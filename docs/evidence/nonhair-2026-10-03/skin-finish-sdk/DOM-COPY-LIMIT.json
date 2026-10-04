@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-04T05:34:24.181Z",
+  "links": [
+    {
+      "id": "original",
+      "hidden": false,
+      "returnedCharacters": 200011
+    },
+    {
+      "id": "reduced",
+      "hidden": false,
+      "returnedCharacters": 200011
+    },
+    {
+      "id": "rebuilt",
+      "hidden": true,
+      "returnedCharacters": 0
+    }
+  ],
+  "limits": "Returned visible DOM link strings only. No original full encoded length or reason for incomplete saved PNG is observed; do not diagnose a renderer failure from the extraction."
+}

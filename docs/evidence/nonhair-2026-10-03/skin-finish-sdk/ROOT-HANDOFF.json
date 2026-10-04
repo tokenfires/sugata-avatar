@@ -1,0 +1,17 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/root-handoff.py",
+  "pid": 87843,
+  "startUTC": "2026-10-04T05:42:39.527267+00:00",
+  "endUTC": "2026-10-04T05:42:39.532063+00:00",
+  "exitCode": 0,
+  "passed": true,
+  "criticSHA256": "e52a37685563cd484ef1309037033fde4d750d861b4049ecf00e20bbdd2243f1",
+  "criticReaderSHA256": "a12a1eaa9dc09fcddd71e6f1bac5049323a2571cc70a107b1b73ddfa7baef970",
+  "criticMetadataSHA256": "84ae7bd32b272e3f25603db5c2a1c977015c1a8d12778997d86e9bcdefa3cfe8",
+  "stateReadbackSHA256": "34cbb62d52e9bbd310935951aaf61b9bba493d262fdc6098e5381df2d6e7f1f8",
+  "currentPinsVerified": 44,
+  "allEightActualReportsReconciled": true,
+  "decision": "B/defer SDK adoption and isolate owned candidate; no repair/replay",
+  "limits": "Actual context JPEG only; incomplete returned PNGs are not appearance witnesses. Source count-two explanation is not event call-stack/allocator proof. Current pins are before restoration.",
+  "sourceSHA256": "1619cfb3f6db61a3235db50b628a69ab65f5b5de15fe7e8834e190b90180d840"
+}

@@ -1,0 +1,177 @@
+diff --git a/docs/API.md b/docs/API.md
+index 240a00ef6bfa39ec0900e07fbb58dd57f1372080..00e709b5607198c63a114cce092034a3e91f7ebf 100644
+--- a/docs/API.md
++++ b/docs/API.md
+@@ -113,6 +113,7 @@ const avatar = await Avatar.create( {
+     hair: false,                   // 'bob01' | 'bob02' (g050 only) | false
+     hairColour: undefined,         // optional '#rrggbb' sRGB; requires hair; omitted keeps exact default
+     hairTint: undefined,           // optional {colour:'#rrggbb', amount:0..1}; requires hairColour
++    skinFinish: 'original',        // 'original' | 'reduced-sheen'; fixed at creation
+     wardrobe: false                // opt in with { outfit: [...], foundation: { TORSO, HIPS } }; g050 only
+ } );
+ ```
+@@ -455,6 +456,25 @@ So a transparent capture must be composited over `#08080a` before the critic run
+ transparent plate and the studio plate are then compared on the same pixels. That rule is declared
+ now, ahead of the option, so the two cannot arrive in different rounds.
+ 
++### Skin finish
++
++Optional `skinFinish: 'reduced-sheen'` requests quieter highlights from the skin's second specular
++lobe. Omit it or use `'original'` to retain the existing material defaults. Other values, including
++null and numeric weights, are rejected before GPU setup. The choice is fixed at creation and follows
++figure rebuilds; create another Avatar to change it.
++
++Reduced sheen changes only the second-lobe weight from 0.34 to 0.12. Its roughness remains 0.24, and
++the skin maps, regional roughness and remaining material settings retain their existing behavior.
++`report().skin` reports the requested finish, whether the skin material is attached to the current
++body, its active `clearcoat`/`clearcoatRoughness`, and construction settings. Missing or disposed
++skin reports null material fields and `attached: false`. Reduced sheen makes
++`report().scene.lighting.calibrated` false because it is outside the historical material calibration.
++
++This is an opt-in artist choice. The retained Neutral Studio portrait comparison supports a modest
++quieter sheen with readable face volume; it does not qualify preference across lighting, bodies or
++motion. It is not yet part of Showcase settings or saved-look JSON; their exporter refuses this
++finish rather than silently saving it as Original.
++
+ ### Hair colour
+ 
+ With a hair style enabled, optional `hairColour: '#765344'` supplies a six-digit sRGB material colour. Uppercase hex is accepted and normalized to lowercase. Named CSS colours, shorthand hex, numeric values, null and colour without a hair style are rejected. Omit the option to retain the exact existing derived default; a rounded hex is not substituted for that default.
+diff --git a/packages/core/src/Avatar.js b/packages/core/src/Avatar.js
+index e397d1c69d4c9fcf364e1a6947452979cea699f3..847c2e9ec36da5ad566595f76373e5c8d9a54f54 100644
+--- a/packages/core/src/Avatar.js
++++ b/packages/core/src/Avatar.js
+@@ -99,6 +99,7 @@
+ 
+ import { resolveWardrobeStyle, resolveWardrobeColours } from './wardrobe/WardrobeStyleOptions.js';
+ import { resolveHairColour, resolveHairTint, mixedHairColour } from './material/HairColourOptions.js';
++import { resolveSkinFinish, skinFinishMaterialOptions } from './material/SkinFinishOptions.js';
+ import { Box3, Matrix4, SRGBColorSpace, Skeleton as SkinSkeleton } from 'three';
+ import {
+     Color,
+@@ -789,7 +790,8 @@ export const AVATAR_DEFAULTS = Object.freeze( {
+     hairHistory: 'auto',
+ 
+     // Fractional brow/lash coverage only inside a verified active temporal beauty pass.
+-    faceCardCoverage: 'auto'
++    faceCardCoverage: 'auto',
++    skinFinish: 'original'
+ } );
+ 
+ export class Avatar {
+@@ -838,6 +840,7 @@ export class Avatar {
+      *   `AVATAR_DEFAULTS.hair` for the three measured reasons it is off by default.
+      * @param {'auto'|'hold'} [options.hairHistory='auto'] - Owned TAAU card history, or explicit legacy hold.
+      * @param {'auto'|'binary'} [options.faceCardCoverage='auto'] - Temporal brow/lash coverage, or original binary alpha.
++     * @param {'original'|'reduced-sheen'} [options.skinFinish='original'] - Creation-only second-lobe finish.
+      * @returns {Promise<Avatar>}
+      */
+     static async create( options = {} ) {
+@@ -855,6 +858,7 @@ export class Avatar {
+ 
+         }
+ 
++        const skinFinish = resolveSkinFinish( options.skinFinish );
+         const hairHistory = options.hairHistory ?? AVATAR_DEFAULTS.hairHistory;
+         if ( ![ 'auto', 'hold' ].includes( hairHistory ) ) {
+ 
+@@ -964,6 +968,7 @@ export class Avatar {
+             hairTint,
+             hairHistory,
+             faceCardCoverage,
++            skinFinish,
+             wardrobeRequest
+         } );
+ 
+@@ -1030,6 +1035,7 @@ export class Avatar {
+         this.assetBaseUrl = session.assetBaseUrl;
+         this.bakedMapBaseUrl = session.bakedMapBaseUrl;
+         this.heightOverride = session.heightOverride;
++        this.skinFinish = session.skinFinish ?? AVATAR_DEFAULTS.skinFinish;
+ 
+         // --- the scene, as resolved and validated by `create()` ---
+         //
+@@ -2483,7 +2489,18 @@ export class Avatar {
+      */
+     report() {
+ 
++        const skin = this.skin !== null && this.figure?.body?.material === this.skin ? this.skin : null;
+         return {
++            skin: {
++                requestedFinish: this.skinFinish,
++                attached: skin !== null,
++                clearcoat: skin?.clearcoat ?? null,
++                clearcoatRoughness: skin?.clearcoatRoughness ?? null,
++                settings: skin === null ? null : {
++                    secondLobeWeight: skin.skinSettings?.secondLobeWeight ?? null,
++                    secondLobeRoughness: skin.skinSettings?.secondLobeRoughness ?? null
++                }
++            },
+             quality: {
+                 requested: this.requestedQuality,
+                 tier: this.tier,
+@@ -2618,7 +2635,9 @@ export class Avatar {
+                     calibrated: this.lights.exposure === EXPOSURE_CALIBRATION
+                         && this.lights.ambientFractionOfKey === shippedAmbientFractionOfKey()
+                         && this.environment === null
+-                        && this.lighting.look !== 'neutral',
++                        && this.lighting.look !== 'neutral'
++                        // Artist finishes are outside the historical material calibration.
++                        && this.skinFinish === 'original',
+ 
+                     designedKeyToFill: this.lights.designedKeyToFill,
+ 
+@@ -3050,6 +3069,7 @@ export class Avatar {
+         try {
+ 
+             skin = await createSkinMaterial( {
++                ...skinFinishMaterialOptions( this.skinFinish ),
+                 albedoMap: figure.body.material.map ?? null,
+                 curvatureMapUrl: assets.curvatureMapUrl,
+                 cavityMapUrl: assets.cavityMapUrl,
+diff --git a/packages/testbed/src/showcase-presets.mjs b/packages/testbed/src/showcase-presets.mjs
+index 78071ce62bea347f0e9536bf83d99b709de875a7..c6edc08e36e9884bd0d5230daf1a721f167ae844 100644
+--- a/packages/testbed/src/showcase-presets.mjs
++++ b/packages/testbed/src/showcase-presets.mjs
+@@ -60,6 +60,10 @@ export function outfitFromReport(report) {
+ }
+ /** Export what is attached, not an earlier request or a preset that the user subsequently changed. */
+ export function configurationFromReport(report) {
++    if (report.skin !== undefined && (!report.skin || report.skin.requestedFinish !== 'original' ||
++        report.skin.attached !== true || report.skin.clearcoat !== .34 || report.skin.clearcoatRoughness !== .24 ||
++        report.skin.settings?.secondLobeWeight !== .34 || report.skin.settings?.secondLobeRoughness !== .24))
++        throw new Error('This skin finish cannot be saved in Showcase settings.');
+     if (report.disposal?.disposed || report.identity?.bake !== 'figure_g050' || report.identity.gender !== .5 ||
+         !report.wardrobe?.attached || report.wardrobe.pendingCandidates !== 0 || !report.hair?.attached ||
+         report.hair.loadedStyle !== report.hair.style || !['bob01', 'bob02'].includes(report.hair.style))
+diff --git a/packages/testbed/src/showcase-settings.selftest.mjs b/packages/testbed/src/showcase-settings.selftest.mjs
+index 8c4d2e6bb4f5b360b2b50dd73122a79b37c92eb1..5c9b3aac1ca8a92903b9895d61f36aefd866cb91 100644
+--- a/packages/testbed/src/showcase-settings.selftest.mjs
++++ b/packages/testbed/src/showcase-settings.selftest.mjs
+@@ -5,7 +5,8 @@ import { SHOWCASE_SETTINGS_MAX_BYTES, readShowcaseSettings, selectionFromConfigu
+ let checks = 0;
+ const check = async (name, fn) => { await fn(); checks++; console.log('PASS ' + name); };
+ const file = text => ({ size: Buffer.byteLength(text), text: async () => text });
+-const exported = options => configurationFromReport({ disposal: { disposed: false },
++const exported = (options, skin = undefined) => configurationFromReport({ disposal: { disposed: false },
++    ...(skin === undefined ? {} : {skin}),
+     identity: { gender: .5, bake: 'figure_g050' },
+     hair: { style: options.hair, loadedStyle: options.hair, attached: true },
+     wardrobe: { attached: true, appearance: { attached: true, style: options.wardrobe.style ?? 'original' },
+@@ -15,6 +16,17 @@ const exported = options => configurationFromReport({ disposal: { disposed: fals
+     quality: { requested: options.quality }, motion: { seed: options.seed } });
+ const normal = () => optionsForShowcase(resolveShowcaseSelection(new URLSearchParams()));
+ 
++await check('current Original and legacy exports match; custom or orphan skin cannot silently save as Original', () => {
++    const options = normal(), original = {requestedFinish: 'original', attached: true,
++        clearcoat: .34, clearcoatRoughness: .24, settings: {secondLobeWeight: .34, secondLobeRoughness: .24}};
++    assert.deepEqual(exported(options, original), exported(options));
++    assert.equal(Object.hasOwn(exported(options, original), 'skinFinish'), false);
++    for (const skin of [null, {...original, requestedFinish: 'reduced-sheen'}, {...original, attached: false},
++        {...original, clearcoat: .12}, {...original, clearcoatRoughness: .3}, {...original, settings: null},
++        {...original, settings: {...original.settings, secondLobeWeight: .12}}])
++        assert.throws(() => exported(options, skin), /skin finish cannot be saved/);
++});
++
+ await check('96 complete Studio/Kitchen exports reopen through JSON and page URL without losing settings', async () => {
+     let combinations = 0;
+     for (const preset of SHOWCASE_PRESETS) for (const outfit of Object.keys(SHOWCASE_OUTFITS))

@@ -1,0 +1,100 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-choice-worth/root-close.py",
+  "pid": 77140,
+  "startUTC": "2026-10-04T05:10:56.658484+00:00",
+  "endUTC": "2026-10-04T05:10:56.661290+00:00",
+  "exitCode": 0,
+  "passed": true,
+  "scope": "independent file hashes and all eight archived states, no import/runtime/new image",
+  "inputPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-choice-worth/PLAN.md",
+      "bytes": 2870,
+      "sha256": "c77b8d831c153e8e17e9881a9661b3ddf86dcecd86cf69e35b4fa6e6f6c89038"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/preview.mjs",
+      "bytes": 3767,
+      "sha256": "097d22f29fe2301ccfcb315eb5d3e41c4aee8aac299055540247ef8877f6534f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/candidate.json",
+      "bytes": 254,
+      "sha256": "5731b1dda84be88cbc9e941bd35dbee3dbc989cf2513da37f379c6376dcd0324"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/README.md",
+      "bytes": 1660,
+      "sha256": "8dc9b10e48a2a71d8de02d001671581c0bc0f84f02efb8a1e5ff6862ed22307e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/ROOT-VISUAL-DECISION.md",
+      "bytes": 2422,
+      "sha256": "d604208350a7d4f84f9a077e759e1dfc629000473a95f62bcb1aa11210c2f5ca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/CRITIQUE.md",
+      "bytes": 5093,
+      "sha256": "9bc96249a4376520e257d4b58e5afbd83ce6b0a542f002cc3680903758c5ead0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/RECEIPT.md",
+      "bytes": 6739,
+      "sha256": "deaae6651bff01bb07fe50e3da18dd831d61a9702e5ff722ae98b82488d0b9ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-lighting-value/CRITIC-VALUE.md",
+      "bytes": 7143,
+      "sha256": "c8529c23a6e9691b19bb8095f9c81eb126047ebb141ee0fa32b946402f2b5a4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/report.json",
+      "bytes": 130090,
+      "sha256": "acb884858d91bbcfdb8e91d792d4a2438f27fb59b914d615ea9e7bbf08339aeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/original-front.png",
+      "bytes": 570969,
+      "sha256": "9d31a5b3edb2f5ce860b370b38c283bda469b72efedf40f9d12ebd53a8e0f7fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/candidate-front.png",
+      "bytes": 541820,
+      "sha256": "d500f65951380140a122d4b40b448fd2dfa3de0c966d486f00538c7e076b330a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/candidate-oblique.png",
+      "bytes": 614044,
+      "sha256": "8d6ea28375c25ed98ec538298b591e5953d309a85c2ab5d9c334115a6b4fa98c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish/archive/capture/original-oblique.png",
+      "bytes": 596842,
+      "sha256": "0a27d41db41f61a7ddd8498d5d5125150a542f83db03ab217447dcf8ed2ac83f"
+    }
+  ],
+  "criticReaderSHA256": "883cee07a67da9279090204d29255c20c26a7573848a7bfaafb1302947046f1f",
+  "criticMetadataSHA256": "f3614c23773e6fed9b58c31820b4f0913b79ca358544492cc1a1012d493b4133",
+  "worthSHA256": "e9ae133a39a15bde4b8aaaea79faaceef17541a4cd6e3ef4cb232076cbec05ed",
+  "rootScriptSHA256": "17a1c632c55eb198caf513d2839ff5313339977d55907d04d64456997f2a41c2"
+}

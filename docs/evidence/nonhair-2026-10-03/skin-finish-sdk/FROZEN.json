@@ -1,0 +1,269 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/freeze.py",
+  "pid": 90422,
+  "started": "2026-10-04T05:44:47.607438+00:00",
+  "ended": "2026-10-04T05:44:47.609596+00:00",
+  "pins": [
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 1423,
+      "sha256": "70dc26bfd572f7d69180a49fa8d180c4dc964357db06f3a582a9aa6a2d492a4c"
+    },
+    {
+      "file": "CHECKS.json",
+      "bytes": 3868,
+      "sha256": "9e34ab83c2d90138246bc1286927ea173e22e7e7244866ad5b0b61db497ec246"
+    },
+    {
+      "file": "CLOSE.json",
+      "bytes": 454,
+      "sha256": "6da2805b1a9207d942e90f40fef25bf2ab069d0934312efd5724f099f0c97909"
+    },
+    {
+      "file": "CONSOLE.json",
+      "bytes": 3002,
+      "sha256": "df10b5bcc056c03de474a14f47b6baff00e06fd3fbe44b9b4d22c312168097ab"
+    },
+    {
+      "file": "CRITIC-CONTRACT-PINS.json",
+      "bytes": 1533,
+      "sha256": "2cb33907542d2233971ea2730e0f4e9109df0cfb0d71bf2051ed1e4952d8fa41"
+    },
+    {
+      "file": "CRITIC-CONTRACT.md",
+      "bytes": 4227,
+      "sha256": "d5eca232d5583d0d1b0b47abf9cee8c8a3e46336f57b73dabe94c7be95858a87"
+    },
+    {
+      "file": "CRITIC-PRODUCTION-INITIAL.md",
+      "bytes": 3033,
+      "sha256": "f0c2ae3bcd3e23e824faf4d9cec2e53f13e61d4036a74bee94acdba19ba282f5"
+    },
+    {
+      "file": "CRITIC-RESULT-PINS.json",
+      "bytes": 25562,
+      "sha256": "84ae7bd32b272e3f25603db5c2a1c977015c1a8d12778997d86e9bcdefa3cfe8"
+    },
+    {
+      "file": "CRITIC-RESULT.md",
+      "bytes": 9195,
+      "sha256": "e52a37685563cd484ef1309037033fde4d750d861b4049ecf00e20bbdd2243f1"
+    },
+    {
+      "file": "CRITIC-SOURCE-PINS.json",
+      "bytes": 7784,
+      "sha256": "f318c2a8983d95410148759cf546180734311ab8110618b6cbd7c4d1e350a5f6"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 7399,
+      "sha256": "5f30bf976e4ac4943ccfc2a970bb142ae03a4318c06d8678ab87516246c90513"
+    },
+    {
+      "file": "CRITIC-STATE-READBACK.json",
+      "bytes": 53072,
+      "sha256": "34cbb62d52e9bbd310935951aaf61b9bba493d262fdc6098e5381df2d6e7f1f8"
+    },
+    {
+      "file": "DOM-COPY-CORRECTION.md",
+      "bytes": 1433,
+      "sha256": "64ad63d69abd660e90a4753582c06e5c7089c865415fb9baa4a75aac77f65f35"
+    },
+    {
+      "file": "DOM-COPY-LIMIT.json",
+      "bytes": 524,
+      "sha256": "63969cc9068618b4025c5a90b05cc1dada8d2ba816a8bb4e1b29cd2bbe710916"
+    },
+    {
+      "file": "EXECUTION.md",
+      "bytes": 2817,
+      "sha256": "100ea0abd8c1f48541faa5c08fb4262167bd5c972ea403a44f146c38191630f0"
+    },
+    {
+      "file": "NATIVE-CALLS.md",
+      "bytes": 1517,
+      "sha256": "951f712424d4aa1140e61104483b17247db3281e06fa3b8b298fda469f1cfa24"
+    },
+    {
+      "file": "NATIVE-IMAGES.json",
+      "bytes": 687,
+      "sha256": "54337fac10dfd35e795f2021117ea49303a857174d1b5a5bb1e6899a86afcc66"
+    },
+    {
+      "file": "NATIVE-STATE.json",
+      "bytes": 114472,
+      "sha256": "e00aa87c92912d4329f777ae1e23cb4e5f853da47f0f448a1e2ff73ded0e2b36"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3239,
+      "sha256": "ae0501ce26ff6cabb14559d8df28e3bf0a40e50624524f08fc7566b024c1a94e"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 5855,
+      "sha256": "2132b137d5c428878dd071b3161bcc87138540782b878bc0cb451334cd0fdcb2"
+    },
+    {
+      "file": "RESTORE.json",
+      "bytes": 1972,
+      "sha256": "95f60c67af98227c0c6701fe5c6b881f40ecaed42efc5296ecac649a59928009"
+    },
+    {
+      "file": "ROOT-HANDOFF.json",
+      "bytes": 1051,
+      "sha256": "4d6a2c486bc487b2fabee6f82034c7ad60b57ab7a4dc103c6f1bfec9a726891e"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 6565,
+      "sha256": "64431c7c287adb02d5cff235a84d098d8b2773f9abc2ddd725fa28681acf55d9"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 10428,
+      "sha256": "c8e43b8114f8bb84dcbe58dc257f2190c2bb481f11584bcdc82354dcca56399c"
+    },
+    {
+      "file": "candidate-SkinFinishOptions.js",
+      "bytes": 638,
+      "sha256": "5f99b9cd7d62a8f1a3643716b81a8592e6fb334669c678a544896cd6a3af3e1e"
+    },
+    {
+      "file": "candidate-SkinFinishOptions.selftest.mjs",
+      "bytes": 4413,
+      "sha256": "7f4d5660faf7d9acd5b5d05e4c932471a757fcc60282a032cd3c2bf25159c671"
+    },
+    {
+      "file": "candidate.patch",
+      "bytes": 10578,
+      "sha256": "1d42c4ecc84812eea5f00d8c369e0bd72d7c9af10640bd1f9f3292e74f71f904"
+    },
+    {
+      "file": "check-0.log",
+      "bytes": 145,
+      "sha256": "c08a8541e8614638bd52ca86177c80637f65e367dd809ddcc7a312eb243ebc32"
+    },
+    {
+      "file": "check-1.log",
+      "bytes": 26710,
+      "sha256": "c758745ab83bf56beef030f8832a4390ceef1150e4ecfed840662ee2d46fb724"
+    },
+    {
+      "file": "check-2.log",
+      "bytes": 495,
+      "sha256": "47a875d8faa65dec24c4866da482eaab15db08e812fccf8fb3f00809a5a26078"
+    },
+    {
+      "file": "check-3.log",
+      "bytes": 744,
+      "sha256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56"
+    },
+    {
+      "file": "check-4.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "critic-contract-pins.py",
+      "bytes": 1374,
+      "sha256": "bca9f85c95bf34c30343426e115170e3f144cb39d7b0550d9edf78f3bcd77f3f"
+    },
+    {
+      "file": "critic-result-reader.py",
+      "bytes": 11813,
+      "sha256": "a12a1eaa9dc09fcddd71e6f1bac5049323a2571cc70a107b1b73ddfa7baef970"
+    },
+    {
+      "file": "critic-source-pins.py",
+      "bytes": 2277,
+      "sha256": "f6155ecd9287c7dafb2d995a5a41f0c9ab862d1f89ffda0aaab05b603f6f8640"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "isolate-candidate.py",
+      "bytes": 2741,
+      "sha256": "eb1ced0551c3991055ba7de5880caeb9f9a0defd18922e1067a72c5ff5b38b37"
+    },
+    {
+      "file": "native-context.jpg",
+      "bytes": 89576,
+      "sha256": "65a0c29f13b8c90f0d14d7cd5966b919cdc8bd78945a667908913c761ca51e86"
+    },
+    {
+      "file": "original.png",
+      "bytes": 149990,
+      "sha256": "e955885a0579fb81fada0d1f5a0c9a1d08d0501ffebed305aba691f37510907b"
+    },
+    {
+      "file": "preview.mjs",
+      "bytes": 7446,
+      "sha256": "22a1335bab0e52967f4c71a14d165b2ca4feedf70a424c2937a0c7931dc34c91"
+    },
+    {
+      "file": "reduced.png",
+      "bytes": 149990,
+      "sha256": "af3aaef54ed4a2e38995999413847843e61c8e704bbff85080992014b7da5a74"
+    },
+    {
+      "file": "review.html",
+      "bytes": 1077,
+      "sha256": "6ec6d09b41197bc22f9d4f511dd82230f9c9e975bfa58e37a66db5b4d1a41fea"
+    },
+    {
+      "file": "root-handoff.py",
+      "bytes": 3122,
+      "sha256": "1619cfb3f6db61a3235db50b628a69ab65f5b5de15fe7e8834e190b90180d840"
+    },
+    {
+      "file": "root-preflight.py",
+      "bytes": 3182,
+      "sha256": "eb1d7e0b31d1c0e027c9e4ac8e7fdc7589e78b2430b44f1cef2a415c42c27627"
+    },
+    {
+      "file": "root-result.py",
+      "bytes": 5058,
+      "sha256": "3a041876d491e5999222586429b098ac97100e52e0fc59aa33648d002301d864"
+    },
+    {
+      "file": "run-checks.py",
+      "bytes": 2105,
+      "sha256": "822ac1ff0884ec06d357ec260a498022ecf1a4fff875e661d50da56efe7577b7"
+    },
+    {
+      "file": "source-API.md",
+      "bytes": 50353,
+      "sha256": "93fbdacb890cc5dff89f3e55798d0bbade1525bb756de08bd225f0baca6d7fc3"
+    },
+    {
+      "file": "source-Avatar.js",
+      "bytes": 253996,
+      "sha256": "75139c804a38ee9c6b3ae3371a361e1d7d69e151e48d2932a7338f8b67474013"
+    },
+    {
+      "file": "source-SkinFinishOptions.js",
+      "bytes": 638,
+      "sha256": "5f99b9cd7d62a8f1a3643716b81a8592e6fb334669c678a544896cd6a3af3e1e"
+    },
+    {
+      "file": "source-SkinFinishOptions.selftest.mjs",
+      "bytes": 4413,
+      "sha256": "7f4d5660faf7d9acd5b5d05e4c932471a757fcc60282a032cd3c2bf25159c671"
+    },
+    {
+      "file": "source-showcase-presets.mjs",
+      "bytes": 9099,
+      "sha256": "e5996f76901e8500f43c46c956f8cf54c89e5a96fd2795235a24e0a99c5f04c6"
+    },
+    {
+      "file": "source-showcase-settings.selftest.mjs",
+      "bytes": 6703,
+      "sha256": "8ab26938c1e1d69fd53289884cd19978dc0f808c456032c7af110c902d4444a0"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}

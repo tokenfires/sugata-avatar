@@ -1,0 +1,182 @@
+{
+  "scope": "FS source/log/receipt pins only; no test rerun, syntax/module/material constructor, asset parse, browser or GPU",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/critic-source-pins.py",
+  "pid": 79007,
+  "startUTC": "2026-10-04T05:26:46.691443+00:00",
+  "endUTC": "2026-10-04T05:26:46.692903+00:00",
+  "exitCode": 0,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "sourceSHA256": "f6155ecd9287c7dafb2d995a5a41f0c9ab862d1f89ffda0aaab05b603f6f8640",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 253996,
+      "sha256": "75139c804a38ee9c6b3ae3371a361e1d7d69e151e48d2932a7338f8b67474013"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinFinishOptions.js",
+      "bytes": 638,
+      "sha256": "5f99b9cd7d62a8f1a3643716b81a8592e6fb334669c678a544896cd6a3af3e1e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinFinishOptions.selftest.mjs",
+      "bytes": 4413,
+      "sha256": "7f4d5660faf7d9acd5b5d05e4c932471a757fcc60282a032cd3c2bf25159c671"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 9099,
+      "sha256": "e5996f76901e8500f43c46c956f8cf54c89e5a96fd2795235a24e0a99c5f04c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 6703,
+      "sha256": "8ab26938c1e1d69fd53289884cd19978dc0f808c456032c7af110c902d4444a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/API.md",
+      "bytes": 50353,
+      "sha256": "93fbdacb890cc5dff89f3e55798d0bbade1525bb756de08bd225f0baca6d7fc3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/looks/sage-lavender-chin.json",
+      "bytes": 623,
+      "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-0.log",
+      "bytes": 145,
+      "sha256": "c08a8541e8614638bd52ca86177c80637f65e367dd809ddcc7a312eb243ebc32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-1.log",
+      "bytes": 26710,
+      "sha256": "c758745ab83bf56beef030f8832a4390ceef1150e4ecfed840662ee2d46fb724"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-2.log",
+      "bytes": 495,
+      "sha256": "47a875d8faa65dec24c4866da482eaab15db08e812fccf8fb3f00809a5a26078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-3.log",
+      "bytes": 744,
+      "sha256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-4.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/PLAN.md",
+      "bytes": 3239,
+      "sha256": "ae0501ce26ff6cabb14559d8df28e3bf0a40e50624524f08fc7566b024c1a94e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/EXECUTION.md",
+      "bytes": 2817,
+      "sha256": "100ea0abd8c1f48541faa5c08fb4262167bd5c972ea403a44f146c38191630f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/preview.mjs",
+      "bytes": 7446,
+      "sha256": "22a1335bab0e52967f4c71a14d165b2ca4feedf70a424c2937a0c7931dc34c91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/review.html",
+      "bytes": 1077,
+      "sha256": "6ec6d09b41197bc22f9d4f511dd82230f9c9e975bfa58e37a66db5b4d1a41fea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CHECKS.json",
+      "bytes": 3868,
+      "sha256": "9e34ab83c2d90138246bc1286927ea173e22e7e7244866ad5b0b61db497ec246"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/run-checks.py",
+      "bytes": 2105,
+      "sha256": "822ac1ff0884ec06d357ec260a498022ecf1a4fff875e661d50da56efe7577b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CRITIC-CONTRACT.md",
+      "bytes": 4227,
+      "sha256": "d5eca232d5583d0d1b0b47abf9cee8c8a3e46336f57b73dabe94c7be95858a87"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CRITIC-PRODUCTION-INITIAL.md",
+      "bytes": 3033,
+      "sha256": "f0c2ae3bcd3e23e824faf4d9cec2e53f13e61d4036a74bee94acdba19ba282f5"
+    }
+  ],
+  "CPUJobs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-0.log",
+      "command": [
+        "node",
+        "packages/core/src/material/SkinFinishOptions.selftest.mjs"
+      ],
+      "pid": 78242,
+      "startUTC": "2026-10-04T05:20:05.861808+00:00",
+      "endUTC": "2026-10-04T05:20:05.994190+00:00",
+      "exitCode": 0,
+      "sha256": "c08a8541e8614638bd52ca86177c80637f65e367dd809ddcc7a312eb243ebc32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-1.log",
+      "command": [
+        "node",
+        "packages/core/src/Avatar.selftest.mjs"
+      ],
+      "pid": 78243,
+      "startUTC": "2026-10-04T05:20:05.994261+00:00",
+      "endUTC": "2026-10-04T05:20:06.121035+00:00",
+      "exitCode": 0,
+      "sha256": "c758745ab83bf56beef030f8832a4390ceef1150e4ecfed840662ee2d46fb724"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-2.log",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-settings.selftest.mjs"
+      ],
+      "pid": 78245,
+      "startUTC": "2026-10-04T05:20:06.121097+00:00",
+      "endUTC": "2026-10-04T05:20:06.158972+00:00",
+      "exitCode": 0,
+      "sha256": "47a875d8faa65dec24c4866da482eaab15db08e812fccf8fb3f00809a5a26078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-3.log",
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-colours.selftest.mjs"
+      ],
+      "pid": 78246,
+      "startUTC": "2026-10-04T05:20:06.159019+00:00",
+      "endUTC": "2026-10-04T05:20:06.194748+00:00",
+      "exitCode": 0,
+      "sha256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/check-4.log",
+      "command": [
+        "node",
+        "--check",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/preview.mjs"
+      ],
+      "pid": 78247,
+      "startUTC": "2026-10-04T05:20:06.194792+00:00",
+      "endUTC": "2026-10-04T05:20:06.212480+00:00",
+      "exitCode": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "cpuLimits": "CPU validation/factory/report and existing contract regressions only; build stub and map-null material do not qualify native rebuild/pixels.",
+  "passed": true
+}

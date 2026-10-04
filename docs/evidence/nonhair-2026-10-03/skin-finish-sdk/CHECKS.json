@@ -1,0 +1,114 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/run-checks.py",
+  "pid": 78240,
+  "startUTC": "2026-10-04T05:20:05.861640+00:00",
+  "endUTC": "2026-10-04T05:20:06.212566+00:00",
+  "jobs": [
+    {
+      "command": [
+        "node",
+        "packages/core/src/material/SkinFinishOptions.selftest.mjs"
+      ],
+      "pid": 78242,
+      "startUTC": "2026-10-04T05:20:05.861808+00:00",
+      "endUTC": "2026-10-04T05:20:05.994190+00:00",
+      "exitCode": 0,
+      "output": "check-0.log",
+      "outputSHA256": "c08a8541e8614638bd52ca86177c80637f65e367dd809ddcc7a312eb243ebc32"
+    },
+    {
+      "command": [
+        "node",
+        "packages/core/src/Avatar.selftest.mjs"
+      ],
+      "pid": 78243,
+      "startUTC": "2026-10-04T05:20:05.994261+00:00",
+      "endUTC": "2026-10-04T05:20:06.121035+00:00",
+      "exitCode": 0,
+      "output": "check-1.log",
+      "outputSHA256": "c758745ab83bf56beef030f8832a4390ceef1150e4ecfed840662ee2d46fb724"
+    },
+    {
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-settings.selftest.mjs"
+      ],
+      "pid": 78245,
+      "startUTC": "2026-10-04T05:20:06.121097+00:00",
+      "endUTC": "2026-10-04T05:20:06.158972+00:00",
+      "exitCode": 0,
+      "output": "check-2.log",
+      "outputSHA256": "47a875d8faa65dec24c4866da482eaab15db08e812fccf8fb3f00809a5a26078"
+    },
+    {
+      "command": [
+        "node",
+        "packages/testbed/src/showcase-colours.selftest.mjs"
+      ],
+      "pid": 78246,
+      "startUTC": "2026-10-04T05:20:06.159019+00:00",
+      "endUTC": "2026-10-04T05:20:06.194748+00:00",
+      "exitCode": 0,
+      "output": "check-3.log",
+      "outputSHA256": "9fe5bdf2906c78663ec35e7d3b530e0ae04258fd0c22b1554338af72074bcc56"
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/preview.mjs"
+      ],
+      "pid": 78247,
+      "startUTC": "2026-10-04T05:20:06.194792+00:00",
+      "endUTC": "2026-10-04T05:20:06.212480+00:00",
+      "exitCode": 0,
+      "output": "check-4.log",
+      "outputSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "passed": true,
+  "pins": [
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 253996,
+      "sha256": "75139c804a38ee9c6b3ae3371a361e1d7d69e151e48d2932a7338f8b67474013"
+    },
+    {
+      "path": "packages/core/src/material/SkinFinishOptions.js",
+      "bytes": 638,
+      "sha256": "5f99b9cd7d62a8f1a3643716b81a8592e6fb334669c678a544896cd6a3af3e1e"
+    },
+    {
+      "path": "packages/core/src/material/SkinFinishOptions.selftest.mjs",
+      "bytes": 4413,
+      "sha256": "7f4d5660faf7d9acd5b5d05e4c932471a757fcc60282a032cd3c2bf25159c671"
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 9099,
+      "sha256": "e5996f76901e8500f43c46c956f8cf54c89e5a96fd2795235a24e0a99c5f04c6"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 6703,
+      "sha256": "8ab26938c1e1d69fd53289884cd19978dc0f808c456032c7af110c902d4444a0"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 50353,
+      "sha256": "93fbdacb890cc5dff89f3e55798d0bbade1525bb756de08bd225f0baca6d7fc3"
+    },
+    {
+      "path": "looks/sage-lavender-chin.json",
+      "bytes": 623,
+      "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978"
+    }
+  ],
+  "sourceSHA256": "822ac1ff0884ec06d357ec260a498022ecf1a4fff875e661d50da56efe7577b7",
+  "limits": "CPU validation/factory/report and existing contract regressions only; build stub and map-null material do not qualify native rebuild/pixels."
+}

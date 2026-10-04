@@ -1,0 +1,471 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/root-result.py",
+  "pid": 82247,
+  "startUTC": "2026-10-04T05:37:21.389374+00:00",
+  "endUTC": "2026-10-04T05:37:21.391230+00:00",
+  "exitCode": 0,
+  "passed": true,
+  "decision": "B: source candidate retained, no API adoption, no gate repair/replay",
+  "scope": "Independently verified actual state/retirement/current pins/incomplete PNG structure; actual context image separately viewed, no missing-original appearance proof",
+  "eventCount": 2,
+  "defaultAndReducedOfferRecords": 2,
+  "completedRebuildPortraits": 0,
+  "PNGCopyValidation": [
+    {
+      "file": "original.png",
+      "bytes": 149990,
+      "sha256": "e955885a0579fb81fada0d1f5a0c9a1d08d0501ffebed305aba691f37510907b",
+      "dimensions": [
+        900,
+        1120
+      ],
+      "completePNG": false,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "declaredBytes": 4096,
+          "availableBytes": 2057,
+          "truncated": true
+        }
+      ],
+      "appearanceInspected": false
+    },
+    {
+      "file": "reduced.png",
+      "bytes": 149990,
+      "sha256": "af3aaef54ed4a2e38995999413847843e61c8e704bbff85080992014b7da5a74",
+      "dimensions": [
+        900,
+        1120
+      ],
+      "completePNG": false,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "bytes": 4096,
+          "CRCmatches": true
+        },
+        {
+          "type": "IDAT",
+          "declaredBytes": 4096,
+          "availableBytes": 2057,
+          "truncated": true
+        }
+      ],
+      "appearanceInspected": false
+    }
+  ],
+  "pins": [
+    {
+      "file": "NATIVE-STATE.json",
+      "bytes": 114472,
+      "sha256": "e00aa87c92912d4329f777ae1e23cb4e5f853da47f0f448a1e2ff73ded0e2b36"
+    },
+    {
+      "file": "NATIVE-IMAGES.json",
+      "bytes": 687,
+      "sha256": "54337fac10dfd35e795f2021117ea49303a857174d1b5a5bb1e6899a86afcc66"
+    },
+    {
+      "file": "DOM-COPY-LIMIT.json",
+      "bytes": 524,
+      "sha256": "63969cc9068618b4025c5a90b05cc1dada8d2ba816a8bb4e1b29cd2bbe710916"
+    },
+    {
+      "file": "DOM-COPY-CORRECTION.md",
+      "bytes": 1433,
+      "sha256": "64ad63d69abd660e90a4753582c06e5c7089c865415fb9baa4a75aac77f65f35"
+    },
+    {
+      "file": "CONSOLE.json",
+      "bytes": 3002,
+      "sha256": "df10b5bcc056c03de474a14f47b6baff00e06fd3fbe44b9b4d22c312168097ab"
+    },
+    {
+      "file": "CLOSE.json",
+      "bytes": 454,
+      "sha256": "6da2805b1a9207d942e90f40fef25bf2ab069d0934312efd5724f099f0c97909"
+    },
+    {
+      "file": "native-context.jpg",
+      "bytes": 89576,
+      "sha256": "65a0c29f13b8c90f0d14d7cd5966b919cdc8bd78945a667908913c761ca51e86"
+    },
+    {
+      "file": "original.png",
+      "bytes": 149990,
+      "sha256": "e955885a0579fb81fada0d1f5a0c9a1d08d0501ffebed305aba691f37510907b"
+    },
+    {
+      "file": "reduced.png",
+      "bytes": 149990,
+      "sha256": "af3aaef54ed4a2e38995999413847843e61c8e704bbff85080992014b7da5a74"
+    }
+  ],
+  "sourceSHA256": "3a041876d491e5999222586429b098ac97100e52e0fc59aa33648d002301d864"
+}

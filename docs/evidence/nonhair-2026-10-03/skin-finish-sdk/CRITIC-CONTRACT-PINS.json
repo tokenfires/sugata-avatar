@@ -1,0 +1,36 @@
+{
+  "scope": "Contract-stage FS pins only, not final edited source or execution admission",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-finish-sdk/critic-contract-pins.py",
+  "pid": 77515,
+  "startUTC": "2026-10-04T05:13:52.638738+00:00",
+  "endUTC": "2026-10-04T05:13:52.639250+00:00",
+  "exitCode": 0,
+  "sourceSHA256": "bca9f85c95bf34c30343426e115170e3f144cb39d7b0550d9edf78f3bcd77f3f",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/PLAN.md",
+      "bytes": 3239,
+      "sha256": "ae0501ce26ff6cabb14559d8df28e3bf0a40e50624524f08fc7566b024c1a94e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-choice-worth/WORTH.md",
+      "bytes": 7768,
+      "sha256": "e9ae133a39a15bde4b8aaaea79faaceef17541a4cd6e3ef4cb232076cbec05ed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-choice-worth/CRITIC-PINS.json",
+      "bytes": 88763,
+      "sha256": "f3614c23773e6fed9b58c31820b4f0913b79ca358544492cc1a1012d493b4133"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    }
+  ]
+}

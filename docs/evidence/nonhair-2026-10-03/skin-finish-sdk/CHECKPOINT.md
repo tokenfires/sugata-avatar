@@ -1,0 +1,7 @@
+# Recovery at05:44UTC October4
+
+B/deferred finish API. Accepted production exactly8e929e6 after guarded root-owned rollback; candidate.patch/newcandidate modules/sixsource snapshots remain isolated here. Old prototype.12stillpreviewonly/currentdefault.34. Full receipt and root/critic metadata precede freeze. No native/current product adoption, publicschema/UI or allscene/body/motion claim.
+
+Soletab9 Run stoppedatfirstexact-one eventpredicate(count2). Samebake setting persisted/newmaterial, clean reportedretirements; two originalPNGoffers but copiedhrefs contain[Truncated], incompletefiles/no appearancepair. Actualwhole contextJPEG qualifiesstoppedpageonly. No retry/fix/relaxedguard/capture/renderer/backend/parameter/camera rescue. Do not reopen page or reapplycandidate from this checkpoint automatically. Disposalcallorder explainspossibletwoevents; no leak/finishdefectproof.
+
+Only unchangeduser1 guide-target-refusal tab remains. Vite1023loopback5173 retained/live05:22. No owned native/build job/criticjob; recoveryautomationACTIVE. Preserveotherworktrees/acceptedassets/frozen/originalrefs/AAAroadmap. Humansteeringhardlimit. Nextdistinctslice needsusabletarget/boundeddecision/stop/independentcritic/rootverification; avoidsamefinish/media/observer or expiredKitchen continuation. Candidatecanbe recovered fromexactpatch/source snapshots onlyunder a separatelyjustifiedfuturecontract, not inheritedsuccess.

@@ -1,0 +1,49 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/skin-choice-worth/freeze.py",
+  "pid": 77234,
+  "started": "2026-10-04T05:11:53.698219+00:00",
+  "ended": "2026-10-04T05:11:53.698744+00:00",
+  "pins": [
+    {
+      "file": "CRITIC-PINS.json",
+      "bytes": 88763,
+      "sha256": "f3614c23773e6fed9b58c31820b4f0913b79ca358544492cc1a1012d493b4133"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2870,
+      "sha256": "c77b8d831c153e8e17e9881a9661b3ddf86dcecd86cf69e35b4fa6e6f6c89038"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 2752,
+      "sha256": "c8be3437030dccd1e77e5cbe968e09cab3438fa1899e29956ae0640d33e889ac"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 4630,
+      "sha256": "5a63c84076b354c946c1c7d40c88fd2663737796b9a8bbab0f746e80ba317808"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 7768,
+      "sha256": "e9ae133a39a15bde4b8aaaea79faaceef17541a4cd6e3ef4cb232076cbec05ed"
+    },
+    {
+      "file": "critic-pins.py",
+      "bytes": 4469,
+      "sha256": "883cee07a67da9279090204d29255c20c26a7573848a7bfaafb1302947046f1f"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 2853,
+      "sha256": "17a1c632c55eb198caf513d2839ff5313339977d55907d04d64456997f2a41c2"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}
