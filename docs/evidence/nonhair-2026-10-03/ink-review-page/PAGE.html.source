@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ink and denim · Sugata</title><link rel="icon" href="data:,">
+<style>
+:root{color-scheme:dark;font:16px/1.6 system-ui,sans-serif;color:#f2eee5;background:#111413}
+*{box-sizing:border-box}body{margin:0}main{max-width:1120px;margin:auto;padding:32px 24px 48px}
+h1{font:normal clamp(36px,6vw,58px)/1.1 Georgia,serif;margin:6px 0 16px}h2{font-size:20px;margin:0 0 16px}
+p{max-width:76ch;margin:12px 0;color:#b9beb5}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#d5dfbd}
+a{color:#d5dfbd;text-underline-offset:3px}a:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #d5dfbd;outline-offset:4px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}.actions a{padding:10px 16px;border:1px solid #58634d;border-radius:4px;min-height:44px}
+.view{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:28px 0 18px}.view label{font-weight:600}
+select{font:inherit;color:inherit;background:#1a201b;border:1px solid #58634d;border-radius:4px;min-height:44px;padding:8px 36px 8px 12px;max-width:100%}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}figure{margin:0;min-width:0;background:#191d19;border:1px solid #354135;border-radius:5px;overflow:hidden}
+img{display:block;width:100%;height:auto}figcaption{padding:14px 16px;font-size:14px}figcaption strong{display:block;color:#f2eee5;font-size:16px}figcaption a{display:inline-block;padding:6px 0}
+[hidden]{display:none!important}details{margin:30px 0;padding:18px;border:1px solid #354135;border-radius:5px}summary{cursor:pointer;font-weight:600;min-height:44px}
+.limits{margin-top:30px;padding-top:18px;border-top:1px solid #354135}.small{font-size:14px}
+@media(max-width:640px){main{padding:24px 16px 36px}.pair{grid-template-columns:minmax(0,1fr);gap:16px}details{padding:14px}.actions{gap:10px}}
+</style>
+</head>
+<body><main>
+<p class="eyebrow">Sugata · captured wardrobe study</p>
+<h1>Ink and denim</h1>
+<p>A navy tee, tonal denim and warm brown shoes, with the chin-length bob and untinted Brown hair setting. These captured views use the current g050 body study.</p>
+<div class="actions"><a href="ink-denim.json" download="ink-denim.json">Download this look</a><a href="/src/showcase.html">Wardrobe editor</a></div>
+<p class="small">In the editor, choose <strong>Open settings (JSON) ↑</strong> and select the downloaded file. It opens in Neutral Studio with the full outfit.</p>
+<div class="view"><label for="framing">Compare captured views</label><select id="framing"><option value="body">Full look</option><option value="portrait">Portrait</option></select></div>
+<section class="pair" data-frame="body" aria-label="Full look in two rooms">
+<figure><img src="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png" width="900" height="868" alt="Neutral Studio full outfit: navy tee, denim and brown shoes"><figcaption><strong>Neutral Studio · Full look</strong>Inspection lighting. <a href="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png">View original image</a></figcaption></figure>
+<figure><img src="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png" width="900" height="868" alt="Kitchen full outfit: the same navy tee, denim and brown shoes"><figcaption><strong>Kitchen · Full look</strong>Warmer, more shadowed room. <a href="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png">View original image</a></figcaption></figure>
+</section>
+<section class="pair" data-frame="portrait" aria-label="Portrait in two rooms" hidden>
+<figure><img src="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png" width="900" height="868" alt="Neutral Studio portrait with the chin-length bob and navy tee"><figcaption><strong>Neutral Studio · Portrait</strong>The Brown setting reads ashier here. <a href="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png">View original image</a></figcaption></figure>
+<figure><img src="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png" width="900" height="868" alt="Kitchen portrait with the same chin-length bob and navy tee"><figcaption><strong>Kitchen · Portrait</strong>Hair reads warmer; its shadow-side edge is weaker. <a href="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png">View original image</a></figcaption></figure>
+</section>
+<details id="expression"><summary>Existing small smile · two separate stills</summary>
+<p class="small">Both are Neutral Studio portraits. They show a subtle captured change, rather than a continuous movement preview. Release returns the action to idle; it does not restore the initial head pose.</p>
+<div class="pair">
+<figure><img src="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png" width="900" height="868" alt="Neutral Studio portrait with the existing small smile held"><figcaption><strong>Smile held · 1.2 seconds</strong><a href="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png">View original image</a></figcaption></figure>
+<figure><img src="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png" width="900" height="868" alt="Neutral Studio portrait after manual release of the small smile"><figcaption><strong>After Release · 0.5 seconds</strong><a href="../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png">View original image</a></figcaption></figure>
+</div></details>
+<div class="limits"><h2>What these views show</h2><p>Colours vary with the room lighting; Neutral Studio is an inspection option, not colour calibration. Coarse hair cards, stipple and jagged neckline edges remain visible in the portraits.</p><p class="small">This is an optional clothing composition. These six captured views do not qualify other bodies, every angle, fit or continuous expression and movement.</p><p class="small"><a href="INK-DENIM.md">Look guide and capture notes</a></p></div>
+</main>
+<script>
+const framing=document.getElementById('framing');
+framing.addEventListener('change',()=>{for(const panel of document.querySelectorAll('[data-frame]'))panel.hidden=panel.dataset.frame!==framing.value;});
+</script>
+</body></html>

@@ -1,0 +1,52 @@
+{
+  "pid": 16562,
+  "utc": "2026-10-04T00:07:18.222390+00:00",
+  "uiSHA256": "1106477d0341278edc29a7809cfddaea6511116cfc919c889620caaf13fcebdb",
+  "sourceSHA256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e",
+  "inputPins": {
+    "looks/INK-DENIM.md": "bf552c07d5c396c5aa85c3826a83b6085070faa35781dfc965c5ae842dbe8cec",
+    "looks/ink-denim.json": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/ROOT-VISUAL.md": "51de56eff445a1ce6486f43fcd0a2b0b689484fd7fec6826debd87683e4f7a63",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/CRITIC-POSTFLIGHT.md": "a84f01492a05d13f815954f4f6cc27698f9e5dfd8e86f414cd6efe0f33601f7b",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png": "4e7c174fbea2cc223b79cbe073c6fc40bacfaa1af7d800b62064d29ff16b7bc8",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png": "495e43d0709d6fe923bcb1f1bae81339db185c49884cf9015d51f1d7d20a17a2",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png": "9697fdb35ca78907d93567bbacb74d902abe288adcec048ac4c043b2c8b6347a",
+    "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png": "444a678f45307a87b8fe043b892345b5e06f7a03fee3b25f467fe9d9d5413632"
+  },
+  "screenshots": [
+    {
+      "name": "desktop-body",
+      "file": "desktop-body.jpg",
+      "sha256": "01fe620b3c6efa6a2ec127422fc7148a8e8294dde47f5f062c5df3a591ee9258",
+      "bytes": 108764
+    },
+    {
+      "name": "desktop-portrait",
+      "file": "desktop-portrait.jpg",
+      "sha256": "9264daee95b942d1772dfa818915a9c13dec7cf145310f814a622e6819098dfb",
+      "bytes": 125080
+    },
+    {
+      "name": "desktop-action",
+      "file": "desktop-action.jpg",
+      "sha256": "2d3a7f34fa98158cdec6a85d18891851645b2e79f2ad08d1b021f7ddfbbeb907",
+      "bytes": 183023
+    },
+    {
+      "name": "mobile-portrait",
+      "file": "mobile-portrait.jpg",
+      "sha256": "bce1fd929987bfee6b6e9be6c1743c2e1b8be1c0a2ddd8d23fbaedd1d86b6ab8",
+      "bytes": 95521
+    },
+    {
+      "name": "mobile-action",
+      "file": "mobile-action.jpg",
+      "sha256": "0654a33a509f4cf8a0b8b6ffdceab99605bf4e2f4cfdefcbacb249c6901f5450",
+      "bytes": 133855
+    }
+  ],
+  "downloadSHA256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+  "status": "Root inspected all five actual native JPEG emissions. Pairing, uncropped images, captions, phone stacking and controls usable. DOM supports without replacing visual qualification. Native viewport restored and ownedtab closed. Guide append pending critic acceptance. No reported captured console warning/error, no network absence claim."
+}

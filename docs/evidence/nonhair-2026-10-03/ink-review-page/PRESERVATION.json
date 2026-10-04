@@ -1,0 +1,246 @@
+{
+  "pid": 36819,
+  "started": "2026-10-04T00:15:28.372791+00:00",
+  "finished": "2026-10-04T00:15:28.378272+00:00",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-review-page/freeze.py",
+  "files": {
+    "critic-ui-readback.py": {
+      "sha256": "e1ed050f8ce098f2adf0c055434c30ff93bcec6b70c42f5bc3096438dca6330a",
+      "bytes": 6120
+    },
+    "ROOT-HANDOFF.json": {
+      "sha256": "1d0c69bad3a5a5eeae0e0bb24dfafb488eb7875b6394a5c7f7ec9cdec529ec0c",
+      "bytes": 6657
+    },
+    "RECEIPT.md": {
+      "sha256": "b91073bd0b18cbbeeb955f8234887f4fd539463da4aabdab0fc04baca65da3f5",
+      "bytes": 4467
+    },
+    "ROOT-SOURCE.json": {
+      "sha256": "47d8139ffe692897e0f623ac875d6306345f45e4732785bd1e71d05c3a76379f",
+      "bytes": 3883
+    },
+    "CRITIC-CONTRACT.md": {
+      "sha256": "9b72abba3354d8432bd41bbb70cd312ec260b9fb5784ec1eeeb4e133c966c5c7",
+      "bytes": 4742
+    },
+    "CRITIC-SOURCE.md": {
+      "sha256": "e47b37821dcfd88eca0a81419f784cf36fb3020a5a35cf075002828651b152a3",
+      "bytes": 3846
+    },
+    "desktop-portrait.jpg": {
+      "sha256": "9264daee95b942d1772dfa818915a9c13dec7cf145310f814a622e6819098dfb",
+      "bytes": 125080
+    },
+    "PAGE.html.source": {
+      "sha256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e",
+      "bytes": 6505
+    },
+    "CHECKPOINT.md": {
+      "sha256": "15f3dd3d720cfad7343c04bac33c1bf5a7ef9522ffba7925f83061b4234efe45",
+      "bytes": 1547
+    },
+    "desktop-body.jpg": {
+      "sha256": "01fe620b3c6efa6a2ec127422fc7148a8e8294dde47f5f062c5df3a591ee9258",
+      "bytes": 108764
+    },
+    "README.md": {
+      "sha256": "25ac16cb2210f8f7143090eca9a71a6ed48a96c3f2a2b471789b06e9e7f7c339",
+      "bytes": 1057
+    },
+    "UI.json": {
+      "sha256": "1106477d0341278edc29a7809cfddaea6511116cfc919c889620caaf13fcebdb",
+      "bytes": 45603
+    },
+    "AUTHOR.json": {
+      "sha256": "615cb00b3d5e76936ff0864592f8697e0506b09c7b615c7c632c2490ab3e34b5",
+      "bytes": 270
+    },
+    "INPUTS.json": {
+      "sha256": "22d12096d0846741d4e3100cd277eaaec3064eebd914dcdf08a6149b3713a57e",
+      "bytes": 1518
+    },
+    "CRITIC-PIN-READBACK.json": {
+      "sha256": "cdc0a3a20e2a73004d9cf30cbc7a3181b9cbde4285812ba606883b50ae6c0e0b",
+      "bytes": 7421
+    },
+    "mobile-portrait.jpg": {
+      "sha256": "bce1fd929987bfee6b6e9be6c1743c2e1b8be1c0a2ddd8d23fbaedd1d86b6ab8",
+      "bytes": 95521
+    },
+    "freeze.py": {
+      "sha256": "e5ecd21b77ceed3c5a517f33c934f3745c1afbb06456f4b0798e390525c16b6e",
+      "bytes": 2500
+    },
+    "PLAN.md": {
+      "sha256": "1634f525005cae2190cce0c0813a2775b7b6aa1e9d2382bc5bfb462401ab7242",
+      "bytes": 3360
+    },
+    "ROOT-VISUAL.md": {
+      "sha256": "fd6585905fb55f1a83936cc8715e966a557fccdb5e0ff70736b777424dabada4",
+      "bytes": 4048
+    },
+    "ADOPTION.json": {
+      "sha256": "a660238667e991f6a9ba0257d2b4a257a3d9696a3d2297eea6f361d88372cc1c",
+      "bytes": 595
+    },
+    "mobile-action.jpg": {
+      "sha256": "0654a33a509f4cf8a0b8b6ffdceab99605bf4e2f4cfdefcbacb249c6901f5450",
+      "bytes": 133855
+    },
+    "desktop-action.jpg": {
+      "sha256": "2d3a7f34fa98158cdec6a85d18891851645b2e79f2ad08d1b021f7ddfbbeb907",
+      "bytes": 183023
+    },
+    "downloaded-ink-denim.json": {
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+      "bytes": 554
+    },
+    "PREFLIGHT.json": {
+      "sha256": "366c2c11934247d7fd0fb5f7135c79b1cd9e81b0f6cd963c325e1e2658451a03",
+      "bytes": 147
+    },
+    "CUA-COMMANDS.md": {
+      "sha256": "14d97a7c0739f46165768eb6f021dfcedcf4539f19f35b5ac888caed0c00fe1a",
+      "bytes": 4523
+    },
+    "CRITIC-UI.md": {
+      "sha256": "4928509385c80a7674dc8d737644934525e8a43031380b1d4f71046783059edc",
+      "bytes": 7048
+    },
+    "INK-DENIM.before.md.source": {
+      "sha256": "bf552c07d5c396c5aa85c3826a83b6085070faa35781dfc965c5ae842dbe8cec",
+      "bytes": 2659
+    },
+    "ROOT-UI.json": {
+      "sha256": "ac611db73874129b71ecc1a66cbba4c92f1d7686636cdd911ce4d5e1b9c5eb24",
+      "bytes": 3065
+    }
+  },
+  "fileCount": 28,
+  "bytes": 768378,
+  "unchangedInputCount": 9,
+  "guideEpoch": {
+    "pid": 31096,
+    "utc": "2026-10-04T00:12:54.765421+00:00",
+    "oldGuideSHA256": "bf552c07d5c396c5aa85c3826a83b6085070faa35781dfc965c5ae842dbe8cec",
+    "newGuideSHA256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6",
+    "append": "\n[Compare the captured room, portrait and expression views](ink-denim-review.html) on one page, with the unchanged settings download and original-image links.\n",
+    "pageSHA256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e",
+    "status": "adopted exact reviewed HTML, one guide append; all prior guide bytes preserved"
+  },
+  "pageSHA256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e",
+  "linkChecks": [
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "ink-denim.json",
+      "target": "looks/ink-denim.json"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "../docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md"
+    },
+    {
+      "source": "looks/INK-DENIM.md",
+      "ref": "ink-denim-review.html",
+      "target": "looks/ink-denim-review.html"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "../../../../looks/ink-denim-review.html",
+      "target": "looks/ink-denim-review.html"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "PLAN.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/PLAN.md"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "CRITIC-SOURCE.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/CRITIC-SOURCE.md"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "UI.json",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/UI.json"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "CUA-COMMANDS.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/CUA-COMMANDS.md"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "ROOT-VISUAL.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/ROOT-VISUAL.md"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "CRITIC-UI.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/CRITIC-UI.md"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "ROOT-HANDOFF.json",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/ROOT-HANDOFF.json"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "ADOPTION.json",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/ADOPTION.json"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "RECEIPT.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/RECEIPT.md"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "CHECKPOINT.md",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/CHECKPOINT.md"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/README.md",
+      "ref": "desktop-body.jpg",
+      "target": "docs/evidence/nonhair-2026-10-03/ink-review-page/desktop-body.jpg"
+    },
+    {
+      "source": "docs/evidence/nonhair-2026-10-03/ink-review-page/RECEIPT.md",
+      "ref": "../../../../looks/ink-denim-review.html",
+      "target": "looks/ink-denim-review.html"
+    }
+  ],
+  "status": "Exact accepted page/guide epoch and nine unchanged inputs; packet preserved readonly, no browser/native/product experiment"
+}

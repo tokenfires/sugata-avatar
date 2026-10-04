@@ -21,3 +21,5 @@ The file preserves the actual downloaded and reopened JSON bytes. Opening starts
 The portraits still show coarse hair cards/stipple and jagged neckline edges. This is a supported clothing composition, not a finished character. These six contexts do not qualify other bodies, all angles, fit or continuous expression/movement. Release returns the action to idle; it does not restore the initial head pose. The captured smile change is subtle.
 
 See the [original-image review and receipt](../docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md) for the exact study, fixed sampling limits and independent critique.
+
+[Compare the captured room, portrait and expression views](ink-denim-review.html) on one page, with the unchanged settings download and original-image links.

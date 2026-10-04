@@ -1,0 +1,129 @@
+{
+  "status": "static-page-retained-evidence-agrees",
+  "pid": 24845,
+  "started": "2026-10-04T00:10:07.592071+00:00",
+  "finished": "2026-10-04T00:10:07.598176+00:00",
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-review-page/critic-ui-readback.py",
+  "readerSHA256": "e1ed050f8ce098f2adf0c055434c30ff93bcec6b70c42f5bc3096438dca6330a",
+  "pins": {
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/UI.json": "1106477d0341278edc29a7809cfddaea6511116cfc919c889620caaf13fcebdb",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/INPUTS.json": "22d12096d0846741d4e3100cd277eaaec3064eebd914dcdf08a6149b3713a57e",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/PLAN.md": "1634f525005cae2190cce0c0813a2775b7b6aa1e9d2382bc5bfb462401ab7242",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/PREFLIGHT.json": "366c2c11934247d7fd0fb5f7135c79b1cd9e81b0f6cd963c325e1e2658451a03",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/AUTHOR.json": "615cb00b3d5e76936ff0864592f8697e0506b09c7b615c7c632c2490ab3e34b5",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/CRITIC-CONTRACT.md": "9b72abba3354d8432bd41bbb70cd312ec260b9fb5784ec1eeeb4e133c966c5c7",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/CRITIC-SOURCE.md": "e47b37821dcfd88eca0a81419f784cf36fb3020a5a35cf075002828651b152a3",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/CUA-COMMANDS.md": "14d97a7c0739f46165768eb6f021dfcedcf4539f19f35b5ac888caed0c00fe1a",
+    "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md": "bf552c07d5c396c5aa85c3826a83b6085070faa35781dfc965c5ae842dbe8cec",
+    "/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/ROOT-VISUAL.md": "51de56eff445a1ce6486f43fcd0a2b0b689484fd7fec6826debd87683e4f7a63",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/CRITIC-POSTFLIGHT.md": "a84f01492a05d13f815954f4f6cc27698f9e5dfd8e86f414cd6efe0f33601f7b",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png": "4e7c174fbea2cc223b79cbe073c6fc40bacfaa1af7d800b62064d29ff16b7bc8",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png": "495e43d0709d6fe923bcb1f1bae81339db185c49884cf9015d51f1d7d20a17a2",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png": "9697fdb35ca78907d93567bbacb74d902abe288adcec048ac4c043b2c8b6347a",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png": "444a678f45307a87b8fe043b892345b5e06f7a03fee3b25f467fe9d9d5413632",
+    "/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/PAGE.html.source": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/desktop-body.jpg": "01fe620b3c6efa6a2ec127422fc7148a8e8294dde47f5f062c5df3a591ee9258",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/desktop-portrait.jpg": "9264daee95b942d1772dfa818915a9c13dec7cf145310f814a622e6819098dfb",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/desktop-action.jpg": "2d3a7f34fa98158cdec6a85d18891851645b2e79f2ad08d1b021f7ddfbbeb907",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/mobile-portrait.jpg": "bce1fd929987bfee6b6e9be6c1743c2e1b8be1c0a2ddd8d23fbaedd1d86b6ab8",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/mobile-action.jpg": "0654a33a509f4cf8a0b8b6ffdceab99605bf4e2f4cfdefcbacb249c6901f5450",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-review-page/downloaded-ink-denim.json": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+    "/Users/robault/Downloads/ink-denim.json": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+  },
+  "states": [
+    {
+      "name": "desktop-body",
+      "frame": "body",
+      "expressionOpen": false,
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "JPEGdimensions": [
+        1280,
+        1439
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "desktop-portrait",
+      "frame": "portrait",
+      "expressionOpen": false,
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "JPEGdimensions": [
+        1280,
+        1439
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "desktop-action",
+      "frame": "portrait",
+      "expressionOpen": true,
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "JPEGdimensions": [
+        1280,
+        2085
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "mobile-portrait",
+      "frame": "portrait",
+      "expressionOpen": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "JPEGdimensions": [
+        390,
+        1866
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "mobile-action",
+      "frame": "portrait",
+      "expressionOpen": true,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "JPEGdimensions": [
+        390,
+        2805
+      ],
+      "horizontalOverflow": false
+    }
+  ],
+  "actions": 7,
+  "imageObservations": 30,
+  "linksPerState": 9,
+  "existingInputCount": 10,
+  "downloadSHA256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+  "downloadBytes": 554,
+  "cleanup": {
+    "utc": "2026-10-04T00:06:41.982Z",
+    "closedOwnedTab": "2",
+    "viewportReset": true
+  },
+  "limits": [
+    "Filesystem/retained DOM/AX metadata only; visual inspection separately recorded in CRITIC-UI.md.",
+    "No browser, screenshot, node, Avatar, runtime guard or media modification executed.",
+    "Closed details descendants can retain rectangles; their visible flag is not rendered/AX visibility proof.",
+    "Correct declared hrefs are not HTTP-navigation proof for every original/guide/editor link.",
+    "Empty returned console log is not global network absence or full accessibility/character qualification."
+  ]
+}
