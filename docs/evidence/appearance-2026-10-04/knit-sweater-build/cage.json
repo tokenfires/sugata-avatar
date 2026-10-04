@@ -1,0 +1,32 @@
+{
+  "contract": "One new artist-authored open sweater shell; meters, X bilateral, Y up, +Z front. Identity world transform. All radii/depth/sleeve transitions below are independent artistic choices after BODY.json rest inventory, not offsets of body or inherited garment vertices.",
+  "segments": 32,
+  "torso": [
+    [0.800, 0.205, 0.145, 0.025],
+    [0.830, 0.213, 0.148, 0.025],
+    [0.870, 0.220, 0.155, 0.025],
+    [0.940, 0.225, 0.158, 0.025],
+    [1.040, 0.228, 0.160, 0.025],
+    [1.140, 0.230, 0.157, 0.025],
+    [1.200, 0.235, 0.155, 0.025],
+    [1.260, 0.238, 0.151, 0.025],
+    [1.320, 0.232, 0.143, 0.025],
+    [1.370, 0.215, 0.128, 0.025],
+    [1.390, 0.180, 0.115, 0.025],
+    [1.410, 0.100, 0.080, 0.025],
+    [1.415, 0.077, 0.067, 0.025],
+    [1.425, 0.077, 0.067, 0.025]
+  ],
+  "ports": {"firstRow": 6, "endRow": 9, "halfSectors": 4},
+  "positiveXSleeve": [
+    {"center": [0.270, 1.250, 0.025], "radiusU": 0.115, "radiusV": 0.108},
+    {"center": [0.315, 1.185, 0.025], "radiusU": 0.104, "radiusV": 0.098},
+    {"center": [0.345, 1.135, 0.027], "radiusU": 0.095, "radiusV": 0.090},
+    {"center": [0.377, 1.096, 0.084], "radiusU": 0.083, "radiusV": 0.082},
+    {"center": [0.410, 1.059, 0.128], "radiusU": 0.074, "radiusV": 0.073},
+    {"center": [0.436, 1.033, 0.164], "radiusU": 0.056, "radiusV": 0.055},
+    {"center": [0.453, 1.015, 0.183], "radiusU": 0.053, "radiusV": 0.052}
+  ],
+  "gate": {"minimumTriangleAreaVector": 1e-9, "minimumOutwardDot": 1e-9, "euler": -2, "boundaryCount": 4},
+  "limits": "Unrigged zero-thickness art cage. Trim bands are regions, not knitted geometry. No UVs, material physics, global self-intersection/body contact test, foundation/masks, native wardrobe integration, anatomy, gender/representation or posed fit acceptance. Full four-view actual appearance review required before artist blockout retention."
+}

@@ -1,0 +1,25 @@
+{
+  "pid": 70068,
+  "started": "2026-10-04T10:14:46.193578+00:00",
+  "finished": "2026-10-04T10:14:46.194929+00:00",
+  "pins": {
+    "docs/evidence/appearance-2026-10-04/knit-sweater-cage/PLAN.md": "1195df2d03242adafbece8309ae89b8133cc591c47cd611e61ca7163cfd3cdab",
+    "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+    "docs/evidence/appearance-2026-10-04/knit-character-concept/primary-whole.jpg": "082f8bfc6eed3ab91eeb145ab80f5f6809c02eeaaa3f1bc94498f40116a2dabc",
+    "docs/evidence/nonhair-2026-10-03/relaxed-top-source/RECEIPT.md": "f0aaa2275210a637e330d88d8a1bc2958182a024da0e26c86b68f42f70697af7",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10",
+    "packages/core/src/wardrobe/Wardrobe.js": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664",
+    "docs/evidence/appearance-2026-10-04/knit-sweater-cage/WORTH.md": "55363d48ddff0f29040058cfd9d3bd88798f409dab7f9e90f8da02f810ac285a"
+  },
+  "rootActualImages": [
+    "concept-v1.png",
+    "primary-whole.jpg"
+  ],
+  "rootFullWorthRead": "653e60",
+  "rootSourceReads": [
+    "Wardrobe.js fullIndex/mask lines",
+    "relaxed-top receipt afc6fa",
+    "glb reader 2da454"
+  ],
+  "decision": "conditional GO for one inventory only; source preflight before construction; hard11:10 unchanged"
+}

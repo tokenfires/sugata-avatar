@@ -1,0 +1,64 @@
+{
+  "pid": 71845,
+  "started": "2026-10-04T10:31:08.850Z",
+  "node": "v24.13.1",
+  "status": "failed",
+  "inputs": {
+    "author.mjs": "2f88b3574e392c183351afb9b6817adc550dc331ee292bbffe3574bcd3479c24",
+    "cage.json": "d1eb2ca2384244578449896d5bad527f9c7af921099f854188561d47f3dfdb03",
+    "BODY.json": "5f3b2a16d5155544d0187842d0601bb6dc525acf2a937b8cee917ff2473feb07",
+    "PLAN.md": "876e3cbbac94c94b958d4229234e1bb7e13a798dba952cda5f8dc9f798976662",
+    "CONSTRUCTION.md": "b37f6c41083833d4f7fad5d17a8733afe8d26821d6e633134daa3b0292b08d61",
+    "INVENTORY-JOB.json": "305fb10362882f85829fc895ec906e3db23cba34528c38bc45bcbcb71597278f",
+    "WORTH.md": "190ae4cb5f7453ea0b6bec401809a7b27079f605a66c1314c587f8b9f6d7cb46",
+    "SOURCE.md": "930e7670dbd243ead7ea3657de7e44798b6e31fe917b44036a3859a28b6170b7"
+  },
+  "outputs": [],
+  "witness": {
+    "stage": "triangle",
+    "face": 368,
+    "triangle": 737,
+    "indices": [
+      223,
+      421,
+      420
+    ],
+    "points": [
+      [
+        0.23048454089475912,
+        1.2,
+        -0.005238999912499948
+      ],
+      [
+        0.215344137431965,
+        1.1831228270714393,
+        -0.046307033094990055
+      ],
+      [
+        0.20461047201170368,
+        1.1699890631028518,
+        -0.022400133878701226
+      ]
+    ],
+    "areaVector": [
+      -0.0009428587267319237,
+      0.000802770627328008,
+      0.000017696558014461882
+    ],
+    "area": 0.0012384411277249748,
+    "expected": [
+      -0.43892891785062443,
+      -0.7045320955556851,
+      -0.557652159868851
+    ],
+    "dot": -0.00016159823551050153,
+    "thresholds": {
+      "minimumTriangleAreaVector": 1e-9,
+      "minimumOutwardDot": 1e-9,
+      "euler": -2,
+      "boundaryCount": 4
+    }
+  },
+  "error": "AssertionError [ERR_ASSERTION]: Outward orientation failed face 368 triangle 737 dot -0.00016159823551050153\n    at file:///Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-sweater-build/author.mjs:96:12\n    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "finished": "2026-10-04T10:31:08.855Z"
+}

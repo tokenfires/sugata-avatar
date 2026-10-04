@@ -1,0 +1,22 @@
+{
+  "pid": 71814,
+  "started": "2026-10-04T10:30:59.398912+00:00",
+  "finished": "2026-10-04T10:30:59.399725+00:00",
+  "pins": {
+    "author.mjs": "2f88b3574e392c183351afb9b6817adc550dc331ee292bbffe3574bcd3479c24",
+    "cage.json": "d1eb2ca2384244578449896d5bad527f9c7af921099f854188561d47f3dfdb03",
+    "BODY.json": "5f3b2a16d5155544d0187842d0601bb6dc525acf2a937b8cee917ff2473feb07",
+    "CONSTRUCTION.md": "b37f6c41083833d4f7fad5d17a8733afe8d26821d6e633134daa3b0292b08d61",
+    "PLAN.md": "876e3cbbac94c94b958d4229234e1bb7e13a798dba952cda5f8dc9f798976662",
+    "WORTH.md": "190ae4cb5f7453ea0b6bec401809a7b27079f605a66c1314c587f8b9f6d7cb46",
+    "INSTRUMENTATION-JOB.json": "bca1ff987fb17b7c010cf7efed155602808088a8409a7dd471957e694cae7a87",
+    "INSTRUMENTATION.diff": "65a6ca0b9127ed6ff98de360e121edd06716e7803b5ee1eb4747f5de57443a49",
+    "review.html": "56e2b1bade59a2ed4a3978e33ca0ed828c1341a21fdea5beacaeded85198a9e3",
+    "review.mjs": "5cccc05f7fe45503f62c2be1b654c15c5d366fa5e65df5e0f16847b5a6587be5",
+    "SOURCE.md": "930e7670dbd243ead7ea3657de7e44798b6e31fe917b44036a3859a28b6170b7"
+  },
+  "fullSourceRead": "974e39",
+  "fullAuthorRead": "779ff4",
+  "fullDiffRead": "a7784c",
+  "decision": "GO one first construction exact reviewed never-run cage; native WITHHELD. No geometry changes, source stop/zero reruns on failure."
+}

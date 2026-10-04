@@ -1,0 +1,17 @@
+{
+  "pid": 70097,
+  "started": "2026-10-04T10:14:54.027Z",
+  "node": "v24.13.1",
+  "status": "passed",
+  "inputs": {
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "docs/evidence/appearance-2026-10-04/knit-sweater-cage/inventory.mjs": "14f5a1e92bd7357897df696fa33cf22c5c1b5567f86757a4a8ad7e6cd006acd3"
+  },
+  "output": {
+    "file": "BODY.json",
+    "sha256": "5f3b2a16d5155544d0187842d0601bb6dc525acf2a937b8cee917ff2473feb07"
+  },
+  "finished": "2026-10-04T10:14:54.050Z"
+}

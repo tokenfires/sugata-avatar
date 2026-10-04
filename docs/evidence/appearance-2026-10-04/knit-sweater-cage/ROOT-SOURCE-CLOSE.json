@@ -1,0 +1,16 @@
+{
+  "pid": 71000,
+  "started": "2026-10-04T10:23:38.383130+00:00",
+  "finished": "2026-10-04T10:23:38.383624+00:00",
+  "pins": {
+    "author.mjs": "b23b8340ff6f1e754914a174cf3f04839647fac9f4311f6697c5944ad22fada1",
+    "cage.json": "d1eb2ca2384244578449896d5bad527f9c7af921099f854188561d47f3dfdb03",
+    "inventory.mjs": "14f5a1e92bd7357897df696fa33cf22c5c1b5567f86757a4a8ad7e6cd006acd3",
+    "BODY.json": "5f3b2a16d5155544d0187842d0601bb6dc525acf2a937b8cee917ff2473feb07",
+    "INVENTORY-JOB.json": "305fb10362882f85829fc895ec906e3db23cba34528c38bc45bcbcb71597278f",
+    "PLAN.md": "1195df2d03242adafbece8309ae89b8133cc591c47cd611e61ca7163cfd3cdab",
+    "CONSTRUCTION.md": "0d77a39db1ed7c2123f73974dcea13a7df41395f861161d3c62e9c7a87278b32"
+  },
+  "criticFullRead": "4674bd",
+  "decision": "WITHHELD/CLOSED UNRUN: literal source stop. Root confirms assertion witness and partial output inventory gaps. No numerical/shape failure observed; no constructor/native run. One inventory lead preserved. Proposed next: fresh explicitly instrumented finisher contract without geometry changes; critic worth required; original11:10 cap retained."
+}

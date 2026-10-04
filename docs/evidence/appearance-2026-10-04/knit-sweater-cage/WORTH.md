@@ -1,0 +1,22 @@
+# Sweater cage worth decision
+
+CONDITIONAL GO: one new editable branched ring shell is worth attempting. This admits the proposed source responsibility and the single declared context inventory, not construction, native opening or blockout acceptance. Complete construction source and its gates still need independent preflight. Absolute stop remains 11:10 UTC, with one construction and no rescue.
+
+I actually viewed the untouched concept and COS whole photograph at original detail in this task. In concept-v1.png (1536×1024), the sweater occupies approximately x210–485/y163–470: lowered shoulders, full sleeves, untucked ribbed hem and clear separation from wider trousers. The COS photograph (1280×720, central image x400–879) shows full sleeves and a lower shoulder around x546–742/y136–319, with a partly tucked hem and different trousers. These provide useful front silhouette relationships, not metric pattern, hidden depth or body-fit authority. The concept's shallow frontal presentation leaves side/back volume genuinely undecided. **A:** create one complete editable cage and review those missing proportions; this supplies an artist source but requires real junction ownership. **B:** retain the concept and current outfits until an artist supplies source; cheaper, but leaves the intended third silhouette uneditable. I select conditional A; declare every side/back radius and transition as a new artistic choice.
+
+The rejected relaxed-top-source/RECEIPT.md records an original-normal displacement method failing triangle 1040: original-relative orientation dot −0.00012746562433705553, despite nonzero authored area-vector length 0.012820603599626616. It emitted no files. This supports changing construction responsibility, not reusing or adjusting that deformation. The proposed independently authored rings and sleeve ports are materially different from moving inherited tee vertices.
+
+A whole garment needs sewn topology rather than overlapping tubes. **A:** exact shared-index port seams, explicit ring-to-port correspondence, no internal caps; one connected orientable genus-zero manifold, four named simple disjoint boundary loops, Euler −2, single-cycle interior vertex links and single-path boundary links, consistent shared-edge winding and declared outward-orientation/finite/nondegenerate checks. Edge incidence alone can miss a bow-tie vertex. These conditions now appear in PLAN. **B:** disconnected or capped tubes can make an illustrative silhouette sooner, but cannot answer this complete-shell question; defer if the actual transition cannot be declared within the bound. No epsilon weld or flip repair.
+
+Body context must retain the complete source. AvatarWardrobe.js declares the wardrobe g050 body; Wardrobe.js:351–376 removes triangles under worn masks, while :433–444 preserves fullIndex. Thus a current dressed index or bounding box alone would not establish full context. **A:** bind exact selected body bytes, preserve all loader meshes/full original indices, record hierarchy/rest-world transforms and verify the declared raw/rest-skin relationship before placing authored rings. This costs one finite inventory and avoids silently using masked geometry. **B:** garment-alone views remain useful art studies but do not answer this plan's body-context question; defer rather than substitute if that relationship is unavailable. “No visible protrusion” in four still views is only a visual observation, never contact, posed fit or coverage proof.
+
+Reviewed input SHA-256 (current PLAN includes the additions):
+
+- PLAN.md: `1195df2d03242adafbece8309ae89b8133cc591c47cd611e61ca7163cfd3cdab`
+- concept-v1.png: `f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77`
+- primary-whole.jpg: `082f8bfc6eed3ab91eeb145ab80f5f6809c02eeaaa3f1bc94498f40116a2dabc`
+- relaxed-top-source/RECEIPT.md: `f0aaa2275210a637e330d88d8a1bc2958182a024da0e26c86b68f42f70697af7`
+- AvatarWardrobe.js: `f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10`
+- Wardrobe.js: `517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664`
+
+No body parse, geometry construction, browser/native work or product edit by critic. One guessed WardrobeOcclusion.js read was absent; the actual imported Wardrobe.js was read instead. FS reads exited 0 except that path error; no process PID or command start/end timestamps were returned. Image reads and source reads are tool observations, not new render evidence.
