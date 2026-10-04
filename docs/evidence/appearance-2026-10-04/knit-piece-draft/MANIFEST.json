@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-04T14:16:02.974976+00:00",
+  "pid": 22881,
+  "status": "Closed unrun source B; no author/checker/native execution; read-only local write-bit checkpoint",
+  "files": {
+    "INPUTS.json": {
+      "bytes": 1325,
+      "sha256": "2e6674155e5bc37048001a2cd0e4dcf5c67e587ebbc7a0b6189058bc4a7654e3"
+    },
+    "NEXT-WORTH.md": {
+      "bytes": 1622,
+      "sha256": "9c7e40704c5f7896f3be24235875c2e8a97f7ee2af49c5bfd5e071171561bf6f"
+    },
+    "PLAN.md": {
+      "bytes": 3930,
+      "sha256": "cc04c63d9403b91f55103844abe0de45247c1a04b80491f4339b81e4e1ab326a"
+    },
+    "RECEIPT.md": {
+      "bytes": 4709,
+      "sha256": "e6f992486b99770d933f6b62e563ccc1166d6204a00142ec58b5b0b6c398b9d8"
+    },
+    "ROOT-CLOSEOUT.json": {
+      "bytes": 2164,
+      "sha256": "948c74426dbca52255d65fb11d060722c010baca19aaa5ca6fdcb22f4c7476e9"
+    },
+    "ROOT-SOURCE-PRE.json": {
+      "bytes": 2115,
+      "sha256": "4c65f3a13af67154f593feb52a0569979d13ed78b153455e9e6c52b4b816028c"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 2874,
+      "sha256": "f69ad99ab739865f10bbf806c31b9f1f5368691afb44ca106928686d27ba5831"
+    },
+    "SOURCE.md": {
+      "bytes": 2299,
+      "sha256": "6fbc44b4f190207c4265e4ec4a930783cf7b0f140a0186e8b6b3519f76849973"
+    },
+    "TABS.json": {
+      "bytes": 487,
+      "sha256": "affd53ab3a5d40a51116a8220fad03012f32b43adfc2d429932415a3d49435c0"
+    },
+    "draft.py": {
+      "bytes": 16655,
+      "sha256": "283b88240203ea59a0dd5af1175d81f1d58b956a0ad6c93f16ba786ae98b94f2"
+    },
+    "root-check.py": {
+      "bytes": 6253,
+      "sha256": "f9f6caabd1f0065afabe407ec16111f22b06675287088b51a2fae11a09f393bb"
+    }
+  }
+}

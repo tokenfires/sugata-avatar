@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-04T14:02:58.970829+00:00",
+  "pid": 21538,
+  "fullSourceReadTools": [
+    "fc/read a6170e (progress truncated, no whole progress claim)",
+    "root source output in first resumed batch",
+    "e0bcc5 full PLAN",
+    "cf8358 WORTH/ROOT (also failed unrelated wrong NEXT filename read)",
+    "11b91b corrected NEXT inventory (oversized output, no whole history claim)"
+  ],
+  "pins": {
+    "docs/evidence/appearance-2026-10-04/knit-piece-draft/PLAN.md": {
+      "sha256": "cc04c63d9403b91f55103844abe0de45247c1a04b80491f4339b81e4e1ab326a",
+      "bytes": 3930
+    },
+    "docs/evidence/appearance-2026-10-04/knit-piece-draft/draft.py": {
+      "sha256": "283b88240203ea59a0dd5af1175d81f1d58b956a0ad6c93f16ba786ae98b94f2",
+      "bytes": 16655
+    },
+    "docs/evidence/appearance-2026-10-04/knit-piece-draft/INPUTS.json": {
+      "sha256": "2e6674155e5bc37048001a2cd0e4dcf5c67e587ebbc7a0b6189058bc4a7654e3",
+      "bytes": 1325
+    }
+  },
+  "inputPinsVerified": 6,
+  "sourceReasoning": [
+    "Quadratic derivative (120,2D(1-2t)) integrates to saved analytical length expression; collar attachments use those exact authored lengths. No stretch/3D coincidence claim.",
+    "Manually followed all 13 reversed endpoint pairs: source shoulder/underarm semantics agree, sleeve underarms join like corners, band ends identify neck-left and free seam corners. Orientations F+/B-/L-/R+/N+ reverse seam directions.",
+    "Unique ownership, reversed germ gluing, patch connectivity, corner-link paths/cycles, degree-two named free loops and V11/E18/F5/Euler-2 are first execution predicates, not preclaimed output.",
+    "Fixed quadratic neck x is monotone, y maxima 60/20 below underarm and hem; each fixed straight sleeve and band is a simple convex/collinear polygon. Positive sampled area supports source display only.",
+    "Reviewed first-job/no-overwrite guards and deadline predicates; no import/author execution, generated output or native job performed. SVG labels visually unqualified."
+  ],
+  "decision": "Await independent SOURCE; any source blocker closes B before the sole author execution."
+}

@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-04T14:08:21.723198+00:00",
+  "pid": 22069,
+  "decision": "B source admission withheld; close exact implementation unexecuted, not a geometry/appearance failure",
+  "fullReads": [
+    "bf9f9b complete draft.py",
+    "e0bcc5 complete PLAN",
+    "bdc87c complete SOURCE portion plus exact failure source lines; unrelated NEXT output truncated"
+  ],
+  "criticPinsVerified": 4,
+  "inputPinsVerified": 6,
+  "pins": {
+    "PLAN.md": {
+      "sha256": "cc04c63d9403b91f55103844abe0de45247c1a04b80491f4339b81e4e1ab326a",
+      "bytes": 3930
+    },
+    "INPUTS.json": {
+      "sha256": "2e6674155e5bc37048001a2cd0e4dcf5c67e587ebbc7a0b6189058bc4a7654e3",
+      "bytes": 1325
+    },
+    "draft.py": {
+      "sha256": "283b88240203ea59a0dd5af1175d81f1d58b956a0ad6c93f16ba786ae98b94f2",
+      "bytes": 16655
+    },
+    "SOURCE.md": {
+      "sha256": "6fbc44b4f190207c4265e4ec4a930783cf7b0f140a0186e8b6b3519f76849973",
+      "bytes": 2299
+    },
+    "ROOT-SOURCE-PRE.json": {
+      "sha256": "4c65f3a13af67154f593feb52a0569979d13ed78b153455e9e6c52b4b816028c",
+      "bytes": 2115
+    },
+    "root-check.py": {
+      "sha256": "f9f6caabd1f0065afabe407ec16111f22b06675287088b51a2fae11a09f393bb",
+      "bytes": 6253
+    }
+  },
+  "independentFindings": [
+    "A Refusal before result167 leaves vertices/edges/seams/corner/free-loop local data out of job; check witness and traceback survive, complete partial ownership graph does not. This violates the promised partial diagnostic.",
+    "File write178 precedes read/hash and outputs append179; exceptions take finally224 without actual-file inventory. A late failure can leave an unrecorded partial file. No such failure actually occurred.",
+    "Critic deadline observation is accurate at source: only prewrite test176. Root can independently compare recorded endedAt to hardstop, so this alone is not a necessary separate source blocker; the two recovery omissions already decide B.",
+    "Source scalar lengths and semantic endpoint pairs appear coherent; expected topology, physical manufacture, 3D embedding and SVG readability remain unexecuted/unqualified."
+  ],
+  "activity": "Author and root saved-output checker never imported/executed. Syntax-only AST parse of author at13:55:30/20815/9514d1 created no outputs. No native tab/capture/renderer. CUA documentation restoration only. Source unchanged after admission review.",
+  "alternatives": [
+    "A future incremental ownership checkpoint and unconditional actual-file receipt would improve recoverability but retries this authoring method; not admitted.",
+    "B preserve exact source/refusal and the accepted illustrative targets, seek a genuinely distinct evidenced input/decision; current selection."
+  ],
+  "next": "Independent critic asked about a genuinely distinct worth-supported slice; no source repair/relabelled rerun or 3D inference admitted."
+}
