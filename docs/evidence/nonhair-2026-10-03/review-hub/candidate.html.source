@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sugata · October 3 review</title>
+  <style>
+    :root { color-scheme: dark; --bg:#111a18; --card:#192520; --ink:#e9eee7; --muted:#b3c3b6; --line:#40564a; --accent:#c8dcaa; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui,sans-serif; }
+    main { width:min(1120px,100% - 40px); margin:0 auto; padding:36px 0 48px; }
+    nav { display:flex; flex-wrap:wrap; gap:12px 24px; margin-bottom:40px; }
+    a { color:var(--accent); text-underline-offset:4px; }
+    a:hover { color:#fff; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; border-radius:2px; }
+    h1,h2 { font-family:Georgia,serif; font-weight:400; line-height:1.1; }
+    h1 { font-size:clamp(38px,6vw,64px); margin:10px 0 20px; max-width:850px; }
+    h2 { font-size:clamp(29px,4vw,42px); margin:8px 0 18px; }
+    p { max-width:780px; }
+    .eyebrow { color:var(--accent); font-size:13px; letter-spacing:.12em; text-transform:uppercase; margin:0; }
+    .lead { font-size:19px; color:var(--muted); }
+    .links { display:flex; flex-wrap:wrap; gap:12px 24px; margin:22px 0; }
+    section { border-top:1px solid var(--line); margin-top:42px; padding-top:30px; }
+    .pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin-top:26px; }
+    figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    img { width:100%; height:auto; display:block; }
+    figcaption { padding:18px 20px; color:var(--muted); }
+    figcaption strong { display:block; color:var(--ink); margin-bottom:6px; }
+    figcaption a { display:inline-block; margin-top:10px; }
+    .note { color:var(--muted); border-left:3px solid var(--line); padding-left:16px; margin-top:24px; }
+    footer { border-top:1px solid var(--line); margin-top:42px; padding-top:24px; color:var(--muted); }
+    @media(max-width:640px) { main { width:calc(100% - 32px); padding-top:24px; } nav { margin-bottom:30px; } .pair { grid-template-columns:1fr; gap:18px; } figcaption { padding:16px; } .lead { font-size:18px; } }
+  </style>
+</head>
+<body>
+<main>
+  <nav aria-label="Review navigation">
+    <a href="/">Workshop home</a>
+    <a href="../appearance-2026-10-02/review.html">October 2 review</a>
+    <a href="../../PRODUCT-ROADMAP.md">What’s next</a>
+  </nav>
+  <header>
+    <p class="eyebrow">Sugata · October 3, 2026</p>
+    <h1>Two cuts.<br>A new outfit to try.</h1>
+    <p class="lead">The hair cut chooser and the optional Ink and denim look are ready to explore in the current Wardrobe study. These are reviewed examples of the current character; hair finish, clothing fit and broader representation remain in progress.</p>
+    <div class="links"><a href="/src/showcase.html">Open Wardrobe</a><a href="#ink">See Ink and denim</a></div>
+  </header>
+  <section aria-labelledby="cuts-title">
+    <p class="eyebrow">Control update</p>
+    <h2 id="cuts-title">Choose the cut, keep the look.</h2>
+    <p>Choose <strong>Hair cut</strong> in Wardrobe to switch between the chin and long bobs while carrying your other applied look settings forward. Each change opens a fresh preview, resetting the view, live actions and unapplied drafts.</p>
+    <div class="pair">
+      <figure>
+        <img src="hair-cut/archive/capture/desktop-before.png" width="1440" height="2060" alt="Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.">
+        <figcaption><strong>Chin bob · Sage and lavender</strong>Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls.<br><a href="hair-cut/archive/capture/desktop-before.png">Open full chin-bob image</a></figcaption>
+      </figure>
+      <figure>
+        <img src="hair-cut/archive/capture/desktop-long-bob.png" width="1440" height="2060" alt="Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.">
+        <figcaption><strong>Long bob · Sage and lavender</strong>The longer cut reaches onto the shoulder and chest in this recorded view.<br><a href="hair-cut/archive/capture/desktop-long-bob.png">Open full long-bob image</a></figcaption>
+      </figure>
+    </div>
+    <p class="note">The whole screenshots keep their original context. Use the full-image links for small control text. Visible hair strips, stippling and irregular ends still need work; this pair does not establish all-angle or moving-hair quality.</p>
+    <div class="links"><a href="../../../looks/README.md">Sage look settings and guide</a><a href="hair-cut/README.md">Recorded cut review</a></div>
+  </section>
+  <section id="ink" aria-labelledby="ink-title">
+    <p class="eyebrow">Optional look</p>
+    <h2 id="ink-title">Ink and denim.</h2>
+    <p>A navy tee, denim and warm brown shoes, with untinted Brown hair. The complete outfit is shown in two rooms; the comparison gallery also includes closer face views and a brief small-smile example.</p>
+    <div class="pair">
+      <figure>
+        <img src="ink-denim-look/archive/capture/neutral-body.png" width="900" height="868" alt="Whole Ink and denim outfit and boots on the current character in Neutral Studio.">
+        <figcaption><strong>Neutral Studio · whole look</strong>The tee, denim and boots remain visible together.<br><a href="ink-denim-look/archive/capture/neutral-body.png">Open full Studio image</a></figcaption>
+      </figure>
+      <figure>
+        <img src="ink-denim-look/archive/capture/kitchen-body.png" width="900" height="868" alt="Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.">
+        <figcaption><strong>Kitchen · whole look</strong>Warmer face and arms, with weaker hair separation on the shadow side.<br><a href="ink-denim-look/archive/capture/kitchen-body.png">Open full Kitchen image</a></figcaption>
+      </figure>
+    </div>
+    <p class="note">These are separate stills on one current body. The coarse hair edges and jagged shirt neckline remain visible. Room differences are illustrative; colour calibration, broader-body fit and continuous movement remain unqualified.</p>
+    <div class="links"><a href="../../../looks/ink-denim-review.html">Open Ink comparison gallery</a><a href="../../../looks/INK-DENIM.md">Try the Ink look</a><a href="../../../looks/ink-denim.json" download="ink-denim.json">Download Ink settings</a></div>
+  </section>
+  <footer>
+    <p>For a brief manual face-toward-camera example, follow the <a href="../../../looks/VIEWING-ATTENTION.md">experimental attention viewing guide</a>. Release returns the control to idle; the head may stay more frontal. This is a limited viewing example.</p>
+    <p>The <a href="../../PRODUCT-ROADMAP.md">character, expression, wardrobe and representation roadmap</a> remains open.</p>
+  </footer>
+</main>
+</body>
+</html>

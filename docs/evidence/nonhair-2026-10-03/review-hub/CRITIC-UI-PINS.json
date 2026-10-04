@@ -1,0 +1,2805 @@
+{
+  "scope": "FS-only native metadata/image/source readback; no browser/build/SDK/render replay",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/review-hub/critic-ui-readback.py",
+  "pid": 45978,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "started": "2026-10-04T01:37:27.530737+00:00",
+  "ended": "2026-10-04T01:37:27.650033+00:00",
+  "status": "passed",
+  "protected": [
+    {
+      "file": "assets/figures/figure_g000.glb",
+      "bytes": 11567676,
+      "sha256": "26aa87c59a5e7cff800d3bf576426945aeb63d0bd2dff0e67db34f2240ae559d"
+    },
+    {
+      "file": "assets/figures/figure_g025.glb",
+      "bytes": 11568008,
+      "sha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e"
+    },
+    {
+      "file": "assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "file": "assets/figures/figure_g075.glb",
+      "bytes": 11567816,
+      "sha256": "dbfc23ac6987c2f4b33bcf366f09c2f8f43c8518610ebd3697714b78b34f21ec"
+    },
+    {
+      "file": "assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    },
+    {
+      "file": "assets/hair/bob01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "file": "assets/hair/bob01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/hair/bob01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/bob01/g000.glb",
+      "bytes": 3346148,
+      "sha256": "c179927e5701dd45c8e650a881bc689ad905030fea6f3e9569c4370819f25926"
+    },
+    {
+      "file": "assets/hair/bob01/g025.glb",
+      "bytes": 3346472,
+      "sha256": "bdb1105f1cb663004ab06b1a7a164de2c54683af131eb9b0f65a0677e84520df"
+    },
+    {
+      "file": "assets/hair/bob01/g050.glb",
+      "bytes": 3346728,
+      "sha256": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7"
+    },
+    {
+      "file": "assets/hair/bob01/g075.glb",
+      "bytes": 3346284,
+      "sha256": "1517e2cf1d5f193b5306f854e299dbc9c9351c7162ee866104f3e5cbe1f3eb0c"
+    },
+    {
+      "file": "assets/hair/bob01/g100.glb",
+      "bytes": 3346252,
+      "sha256": "e4c238ef739d98107d0f237e76e1235c0a6fa2af777489638f1cba3118aac5f7"
+    },
+    {
+      "file": "assets/hair/bob01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "file": "assets/hair/bob02/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "file": "assets/hair/bob02/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/hair/bob02/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/bob02/g050.glb",
+      "bytes": 3347176,
+      "sha256": "a666a80777f0b93a824857dc2e2cbffe27cd2c8991a3f4ec8215ebc1d94298bd"
+    },
+    {
+      "file": "assets/hair/bob02/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "file": "assets/hair/crop01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "file": "assets/hair/crop01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/hair/crop01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/crop01/g050.glb",
+      "bytes": 3096380,
+      "sha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a"
+    },
+    {
+      "file": "assets/hair/crop01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "file": "assets/hair/lob01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "file": "assets/hair/lob01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/hair/lob01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/lob01/g050.glb",
+      "bytes": 3345988,
+      "sha256": "fb33f37395a29b0305bc542ead84347d4aad124de71fb8b70c69188cd45cf96b"
+    },
+    {
+      "file": "assets/hair/lob01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "file": "assets/hair/long01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "file": "assets/hair/long01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/hair/long01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/long01/g050.glb",
+      "bytes": 3345760,
+      "sha256": "e37e903482851e0ec3e29263d63b72c133dabdc861ff79ee877bbd2a1b0b7b1a"
+    },
+    {
+      "file": "assets/hair/long01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "file": "assets/hair/manifest.json",
+      "bytes": 8843,
+      "sha256": "02fb1bb35d345fb5765fd5b72403764d254aa8f115ec9a014e13d0cfd62c73ba"
+    },
+    {
+      "file": "assets/hair/pixie01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "file": "assets/hair/pixie01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/hair/pixie01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/pixie01/g050.glb",
+      "bytes": 3109904,
+      "sha256": "427b42e3a020deaa27fc770c9c5b8bdfff847254e2078967e4d6bb3b1d8f15e7"
+    },
+    {
+      "file": "assets/hair/pixie01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "file": "assets/hair/quiff01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "file": "assets/hair/quiff01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "file": "assets/hair/quiff01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "file": "assets/hair/quiff01/g050.glb",
+      "bytes": 3105068,
+      "sha256": "87766b82692acf777d98e9957b013d09ec39b3753d3f1490a85eb35c93a2537d"
+    },
+    {
+      "file": "assets/hair/quiff01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "file": "assets/identity/catalogue.json",
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176"
+    },
+    {
+      "file": "assets/identity/figure-vertex-map.bin",
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    {
+      "file": "assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    },
+    {
+      "file": "assets/identity/targets/arms.bin",
+      "bytes": 811168,
+      "sha256": "e38d4a4b8efdd79bd93d587c573a4f788024289affab9b3dd6081a418d2e1fea"
+    },
+    {
+      "file": "assets/identity/targets/breast.bin",
+      "bytes": 71104,
+      "sha256": "08b8b484fdd581d8581d135da50c2f37f5146d3c1c57cb8815ebdcf4740693cf"
+    },
+    {
+      "file": "assets/identity/targets/buttocks.bin",
+      "bytes": 23648,
+      "sha256": "b32c22430aba4ccaa9594de4a471693eddcd71f9ff4f2a1a490d20c48462322c"
+    },
+    {
+      "file": "assets/identity/targets/cheek.bin",
+      "bytes": 33488,
+      "sha256": "4143c00c3774e2b9411cdf6ffe1c439ca3dc819829c3f14c4afcb0ba3e8d375c"
+    },
+    {
+      "file": "assets/identity/targets/chin.bin",
+      "bytes": 273280,
+      "sha256": "48e6eb7b6a0a82fa4e542ef24d241a435ff23c0710fb58bfca748d8032a0a07f"
+    },
+    {
+      "file": "assets/identity/targets/ears.bin",
+      "bytes": 247648,
+      "sha256": "cad8940eed0186589a214cd694cad6a4ecd706c81b490010b15be437933232ac"
+    },
+    {
+      "file": "assets/identity/targets/eyebrows.bin",
+      "bytes": 38256,
+      "sha256": "270466bcf3c98ffc7576355010d64726348e5ac57dd19ca303e8a44c3ae70742"
+    },
+    {
+      "file": "assets/identity/targets/eyes.bin",
+      "bytes": 296432,
+      "sha256": "b9ef55cfc17373fd196c73c73c4eede3f025ca15ac49070115b681716287177a"
+    },
+    {
+      "file": "assets/identity/targets/feet.bin",
+      "bytes": 795504,
+      "sha256": "24fce95630fd13f3d81ad9e005838bcea3b01fac2872d1878e770b990cd26df9"
+    },
+    {
+      "file": "assets/identity/targets/forehead.bin",
+      "bytes": 43744,
+      "sha256": "34ed204a0f728b93406e6d5a56bbb821c12fba7796f3154af8424ff6e2aa4ada"
+    },
+    {
+      "file": "assets/identity/targets/hands.bin",
+      "bytes": 534816,
+      "sha256": "9ce908121521c439739f7ee8312792371622d083f2a38383e378e4c74e93bb5a"
+    },
+    {
+      "file": "assets/identity/targets/head.bin",
+      "bytes": 1444784,
+      "sha256": "d57315c786731c6d1c500288be2446c5a10e7dd06a46f5fa11f5c45192beb140"
+    },
+    {
+      "file": "assets/identity/targets/hip.bin",
+      "bytes": 506944,
+      "sha256": "f045dc1f07062590caf8f5930ff73dd10c3580585434b4f2f524bd9ae16984e9"
+    },
+    {
+      "file": "assets/identity/targets/legs.bin",
+      "bytes": 1185488,
+      "sha256": "97030d89413b199fa9110fcbe79f88d35f387e70eba9fae05e618023048a0fd2"
+    },
+    {
+      "file": "assets/identity/targets/mouth.bin",
+      "bytes": 245792,
+      "sha256": "8aa1c280e5752241d5a3872becabcd26a929e78455088af907f39809f2d00d9b"
+    },
+    {
+      "file": "assets/identity/targets/neck.bin",
+      "bytes": 512112,
+      "sha256": "f08ad8922254a5bea732490aa20b43e60607044686d7ac5e7a08adf2e9d29e7c"
+    },
+    {
+      "file": "assets/identity/targets/nose.bin",
+      "bytes": 162592,
+      "sha256": "172dc716c51be189045f1de6209cf655dd01fe9eafae031fd4232dde7c94ca17"
+    },
+    {
+      "file": "assets/identity/targets/pelvis.bin",
+      "bytes": 25472,
+      "sha256": "1efe10e1f41278cbfd6205453db2ad8e203ecd2a0ff06c244aa534161ddb933d"
+    },
+    {
+      "file": "assets/identity/targets/stomach.bin",
+      "bytes": 33952,
+      "sha256": "f6dc072ea9cb9b8cca8097facff7bdefaef00feab5066ca45f50c37e1e529d4b"
+    },
+    {
+      "file": "assets/identity/targets/torso.bin",
+      "bytes": 3524384,
+      "sha256": "7d50189eafb722cadafb5dae7ed5e9f35f6d7a8ef49e3332f0adfc5383b2978e"
+    },
+    {
+      "file": "assets/wardrobe/baked/suit_g050.glb",
+      "bytes": 20307776,
+      "sha256": "d0823b87f76b69e3998d396e4117e03e905680960d1a4693be6e214b00f6381b"
+    },
+    {
+      "file": "assets/wardrobe/baked/suit_shoes_g050.glb",
+      "bytes": 22479048,
+      "sha256": "01d9eb13538b83c1adce04ee8326e5838d0198b40e2b6e091bbe4276391a691a"
+    },
+    {
+      "file": "assets/wardrobe/body/g000.glb",
+      "bytes": 11917060,
+      "sha256": "52dcc74b8e65fe3d8fd1c9ae140f4d3316930dab4a7d68a3b3fba56537e24d39"
+    },
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "file": "assets/wardrobe/body/g100.glb",
+      "bytes": 11917172,
+      "sha256": "0640ab09ab420128cb8fc48236fc25844db36f818105bb4f37637ece43d87c19"
+    },
+    {
+      "file": "assets/wardrobe/fedora01/g000.glb",
+      "bytes": 7639028,
+      "sha256": "6c6d500ea5ae518938e3be5059275f96256af99132769762425c60e6c7015486"
+    },
+    {
+      "file": "assets/wardrobe/fedora01/g050.glb",
+      "bytes": 7638760,
+      "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27"
+    },
+    {
+      "file": "assets/wardrobe/fedora01/g100.glb",
+      "bytes": 7639144,
+      "sha256": "3a3f51239b30414f2e7c4f757327ba39c7b9cd7da1e3eff6eeeb2c17fbaa48d5"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g000.glb",
+      "bytes": 11084956,
+      "sha256": "7e9f9c0c74fcbeeb3f79adc40983ae02e4b30cf32bf71c483a2494baf7bea708"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g100.glb",
+      "bytes": 11085068,
+      "sha256": "6ee504745b25a2f5cabd0dfb6b370ea7bf5b7ca1b6fe920ea7dd4a8de3592a4d"
+    },
+    {
+      "file": "assets/wardrobe/female_elegantsuit01/g000.glb",
+      "bytes": 5066800,
+      "sha256": "9b2b731617a39ec4c7f4bf7628bfd94d5e0cd892d404235e08fced1ded4ef1b2"
+    },
+    {
+      "file": "assets/wardrobe/female_elegantsuit01/g050.glb",
+      "bytes": 5066532,
+      "sha256": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440"
+    },
+    {
+      "file": "assets/wardrobe/female_elegantsuit01/g100.glb",
+      "bytes": 5066912,
+      "sha256": "5fedaf8bc3f8b364361eeabfff9c6497c1d470106c0fa38a69a26d5ee3cd3d1e"
+    },
+    {
+      "file": "assets/wardrobe/foundation_boxer_brief/g000.glb",
+      "bytes": 524752,
+      "sha256": "22f26e124fded4cf9a658710d86746a0613e97f98fa5f7041f272f9e44d39b85"
+    },
+    {
+      "file": "assets/wardrobe/foundation_boxer_brief/g050.glb",
+      "bytes": 529836,
+      "sha256": "4f0a206012250e980ad0f3f4f27101d8af023ce4b52775c986d7a7ee485cdaeb"
+    },
+    {
+      "file": "assets/wardrobe/foundation_boxer_brief/g100.glb",
+      "bytes": 543264,
+      "sha256": "a0dfd64cd0712eea8dda1b757c2684984ec490d8978c115aec2b2b48c1040aa3"
+    },
+    {
+      "file": "assets/wardrobe/foundation_bra/g000.glb",
+      "bytes": 956028,
+      "sha256": "719834aee090180bd3a05645ab0b66139c92333c1daf1ccc79573b2523940c13"
+    },
+    {
+      "file": "assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "file": "assets/wardrobe/foundation_bra/g100.glb",
+      "bytes": 898036,
+      "sha256": "71bdb54615779d954f964adf380e041008e06b30c7bac1973f176f694b94fb77"
+    },
+    {
+      "file": "assets/wardrobe/foundation_briefs/g000.glb",
+      "bytes": 527888,
+      "sha256": "046924114a9f617ba1f049924496a56b5cacdc324adc2938e4a665d4f012d536"
+    },
+    {
+      "file": "assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "file": "assets/wardrobe/foundation_briefs/g100.glb",
+      "bytes": 543280,
+      "sha256": "3b6ad1aabeb0acca47a809a1c7a81c9436143caa809b5cb72ad494f6a9c4b5d3"
+    },
+    {
+      "file": "assets/wardrobe/foundation_vest/g000.glb",
+      "bytes": 1199336,
+      "sha256": "d436771e202e88f967697c5cdae92b92738e06f57dd34b969d3ba55903752f7c"
+    },
+    {
+      "file": "assets/wardrobe/foundation_vest/g050.glb",
+      "bytes": 1180828,
+      "sha256": "4804bd9e11c7aafacc19ca9fa3ded25fbbd2c4d72c25a17d566087ee09ba6152"
+    },
+    {
+      "file": "assets/wardrobe/foundation_vest/g100.glb",
+      "bytes": 1166188,
+      "sha256": "db0339870e3a438435358f343d1232806aad0e7a3168ef78b88fda42749ec278"
+    },
+    {
+      "file": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "file": "assets/wardrobe/shoes01/g000.glb",
+      "bytes": 2345868,
+      "sha256": "096f02304cb86898ce2db1d4eafd2455e0c6200e10fd2263ab5e25f6bbc090e9"
+    },
+    {
+      "file": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "file": "assets/wardrobe/shoes01/g100.glb",
+      "bytes": 2345984,
+      "sha256": "8d2f1cf4b4b07067cb003c01ae40a51a262b798e3a39636b622a9d17996dbee7"
+    },
+    {
+      "file": "node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "file": "package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "file": "package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "file": "packages/core/src/Avatar.hair-contact.browser.mjs",
+      "bytes": 9127,
+      "sha256": "7febec2c79cf1391ebf61212d52b401cbb8e38376746a3ebeff4faf33a56d41e"
+    },
+    {
+      "file": "packages/core/src/Avatar.hair-contact.gpu.selftest.mjs",
+      "bytes": 9593,
+      "sha256": "a784aa53b0e3a02c8edf72f81cd25a8150b410a043958c771008d3e9ee211461"
+    },
+    {
+      "file": "packages/core/src/Avatar.hair-contact.selftest.mjs",
+      "bytes": 3057,
+      "sha256": "c7bb6262b2c92155d9a2d515fb5f3398b9bb92a2bd22cf91cc6c2b8d4550b749"
+    },
+    {
+      "file": "packages/core/src/Avatar.hair-forest.gpu.selftest.mjs",
+      "bytes": 9464,
+      "sha256": "2d644cb21b21e01d1275dfe18b8fdc9a4e0330cffcdcd68cad482a617eac6b7f"
+    },
+    {
+      "file": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "file": "packages/core/src/Avatar.selftest.mjs",
+      "bytes": 75664,
+      "sha256": "3332445e1c6b7820692e8537359313929e3316f68d1071c979aafd0f01f62e5e"
+    },
+    {
+      "file": "packages/core/src/AvatarQuality.js",
+      "bytes": 45671,
+      "sha256": "deba798e81bb4c9383f17cb047e376c34d18e102ce32191d0b5ffcf214c2428c"
+    },
+    {
+      "file": "packages/core/src/AvatarQuality.selftest.mjs",
+      "bytes": 49403,
+      "sha256": "66ae4bfe86f346a5d830812dd1c06fff142960dabf4471af36092477a020546f"
+    },
+    {
+      "file": "packages/core/src/affect/AffectState.js",
+      "bytes": 22878,
+      "sha256": "df254e1fda2263ac2a40f3cbcd4bff6492addb65e11fae697e45633b231c95ba"
+    },
+    {
+      "file": "packages/core/src/affect/AppraisalAffect.js",
+      "bytes": 26189,
+      "sha256": "a161264442fff2ad84ef3c1824fcf5c10814b2e1de87e57cfa65c1f9559bbb29"
+    },
+    {
+      "file": "packages/core/src/affect/AppraisalAffect.selftest.mjs",
+      "bytes": 46365,
+      "sha256": "04fe44013ecde051f6390012e2f74e458115ae34bea5676f0fefdca6b65efb62"
+    },
+    {
+      "file": "packages/core/src/affect/CompletionDiagnostics.js",
+      "bytes": 2567,
+      "sha256": "af274066126fe0398f37de7aa3825d72f84d0562df5e1a146ee2ce2077c52539"
+    },
+    {
+      "file": "packages/core/src/affect/ExpressionLayer.js",
+      "bytes": 9216,
+      "sha256": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478"
+    },
+    {
+      "file": "packages/core/src/affect/ExpressionMap.js",
+      "bytes": 44748,
+      "sha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d"
+    },
+    {
+      "file": "packages/core/src/affect/LMStudioClient.js",
+      "bytes": 31796,
+      "sha256": "8b9a4026365e0e7784740ec2f5f589a24f509382c80a92bb3eb168a52f40fe49"
+    },
+    {
+      "file": "packages/core/src/affect/LMStudioClient.selftest.mjs",
+      "bytes": 31837,
+      "sha256": "e12a9b30b846c94da3b4baa774169d45a35c9e31880852454edbf85835c70a3a"
+    },
+    {
+      "file": "packages/core/src/affect/PostureLayer.js",
+      "bytes": 75450,
+      "sha256": "9f72fb58dfdb1646934b61e75c6187fe4bfc7c1c642198842c9eb57dbe31470c"
+    },
+    {
+      "file": "packages/core/src/affect/ReflexAffect.js",
+      "bytes": 23298,
+      "sha256": "d4cb9be30c1dda5aaa25610677e7ab646c8b4a49295e0d70dd5635d834d26abe"
+    },
+    {
+      "file": "packages/core/src/affect/SeedLexicon.js",
+      "bytes": 10663,
+      "sha256": "415a8ac5ca0c1d8b69f41014cd0a40def9054fd4c3151a8b1f6a7f36db15d65e"
+    },
+    {
+      "file": "packages/core/src/affect/affect.selftest.mjs",
+      "bytes": 155843,
+      "sha256": "cd8d11c6fb57e646707d9f5426fe50aef9d850b03b1ed4460ea30fa8df8df403"
+    },
+    {
+      "file": "packages/core/src/figure/BodyMass.js",
+      "bytes": 16529,
+      "sha256": "c20eb94dc1bd3bad06ee89be4f815f2ad322870a619960e9b69b3c3b1efb0d22"
+    },
+    {
+      "file": "packages/core/src/figure/ExpressionBank.js",
+      "bytes": 14362,
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e"
+    },
+    {
+      "file": "packages/core/src/figure/Figure.js",
+      "bytes": 15766,
+      "sha256": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da"
+    },
+    {
+      "file": "packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "file": "packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "file": "packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    {
+      "file": "packages/core/src/figure/RestPose.js",
+      "bytes": 14335,
+      "sha256": "c8e7892717d33e9f273fbb4f85d765f80b5a3efe09f09f6a4abc0ba5368bceb3"
+    },
+    {
+      "file": "packages/core/src/figure/Skeleton.js",
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    {
+      "file": "packages/core/src/figure/bodymass.selftest.mjs",
+      "bytes": 16384,
+      "sha256": "bfc30d8624c79829d5a47ff734c11a506a100686c4247b3e3114d9b1c9f9a921"
+    },
+    {
+      "file": "packages/core/src/figure/figure.browsercheck.html",
+      "bytes": 9304,
+      "sha256": "a8f648f7930a194392258ce1120a737dd4e8e0797a2d46d8289d653de369016b"
+    },
+    {
+      "file": "packages/core/src/figure/figure.selftest.mjs",
+      "bytes": 17147,
+      "sha256": "6bb6bedd2e520977475f67ef4d3d61d801be9d74d3ecb727e148eff335d288e9"
+    },
+    {
+      "file": "packages/core/src/figure/identitycatalogue.selftest.mjs",
+      "bytes": 20821,
+      "sha256": "75fbc210c3a1671d95ce7791d719ad84494082124e822fd2aae6ca1734da1c9b"
+    },
+    {
+      "file": "packages/core/src/figure/identitytargets.selftest.mjs",
+      "bytes": 29617,
+      "sha256": "e4177d1c1c08129d9c2df4c26384d0baf29ec2ed0147259b81bc0fc74847adec"
+    },
+    {
+      "file": "packages/core/src/figure/poses/relaxed-standing.json",
+      "bytes": 13256,
+      "sha256": "917cead92c04fc339a0baedf07ca592293800dc670ba4f50686975a0439d345f"
+    },
+    {
+      "file": "packages/core/src/figure/poses/weight-left.json",
+      "bytes": 12518,
+      "sha256": "79afa516a9b2048b9e315e359a0dbc47ec5413b3c9cb3dec60482dffa0e6d0b8"
+    },
+    {
+      "file": "packages/core/src/figure/poses/weight-right.json",
+      "bytes": 13033,
+      "sha256": "a132916357c84a24e3c7a73e967987202bd9346fc3a2ebc2f8c62990efa761f4"
+    },
+    {
+      "file": "packages/core/src/figure/restpose.browsercheck.html",
+      "bytes": 11837,
+      "sha256": "d70c06bee356251ffe2c9d5abfdd82f098d73774d0468d27e37080e6927ed281"
+    },
+    {
+      "file": "packages/core/src/figure/restpose.selftest.mjs",
+      "bytes": 49418,
+      "sha256": "a914336ac8f575ff9a0111bcfb8bf0bcb90971d3f63d28b2aa6c53d3591a0997"
+    },
+    {
+      "file": "packages/core/src/material/EyeCatchlight.js",
+      "bytes": 18340,
+      "sha256": "00ea06778cbd313bb80eca73ad5cf04b4b20ac36ee87e8e7a0d1d854759d1849"
+    },
+    {
+      "file": "packages/core/src/material/EyeMaterial.js",
+      "bytes": 75066,
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25"
+    },
+    {
+      "file": "packages/core/src/material/EyeMaterial.selftest.mjs",
+      "bytes": 38136,
+      "sha256": "1bae96f67ffd8ecad85ca6be120292e1696d8e40a02941ab6a037d1de4349c47"
+    },
+    {
+      "file": "packages/core/src/material/EyeOcclusion.js",
+      "bytes": 22023,
+      "sha256": "6edd0523001fec7394cd7343ec56dc6e992bff841727ad67209fd7701e2f083c"
+    },
+    {
+      "file": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "file": "packages/core/src/material/HairEnvelope.selftest.mjs",
+      "bytes": 29280,
+      "sha256": "e1c14ac5bc827580168c96acb939be9265b9dc9a51a751448000e3b8c61c14f5"
+    },
+    {
+      "file": "packages/core/src/material/HairMaterial.card-roots.selftest.mjs",
+      "bytes": 3313,
+      "sha256": "f892d109978d4e8b9f00861d30729648587db23ac5d9b2203ca44965408b6c07"
+    },
+    {
+      "file": "packages/core/src/material/HairMaterial.js",
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    {
+      "file": "packages/core/src/material/HairMaterial.selftest.mjs",
+      "bytes": 177634,
+      "sha256": "8743e1daa419f1956022fc92a012944831f46a5dffb03c98f0d5622097e089c8"
+    },
+    {
+      "file": "packages/core/src/material/HairRibbons.js",
+      "bytes": 23343,
+      "sha256": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58"
+    },
+    {
+      "file": "packages/core/src/material/PreintegratedSkinLut.js",
+      "bytes": 15988,
+      "sha256": "99d34e28550ca01853d572d485799ccc3e13608f6259abf4f51b445ced8ca5f4"
+    },
+    {
+      "file": "packages/core/src/material/SkinCurvature.js",
+      "bytes": 18056,
+      "sha256": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54"
+    },
+    {
+      "file": "packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "file": "packages/core/src/material/SkinMicroNormal.js",
+      "bytes": 10622,
+      "sha256": "c906a9bbcac40257311a182af8d109022296c9f386740d6536861a714a029685"
+    },
+    {
+      "file": "packages/core/src/material/SkinOcclusion.js",
+      "bytes": 18226,
+      "sha256": "099683b239ab06dd526d15139d7ebb59cc6fb4d5cf5c0d0470867fd7648b68aa"
+    },
+    {
+      "file": "packages/core/src/material/SkinOcclusion.selftest.mjs",
+      "bytes": 15879,
+      "sha256": "9f0d62d953ec1bedcff76965caa18640869bf6dfc76c6490e559d4d793fc2383"
+    },
+    {
+      "file": "packages/core/src/material/SkinRegions.js",
+      "bytes": 30791,
+      "sha256": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d"
+    },
+    {
+      "file": "packages/core/src/material/SkinRegions.selftest.mjs",
+      "bytes": 20510,
+      "sha256": "db6c8c57a907f7b1c15640f499af08de2659daf8ac7c147e4637358d8d42e187"
+    },
+    {
+      "file": "packages/core/src/material/SkinTransmission.selftest.mjs",
+      "bytes": 19561,
+      "sha256": "09fcd34e1f9a7ac06bac59b78c5a05010de1036d2e54fb8f42f1b6782fc721de"
+    },
+    {
+      "file": "packages/core/src/motion/AttentionAction.js",
+      "bytes": 12286,
+      "sha256": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34"
+    },
+    {
+      "file": "packages/core/src/motion/AttentionAction.selftest.mjs",
+      "bytes": 10528,
+      "sha256": "a9e19f407ef33d294b8236d3b0e292373ba95f8c8827fdeea5b09610cba5581c"
+    },
+    {
+      "file": "packages/core/src/motion/AttentionSmile.js",
+      "bytes": 3538,
+      "sha256": "113c3a6807b62b003e902b75df37130953507d9c5b411b7e73866924b8cabbfb"
+    },
+    {
+      "file": "packages/core/src/motion/AttentionSmile.selftest.mjs",
+      "bytes": 12597,
+      "sha256": "950564fb78bffd1e60a47e08f36dc0d5b949067c66748d087e2f54bdd2d4270c"
+    },
+    {
+      "file": "packages/core/src/motion/Blink.js",
+      "bytes": 46356,
+      "sha256": "71f7286273d118514343ce3f4918583bb02ef520932bb6dbbf5d91a6fc9489c1"
+    },
+    {
+      "file": "packages/core/src/motion/BodyIdle.js",
+      "bytes": 39306,
+      "sha256": "d1afefff100c64fddf929c90c1eac8c08742d12a07986ec41a35111f544c8ebd"
+    },
+    {
+      "file": "packages/core/src/motion/BodyIdle.selftest.mjs",
+      "bytes": 50883,
+      "sha256": "a1a5c623001608de216d0176c4f2e0a4c409a798a427876bef0db94452af3198"
+    },
+    {
+      "file": "packages/core/src/motion/Breath.js",
+      "bytes": 22654,
+      "sha256": "74b1ba926f9a07448556b936da936e16e8c361156f0506f745939fccc5c5a9c0"
+    },
+    {
+      "file": "packages/core/src/motion/EyeAimCalibration.js",
+      "bytes": 8100,
+      "sha256": "be5f8889c3ccbbb6e06b28b99baebc10aa2905c561b0a5fe6fc83f76fdf12bbe"
+    },
+    {
+      "file": "packages/core/src/motion/EyeAimSolver.js",
+      "bytes": 9912,
+      "sha256": "c2a18d1e7a92c1057dfe09c193af399063fe52778ff1d8e343a82c9e6730b884"
+    },
+    {
+      "file": "packages/core/src/motion/FacialIdle.js",
+      "bytes": 46284,
+      "sha256": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07"
+    },
+    {
+      "file": "packages/core/src/motion/FacialIdle.selftest.mjs",
+      "bytes": 31803,
+      "sha256": "de2b215714af838aa01bd2b0b56329400fe2c16cf3c5aa3e3bf8c7470b6c2211"
+    },
+    {
+      "file": "packages/core/src/motion/Gaze.js",
+      "bytes": 129610,
+      "sha256": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c"
+    },
+    {
+      "file": "packages/core/src/motion/Gaze.selftest.mjs",
+      "bytes": 104703,
+      "sha256": "d1a2210ed364c228f6692c8b1b4ab4fe90c139dcbe9d0019313e916c4ed59653"
+    },
+    {
+      "file": "packages/core/src/motion/Gesture.js",
+      "bytes": 46993,
+      "sha256": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea"
+    },
+    {
+      "file": "packages/core/src/motion/Gesture.selftest.mjs",
+      "bytes": 46758,
+      "sha256": "9a1705ab92a4ae64d831b2c02935eecd5f51d3b997d8e353acbc65440b10d3a1"
+    },
+    {
+      "file": "packages/core/src/motion/HairBodyContact.js",
+      "bytes": 7329,
+      "sha256": "0a569e763576cfa301e7d9d78bc8184d9e621e3e931f0048a0df33a418db63ba"
+    },
+    {
+      "file": "packages/core/src/motion/HairBodyContactCalibration.data.js",
+      "bytes": 49812,
+      "sha256": "fa3850d8630b2555d46e3b2dd3c45b3a9e65aaecb64e739ba5e20edc5cbcf5df"
+    },
+    {
+      "file": "packages/core/src/motion/HairBodyContactCalibration.g025.data.js",
+      "bytes": 28197,
+      "sha256": "6536881c7e6de35b6cbd7e81154a3a1aa4d76360ffbba8f617b871aa402a3024"
+    },
+    {
+      "file": "packages/core/src/motion/HairBodyContactCalibration.js",
+      "bytes": 7736,
+      "sha256": "0709c3d888613c7a1208cbe3f98d3adfe8d2936754f9aaca0bc66d686dd985cc"
+    },
+    {
+      "file": "packages/core/src/motion/HairBodyContactCalibration.selftest.mjs",
+      "bytes": 15994,
+      "sha256": "1926388efae27672144ef5a8cd5d9f88bfad0ff9ab15a07a09bdc8ee69824ceb"
+    },
+    {
+      "file": "packages/core/src/motion/HairBodyContactForest.js",
+      "bytes": 9853,
+      "sha256": "3470f5816c34f08c5374f712eb55efca179974413769cc117d96f2a4cd4f441b"
+    },
+    {
+      "file": "packages/core/src/motion/HairDynamics.contact.selftest.mjs",
+      "bytes": 26336,
+      "sha256": "3cdb47d39db1ea86f282dabab6ff7729a21fd393cc9137357bd70a19c9c5f70e"
+    },
+    {
+      "file": "packages/core/src/motion/HairDynamics.disposal.selftest.mjs",
+      "bytes": 17620,
+      "sha256": "c784ac621523045ec2692f096201edd5366467eb09a2d783e7f193466777be58"
+    },
+    {
+      "file": "packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "file": "packages/core/src/motion/HairDynamics.selftest.mjs",
+      "bytes": 72846,
+      "sha256": "cc7c57c40922b2ac92d5dcb713ba5038227aa8ae5e8afab711d4fd33bb59f149"
+    },
+    {
+      "file": "packages/core/src/motion/HairSkinTransform.js",
+      "bytes": 2966,
+      "sha256": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e"
+    },
+    {
+      "file": "packages/core/src/motion/HairSkinTransform.selftest.mjs",
+      "bytes": 3882,
+      "sha256": "1480cf586db0064a6891a20ccd7be4c6ef22d4b454d26234f4bcad4c3bc9fb65"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.bounds.browser.mjs",
+      "bytes": 3693,
+      "sha256": "b0cc712c99e7d19be9bc8ba27e96dae92b7b18e151b538c903b05ccd9c83bb5f"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.bounds.selftest.mjs",
+      "bytes": 10568,
+      "sha256": "33c43b855bcb12d49dc2e221cc03c0e44ac94e90fb03b39ba64742b3861531d0"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.cache.browser.mjs",
+      "bytes": 10075,
+      "sha256": "5a4311f8ae87eafa149b42d6348cb5d78b1f642f21f3e62077e610404765fd16"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.cache.selftest.mjs",
+      "bytes": 9534,
+      "sha256": "ee16eb5c24e9895e3226658993f14c1121969b5859706f69ddf0015aa7bce993"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.forest.browser.mjs",
+      "bytes": 15821,
+      "sha256": "81b3c894f7df06ca5c3e04309a9fade2ba4dff712dacf7eefa2d906c8720fa1f"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.forest.selftest.mjs",
+      "bytes": 11319,
+      "sha256": "692bde57d6d8c8171de32a7a12010c39d7f25c3bf6164215a875bddfa6e14b02"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.js",
+      "bytes": 33373,
+      "sha256": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.primitives.browser.mjs",
+      "bytes": 14553,
+      "sha256": "f3d3319437a2307b2bc1a5deff8a4b6f3750f17725e6e58bb5a205f8caef4df6"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.primitives.selftest.mjs",
+      "bytes": 9980,
+      "sha256": "91361535f255c4b37ad5d42f93f28dddb9c26682cdc66a975413eac093c74d96"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurface.selftest.mjs",
+      "bytes": 25069,
+      "sha256": "71ad9848938813a23f51cacf4e784c807bdd3edb91c88972d91b35a137f34d07"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurfaceContact.js",
+      "bytes": 18887,
+      "sha256": "53d16ea55e10fe8ad72b7eee7d51b2d5b95d4a55f20a42c890ed71a657cbd30e"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurfaceForest.js",
+      "bytes": 4514,
+      "sha256": "3a7dabb53363060ec66f78522bf41e1422ddd9d3d75d7d123a188228829f7c05"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurfaceForestQuery.js",
+      "bytes": 24815,
+      "sha256": "506bd08cc26ffee2821075b79adc11ac9d10b877ef5e268856116cd787e83110"
+    },
+    {
+      "file": "packages/core/src/motion/HairSurfaceQuery.js",
+      "bytes": 23932,
+      "sha256": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1"
+    },
+    {
+      "file": "packages/core/src/motion/HandIdle.js",
+      "bytes": 33844,
+      "sha256": "3d34c24f2fbfefdfe24b95f4b8141d5dffc0c880a37f3f201466beac247ffd73"
+    },
+    {
+      "file": "packages/core/src/motion/IKSolver.js",
+      "bytes": 55356,
+      "sha256": "7f822a5fa7457a8e8c185549eba8b325ce612b769fdc14386c237134bceede0c"
+    },
+    {
+      "file": "packages/core/src/motion/IKSolver.selftest.mjs",
+      "bytes": 95629,
+      "sha256": "5c0a8f39cc57a7a2a529bf60e7cbeb97291830e56c0205f1cef0b2d802416049"
+    },
+    {
+      "file": "packages/core/src/motion/IdleMotion.js",
+      "bytes": 15886,
+      "sha256": "1d69470f828c879cadfff5aa155e37b0f96e8870383e5e7f4be3537a0ac86989"
+    },
+    {
+      "file": "packages/core/src/motion/Layer.js",
+      "bytes": 11055,
+      "sha256": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8"
+    },
+    {
+      "file": "packages/core/src/motion/MotionStack.js",
+      "bytes": 41310,
+      "sha256": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9"
+    },
+    {
+      "file": "packages/core/src/motion/MotionStack.selftest.mjs",
+      "bytes": 29150,
+      "sha256": "e825114f25fd4dbab1212f5ae1ef3a7f7977e2e8c3e112bd7917f436aa661098"
+    },
+    {
+      "file": "packages/core/src/motion/PointAim.selftest.mjs",
+      "bytes": 18693,
+      "sha256": "fb8478e423da7f5ceca3e3dc65cd7f2cc0d362f4f557d0c5361e9b8080493bd2"
+    },
+    {
+      "file": "packages/core/src/motion/Pupil.js",
+      "bytes": 16529,
+      "sha256": "41ffb2723b5137307540ffa562b5d4933e28abe4bfdf2cb65524481c90951b7a"
+    },
+    {
+      "file": "packages/core/src/motion/Signals.js",
+      "bytes": 20354,
+      "sha256": "46c539caa8995c3c426bef03dbbab95d421972829e9b01a449959a76cc07722b"
+    },
+    {
+      "file": "packages/core/src/motion/Sway.js",
+      "bytes": 194104,
+      "sha256": "00d99fe27a749fc491e0a5eaca4dbdbb13f5331f0a5265089ba5012d47fb84a6"
+    },
+    {
+      "file": "packages/core/src/motion/fixtures/avatar-hair-contact-canonical.json",
+      "bytes": 3665,
+      "sha256": "8855a92fbf452b279b1f7fade2aecb39da63ca7a750044814572ec44348e2e36"
+    },
+    {
+      "file": "packages/core/src/motion/fixtures/avatar-hair-forest-canonical-v2.json",
+      "bytes": 5533,
+      "sha256": "50fb7c7380cf4964e0dc734772aae874f62083a40b1e6b4ceee53eced80f85ed"
+    },
+    {
+      "file": "packages/core/src/motion/fixtures/hair-body-contact-g050-legacy-v1.data.mjs",
+      "bytes": 19282,
+      "sha256": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942"
+    },
+    {
+      "file": "packages/core/src/motion/fixtures/hair-segment-oracle.mjs",
+      "bytes": 5566,
+      "sha256": "1867cc36f34af8dc074b5230ba160774caaee187d515b5fd48cd17552f171239"
+    },
+    {
+      "file": "packages/core/src/motion/fixtures/hair-surface-primitives.json",
+      "bytes": 30325,
+      "sha256": "681ec9e452ed7fc2515615e0eafecfefbd164033a7d1ace80f773a4b2b18c129"
+    },
+    {
+      "file": "packages/core/src/motion/fixtures/hair-triangle-bounds-adversarial.json",
+      "bytes": 19031,
+      "sha256": "949c1681e282a1e70f36062989822fa8557ed0c2b236fe091786e94648bc80c4"
+    },
+    {
+      "file": "packages/core/src/motion/fixtures/hair-triangle-bounds-control.mjs",
+      "bytes": 3027,
+      "sha256": "73e0c088fa57e840a98c184037eb0fa599619450c48e97855168b9b4846d775e"
+    },
+    {
+      "file": "packages/core/src/motion/idle-motion.selftest.mjs",
+      "bytes": 120170,
+      "sha256": "96ad326f105ab9ede5db4084664ea3816d75d0e1a70b99db69cc3b322943f788"
+    },
+    {
+      "file": "packages/core/src/motion/motion.browsercheck.html",
+      "bytes": 13616,
+      "sha256": "69d1728ac02dcf3f28f2f64f2cff5718a1ca5e9e82c634df0dd133e991a819d9"
+    },
+    {
+      "file": "packages/core/src/motion/ocular.browsercheck.html",
+      "bytes": 15245,
+      "sha256": "33caf1e0637315b00d968a9a9ebdc4dad1e957de498f3f09ab75b28f459dfdbd"
+    },
+    {
+      "file": "packages/core/src/motion/ocular.selftest.mjs",
+      "bytes": 69203,
+      "sha256": "bb87341bdab7c64d9d4b039354189d31b2c6531b773b7f3576e05e19435d0c47"
+    },
+    {
+      "file": "packages/core/src/motion/sway.selftest.mjs",
+      "bytes": 453670,
+      "sha256": "abb11c92c5e9c68c3471ab86ce34236b9d9961585a614fc0388e413f74e0dadf"
+    },
+    {
+      "file": "packages/core/src/physics/SpringBones.js",
+      "bytes": 74462,
+      "sha256": "5e222ad8647dd7c2b5a604f0b6f521359b53396443939ff1780252b1edb2cab5"
+    },
+    {
+      "file": "packages/core/src/physics/SpringBones.selftest.mjs",
+      "bytes": 70564,
+      "sha256": "6e8418cfa127b5b0f08840ce53b44bfc05de6025bb703f234064bda68d997bb6"
+    },
+    {
+      "file": "packages/core/src/render/CardRenderHistory.gpu.selftest.mjs",
+      "bytes": 11406,
+      "sha256": "4aa0934f8dec3419394e3c1de57575e0a746ed3a551a2718aff9623bbd5646fa"
+    },
+    {
+      "file": "packages/core/src/render/CardRenderHistory.js",
+      "bytes": 14269,
+      "sha256": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f"
+    },
+    {
+      "file": "packages/core/src/render/CardRenderHistory.lifecycle.gpu.selftest.mjs",
+      "bytes": 4182,
+      "sha256": "4c9a5583b3a4430c05a14067d2244999fc8d3d2c8c6dc1c3d22f727de8447b1d"
+    },
+    {
+      "file": "packages/core/src/render/CardRenderHistory.native.selftest.mjs",
+      "bytes": 9566,
+      "sha256": "3cf2ed7b7a0e8df12e5f253c36227aea9d00162d049dba6e97875b8135d76783"
+    },
+    {
+      "file": "packages/core/src/render/CardRenderHistory.selftest.mjs",
+      "bytes": 15311,
+      "sha256": "b2fd22884daf1af9976ae9a4494b92fe4a105d36a6d02360a93b4005f46aace8"
+    },
+    {
+      "file": "packages/core/src/render/FaceCardCoverage.cleanup.selftest.mjs",
+      "bytes": 12215,
+      "sha256": "35981c214f20887345ebe1c592e2e744e66a79ff701d28632d60ea6203c43d18"
+    },
+    {
+      "file": "packages/core/src/render/FaceCardCoverage.gpu.selftest.mjs",
+      "bytes": 4763,
+      "sha256": "9e2afb6b651fc9fee8f80df2495acd2f9c787b5658749cd1c908286f03bc0521"
+    },
+    {
+      "file": "packages/core/src/render/FaceCardCoverage.js",
+      "bytes": 10127,
+      "sha256": "729ed498df7fc0a20d6da09771d74ddddf8fe59b2fb4c626d70feba2a20ed1da"
+    },
+    {
+      "file": "packages/core/src/render/FaceCardCoverage.selftest.mjs",
+      "bytes": 12507,
+      "sha256": "745d8c417dafa51dada04f447b43c72dad035ec5c8143bda3fdde25b07849945"
+    },
+    {
+      "file": "packages/core/src/render/GBuffer.js",
+      "bytes": 19406,
+      "sha256": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774"
+    },
+    {
+      "file": "packages/core/src/render/GTAO.js",
+      "bytes": 52453,
+      "sha256": "6ec17333adc951164f1bf5a0a62ad8a9d9b58923278efddac7c5f57723c7cf7f"
+    },
+    {
+      "file": "packages/core/src/render/GTAO.orbit.selftest.mjs",
+      "bytes": 11206,
+      "sha256": "7cd31abf948af0c3edea6fea02be87cd498ebdbafbd0122bef040bf22cf00199"
+    },
+    {
+      "file": "packages/core/src/render/GTAO.selftest.mjs",
+      "bytes": 31448,
+      "sha256": "304da2ccb39d177c03c8570c17190a3a1608fbe06e82503065ccb09929d14d62"
+    },
+    {
+      "file": "packages/core/src/render/Grade.js",
+      "bytes": 43584,
+      "sha256": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec"
+    },
+    {
+      "file": "packages/core/src/render/Grade.selftest.mjs",
+      "bytes": 95316,
+      "sha256": "912a7f18a008ba2927dab1ad3d625ea492a8e0e6b6bd2fd97e0ebcf28db0f824"
+    },
+    {
+      "file": "packages/core/src/render/GroundContact.js",
+      "bytes": 61153,
+      "sha256": "c7c31b735cec572330914b98109b9e033aa0e0bd3ea4c0bdf9601301cbe27b63"
+    },
+    {
+      "file": "packages/core/src/render/GroundContact.selftest.mjs",
+      "bytes": 123322,
+      "sha256": "89162bb70c488ac9e0b0530eb07038db0a9f63fd192057c4991b20df60680e8f"
+    },
+    {
+      "file": "packages/core/src/render/HairCardFrame.js",
+      "bytes": 7057,
+      "sha256": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83"
+    },
+    {
+      "file": "packages/core/src/render/HairCardFrame.selftest.mjs",
+      "bytes": 8833,
+      "sha256": "953a68f76abfaeeadf8c40363e7a8b6315c8bc6bc5ba3ba58f46cf83db6d0eb4"
+    },
+    {
+      "file": "packages/core/src/render/HairOIT.js",
+      "bytes": 78683,
+      "sha256": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15"
+    },
+    {
+      "file": "packages/core/src/render/HairOIT.selftest.mjs",
+      "bytes": 62278,
+      "sha256": "97e530af7e211969e53a2988a396597ae64bdc95776b7f36df75af973d9b5c7c"
+    },
+    {
+      "file": "packages/core/src/render/HairShadow.selftest.mjs",
+      "bytes": 50298,
+      "sha256": "ccd88b3f34dc7928b687291e43b7d55574c9b96811781faddd8b8dcede9f0e3d"
+    },
+    {
+      "file": "packages/core/src/render/HairVelocity.js",
+      "bytes": 11512,
+      "sha256": "867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3"
+    },
+    {
+      "file": "packages/core/src/render/HairVelocity.selftest.mjs",
+      "bytes": 12513,
+      "sha256": "65f631ae3e9e0c8fee75540845e0193c7a66ed9afec4ac7d04dbf227dfff5118"
+    },
+    {
+      "file": "packages/core/src/render/InteriorEnvironment.js",
+      "bytes": 72895,
+      "sha256": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d"
+    },
+    {
+      "file": "packages/core/src/render/LightingRig.js",
+      "bytes": 169377,
+      "sha256": "8f8996daf35401635ce2b57d4668ab9caaf3512feb2080e1a5223639fb74ceb8"
+    },
+    {
+      "file": "packages/core/src/render/LightingRig.neutral.selftest.mjs",
+      "bytes": 5113,
+      "sha256": "d843379dee112f933016b9b779c7d78e0d85571027753d791fbaaf0bfe6ce18d"
+    },
+    {
+      "file": "packages/core/src/render/LightingRig.selftest.mjs",
+      "bytes": 199005,
+      "sha256": "d270562f0eeac6171112d82bf8ef367eb13d8395cc15b2a363124259223adb12"
+    },
+    {
+      "file": "packages/core/src/render/MorphVelocity.js",
+      "bytes": 17592,
+      "sha256": "06b4fd0d529f2d0a855aec98bc7150a76a1a73c5b679a2c3e296cba0d80be2de"
+    },
+    {
+      "file": "packages/core/src/render/MorphVelocity.selftest.mjs",
+      "bytes": 9534,
+      "sha256": "c6beff8ac5d4766060d0239655c8ade41c831bac18b2b8f3270de159d20dc5bd"
+    },
+    {
+      "file": "packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "file": "packages/core/src/render/RenderParticipants.js",
+      "bytes": 8681,
+      "sha256": "7db372d7ea813ffc2fd0154d42ef35afe1f68fbd707ac15d5c9f616ed5ac2829"
+    },
+    {
+      "file": "packages/core/src/render/Scene.js",
+      "bytes": 166009,
+      "sha256": "193cb5cfa682e0ed70d42573dd3b2221ceddf207629f2ed225c30100287cdfe4"
+    },
+    {
+      "file": "packages/core/src/render/Scene.selftest.mjs",
+      "bytes": 50375,
+      "sha256": "d2dd4ff2ebe51525f609082c7b3109ee6ceb7fdb2c690ccb3891df081a474d75"
+    },
+    {
+      "file": "packages/core/src/render/SkyEnvironment.js",
+      "bytes": 49717,
+      "sha256": "3e1cd75ae80b4c9102233c1479d87c0d971b032d25831d858a8e63970c455c30"
+    },
+    {
+      "file": "packages/core/src/render/SourcePatchProbe.mjs",
+      "bytes": 6262,
+      "sha256": "399c77f51c89b71301edfe6295a4df32053f19440c8e53bb856a222fe6104886"
+    },
+    {
+      "file": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "file": "packages/core/src/render/Stage.resize.gpu.selftest.mjs",
+      "bytes": 8771,
+      "sha256": "548db5932d270c7b63a3555b9e04f449e7a86070a160bafff969fa136792f83f"
+    },
+    {
+      "file": "packages/core/src/render/Stage.resize.selftest.mjs",
+      "bytes": 3618,
+      "sha256": "ac1cc2b349784ef8d1cdb4cc83b296d587466bbf20ac2f826d080700dd60eeb2"
+    },
+    {
+      "file": "packages/core/src/render/StageScenePass.js",
+      "bytes": 1313,
+      "sha256": "ec583b415bb9b8f84e2bd5e51cd0b13af6e220888d52bc820c1ddea5739f5e55"
+    },
+    {
+      "file": "packages/core/src/render/StateClosure.js",
+      "bytes": 4642,
+      "sha256": "7db6582661b887e8bcf76c74874598857a6033264279ca06652074cf6094aafd"
+    },
+    {
+      "file": "packages/core/src/render/TRAAPost.js",
+      "bytes": 17176,
+      "sha256": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54"
+    },
+    {
+      "file": "packages/core/src/render/TRAAPost.selftest.mjs",
+      "bytes": 19982,
+      "sha256": "8ba57a549eb9c38b6527a1c5bd1c45c581c5c89793f378c23db3033793ef3135"
+    },
+    {
+      "file": "packages/core/src/render/Toksvig.js",
+      "bytes": 9540,
+      "sha256": "8cebaef419a3c373d6b5e0ea6c0fc3906c15cef1796f4ca336e9fd4c00b11fc0"
+    },
+    {
+      "file": "packages/core/src/render/Toksvig.selftest.mjs",
+      "bytes": 8786,
+      "sha256": "2d18970b741ed17cc12b5852b5a589ed0691bcc044df5035d5ff2ac123e6b3d6"
+    },
+    {
+      "file": "packages/core/src/voice/Coarticulation.js",
+      "bytes": 6863,
+      "sha256": "652b3594abe6165403b6dbb92789a51dfd45edc1268c4fab14da9acd5dbadba6"
+    },
+    {
+      "file": "packages/core/src/voice/Pitch.js",
+      "bytes": 21813,
+      "sha256": "fde78a4c3dd83f543d8ba1c349db1a06b8b697a12255e4490bbbd5a82a3fd167"
+    },
+    {
+      "file": "packages/core/src/voice/Prosody.js",
+      "bytes": 18736,
+      "sha256": "b922627a7c492ba1a02392aaeeed34e445c4aa74cb0ba71b6a9a6fa5af416f8a"
+    },
+    {
+      "file": "packages/core/src/voice/VisemeLayer.js",
+      "bytes": 6000,
+      "sha256": "9055707cb00c72601c9db754b05effaabfb07cc9ddcee3beed91161291672c99"
+    },
+    {
+      "file": "packages/core/src/voice/VisemeSchedule.js",
+      "bytes": 22198,
+      "sha256": "695e0d8314d8cc64d748c8e5c4e9f2ba3021bdc9c2a76d443a7373aacc209eac"
+    },
+    {
+      "file": "packages/core/src/voice/Visemes.js",
+      "bytes": 14905,
+      "sha256": "31b75bc0a6e2932bf799719d7e61dc8537c94703a9c4e3d5a4ad5d2800c49955"
+    },
+    {
+      "file": "packages/core/src/voice/prosody-worklet.js",
+      "bytes": 3214,
+      "sha256": "60ed8986fdade1f68c3eeaea84584bff919faa7c00dbdb77a7747a87cf230002"
+    },
+    {
+      "file": "packages/core/src/voice/prosody.selftest.mjs",
+      "bytes": 31189,
+      "sha256": "f4179ec0cce2d335b53e649b735f1fb759ee037221d1c61729cfe72b8b26548c"
+    },
+    {
+      "file": "packages/core/src/voice/visemes.selftest.mjs",
+      "bytes": 59727,
+      "sha256": "f3de9fdcd457cdfe6d78f00155178fb340f8aebd000bc102c50b8a9caecbf620"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs",
+      "bytes": 12071,
+      "sha256": "f3fd6e9d8ac3e369ec463a4faa1aae89bc0f483bc0f5e0ec31f9242fbab2abdc"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "file": "packages/core/src/wardrobe/AvatarWardrobe.selftest.mjs",
+      "bytes": 15767,
+      "sha256": "36b1efdfda80cd831b4b34838a59ddc985346bef33c76930293d585c9e24f116"
+    },
+    {
+      "file": "packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "file": "packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "file": "packages/core/src/wardrobe/GarmentInterior.selftest.mjs",
+      "bytes": 17920,
+      "sha256": "8723fa326c72f84de85fab467451f06c65b2a68fa0831dfc647579171aabc17d"
+    },
+    {
+      "file": "packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "file": "packages/core/src/wardrobe/HemGeometry.js",
+      "bytes": 25069,
+      "sha256": "383edcf135a278feeefc3d0789ea4a1ef551ba5515125575fa06613e4de13306"
+    },
+    {
+      "file": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeColourOptions.selftest.mjs",
+      "bytes": 3534,
+      "sha256": "6cd416fd3a28aab40015e81212c6fe67c2fb87fb55b0cea8e3ed030330d1ddda"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.selftest.mjs",
+      "bytes": 13269,
+      "sha256": "8ba67ce340f1e34f86f7f97b4cafef2b2d13f76aad320065e9578d7c2ee7bc24"
+    },
+    {
+      "file": "packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "file": "packages/core/src/wardrobe/decency.selftest.mjs",
+      "bytes": 52582,
+      "sha256": "cb941ab64561e371f337bb47470f2312464d140456824aeebe8d7ee4dc638999"
+    },
+    {
+      "file": "packages/core/src/wardrobe/hem.selftest.mjs",
+      "bytes": 35526,
+      "sha256": "f6f3de9bbb43b6f04bde1fb4487d3cd95127c9fe62d969c3105fe879e264abc3"
+    },
+    {
+      "file": "packages/core/src/wardrobe/shadow.selftest.mjs",
+      "bytes": 53497,
+      "sha256": "7a4ba7477672c16548744fb799279eb47bc2e5160f39c7ba6d8f61758305acdd"
+    },
+    {
+      "file": "packages/core/src/wardrobe/wardrobe.selftest.mjs",
+      "bytes": 54500,
+      "sha256": "cf4ad2671caab6332bb4dbb74138e6a50a044a174f92a3728d5887976fc2c246"
+    },
+    {
+      "file": "packages/testbed/src/affect-presets.js",
+      "bytes": 2197,
+      "sha256": "3720f2e658d129df204df61735e878d7ac4893600ce573e4ce371e8708d09cbb"
+    },
+    {
+      "file": "packages/testbed/src/affect.html",
+      "bytes": 3898,
+      "sha256": "af4cdb5f1c7151e70acc5a5cf22e8c7196a3a30246d68813fb86932d82a02602"
+    },
+    {
+      "file": "packages/testbed/src/affect.js",
+      "bytes": 31483,
+      "sha256": "ae9040c2dde99ac0d1edfc9e02bb803874ac5f97f62a983e858cc728ebd8d05e"
+    },
+    {
+      "file": "packages/testbed/src/alive-capture-determinism.selftest.mjs",
+      "bytes": 57736,
+      "sha256": "228e2a1ea2acb3f7b521baab1a7e29ecb5d9a37fee26ab058079eb00f5d1aac6"
+    },
+    {
+      "file": "packages/testbed/src/alive-toggles.selftest.mjs",
+      "bytes": 155329,
+      "sha256": "5896c873f613f94255a5e4fb0903800a69dd92481d68353a16cc90fa771bcd0c"
+    },
+    {
+      "file": "packages/testbed/src/alive.js",
+      "bytes": 266546,
+      "sha256": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d"
+    },
+    {
+      "file": "packages/testbed/src/converse-connection.mjs",
+      "bytes": 4036,
+      "sha256": "92d38462c7c1fd964ee150c1c8aad0f68f6c404f86d4e98b8b4c8e50dc760a29"
+    },
+    {
+      "file": "packages/testbed/src/converse-connection.selftest.mjs",
+      "bytes": 2086,
+      "sha256": "3ee07b2e49e871d97f3241c447f9008f1c30854099e289395786088f7bde7f7d"
+    },
+    {
+      "file": "packages/testbed/src/converse-diagnostics.selftest.mjs",
+      "bytes": 8993,
+      "sha256": "8e57cd4df449f018419c62494f5d1f1d70e59135e28eb0a8789d806057465277"
+    },
+    {
+      "file": "packages/testbed/src/converse.gpu.selftest.mjs",
+      "bytes": 17846,
+      "sha256": "3e1568a2856e9f2053c20f3b9acd4abdedd27923239f0a32761bb32867ef2c5b"
+    },
+    {
+      "file": "packages/testbed/src/converse.html",
+      "bytes": 7463,
+      "sha256": "80288ac2af65b8227631b918e72c8cc7ac9e208c82d887559facf61829a0d484"
+    },
+    {
+      "file": "packages/testbed/src/converse.js",
+      "bytes": 64112,
+      "sha256": "22dbc465cd23dcea62376ba8985ea326145b7683540310d47bd17fe945a906af"
+    },
+    {
+      "file": "packages/testbed/src/embed-example.html",
+      "bytes": 6024,
+      "sha256": "bfd5ab1cbb4b96acc38834af975b1e718e617d97c4d94c275736670ddaf1852c"
+    },
+    {
+      "file": "packages/testbed/src/eye.html",
+      "bytes": 2869,
+      "sha256": "0d676caf4aac129df22002c667c6073a56c52a20c5800657990b1801ede9c706"
+    },
+    {
+      "file": "packages/testbed/src/eye.js",
+      "bytes": 21199,
+      "sha256": "df056f95de8e85657ee99362a020c4d84229a7997299752ea7423b8ce7435b56"
+    },
+    {
+      "file": "packages/testbed/src/fabric.html",
+      "bytes": 2398,
+      "sha256": "7be573e819fb1292de435bdf7a24d8bec9a38c9795e5c8e6916ff05d85aec716"
+    },
+    {
+      "file": "packages/testbed/src/fabric.js",
+      "bytes": 40902,
+      "sha256": "9b3881ee75fbb894c96c47d3e6ee2bede5979b8502f584718aebd755116fcd5a"
+    },
+    {
+      "file": "packages/testbed/src/frame-clock.js",
+      "bytes": 1816,
+      "sha256": "26fb3f42267115cdf92f1e2042f22a3005400593733e4479453a0e977734c3d5"
+    },
+    {
+      "file": "packages/testbed/src/frame-subject-state.mjs",
+      "bytes": 7235,
+      "sha256": "ba6633e900a2a8f7fb633a3be417c526c29bb11c56b42fc4ccb5e2747ddce95b"
+    },
+    {
+      "file": "packages/testbed/src/hair-capture-clock.selftest.mjs",
+      "bytes": 8029,
+      "sha256": "62806078d5d5df9df9430d7bd0c6f02b5a8f9bcc9c0e85fbe2d812cd07226563"
+    },
+    {
+      "file": "packages/testbed/src/hair.html",
+      "bytes": 2962,
+      "sha256": "2f9efb2461b087d1bdadae20a992b7ae4359cb81288d204e50496189d502a70a"
+    },
+    {
+      "file": "packages/testbed/src/hair.js",
+      "bytes": 49905,
+      "sha256": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd"
+    },
+    {
+      "file": "packages/testbed/src/identity.html",
+      "bytes": 5118,
+      "sha256": "356515f3a8fde0127144c92f300f61149f62c3425f07c7924e8719abe4ac509d"
+    },
+    {
+      "file": "packages/testbed/src/identity.js",
+      "bytes": 18218,
+      "sha256": "d3a65fedb9418b0e32c59ddd8b524673c621a040f1f07ffda499e252437ae9f2"
+    },
+    {
+      "file": "packages/testbed/src/light-defects.js",
+      "bytes": 9492,
+      "sha256": "62ab40d489d11063fa4dab3497b278c53426e8112ecbc8708b1cce75eac75207"
+    },
+    {
+      "file": "packages/testbed/src/lighting.html",
+      "bytes": 4414,
+      "sha256": "fe6fbd6fcc58973dd3f0c2df2769c1f98c9ebdad9d1da2d9a3e5032ac9dd1203"
+    },
+    {
+      "file": "packages/testbed/src/lighting.js",
+      "bytes": 41030,
+      "sha256": "f19383b0ef7286195434a7ec60bf5bf11541df4587039fa14fa56d029622fa73"
+    },
+    {
+      "file": "packages/testbed/src/main.js",
+      "bytes": 3736,
+      "sha256": "9e90d6a94016813bc0d300fbc7c8e09a25772c5d173395a485e33c3f3b1d55d7"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/casual-charcoal.png",
+      "bytes": 653274,
+      "sha256": "43c387cd58068b21d0376a17762651635831b922a5d2ec817f1a822d15eeec64"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/casual-ecru.png",
+      "bytes": 634358,
+      "sha256": "cb03b3ab97a29a2b46f6eca0613b5d06ebb9084068d5b3edb9e93828f75ae33e"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/casual-original.png",
+      "bytes": 669499,
+      "sha256": "0527c0b0f295efb770099a8977127699cff83caf0429f5314ef24cd6937e038d"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/elegant-charcoal.png",
+      "bytes": 634861,
+      "sha256": "911f684b21f6d5fd38593d38c61891b3fda7b6f62275a2b89f94ab0985ae2819"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/elegant-ecru.png",
+      "bytes": 647399,
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/elegant-original.png",
+      "bytes": 663518,
+      "sha256": "c6bc0176b2bf1873f52c6f34d40f0fd0c81956ee7c1533b8b6fb81403b4d7b54"
+    },
+    {
+      "file": "packages/testbed/src/portrait-selection.mjs",
+      "bytes": 1779,
+      "sha256": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    {
+      "file": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "file": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "file": "packages/testbed/src/post.html",
+      "bytes": 1488,
+      "sha256": "7dac2d82ee3aedb0aee91f5ad1984a3e50c0fb220222172db3ef5bd85c21f376"
+    },
+    {
+      "file": "packages/testbed/src/post.js",
+      "bytes": 33467,
+      "sha256": "9828e259fa29021a7b283d858597fd85ee06fb4faa04689d04de5f145463e72a"
+    },
+    {
+      "file": "packages/testbed/src/scaffold.html",
+      "bytes": 1168,
+      "sha256": "c7a25f318c63cf098066498adb0b3469f1c9a039c643e46225ba5d7bb4644af2"
+    },
+    {
+      "file": "packages/testbed/src/showcase-collection.gpu.selftest.mjs",
+      "bytes": 16917,
+      "sha256": "12e15e17b52b70c140052f427f41aea5a10636d6ac744f142a5d972bed987c4c"
+    },
+    {
+      "file": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "file": "packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d"
+    },
+    {
+      "file": "packages/testbed/src/showcase-colour-controls.css",
+      "bytes": 1661,
+      "sha256": "f35072f31f03bd6d74e5be216ea7f781311a1781afb2765c455588921134699e"
+    },
+    {
+      "file": "packages/testbed/src/showcase-colour-controls.mjs",
+      "bytes": 5311,
+      "sha256": "16042662a79de2ba1469c4addf3b4c8ad6607a8004681003e007dc28a9961b88"
+    },
+    {
+      "file": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "file": "packages/testbed/src/showcase-colours.selftest.mjs",
+      "bytes": 10570,
+      "sha256": "d21daef716eff29d1fdf8fb7d8239f406a67cb2933f3009b7ae95b88849d6be8"
+    },
+    {
+      "file": "packages/testbed/src/showcase-hair-colours.css",
+      "bytes": 1504,
+      "sha256": "08fd40c81cedcebec6669e4cbb68c4c14df0502a0ed0908a5465e2822ff4c678"
+    },
+    {
+      "file": "packages/testbed/src/showcase-hair-colours.mjs",
+      "bytes": 5505,
+      "sha256": "dfa9f8a20d6f2f3de811daa09da04310fbb4117b3201ee699de93df7016c33ac"
+    },
+    {
+      "file": "packages/testbed/src/showcase-image.gpu.selftest.mjs",
+      "bytes": 18331,
+      "sha256": "ec90684c373c35a12d0013c32648cde6d91afc93c033a1993afda91c349b19cd"
+    },
+    {
+      "file": "packages/testbed/src/showcase-palette-references.css",
+      "bytes": 1901,
+      "sha256": "11ed94435bbfd36ef7288dadc9109258e776bcd5fbb6c818672ba5bff9283e5e"
+    },
+    {
+      "file": "packages/testbed/src/showcase-palette-references.mjs",
+      "bytes": 4998,
+      "sha256": "82df6354262aa5d0fd364daf3a592e9fabb344eb0f217cfe3aa64d70ff15e98a"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "file": "packages/testbed/src/showcase-presets.selftest.mjs",
+      "bytes": 4819,
+      "sha256": "cf1f02f3354431f41a4532cf224c91e0b07d52130bc3eff894d90649c5abdffc"
+    },
+    {
+      "file": "packages/testbed/src/showcase-saved-colours.css",
+      "bytes": 457,
+      "sha256": "d2e362be9c9a368d34b732c18ffa9652828d65734fe63257b175002680197491"
+    },
+    {
+      "file": "packages/testbed/src/showcase-saved-colours.mjs",
+      "bytes": 1461,
+      "sha256": "fddb4c115fdd581da362487203bad5c7b7c3cfd47ab207fd1b494860d35e6070"
+    },
+    {
+      "file": "packages/testbed/src/showcase-scenes.gpu.selftest.mjs",
+      "bytes": 13318,
+      "sha256": "352d60dd41d1c5269134e9d21273edba83c7682fe0cad1c8f00c5eee6686d269"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.gpu.selftest.mjs",
+      "bytes": 11979,
+      "sha256": "9a270cf064c19f8870bc874f2feb2739b370c83336646958820ae8f44dd40f4b"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "file": "packages/testbed/src/showcase-settings.selftest.mjs",
+      "bytes": 5777,
+      "sha256": "da7a10d5c0676c63de89dee23668eb1500ec67a831314dc4473ca3df0c107360"
+    },
+    {
+      "file": "packages/testbed/src/showcase.gpu.selftest.mjs",
+      "bytes": 20339,
+      "sha256": "f3817489fa19c2a67d30a599cb1bd026be4c90e463f02d295e2f17fa9a1d07de"
+    },
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "file": "packages/testbed/src/skin.html",
+      "bytes": 6267,
+      "sha256": "93240397e52334b9b67c7fe2d4d0d321ebcab3fba7da768c722db2ef5522354f"
+    },
+    {
+      "file": "packages/testbed/src/skin.js",
+      "bytes": 59361,
+      "sha256": "989b18a7b3d9b900b452bb52c98e6a84739faa04f28c1130fa9447c8426027c1"
+    },
+    {
+      "file": "packages/testbed/src/stage.html",
+      "bytes": 6051,
+      "sha256": "85958bb4ee1deecb387231fc6b4fa375367f2de1686a44a5edb913fcb46763de"
+    },
+    {
+      "file": "packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd"
+    },
+    {
+      "file": "packages/testbed/src/viewer-framing.gpu.selftest.mjs",
+      "bytes": 14227,
+      "sha256": "d4a83da71cafbda9698e6f2948039de72067134ade40dbf60fd8d3327f38b7b6"
+    },
+    {
+      "file": "packages/testbed/src/viewer-framing.mjs",
+      "bytes": 6248,
+      "sha256": "514d77ed4efac246a2c6f887add829e0ccd4d895903c562de06751887d946e03"
+    },
+    {
+      "file": "packages/testbed/src/viewer-framing.selftest.mjs",
+      "bytes": 5548,
+      "sha256": "fe4c06298049c2eea7e851c5e599c1ec72750602e4572961ba53f09242efda9d"
+    },
+    {
+      "file": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "file": "packages/testbed/src/viewer-scenes.selftest.mjs",
+      "bytes": 1282,
+      "sha256": "27cf8be3cf74c5dddb41217b8e3fb5a233fc071df975cbd7ea4c2af2cbd790af"
+    },
+    {
+      "file": "packages/testbed/src/voice.html",
+      "bytes": 3018,
+      "sha256": "90e0e4537c98e839c64401c646953a7cc6b8c4c1aa4e7a17fa5dac02e1dfd5a3"
+    },
+    {
+      "file": "packages/testbed/src/voice.js",
+      "bytes": 24217,
+      "sha256": "fac1ea9b9c951e7fd327a721d58a089173693d26cda892882b0333c78e04cc0b"
+    },
+    {
+      "file": "packages/testbed/src/wardrobe.html",
+      "bytes": 5184,
+      "sha256": "050d37694421856b0574717ef516128a35b65d088cbc40863b9708c4872f4922"
+    },
+    {
+      "file": "packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "file": "tools/figure-pipeline/collar_capture_browser.mjs",
+      "bytes": 9334,
+      "sha256": "6a5c7a8584e2d5c653bdb6e9e44289350b0b229261c250f252dcf34aaccdf846"
+    },
+    {
+      "file": "tools/figure-pipeline/collar_replacement_capture.mjs",
+      "bytes": 23730,
+      "sha256": "bb38e0112fb1050285c3dbcc6a2b2fa01195bdbce3ad15a885cf67d1382b8e6d"
+    },
+    {
+      "file": "tools/figure-pipeline/collar_replacement_manifest.mjs",
+      "bytes": 10766,
+      "sha256": "1556a09f2cbd1760e10580fba324540aa7fbf4dcf06df67ee5109cf24b22f2c6"
+    },
+    {
+      "file": "tools/figure-pipeline/collar_replacement_manifest.selftest.mjs",
+      "bytes": 7198,
+      "sha256": "67e1111577f32f32198fd572068e154452f476560f542f65bb0070f1ac6463a3"
+    },
+    {
+      "file": "tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "file": "vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub-value/PLAN.md",
+      "bytes": 2905,
+      "sha256": "d51e649d69237302011e805f6e46a5f5d5b094f90eb19a380c1901293fefeb56"
+    },
+    {
+      "file": "packages/testbed/index.html",
+      "bytes": 10037,
+      "sha256": "5f9aaa5f66b93f5905df7a27f976925c46b1015320d502fd0df27c9cb678003b"
+    },
+    {
+      "file": "packages/testbed/pages.js",
+      "bytes": 14624,
+      "sha256": "abe518d8d5839e5f6a0e99bca51367a260f4de7e60fabe64f19073452e349d47"
+    },
+    {
+      "file": "packages/testbed/today-review.js",
+      "bytes": 585,
+      "sha256": "4794f9646867e5b359d05a976ac63230d53b35abc9cd264a5bb231c1e44c28cc"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/review.html",
+      "bytes": 7019,
+      "sha256": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "bytes": 4920,
+      "sha256": "573b891855ea3a69d5c7bc400fa9fc02f8967fd6addbe07bf83d08e6c17bf3dc"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/hair-cut/ROOT-DECISION.md",
+      "bytes": 3486,
+      "sha256": "d978297f4dc8467a0bcfe2d8982a56ddaf3e810a0097b3c50578bb33f209f117"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/README.md",
+      "bytes": 2571,
+      "sha256": "ebe3f81f93f77a74687af564070aae1449e6de548ae640cf7716f4d8a2cada00"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/RECEIPT.md",
+      "bytes": 3902,
+      "sha256": "6400c3f1cd56df0d721a5bc3b57f5d111c48853fdc2d40f629d8fe621b0db40f"
+    },
+    {
+      "file": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    {
+      "file": "looks/VIEWING-ATTENTION.md",
+      "bytes": 1857,
+      "sha256": "16591ec3c2f01d95f8773532540b0059df7f4ce5b30b008c810f1806fe530dbb"
+    },
+    {
+      "file": "looks/ink-denim-review.html",
+      "bytes": 6505,
+      "sha256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e"
+    },
+    {
+      "file": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "file": "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-before.png",
+      "bytes": 788268,
+      "sha256": "37667109f8913080d5a617f1b39615e660673078659d60a811287700d56b6035"
+    },
+    {
+      "file": "captures/wardrobe-hair-cut-2026-10-03-v1/desktop-long-bob.png",
+      "bytes": 866140,
+      "sha256": "82f8b02ff93380de2f88023b7f4c39da1411e213c47b8e845244cc4bb21567e5"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "bytes": 1009568,
+      "sha256": "4e7c174fbea2cc223b79cbe073c6fc40bacfaa1af7d800b62064d29ff16b7bc8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub-value/CRITIC-VALUE.md",
+      "bytes": 5570,
+      "sha256": "6e9a81fc0563b6de130cad6fff1765084ec859e0a7724d7cca25d439a7226b7f"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub-value/critic-value-pins.py",
+      "bytes": 2635,
+      "sha256": "42175b3e82b4ec85aaa69b3acf83053a1f573cdbaf8f5fd9d8c18dcaebaa1254"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/PLAN.md",
+      "bytes": 2991,
+      "sha256": "0e9d7341dbc60007e69bf7712a1350960f4f1a4b55e8d0eb185b3638d5819b0a"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/check-source.py",
+      "bytes": 3232,
+      "sha256": "5290b7534cf4e6e7063a910dbb0018a62379c18380ff1c9134a66566680da6e0"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/SOURCE.json",
+      "bytes": 50346,
+      "sha256": "8100fb8f23bc37b697a2c146f2c52043761855e8f5c523146146c8bc00fa81d8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/CRITIC-SOURCE.md",
+      "bytes": 4961,
+      "sha256": "c8433ed1ce4c7d3e100a7318373c1711b9953d5b01b75fb4d52a6135caa5efb8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/critic-source-readback.py",
+      "bytes": 4243,
+      "sha256": "4f2ad7755956a7b034d87fddd5e3a10c8003bebbe55e9965016973a4da9ed4b1"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review.candidate.html",
+      "bytes": 6986,
+      "sha256": "ece0c3aeab74e61bfb84556130d708a575cb8c7bc82c92758b13fcb63b7f147a"
+    }
+  ],
+  "pins": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/PLAN.md",
+      "bytes": 2991,
+      "sha256": "0e9d7341dbc60007e69bf7712a1350960f4f1a4b55e8d0eb185b3638d5819b0a"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/SOURCE.json",
+      "bytes": 50346,
+      "sha256": "8100fb8f23bc37b697a2c146f2c52043761855e8f5c523146146c8bc00fa81d8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/CRITIC-SOURCE.md",
+      "bytes": 4961,
+      "sha256": "c8433ed1ce4c7d3e100a7318373c1711b9953d5b01b75fb4d52a6135caa5efb8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/CRITIC-SOURCE-PINS.json",
+      "bytes": 77865,
+      "sha256": "5b5a038fc49689392d2edde13346b9b1648e008a93d15744d43d1bb04c7a4d32"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/CRITIC-UI.md",
+      "bytes": 5415,
+      "sha256": "eead01f4f76f3bab31f60587b1482945cbbbc7be74de47558b66e8c78e22c22b"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/critic-ui-readback.py",
+      "bytes": 4363,
+      "sha256": "83917489c28bfca53b3f9529b7a222f22139dc8327de5903d2fb876e3bbe2088"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/ROOT-VISUAL.md",
+      "bytes": 2371,
+      "sha256": "ff786104e46c56c52839d34577d4827ea9661269e494b264bfe5c8bf681c4cb0"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/read-native.py",
+      "bytes": 3200,
+      "sha256": "d8818c1fc1d84544f8723734bf276355612febcd0463003ae0c52c3be53758e5"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/ROOT-NATIVE.json",
+      "bytes": 2351,
+      "sha256": "7b194b147afb459e6e831a2766bc1838039e0a6041d2c6ac2518700f0bf3c9e1"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/NATIVE.json",
+      "bytes": 63114,
+      "sha256": "78ef8d0ef5a4885b3b10f07dd7ce31ebcf4d80ad62190ab863c0efaa1ba18e63"
+    }
+  ],
+  "images": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-desktop.jpg",
+      "bytes": 293958,
+      "sha256": "7b5539902dbf22db0bc4a34593cd780edbd47067881a906cebcb1097fb653157",
+      "dimensions": [
+        1280,
+        3080
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-phone.jpg",
+      "bytes": 215635,
+      "sha256": "ecb0537de3850fe54e71d4ae439fdd8d93278a8785df133ef2a5419b36538d4b",
+      "dimensions": [
+        390,
+        4260
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-phone-ink.jpg",
+      "bytes": 35287,
+      "sha256": "7ea4a200c937438c156d333db48b382c48fd72d1b63403d2485f7123d2c924cf",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-gallery-link.jpg",
+      "bytes": 39113,
+      "sha256": "19ef5b03dce724164c589188e953fae72ef0c0ef3dd4148a417cc5171ba7461c",
+      "dimensions": [
+        390,
+        844
+      ]
+    }
+  ],
+  "individual": [
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-desktop.json",
+      "bytes": 16286,
+      "sha256": "c5ad562a6417d04fcb409b06834eb8672bc4e159c44ef5a13ee5e7a7b79b6aaa"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-phone.json",
+      "bytes": 16288,
+      "sha256": "52476e5f70b5f23ccb243eef8338bd8a0e634dcbc24b9ef1cac3d26119a7cc1d"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-phone-ink.json",
+      "bytes": 16308,
+      "sha256": "372736b0a5679a43c4e0ae13eecfc283a02fef62ff5641514539a8f45f98788d"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-gallery-link.json",
+      "bytes": 9670,
+      "sha256": "2504276ebafee3c36a82c8adb35a07aab8658c8a9b3d8bddda0840f6c6e9ce7a"
+    }
+  ],
+  "states": [
+    {
+      "name": "candidate-desktop",
+      "at": "2026-10-04T01:32:46.824Z",
+      "ax": "Browser tab: 3, Title: \"Sugata \u00b7 October 3 review\", URL: \"http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html\".\n0 AXWebArea Sugata \u00b7 October 3 review, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html\n\t1 container\n\t\t2 container Review navigation\n\t\t\t3 link Description: Workshop home, Value: 127.0.0.1:5173/\n\t\t\t4 link Description: October 2 review, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html\n\t\t\t5 link Description: What\u2019s next, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md\n\t\t6 text SUGATA \u00b7 OCTOBER 3, 2026\n\t\t7 heading Two cuts. A new outfit to try., Value: 1\n\t\t\t8 text Two cuts.\n\t\t\t9 text A new outfit to try.\n\t\t10 text The hair cut chooser and the optional Ink and denim look are ready to explore in the current Wardrobe study. These are reviewed examples of the current character; hair finish, clothing fit and broader representation remain in progress.\n\t\t11 link Description: Open Wardrobe, Value: 127.0.0.1:5173/src/showcase.html\n\t\t12 link Description: See Ink and denim, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink\n\t\t13 container Choose the cut, keep the look.\n\t\t\t14 text CONTROL UPDATE\n\t\t\t15 heading Choose the cut, keep the look., Value: 2, ID: cuts-title\n\t\t\t\t16 text Choose the cut, keep the look.\n\t\t\t17 container\n\t\t\t\t18 text Choose  Hair cut  in Wardrobe to switch between the chin and long bobs while carrying your other applied look settings forward. Each change opens a fresh preview, resetting the view, live actions and unapplied drafts.\n\t\t\t19 container\n\t\t\t\t20 image Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.\n\t\t\t\t21 text Chin bob \u00b7 Sage and lavender\n\t\t\t\t22 text Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls.\n\t\t\t\t23 link Description: Open full chin-bob image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png\n\t\t\t24 container\n\t\t\t\t25 image Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.\n\t\t\t\t26 text Long bob \u00b7 Sage and lavender\n\t\t\t\t27 text The longer cut reaches onto the shoulder and chest in this recorded view.\n\t\t\t\t28 link Description: Open full long-bob image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png\n\t\t\t29 text The whole screenshots keep their original context. Use the full-image links for small control text. Visible hair strips, stippling and irregular ends still need work; this pair does not establish all-angle or moving-hair quality.\n\t\t\t30 link Description: Sage look settings and guide, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/README.md\n\t\t\t31 link Description: Recorded cut review, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md\n\t\t32 container Ink and denim., ID: ink\n\t\t\t33 text OPTIONAL LOOK\n\t\t\t34 heading Ink and denim., Value: 2, ID: ink-title\n\t\t\t\t35 text Ink and denim.\n\t\t\t36 text A navy tee, denim and warm brown shoes, with untinted Brown hair. The complete outfit is shown in two rooms; the comparison gallery also includes closer face views and a brief small-smile example.\n\t\t\t37 container\n\t\t\t\t38 image Whole Ink and denim outfit and boots on the current character in Neutral Studio.\n\t\t\t\t39 text Neutral Studio \u00b7 whole look\n\t\t\t\t40 text The tee, denim and boots remain visible together.\n\t\t\t\t41 link Description: Open full Studio image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png\n\t\t\t42 container\n\t\t\t\t43 image Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.\n\t\t\t\t44 text Kitchen \u00b7 whole look\n\t\t\t\t45 text Warmer face and arms, with weaker hair separation on the shadow side.\n\t\t\t\t46 link Description: Open full Kitchen image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png\n\t\t\t47 text These are separate stills on one current body. The coarse hair edges and jagged shirt neckline remain visible. Room differences are illustrative; colour calibration, broader-body fit and continuous movement remain unqualified.\n\t\t\t48 link Description: Open Ink comparison gallery, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html\n\t\t\t49 link Description: Try the Ink look, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md\n\t\t\t50 link Description: Download Ink settings, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json\n\t\t51 container\n\t\t\t52 text For a brief manual face-toward-camera example, follow the \n\t\t\t53 link Description: experimental attention viewing guide, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/VIEWING-ATTENTION.md\n\t\t\t54 text . Release returns the control to idle; the head may stay more frontal. This is a limited viewing example.\n\t\t55 container\n\t\t\t56 text The \n\t\t\t57 link Description: character, expression, wardrobe and representation roadmap, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md\n\t\t\t58 text  remains open.\n\nThe focused UI element is 0 AXWebArea Sugata \u00b7 October 3 review, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html",
+      "dom": "- main:\n  - navigation \"Review navigation\":\n    - link \"Workshop home\":\n      - /url: /\n    - link \"October 2 review\":\n      - /url: ../appearance-2026-10-02/review.html\n    - link \"What\u2019s next\":\n      - /url: ../../PRODUCT-ROADMAP.md\n  - paragraph: Sugata \u00b7 October 3, 2026\n  - heading \"Two cuts. A new outfit to try.\" [level=1]:\n    - text: Two cuts.\n    - text: A new outfit to try.\n  - paragraph: The hair cut chooser and the optional Ink and denim look are ready to explore in the current Wardrobe study. These are reviewed examples of the current character; hair finish, clothing fit and broader representation remain in progress.\n  - link \"Open Wardrobe\":\n    - /url: /src/showcase.html\n  - link \"See Ink and denim\":\n    - /url: \"#ink\"\n  - region \"Choose the cut, keep the look.\":\n    - paragraph: Control update\n    - heading \"Choose the cut, keep the look.\" [level=2]\n    - paragraph:\n      - text: Choose\n      - strong: Hair cut\n      - text: in Wardrobe to switch between the chin and long bobs while carrying your other applied look settings forward. Each change opens a fresh preview, resetting the view, live actions and unapplied drafts.\n    - figure \"Chin bob \u00b7 Sage and lavender Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls. Open full chin-bob image\":\n      - img \"Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.\"\n      - strong: Chin bob \u00b7 Sage and lavender\n      - text: Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls.\n      - link \"Open full chin-bob image\":\n        - /url: hair-cut/archive/capture/desktop-before.png\n    - figure \"Long bob \u00b7 Sage and lavender The longer cut reaches onto the shoulder and chest in this recorded view. Open full long-bob image\":\n      - img \"Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.\"\n      - strong: Long bob \u00b7 Sage and lavender\n      - text: The longer cut reaches onto the shoulder and chest in this recorded view.\n      - link \"Open full long-bob image\":\n        - /url: hair-cut/archive/capture/desktop-long-bob.png\n    - paragraph: The whole screenshots keep their original context. Use the full-image links for small control text. Visible hair strips, stippling and irregular ends still need work; this pair does not establish all-angle or moving-hair quality.\n    - link \"Sage look settings and guide\":\n      - /url: ../../../looks/README.md\n    - link \"Recorded cut review\":\n      - /url: hair-cut/README.md\n  - region \"Ink and denim.\":\n    - paragraph: Optional look\n    - heading \"Ink and denim.\" [level=2]\n    - paragraph: A navy tee, denim and warm brown shoes, with untinted Brown hair. The complete outfit is shown in two rooms; the comparison gallery also includes closer face views and a brief small-smile example.\n    - figure \"Neutral Studio \u00b7 whole look The tee, denim and boots remain visible together. Open full Studio image\":\n      - img \"Whole Ink and denim outfit and boots on the current character in Neutral Studio.\"\n      - strong: Neutral Studio \u00b7 whole look\n      - text: The tee, denim and boots remain visible together.\n      - link \"Open full Studio image\":\n        - /url: ink-denim-look/archive/capture/neutral-body.png\n    - figure \"Kitchen \u00b7 whole look Warmer face and arms, with weaker hair separation on the shadow side. Open full Kitchen image\":\n      - img \"Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.\"\n      - strong: Kitchen \u00b7 whole look\n      - text: Warmer face and arms, with weaker hair separation on the shadow side.\n      - link \"Open full Kitchen image\":\n        - /url: ink-denim-look/archive/capture/kitchen-body.png\n    - paragraph: These are separate stills on one current body. The coarse hair edges and jagged shirt neckline remain visible. Room differences are illustrative; colour calibration, broader-body fit and continuous movement remain unqualified.\n    - link \"Open Ink comparison gallery\":\n      - /url: ../../../looks/ink-denim-review.html\n    - link \"Try the Ink look\":\n      - /url: ../../../looks/INK-DENIM.md\n    - link \"Download Ink settings\":\n      - /url: ../../../looks/ink-denim.json\n  - paragraph:\n    - text: For a brief manual face-toward-camera example, follow the\n    - link \"experimental attention viewing guide\":\n      - /url: ../../../looks/VIEWING-ATTENTION.md\n    - text: . Release returns the control to idle; the head may stay more frontal. This is a limited viewing example.\n  - paragraph:\n    - text: The\n    - link \"character, expression, wardrobe and representation roadmap\":\n      - /url: ../../PRODUCT-ROADMAP.md\n    - text: remains open.",
+      "state": {
+        "document": {
+          "height": 3080,
+          "width": 1280
+        },
+        "images": [
+          {
+            "alt": "Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.",
+            "complete": true,
+            "height": 783.9375,
+            "naturalHeight": 2060,
+            "naturalWidth": 1440,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+            "width": 548
+          },
+          {
+            "alt": "Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.",
+            "complete": true,
+            "height": 783.9375,
+            "naturalHeight": 2060,
+            "naturalWidth": 1440,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+            "width": 548
+          },
+          {
+            "alt": "Whole Ink and denim outfit and boots on the current character in Neutral Studio.",
+            "complete": true,
+            "height": 528.5078125,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "width": 548
+          },
+          {
+            "alt": "Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.",
+            "complete": true,
+            "height": 528.5078125,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "width": 548
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/",
+            "text": "Workshop home"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+            "text": "October 2 review"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+            "text": "What\u2019s next"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/src/showcase.html",
+            "text": "Open Wardrobe"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink",
+            "text": "See Ink and denim"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+            "text": "Open full chin-bob image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+            "text": "Open full long-bob image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/README.md",
+            "text": "Sage look settings and guide"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+            "text": "Recorded cut review"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "text": "Open full Studio image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "text": "Open full Kitchen image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+            "text": "Open Ink comparison gallery"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+            "text": "Try the Ink look"
+          },
+          {
+            "download": "ink-denim.json",
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json",
+            "text": "Download Ink settings"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/VIEWING-ATTENTION.md",
+            "text": "experimental attention viewing guide"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+            "text": "character, expression, wardrobe and representation roadmap"
+          }
+        ],
+        "title": "Sugata \u00b7 October 3 review",
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html",
+        "viewport": {
+          "height": 720,
+          "width": 1280
+        }
+      }
+    },
+    {
+      "name": "candidate-phone",
+      "at": "2026-10-04T01:32:56.964Z",
+      "ax": "Browser tab: 3, Title: \"Sugata \u00b7 October 3 review\", URL: \"http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html\".\n0 AXWebArea Sugata \u00b7 October 3 review, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html\n\t1 container\n\t\t2 container Review navigation\n\t\t\t3 link Description: Workshop home, Value: 127.0.0.1:5173/\n\t\t\t4 link Description: October 2 review, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html\n\t\t\t5 link Description: What\u2019s next, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md\n\t\t6 text SUGATA \u00b7 OCTOBER 3, 2026\n\t\t7 heading Two cuts. A new outfit to try., Value: 1\n\t\t\t8 text Two cuts.\n\t\t\t9 text A new outfit to try.\n\t\t10 text The hair cut chooser and the optional Ink and denim look are ready to explore in the current Wardrobe study. These are reviewed examples of the current character; hair finish, clothing fit and broader representation remain in progress.\n\t\t11 link Description: Open Wardrobe, Value: 127.0.0.1:5173/src/showcase.html\n\t\t12 link Description: See Ink and denim, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink\n\t\t13 container Choose the cut, keep the look.\n\t\t\t14 text CONTROL UPDATE\n\t\t\t15 heading Choose the cut, keep the look., Value: 2, ID: cuts-title\n\t\t\t\t16 text Choose the cut, keep the look.\n\t\t\t17 container\n\t\t\t\t18 text Choose  Hair cut  in Wardrobe to switch between the chin and long bobs while carrying your other applied look settings forward. Each change opens a fresh preview, resetting the view, live actions and unapplied drafts.\n\t\t\t19 container\n\t\t\t\t20 image Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.\n\t\t\t\t21 text Chin bob \u00b7 Sage and lavender\n\t\t\t\t22 text Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls.\n\t\t\t\t23 link Description: Open full chin-bob image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png\n\t\t\t24 container\n\t\t\t\t25 image Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.\n\t\t\t\t26 text Long bob \u00b7 Sage and lavender\n\t\t\t\t27 text The longer cut reaches onto the shoulder and chest in this recorded view.\n\t\t\t\t28 link Description: Open full long-bob image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png\n\t\t\t29 text The whole screenshots keep their original context. Use the full-image links for small control text. Visible hair strips, stippling and irregular ends still need work; this pair does not establish all-angle or moving-hair quality.\n\t\t\t30 link Description: Sage look settings and guide, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/README.md\n\t\t\t31 link Description: Recorded cut review, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md\n\t\t32 container Ink and denim., ID: ink\n\t\t\t33 text OPTIONAL LOOK\n\t\t\t34 heading Ink and denim., Value: 2, ID: ink-title\n\t\t\t\t35 text Ink and denim.\n\t\t\t36 text A navy tee, denim and warm brown shoes, with untinted Brown hair. The complete outfit is shown in two rooms; the comparison gallery also includes closer face views and a brief small-smile example.\n\t\t\t37 container\n\t\t\t\t38 image Whole Ink and denim outfit and boots on the current character in Neutral Studio.\n\t\t\t\t39 text Neutral Studio \u00b7 whole look\n\t\t\t\t40 text The tee, denim and boots remain visible together.\n\t\t\t\t41 link Description: Open full Studio image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png\n\t\t\t42 container\n\t\t\t\t43 image Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.\n\t\t\t\t44 text Kitchen \u00b7 whole look\n\t\t\t\t45 text Warmer face and arms, with weaker hair separation on the shadow side.\n\t\t\t\t46 link Description: Open full Kitchen image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png\n\t\t\t47 text These are separate stills on one current body. The coarse hair edges and jagged shirt neckline remain visible. Room differences are illustrative; colour calibration, broader-body fit and continuous movement remain unqualified.\n\t\t\t48 link Description: Open Ink comparison gallery, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html\n\t\t\t49 link Description: Try the Ink look, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md\n\t\t\t50 link Description: Download Ink settings, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json\n\t\t51 container\n\t\t\t52 text For a brief manual face-toward-camera example, follow the \n\t\t\t53 link Description: experimental attention viewing guide, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/VIEWING-ATTENTION.md\n\t\t\t54 text . Release returns the control to idle; the head may stay more frontal. This is a limited viewing example.\n\t\t55 container\n\t\t\t56 text The \n\t\t\t57 link Description: character, expression, wardrobe and representation roadmap, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md\n\t\t\t58 text  remains open.\n\nThe focused UI element is 0 AXWebArea Sugata \u00b7 October 3 review, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html",
+      "dom": "- main:\n  - navigation \"Review navigation\":\n    - link \"Workshop home\":\n      - /url: /\n    - link \"October 2 review\":\n      - /url: ../appearance-2026-10-02/review.html\n    - link \"What\u2019s next\":\n      - /url: ../../PRODUCT-ROADMAP.md\n  - paragraph: Sugata \u00b7 October 3, 2026\n  - heading \"Two cuts. A new outfit to try.\" [level=1]:\n    - text: Two cuts.\n    - text: A new outfit to try.\n  - paragraph: The hair cut chooser and the optional Ink and denim look are ready to explore in the current Wardrobe study. These are reviewed examples of the current character; hair finish, clothing fit and broader representation remain in progress.\n  - link \"Open Wardrobe\":\n    - /url: /src/showcase.html\n  - link \"See Ink and denim\":\n    - /url: \"#ink\"\n  - region \"Choose the cut, keep the look.\":\n    - paragraph: Control update\n    - heading \"Choose the cut, keep the look.\" [level=2]\n    - paragraph:\n      - text: Choose\n      - strong: Hair cut\n      - text: in Wardrobe to switch between the chin and long bobs while carrying your other applied look settings forward. Each change opens a fresh preview, resetting the view, live actions and unapplied drafts.\n    - figure \"Chin bob \u00b7 Sage and lavender Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls. Open full chin-bob image\":\n      - img \"Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.\"\n      - strong: Chin bob \u00b7 Sage and lavender\n      - text: Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls.\n      - link \"Open full chin-bob image\":\n        - /url: hair-cut/archive/capture/desktop-before.png\n    - figure \"Long bob \u00b7 Sage and lavender The longer cut reaches onto the shoulder and chest in this recorded view. Open full long-bob image\":\n      - img \"Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.\"\n      - strong: Long bob \u00b7 Sage and lavender\n      - text: The longer cut reaches onto the shoulder and chest in this recorded view.\n      - link \"Open full long-bob image\":\n        - /url: hair-cut/archive/capture/desktop-long-bob.png\n    - paragraph: The whole screenshots keep their original context. Use the full-image links for small control text. Visible hair strips, stippling and irregular ends still need work; this pair does not establish all-angle or moving-hair quality.\n    - link \"Sage look settings and guide\":\n      - /url: ../../../looks/README.md\n    - link \"Recorded cut review\":\n      - /url: hair-cut/README.md\n  - region \"Ink and denim.\":\n    - paragraph: Optional look\n    - heading \"Ink and denim.\" [level=2]\n    - paragraph: A navy tee, denim and warm brown shoes, with untinted Brown hair. The complete outfit is shown in two rooms; the comparison gallery also includes closer face views and a brief small-smile example.\n    - figure \"Neutral Studio \u00b7 whole look The tee, denim and boots remain visible together. Open full Studio image\":\n      - img \"Whole Ink and denim outfit and boots on the current character in Neutral Studio.\"\n      - strong: Neutral Studio \u00b7 whole look\n      - text: The tee, denim and boots remain visible together.\n      - link \"Open full Studio image\":\n        - /url: ink-denim-look/archive/capture/neutral-body.png\n    - figure \"Kitchen \u00b7 whole look Warmer face and arms, with weaker hair separation on the shadow side. Open full Kitchen image\":\n      - img \"Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.\"\n      - strong: Kitchen \u00b7 whole look\n      - text: Warmer face and arms, with weaker hair separation on the shadow side.\n      - link \"Open full Kitchen image\":\n        - /url: ink-denim-look/archive/capture/kitchen-body.png\n    - paragraph: These are separate stills on one current body. The coarse hair edges and jagged shirt neckline remain visible. Room differences are illustrative; colour calibration, broader-body fit and continuous movement remain unqualified.\n    - link \"Open Ink comparison gallery\":\n      - /url: ../../../looks/ink-denim-review.html\n    - link \"Try the Ink look\":\n      - /url: ../../../looks/INK-DENIM.md\n    - link \"Download Ink settings\":\n      - /url: ../../../looks/ink-denim.json\n  - paragraph:\n    - text: For a brief manual face-toward-camera example, follow the\n    - link \"experimental attention viewing guide\":\n      - /url: ../../../looks/VIEWING-ATTENTION.md\n    - text: . Release returns the control to idle; the head may stay more frontal. This is a limited viewing example.\n  - paragraph:\n    - text: The\n    - link \"character, expression, wardrobe and representation roadmap\":\n      - /url: ../../PRODUCT-ROADMAP.md\n    - text: remains open.",
+      "state": {
+        "document": {
+          "height": 4260,
+          "width": 390
+        },
+        "images": [
+          {
+            "alt": "Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.",
+            "complete": true,
+            "height": 509.2734375,
+            "naturalHeight": 2060,
+            "naturalWidth": 1440,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+            "width": 356
+          },
+          {
+            "alt": "Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.",
+            "complete": true,
+            "height": 509.2734375,
+            "naturalHeight": 2060,
+            "naturalWidth": 1440,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+            "width": 356
+          },
+          {
+            "alt": "Whole Ink and denim outfit and boots on the current character in Neutral Studio.",
+            "complete": true,
+            "height": 343.3359375,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "width": 356
+          },
+          {
+            "alt": "Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.",
+            "complete": true,
+            "height": 343.3359375,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "width": 356
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/",
+            "text": "Workshop home"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+            "text": "October 2 review"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+            "text": "What\u2019s next"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/src/showcase.html",
+            "text": "Open Wardrobe"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink",
+            "text": "See Ink and denim"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+            "text": "Open full chin-bob image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+            "text": "Open full long-bob image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/README.md",
+            "text": "Sage look settings and guide"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+            "text": "Recorded cut review"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "text": "Open full Studio image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "text": "Open full Kitchen image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+            "text": "Open Ink comparison gallery"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+            "text": "Try the Ink look"
+          },
+          {
+            "download": "ink-denim.json",
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json",
+            "text": "Download Ink settings"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/VIEWING-ATTENTION.md",
+            "text": "experimental attention viewing guide"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+            "text": "character, expression, wardrobe and representation roadmap"
+          }
+        ],
+        "title": "Sugata \u00b7 October 3 review",
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html",
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      }
+    },
+    {
+      "name": "candidate-phone-ink",
+      "at": "2026-10-04T01:33:10.878Z",
+      "ax": "Browser tab: 3, Title: \"Sugata \u00b7 October 3 review\", URL: \"http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink\".\n0 AXWebArea Sugata \u00b7 October 3 review, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink\n\t1 container\n\t\t2 container Review navigation\n\t\t\t3 link Description: Workshop home, Value: 127.0.0.1:5173/\n\t\t\t4 link Description: October 2 review, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html\n\t\t\t5 link Description: What\u2019s next, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md\n\t\t6 text SUGATA \u00b7 OCTOBER 3, 2026\n\t\t7 heading Two cuts. A new outfit to try., Value: 1\n\t\t\t8 text Two cuts.\n\t\t\t9 text A new outfit to try.\n\t\t10 text The hair cut chooser and the optional Ink and denim look are ready to explore in the current Wardrobe study. These are reviewed examples of the current character; hair finish, clothing fit and broader representation remain in progress.\n\t\t11 link Description: Open Wardrobe, Value: 127.0.0.1:5173/src/showcase.html\n\t\t12 link Description: See Ink and denim, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink\n\t\t13 container Choose the cut, keep the look.\n\t\t\t14 text CONTROL UPDATE\n\t\t\t15 heading Choose the cut, keep the look., Value: 2, ID: cuts-title\n\t\t\t\t16 text Choose the cut, keep the look.\n\t\t\t17 container\n\t\t\t\t18 text Choose  Hair cut  in Wardrobe to switch between the chin and long bobs while carrying your other applied look settings forward. Each change opens a fresh preview, resetting the view, live actions and unapplied drafts.\n\t\t\t19 container\n\t\t\t\t20 image Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.\n\t\t\t\t21 text Chin bob \u00b7 Sage and lavender\n\t\t\t\t22 text Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls.\n\t\t\t\t23 link Description: Open full chin-bob image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png\n\t\t\t24 container\n\t\t\t\t25 image Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.\n\t\t\t\t26 text Long bob \u00b7 Sage and lavender\n\t\t\t\t27 text The longer cut reaches onto the shoulder and chest in this recorded view.\n\t\t\t\t28 link Description: Open full long-bob image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png\n\t\t\t29 text The whole screenshots keep their original context. Use the full-image links for small control text. Visible hair strips, stippling and irregular ends still need work; this pair does not establish all-angle or moving-hair quality.\n\t\t\t30 link Description: Sage look settings and guide, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/README.md\n\t\t\t31 link Description: Recorded cut review, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md\n\t\t32 container Ink and denim., ID: ink\n\t\t\t33 text OPTIONAL LOOK\n\t\t\t34 heading Ink and denim., Value: 2, ID: ink-title\n\t\t\t\t35 text Ink and denim.\n\t\t\t36 text A navy tee, denim and warm brown shoes, with untinted Brown hair. The complete outfit is shown in two rooms; the comparison gallery also includes closer face views and a brief small-smile example.\n\t\t\t37 container\n\t\t\t\t38 image Whole Ink and denim outfit and boots on the current character in Neutral Studio.\n\t\t\t\t39 text Neutral Studio \u00b7 whole look\n\t\t\t\t40 text The tee, denim and boots remain visible together.\n\t\t\t\t41 link Description: Open full Studio image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png\n\t\t\t42 container\n\t\t\t\t43 image Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.\n\t\t\t\t44 text Kitchen \u00b7 whole look\n\t\t\t\t45 text Warmer face and arms, with weaker hair separation on the shadow side.\n\t\t\t\t46 link Description: Open full Kitchen image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png\n\t\t\t47 text These are separate stills on one current body. The coarse hair edges and jagged shirt neckline remain visible. Room differences are illustrative; colour calibration, broader-body fit and continuous movement remain unqualified.\n\t\t\t48 link Description: Open Ink comparison gallery, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html\n\t\t\t49 link Description: Try the Ink look, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md\n\t\t\t50 link Description: Download Ink settings, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json\n\t\t51 container\n\t\t\t52 text For a brief manual face-toward-camera example, follow the \n\t\t\t53 link Description: experimental attention viewing guide, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/VIEWING-ATTENTION.md\n\t\t\t54 text . Release returns the control to idle; the head may stay more frontal. This is a limited viewing example.\n\t\t55 container\n\t\t\t56 text The \n\t\t\t57 link Description: character, expression, wardrobe and representation roadmap, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md\n\t\t\t58 text  remains open.\n\nThe focused UI element is 0 AXWebArea Sugata \u00b7 October 3 review, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink",
+      "dom": "- main:\n  - navigation \"Review navigation\":\n    - link \"Workshop home\":\n      - /url: /\n    - link \"October 2 review\":\n      - /url: ../appearance-2026-10-02/review.html\n    - link \"What\u2019s next\":\n      - /url: ../../PRODUCT-ROADMAP.md\n  - paragraph: Sugata \u00b7 October 3, 2026\n  - heading \"Two cuts. A new outfit to try.\" [level=1]:\n    - text: Two cuts.\n    - text: A new outfit to try.\n  - paragraph: The hair cut chooser and the optional Ink and denim look are ready to explore in the current Wardrobe study. These are reviewed examples of the current character; hair finish, clothing fit and broader representation remain in progress.\n  - link \"Open Wardrobe\":\n    - /url: /src/showcase.html\n  - link \"See Ink and denim\":\n    - /url: \"#ink\"\n  - region \"Choose the cut, keep the look.\":\n    - paragraph: Control update\n    - heading \"Choose the cut, keep the look.\" [level=2]\n    - paragraph:\n      - text: Choose\n      - strong: Hair cut\n      - text: in Wardrobe to switch between the chin and long bobs while carrying your other applied look settings forward. Each change opens a fresh preview, resetting the view, live actions and unapplied drafts.\n    - figure \"Chin bob \u00b7 Sage and lavender Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls. Open full chin-bob image\":\n      - img \"Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.\"\n      - strong: Chin bob \u00b7 Sage and lavender\n      - text: Shorter ends frame the jaw. This is the complete recorded Wardrobe view, including its controls.\n      - link \"Open full chin-bob image\":\n        - /url: hair-cut/archive/capture/desktop-before.png\n    - figure \"Long bob \u00b7 Sage and lavender The longer cut reaches onto the shoulder and chest in this recorded view. Open full long-bob image\":\n      - img \"Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.\"\n      - strong: Long bob \u00b7 Sage and lavender\n      - text: The longer cut reaches onto the shoulder and chest in this recorded view.\n      - link \"Open full long-bob image\":\n        - /url: hair-cut/archive/capture/desktop-long-bob.png\n    - paragraph: The whole screenshots keep their original context. Use the full-image links for small control text. Visible hair strips, stippling and irregular ends still need work; this pair does not establish all-angle or moving-hair quality.\n    - link \"Sage look settings and guide\":\n      - /url: ../../../looks/README.md\n    - link \"Recorded cut review\":\n      - /url: hair-cut/README.md\n  - region \"Ink and denim.\":\n    - paragraph: Optional look\n    - heading \"Ink and denim.\" [level=2]\n    - paragraph: A navy tee, denim and warm brown shoes, with untinted Brown hair. The complete outfit is shown in two rooms; the comparison gallery also includes closer face views and a brief small-smile example.\n    - figure \"Neutral Studio \u00b7 whole look The tee, denim and boots remain visible together. Open full Studio image\":\n      - img \"Whole Ink and denim outfit and boots on the current character in Neutral Studio.\"\n      - strong: Neutral Studio \u00b7 whole look\n      - text: The tee, denim and boots remain visible together.\n      - link \"Open full Studio image\":\n        - /url: ink-denim-look/archive/capture/neutral-body.png\n    - figure \"Kitchen \u00b7 whole look Warmer face and arms, with weaker hair separation on the shadow side. Open full Kitchen image\":\n      - img \"Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.\"\n      - strong: Kitchen \u00b7 whole look\n      - text: Warmer face and arms, with weaker hair separation on the shadow side.\n      - link \"Open full Kitchen image\":\n        - /url: ink-denim-look/archive/capture/kitchen-body.png\n    - paragraph: These are separate stills on one current body. The coarse hair edges and jagged shirt neckline remain visible. Room differences are illustrative; colour calibration, broader-body fit and continuous movement remain unqualified.\n    - link \"Open Ink comparison gallery\":\n      - /url: ../../../looks/ink-denim-review.html\n    - link \"Try the Ink look\":\n      - /url: ../../../looks/INK-DENIM.md\n    - link \"Download Ink settings\":\n      - /url: ../../../looks/ink-denim.json\n  - paragraph:\n    - text: For a brief manual face-toward-camera example, follow the\n    - link \"experimental attention viewing guide\":\n      - /url: ../../../looks/VIEWING-ATTENTION.md\n    - text: . Release returns the control to idle; the head may stay more frontal. This is a limited viewing example.\n  - paragraph:\n    - text: The\n    - link \"character, expression, wardrobe and representation roadmap\":\n      - /url: ../../PRODUCT-ROADMAP.md\n    - text: remains open.",
+      "state": {
+        "document": {
+          "height": 4260,
+          "width": 390
+        },
+        "images": [
+          {
+            "alt": "Whole Wardrobe screenshot of the lavender-tinted chin bob with the Sage outfit in Portrait view.",
+            "complete": true,
+            "height": 509.2734375,
+            "naturalHeight": 2060,
+            "naturalWidth": 1440,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+            "width": 356
+          },
+          {
+            "alt": "Whole Wardrobe screenshot of the lavender-tinted long bob with the Sage outfit in Portrait view.",
+            "complete": true,
+            "height": 509.2734375,
+            "naturalHeight": 2060,
+            "naturalWidth": 1440,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+            "width": 356
+          },
+          {
+            "alt": "Whole Ink and denim outfit and boots on the current character in Neutral Studio.",
+            "complete": true,
+            "height": 343.3359375,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "width": 356
+          },
+          {
+            "alt": "Whole Ink and denim outfit and boots on the current character in the warmer Kitchen room.",
+            "complete": true,
+            "height": 343.3359375,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "width": 356
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/",
+            "text": "Workshop home"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+            "text": "October 2 review"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+            "text": "What\u2019s next"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/src/showcase.html",
+            "text": "Open Wardrobe"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink",
+            "text": "See Ink and denim"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+            "text": "Open full chin-bob image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+            "text": "Open full long-bob image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/README.md",
+            "text": "Sage look settings and guide"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+            "text": "Recorded cut review"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "text": "Open full Studio image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "text": "Open full Kitchen image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+            "text": "Open Ink comparison gallery"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+            "text": "Try the Ink look"
+          },
+          {
+            "download": "ink-denim.json",
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json",
+            "text": "Download Ink settings"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/VIEWING-ATTENTION.md",
+            "text": "experimental attention viewing guide"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+            "text": "character, expression, wardrobe and representation roadmap"
+          }
+        ],
+        "title": "Sugata \u00b7 October 3 review",
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html#ink",
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      }
+    },
+    {
+      "name": "candidate-gallery-link",
+      "at": "2026-10-04T01:33:21.958Z",
+      "ax": "Browser tab: 3, Title: \"Ink and denim \u00b7 Sugata\", URL: \"http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html\".\n1 AXWebArea Ink and denim \u00b7 Sugata, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html\n\t2 container\n\t\t3 text SUGATA \u00b7 CAPTURED WARDROBE STUDY\n\t\t4 heading Ink and denim, Value: 1\n\t\t\t5 text Ink and denim\n\t\t6 text A navy tee, tonal denim and warm brown shoes, with the chin-length bob and untinted Brown hair setting. These captured views use the current g050 body study.\n\t\t7 link Description: Download this look, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json\n\t\t8 link Description: Wardrobe editor, Value: 127.0.0.1:5173/src/showcase.html\n\t\t9 text In the editor, choose \n\t\t10 text Open settings (JSON) \u2191\n\t\t11 text  and select the downloaded file. It opens in Neutral Studio with the full outfit. Compare captured views\n\t\t12 pop up button (collapsed, settable) Compare captured views, Value: Full look, ID: framing, Secondary Actions: Expand\n\t\t\t13 menu\n\t\t\t\t14 (selected) Full look\n\t\t\t\t15 Portrait\n\t\t16 container Full look in two rooms\n\t\t\t17 container\n\t\t\t\t18 image Neutral Studio full outfit: navy tee, denim and brown shoes\n\t\t\t\t19 text Neutral Studio \u00b7 Full look\n\t\t\t\t20 text Inspection lighting. \n\t\t\t\t21 link Description: View original image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png\n\t\t\t22 container\n\t\t\t\t23 image Kitchen full outfit: the same navy tee, denim and brown shoes\n\t\t\t\t24 text Kitchen \u00b7 Full look\n\t\t\t\t25 text Warmer, more shadowed room. \n\t\t\t\t26 link Description: View original image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png\n\t\t27 button (collapsed) Existing small smile \u00b7 two separate stills, Secondary Actions: Expand\n\t\t\t28 text Existing small smile \u00b7 two separate stills\n\t\t29 heading What these views show, Value: 2\n\t\t\t30 text What these views show\n\t\t31 text Colours vary with the room lighting; Neutral Studio is an inspection option, not colour calibration. Coarse hair cards, stipple and jagged neckline edges remain visible in the portraits. This is an optional clothing composition. These six captured views do not qualify other bodies, every angle, fit or continuous expression and movement.\n\t\t32 link Description: Look guide and capture notes, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md\n\nThe focused UI element is 1 AXWebArea Ink and denim \u00b7 Sugata, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+      "dom": "- main:\n  - paragraph: Sugata \u00b7 captured wardrobe study\n  - heading \"Ink and denim\" [level=1]\n  - paragraph: A navy tee, tonal denim and warm brown shoes, with the chin-length bob and untinted Brown hair setting. These captured views use the current g050 body study.\n  - link \"Download this look\":\n    - /url: ink-denim.json\n  - link \"Wardrobe editor\":\n    - /url: /src/showcase.html\n  - paragraph:\n    - text: In the editor, choose\n    - strong: Open settings (JSON) \u2191\n    - text: and select the downloaded file. It opens in Neutral Studio with the full outfit.\n  - generic: Compare captured views\n  - combobox \"Compare captured views\":\n    - option \"Full look\" [selected]\n    - option \"Portrait\"\n  - region \"Full look in two rooms\":\n    - figure \"Neutral Studio \u00b7 Full look Inspection lighting. View original image\":\n      - 'img \"Neutral Studio full outfit: navy tee, denim and brown shoes\"'\n      - strong: Neutral Studio \u00b7 Full look\n      - text: Inspection lighting.\n      - link \"View original image\":\n        - /url: ../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png\n    - figure \"Kitchen \u00b7 Full look Warmer, more shadowed room. View original image\":\n      - 'img \"Kitchen full outfit: the same navy tee, denim and brown shoes\"'\n      - strong: Kitchen \u00b7 Full look\n      - text: Warmer, more shadowed room.\n      - link \"View original image\":\n        - /url: ../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png\n  - generic \"Existing small smile \u00b7 two separate stills\"\n  - heading \"What these views show\" [level=2]\n  - paragraph: Colours vary with the room lighting; Neutral Studio is an inspection option, not colour calibration. Coarse hair cards, stipple and jagged neckline edges remain visible in the portraits.\n  - paragraph: This is an optional clothing composition. These six captured views do not qualify other bodies, every angle, fit or continuous expression and movement.\n  - paragraph:\n    - link \"Look guide and capture notes\":\n      - /url: INK-DENIM.md",
+      "state": {
+        "document": {
+          "height": 1844,
+          "width": 390
+        },
+        "images": [
+          {
+            "alt": "Neutral Studio full outfit: navy tee, denim and brown shoes",
+            "complete": true,
+            "height": 343.3359375,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "width": 356
+          },
+          {
+            "alt": "Kitchen full outfit: the same navy tee, denim and brown shoes",
+            "complete": true,
+            "height": 343.3359375,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "width": 356
+          },
+          {
+            "alt": "Neutral Studio portrait with the chin-length bob and navy tee",
+            "complete": true,
+            "height": 0,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+            "width": 0
+          },
+          {
+            "alt": "Kitchen portrait with the same chin-length bob and navy tee",
+            "complete": true,
+            "height": 0,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png",
+            "width": 0
+          },
+          {
+            "alt": "Neutral Studio portrait with the existing small smile held",
+            "complete": true,
+            "height": 314.40625,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png",
+            "width": 0
+          },
+          {
+            "alt": "Neutral Studio portrait after manual release of the small smile",
+            "complete": true,
+            "height": 314.40625,
+            "naturalHeight": 868,
+            "naturalWidth": 900,
+            "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png",
+            "width": 326
+          }
+        ],
+        "links": [
+          {
+            "download": "ink-denim.json",
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json",
+            "text": "Download this look"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/src/showcase.html",
+            "text": "Wardrobe editor"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+            "text": "View original image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+            "text": "View original image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+            "text": "View original image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png",
+            "text": "View original image"
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png",
+            "text": ""
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png",
+            "text": ""
+          },
+          {
+            "download": null,
+            "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+            "text": "Look guide and capture notes"
+          }
+        ],
+        "title": "Ink and denim \u00b7 Sugata",
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      }
+    }
+  ],
+  "operations": [
+    {
+      "at": "2026-10-04T01:32:23.411Z",
+      "method": "cua.createBrowserTab",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review.candidate.html",
+      "visible": false
+    },
+    {
+      "at": "2026-10-04T01:32:56.874Z",
+      "method": "viewport.set",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "at": "2026-10-04T01:33:10.737Z",
+      "method": "getByRole(link,See Ink and denim).press",
+      "key": "Enter"
+    },
+    {
+      "at": "2026-10-04T01:33:21.647Z",
+      "method": "getByRole(link,Open Ink comparison gallery).press",
+      "key": "Enter"
+    },
+    {
+      "at": "2026-10-04T01:33:22.213Z",
+      "method": "viewport.reset"
+    }
+  ],
+  "ratioChecks": [
+    {
+      "state": "candidate-desktop",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+      "width": 548,
+      "height": 783.9375,
+      "residualCSS": 0.006944444444457076
+    },
+    {
+      "state": "candidate-desktop",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+      "width": 548,
+      "height": 783.9375,
+      "residualCSS": 0.006944444444457076
+    },
+    {
+      "state": "candidate-desktop",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "width": 548,
+      "height": 528.5078125,
+      "residualCSS": 0.0077430555555793035
+    },
+    {
+      "state": "candidate-desktop",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "width": 548,
+      "height": 528.5078125,
+      "residualCSS": 0.0077430555555793035
+    },
+    {
+      "state": "candidate-phone",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+      "width": 356,
+      "height": 509.2734375,
+      "residualCSS": 0.004340277777771462
+    },
+    {
+      "state": "candidate-phone",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+      "width": 356,
+      "height": 509.2734375,
+      "residualCSS": 0.004340277777771462
+    },
+    {
+      "state": "candidate-phone",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "width": 356,
+      "height": 343.3359375,
+      "residualCSS": 0.006284722222233086
+    },
+    {
+      "state": "candidate-phone",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "width": 356,
+      "height": 343.3359375,
+      "residualCSS": 0.006284722222233086
+    },
+    {
+      "state": "candidate-phone-ink",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-before.png",
+      "width": 356,
+      "height": 509.2734375,
+      "residualCSS": 0.004340277777771462
+    },
+    {
+      "state": "candidate-phone-ink",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/archive/capture/desktop-long-bob.png",
+      "width": 356,
+      "height": 509.2734375,
+      "residualCSS": 0.004340277777771462
+    },
+    {
+      "state": "candidate-phone-ink",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "width": 356,
+      "height": 343.3359375,
+      "residualCSS": 0.006284722222233086
+    },
+    {
+      "state": "candidate-phone-ink",
+      "source": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "width": 356,
+      "height": 343.3359375,
+      "residualCSS": 0.006284722222233086
+    }
+  ],
+  "closed": true,
+  "viewportReset": true,
+  "logs": [],
+  "sourceSha256": "83917489c28bfca53b3f9529b7a222f22139dc8327de5903d2fb876e3bbe2088",
+  "noteSha256": "eead01f4f76f3bab31f60587b1482945cbbbc7be74de47558b66e8c78e22c22b"
+}

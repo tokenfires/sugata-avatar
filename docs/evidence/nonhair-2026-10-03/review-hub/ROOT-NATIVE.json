@@ -1,0 +1,64 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/review-hub/read-native.py",
+  "pid": 39224,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "pythonVersion": "3.14.7",
+  "started": "2026-10-04T01:35:04.474160+00:00",
+  "ended": "2026-10-04T01:35:04.593997+00:00",
+  "status": "passed",
+  "acceptedSourceCount": 380,
+  "captures": [
+    {
+      "name": "candidate-desktop",
+      "at": "2026-10-04T01:32:46.993Z",
+      "file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-desktop.jpg",
+      "bytes": 293958,
+      "sha256": "7b5539902dbf22db0bc4a34593cd780edbd47067881a906cebcb1097fb653157",
+      "fullPage": true,
+      "dimensions": [
+        1280,
+        3080
+      ]
+    },
+    {
+      "name": "candidate-phone",
+      "at": "2026-10-04T01:32:58.263Z",
+      "file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-phone.jpg",
+      "bytes": 215635,
+      "sha256": "ecb0537de3850fe54e71d4ae439fdd8d93278a8785df133ef2a5419b36538d4b",
+      "fullPage": true,
+      "dimensions": [
+        390,
+        4260
+      ]
+    },
+    {
+      "name": "candidate-phone-ink",
+      "at": "2026-10-04T01:33:11.171Z",
+      "file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-phone-ink.jpg",
+      "bytes": 35287,
+      "sha256": "7ea4a200c937438c156d333db48b382c48fd72d1b63403d2485f7123d2c924cf",
+      "fullPage": false,
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "candidate-gallery-link",
+      "at": "2026-10-04T01:33:22.208Z",
+      "file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review-hub/native/candidate-gallery-link.jpg",
+      "bytes": 39113,
+      "sha256": "19ef5b03dce724164c589188e953fae72ef0c0ef3dd4148a417cc5171ba7461c",
+      "fullPage": false,
+      "dimensions": [
+        390,
+        844
+      ]
+    }
+  ],
+  "nativeSha256": "78ef8d0ef5a4885b3b10f07dd7ce31ebcf4d80ad62190ab863c0efaa1ba18e63",
+  "readerSha256": "d8818c1fc1d84544f8723734bf276355612febcd0463003ae0c52c3be53758e5",
+  "rootVisualSha256": "ff786104e46c56c52839d34577d4827ea9661269e494b264bfe5c8bf681c4cb0",
+  "limits": "Actual four static UI images reviewed; no Avatar, general network/assistive/motion/fit/AAA claim"
+}

@@ -1,0 +1,16 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/review-hub/adopt.py",
+  "chunk": "f7a9e3",
+  "exitCode": 1,
+  "pid": null,
+  "started": null,
+  "ended": null,
+  "observedUTC": "2026-10-04 01:39:30 UTC",
+  "error": "Traceback (most recent call last):\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/review-hub/adopt.py\", line 17, in <module>\n    assert not target.exists() and not (packet/'REVIEWED.html.source').exists() and not (packet/'shortcut.before.js.source').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "witness": "Target review.html already tracked at Git blob a94d177e3f610ee513267f44cc4f7c11ff20292f, 7633 bytes; root read full target after failure in17ab5a. Existing mobile outfit/Reset/rejected-overshirt chapter was missed by root and critic inventory.",
+  "writesReached": false,
+  "buildReached": false,
+  "correctionOrReplay": false,
+  "qualification": "Four native candidate UI images remain actual finite static evidence. Shortcut, target replacement and build were not qualified; prior chapter/shortcut remain unchanged.",
+  "metadataLimit": "Cua native times recorded separately; failed exec returned no PID or full start/end. Observation time is not substituted for them."
+}

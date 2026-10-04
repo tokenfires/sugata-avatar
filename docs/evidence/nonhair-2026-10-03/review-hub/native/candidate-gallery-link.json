@@ -1,0 +1,121 @@
+{
+  "name": "candidate-gallery-link",
+  "at": "2026-10-04T01:33:21.958Z",
+  "ax": "Browser tab: 3, Title: \"Ink and denim · Sugata\", URL: \"http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html\".\n1 AXWebArea Ink and denim · Sugata, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html\n\t2 container\n\t\t3 text SUGATA · CAPTURED WARDROBE STUDY\n\t\t4 heading Ink and denim, Value: 1\n\t\t\t5 text Ink and denim\n\t\t6 text A navy tee, tonal denim and warm brown shoes, with the chin-length bob and untinted Brown hair setting. These captured views use the current g050 body study.\n\t\t7 link Description: Download this look, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json\n\t\t8 link Description: Wardrobe editor, Value: 127.0.0.1:5173/src/showcase.html\n\t\t9 text In the editor, choose \n\t\t10 text Open settings (JSON) ↑\n\t\t11 text  and select the downloaded file. It opens in Neutral Studio with the full outfit. Compare captured views\n\t\t12 pop up button (collapsed, settable) Compare captured views, Value: Full look, ID: framing, Secondary Actions: Expand\n\t\t\t13 menu\n\t\t\t\t14 (selected) Full look\n\t\t\t\t15 Portrait\n\t\t16 container Full look in two rooms\n\t\t\t17 container\n\t\t\t\t18 image Neutral Studio full outfit: navy tee, denim and brown shoes\n\t\t\t\t19 text Neutral Studio · Full look\n\t\t\t\t20 text Inspection lighting. \n\t\t\t\t21 link Description: View original image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png\n\t\t\t22 container\n\t\t\t\t23 image Kitchen full outfit: the same navy tee, denim and brown shoes\n\t\t\t\t24 text Kitchen · Full look\n\t\t\t\t25 text Warmer, more shadowed room. \n\t\t\t\t26 link Description: View original image, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png\n\t\t27 button (collapsed) Existing small smile · two separate stills, Secondary Actions: Expand\n\t\t\t28 text Existing small smile · two separate stills\n\t\t29 heading What these views show, Value: 2\n\t\t\t30 text What these views show\n\t\t31 text Colours vary with the room lighting; Neutral Studio is an inspection option, not colour calibration. Coarse hair cards, stipple and jagged neckline edges remain visible in the portraits. This is an optional clothing composition. These six captured views do not qualify other bodies, every angle, fit or continuous expression and movement.\n\t\t32 link Description: Look guide and capture notes, Value: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md\n\nThe focused UI element is 1 AXWebArea Ink and denim · Sugata, URL: 127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+  "dom": "- main:\n  - paragraph: Sugata · captured wardrobe study\n  - heading \"Ink and denim\" [level=1]\n  - paragraph: A navy tee, tonal denim and warm brown shoes, with the chin-length bob and untinted Brown hair setting. These captured views use the current g050 body study.\n  - link \"Download this look\":\n    - /url: ink-denim.json\n  - link \"Wardrobe editor\":\n    - /url: /src/showcase.html\n  - paragraph:\n    - text: In the editor, choose\n    - strong: Open settings (JSON) ↑\n    - text: and select the downloaded file. It opens in Neutral Studio with the full outfit.\n  - generic: Compare captured views\n  - combobox \"Compare captured views\":\n    - option \"Full look\" [selected]\n    - option \"Portrait\"\n  - region \"Full look in two rooms\":\n    - figure \"Neutral Studio · Full look Inspection lighting. View original image\":\n      - 'img \"Neutral Studio full outfit: navy tee, denim and brown shoes\"'\n      - strong: Neutral Studio · Full look\n      - text: Inspection lighting.\n      - link \"View original image\":\n        - /url: ../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png\n    - figure \"Kitchen · Full look Warmer, more shadowed room. View original image\":\n      - 'img \"Kitchen full outfit: the same navy tee, denim and brown shoes\"'\n      - strong: Kitchen · Full look\n      - text: Warmer, more shadowed room.\n      - link \"View original image\":\n        - /url: ../docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png\n  - generic \"Existing small smile · two separate stills\"\n  - heading \"What these views show\" [level=2]\n  - paragraph: Colours vary with the room lighting; Neutral Studio is an inspection option, not colour calibration. Coarse hair cards, stipple and jagged neckline edges remain visible in the portraits.\n  - paragraph: This is an optional clothing composition. These six captured views do not qualify other bodies, every angle, fit or continuous expression and movement.\n  - paragraph:\n    - link \"Look guide and capture notes\":\n      - /url: INK-DENIM.md",
+  "state": {
+    "document": {
+      "height": 1844,
+      "width": 390
+    },
+    "images": [
+      {
+        "alt": "Neutral Studio full outfit: navy tee, denim and brown shoes",
+        "complete": true,
+        "height": 343.3359375,
+        "naturalHeight": 868,
+        "naturalWidth": 900,
+        "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+        "width": 356
+      },
+      {
+        "alt": "Kitchen full outfit: the same navy tee, denim and brown shoes",
+        "complete": true,
+        "height": 343.3359375,
+        "naturalHeight": 868,
+        "naturalWidth": 900,
+        "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+        "width": 356
+      },
+      {
+        "alt": "Neutral Studio portrait with the chin-length bob and navy tee",
+        "complete": true,
+        "height": 0,
+        "naturalHeight": 868,
+        "naturalWidth": 900,
+        "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+        "width": 0
+      },
+      {
+        "alt": "Kitchen portrait with the same chin-length bob and navy tee",
+        "complete": true,
+        "height": 0,
+        "naturalHeight": 868,
+        "naturalWidth": 900,
+        "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png",
+        "width": 0
+      },
+      {
+        "alt": "Neutral Studio portrait with the existing small smile held",
+        "complete": true,
+        "height": 314.40625,
+        "naturalHeight": 868,
+        "naturalWidth": 900,
+        "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png",
+        "width": 0
+      },
+      {
+        "alt": "Neutral Studio portrait after manual release of the small smile",
+        "complete": true,
+        "height": 314.40625,
+        "naturalHeight": 868,
+        "naturalWidth": 900,
+        "src": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png",
+        "width": 326
+      }
+    ],
+    "links": [
+      {
+        "download": "ink-denim.json",
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json",
+        "text": "Download this look"
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/src/showcase.html",
+        "text": "Wardrobe editor"
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+        "text": "View original image"
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+        "text": "View original image"
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+        "text": "View original image"
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-portrait.png",
+        "text": "View original image"
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-held.png",
+        "text": ""
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/smile-released.png",
+        "text": ""
+      },
+      {
+        "download": null,
+        "href": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+        "text": "Look guide and capture notes"
+      }
+    ],
+    "title": "Ink and denim · Sugata",
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/looks/ink-denim-review.html",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "scope": "preservation only; no render/build/SDK/source repair",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/review-hub/freeze.py",
+  "pid": 73474,
+  "started": "2026-10-04T01:49:04.191604+00:00",
+  "ended": "2026-10-04T01:49:04.193959+00:00",
+  "files": [
+    {
+      "file": "ADOPTION-FAILED.json",
+      "bytes": 1360,
+      "sha256": "b90b7a1853ed02b8bba1ac465e2a7a7144dcdce38b27008272e7b1c4ac4673ce"
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 1371,
+      "sha256": "5f3f08cce56ae426e686312735415ca735d5970b8f39cbb0dac325d8b626ca65"
+    },
+    {
+      "file": "CRITIC-CLOSED-PINS.json",
+      "bytes": 76199,
+      "sha256": "5c0947f388465d4840b75507e0315b77adc04ac342ce19745472a880e5fda2e7"
+    },
+    {
+      "file": "CRITIC-CLOSED.md",
+      "bytes": 4564,
+      "sha256": "ab2310b4dac96f540d9db008f2f7e4535c980be2b37cbe6cb9a0563da325da19"
+    },
+    {
+      "file": "CRITIC-SOURCE-PINS.json",
+      "bytes": 77865,
+      "sha256": "5b5a038fc49689392d2edde13346b9b1648e008a93d15744d43d1bb04c7a4d32"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 4961,
+      "sha256": "c8433ed1ce4c7d3e100a7318373c1711b9953d5b01b75fb4d52a6135caa5efb8"
+    },
+    {
+      "file": "CRITIC-UI-PINS.json",
+      "bytes": 142129,
+      "sha256": "764dc76f6d5c72fb1298fb4f7a1f682c194f4ace5750ab28e00ee21c91d53a93"
+    },
+    {
+      "file": "CRITIC-UI.md",
+      "bytes": 5415,
+      "sha256": "eead01f4f76f3bab31f60587b1482945cbbbc7be74de47558b66e8c78e22c22b"
+    },
+    {
+      "file": "CUA-CAPTURE-FUNCTION.js.source",
+      "bytes": 1463,
+      "sha256": "34bb494371afd4b7fd568d98fe5c3acde49adf04a233dcbc28a5c4dac4018652"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2991,
+      "sha256": "0e9d7341dbc60007e69bf7712a1350960f4f1a4b55e8d0eb185b3638d5819b0a"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 4103,
+      "sha256": "30f25e0266edb2b6997ac449284cf14ef92036c7b53c6a5e67f5642aadd66ae7"
+    },
+    {
+      "file": "ROOT-CLOSED.json",
+      "bytes": 50545,
+      "sha256": "72150aef8a7fcb892c733217325f4ec023e1fedb6dbb88e73d86d50c0404b3e5"
+    },
+    {
+      "file": "ROOT-NATIVE.json",
+      "bytes": 2351,
+      "sha256": "7b194b147afb459e6e831a2766bc1838039e0a6041d2c6ac2518700f0bf3c9e1"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 48933,
+      "sha256": "21bff49547c94be9c3916b19062e41474752494a99a0da2accfa9d818a1d8aa1"
+    },
+    {
+      "file": "ROOT-UI-HANDOFF.json",
+      "bytes": 50863,
+      "sha256": "6b2bb27d72d5638c48f00a6229727a20aafb518126bc7b33b8bd381c5323ac06"
+    },
+    {
+      "file": "ROOT-VISUAL.md",
+      "bytes": 2371,
+      "sha256": "ff786104e46c56c52839d34577d4827ea9661269e494b264bfe5c8bf681c4cb0"
+    },
+    {
+      "file": "SOURCE.json",
+      "bytes": 50346,
+      "sha256": "8100fb8f23bc37b697a2c146f2c52043761855e8f5c523146146c8bc00fa81d8"
+    },
+    {
+      "file": "adopt.py",
+      "bytes": 2959,
+      "sha256": "daf016dbb08de70a722422b180193cf06edcf7e6b40d668d3461fe88ad3d0217"
+    },
+    {
+      "file": "candidate.html.source",
+      "bytes": 6986,
+      "sha256": "ece0c3aeab74e61bfb84556130d708a575cb8c7bc82c92758b13fcb63b7f147a"
+    },
+    {
+      "file": "check-source.py",
+      "bytes": 3232,
+      "sha256": "5290b7534cf4e6e7063a910dbb0018a62379c18380ff1c9134a66566680da6e0"
+    },
+    {
+      "file": "close-owned.py",
+      "bytes": 3144,
+      "sha256": "e3bd120e9102d08262f250591f2ae5186863e23ec687e8a1ed35132bb578ec32"
+    },
+    {
+      "file": "critic-closed-readback.py",
+      "bytes": 3762,
+      "sha256": "3e2b82c2e47bc36933ee88fbc3fe866975766cc78a19199c761c31296fb83842"
+    },
+    {
+      "file": "critic-source-readback.py",
+      "bytes": 4243,
+      "sha256": "4f2ad7755956a7b034d87fddd5e3a10c8003bebbe55e9965016973a4da9ed4b1"
+    },
+    {
+      "file": "critic-ui-readback.py",
+      "bytes": 4363,
+      "sha256": "83917489c28bfca53b3f9529b7a222f22139dc8327de5903d2fb876e3bbe2088"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1272,
+      "sha256": "a723d25d95b28785489edc7a40bbae9452e6715e4fa4aa92d810b27959c5827d"
+    },
+    {
+      "file": "native/NATIVE.json",
+      "bytes": 63114,
+      "sha256": "78ef8d0ef5a4885b3b10f07dd7ce31ebcf4d80ad62190ab863c0efaa1ba18e63"
+    },
+    {
+      "file": "native/candidate-desktop.jpg",
+      "bytes": 293958,
+      "sha256": "7b5539902dbf22db0bc4a34593cd780edbd47067881a906cebcb1097fb653157"
+    },
+    {
+      "file": "native/candidate-desktop.json",
+      "bytes": 16286,
+      "sha256": "c5ad562a6417d04fcb409b06834eb8672bc4e159c44ef5a13ee5e7a7b79b6aaa"
+    },
+    {
+      "file": "native/candidate-gallery-link.jpg",
+      "bytes": 39113,
+      "sha256": "19ef5b03dce724164c589188e953fae72ef0c0ef3dd4148a417cc5171ba7461c"
+    },
+    {
+      "file": "native/candidate-gallery-link.json",
+      "bytes": 9670,
+      "sha256": "2504276ebafee3c36a82c8adb35a07aab8658c8a9b3d8bddda0840f6c6e9ce7a"
+    },
+    {
+      "file": "native/candidate-phone-ink.jpg",
+      "bytes": 35287,
+      "sha256": "7ea4a200c937438c156d333db48b382c48fd72d1b63403d2485f7123d2c924cf"
+    },
+    {
+      "file": "native/candidate-phone-ink.json",
+      "bytes": 16308,
+      "sha256": "372736b0a5679a43c4e0ae13eecfc283a02fef62ff5641514539a8f45f98788d"
+    },
+    {
+      "file": "native/candidate-phone.jpg",
+      "bytes": 215635,
+      "sha256": "ecb0537de3850fe54e71d4ae439fdd8d93278a8785df133ef2a5419b36538d4b"
+    },
+    {
+      "file": "native/candidate-phone.json",
+      "bytes": 16288,
+      "sha256": "52476e5f70b5f23ccb243eef8338bd8a0e634dcbc24b9ef1cac3d26119a7cc1d"
+    },
+    {
+      "file": "read-native.py",
+      "bytes": 3200,
+      "sha256": "d8818c1fc1d84544f8723734bf276355612febcd0463003ae0c52c3be53758e5"
+    },
+    {
+      "file": "root-preflight.py",
+      "bytes": 2253,
+      "sha256": "3b7492cffbc66601f5e4750247f60022c5a9159b3705a33e9dc5183b7227bcb6"
+    },
+    {
+      "file": "root-ui-handoff.py",
+      "bytes": 3005,
+      "sha256": "b5b694d5df57e45b2b8f4623d5d4204f98966abf2499dc1d074631151e0ed54a"
+    }
+  ],
+  "payloadBytes": 1271908,
+  "candidateArchive": "candidate.html.source",
+  "qualification": "finite candidate page only; adoption refused; current product unchanged"
+}
