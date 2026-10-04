@@ -1,0 +1,57 @@
+{
+  "createdUTC": "2026-10-04T21:56:50.297207+00:00",
+  "sourceGateUTC": "2026-10-04T21:58:00Z",
+  "readerGateUTC": "2026-10-04T22:03:00Z",
+  "resultGateUTC": "2026-10-04T22:08:00Z",
+  "rootGateUTC": "2026-10-04T22:13:00Z",
+  "maximumReaderInvocations": 1,
+  "timeoutSeconds": 30,
+  "boundToleranceMetres": 1e-06,
+  "observationPath": "docs/evidence/appearance-2026-10-04/shared-quad-knit/OBSERVATIONS.json",
+  "inputs": {
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/OBSERVATIONS.json": {
+      "bytes": 1634484,
+      "sha256": "bb4069a041b9bbb9d5a1c8a5bfd70e16e2677649eb225d4772f5f56be5d2ef7b"
+    },
+    "assets/wardrobe/body/g050.glb": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "assets/wardrobe/foundation_bra/g050.glb": {
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    "assets/wardrobe/foundation_briefs/g050.glb": {
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    "node_modules/three/package.json": {
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    "node_modules/three/src/objects/Mesh.js": {
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    "node_modules/three/src/objects/SkinnedMesh.js": {
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    "node_modules/three/src/math/Vector3.js": {
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    "node_modules/three/src/math/Vector4.js": {
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28"
+    },
+    "node_modules/three/src/math/Matrix4.js": {
+      "bytes": 34258,
+      "sha256": "11d813da5b4a03de3e75dcb9780657a9cc276f682c30aa876c461d6429dcf39c"
+    },
+    "node_modules/three/examples/jsm/loaders/GLTFLoader.js": {
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  }
+}

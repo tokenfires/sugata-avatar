@@ -1,0 +1,85 @@
+{
+  "utc": "2026-10-04T21:57:31.768413+00:00",
+  "sourceFilesParsedOnly": [
+    "reader.py",
+    "runner.py"
+  ],
+  "actualSourcePinsVerified": {
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/PLAN.md": {
+      "bytes": 3680,
+      "sha256": "29910c21192b969887ae1cc0a466bb047114c5feed226119970ac13f8a31fe1c"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/WORTH.md": {
+      "bytes": 2894,
+      "sha256": "f5fc6fd0448b85b34fa987a37a2334c89815dbb8f7c84b450be5f605226fbc59"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/ROOT-WORTH.json": {
+      "bytes": 664,
+      "sha256": "e29bc27203ae07087d4e29d54027e79ad1ba131d835cc57263a3c530330a2c7c"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/CONTRACT.json": {
+      "bytes": 2237,
+      "sha256": "cb888b78d97e65744cf686556e90dd1a0d063a4faa000f99f8475257e290f9bd"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/SOURCE.md": {
+      "bytes": 3245,
+      "sha256": "db3c453a3826b1ee21d03150eb70352a66284b36724f2f9f49c42f98c7040ec5"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/reader.py": {
+      "bytes": 10694,
+      "sha256": "c6d1cd94d3b7540112b364a72e178cce85842ca4d217533d24e2fbeb951ab7ac"
+    },
+    "docs/evidence/appearance-2026-10-04/coupled-source-ledger/runner.py": {
+      "bytes": 3124,
+      "sha256": "18c9741202bb1490b7120923461fa047beee898834680ddaa27068e813026d14"
+    },
+    "docs/evidence/appearance-2026-10-04/shared-quad-knit/OBSERVATIONS.json": {
+      "bytes": 1634484,
+      "sha256": "bb4069a041b9bbb9d5a1c8a5bfd70e16e2677649eb225d4772f5f56be5d2ef7b"
+    },
+    "assets/wardrobe/body/g050.glb": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "assets/wardrobe/foundation_bra/g050.glb": {
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    "assets/wardrobe/foundation_briefs/g050.glb": {
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    "node_modules/three/package.json": {
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    "node_modules/three/src/objects/Mesh.js": {
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    "node_modules/three/src/objects/SkinnedMesh.js": {
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    "node_modules/three/src/math/Vector3.js": {
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    "node_modules/three/src/math/Vector4.js": {
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28"
+    },
+    "node_modules/three/src/math/Matrix4.js": {
+      "bytes": 34258,
+      "sha256": "11d813da5b4a03de3e75dcb9780657a9cc276f682c30aa876c461d6429dcf39c"
+    },
+    "node_modules/three/examples/jsm/loaders/GLTFLoader.js": {
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  },
+  "recordedOwnerAssociationsVerified": 9,
+  "readerInvocations": 0,
+  "originalGLBDecodeInvocations": 0,
+  "status": "source preflight only; full critic plus root admission still required before21:58"
+}

@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-04T22:07:35.604337+00:00",
+  "baseline": "4ec349a",
+  "decision": "B unrun; complete static source preparation only",
+  "payloads": {
+    "ROOT-SOURCE-PREFLIGHT.json": {
+      "bytes": 3485,
+      "sha256": "70533ef05e02afadbebf75792fe492f5d8b5d2fa37ae5cfac94dc00aa18f6083"
+    },
+    "RECEIPT.md": {
+      "bytes": 5430,
+      "sha256": "111de5e953096918ab29578f8472625e0e0a1524d6bd9e9d0c4a8492a66d3b7a"
+    },
+    "runner.py": {
+      "bytes": 3124,
+      "sha256": "18c9741202bb1490b7120923461fa047beee898834680ddaa27068e813026d14"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 7740,
+      "sha256": "86ba6d01829d64cb9f7e501abddd2ed5825e2f3649e4a4b121425a67b97822b9"
+    },
+    "SOURCE.md": {
+      "bytes": 3245,
+      "sha256": "db3c453a3826b1ee21d03150eb70352a66284b36724f2f9f49c42f98c7040ec5"
+    },
+    "PRIMARY-SOURCE-READ.json": {
+      "bytes": 2227,
+      "sha256": "1332f9834cafaa02db335490dba57c04cdec852a49321e5d818324a0a315a56c"
+    },
+    "CLOSED.json": {
+      "bytes": 574,
+      "sha256": "8cea174bd21b5e56a0dd9a45004ebd4e7258be63276b5735482c1c48674fd29e"
+    },
+    "ROOT-WORTH-PREFLIGHT.json": {
+      "bytes": 523,
+      "sha256": "e4001e13a305a66996fc48abc8435533b5d2f134204110aac184226da0830e76"
+    },
+    "ROOT-WORTH.json": {
+      "bytes": 664,
+      "sha256": "e29bc27203ae07087d4e29d54027e79ad1ba131d835cc57263a3c530330a2c7c"
+    },
+    "CHECKPOINT.md": {
+      "bytes": 2311,
+      "sha256": "31526fdc10ef27325ec5ef606f501c3b4793419c0d12f699675544ff52365e22"
+    },
+    "README.md": {
+      "bytes": 1502,
+      "sha256": "292c59aa869d86823b15ab5085c7d23f9fe6b9ceb2f372326aeae717e3239d31"
+    },
+    "reader.py": {
+      "bytes": 10694,
+      "sha256": "c6d1cd94d3b7540112b364a72e178cce85842ca4d217533d24e2fbeb951ab7ac"
+    },
+    "VERIFICATION.md": {
+      "bytes": 1993,
+      "sha256": "72ea64855364d53188882f722b3a2d85adc2e12115edc696408f1afc60a2ce0b"
+    },
+    "PLAN.md": {
+      "bytes": 3680,
+      "sha256": "29910c21192b969887ae1cc0a466bb047114c5feed226119970ac13f8a31fe1c"
+    },
+    "WORTH-INPUTS.json": {
+      "bytes": 1775,
+      "sha256": "027fdca90c936d30623c59d139ecc0321c29fd71b53d63a65a09629ba958f90a"
+    },
+    "SOURCE-RECEIPT.json": {
+      "bytes": 4976,
+      "sha256": "c4c22b12d87e5d84af41d46c344a88848c8af8dddf590a44614ea65bf33e8f0f"
+    },
+    "WORTH.md": {
+      "bytes": 2894,
+      "sha256": "f5fc6fd0448b85b34fa987a37a2334c89815dbb8f7c84b450be5f605226fbc59"
+    },
+    "SOURCE-INPUTS.json": {
+      "bytes": 3197,
+      "sha256": "eadb44d2d4642f86ab027920f06500545ffeedf086c4fdfc89780f8ce32262b6"
+    },
+    "CONTRACT.json": {
+      "bytes": 2237,
+      "sha256": "cb888b78d97e65744cf686556e90dd1a0d063a4faa000f99f8475257e290f9bd"
+    },
+    "SOURCE-RESULT.md": {
+      "bytes": 3633,
+      "sha256": "187315d313623ea40c69d51cb01aa4c602be6c151a4959470d1e0808725b1c32"
+    }
+  }
+}

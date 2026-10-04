@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-04T21:59:22.938336+00:00",
+  "decision": "B unrun: complete critic handoff and root admission absent at fixed21:58UTC; no extension",
+  "readerInvocations": 0,
+  "originalGLBDecodeInvocations": 0,
+  "nativeInvocations": 0,
+  "outputsAbsent": [
+    "LEDGER-PARTIAL.json",
+    "LEDGER.json",
+    "INVENTORY.md",
+    "READER-JOB.json",
+    "RUN-PROCESS.json",
+    "STDOUT.txt",
+    "STDERR.txt"
+  ],
+  "sourcePinsStillExact": 18,
+  "next": "Collect static source review and preserve source draft. No decoder replay or late execution under this contract."
+}

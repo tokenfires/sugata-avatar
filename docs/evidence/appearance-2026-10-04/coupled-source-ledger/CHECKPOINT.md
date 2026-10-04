@@ -1,0 +1,11 @@
+# Recoverable source-preparation checkpoint
+
+Baseline4ec349a. The original-surface reader is drafted and unrun. Source review and root admission missed the fixed21:58UTC cutoff; [CLOSED.json](CLOSED.json) refuses execution without changing the21:58/22:03/22:08/22:13 contract. There is no source ledger, fresh GLB decode, body fit or new native trial.
+
+The independent critic completed the static review at22:02:33UTC. Root fully read its source/result/receipt and independently reconciled21 receipt pins, four direct bindings, nine UUID/joint orders and45 selected descriptors at22:04:12UTC. No concrete source blocker was found. Retain these actual source witnesses before any future decision. A late static opinion cannot admit this closed reader. A separately declared first complete surface-ledger experiment remains worthwhile: the39,546-point/triangle authority is still missing and no actual reader answered it. Fresh full source/root admission remains necessary; never inherit expired admission.
+
+[Source inputs](SOURCE-INPUTS.json) own eighteen exact pins: eleven original/installed inputs plus seven plan/worth/source files. [Root preflight](ROOT-SOURCE-PREFLIGHT.json) verifies them, syntax by ast.parse only, and all nine saved source-node UUID/primitive associations. [Primary reads](PRIMARY-SOURCE-READ.json) record the actual current installed equations. No accepted/default/frozen/reference/unrelated work was edited.
+
+The shared-index sweater’s [rear appearance refusal](../shared-quad-knit/RESULT.md) remains closed; its source is retained for editing, without promotion. Future construction still needs complete jointly owned original surfaces, enclosure and intentional openings. Full AAA character, wardrobe, expression, representation, fit/motion and performance scope remains open.
+
+Latest human resume remains current; newer check-in/pause takes precedence. Review PID1023 is verified listening127.0.0.1:5173 at22:01:33UTC. Saved automation remains ACTIVE, ten-minute heartbeat, same chat; no mutation. Six pre-existing user tabs were preserved at the prior owned-tab closure; no browser action in this slice. No owned decoder/native process or run has started. On pause collect or stop owned work, preserve checkpoint, retain review and pause the heartbeat through app API/readback.

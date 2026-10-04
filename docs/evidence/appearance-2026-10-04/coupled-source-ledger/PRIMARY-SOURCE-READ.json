@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-04T22:01:06.684174+00:00",
+  "kind": "installed primary static source read; no execution",
+  "threePackage": "0.185.1",
+  "references": [
+    {
+      "path": "node_modules/three/src/objects/Mesh.js",
+      "linesActuallyRead": "176-215",
+      "responsibility": "base POSITION; zero influences skip morph terms",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "node_modules/three/src/objects/SkinnedMesh.js",
+      "linesActuallyRead": "262-286;310-377",
+      "responsibility": "four-weight L1 normalization; bind homogeneous base4; boneWorld*IBM; first3 weighted; bindInverse",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "node_modules/three/src/math/Vector3.js",
+      "linesActuallyRead": "278-284;450-463",
+      "responsibility": "weighted first3; homogeneous Vector3 matrix division",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    {
+      "path": "node_modules/three/src/math/Vector4.js",
+      "linesActuallyRead": "444-459;899-903",
+      "responsibility": "ordinary homogeneous four-component matrix multiplication; L1 norm",
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28"
+    },
+    {
+      "path": "node_modules/three/src/core/BufferAttribute.js",
+      "linesActuallyRead": "610-637",
+      "responsibility": "setXYZW writes normalized values to original typed array",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "linesActuallyRead": "2708-2758;3832-3857;3987-4050;4200-4240",
+      "responsibility": "exact parser JSON flags; skin normalization; joint/IBM ordering; identity binding",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  ],
+  "limits": "Current installed engine, zero-morph saved operands only. No fresh GLB decode or source-point/GPU/fit equivalence observed."
+}
