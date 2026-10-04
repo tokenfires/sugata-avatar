@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import { selectionFromConfiguration, showcaseSettingsUrl } from '../../../../packages/testbed/src/showcase-settings.mjs';
+import { resolveShowcaseSelection, optionsForShowcase } from '../../../../packages/testbed/src/showcase-presets.mjs';
+const started=new Date().toISOString();
+const packet='docs/evidence/nonhair-2026-10-03/ink-entry-value/';
+const recipe=JSON.parse(fs.readFileSync('looks/ink-denim.json','utf8'));
+const selection=selectionFromConfiguration(recipe);
+const url=showcaseSettingsUrl(selection,'http://127.0.0.1:5173/src/showcase.html');
+const reconstructed=optionsForShowcase(resolveShowcaseSelection(url.searchParams));
+assert.deepEqual(reconstructed,recipe);
+const paths=['looks/ink-denim.json','looks/INK-DENIM.md','looks/ink-denim-review.html','packages/testbed/src/showcase.html','packages/testbed/src/showcase.js','packages/testbed/src/showcase-presets.mjs','packages/testbed/src/showcase-settings.mjs','packages/testbed/src/showcase-colours.mjs',packet+'PLAN.md',packet+'root-options.mjs'];
+const pins=Object.fromEntries(paths.map(path=>[path,crypto.createHash('sha256').update(fs.readFileSync(path)).digest('hex')]));
+const result={scope:'Existing settings helper only, no Avatar, renderer, browser, geometry, build or product mutation',command:'node docs/evidence/nonhair-2026-10-03/ink-entry-value/root-options.mjs',pid:process.pid,node:process.version,started,ended:new Date().toISOString(),selection,url:url.href,relativeUrl:url.pathname+url.search,exactRecipe:true,pins};
+fs.writeFileSync(packet+'ROOT-OPTIONS.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result,null,2));

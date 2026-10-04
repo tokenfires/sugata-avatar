@@ -1,0 +1,31 @@
+{
+  "scope": "Independent filesystem/JSON/header readback only, no browser/Avatar/API replay",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/ink-entry-value/root-handoff.py",
+  "pid": 34168,
+  "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "started": "2026-10-04T00:54:26.345367+00:00",
+  "ended": "2026-10-04T00:54:26.348065+00:00",
+  "sourceSha256": "f05a5b08208aee86192b7ed07fab57d5c4537cc855da9bd4eae2fb96f980d21c",
+  "criticReceiptSha256": "22275984c4b7cceb01f07a46579b6b9a2d34e685e613ec2a633bff0d6067b81c",
+  "checkedPins": 15,
+  "images": 3,
+  "criticMetadata": {
+    "scope": "FS/header metadata only; root helper receipt source-read, not re-executed; no SDK/browser/renderer/API evaluation",
+    "command": "python3 docs/evidence/nonhair-2026-10-03/ink-entry-value/critic-pins.py",
+    "pid": 28132,
+    "interpreter": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "started": "2026-10-04T00:52:54.121735+00:00",
+    "ended": "2026-10-04T00:52:54.123484+00:00",
+    "readerSha256": "6ed4d63959b89a3876cf7e27ee24569d0d27a6dcecb7535c1fadd0516ed4582f",
+    "rootHelper": {
+      "command": "node docs/evidence/nonhair-2026-10-03/ink-entry-value/root-options.mjs",
+      "pid": 15212,
+      "started": "2026-10-04T00:49:00.523Z",
+      "ended": "2026-10-04T00:49:00.530Z",
+      "exactRecipe": true,
+      "url": "/src/showcase.html?hairColour=%23413934&preset=casual&outfit=casual&style=ecru&frame=body&scene=studio&light=neutral&topColor=%2332495e&bottomColor=%2335485c&shoesColor=%2348382e"
+    }
+  },
+  "decision": "A worthwhile; separate literal implementation/source/native UI/export contract required"
+}

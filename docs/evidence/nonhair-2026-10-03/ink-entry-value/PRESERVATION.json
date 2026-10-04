@@ -1,0 +1,128 @@
+{
+  "scope": "Source/image-worth preservation; external hashes are the pre-entry epoch",
+  "command": "preservation-only Python stdin",
+  "pid": 36832,
+  "started": "2026-10-04T00:55:32.277211+00:00",
+  "ended": "2026-10-04T00:55:32.277876+00:00",
+  "fileCount": 10,
+  "bytes": 30287,
+  "files": {
+    "CRITIC-PINS.json": {
+      "bytes": 4568,
+      "sha256": "22275984c4b7cceb01f07a46579b6b9a2d34e685e613ec2a633bff0d6067b81c"
+    },
+    "CRITIC-VALUE.md": {
+      "bytes": 7512,
+      "sha256": "d6e4b1323fff7273eb64bbd6774b1ccc7efc44967afd62968e09f9ea19bdf179"
+    },
+    "PLAN.md": {
+      "bytes": 2711,
+      "sha256": "2b9d5240ef4bd8e9bdf3fc834457dd0a7ea920aa35ac013b598e37973efd1fbb"
+    },
+    "RECEIPT.md": {
+      "bytes": 2469,
+      "sha256": "0b55d1d73b8e15d38a52cb9bc18a1563cfeab381cadc3253ceeeac2d1077cd53"
+    },
+    "ROOT-HANDOFF.json": {
+      "bytes": 1738,
+      "sha256": "5707a516709b49e0d6933fbcffc0f43314cc227d7f9d08593a39ddb89137ff61"
+    },
+    "ROOT-OPTIONS.json": {
+      "bytes": 2178,
+      "sha256": "aaf9a21056bb7585d01a7a2769f94d2c01a3d5e3455679ab163b068a9559f725"
+    },
+    "ROOT-WITNESS.md": {
+      "bytes": 2462,
+      "sha256": "fb456e1baab43dbfbc678390c0abdf1e7cd908212b77b60e9c723a7838fe97f3"
+    },
+    "critic-pins.py": {
+      "bytes": 2796,
+      "sha256": "6ed4d63959b89a3876cf7e27ee24569d0d27a6dcecb7535c1fadd0516ed4582f"
+    },
+    "root-handoff.py": {
+      "bytes": 2124,
+      "sha256": "f05a5b08208aee86192b7ed07fab57d5c4537cc855da9bd4eae2fb96f980d21c"
+    },
+    "root-options.mjs": {
+      "bytes": 1729,
+      "sha256": "937d8ce44b6b50a2f0336e556f38c13bf7fbada45a60630e676f4928f1a14d61"
+    }
+  },
+  "externalPins": [
+    {
+      "path": "looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    {
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    {
+      "path": "looks/ink-denim-review.html",
+      "bytes": 6505,
+      "sha256": "aade8dfb6aa59fe60e5da0bec1aaa1fad08153a02feb2ee4c712c60831683d0e"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/PLAN.md",
+      "bytes": 2711,
+      "sha256": "2b9d5240ef4bd8e9bdf3fc834457dd0a7ea920aa35ac013b598e37973efd1fbb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/root-options.mjs",
+      "bytes": 1729,
+      "sha256": "937d8ce44b6b50a2f0336e556f38c13bf7fbada45a60630e676f4928f1a14d61"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-portrait.png",
+      "bytes": 812113,
+      "sha256": "bf331b7f391c194e41597f78e7a10438b2371cbf4cc2f3b9b2f493050c094644"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-review-page/desktop-body.jpg",
+      "bytes": 108764,
+      "sha256": "01fe620b3c6efa6a2ec127422fc7148a8e8294dde47f5f062c5df3a591ee9258"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/ROOT-OPTIONS.json",
+      "bytes": 2178,
+      "sha256": "aaf9a21056bb7585d01a7a2769f94d2c01a3d5e3455679ab163b068a9559f725"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-entry-value/CRITIC-VALUE.md",
+      "bytes": 7512,
+      "sha256": "d6e4b1323fff7273eb64bbd6774b1ccc7efc44967afd62968e09f9ea19bdf179"
+    }
+  ]
+}
