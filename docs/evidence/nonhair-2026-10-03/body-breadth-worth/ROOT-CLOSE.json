@@ -1,0 +1,31 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/body-breadth-worth/root-close.py",
+  "pid": 75830,
+  "started": "2026-10-04T04:58:51.324091+00:00",
+  "ended": "2026-10-04T04:58:51.325376+00:00",
+  "pins": {
+    "PLAN.md": {
+      "bytes": 2204,
+      "sha256": "43bd8f7f87882f769f3d0a3ee2d4071387cb973325f637cb74e88302abe44267"
+    },
+    "WORTH.md": {
+      "bytes": 6018,
+      "sha256": "52753a047f270a046cf6c2acb7098c03ac19be655db452860512fea9ff111d9d"
+    },
+    "CRITIC-WORTH-PINS.json": {
+      "bytes": 2528,
+      "sha256": "24c416257dfc4e0608798559e6b45e29f492509fef8c6a5beb647ebd800d4d77"
+    },
+    "critic-worth-pins.py": {
+      "bytes": 1886,
+      "sha256": "379309a59bc42564c7353491e630a6fc4da2302221ef625058c71a3898d3c5c2"
+    },
+    "root-close.py": {
+      "bytes": 1701,
+      "sha256": "5a3c532b0c96dbe71ac257a840f9cc0293b3d233182a7714c366584466314648"
+    }
+  },
+  "independentCurrentBindings": 9,
+  "decision": "B: no literal new artist curation target; supported nearest-bake variation alone does not deliver a curated starter. No global image absence/duplication or endpoint appearance inference.",
+  "scope": "Root fully reads handoff/reader/metadata, independently reconciles all nine current source/image bindings; no parser/import/runtime/native activity."
+}

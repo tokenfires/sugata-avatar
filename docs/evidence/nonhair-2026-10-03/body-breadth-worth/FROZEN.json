@@ -1,0 +1,49 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/body-breadth-worth/freeze.py",
+  "pid": 76053,
+  "started": "2026-10-04T05:00:57.338765+00:00",
+  "ended": "2026-10-04T05:00:57.339219+00:00",
+  "pins": [
+    {
+      "file": "CRITIC-WORTH-PINS.json",
+      "bytes": 2528,
+      "sha256": "24c416257dfc4e0608798559e6b45e29f492509fef8c6a5beb647ebd800d4d77"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2204,
+      "sha256": "43bd8f7f87882f769f3d0a3ee2d4071387cb973325f637cb74e88302abe44267"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 2469,
+      "sha256": "f7688a0de5f2697107062a8dda77576e13e3c472e90fe251a20534ac1c42e437"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 1298,
+      "sha256": "6ff657e9d9e4ee43efcf8d5e994b2877e28e705f20583b23b526f4412783698b"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 6018,
+      "sha256": "52753a047f270a046cf6c2acb7098c03ac19be655db452860512fea9ff111d9d"
+    },
+    {
+      "file": "critic-worth-pins.py",
+      "bytes": 1886,
+      "sha256": "379309a59bc42564c7353491e630a6fc4da2302221ef625058c71a3898d3c5c2"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 1701,
+      "sha256": "5a3c532b0c96dbe71ac257a840f9cc0293b3d233182a7714c366584466314648"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}
