@@ -1,0 +1,54 @@
+{
+  "command": "node docs/evidence/hair-2026-10-03/surface-guides/prepare.mjs",
+  "pid": 72175,
+  "started": "2026-10-04T04:25:42.672Z",
+  "ended": "2026-10-04T04:25:42.686Z",
+  "pins": {
+    "GUIDES.json": {
+      "bytes": 91641,
+      "sha256": "d457064a69b3fc9547c569f8a8f874e104d0b81c2b8d9a35e17fd09314d9c304"
+    },
+    "SOURCE-TRIANGLES.json": {
+      "bytes": 18083,
+      "sha256": "221ee2c48efbde4dcf66e9d2835d9c7b702ed00ac76d950dfd64a5ac81a256ba"
+    },
+    "PLAN.md": {
+      "bytes": 5175,
+      "sha256": "860cbc56177f817b5e9d2b2c821db56e01976aeda9ac7dc3fe15d1badedca3e3"
+    },
+    "author.mjs": {
+      "bytes": 5594,
+      "sha256": "f031a152c13170efe6fa80aa9f8cc9b878dafb5718161a6afe285dffccd9771f"
+    },
+    "AUTHOR.json": {
+      "bytes": 1117,
+      "sha256": "f02a7f4a7e017458e6c3f3b574f46425d8f2d9a7d19bae1c00166520c21257c9"
+    },
+    "CRITIC-LITERAL.md": {
+      "bytes": 5876,
+      "sha256": "04927846e4a73ed7cc4a7ee1df00503f322c770537fe682df76cde2bd36df823"
+    },
+    "critic-literal-read.py": {
+      "bytes": 5896,
+      "sha256": "143c7a33b070f53de399fd6253888fbc4bdc498d6b0367d46b7d4c565ae2687d"
+    },
+    "CRITIC-LITERAL-READBACK.json": {
+      "bytes": 2159,
+      "sha256": "7b431e28729a596e1f091e11c548711f47f8c30526759cf7bec2997ed741e285"
+    },
+    "prepare.mjs": {
+      "bytes": 3171,
+      "sha256": "fbe9d7dc9a44b8d13a2099a1afa3a77d84a1a52c20435ac5eccc7860fd21773b"
+    }
+  },
+  "source": {
+    "file": "assets/figures/figure_g050.glb",
+    "mesh": "base.001",
+    "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "positions": 14517,
+    "triangles": 26756
+  },
+  "maximumRootResidual": 2.2771838694454674e-16,
+  "maximumNormalResidual": 0,
+  "scope": "Root independently reconciles every critic pin and all actual native triangles, weighted roots and oriented normals. Literal source snapshots made read-only before construction. No curve/geometry/native activity."
+}

@@ -1,0 +1,55 @@
+{
+  "command": "python3 docs/evidence/hair-2026-10-03/surface-guides/root-handoff.py",
+  "pid": 74532,
+  "started": "2026-10-04T04:46:57.526355+00:00",
+  "ended": "2026-10-04T04:46:57.552142+00:00",
+  "pins": {
+    "CRITIC-RESULT.md": {
+      "bytes": 7988,
+      "sha256": "3ac4ff463bf966a790fa30d9b12f541eade3a63249a67588b36260637ed0ac4f"
+    },
+    "CRITIC-RESULT-READBACK.json": {
+      "bytes": 3899,
+      "sha256": "5ca73c81cd68a201e81c512219dd28524149232267062eaefa2bfe98df502a41"
+    },
+    "critic-result-read.py": {
+      "bytes": 8078,
+      "sha256": "d867d3d0737981972a2c4e4b25bf8094070d00a4cb862a06410a128aa9870388"
+    },
+    "root-handoff.py": {
+      "bytes": 3843,
+      "sha256": "433fa3e167eec348c859d05e7e445e69f11bbf272f6afa5a83e7679fe0047c1e"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 6217,
+      "sha256": "3915f6d8bdd5c37496c160619850cd30b37287e259552e9a23c3aad0fb42c061"
+    },
+    "RECEIPT.md": {
+      "bytes": 6012,
+      "sha256": "a75876e7845a70f98e351d3b13c4a004bbefccb138a91da14c21c894c23ab9c6"
+    },
+    "ROOT-VISUAL.md": {
+      "bytes": 1561,
+      "sha256": "58c146b363998d1d10d0941d18f066e0e8ed8d1b81a1d624c7ae9c61fb3a9bcf"
+    }
+  },
+  "criticNativeBindings": 5,
+  "criticSourceBindings": 23,
+  "nominalBounds": {
+    "min": [
+      -0.9634243469098286,
+      -0.7090502146776444,
+      0.9871502046638861
+    ],
+    "max": [
+      0.6595855248545026,
+      0.6227567639645114,
+      0.9892755769740971
+    ],
+    "residual": 1.1102230246251565e-16,
+    "scope": "Independent arithmetic replay using stored construction head matrix and actual recorded camera matrix/projection, not an independently observed view-time head matrix or in-pass framing."
+  },
+  "posedRootResidual": 2.220446049250313e-16,
+  "orthonormalResidual": 8.881784197001252e-16,
+  "decision": "B: no composed image/appearance adoption; retain exact artist-source construction lead, first margin refusal and clean recorded release. No immediate replay."
+}

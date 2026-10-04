@@ -1,0 +1,39 @@
+{
+  "command": "python3 docs/evidence/hair-2026-10-03/surface-guide-worth/freeze.py",
+  "pid": 74655,
+  "started": "2026-10-04T04:48:07.448579+00:00",
+  "ended": "2026-10-04T04:48:07.449058+00:00",
+  "pins": [
+    {
+      "file": "CRITIC-WORTH.md",
+      "bytes": 6331,
+      "sha256": "96d3a9ae055f2da3be7adc8f98a19fb1899c07a4a6aed2b6927dce1900e33710"
+    },
+    {
+      "file": "PRIMARY-BLENDER.json",
+      "bytes": 12286,
+      "sha256": "26f5a33d5ab63fdf1d7dd9a6b253915ac5342cfabfed036ee372fa6b225b6040"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 2598,
+      "sha256": "1ed9e2e87e6657f13c126d86df3f28f06675de04c0d33bd9b936e3d4db490cf8"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 3318,
+      "sha256": "276b09d556e1f039e71d656a6e38670c8e3eb7c5a53c397076b595eb0c6da1d8"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "root-close.py",
+      "bytes": 2565,
+      "sha256": "1c9a5cf9d6b52758a8831cf24fc7337e9928d2ba9d4c8a2b21ff0e1874b18d35"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}

@@ -1,0 +1,80 @@
+{
+  "command": "python3 docs/evidence/hair-2026-10-03/surface-guide-worth/root-close.py",
+  "pid": 70374,
+  "startUTC": "2026-10-04T04:09:16.795551+00:00",
+  "endUTC": "2026-10-04T04:09:16.802594+00:00",
+  "pins": [
+    {
+      "file": "reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg",
+      "bytes": 41538,
+      "sha256": "ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e"
+    },
+    {
+      "file": "reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg",
+      "bytes": 45362,
+      "sha256": "5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/front-design/concept-v1.png",
+      "bytes": 1456522,
+      "sha256": "568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503"
+    },
+    {
+      "file": "captures/whole-front-blockout-2026-10-03-v1/proposal-front.png",
+      "bytes": 510397,
+      "sha256": "86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752"
+    },
+    {
+      "file": "captures/whole-front-blockout-2026-10-03-v1/proposal-oblique.png",
+      "bytes": 511861,
+      "sha256": "370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df"
+    },
+    {
+      "file": "assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "file": "docs/DAY-REPORT-2026-09-30.md",
+      "bytes": 8218,
+      "sha256": "e1f9fbf7b0dc6dc78f5380214e1a9604f14449ccac788bbc166c510c23e01743"
+    },
+    {
+      "file": "docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "bytes": 6104,
+      "sha256": "ca4e33586c29a0393848c512082e4d3c5c556233a87e9aebc44f2156e7545477"
+    },
+    {
+      "file": "docs/research/bob-appearance-brief-2026-09-29.md",
+      "bytes": 19023,
+      "sha256": "12f4ab8ca6ba4bd4771d48e9229da4a1617564f750813cba23f33ae0c38c6799"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/front-design/SOURCE-DECISION.md",
+      "bytes": 3498,
+      "sha256": "44dc6ad0d08becec4534c44a3b768e6995bec0d6e46efa410f1b4688aca72fa7"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/front-design/DOMAIN-DECISION.md",
+      "bytes": 9948,
+      "sha256": "6d376ca2d1a80de81196b2aaf8c0602381bf7a4ef156c3901c468f346bac2244"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md",
+      "bytes": 3851,
+      "sha256": "0841df018c1cc472957dfde2ec3b9c54309526d83a37d48bc445052cdb109dcb"
+    },
+    {
+      "file": "docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-ROOT-DECISION.md",
+      "bytes": 3929,
+      "sha256": "b6d196356a1df8247b419b0afc931ec075ffbaf6b6ea62476baeeefe041a6ca0"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/whole-front-blockout/ROOT-VISUAL-DECISION.md",
+      "bytes": 2723,
+      "sha256": "94ab3e74358b200ceeed82bf231fdcc14c12e1c0aaf2e1d8e5e5d92367656ad1"
+    }
+  ],
+  "decision": "Conditional A: root full critic and source-history read, all five whole images actually viewed, exact image handoff reconciled. A literal exported-root/curve/width/backing/attachment contract must precede construction; no builder/native admission.",
+  "limits": "FS/hash only; no asset parse/surface evaluate/geometry/SDK/native/capture/default change."
+}

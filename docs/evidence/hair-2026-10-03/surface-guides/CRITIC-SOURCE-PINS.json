@@ -1,0 +1,101 @@
+{
+  "command": "python3 docs/evidence/hair-2026-10-03/surface-guides/critic-source-pins.py",
+  "pid": 73290,
+  "started": "2026-10-04T04:35:07.004125+00:00",
+  "ended": "2026-10-04T04:35:07.005236+00:00",
+  "pins": {
+    "docs/evidence/hair-2026-10-03/surface-guides/PLAN.md": {
+      "bytes": 5175,
+      "sha256": "860cbc56177f817b5e9d2b2c821db56e01976aeda9ac7dc3fe15d1badedca3e3"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/EXECUTION.md": {
+      "bytes": 2628,
+      "sha256": "d0b1cb359835fd0e2b183d36bd4e452ad0ff851926f3972448bc934aaf67036e"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/model.mjs": {
+      "bytes": 6942,
+      "sha256": "6d44a864d7bb8ca8552459c348aafd9d12cb6d82510761535068f23dc5b59e01"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/preview.mjs": {
+      "bytes": 6937,
+      "sha256": "7b6f3b8fce86956c2f4a8e64055f416edbe3a9449728fdc68fd2cf6248381835"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/preview.html": {
+      "bytes": 1444,
+      "sha256": "884466aa79537a8d564ae229049628c474b326c863437a67b2af07ea7dcffba2"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/GUIDES.json": {
+      "bytes": 91641,
+      "sha256": "d457064a69b3fc9547c569f8a8f874e104d0b81c2b8d9a35e17fd09314d9c304"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/SOURCE-TRIANGLES.json": {
+      "bytes": 18083,
+      "sha256": "221ee2c48efbde4dcf66e9d2835d9c7b702ed00ac76d950dfd64a5ac81a256ba"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/SOURCE-HISTORY.md": {
+      "bytes": 2178,
+      "sha256": "3cf9797ca18bda10eda48382360cff87a08b2355be567e56f96c9b853b281519"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/ROOT-LITERAL.json": {
+      "bytes": 1946,
+      "sha256": "66195b7bc9f49d08484cbc08b26e287e53cdf200d1803cea323c17b87020d971"
+    },
+    "docs/evidence/hair-2026-10-03/surface-guides/critic-source-pins.py": {
+      "bytes": 2229,
+      "sha256": "9027b917b2585d28417f96d44b18802c50b7caf1da9513dd159bd5c1c01ee412"
+    },
+    "looks/ink-denim.json": {
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407"
+    },
+    "packages/core/src/Avatar.js": {
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    "packages/core/src/figure/Figure.js": {
+      "bytes": 15766,
+      "sha256": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da"
+    },
+    "packages/core/src/wardrobe/Wardrobe.js": {
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    "packages/core/src/render/Stage.js": {
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    "packages/testbed/src/showcase-presets.mjs": {
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    "node_modules/three/src/extras/curves/CatmullRomCurve3.js": {
+      "bytes": 7372,
+      "sha256": "768ef1d2e91fbf024bfe5d97ddeadc7c41764689a3e7a775340824d05b1c9281"
+    },
+    "node_modules/three/src/extras/core/Curve.js": {
+      "bytes": 12394,
+      "sha256": "e15b70663608e578e693813d88e46d1da9e4103b56b457334f6858613690bda2"
+    },
+    "node_modules/three/src/core/BufferGeometry.js": {
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+    },
+    "node_modules/three/src/objects/SkinnedMesh.js": {
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    "node_modules/three/src/objects/Mesh.js": {
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    "node_modules/three/src/cameras/PerspectiveCamera.js": {
+      "bytes": 10651,
+      "sha256": "1cc44938885f785649a978ecb6f57c444561381ddab24de19fc59b400009b111"
+    },
+    "node_modules/three/src/renderers/common/Renderer.js": {
+      "bytes": 102228,
+      "sha256": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b"
+    }
+  },
+  "scope": "Read and hash existing source/input files only. No module import, asset parse, curve/surface evaluation, geometry, browser, GPU or native execution. This pins a source review, not runtime behavior."
+}

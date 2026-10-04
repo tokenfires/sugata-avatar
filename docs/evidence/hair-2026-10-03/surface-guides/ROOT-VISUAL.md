@@ -1,0 +1,7 @@
+# No composed candidate image
+
+Root actually views the unchanged1280×720 native stopped-context.jpg (51223bytes, SHA2566ae56ea892f84eb3fd5279cb32c73b8d1bff169734150ea7c7e572c36ac719b2). It shows the original bob/Ink upper-body draw at left and the explicit stopped status/disabled Create/Next at right. The proposal is never visible. This is the preceding SDK body draw retained on canvas; the custom front sample fails before its explicit draw/toDataURL. It is not the proposed crown/side composition, an offered PNG, a successful first view or a new accepted look.
+
+Actual STOPPED-STATE has one original-front record at04:37:34.852Z, complete:false, originalVisible:true/proposalVisible:false. All3528sampled Float32 proposal vertices are within the actual WebGPU clip volume, but minX=-.9634243469 violates the explicit -.94 framing margin. A stops the fixed trial and retains editable source/buffers without appearance judgement; B would soften the margin/change camera and rerun, providing pixels at the cost of violating this single-candidate first-failure contract. Root selects A; neither diagnoses visible clipping or a material/renderer/hair quality defect.
+
+The new36registered guides and36constructed ribbons are concrete artist-source leads. Full shape, forehead opening, crown coverage, separate depth layers, inward tips, body clearance and all three proposed views remain visually undecided. Same-side downstream convergence remains disclosed. No current asset/default is promoted, and no motion, fit, fine-strand or AAA qualification follows.

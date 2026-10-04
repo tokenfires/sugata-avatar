@@ -1,0 +1,12 @@
+import datetime,hashlib,json,os,pathlib
+root=pathlib.Path('/Users/robault/GitHub/sugata-avatar');p=pathlib.Path(__file__).resolve().parent;start=datetime.datetime.now(datetime.timezone.utc).isoformat();pins=[]
+names=['reference/bob-appearance-2026-09-29/02-medium-face-framing.jpg','reference/bob-appearance-2026-09-29/03-medium-side-volume.jpg','docs/evidence/appearance-2026-10-02/front-design/concept-v1.png','captures/whole-front-blockout-2026-10-03-v1/proposal-front.png','captures/whole-front-blockout-2026-10-03-v1/proposal-oblique.png']
+hashes=['ab887b08609fbf4cae831fed3687a78c0d04a04ddcfacd2b57a791201223079e','5898a1b61be9400ecaacd8252f7d53516500d5f95af694219b15ff2c78c1961c','568ee8125a82da00f24bca35cbe4953ece5cda0a053dd638e68898da88ca3503','86fbb209a3b985c7d5d74d6fdf879d05309fa459c07cc8bd569e8b1b0c91b752','370ea9417bcc396140283f3b45645f2289925fbc67c8e1987e6149aeac0737df']
+for file,sha in zip(names,hashes):
+ b=(root/file).read_bytes();assert hashlib.sha256(b).hexdigest()==sha,file;pins.append(dict(file=file,bytes=len(b),sha256=sha))
+assert hashlib.sha256((p/'CRITIC-WORTH.md').read_bytes()).hexdigest()=='96d3a9ae055f2da3be7adc8f98a19fb1899c07a4a6aed2b6927dce1900e33710'
+for file in ['assets/figures/figure_g050.glb','docs/DAY-REPORT-2026-09-30.md','docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md','docs/research/bob-appearance-brief-2026-09-29.md','docs/evidence/appearance-2026-10-02/front-design/SOURCE-DECISION.md','docs/evidence/appearance-2026-10-02/front-design/DOMAIN-DECISION.md','docs/evidence/appearance-2026-10-02/front-design/SURFACE-DECISION.md','docs/evidence/appearance-2026-10-02/front-design/GUIDE-TARGET-ROOT-DECISION.md','docs/evidence/nonhair-2026-10-03/whole-front-blockout/ROOT-VISUAL-DECISION.md']:
+ b=(root/file).read_bytes();pins.append(dict(file=file,bytes=len(b),sha256=hashlib.sha256(b).hexdigest()))
+out=dict(command='python3 docs/evidence/hair-2026-10-03/surface-guide-worth/root-close.py',pid=os.getpid(),startUTC=start,endUTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),pins=pins,decision='Conditional A: root full critic and source-history read, all five whole images actually viewed, exact image handoff reconciled. A literal exported-root/curve/width/backing/attachment contract must precede construction; no builder/native admission.',limits='FS/hash only; no asset parse/surface evaluate/geometry/SDK/native/capture/default change.')
+with (p/'ROOT-CLOSE.json').open('x') as h:json.dump(out,h,indent=2);h.write('\n')
+print(json.dumps({k:out[k] for k in ['pid','startUTC','endUTC','decision']}))

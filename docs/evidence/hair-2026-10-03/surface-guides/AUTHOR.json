@@ -1,0 +1,36 @@
+{
+  "command": "node docs/evidence/hair-2026-10-03/surface-guides/author.mjs",
+  "pid": 71153,
+  "started": "2026-10-04T04:15:13.686Z",
+  "ended": "2026-10-04T04:15:13.855Z",
+  "pins": [
+    {
+      "file": "PLAN.md",
+      "bytes": 5175,
+      "sha256": "860cbc56177f817b5e9d2b2c821db56e01976aeda9ac7dc3fe15d1badedca3e3"
+    },
+    {
+      "file": "author.mjs",
+      "bytes": 5594,
+      "sha256": "f031a152c13170efe6fa80aa9f8cc9b878dafb5718161a6afe285dffccd9771f"
+    }
+  ],
+  "source": {
+    "file": "assets/figures/figure_g050.glb",
+    "mesh": "base.001",
+    "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "positions": 14517,
+    "triangles": 26756
+  },
+  "output": {
+    "file": "GUIDES.json",
+    "bytes": 91641,
+    "sha256": "d457064a69b3fc9547c569f8a8f874e104d0b81c2b8d9a35e17fd09314d9c304"
+  },
+  "guides": 36,
+  "rootProjectionMm": {
+    "min": 0.527461220272473,
+    "max": 27.25817182151243
+  },
+  "scope": "One source parse and exact authored native triangle/bary/normal/curve/section/profile dataset. No guide curve evaluation, mesh construction or native job."
+}

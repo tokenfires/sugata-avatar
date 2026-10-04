@@ -1,0 +1,189 @@
+{
+  "command": "python3 docs/evidence/hair-2026-10-03/surface-guides/freeze.py",
+  "pid": 74657,
+  "started": "2026-10-04T04:48:07.503628+00:00",
+  "ended": "2026-10-04T04:48:07.505232+00:00",
+  "pins": [
+    {
+      "file": "AUTHOR.json",
+      "bytes": 1117,
+      "sha256": "f02a7f4a7e017458e6c3f3b574f46425d8f2d9a7d19bae1c00166520c21257c9"
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 2041,
+      "sha256": "ced4aa6233bc4c1afe79b98649629dbfd1c29b694ac9dad0cf44ac83e0f52321"
+    },
+    {
+      "file": "CLOSE.json",
+      "bytes": 1898,
+      "sha256": "f80304f8b56efa65e8aa87d04600906516899b451cb3eeae7d4ecf2ef92c5da9"
+    },
+    {
+      "file": "CONSOLE.json",
+      "bytes": 1217,
+      "sha256": "1c204c4ee2047ca5fb965fd9eac3f926324327a5edb0408e53360fa2218e1830"
+    },
+    {
+      "file": "CRITIC-LITERAL-READBACK.json",
+      "bytes": 2159,
+      "sha256": "7b431e28729a596e1f091e11c548711f47f8c30526759cf7bec2997ed741e285"
+    },
+    {
+      "file": "CRITIC-LITERAL.md",
+      "bytes": 5876,
+      "sha256": "04927846e4a73ed7cc4a7ee1df00503f322c770537fe682df76cde2bd36df823"
+    },
+    {
+      "file": "CRITIC-RESULT-READBACK.json",
+      "bytes": 3899,
+      "sha256": "5ca73c81cd68a201e81c512219dd28524149232267062eaefa2bfe98df502a41"
+    },
+    {
+      "file": "CRITIC-RESULT.md",
+      "bytes": 7988,
+      "sha256": "3ac4ff463bf966a790fa30d9b12f541eade3a63249a67588b36260637ed0ac4f"
+    },
+    {
+      "file": "CRITIC-SOURCE-PINS.json",
+      "bytes": 4339,
+      "sha256": "dc24bfb122b85e1a6cb208aea5620cd12f26f869421933df4336bcd5d7fe49b7"
+    },
+    {
+      "file": "CRITIC-SOURCE.md",
+      "bytes": 9064,
+      "sha256": "ae2c25114e55c8cf3d3a81ebace8d6ce6108fd19c92e1315fe2a224c63cfface"
+    },
+    {
+      "file": "EXECUTION.md",
+      "bytes": 2628,
+      "sha256": "d0b1cb359835fd0e2b183d36bd4e452ad0ff851926f3972448bc934aaf67036e"
+    },
+    {
+      "file": "GUIDES.json",
+      "bytes": 91641,
+      "sha256": "d457064a69b3fc9547c569f8a8f874e104d0b81c2b8d9a35e17fd09314d9c304"
+    },
+    {
+      "file": "NATIVE-CALLS.md",
+      "bytes": 2269,
+      "sha256": "17edc4d7edb802652c9b8130483d697d62e48afa1ae31c359191838785423eaf"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 5175,
+      "sha256": "860cbc56177f817b5e9d2b2c821db56e01976aeda9ac7dc3fe15d1badedca3e3"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 6012,
+      "sha256": "a75876e7845a70f98e351d3b13c4a004bbefccb138a91da14c21c894c23ab9c6"
+    },
+    {
+      "file": "ROOT-HANDOFF.json",
+      "bytes": 1973,
+      "sha256": "efda468e37009f06f8bd7d5e7026bfa654136775a02787145d7f37d1a3387d27"
+    },
+    {
+      "file": "ROOT-LITERAL.json",
+      "bytes": 1946,
+      "sha256": "66195b7bc9f49d08484cbc08b26e287e53cdf200d1803cea323c17b87020d971"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 3539,
+      "sha256": "9c7d230d2375340a432da2c7ab5acd42466daacf616eb0b35a51c695e1d8dfab"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 6217,
+      "sha256": "3915f6d8bdd5c37496c160619850cd30b37287e259552e9a23c3aad0fb42c061"
+    },
+    {
+      "file": "ROOT-VISUAL.md",
+      "bytes": 1561,
+      "sha256": "58c146b363998d1d10d0941d18f066e0e8ed8d1b81a1d624c7ae9c61fb3a9bcf"
+    },
+    {
+      "file": "SOURCE-HISTORY.md",
+      "bytes": 2178,
+      "sha256": "3cf9797ca18bda10eda48382360cff87a08b2355be567e56f96c9b853b281519"
+    },
+    {
+      "file": "SOURCE-TRIANGLES.json",
+      "bytes": 18083,
+      "sha256": "221ee2c48efbde4dcf66e9d2835d9c7b702ed00ac76d950dfd64a5ac81a256ba"
+    },
+    {
+      "file": "STOPPED-STATE.json",
+      "bytes": 1241569,
+      "sha256": "19f380438317445566755a3400d0deadb3eb17bf42a27cd72325bf839949b1b5"
+    },
+    {
+      "file": "author.mjs",
+      "bytes": 5594,
+      "sha256": "f031a152c13170efe6fa80aa9f8cc9b878dafb5718161a6afe285dffccd9771f"
+    },
+    {
+      "file": "critic-literal-read.py",
+      "bytes": 5896,
+      "sha256": "143c7a33b070f53de399fd6253888fbc4bdc498d6b0367d46b7d4c565ae2687d"
+    },
+    {
+      "file": "critic-result-read.py",
+      "bytes": 8078,
+      "sha256": "d867d3d0737981972a2c4e4b25bf8094070d00a4cb862a06410a128aa9870388"
+    },
+    {
+      "file": "critic-source-pins.py",
+      "bytes": 2229,
+      "sha256": "9027b917b2585d28417f96d44b18802c50b7caf1da9513dd159bd5c1c01ee412"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1142,
+      "sha256": "04b191845f292d9cc6534b9aa458ef6deadad768ac1ea9ce59dc9d320b91de7a"
+    },
+    {
+      "file": "model.mjs",
+      "bytes": 6942,
+      "sha256": "6d44a864d7bb8ca8552459c348aafd9d12cb6d82510761535068f23dc5b59e01"
+    },
+    {
+      "file": "preflight.py",
+      "bytes": 2329,
+      "sha256": "5a0376fc2266a8775022a27ad283b6e3dea1605dcfb546c26f98138b53b1182c"
+    },
+    {
+      "file": "prepare.mjs",
+      "bytes": 3171,
+      "sha256": "fbe9d7dc9a44b8d13a2099a1afa3a77d84a1a52c20435ac5eccc7860fd21773b"
+    },
+    {
+      "file": "preview.html",
+      "bytes": 1444,
+      "sha256": "884466aa79537a8d564ae229049628c474b326c863437a67b2af07ea7dcffba2"
+    },
+    {
+      "file": "preview.mjs",
+      "bytes": 6937,
+      "sha256": "7b6f3b8fce86956c2f4a8e64055f416edbe3a9449728fdc68fd2cf6248381835"
+    },
+    {
+      "file": "root-handoff.py",
+      "bytes": 3843,
+      "sha256": "433fa3e167eec348c859d05e7e445e69f11bbf272f6afa5a83e7679fe0047c1e"
+    },
+    {
+      "file": "root-result.py",
+      "bytes": 3857,
+      "sha256": "9eefa90c70de392ad62134373108b63956b73b67b6d65521c54d52cd32c7df9d"
+    },
+    {
+      "file": "stopped-context.jpg",
+      "bytes": 51223,
+      "sha256": "6ae56ea892f84eb3fd5279cb32c73b8d1bff169734150ea7c7e572c36ac719b2"
+    }
+  ],
+  "scope": "Exact closed evidence packet and mode preservation only. No accepted/frozen/original/reference/unrelated payload mutation."
+}

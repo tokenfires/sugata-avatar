@@ -1,0 +1,90 @@
+{
+  "status": "PASS-LITERAL-READBACK",
+  "command": "python3 docs/evidence/hair-2026-10-03/surface-guides/critic-literal-read.py",
+  "pid": 71714,
+  "startUTC": "2026-10-04T04:21:06.700966+00:00",
+  "endUTC": "2026-10-04T04:21:06.720398+00:00",
+  "pins": {
+    "PLAN.md": {
+      "bytes": 5175,
+      "sha256": "860cbc56177f817b5e9d2b2c821db56e01976aeda9ac7dc3fe15d1badedca3e3"
+    },
+    "author.mjs": {
+      "bytes": 5594,
+      "sha256": "f031a152c13170efe6fa80aa9f8cc9b878dafb5718161a6afe285dffccd9771f"
+    },
+    "GUIDES.json": {
+      "bytes": 91641,
+      "sha256": "d457064a69b3fc9547c569f8a8f874e104d0b81c2b8d9a35e17fd09314d9c304"
+    },
+    "AUTHOR.json": {
+      "bytes": 1117,
+      "sha256": "f02a7f4a7e017458e6c3f3b574f46425d8f2d9a7d19bae1c00166520c21257c9"
+    },
+    "critic-literal-read.py": {
+      "bytes": 5896,
+      "sha256": "143c7a33b070f53de399fd6253888fbc4bdc498d6b0367d46b7d4c565ae2687d"
+    }
+  },
+  "bodySha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+  "guides": 36,
+  "residuals": {
+    "root": 2.220446049250313e-16,
+    "normal": 2.220446049250313e-16,
+    "projectionMm": 2.2115642650533118e-13,
+    "controls": 2.220446049250313e-16,
+    "tangents": 2.220446049250313e-16,
+    "seedCrossMin": 0.3865150781114815
+  },
+  "exactSharedControlsP2ThroughP5Pairs": [
+    [
+      "crown-0-0",
+      "crown-0-2"
+    ],
+    [
+      "crown-0-3",
+      "crown-0-5"
+    ],
+    [
+      "crown-1-0",
+      "crown-1-2"
+    ],
+    [
+      "crown-1-3",
+      "crown-1-5"
+    ],
+    [
+      "crown-2-0",
+      "crown-2-2"
+    ],
+    [
+      "crown-2-3",
+      "crown-2-5"
+    ],
+    [
+      "crown-3-0",
+      "crown-3-2"
+    ],
+    [
+      "crown-3-3",
+      "crown-3-5"
+    ],
+    [
+      "crown-4-0",
+      "crown-4-2"
+    ],
+    [
+      "crown-4-3",
+      "crown-4-5"
+    ],
+    [
+      "crown-5-0",
+      "crown-5-2"
+    ],
+    [
+      "crown-5-3",
+      "crown-5-5"
+    ]
+  ],
+  "scope": "Independent direct GLB/accessor source-coordinate readback and literal arithmetic. No nearest-global reprojection, Catmull-Rom curve/surface evaluation, model/native activity, coverage/contact or appearance claim."
+}

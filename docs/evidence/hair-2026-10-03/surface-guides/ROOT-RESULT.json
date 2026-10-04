@@ -1,0 +1,200 @@
+{
+  "command": "python3 docs/evidence/hair-2026-10-03/surface-guides/root-result.py",
+  "pid": 73931,
+  "started": "2026-10-04T04:40:50.131426+00:00",
+  "ended": "2026-10-04T04:40:50.144907+00:00",
+  "pins": {
+    "AUTHOR.json": {
+      "bytes": 1117,
+      "sha256": "f02a7f4a7e017458e6c3f3b574f46425d8f2d9a7d19bae1c00166520c21257c9"
+    },
+    "CLOSE.json": {
+      "bytes": 1898,
+      "sha256": "f80304f8b56efa65e8aa87d04600906516899b451cb3eeae7d4ecf2ef92c5da9"
+    },
+    "CONSOLE.json": {
+      "bytes": 1217,
+      "sha256": "1c204c4ee2047ca5fb965fd9eac3f926324327a5edb0408e53360fa2218e1830"
+    },
+    "CRITIC-LITERAL-READBACK.json": {
+      "bytes": 2159,
+      "sha256": "7b431e28729a596e1f091e11c548711f47f8c30526759cf7bec2997ed741e285"
+    },
+    "CRITIC-LITERAL.md": {
+      "bytes": 5876,
+      "sha256": "04927846e4a73ed7cc4a7ee1df00503f322c770537fe682df76cde2bd36df823"
+    },
+    "CRITIC-SOURCE-PINS.json": {
+      "bytes": 4339,
+      "sha256": "dc24bfb122b85e1a6cb208aea5620cd12f26f869421933df4336bcd5d7fe49b7"
+    },
+    "CRITIC-SOURCE.md": {
+      "bytes": 9064,
+      "sha256": "ae2c25114e55c8cf3d3a81ebace8d6ce6108fd19c92e1315fe2a224c63cfface"
+    },
+    "EXECUTION.md": {
+      "bytes": 2628,
+      "sha256": "d0b1cb359835fd0e2b183d36bd4e452ad0ff851926f3972448bc934aaf67036e"
+    },
+    "GUIDES.json": {
+      "bytes": 91641,
+      "sha256": "d457064a69b3fc9547c569f8a8f874e104d0b81c2b8d9a35e17fd09314d9c304"
+    },
+    "PLAN.md": {
+      "bytes": 5175,
+      "sha256": "860cbc56177f817b5e9d2b2c821db56e01976aeda9ac7dc3fe15d1badedca3e3"
+    },
+    "ROOT-LITERAL.json": {
+      "bytes": 1946,
+      "sha256": "66195b7bc9f49d08484cbc08b26e287e53cdf200d1803cea323c17b87020d971"
+    },
+    "ROOT-PREFLIGHT.json": {
+      "bytes": 3539,
+      "sha256": "9c7d230d2375340a432da2c7ab5acd42466daacf616eb0b35a51c695e1d8dfab"
+    },
+    "SOURCE-HISTORY.md": {
+      "bytes": 2178,
+      "sha256": "3cf9797ca18bda10eda48382360cff87a08b2355be567e56f96c9b853b281519"
+    },
+    "SOURCE-TRIANGLES.json": {
+      "bytes": 18083,
+      "sha256": "221ee2c48efbde4dcf66e9d2835d9c7b702ed00ac76d950dfd64a5ac81a256ba"
+    },
+    "STOPPED-STATE.json": {
+      "bytes": 1241569,
+      "sha256": "19f380438317445566755a3400d0deadb3eb17bf42a27cd72325bf839949b1b5"
+    },
+    "author.mjs": {
+      "bytes": 5594,
+      "sha256": "f031a152c13170efe6fa80aa9f8cc9b878dafb5718161a6afe285dffccd9771f"
+    },
+    "critic-literal-read.py": {
+      "bytes": 5896,
+      "sha256": "143c7a33b070f53de399fd6253888fbc4bdc498d6b0367d46b7d4c565ae2687d"
+    },
+    "critic-source-pins.py": {
+      "bytes": 2229,
+      "sha256": "9027b917b2585d28417f96d44b18802c50b7caf1da9513dd159bd5c1c01ee412"
+    },
+    "model.mjs": {
+      "bytes": 6942,
+      "sha256": "6d44a864d7bb8ca8552459c348aafd9d12cb6d82510761535068f23dc5b59e01"
+    },
+    "preflight.py": {
+      "bytes": 2329,
+      "sha256": "5a0376fc2266a8775022a27ad283b6e3dea1605dcfb546c26f98138b53b1182c"
+    },
+    "prepare.mjs": {
+      "bytes": 3171,
+      "sha256": "fbe9d7dc9a44b8d13a2099a1afa3a77d84a1a52c20435ac5eccc7860fd21773b"
+    },
+    "preview.html": {
+      "bytes": 1444,
+      "sha256": "884466aa79537a8d564ae229049628c474b326c863437a67b2af07ea7dcffba2"
+    },
+    "preview.mjs": {
+      "bytes": 6937,
+      "sha256": "7b6f3b8fce86956c2f4a8e64055f416edbe3a9449728fdc68fd2cf6248381835"
+    },
+    "root-result.py": {
+      "bytes": 3857,
+      "sha256": "9eefa90c70de392ad62134373108b63956b73b67b6d65521c54d52cd32c7df9d"
+    },
+    "stopped-context.jpg": {
+      "bytes": 51223,
+      "sha256": "6ae56ea892f84eb3fd5279cb32c73b8d1bff169734150ea7c7e572c36ac719b2"
+    }
+  },
+  "nativeViewsComplete": 0,
+  "ribbons": 36,
+  "vertices": 3528,
+  "triangles": 3456,
+  "minimumActualDoubleArea": 1.042799589117252e-06,
+  "maximumActualNormalUnitError": 4.034158518351205e-08,
+  "firstMarginFailure": {
+    "min": [
+      -0.9634243469098285,
+      -0.7090502146776444,
+      0.9871502046638863
+    ],
+    "max": [
+      0.6595855248545026,
+      0.6227567639645114,
+      0.989275576974097
+    ],
+    "vertices": 3528,
+    "coordinateSystem": 2001,
+    "clipDepth": [
+      0,
+      1
+    ]
+  },
+  "retirement": {
+    "reason": "failure",
+    "at": "2026-10-04T04:37:34.859Z",
+    "pendingAtRetirement": true,
+    "ownerReturned": true,
+    "modelDisposed": true,
+    "modelDisposal": {
+      "disposed": true,
+      "attempts": [
+        "detach",
+        "geometry-0",
+        "geometry-1",
+        "geometry-2",
+        "geometry-3",
+        "geometry-4",
+        "geometry-5",
+        "geometry-6",
+        "geometry-7",
+        "geometry-8",
+        "geometry-9",
+        "geometry-10",
+        "geometry-11",
+        "geometry-12",
+        "geometry-13",
+        "geometry-14",
+        "geometry-15",
+        "geometry-16",
+        "geometry-17",
+        "geometry-18",
+        "geometry-19",
+        "geometry-20",
+        "geometry-21",
+        "geometry-22",
+        "geometry-23",
+        "geometry-24",
+        "geometry-25",
+        "geometry-26",
+        "geometry-27",
+        "geometry-28",
+        "geometry-29",
+        "geometry-30",
+        "geometry-31",
+        "geometry-32",
+        "geometry-33",
+        "geometry-34",
+        "geometry-35",
+        "material"
+      ],
+      "errors": []
+    },
+    "disposal": {
+      "disposed": true,
+      "leaked": []
+    },
+    "errors": []
+  },
+  "console": {
+    "observedWarnings": 3,
+    "observedErrors": 0,
+    "limit": 100
+  },
+  "decision": "B: stopped first framing contract failure, no appearance acceptance or camera/model/margin repair. Editable direct-source guides and actual constructed buffers retained as unqualified artist source.",
+  "limits": [
+    "NDC margin breach is not proof of visible clipping; all sampled vertices are inside actual clip boundaries.",
+    "Native JPEG context shows the retained previous original body draw; no composed original-front or candidate PNG was encoded.",
+    "Stored initial head matrix is not separately observed current head matrix at view; no independent exact framing reconstruction or temporal pixel equality.",
+    "No coverage/contact/fit/motion/fine-strand/production/AAA qualification; no allocator/network/served-byte exhaustiveness."
+  ]
+}
