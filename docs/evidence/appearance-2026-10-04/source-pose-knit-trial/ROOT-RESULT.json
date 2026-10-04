@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-04T20:51:35.276527+00:00",
+  "decision": "A preservation / B closed-exterior construction; no native or exported artist mesh",
+  "fullCriticHandoffIndependentlyRead": true,
+  "criticResultFiles": {
+    "CRITIC-RESULT.md": {
+      "bytes": 3369,
+      "sha256": "4ccd4bb8d54b860df0b8f97d604d2f5e06f4db6946881abb587d969b95b2a2ae"
+    },
+    "critic-saved-edge.py": {
+      "bytes": 6879,
+      "sha256": "591276ea3e3192aa47a3ef26109a4d710fb31ad3c0e9b4a61d6f8ec8d559f1ff"
+    },
+    "CRITIC-SAVED-EDGE.json": {
+      "bytes": 5159,
+      "sha256": "0790f2391c2492d6bd201c2420a426370946286abb73475f6aa265dce6f6514c"
+    }
+  },
+  "all11CriticRecordedPinsExact": true,
+  "all14SourceInputsExact": true,
+  "rootOwnFullIncidenceAndFourCellDecimalAgree": true,
+  "firstSubstantiveRefusal": "edge432\u2013433/faces408,409,485,486 has4incidentfaces atdeclaredmax2 beforecuts/smoothing/export",
+  "accounting": "Single child nonzero due topologyRefusal; no timeout/recording failure; fullactualreturn20:39:35 before20:43",
+  "qualification": "No body/rig/fit/material/appearance claim; continuous implicit topology not established by sampledcellfailure",
+  "nextWorth": "Conditional A source responsibility only for DIFFERENT one shared-index surface with complete metric net, globalcoords, torso/shoulder/underarm/cuff joins, faceorder/diagonals and four unique free loops. Merely sweeps or separately placed port/rings B. No implicit-grid/frustum/Trest/port/frame repair or automatic builder."
+}

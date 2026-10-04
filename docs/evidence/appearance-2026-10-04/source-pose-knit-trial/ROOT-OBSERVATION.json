@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-04T20:43:09.159045+00:00",
+  "decision": "B actual closed-exterior topology refusal; no dependent native",
+  "allAvailableOutputsAndStreamsRehashed": true,
+  "fullReturnObservedUTC": "2026-10-04 20:39:35 UTC",
+  "fullReturnBeforeAuthorGate": true,
+  "runnerPID": 66327,
+  "childPID": 66328,
+  "fieldBits": 115200,
+  "insideCells": 19022,
+  "rawPoints": 6616,
+  "closedQuads": 6624,
+  "allGridCoordinatesAndFaceAdjacenciesVerified": true,
+  "witnessEdge": [
+    432,
+    433
+  ],
+  "witnessWorldPoints": [
+    [
+      -0.36,
+      1.17,
+      -2.7755575615628914e-17
+    ],
+    [
+      -0.36,
+      1.17,
+      0.014999999999999986
+    ]
+  ],
+  "witnessLengthMetres": 0.015000000000000013,
+  "independentRows": [
+    [
+      408,
+      432,
+      433
+    ],
+    [
+      409,
+      433,
+      432
+    ],
+    [
+      485,
+      432,
+      433
+    ],
+    [
+      486,
+      433,
+      432
+    ]
+  ],
+  "fourCellWitness": [
+    {
+      "cell": [
+        15,
+        19,
+        11
+      ],
+      "fieldBits": 2,
+      "inside": true
+    },
+    {
+      "cell": [
+        16,
+        19,
+        11
+      ],
+      "fieldBits": 0,
+      "inside": false
+    },
+    {
+      "cell": [
+        15,
+        20,
+        11
+      ],
+      "fieldBits": 0,
+      "inside": false
+    },
+    {
+      "cell": [
+        16,
+        20,
+        11
+      ],
+      "fieldBits": 2,
+      "inside": true
+    }
+  ],
+  "incidenceHistogram": {
+    "2": 13228,
+    "4": 10
+  },
+  "stagesNotReached": [
+    "closed manifold acceptance",
+    "cut omission",
+    "smoothing",
+    "mesh/OBJ export",
+    "data/native admission",
+    "render"
+  ],
+  "limit": "New sampled artist exterior topology only; no source body/rig/material/contact/fit/appearance failure",
+  "next": "No field/grid/cut/radius/smoothing tweak or rerun. Preserve complete artist intent; any further geometry needs a different explicit representation and fresh worth."
+}

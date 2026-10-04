@@ -1,0 +1,48 @@
+{
+  "runnerPID": 66327,
+  "started": "2026-10-04T20:39:34.800040+00:00",
+  "maximumInvocations": 1,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-pose-knit-trial/author.py"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-pose-knit-trial",
+  "timeoutSeconds": 30,
+  "recordingErrors": [],
+  "childStarted": true,
+  "childExit": 1,
+  "timedOut": false,
+  "childReaped": true,
+  "childFinished": "2026-10-04T20:39:35.443992+00:00",
+  "capturedStreams": {
+    "STDOUT.txt": {
+      "bytes": 330,
+      "sha256": "bb215d078b58078f371e8d71a3ed56aa5b4a453f4d36d19d747ffebb37ce5c33"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "actualFiles": {
+    "RAW.json": {
+      "exists": true,
+      "bytes": 3900105,
+      "sha256": "fdb69b3bb8b2b38602de595e882d2a3c57ba7d7055d0031b94fffa3e04972205"
+    },
+    "mesh.json": {
+      "exists": false
+    },
+    "sweater.obj": {
+      "exists": false
+    },
+    "AUTHOR-JOB.json": {
+      "exists": true,
+      "bytes": 534,
+      "sha256": "a837139bd909ce6c0ff4bc10781cb7d8cbb3acbbd5d41abfb94902706e504f46"
+    }
+  },
+  "completed": "2026-10-04T20:39:35.445828+00:00",
+  "late": false,
+  "status": "B process/accounting; no dependent work"
+}

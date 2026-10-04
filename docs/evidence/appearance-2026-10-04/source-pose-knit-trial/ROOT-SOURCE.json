@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-04T20:39:34.737201+00:00",
+  "decision": "root source A; one author via runner only",
+  "criticBindings": {
+    "PLAN.md": {
+      "bytes": 4775,
+      "sha256": "1453fdf94ba9606c62e3d2b5d505e2b6878ab4fbafb63beba9d43cd0c0567b78"
+    },
+    "ARTIST.json": {
+      "bytes": 1960,
+      "sha256": "a050b19cd8de3221a3e9fabc18c27ad8384e9155635bb49ea067ed68557badb7"
+    },
+    "SURFACE-CONTRACT.md": {
+      "bytes": 4176,
+      "sha256": "bdbd8c447c23b35a7a5b3dfdaeb622b1c28376ea046c231db77b01cafdbbf645"
+    },
+    "SOURCE-DELTA.json": {
+      "bytes": 1025,
+      "sha256": "f62acf3158a51c9adb18623b60751d9a2036a22312a9f761110266ee23d83bd5"
+    },
+    "WORTH.md": {
+      "bytes": 2580,
+      "sha256": "a19070e84f34ec0d52a88d6c7e7b403e50f8ccfb083e69f35942b8bebeb34712"
+    },
+    "INPUTS.json": {
+      "bytes": 2808,
+      "sha256": "2414789b0783475f7a3b87eb037596441536c39da0db8cf388f3fa36a705b5e5"
+    },
+    "runner.py": {
+      "bytes": 3108,
+      "sha256": "7b416bc33f46373a41389f35a3e9502efda4055afa3adea6547af8347c1d5e32"
+    },
+    "author.py": {
+      "bytes": 12575,
+      "sha256": "9391869cf1f1cf04d6c5708b9c9b3ec71f56ee82a2348a5a4a0d3d95751729d2"
+    }
+  },
+  "all14InputsExact": true,
+  "criticReceivedBeforeSourceGate": true,
+  "operatorScope": "Same artist geometry. External accounting explicit. Check actual full toolreturn; latefalse is not finalreturnproof. No native or appearance admission."
+}

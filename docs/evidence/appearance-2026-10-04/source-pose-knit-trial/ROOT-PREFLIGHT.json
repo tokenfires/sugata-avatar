@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-04T20:38:20.595106+00:00",
+  "all14InputsExact": true,
+  "priorTwoFrozenPacketsExact": true,
+  "authorAndSurfaceByteIdentical": true,
+  "onlySevenArtistClockKeysDiffer": true,
+  "fullRootSourceRead": "Author and runner read completely; only declared fields/operations, onechild/no shell/capturedstreams/unconditional available-file inventory, separately caught writes, completion check and small stdout. Internal arbitrary-I/O guarantee not required.",
+  "ASTBothParse": true,
+  "subprocessRunCalls": 1,
+  "timeoutSeconds": 30,
+  "noShell": true,
+  "noArtistOrNativeInvocation": true,
+  "installedPrimaryRunSource": {
+    "file": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py",
+    "sha256": "5917d92a3df46dfda963d39444c771b95e64a49e477656f1e67f2c6a3cbfb1d5",
+    "timeoutKillsAndWaits": true
+  },
+  "decision": "Root preflight only; independent critic source admission required before execution"
+}

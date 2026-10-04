@@ -1,0 +1,119 @@
+{
+  "frozenUTC": "2026-10-04T20:56:41.878014+00:00",
+  "files": {
+    "ARTIST.json": {
+      "bytes": 1960,
+      "sha256": "a050b19cd8de3221a3e9fabc18c27ad8384e9155635bb49ea067ed68557badb7"
+    },
+    "AUTHOR-JOB.json": {
+      "bytes": 534,
+      "sha256": "a837139bd909ce6c0ff4bc10781cb7d8cbb3acbbd5d41abfb94902706e504f46"
+    },
+    "CRITIC-RESULT.md": {
+      "bytes": 3369,
+      "sha256": "4ccd4bb8d54b860df0b8f97d604d2f5e06f4db6946881abb587d969b95b2a2ae"
+    },
+    "CRITIC-SAVED-EDGE.json": {
+      "bytes": 5159,
+      "sha256": "0790f2391c2492d6bd201c2420a426370946286abb73475f6aa265dce6f6514c"
+    },
+    "INPUTS.json": {
+      "bytes": 2808,
+      "sha256": "2414789b0783475f7a3b87eb037596441536c39da0db8cf388f3fa36a705b5e5"
+    },
+    "NEXT-WORTH.md": {
+      "bytes": 1615,
+      "sha256": "16ed74dcd7524b46166c0f3a4063cb9871c7bbf11806ab5b2a89b770072cb077"
+    },
+    "PLAN.md": {
+      "bytes": 4775,
+      "sha256": "1453fdf94ba9606c62e3d2b5d505e2b6878ab4fbafb63beba9d43cd0c0567b78"
+    },
+    "RAW.json": {
+      "bytes": 3900105,
+      "sha256": "fdb69b3bb8b2b38602de595e882d2a3c57ba7d7055d0031b94fffa3e04972205"
+    },
+    "README.md": {
+      "bytes": 1145,
+      "sha256": "4cd702620a9e605bc5d5547685a23e789055822b6d0c1049e676b579f24aa0ed"
+    },
+    "RECEIPT.md": {
+      "bytes": 5505,
+      "sha256": "25d4c6d9c0add7264a3927040a23c94ac33f4151a4f6b065204b0f4334f34aa2"
+    },
+    "ROOT-FIELD-WITNESS.json": {
+      "bytes": 4122,
+      "sha256": "b02ac71c2c3942b5214d97a518f14183cea5b728310490a177784625fb7376a0"
+    },
+    "ROOT-OBSERVATION.json": {
+      "bytes": 1927,
+      "sha256": "d7535eef0fc1bb839dcde3b4b550fe32c514ce7542bf797a520a3d8cd0614971"
+    },
+    "ROOT-PREFLIGHT.json": {
+      "bytes": 985,
+      "sha256": "b708211bad15990285081bacf7acd902455c9c2f7c9ee23185cfdfbd14063f72"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 1506,
+      "sha256": "ef0e9699ae88d0b2556a3463d7318af895c54c7cd05210cf9c07a72844d039a3"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 1437,
+      "sha256": "3e010d535d445d7f6f4aa6c0232fb87c0c7ef9575bf3d2212e987e1c0fcccdab"
+    },
+    "RUN-PROCESS.json": {
+      "bytes": 1421,
+      "sha256": "e1296263d42d6fcbbee43dd539f6963a5d4102a12e6beb67d6f34146756ad5f9"
+    },
+    "SOURCE-DELTA.json": {
+      "bytes": 1025,
+      "sha256": "f62acf3158a51c9adb18623b60751d9a2036a22312a9f761110266ee23d83bd5"
+    },
+    "SOURCE.md": {
+      "bytes": 2228,
+      "sha256": "aa75b0da1befbfa72afb9a9cd5bd0042b343ca927960d61ebef097c308fea334"
+    },
+    "STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "STDOUT.txt": {
+      "bytes": 330,
+      "sha256": "bb215d078b58078f371e8d71a3ed56aa5b4a453f4d36d19d747ffebb37ce5c33"
+    },
+    "SURFACE-CONTRACT.md": {
+      "bytes": 4176,
+      "sha256": "bdbd8c447c23b35a7a5b3dfdaeb622b1c28376ea046c231db77b01cafdbbf645"
+    },
+    "VERIFICATION.json": {
+      "bytes": 970,
+      "sha256": "297fd5b981b0875cc94ae2880cdce93c2cd33bea907f8a5691fa51f7a1b1cf00"
+    },
+    "WORKSHEET.md": {
+      "bytes": 2312,
+      "sha256": "4fa7389c5871bc4365e1f9db5cfc3f22af9c9c6c9fcd0c539225ced34d2be0d8"
+    },
+    "WORTH.md": {
+      "bytes": 2580,
+      "sha256": "a19070e84f34ec0d52a88d6c7e7b403e50f8ccfb083e69f35942b8bebeb34712"
+    },
+    "author.py": {
+      "bytes": 12575,
+      "sha256": "9391869cf1f1cf04d6c5708b9c9b3ec71f56ee82a2348a5a4a0d3d95751729d2"
+    },
+    "critic-saved-edge.py": {
+      "bytes": 6879,
+      "sha256": "591276ea3e3192aa47a3ef26109a4d710fb31ad3c0e9b4a61d6f8ec8d559f1ff"
+    },
+    "runner.py": {
+      "bytes": 3108,
+      "sha256": "7b416bc33f46373a41389f35a3e9502efda4055afa3adea6547af8347c1d5e32"
+    }
+  },
+  "decision": "A exact refusal preservation / B artist construction",
+  "authorInvocations": 1,
+  "nativeCreations": 0,
+  "exports": 0,
+  "candidateImages": 0,
+  "nextBuilderAdmitted": false
+}
