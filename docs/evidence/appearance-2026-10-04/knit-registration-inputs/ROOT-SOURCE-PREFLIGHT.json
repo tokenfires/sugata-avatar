@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-04T17:29:44.797369+00:00",
+  "syntaxOnly": "AST parse, no module import or asset decoding; standard-library imports only",
+  "sourceLandmarkRoleIDsVerified": {
+    "neck": 16,
+    "hem": 48,
+    "negative-X-cuff": 16,
+    "positive-X-cuff": 16
+  },
+  "pins": {
+    "read_inputs.py": {
+      "bytes": 8347,
+      "sha256": "eb2df5ba1700b672495dded2440d664143ffb0ef3ce57b0b209c79c7173691d3"
+    },
+    "PLAN.md": {
+      "bytes": 2658,
+      "sha256": "37477d960ac97dd7826dba8572db4c27cda73f58d197ca3e0c332e79580429ce"
+    },
+    "INPUTS.json": {
+      "bytes": 1813,
+      "sha256": "1b4424f9d78f4c8bb17840d336a280ec8428522a55d93a1338427055605b9db9"
+    },
+    "WORTH.md": {
+      "bytes": 5103,
+      "sha256": "158a4e59e58e732de706962523a78dbb357e178d606a0e559a16f8bf1326fad2"
+    },
+    "ARTIST-CONVENTION.json": {
+      "bytes": 4487,
+      "sha256": "c12f998040fa9aa33bf6788e3748b2615cde70a742af0453071b08cb25efafca"
+    },
+    "AUTHORITY-PINS.json": {
+      "bytes": 1305,
+      "sha256": "4630583b7e2a0d3e11cc584b001ae6d17c00055b4cb987d2b8bdf60a6cbcc68c"
+    },
+    "SPEC-READ.json": {
+      "bytes": 5986,
+      "sha256": "dd93394c98d629f6969c887264cf07380d6d2a96f7e014bf76be4e8fb9618193"
+    }
+  },
+  "rootScope": "Two exact pinned GLBs; initial glTF scene-global node origins and undeformed accessors only. No skin evaluation or mapping arithmetic. No claim of Avatar rest pose/coverage/fit.",
+  "primaryReadLimit": "SPEC-READ returned200/5credits, first-part-only warning; units/axes/TRS/node global passages present, requested skin relation absent. No second read or repair."
+}

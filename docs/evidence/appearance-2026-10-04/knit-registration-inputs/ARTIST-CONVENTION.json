@@ -1,0 +1,182 @@
+{
+  "authoredAt": "2026-10-04T17:28:39.124183+00:00",
+  "unit": "meters per artist unit, source-scene frame before Avatar restPose and motion",
+  "sourceMeshSha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1",
+  "sourceLandmarks": {
+    "neck": {
+      "vertexIds": [
+        42,
+        45,
+        47,
+        48,
+        166,
+        167,
+        171,
+        174,
+        450,
+        451,
+        458,
+        461,
+        467,
+        468,
+        470,
+        471
+      ],
+      "centerRule": "arithmetic mean of these unique source POSITION rows, no compacting or closest-surface inference"
+    },
+    "hem": {
+      "vertexIds": [
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        35,
+        36,
+        52,
+        55,
+        57,
+        59,
+        104,
+        106,
+        108,
+        116,
+        118,
+        121,
+        125,
+        150,
+        152,
+        181,
+        187,
+        191,
+        334,
+        336,
+        337,
+        339,
+        352,
+        354,
+        355,
+        357,
+        362,
+        364,
+        369,
+        371,
+        420,
+        422,
+        423,
+        425,
+        484,
+        486,
+        495,
+        497,
+        502,
+        504,
+        509,
+        510
+      ],
+      "centerRule": "arithmetic mean of these unique source POSITION rows, no compacting or closest-surface inference"
+    },
+    "negative-X-cuff": {
+      "vertexIds": [
+        0,
+        3,
+        4,
+        5,
+        77,
+        78,
+        85,
+        86,
+        287,
+        288,
+        297,
+        299,
+        300,
+        301,
+        303,
+        304
+      ],
+      "centerRule": "arithmetic mean of these unique source POSITION rows, no compacting or closest-surface inference"
+    },
+    "positive-X-cuff": {
+      "vertexIds": [
+        72,
+        73,
+        74,
+        75,
+        216,
+        217,
+        218,
+        219,
+        563,
+        564,
+        566,
+        567,
+        569,
+        570,
+        572,
+        573
+      ],
+      "centerRule": "arithmetic mean of these unique source POSITION rows, no compacting or closest-surface inference"
+    }
+  },
+  "targetLandmarks": {
+    "neck": {
+      "exactRigNodeName": "neck_01",
+      "offsetMeters": [
+        0,
+        0.02,
+        0
+      ]
+    },
+    "hem": {
+      "exactRigNodeName": "pelvis",
+      "offsetMeters": [
+        0,
+        -0.05,
+        0
+      ]
+    },
+    "negative-X-cuff": {
+      "exactRigNodeName": "hand_r",
+      "offsetMeters": [
+        0,
+        0,
+        0
+      ]
+    },
+    "positive-X-cuff": {
+      "exactRigNodeName": "hand_l",
+      "offsetMeters": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "transformConvention": {
+    "rotation": "identity in glTF scene-global axes; artist +Y and +Z interpreted as up/front by explicit choice",
+    "scaleRule": "(target neck Y - target hem Y) / (source neck mean Y - source hem mean Y)",
+    "translationRule": "target neck minus scale times source neck mean; hem depth and cuffs are independent held-out witnesses",
+    "uniformScaleRangeMetersPerArtistUnit": [
+      0.25,
+      2
+    ],
+    "residualLimitMeters": {
+      "hem": 0.05,
+      "negative-X-cuff": 0.05,
+      "positive-X-cuff": 0.05
+    },
+    "policy": "These are artist proposal choices, not measured human garment dimensions. No automatic adjustment on mismatch, no transformed mesh output or warp."
+  },
+  "bodyAuthority": "Unique morph-target-bearing skinned primitive owner selected by declared default scene traversal, as Figure.buildMorphRegistry does; retain exact node/mesh/primitive/accessor/skin ordinals. Fail ambiguity rather than choose by guessed mesh label.",
+  "referenceFoundation": "Ink-selected upper bra only; retain full original scene/node/accessor descriptors and source POSITION arrays; compare named rig origins as source-frame witnesses only",
+  "sourceFrameAgreementLimitMeters": 0.001,
+  "open": [
+    "briefs/all-layer exposure and foundation coverage",
+    "joint origins as actual body-contact or garment surface constraints",
+    "runtime restPose, stage transforms, morphs and moving skin positions",
+    "physical cloth, tailored dimensions, relaxed worn geometry and appearance acceptance"
+  ],
+  "decision": "Reader may report observed frame/landmarks only after exact source admission. Mapping arithmetic and all-vertex warp are not admitted here; this editable numeric convention seeds a later independent decision."
+}

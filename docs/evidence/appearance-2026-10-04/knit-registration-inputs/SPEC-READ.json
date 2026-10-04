@@ -1,0 +1,45 @@
+{
+  "observedReturnUtc": "2026-10-04 17:24:48 UTC",
+  "request": {
+    "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+    "formats": [
+      "query"
+    ],
+    "maxAge": 0,
+    "timeout": 45000,
+    "queryOptions": {
+      "mode": "directQuote",
+      "prompt": "Return only the exact specification passages and section labels that define glTF linear distance units, axis/handedness coordinate system, node local transform TRS/matrix relationship, and skin joint transform/inverse bind matrix relationship. Do not infer model-specific orientation or rest pose. If a requested fact is absent, say absent."
+    }
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"metadata\": {\n    \"viewport\": \"width=device-width, initial-scale=1.0\",\n    \"generator\": \"Asciidoctor 2.0.16\",\n    \"title\": \"glTF™ 2.0 Specification\",\n    \"language\": \"en\",\n    \"author\": \"The Khronos® 3D Formats Working Group\",\n    \"scrapeId\": \"01a107f2-51c9-756c-b87e-1fdc2ab008f2\",\n    \"sourceURL\": \"https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html\",\n    \"url\": \"https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html\",\n    \"statusCode\": 200,\n    \"contentType\": \"text/html\",\n    \"timezone\": \"America/New_York\",\n    \"proxyUsed\": \"basic\",\n    \"indexId\": \"50d30b41-e988-46b7-b3f7-1c4764ece6cd\",\n    \"creditsUsed\": 5,\n    \"concurrencyLimited\": false\n  },\n  \"warning\": \"The page was too long to process in full; the answer was generated from the first part of it.\",\n  \"answer\": \"Except as described by these terms, it or any components may not be reproduced, republished, distributed, transmitted, displayed, broadcast, or otherwise exploited in any manner without the express prior written permission of Khronos.\\n\\nanimation\\n\\nAn object defining the hierarchy relations and the local transform of its content.\\n\\nglTF uses a right-handed coordinate system. glTF defines +Y as up, +Z as forward, and -X as right; the front of a glTF asset faces +Z.\\n\\nThe units for all linear distances are meters.\\n\\nAll angles are in radians.\\n\\nPositive rotation is counterclockwise.\\n\\nAny node MAY define a local space transform either by supplying a matrix property, or any of translation, rotation, and scale properties (also known as TRS properties). translation and scale are 3D vectors in the local coordinate system. rotation is a unit quaternion value, XYZW, in the local coordinate system, where W is the scalar.\\n\\nWhen matrix is defined, it MUST be decomposable to TRS properties.\\n\\n| Implementation NoteTransformation matrices cannot skew or shear. |\\n\\nTo compose the local transformation matrix, TRS properties MUST be converted to matrices and postmultiplied in the T * R * S order; first the scale is applied to the vertices, then the rotation, and then the translation.\\n\\n| Implementation NoteNon-invertible transforms (e.g., scaling one axis to zero) could lead to lighting and/or visibility artifacts. |\\n\\nThe global transformation matrix of a node is the product of the global transformation matrix of its parent node and its own local transformation matrix. When the node has no parent node, its global transformation matrix is identical to its local transformation matrix.\"\n}"
+      }
+    ],
+    "structuredContent": {
+      "answer": "Except as described by these terms, it or any components may not be reproduced, republished, distributed, transmitted, displayed, broadcast, or otherwise exploited in any manner without the express prior written permission of Khronos.\n\nanimation\n\nAn object defining the hierarchy relations and the local transform of its content.\n\nglTF uses a right-handed coordinate system. glTF defines +Y as up, +Z as forward, and -X as right; the front of a glTF asset faces +Z.\n\nThe units for all linear distances are meters.\n\nAll angles are in radians.\n\nPositive rotation is counterclockwise.\n\nAny node MAY define a local space transform either by supplying a matrix property, or any of translation, rotation, and scale properties (also known as TRS properties). translation and scale are 3D vectors in the local coordinate system. rotation is a unit quaternion value, XYZW, in the local coordinate system, where W is the scalar.\n\nWhen matrix is defined, it MUST be decomposable to TRS properties.\n\n| Implementation NoteTransformation matrices cannot skew or shear. |\n\nTo compose the local transformation matrix, TRS properties MUST be converted to matrices and postmultiplied in the T * R * S order; first the scale is applied to the vertices, then the rotation, and then the translation.\n\n| Implementation NoteNon-invertible transforms (e.g., scaling one axis to zero) could lead to lighting and/or visibility artifacts. |\n\nThe global transformation matrix of a node is the product of the global transformation matrix of its parent node and its own local transformation matrix. When the node has no parent node, its global transformation matrix is identical to its local transformation matrix.",
+      "metadata": {
+        "viewport": "width=device-width, initial-scale=1.0",
+        "generator": "Asciidoctor 2.0.16",
+        "title": "glTF™ 2.0 Specification",
+        "language": "en",
+        "author": "The Khronos® 3D Formats Working Group",
+        "scrapeId": "01a107f2-51c9-756c-b87e-1fdc2ab008f2",
+        "sourceURL": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+        "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+        "statusCode": 200,
+        "contentType": "text/html",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "50d30b41-e988-46b7-b3f7-1c4764ece6cd",
+        "creditsUsed": 5,
+        "concurrencyLimited": false
+      },
+      "warning": "The page was too long to process in full; the answer was generated from the first part of it."
+    },
+    "isError": false
+  }
+}
