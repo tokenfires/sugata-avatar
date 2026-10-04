@@ -1,0 +1,4 @@
+  record.skinnedOwners=Object.fromEntries(inputs.map(input=>[input.key,meshes.filter(m=>m.key===input.key && m.object.isSkinnedMesh).map(m=>({uuid:m.record.uuid,name:m.record.name,association:m.record.association}))]));
+  record.missingSourceOwners=inputs.filter(input=>!record.skinnedOwners[input.key].length).map(input=>input.key);
+  publish();
+  if(record.missingSourceOwners.length) throw Error('Missing skinned source authority: '+record.missingSourceOwners.join(', '));

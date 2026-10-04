@@ -1,0 +1,16 @@
+{
+  "tabId": "23",
+  "observedBeforeWaitUTC": "2026-10-04T19:22:58.004Z",
+  "readyWaits": 1,
+  "ready": false,
+  "readyError": "Error: Error: Playwright selector deadline exceeded\nlocator.waitFor(visible) timed out for selector internal:text=\"Ready — Body\"s\nLocator diagnostics: {\"kind\":\"no_matches\",\"action\":\"waitFor\",\"locator\":\"internal:text=\\\"Ready — Body\\\"s\",\"matchCount\":0,\"matches\":[],\"visibleCount\":0,\"truncated\":false}",
+  "afterWaitUTC": "2026-10-04T19:23:01.045Z",
+  "afterFirstCaptureUTC": "2026-10-04T19:23:01.113Z",
+  "download": {
+    "attempts": 1,
+    "requestedTimeoutMs": 8000,
+    "error": "Timed out after 8000ms waiting for download",
+    "dataRecovery": "read-only public page-owned #observed-record textContent, no download retrigger"
+  },
+  "afterRecoveryUTC": "2026-10-04T19:23:59.947Z"
+}

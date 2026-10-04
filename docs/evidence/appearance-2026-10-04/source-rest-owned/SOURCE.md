@@ -1,0 +1,9 @@
+# A — fresh independent source gate
+
+Root captures the critic's direct19:20UTC handoff. Complete new PLAN/index/viewer/INPUTS/insertion read, retained PRIMARY read in prior gate and copied exact. Critic independently removes sole476byte insertion and recovers old viewer65d64f0e exact bytes (ce6aed/exit0). Actual witness lines60–63 records all three complete skinned-owner sets and missing keys before refusing, closing originalB's absent-foundation comparison gap. No single-primitive requirement is introduced.
+
+Full unchanged mechanisms preserve complete roots/TRS/binds, record/zero morphs, retain all named world/inverse-bind comparisons before mismatch, fixed shared cameras/visibility-only modes and independent cleanup attempts. No further material blocker found. AlternativeA is one fixed observation establishing or refusing actual three-layer source-reference authority. AlternativeB defers for complete coupled-pose surfaces, closer to eventual garments but leaving this reference question unanswered and correspondence still unauthored. SelectA for one creation only, conditional on root's exact pin reconciliation and existing deadlines.
+
+Critic prints complete new viewer4487b36010398c55082de2544fa7070d186b12683648e9a6f6a21c5781c90222, PLAN69a76ec11c4cb6978c046264f1d186bf882606a446ffb4216dcbaa09305a0cf5 and INPUTS732407e1dd006114f4273d30be5911b1e5bfbe6b703c7b3dcf2c7e59bb069a5e. Indexde247a, primarycdb50c and insertion123c8299 are printed as prefixes, reconciled by root against actual INPUTS and historical full source bindings. This does not assert six complete hashes were printed in the direct message.
+
+No asset decode, constructor, native/GPU/source edit by critic. Source approval alone establishes no source-layer agreement, usable image, fit, runtime appearance or GPU-position acceptance. Root must inspect actual first observations and verify the eventual handoff; first failure closes the trial without repair.

@@ -1,0 +1,40 @@
+{
+  "started": "2026-10-04T19:22:27.516Z",
+  "threeRevision": "185",
+  "inputs": [
+    {
+      "key": "body",
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "color": 13018251,
+      "httpStatus": 200,
+      "observedBytes": 7501,
+      "observedSHA256": "364c81c24da47ab282d4423f13c2c9b5a44725d0bbb7e9eb3011503c2f570812"
+    },
+    {
+      "key": "bra",
+      "path": "assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+      "color": 3575704
+    },
+    {
+      "key": "briefs",
+      "path": "assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+      "color": 8873898
+    }
+  ],
+  "sources": [],
+  "comparisons": [],
+  "draws": [],
+  "disposals": [],
+  "status": "refused",
+  "limits": "Source reference only; CPU bounds frame views. No garment or posed/runtime qualification.",
+  "error": "Error: Input pin mismatch body",
+  "refused": "2026-10-04T19:22:27.525Z",
+  "cleanupReason": "explicit Finish reference",
+  "finished": "2026-10-04T19:23:18.088Z"
+}

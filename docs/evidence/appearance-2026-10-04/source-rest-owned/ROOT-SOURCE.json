@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-04T19:21:48.219115+00:00",
+  "decision": "A sole creation before19:26, acquisition19:33",
+  "rootCompleteRead": "9021d8 full current viewer and762ef3 full new PLAN; prior dd1b03 unchangedHTML; delta/pins4aede6 and currentverification. Original rootB source/code counterexample collected independently.",
+  "completeCriticHashesVerified": {
+    "viewer.mjs": "4487b36010398c55082de2544fa7070d186b12683648e9a6f6a21c5781c90222",
+    "PLAN.md": "69a76ec11c4cb6978c046264f1d186bf882606a446ffb4216dcbaa09305a0cf5",
+    "INPUTS.json": "732407e1dd006114f4273d30be5911b1e5bfbe6b703c7b3dcf2c7e59bb069a5e"
+  },
+  "criticPrefixBindingsReconciled": {
+    "index.html": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab",
+    "PRIMARY-READ.json": "cdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc",
+    "INSERTION.txt": "123c8299383ada63401a4703f671f3f0391be8bb4c9f373529ff5624080b4d59"
+  },
+  "all18SourceInputsVerified": true,
+  "exactReverseInsertion": true,
+  "capturedSourceSHA256": "065301721efdaf122194c8c8f37107f9abcc1e99128ebc7fbdede2acfdb09b93",
+  "nativeJobsSoFar": 0,
+  "originalAndAcceptedAssetsUnchanged": true,
+  "limits": "Source only; no appearance/GPU-position/fit qualification.",
+  "finalCompleteCriticBindingsVerified": {
+    "PLAN.md": "69a76ec11c4cb6978c046264f1d186bf882606a446ffb4216dcbaa09305a0cf5",
+    "viewer.mjs": "4487b36010398c55082de2544fa7070d186b12683648e9a6f6a21c5781c90222",
+    "index.html": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab",
+    "PRIMARY-READ.json": "cdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc",
+    "INSERTION.txt": "123c8299383ada63401a4703f671f3f0391be8bb4c9f373529ff5624080b4d59",
+    "INPUTS.json": "732407e1dd006114f4273d30be5911b1e5bfbe6b703c7b3dcf2c7e59bb069a5e"
+  },
+  "finalBindingUTC": "2026-10-04T19:22:18.576035+00:00"
+}

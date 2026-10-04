@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-04T19:26:12.668515+00:00",
+  "decision": "B initial-source reference not observed; body response identity refusal before parse",
+  "actualRootImageWitness": "Root actually inspected complete first full-page native JPEG emitted at19:23:01: readable refusal state, disabled modes, blank front/oblique canvas. No body/foundation appearance rendered.",
+  "actualRootDataRead": "9a6d85 complete saved partial/CAPTURE/console; source9021d8 and fresh source/root binding reconciliations463408/ad657d precede sole trial.",
+  "files": {
+    "first-refusal.jpg": {
+      "bytes": 27862,
+      "sha256": "f10d6a6f3d254e9f54177d4f1ec0b3599a1508236a658051a1830ebf1381defe"
+    },
+    "PARTIAL-OBSERVATIONS.json": {
+      "bytes": 1269,
+      "sha256": "9c2d391daf50fb8ccd3b3b494da90759212e3e95515fec02bcc3da3b33e26b16"
+    },
+    "CAPTURE.json": {
+      "bytes": 846,
+      "sha256": "a2147ce7542f08209caa58f1ad90a5832855a3a518a7b95455eb3198b7da4183"
+    },
+    "CONSOLE.json": {
+      "bytes": 290,
+      "sha256": "cf53ad38d6cd0eea0aa8091d5e6149ebb7f8ea15ef438b081e39f4d5af71f946"
+    },
+    "SOURCE.md": {
+      "bytes": 1947,
+      "sha256": "065301721efdaf122194c8c8f37107f9abcc1e99128ebc7fbdede2acfdb09b93"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 1867,
+      "sha256": "5bcc9a0eb04daa2f6ef10891d1c53092225247b0394bb96276c54c0bf899f38f"
+    },
+    "viewer.mjs": {
+      "bytes": 11385,
+      "sha256": "4487b36010398c55082de2544fa7070d186b12683648e9a6f6a21c5781c90222"
+    },
+    "PLAN.md": {
+      "bytes": 4509,
+      "sha256": "69a76ec11c4cb6978c046264f1d186bf882606a446ffb4216dcbaa09305a0cf5"
+    },
+    "INPUTS.json": {
+      "bytes": 3302,
+      "sha256": "732407e1dd006114f4273d30be5911b1e5bfbe6b703c7b3dcf2c7e59bb069a5e"
+    }
+  },
+  "all18SourceInputsStillExact": true,
+  "bodyFetchURLDerivedFromExactSource": "http://127.0.0.1:5173/assets/wardrobe/body/g050.glb",
+  "bodyComparison": {
+    "key": "body",
+    "path": "assets/wardrobe/body/g050.glb",
+    "bytes": 11916776,
+    "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "color": 13018251,
+    "httpStatus": 200,
+    "observedBytes": 7501,
+    "observedSHA256": "364c81c24da47ab282d4423f13c2c9b5a44725d0bbb7e9eb3011503c2f570812"
+  },
+  "untouchedFoundationInputs": [
+    "bra",
+    "briefs"
+  ],
+  "noParseNoSourceNoComparisonNoDraw": true,
+  "cleanupLimit": "Explicit Finish recorded; no registered resources/renderer reached; zero disposal attempts expected. Post-close GPU state unobserved.",
+  "downloadLimit": "One ordinary Blob UI export event timed out; completed download not observed. Public page-owned DOM JSON recovered read-only without retrigger; not asserted as downloaded file.",
+  "consoleLimit": "Bounded warn/error limit20 contains one MultipleThree warning, no exhaustion or cause attribution.",
+  "closedTab": "23",
+  "observedAfterCloseUTC": "2026-10-04T19:23:59.949Z",
+  "userTabRetained": "1",
+  "nextAdmission": "None; no repair/retry/camera/tuning in current contract."
+}

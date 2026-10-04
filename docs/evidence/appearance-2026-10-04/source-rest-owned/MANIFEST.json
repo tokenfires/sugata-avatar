@@ -1,0 +1,87 @@
+{
+  "frozenUTC": "2026-10-04T19:31:38.026576+00:00",
+  "files": {
+    "CAPTURE.json": {
+      "bytes": 846,
+      "sha256": "a2147ce7542f08209caa58f1ad90a5832855a3a518a7b95455eb3198b7da4183"
+    },
+    "CONSOLE.json": {
+      "bytes": 290,
+      "sha256": "cf53ad38d6cd0eea0aa8091d5e6149ebb7f8ea15ef438b081e39f4d5af71f946"
+    },
+    "INPUTS.json": {
+      "bytes": 3302,
+      "sha256": "732407e1dd006114f4273d30be5911b1e5bfbe6b703c7b3dcf2c7e59bb069a5e"
+    },
+    "INSERTION.txt": {
+      "bytes": 476,
+      "sha256": "123c8299383ada63401a4703f671f3f0391be8bb4c9f373529ff5624080b4d59"
+    },
+    "NATIVE-JOB.json": {
+      "bytes": 941,
+      "sha256": "f691b5229a9f95176e987c5e0ed3e51ef69cfd55a9f66863eac612a8d91fc245"
+    },
+    "PARTIAL-OBSERVATIONS.json": {
+      "bytes": 1269,
+      "sha256": "9c2d391daf50fb8ccd3b3b494da90759212e3e95515fec02bcc3da3b33e26b16"
+    },
+    "PLAN.md": {
+      "bytes": 4509,
+      "sha256": "69a76ec11c4cb6978c046264f1d186bf882606a446ffb4216dcbaa09305a0cf5"
+    },
+    "PRIMARY-READ.json": {
+      "bytes": 13530,
+      "sha256": "cdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc"
+    },
+    "README.md": {
+      "bytes": 1241,
+      "sha256": "c5a365aa43636f8bc559d388de53164eb016636ac92da0cd01d7e536b6d53baa"
+    },
+    "RECEIPT.md": {
+      "bytes": 5875,
+      "sha256": "0a59161d390ad134de60c690a0a8b997a3d4c9dc865ff5e522868a91d7118886"
+    },
+    "RESULT.md": {
+      "bytes": 2477,
+      "sha256": "2d3f6daf349f045fbdfd1a0ff4e15d173a8f39c84d32782221db8903428970a2"
+    },
+    "ROOT-OBSERVATION.json": {
+      "bytes": 3015,
+      "sha256": "d254fe41f9592896aa33b0f5559311ad537b5c090afe33be35e0290300e796c4"
+    },
+    "ROOT-PREFLIGHT.json": {
+      "bytes": 591,
+      "sha256": "2d8059aebfc2813a204a660a00490eb8db2edd8ecf720b561da2aa0116314702"
+    },
+    "ROOT-RESULT.json": {
+      "bytes": 1778,
+      "sha256": "5554d50446f90226fbd8b5b9d3383842c289894508ea2202b8f8b3f3e8cd585c"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 1867,
+      "sha256": "5bcc9a0eb04daa2f6ef10891d1c53092225247b0394bb96276c54c0bf899f38f"
+    },
+    "SOURCE.md": {
+      "bytes": 1947,
+      "sha256": "065301721efdaf122194c8c8f37107f9abcc1e99128ebc7fbdede2acfdb09b93"
+    },
+    "first-refusal.jpg": {
+      "bytes": 27862,
+      "sha256": "f10d6a6f3d254e9f54177d4f1ec0b3599a1508236a658051a1830ebf1381defe"
+    },
+    "index.html": {
+      "bytes": 1344,
+      "sha256": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab"
+    },
+    "viewer.mjs": {
+      "bytes": 11385,
+      "sha256": "4487b36010398c55082de2544fa7070d186b12683648e9a6f6a21c5781c90222"
+    }
+  },
+  "decision": "B source reference, body response pin refusal before parse",
+  "originalCaptures": 1,
+  "parses": 0,
+  "draws": 0,
+  "knownTabClosed": "23",
+  "retainedUserTab": "1"
+}
