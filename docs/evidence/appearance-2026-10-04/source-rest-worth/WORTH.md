@@ -1,0 +1,9 @@
+# Conditional A — initial source-layer reference only
+
+Captured from the independent quality critic's18:52–54handoff; root retains this text rather than claiming the critic printed byte bindings.
+
+The critic actually re-viewed whole-knit-serving/front.jpg (T-rest arms) and accepted Ink neutral-body.png (lowered arms and concealed foundation). Neither owns the proposed shared source-layer arrangement. GLTFLoader2420–2428/4163–4172 applies mesh/node morph defaults and4225–4233 binds each loaded skin to its own source skeleton. Avatar3118–3133 applies restPose later; Wardrobe984–991 replaces adopted garment transforms/bind/skeleton. The original three-root arrangement is therefore distinct from existing runtime/rebind evidence.
+
+Alternative A: one source-frame reference sheet, preserving every source root/TRS/bind relationship, explicitly zeroing and recording all influences, and comparing named joint source-world/bind operands without equating names with reference agreement. Separate foundation views/panels are required so composite occlusion cannot imply complete layer visibility. This gives a useful authoring reference, leaving fit unresolved. Alternative B: complete coupled-pose surface authoring is closer to eventual garments, but current surface correspondence is missing and risks returning to guessed point registration. Select conditionalA for fresh planning/source preflight only, capped30minutes: one creation, fixed front/oblique sheets, literal landmarks and honest mismatch recording. Stop at missing authority or mismatch. No normalization, rebinding, garment overlay or repair; no execution admission inherited.
+
+Every actionable point above has actual image/source witnesses, explanation and two directions/tradeoffs. Wider AAA/wardrobe/expression/representation and coupled posed coverage remain open. This captured worth response is not source or native qualification.

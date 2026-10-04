@@ -1,0 +1,85 @@
+{
+  "utc": "2026-10-04T19:13:10.254167+00:00",
+  "decision": "B source gate; unrun",
+  "sourcePinsVerified": {
+    "docs/evidence/appearance-2026-10-04/source-rest-sheet/PLAN.md": {
+      "bytes": 5547,
+      "sha256": "fa63c46bfc329266aabae8b84bce8e40a7cf6e185788acabaf14dfe27d56ffe6"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-sheet/index.html": {
+      "bytes": 1344,
+      "sha256": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-sheet/viewer.mjs": {
+      "bytes": 10909,
+      "sha256": "65d64f0e81c036def14450a4d4cf9de95cc422cea030cf57ae7affa5d7c5836b"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-sheet/PRIMARY-READ.json": {
+      "bytes": 13530,
+      "sha256": "cdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc"
+    },
+    "node_modules/three/examples/jsm/loaders/GLTFLoader.js": {
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    "node_modules/three/src/objects/SkinnedMesh.js": {
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    "node_modules/three/src/objects/Mesh.js": {
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    "node_modules/three/src/core/Object3D.js": {
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    "node_modules/three/src/objects/Skeleton.js": {
+      "bytes": 7906,
+      "sha256": "37eaa7755b39775411fe32bafbf9a0273bdad6bb7976114ed63f8700f4b4b0e9"
+    },
+    "assets/wardrobe/body/g050.glb": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "assets/wardrobe/foundation_bra/g050.glb": {
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    "assets/wardrobe/foundation_briefs/g050.glb": {
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    }
+  },
+  "criticReadBindings": {
+    "PLAN.md": {
+      "bytes": 5547,
+      "sha256": "fa63c46bfc329266aabae8b84bce8e40a7cf6e185788acabaf14dfe27d56ffe6"
+    },
+    "index.html": {
+      "bytes": 1344,
+      "sha256": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab"
+    },
+    "viewer.mjs": {
+      "bytes": 10909,
+      "sha256": "65d64f0e81c036def14450a4d4cf9de95cc422cea030cf57ae7affa5d7c5836b"
+    },
+    "PRIMARY-READ.json": {
+      "bytes": 13530,
+      "sha256": "cdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc"
+    }
+  },
+  "rootReadCommands": [
+    "a3892e complete viewer",
+    "dd1b03 complete HTML",
+    "ef8e16 pinned skin equation block",
+    "d9ae87 numbered comparator"
+  ],
+  "independentWitness": "Body eligibility is nonempty but foundation contribution is unrequired. compare filters all SkinnedMesh entries without per-input cardinality; body-only qualifying entries could leave all foundation comparisons absent and mismatch false. This is logical source counterexample only, not actual GLB structure or executed behavior.",
+  "nativeJob": null,
+  "createdTabs": [],
+  "captureOutputs": [],
+  "sourceDecode": false,
+  "preservedUserTab": "1",
+  "criticCapturedSourceHash": "00a3490bc64d28aa7e351355265bdc876c79fff5d2bc4759e5a3f0f03cd28d08"
+}
