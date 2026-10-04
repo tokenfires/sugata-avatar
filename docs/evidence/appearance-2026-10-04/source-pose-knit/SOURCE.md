@@ -1,0 +1,11 @@
+# Complete source critique and correction
+
+Critic reads the entire PLAN/ARTIST/SURFACE/223-line author/WORTH/WORTH-ROOT/INPUTS, chunks39c563,e69ded,dc4ed1; direct full pins025d92; clock20:28:23/8fa5fc. No import, author execution, evaluator/checker, GLB decode, native or frozen edit. Exact complete bindings and independent root reconciliation are in ROOT-SOURCE.json.
+
+The static source owns torso/frusta/neck field and cut predicates (author36–75), outward faces13–19, connected orientation/edge and vertex-link manifold/four roles/Euler checks91–136, one declared Catmull-Clark pass138–162 with original boundary vertices locked. It is a genuinely new fixed artist method; no computed topology or actual appearance has passed.
+
+The critic initially withholds execution because author164–221 only catches Refusal; non-Refusal read/write/hash/serialization failures could bypass internal job writing and file inventory. Alternative A was separate bookkeeping-only recording with independent receipt attempts while preserving all artist functions; B preserve this unrun draft. Root independently inspects this source witness and asks for the exact clause requiring internal recovery instead of external root logs/inventory.
+
+The critic explicitly corrects the interpretation: no exact clause requires internal handling of every arbitrary I/O/hash error. Root's saved invocation stdout/stderr plus unconditional post-invocation actual-file inventory can satisfy external accounting. This is a recording-location tradeoff, not an independently established source blocker or demonstrated disk/geometry failure. Preserve that correction; do not turn the preference into a user requirement.
+
+The corrected scope arrives after the hard20:29 source gate. Actual critic clock20:30:02UTC/7987c6 confirms expiry. No valid corrected positive admission completed before it, so final B/unrun is the missed gate, without a field/cut/CC/topology defect. Entry author deadline is guarded; final completion must be independently enforced by root, not claimed from the entry check. No retroactive author/native permission. A fresh explicit window may resolve external accounting without altering the geometry; worth/source review remains required.

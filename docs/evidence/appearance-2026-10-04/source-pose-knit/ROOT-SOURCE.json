@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-04T20:32:11.710616+00:00",
+  "decision": "B unrun, source admission gate expired20:29",
+  "bindings": {
+    "PLAN.md": {
+      "bytes": 4959,
+      "sha256": "67ab4c7e8b786bb108ac672a06bd2dc996283e2a050b5835ae70a533af4d08a0"
+    },
+    "ARTIST.json": {
+      "bytes": 1960,
+      "sha256": "54e9485396a9c1ec91a723585f4b33f95667e01d7e66de98320c4cd104fddaa8"
+    },
+    "SURFACE-CONTRACT.md": {
+      "bytes": 4176,
+      "sha256": "bdbd8c447c23b35a7a5b3dfdaeb622b1c28376ea046c231db77b01cafdbbf645"
+    },
+    "author.py": {
+      "bytes": 12575,
+      "sha256": "9391869cf1f1cf04d6c5708b9c9b3ec71f56ee82a2348a5a4a0d3d95751729d2"
+    },
+    "WORTH.md": {
+      "bytes": 2629,
+      "sha256": "15ce9571cf3dbb7da69d01544c86bbecf8e5eeef6c8f6e55ce28e82aef130715"
+    },
+    "WORTH-ROOT.json": {
+      "bytes": 1831,
+      "sha256": "7134170ffa8e9088d1fa52682ada8cc4ec07740de55755f89ddba818150ab1ab"
+    }
+  },
+  "INPUTS": {
+    "bytes": 2231,
+    "sha256": "b6ae810c1cb99917ab9c1554d29d14c09eadb65b4e14b55308bfd6d1570df2f8"
+  },
+  "all10InputsExact": true,
+  "rootSourceWitness": "Full source independently inspected; AST confirms only Refusal handled internally. Internal arbitrary-I/O handling is not an explicit contract requirement; root external logs/file inventory can supply it. Critic explicitly withdraws blocker. No field/cut/CC/topology defect established.",
+  "criticCorrectionClock": "20:30:02UTC / 7987c6 confirms cutoff passed; no retroactive admission",
+  "authorInvocations": 0,
+  "nativeCreations": 0,
+  "candidateOutputsPresent": false,
+  "limits": "Literal source proposal only; no computed topology, appearance or fit",
+  "next": "Separate fresh bounded worth/source window may declare external job recovery; no geometry retuning or expired execution"
+}

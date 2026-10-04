@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-04T20:26:44.605759+00:00",
+  "files": {
+    "docs/evidence/appearance-2026-10-04/source-pose-knit/ARTIST.json": {
+      "bytes": 1960,
+      "sha256": "54e9485396a9c1ec91a723585f4b33f95667e01d7e66de98320c4cd104fddaa8"
+    },
+    "docs/evidence/appearance-2026-10-04/source-pose-knit/PLAN.md": {
+      "bytes": 4959,
+      "sha256": "67ab4c7e8b786bb108ac672a06bd2dc996283e2a050b5835ae70a533af4d08a0"
+    },
+    "docs/evidence/appearance-2026-10-04/source-pose-knit/SURFACE-CONTRACT.md": {
+      "bytes": 4176,
+      "sha256": "bdbd8c447c23b35a7a5b3dfdaeb622b1c28376ea046c231db77b01cafdbbf645"
+    },
+    "docs/evidence/appearance-2026-10-04/source-pose-knit/WORTH-ROOT.json": {
+      "bytes": 1831,
+      "sha256": "7134170ffa8e9088d1fa52682ada8cc4ec07740de55755f89ddba818150ab1ab"
+    },
+    "docs/evidence/appearance-2026-10-04/source-pose-knit/WORTH.md": {
+      "bytes": 2629,
+      "sha256": "15ce9571cf3dbb7da69d01544c86bbecf8e5eeef6c8f6e55ce28e82aef130715"
+    },
+    "docs/evidence/appearance-2026-10-04/source-pose-knit/author.py": {
+      "bytes": 12575,
+      "sha256": "9391869cf1f1cf04d6c5708b9c9b3ec71f56ee82a2348a5a4a0d3d95751729d2"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-addressed/OBSERVATIONS.json": {
+      "bytes": 1392949,
+      "sha256": "f29750f083fcdc19608dd185f14a070bd2b76c6c756192cffa893b2b75fe9434"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-addressed/MANIFEST.json": {
+      "bytes": 3377,
+      "sha256": "986b671ec35278e19c178fb027af51dab4f06cb9e851058dd39cd6f155fbc393"
+    },
+    "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md": {
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    "docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md": {
+      "bytes": 6104,
+      "sha256": "ca4e33586c29a0393848c512082e4d3c5c556233a87e9aebc44f2156e7545477"
+    }
+  },
+  "scope": "fresh artist author only; separate native-source inputs required if reached",
+  "preAdmissionCorrection": "Unexecuted vertex-link witness converts sets to sorted lists for JSON serialization; no field/grid/cut/smoothing change. Prior sourceSHA248a520904710f84ccacccbf6f4e0d9092bef315e8c7c86e275b5b4df0af9438."
+}

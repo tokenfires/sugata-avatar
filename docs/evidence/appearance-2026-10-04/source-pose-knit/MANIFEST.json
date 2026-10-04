@@ -1,0 +1,48 @@
+{
+  "frozenUTC": "2026-10-04T20:32:11.769961+00:00",
+  "files": {
+    "ARTIST.json": {
+      "bytes": 1960,
+      "sha256": "54e9485396a9c1ec91a723585f4b33f95667e01d7e66de98320c4cd104fddaa8"
+    },
+    "INPUTS.json": {
+      "bytes": 2231,
+      "sha256": "b6ae810c1cb99917ab9c1554d29d14c09eadb65b4e14b55308bfd6d1570df2f8"
+    },
+    "PLAN.md": {
+      "bytes": 4959,
+      "sha256": "67ab4c7e8b786bb108ac672a06bd2dc996283e2a050b5835ae70a533af4d08a0"
+    },
+    "RECEIPT.md": {
+      "bytes": 2527,
+      "sha256": "cde124e1487707dd3af065ec0d54af8ee6a7bab183156ffbe06f860860feb57c"
+    },
+    "ROOT-SOURCE.json": {
+      "bytes": 1789,
+      "sha256": "8d444aa9329564096db4f85294a9d078b73c85cdfbddb6c9980f840ff938e05e"
+    },
+    "SOURCE.md": {
+      "bytes": 2241,
+      "sha256": "097a22058f2226e7764fd759d2333a2cd9e79e5deb00b3c01872548ecaba2df3"
+    },
+    "SURFACE-CONTRACT.md": {
+      "bytes": 4176,
+      "sha256": "bdbd8c447c23b35a7a5b3dfdaeb622b1c28376ea046c231db77b01cafdbbf645"
+    },
+    "WORTH-ROOT.json": {
+      "bytes": 1831,
+      "sha256": "7134170ffa8e9088d1fa52682ada8cc4ec07740de55755f89ddba818150ab1ab"
+    },
+    "WORTH.md": {
+      "bytes": 2629,
+      "sha256": "15ce9571cf3dbb7da69d01544c86bbecf8e5eeef6c8f6e55ce28e82aef130715"
+    },
+    "author.py": {
+      "bytes": 12575,
+      "sha256": "9391869cf1f1cf04d6c5708b9c9b3ec71f56ee82a2348a5a4a0d3d95751729d2"
+    }
+  },
+  "decision": "B unrun; source gate missed after corrected critic interpretation",
+  "authorInvocations": 0,
+  "nativeCreations": 0
+}
