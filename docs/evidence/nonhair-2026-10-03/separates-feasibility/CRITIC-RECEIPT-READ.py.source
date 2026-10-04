@@ -1,0 +1,19 @@
+import json,hashlib,pathlib
+p=pathlib.Path('docs/evidence/nonhair-2026-10-03/separates-feasibility/OWNERSHIP.json')
+r=json.loads(p.read_text())
+for g in r['garments']:
+ for m in g['meshes']:
+  total=[]
+  for region in m['regions'].values():
+   a=region['sourceTriangleOrdinals']; total+=a
+   assert len(a)==region['triangleCount']
+   assert len(a)==len(set(a))
+   assert a==sorted(a)
+   encoded=json.dumps(a,separators=(',',':')).encode()
+   assert hashlib.sha256(encoded).hexdigest()==region['ordinalJsonSha256']
+   region['sourceTriangleOrdinals']={'readCount':len(a),'first':a[:3],'last':a[-3:],'shaChecked':True}
+  assert not m['mixedTriangles'] and m['mixedTriangleCount']==0
+  assert len(total)==m['sourceTriangleCount'] and sorted(total)==list(range(m['sourceTriangleCount']))
+  m['ordinalPartitionVerified']=True
+print(json.dumps(r,indent=2))
+print('receiptSHA',hashlib.sha256(p.read_bytes()).hexdigest())

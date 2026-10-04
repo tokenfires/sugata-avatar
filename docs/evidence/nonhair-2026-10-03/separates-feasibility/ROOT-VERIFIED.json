@@ -1,0 +1,126 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/separates-feasibility/root-verify.py",
+  "pid": 55333,
+  "started": "2026-10-04T02:18:51.763752+00:00",
+  "ended": "2026-10-04T02:18:51.779504+00:00",
+  "readerSha256": "60b52ca3d1c4a8ca7ae9eada5b0e6dd9d50ed65f0c3c4055ebc022f205b1bf20",
+  "expected": {
+    "CRITIC-WORTH.md": "7573554bf8434c34fbd13efa995189888ff6144d8760dc8861c621babb699b85",
+    "CRITIC-RESULT.md": "cb10eed8e149913cf507b0f16aaedf447689946f9b3ae787d8c98677f2e475db",
+    "CRITIC-RECEIPT-READ.py.source": "fd872a43bde62c7d34de9b0b1e710701d1117a72fecc5330ef482ee7b0989ceb",
+    "OWNERSHIP.json": "1e611a61b9c1ebb4d7ff2d52234243bae6e74f439f39e632a2fd7343e181c727"
+  },
+  "pins": [
+    {
+      "file": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    {
+      "file": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "file": "assets/wardrobe/female_elegantsuit01/g050.glb",
+      "bytes": 5066532,
+      "sha256": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440"
+    },
+    {
+      "file": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    }
+  ],
+  "summary": [
+    {
+      "id": "female_casualsuit01",
+      "partitions": {
+        "tee": {
+          "triangles": 2524,
+          "first": 0,
+          "last": 2523
+        },
+        "denim": {
+          "triangles": 1712,
+          "first": 2524,
+          "last": 4235
+        }
+      },
+      "vertices": 2377,
+      "triangles": 4236,
+      "indexedComponents": 6
+    },
+    {
+      "id": "female_elegantsuit01",
+      "partitions": {
+        "skirt": {
+          "triangles": 728,
+          "first": 0,
+          "last": 727
+        },
+        "blouse": {
+          "triangles": 3464,
+          "first": 728,
+          "last": 4191
+        }
+      },
+      "vertices": 2424,
+      "triangles": 4192,
+      "indexedComponents": 10
+    }
+  ],
+  "bodyMasks": [
+    {
+      "name": "_HIDE_FEMALE_CASUALSUIT01",
+      "accessor": 0,
+      "count": 14517,
+      "flagged": 2738
+    },
+    {
+      "name": "_HIDE_SHOES01",
+      "accessor": 1,
+      "count": 14517,
+      "flagged": 2574
+    },
+    {
+      "name": "_HIDE_FEMALE_ELEGANTSUIT01",
+      "accessor": 2,
+      "count": 14517,
+      "flagged": 2536
+    }
+  ],
+  "primary": {
+    "metadata": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "generator": "Asciidoctor 2.0.16",
+      "author": "The Khronos\u00ae 3D Formats Working Group",
+      "title": "glTF\u2122 2.0 Specification",
+      "language": "en",
+      "scrapeId": "01a104b1-1e18-70a9-b112-8513747930b1",
+      "sourceURL": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+      "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+      "statusCode": 200,
+      "contentType": "text/html",
+      "proxyUsed": "basic",
+      "cacheState": "hit",
+      "cachedAt": "2026-10-02T13:05:46.889Z",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    },
+    "responseSha256": "d944d8c58b009fcd0ef9f8e36ef478d03d82e4c8e47216aa8f468ff157783477",
+    "documentSha256": "9019d94098f9ee22d42e2cf1e70e14fc81ce9955f809770794914d596999af24"
+  },
+  "decision": "Retain exact geometry triangle lead; defer complete separates construction. No new outfit/appearance/fit qualification.",
+  "scope": "Independent complete critic/source/receipt-data review, all8428ordinal checks and exact pins; no GLB parse, helper rerun or construction"
+}

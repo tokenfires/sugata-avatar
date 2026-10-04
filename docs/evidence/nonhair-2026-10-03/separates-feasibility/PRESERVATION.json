@@ -1,0 +1,86 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/separates-feasibility/freeze.py",
+  "pid": 60708,
+  "started": "2026-10-04T02:21:10.567453+00:00",
+  "ended": "2026-10-04T02:21:10.568582+00:00",
+  "files": [
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 813,
+      "sha256": "29f69300805ce4560cee334f49feb6e8b585e21707e596281663d7e6fe987240"
+    },
+    {
+      "file": "CRITIC-DRAFT-FEEDBACK.md",
+      "bytes": 772,
+      "sha256": "6f6c0449c22f85a31b5243a0fa466c330c49dd9395635daad1d1406a8294e9ba"
+    },
+    {
+      "file": "CRITIC-RECEIPT-READ.py.source",
+      "bytes": 914,
+      "sha256": "fd872a43bde62c7d34de9b0b1e710701d1117a72fecc5330ef482ee7b0989ceb"
+    },
+    {
+      "file": "CRITIC-RESULT.md",
+      "bytes": 6098,
+      "sha256": "cb10eed8e149913cf507b0f16aaedf447689946f9b3ae787d8c98677f2e475db"
+    },
+    {
+      "file": "CRITIC-WORTH.md",
+      "bytes": 6693,
+      "sha256": "7573554bf8434c34fbd13efa995189888ff6144d8760dc8861c621babb699b85"
+    },
+    {
+      "file": "OWNERSHIP.json",
+      "bytes": 193899,
+      "sha256": "1e611a61b9c1ebb4d7ff2d52234243bae6e74f439f39e632a2fd7343e181c727"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2255,
+      "sha256": "c6ac6953b704e7c77962dc0f91d6f42fc50b1e604ce83d14eba37b5fa4768a29"
+    },
+    {
+      "file": "PRIMARY-GLTF.json",
+      "bytes": 646552,
+      "sha256": "d944d8c58b009fcd0ef9f8e36ef478d03d82e4c8e47216aa8f468ff157783477"
+    },
+    {
+      "file": "RECEIPT.md",
+      "bytes": 3819,
+      "sha256": "a0f885e06a0ec27b0758f2096f682f1d2b576b4df4d9f2d7e3861713aefa7fb9"
+    },
+    {
+      "file": "ROOT-VERIFIED.json",
+      "bytes": 4043,
+      "sha256": "9b4b21fa69a6dccb06d908f9856e2d31b243d72d62c23f975f921d520697a583"
+    },
+    {
+      "file": "freeze.py",
+      "bytes": 1300,
+      "sha256": "4b1c148c59c30dcfe1c41c8b3ba125d178c76c8d13ec25a0c5f150f06a53c4c8"
+    },
+    {
+      "file": "read-ownership.mjs",
+      "bytes": 7183,
+      "sha256": "26360d09dabea054d9ae5dd4ab5eabc4b73dde4ad916bca406a1f75253716486"
+    },
+    {
+      "file": "root-verify.py",
+      "bytes": 3549,
+      "sha256": "60b52ca3d1c4a8ca7ae9eada5b0e6dd9d50ed65f0c3c4055ebc022f205b1bf20"
+    }
+  ],
+  "documents": [
+    {
+      "file": "docs/WARDROBE-SEPARATES-CONTRACT-2026-10-03.md",
+      "bytes": 4791,
+      "sha256": "fa57749407f8c03e7772553515d7f551bf6fbeb50f1070ca624ef747cd7676e6"
+    },
+    {
+      "file": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 24013,
+      "sha256": "afd40d6e0848553cf6585a6381693f0d8cf7ed56cf833abe9fae27e3f76822ad"
+    }
+  ],
+  "scope": "Evidence folder frozen; current authoring/roadmap documents pinned but left editable"
+}

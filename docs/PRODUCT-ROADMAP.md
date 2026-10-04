@@ -49,6 +49,8 @@ September 29 [hair-colour customization](evidence/hair-2026-09-29/colour-control
 
 Keep representation and customization present throughout Phase 1. Attractive examples are a design deliverable with visual review, not a side effect of exposing sliders.
 
+October 3's [separates source contract](WARDROBE-SEPARATES-CONTRACT-2026-10-03.md) identifies exact tee/denim/blouse/skirt triangle partitions in the two current g050 garments. This is a geometry reuse lead only: independent body/foundation coverage, material/slot ownership, exposed boundaries and complete combination fit/appearance remain unqualified. No separate garments or mix-and-match feature are integrated.
+
 September 26's [wardrobe coupling study](evidence/nonhair-2026-09-26/wardrobe-coupling/README.md)
 establishes cached helper arithmetic and exact source-to-export garment correspondence. September 30
 adds a [native MPFB arithmetic oracle](evidence/wardrobe-2026-09-30/native-refit/README.md):
