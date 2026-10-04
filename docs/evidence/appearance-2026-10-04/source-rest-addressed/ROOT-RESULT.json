@@ -1,0 +1,66 @@
+{
+  "utc": "2026-10-04T20:06:03.130992+00:00",
+  "decision": "A initial-source authoring reference only",
+  "criticFullHandoffReceived": true,
+  "criticBindings": {
+    "OBSERVATIONS.json": {
+      "bytes": 1392949,
+      "sha256": "f29750f083fcdc19608dd185f14a070bd2b76c6c756192cffa893b2b75fe9434"
+    },
+    "body.jpg": {
+      "bytes": 47348,
+      "sha256": "28a2198c8e6c2f3ad76c8c0b7c2d0e8eb2f65b07f0ce88a2e7dce2bf96c644bf"
+    },
+    "foundations.jpg": {
+      "bytes": 34521,
+      "sha256": "ddf1b6b4f549358d07f5f0c6306871cf97e2cf8d5c64f0d3dae0693830a2edf8"
+    },
+    "composite.jpg": {
+      "bytes": 49827,
+      "sha256": "4bd1fd659f10450875e83a0310d3a93a0d72a90f186e5649d6ad9a51da525c37"
+    },
+    "CAPTURE.json": {
+      "bytes": 2883,
+      "sha256": "3174a637a21a618960c822a2584b35d122828da2f6fe49a7435bb57016ab318d"
+    },
+    "NATIVE-JOB.json": {
+      "bytes": 1051,
+      "sha256": "50d02dd23c540b1c38a7012561fce783c4eb8108ada35642a3e42e226a43792c"
+    },
+    "CONSOLE.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "PLAN.md": {
+      "bytes": 5024,
+      "sha256": "73f8ab8cb8af5b1ba60083eed0c3a70ca3cdae15a5e9f57114594658c0be1ec2"
+    },
+    "INPUTS.json": {
+      "bytes": 3888,
+      "sha256": "1456d5ffa4ee9b7703eefef51a5df8c878fb975f72fbfb2ee3230c808e938dd0"
+    },
+    "viewer.mjs": {
+      "bytes": 11424,
+      "sha256": "379a39832ea7e1be3460cfcedaaa9f017a2d69bbd0d6574d569005ede133d17c"
+    },
+    "index.html": {
+      "bytes": 1344,
+      "sha256": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab"
+    }
+  },
+  "all21InputPinsExact": true,
+  "priorTwoFrozenPacketsExact": true,
+  "rootActuallyReviewedAllThreeCompleteOriginals": true,
+  "independentRootComparison": "93ffa9 / exit0 / 19:54:18.215493UTC: recompute all477 named-bone world and inverseBind operand comparisons; measured differences and recompute error0",
+  "independentRawWorld": "ea2806 / exit0 / 19:55:36.316278UTC: all171 raw-node TRS/ancestor worlds; residual3.3306690738754696e-16",
+  "criticIndependentComparison": "f6dde5 / PID95020 / exit0 / 19:59:19.569428-19:59:19.574065UTC; raw-world residual4.440892098500626e-16",
+  "limits": [
+    "initial zero-morph arrangement only",
+    "foundation morph arrays empty",
+    "inverseBind binary accessor values not independently decoded",
+    "CPU framing does not qualify GPU positions or contact",
+    "31 returned disposal attempts; post-close GPU memory unobserved",
+    "bounded empty warn/error console is not exhaustive"
+  ],
+  "nextWorth": "conditional A fresh artist-authored relaxed sweater in this source pose; complete surface/clearance contract needed before any construction; no old T-rest warp/point-map or fit trial admitted"
+}

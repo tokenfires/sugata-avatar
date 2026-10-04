@@ -1,0 +1,81 @@
+{
+  "tabId": "29",
+  "beforeReadyWaitUTC": "2026-10-04T19:49:30.062Z",
+  "requestedReadyWaitMs": 8000,
+  "readyWaits": 1,
+  "images": [
+    {
+      "mode": "Body",
+      "file": "body.jpg",
+      "beforeCaptureUTC": "2026-10-04T19:49:30.083Z",
+      "afterCaptureUTC": "2026-10-04T19:49:30.147Z"
+    },
+    {
+      "mode": "Foundations",
+      "file": "foundations.jpg",
+      "beforeCaptureUTC": "2026-10-04T19:50:02.741Z",
+      "afterCaptureUTC": "2026-10-04T19:50:02.837Z"
+    },
+    {
+      "mode": "Composite",
+      "file": "composite.jpg",
+      "beforeCaptureUTC": "2026-10-04T19:50:50.165Z",
+      "afterCaptureUTC": "2026-10-04T19:50:50.215Z"
+    }
+  ],
+  "ready": true,
+  "afterReadyWaitUTC": "2026-10-04T19:49:30.083Z",
+  "export": {
+    "protocol": "one read-only public #observed-record textContent",
+    "characters": 1392949,
+    "parsed": true,
+    "observedUTC": "2026-10-04T19:51:39.991Z",
+    "blobDownloadAttempts": 0
+  },
+  "closedTabId": "29",
+  "observedAfterCloseUTC": "2026-10-04T19:51:39.994Z",
+  "remainingTabs": [
+    {
+      "id": "1",
+      "providerTabId": "54be7203-4fbf-490c-92d2-2ef750bf1944",
+      "title": "Sugata — six-guide proposal refusal",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/guide-target-review.html",
+      "browserId": "3"
+    },
+    {
+      "id": "24",
+      "providerTabId": "cc6301d6-b9ac-4b9d-aa9b-4a9cc84a1e14",
+      "title": "Sugata — complete-body comparison",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/full-body-coverage/review.html",
+      "browserId": "3"
+    },
+    {
+      "id": "25",
+      "providerTabId": "eae33f4f-45a7-45bf-9219-36e5a617bc16",
+      "title": "Sugata — October 2 review",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/review.html",
+      "browserId": "3"
+    },
+    {
+      "id": "26",
+      "providerTabId": "7b4cb78c-a310-41b1-9bd2-80c4fc4541ad",
+      "title": "Sugata · opening and part placement",
+      "url": "http://localhost:5173/@fs/Users/robault/GitHub/sugata-avatar/captures/hair-boundary-2026-10-02-v1/review.html",
+      "browserId": "3"
+    },
+    {
+      "id": "27",
+      "providerTabId": "4364f0f4-b896-4dc0-8808-fa88b7ba8cb5",
+      "title": "Sugata — front design target",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/review.html",
+      "browserId": "3"
+    },
+    {
+      "id": "28",
+      "providerTabId": "c17f7498-ebad-4cef-8d68-c4f2f66bf445",
+      "title": "Sugata — download a saved look",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/review.html",
+      "browserId": "3"
+    }
+  ]
+}

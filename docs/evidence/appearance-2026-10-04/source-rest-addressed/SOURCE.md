@@ -1,0 +1,7 @@
+# A — isolated observer transport trial
+
+Root captures independent critic complete final source handoff19:47UTC. FullPLAN/viewer/HTML/INPUTS/replacement read9ba3ab; independent solefetch reversal/exactHTML/primarycopiesb1bcce/0. The asset-address prefix is the sole code change. All-input nonempty ownership, original source roots/TRS/binds, recordedzero morphs, unique names/full named comparisons before mismatch, fixed cameras/visibility-only modes and returned-resource cleanup remain unchanged. Foundation transport is untested and must pass existing exact byte/hash guards before parse.
+
+AlternativeA obtains first real source-layer arrangement evidence with no geometry/pose/camera tuning. AlternativeB defers and leaves reference unanswered. SelectA for onecreation before19:53/20:13cap, conditional root exact verification. Complete/parsible publicDOMJSON and actual originals must support later verdict; earlier1269byte recovery alone does not qualify this larger observation. No alternateexport/retry, source/reference/fit/appearance/GPU-position acceptance.
+
+Full critic hashes: PLAN73f8ab8cb8af5b1ba60083eed0c3a70ca3cdae15a5e9f57114594658c0be1ec2; viewer379a39832ea7e1be3460cfcedaaa9f017a2d69bbd0d6574d569005ede133d17c; INPUTS1456d5ffa4ee9b7703eefef51a5df8c878fb975f72fbfb2ee3230c808e938dd0; REPLACEMENTfc79aa8116df300a3805bb3bc3481b539e0c6c096b23906759b8f2d6eff4da66; indexde247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab; PRIMARYcdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc. No HTTP/decode/native/GPU/source edit by critic.

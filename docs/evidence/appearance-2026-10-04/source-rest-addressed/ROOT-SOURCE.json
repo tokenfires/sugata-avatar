@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-04T19:48:52.720497+00:00",
+  "decision": "A onecreation with fixeddeadline/firstfailurestop",
+  "criticBindingsVerified": {
+    "PLAN.md": "73f8ab8cb8af5b1ba60083eed0c3a70ca3cdae15a5e9f57114594658c0be1ec2",
+    "viewer.mjs": "379a39832ea7e1be3460cfcedaaa9f017a2d69bbd0d6574d569005ede133d17c",
+    "INPUTS.json": "1456d5ffa4ee9b7703eefef51a5df8c878fb975f72fbfb2ee3230c808e938dd0",
+    "REPLACEMENT.json": "fc79aa8116df300a3805bb3bc3481b539e0c6c096b23906759b8f2d6eff4da66",
+    "index.html": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab",
+    "PRIMARY-READ.json": "cdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc"
+  },
+  "all21InputsVerified": true,
+  "exactURLOnlyReverseDelta": true,
+  "rootFullRead": "fd9462 complete newviewer/2b2040 replacement; completePLAN created/read;84e197 priorfrozenmanifests/21pins; source/exportlifetime/firstfailure reviewed",
+  "capturedSourceSHA256": "5e17c70452f434229f7e5566e9f6e924ef937ac07c7033a0c5949531ede428bd",
+  "nativeJobsSoFar": 0,
+  "referenceAcceptance": false
+}

@@ -1,0 +1,6 @@
+{
+  "old": "fetch('/'+input.path)",
+  "new": "fetch('/@fs/Users/robault/GitHub/sugata-avatar/'+input.path)",
+  "count": 1,
+  "reverseExactOriginal": true
+}

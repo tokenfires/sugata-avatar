@@ -1,0 +1,97 @@
+{
+  "utc": "2026-10-04T19:45:51.009810+00:00",
+  "stage": "root complete source/delta read; critic pending",
+  "sourceRead": "fd9462 full currentviewer/2b2040 exactreplacement; complete newplan created and inspected; current source/route witnesses previously read verified",
+  "inputPins": {
+    "docs/evidence/appearance-2026-10-04/source-rest-addressed/PLAN.md": {
+      "bytes": 5024,
+      "sha256": "73f8ab8cb8af5b1ba60083eed0c3a70ca3cdae15a5e9f57114594658c0be1ec2"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-addressed/viewer.mjs": {
+      "bytes": 11424,
+      "sha256": "379a39832ea7e1be3460cfcedaaa9f017a2d69bbd0d6574d569005ede133d17c"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-addressed/index.html": {
+      "bytes": 1344,
+      "sha256": "de247a455ba802a50bb026f4959bb41a63b9e4098bc8c8d97f558c9de39c6aab"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-addressed/PRIMARY-READ.json": {
+      "bytes": 13530,
+      "sha256": "cdb50c60a70dbebbe7432cf28261ec73b0d5f89d323536ab1e3a434bd07372fc"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-addressed/REPLACEMENT.json": {
+      "bytes": 156,
+      "sha256": "fc79aa8116df300a3805bb3bc3481b539e0c6c096b23906759b8f2d6eff4da66"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-owned/PLAN.md": {
+      "bytes": 4509,
+      "sha256": "69a76ec11c4cb6978c046264f1d186bf882606a446ffb4216dcbaa09305a0cf5"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-owned/viewer.mjs": {
+      "bytes": 11385,
+      "sha256": "4487b36010398c55082de2544fa7070d186b12683648e9a6f6a21c5781c90222"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-owned/SOURCE.md": {
+      "bytes": 1947,
+      "sha256": "065301721efdaf122194c8c8f37107f9abcc1e99128ebc7fbdede2acfdb09b93"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-owned/RESULT.md": {
+      "bytes": 2477,
+      "sha256": "2d3f6daf349f045fbdfd1a0ff4e15d173a8f39c84d32782221db8903428970a2"
+    },
+    "docs/evidence/appearance-2026-10-04/source-rest-owned/PARTIAL-OBSERVATIONS.json": {
+      "bytes": 1269,
+      "sha256": "9c2d391daf50fb8ccd3b3b494da90759212e3e95515fec02bcc3da3b33e26b16"
+    },
+    "docs/evidence/appearance-2026-10-04/source-route-identity/WORKSHEET.md": {
+      "bytes": 1902,
+      "sha256": "c63e284e95bd21917f3dc04c0d8a60b25a52ab4e41d1e97025c5fdb82e641bc2"
+    },
+    "docs/evidence/appearance-2026-10-04/source-route-identity/RESULT.md": {
+      "bytes": 2164,
+      "sha256": "4bbd66006da383ed605de6c0052903da71aaf8e1ac1a7ae01e2bb612087a282d"
+    },
+    "docs/evidence/appearance-2026-10-04/source-route-identity/ROOT-RESULT.json": {
+      "bytes": 1590,
+      "sha256": "d1e63bfee4c18443ce64b29acd2801550b6d84ce9920263eeb3b7ace28e73694"
+    },
+    "vite.config.js": {
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    "node_modules/three/examples/jsm/loaders/GLTFLoader.js": {
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    "node_modules/three/src/objects/SkinnedMesh.js": {
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    "node_modules/three/src/objects/Mesh.js": {
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    "node_modules/three/src/objects/Skeleton.js": {
+      "bytes": 7906,
+      "sha256": "37eaa7755b39775411fe32bafbf9a0273bdad6bb7976114ed63f8700f4b4b0e9"
+    },
+    "assets/wardrobe/body/g050.glb": {
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    "assets/wardrobe/foundation_bra/g050.glb": {
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    "assets/wardrobe/foundation_briefs/g050.glb": {
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    }
+  },
+  "literalURLOnlyReplacementVerified": true,
+  "priorNativeAndRouteManifestsVerified": true,
+  "copiedHTMLAndPrimaryExact": true,
+  "primaryExportProtocol": "read-only public #observed-record, exact emittedJSON; no Blobattempt",
+  "nativeJobsSoFar": 0,
+  "newAssetReads": "local pin hashing only; no newGET/decode/parse/capture"
+}

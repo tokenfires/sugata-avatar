@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-04T20:10:11.097953+00:00",
+  "localGuideLinks": 31,
+  "tables": [
+    {
+      "file": "RESULT.md",
+      "rows": 3,
+      "columns": 4
+    },
+    {
+      "file": "RECEIPT.md",
+      "rows": 3,
+      "columns": 4
+    }
+  ],
+  "criticBindingsStillExact": 11,
+  "inputsStillExact": 21,
+  "journalsUpdated": [
+    "docs/PROGRESS-2026-10-02.md",
+    "docs/WORK-WINDOW-2026-10-02.md",
+    "docs/DAY-REPORT-2026-10-04.md",
+    "docs/PRODUCT-ROADMAP.md"
+  ],
+  "noLiveCriticCheckerPIDs": [
+    95020,
+    96089
+  ],
+  "reviewServer": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    1023 robault   23u  IPv4 0xbfef6cdca24b5a14      0t0  TCP 127.0.0.1:5173 (LISTEN)\n",
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "status": "ACTIVE",
+    "kind": "heartbeat",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  },
+  "automationSHA256": "f69648b59c2107f17177fde67cc5864bbd2956f20cfbe5d1101bdb2ddb5ef8db",
+  "nativeClosedWitness": "CAPTURE.json known29 observed19:51:39.994UTC; no new CUA request at closeout",
+  "checksScope": "guide links/table structure/required claims/pins/live service and timer; no runtime or appearance acceptance"
+}

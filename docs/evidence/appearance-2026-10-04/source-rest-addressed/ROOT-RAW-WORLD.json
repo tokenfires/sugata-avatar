@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-04T19:55:36.316278+00:00",
+  "method": "Independent Python row-major quaternion/TRS matrix composition and ancestor multiplication from retained rawGLTFJSON; compare all associated loaded-node and named-bone world matrices. No THREE/observer import, binary decode or newHTTP/capture.",
+  "observationSHA256": "f29750f083fcdc19608dd185f14a070bd2b76c6c756192cffa893b2b75fe9434",
+  "sources": [
+    {
+      "key": "body",
+      "rawNodes": 61,
+      "associatedLoadedNodesVerified": 61,
+      "maxWorldResidual": 3.3306690738754696e-16,
+      "nodesWithExplicitMatrix": 0
+    },
+    {
+      "key": "bra",
+      "rawNodes": 55,
+      "associatedLoadedNodesVerified": 55,
+      "maxWorldResidual": 3.3306690738754696e-16,
+      "nodesWithExplicitMatrix": 0
+    },
+    {
+      "key": "briefs",
+      "rawNodes": 55,
+      "associatedLoadedNodesVerified": 55,
+      "maxWorldResidual": 3.3306690738754696e-16,
+      "nodesWithExplicitMatrix": 0
+    }
+  ],
+  "associatedNodesVerified": 171,
+  "maxWorldResidual": 3.3306690738754696e-16,
+  "gateTolerance": 1e-06,
+  "limit": "Raw source-world reconstruction only; inverseBind operands verified by independent comparison93ffa9, not independently decoded here; no GPU skinposition/posed fit claim."
+}

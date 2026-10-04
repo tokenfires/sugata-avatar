@@ -1,0 +1,21 @@
+# Independent quality critic — source reference A
+
+Root records the complete direct handoff received by 20:04:39UTC from `/root/quality_critic`. The critic actually viewed all three complete 1280×838 originals at original detail. Exact eleven source/result bindings are preserved and independently reconciled in [ROOT-RESULT.json](ROOT-RESULT.json), command3c68dc/exit0 at20:06:03.130992UTC, together with all21 INPUTS entries and both prior frozen packets.
+
+The critic admits the three paired stills and complete observations as an initial-source authoring reference. [body.jpg](body.jpg) shows complete front/oblique head, hands and feet with source arms down/out. [foundations.jpg](foundations.jpg) shows separate teal chest and purple hip shells. [composite.jpg](composite.jpg) makes their shared placement readable. Front bra is approximately x281–381/y329–408 and briefs x278–381/y484–558; oblique shells approximately x920–1019 at the same heights. Raw strap, hem and leg edges are visibly stepped. This is reference utility, not finished material, thickness, contact, fit, morph-range or moving-avatar qualification.
+
+Source witnesses in [viewer.mjs](viewer.mjs): lines37–55 retain raw documents, associations, original/zero morph values and actual skeleton operands; lines60–82 record complete per-key owners and named comparisons; lines84–103 frame the loaded arrangement and change only root visibility. The critic's independent stdlib saved-JSON checker PID95020 ran19:59:19.569428–.574065UTC, exit0/chunkf6dde5. It parsed all1,392,949bytes, reconstructed all171 raw TRS/ancestor worlds (max residual4.440892098500626e-16), checked all477 named world/inverse-bind comparison rows (differences0), nine mesh-owner/joint sets, zero morph records, four literal joints,39,546 framed vertices and31 returned disposal attempts. No GLB decode, THREE import or new request. A second saved-only checker PID96089 at19:59:57.734UTC, exit0/abe05e, rehashed all21 INPUTS entries unchanged, without decoding GLBs.
+
+Foundation morph arrays are empty and do not qualify nonzero morph support. Inverse-bind binary accessors were not independently decoded. Framing arithmetic was recomputed from retained bounds; rendered GPU vertices and contact were not independently measured.
+
+The alternatives and decisions are:
+
+| Witness / finding | A and tradeoff | B and tradeoff | Decision |
+| --- | --- | --- | --- |
+| Complete Body/Foundations/Composite originals reveal a common initial frame. | Keep the three-mode paired guide: makes source coverage and frame inspectable without pose normalization. | Keep numeric records alone: simpler packet, but loses the practical chest/hip arrangement. | A: useful source guide. |
+| Actual strap/hem/leg boundaries are visibly stepped. | Describe the diagnostic edges explicitly: preserves source responsibility with honest appearance limits. | Suppress foundations: cleaner picture, but conceals that responsibility. | A: retain the originals; no edge repair proposed. |
+| Source arms and foundation arrangement differ from the retained unitless T-rest sweater context. | A fresh artist-authored relaxed sweater in this frame could provide editable shoulders, underarms, sleeve direction, cuffs, neck and hem. It requires a new complete surface/clearance contract. | Keep the unitless scaffold and defer metric authorship: cheaper, but the source-pose/cuff mismatch remains unresolved. | Conditional A worth only; no construction admitted. |
+
+Acquisition completes before20:00: one ready wait ends19:49:30.083UTC; all originals end19:50:50.215; explicit Finish19:51:39.538; exact public JSON read19:51:39.991; known tab29 closed19:51:39.994. No Blob attempt, added draw, request or capture by the critic. Cleanup is31 independently returned calls with no recorded error, not an exhaustive GPU-leak claim. The empty bounded console is not universal network absence. CAPTURE retains tabs1,24–28; user1 is not the sole remaining tab.
+
+The next worth decision does not admit a warp of the old T-rest mesh, another uniform point-map, solver or fit/native trial. This sheet supplies reference authority, not artist surfaces or clearance values. A fresh literal artist contract must supply those responsibilities; no mandatory next construction follows.

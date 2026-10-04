@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-04T19:54:18.215493+00:00",
+  "decision": "conditional source-reference A, critic result pending",
+  "actualRootImageWitness": "All three complete original native JPEGs actually inspected as emitted: wholebody A-rest/front-oblique, floating tealbra/violetbriefs, composite placementcoherent withrawjaggedsourceboundary. No crop/recapture/renderer tuning.",
+  "files": {
+    "OBSERVATIONS.json": {
+      "bytes": 1392949,
+      "sha256": "f29750f083fcdc19608dd185f14a070bd2b76c6c756192cffa893b2b75fe9434"
+    },
+    "body.jpg": {
+      "bytes": 47348,
+      "sha256": "28a2198c8e6c2f3ad76c8c0b7c2d0e8eb2f65b07f0ce88a2e7dce2bf96c644bf"
+    },
+    "foundations.jpg": {
+      "bytes": 34521,
+      "sha256": "ddf1b6b4f549358d07f5f0c6306871cf97e2cf8d5c64f0d3dae0693830a2edf8"
+    },
+    "composite.jpg": {
+      "bytes": 49827,
+      "sha256": "4bd1fd659f10450875e83a0310d3a93a0d72a90f186e5649d6ad9a51da525c37"
+    },
+    "CAPTURE.json": {
+      "bytes": 2883,
+      "sha256": "3174a637a21a618960c822a2584b35d122828da2f6fe49a7435bb57016ab318d"
+    },
+    "CONSOLE.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  },
+  "completeJSONParsed": true,
+  "sourceKeys": [
+    "body",
+    "bra",
+    "briefs"
+  ],
+  "ownerCounts": {
+    "body": 7,
+    "bra": 1,
+    "briefs": 1
+  },
+  "independentBoneRows": 477,
+  "boneNames": 53,
+  "maxRecordedMetricRecomputeError": 0.0,
+  "maxWorldComponentOrTranslationDifference": 0.0,
+  "maxInverseBindComponentOrTranslationDifference": 0.0,
+  "all21InputsStillExact": true,
+  "allOriginalMorphInfluencesRecordedZeroed": true,
+  "threeModesSameProjection": true,
+  "disposalAttemptsReturned": 31,
+  "cleanupLimit": "31attemptsreturn withoutrecordederror; actualGPUmemory afterclose unobserved.",
+  "consoleLimit": "empty warn/errorlimit20 notexhaustive.",
+  "known29Closed": true,
+  "newRemainingTabsLimit": "CAPTURE retainsuser1andfiveothertabs24\u201328 notcreatedhere; allpreserved.",
+  "referenceLimit": "Source-frame guide only; initialrig/bind agreement, no GPU-position/material/fit/morph/posed/movingacceptance."
+}
