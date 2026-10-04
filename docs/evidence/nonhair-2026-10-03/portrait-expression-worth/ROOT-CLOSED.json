@@ -1,0 +1,40 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-03/portrait-expression-worth/root-close.py",
+  "pid": 58245,
+  "started": "2026-10-04T03:18:17.921465+00:00",
+  "ended": "2026-10-04T03:18:17.922063+00:00",
+  "pins": [
+    {
+      "file": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "file": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "file": "docs/EXPRESSION-INVENTORY-2026-09-13.md",
+      "bytes": 8500,
+      "sha256": "ae1eba7a028cb10649267e8a96ee1c73c167d47f2214ecab4d3fdead0e60126c"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-09-26/expression-next/DECISION.md",
+      "bytes": 2069,
+      "sha256": "4e16c816e3e3be6e8c82ecc7a008bcff403c0e659598da130fd40e686c734ca0"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-09-26/expression-next/gallery-native-v2/desktop-quiet-hold.png",
+      "bytes": 355322,
+      "sha256": "39567f856e8ae5ed0fcc20e7f6655267df24e846c8d29cab16f492d213ffcd08"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/portrait-expression-worth/CRITIC-WORTH.md",
+      "bytes": 5250,
+      "sha256": "8a41f41aa6c2e43c163e98ccec606a4c4e5c9447abeeea7dfd36115ef74b22fc"
+    }
+  ],
+  "decision": "B: no new guide/differentiation capture; tracked historical inventory already addresses proposed targets. Missing raw path is local only; no recovery/global absence claim.",
+  "scope": "Root fully reads current source, tracked inventory, Sep26 decision and entire critic handoff; actually views Sep26 quiet gallery original. Warm/Curious historical pixel conclusions remain attributed, not requalified. No runtime/parser/test/build/product work."
+}

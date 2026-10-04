@@ -1,0 +1,11 @@
+import datetime,hashlib,json,os,pathlib
+root=pathlib.Path('/Users/robault/GitHub/sugata-avatar');folder=pathlib.Path(__file__).resolve().parent;started=datetime.datetime.now(datetime.timezone.utc).isoformat()
+expected={'packages/testbed/src/portrait.html':'a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764','packages/testbed/src/portrait.js':'d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0','docs/EXPRESSION-INVENTORY-2026-09-13.md':'ae1eba7a028cb10649267e8a96ee1c73c167d47f2214ecab4d3fdead0e60126c','docs/evidence/nonhair-2026-09-26/expression-next/DECISION.md':'4e16c816e3e3be6e8c82ecc7a008bcff403c0e659598da130fd40e686c734ca0','docs/evidence/nonhair-2026-09-26/expression-next/gallery-native-v2/desktop-quiet-hold.png':'39567f856e8ae5ed0fcc20e7f6655267df24e846c8d29cab16f492d213ffcd08','docs/evidence/nonhair-2026-10-03/portrait-expression-worth/CRITIC-WORTH.md':'8a41f41aa6c2e43c163e98ccec606a4c4e5c9447abeeea7dfd36115ef74b22fc'}
+pins=[]
+for file,sha in expected.items():
+ d=(root/file).read_bytes();assert hashlib.sha256(d).hexdigest()==sha; pins.append(dict(file=file,bytes=len(d),sha256=sha))
+assert not (root/'captures/expression-inventory-2026-09-13/portrait').exists()
+script=(root/'packages/testbed/src/portrait.js').read_text();assert 'joy: { pleasure: 0.7, arousal: 0.25, dominance: 0.35 }' in script and 'curious: { pleasure: 0.15, arousal: 0.5, dominance: 0.05 }' in script
+out=dict(command='python3 docs/evidence/nonhair-2026-10-03/portrait-expression-worth/root-close.py',pid=os.getpid(),started=started,ended=datetime.datetime.now(datetime.timezone.utc).isoformat(),pins=pins,decision='B: no new guide/differentiation capture; tracked historical inventory already addresses proposed targets. Missing raw path is local only; no recovery/global absence claim.',scope='Root fully reads current source, tracked inventory, Sep26 decision and entire critic handoff; actually views Sep26 quiet gallery original. Warm/Curious historical pixel conclusions remain attributed, not requalified. No runtime/parser/test/build/product work.')
+with (folder/'ROOT-CLOSED.json').open('x') as h:json.dump(out,h,indent=2);h.write('\n')
+print(json.dumps(dict(pid=out['pid'],started=started,ended=out['ended'],pins=len(pins))))
