@@ -1,0 +1,56 @@
+{
+  "decision": "B: no justified finish trial",
+  "command": "python3 docs/evidence/nonhair-2026-10-03/garment-finish-worth/root-verify.py",
+  "pid": 30271,
+  "started": "2026-10-04T02:09:56.761578+00:00",
+  "ended": "2026-10-04T02:09:56.763995+00:00",
+  "pins": [
+    {
+      "file": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "file": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "file": "docs/WARDROBE-COLOURWAYS-2026-09-13.md",
+      "bytes": 8344,
+      "sha256": "68643834e7ef3151583b541a80962c8478e6fd0114bd0058faaf76b411fd6d4e"
+    },
+    {
+      "file": "docs/WARDROBE-TROUSER-FIT-2026-09-13.md",
+      "bytes": 7944,
+      "sha256": "575b6c9c19aacfcaccbd659f9da68890146ea9ee85fb5aa419ede9f0a9f39690"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "file": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "bytes": 1009568,
+      "sha256": "4e7c174fbea2cc223b79cbe073c6fc40bacfaa1af7d800b62064d29ff16b7bc8"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/casual-ecru.png",
+      "bytes": 634358,
+      "sha256": "cb03b3ab97a29a2b46f6eca0613b5d06ebb9084068d5b3edb9e93828f75ae33e"
+    },
+    {
+      "file": "packages/testbed/src/palette-references/elegant-ecru.png",
+      "bytes": 647399,
+      "sha256": "461aad4e5534190aac4490ac50cf244e9fa542369147894390885755b56cfd2e"
+    }
+  ],
+  "noteSha256": "a18ec903e6236df51890ce3ed3b9fb1bdafa8bbf4ecae2e28b592f9a8396388d",
+  "readerSha256": "e3ccdc485507d4dddfc3e838871a85887ec7f5ac2a63b38cb23b021a97f50b50",
+  "rootViewed": [
+    "Ink neutral-body.png whole original",
+    "Ink kitchen-body.png whole original"
+  ],
+  "scope": "Independent complete note and8pin reconciliation; no native/GPU/asset or material change"
+}
