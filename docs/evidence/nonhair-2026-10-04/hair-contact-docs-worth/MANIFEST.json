@@ -1,0 +1,59 @@
+{
+  "pid": 95411,
+  "started": "2026-10-04T06:51:40.193202+00:00",
+  "finished": "2026-10-04T06:51:40.194498+00:00",
+  "command": "FS-only inline Python: append unique progress entry; hash all packet payloads; chmod444; save manifest",
+  "payloads": [
+    {
+      "path": "CRITIC-RESULT.md",
+      "bytes": 3115,
+      "sha256": "9696d261dcc2ac52ce2d1f76560de15dade0f1ec8dd3c2db7edce4d0caf417cc"
+    },
+    {
+      "path": "CRITIC-WORTH.md",
+      "bytes": 6108,
+      "sha256": "39928397df2f101e3618fcf9e5c880c47e10d1ce8ce45ff09734f6054de29cd9"
+    },
+    {
+      "path": "DOC-VERIFICATION.json",
+      "bytes": 1802,
+      "sha256": "3f14bb4b86c60092db72ada07183c245b73f30fc5828abf06a9bcf11bd61dee8"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 2817,
+      "sha256": "b83009e1bbf4355525518c277b6e256d475dfffe805174f6b78e9a5f16604261"
+    },
+    {
+      "path": "RECEIPT.md",
+      "bytes": 3532,
+      "sha256": "8da277956d3e64cb4e35c7b2c1e48bccf157eb03e52a685dfc21cd47361f502c"
+    },
+    {
+      "path": "ROOT-DECISION.md",
+      "bytes": 1630,
+      "sha256": "203ae247d437a7f514bba0fc81c412c36f53065fd76101f6a5008547aeb52d63"
+    },
+    {
+      "path": "ROOT-READBACK.json",
+      "bytes": 2775,
+      "sha256": "0067c40d19c4f005b4feb7bec35272da62f517135b731f5e55cced7f9431c1a4"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 2481,
+      "sha256": "a48513170c77741a12d8c184ac98912a33964714dd7d90dae22dfc363e7534b7"
+    },
+    {
+      "path": "closeout.py",
+      "bytes": 2583,
+      "sha256": "087b271a93c104394b69c34f4e5b94cacd66a999325d09aa5f75582890e3845f"
+    },
+    {
+      "path": "root-readback.py",
+      "bytes": 2290,
+      "sha256": "72c21b703d57efc6c3234ac203d2333e1fb3fd21466b30e683fedbdb15b1a8fb"
+    }
+  ],
+  "totalBytes": 29133
+}

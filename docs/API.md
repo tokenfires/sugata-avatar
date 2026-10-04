@@ -381,6 +381,15 @@ an available bake restores it. `resolveHairAssets(style, bakeName, assetBaseUrl)
 availability and canonical external asset URLs without loading the groom. Bob02's frame cost is
 unmeasured; the bob01 timing table below does not certify it.
 
+Groom attachment and the body-contact path are reported separately. `report().hair.attached`
+confirms attachment; inspect `bodyContact` and `bodyContactUnavailableReason` for the contact
+path. For bob01's dynamic contact path, calibration is currently attempted only for
+`figure_g025` and `figure_g050`, and can still fail source validation. Other supported bob01
+bakes can attach without that calibration: [the recorded g100 report](evidence/nonhair-2026-10-04/rowan-portrait/FRONT-STATE.json)
+has `attached: true`, `loadedStyle: 'bob01'`, `bodyContact: null` and an explicit calibration
+unavailable reason. A null contact report can also mean no dynamic solver was created. These
+fields describe the current contact path; they do not certify fit or motion appearance.
+
 Open `src/portrait.html` for a living bob02 portrait with expression, lighting, orbit, and pause
 controls, plus a comparison with bob01. Style selection navigates to a new document to isolate the
 renderer and its prototype state. This is a visual development preview, not a claim that the hair meets the final

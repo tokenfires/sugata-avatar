@@ -1,0 +1,81 @@
+{
+  "pid": 87233,
+  "started": "2026-10-04T06:44:55.242903+00:00",
+  "finished": "2026-10-04T06:44:55.243724+00:00",
+  "inputs": [
+    {
+      "path": "docs/API.md",
+      "bytes": 48974,
+      "sha256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/motion/HairBodyContactCalibration.js",
+      "bytes": 7736,
+      "sha256": "0709c3d888613c7a1208cbe3f98d3adfe8d2936754f9aaca0bc66d686dd985cc"
+    },
+    {
+      "path": "packages/core/src/motion/HairDynamics.js",
+      "bytes": 76910,
+      "sha256": "bacd260ab768277b4efa9345c990e58a133c3c97f6b683ecf1674cc3588de1bc"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/FRONT-STATE.json",
+      "bytes": 21686,
+      "sha256": "0750ac1a398ead10f45752c941d35c3147c08bc2cd7a7c20f2c640257bc94a99"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/RETIRED-STATE.json",
+      "bytes": 21869,
+      "sha256": "9f2a2f2145e78b53a872c1193f8b61f80c6c8edb77b5935d4234dbe58c4bbec3"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/rowan-portrait/CRITIC-RESULT.md",
+      "bytes": 9752,
+      "sha256": "3c774a4883578862a88540ecc555374094091c58462fac419d8092c0448d9df5"
+    }
+  ],
+  "observedReports": {
+    "front": {
+      "creation": {
+        "attached": true,
+        "loadedStyle": "bob01",
+        "bake": "figure_g100",
+        "unavailableReason": null,
+        "bodyContact": null,
+        "bodyContactUnavailableReason": "No body-contact calibration for bob01 on figure_g100."
+      },
+      "view": {
+        "attached": true,
+        "loadedStyle": "bob01",
+        "bake": "figure_g100",
+        "unavailableReason": null,
+        "bodyContact": null,
+        "bodyContactUnavailableReason": "No body-contact calibration for bob01 on figure_g100."
+      }
+    },
+    "retired": {
+      "creation": {
+        "attached": true,
+        "loadedStyle": "bob01",
+        "bake": "figure_g100",
+        "unavailableReason": null,
+        "bodyContact": null,
+        "bodyContactUnavailableReason": "No body-contact calibration for bob01 on figure_g100."
+      },
+      "view": {
+        "attached": true,
+        "loadedStyle": "bob01",
+        "bake": "figure_g100",
+        "unavailableReason": null,
+        "bodyContact": null,
+        "bodyContactUnavailableReason": "No body-contact calibration for bob01 on figure_g100."
+      }
+    }
+  },
+  "scope": "Saved public reports and current API field absence only. Source semantics independently read by root; no runtime, visual cause, contact activation, fit or motion inference."
+}

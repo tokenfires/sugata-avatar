@@ -1,0 +1,20 @@
+{
+  "pid": 89435,
+  "started": "2026-10-04T06:47:34.180021+00:00",
+  "finished": "2026-10-04T06:47:34.191672+00:00",
+  "apiBeforeSHA256": "71117d8e564ca92a0c7897e81f36b9de55eee5725c7f6473f169ea17556b5353",
+  "apiAfterSHA256": "524541f8e1abd3ed578ae13dd64d8f3b471ddadf065629e961cdcdb71ca28190",
+  "bytesAfter": 49745,
+  "onlyChange": "Groom attachment and the body-contact path are reported separately. `report().hair.attached`\nconfirms attachment; inspect `bodyContact` and `bodyContactUnavailableReason` for the contact\npath. For bob01's dynamic contact path, calibration is currently attempted only for\n`figure_g025` and `figure_g050`, and can still fail source validation. Other supported bob01\nbakes can attach without that calibration: [the recorded g100 report](evidence/nonhair-2026-10-04/rowan-portrait/FRONT-STATE.json)\nhas `attached: true`, `loadedStyle: 'bob01'`, `bodyContact: null` and an explicit calibration\nunavailable reason. A null contact report can also mean no dynamic solver was created. These\nfields describe the current contact path; they do not certify fit or motion appearance.\n\n",
+  "link": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/FRONT-STATE.json",
+  "unchangedInputs": [
+    "packages/core/src/Avatar.js",
+    "packages/core/src/motion/HairBodyContactCalibration.js",
+    "packages/core/src/motion/HairDynamics.js",
+    "docs/evidence/nonhair-2026-10-04/rowan-portrait/FRONT-STATE.json",
+    "docs/evidence/nonhair-2026-10-04/rowan-portrait/RETIRED-STATE.json",
+    "docs/evidence/nonhair-2026-10-04/rowan-portrait/CRITIC-RESULT.md"
+  ],
+  "criticWorthSHA256": "39928397df2f101e3618fcf9e5c880c47e10d1ce8ce45ff09734f6054de29cd9",
+  "limits": "Literal one-paragraph/source/link check only; no renderer or motion test."
+}
