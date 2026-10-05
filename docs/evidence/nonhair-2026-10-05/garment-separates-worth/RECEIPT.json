@@ -1,0 +1,209 @@
+{
+  "collected_utc": "2026-10-05T18:50:35.270208+00:00",
+  "decision": "B source-export preparation; no successor admission",
+  "plan_deadlines": {
+    "inventory_cut_utc": "2026-10-05T18:56:00Z",
+    "worth_stop_utc": "2026-10-05T19:02:00Z",
+    "root_close_stop_utc": "2026-10-05T19:07:00Z"
+  },
+  "direct_inputs": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Hash-only this nomination; previously complete same-byte current checklist read in Stage wording review. No new completion claim."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Hash-only this nomination; previously read same-byte selected Phase1/work-order/performance scopes. Full roadmap remains outstanding."
+    },
+    {
+      "path": "docs/WARDROBE-SEPARATES-CONTRACT-2026-10-03.md",
+      "bytes": 4791,
+      "sha256": "fa57749407f8c03e7772553515d7f551bf6fbeb50f1070ca624ef747cd7676e6",
+      "read_scope": "Complete 27-line source contract read."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/CRITIC-WORTH.md",
+      "bytes": 6693,
+      "sha256": "7573554bf8434c34fbd13efa995189888ff6144d8760dc8861c621babb699b85",
+      "read_scope": "Complete 29-line historical worth read; referenced old pixel observations were not newly viewed."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/CRITIC-RESULT.md",
+      "bytes": 6098,
+      "sha256": "cb10eed8e149913cf507b0f16aaedf447689946f9b3ae787d8c98677f2e475db",
+      "read_scope": "Complete 33-line historical result read; old numeric checks retained as historical observations, not repeated."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/CHECKPOINT.md",
+      "bytes": 813,
+      "sha256": "29f69300805ce4560cee334f49feb6e8b585e21707e596281663d7e6fe987240",
+      "read_scope": "Complete five-line closure read."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/OWNERSHIP.json",
+      "bytes": 193899,
+      "sha256": "1e611a61b9c1ebb4d7ff2d52234243bae6e74f439f39e632a2fd7343e181c727",
+      "read_scope": "Complete saved JSON parsed and all structural/scalar/declaration/attribute/component/mask metadata read. sourceTriangleOrdinals arrays summarized by length/first/last; no reclassification, geometry or mask-value verification."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/PRIMARY-GLTF.json",
+      "bytes": 646552,
+      "sha256": "d944d8c58b009fcd0ef9f8e36ef478d03d82e4c8e47216aa8f468ff157783477",
+      "read_scope": "Hash-only historical primary response; no fresh fetch or current-format oracle."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/ROOT-CLOSE.json",
+      "bytes": 2271,
+      "sha256": "5891e272c72519048ea17c423d63d7af610d0e170e5ba45614932e2ffbae7f42",
+      "read_scope": "Complete prior-slice closure metadata read."
+    },
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "read_scope": "Complete current manifest read, including whole-suit declarations and foundation entries; no binary mask decode."
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089",
+      "read_scope": "Complete lines 1-120, including qualified whole IDs/hashes, material factories and original vertex-index thresholds."
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664",
+      "read_scope": "Only lines 304-338 and 838-879: mask union threshold and original body/garment index rebuild/underMask mechanism."
+    },
+    {
+      "path": "packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd",
+      "read_scope": "Only lines 183-282, including conflicts and hideMasksFor; no full module semantic review."
+    },
+    {
+      "path": "tools/lut-bake/glb.mjs",
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "read_scope": "Hash-only historical helper; never imported or replayed."
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+      "read_scope": "Hash-only bytes, no container/JSON/BIN decode or geometry evaluation."
+    },
+    {
+      "path": "assets/wardrobe/female_elegantsuit01/g050.glb",
+      "bytes": 5066532,
+      "sha256": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440",
+      "read_scope": "Hash-only bytes, no container/JSON/BIN decode or geometry evaluation."
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "read_scope": "Hash-only bytes, no container/JSON/BIN decode or geometry evaluation."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/garment-separates-worth/PLAN.json",
+      "bytes": 5018,
+      "sha256": "d2d6c69be4352359e628130d74bff0302d999f18c6c6191c09173cae9fb36106",
+      "read_scope": "Complete exact worth plan read; no authored per-piece ownership inputs supplied."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/garment-separates-worth/ROOT-OBSERVATION.json",
+      "bytes": 3193,
+      "sha256": "c1f6ee6a06d247b8ee7ada8905ef41270d71368aa36740cef46c5a15a04c001e",
+      "read_scope": "Complete comparative root metadata read after independent B decision; not substituted for independent source reading."
+    }
+  ],
+  "plan_binding_count": 9,
+  "plan_bindings_verified": true,
+  "historical_source_bindings_verified_hash_only": [
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "historical_equals_current": true
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "historical_equals_current": true
+    },
+    {
+      "path": "tools/lut-bake/glb.mjs",
+      "historical_equals_current": true
+    },
+    {
+      "path": "assets/wardrobe/female_casualsuit01/g050.glb",
+      "historical_equals_current": true
+    },
+    {
+      "path": "assets/wardrobe/female_elegantsuit01/g050.glb",
+      "historical_equals_current": true
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "historical_equals_current": true
+    }
+  ],
+  "commands": [
+    {
+      "tool_return": "d3d369",
+      "exit_code": 0,
+      "scope": "Complete exact PLAN numbered/raw local read."
+    },
+    {
+      "tool_return": "be3298",
+      "exit_code": 0,
+      "scope": "Complete historical prose/ROOT-CLOSE reads; initial OWNERSHIP ordinal print truncated, recovered next."
+    },
+    {
+      "tool_return": "e92ce4",
+      "exit_code": 0,
+      "scope": "Complete OWNERSHIP metadata recovered, large ordinal arrays summarized; full current manifest. No application import or binary decode."
+    },
+    {
+      "tool_return": "d347b0",
+      "exit_code": 0,
+      "scope": "Complete WardrobeStyles; exactly scoped Wardrobe/GarmentManifest reads as listed."
+    },
+    {
+      "tool_return": "4e240c",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T18:47:52.984600+00:00",
+      "scope": "Complete PLAN and comparative ROOT-OBSERVATION read/hash, after independent B."
+    },
+    {
+      "tool_return": "e19c09",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T18:48:13.306260+00:00",
+      "scope": "Local Python hashlib/pathlib/json verifies nine plan rows and eight current/historical hashes; GLBs hash-only."
+    },
+    {
+      "tool_return": "507865",
+      "exit_code": 1,
+      "scope": "Receipt assembly stopped before any output write: historical pins use file, not assumed path. No source/producer operation."
+    },
+    {
+      "tool_return": "a105c3",
+      "exit_code": 0,
+      "scope": "Read actual six historical pin schemas to correct only receipt assembly field access."
+    }
+  ],
+  "image_scope": "No new image inspected; historical prose pixel observations only, no current appearance claim.",
+  "limits": [
+    "No producer/helper/application import or replay.",
+    "No new GLB container/JSON/BIN decode, geometry/ordinal/mask classification, shader evaluation, export, builder, runtime, test, build, network, browser, native, GPU or capture.",
+    "Existing consumers read as source only; no complete runtime variant relationship, foundation-mask absence, skin transfer or independent fit qualification.",
+    "Only WORTH.md and RECEIPT.json written. Prior/frozen/default/product assets and 14/10 checklist unchanged."
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/garment-separates-worth/WORTH.md",
+    "bytes": 4016,
+    "sha256": "5f473acc89dae041d4f332799b0a61c9a72e8a3464c44bc876af64996288b90c"
+  }
+}
