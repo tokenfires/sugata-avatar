@@ -1,0 +1,50 @@
+{
+  "recorded_utc": "2026-10-05T21:53:28.514742+00:00",
+  "commands": [
+    "6c829b full contract review",
+    "31fc24 actual complete skinning shaders and selected Vector3 source",
+    "cc26d0 actual Vector4 source and primary container locators",
+    "9dcf0d retained primary800-821/2390-2482",
+    "573728 selected Object3D448-460/Matrix4 1110-1130"
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/SOURCE-CONTRACT.review.md",
+      "bytes": 15923,
+      "sha256": "c99ae130d77237c3c1aec65728d64634dee5f59e654c95d07888cd56bf81eca6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-CONTRACT-CORRECTIONS.md",
+      "bytes": 4611,
+      "sha256": "ab19ecde23f6aa2551791444f288af984c2919167f8e4e6be9f933bdc1801dc2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector3.js",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector4.js",
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/skinning_vertex.glsl.js",
+      "bytes": 400,
+      "sha256": "4422467001348636551ce64f1e6631d8a5032b7ac2788596c2dc5269618c7602"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/skinbase_vertex.glsl.js",
+      "bytes": 247,
+      "sha256": "b7c3bd51471e993f8fae0463733b534529e32cb91cdabb423b4d89ed3ca7c5bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857"
+    }
+  ],
+  "no_asset_decode_or_execution": true,
+  "no_network_or_native": true,
+  "preparation_scope_only": true
+}

@@ -1,0 +1,11 @@
+# Existing whole figure as a facial starting input
+
+This preparation selects the unchanged standalone `assets/figures/figure_g100.glb` for a complete source study. The useful future result is an editable original GLB plus a full ownership/operand/material packet and unchanged views that let an artist accept or reject it as a facial starting master. The original remains hash-only in this slice; there is no new mesh or appearance qualification.
+
+The authoritative literal contract is the preserved [original review](SOURCE-CONTRACT.review.md), selected [CPU/shader and container corrections](ROOT-CONTRACT-CORRECTIONS.md), [joint and primitive-owner corrections](ROOT-OWNER-CORRECTIONS.md), and [exact weight-sharing refusal](ALIAS-POLICY.md). Corrections supersede the named draft clauses; all other responsibilities remain. The [initial plan](PLAN.json) is preserved. The [technical reference selection](TECHNICAL-REFERENCE-SELECTION.json) explains why today's retained exact Khronos response was read again within a new explicit scope instead of fetching a duplicate page.
+
+The contract owns complete source definitions and original geometry/material/skin/morph/frame responsibilities. The study deliberately selects zero source morphs and original transforms; runtime neutral and source defaults remain distinct. It requires all original owners, exact typed skin-weight behavior, separate CPU and ideal shader arithmetic evidence, and located refusal for unsupported formats or ambiguous mutable sharing. A position ledger alone cannot qualify a rendered face.
+
+No GLB/header/JSON/BIN/image/geometry decode, decoder code or imports/evaluation, asset transformation, native/browser capture, new network, default/runtime change or project completion credit occurs in this slice. Later inert code preparation and execution each require separate exact review and bounded admission. The current source contract does not automatically permit either.
+
+The existing [facial-source brief](../../nonhair-2026-10-05/facial-master-reference/FACIAL-SOURCE-BRIEF.md) remains the artist target. The full AAA character, representation, expression, gaze, wardrobe, fit, motion, performance and VTuber/Mii goals remain open. Accepted assets, original references, frozen evidence, unrelated worktrees and the retained review server remain preserved.

@@ -1,0 +1,237 @@
+{
+  "schema": "standalone-g100-facial-source-independent-worth-v1",
+  "collected_utc": "2026-10-05T21:33:07.776709+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "A complete literal contract preparation only; source/data/native/runtime adoption remains unadmitted",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/PLAN.json",
+      "bytes": 6294,
+      "sha256": "a9d07e4cf68517cdde0233a5d99a27514eace653dd8243519074fa9839b94feb",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811",
+      "scope": "whole-byte hash only; no header or data decode"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-source-ownership/WORTH.md",
+      "bytes": 2843,
+      "sha256": "7047543afcef366b3dec849ea99a3ab2502481dcaf4e1ec9faa5ba3c89db0643",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-source-ownership/README.md",
+      "bytes": 2402,
+      "sha256": "97d2f79dde242c01baf45bce1d68260d53c23c42c2769984aea05560fd7bf26e",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/README.md",
+      "bytes": 1655,
+      "sha256": "6731d7e9c0f588d6bfbf3e292dd6f90d2ec57f5094cd653df18a69768991da3b",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/ROOT-CLOSE.json",
+      "bytes": 3488,
+      "sha256": "0e6427c9a6e835e725cee34f1c4ee4bf98a7b6ae4fe8f710ff459e209c66b0e8",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/FACIAL-SOURCE-BRIEF.md",
+      "bytes": 4621,
+      "sha256": "d856264d785c0f6696306136649e631a9203c8789249caf71c180f677c44fd89",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "bytes": 38290,
+      "sha256": "171ec399b31ba63d62ccc3930105d9504ccdb3b6a3687c960788c12ac8fcd318",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/hair-contact-docs-worth/CRITIC-WORTH.md",
+      "bytes": 6108,
+      "sha256": "39928397df2f101e3618fcf9e5c880c47e10d1ce8ce45ff09734f6054de29cd9",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/hair-contact-docs-worth/CRITIC-RESULT.md",
+      "bytes": 3115,
+      "sha256": "9696d261dcc2ac52ce2d1f76560de15dade0f1ec8dd3c2db7edce4d0caf417cc",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/PLAN.md",
+      "bytes": 3971,
+      "sha256": "84ae599a9eb13fb2eb45b552219b5cf3c92bf8d446da958c6006ea3acb47f016",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/CRITIC-VALUE.md",
+      "bytes": 9732,
+      "sha256": "d944ee0e3518e64709e5d09ab65226791cc9dc350f023a8dd17bea8e50d42aa9",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/SOURCE-CORRECTION.md",
+      "bytes": 1668,
+      "sha256": "018a8bb431afc01baabed946f41821066474bea135981e45c86447d62f424363",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/delivery-snapshots/DAY-REPORT-2026-10-04.md",
+      "bytes": 57844,
+      "sha256": "a4913eaedb8e3fef3d613e21e47e4e809852ea9c2ebd331fb65df06c2c47015c",
+      "scope": "source/text scope specified below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "scope": "whole original previously viewed21:21:37UTC; unchanged bytes hashed now only, no image transformation"
+    }
+  ],
+  "plan_inputs_verified": 12,
+  "binary_scope": "figure_g100.glb whole bytes hashed only, no header/JSON/BIN/image/geometry decode",
+  "read_scopes": {
+    "PLAN": "complete",
+    "Identity.js": "complete current source read16abfb; literal path72\u201378/resolver and no-op declarations; historical commentary not remeasured",
+    "Avatar.js": "actual route locator16abfb and literal scopes922\u2013935/3028\u20133056/4648\u20134705 in ec5be4, not whole252785byte file",
+    "masculine-source-ownership WORTH/README": "complete current historical closure, new standalone conditional explicitly preserved",
+    "original-surface-ledger README": "complete, scope limitedg050 originals",
+    "facial-master-reference ROOT-CLOSE": "complete JSON parse/read; nominationB/briefA/no retry",
+    "FACIAL-SOURCE-BRIEF and character brief/checklist": "complete previous actual review, current exact pins checked again",
+    "PRODUCT-ROADMAP": "43\u201354/131\u2013138 current source scopes previously read, current exact pin",
+    "selected old Rowan/hair-contact/docs hits": "only actual relevant excerpts9919d4; no replay or current pixel claim"
+  },
+  "image_scopes": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "whole_viewed_original": true,
+      "prior_observed_utc": "2026-10-05T21:00:35Z",
+      "current_hash_verified": true,
+      "re_viewed_in_this_worth": false,
+      "limits": "negative facial continuity, no anatomy/identity diagnosis"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "whole_viewed_original": true,
+      "prior_observed_utc": "2026-10-05T21:21:37Z",
+      "re_viewed_in_this_worth": false,
+      "limits": "illustrative direction only; image not a g100 source/pose certificate",
+      "current_hash_verified": true
+    }
+  ],
+  "commands": [
+    {
+      "tool": "a84974",
+      "exit_code": 0,
+      "scope": "complete fresh PLAN/clock"
+    },
+    {
+      "tool": "ed42c9",
+      "exit_code": 0,
+      "scope": "all12sourcepins; complete old WORTH/README/ledgerREADME/close JSON"
+    },
+    {
+      "tool": "16abfb",
+      "exit_code": 0,
+      "scope": "complete Identity source and actual Avatar route locations"
+    },
+    {
+      "tool": "ec5be4",
+      "exit_code": 0,
+      "scope": "exact current routing/wardrobe support scopes"
+    },
+    {
+      "tool": "9919d4",
+      "exit_code": 0,
+      "scope": "only selected matching old record contexts, exact whole-file hashes"
+    },
+    {
+      "scope": "complete unchanged illustrative original hash for its reused whole-image witness, before final collection notice",
+      "exit_code": 0
+    }
+  ],
+  "locators": [
+    {
+      "tool": "19ec7b",
+      "scope": "docs/research *.md",
+      "pattern": "figure_g100|standalone.{0,60}(head|facial)|g100.{0,60}(head|facial)",
+      "exit_code": 1,
+      "matches": []
+    },
+    {
+      "tool": "d232b0",
+      "scope": "appearance2026-10-04/05 *.md andPLAN.json",
+      "exit_code": 0,
+      "matches": [
+        "masculine-source-ownership/WORTH.md",
+        "masculine-source-ownership/PLAN.json",
+        "masculine-source-ownership/README.md"
+      ]
+    },
+    {
+      "tool": "785e72",
+      "scope": "nonhair2026-10-04/05 *.md andPLAN.json",
+      "exit_code": 0,
+      "matches": [
+        "standalone-facial-source-worth/PLAN.json",
+        "hair-contact-docs-worth/CRITIC-WORTH.md",
+        "hair-contact-docs-worth/CRITIC-RESULT.md",
+        "rowan-portrait/PLAN.md",
+        "rowan-portrait-worth/CRITIC-VALUE.md",
+        "rowan-portrait-worth/SOURCE-CORRECTION.md",
+        "catalogue-proposal-ui/delivery-snapshots/DAY-REPORT-2026-10-04.md"
+      ]
+    }
+  ],
+  "limits": [
+    "No global duplicate/absence claim from three scoped literal patterns",
+    "No binary decode, source import, oldreader/producer/runtime/browser/native/capture/network or construction",
+    "No current g100 wardrobe/g050 equivalence/raw-runtime neutrality/face or rig acceptance",
+    "Closed Rowan/fixed Gaussian head/external query methods preserved",
+    "Contract preparation only, no successor execution admitted"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/WORTH.md",
+    "bytes": 6268,
+    "sha256": "87a62a7779af1814d63a17857824eb7a848a622750015ac65ab3d4dc90d51579"
+  },
+  "binding_completion_utc": "2026-10-05T21:33:45.830863+00:00"
+}

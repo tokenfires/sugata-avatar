@@ -1,0 +1,307 @@
+{
+  "schema": "independent-standalone-facial-source-contract-review-v1",
+  "collected_utc": "2026-10-05T22:03:20.547324+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "A combined draft+three authoritative corrections for inert preparation only; B uncorrected draft alone/no decode or execution admission",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/SOURCE-CONTRACT.review.md",
+      "bytes": 15923,
+      "sha256": "c99ae130d77237c3c1aec65728d64634dee5f59e654c95d07888cd56bf81eca6",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-CONTRACT-CORRECTIONS.md",
+      "bytes": 4611,
+      "sha256": "ab19ecde23f6aa2551791444f288af984c2919167f8e4e6be9f933bdc1801dc2",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-CONTRACT-CORRECTIONS.json",
+      "bytes": 2150,
+      "sha256": "66135c23190e836f8204abbfd0637ec05d0f60c71548b2ab3ab1697a30c4bedc",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-OWNER-CORRECTIONS.md",
+      "bytes": 3243,
+      "sha256": "cf2de3feee11b6b85a03b8cc4f9219ce0f75b8a6901affcc14504dc369c2f8e0",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ALIAS-POLICY.md",
+      "bytes": 3609,
+      "sha256": "487a8e581bd8573c94f7671456718154efad3f7002470f38b9844611776052ba",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-REFERENCE-SELECTION.json",
+      "bytes": 5359,
+      "sha256": "f8b6bab93952c6e1d4d8de6e24e26d840ce74c6805fcf227c021250a07ca774f",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-WORTH.md",
+      "bytes": 3768,
+      "sha256": "892b7dabc2ea6f211ed8fd84dfe8a1ba56220e7f794bed337ccd6a2305f51a0a",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-WORTH-RECEIPT.json",
+      "bytes": 6412,
+      "sha256": "250976439039a4fe4d1c65764fb3e36969c2c98656129735daa7bf925ae16f8f",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/PLAN.json",
+      "bytes": 4453,
+      "sha256": "c6939c5e3ca2954fa05d95f2fb999e0fc7dee5800071d04d272e77ec092bb64f",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/PLAN.json",
+      "bytes": 4453,
+      "sha256": "c6939c5e3ca2954fa05d95f2fb999e0fc7dee5800071d04d272e77ec092bb64f",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-WORTH.md",
+      "bytes": 3768,
+      "sha256": "892b7dabc2ea6f211ed8fd84dfe8a1ba56220e7f794bed337ccd6a2305f51a0a",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-WORTH-RECEIPT.json",
+      "bytes": 6412,
+      "sha256": "250976439039a4fe4d1c65764fb3e36969c2c98656129735daa7bf925ae16f8f",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/MathUtils.js",
+      "bytes": 21991,
+      "sha256": "e329b0574b9b1ed34c169c11abfd3cfb3cf5ea61b062e17a72d400a8515b1f16",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/Object3D.js",
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Matrix4.js",
+      "bytes": 34258,
+      "sha256": "11d813da5b4a03de3e75dcb9780657a9cc276f682c30aa876c461d6429dcf39c",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/SOURCE-CONTRACT.review.md",
+      "bytes": 15923,
+      "sha256": "c99ae130d77237c3c1aec65728d64634dee5f59e654c95d07888cd56bf81eca6",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-CONTRACT-CORRECTIONS.md",
+      "bytes": 4611,
+      "sha256": "ab19ecde23f6aa2551791444f288af984c2919167f8e4e6be9f933bdc1801dc2",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector3.js",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector4.js",
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/skinning_vertex.glsl.js",
+      "bytes": 400,
+      "sha256": "4422467001348636551ce64f1e6631d8a5032b7ac2788596c2dc5269618c7602",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/skinbase_vertex.glsl.js",
+      "bytes": 247,
+      "sha256": "b7c3bd51471e993f8fae0463733b534529e32cb91cdabb423b4d89ed3ca7c5bf",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/InterleavedBufferAttribute.js",
+      "bytes": 12824,
+      "sha256": "d6dd88892b8d0064f753f0238aabc603ef016d4a8f8a45850eed883e4bb31792",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/PLAN.json",
+      "bytes": 6294,
+      "sha256": "a9d07e4cf68517cdde0233a5d99a27514eace653dd8243519074fa9839b94feb",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/WORTH.md",
+      "bytes": 6268,
+      "sha256": "87a62a7779af1814d63a17857824eb7a848a622750015ac65ab3d4dc90d51579",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/RECEIPT.json",
+      "bytes": 10575,
+      "sha256": "c8552026885fc69f4916871c383f7df1e6f1feecd3489f7bec506579d062402a",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/ROOT-CLOSE.json",
+      "bytes": 2377,
+      "sha256": "53935054b7bfbd2b904ac80b07ea7cde5a44af7dc1c81038e50b715a46bfcdae",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811",
+      "scope": "whole-byte hash only; no header/JSON/BIN decode"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/FACIAL-SOURCE-BRIEF.md",
+      "bytes": 4621,
+      "sha256": "d856264d785c0f6696306136649e631a9203c8789249caf71c180f677c44fd89",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "scope": "source/text read scopes below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "scope": "source/text read scopes below"
+    }
+  ],
+  "source_binding_tables_verified": [
+    "TECHNICAL-REFERENCE-SELECTION inputs",
+    "ROOT-CONTRACT-CORRECTIONS inputs",
+    "PLAN inputs"
+  ],
+  "bundle": [
+    "SOURCE-CONTRACT.review.md",
+    "ROOT-CONTRACT-CORRECTIONS.md",
+    "ROOT-OWNER-CORRECTIONS.md",
+    "ALIAS-POLICY.md"
+  ],
+  "read_scopes": {
+    "contracts": "all complete literal text; original draft preserved",
+    "reference_selection": "complete JSON and exact all listed pins verified; root source scopes not inherited as own complete review",
+    "primary": "selected own retained markdown609\u2013650/651\u2013690/800\u2013821/832\u2013882/931\u20131030/1262\u20131283/1359\u20131395/1435\u20131502/1523\u20131528/2289\u20132307/2360\u20132485, no full7301line assertion",
+    "GLTFLoader": "actual own selected scopes2708\u20132754/2795\u20132840/2867\u20132915/2960\u20132982/3030\u20133070/3071\u20133204/3792\u20133867/3925\u20133981/4190\u20134240/4355\u20134410 plus prior morphology/skin clauses; not whole file",
+    "SkinnedMesh": "200\u2013365 complete selected scope",
+    "Mesh": "172\u2013225",
+    "Vector3": "449\u2013468",
+    "Vector4": "441\u2013463",
+    "BufferAttribute": "600\u2013628 plus prior normalized field locators",
+    "InterleavedBufferAttribute": "314\u2013346/405\u2013435 andsetterlocator",
+    "MathUtils": "388\u2013480",
+    "Object3D": "448\u2013460",
+    "Matrix4": "1104\u20131138, remaining parent scopes not adopted as own read",
+    "asset": "whole-byte hash only; no GLB/header/JSON/BIN/image/mesh interpretation"
+  },
+  "commands": [
+    {
+      "tool": "159ade",
+      "exit_code": 0,
+      "scope": "full original review draft/technical selection"
+    },
+    {
+      "tool": "bab035",
+      "exit_code": 0,
+      "scope": "selected actual CPU skin/shader/loader binding"
+    },
+    {
+      "tool": "7d38b2",
+      "exit_code": 0,
+      "scope": "actual normative skin/container/TRS passages"
+    },
+    {
+      "tool": "5bace4",
+      "exit_code": 0,
+      "scope": "complete actual root corrections/record and Vector3/4/morph/typed writes"
+    },
+    {
+      "tool": "af02d5",
+      "exit_code": 0,
+      "scope": "complete owner correction plus actual joint/class/decomposition clauses"
+    },
+    {
+      "tool": "9c6205",
+      "exit_code": 0,
+      "scope": "actual cache/accessor/normalization/backing-write paths"
+    },
+    {
+      "tool": "135109",
+      "exit_code": 0,
+      "scope": "view slicing/cache completion/interleaved getter+literal draft lines"
+    },
+    {
+      "tool": "49f991",
+      "exit_code": 0,
+      "scope": "complete alias policy/setter/node clone/local source matrix path"
+    }
+  ],
+  "limits": [
+    "No GLB/header/JSON/BIN/image/mesh decode or source-coordinate/weight/predicate computation",
+    "No code preparation/import/evaluation/CPU oracle/native/browser/GPU/network",
+    "All source defects are literal duty gaps, no actual g100 defect diagnosis",
+    "Retained normative response dated, not current endpoint equality; selected installed clauses not full loader/renderer review",
+    "CPU1e-9 and shader diagnostics cannot prove actual GPU/motion/anatomy/appearance",
+    "Fresh bounded inert preparation/source review required; no execution/repair/source adoption admitted"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/CONTRACT-RESULT.md",
+    "bytes": 7888,
+    "sha256": "2abf0fecca946b4926cfe7596b911f4105042b4c5bff8d99fec125c37428a8bf"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "schema": "standalone-facial-source-technical-worth-v1",
+  "collected_utc": "2026-10-05T21:43:05.797776+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "B duplicate live scrape; A retained exact normative/current installed source text for contract preparation only",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/PLAN.json",
+      "bytes": 4453,
+      "sha256": "c6939c5e3ca2954fa05d95f2fb999e0fc7dee5800071d04d272e77ec092bb64f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/PLAN.json",
+      "bytes": 6294,
+      "sha256": "a9d07e4cf68517cdde0233a5d99a27514eace653dd8243519074fa9839b94feb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/WORTH.md",
+      "bytes": 6268,
+      "sha256": "87a62a7779af1814d63a17857824eb7a848a622750015ac65ab3d4dc90d51579"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/RECEIPT.json",
+      "bytes": 10575,
+      "sha256": "c8552026885fc69f4916871c383f7df1e6f1feecd3489f7bec506579d062402a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/standalone-facial-source-worth/ROOT-CLOSE.json",
+      "bytes": 2377,
+      "sha256": "53935054b7bfbd2b904ac80b07ea7cde5a44af7dc1c81038e50b715a46bfcdae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/FACIAL-SOURCE-BRIEF.md",
+      "bytes": 4621,
+      "sha256": "d856264d785c0f6696306136649e631a9203c8789249caf71c180f677c44fd89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  ],
+  "plan_inputs_verified": 8,
+  "retained_primary": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+    "request": {
+      "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+      "formats": [
+        "markdown"
+      ],
+      "maxAge": 0,
+      "timeout": 30000
+    },
+    "started": {
+      "current_time": "2026-10-05 12:25:36 UTC"
+    },
+    "ended": {
+      "current_time": "2026-10-05 12:25:42 UTC"
+    },
+    "metadata": {
+      "language": "en",
+      "viewport": "width=device-width, initial-scale=1.0",
+      "title": "glTF\u2122 2.0 Specification",
+      "generator": "Asciidoctor 2.0.16",
+      "author": "The Khronos\u00ae 3D Formats Working Group",
+      "scrapeId": "01a10c06-d833-7636-a3e0-33cc33fe318d",
+      "sourceURL": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+      "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+      "statusCode": 200,
+      "contentType": "text/html",
+      "timezone": "America/New_York",
+      "proxyUsed": "basic",
+      "indexId": "fea56da1-2bc3-4c14-aeb2-a4bdae28c9f3",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    },
+    "text_structured_equal": true,
+    "isError": false,
+    "markdown_lines": 7301,
+    "read_line_ranges": [
+      [
+        609,
+        650
+      ],
+      [
+        832,
+        882
+      ],
+      [
+        931,
+        1030
+      ],
+      [
+        1262,
+        1283
+      ],
+      [
+        1359,
+        1395
+      ],
+      [
+        1523,
+        1528
+      ],
+      [
+        2289,
+        2307
+      ]
+    ],
+    "scope": "raw wrapper/metadata/equality parsed, selected actual markdown read; no full-document review, current endpoint equality or original asset authority claimed"
+  },
+  "engine_read": {
+    "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+    "scopes": [
+      "symbol locator379d48 normalized/sparse/loadAccessor/relative morphs/skin/bind",
+      "5f1037 source2380\u20132410/3836\u20133862/3987\u20134045 plus bind4232 locator"
+    ],
+    "not_full_loader": true
+  },
+  "commands": [
+    {
+      "tool": "379d48",
+      "exit_code": 0,
+      "scope": "complete fresh PLAN and actual installed source locators"
+    },
+    {
+      "tool": "6cab71",
+      "exit_code": 0,
+      "scope": "initial saved-response wrapper shape read; top-level structuredContent absent, recovered nested response next"
+    },
+    {
+      "tool": "f00a92",
+      "exit_code": 0,
+      "scope": "actual nested full response parse/metadata/content equality/section locators"
+    },
+    {
+      "tool": "5f1037",
+      "exit_code": 0,
+      "scope": "current selected installed loader clauses only"
+    },
+    {
+      "tool": "bdac23",
+      "exit_code": 0,
+      "scope": "all selected actual retained normative line ranges"
+    }
+  ],
+  "limits": [
+    "No fresh network or current endpoint byte-identity assertion",
+    "No GLB header/JSON/BIN/image/mesh decoding",
+    "No old reader replay, imports/evaluation/code or geometry preparation, native/browser/GPU",
+    "Original proposed live-read PLAN preserved, no automatic query or source execution",
+    "Current g100 source/frame/material/skin/appearance/neutrality remain unqualified"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-WORTH.md",
+    "bytes": 3768,
+    "sha256": "892b7dabc2ea6f211ed8fd84dfe8a1ba56220e7f794bed337ccd6a2305f51a0a"
+  }
+}

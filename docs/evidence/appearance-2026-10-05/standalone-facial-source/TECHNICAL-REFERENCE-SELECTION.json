@@ -1,0 +1,192 @@
+{
+  "recorded_utc": "2026-10-05T21:49:09.479825+00:00",
+  "decision": "Reuse actual retained same-day exact versioned Khronos response; no duplicate live scrape",
+  "preserved_proposal": "Original PLAN.json unchanged; its conditional live-read proposal was not executed",
+  "critic_received": "stable21:43:05.797776/root7e220f full read; receipt pins plus output verified6bdd65",
+  "root_read_scopes": {
+    "retained_primary_markdown": [
+      [
+        609,
+        725
+      ],
+      [
+        832,
+        1019
+      ],
+      [
+        1262,
+        1318
+      ],
+      [
+        1359,
+        1490
+      ],
+      [
+        1520,
+        1531
+      ],
+      [
+        2289,
+        2307
+      ],
+      [
+        2564,
+        2574
+      ],
+      [
+        4994,
+        5005
+      ]
+    ],
+    "GLTFLoader.js": [
+      [
+        3071,
+        3204
+      ],
+      [
+        3834,
+        3865
+      ],
+      [
+        3987,
+        4048
+      ],
+      [
+        4120,
+        4183
+      ],
+      [
+        4190,
+        4240
+      ],
+      [
+        4355,
+        4435
+      ],
+      [
+        2380,
+        2442
+      ]
+    ],
+    "SkinnedMesh.js": [
+      [
+        200,
+        365
+      ]
+    ],
+    "Mesh.js": [
+      [
+        172,
+        224
+      ]
+    ],
+    "BufferAttribute.js": [
+      [
+        380,
+        410
+      ],
+      [
+        600,
+        628
+      ]
+    ],
+    "MathUtils.js": [
+      [
+        388,
+        480
+      ]
+    ],
+    "Object3D.js": [
+      [
+        1133,
+        1188
+      ]
+    ],
+    "Matrix4.js": [
+      [
+        1029,
+        1110
+      ]
+    ],
+    "old_reader": "Full original-surface-ledger/reader.py181a01 as text only; old oracle8d4845 as text only"
+  },
+  "commands": [
+    "7e220f full critic prose and receipt",
+    "fa4c3f original PLAN",
+    "da380c current source locators",
+    "fba73c current skin/attribute clauses",
+    "58fb0b current loader morphology/skin/node clauses",
+    "6bdd65 all11direct+outputpins and primary parsed equality/selected clauses",
+    "e32e88 normalization/morph/matrix loading and package0.185.1",
+    "d4c475 current engine pins",
+    "b8fbeb hierarchy/matrix compose/decompose selected actual scopes"
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/PLAN.json",
+      "bytes": 4453,
+      "sha256": "c6939c5e3ca2954fa05d95f2fb999e0fc7dee5800071d04d272e77ec092bb64f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-WORTH.md",
+      "bytes": 3768,
+      "sha256": "892b7dabc2ea6f211ed8fd84dfe8a1ba56220e7f794bed337ccd6a2305f51a0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/TECHNICAL-WORTH-RECEIPT.json",
+      "bytes": 6412,
+      "sha256": "250976439039a4fe4d1c65764fb3e36969c2c98656129735daa7bf925ae16f8f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/MathUtils.js",
+      "bytes": 21991,
+      "sha256": "e329b0574b9b1ed34c169c11abfd3cfb3cf5ea61b062e17a72d400a8515b1f16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/Object3D.js",
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Matrix4.js",
+      "bytes": 34258,
+      "sha256": "11d813da5b4a03de3e75dcb9780657a9cc276f682c30aa876c461d6429dcf39c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    }
+  ],
+  "limits": [
+    "No current endpoint byte-identity or full7301line/fullinstalledloader review assertion",
+    "No new network or originalGLB/header/JSON/BIN/image/mesh decode",
+    "No reader code preparation/copy/import/evaluation/export/native/browser/runtime/default/statuschange admitted",
+    "Original stored morphology/default weights and selected static zero-source-morph remain distinct; no anatomy or moving-avatar qualification"
+  ]
+}
