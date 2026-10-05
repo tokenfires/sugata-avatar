@@ -1,0 +1,150 @@
+{
+  "schema": "facial-master-reference-independent-worth-v1",
+  "collected_utc": "2026-10-05T21:15:52.960686+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "A conditional worth for fresh exact current official source inquiry; no query/adoption/source preparation execution admitted",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference-worth/PLAN.json",
+      "bytes": 3674,
+      "sha256": "da8876fa73fff664a9547b85d25ac5b16bf24dbadb705749e03c665d68896c17",
+      "read_scope": "complete literal PLAN"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-CLOSE.json",
+      "bytes": 14862,
+      "sha256": "8b431577086a0b1c94e6ebfc69553f3396367648f4e8672688a24cd29c998477",
+      "read_scope": "full text/complete JSON parse; image whole previously viewed21:00:35UTC; roadmap selected43\u201354/131\u2013138"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-RECONCILIATION.md",
+      "bytes": 3257,
+      "sha256": "e9f6b361f06c2953646d25e58505a45c3ed5f28698b0c1b2a0023ea350119db1",
+      "read_scope": "full text/complete JSON parse; image whole previously viewed21:00:35UTC; roadmap selected43\u201354/131\u2013138"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMAGE-RESULT.md",
+      "bytes": 7065,
+      "sha256": "14bd2731b88d208aab06b689063c0ec00c03bc8f77f8c7ae94e304188591fec1",
+      "read_scope": "full text/complete JSON parse; image whole previously viewed21:00:35UTC; roadmap selected43\u201354/131\u2013138"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "bytes": 38290,
+      "sha256": "171ec399b31ba63d62ccc3930105d9504ccdb3b6a3687c960788c12ac8fcd318",
+      "read_scope": "full text/complete JSON parse; image whole previously viewed21:00:35UTC; roadmap selected43\u201354/131\u2013138"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "full text/complete JSON parse; image whole previously viewed21:00:35UTC; roadmap selected43\u201354/131\u2013138"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "full text/complete JSON parse; image whole previously viewed21:00:35UTC; roadmap selected43\u201354/131\u2013138"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "full text/complete JSON parse; image whole previously viewed21:00:35UTC; roadmap selected43\u201354/131\u2013138"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 6390,
+      "sha256": "95a062aa10c5b60c938ca134342189cd3edbaa6254bae5b8ea89ef0b7cdb5354",
+      "read_scope": "complete contract previously reviewed; appearance clause17 reverified38245e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/README.md",
+      "bytes": 1503,
+      "sha256": "2c9d46752535a9c9091b1c1b2f97eb8253a98befbb48d6939c51e63ca9a47b59",
+      "read_scope": "complete current negative closeout read73b145"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/character-assets.md",
+      "bytes": 17266,
+      "sha256": "bfea2b410701a61b80a83c876d28505461b126ffc1a5ca3a89ca28fe26163d0d",
+      "read_scope": "lines40\u2013105 only: historical architectural claims not accepted as current primary facts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/identity-sculpting.md",
+      "bytes": 110854,
+      "sha256": "ed9479fafa49067c6033ddfcc2ec29e1cfac28eaef2d95928248abfc073e1020",
+      "read_scope": "lines514\u2013535 only: historical control-tier inventory not a current facial-source/export certificate"
+    }
+  ],
+  "plan_inputs_verified": 7,
+  "original_image": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+    "whole_original_viewed": true,
+    "detail": "original",
+    "observed_utc": "2026-10-05T21:00:35Z",
+    "current_hash_verified": true,
+    "re_viewed_in_this_worth": false,
+    "pixel_scope": "whole original prior actual image review; exact unchanged bytes verified again, specific regions reused"
+  },
+  "commands": [
+    {
+      "tool": "c9ec49",
+      "scope": "complete fresh PLAN read and current clock",
+      "exit_code": 0
+    },
+    {
+      "tool": "ba351c",
+      "scope": "all seven plan pins, full close JSON parsed, full reconciliation/brief/checklist read, prior own IMAGE-RESULT full text read",
+      "exit_code": 0
+    },
+    {
+      "tool": "73b145",
+      "scope": "character-assets40\u2013105/identity-sculpting514\u2013535/roadmap35\u201355+125\u2013141/current closed README full read",
+      "exit_code": 0
+    }
+  ],
+  "locators": [
+    {
+      "tool": "d3f855",
+      "argv": "rg -n -i 'makehuman.{0,100}(face|facial|human.base|export)|(face|facial|human.base|export).{0,100}makehuman|facial.master' docs/research",
+      "exit_code": 0,
+      "matches": [
+        "docs/research/character-assets.md:86",
+        "docs/research/identity-sculpting.md:524"
+      ]
+    },
+    {
+      "tool": "4de1e0",
+      "argv": "rg -l -i '<same literal pattern>' docs/evidence/appearance-2026-10-04 docs/evidence/appearance-2026-10-05 --glob '*.md' --glob 'PLAN.json'",
+      "exit_code": 0,
+      "matches": [
+        "neutral-head-artist-source/README.md",
+        "neutral-head-artist-source/ROOT-RECONCILIATION.md",
+        "neutral-head-artist-source/IMAGE-RESULT.md"
+      ]
+    },
+    {
+      "tool": "930675",
+      "argv": "rg -n -i '<same literal pattern>' docs/evidence/nonhair-2026-10-04 docs/evidence/nonhair-2026-10-05 --glob '*.md' --glob 'PLAN.json'",
+      "exit_code": 1,
+      "matches": [],
+      "classification": "no match within exact scopes only"
+    }
+  ],
+  "locator_pattern": "makehuman.{0,100}(face|facial|human.base|export)|(face|facial|human.base|export).{0,100}makehuman|facial.master",
+  "limits": [
+    "No current publisher/source facts verified",
+    "No network/browser/native/download/decode/producer/import/build/test or implementation",
+    "No global duplicate/absence claim from scoped local locators",
+    "Historical local claims retained as historical only, no legal/source/quality/rig transfer acceptance",
+    "Actual failed image is unchanged evidence, no fixed-method rescue",
+    "No query or successor admitted by conditional worth"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference-worth/WORTH.md",
+    "bytes": 5373,
+    "sha256": "5d6b097c67a5c56a1ca8a693bd40219f4178f7fd405afb9424d40f6d8b7bc840"
+  }
+}

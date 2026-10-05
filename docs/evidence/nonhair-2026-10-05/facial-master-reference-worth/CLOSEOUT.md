@@ -1,0 +1,5 @@
+# Facial-master reference worth closed
+
+Conditional A to prepare one bounded current official source-ownership inquiry and a useful named-source handoff brief. Current MakeHuman candidate facts remain unverified. Root065a8a/9c404d full-read the independent handoff and6ee342 verifies12 direct inputs/result; c8793f/c667eb independently reads the exact historical local claims as unverified-current. Actual unchanged failed head and complete current character brief establish the missing artist-source responsibility.
+
+Alternative A uses the one-query/two-page/one-supplied-example budget to identify or refuse a real later editable source candidate, at limited research cost; alternative B keeps the retained target and waits for a complete external source, avoiding speculation and delaying facial art. No query, download, install, source adoption, constructor, rig/control/decode/native/capture or fixed-method rescue is admitted by worth alone. Fresh exact execution limits and root admission are required. Full scoped/broad/AAA goals stay unchanged.
