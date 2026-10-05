@@ -1,0 +1,127 @@
+{
+  "saved_utc": "2026-10-05T07:44:45.981610+00:00",
+  "decision": {
+    "direct_catalogue_consumer_contract": "A conditional new source preparation only",
+    "existing_Showcase_agency_or_pin_claim": "B",
+    "implementation_native": "Not admitted"
+  },
+  "bindings": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+      "bytes": 2040,
+      "sha256": "610ed7de9ad976852381bb661c2bb053374b432a78e33cdc4bdd83184bc05834"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT.md",
+      "bytes": 3502,
+      "sha256": "02200458de5e90448e85aa5ff7ae2328b27ce3a4577708a88303c3a8f8e2990b"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4050,
+      "sha256": "ae7da0fcdccc5b56add313fe2f10e11e373d3f14a858dd90fcd73e433bff6f77"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/PLAN.json",
+      "bytes": 3325,
+      "sha256": "942e0b61d94f3cb14b89ce25b0f14d85ca059ce5db5b8fcedd2831fe636d649f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/WORTH.md",
+      "bytes": 1668,
+      "sha256": "10994dddc80da2cd480c5900e3a408b624bb50299db20d33a263da91567c75a1"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/WORTH-RECEIPT.json",
+      "bytes": 3201,
+      "sha256": "3280a866a383c2c73bcc4ba3bdf6da2477d52808f111ca0a70d4368c907f4d7f"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "docs/API.md",
+      "bytes": 49745,
+      "sha256": "524541f8e1abd3ed578ae13dd64d8f3b471ddadf065629e961cdcdb71ca28190"
+    }
+  ],
+  "verified_original_inputs": 6,
+  "source_witnesses": [
+    "showcase.js:29/45/253-267/383-476",
+    "CatalogueDresser.js:18-22/50-98",
+    "WardrobeAgency.js:106-126/190-221/229-235/280-327/440-477/542-557/570-599/626-681",
+    "Avatar.js:1051/2440-2474/2819-2830/3030-3140/3825-3830",
+    "showcase-collection.mjs:4/39-60"
+  ],
+  "read_commands": [
+    "769d17/0 current PLAN and source heads",
+    "d2ade1/0 directed ownership references",
+    "1411c7/0 and fe8508/0 WardrobeAgency/CatalogueDresser source; latter completes missing tail after combined-output truncation",
+    "Showcase1411c7 paired result and8df78a/0: current control/lifecycle source contexts; aggregate outputs partially truncated, no full-Avatar/full-CSS audit claimed",
+    "155a05/0 directed named owner/affect/export/API references",
+    "588974/0 SavedLooks persistence and Showcase HTML contexts; CSS/body output partly truncated",
+    "a0bdf1/0 actual Avatar dress/affect/disposal/support and documented API contexts; output partly truncated",
+    "Current exact local pins and requested two writes only"
+  ],
+  "scope": "Static source ownership review only. Avatar/HTML/API inspected in relevant contexts, not whole-engine qualification. No imports/tests/asset loads/browser/GPU/online/localStorage/profile/pin/current source edits. Missing agency claim is scoped to current Showcase/Avatar source contexts; no global absence claim.",
+  "findings": [
+    {
+      "witness": "Showcase no agency construction; WardrobeAgency default store/profile",
+      "A": "Pure CatalogueDresser consumer, no agency/store authority",
+      "B": "Separately own a genuinely new agency product policy/adapter"
+    },
+    {
+      "witness": "Avatar.dress request/race owner versus agency direct wardrobe verbs",
+      "A": "Synchronous choose/explain only",
+      "B": "Review core-owned bridge before broad agency verbs"
+    },
+    {
+      "witness": "Avatar current wardrobe replacement/release",
+      "A": "Resolve per request, invalidate card, borrow without disposal",
+      "B": "Defer until stable public adapter"
+    }
+  ],
+  "next_worth": "Conditional reusable query-opt-in actual Showcase view after fresh complete source gate; one desktop and narrow mobile usability observation, no inherited admission.",
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/RESULT.md",
+    "bytes": 3116,
+    "sha256": "795ed681aeb48dd9c484b21351ac9c1c754d35cb7e34e7b30fec4540048f64e2"
+  }
+}

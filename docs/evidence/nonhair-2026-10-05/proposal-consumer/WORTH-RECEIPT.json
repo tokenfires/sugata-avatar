@@ -1,0 +1,80 @@
+{
+  "saved_utc": "2026-10-05T07:38:09.191349+00:00",
+  "decision": "A exact ownership source inquiry only; implementation/caller source admission separate",
+  "bindings": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+      "bytes": 2040,
+      "sha256": "610ed7de9ad976852381bb661c2bb053374b432a78e33cdc4bdd83184bc05834"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT.md",
+      "bytes": 3502,
+      "sha256": "02200458de5e90448e85aa5ff7ae2328b27ce3a4577708a88303c3a8f8e2990b"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4050,
+      "sha256": "ae7da0fcdccc5b56add313fe2f10e11e373d3f14a858dd90fcd73e433bff6f77"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/PLAN.json",
+      "bytes": 3325,
+      "sha256": "942e0b61d94f3cb14b89ce25b0f14d85ca059ce5db5b8fcedd2831fe636d649f"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    }
+  ],
+  "original_input_count": 6,
+  "all_inputs_match": true,
+  "witnesses": [
+    "CatalogueDresser.js:18-22 actual live Wardrobe requirement",
+    "showcase.js:29 actual Avatar/controller owner",
+    "Avatar.js:1051/3138/3828-3830 lifetime assignments/release named by scoped rg",
+    "WardrobeAgency.js:106 MemoryStore in same source; full semantics pending inquiry",
+    "Existing isolated UI README already qualified its separate session"
+  ],
+  "alternatives": {
+    "A": "Own real caller/store/profile/pin/lifecycle contract or explicit refusal before code; can change integration decision.",
+    "B": "Retain isolated preview, avoid integration cost; application reuse unknown."
+  },
+  "commands": [
+    "769d17/0 complete PLAN and exact known source heads",
+    "d2ade1/0 directed owner/store/agency reference search",
+    "Current local hashes and requested two writes only"
+  ],
+  "scope": "Worth review of source contexts, not full owner admission. No code/import/execution/test/asset/native/browser/online/profile/localStorage change.",
+  "worth": {
+    "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/WORTH.md",
+    "bytes": 1668,
+    "sha256": "10994dddc80da2cd480c5900e3a408b624bb50299db20d33a263da91567c75a1"
+  }
+}

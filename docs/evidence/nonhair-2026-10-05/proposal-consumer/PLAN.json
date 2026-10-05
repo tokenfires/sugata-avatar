@@ -1,0 +1,49 @@
+{
+  "started_utc": "2026-10-05T07:35:12.917193+00:00",
+  "stop_utc": "2026-10-05T08:00:12.917193+00:00",
+  "pid": 67598,
+  "inputs": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+      "bytes": 2040,
+      "sha256": "610ed7de9ad976852381bb661c2bb053374b432a78e33cdc4bdd83184bc05834"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT.md",
+      "bytes": 3502,
+      "sha256": "02200458de5e90448e85aa5ff7ae2328b27ce3a4577708a88303c3a8f8e2990b"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4050,
+      "sha256": "ae7da0fcdccc5b56add313fe2f10e11e373d3f14a858dd90fcd73e433bff6f77"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    }
+  ],
+  "usable_improvement": "A source-backed real caller/agency ownership contract for a reusable opt-in outfit proposal UI; if supported, prepares a later component/Showcase integration. This slice is ownership decision only, not duplicate isolated native evidence.",
+  "research_question": "Can existingShowcase supply one caller-owned agency/store/profile/wardrobe context without changing its mode/pins/currentlook, so a reusablecontroller can requestviaexpressPreference and dismiss while preserving actual ownership?",
+  "decision": "Select a real consumer/API and complete state/lifecycle/preservation responsibilities if actualcurrent sources support them. Refuse undefined or incompatibleownership; do not invent a second profile/store/pin authority or pretend existing agency exists. No sourceimplementation until freshcritic/root sourcegate in a separate boundedslice.",
+  "bounds": {
+    "reads": "KnownShowcase/guide/currentpreviewsource; discover onlyCatalogueDresser/WardrobeAgency/MemoryStore/Avatar/export/corepackage/testbedentry paths and scopedAGENTS using rg exactfilenames thenread matching relevant files. No broadhome/repo-history scans.",
+    "implementation": "No edits tocurrentcore/Showcase/assets/profile/localstorage/UI yet. Write only exactsourceworksheet/review/receipt in this packet.",
+    "native": "No browser/GPU/captures/CPUcandidate/tests/assetloads; availableNode/browserlateronly.",
+    "references": "At most one currentprimary disclosure/interaction page if design semantics materiallyneeded; none for sourceownership alone.",
+    "stop": "Stop at first actualunsupported ownership or fixedtime; no alternatecaller searches/tweaks that do notchange decision. Current source absentfield \u2260globalfeatureabsence.",
+    "next": "Conditional fresh component+actualcaller plan only after exactworth/rootverification; no experiment admitted here."
+  },
+  "state": "fcca71d clean/criticcollected/noownedjob; review1023/5173/ACTIVE10min retained. No Blenderrepair/install/search/CPUload next. Newerhumancheck-in/pausewins; accepted/frozen/original/unrelatedwork/fullroadmappreserved."
+}

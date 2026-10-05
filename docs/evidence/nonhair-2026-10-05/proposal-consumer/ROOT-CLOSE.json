@@ -1,0 +1,25 @@
+{
+  "closed_utc": "2026-10-05T07:46:26.685273+00:00",
+  "head": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c",
+  "root_read_handoff_command": "2ffaf2/0",
+  "root_saved_looks_witness": "e2ed3d/1 (numbered source read succeeds; scoped no-agency rg returns1)",
+  "binding_rows_verified": 32,
+  "external_immutable_git_origins": {
+    "packages/testbed/src/showcase.js": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:packages/testbed/src/showcase.js",
+    "docs/research/CATALOGUE-DRESSER-2026-10-04.md": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+    "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+    "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT.md": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT.md",
+    "docs/PROJECT-CHECKLIST.md": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:docs/PROJECT-CHECKLIST.md",
+    "docs/PRODUCT-ROADMAP.md": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:docs/PRODUCT-ROADMAP.md",
+    "packages/core/src/Avatar.js": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:packages/core/src/Avatar.js",
+    "packages/core/src/wardrobe/WardrobeAgency.js": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:packages/core/src/wardrobe/WardrobeAgency.js",
+    "packages/core/src/wardrobe/CatalogueDresser.js": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:packages/core/src/wardrobe/CatalogueDresser.js",
+    "packages/testbed/src/showcase.html": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:packages/testbed/src/showcase.html",
+    "packages/testbed/src/showcase-collection.mjs": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:packages/testbed/src/showcase-collection.mjs",
+    "docs/API.md": "fcca71da43d4588f2cb712bce2a2d060c4aeb81c:docs/API.md"
+  },
+  "decision": "Direct read-only CatalogueDresser callback chosen; no existing agency invented",
+  "result": "Ownership contract only. Critic and root agree. No UI, assets, native, store or profile changes.",
+  "next": "Fresh bounded optional reusable Showcase UI source preparation and independent source review; no execution inherited",
+  "jobs": "No owned runtime/native job; critic collected; reviewPID1023/5173 retained; ACTIVE10minute automation unchanged"
+}
