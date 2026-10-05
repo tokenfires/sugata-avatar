@@ -1,0 +1,248 @@
+{
+  "collected_utc": "2026-10-05T18:57:56.000548+00:00",
+  "decision": "Conditional A finite supported source/control contract preparation only; no implementation/test/native admission",
+  "plan_binding_count": 15,
+  "plan_bindings_verified": true,
+  "deadlines": {
+    "inventory_cut_utc": "2026-10-05T19:05:00Z",
+    "worth_stop_utc": "2026-10-05T19:12:00Z",
+    "root_close_stop_utc": "2026-10-05T19:17:00Z"
+  },
+  "direct_inputs": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Hash-only this worth; same bytes previously read complete. No status change."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Hash-only this worth; same bytes previously read selected Phase1/work-order scopes. Ambitious whole-character goals preserved."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/README.md",
+      "bytes": 1638,
+      "sha256": "dce260faef375fad59c489654892ff65ead20d7251393b31307e80e9c5ac1603",
+      "read_scope": "Complete 14-line historical delivery read."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/CRITIC-APPEARANCE.md",
+      "bytes": 5516,
+      "sha256": "f31723adef9c970d6917b38c84d51aa8ba24d57a103ed7d946945d05cf5a8a66",
+      "read_scope": "Complete 34-line historical result read after independently viewing four actual originals. Old state/checker claims are historical, not reverified this worth."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/ROOT-VISUAL-DECISION.md",
+      "bytes": 2948,
+      "sha256": "09a593ab94ddf703f88ce430053629ea37b64e25a9792fa1f8cd1d66b9902c72",
+      "read_scope": "Complete 13-line historical root result read after independent image inspection."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/PreviewEyeMaterial.mjs",
+      "bytes": 76946,
+      "sha256": "798983d0b7ac6bb008226e460abfc083a6f01b24074f86c1d11e80ec3a43c7d1",
+      "read_scope": "Selected literal lines 602-627 and 1052-1071 (source map/pigment uniform and luma/annulus branch), plus targeted source locator matches; no full-module proof or execution."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/candidate.json",
+      "bytes": 273,
+      "sha256": "e6609f09008e80fabac3c1e583062754c0b4d7676fa00d2e24277d6ae8c86b84",
+      "read_scope": "Complete fixed source declaration read; no colour arithmetic recomputed."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/preview.mjs",
+      "bytes": 9315,
+      "sha256": "41884551e21595a6615229bc43a4a706d4e452ae6e995ff66c5bb8cf76c8ca2b",
+      "read_scope": "Complete 108-line historical fixture read, including unchanged original owner, donor-only globe switch, uniform sync and restoration/disposal."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/original-front.png",
+      "bytes": 566043,
+      "sha256": "2bc2eeeb950179d35f81f409118f48912ad4b8c44730362499620f463cf68744",
+      "read_scope": "Actually viewed complete unchanged 1440x1000 original with view_image(detail=original), before reading historical visual opinions."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/candidate-front.png",
+      "bytes": 569260,
+      "sha256": "e0c6a1ffe0962ac5cbd68a649803e2215c4a616c1bf4a2e8648d9fe75a94631b",
+      "read_scope": "Actually viewed complete unchanged 1440x1000 original with view_image(detail=original), before reading historical visual opinions."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/original-oblique.png",
+      "bytes": 593125,
+      "sha256": "426dae81627b03cc7969f3bfcb2409f14f2bf338caf82e1bab71136a5774b9ee",
+      "read_scope": "Actually viewed complete unchanged 1440x1000 original with view_image(detail=original), before reading historical visual opinions."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-pigment/archive/capture/candidate-oblique.png",
+      "bytes": 610474,
+      "sha256": "2f98090b34fa1301acbaf1be8b91a1a930c17b7e33b7e6f5efd1a80eb1605827",
+      "read_scope": "Actually viewed complete unchanged 1440x1000 original with view_image(detail=original), before reading historical visual opinions."
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.js",
+      "bytes": 75066,
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+      "read_scope": "Selected complete lines 550-735, 905-1041, 1180-1247 plus targeted locators: creation/borrowed map, attachment/detachment/disposal, pupil/refraction/pigment/optics and post-morph gaze frames. Other measurement/cornea/kernel math not fully reviewed."
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.selftest.mjs",
+      "bytes": 38136,
+      "sha256": "1bae96f67ffd8ecad85ca6be120292e1696d8e40a02941ab6a037d1de4349c47",
+      "read_scope": "Only lines 337-421, existing gaze-frame/restoration test source; no execution or new pass claim. Other tests hash-only."
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "read_scope": "Complete 74-line strict settings parser and URL normalization read."
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "read_scope": "Selected complete 900-982,1145-1165,1498-1523,2706-2728,2938-2958,3209-3295,3835-3856,5040-5056,2820-2856,3084-3107,3145-3163,1568-1585,2635-2678; targeted imports/eye locators. Initial broad aggregate searches truncated; relevant exact owners recovered separately. No full Avatar audit."
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "Selected 1-16,209-233,295-336,366-410,414-433,430-445,485-505: imports, URL preservation, strict public settings/collection paths, startup and pagehide. No full UI audit."
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "read_scope": "Complete 97-line source read: URL choices, supported options and attached-report configuration projection."
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "read_scope": "Complete 115-line source read: version1 envelope, strict config canonicalization/Open, page-owned localStorage, writes and retained unsupported configurations."
+    },
+    {
+      "path": "packages/core/src/motion/Pupil.js",
+      "bytes": 16529,
+      "sha256": "41ffb2723b5137307540ffa562b5d4933e28abe4bfdf2cb65524481c90951b7a",
+      "read_scope": "Only 101-106,265-285,331-342,349-364 plus targeted imports/constants: bounds, sink, clamp and sink delivery. No dynamics evaluation."
+    },
+    {
+      "path": "packages/core/src/motion/Blink.js",
+      "bytes": 46356,
+      "sha256": "71f7286273d118514343ce3f4918583bb02ef520932bb6dbbf5d91a6fc9489c1",
+      "read_scope": "Only 269-315,400-424 plus targeted channel locators: eyelid channels and contributions. No full blink-policy review."
+    },
+    {
+      "path": "packages/core/src/motion/Gaze.js",
+      "bytes": 129610,
+      "sha256": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c",
+      "read_scope": "Only 623-638,2140-2182 recovered complete plus targeted channel locators: eight declared eye morph channels and writes. No full gaze solver review."
+    },
+    {
+      "path": "packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e",
+      "read_scope": "Only 304-330 recovered complete: geometry/material traversal disposal. One initial guessed packages/core/src/Figure.js path was absent; actual import resolved to figure/Figure.js. No source assets decoded."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/iris-setting-worth/PLAN.json",
+      "bytes": 6601,
+      "sha256": "da095b665f3b416dc5332c8deac3a201f227ecaf9f5a02df6c88bd757474e281",
+      "read_scope": "Complete exact source/design value gate read, all fifteen bound inputs independently rehashed."
+    }
+  ],
+  "whole_image_observation": {
+    "method": "Four tools.view_image calls, detail original, in one functions.exec; complete historical originals before historical opinions.",
+    "dimensions": [
+      1440,
+      1000
+    ],
+    "near_oblique_region": [
+      563,
+      600,
+      590,
+      621
+    ],
+    "near_front_region": [
+      710,
+      600,
+      741,
+      621
+    ],
+    "finding": "Modest cool blue-grey alternative with dark centres/readable whites; front distinction smaller and other eye partly fringe-occluded; no current runtime or fine-detail/motion claim."
+  },
+  "commands": [
+    {
+      "tool_return": "8e7290",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T18:51:57.161281+00:00",
+      "scope": "Complete PLAN read/hash."
+    },
+    {
+      "tool_return": "9c7d87",
+      "exit_code": 0,
+      "scope": "Complete historical README/appearance/root/candidate and complete settings source."
+    },
+    {
+      "tool_return": "f90885",
+      "exit_code": 2,
+      "scope": "Initial aggregate rg truncated; guessed Figure.js absent. Relevant owners were recovered in narrower commands; no application execution."
+    },
+    {
+      "tool_return": "3bfdb3",
+      "exit_code": 2,
+      "scope": "Aggregate locators truncated and guessed showcase-saved-looks.mjs absent; actual collection import subsequently resolved and fully read."
+    },
+    {
+      "tool_return": "a95840",
+      "exit_code": 0,
+      "scope": "Exact current Eye creation/shader/lifetime and preview pigment scopes printed completely."
+    },
+    {
+      "tool_return": "f32708",
+      "exit_code": 0,
+      "scope": "Exact Avatar/create/pupil/eye/lifetime scopes and Showcase import read."
+    },
+    {
+      "tool_return": "e908b7",
+      "exit_code": 0,
+      "scope": "Complete presets, collection and historical preview fixture recovered."
+    },
+    {
+      "tool_return": "f0998e",
+      "exit_code": 0,
+      "scope": "Broad motion locators caused aggregate truncation; needed caller sections retained, relevant Gaze/eye-frame/disposal scopes recovered separately."
+    },
+    {
+      "tool_return": "e8b021",
+      "exit_code": 0,
+      "scope": "Exact Avatar eye replacement/disposal and Eye gaze frame/selftest scopes; slight aggregate truncation outside relied-upon owners."
+    },
+    {
+      "tool_return": "c503e7",
+      "exit_code": 0,
+      "scope": "Exact Pupil/Blink and source selftest/caller scopes; Gaze/Figure print recovered in next command."
+    },
+    {
+      "tool_return": "e5b82e",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T18:55:58.466613+00:00",
+      "scope": "All fifteen plan hashes verify; eight current source hashes; complete Gaze/Figure and Pupil bound/clamp recovery."
+    }
+  ],
+  "limits": [
+    "Only local source/JSON metadata reads, hash checks and four whole original local image views; no shader arithmetic or material evaluation.",
+    "No application imports or producer/helper replay; no application/test/build invocation, new material/Avatar, network, browser, native, GPU or capture. Local stdlib Python was used only for reads/hashes and own handoff assembly.",
+    "Historical critic/numeric/lifecycle observations retained as historical only, not independently repeated here.",
+    "No accepted/default/frozen/product/source/storage/checklist change; only own WORTH.md and RECEIPT.json.",
+    "Preparation is distinct from implementation or current runtime acceptance; no new colour, hue/brightness/pupil/optics/gaze/blink policy or cue authoring."
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/iris-setting-worth/WORTH.md",
+    "bytes": 6157,
+    "sha256": "5b5c8a0a43db49c9cb3e8f68d0f2a82738eee43a6b8f6b21cb2a9ffb0ef9d11b"
+  }
+}
