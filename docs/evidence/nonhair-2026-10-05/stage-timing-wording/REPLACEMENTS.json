@@ -1,0 +1,22 @@
+[
+  {
+    "path": "packages/core/src/render/Stage.js",
+    "before": "        // Frame timing. `fps` is the smoothed presentation rate; `frameMs` is the CPU time\n        // this Stage spends inside one frame (callbacks + submit), which is not the GPU cost.",
+    "after": "        // Frame timing. `fps` is the short-window rate of Stage render-frame callbacks.\n        // `frameMs` is wall time around callbacks + draw(), not a GPU execution measurement."
+  },
+  {
+    "path": "packages/core/src/render/Stage.js",
+    "before": "     * The frame body: advance every registered callback, then draw. Timing is sampled around\n     * the whole body so `frameMs` reflects what Sugata costs the main thread, and `fps` is\n     * averaged over a short window so the HUD does not flicker on single-frame noise.",
+    "after": "     * The frame body: advance every registered callback, then draw. `frameMs` samples\n     * elapsed wall time around this body; `fps` counts render-frame callbacks over a short\n     * window. Neither metric observes completed display presentation or GPU execution."
+  },
+  {
+    "path": "packages/testbed/src/stage.js",
+    "before": "{ k: 'fps', v: stage.stats.fps.toFixed( 1 ) }",
+    "after": "{ k: 'render callbacks/s', v: stage.stats.fps.toFixed( 1 ) }"
+  },
+  {
+    "path": "packages/testbed/src/stage.js",
+    "before": "{ k: 'cpu frame ms', v: stage.stats.frameMs.toFixed( 2 ) }",
+    "after": "{ k: 'callbacks + draw wall ms', v: stage.stats.frameMs.toFixed( 2 ) }"
+  }
+]

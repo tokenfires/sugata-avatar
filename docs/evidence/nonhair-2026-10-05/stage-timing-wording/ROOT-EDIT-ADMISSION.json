@@ -1,0 +1,42 @@
+{
+  "admitted_utc": "2026-10-05T18:38:16.704627+00:00",
+  "decision": "A apply only the exact two reviewed candidate files; all four permitted replacements verified and no other source bytes change",
+  "actual_read": "25dd8b entire stable FINAL-SOURCE/RECEIPT untruncated; root source8d7e6d/currentconstant7a1560 and full actualreference5a817d",
+  "verified_binding_rows": 63,
+  "two_originals": {
+    "packages/core/src/render/Stage.js": {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    "packages/testbed/src/stage.js": {
+      "path": "packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd"
+    }
+  },
+  "two_candidates": {
+    "packages/core/src/render/Stage.js": {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-core-Stage.txt",
+      "bytes": 42632,
+      "sha256": "35d30660fae00e40deaac6ea7f5f6de1958a586cb67a48717f4b2ad008ea4aea"
+    },
+    "packages/testbed/src/stage.js": {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-testbed-stage.txt",
+      "bytes": 74724,
+      "sha256": "45053d7932b4d6175e2473577e648cda79800fa4fc9d5d57e84c8311c4103888"
+    }
+  },
+  "final_result": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/FINAL-SOURCE.md",
+    "bytes": 4656,
+    "sha256": "3af65bd677f719d7ebdcfb697db749c4810456e0020a9248858ec1421a133228"
+  },
+  "final_receipt": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/FINAL-SOURCE-RECEIPT.json",
+    "bytes": 13762,
+    "sha256": "3e0e206c3208655ea15dd3b3827189bfa55ed75901f9cb047cab41a10984243b"
+  },
+  "exact_unique_forward_reverse_and_diff": true,
+  "limits": "Standalone Stage renderFrame sampling and callback+draw elapsedwall interval only. No runtime/layout/presentation/GPU/performance/AvatarFPS claim. Legacy stats fields and all calculations/timers/scheduling/renderer unchanged. No extra reference/build/test/capture/recorder."
+}

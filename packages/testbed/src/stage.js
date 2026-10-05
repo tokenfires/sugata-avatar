@@ -371,8 +371,8 @@ function startLiveHud( stage ) {
         renderTable( 'live', [ { key: 'k', label: '' }, { key: 'v', label: '' } ], [
             { k: 'backend', v: stage.stats.backend },
             { k: 'deferred', v: String( stage.stats.deferred ) },
-            { k: 'fps', v: stage.stats.fps.toFixed( 1 ) },
-            { k: 'cpu frame ms', v: stage.stats.frameMs.toFixed( 2 ) },
+            { k: 'render callbacks/s', v: stage.stats.fps.toFixed( 1 ) },
+            { k: 'callbacks + draw wall ms', v: stage.stats.frameMs.toFixed( 2 ) },
             { k: 'draw calls', v: String( stage.stats.drawCalls ) },
             { k: 'scene pass', v: `${ target.width } x ${ target.height } (scale ${ stage.resolutionScale.toFixed( 2 ) })` },
             { k: 'attachments', v: `${ target.textures.length } — ${ target.textures.map( ( t ) => t.name ).join( ', ' ) }` },

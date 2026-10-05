@@ -1,0 +1,33 @@
+{
+  "prepared_utc": "2026-10-05T18:07:21.434010+00:00",
+  "source_inventory_stop_utc": "2026-10-05T18:18:00Z",
+  "worth_stop_utc": "2026-10-05T18:30:00Z",
+  "selected_goal": "A small optional bounded frame-callback diagnostic on the existing accepted avatar review scene, if a current equivalent recorder does not already exist. User can inspect an actual sample and raw timings; no rendering-speed defect is assumed.",
+  "usable_improvement": "Potentially record one fixed-duration sample of actual renderer/update callback start/end/timestamp identity, report count/duration/interval and JS callback-duration summaries plus raw JSON, with exact workload/config/viewport/DPR and interruption accounting. Use existing supported avatar/settings, clear labels and finite memory. Prefer reuse existing sufficient diagnostics over a second recorder. No implementation admitted by worth.",
+  "bounded_research_question": "Does the current review/render source expose a single real per-render frame owner and truthful complete timing/workload identity, and is equivalent bounded raw-frame sampling already delivered? A separate browser rAF loop cannot be relabeled as actual renderer FPS or presented GPU frames.",
+  "decision": "Conditional A only if current complete source shows a genuinely useful additional recorder and one actual per-update/render source owner can provide timing identity without adding duplicate render loops or altering accepted geometry/animation/materials. B existing equivalent, unsupported ownership, duplicate FPS packaging, or absent needed fields ends this nomination before implementation/native/GPU/measurement. No performance failure inferred from missing telemetry.",
+  "effort_stop": "Source inventory <=18:18UTC and independent worth <=18:30UTC. At most inventory/read existing relevant testbed/renderer diagnostics, complete roadmap performance gates and named existing benchmark closures. No runtime benchmark/sample, browser/GPU/capture, new recorder code, build/test, network, package/dependency install or helper replay under worth. Later exact source/reference/native contracts need fresh independent/root admission.",
+  "initial_inquiry_commands": "rg --files packages/testbed/src for showcase/performance/stats names; rg --files docs/evidence for performance/fps/budget/benchmark packet names; rg -n targeted performance/frame-time/FPS terms in PRODUCT-ROADMAP. Then read only actual relevant source/dependencies and exact found prior decisions with hash/read scopes, no broad historical scan. Source identities are not guessed before inventory.",
+  "possible_measurement_contract_not_admitted": "One explicit accepted g050/bob/settings workload, one exact viewport/DPR/device/browser identity, a finite warmup and one bounded finite raw frame sample with visibility/resize/settings interruptions stopping or marking invalid. Any proposed local cadence budget must be declared before sample, never inferred from observed results. rAF time/JS duration are distinct from GPU execution/presentation/memory; absence of those metrics leaves wider qualification open. No representative-device/all-motion/AAA performance claim.",
+  "reference_use": "If worth admits a recording method, current official browser performance/rAF timing documentation can clarify clock and visibility semantics under one later bounded primary inquiry. No online inquiry admitted now; no design/image query needed for numeric source ownership. Actual future native original would witness the scene being sampled, not establish all-motion appearance.",
+  "alternatives": "A truthful optional bounded raw recording can make later local performance decisions inspectable, at UI/instrumentation cost and without GPU/frame-presentation proof. B reuse existing diagnostic or defer instrumentation and prioritize complete character/wardrobe authorship; avoids duplicated code but may leave a useful timing receipt unavailable. Critic may reject as duplicate/unjustified.",
+  "critic_and_root": "Independent critic every actionable finding actual source/image/frame witness, explanation and two alternatives/tradeoffs. Ask whether THIS selected source-based diagnostic experiment is worth doing, not a vague future benchmark. Root independently reads/validates complete handoff and source. No successor or execution automatically follows source worth.",
+  "preservation": "Accepted/default/original/frozen/unrelated/full AAA/expression/wardrobe/representation/fit/motion/performance/VTuber/Mii goals preserved. Closed hair/foundation/card/source/capture/collar/imagegen methods stay closed. No push/publish/purchase/capacity/model/subscription/resetcredits/other-project action. Review5173/ACTIVEtenminute recovery retained. Latest human continue remains current; newer check-in/pause wins.",
+  "bindings": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-turnaround-art/ROOT-CLOSE.json",
+      "bytes": 2815,
+      "sha256": "81c7c2b2ffe07423efe412919e49eee360ad56fdc12e2c1e4accf266f42fccf1"
+    }
+  ]
+}

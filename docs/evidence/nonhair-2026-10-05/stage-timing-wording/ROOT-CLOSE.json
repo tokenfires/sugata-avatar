@@ -1,0 +1,49 @@
+{
+  "closed_utc": "2026-10-05T18:39:03.405483+00:00",
+  "decision": "A exact wording delivered; fixed timing investigation closed, extra recorder B",
+  "independent_final": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/FINAL-SOURCE.md",
+    "bytes": 4656,
+    "sha256": "3af65bd677f719d7ebdcfb697db749c4810456e0020a9248858ec1421a133228"
+  },
+  "independent_receipt": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/FINAL-SOURCE-RECEIPT.json",
+    "bytes": 13762,
+    "sha256": "3e0e206c3208655ea15dd3b3827189bfa55ed75901f9cb047cab41a10984243b"
+  },
+  "root_edit": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/ROOT-EDIT.json",
+    "bytes": 972,
+    "sha256": "2a8b40857d230c3aeb40b9ac5ea3dd4b6dcfaabb34d36e06d7c58f135b914bb6"
+  },
+  "delivered": [
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42632,
+      "sha256": "35d30660fae00e40deaac6ea7f5f6de1958a586cb67a48717f4b2ad008ea4aea"
+    },
+    {
+      "path": "packages/testbed/src/stage.js",
+      "bytes": 74724,
+      "sha256": "45053d7932b4d6175e2473577e648cda79800fa4fc9d5d57e84c8311c4103888"
+    }
+  ],
+  "primary_return": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REFERENCE.returned.json",
+    "bytes": 32875,
+    "sha256": "035c15f6a21ea15a39bd3101b8e373824c3b6091e7baf7b607e59683ba25d3f1"
+  },
+  "original_authority": "Separate frame-original-recovery manifest/copies; frozen first case-only mapping excluded. Historical receipts pin source originals before the installed edit.",
+  "verification": "25dd8b full final handoff read;480d35 guarded63row/source check and exact delivered candidate equality;725856 whitespace passed; this close verifies current bytes/status/roadmap",
+  "checklist": {
+    "path": "docs/PROJECT-CHECKLIST.md",
+    "bytes": 4938,
+    "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+  },
+  "roadmap": {
+    "path": "docs/PRODUCT-ROADMAP.md",
+    "bytes": 32741,
+    "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+  },
+  "limits": "No runtime/layout/appearance/behavior/performance/presentation/GPU/Three-loop/AvatarFPS qualification or next experiment; no live root job/owned tab launched in this slice."
+}

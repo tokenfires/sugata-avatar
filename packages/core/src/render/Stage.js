@@ -126,8 +126,8 @@ export class Stage {
         this.pixelRatioWatcher = null;
         this.pixelRatioChangeListener = null;
 
-        // Frame timing. `fps` is the smoothed presentation rate; `frameMs` is the CPU time
-        // this Stage spends inside one frame (callbacks + submit), which is not the GPU cost.
+        // Frame timing. `fps` is the short-window rate of Stage render-frame callbacks.
+        // `frameMs` is wall time around callbacks + draw(), not a GPU execution measurement.
         this.backendName = 'uninitialised';
         this.fps = 0;
         this.frameMs = 0;
@@ -755,9 +755,9 @@ export class Stage {
     }
 
     /**
-     * The frame body: advance every registered callback, then draw. Timing is sampled around
-     * the whole body so `frameMs` reflects what Sugata costs the main thread, and `fps` is
-     * averaged over a short window so the HUD does not flicker on single-frame noise.
+     * The frame body: advance every registered callback, then draw. `frameMs` samples
+     * elapsed wall time around this body; `fps` counts render-frame callbacks over a short
+     * window. Neither metric observes completed display presentation or GPU execution.
      */
     renderFrame( timeMs ) {
 

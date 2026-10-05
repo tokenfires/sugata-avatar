@@ -1,0 +1,171 @@
+{
+  "collected_utc": "2026-10-05T18:18:30.440292+00:00",
+  "decisions": {
+    "new_recorder": "B; no selected live responsiveness/cadence decision, not a current performance defect or universal absence claim",
+    "separate_wording_preparation": "Conditional A for minimal comment/optional HUD label clarity; no edit/test/native admission"
+  },
+  "gates": {
+    "source_reads_completed_by_utc": "2026-10-05T18:17:14Z",
+    "source_inventory_stop_utc": "2026-10-05T18:18:00Z",
+    "worth_stop_utc": "2026-10-05T18:30:00Z",
+    "timely_source_reads": true,
+    "timely_collection": true
+  },
+  "inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/PLAN.json",
+      "bytes": 5346,
+      "sha256": "f7b20485ca0f288d4c7a124bd8b87c7ccd1d959fcf0906bb7dabc9268041d8fb",
+      "read_scope": "Complete current literal plan, bb18ea and6226ee; parsed for bindings only."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/ROOT-OBSERVATION.json",
+      "bytes": 6015,
+      "sha256": "5fc11a6944e77972f976526431b17a1fca7245ffae8a1f63bde6e9ac1001f346",
+      "read_scope": "Complete root comparative observation, bb18ea and6226ee; read before own source reads. Root opinion not used as replacement for actual source."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete current45 lines independently read b21ab4; exact bytes hashed6226ee."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Current lines35\u201365 and102\u2013148 independently read b21ab4; previously whole same file read77c8bb in preceding worth; exact current bytes hashed6226ee. No fresh whole-file claim."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-turnaround-art/ROOT-CLOSE.json",
+      "bytes": 2815,
+      "sha256": "81c7c2b2ffe07423efe412919e49eee360ad56fdc12e2c1e4accf266f42fccf1",
+      "read_scope": "Complete current33 lines independently read b21ab4; prior image/output review remains its own closed scope. No image newly viewed for this nomination."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md",
+      "bytes": 5388,
+      "sha256": "81cee685b3751087f80a23f3ebb09eeae753c3b060ed862ba690bb46a9953834",
+      "read_scope": "Complete34 lines independently read d060ff; historical result only, no replay or raw sample arithmetic."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/README.md",
+      "bytes": 10520,
+      "sha256": "d2826dd1207dc49a936ca633d1f311cf8443c2294daae3e22cfa4daf390ba214",
+      "read_scope": "Complete55 lines independently read d060ff; no executed commands, source/runtime packages not reopened."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/PILOT.md",
+      "bytes": 6081,
+      "sha256": "98766f85c12d9743d69d34f2f951f9191659ca55fd08eb56d485bba46cf7b68e",
+      "read_scope": "Complete24 lines independently read d060ff; no execution."
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "Only lines177\u2013220 and483\u2013517 requested/read (actual file ends509), b21ab4; remainder not newly reviewed. Hash entire file only."
+    },
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+      "read_scope": "Only complete ranges120\u2013148,343\u2013418,748\u2013823 independently read b21ab4; remainder unreviewed. Hash entire file only."
+    },
+    {
+      "path": "packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "Only353\u2013382 HUD independently read b21ab4; remainder unreviewed. Hash entire file only."
+    }
+  ],
+  "recorded_binding_checks": [
+    {
+      "owner": "PLAN.json",
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "matches": true
+    },
+    {
+      "owner": "PLAN.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "matches": true
+    },
+    {
+      "owner": "PLAN.json",
+      "path": "docs/evidence/appearance-2026-10-05/neutral-turnaround-art/ROOT-CLOSE.json",
+      "matches": true
+    },
+    {
+      "owner": "ROOT-OBSERVATION.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "matches": true
+    },
+    {
+      "owner": "ROOT-OBSERVATION.json",
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md",
+      "matches": true
+    },
+    {
+      "owner": "ROOT-OBSERVATION.json",
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/README.md",
+      "matches": true
+    },
+    {
+      "owner": "ROOT-OBSERVATION.json",
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/PILOT.md",
+      "matches": true
+    },
+    {
+      "owner": "ROOT-OBSERVATION.json",
+      "path": "packages/testbed/src/showcase.js",
+      "matches": true
+    },
+    {
+      "owner": "ROOT-OBSERVATION.json",
+      "path": "packages/core/src/render/Stage.js",
+      "matches": true
+    },
+    {
+      "owner": "ROOT-OBSERVATION.json",
+      "path": "packages/testbed/src/stage.js",
+      "matches": true
+    }
+  ],
+  "commands": [
+    {
+      "tool_chunk": "bb18ea",
+      "scope": "Complete PLAN/ROOT observation read before summarized recovery; no runtime."
+    },
+    {
+      "tool_chunk": "d060ff",
+      "exit_code": 0,
+      "scope": "Numbered complete three pilot documents read;5656 output tokens, not truncated."
+    },
+    {
+      "tool_chunk": "b21ab4",
+      "exit_code": 0,
+      "scope": "Numbered exact current source ranges plus complete checklist/ROOT-CLOSE and selected roadmap sections;10773 output tokens, not truncated."
+    },
+    {
+      "tool_chunk": "6226ee",
+      "exit_code": 0,
+      "scope": "Complete PLAN/ROOT observation readback and11 exact direct-used file hashes; no runtime/measurement."
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/WORTH.md",
+    "bytes": 3799,
+    "sha256": "1ca0235153e987567efa34fd814af29068457e50742e929051dbb6284a2f4e08"
+  },
+  "save_process": {
+    "pid": 45917,
+    "operation": "Exclusive two handoff files only; local read/hash/JSON metadata operations, no application code import or execution."
+  },
+  "limits": [
+    "No actual current images/frame samples/live responsiveness were observed in this nomination. Source counter semantics alone support wording finding.",
+    "Old240 stepped samples and historical native retirement remain recorded old evidence; no refreshed speed, bottleneck, budget, presented-frame or GPU timing claim.",
+    "Source scopes do not prove complete Stage/Showcase runtime loop relationship or exhaustive instrumentation absence.",
+    "No pilot/helper replay, benchmarks, producer/import, network, browser/native/GPU, build/tests, telemetry implementation or product/frozen/default edits.",
+    "Only own WORTH.md/RECEIPT.json created. Full14scoped/10broad AAA/representation/expression/wardrobe/fit/motion/performance and later styles stay open; no successor automatically admitted."
+  ]
+}

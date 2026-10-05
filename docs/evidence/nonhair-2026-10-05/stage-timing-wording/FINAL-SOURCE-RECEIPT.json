@@ -1,0 +1,244 @@
+{
+  "collected_utc": "2026-10-05T18:36:39.444680+00:00",
+  "decision": "A exact four source wording replacements only, root binding check and edit before18:55 required; no broader successor admitted",
+  "gates": {
+    "final_handoff_latest_utc": "2026-10-05T18:50:00Z",
+    "edit_source_stop_utc": "2026-10-05T18:55:00Z",
+    "final_stop_utc": "2026-10-05T19:05:00Z",
+    "timely_handoff": true
+  },
+  "inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PLAN.json",
+      "bytes": 6645,
+      "sha256": "3e45b3c273abd6324935233b52e7e141c8fb7be3be7841054e47f6ea76475b99",
+      "read_scope": "Complete literal plan read0dee1e."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PROPOSED.diff",
+      "bytes": 2202,
+      "sha256": "6906a717f311df1f46fc698db883841ba1a32d382e0d05bb28280a990e73eda1",
+      "read_scope": "Complete all three hunks read0dee1e; independently regenerated from original/candidate and compared exactly6aef65."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REPLACEMENTS.json",
+      "bytes": 1508,
+      "sha256": "10815ea1baabcb9edd7ced3e59ce837454a831bda0f10a112c19d4a2c32ec2f2",
+      "read_scope": "Complete four before/after records read0dee1e; each before/after occurs once, forward/reverse exact byte comparison6aef65."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REFERENCE.requested.json",
+      "bytes": 214,
+      "sha256": "363a7ac716f84bf67aaaed2b6333fc855cc49e676a4761266715753746e6d25a",
+      "read_scope": "Complete literal one request read6aef65; no network call."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-core-Stage.txt",
+      "bytes": 42632,
+      "sha256": "35d30660fae00e40deaac6ea7f5f6de1958a586cb67a48717f4b2ad008ea4aea",
+      "read_scope": "Literal ranges120\u2013148,343\u2013396,757\u2013819 read6aef65; entire candidate bytes forward/reverse compared, remainder unchanged not newly semantically reviewed. Final129\u2013130,757\u2013781,794\u2013819 reread0f0962; whole forward/reverse exact to original again."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-testbed-stage.txt",
+      "bytes": 74724,
+      "sha256": "45053d7932b4d6175e2473577e648cda79800fa4fc9d5d57e84c8311c4103888",
+      "read_scope": "Literal353\u2013382 HUD read6aef65; entire candidate bytes forward/reverse compared, remainder unchanged not newly semantically reviewed. Final369\u2013381 reread0f0962; whole forward/reverse exact to original again."
+    },
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+      "read_scope": "Current literal120\u2013148,343\u2013396,757\u2013819 read6aef65; previous broader timing scope read in prior worth; entire bytes hash/compare to recovered copy."
+    },
+    {
+      "path": "packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "Current literal353\u2013382 read6aef65; entire bytes hash/compare to recovered copy. Final relevant header1\u201355 read04ccf7 then actual owner/helper imports78\u2013108 read6a8cd0; unchanged current hash reverified0f0962."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/RECEIPT.json",
+      "bytes": 2745,
+      "sha256": "e0e0a4f384fb55a1c4271b7a81bc609e959f1296fb09f8bafcee8536719dfbfb",
+      "read_scope": "Complete recovery/error mapping read6aef65; current copy equality independently verified, not trusting old map."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/MANIFEST.json",
+      "bytes": 685,
+      "sha256": "d46193dfdbb8b4a0e8d6ff284f1ddfae5ac360b99a9afd451013086e8559e454",
+      "read_scope": "Complete four rows read6aef65 and all independently rehashed e7ec88."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/README.md",
+      "bytes": 308,
+      "sha256": "12a92151940cd4db1c2933cab604383c5548b6144907834cf474b6edd1df27d6",
+      "read_scope": "Complete recovery explanation read e7ec88."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-core-Stage.txt",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+      "read_scope": "Entire bytes independently equal current live core source6aef65; semantic scope inherited same exact live timing ranges."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-testbed-stage.txt",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "Entire bytes independently equal current live testbed source6aef65; semantic scope inherited same exact HUD range."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/WORTH.md",
+      "bytes": 3799,
+      "sha256": "1ca0235153e987567efa34fd814af29068457e50742e929051dbb6284a2f4e08",
+      "read_scope": "Complete prior actual own handoff reread e7ec88; recorder B unchanged."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/RECEIPT.json",
+      "bytes": 7439,
+      "sha256": "32e91af0206bc5ea9af82b2d35662d2a2739cb0c55082d016dc9f09115de8040",
+      "read_scope": "Complete prior receipt reread e7ec88; scopes/history only, no old source/runtime replay."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/ROOT-CLOSE.json",
+      "bytes": 2159,
+      "sha256": "ad3dc3ac0f86e6c5d518249085055f5d050b08b2508f83544deb3a171af506e5",
+      "read_scope": "Complete historical root close read6aef65; first snapshot map explicitly superseded by recovery, not relied upon as source authority."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/original-Stage.js.txt",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "File identity and whole byte hash only e7ec88; resolves same file as lower-case path and contains testbed source, not core source."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/original-stage.js.txt",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "File identity and whole byte hash only e7ec88; old recorded error corroboration, not candidate source authority."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Hash-only in this preparation; complete same4938-byte current text read b21ab4 preceding worth. No new status edit."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Hash-only in this preparation; exact selected current workorder/performance sections read b21ab4 preceding worth. No new whole-module claim."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PREPARATION.md",
+      "bytes": 4299,
+      "sha256": "38ef57d3e9456262cdbaff3d8b483a5985b891fd7277fa01d1ae97466179796d",
+      "read_scope": "Complete own stable preparation previously read a394c5; exact current pin reverified0f0962, no retroactive changes."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PREPARATION-RECEIPT.json",
+      "bytes": 11372,
+      "sha256": "93864b6d7e37fe965588db4ea80740d8e758547defde92685f03db4f2520866e",
+      "read_scope": "Complete own stable receipt parsed/reverified current0f0962, its20input/result rows exact."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REFERENCE.returned.json",
+      "bytes": 32875,
+      "sha256": "035c15f6a21ea15a39bd3101b8e373824c3b6091e7baf7b607e59683ba25d3f1",
+      "read_scope": "Complete saved JSON parsed. Initial duplicate aggregate display04ccf7 truncated; fully recovered all257 markdown lines+all metadata/request/clock in6a8cd0, content-text==structured confirmed. No network by critic."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/ROOT-PREPARATION.json",
+      "bytes": 1223,
+      "sha256": "48f272a726a81d9b28e148ab3c9d38d264adfa45edbfaee3a0d80241e51b1bc8",
+      "read_scope": "Complete root one-request admission read04ccf7; independently clock/order/request equality checked0f0962."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/ROOT-SOURCE-CHECK.initial.json",
+      "bytes": 4466,
+      "sha256": "311b237502d3e2d9b451d9fd6ae03d5e2b4ba8898da66cbe2a5324a034136de9",
+      "read_scope": "Complete preserved initial observer record read04ccf7; false textContent description is historical, not actual helper source."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/ROOT-SOURCE-CHECK.json",
+      "bytes": 5185,
+      "sha256": "53419a46897d28019cf0f3bef8fd1d5f4721b5725831847d99dcd28b3197d747",
+      "read_scope": "Complete corrected root record read04ccf7; compared top-level correction fields/14identical plan rows6a8cd0, actual helper independently read."
+    },
+    {
+      "path": "tools/spikes/spike-harness.js",
+      "bytes": 19164,
+      "sha256": "a8c8909d22b1026ba0649e8a8fedf67b53b18ffb8a2feef0c0e2d834fb4b9232",
+      "read_scope": "Actual complete renderTable388\u2013399 and related376\u2013423 read04ccf7, complete escapeHtml421\u2013430 recovered6a8cd0; entire19164bytes hashed, remainder unreviewed."
+    }
+  ],
+  "actual_reference": {
+    "response_bytes": 32875,
+    "response_sha256": "035c15f6a21ea15a39bd3101b8e373824c3b6091e7baf7b607e59683ba25d3f1",
+    "root_admission_utc": "2026-10-05T18:32:40.522594+00:00",
+    "started_utc": "2026-10-05T18:32:50Z",
+    "completed_utc": "2026-10-05T18:32:53Z",
+    "actual_requested_matches_pinned_request": true,
+    "isError": false,
+    "statusCode": 200,
+    "sourceURL": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "scrapeId": "01a10d57-10c9-75d5-9879-b4edef122982",
+    "creditsUsed_reported": 1,
+    "content_text_json_equals_structuredContent": true,
+    "read_scope": "Whole257markdownlines/allreturnedmetadata; no pixel/contentlinks/code executed. Distinction passages19\u201332/56\u201358 used, not completeThree-loop or currentperformance oracle."
+  },
+  "static_observations": {
+    "plan_binding_rows_verified": 14,
+    "preparation_direct_and_result_rows_verified": 21,
+    "total_rows_verified": 35,
+    "full_four_unique_forward_reverse_substitutions": true,
+    "regenerated_PROPOSED_diff_exact": true,
+    "live_originals_still_equal_distinct_recovery": true,
+    "candidate_hashes_unchanged_since_preparation": true,
+    "public_fields_values_formatting_methods_arithmetic_timers_scheduling_rendering_unchanged": true,
+    "only_executable_strings_changed_are_two_display_labels": true,
+    "helper_escaped_display_cells_via_innerHTML_not_textContent": true,
+    "root_initial_current14pins_identical": true,
+    "root_observer_changed_top_level_fields": [
+      "additional_input",
+      "dependency_purpose",
+      "observer_correction",
+      "read_commands",
+      "recorded_utc"
+    ],
+    "root_observer_error_not_product_defect": true
+  },
+  "commands": [
+    {
+      "tool_chunk": "04ccf7",
+      "exit_code": 0,
+      "scope": "Initial complete saved wrapper+root records/helper attempt; duplicate response display truncated, explicitly recovered6a8cd0. Root records/helpers excerpt displayed untruncated."
+    },
+    {
+      "tool_chunk": "6a8cd0",
+      "exit_code": 0,
+      "scope": "Complete single-copy257-line reference+allmetadata/request/clocks and duplicate equality; actual imports78\u2013108, complete escaping421\u2013430; initial/current observer field comparison.4849tokens,no truncation."
+    },
+    {
+      "tool_chunk": "0f0962",
+      "exit_code": 0,
+      "scope": "Final complete diff/replacements and selected candidate timing/HUD reread;35 row rehashes, four unique forward/reverse substitutions, diff equality, request/admission/response invariants; no app execution."
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/FINAL-SOURCE.md",
+    "bytes": 4656,
+    "sha256": "3af65bd677f719d7ebdcfb697db749c4810456e0020a9248858ec1421a133228"
+  },
+  "save_process": {
+    "pid": 77125,
+    "operation": "Exclusive FINAL-SOURCE.md/FINAL-SOURCE-RECEIPT.json only; local static text/hash/metadata operations"
+  },
+  "limits": [
+    "Only unchanged exact candidate wording admitted; root actual edit and delivery not yet observed.",
+    "MDN captured source corroborates callback/timestamp semantics, not currentStage/Threeclock/render/presentation/GPUorAvatarFPS identity.",
+    "No currentpixels, layout, click, accessibility, behavioral/build/test/runtime/benchmark/recorder/source replay or private state qualified.",
+    "Source read scopes explicit; unchanged module remainder byte-compared, not newly whole semantic reviewed.",
+    "No critic network/browser/native/GPU/producer/helpers/product/frozen/default writes; only two exclusive final handoff files.",
+    "RecorderB and wrong historicalcase-map preservation remain; distinctverifiedrecoverycopies own originals. Full14/10/AAA/representation/expression/wardrobe/fit/motion/performance/laterstyles preserved; no successor automatically admitted."
+  ]
+}

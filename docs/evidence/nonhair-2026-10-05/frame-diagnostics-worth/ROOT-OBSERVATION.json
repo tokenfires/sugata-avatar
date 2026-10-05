@@ -1,0 +1,76 @@
+{
+  "recorded_utc": "2026-10-05T18:13:05.071518+00:00",
+  "initial_inventory": "7561d9 relevanttestbednames;1822c2 evidencepath inventory truncated but sole namedreviewperformance packet narrowed/recovered69b11d top-level file inventory.2715c6 broadsource matches truncated, only decisivecurrentShowcase matches recovered381950; no exhaustiveabsenceclaim.396c9d actualStage/Scene/Avatarpaths. No runtime/API/sample/body/assetparse/native/GPU/network/helper replay.",
+  "source_inputs": [
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Complete performance row/currentimmediateworkorder sections102\u2013140; whole file hashonly, no claim wholetext newlyread"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md",
+      "bytes": 5388,
+      "sha256": "81cee685b3751087f80a23f3ebb09eeae753c3b060ed862ba690bb46a9953834",
+      "read_scope": "Complete retained pilot result95ba7c, historical result not currentperf"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/README.md",
+      "bytes": 10520,
+      "sha256": "d2826dd1207dc49a936ca633d1f311cf8443c2294daae3e22cfa4daf390ba214",
+      "read_scope": "Complete02e662 no execution"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/review-performance/PILOT.md",
+      "bytes": 6081,
+      "sha256": "98766f85c12d9743d69d34f2f951f9191659ca55fd08eb56d485bba46cf7b68e",
+      "read_scope": "Complete02e662 no execution"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "Targetedmatchingloop search381950 and complete animate/failure/visibility/manualstep lifecycle sections177\u2013220,483\u2013517 dcc812; remainder unreviewed"
+    },
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+      "read_scope": "Targetedtiming search2a2787 plus exactsections120\u2013148,343\u2013418,748\u2013823 b9863c; remainder unreviewed"
+    },
+    {
+      "path": "packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "HUDstartLiveHud relevant353\u2013382 c3a59e, wholemoduleunreviewed"
+    }
+  ],
+  "findings": [
+    {
+      "witness": "Complete priorPILOT-RESULT lastparagraph and ROADMAP Immediateworkorder4; README distinguishes stepped from live/Portrait/representative instrumentation",
+      "explanation": "Existing240stepped samples/rawlossless/census/GPU/CPU/privateaccounting may already serve review performance. It explicitly waits for a concrete live-responsiveness issue before measuring livecadence/overhead. Current14scoped/10broad roadmap stillprioritizes characterfinish and representativebuilds; this nomination supplies no observed live-speed problem. Newboundedlive recorder is not automatically justified by missingbroadperformanceacceptance.",
+      "alternatives": [
+        "A separatelyselectedactual live symptom/workload and observer overhead contract could justify a new recorder at greater instrumentation cost; none selected here.",
+        "B retainexistingtimingpilot and decline extra recorder now, allocating effort to realcharacterfinish or specific proven source truthfulness."
+      ]
+    },
+    {
+      "witness": "Showcase animate function209\u2013215 and lifecycle494\u2013507; Stage renderFrame762\u2013781/sampleFrameRate805\u2013818/onFrame385\u2013400",
+      "explanation": "Showcase owns one externalRAF sequence; Stage also owns its own renderer loop increate363\u2013364. Perloop timing/updateownership must be explicit; a second genericRAF observer is not same as these realcallbacks. Root does not infer missingfields or speed defect from partialsource search.",
+      "alternatives": [
+        "A source-bound hook at onechosen existingreal callback plus completeworkload/interruption/overhead scope could add live telemetry; currentnomination not a full instrumentationcontract.",
+        "B avoid duplicate loops/measurements and keep currenttooling until a concrete decision needs exactlive timing."
+      ]
+    },
+    {
+      "witness": "Stage constructor129\u2013130 claims smoothed presentationrate; renderFrame768\u2013781 brackets synchronouscallbacks+draw and sampleFrameRate805\u2013818 incrementsinvocations; StageHUD374\u2013375 shows fps/cpu frame ms",
+      "explanation": "Currentfpscounter counts framecallback invocations overprovidedtime window and walltimer bounds callbacks+drawsubmission; no compositor/presentedframe/GPUexecution witness supplied by these actualmethods. Presentationrate comment overstates this method. A narrowlyselected wording correction could help diagnosis without new telemetry, but is not admitted by recordernomination.",
+      "alternatives": [
+        "A separate source-reviewed comment/HUDlabel clarification can state framecallbacks/s and callback+drawwalltime, preserving publicfields/computation/renderer behavior; small claritygain, no new speeddata.",
+        "B retain existingpublicfieldnames and explicit limitation documentation only; avoids UIlabel changes but leaves localpresentationcomment stronger than actualsource witness."
+      ]
+    }
+  ],
+  "root_preliminary": "B newrecorder at current unchangedroadmap/workload/no observedsymptom; independent critic may disagree based exactwitnesses. Separate wording clarification remains candidate only, no edit/admission.",
+  "limits": "Oldpilot remains historical; no currentFPS/budget/bottleneck/appearance/resource retirementclaim or generalmissingtelemetryclaim. Mainstatus14/10 unchanged; fullAAA/default/original/frozen/unrelated andreview5173/ACTIVE recovery retained. Next independentworth complete actualsourcehandoff before any successor."
+}

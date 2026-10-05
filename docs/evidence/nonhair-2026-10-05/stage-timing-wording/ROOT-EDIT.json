@@ -1,0 +1,25 @@
+{
+  "completed_utc": "2026-10-05T18:38:16.708801+00:00",
+  "exact_delivered_candidates": [
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42632,
+      "sha256": "35d30660fae00e40deaac6ea7f5f6de1958a586cb67a48717f4b2ad008ea4aea"
+    },
+    {
+      "path": "packages/testbed/src/stage.js",
+      "bytes": 74724,
+      "sha256": "45053d7932b4d6175e2473577e648cda79800fa4fc9d5d57e84c8311c4103888"
+    }
+  ],
+  "admission": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/ROOT-EDIT-ADMISSION.json",
+    "bytes": 2104,
+    "sha256": "7285df8537e65e55284840ec2f8f3534458c6a62ccbd2f8dbdaabaff1c174f6a"
+  },
+  "verified_pre_edit_rows": 63,
+  "originals_preserved": true,
+  "commands": "This single guarded Python stdlib source-write command; no source import/runtime/build/tests/browser/GPU/native",
+  "owned_job": "synchronous local source check/write; no spawned child/controller/network job",
+  "stop_utc": "2026-10-05T18:55:00Z"
+}

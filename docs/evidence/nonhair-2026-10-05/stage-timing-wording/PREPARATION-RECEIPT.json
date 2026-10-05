@@ -1,0 +1,241 @@
+{
+  "collected_utc": "2026-10-05T18:28:27.470157+00:00",
+  "decision": "A exact preparation and sole specified primary request only; no product edit/admission until actual reference and separate final source/root review",
+  "timely_preparation": true,
+  "gates": {
+    "preparation_stop_utc": "2026-10-05T18:43:00Z",
+    "reference_stop_utc": "2026-10-05T18:48:00Z",
+    "edit_source_stop_utc": "2026-10-05T18:55:00Z",
+    "final_stop_utc": "2026-10-05T19:05:00Z"
+  },
+  "inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PLAN.json",
+      "bytes": 6645,
+      "sha256": "3e45b3c273abd6324935233b52e7e141c8fb7be3be7841054e47f6ea76475b99",
+      "read_scope": "Complete literal plan read0dee1e."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PROPOSED.diff",
+      "bytes": 2202,
+      "sha256": "6906a717f311df1f46fc698db883841ba1a32d382e0d05bb28280a990e73eda1",
+      "read_scope": "Complete all three hunks read0dee1e; independently regenerated from original/candidate and compared exactly6aef65."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REPLACEMENTS.json",
+      "bytes": 1508,
+      "sha256": "10815ea1baabcb9edd7ced3e59ce837454a831bda0f10a112c19d4a2c32ec2f2",
+      "read_scope": "Complete four before/after records read0dee1e; each before/after occurs once, forward/reverse exact byte comparison6aef65."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REFERENCE.requested.json",
+      "bytes": 214,
+      "sha256": "363a7ac716f84bf67aaaed2b6333fc855cc49e676a4761266715753746e6d25a",
+      "read_scope": "Complete literal one request read6aef65; no network call."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-core-Stage.txt",
+      "bytes": 42632,
+      "sha256": "35d30660fae00e40deaac6ea7f5f6de1958a586cb67a48717f4b2ad008ea4aea",
+      "read_scope": "Literal ranges120\u2013148,343\u2013396,757\u2013819 read6aef65; entire candidate bytes forward/reverse compared, remainder unchanged not newly semantically reviewed."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-testbed-stage.txt",
+      "bytes": 74724,
+      "sha256": "45053d7932b4d6175e2473577e648cda79800fa4fc9d5d57e84c8311c4103888",
+      "read_scope": "Literal353\u2013382 HUD read6aef65; entire candidate bytes forward/reverse compared, remainder unchanged not newly semantically reviewed."
+    },
+    {
+      "path": "packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+      "read_scope": "Current literal120\u2013148,343\u2013396,757\u2013819 read6aef65; previous broader timing scope read in prior worth; entire bytes hash/compare to recovered copy."
+    },
+    {
+      "path": "packages/testbed/src/stage.js",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "Current literal353\u2013382 read6aef65; entire bytes hash/compare to recovered copy."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/RECEIPT.json",
+      "bytes": 2745,
+      "sha256": "e0e0a4f384fb55a1c4271b7a81bc609e959f1296fb09f8bafcee8536719dfbfb",
+      "read_scope": "Complete recovery/error mapping read6aef65; current copy equality independently verified, not trusting old map."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/MANIFEST.json",
+      "bytes": 685,
+      "sha256": "d46193dfdbb8b4a0e8d6ff284f1ddfae5ac360b99a9afd451013086e8559e454",
+      "read_scope": "Complete four rows read6aef65 and all independently rehashed e7ec88."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/README.md",
+      "bytes": 308,
+      "sha256": "12a92151940cd4db1c2933cab604383c5548b6144907834cf474b6edd1df27d6",
+      "read_scope": "Complete recovery explanation read e7ec88."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-core-Stage.txt",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0",
+      "read_scope": "Entire bytes independently equal current live core source6aef65; semantic scope inherited same exact live timing ranges."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-testbed-stage.txt",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "Entire bytes independently equal current live testbed source6aef65; semantic scope inherited same exact HUD range."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/WORTH.md",
+      "bytes": 3799,
+      "sha256": "1ca0235153e987567efa34fd814af29068457e50742e929051dbb6284a2f4e08",
+      "read_scope": "Complete prior actual own handoff reread e7ec88; recorder B unchanged."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/RECEIPT.json",
+      "bytes": 7439,
+      "sha256": "32e91af0206bc5ea9af82b2d35662d2a2739cb0c55082d016dc9f09115de8040",
+      "read_scope": "Complete prior receipt reread e7ec88; scopes/history only, no old source/runtime replay."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/ROOT-CLOSE.json",
+      "bytes": 2159,
+      "sha256": "ad3dc3ac0f86e6c5d518249085055f5d050b08b2508f83544deb3a171af506e5",
+      "read_scope": "Complete historical root close read6aef65; first snapshot map explicitly superseded by recovery, not relied upon as source authority."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/original-Stage.js.txt",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "File identity and whole byte hash only e7ec88; resolves same file as lower-case path and contains testbed source, not core source."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/original-stage.js.txt",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd",
+      "read_scope": "File identity and whole byte hash only e7ec88; old recorded error corroboration, not candidate source authority."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Hash-only in this preparation; complete same4938-byte current text read b21ab4 preceding worth. No new status edit."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Hash-only in this preparation; exact selected current workorder/performance sections read b21ab4 preceding worth. No new whole-module claim."
+    }
+  ],
+  "plan_binding_checks": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "matches": true
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/WORTH.md",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/RECEIPT.json",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/ROOT-CLOSE.json",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/RECEIPT.json",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/MANIFEST.json",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-core-Stage.txt",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-testbed-stage.txt",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-core-Stage.txt",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-testbed-stage.txt",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PROPOSED.diff",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REPLACEMENTS.json",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REFERENCE.requested.json",
+      "matches": true
+    }
+  ],
+  "static_observations": {
+    "plan_rows": 14,
+    "all_match": true,
+    "total_allowed_replacements": 4,
+    "replacement_before_after_unique": true,
+    "forward_exact_two_candidates": true,
+    "reverse_exact_two_live_originals": true,
+    "regenerated_PROPOSED_diff_exact": true,
+    "current_product_originals_unchanged": true,
+    "distinct_recovered_source_copies_exact_live": true,
+    "recovery_manifest_all4_rows_exact": true,
+    "old_case_only_paths_samefile": true,
+    "old_first_snapshot_mapping_false": true,
+    "old_single_file_is_testbed_source": true,
+    "old_frozen_bytes_untouched": true
+  },
+  "commands": [
+    {
+      "tool_chunk": "0dee1e",
+      "exit_code": 0,
+      "scope": "Complete PLAN/PROPOSED.diff/REPLACEMENTS read, no truncation."
+    },
+    {
+      "tool_chunk": "6aef65",
+      "exit_code": 0,
+      "scope": "Complete literal reference/recovery/parent-close, current+candidate requested source ranges, all14pins and exact static forward/reverse/diff/sourcecopy comparisons; no truncation or app execution."
+    },
+    {
+      "tool_chunk": "e7ec88",
+      "exit_code": 0,
+      "scope": "Complete prior WORTH/RECEIPT and recovery README, four manifest row hashes and actual old samefile bytes; no truncation or app execution."
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PREPARATION.md",
+    "bytes": 4299,
+    "sha256": "38ef57d3e9456262cdbaff3d8b483a5985b891fd7277fa01d1ae97466179796d"
+  },
+  "save_process": {
+    "pid": 62975,
+    "operation": "Exclusive PREPARATION.md/PREPARATION-RECEIPT.json only, local text/hash/metadata operations"
+  },
+  "limits": [
+    "No source blocker found in declared four-literal delta; candidate remainder byte-exact, not a claim of new semantic review of whole modules.",
+    "Stage own render-frame rate and elapsed callback/draw wall interval only; no generic Avatar FPS, simultaneous loop claim, compositor/presented-frame/GPU/cycle/bottleneck/performance or benchmark qualification.",
+    "No actual primary call or pixels inspected here; sole requested page can only provide its actual future source semantics and may refuse.",
+    "No product/frozen/default/source edit, code import/replay, build/test, runtime, recorder, browser/native/GPU, network or helper invocation.",
+    "Rendered HUD label layout/accessibility remains unobserved; no new native demanded for reversible wording-only change.",
+    "Recorder B/full14scoped10broad/AAA/representation/expression/wardrobe/fit/motion/performance/later styles preserved; no successor automatically admitted."
+  ]
+}

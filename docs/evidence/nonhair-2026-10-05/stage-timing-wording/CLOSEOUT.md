@@ -1,0 +1,11 @@
+# Stage timing wording delivered
+
+The standalone Stage study now labels the unchanged values **render callbacks/s** and **callbacks + draw wall ms**. Two core comments describe the same scope. This corrects the old presentation-rate and CPU-time interpretation; it does not supply a new speed result.
+
+[Exact diff](PROPOSED.diff), [four allowed replacements](REPLACEMENTS.json), [independent final source review](FINAL-SOURCE.md), [root admission](ROOT-EDIT-ADMISSION.json) and [exact delivered bytes](ROOT-EDIT.json) preserve the source decision. Root read the complete handoff and independently verified63 binding rows before installing the two exact reviewed candidates at18:38:16UTC. Static forward/reverse substitution and diff checks prove that all other source bytes, public stats fields, values, formatting, timers, scheduling and rendering are unchanged. Whitespace check passed725856. No behavioral test/build or capture was needed for this reversible wording change; rendered label layout and readability remain unobserved.
+
+The sole current [MDN callback reference](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame), captured18:32:50–53UTC, corroborates pre-repaint callback/timestamp semantics. [Complete raw return](REFERENCE.returned.json) retains metadata200/exactURL/one reported credit and text/structured equality. It does not establish the complete Three loop, display presentation, GPU completion, every main-thread task or generic Avatar FPS.
+
+The old case-colliding snapshot map and initial root textContent description are preserved errors. [Distinct original recovery](../frame-original-recovery/README.md) owns the two original source copies; ROOT-SOURCE-CHECK.initial.json and ROOT-SOURCE-CHECK.json preserve the helper correction. Actual renderTable escapes row cell values into innerHTML. No helper defect or runtime repair is inferred.
+
+The extra recorder remains deferred. This fixed wording/reference slice is complete; no further timing inquiry, measurement or automatic successor is admitted. All14 scoped checks/10 broad goals and the full character, expression, wardrobe, representation, fit, motion and AAA roadmap remain. Accepted assets/defaults and previous frozen evidence are preserved; review5173 and ten-minute recovery remain available.

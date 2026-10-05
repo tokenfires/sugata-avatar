@@ -1,0 +1,59 @@
+{
+  "recorded_utc": "2026-10-05T18:33:58.217055+00:00",
+  "returned": {
+    "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REFERENCE.returned.json",
+    "bytes": 32875,
+    "sha256": "035c15f6a21ea15a39bd3101b8e373824c3b6091e7baf7b607e59683ba25d3f1"
+  },
+  "request_exact": true,
+  "full_read": "5a817d complete markdown and all metadata, textblock parsed/equal structuredContent; not renderedpixels",
+  "tool_isError": false,
+  "metadata": {
+    "viewport": "width=device-width, initial-scale=1.0",
+    "og:url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "title": "Window: requestAnimationFrame() method - Web APIs | MDN",
+    "og:image:type": "image/png",
+    "og:site_name": "MDN Web Docs",
+    "og:title": "Window: requestAnimationFrame() method - Web APIs | MDN",
+    "og:description": "The window.requestAnimationFrame() method tells the\nbrowser you wish to perform an animation. It requests the browser to call a\nuser-supplied callback function before the next repaint.",
+    "og:image:alt": "The MDN logo",
+    "twitter:creator": "MozDevNet",
+    "og:image": "https://developer.mozilla.org/mdn-social-image.46ac2375.png",
+    "position": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "og:image:height": "1024",
+    "description": "The window.requestAnimationFrame() method tells the\nbrowser you wish to perform an animation. It requests the browser to call a\nuser-supplied callback function before the next repaint.",
+    "language": "en-US",
+    "og:image:width": "1024",
+    "twitter:card": "summary",
+    "og:locale": "en_US",
+    "favicon": "https://developer.mozilla.org/favicon.ico",
+    "scrapeId": "01a10d57-10c9-75d5-9879-b4edef122982",
+    "sourceURL": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "statusCode": 200,
+    "contentType": "text/html",
+    "timezone": "America/New_York",
+    "proxyUsed": "basic",
+    "indexId": "d7c588e7-0460-4059-a654-e82af736f579",
+    "creditsUsed": 1,
+    "concurrencyLimited": false
+  },
+  "tool_clock_interval": {
+    "start": {
+      "current_time": "2026-10-05 18:32:50 UTC"
+    },
+    "end": {
+      "current_time": "2026-10-05 18:32:53 UTC"
+    }
+  },
+  "reported_credits": 1,
+  "source_url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+  "source_summary": "MDN describes an animation callback before repaint, typically related to refresh frequency, one-shot scheduling and timestamps shared within a frame. Callback timestamp differs from performance.now(). This supports callback/wall elapsed vocabulary; it is not completed presentation or GPU execution telemetry.",
+  "local_source_inference": "Actual Stage counts renderFrame samples and subtracts performance.now around registeredcallbacks plus draw. The two supplied human labels are escaped displaycells. Literal source supports proposed names without new measurement. Three complete scheduling/renderer implementation and actual runtime remain unobserved.",
+  "bounds": "One exact selected public primary response, no additional queries, examples execution, sourcechanges, browser/GPU/native/performance/build/test; final independent sourcegate still pending."
+}

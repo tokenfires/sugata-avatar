@@ -1,0 +1,93 @@
+{
+  "recorded_utc": "2026-10-05T18:27:47.048804+00:00",
+  "status": "Originalproductsource unchanged; exact4 literal allowed replacement candidate verified; independentprep pending.",
+  "plan_pins_verified": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/WORTH.md",
+      "bytes": 3799,
+      "sha256": "1ca0235153e987567efa34fd814af29068457e50742e929051dbb6284a2f4e08"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/RECEIPT.json",
+      "bytes": 7439,
+      "sha256": "32e91af0206bc5ea9af82b2d35662d2a2739cb0c55082d016dc9f09115de8040"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-diagnostics-worth/ROOT-CLOSE.json",
+      "bytes": 2159,
+      "sha256": "ad3dc3ac0f86e6c5d518249085055f5d050b08b2508f83544deb3a171af506e5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/RECEIPT.json",
+      "bytes": 2745,
+      "sha256": "e0e0a4f384fb55a1c4271b7a81bc609e959f1296fb09f8bafcee8536719dfbfb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/MANIFEST.json",
+      "bytes": 685,
+      "sha256": "d46193dfdbb8b4a0e8d6ff284f1ddfae5ac360b99a9afd451013086e8559e454"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-core-Stage.txt",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/frame-original-recovery/original-testbed-stage.txt",
+      "bytes": 74697,
+      "sha256": "250049d34d6ceaeb4b41221ac12f7b638e47432ff7841c903cef2772f8ada3fd"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-core-Stage.txt",
+      "bytes": 42632,
+      "sha256": "35d30660fae00e40deaac6ea7f5f6de1958a586cb67a48717f4b2ad008ea4aea"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/candidate-testbed-stage.txt",
+      "bytes": 74724,
+      "sha256": "45053d7932b4d6175e2473577e648cda79800fa4fc9d5d57e84c8311c4103888"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/PROPOSED.diff",
+      "bytes": 2202,
+      "sha256": "6906a717f311df1f46fc698db883841ba1a32d382e0d05bb28280a990e73eda1"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REPLACEMENTS.json",
+      "bytes": 1508,
+      "sha256": "10815ea1baabcb9edd7ced3e59ce837454a831bda0f10a112c19d4a2c32ec2f2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/stage-timing-wording/REFERENCE.requested.json",
+      "bytes": 214,
+      "sha256": "363a7ac716f84bf67aaaed2b6333fc855cc49e676a4761266715753746e6d25a"
+    }
+  ],
+  "additional_input": {
+    "path": "tools/spikes/spike-harness.js",
+    "bytes": 19164,
+    "sha256": "a8c8909d22b1026ba0649e8a8fedf67b53b18ffb8a2feef0c0e2d834fb4b9232",
+    "read_scope": "Actualstage.js import78\u2013108 bfa39e points here; complete renderTable function388\u2013415 read in adjacent rootcommand; remainderunreviewed. Hashentire file only."
+  },
+  "dependency_purpose": "Verify renderTable uses row[column.key] to create textContent only, not k as metric/publicAPI/schema/DOMidentity. Two k strings are displayedrowlabels in live table; function/currentdata computation retained. No new runtime/privateobservable fields.",
+  "read_commands": [
+    "9e662a scopedfps/label/helpername search",
+    "976957 helperdefinition notwithin testbedsrc",
+    "d78d6c Stage testbedheader/import excerpt",
+    "45c4a6 actualrenderTable references",
+    "bfa39e actualhelperimport; erroneous nonexistentpackages/shared rg path returned2 butactualtools source locationfound, no defectclaim",
+    "adjacent rootcompletehelperfunctionread"
+  ],
+  "no_runtime_claim": "Static source semantics only; no HUDrender/readability/layout/click/metricvalidation, currentFPS/GPU/presentation/budget/renderer behavior test.",
+  "snapshot_correction": "Distinct recoverycopies equalcurrentliveoriginals and two different files; old frozenparentfirstmap remains wrongandunchanged. Current14pins and actualallowedpatch equality verified."
+}

@@ -1,0 +1,106 @@
+{
+  "scope": "All owned payloads in this leaf; paths relative to this leaf. Original source authority is distinct recovery copies, historical live-input hashes precede the delivered edit.",
+  "closed_utc": "2026-10-05T18:39:03.405483+00:00",
+  "files": [
+    {
+      "path": "CLOSEOUT.md",
+      "bytes": 2313,
+      "sha256": "ea5ad8a14da862ba7eb54a393bc67c9012e175b3076ff1e178dda2a4d507d2fc"
+    },
+    {
+      "path": "FINAL-SOURCE-RECEIPT.json",
+      "bytes": 13762,
+      "sha256": "3e0e206c3208655ea15dd3b3827189bfa55ed75901f9cb047cab41a10984243b"
+    },
+    {
+      "path": "FINAL-SOURCE.md",
+      "bytes": 4656,
+      "sha256": "3af65bd677f719d7ebdcfb697db749c4810456e0020a9248858ec1421a133228"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 6645,
+      "sha256": "3e45b3c273abd6324935233b52e7e141c8fb7be3be7841054e47f6ea76475b99"
+    },
+    {
+      "path": "PREPARATION-RECEIPT.json",
+      "bytes": 11372,
+      "sha256": "93864b6d7e37fe965588db4ea80740d8e758547defde92685f03db4f2520866e"
+    },
+    {
+      "path": "PREPARATION.md",
+      "bytes": 4299,
+      "sha256": "38ef57d3e9456262cdbaff3d8b483a5985b891fd7277fa01d1ae97466179796d"
+    },
+    {
+      "path": "PROPOSED.diff",
+      "bytes": 2202,
+      "sha256": "6906a717f311df1f46fc698db883841ba1a32d382e0d05bb28280a990e73eda1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 289,
+      "sha256": "3ce93c23e28f57db2e56faec9fd7a4184c3c5b1063c7548f41d617b27152811a"
+    },
+    {
+      "path": "REFERENCE.requested.json",
+      "bytes": 214,
+      "sha256": "363a7ac716f84bf67aaaed2b6333fc855cc49e676a4761266715753746e6d25a"
+    },
+    {
+      "path": "REFERENCE.returned.json",
+      "bytes": 32875,
+      "sha256": "035c15f6a21ea15a39bd3101b8e373824c3b6091e7baf7b607e59683ba25d3f1"
+    },
+    {
+      "path": "REPLACEMENTS.json",
+      "bytes": 1508,
+      "sha256": "10815ea1baabcb9edd7ced3e59ce837454a831bda0f10a112c19d4a2c32ec2f2"
+    },
+    {
+      "path": "ROOT-CLOSE.json",
+      "bytes": 2271,
+      "sha256": "5891e272c72519048ea17c423d63d7af610d0e170e5ba45614932e2ffbae7f42"
+    },
+    {
+      "path": "ROOT-EDIT-ADMISSION.json",
+      "bytes": 2104,
+      "sha256": "7285df8537e65e55284840ec2f8f3534458c6a62ccbd2f8dbdaabaff1c174f6a"
+    },
+    {
+      "path": "ROOT-EDIT.json",
+      "bytes": 972,
+      "sha256": "2a8b40857d230c3aeb40b9ac5ea3dd4b6dcfaabb34d36e06d7c58f135b914bb6"
+    },
+    {
+      "path": "ROOT-PREPARATION.json",
+      "bytes": 1223,
+      "sha256": "48f272a726a81d9b28e148ab3c9d38d264adfa45edbfaee3a0d80241e51b1bc8"
+    },
+    {
+      "path": "ROOT-REFERENCE.json",
+      "bytes": 3324,
+      "sha256": "007d03c47805932f9264ffea3899e711d5a77c866cabd6495a4c11eefe91e5a6"
+    },
+    {
+      "path": "ROOT-SOURCE-CHECK.initial.json",
+      "bytes": 4466,
+      "sha256": "311b237502d3e2d9b451d9fd6ae03d5e2b4ba8898da66cbe2a5324a034136de9"
+    },
+    {
+      "path": "ROOT-SOURCE-CHECK.json",
+      "bytes": 5185,
+      "sha256": "53419a46897d28019cf0f3bef8fd1d5f4721b5725831847d99dcd28b3197d747"
+    },
+    {
+      "path": "candidate-core-Stage.txt",
+      "bytes": 42632,
+      "sha256": "35d30660fae00e40deaac6ea7f5f6de1958a586cb67a48717f4b2ad008ea4aea"
+    },
+    {
+      "path": "candidate-testbed-stage.txt",
+      "bytes": 74724,
+      "sha256": "45053d7932b4d6175e2473577e648cda79800fa4fc9d5d57e84c8311c4103888"
+    }
+  ]
+}
