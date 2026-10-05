@@ -1,0 +1,92 @@
+{
+  "started_utc": "2026-10-05T10:22:10.521152+00:00",
+  "source_review_cutoff_utc": "2026-10-05T10:42:00Z",
+  "stop_utc": "2026-10-05T10:53:00Z",
+  "decision": "Fresh single ownership-method repair; one separately source-reviewed CPU test and sole exact package controller only if complete source and actual CPU result are independently qualified by critic/root. Original B frozen at59f4788.",
+  "usable_goal": "A verified recoverable temporary Blender authoring runtime whose original DMG and direct version identity can be reused in later artist-source work.",
+  "research_question": "Can actual PID/PGID observations and exact attachment-image provenance earn complete independent cleanup duties, then qualify one reversible official package/version probe?",
+  "package": {
+    "url": "https://download.blender.org/release/Blender5.2/blender-5.2.2-macos-arm64.dmg",
+    "filename": "blender-5.2.2-macos-arm64.dmg",
+    "bytes": 346286611,
+    "sha256": "dc4125399b8bfefe283cc1624d6cfc7809d1cac20ace51072127eb371f31f210",
+    "version": "5.2.2"
+  },
+  "limits": {
+    "official_package_gets": 1,
+    "redirects": 0,
+    "maximum_package_bytes": 786432000,
+    "download_seconds": 180,
+    "total_controller_seconds": 480,
+    "version_invocations": 1,
+    "version_seconds": 15,
+    "utility_seconds_maximum": 45,
+    "cpu_test_invocations": 1,
+    "group_observer_seconds": 3,
+    "cleanup_seconds_cap": 120
+  },
+  "owned_store": "assets/vendor/tooling/blender-runtime-20261005T1021Z",
+  "mount_contract": "Record exact image-path association and actual whole-device IDs from hdiutil info/attach; reject unexpected mounted layout before app execution; cleanup independent of child errors reconciles only this exact uniquely-owned image and detaches each recorded owned whole-device at most once. No arbitrary device, force, sudo or permission/security bypass. Retain actual leftover ownership/refusal if OS cannot detach.",
+  "execution_contract": "Direct actual owned Blender after byte/image/bundle/host/arm64/signature/Gatekeeper gates; isolated per-child resources and no-file disable-autoexec/factory/offline/version. HOME/PATH unchanged. Source cutoff for preparation/test; independent actual CPU result before separate package admission, execution cutoff10:45 and workstop10:53.",
+  "stop": "First fresh source or CPU-test refusal closes this ownership method; no correction/retest/ownership-method retry loop. First package/trust/runtime failure stops; independent cleanup/accounting still attempted. No fallbacks or security bypass.",
+  "scope": "No Applications/Homebrew/PATH/file-registration/permanent installation, quarantine changes, ZIP extraction/Snow load/Sugata image/fit promotion/native GPU/browser capture. Package is original tool bytes outside Git; source/output/receipt committed locally. Preparation may read local ps PID/PGID and hdiutil info schema only. Whole runtime controller remains unrun until actual source/test admission.",
+  "input_bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/OUTCOME.json",
+      "bytes": 2673,
+      "sha256": "129666ebfa50691236bb8d7e0c9cf61b1c0f0fe07c2d363adb3a3e3e2312aeeb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT.md",
+      "bytes": 2449,
+      "sha256": "160ce7dd474b658adc0d8fd0244bcdafa1ce0626f5bc4fcec8c2c2457fe715ac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT-RECEIPT.json",
+      "bytes": 5285,
+      "sha256": "1037eb2a3a2cb4a73599fe9b254b45e88e2738b7a69441841148695567189fb6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/ROOT-CLOSE.json",
+      "bytes": 630,
+      "sha256": "c552f46cf43aaa87736cbcb8b0fc0dba2d62cc0457b7b194d5df6746c4b5b2bc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/CLARIFICATION.md",
+      "bytes": 1021,
+      "sha256": "2e3dccf63b15987459a12077b258c8a8bdeaba786d40f72acb0464827b30ef73"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/REPAIR-WORTH.md",
+      "bytes": 2297,
+      "sha256": "1b3bb802d8628c7a9882e8d19b3f07fd8c0dbee9c973be6a81f2184093a5aa7e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/REPAIR-WORTH-RECEIPT.json",
+      "bytes": 3230,
+      "sha256": "a95f701f3c9481838269cad2c5c18e89f5fe2d19c7f57240fad09248a7bf7581"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/ROOT-CLOSE.json",
+      "bytes": 955,
+      "sha256": "37a6a93ef97e23d6f561ffa1fb5de945af7fe0f64913037a8f509c1ecb673f5b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/ROOT-REVIEW.json",
+      "bytes": 1470,
+      "sha256": "432038b99e4f33c77556a2ba8e4f48cf60f3ff7a6a412498544f46ac0d777a3d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/MANIFEST.json",
+      "bytes": 3220,
+      "sha256": "123c215403a4a5072b0bb2936aa73792fd8bf3fd3b570e3c930252b6b6a9750a"
+    }
+  ],
+  "execution_cutoff_utc": "2026-10-05T10:45:00Z",
+  "current_head": "59f4788"
+}

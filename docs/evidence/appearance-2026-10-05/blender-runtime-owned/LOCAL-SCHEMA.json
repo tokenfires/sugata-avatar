@@ -1,0 +1,57 @@
+{
+  "observed_utc": "2026-10-05T10:22:10.620346+00:00",
+  "scope": "Read-only local OS schemas; no package/mount/source/native GPU action. Full unrelated PID/image metadata is not copied; original command-output hashes retained.",
+  "observations": [
+    {
+      "argv": [
+        "/bin/ps",
+        "-axo",
+        "pid=,pgid="
+      ],
+      "exit": 0,
+      "stdout_bytes": 12804,
+      "stdout_sha256": "140540f1e78753128e75a2c26307bdd8f00366cff96aba08b75fffe3cadf2ee7",
+      "stderr": "",
+      "row_count": 1067,
+      "own_observer_pid_pgid": [
+        [
+          84713,
+          84713
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "/usr/bin/hdiutil",
+        "info",
+        "-plist"
+      ],
+      "exit": 0,
+      "stdout_bytes": 7965,
+      "stdout_sha256": "291b6d1a3de2b5e5554a7a01b0f279637176d048ab17a0bf6f84372785db3225",
+      "stderr": "",
+      "root_keys": [
+        "framework",
+        "images",
+        "revision",
+        "vendor"
+      ],
+      "image_count": 5,
+      "image_schema_keys": [
+        "autodiskmount",
+        "blockcount",
+        "blocksize",
+        "diskimages2",
+        "hdid-pid",
+        "image-encrypted",
+        "image-path",
+        "image-type",
+        "owner-mode",
+        "owner-uid",
+        "removable",
+        "system-entities",
+        "writeable"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "collected_utc": "2026-10-05T10:33:12.520874+00:00",
+  "decision": "B first source refusal; CPU test and package method withheld/unrun",
+  "source_review_cutoff_utc": "2026-10-05T10:42:00Z",
+  "scope": "Full static script/PLAN/local saved-schema review and hashing only. No probe/test import, function execution, process discovery, CPU fixtures, network/package/mount/runtime/native/browser/GPU work; frozen inputs unchanged.",
+  "commands": [
+    {
+      "chunk": "d9723c",
+      "exit": 0,
+      "scope": "Complete PLAN, both scripts, LOCAL-SCHEMA with literal numbered source and hashes"
+    },
+    {
+      "chunk": "2242d9",
+      "exit": 0,
+      "scope": "All11 PLAN input hashes; complete prior ROOT-CLOSE/ROOT-REVIEW/MANIFEST"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/OUTCOME.json",
+      "bytes": 2673,
+      "sha256": "129666ebfa50691236bb8d7e0c9cf61b1c0f0fe07c2d363adb3a3e3e2312aeeb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT.md",
+      "bytes": 2449,
+      "sha256": "160ce7dd474b658adc0d8fd0244bcdafa1ce0626f5bc4fcec8c2c2457fe715ac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT-RECEIPT.json",
+      "bytes": 5285,
+      "sha256": "1037eb2a3a2cb4a73599fe9b254b45e88e2738b7a69441841148695567189fb6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/ROOT-CLOSE.json",
+      "bytes": 630,
+      "sha256": "c552f46cf43aaa87736cbcb8b0fc0dba2d62cc0457b7b194d5df6746c4b5b2bc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/CLARIFICATION.md",
+      "bytes": 1021,
+      "sha256": "2e3dccf63b15987459a12077b258c8a8bdeaba786d40f72acb0464827b30ef73"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/REPAIR-WORTH.md",
+      "bytes": 2297,
+      "sha256": "1b3bb802d8628c7a9882e8d19b3f07fd8c0dbee9c973be6a81f2184093a5aa7e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/REPAIR-WORTH-RECEIPT.json",
+      "bytes": 3230,
+      "sha256": "a95f701f3c9481838269cad2c5c18e89f5fe2d19c7f57240fad09248a7bf7581"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/ROOT-CLOSE.json",
+      "bytes": 955,
+      "sha256": "37a6a93ef97e23d6f561ffa1fb5de945af7fe0f64913037a8f509c1ecb673f5b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/ROOT-REVIEW.json",
+      "bytes": 1470,
+      "sha256": "432038b99e4f33c77556a2ba8e4f48cf60f3ff7a6a412498544f46ac0d777a3d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/MANIFEST.json",
+      "bytes": 3220,
+      "sha256": "123c215403a4a5072b0bb2936aa73792fd8bf3fd3b570e3c930252b6b6a9750a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-owned/PLAN.json",
+      "bytes": 5399,
+      "sha256": "7a1f4e85acd7dab5c425ef3a5bc0e01aff95e84d1226b60a9b8b7956a9ee9b33"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-owned/probe.py",
+      "bytes": 18227,
+      "sha256": "0705d7452fdfb0e3403dea99505b825a65312ca93247a679ad4a3b809efe7b59"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-owned/check-ownership.py",
+      "bytes": 6822,
+      "sha256": "2161dc48f46f3320052ea754ed67d378365bf7c7c9719c8b454d77279df68a6c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-owned/LOCAL-SCHEMA.json",
+      "bytes": 1341,
+      "sha256": "8d29d2dd9939cb888cd6173b48c987f58c4ee3b2de1e1c270b48c27faae4184f"
+    }
+  ],
+  "finding": {
+    "contract": "PLAN.json:29 each recorded owned whole-device at most once; :31 first fresh source refusal stops",
+    "source": "probe.py:118\u2013130,133\u2013137,163,193\u2013208,377\u2013379",
+    "actual_branch": "First recorded-device detach failure exits the image callback, skipping later recorded owned devices and final exact-image observation",
+    "scope": "Static control-flow witness only; no real multi-device attachment or detach failure observed"
+  },
+  "limits": [
+    "No impossible guarantee that arbitrary OS/I/O failures cannot occur",
+    "CPU classification cases are synthetic image data only",
+    "PID/PGID snapshots do not qualify live runtime or mount behavior",
+    "No package or source-load admission; fresh method closes without correction per PLAN"
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-owned/SOURCE-RESULT.md",
+    "bytes": 2655,
+    "sha256": "a1ffb491b6f360c7d3569383ec0cf7b28417beac6d5e6c9433ede9a9674d3d5e"
+  }
+}
