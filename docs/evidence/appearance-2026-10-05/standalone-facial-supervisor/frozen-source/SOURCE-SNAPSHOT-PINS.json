@@ -1,0 +1,75 @@
+{
+  "saved_utc": "2026-10-05T23:40:39.034984+00:00",
+  "scope": "Exact current ten direct source/handoff payloads only; reuse matching readonly v1 copies; no original/runtime/transitive-input snapshot or source/data invocation; no suitability/admission verdict",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/PLAN.json",
+      "bytes": 5549,
+      "lines": 83,
+      "sha256": "43cf7193454ece263cba188f768f4e2bcdd01f9468ae8f511416fef014940487",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/PLAN.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/supervise.py",
+      "bytes": 19398,
+      "lines": 335,
+      "sha256": "76ee6788cd5e154d51d30f45545e26164d8fd299ee0773eff9b87e207844ac64",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/frozen-source/supervise.py"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/SOURCE-MAP.md",
+      "bytes": 10177,
+      "lines": 23,
+      "sha256": "15aeb54f2fd444717b18ae66caa25f5e8f325718fda05f616069f647c5a09bb9",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/frozen-source/SOURCE-MAP.md"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/INPUTS.json",
+      "bytes": 180009,
+      "lines": 3928,
+      "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/INPUTS.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/PYTHON-PRIMARY.json",
+      "bytes": 202704,
+      "lines": 67,
+      "sha256": "3335ae41316d75bbe7cdab1b01bd2bb8c204b70ab3374b37e39e13c2129a9321",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/PYTHON-PRIMARY.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/NODE-PRIMARY.json",
+      "bytes": 384167,
+      "lines": 46,
+      "sha256": "6273717de9a0bbc32a349332a85c7f20089a6990cb5e6b69482452467ce1cd31",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/NODE-PRIMARY.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/HANDOFF.json",
+      "bytes": 2946,
+      "lines": 61,
+      "sha256": "73e572529408b0e802cae0b55db63c1bd73655cb9b69011690305f988132cf80",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/HANDOFF.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/REVIEWED-V1.json",
+      "bytes": 3154,
+      "lines": 55,
+      "sha256": "d6a74148ceeffa75ca69dfba1f2be8bae721cecbb2923902bb469e65fa7dfab5",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/frozen-source/REVIEWED-V1.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/ROOT-CORRECTION.md",
+      "bytes": 2698,
+      "lines": 9,
+      "sha256": "1f9225ec59e65218740edb8c80e3dd32901dd0e168fb3af1f6df0cd35d235ed2",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/frozen-source/ROOT-CORRECTION.md"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-HANDOFF.json",
+      "bytes": 3058,
+      "sha256": "b381bf5829a00407751756d0087625176665861164f50a360b2b074edbb615a5",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/frozen-source/CORRECTED-HANDOFF.json"
+    }
+  ]
+}

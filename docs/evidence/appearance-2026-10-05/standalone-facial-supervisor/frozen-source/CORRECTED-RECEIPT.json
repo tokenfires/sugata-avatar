@@ -1,0 +1,188 @@
+{
+  "schema": "standalone-facial-supervisor-independent-corrected-source-v1",
+  "collected_utc": "2026-10-05T23:41:36.269074+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "A corrected source suitability and one fixed original120s serial attempt worth after separate root admission only",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-HANDOFF.json",
+      "bytes": 3058,
+      "sha256": "b381bf5829a00407751756d0087625176665861164f50a360b2b074edbb615a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/PLAN.json",
+      "bytes": 5549,
+      "sha256": "43cf7193454ece263cba188f768f4e2bcdd01f9468ae8f511416fef014940487"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/supervise.py",
+      "bytes": 19398,
+      "sha256": "76ee6788cd5e154d51d30f45545e26164d8fd299ee0773eff9b87e207844ac64"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/SOURCE-MAP.md",
+      "bytes": 10177,
+      "sha256": "15aeb54f2fd444717b18ae66caa25f5e8f325718fda05f616069f647c5a09bb9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/INPUTS.json",
+      "bytes": 180009,
+      "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/PYTHON-PRIMARY.json",
+      "bytes": 202704,
+      "sha256": "3335ae41316d75bbe7cdab1b01bd2bb8c204b70ab3374b37e39e13c2129a9321"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/NODE-PRIMARY.json",
+      "bytes": 384167,
+      "sha256": "6273717de9a0bbc32a349332a85c7f20089a6990cb5e6b69482452467ce1cd31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/HANDOFF.json",
+      "bytes": 2946,
+      "sha256": "73e572529408b0e802cae0b55db63c1bd73655cb9b69011690305f988132cf80"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/REVIEWED-V1.json",
+      "bytes": 3154,
+      "sha256": "d6a74148ceeffa75ca69dfba1f2be8bae721cecbb2923902bb469e65fa7dfab5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/ROOT-CORRECTION.md",
+      "bytes": 2698,
+      "sha256": "1f9225ec59e65218740edb8c80e3dd32901dd0e168fb3af1f6df0cd35d235ed2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/PLAN.json",
+      "bytes": 5549,
+      "sha256": "43cf7193454ece263cba188f768f4e2bcdd01f9468ae8f511416fef014940487"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/supervise.py",
+      "bytes": 18185,
+      "sha256": "e5c078bd3458cd9e49efa93ab3eb4106a3d23b92adf1bea069467b519b5c2ca6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/SOURCE-MAP.md",
+      "bytes": 9292,
+      "sha256": "959e4645a358163915e5856cefd5699be5fbf0dd5319bbd76bc73e73e2267986"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/INPUTS.json",
+      "bytes": 180009,
+      "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/PYTHON-PRIMARY.json",
+      "bytes": 202704,
+      "sha256": "3335ae41316d75bbe7cdab1b01bd2bb8c204b70ab3374b37e39e13c2129a9321"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/NODE-PRIMARY.json",
+      "bytes": 384167,
+      "sha256": "6273717de9a0bbc32a349332a85c7f20089a6990cb5e6b69482452467ce1cd31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/reviewed-v1/HANDOFF.json",
+      "bytes": 2946,
+      "sha256": "73e572529408b0e802cae0b55db63c1bd73655cb9b69011690305f988132cf80"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/SUPERVISOR-RESULT.md",
+      "bytes": 4588,
+      "sha256": "02606a89d68fc47d19033c40cd0182e8040341e6cc4e2886814924d37d19a081"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/SUPERVISOR-RECEIPT.json",
+      "bytes": 4875,
+      "sha256": "1b27fc319d795a372823506904836b58e676cc54fd581d140c15f537993e211f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/DEPENDENCY-PINS.json",
+      "bytes": 145185,
+      "sha256": "0f8d7aff88c3840a35e1518f846a4e13ffaa05ae9a9c76baf83b111ed30d0bd3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py",
+      "bytes": 90732,
+      "sha256": "6628ffdd65c093a6c08cae01ffe82877d3ced515aac9e7be0cff16512c30a7d9"
+    },
+    {
+      "path": "/usr/share/man/man1/ps.1",
+      "bytes": 18590,
+      "sha256": "fbddf023ce4960c7e6eadebcfb7f0badf0ab6c3f59b2b97c2807d3f67a85142d"
+    }
+  ],
+  "verification": {
+    "current_handoff_rows": 9,
+    "input_individual_pins": 784,
+    "unique_resolved_inputs": 784,
+    "dependency_associations": 752,
+    "v1_snapshot_rows": 7,
+    "admission_job_output_absent": true
+  },
+  "inputs_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/INPUTS.json",
+    "bytes": 180009,
+    "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be",
+    "all784_individually_verified": true,
+    "scope": "hash-only bytes; no original asset header/data/geometry interpretation"
+  },
+  "read_scopes": {
+    "corrected supervisor": "complete1\u2013335, initial1\u2013316 preserved review",
+    "PLAN/map/correction/current+historical handoff": "all complete",
+    "primary wrappers": "complete metadata/content-text==structured parsed; selected markdown only",
+    "Python primary markdown": "79\u201385/583\u2013595/824\u2013848/869\u2013878, not all1685lines",
+    "Node primary markdown": "3638\u20133662/4195\u20134207, not all4259lines",
+    "installed subprocess.py": "547\u2013585/1265\u20131298/1856\u20131875/1915\u20131933/2052\u20132096, not whole stdlib",
+    "installed ps.1": "190\u2013194/300\u2013301/499\u2013514 only",
+    "runtime/dependency/source binary pins": "all784bytes individually hashed, not imports/full linked-library text",
+    "g100 original": "wholebytehash only; no header/JSON/BIN/image/mesh decode"
+  },
+  "commands": [
+    {
+      "tool": "3c55b1",
+      "exit_code": 0,
+      "scope": "complete corrected metadata/map/correction/v1"
+    },
+    {
+      "tool": "93777b",
+      "exit_code": 0,
+      "scope": "complete335line corrected supervisor"
+    },
+    {
+      "tool": "7a6ddf",
+      "exit_code": 0,
+      "scope": "all9/784bytepins+uniqueness/primarymetadata-equality"
+    },
+    {
+      "tool": "9d699e",
+      "exit_code": 0,
+      "scope": "actual selected primary/runtime/man clauses"
+    },
+    {
+      "tool": "this final metadata/hash/write/readback only",
+      "scope": "all9/784/752association/7snapshot verification and current absence, no target/process/helper trial"
+    }
+  ],
+  "original_refusal_preserved": {
+    "result_sha256": "02606a89d68fc47d19033c40cd0182e8040341e6cc4e2886814924d37d19a081",
+    "receipt_sha256": "1b27fc319d795a372823506904836b58e676cc54fd581d140c15f537993e211f"
+  },
+  "limits": [
+    "Source/worth A is not root launch admission or actual data/runtime/appearance pass",
+    "No new network/browser/native/GPU/process helper/synthetic/source-program execution/import/evaluation",
+    "Original asset hash-only, no values interpreted",
+    "Sampled/cooperative RSS/time/ownership, not instantaneous hard limits/sandbox/OS success certificate",
+    "Root external clock/job/escaped-or-uncollected process collection remains necessary",
+    "No fixedsource/data/cap/tolerance/pose/material/capture retry or rescue"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-RESULT.md",
+    "bytes": 6812,
+    "sha256": "457425744c82f1ce8585f809df8b47f34efdb972b357f701abe6188b2b131e31"
+  }
+}

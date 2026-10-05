@@ -1,0 +1,103 @@
+{
+  "schema": "standalone-facial-supervisor-independent-source-refusal-v1",
+  "collected_utc": "2026-10-05T23:28:48.282691+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "B exact source/first CPU; conditional worth for focused cleanup/source correction only, no execution",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/HANDOFF.json",
+      "bytes": 2946,
+      "sha256": "73e572529408b0e802cae0b55db63c1bd73655cb9b69011690305f988132cf80"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/PLAN.json",
+      "bytes": 5549,
+      "sha256": "43cf7193454ece263cba188f768f4e2bcdd01f9468ae8f511416fef014940487"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/supervise.py",
+      "bytes": 18185,
+      "sha256": "e5c078bd3458cd9e49efa93ab3eb4106a3d23b92adf1bea069467b519b5c2ca6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/SOURCE-MAP.md",
+      "bytes": 9292,
+      "sha256": "959e4645a358163915e5856cefd5699be5fbf0dd5319bbd76bc73e73e2267986"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/INPUTS.json",
+      "bytes": 180009,
+      "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/PYTHON-PRIMARY.json",
+      "bytes": 202704,
+      "sha256": "3335ae41316d75bbe7cdab1b01bd2bb8c204b70ab3374b37e39e13c2129a9321"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/NODE-PRIMARY.json",
+      "bytes": 384167,
+      "sha256": "6273717de9a0bbc32a349332a85c7f20089a6990cb5e6b69482452467ce1cd31"
+    }
+  ],
+  "verified_handoff_file_rows": 6,
+  "input_manifest_rows": 784,
+  "input_manifest_individual_rows_verified": false,
+  "read_scopes": {
+    "supervise.py": "complete1\u2013316 actual unchanged source",
+    "SOURCE-MAP/PLAN/HANDOFF": "all complete literal sources and six file pins exact",
+    "INPUTS.json": "full JSON parse for shape/row count/hash only, no individual784byte revalidation",
+    "PYTHON/NODE primary files": "byte pins only; not selected/full content/API read before first-stop finding",
+    "reader/oracle/checker suite": "previous stable complete independent source gate retained, not reopened or invoked"
+  },
+  "commands": [
+    {
+      "tool": "56a53e",
+      "exit_code": 0,
+      "scope": "complete PLAN/HANDOFF/SOURCE-MAP and leaf source inventory"
+    },
+    {
+      "tool": "be9799",
+      "exit_code": 0,
+      "scope": "all316supervisor lines"
+    },
+    {
+      "tool": "this final metadata/hash/write/readback only",
+      "scope": "all six declared file pins verified, INPUTS784rowshape and exact manifest, no target/source/helper invocation"
+    }
+  ],
+  "findings": [
+    {
+      "source": "supervise.py149\u2013170/218\u2013224",
+      "classification": "cleanup independent-attempt omission on non-ProcessLookupError signal error",
+      "claim": "source control flow only, no actual OS/process failure",
+      "alternatives": [
+        "A preserve and separately own each bounded collection attempt/error",
+        "B withhold current supervisor/CPU and defer"
+      ]
+    },
+    {
+      "source": "supervise.py293\u2013301 versus SOURCE-MAP post-collection forensic duty",
+      "classification": "missing mutable/uncollected output hash distinction",
+      "claim": "source control flow only; outer status refused, no actual false data pass",
+      "alternatives": [
+        "A skip/mark unstable forensic content when collection uncertified",
+        "B retain current refusal and require external collection before later evidence"
+      ]
+    }
+  ],
+  "limits": [
+    "First decision-changing finding stops further investigation, not a completed primary/API/runtime guard approval",
+    "No network/process discovery/synthetic child/source helper/decoder/oracle/checker/supervisor import or execution",
+    "No originalGLB/header/JSON/BIN/image/geometry values read",
+    "No universal OS termination, instantaneous hard RSS/disk/time guarantees demanded",
+    "No current firstCPU or successor edit/admission inherited",
+    "Existing sampled-control and external root ownership limitations retained"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/SUPERVISOR-RESULT.md",
+    "bytes": 4588,
+    "sha256": "02606a89d68fc47d19033c40cd0182e8040341e6cc4e2886814924d37d19a081"
+  }
+}

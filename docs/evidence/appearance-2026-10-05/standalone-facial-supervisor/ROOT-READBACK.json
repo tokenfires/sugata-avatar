@@ -1,0 +1,41 @@
+{
+  "readback_utc": "2026-10-05T23:43:26.824001+00:00",
+  "decision": "A corrected supervisor source suitability and A one exact original120s serial CPU attempt worth; no execution/data/appearance acceptance",
+  "source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/supervise.py",
+    "bytes": 19398,
+    "sha256": "76ee6788cd5e154d51d30f45545e26164d8fd299ee0773eff9b87e207844ac64"
+  },
+  "inputs_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/INPUTS.json",
+    "bytes": 180009,
+    "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be"
+  },
+  "critic_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-RESULT.md",
+    "bytes": 6812,
+    "sha256": "457425744c82f1ce8585f809df8b47f34efdb972b357f701abe6188b2b131e31"
+  },
+  "critic_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-RECEIPT.json",
+    "bytes": 9049,
+    "sha256": "bc6f6490c4d36d04a1628dec43b2775a55de2b55edac477aa3ac19ddbe445f5c"
+  },
+  "root_actual_reads": {
+    "current_complete_source": "71ce31 lines1-180 and91a32b181-335; completeSOURCE-MAP; v1fullreads dde4dd/c597fd and correctedfull delta d47b45",
+    "complete_corrected_critic": "498c16 result+receipt, untruncated",
+    "initial_B": "2f7ca3 full; root actualsame cleanup/hash witness; seven exact v1 preserved",
+    "metadata": "00a796 PLAN+CORRECTED-HANDOFF full; a80507 REVIEWED-V1+ROOT-CORRECTION full",
+    "pins": "6aaf72 nine corrected direct/all784individual/resolved unique/all752dependency associations; current23direct/result/rechecked784 in this command;8d10a1 seven exactreadonlyv1",
+    "primary_runtime": "actual retained selected scopes recorded SOURCE-MAP; no wholeprimary/library/linkedOS review"
+  },
+  "no_invocation_import_evaluation_or_original_decode": true,
+  "job_admission_output_absent": true,
+  "limits": [
+    "Source/worth only; later explicit fresh root ADMISSION required",
+    "OS/process/filesystem controls cooperative; sampled RSS has gaps; external timing/collection required",
+    "No actual rendered image or GPU/neutrality/anatomy/rig/motion/fit/representation/master acceptance",
+    "No retry/source/cap/tolerance or closedroute rescue"
+  ],
+  "pending_edits": false
+}
