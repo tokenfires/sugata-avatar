@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-05T07:24:57.663764+00:00",
+  "pid": 66599,
+  "decision": "A preparation only: one bounded exact wrapper observation plus one official CLI page. Root full worth and observer source read; no arbitraryexec/eval/search. VERSION invocation not admitted.",
+  "program": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/read_wrapper.py",
+    "bytes": 2992,
+    "sha256": "8f609f686951c1552c83e3eb70f868af106f3aad277407965bf1fc8c12620607"
+  },
+  "plan": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/PLAN.json",
+    "bytes": 3395,
+    "sha256": "0a0feab44fcbe13594fad2f6830e8cb0a29c2fb3898d44f2fb14b2b9c1128a8a"
+  },
+  "worth": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/WORTH.md",
+    "bytes": 1510,
+    "sha256": "d964413e351cb132c16aaa86de526c81f12a99a38e2a04088767828c12c635f5"
+  },
+  "worth_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/WORTH-RECEIPT.json",
+    "bytes": 2493,
+    "sha256": "de441b9445581256cd28af79f05f2843eedbb5631d64c8a8ab539a990d12fa96"
+  },
+  "preexecution_note": "d5cef1 conditionalreturn spacing typo corrected before firstASTparse; no initial code execution or failedAST invocation."
+}

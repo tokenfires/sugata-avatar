@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-05T07:32:38.166910+00:00",
+  "pid": 67354,
+  "full_handoff_read": "27455d",
+  "verified_binding_rows": 14,
+  "decision": "B currentidentity/version/load; A exactstale route diagnosis. No globalBlenderabsence or Snowdefect.",
+  "payloads": 14,
+  "bytes": 59919,
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/MANIFEST.json",
+    "bytes": 3049,
+    "sha256": "265d8a0d2c3c106476ac63cc0a3fcdb5b7d8921889fb2ebee3dcb5711f8e81d7"
+  },
+  "links": [
+    "WRAPPER.txt",
+    "TARGET.json",
+    "ROOT-OBSERVATION.json",
+    "RESULT.md",
+    "RESULT-RECEIPT.json"
+  ],
+  "jobs": "Owned66600absent/criticcollected; no runtime/HTTP/ZIP/nativejob.",
+  "stop_utc": "2026-10-05T07:36:41.787010+00:00"
+}

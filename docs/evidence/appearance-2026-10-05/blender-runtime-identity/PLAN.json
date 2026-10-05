@@ -1,0 +1,48 @@
+{
+  "started_utc": "2026-10-05T07:21:41.787010+00:00",
+  "stop_utc": "2026-10-05T07:36:41.787010+00:00",
+  "pid": 66220,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/LOCATION.json",
+      "bytes": 1436,
+      "sha256": "e2f0fc0f723ee4b41174cfeff0431e6e05e76094417a4e5dffa44f486e7ce636"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/RESULT.md",
+      "bytes": 1678,
+      "sha256": "dbfba1d9f4209ea5be5ab3deb6786047f3b8d824925037f6930413a9afc68ff2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/RESULT-RECEIPT.json",
+      "bytes": 4471,
+      "sha256": "1877c93ba6061d4b426c4e38154272e424caa30b8474e142ab29d7d7844f1e49"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    }
+  ],
+  "usable_improvement": "A source-backed exact installed-runtime/build/command map for later artist work, correcting the stale documented path without any install or source-load claim.",
+  "research_question": "Does the exact observed74byte Homebrew wrapper directly identify one existing executable, and does its sole pinned --version command report a usable current build identity?",
+  "decision": "Retain actual target/build identity if wrapper is unambiguous, executable exists and one version call returns complete0; otherwise close firstfailure without launcherexecution/search/retry. Suitability for Snow/script-disabled loading stays a fresh question.",
+  "bounds": {
+    "wrapper_reads": 1,
+    "exact_wrapper": "/opt/homebrew/Caskroom/blender/5.2.1/.homebrew-command-wrappers/blender",
+    "wrapper_bytes_expected": 74,
+    "wrapper_bytes_max": 1024,
+    "wrapper_grammar": "Whitespace/comments/shebang plus exactly one exec command whose first target is an absolute literal path and remaining sole argument is quoted dollar-at passthrough. Parse as data with shlex only; no eval/shell or wrapper execution. Any variable/substitution/relative/compound route stops.",
+    "target": "Stat/hash only the one explicitly named directtarget and optional immediate bundle Info.plist if targetpath owns Contents/MacOS. No directory search or alternatetarget.",
+    "official_primary_reads": 1,
+    "url": "https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html",
+    "maxAge": 0,
+    "version_commands": 1,
+    "version_timeout_seconds": 15,
+    "version_argv": "Exact pinned direct executable, --factory-startup --disable-autoexec --version; fresh complete root and critic command-source admission before invocation. No wrapper execution.",
+    "streams": "External owned process group with timeout/TERM/KILL/reap; save complete stdout/stderr/return/PIDs/times and actual output.",
+    "scope": "No Snow ZIPread/extraction/load/scripts/render/GPU/browser/native/import/geometry/driver/rig/export/sourceadaptation or new asset acceptance. Noinstall/updates/model/subscription/purchase/resetcredit/otherprojectaction.",
+    "stop": "Firstcapacity/path/grammar/primaryfetch/executable/timeout/return failure closes with noretry/refinement/search/fallback. Stop by fixedtime; no nextadmission."
+  },
+  "state": "7f6bb31 clean; criticcollected/noownedjob/review1023/5173/ACTIVE10min retained; newerhumancheck-in/pausewins."
+}

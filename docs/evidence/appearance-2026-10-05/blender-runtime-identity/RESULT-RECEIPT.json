@@ -1,0 +1,104 @@
+{
+  "saved_utc": "2026-10-05T07:30:35.818113+00:00",
+  "decision": "B identity/version/load; A precise source-route diagnosis only",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/LOCATION.json",
+      "bytes": 1436,
+      "sha256": "e2f0fc0f723ee4b41174cfeff0431e6e05e76094417a4e5dffa44f486e7ce636"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/RESULT.md",
+      "bytes": 1678,
+      "sha256": "dbfba1d9f4209ea5be5ab3deb6786047f3b8d824925037f6930413a9afc68ff2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/RESULT-RECEIPT.json",
+      "bytes": 4471,
+      "sha256": "1877c93ba6061d4b426c4e38154272e424caa30b8474e142ab29d7d7844f1e49"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/PLAN.json",
+      "bytes": 3395,
+      "sha256": "0a0feab44fcbe13594fad2f6830e8cb0a29c2fb3898d44f2fb14b2b9c1128a8a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/PREPARATION-ADMISSION.json",
+      "bytes": 1258,
+      "sha256": "f777d1e4c38e10b621d6aec985610a33c54460d9f7f3e349069ba37574c0f13b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/read_wrapper.py",
+      "bytes": 2992,
+      "sha256": "8f609f686951c1552c83e3eb70f868af106f3aad277407965bf1fc8c12620607"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/WRAPPER.txt",
+      "bytes": 74,
+      "sha256": "a12b9bc15c1a0f62c50fac2efef8f3b89040e5bcd11c00c58d7b374e66e0b106"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/TARGET.json",
+      "bytes": 558,
+      "sha256": "2ad46be46ed26d81da949b280d83a41cbe9329db4e9e54756ce59e3e5e44d80d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/ROOT-OBSERVATION.json",
+      "bytes": 544,
+      "sha256": "a527ae05a90f2be623431f26261c731bc30b1fee07a86d24c66b766087131bac"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+      "bytes": 2040,
+      "sha256": "610ed7de9ad976852381bb661c2bb053374b432a78e33cdc4bdd83184bc05834"
+    },
+    {
+      "path": "docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    }
+  ],
+  "verified_plan_inputs": 4,
+  "checks": {
+    "preparation_source_and_worth_pins": true,
+    "exact_saved74byte_wrapper_and_sha": true,
+    "literal_missing_target_prior_observation": true,
+    "target_gate_refusal_without_target_hash": true,
+    "admission_before_observation_before_fixed_end": true
+  },
+  "actual_root_observer": {
+    "tool": "eefe7c",
+    "exit_code": 1,
+    "pid": 66600,
+    "started_utc": "2026-10-05T07:24:57.728935+00:00",
+    "completed_utc": "2026-10-05T07:24:57.729512+00:00"
+  },
+  "witnesses": [
+    "WRAPPER.txt:2",
+    "TARGET.json:error",
+    "read_wrapper.py:literal target/file+xaccess predicate before pin",
+    "snow-source-interface/ROOT-OBSERVATION.json exact absent path and bundle"
+  ],
+  "commands": [
+    "aa775b/0 complete preparation admission/TARGET/wrapper/program source reads",
+    "2ad3d4/0 two existing catalogue delivery documents and bounded Showcase text excerpts; no absence claim",
+    "Current saved-record equality/pin readback plus requested two writes only"
+  ],
+  "next_worth": "Conditional reusable controller source/consumer gate, not repeating qualified isolated UI; no successor admission.",
+  "scope": "Critic reads repository saved text/JSON and hashes only. No actual wrapper/target lookup or execute, runtime/version/HTTP/ZIP/native/controller import. Next nomination source only; unchanged isolated images were viewed in their prior completed slice, no present-frame equivalence claimed.",
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/RESULT.md",
+    "bytes": 2053,
+    "sha256": "f3b0faa11f7761309ce35c59100702dc0adc9aed2564fa2fe15d94c8058c99d0"
+  }
+}

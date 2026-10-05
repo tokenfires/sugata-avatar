@@ -1,0 +1,7 @@
+# Blender launcher route: original target unavailable
+
+The exact74-byte Homebrew wrapper directly calls /Applications/Blender.app/Contents/MacOS/Blender. The known path/bundle was already observed absent; the sole source observer stops at its target file/executable gate. PATH access belonged to the wrapper, so the directory name5.2.1 supplies no executed-version identity. This diagnosis is limited to one command route and makes no global installation or Snow asset claim.
+
+[Complete unchanged wrapper](WRAPPER.txt), [actual refusal](TARGET.json), [root command/observation](ROOT-OBSERVATION.json), [independent result](RESULT.md) and [exact receipt](RESULT-RECEIPT.json). Sole root eefe7c/exit1/PID66600 ran07:24:57.728935–.729512UTC. Root49c2b2/27455d independently read all returned source/result/receipt and verified14binding rows. An initial conditional-return spacing typo was corrected before firstAST parse or invocation (d5cef1); no program retry.
+
+The first refusal ends this identity inquiry before any primary request, target hash/plist, version command, ZIP extraction/load, installation, render or fallback search. The original Snow package remains preserved. Returning to existing Node/browser work avoids additional setup; deferring leaves the source interface unanswered. A new reusable outfit-proposal consumer must own its caller agency/store/pin/mode and provide a distinct practical benefit before implementation. No successor is admitted here, and all wider AAA goals stay open.

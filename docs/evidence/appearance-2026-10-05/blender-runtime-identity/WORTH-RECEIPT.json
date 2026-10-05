@@ -1,0 +1,53 @@
+{
+  "saved_utc": "2026-10-05T07:24:10.513433+00:00",
+  "decision": "A bounded exact preparation worth only, runtime/source admission separate",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/PLAN.json",
+      "bytes": 3395,
+      "sha256": "0a0feab44fcbe13594fad2f6830e8cb0a29c2fb3898d44f2fb14b2b9c1128a8a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/LOCATION.json",
+      "bytes": 1436,
+      "sha256": "e2f0fc0f723ee4b41174cfeff0431e6e05e76094417a4e5dffa44f486e7ce636"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/RESULT.md",
+      "bytes": 1678,
+      "sha256": "dbfba1d9f4209ea5be5ab3deb6786047f3b8d824925037f6930413a9afc68ff2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/RESULT-RECEIPT.json",
+      "bytes": 4471,
+      "sha256": "1877c93ba6061d4b426c4e38154272e424caa30b8474e142ab29d7d7844f1e49"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    }
+  ],
+  "all_four_inputs_verified": true,
+  "witnesses": [
+    "blender-location/LOCATION.json:path_results identical resolved74byte wrapper",
+    "blender-location/RESULT.md preserves untested target/version",
+    "PLAN.json:bounds exact grammar/target/official page/version argv/external streams stop",
+    "snow-archive-interface/README.md separate original-character package lead"
+  ],
+  "alternatives": {
+    "A": "Resolve one explicit installed executable identity under new complete source/flag/timeout admission; no machine changes or archive load.",
+    "B": "Defer Snow and retain package/candidate map; avoid setup, actual runtime identity unresolved."
+  },
+  "commands": [
+    "138169/0 full current PLAN read",
+    "Current local saved-JSON/four-pin verification and two requested writes only"
+  ],
+  "scope": "No wrapper/target/location discovery, source-preparation authoring, HTTP, version/runtime, ZIP, native or source imports by critic.",
+  "worth": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/WORTH.md",
+    "bytes": 1510,
+    "sha256": "d964413e351cb132c16aaa86de526c81f12a99a38e2a04088767828c12c635f5"
+  },
+  "editorial_clarification": "Before collection, replaced unobserved source-absence wording with exact not-reviewed scope; no decision/source/runtime change."
+}

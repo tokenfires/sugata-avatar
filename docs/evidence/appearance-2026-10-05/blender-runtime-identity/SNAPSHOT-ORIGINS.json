@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-05T07:32:38.166910+00:00",
+  "reason": "Preserve exact mutable source/guide observed by critic before any future changes; no live edits.",
+  "origins": [
+    {
+      "original_path": "packages/testbed/src/showcase.js",
+      "retained": {
+        "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/input-snapshots/showcase.js",
+        "bytes": 34033,
+        "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+      }
+    },
+    {
+      "original_path": "docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "retained": {
+        "path": "docs/evidence/appearance-2026-10-05/blender-runtime-identity/input-snapshots/CATALOGUE-DRESSER.md",
+        "bytes": 3478,
+        "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+      }
+    }
+  ]
+}
