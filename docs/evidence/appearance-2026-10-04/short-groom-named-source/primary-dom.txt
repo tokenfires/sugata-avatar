@@ -1,0 +1,265 @@
+- navigation:
+  - link "Blender Studio":
+    - /url: /
+    - strong: Blender Studio
+  - list:
+    - link "Films":
+      - /url: /films/
+    - link "Projects":
+      - /url: /projects/
+    - link "Training":
+      - /url: /training/
+    - link "Assets":
+      - /url: /characters/
+    - link "Tools":
+      - /url: /tools/
+    - link "Blog":
+      - /url: /blog/
+  - list:
+    - button "":
+      - generic: 
+    - link "":
+      - /url: /search/
+      - generic: 
+    - link "":
+      - /url: /oauth/login
+      - generic: 
+    - link "Join":
+      - /url: /join/
+    - button:
+- generic: Training Highlights
+- link "Customizing Material Assets Course":
+  - /url: /training/customizing-material-assets/
+  - heading "Customizing Material Assets" [level=6]
+  - generic: Course
+- link "Advanced Facial Rigging Course":
+  - /url: /training/facial-rigging/
+  - heading "Advanced Facial Rigging" [level=6]
+  - generic: Course
+- link "3D Printing with Blender Course":
+  - /url: /training/3d-printing/
+  - heading "3D Printing with Blender" [level=6]
+  - generic: Course
+- link "Story Tools Course":
+  - /url: /training/story-tools/
+  - heading "Story Tools" [level=6]
+  - generic: Course
+- separator
+- generic: Training types
+- link "Course":
+  - /url: /training/?studio[menu][type]=course#all-training
+- link "Documentation":
+  - /url: /training/?studio[menu][type]=documentation#all-training
+- link "Production Lesson":
+  - /url: /training/?studio[menu][type]=production lesson#all-training
+- link "Workshop":
+  - /url: /training/?studio[menu][type]=workshop#all-training
+- separator
+- generic: Training categories
+- link "Animation":
+  - /url: /training/?studio%5Bquery%5D=animation#all-training
+- link "Geometry Nodes":
+  - /url: /training/?studio%5Bquery%5D=geometry%20nodes#all-training
+- link "Lighting":
+  - /url: /training/?studio%5Bquery%5D=lighting#all-training
+- link "Rendering":
+  - /url: /training/?studio[query]=rendering#all-training
+- link "Rigging":
+  - /url: /training/?studio%5Bquery%5D=rigging#all-training
+- link "Shading":
+  - /url: /training/?studio%5Bquery%5D=shading#all-training
+- generic: Film Highlights
+- link "Cowboi In Development":
+  - /url: /projects/cowboi/
+  - heading "Cowboi" [level=6]
+  - generic: In Development
+- link "Overgrown In Development":
+  - /url: /projects/overgrown/
+  - heading "Overgrown" [level=6]
+  - generic: In Development
+- link "Singularity 2026":
+  - /url: /projects/singularity/
+  - heading "Singularity" [level=6]
+  - generic: "2026"
+- link "Wing It! 2023":
+  - /url: /projects/wing-it/
+  - heading "Wing It!" [level=6]
+  - generic: "2023"
+- generic: Project Highlights
+- link "Impulse Purchase Other":
+  - /url: /projects/impulse-purchase/
+  - heading "Impulse Purchase" [level=6]
+  - generic: Other
+- link "Project Storm Rigging R&D":
+  - /url: /projects/storm/
+  - heading "Project Storm" [level=6]
+  - generic: Rigging R&D
+- link "DOGWALK Interactive":
+  - /url: /projects/dogwalk/
+  - heading "DOGWALK" [level=6]
+  - generic: Interactive
+- link "Project Gold Showcase":
+  - /url: /projects/gold/
+  - heading "Project Gold" [level=6]
+  - generic: Showcase
+- generic: Assets Highlights
+- link "Characters Models & rigs":
+  - /url: /characters/
+  - heading "Characters" [level=6]
+  - generic: Models & rigs
+- link "Assets All production files":
+  - /url: /search/?type=asset&media_type=file
+  - heading "Assets" [level=6]
+  - generic: All production files
+- link "Libraries Curated sets":
+  - /url: /search/?query=library&type=asset&tags[0]=library
+  - heading "Libraries" [level=6]
+  - generic: Curated sets
+- link "Vault Everything":
+  - /url: /vault/
+  - heading "Vault" [level=6]
+  - generic: Everything
+- link "Characters":
+  - /url: /characters/
+- heading "Snow" [level=1]
+- button "v4 ":
+  - text: v4
+  - generic: 
+- link " Download (106.4 MB)":
+  - /url: /download-source/files/ba/0f/ba0fe6d810333b1d73c1c359e4dc03cb-6.zip
+  - generic: 
+  - generic: Download (106.4 MB)
+- button "" [disabled]:
+  - text: 
+  - generic: 
+- button "":
+  - generic: 
+- text:  
+- img "Demeter Dzadik"
+- strong: Demeter Dzadik
+- strong: Publisher
+- list:
+  - generic: Free
+  - text: ·
+  - listitem "Minimum Blender version":
+    - generic: 
+    - text: Blender 4.1 ·
+  - 'link " License: CC-BY"':
+    - /url: https://creativecommons.org/licenses/by/4.0/
+    - generic: 
+    - text: "License: CC-BY"
+  - text: ·
+  - listitem: 8 May 2025
+- paragraph: Snow is a character rig you can use to learn and practice your animation skills, created by us here at the Blender Studio.
+- paragraph:
+  - text: If you encounter any bugs, please report them
+  - link "here":
+    - /url: https://projects.blender.org/studio/blender-studio-pipeline/issues/new?template=.gitea%2fissue_template%2fcharacter_rig_bug.yaml
+  - text: .
+- paragraph: Originally made in 2022, he's now been updated to work with Blender 4.1 and beyond.
+- paragraph: "When opening the file, you may be prompted to allow execution of Python scripts. This is necessary for the custom rig UI, which houses the following features you may be used to from our rigs:"
+- list:
+  - listitem: IK/FK toggle and snapping for the limbs
+  - listitem: Stretchy IK toggle for the limbs and spine
+  - listitem: FK Hinge toggles and snapping
+  - listitem: IK Parent switching and snapping
+  - listitem: Layered face controls with shape key correctives
+  - listitem: Designed with newcomers and pros both in mind
+  - listitem: No add-ons required! All required scripts are included with the .blend and will auto-run when opening the file.
+- paragraph: "The rig is free to use, provided that the you respect the CC-BY license and include the credit: Snow Rig (CC) Blender Foundation | studio.blender.org"
+- heading "Showcases" [level=2]
+- link "Snow Bar Scene":
+  - /url: /characters/snow/showcase/9/
+  - img "Snow Bar Scene"
+  - heading "Snow Bar Scene" [level=3]
+  - list:
+    - listitem: 11 Mar 2022
+    - generic: 
+    - text: "4"
+- link "Snow Parkour Animation":
+  - /url: /characters/snow/showcase/6/
+  - img "Snow Parkour Animation"
+  - heading "Snow Parkour Animation" [level=3]
+  - list:
+    - listitem: 10 Mar 2022
+    - generic: 
+    - text: "1"
+- paragraph:
+  - link "Join":
+    - /url: /join/
+  - text: to leave a comment.
+- link "Films":
+  - /url: /films/
+- link "Projects":
+  - /url: /projects/
+- link "Training":
+  - /url: /training/
+- link "Blog":
+  - /url: /blog/
+- link "Blender Studio for Teams":
+  - /url: /teams/
+- link "Pipeline and Tools":
+  - /url: /pipeline/
+- list:
+  - link "CloudRig":
+    - /url: https://extensions.blender.org/add-ons/cloudrig/
+  - link "Blender Kitsu":
+    - /url: /blog/kitsu-addon-for-blender/
+  - link "Brushstroke Tools Add-on":
+    - /url: https://extensions.blender.org/add-ons/brushstroke-tools/
+  - link "Blender Studio Extensions":
+    - /url: https://extensions.blender.org/team/blender-studio/
+- link "Characters":
+  - /url: /characters/
+- list:
+  - link "Critter Evolved":
+    - /url: /characters/critter-evolved/
+  - link "Critter":
+    - /url: /characters/critter/
+  - link "One":
+    - /url: /characters/one/
+  - link "Space Creatures":
+    - /url: /characters/space-creatures/
+- link "Studio":
+  - /url: /
+- list:
+  - link "Terms & Conditions":
+    - /url: /terms-and-conditions
+  - link "Privacy Policy":
+    - /url: /privacy
+  - link "Contact":
+    - /url: /contact
+  - link "Remixing Music":
+    - /url: /remixing/
+- link "Blender Studio":
+  - /url: /
+- paragraph: The creators who share.
+- list:
+  - link "":
+    - /url: https://www.youtube.com/@BlenderStudio
+    - generic: 
+  - link "":
+    - /url: https://bsky.app/profile/studio.blender.org
+    - generic: 
+  - link "":
+    - /url: https://www.instagram.com/blender.studio.official/
+    - generic: 
+  - link "":
+    - /url: https://www.facebook.com/BlenderStudioOfficial/
+    - generic: 
+  - link "":
+    - /url: https://www.linkedin.com/showcase/blender-studio-official/
+    - generic: 
+  - link "Follow Blender Studio on Mastodon":
+    - /url: https://mastodon.social/@BlenderStudio
+  - link "":
+    - /url: https://www.tiktok.com/@blender.studio.of
+    - generic: 
+  - link "":
+    - /url: https://space.bilibili.com/3546814074587443
+    - generic: 
+- contentinfo:
+  - text: Artistic freedom starts with Blender
+  - generic: 
+  - text: The Free and Open Source 3D Creation Suite
+- text:  

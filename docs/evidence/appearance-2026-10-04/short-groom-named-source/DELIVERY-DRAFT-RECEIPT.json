@@ -1,0 +1,96 @@
+{
+  "utc": "2026-10-05T06:29:55.112667+00:00",
+  "pid": 60244,
+  "decision": "A accurate limited draft; final root retention/closure pending",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/README.md",
+      "bytes": 1912,
+      "sha256": "d9407e32a0299434afde8183a125eb017071e8ea93ba41e95fe870d35352fddb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/RECEIPT.md",
+      "bytes": 3066,
+      "sha256": "f81ac9a685818d7c2ec01338853c857d18f8e633c3cb7d30f215f7575e33d273"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "bytes": 3216,
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT-RECEIPT.json",
+      "bytes": 7400,
+      "sha256": "60cf9268bc9a375ad49e3541128ce565216f475e3d162142fa417edf54e01e63"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/ROOT-OBSERVATION.json",
+      "bytes": 3858,
+      "sha256": "774a20cc217d17edfdfdb6fb57ef8c72e6e6b807faa7a7365f18827c3797f605"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.json",
+      "bytes": 97975,
+      "sha256": "1b43c7f45f2849d5425fb6a5991c3207fc71ffd485a7e5337c3f7199485e439a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "bytes": 6594,
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "bytes": 29125,
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "bytes": 69875,
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    }
+  ],
+  "links": [
+    {
+      "target": "https://studio.blender.org/characters/snow/v4/",
+      "scope": "read literal link only; no onward HTTP"
+    },
+    {
+      "target": "primary-view.jpg",
+      "exists": true
+    },
+    {
+      "target": "SEARCH.json",
+      "exists": true
+    },
+    {
+      "target": "PRIMARY.json",
+      "exists": true
+    },
+    {
+      "target": "PRIMARY.md",
+      "exists": true
+    },
+    {
+      "target": "PRIMARY.html",
+      "exists": true
+    },
+    {
+      "target": "ROOT-OBSERVATION.json",
+      "exists": true
+    },
+    {
+      "target": "native-events.json",
+      "exists": true
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/DELIVERY-DRAFT-RESULT.md",
+    "bytes": 1187,
+    "sha256": "4363d6e8ff99771b53c73c5c83a1ec60c0bb5d846dbeb72346696c6c6ca9e8a6"
+  },
+  "readCommands": [
+    "3acea2 fullREADME/RECEIPT",
+    "current fullROOT-OBSERVATION/hash/link/save"
+  ],
+  "scope": "Final delivery draft only. No new source/image judgement, online/native/download/parse/import/geometry."
+}

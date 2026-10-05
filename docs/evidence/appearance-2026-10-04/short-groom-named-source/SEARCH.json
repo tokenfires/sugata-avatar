@@ -1,0 +1,39 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://studio.blender.org/characters/snow/v4/\",\"title\":\"Snow - Character Rig - Blender Studio\",\"description\":\"# Snow\\n[License CC-BY](https://creativecommons.org/licenses/by/4.0/)\\n\\n- [License: CC-BY](https://creativecommons.org/licenses/by/4.0/)\\n\\nThe rig is free to use, provided that the you respect the CC-BY license and include the credit: Snow Rig (CC) Blender Foundation | studio.blender.org\",\"position\":1},{\"url\":\"https://studio.blender.org/characters/ellie/v1/\",\"title\":\"Ellie - Character Rig - Blender Studio\",\"description\":\"Download (20.8 MB) License. This asset currently requires Blender 3.3-3.6, and may break on lower or higher versions! Choose File > Link and browse the ...\",\"position\":2},{\"url\":\"https://studio.blender.org/characters/\",\"title\":\"Characters - Blender Studio\",\"description\":\"Character library. Fully rigged characters from the iconic Blender Studio ... Snow. 341; Free. Rain. 646; Free. Mikassa. Project Gold. Mikassa. 166; 26. Whale.\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10aba-e998-769f-93e3-eb4cca47cd14\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://studio.blender.org/characters/snow/v4/\\\", #2 \\\"https://studio.blender.org/characters/ellie/v1/\\\", #3 \\\"https://studio.blender.org/characters/\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://studio.blender.org/characters/snow/v4/\", #2 \"https://studio.blender.org/characters/ellie/v1/\", #3 \"https://studio.blender.org/characters/\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://studio.blender.org/characters/snow/v4/",
+          "title": "Snow - Character Rig - Blender Studio",
+          "description": "# Snow\n[License CC-BY](https://creativecommons.org/licenses/by/4.0/)\n\n- [License: CC-BY](https://creativecommons.org/licenses/by/4.0/)\n\nThe rig is free to use, provided that the you respect the CC-BY license and include the credit: Snow Rig (CC) Blender Foundation | studio.blender.org",
+          "position": 1
+        },
+        {
+          "url": "https://studio.blender.org/characters/ellie/v1/",
+          "title": "Ellie - Character Rig - Blender Studio",
+          "description": "Download (20.8 MB) License. This asset currently requires Blender 3.3-3.6, and may break on lower or higher versions! Choose File > Link and browse the ...",
+          "position": 2
+        },
+        {
+          "url": "https://studio.blender.org/characters/",
+          "title": "Characters - Blender Studio",
+          "description": "Character library. Fully rigged characters from the iconic Blender Studio ... Snow. 341; Free. Rain. 646; Free. Mikassa. Project Gold. Mikassa. 166; 26. Whale.",
+          "position": 3
+        }
+      ]
+    },
+    "id": "01a10aba-e998-769f-93e3-eb4cca47cd14",
+    "creditsUsed": 2
+  },
+  "isError": false
+}
