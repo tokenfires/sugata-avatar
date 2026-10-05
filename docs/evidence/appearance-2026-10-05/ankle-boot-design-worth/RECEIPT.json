@@ -1,0 +1,67 @@
+{
+  "saved_utc": "2026-10-05T12:00:59.486093+00:00",
+  "worth_deadline_utc": "2026-10-05T12:15:00Z",
+  "verdict": "A conditional worth for one separately admitted original artist sheet; no generation or source execution admitted",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-worth/PLAN.json",
+      "bytes": 4635,
+      "sha256": "decde52c9fe6b0521a8c0766b052ac5ac268420bdb810d5a30ba6a2889cef334",
+      "read_scope": "Complete literal JSON"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete 13-line brief"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Complete unchanged 1536x1024 original viewed at original detail; byte/hash verification only, no edit or crop"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-source-query/ROOT-CLOSE.json",
+      "bytes": 1868,
+      "sha256": "113fb8afd39e4a73790df57e814294bc8d203b411c5946216f85dab2886d31b8",
+      "read_scope": "Complete literal JSON, 28 lines"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Complete 41-line document"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Complete-byte hash verification; text lines 25-65 and 105-145 inspected in this worth review"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-worth/RESULT.json",
+    "bytes": 3823,
+    "sha256": "5092bbd4d4c0fb240707933e289e38aa84dca1524188ac5d1cd853cdba68aa56"
+  },
+  "observed_tools": [
+    {
+      "command_id": "760676",
+      "scope": "Complete PLAN JSON, SHA and current UTC; read-only"
+    },
+    {
+      "command_id": "dbad92",
+      "scope": "All five embedded bindings rehashed; complete brief, ROOT-CLOSE and checklist plus specified roadmap lines read"
+    },
+    {
+      "tool": "view_image",
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "detail": "original",
+      "scope": "Complete unchanged local original inspected in same batched call; no capture or crop"
+    }
+  ],
+  "scope": "Only RESULT.json and RECEIPT.json written in this new worth leaf. No network, browser, native/GPU capture, generation, download, asset/source decode, producer import/execution, geometry computation or existing/frozen/default/checklist edit. No global job or filesystem inventory claimed.",
+  "input_pins_verified": 6,
+  "current_scope": "Worth only; prior footwear-query closure retained. Roadmap text inspection scoped above, not a new full audit."
+}
