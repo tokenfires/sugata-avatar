@@ -1,0 +1,107 @@
+{
+  "collected_utc": "2026-10-05T16:25:10.479432+00:00",
+  "decision": "A exact one official text scrape only after root independent verification; no builder/native/source geometry admission",
+  "reference_cutoff_utc": "2026-10-05T16:40:00Z",
+  "scope": "Local full literal admission review. No actual response, network, browser, pixels, producer, import, geometry, source mutation or old frozen edit. Prior same-session whole target observation is cited through the fully read worth record; no new image observation in this narrow request review.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-PLAN.json",
+      "bytes": 2614,
+      "sha256": "0212c57d56b0aec30afa002ee8a96f83d462d2050155edfd43b0b0505fe57133",
+      "read_scope": "complete literal text/JSON; no referenced payload decode or execution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/README.md",
+      "bytes": 394,
+      "sha256": "9c865e497e7514301ea0c493a71704973180f80b82d90c942dbe54fecdc86288",
+      "read_scope": "complete literal text/JSON; no referenced payload decode or execution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/WORTH.md",
+      "bytes": 4239,
+      "sha256": "7ce0e1b0329450b92ebe5d26e54f51d0feb3d0c6f8fa397631ded4b2178ac39c",
+      "read_scope": "complete literal text/JSON; no referenced payload decode or execution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/RECEIPT.json",
+      "bytes": 10816,
+      "sha256": "585a8eea606977804755d8ad894d72acbae65151967a39a9d8fd603f2b79821f",
+      "read_scope": "complete literal text/JSON; no referenced payload decode or execution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/ROOT-CLOSE.json",
+      "bytes": 1487,
+      "sha256": "b107adccfd930ec464fc64d345163ae5d16ea72690d348935f652f45e0c47d3a",
+      "read_scope": "complete literal text/JSON; no referenced payload decode or execution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/MANIFEST.json",
+      "bytes": 1485,
+      "sha256": "c518548e221d00e70959e3d25ef9c43e020cc4fe919f904ccd8dcd66012d4f80",
+      "read_scope": "complete literal text/JSON; no referenced payload decode or execution"
+    }
+  ],
+  "manifest_row_hash_verification": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/PLAN.json",
+      "bytes": 6118,
+      "sha256": "8c565623d568ff92bfb940678adb8d70ea9010f3f359c84b956615b8e1210580",
+      "read_scope": "hash-only frozen manifest row verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/README.md",
+      "bytes": 415,
+      "sha256": "932e0f6a7e69ca7cfdfeb65db3954b433dd6c4d5fdc11552c97d5a20358771cb",
+      "read_scope": "hash-only frozen manifest row verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/RECEIPT.json",
+      "bytes": 10816,
+      "sha256": "585a8eea606977804755d8ad894d72acbae65151967a39a9d8fd603f2b79821f",
+      "read_scope": "hash-only frozen manifest row verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/ROOT-CLOSE.json",
+      "bytes": 1487,
+      "sha256": "b107adccfd930ec464fc64d345163ae5d16ea72690d348935f652f45e0c47d3a",
+      "read_scope": "hash-only frozen manifest row verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/ROOT-OBSERVATION.json",
+      "bytes": 2105,
+      "sha256": "58fe68fe21e7c9c02f874a8e705bd4adcc3d759f10491b127f9d4fa275af07a9",
+      "read_scope": "hash-only frozen manifest row verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/WORTH.md",
+      "bytes": 4239,
+      "sha256": "7ce0e1b0329450b92ebe5d26e54f51d0feb3d0c6f8fa397631ded4b2178ac39c",
+      "read_scope": "hash-only frozen manifest row verification"
+    }
+  ],
+  "plan_worth_bindings_match": true,
+  "read_commands": [
+    {
+      "chunk_id": "55fc70",
+      "exit_code": 0,
+      "scope": "complete six literal inputs and hashes, no truncation; preceding context preserved by compaction"
+    },
+    {
+      "chunk_id": "920197",
+      "exit_code": 0,
+      "scope": "plan binding fields and full manifest reread"
+    },
+    {
+      "chunk_id": "fa897b",
+      "exit_code": 0,
+      "scope": "complete numbered plan/README/prior worth reread"
+    }
+  ],
+  "writing_scope": "Only REFERENCE-RESULT.md and REFERENCE-RECEIPT.json in the current leaf. Inert stdlib metadata checks and handoff serialization only.",
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-RESULT.md",
+    "bytes": 2203,
+    "sha256": "473d392f94f7d26492d92f2af2bac2f7ea821fbf16b32841cc95adfd1001d5c9"
+  },
+  "pending_edits": false
+}

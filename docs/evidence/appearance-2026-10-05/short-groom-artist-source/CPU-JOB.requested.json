@@ -1,0 +1,56 @@
+{
+  "prepared_utc": "2026-10-05T16:44:49.922430+00:00",
+  "state": "Unexecuted; critic/source and root admission required",
+  "controller_command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/run.py"
+  ],
+  "commands": [
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/build.py"
+    ],
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/check.py"
+    ]
+  ],
+  "budget_seconds": 120,
+  "stop_utc": "2026-10-05T17:30:00Z",
+  "first_failure": "Stop first exit/timeout; retaincomplete streams andpartial originaloutputs, no rebuild/checker replay/native. Up to6seconds owned terminate/kill cleanup may extend past budget; no new job.",
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 5182,
+      "sha256": "70d8d69d303714c8149b9f50144761ec4a6ecc694852a792689c95d3b79f928f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/build.py",
+      "bytes": 9467,
+      "sha256": "e72c7e1d13fe7ce42f820a5322435de774d8bb8d4556e294c59fdb353e6eb007"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/check.py",
+      "bytes": 6815,
+      "sha256": "e97ac2244d0ac185707cebc80829b3f0fee3357d33ab6ee1d4305d31078a4917"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/run.py",
+      "bytes": 2499,
+      "sha256": "5630ea7083a9cc319937fe3fcd1bf8871afa262545fec491b21ae9fab2fd6e49"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/viewer.mjs",
+      "bytes": 5454,
+      "sha256": "efed7e3b156fdcab3e8fd882549a104ad9f16a850c533a75bdce7d045bae44a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/index.html",
+      "bytes": 1990,
+      "sha256": "fc168f5a863ebc46f0f1fbdc3aa6c5fe758e1e3039baea5fe955b9e3ff7d6bf4"
+    }
+  ]
+}

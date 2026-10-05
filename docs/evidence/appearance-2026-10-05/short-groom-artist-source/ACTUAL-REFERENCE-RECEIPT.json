@@ -1,0 +1,102 @@
+{
+  "collected_utc": "2026-10-05T16:31:50.381364+00:00",
+  "decision": "A narrowly useful original surface mesh, root attachment and control-point distinctions; original direction/full source still conditional and unadmitted",
+  "reference_cutoff_utc": "2026-10-05T16:40:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE.json",
+      "bytes": 10696,
+      "sha256": "664aba2bd4935cd02edf3d9758c3c73ffc512f6fdd05d844385178b8b13c9f8a",
+      "read_scope": "Complete literal saved JSON/text; all returned markdown and metadata, no followed link or pixel observation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE.requested.json",
+      "bytes": 453,
+      "sha256": "7f5875d1aacd6e61395cbba950436433f86ea6499df3601327a91f8dfa0311d5",
+      "read_scope": "Complete literal saved JSON/text; all returned markdown and metadata, no followed link or pixel observation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-OBSERVATION.json",
+      "bytes": 2285,
+      "sha256": "3405227a2e4393b6b494724860ecfa5ff9d62145ba4aba40e0d555f414961f25",
+      "read_scope": "Complete literal saved JSON/text; all returned markdown and metadata, no followed link or pixel observation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-ADMISSION.json",
+      "bytes": 857,
+      "sha256": "3fb0b38793e7cd39e66e06ea4ca08b769619b665d6ac040dde13e3b2d658f2c7",
+      "read_scope": "Complete literal saved JSON/text; all returned markdown and metadata, no followed link or pixel observation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-PLAN.json",
+      "bytes": 2614,
+      "sha256": "0212c57d56b0aec30afa002ee8a96f83d462d2050155edfd43b0b0505fe57133",
+      "read_scope": "Complete literal saved JSON/text; all returned markdown and metadata, no followed link or pixel observation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-RESULT.md",
+      "bytes": 2203,
+      "sha256": "473d392f94f7d26492d92f2af2bac2f7ea821fbf16b32841cc95adfd1001d5c9",
+      "read_scope": "Complete literal saved JSON/text; all returned markdown and metadata, no followed link or pixel observation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-RECEIPT.json",
+      "bytes": 5428,
+      "sha256": "3d387bfe41d080c370223cd0b265c1d93c795d876f318b6c3019948fb4343801",
+      "read_scope": "Complete literal saved JSON/text; all returned markdown and metadata, no followed link or pixel observation"
+    }
+  ],
+  "complete_response_equivalence": {
+    "parsed_content_text_equals_structured_content": true,
+    "markdown_utf8_bytes": 4166,
+    "markdown_sha256": "92457f4866c6d684f2c77d4c449ffad33d3ba3ed54581b8584e1439b2f6e60a5",
+    "numbering": "1-based splitlines of complete structuredContent.markdown; all 116 lines read"
+  },
+  "request_matches_plan_and_root_admission": true,
+  "root_admission_utc": "2026-10-05T16:26:14.194364+00:00",
+  "actual_call": {
+    "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+    "started_bucket": "2026-10-05 16:26:31 UTC",
+    "returned_bucket": "2026-10-05 16:26:34 UTC",
+    "isError": false,
+    "metadata": {
+      "title": "Introduction - Blender 5.2 LTS Manual",
+      "viewport": [
+        "width=device-width,initial-scale=1",
+        "width=device-width, initial-scale=1"
+      ],
+      "color-scheme": "light dark",
+      "language": "en",
+      "favicon": "https://docs.blender.org/manual/en/latest/_static/favicon.png",
+      "scrapeId": "01a10ce3-6bc8-77ba-9906-35384891fbb6",
+      "sourceURL": "https://docs.blender.org/manual/en/latest/sculpt_paint/curves_sculpting/introduction.html",
+      "url": "https://docs.blender.org/manual/en/latest/sculpt_paint/curves_sculpting/introduction.html",
+      "statusCode": 200,
+      "contentType": "text/html",
+      "timezone": "America/New_York",
+      "proxyUsed": "basic",
+      "indexId": "f43747c9-86fc-449c-b380-db53499e27ca",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    }
+  },
+  "scope": "Saved records only. No network, linked-page read, operator, pixel/native/browser/GPU observation, program import or execution, geometry preparation/evaluation, Blender runtime test, source mutation or frozen edit. Only two new requested handoff files written.",
+  "commands": [
+    {
+      "chunk_id": "d19d3e",
+      "exit_code": 0,
+      "scope": "Full response/request/plan; two guessed ROOT-REFERENCE filenames absent, immediately resolved from actual leaf filenames; no inquiry or mutation"
+    },
+    {
+      "chunk_id": "a032e5",
+      "exit_code": 0,
+      "scope": "Complete actual observation/admission/prior source handoff and full numbered markdown; exact object/request equality"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ACTUAL-REFERENCE-RESULT.md",
+    "bytes": 2275,
+    "sha256": "a22393d1405b4463740d0b485c906afa43f378a27c047b1849c2aeb014db3651"
+  },
+  "pending_edits": false
+}

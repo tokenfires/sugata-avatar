@@ -1,0 +1,43 @@
+{
+  "admitted_utc": "2026-10-05T16:53:48.690351+00:00",
+  "decision": "A sole exact unchanged requested CPU controller; native withheld until actual saved-data root and independent critic acceptance",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/PLAN.json",
+      "bytes": 8160,
+      "sha256": "18012fa473d60aaf1815d05f9bbb785a437074be40990827b4de52c40755a5d9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-RESULT.md",
+      "bytes": 4079,
+      "sha256": "0bd3ea3583c5d92225598db62c839a88580c2922764637b522806069519265dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-RECEIPT.json",
+      "bytes": 15397,
+      "sha256": "c11bee2929c5df73c5e1d2886a9f7720570e991e279940a82fd3a7bda4549cb0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-JOB.requested.json",
+      "bytes": 2489,
+      "sha256": "82e2be58a4c5df6a3af9e76c2ab32de5adffb7d6c73275b61741399dec8ac2ff"
+    }
+  ],
+  "verified_rows": 57,
+  "root_full_reads": [
+    "be3bcf",
+    "7caaf9",
+    "01b106",
+    "bcdeda"
+  ],
+  "root_pin_observer": "3a3eaa and this readback",
+  "limits": "Artist choices own full source. Intended overlaps, visual continuity, continuous clearance/physical attachment/Boolean union/general vertex links or embedding remain unproved. First actual failure stops without tuning/rebuild/check replay/native. No source/product/default/checklist change.",
+  "controller_command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/run.py"
+  ],
+  "budget_seconds": 120,
+  "stop_utc": "2026-10-05T17:30:00Z",
+  "outputs_absent": true
+}

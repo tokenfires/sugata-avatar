@@ -1,0 +1,69 @@
+{
+  "collected_utc": "2026-10-05T16:58:23.024527+00:00",
+  "root_actual_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-DATA.json",
+    "bytes": 10037,
+    "sha256": "5a3ce61520639a8c788ad0cb145270eaf6f326d3c020cfa37bc95ea989913b50"
+  },
+  "observer_sources": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-data-observer.py",
+      "bytes": 7108,
+      "sha256": "0387dc03bee3f08d609ca878767ac521de48ddb1582f45e2bec44701667e31c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-data-observer.initial.py",
+      "bytes": 6793,
+      "sha256": "4125b62f45b231e1e707c71ccea8ff0cd9f23fb5c1b9687ae4eccb219dceadc4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-DATA.initial.json",
+      "bytes": 9775,
+      "sha256": "28a62ea653b721dab16a66073da75018831799f586caa28889088e6b727f191c"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/run.py"
+      ],
+      "chunk_id": "aa804b",
+      "exit_code": 0,
+      "controller_pid": 99234,
+      "children": [
+        99235,
+        99236
+      ],
+      "actual_reaped": true
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-data-observer.py"
+      ],
+      "chunk_id": "b41fb8",
+      "pid": 4143,
+      "exit_code": 1,
+      "source_used": "ROOT-data-observer.initial.py",
+      "classification": "False root ownership rejection from invented kind filter, proven actual/source mismatch7e9cd9/b71665; preserved whole initial observer/result before correction"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-data-observer.py"
+      ],
+      "chunk_id": "4ac238",
+      "pid": 5750,
+      "exit_code": 0,
+      "classification": "Only observer actual-schema filter corrected; complete saved data independent traversal, no source/helper replay"
+    }
+  ],
+  "process_readback": "bd7915 showed only retained Vite1023 among1023,99234,99235,99236,4143,5750; all owned CPU processes absent",
+  "read_scope": "Root read whole actual CPU-JOB/CHECK/4stdio e2e71a, all expected245e98, corrected whole ROOT-DATA output4ac238; all original JSON/OBJ positions/faces/groups/root comments traversed by independent observer",
+  "limits": "No producer/checker/controller import/replay. Complete saved graph/OBJ traversed, no geometry generated. No general vertex-link/embedding/self-intersection/Boolean union/root-mass overlap/continuous clearance/anatomy/skin/morph/runtime/strand/visual/motion/AAA proof.",
+  "native_state": "Not admitted; await critic actual data and root full handoff verification. No browser or candidate image yet."
+}

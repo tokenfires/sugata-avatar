@@ -1,0 +1,262 @@
+{
+  "collected_utc": "2026-10-05T16:52:58.934102+00:00",
+  "decision": "A one exact unchanged CPU controller/build/check only after root full source/handoff verification; no native admission",
+  "source_cutoff_utc": "2026-10-05T17:20:00Z",
+  "next_gates": {
+    "cpu_stop_utc": "2026-10-05T17:30:00Z",
+    "native_stop_utc": "2026-10-05T17:45:00Z",
+    "decision_stop_utc": "2026-10-05T18:00:00Z",
+    "actual_saved_data_required_before_native": true,
+    "first_failure_stops": true
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/PLAN.json",
+      "bytes": 8160,
+      "sha256": "18012fa473d60aaf1815d05f9bbb785a437074be40990827b4de52c40755a5d9",
+      "read_scope": "Complete current plan and all 24 literal binding rows read and reverified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 5182,
+      "sha256": "70d8d69d303714c8149b9f50144761ec4a6ecc694852a792689c95d3b79f928f",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/build.py",
+      "bytes": 9467,
+      "sha256": "e72c7e1d13fe7ce42f820a5322435de774d8bb8d4556e294c59fdb353e6eb007",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/check.py",
+      "bytes": 6815,
+      "sha256": "e97ac2244d0ac185707cebc80829b3f0fee3357d33ab6ee1d4305d31078a4917",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/run.py",
+      "bytes": 2499,
+      "sha256": "5630ea7083a9cc319937fe3fcd1bf8871afa262545fec491b21ae9fab2fd6e49",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/viewer.mjs",
+      "bytes": 5454,
+      "sha256": "efed7e3b156fdcab3e8fd882549a104ad9f16a850c533a75bdce7d045bae44a0",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/index.html",
+      "bytes": 1990,
+      "sha256": "fc168f5a863ebc46f0f1fbdc3aa6c5fe758e1e3039baea5fe955b9e3ff7d6bf4",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-PLAN.json",
+      "bytes": 2614,
+      "sha256": "0212c57d56b0aec30afa002ee8a96f83d462d2050155edfd43b0b0505fe57133",
+      "read_scope": "Complete literal response/metadata/handoff read in preceding exact reference review; all current unchanged bytes reverified now. No followed link or runtime/pixel inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-ADMISSION.json",
+      "bytes": 857,
+      "sha256": "3fb0b38793e7cd39e66e06ea4ca08b769619b665d6ac040dde13e3b2d658f2c7",
+      "read_scope": "Complete literal response/metadata/handoff read in preceding exact reference review; all current unchanged bytes reverified now. No followed link or runtime/pixel inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE.json",
+      "bytes": 10696,
+      "sha256": "664aba2bd4935cd02edf3d9758c3c73ffc512f6fdd05d844385178b8b13c9f8a",
+      "read_scope": "Complete literal response/metadata/handoff read in preceding exact reference review; all current unchanged bytes reverified now. No followed link or runtime/pixel inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE.requested.json",
+      "bytes": 453,
+      "sha256": "7f5875d1aacd6e61395cbba950436433f86ea6499df3601327a91f8dfa0311d5",
+      "read_scope": "Complete literal response/metadata/handoff read in preceding exact reference review; all current unchanged bytes reverified now. No followed link or runtime/pixel inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE-OBSERVATION.json",
+      "bytes": 2285,
+      "sha256": "3405227a2e4393b6b494724860ecfa5ff9d62145ba4aba40e0d555f414961f25",
+      "read_scope": "Complete literal response/metadata/handoff read in preceding exact reference review; all current unchanged bytes reverified now. No followed link or runtime/pixel inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ACTUAL-REFERENCE-RESULT.md",
+      "bytes": 2275,
+      "sha256": "a22393d1405b4463740d0b485c906afa43f378a27c047b1849c2aeb014db3651",
+      "read_scope": "Complete literal response/metadata/handoff read in preceding exact reference review; all current unchanged bytes reverified now. No followed link or runtime/pixel inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ACTUAL-REFERENCE-RECEIPT.json",
+      "bytes": 5488,
+      "sha256": "de31c441622b10742a34654f94f4b253b184e27d654eb923853e387f8b621001",
+      "read_scope": "Complete literal response/metadata/handoff read in preceding exact reference review; all current unchanged bytes reverified now. No followed link or runtime/pixel inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-REFERENCE-CLOSE.json",
+      "bytes": 1123,
+      "sha256": "d3e59a85a3be0d6d44cc97e2634114ddb3198b660dfbbac9841fde51632470b6",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/PLAN.json",
+      "bytes": 6118,
+      "sha256": "8c565623d568ff92bfb940678adb8d70ea9010f3f359c84b956615b8e1210580",
+      "read_scope": "Complete literal text/JSON read in this source review or prior same-session review; current unchanged full bytes reverified. No linked payload import or numerical evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/WORTH.md",
+      "bytes": 4239,
+      "sha256": "7ce0e1b0329450b92ebe5d26e54f51d0feb3d0c6f8fa397631ded4b2178ac39c",
+      "read_scope": "Complete literal text/JSON read in this source review or prior same-session review; current unchanged full bytes reverified. No linked payload import or numerical evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/RECEIPT.json",
+      "bytes": 10816,
+      "sha256": "585a8eea606977804755d8ad894d72acbae65151967a39a9d8fd603f2b79821f",
+      "read_scope": "Complete literal text/JSON read in this source review or prior same-session review; current unchanged full bytes reverified. No linked payload import or numerical evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/ROOT-CLOSE.json",
+      "bytes": 1487,
+      "sha256": "b107adccfd930ec464fc64d345163ae5d16ea72690d348935f652f45e0c47d3a",
+      "read_scope": "Complete literal text/JSON read in this source review or prior same-session review; current unchanged full bytes reverified. No linked payload import or numerical evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/MANIFEST.json",
+      "bytes": 1485,
+      "sha256": "c518548e221d00e70959e3d25ef9c43e020cc4fe919f904ccd8dcd66012d4f80",
+      "read_scope": "Complete literal text/JSON read in this source review or prior same-session review; current unchanged full bytes reverified. No linked payload import or numerical evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete literal text/JSON read in this source review or prior same-session review; current unchanged full bytes reverified. No linked payload import or numerical evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Full-byte hash verified now; complete unchanged 1536x1024 original actually viewed earlier in this same run with detail original, recorded in prior worth receipt. No new pixel observation or measurement during source admission."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete literal text/JSON read in this source review or prior same-session review; current unchanged full bytes reverified. No linked payload import or numerical evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Current full-byte hash verified; complete identical 148-line text previously read f52305, relevant current lines 1-15/40-50/130-148 re-read here; truncation recovered by 5bd671."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-JOB.requested.json",
+      "bytes": 2489,
+      "sha256": "82e2be58a4c5df6a3af9e76c2ab32de5adffb7d6c73275b61741399dec8ac2ff",
+      "read_scope": "Complete literal current file independently read with numbered lines in this source review; no import or evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/README.md",
+      "bytes": 394,
+      "sha256": "9c865e497e7514301ea0c493a71704973180f80b82d90c942dbe54fecdc86288",
+      "read_scope": "Complete historical preparation-context README read; it remains unchanged and does not itself admit CPU/native."
+    }
+  ],
+  "plan_binding_count": 24,
+  "cpu_request_binding_count": 6,
+  "all_binding_bytes_match": true,
+  "output_presence_at_source_readback": {
+    "CPU-JOB.json": false,
+    "export": false,
+    "CHECK.json": false,
+    "CPU-build.stdout.txt": false,
+    "CPU-build.stderr.txt": false,
+    "CPU-check.stdout.txt": false,
+    "CPU-check.stderr.txt": false
+  },
+  "controller_command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/run.py"
+  ],
+  "commands": [
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/build.py"
+    ],
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/check.py"
+    ]
+  ],
+  "scope": "Static full literal source/contract review and metadata hash checks only. No source module import, constructor/checker/controller execution, geometry/field/frame/curve/vertex computation, app/dependency import, network, browser/native/GPU/capture, source/original/default/frozen edit. Same-session prior original image observation explicitly scoped; no candidate image exists. Only requested own two handoff files written.",
+  "source_findings": {
+    "source_ownership": "Complete new fictional head/scalp face domain, full rimmed volume and 16 named anchored five-centre closed locks, not reused native/front proxy",
+    "blocking_defect": "None proved under the literal fixed artist scope",
+    "unearned_properties": [
+      "Actual source numerical/export outcome",
+      "Visual coherence/continuity and intended overlaps",
+      "General vertex-link/embedding/self-intersection/whole-surface clearance",
+      "Physical attachment/body correspondence/Boolean union",
+      "Actual CPU return, inventory, deadlines and reaping",
+      "Native buffer/camera/draw identity and first original",
+      "Blender behavior or fitted/Sugata runtime/strand/motion/AAA qualification"
+    ]
+  },
+  "read_commands": [
+    {
+      "chunk_id": "664d99",
+      "exit_code": 0,
+      "scope": "Complete current PLAN/contract/CPU request; SOURCE-BINDINGS.json absent, actual24 bindings are in PLAN.json, no source expansion"
+    },
+    {
+      "chunk_id": "3377cc",
+      "exit_code": 0,
+      "scope": "Entire144-line builder literal read"
+    },
+    {
+      "chunk_id": "80fbf3",
+      "exit_code": 0,
+      "scope": "Entire81-line saved checker literal read"
+    },
+    {
+      "chunk_id": "55bae9",
+      "exit_code": 0,
+      "scope": "Entire36-line controller/73-line viewer/fullHTML/root reference close literal reads"
+    },
+    {
+      "chunk_id": "054fa3",
+      "exit_code": 0,
+      "scope": "Complete current target brief/checklist literal read"
+    },
+    {
+      "chunk_id": "be3d9c",
+      "exit_code": 0,
+      "scope": "All24 plan/6request hash rows verified, outputs absent, complete prior worth PLAN/WORTH/ROOT-CLOSE reread"
+    },
+    {
+      "chunk_id": "b63c23",
+      "exit_code": 0,
+      "scope": "Prior receipt/manifest full read; later concatenated README/roadmap excerpt output truncated, recovered in next call; not counted as full roadmap reread"
+    },
+    {
+      "chunk_id": "5bd671",
+      "exit_code": 0,
+      "scope": "Complete README and missing relevant roadmap opening clauses reread; full identical roadmap earlier independently read f52305"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-RESULT.md",
+    "bytes": 4079,
+    "sha256": "0bd3ea3583c5d92225598db62c839a88580c2922764637b522806069519265dd"
+  },
+  "pending_edits": false,
+  "final_wording_note": "Before collected notice, clarified only that checklist remains14 scoped checked/10 broad open; no source/decision change."
+}

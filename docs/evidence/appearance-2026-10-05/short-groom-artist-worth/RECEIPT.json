@@ -1,0 +1,154 @@
+{
+  "saved_utc": "2026-10-05T16:17:21.216630+00:00",
+  "worth_stop_utc": "2026-10-05T16:50:00Z",
+  "decision": "A conditional complete original unitless artist-source preparation only; no inquiry/builder/CPU/native admission",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/PLAN.json",
+      "bytes": 6118,
+      "sha256": "8c565623d568ff92bfb940678adb8d70ea9010f3f359c84b956615b8e1210580",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/README.md",
+      "bytes": 415,
+      "sha256": "932e0f6a7e69ca7cfdfeb65db3954b433dd6c4d5fdc11552c97d5a20358771cb",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/ROOT-OBSERVATION.json",
+      "bytes": 2105,
+      "sha256": "58fe68fe21e7c9c02f874a8e705bd4adcc3d759f10491b127f9d4fa275af07a9",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Complete unchanged1536x1024 original independently actually re-viewed with view_image detail original in this review; entire-byte hash verified, no crop/edit/capture/metric extraction."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/WORTH.md",
+      "bytes": 2572,
+      "sha256": "91c1db3557aa0f380bacfb7ae6594d1f1d16922b0ee7ff4953fc9b6c32da19ac",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-primary-source/RESULT.md",
+      "bytes": 2109,
+      "sha256": "e6391a19d6b65e71e71375d39c7af44c93fb3580aeb11f211c28ecb7aacb8c5e",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "bytes": 3216,
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/front-design/CAP-RESULT-CRITIQUE.md",
+      "bytes": 7313,
+      "sha256": "470b35d6d52922cb964925385ebb7a50023291d8d6524aeae7b7b9e8ad0eed54",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "bytes": 6104,
+      "sha256": "ca4e33586c29a0393848c512082e4d3c5c556233a87e9aebc44f2156e7545477",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/wardrobe-board/PROJECT-CHECKLIST.draft.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Complete literal source/JSON text independently read with lines; exact full size/SHA verified."
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-worth/WORTH.md",
+    "bytes": 4239,
+    "sha256": "7ce0e1b0329450b92ebe5d26e54f51d0feb3d0c6f8fa397631ded4b2178ac39c"
+  },
+  "commands": [
+    {
+      "chunk_id": "046a7c",
+      "exit_code": 0,
+      "scope": "Complete PLAN6118/README415/ROOT-OBSERVATION2105 read with exact bytes/SHA;16:12:41UTC surrounding clock."
+    },
+    {
+      "method": "tools.view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "scope": "Complete unchanged1536x1024 original independently actually re-viewed; no new capture/image/edit or geometric measurement."
+    },
+    {
+      "chunk_id": "50af5c",
+      "exit_code": 0,
+      "scope": "All nine bindings exact; complete masculine brief, quiff/editor/Snow decisions, historical cap critique, coupled-fit proposal and retained checklist draft read with line numbers; roadmap whole bytes hashed."
+    },
+    {
+      "chunk_id": "f52305",
+      "exit_code": 0,
+      "scope": "Entire32741byte current roadmap148lines independently read, not just excerpt; actual old atlas/card/cap/source/numerical/runtime limits and fullPhase1/later phase scope retained."
+    },
+    {
+      "chunk_id": "cac214",
+      "exit_code": 0,
+      "scope": "Saved only own WORTH/RECEIPT, all12 used bindings rehashed; no existing source/frozen/image/default change."
+    }
+  ],
+  "actual_witnesses": [
+    "Masculine original portrait: swept crown approximatelyx920-1410/y8-280, exposed forehead/brows/eyes approximatelyx1000-1320/y180-340; no distinct rear/top/profile or root-surface geometry supplied by the two panels.",
+    "MASCULINE-CHARACTER-TARGET:7/11 names visible crown/temple/face intent and explicitly leaves side/back/scalp/neck/attachment and runtime source obligations undefined.",
+    "short-groom-screen/WORTH:3/7 historical quiff refusal and duplication; no new quiff original was inspected in this review.",
+    "short-groom-primary-source/RESULT:3-7 precise template/editor lead, no named inspected short style/source interfaces.",
+    "short-groom-named-source/RESULT:5/7 Snow own-character lead vs current target style/g050 attachment B; its old source-page image is recorded historical evidence, not newly inspected here.",
+    "CAP-RESULT-CRITIQUE:3/29-35 numerical existing-cap baseline cannot own intended scalp/part/visibleguide appearance; not a universal cap or card rejection.",
+    "PRODUCT-ROADMAP:5/11 undeclared atlas/fixed-native-card closure;43/46/50/64/131-138 whole appearance/representation/source ownership and phase order remain unfulfilled.",
+    "POSE-AWARE-FIT-NEXT:16-27 separate coupled source/attachment/coverage/pose constraints before physical/runtime fitting; not established by fictional unitless scalp artwork."
+  ],
+  "alternatives": [
+    {
+      "choice": "A complete original fictional head/scalp and groom source with named roots/locks/full hidden shape then actual all-view review",
+      "tradeoff": "Adds useful editable source and a genuinely new volumetric-representation decision; substantial source/art effort and possible first visual refusal, no runtime compatibility gain yet."
+    },
+    {
+      "choice": "B keep existing artist portrait and defer groom source work",
+      "tradeoff": "Avoids another uncertain prototype but leaves complete short-groom ownership unresolved."
+    },
+    {
+      "choice": "A own whole visible root/mass/lock/exposure responsibilities before a separate full source gate",
+      "tradeoff": "More work than a proxy but makes crown/temple/nape coherence meaningfully testable."
+    },
+    {
+      "choice": "B a shell or front-only proxy under a new label",
+      "tradeoff": "Cheaper but does not change missing ownership; would be refused as repackaged closed responsibility."
+    }
+  ],
+  "admitted_next_scope": "Nomination worth only. Root must finish separate board delivery and independently verify this full handoff before choosing any literal primary/source-preparation contract. Future exact source/root/numerical/native/art gates are separate; none inherited.",
+  "usable_deliverable_if_later_admitted_and_passed": "Complete editable original JSON/OBJ, named fictional reference and root/part records, actual first front/profile/rear/top source evidence; a plan or a numerical pass alone is not a usable groom result.",
+  "research_question": "Can the complete independently authored volumetric mass and named root-direction locks make swept crown/temple/nape flow and intentional forehead exposure coherent in all four actual views?",
+  "stop": "First incomplete/unsupported source responsibility, numerical/native/appearance failure or deadline closes this fixed representation without retune/retake or alternate original source rescue.",
+  "limits": [
+    "Only own WORTH.md/RECEIPT.json written. No network/native/browser/GPU/capture, inquiry/download/generation/producer/helper import or replay/GLB decode/geometry/metrics, existing/frozen/default/source edits.",
+    "Actual new original image inspection is the unchanged masculine concept only; old quiff/card/cap/Snow appearance statements are historical source-record witnesses, not fresh pixel or geometry verdicts.",
+    "No runtimehead reuse/body correspondence or original image-to-mesh measurement. Fictional unitless scaffold is authoring reference, not anatomy/physical fit.",
+    "No g050/g100 adoption, skinning/morph/collision/shader/texture/motion/material/identity/perceivedgender/supportedstarter/AAA qualification.",
+    "Prospective single official hair-curves manual reading/source preparation/execution/native are not admitted by this worth alone; no source search/editor/quiff/Rowan/Snow/cap/card/oldproxy rescue.",
+    "Retained checklist draft4938bytes remains the pinned historical status authority; only the board access paragraph may enter current main during separate root delivery, no new checkbox promotion.14scoped/10broad/fullAAA/expression/wardrobe/representation/performance/VTuber/Mii maintained."
+  ],
+  "collected_utc": "2026-10-05T16:18:02.745542+00:00",
+  "pending_edits": false
+}

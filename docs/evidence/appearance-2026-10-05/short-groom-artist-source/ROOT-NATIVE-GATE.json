@@ -1,0 +1,104 @@
+{
+  "verified_utc": "2026-10-05T17:05:46.118035+00:00",
+  "decision": "A actual exact source/buffers/22part graph identity and four fixed cameras/all-original-vertex frustum bounds; appearance awaits sole original image",
+  "record_sha256": "7b07680734e8a087f122e15bb132bb6f63ab63a8ccea1f3d2d3b8d37087b0c4f",
+  "stage": [
+    1100,
+    1100
+  ],
+  "actual_viewport": {
+    "documentHeight": 1762,
+    "dpr": 2,
+    "height": 720,
+    "width": 1280
+  },
+  "framing": [
+    {
+      "view": "front",
+      "all_original_vertices_NDC_abs_max": [
+        0.4524238573598323,
+        0.7936507936507937,
+        0.32274928707571915
+      ],
+      "viewport": [
+        0,
+        550,
+        550,
+        550
+      ]
+    },
+    {
+      "view": "profile",
+      "all_original_vertices_NDC_abs_max": [
+        0.48775214546064266,
+        0.7936507936507937,
+        0.312154200895697
+      ],
+      "viewport": [
+        550,
+        550,
+        550,
+        550
+      ]
+    },
+    {
+      "view": "rear",
+      "all_original_vertices_NDC_abs_max": [
+        0.4524238573598323,
+        0.7936507936507937,
+        0.32274928707571915
+      ],
+      "viewport": [
+        0,
+        0,
+        550,
+        550
+      ]
+    },
+    {
+      "view": "top",
+      "all_original_vertices_NDC_abs_max": [
+        0.4524238573598323,
+        0.48775214546064266,
+        0.41448943963217955
+      ],
+      "viewport": [
+        550,
+        0,
+        550,
+        550
+      ]
+    }
+  ],
+  "expected_owned_disposal_names": [
+    "material #bdb8ad",
+    "geometry head-reference",
+    "geometry neck-reference",
+    "geometry ear-left-reference",
+    "geometry ear-right-reference",
+    "geometry front-orientation-marker",
+    "material #30261f",
+    "geometry complete-crown-temple-nape-mass",
+    "material #423127",
+    "geometry front-sweep-01",
+    "geometry front-sweep-02",
+    "geometry front-sweep-03",
+    "geometry crown-sweep-01",
+    "geometry crown-sweep-02",
+    "geometry crown-sweep-03",
+    "material #382a23",
+    "geometry right-temple-front",
+    "geometry right-temple-rear",
+    "geometry left-temple-front",
+    "geometry left-temple-rear",
+    "geometry rear-flow-center",
+    "geometry rear-flow-right",
+    "geometry rear-flow-left",
+    "geometry nape-center",
+    "geometry nape-right",
+    "geometry nape-left",
+    "renderer"
+  ],
+  "expected_owned_disposal_count": 27,
+  "limits": "Actual original rendered image required for appearance. NDC complete vertex framing supports whole mesh frame, no occlusion/appearance/continuous clearance/physical attachment/material/motion/AAA proof. Browser DOM record reflects observed source/render setup; GPU retirement unobserved."
+}

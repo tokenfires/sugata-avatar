@@ -1,0 +1,309 @@
+{
+  "observed_utc": "2026-10-05T16:56:28.793937+00:00",
+  "observer_pid": 4143,
+  "elapsed_seconds": 0.09155425004428253,
+  "decision": "B first data gate failure, no native",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/export/mesh.json",
+      "bytes": 1064390,
+      "sha256": "808b79cb0091db23aa17c7ecac0daf57858d588daed16b3153146975dabe7d89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/export/groom.obj",
+      "bytes": 922529,
+      "sha256": "afc3e0c1019d9742f51dbad01e9989dd03949560e2f82016185d31016efca17d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/export/expected.json",
+      "bytes": 4357,
+      "sha256": "17a8f1d25c8d215aafe0f1eabe64279f98688bf3e3afc86d81b0f3a44eca7000"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-JOB.json",
+      "bytes": 1420,
+      "sha256": "5fdcdcff8044c7a86cb6646b303215134102de13a8583ba9fff24adbd9796a22"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CHECK.json",
+      "bytes": 5521,
+      "sha256": "a2c80ddc03ab1a90054ab55fabcaf0371e678f4f7bb7dea2af9d1e359095337b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-build.stdout.txt",
+      "bytes": 151,
+      "sha256": "e9073e1ff26ae8a126e702e8629dbbf8de2b6e7a613a3c0402f8b173bb5388f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-build.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-check.stdout.txt",
+      "bytes": 277,
+      "sha256": "4ea505664b2021eab118df544f293a41fa86d01970b7b141092faefa39160e72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-check.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "counts": {
+    "V": 9580,
+    "T": 19072,
+    "parts": 22,
+    "roots": 16,
+    "scalp_faces": 724,
+    "hair_vertices": 2562
+  },
+  "parts": [
+    {
+      "id": "head-reference",
+      "V": 738,
+      "T": 1472,
+      "E": 2208,
+      "chi": 2,
+      "signed_volume": 2.0086734497369525,
+      "min_area": 0.0007931641671702062,
+      "indexSha": "40b3b3d9b34137aa9d7e69222200677e5da8f3b74e1a36c523a8d7368440d8ce"
+    },
+    {
+      "id": "neck-reference",
+      "V": 362,
+      "T": 720,
+      "E": 1080,
+      "chi": 2,
+      "signed_volume": 0.09597087954363172,
+      "min_area": 0.0002990541151947415,
+      "indexSha": "e6d970211d1b96983c275dd2929a27de00e39e0d2da80c7c46a7e333cf4e0d82"
+    },
+    {
+      "id": "ear-left-reference",
+      "V": 362,
+      "T": 720,
+      "E": 1080,
+      "chi": 2,
+      "signed_volume": 0.0062924496555477345,
+      "min_area": 4.05529255606555e-05,
+      "indexSha": "f97ae486ab3418d6caff273f85208ed942682719b3a006959622fd179123ab2a"
+    },
+    {
+      "id": "ear-right-reference",
+      "V": 362,
+      "T": 720,
+      "E": 1080,
+      "chi": 2,
+      "signed_volume": 0.006292449655547738,
+      "min_area": 4.05529255606555e-05,
+      "indexSha": "5b821be479b951964889b924fbc5d619b2e08def09d0e6d34b561ae21c9337b0"
+    },
+    {
+      "id": "front-orientation-marker",
+      "V": 362,
+      "T": 720,
+      "E": 1080,
+      "chi": 2,
+      "signed_volume": 0.0064380465027186334,
+      "min_area": 5.984878607725703e-05,
+      "indexSha": "92a31a05569891f4361bced2778b1740bce830712da35377592420fddd438bb5"
+    },
+    {
+      "id": "complete-crown-temple-nape-mass",
+      "V": 2562,
+      "T": 5120,
+      "E": 7680,
+      "chi": 2,
+      "signed_volume": 0.49847154801238114,
+      "min_area": 7.419309188917121e-05,
+      "indexSha": "336f41c7ab1e5c5859a5bd67040be6d4bf121e7ca22b8812d1a9b6eda08d560d"
+    },
+    {
+      "id": "front-sweep-01",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.010059040882100205,
+      "min_area": 3.743999999999836e-05,
+      "indexSha": "6dfda10d5fae9e1fccebd90a18516c690d0b3b9f71ddd45724459ca5f6e7c3f7"
+    },
+    {
+      "id": "front-sweep-02",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.010416405851953501,
+      "min_area": 3.494399999999902e-05,
+      "indexSha": "a115982dd31dc0ff1acd0275b72873f8735d191c82db267680d670f6a0cda8ab"
+    },
+    {
+      "id": "front-sweep-03",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.010792508619488843,
+      "min_area": 3.494399999999908e-05,
+      "indexSha": "02a75794dad392298b8efbc64cf696dc6cbde7eac973c5fa19abfc4ff76db3a9"
+    },
+    {
+      "id": "crown-sweep-01",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.00875367711738225,
+      "min_area": 3.244799999999911e-05,
+      "indexSha": "03ef578212f5d42d3236c26779c31dbb00df3277376d5e3213cf42d8ce07a074"
+    },
+    {
+      "id": "crown-sweep-02",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.008691716184659587,
+      "min_area": 3.244799999999894e-05,
+      "indexSha": "9c1e965425e277dc0898020c1ea7fdcd03857500d9566916b8ad421c4b68450c"
+    },
+    {
+      "id": "crown-sweep-03",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.007655760129121013,
+      "min_area": 2.9951999999998723e-05,
+      "indexSha": "492a93b33ea5a89c92ea799efcf36ca8dd5e36e9b4548a215df5460680bb0a2f"
+    },
+    {
+      "id": "right-temple-front",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.004850904815443755,
+      "min_area": 2.0272255726722918e-05,
+      "indexSha": "1873d34505de31f8f9a1f14394f583ccd10ac6e72a18eb4755e7167cd3cb0390"
+    },
+    {
+      "id": "right-temple-rear",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.004212357401143931,
+      "min_area": 2.3711999999999295e-05,
+      "indexSha": "94c2907a1df9f22db19665ae52990d2060999d6cc8af58e3f834c36eeb26feb5"
+    },
+    {
+      "id": "left-temple-front",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.004665761903841591,
+      "min_area": 2.4959999999999094e-05,
+      "indexSha": "8428192a29223838736c78b839ff55c78c16eecea772acf1200eb3a1dc076e18"
+    },
+    {
+      "id": "left-temple-rear",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.004441602934116353,
+      "min_area": 2.3711999999999464e-05,
+      "indexSha": "1454b559399f1cd2e647bbbd6c12aaa7591cfb5269a733f13d5ca1f3322ff4c8"
+    },
+    {
+      "id": "rear-flow-center",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.0092797555307667,
+      "min_area": 2.9951999999998927e-05,
+      "indexSha": "15b0b35715ff2eccaaab53caf3dff3bd00613a6d1a464a1a52f1db3d8c0164c4"
+    },
+    {
+      "id": "rear-flow-right",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.009282379120182201,
+      "min_area": 2.995199999999953e-05,
+      "indexSha": "9631c35631be3a3db8e5cc2864ea2bf87573d3611f7c03683e894e29c39d5fbf"
+    },
+    {
+      "id": "rear-flow-left",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.00909630735643938,
+      "min_area": 2.995199999999953e-05,
+      "indexSha": "32f2c07abd044a9a994f4432ea52c9678333c19bb74df7d8eeafc9190bd6d40a"
+    },
+    {
+      "id": "nape-center",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.004516829312365368,
+      "min_area": 1.068471332555282e-05,
+      "indexSha": "b4e79f9ed11902773f692baa18579474596bc9cdf8f17200d9ff55af0cb7002a"
+    },
+    {
+      "id": "nape-right",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.004374482024106863,
+      "min_area": 2.1215999999999304e-05,
+      "indexSha": "ae9c9ce089a0b53c21d4c8250906f2ec875a88cb2d5ca16daad24db88424432f"
+    },
+    {
+      "id": "nape-left",
+      "V": 302,
+      "T": 600,
+      "E": 900,
+      "chi": 2,
+      "signed_volume": 0.004385955027342104,
+      "min_area": 1.3210023503963087e-05,
+      "indexSha": "7ce30e1ff5fd0057dedd9467dfd7151e5acfb6adaf4f9853fbdae6af8acfcef4"
+    }
+  ],
+  "meshSha": "808b79cb0091db23aa17c7ecac0daf57858d588daed16b3153146975dabe7d89",
+  "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+  "bounds": {
+    "min": [
+      -0.8090447730191338,
+      -1.42,
+      -0.935716516201058
+    ],
+    "max": [
+      0.8055902176396605,
+      1.4124243316229366,
+      0.8049999999999999
+    ]
+  },
+  "hair_vertex_ellipsoid_norm2_min": [
+    1.0322559999999996,
+    3497
+  ],
+  "failures": [
+    {
+      "gate": "root-lock ownership",
+      "witness": null
+    }
+  ],
+  "observer_error_recovery": "Initial metadata print e2e71a had wrong field name scalp_face_ids and returned1, no source replay or data judgement. Actual saved field scalp.head_face_ids used here.",
+  "limits": "No producer/checker/controller import/replay. Complete saved graph/OBJ traversed, no geometry generated. No general vertex-link/embedding/self-intersection/Boolean union/root-mass overlap/continuous clearance/anatomy/skin/morph/runtime/strand/visual/motion/AAA proof."
+}

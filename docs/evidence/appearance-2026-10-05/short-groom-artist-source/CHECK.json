@@ -1,0 +1,216 @@
+{
+  "decision": "A saved original graph/OBJ and finite fictional-reference predicates only",
+  "positions": 9580,
+  "triangles": 19072,
+  "parts": [
+    {
+      "part": "head-reference",
+      "vertices": 738,
+      "triangles": 1472,
+      "edges": 2208,
+      "chi": 2,
+      "signed_volume": 2.0086734497369525,
+      "min_triangle_area": 0.0007931641671702062
+    },
+    {
+      "part": "neck-reference",
+      "vertices": 362,
+      "triangles": 720,
+      "edges": 1080,
+      "chi": 2,
+      "signed_volume": 0.09597087954363172,
+      "min_triangle_area": 0.0002990541151947415
+    },
+    {
+      "part": "ear-left-reference",
+      "vertices": 362,
+      "triangles": 720,
+      "edges": 1080,
+      "chi": 2,
+      "signed_volume": 0.0062924496555477345,
+      "min_triangle_area": 4.05529255606555e-05
+    },
+    {
+      "part": "ear-right-reference",
+      "vertices": 362,
+      "triangles": 720,
+      "edges": 1080,
+      "chi": 2,
+      "signed_volume": 0.006292449655547738,
+      "min_triangle_area": 4.05529255606555e-05
+    },
+    {
+      "part": "front-orientation-marker",
+      "vertices": 362,
+      "triangles": 720,
+      "edges": 1080,
+      "chi": 2,
+      "signed_volume": 0.0064380465027186334,
+      "min_triangle_area": 5.984878607725703e-05
+    },
+    {
+      "part": "complete-crown-temple-nape-mass",
+      "vertices": 2562,
+      "triangles": 5120,
+      "edges": 7680,
+      "chi": 2,
+      "signed_volume": 0.49847154801238114,
+      "min_triangle_area": 7.419309188917121e-05
+    },
+    {
+      "part": "front-sweep-01",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.010059040882100205,
+      "min_triangle_area": 3.743999999999836e-05
+    },
+    {
+      "part": "front-sweep-02",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.010416405851953501,
+      "min_triangle_area": 3.494399999999902e-05
+    },
+    {
+      "part": "front-sweep-03",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.010792508619488843,
+      "min_triangle_area": 3.494399999999908e-05
+    },
+    {
+      "part": "crown-sweep-01",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.00875367711738225,
+      "min_triangle_area": 3.244799999999911e-05
+    },
+    {
+      "part": "crown-sweep-02",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.008691716184659587,
+      "min_triangle_area": 3.244799999999894e-05
+    },
+    {
+      "part": "crown-sweep-03",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.007655760129121013,
+      "min_triangle_area": 2.9951999999998723e-05
+    },
+    {
+      "part": "right-temple-front",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.004850904815443755,
+      "min_triangle_area": 2.0272255726722918e-05
+    },
+    {
+      "part": "right-temple-rear",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.004212357401143931,
+      "min_triangle_area": 2.3711999999999295e-05
+    },
+    {
+      "part": "left-temple-front",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.004665761903841591,
+      "min_triangle_area": 2.4959999999999094e-05
+    },
+    {
+      "part": "left-temple-rear",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.004441602934116353,
+      "min_triangle_area": 2.3711999999999464e-05
+    },
+    {
+      "part": "rear-flow-center",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.0092797555307667,
+      "min_triangle_area": 2.9951999999998927e-05
+    },
+    {
+      "part": "rear-flow-right",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.009282379120182201,
+      "min_triangle_area": 2.995199999999953e-05
+    },
+    {
+      "part": "rear-flow-left",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.00909630735643938,
+      "min_triangle_area": 2.995199999999953e-05
+    },
+    {
+      "part": "nape-center",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.004516829312365368,
+      "min_triangle_area": 1.068471332555282e-05
+    },
+    {
+      "part": "nape-right",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.004374482024106863,
+      "min_triangle_area": 2.1215999999999304e-05
+    },
+    {
+      "part": "nape-left",
+      "vertices": 302,
+      "triangles": 600,
+      "edges": 900,
+      "chi": 2,
+      "signed_volume": 0.004385955027342104,
+      "min_triangle_area": 1.3210023503963087e-05
+    }
+  ],
+  "roots": 16,
+  "scalp_faces": 724,
+  "metrics": {
+    "hair_vertex_ellipsoid_norm2_min": [
+      1.0322559999999996,
+      3497
+    ],
+    "hair_vertices": 7394
+  },
+  "failures": [],
+  "limits": "No complete surface clearance, Boolean union, anatomy, Sugata attachment, renderer pixels, visual coherence, skinning/morphs, dynamics, strand material or AAA qualification. All original failure witnesses retained; no builder replay."
+}

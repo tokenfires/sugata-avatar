@@ -1,0 +1,627 @@
+{
+  "record": {
+    "bounds": {
+      "max": [
+        0.8055902176396605,
+        1.4124243316229366,
+        0.8049999999999999
+      ],
+      "min": [
+        -0.8090447730191338,
+        -1.42,
+        -0.935716516201058
+      ]
+    },
+    "draws": 4,
+    "error": null,
+    "id": "swept-short-fictional-01",
+    "lifetime": {
+      "attempts": [
+        {
+          "error": null,
+          "name": "material #bdb8ad"
+        },
+        {
+          "error": null,
+          "name": "geometry head-reference"
+        },
+        {
+          "error": null,
+          "name": "geometry neck-reference"
+        },
+        {
+          "error": null,
+          "name": "geometry ear-left-reference"
+        },
+        {
+          "error": null,
+          "name": "geometry ear-right-reference"
+        },
+        {
+          "error": null,
+          "name": "geometry front-orientation-marker"
+        },
+        {
+          "error": null,
+          "name": "material #30261f"
+        },
+        {
+          "error": null,
+          "name": "geometry complete-crown-temple-nape-mass"
+        },
+        {
+          "error": null,
+          "name": "material #423127"
+        },
+        {
+          "error": null,
+          "name": "geometry front-sweep-01"
+        },
+        {
+          "error": null,
+          "name": "geometry front-sweep-02"
+        },
+        {
+          "error": null,
+          "name": "geometry front-sweep-03"
+        },
+        {
+          "error": null,
+          "name": "geometry crown-sweep-01"
+        },
+        {
+          "error": null,
+          "name": "geometry crown-sweep-02"
+        },
+        {
+          "error": null,
+          "name": "geometry crown-sweep-03"
+        },
+        {
+          "error": null,
+          "name": "material #382a23"
+        },
+        {
+          "error": null,
+          "name": "geometry right-temple-front"
+        },
+        {
+          "error": null,
+          "name": "geometry right-temple-rear"
+        },
+        {
+          "error": null,
+          "name": "geometry left-temple-front"
+        },
+        {
+          "error": null,
+          "name": "geometry left-temple-rear"
+        },
+        {
+          "error": null,
+          "name": "geometry rear-flow-center"
+        },
+        {
+          "error": null,
+          "name": "geometry rear-flow-right"
+        },
+        {
+          "error": null,
+          "name": "geometry rear-flow-left"
+        },
+        {
+          "error": null,
+          "name": "geometry nape-center"
+        },
+        {
+          "error": null,
+          "name": "geometry nape-right"
+        },
+        {
+          "error": null,
+          "name": "geometry nape-left"
+        },
+        {
+          "error": null,
+          "name": "renderer"
+        }
+      ],
+      "closed": true,
+      "reason": "Finish button"
+    },
+    "limits": "Original artist blockout only. Separate deliberately overlapping reference forms, mass and locks are not a Boolean union, anatomy, avatar attachment, physical fit, skinning, morphology, dynamics, finished strand materials or a supported character.",
+    "material": "Fixed brown volume clay; grey fictional reference; no strand shader",
+    "meshSha": "808b79cb0091db23aa17c7ecac0daf57858d588daed16b3153146975dabe7d89",
+    "parts": [
+      {
+        "color": "#bdb8ad",
+        "id": "head-reference",
+        "indexCount": 4416,
+        "indexSha": "40b3b3d9b34137aa9d7e69222200677e5da8f3b74e1a36c523a8d7368440d8ce",
+        "kind": "fictional-reference",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 1472,
+        "vertices": 738
+      },
+      {
+        "color": "#bdb8ad",
+        "id": "neck-reference",
+        "indexCount": 2160,
+        "indexSha": "e6d970211d1b96983c275dd2929a27de00e39e0d2da80c7c46a7e333cf4e0d82",
+        "kind": "fictional-reference",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 720,
+        "vertices": 362
+      },
+      {
+        "color": "#bdb8ad",
+        "id": "ear-left-reference",
+        "indexCount": 2160,
+        "indexSha": "f97ae486ab3418d6caff273f85208ed942682719b3a006959622fd179123ab2a",
+        "kind": "fictional-reference",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 720,
+        "vertices": 362
+      },
+      {
+        "color": "#bdb8ad",
+        "id": "ear-right-reference",
+        "indexCount": 2160,
+        "indexSha": "5b821be479b951964889b924fbc5d619b2e08def09d0e6d34b561ae21c9337b0",
+        "kind": "fictional-reference",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 720,
+        "vertices": 362
+      },
+      {
+        "color": "#bdb8ad",
+        "id": "front-orientation-marker",
+        "indexCount": 2160,
+        "indexSha": "92a31a05569891f4361bced2778b1740bce830712da35377592420fddd438bb5",
+        "kind": "fictional-reference",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 720,
+        "vertices": 362
+      },
+      {
+        "color": "#30261f",
+        "id": "complete-crown-temple-nape-mass",
+        "indexCount": 15360,
+        "indexSha": "336f41c7ab1e5c5859a5bd67040be6d4bf121e7ca22b8812d1a9b6eda08d560d",
+        "kind": "hair-mass",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 5120,
+        "vertices": 2562
+      },
+      {
+        "color": "#423127",
+        "id": "front-sweep-01",
+        "indexCount": 1800,
+        "indexSha": "6dfda10d5fae9e1fccebd90a18516c690d0b3b9f71ddd45724459ca5f6e7c3f7",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#423127",
+        "id": "front-sweep-02",
+        "indexCount": 1800,
+        "indexSha": "a115982dd31dc0ff1acd0275b72873f8735d191c82db267680d670f6a0cda8ab",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#423127",
+        "id": "front-sweep-03",
+        "indexCount": 1800,
+        "indexSha": "02a75794dad392298b8efbc64cf696dc6cbde7eac973c5fa19abfc4ff76db3a9",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#423127",
+        "id": "crown-sweep-01",
+        "indexCount": 1800,
+        "indexSha": "03ef578212f5d42d3236c26779c31dbb00df3277376d5e3213cf42d8ce07a074",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#423127",
+        "id": "crown-sweep-02",
+        "indexCount": 1800,
+        "indexSha": "9c1e965425e277dc0898020c1ea7fdcd03857500d9566916b8ad421c4b68450c",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#423127",
+        "id": "crown-sweep-03",
+        "indexCount": 1800,
+        "indexSha": "492a93b33ea5a89c92ea799efcf36ca8dd5e36e9b4548a215df5460680bb0a2f",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "right-temple-front",
+        "indexCount": 1800,
+        "indexSha": "1873d34505de31f8f9a1f14394f583ccd10ac6e72a18eb4755e7167cd3cb0390",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "right-temple-rear",
+        "indexCount": 1800,
+        "indexSha": "94c2907a1df9f22db19665ae52990d2060999d6cc8af58e3f834c36eeb26feb5",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "left-temple-front",
+        "indexCount": 1800,
+        "indexSha": "8428192a29223838736c78b839ff55c78c16eecea772acf1200eb3a1dc076e18",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "left-temple-rear",
+        "indexCount": 1800,
+        "indexSha": "1454b559399f1cd2e647bbbd6c12aaa7591cfb5269a733f13d5ca1f3322ff4c8",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "rear-flow-center",
+        "indexCount": 1800,
+        "indexSha": "15b0b35715ff2eccaaab53caf3dff3bd00613a6d1a464a1a52f1db3d8c0164c4",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "rear-flow-right",
+        "indexCount": 1800,
+        "indexSha": "9631c35631be3a3db8e5cc2864ea2bf87573d3611f7c03683e894e29c39d5fbf",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "rear-flow-left",
+        "indexCount": 1800,
+        "indexSha": "32f2c07abd044a9a994f4432ea52c9678333c19bb74df7d8eeafc9190bd6d40a",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "nape-center",
+        "indexCount": 1800,
+        "indexSha": "b4e79f9ed11902773f692baa18579474596bc9cdf8f17200d9ff55af0cb7002a",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "nape-right",
+        "indexCount": 1800,
+        "indexSha": "ae9c9ce089a0b53c21d4c8250906f2ec875a88cb2d5ca16daad24db88424432f",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      },
+      {
+        "color": "#382a23",
+        "id": "nape-left",
+        "indexCount": 1800,
+        "indexSha": "7ce30e1ff5fd0057dedd9467dfd7151e5acfb6adaf4f9853fbdae6af8acfcef4",
+        "kind": "directed-hair-lock",
+        "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+        "triangles": 600,
+        "vertices": 302
+      }
+    ],
+    "positionSha": "cafcaeb29a6d35d3574c5ec0b03edcf378ef67adcf64b84f1357ed6e88b02484",
+    "ready": true,
+    "roots": 16,
+    "scalpFaces": 724,
+    "schema": "sugata-original-artist-groom-1",
+    "stage": [
+      1100,
+      1100
+    ],
+    "triangles": 19072,
+    "vertices": 9580,
+    "views": [
+      {
+        "far": 12,
+        "halfVertical": 1.7844273289224502,
+        "matrixWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          4.934641741899471,
+          1
+        ],
+        "name": "front",
+        "near": 0.1,
+        "position": [
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          4.934641741899471
+        ],
+        "projectionMatrix": [
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          -0.1680672268907563,
+          0,
+          0,
+          0,
+          -1.0168067226890756,
+          1
+        ],
+        "target": [
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          -0.06535825810052903
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewport": [
+          0,
+          550,
+          550,
+          550
+        ]
+      },
+      {
+        "far": 12,
+        "halfVertical": 1.7844273289224502,
+        "matrixWorld": [
+          2.220446049250313e-16,
+          0,
+          -1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          2.220446049250313e-16,
+          0,
+          4.998272722310263,
+          -0.00378783418853168,
+          -0.06535825810052903,
+          1
+        ],
+        "name": "profile",
+        "near": 0.1,
+        "position": [
+          4.998272722310263,
+          -0.00378783418853168,
+          -0.06535825810052903
+        ],
+        "projectionMatrix": [
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          -0.1680672268907563,
+          0,
+          0,
+          0,
+          -1.0168067226890756,
+          1
+        ],
+        "target": [
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          -0.06535825810052903
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewport": [
+          550,
+          550,
+          550,
+          550
+        ]
+      },
+      {
+        "far": 12,
+        "halfVertical": 1.7844273289224502,
+        "matrixWorld": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          -5.065358258100529,
+          1
+        ],
+        "name": "rear",
+        "near": 0.1,
+        "position": [
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          -5.065358258100529
+        ],
+        "projectionMatrix": [
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          -0.1680672268907563,
+          0,
+          0,
+          0,
+          -1.0168067226890756,
+          1
+        ],
+        "target": [
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          -0.06535825810052903
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewport": [
+          0,
+          0,
+          550,
+          550
+        ]
+      },
+      {
+        "far": 12,
+        "halfVertical": 1.7844273289224502,
+        "matrixWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          2.220446049250313e-16,
+          -1,
+          0,
+          0,
+          1,
+          2.220446049250313e-16,
+          0,
+          -0.0017272776897366282,
+          4.996212165811468,
+          -0.06535825810052903,
+          1
+        ],
+        "name": "top",
+        "near": 0.1,
+        "position": [
+          -0.0017272776897366282,
+          4.996212165811468,
+          -0.06535825810052903
+        ],
+        "projectionMatrix": [
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          0.5604038807250633,
+          0,
+          0,
+          0,
+          0,
+          -0.1680672268907563,
+          0,
+          0,
+          0,
+          -1.0168067226890756,
+          1
+        ],
+        "target": [
+          -0.0017272776897366282,
+          -0.00378783418853168,
+          -0.06535825810052903
+        ],
+        "up": [
+          0,
+          0,
+          -1
+        ],
+        "viewport": [
+          550,
+          0,
+          550,
+          550
+        ]
+      }
+    ]
+  },
+  "status": "Finished · owned disposal attempted",
+  "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/index.html",
+  "observed_utc": "2026-10-05T17:06:17.187Z",
+  "tab_id": "45"
+}

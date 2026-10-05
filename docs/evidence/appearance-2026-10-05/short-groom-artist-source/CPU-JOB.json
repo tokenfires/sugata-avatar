@@ -1,0 +1,44 @@
+{
+  "controller_pid": 99234,
+  "started_utc": "2026-10-05T16:53:54.149626+00:00",
+  "status": "A CPU completed; no native admission",
+  "children": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/build.py"
+      ],
+      "pid": 99235,
+      "started_utc": "2026-10-05T16:53:54.151334+00:00",
+      "timeout": false,
+      "returned_utc": "2026-10-05T16:53:54.219949+00:00",
+      "exit_code": 0,
+      "reaped": true,
+      "stdout_bytes": 151,
+      "stderr_bytes": 0,
+      "stdout_file": "CPU-build.stdout.txt",
+      "stderr_file": "CPU-build.stderr.txt"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/check.py"
+      ],
+      "pid": 99236,
+      "started_utc": "2026-10-05T16:53:54.221670+00:00",
+      "timeout": false,
+      "returned_utc": "2026-10-05T16:53:54.439346+00:00",
+      "exit_code": 0,
+      "reaped": true,
+      "stdout_bytes": 277,
+      "stderr_bytes": 0,
+      "stdout_file": "CPU-check.stdout.txt",
+      "stderr_file": "CPU-check.stderr.txt"
+    }
+  ],
+  "budget_seconds": 120,
+  "returned_utc": "2026-10-05T16:53:54.439686+00:00",
+  "elapsed_seconds": 0.28989079099847004
+}

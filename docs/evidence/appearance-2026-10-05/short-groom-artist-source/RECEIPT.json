@@ -1,0 +1,413 @@
+{
+  "collected_utc": "2026-10-05T17:19:40.599207+00:00",
+  "decision": "B artist appearance; prior finite data A preserved",
+  "collection_target_utc": "2026-10-05T17:25:00Z",
+  "final_stop_utc": "2026-10-05T18:00:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/PLAN.json",
+      "bytes": 8160,
+      "sha256": "18012fa473d60aaf1815d05f9bbb785a437074be40990827b4de52c40755a5d9",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 5182,
+      "sha256": "70d8d69d303714c8149b9f50144761ec4a6ecc694852a792689c95d3b79f928f",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/build.py",
+      "bytes": 9467,
+      "sha256": "e72c7e1d13fe7ce42f820a5322435de774d8bb8d4556e294c59fdb353e6eb007",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/check.py",
+      "bytes": 6815,
+      "sha256": "e97ac2244d0ac185707cebc80829b3f0fee3357d33ab6ee1d4305d31078a4917",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/run.py",
+      "bytes": 2499,
+      "sha256": "5630ea7083a9cc319937fe3fcd1bf8871afa262545fec491b21ae9fab2fd6e49",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/viewer.mjs",
+      "bytes": 5454,
+      "sha256": "efed7e3b156fdcab3e8fd882549a104ad9f16a850c533a75bdce7d045bae44a0",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/index.html",
+      "bytes": 1990,
+      "sha256": "fc168f5a863ebc46f0f1fbdc3aa6c5fe758e1e3039baea5fe955b9e3ff7d6bf4",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-JOB.requested.json",
+      "bytes": 2489,
+      "sha256": "82e2be58a4c5df6a3af9e76c2ab32de5adffb7d6c73275b61741399dec8ac2ff",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-RESULT.md",
+      "bytes": 4079,
+      "sha256": "0bd3ea3583c5d92225598db62c839a88580c2922764637b522806069519265dd",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-RECEIPT.json",
+      "bytes": 15397,
+      "sha256": "c11bee2929c5df73c5e1d2886a9f7720570e991e279940a82fd3a7bda4549cb0",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-SOURCE-ADMISSION.json",
+      "bytes": 1975,
+      "sha256": "cbf40af72e24944135b8307e59341cee2c6d5e4b1f4183a189a181bf78367566",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-JOB.json",
+      "bytes": 1420,
+      "sha256": "5fdcdcff8044c7a86cb6646b303215134102de13a8583ba9fff24adbd9796a22",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CHECK.json",
+      "bytes": 5521,
+      "sha256": "a2c80ddc03ab1a90054ab55fabcaf0371e678f4f7bb7dea2af9d1e359095337b",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-build.stdout.txt",
+      "bytes": 151,
+      "sha256": "e9073e1ff26ae8a126e702e8629dbbf8de2b6e7a613a3c0402f8b173bb5388f1",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-build.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-check.stdout.txt",
+      "bytes": 277,
+      "sha256": "4ea505664b2021eab118df544f293a41fa86d01970b7b141092faefa39160e72",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CPU-check.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/export/mesh.json",
+      "bytes": 1064390,
+      "sha256": "808b79cb0091db23aa17c7ecac0daf57858d588daed16b3153146975dabe7d89",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/export/groom.obj",
+      "bytes": 922529,
+      "sha256": "afc3e0c1019d9742f51dbad01e9989dd03949560e2f82016185d31016efca17d",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/export/expected.json",
+      "bytes": 4357,
+      "sha256": "17a8f1d25c8d215aafe0f1eabe64279f98688bf3e3afc86d81b0f3a44eca7000",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/DATA-RESULT.md",
+      "bytes": 3821,
+      "sha256": "91e649f2e774686c02a77b825c03811d4203890811158ee4a398e5ff31387be0",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/DATA-RECEIPT.json",
+      "bytes": 44469,
+      "sha256": "4fad5fce363c653e497f29b979aa49e094ecd77753d09a5c90c533398519b497",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-DATA.json",
+      "bytes": 10037,
+      "sha256": "5a3ce61520639a8c788ad0cb145270eaf6f326d3c020cfa37bc95ea989913b50",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-DATA-RECEIPT.json",
+      "bytes": 3299,
+      "sha256": "6cad37198f4c433872eb31013e6a71ebbeefd2be72f663a604703f39d04b7e34",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-NATIVE-ADMISSION.json",
+      "bytes": 3932,
+      "sha256": "30a672b1f4363e1303d9c44b4d04bb8049a73a5cbacd89b476fee87be9f86717",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/NATIVE.OPEN.json",
+      "bytes": 134,
+      "sha256": "d8dfdc4e48cdf4f40e2038acbf5a6e0dd7f670b445ffa3888ceb6ed0930d1035",
+      "read_scope": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/NATIVE.READY.json",
+      "bytes": 14574,
+      "sha256": "7b07680734e8a087f122e15bb132bb6f63ab63a8ccea1f3d2d3b8d37087b0c4f",
+      "read_scope": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/NATIVE.READY.dom.txt",
+      "bytes": 11525,
+      "sha256": "d25cae7ad26437ac6626179d0efe122b8a09fa927573fabddaa0a8c91418395c",
+      "read_scope": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-NATIVE-GATE.json",
+      "bytes": 2692,
+      "sha256": "a2d416661b0c9be7e3a46d2699cd4ba8bcd1fcd1845ae47468ea7919e13b6c99",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/NATIVE.CAPTURE.json",
+      "bytes": 373,
+      "sha256": "19362bde37477f868055b0bfa9d1302d799345a3a169766077e411d0837121a8",
+      "read_scope": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/four-view-first.jpg",
+      "bytes": 120265,
+      "sha256": "5859c4a1341138989de77c8c80d26ff0630ca13807819840a2a91e3d008546dd",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/NATIVE.FINISHED.json",
+      "bytes": 16788,
+      "sha256": "37576853b1a03d6cc4ce7d96942a06187a8b46a7505feb8f773d655625b91cd3",
+      "read_scope": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/NATIVE.FINISHED.dom.txt",
+      "bytes": 13142,
+      "sha256": "62758acc26b6a52457589ac7719a978351e4773b0b24a04323981f32be12285b",
+      "read_scope": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/NATIVE.CLOSED.json",
+      "bytes": 225,
+      "sha256": "9436d2a3714bb877919531b149136d1064ac243f5015f9c32c67b2ebb12666b4",
+      "read_scope": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/ROOT-IMAGE.json",
+      "bytes": 5864,
+      "sha256": "d4c2edfdd0e957f17264ba787a73234330eed7766e5dfcd2c03ce665a7c8138c",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/CLOSEOUT.md",
+      "bytes": 2750,
+      "sha256": "d27c52faf0c06b7f9c4ffe711c0544fd9a2861e0831b161cf78fb8122c943944",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/REFERENCE.json",
+      "bytes": 10696,
+      "sha256": "664aba2bd4935cd02edf3d9758c3c73ffc512f6fdd05d844385178b8b13c9f8a",
+      "read_scope": "Scope described in read_scope and preserved source/data receipts"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Earlier complete actual reference/source read in same run; current hash reverified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Earlier complete actual reference/source read in same run; current hash reverified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Earlier complete actual reference/source read in same run; current hash reverified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Earlier complete actual reference/source read in same run; current hash reverified"
+    }
+  ],
+  "observer": {
+    "source": "from pathlib import Path\nimport json,hashlib,struct,datetime,os,time,copy\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source')\nstart=datetime.datetime.now(datetime.timezone.utc); clock=time.monotonic()\ndef read(n): return json.loads((p/n).read_text())\ndef sha(q): return hashlib.sha256(q.read_bytes()).hexdigest()\ndef verify(row):\n q=Path(row['path']); assert q.stat().st_size==row['bytes'] and sha(q)==row['sha256'],str(q)\nrows=0\nfor n in ['SOURCE-RECEIPT.json','DATA-RECEIPT.json','ROOT-NATIVE-ADMISSION.json']:\n r=read(n)\n for row in r['inputs']: verify(row); rows+=1\n rresult=r.get('result')\n if rresult: verify(rresult);rows+=1\nm=read('export/mesh.json'); e=read('export/expected.json')\nr=read('NATIVE.READY.json'); f=read('NATIVE.FINISHED.json')\nfor n,o in [('NATIVE.READY',r),('NATIVE.FINISHED',f)]:\n lines=(p/(n+'.dom.txt')).read_text().splitlines()\n dom=json.loads(json.loads(lines[-1].removeprefix('- generic: ')))\n assert dom==o['record']; assert len(lines)==13\na=r['record']; b=f['record']\nassert a['meshSha']==e['meshSha']==sha(p/'export/mesh.json')\npos=struct.pack('<'+'f'*(3*len(m['positions'])),*(c for v in m['positions'] for c in v))\nassert a['positionSha']==e['positionSha']==hashlib.sha256(pos).hexdigest()\nassert len(a['parts'])==len(e['parts'])==len(m['parts'])==22\nfor actual,exp,part in zip(a['parts'],e['parts'],m['parts']):\n indices=[i for fid in part['face_ids'] for i in m['triangles'][fid]]\n digest=hashlib.sha256(struct.pack('<'+'I'*len(indices),*indices)).hexdigest()\n assert actual['id']==exp['id']==part['id']\n assert actual['kind']==part['kind'] and actual['color']==part['color']\n assert actual['vertices']==exp['vertices']==len(part['vertex_ids'])\n assert actual['triangles']==exp['triangles']==len(part['face_ids'])\n assert actual['indexCount']==len(indices) and actual['indexSha']==exp['indexSha']==digest\n assert actual['positionSha']==a['positionSha']\nassert a['vertices']==len(m['positions'])==9580 and a['triangles']==len(m['triangles'])==19072\nassert a['roots']==len(m['roots'])==16 and a['scalpFaces']==len(m['scalp']['head_face_ids'])==724\nassert a['bounds']==e['bounds']\naa=copy.deepcopy(a);bb=copy.deepcopy(b);aa.pop('lifetime');bb.pop('lifetime');assert aa==bb\nassert a['draws']==b['draws']==4 and a['error'] is None and b['error'] is None\nnames=[];colors=set()\nfor part in m['parts']:\n if part['color'] not in colors: names.append('material '+part['color']); colors.add(part['color'])\n names.append('geometry '+part['id'])\nnames.append('renderer')\nlife=b['lifetime'];assert a['lifetime']=={'closed':False,'reason':None,'attempts':[]}\nassert life['closed'] and life['reason']=='Finish button'\nassert [x['name'] for x in life['attempts']]==names and len(names)==27 and all(x['error'] is None for x in life['attempts'])\nassert r['overflow']==0 and r['viewport']['width']==1280 and r['viewport']['height']==720 and r['viewport']['dpr']==2\nassert a['stage']==[1100,1100]\nnames_views=['front','profile','rear','top']\ndeltas=[[0,0,5],[5,0,0],[0,0,-5],[0,5,0]]\nvps=[[0,550,550,550],[550,550,550,550],[0,0,550,550],[550,0,550,550]]\nmaxima=[]\nfor k,v in enumerate(a['views']):\n assert v['name']==names_views[k] and v['viewport']==vps[k]\n assert v['near']==.1 and v['far']==12\n assert all(abs(v['position'][j]-v['target'][j]-deltas[k][j])<1e-15 for j in range(3))\n assert v['up']==([0,0,-1] if k==3 else [0,1,0])\n w=v['matrixWorld'];proj=v['projectionMatrix'];maxi=[0.,0.,0.]\n for point in m['positions']:\n  d=[point[j]-w[12+j] for j in range(3)]\n  cam=[sum(w[4*j+i]*d[i] for i in range(3)) for j in range(3)]+[1.]\n  clip=[sum(proj[4*j+i]*cam[j] for j in range(4)) for i in range(4)]\n  ndc=[clip[j]/clip[3] for j in range(3)]\n  maxi=[max(maxi[j],abs(ndc[j])) for j in range(3)]\n assert maxi[0]<1 and maxi[1]<1 and maxi[2]<1\n maxima.append({'view':v['name'],'max_abs_ndc':maxi})\nopened=read('NATIVE.OPEN.json');cap=read('NATIVE.CAPTURE.json');closed=read('NATIVE.CLOSED.json')\ndef dt(t):return datetime.datetime.fromisoformat(t.replace('Z','+00:00'))\ntimes=[read('ROOT-NATIVE-ADMISSION.json')['admitted_utc'],opened['opened_utc'],r['observed_utc'],read('ROOT-NATIVE-GATE.json')['verified_utc'],cap['started_utc'],cap['returned_utc'],f['observed_utc'],closed['close_started_utc'],closed['closed_readback_utc']]\nassert [dt(t) for t in times]==sorted(dt(t) for t in times)\nassert all(x['tab_id']=='45' for x in [opened,r,cap,f,closed])\nassert opened['before']==[] and closed['after']==[] and closed['only_owned_closed']\nassert not opened['viewport_override'] and not cap['viewport_override'] and not closed['viewport_override']\nassert cap['sole_original'] and cap['fullPage'] and not cap['retake'] and not cap['crop']\nassert Path(cap['path'])==p/'four-view-first.jpg' and (p/'four-view-first.jpg').stat().st_size==cap['bytes']==120265\nassert sha(p/'four-view-first.jpg')=='5859c4a1341138989de77c8c80d26ff0630ca13807819840a2a91e3d008546dd'\nprint(json.dumps({'pid':os.getpid(),'started_utc':start.isoformat(),'ended_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'elapsed_seconds':time.monotonic()-clock,'receipt_rows_verified':rows,'DOM_records_equal':True,'all22_part_metadata_and_actual_buffer_hashes_match':True,'ready_finished_only_lifetime_changed':True,'source_resource_order':names,'all27_disposal_returns_no_reported_error':True,'all4_actual_saved_camera_vertex_frames':maxima,'admission_native_clock_order':times,'known_tab_closed_before_after_empty':True,'limits':'Saved metadata/byte/rigid-matrix comparison only; no renderer/helper import/producer replay or continuous overlap/attachment/GPU retirement/appearance proof'},indent=2))\n",
+    "command": "python3 - <<'PY'\nimport subprocess,sys,json\ncode=\"from pathlib import Path\\nimport json,hashlib,struct,datetime,os,time,copy\\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source')\\nstart=datetime.datetime.now(datetime.timezone.utc); clock=time.monotonic()\\ndef read(n): return json.loads((p/n).read_text())\\ndef sha(q): return hashlib.sha256(q.read_bytes()).hexdigest()\\ndef verify(row):\\n q=Path(row['path']); assert q.stat().st_size==row['bytes'] and sha(q)==row['sha256'],str(q)\\nrows=0\\nfor n in ['SOURCE-RECEIPT.json','DATA-RECEIPT.json','ROOT-NATIVE-ADMISSION.json']:\\n r=read(n)\\n for row in r['inputs']: verify(row); rows+=1\\n rresult=r.get('result')\\n if rresult: verify(rresult);rows+=1\\nm=read('export/mesh.json'); e=read('export/expected.json')\\nr=read('NATIVE.READY.json'); f=read('NATIVE.FINISHED.json')\\nfor n,o in [('NATIVE.READY',r),('NATIVE.FINISHED',f)]:\\n lines=(p/(n+'.dom.txt')).read_text().splitlines()\\n dom=json.loads(json.loads(lines[-1].removeprefix('- generic: ')))\\n assert dom==o['record']; assert len(lines)==13\\na=r['record']; b=f['record']\\nassert a['meshSha']==e['meshSha']==sha(p/'export/mesh.json')\\npos=struct.pack('<'+'f'*(3*len(m['positions'])),*(c for v in m['positions'] for c in v))\\nassert a['positionSha']==e['positionSha']==hashlib.sha256(pos).hexdigest()\\nassert len(a['parts'])==len(e['parts'])==len(m['parts'])==22\\nfor actual,exp,part in zip(a['parts'],e['parts'],m['parts']):\\n indices=[i for fid in part['face_ids'] for i in m['triangles'][fid]]\\n digest=hashlib.sha256(struct.pack('<'+'I'*len(indices),*indices)).hexdigest()\\n assert actual['id']==exp['id']==part['id']\\n assert actual['kind']==part['kind'] and actual['color']==part['color']\\n assert actual['vertices']==exp['vertices']==len(part['vertex_ids'])\\n assert actual['triangles']==exp['triangles']==len(part['face_ids'])\\n assert actual['indexCount']==len(indices) and actual['indexSha']==exp['indexSha']==digest\\n assert actual['positionSha']==a['positionSha']\\nassert a['vertices']==len(m['positions'])==9580 and a['triangles']==len(m['triangles'])==19072\\nassert a['roots']==len(m['roots'])==16 and a['scalpFaces']==len(m['scalp']['head_face_ids'])==724\\nassert a['bounds']==e['bounds']\\naa=copy.deepcopy(a);bb=copy.deepcopy(b);aa.pop('lifetime');bb.pop('lifetime');assert aa==bb\\nassert a['draws']==b['draws']==4 and a['error'] is None and b['error'] is None\\nnames=[];colors=set()\\nfor part in m['parts']:\\n if part['color'] not in colors: names.append('material '+part['color']); colors.add(part['color'])\\n names.append('geometry '+part['id'])\\nnames.append('renderer')\\nlife=b['lifetime'];assert a['lifetime']=={'closed':False,'reason':None,'attempts':[]}\\nassert life['closed'] and life['reason']=='Finish button'\\nassert [x['name'] for x in life['attempts']]==names and len(names)==27 and all(x['error'] is None for x in life['attempts'])\\nassert r['overflow']==0 and r['viewport']['width']==1280 and r['viewport']['height']==720 and r['viewport']['dpr']==2\\nassert a['stage']==[1100,1100]\\nnames_views=['front','profile','rear','top']\\ndeltas=[[0,0,5],[5,0,0],[0,0,-5],[0,5,0]]\\nvps=[[0,550,550,550],[550,550,550,550],[0,0,550,550],[550,0,550,550]]\\nmaxima=[]\\nfor k,v in enumerate(a['views']):\\n assert v['name']==names_views[k] and v['viewport']==vps[k]\\n assert v['near']==.1 and v['far']==12\\n assert all(abs(v['position'][j]-v['target'][j]-deltas[k][j])<1e-15 for j in range(3))\\n assert v['up']==([0,0,-1] if k==3 else [0,1,0])\\n w=v['matrixWorld'];proj=v['projectionMatrix'];maxi=[0.,0.,0.]\\n for point in m['positions']:\\n  d=[point[j]-w[12+j] for j in range(3)]\\n  cam=[sum(w[4*j+i]*d[i] for i in range(3)) for j in range(3)]+[1.]\\n  clip=[sum(proj[4*j+i]*cam[j] for j in range(4)) for i in range(4)]\\n  ndc=[clip[j]/clip[3] for j in range(3)]\\n  maxi=[max(maxi[j],abs(ndc[j])) for j in range(3)]\\n assert maxi[0]<1 and maxi[1]<1 and maxi[2]<1\\n maxima.append({'view':v['name'],'max_abs_ndc':maxi})\\nopened=read('NATIVE.OPEN.json');cap=read('NATIVE.CAPTURE.json');closed=read('NATIVE.CLOSED.json')\\ndef dt(t):return datetime.datetime.fromisoformat(t.replace('Z','+00:00'))\\ntimes=[read('ROOT-NATIVE-ADMISSION.json')['admitted_utc'],opened['opened_utc'],r['observed_utc'],read('ROOT-NATIVE-GATE.json')['verified_utc'],cap['started_utc'],cap['returned_utc'],f['observed_utc'],closed['close_started_utc'],closed['closed_readback_utc']]\\nassert [dt(t) for t in times]==sorted(dt(t) for t in times)\\nassert all(x['tab_id']=='45' for x in [opened,r,cap,f,closed])\\nassert opened['before']==[] and closed['after']==[] and closed['only_owned_closed']\\nassert not opened['viewport_override'] and not cap['viewport_override'] and not closed['viewport_override']\\nassert cap['sole_original'] and cap['fullPage'] and not cap['retake'] and not cap['crop']\\nassert Path(cap['path'])==p/'four-view-first.jpg' and (p/'four-view-first.jpg').stat().st_size==cap['bytes']==120265\\nassert sha(p/'four-view-first.jpg')=='5859c4a1341138989de77c8c80d26ff0630ca13807819840a2a91e3d008546dd'\\nprint(json.dumps({'pid':os.getpid(),'started_utc':start.isoformat(),'ended_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'elapsed_seconds':time.monotonic()-clock,'receipt_rows_verified':rows,'DOM_records_equal':True,'all22_part_metadata_and_actual_buffer_hashes_match':True,'ready_finished_only_lifetime_changed':True,'source_resource_order':names,'all27_disposal_returns_no_reported_error':True,'all4_actual_saved_camera_vertex_frames':maxima,'admission_native_clock_order':times,'known_tab_closed_before_after_empty':True,'limits':'Saved metadata/byte/rigid-matrix comparison only; no renderer/helper import/producer replay or continuous overlap/attachment/GPU retirement/appearance proof'},indent=2))\\n\"\nr=subprocess.run([sys.executable,'-B','-c',code],capture_output=True,text=True,timeout=30)\nprint(json.dumps({'exit_code':r.returncode,'stdout':r.stdout,'stderr':r.stderr,'timeout':False}))\nPY",
+    "tool_result": {
+      "chunk_id": "3dc194",
+      "wall_time_seconds": 0.033977875,
+      "exit_code": 0,
+      "original_token_count": 687,
+      "output": "{\"exit_code\": 0, \"stdout\": \"{\\n  \\\"pid\\\": 38950,\\n  \\\"started_utc\\\": \\\"2026-10-05T17:16:38.736356+00:00\\\",\\n  \\\"ended_utc\\\": \\\"2026-10-05T17:16:38.850369+00:00\\\",\\n  \\\"elapsed_seconds\\\": 0.1138746669748798,\\n  \\\"receipt_rows_verified\\\": 60,\\n  \\\"DOM_records_equal\\\": true,\\n  \\\"all22_part_metadata_and_actual_buffer_hashes_match\\\": true,\\n  \\\"ready_finished_only_lifetime_changed\\\": true,\\n  \\\"source_resource_order\\\": [\\n    \\\"material #bdb8ad\\\",\\n    \\\"geometry head-reference\\\",\\n    \\\"geometry neck-reference\\\",\\n    \\\"geometry ear-left-reference\\\",\\n    \\\"geometry ear-right-reference\\\",\\n    \\\"geometry front-orientation-marker\\\",\\n    \\\"material #30261f\\\",\\n    \\\"geometry complete-crown-temple-nape-mass\\\",\\n    \\\"material #423127\\\",\\n    \\\"geometry front-sweep-01\\\",\\n    \\\"geometry front-sweep-02\\\",\\n    \\\"geometry front-sweep-03\\\",\\n    \\\"geometry crown-sweep-01\\\",\\n    \\\"geometry crown-sweep-02\\\",\\n    \\\"geometry crown-sweep-03\\\",\\n    \\\"material #382a23\\\",\\n    \\\"geometry right-temple-front\\\",\\n    \\\"geometry right-temple-rear\\\",\\n    \\\"geometry left-temple-front\\\",\\n    \\\"geometry left-temple-rear\\\",\\n    \\\"geometry rear-flow-center\\\",\\n    \\\"geometry rear-flow-right\\\",\\n    \\\"geometry rear-flow-left\\\",\\n    \\\"geometry nape-center\\\",\\n    \\\"geometry nape-right\\\",\\n    \\\"geometry nape-left\\\",\\n    \\\"renderer\\\"\\n  ],\\n  \\\"all27_disposal_returns_no_reported_error\\\": true,\\n  \\\"all4_actual_saved_camera_vertex_frames\\\": [\\n    {\\n      \\\"view\\\": \\\"front\\\",\\n      \\\"max_abs_ndc\\\": [\\n        0.4524238573598323,\\n        0.7936507936507937,\\n        0.32274928707571915\\n      ]\\n    },\\n    {\\n      \\\"view\\\": \\\"profile\\\",\\n      \\\"max_abs_ndc\\\": [\\n        0.48775214546064327,\\n        0.7936507936507937,\\n        0.312154200895697\\n      ]\\n    },\\n    {\\n      \\\"view\\\": \\\"rear\\\",\\n      \\\"max_abs_ndc\\\": [\\n        0.4524238573598323,\\n        0.7936507936507937,\\n        0.32274928707571915\\n      ]\\n    },\\n    {\\n      \\\"view\\\": \\\"top\\\",\\n      \\\"max_abs_ndc\\\": [\\n        0.4524238573598323,\\n        0.48775214546064327,\\n        0.41448943963217955\\n      ]\\n    }\\n  ],\\n  \\\"admission_native_clock_order\\\": [\\n    \\\"2026-10-05T17:04:54.816905+00:00\\\",\\n    \\\"2026-10-05T17:05:16.113Z\\\",\\n    \\\"2026-10-05T17:05:39.487Z\\\",\\n    \\\"2026-10-05T17:05:46.118035+00:00\\\",\\n    \\\"2026-10-05T17:05:57.870Z\\\",\\n    \\\"2026-10-05T17:05:58.032Z\\\",\\n    \\\"2026-10-05T17:06:17.187Z\\\",\\n    \\\"2026-10-05T17:06:27.950Z\\\",\\n    \\\"2026-10-05T17:06:28.064Z\\\"\\n  ],\\n  \\\"known_tab_closed_before_after_empty\\\": true,\\n  \\\"limits\\\": \\\"Saved metadata/byte/rigid-matrix comparison only; no renderer/helper import/producer replay or continuous overlap/attachment/GPU retirement/appearance proof\\\"\\n}\\n\", \"stderr\": \"\", \"timeout\": false}\n"
+    },
+    "actual": {
+      "exit_code": 0,
+      "stdout": "{\n  \"pid\": 38950,\n  \"started_utc\": \"2026-10-05T17:16:38.736356+00:00\",\n  \"ended_utc\": \"2026-10-05T17:16:38.850369+00:00\",\n  \"elapsed_seconds\": 0.1138746669748798,\n  \"receipt_rows_verified\": 60,\n  \"DOM_records_equal\": true,\n  \"all22_part_metadata_and_actual_buffer_hashes_match\": true,\n  \"ready_finished_only_lifetime_changed\": true,\n  \"source_resource_order\": [\n    \"material #bdb8ad\",\n    \"geometry head-reference\",\n    \"geometry neck-reference\",\n    \"geometry ear-left-reference\",\n    \"geometry ear-right-reference\",\n    \"geometry front-orientation-marker\",\n    \"material #30261f\",\n    \"geometry complete-crown-temple-nape-mass\",\n    \"material #423127\",\n    \"geometry front-sweep-01\",\n    \"geometry front-sweep-02\",\n    \"geometry front-sweep-03\",\n    \"geometry crown-sweep-01\",\n    \"geometry crown-sweep-02\",\n    \"geometry crown-sweep-03\",\n    \"material #382a23\",\n    \"geometry right-temple-front\",\n    \"geometry right-temple-rear\",\n    \"geometry left-temple-front\",\n    \"geometry left-temple-rear\",\n    \"geometry rear-flow-center\",\n    \"geometry rear-flow-right\",\n    \"geometry rear-flow-left\",\n    \"geometry nape-center\",\n    \"geometry nape-right\",\n    \"geometry nape-left\",\n    \"renderer\"\n  ],\n  \"all27_disposal_returns_no_reported_error\": true,\n  \"all4_actual_saved_camera_vertex_frames\": [\n    {\n      \"view\": \"front\",\n      \"max_abs_ndc\": [\n        0.4524238573598323,\n        0.7936507936507937,\n        0.32274928707571915\n      ]\n    },\n    {\n      \"view\": \"profile\",\n      \"max_abs_ndc\": [\n        0.48775214546064327,\n        0.7936507936507937,\n        0.312154200895697\n      ]\n    },\n    {\n      \"view\": \"rear\",\n      \"max_abs_ndc\": [\n        0.4524238573598323,\n        0.7936507936507937,\n        0.32274928707571915\n      ]\n    },\n    {\n      \"view\": \"top\",\n      \"max_abs_ndc\": [\n        0.4524238573598323,\n        0.48775214546064327,\n        0.41448943963217955\n      ]\n    }\n  ],\n  \"admission_native_clock_order\": [\n    \"2026-10-05T17:04:54.816905+00:00\",\n    \"2026-10-05T17:05:16.113Z\",\n    \"2026-10-05T17:05:39.487Z\",\n    \"2026-10-05T17:05:46.118035+00:00\",\n    \"2026-10-05T17:05:57.870Z\",\n    \"2026-10-05T17:05:58.032Z\",\n    \"2026-10-05T17:06:17.187Z\",\n    \"2026-10-05T17:06:27.950Z\",\n    \"2026-10-05T17:06:28.064Z\"\n  ],\n  \"known_tab_closed_before_after_empty\": true,\n  \"limits\": \"Saved metadata/byte/rigid-matrix comparison only; no renderer/helper import/producer replay or continuous overlap/attachment/GPU retirement/appearance proof\"\n}\n",
+      "stderr": "",
+      "timeout": false
+    },
+    "scope": "One <=30s independent read-only saved-native metadata/buffer/rigid-camera traversal; no producer/helper import or replay, no rendering or new geometry. Prior independent graph/roots/OBJ observer remains bound by DATA-RECEIPT."
+  },
+  "read_scope": {
+    "image": "Whole sole original four-view-first.jpg via view_image(detail original), before ROOT-IMAGE; independently observed B. No crop/redraw/re-render. Masculine concept whole original independently viewed earlier in this run; no claim its hidden geometry is authority.",
+    "source": "Full literal six source files/contract/PLAN read at prior source admission; unchanged complete bytes reverified via receipts. This final stage re-read complete contract/PLAN and actual pertinent build59–80,108–132/viewer1–22,43–73 ranges. Source review and data observer are preserved unchanged.",
+    "native": "Complete READY and FINISHED JSON plus all their escaped DOM-record content independently compared; clocks/open/capture/close, full admission/gate/root-image metadata and CLOSEOUT read. Initial aggregate output truncation was recovered with per-record reads; no omitted record was treated as inspected.",
+    "prior_data": "Complete saved graph/root/OBJ/buffer independent observer previously invoked once; exact code/streams/command/PIDs retained in unchanged DATA-RECEIPT. No repeated geometry predicate or producer invocation.",
+    "reference": "Previously inspected complete exact single official response; current full bytes reverified and its terminology-only limits retained. No new online request.",
+    "status": "Current exact checklist/roadmap full bytes hash reverified; prior whole/read scopes preserved, no status edit."
+  },
+  "read_commands": [
+    {
+      "chunk": "13b003",
+      "scope": "Native aggregate; output truncated, recovered independently"
+    },
+    {
+      "chunk": "9f9da1",
+      "scope": "Complete compact READY native record"
+    },
+    {
+      "chunk": "d84232",
+      "scope": "Complete compact FINISHED and gate/clock records"
+    },
+    {
+      "chunk": "8693f9",
+      "scope": "DOM format inspection and complete CLOSEOUT"
+    },
+    {
+      "chunk": "b51097",
+      "scope": "DOM/admission/CPU aggregate; truncated, subsequent exact parsing used rather than completeness claim"
+    },
+    {
+      "chunk": "963ebe",
+      "scope": "Complete 13-line DOM text and entire escaped records parsed, equality against full native JSON; mesh schema and prior receipts"
+    },
+    {
+      "chunk": "3dc194",
+      "scope": "Sole bounded independent saved-native observer; full code/command/log embedded"
+    },
+    {
+      "chunk": "0aef27",
+      "scope": "Complete PLAN/contract and selected literal source lines"
+    },
+    {
+      "chunk": "9c6899",
+      "scope": "Exact retained target/status rows and prior result identities"
+    }
+  ],
+  "decisions": {
+    "data": "A preserved finite saved-data scope",
+    "artist_appearance": "B first whole original",
+    "closeout_wording": "A truthful negative-result presentation",
+    "fixed_source_successor": "B tuning/retake/brief-only repetition",
+    "future": "Conditional nomination only if genuinely new complete continuous authoring input exists; no next experiment admitted"
+  },
+  "visual_witnesses": [
+    {
+      "view": "front",
+      "regions": [
+        [
+          254,
+          334,
+          476,
+          502
+        ],
+        [
+          281,
+          301,
+          417,
+          374
+        ],
+        [
+          337,
+          326,
+          382,
+          336
+        ]
+      ],
+      "finding": "Broad helmet mass and raised arch with visible light gap"
+    },
+    {
+      "view": "top",
+      "regions": [
+        [
+          846,
+          935,
+          993,
+          1003
+        ]
+      ],
+      "finding": "Blunt raised band ends"
+    },
+    {
+      "view": "front/profile/rear",
+      "regions": [
+        [
+          242,
+          382,
+          282,
+          496
+        ],
+        [
+          461,
+          383,
+          490,
+          501
+        ],
+        [
+          976,
+          348,
+          1053,
+          610
+        ],
+        [
+          311,
+          928,
+          427,
+          1159
+        ],
+        [
+          819,
+          300,
+          979,
+          375
+        ]
+      ],
+      "finding": "Looping temples, isolated rear bands and blunt profile crown plates"
+    }
+  ],
+  "limits": [
+    "Pixel regions are approximate coordinates on the untouched whole original, not metric surface evidence.",
+    "No actual topological disconnection, intersection, exclusive cause or general renderer defect is inferred.",
+    "No continuous overlap/attachment/clearance/Boolean/anatomy/fit/rig/morph/strand/motion/runtime/AAA acceptance.",
+    "Cleanup call returns and known tab closure do not certify GPU retirement.",
+    "Only RESULT.md and RECEIPT.json written; all source/data/images/previous receipts/defaults frozen untouched."
+  ],
+  "pending_edits": false,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/short-groom-artist-source/RESULT.md",
+    "bytes": 3950,
+    "sha256": "8de24622b4c388e2ba8c20e9f33a982062f304a0541c6aea22caae5f510d3842",
+    "read_scope": "Complete independent final result"
+  }
+}

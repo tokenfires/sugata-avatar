@@ -1,0 +1,18 @@
+{
+  "admitted_utc": "2026-10-05T16:26:14.194364+00:00",
+  "decision": "A exact one official text scrape only; no builder/native source admission",
+  "root_full_handoff_read": "6ca016 complete2203byte RESULT and5428byte receipt, independently verifies13rows here",
+  "receipt_sha256": "3d387bfe41d080c370223cd0b265c1d93c795d876f318b6c3019948fb4343801",
+  "arguments": {
+    "url": "https://docs.blender.org/manual/en/latest/sculpt_paint/curves_sculpting/introduction.html",
+    "formats": [
+      "markdown"
+    ],
+    "maxAge": 0,
+    "onlyMainContent": true,
+    "domainTools": false,
+    "timeout": 20000
+  },
+  "stop_utc": "2026-10-05T16:40:00Z",
+  "limits": "First insufficient/error/capacity response stops, no fallback/query/pixels/download/groom/fit inference. Save complete actual response and timings, then decide. No geometry/native inherited."
+}
