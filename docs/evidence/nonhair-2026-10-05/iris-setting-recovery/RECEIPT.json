@@ -1,0 +1,196 @@
+{
+  "collected_utc": "2026-10-05T19:07:14.888304+00:00",
+  "decision": "B duplicate iris integration preparation; prior conditional A superseded without rewriting it",
+  "plan_bindings_verified": 15,
+  "deadlines": {
+    "inventory_cut_utc": "2026-10-05T19:14:00Z",
+    "critic_stop_utc": "2026-10-05T19:20:00Z",
+    "root_close_stop_utc": "2026-10-05T19:25:00Z"
+  },
+  "direct_inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/README.md",
+      "bytes": 5364,
+      "sha256": "309f18e33525da80373d08758bbe2a94424062618113a24da16873f44d9d7098",
+      "read_scope": "Complete 17-line recovered closeout read."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/CHECKPOINT.md",
+      "bytes": 947,
+      "sha256": "6108610d08d446fb2669595f0e12873d413a1f24cb78014737933fe2378eefe3",
+      "read_scope": "Complete five-line recovered stop/restore record read."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/CRITIC-POSTFLIGHT.md",
+      "bytes": 6870,
+      "sha256": "d41d2dc3886e15ad2a9747bb641e1d02f12fb7121376febf6aea2f4f04837ca4",
+      "read_scope": "Complete 21-line historical independent final result read, including literal failed gates/limits and preserved-observation scope. No old images newly viewed here."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/RESTORATION.json",
+      "bytes": 4854,
+      "sha256": "273a453186e7dd4d90509b4cd6f98965bc519a6796dfe07a04b488545b2304be",
+      "read_scope": "Complete 64-line restoration record read; seven original restorations, two owned removals and ten candidate path/hash mappings observed historically. No restore command or current all-source restoration replay."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/ROOT-HANDOFF.json",
+      "bytes": 50170,
+      "sha256": "cd734de8f56fc091244764000a4cea17cfde2221c28d9d278b92c1b21f41b060",
+      "read_scope": "Complete JSON parsed; all non-pin metadata recovered after aggregate truncation, pin map structurally inspected (411 entries). No rehash/revalidation of those 411 historical inputs or matrix/header evaluator."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/OWNERSHIP-CONTRACT.md",
+      "bytes": 5309,
+      "sha256": "edc62422047a656268b79ab7b11e91d374e9d00cf8d1e0bca186ce1cd853a27e",
+      "read_scope": "Complete 15-line literal prior contract read: enum, actual owner, fallback, serialization, reload, finite composition/lifetime/first-failure."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/CONTRACT-ADDENDUM.md",
+      "bytes": 956,
+      "sha256": "e820913f58ea6d6ce0c6512d7531ea7659a6ecbef065a755e535307dfcf38703",
+      "read_scope": "Complete five-line ownerAvailable/fallback clarification read."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/NATIVE-JOB.json",
+      "bytes": 340,
+      "sha256": "32b62126742f2a209e97be55505111c2e2a93917290c8a5b5798a692860dcd56",
+      "read_scope": "Complete eight-field historical job record read; no native replay."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/archive/capture/report.json",
+      "bytes": 225317,
+      "sha256": "3e13426fd1571db5b9498e6f4aff178c0871b271ea39f38ed012968e266a3b1f",
+      "read_scope": "Complete saved JSON parsed; only failed status, actual job clocks/PID, errors/failedResources, final flag absence and cleanup examined. All 31 failed resource URL/error rows observed; report states/retirements not independently reevaluated."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/archive/capture/instrument.mjs",
+      "bytes": 17525,
+      "sha256": "c4bec378c990e3e05b0aeeeb04fbad7f3f478d3088e157b411c66ee5ffc784bd",
+      "read_scope": "Literal lines 143-164 read; exact bytes compared equal to preserved candidate instrument. No source execution or full new source admission."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/iris-setting-worth/WORTH.md",
+      "bytes": 6157,
+      "sha256": "5b5c8a0a43db49c9cb3e8f68d0f2a82738eee43a6b8f6b21cb2a9ffb0ef9d11b",
+      "read_scope": "Previously authored/read complete same-byte handoff, preserved unchanged; compare its promised duties against recovered prior contract. Its omission of iris-integration supersedes novelty/admission rationale."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/iris-setting-worth/ROOT-OBSERVATION.md",
+      "bytes": 3708,
+      "sha256": "d2cedeaec2676ae3ab3c09361793cca324fd8ae66ff8b821a9f5e0352f9db9a6",
+      "read_scope": "Hash-only bound prior root worth; no new semantic reliance."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/iris-setting-worth/ROOT-CLOSE.json",
+      "bytes": 1626,
+      "sha256": "e5ee163c523ca4e4fc128161dc4a7592c0714584ad7bcb7500ad1a312b160866",
+      "read_scope": "Hash-only prior closure pin, not new runtime evidence."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Hash-only same current 14 scoped/10 broad open document; no edit/status promotion."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Hash-only same current roadmap; full ambition/closed boundaries retained."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/iris-setting-recovery/PLAN.json",
+      "bytes": 4476,
+      "sha256": "899843af7a8663cd2dceb043471dfca5d845aa532b0fba1f3006109c88b87f03",
+      "read_scope": "Complete exact fresh recovery plan read; fifteen plan inputs all independently rehashed."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/candidate-source/tools/critic/iris-integration.mjs.source",
+      "bytes": 17525,
+      "sha256": "c4bec378c990e3e05b0aeeeb04fbad7f3f478d3088e157b411c66ee5ffc784bd",
+      "read_scope": "Literal lines 145-164 first read; hash/byte equality against archive instrument confirmed. No replay or revised observer."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/iris-integration/CANDIDATE-SNAPSHOT.json",
+      "bytes": 2263,
+      "sha256": "2e22349c123faa667cf80ba7dabd78e3ae8ecb3a60548e07140d001597f68616",
+      "read_scope": "Hash-only in initial metadata inventory; no entire candidate-source validation."
+    }
+  ],
+  "actual_saved_gate": {
+    "report_status": "failed",
+    "report_pid": 29981,
+    "report_started": "2026-10-03T20:11:54.542Z",
+    "report_finished": "2026-10-03T20:12:03.591Z",
+    "native_job": {
+      "supervisorPID": 29979,
+      "pid": 29981,
+      "started": "2026-10-03T20:11:54.501891+00:00",
+      "finished": "2026-10-03T20:12:03.607688+00:00",
+      "command": [
+        "node",
+        "tools/critic/iris-integration.mjs"
+      ],
+      "exit": 1,
+      "outputSHA256": "8068826b8ea583beeb2ce83bb7f9e113200c7d18f642cd5b6c445e3a15a3483d",
+      "status": "completed"
+    },
+    "failed_resource_rows": 31,
+    "error_texts": [
+      "net::ERR_ABORTED"
+    ],
+    "assertion_entries": 2,
+    "first_guard": "instrument:154 / stack154:48",
+    "final_repeated_guard": "instrument:162 / stack162:53",
+    "finalPinsUnchanged_present": false,
+    "cleanup_record": {
+      "page": "closed",
+      "browser": "closed"
+    },
+    "cause": "Unknown; no timestamp/document attribution, harmlessness or pigment/renderer defect inferred."
+  },
+  "historical_restoration_scope": "Complete recorded restoration read, not replayed or current whole-source reequality claim; no native rerun.",
+  "commands": [
+    {
+      "tool_return": "f0d7bb",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T19:03:35.026451+00:00",
+      "scope": "Named local leaf inventory and metadata. Requested ROOT-HANDOFF.md/RESTORATION.md/ADDENDUM.md do not exist; actual .json and CONTRACT-ADDENDUM.md resolved from inventory."
+    },
+    {
+      "tool_return": "e58fbf",
+      "exit_code": 0,
+      "scope": "All five complete historical prose documents read, untruncated."
+    },
+    {
+      "tool_return": "694efb",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T19:04:12.033309+00:00",
+      "scope": "Aggregate metadata read truncated because full root pin map/error strings were large; relied-upon fields recovered separately. Instrument literal gate lines were visible."
+    },
+    {
+      "tool_return": "4cca7f",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T19:05:03.580606+00:00",
+      "scope": "Complete new PLAN and restoration recovered, complete non-pin ROOT-HANDOFF metadata/411-map structure, whole NATIVE-JOB, actual report failure count/error types/guard locations/cleanup."
+    },
+    {
+      "tool_return": "727e57",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T19:05:38.917694+00:00",
+      "scope": "All fifteen PLAN hashes verified; actual archive/candidate instrument byte equality and complete lines143-164 read. No application execution."
+    }
+  ],
+  "limits": [
+    "Local stdlib Python used only for local metadata/JSON read/hash and own handoff assembly; no application/helper/test/import/replay or shader/material/Avatar evaluation.",
+    "No new images/native/GPU/browser/network/capture/build/source or product/default/storage change.",
+    "Historical report JSON parsed; no all-state/retirement/411-pin/header/matrix revalidation or old pixel requalification.",
+    "The earlier worth omission is corrected only in this separate leaf. It remains exact and cannot supply duplicate execution permission.",
+    "Only exclusive WORTH.md and RECEIPT.json written; no successor admitted."
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/iris-setting-recovery/WORTH.md",
+    "bytes": 4885,
+    "sha256": "698249a2eea7dd7edce9c714bcfa33f56978bf610cb0f87798b7edb97177c6b8"
+  }
+}
