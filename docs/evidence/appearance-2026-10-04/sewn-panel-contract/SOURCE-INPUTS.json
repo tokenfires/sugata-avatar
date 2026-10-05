@@ -1,0 +1,72 @@
+{
+  "utc": "2026-10-05T01:22:56.322731+00:00",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/PANEL-CONTRACT.md",
+      "bytes": 13054,
+      "sha256": "4a7bb06cd04f9bb823e541df7ced962b5748a7f207c1c3a61b5c0f709cad43d4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/COS-REFERENCE.json",
+      "bytes": 35522,
+      "sha256": "71d660d9bf7bd823c2a0f61fe1ab132d8120963351c077c25d67d938f7436dbc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/TIN-CAN-REFERENCE.json",
+      "bytes": 64349,
+      "sha256": "e53c0ca9dd244574f553b57c87be87af61c154556531a52a2183a4e0be5acae4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/PLAN.json",
+      "bytes": 1609,
+      "sha256": "54821a2300dcc4326fdf921c4cfa77d27deb7d14d26dcb6700ddced7a5dc2721"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/INPUTS.json",
+      "bytes": 2699,
+      "sha256": "0fc6020e8d33e529754be5373efa3447bac86ccb865830eb6e5ebc8c5f355aee"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/WORTH.md",
+      "bytes": 2802,
+      "sha256": "22babb932331fb1daa2d6a5ee15b4be7e5be115e8494b568e86bb2e5e20c9798"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/WORTH-RECEIPT.json",
+      "bytes": 3970,
+      "sha256": "557214dbf29c9dffbeb7c7a9485adab7ca5185fb6e28a7ee07cb8ceac2d3404f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/ROOT-WORTH.json",
+      "bytes": 3713,
+      "sha256": "4135cfe00b1b169f406358c0abe509bfb81530c79e6ea3abe869f55481283fe7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/primary-whole.jpg",
+      "bytes": 21438,
+      "sha256": "082f8bfc6eed3ab91eeb145ab80f5f6809c02eeaaa3f1bc94498f40116a2dabc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/REFERENCES.md",
+      "bytes": 2381,
+      "sha256": "b9109f0655b6f07250ba731745ba1f11eff4cad49319b83c22cd3f689618513e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-shape-sheet/primary-diagram.jpg",
+      "bytes": 66871,
+      "sha256": "05de1a9f6396ffcc01dded902e3469adbad511eaedc114c117338ee1b2027d15"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-shape-sheet/REFERENCES.md",
+      "bytes": 2766,
+      "sha256": "9a07f410282891afba1baa59e9c96e1e92bb3b134dba4f1baf921aa39ce4a511"
+    }
+  ],
+  "scope": "Complete authored expressions/provenance only; no metric evaluation or mesh",
+  "observedImages": [
+    "docs/evidence/appearance-2026-10-04/knit-character-concept/primary-whole.jpg",
+    "docs/evidence/appearance-2026-10-04/knit-shape-sheet/primary-diagram.jpg"
+  ],
+  "remoteImageReads": "two COS media URLs unavailable via web tool; one bounded image query empty; no retry/browser/download",
+  "referenceCalls": "two live Firecrawl pages, status200, one credit each; reused unchanged historical native observations"
+}

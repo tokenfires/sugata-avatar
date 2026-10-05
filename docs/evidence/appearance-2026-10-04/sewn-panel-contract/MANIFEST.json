@@ -1,0 +1,116 @@
+{
+  "utc": "2026-10-05T01:31:35.916529+00:00",
+  "payloads": [
+    {
+      "path": "CHECKPOINT.md",
+      "bytes": 1646,
+      "sha256": "0f6203f5db9290f6db7b19c898665d97f710076326155147724575c17fd07a78"
+    },
+    {
+      "path": "COS-REFERENCE.json",
+      "bytes": 35522,
+      "sha256": "71d660d9bf7bd823c2a0f61fe1ab132d8120963351c077c25d67d938f7436dbc"
+    },
+    {
+      "path": "CRITIC-RECEIPT.initial.json",
+      "bytes": 7678,
+      "sha256": "5cae05779c444d2973a3fb9d5d65daea9d243971704a9e9026e86bfe28f858b4"
+    },
+    {
+      "path": "CRITIC-RECEIPT.json",
+      "bytes": 11641,
+      "sha256": "7b6d404fd966b529468ee6fb8502cb97c7e76528f9d995b4f84df99e72f75f15"
+    },
+    {
+      "path": "FINAL-BINDING-RECEIPT.json",
+      "bytes": 4747,
+      "sha256": "a88815d45de262313797df7d895bd2b5e66c1ea9d8b64664454c8b0d16975a23"
+    },
+    {
+      "path": "FINAL-SOURCE.json",
+      "bytes": 3559,
+      "sha256": "2447ea97454a345f2d1e976be23fa47e410de6988584f1fdcbd0842c268c483b"
+    },
+    {
+      "path": "INPUTS.json",
+      "bytes": 2699,
+      "sha256": "0fc6020e8d33e529754be5373efa3447bac86ccb865830eb6e5ebc8c5f355aee"
+    },
+    {
+      "path": "PANEL-CONTRACT.md",
+      "bytes": 13054,
+      "sha256": "4a7bb06cd04f9bb823e541df7ced962b5748a7f207c1c3a61b5c0f709cad43d4"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 1609,
+      "sha256": "54821a2300dcc4326fdf921c4cfa77d27deb7d14d26dcb6700ddced7a5dc2721"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1831,
+      "sha256": "f153ba4945b74a040f26b7f5780f94e3af8f81bfdaea6b4dc5c4f53e805350e4"
+    },
+    {
+      "path": "RECEIPT.md",
+      "bytes": 3958,
+      "sha256": "668fa9a6bc22ba3466698d89f0085f5509bdc2bb0e12472ae8322b989fbab8ec"
+    },
+    {
+      "path": "REFERENCES.md",
+      "bytes": 2686,
+      "sha256": "2fa2fa6f03b52e6f86af3e49375a52a181e2e2abc821a82154ba41c3091a0ded"
+    },
+    {
+      "path": "REPRESENTATIVE-CLARIFICATION.md",
+      "bytes": 3752,
+      "sha256": "7c81f8e181ebf75b217d01bcb3bb22dbb7fd05ff7aecf50522a729e54919f451"
+    },
+    {
+      "path": "ROOT-FINDING.md",
+      "bytes": 1968,
+      "sha256": "36b64f5f8c61c693825e5303e31d535195e7df5c2468464509d82ed4090c1ece"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 18315,
+      "sha256": "dcaaa0a552278af13a44502512c5abd68fca392918851475629493fde394c726"
+    },
+    {
+      "path": "ROOT-WORTH.json",
+      "bytes": 3713,
+      "sha256": "4135cfe00b1b169f406358c0abe509bfb81530c79e6ea3abe869f55481283fe7"
+    },
+    {
+      "path": "SOURCE-INPUTS.json",
+      "bytes": 3077,
+      "sha256": "2d90f2b2f0590fe464deb9d70675b64a88aa950c7f7fdb60d25ad1b2307a3fa7"
+    },
+    {
+      "path": "SOURCE-RESULT.md",
+      "bytes": 4234,
+      "sha256": "22c2cddf16e002f1bb4c27caabb4cfe4805587b5780ca256f6124a30dea5cda4"
+    },
+    {
+      "path": "TIN-CAN-REFERENCE.json",
+      "bytes": 64349,
+      "sha256": "e53c0ca9dd244574f553b57c87be87af61c154556531a52a2183a4e0be5acae4"
+    },
+    {
+      "path": "WORTH-RECEIPT.json",
+      "bytes": 3970,
+      "sha256": "557214dbf29c9dffbeb7c7a9485adab7ca5185fb6e28a7ee07cb8ceac2d3404f"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 2802,
+      "sha256": "22babb932331fb1daa2d6a5ee15b4be7e5be115e8494b568e86bb2e5e20c9798"
+    },
+    {
+      "path": "root-bindings.py",
+      "bytes": 3801,
+      "sha256": "acea2a15b43d0bc5dbb20392ebb13bb7ed914acec123f7dbec97ccb32f9d6000"
+    }
+  ],
+  "scope": "Combined source-only contract and readback; excludes MANIFEST and FREEZE metadata from self hashes; original/accepted/source fields uncomputed"
+}

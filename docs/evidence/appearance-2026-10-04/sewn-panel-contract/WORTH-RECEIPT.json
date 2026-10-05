@@ -1,0 +1,100 @@
+{
+  "utc": "2026-10-05T01:17:07.252153+00:00",
+  "decision": "A conditional source authorship only; B construction now",
+  "scope": "Full PLAN/INPUTS/prior RESULT/ROOT-FINDING/POLICY read; all13 input bytes hashed. Previously actually inspected complete coverage originals. No geometry/source producer evaluation, constructor, native, browser or online work.",
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/RESULT.md",
+      "bytes": 4738,
+      "sha256": "157cc4408115c86ef585b38b8b67be11bc4d1fadb07df18739c17993a4b2121c",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-RECEIPT.json",
+      "bytes": 36626,
+      "sha256": "c1a1a6c598345f18b5d0a7b73f216a91b0a27677661523b5383612ec337068f5",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-DATA-RESULT.json",
+      "bytes": 4417,
+      "sha256": "10243cab22c46f25e8852236bd238a944fe57b4169db9a81e8b6f58e2f4a02c8",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/MANIFEST.json",
+      "bytes": 12379,
+      "sha256": "cb209db18109461e5934629daa764c5bdaa720100383793f8f23505492c94cce",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-FINDING.md",
+      "bytes": 2558,
+      "sha256": "ac90ff78b0601b2c3dadc69de7e6a250e14c03ad8da801c55702693fc7ee5a97",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-back.jpg",
+      "bytes": 61844,
+      "sha256": "d46a402c0ec86a0cd7b6b8e286aa879874546fa5332ca87d9783b7742899957c",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-oblique.jpg",
+      "bytes": 63758,
+      "sha256": "e6b1748ad07e9aa9ced70e9400d3d60e924a87f756469c956e265928fb7fca19",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/SURFACE-CONTRACT.md",
+      "bytes": 15428,
+      "sha256": "6f258951246c40820e664ac02816a4fc9e3b79102ee48d67af771876df43bc5a",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/CLARIFICATIONS.md",
+      "bytes": 5109,
+      "sha256": "c8beb096afac32436a1e22168f134f98374eae07a828f102b5d10920c713bcb4",
+      "verified": true
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "verified": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/PLAN.json",
+      "bytes": 1609,
+      "sha256": "54821a2300dcc4326fdf921c4cfa77d27deb7d14d26dcb6700ddced7a5dc2721"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/INPUTS.json",
+      "bytes": 2699,
+      "sha256": "0fc6020e8d33e529754be5373efa3447bac86ccb865830eb6e5ebc8c5f355aee"
+    }
+  ],
+  "worth": {
+    "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/WORTH.md",
+    "bytes": 2802,
+    "sha256": "22babb932331fb1daa2d6a5ee15b4be7e5be115e8494b568e86bb2e5e20c9798"
+  }
+}
