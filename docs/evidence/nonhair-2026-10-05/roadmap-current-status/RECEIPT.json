@@ -1,0 +1,166 @@
+{
+  "saved_utc": "2026-10-05T11:35:32.818206+00:00",
+  "stop_utc": "2026-10-05T11:48:00Z",
+  "worth": "A documentation reconciliation; source/readability evidence can change partial-status wording without replay",
+  "decision": "A exact two-edit draft only, main installation awaits root verification",
+  "bindings": [
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "read_scope": "Current exact before bytes verified; reviewed through preserved before and complete draft/diff"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Complete matching prior delivery draft read; current counts and exact bytes reverified"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b",
+      "read_scope": "Complete current module lines1\u2013102"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93",
+      "read_scope": "Complete current component lines1\u201372"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "Targeted current integration/ownership lines1\u2013132,203\u2013298,480\u2013498; no full file-read claim"
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664",
+      "read_scope": "Targeted policy/dressing/floor ownership lines510\u2013555,740\u2013840; no full file-read claim"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md",
+      "bytes": 2518,
+      "sha256": "61ceb90b2fd595d16af967736816c09414c156ab1bd87e59ad4bf1cf832ae608",
+      "read_scope": "Complete current accepted UI delivery read"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/RESULT.md",
+      "bytes": 4068,
+      "sha256": "3a7680665af796a298884ec63ae60229f32919cd9c4fecf575f240f6242ddf90",
+      "read_scope": "Complete accepted actual-image/configuration result read; no new live validation"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/ROOT-CLOSE.json",
+      "bytes": 2775,
+      "sha256": "aa0d4b43ea5c35d61c3eaff187f0fc13574c3fdf5cf7c11279017c82a56df011",
+      "read_scope": "Hash/size-only verification of retained root-close record; no new closure/runtime inference"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/REQUEST.jpg",
+      "bytes": 49567,
+      "sha256": "d41ed883c4a05ac8457b6ec3f7701e14b9567597c290b426d6ad0d99d0901328",
+      "read_scope": "Actually viewed full unchanged original at original detail in11b001"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/MOBILE.jpg",
+      "bytes": 35894,
+      "sha256": "2aee78c25190f73d0bd166a49e968ca90c5649efd1646d27b685912516802f3a",
+      "read_scope": "Actually viewed full unchanged original at original detail in11b001"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "bytes": 2553,
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451",
+      "read_scope": "Complete delivery read in93a90a; current bytes reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/ROOT-CLOSE.json",
+      "bytes": 2385,
+      "sha256": "804eb7e2a1be400891c9ed7b41282c6cb2d5f34668a5abb4b60856407aa4f1b1",
+      "read_scope": "Hash/size-only verification of retained root-close record; no new closure/runtime inference"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/RESULT.md",
+      "bytes": 3375,
+      "sha256": "aa37460c6f1cb119a8680f887799b0235cebe7104345db8601b2c07f512961ae",
+      "read_scope": "Collected critic actual-image/data result, previously authored/read; current bytes reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "bytes": 47399,
+      "sha256": "5fd1071f64a7a7a1ebb5e36bd677b6412defba321a061a2e34e5b8dfb15b65da",
+      "read_scope": "Previously actually viewed full unchanged original at original detail in ac2108; hash-only now"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/roadmap-current-status/PLAN.json",
+      "bytes": 1894,
+      "sha256": "23aab14961ca6580e470e1d318ffb8188e20982e59d051e8eaa3dd02a5fee82f",
+      "read_scope": "Complete current plan read"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/roadmap-current-status/PRODUCT-ROADMAP.before.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "read_scope": "Complete byte comparison and diff against fully read draft; no numerical/runtime replay"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/roadmap-current-status/PRODUCT-ROADMAP.review.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Complete literal draft read including omitted-range readback; full exact diff"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/roadmap-current-status/INPUTS.json",
+      "bytes": 3951,
+      "sha256": "17d48c54a84763aa1606c5f55c47c594864e7c10c270c371cfa6464298a4e066",
+      "read_scope": "Complete 18-row inputs manifest; all bytes verified"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/roadmap-current-status/RESULT.md",
+    "bytes": 2947,
+    "sha256": "5d276b8a3706e05f942fbdf48136848dde904a21310d8e08ca02634f21f44a94",
+    "read_scope": "Final collected worth/draft verdict"
+  },
+  "read_records": [
+    {
+      "tool_chunk": "c1e700",
+      "scope": "Complete PLAN/INPUTS; scoped file list"
+    },
+    {
+      "tool_chunk": "11b001",
+      "scope": "Draft/diff literal read and both complete original UI images at original detail; initial output omitted261tokens around62\u201367"
+    },
+    {
+      "tool_chunk": "bd9db1",
+      "scope": "Complete chooser/component and explicit draft60\u201375 readback resolves omitted lines"
+    },
+    {
+      "tool_chunk": "1921bd",
+      "scope": "Directed source ownership symbol/line search only"
+    },
+    {
+      "tool_chunk": "4763ec",
+      "scope": "Targeted Showcase/Wardrobe ranges and complete accepted UI README/RESULT"
+    },
+    {
+      "tool_chunk": "e41412",
+      "scope": "All18 exact bindings, two-edit byte reversal, main-before equality,75 local links and current13/10 checklist counts; no producer/test imports",
+      "exit": 0,
+      "utc": "2026-10-05T11:33:40.357532+00:00"
+    }
+  ],
+  "scoped_checks": {
+    "all18_manifest_rows_match": true,
+    "exact_two_edits_reversal": true,
+    "main_roadmap_observed_equals_before": true,
+    "preserved_before_authority": "PRODUCT-ROADMAP.before.md",
+    "roadmap_local_links_existing": 75,
+    "current_checklist_checked": 13,
+    "current_checklist_open": 10
+  },
+  "limits": "No execution/import/testing, asset decode, geometric fit computation, HTTP/browser/GPU/capture, candidate edit or main-roadmap edit by critic. Four current source files only; two complete and two targeted. Complete draft/historical consistency read does not requalify unchanged historical claims. Accepted source/UI/artist records remain their original bounded evidence; physical fit/mood/persistent agency/full dressing/AAA stay open."
+}
