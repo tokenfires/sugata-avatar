@@ -1,0 +1,69 @@
+{
+  "savedUTC": "2026-10-05T00:36:57.607646+00:00",
+  "rootCloseGateUTC": "2026-10-05T00:39:19.599169+00:00",
+  "scope": "Separate metadata wording correction only; original bound sources/manifests/results/receipts unchanged",
+  "executableVerdict": "Unchanged A complete source preparation, no construction/native admission",
+  "originalBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/PREP-SCHEMA.json",
+      "bytes": 2890,
+      "sha256": "dfa836c5170867d56028fef023ed67bf0adbd624b2153e452c80fa7e81ed0034"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE-RESULT.md",
+      "bytes": 4610,
+      "sha256": "9d6541d6916ec8e335c52eb35b8f6c978a9419eec280b2f94774f4880b88ea06"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE.md",
+      "bytes": 7546,
+      "sha256": "5990e3da838383482750316a84e68e8a6f7087381fffc6ece45d532124238533"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE-RECEIPT.json",
+      "bytes": 10645,
+      "sha256": "97695c272cdb55091eae3ff5e4ab8f6ed9a41c4c215f13f7ae0030d9399e23f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE-INPUTS.json",
+      "bytes": 4907,
+      "sha256": "885f31f5005fb17efadece699b472b92b5f86a2c42ded7854866467be8972bee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/RECEIPT.md",
+      "bytes": 3911,
+      "sha256": "86b77474c61a4e3a43361294bd72a3e5c16ec5b887bccd682a765836925f1ead"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/ROOT-AST.json",
+      "bytes": 2022,
+      "sha256": "d943bc66f9969b27a41af695de1d1c4e1f2d5971bbf5bc51303f3321cea4b911"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/STATE.json",
+      "bytes": 914,
+      "sha256": "6700f5bce921e5aba85b9f119cdc09fdebc63754b7c6162794e10366e2852c5f"
+    }
+  ],
+  "note": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SCOPE-CORRECTION.md",
+    "bytes": 1959,
+    "sha256": "db1bfc0ed64365fd19e69b5437593204efc564fa3b0bb3b87ec31d7f62aab645"
+  },
+  "witnesses": [
+    "PREP-SCHEMA.json:2-56 existing saved JSON schema",
+    "PREP-SCHEMA.json:58-138 existing plane literals",
+    "PREP-SCHEMA.json:139-168 example existing IDs/barycentrics",
+    "RECEIPT.md:7 records root c63185/exit0 existing saved JSON schema inspection"
+  ],
+  "metadataProcess": {
+    "pid": 79101,
+    "startedUTC": "2026-10-05T00:36:57.607032+00:00",
+    "operation": "Read frozen metadata/text, hash exact bytes and save separate correction only"
+  },
+  "candidateImports": 0,
+  "candidateExecutions": 0,
+  "geometryEvaluations": 0,
+  "originalGLBDecodes": 0,
+  "newNativeCaptures": 0
+}

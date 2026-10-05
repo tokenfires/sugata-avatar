@@ -1,0 +1,169 @@
+{
+  "ledgerKeys": [
+    "scope",
+    "inputs",
+    "assets",
+    "owners",
+    "bounds",
+    "vertexCount",
+    "observedBounds",
+    "maximumBoundErrorMetres"
+  ],
+  "ledgerOwnerKeys": [
+    "key",
+    "name",
+    "uuid",
+    "association",
+    "sourceNodeRecord",
+    "sourceMeshRecord",
+    "accessors",
+    "vertexIDs",
+    "basePositions",
+    "jointIndices",
+    "rawWeights",
+    "loaderNormalizedFloat32Weights",
+    "inverseBindMatrices",
+    "boneSkinMatrices",
+    "worldPositions",
+    "triangleIDs",
+    "triangles",
+    "bounds"
+  ],
+  "partitionKeys": [
+    "owners",
+    "status",
+    "policy",
+    "planes",
+    "ledgerPin",
+    "triangleCount",
+    "maximumAreaErrorSquareMetres",
+    "sharedEdgeWitnesses",
+    "maximumSharedEdgeErrorMetres"
+  ],
+  "partitionOwnerKeys": [
+    "key",
+    "name",
+    "uuid",
+    "required",
+    "exposed",
+    "cut",
+    "degenerate",
+    "sourceTriangles",
+    "sourceVertices",
+    "areaSquareMetres"
+  ],
+  "planes": [
+    {
+      "name": "neck",
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "origin": [
+        0.0,
+        1.425,
+        0.0
+      ]
+    },
+    {
+      "name": "hem",
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "origin": [
+        0.0,
+        0.82,
+        0.0
+      ]
+    },
+    {
+      "name": "cuff_l",
+      "normal": [
+        -0.5112641203138838,
+        0.5200705037271678,
+        -0.6842044069082285
+      ],
+      "origin": [
+        0.44542589397128357,
+        1.0233330556297953,
+        0.17296551767825433
+      ],
+      "elbow": [
+        0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "hand": [
+        0.45309485577599184,
+        1.0155319980738877,
+        0.18322858378187776
+      ],
+      "outward": [
+        0.5112641203138838,
+        -0.5200705037271678,
+        0.6842044069082285
+      ]
+    },
+    {
+      "name": "cuff_r",
+      "normal": [
+        0.5112641203138838,
+        0.5200705037271678,
+        -0.6842044069082285
+      ],
+      "origin": [
+        -0.44542589397128357,
+        1.0233330556297953,
+        0.17296551767825433
+      ],
+      "elbow": [
+        -0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "hand": [
+        -0.45309485577599184,
+        1.0155319980738877,
+        0.18322858378187776
+      ],
+      "outward": [
+        -0.5112641203138838,
+        -0.5200705037271678,
+        0.6842044069082285
+      ]
+    }
+  ],
+  "firstCutKeys": [
+    "id",
+    "required",
+    "exposed",
+    "traces",
+    "areaError"
+  ],
+  "cutRequired": [
+    [
+      0.6143204836020951,
+      0.0,
+      0.3856795163979049
+    ],
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.44766809301758187,
+      0.5523319069824182,
+      0.0
+    ]
+  ],
+  "triangle": 26756,
+  "firstLedgerTriangle": [
+    5283,
+    0,
+    1
+  ]
+}

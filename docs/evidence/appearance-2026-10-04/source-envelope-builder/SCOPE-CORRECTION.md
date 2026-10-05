@@ -1,0 +1,9 @@
+# Scope correction after the fixed source-save gate
+
+The phrase “no source data was decoded” in SOURCE-RESULT.md:5 was too broad and is retracted. The same qualification governs “no ledger decode” in SOURCE.md:3 and “ledger/GLB decode” in RECEIPT.md:5. These frozen historical files remain unchanged.
+
+PREP-SCHEMA.json:2–56 contains saved ledger/owner/partition key lists; 58–138 contains existing plane literals; 139–168 contains example cut keys, barycentrics, triangle count and source indices. RECEIPT.md:7 explicitly records c63185/exit0 as inspection of the existing saved JSON schema. Preparation therefore **JSON-parsed the retained LEDGER.json and PARTITION.json and inspected their existing schema/values**. My review read that schema output and JSON-parsed metadata manifests for byte verification. This is different from decoding the original GLBs or evaluating candidate geometry.
+
+The accurate narrower scope is: no original GLB decode, candidate-module import/execution, source-coordinate geometric computation, candidate predicate/kernel/field/grid/mesh evaluation, or native capture occurred in this preparation. Parsing already saved JSON is included in the work and must not be described as absent. PREP-SCHEMA is an inspection result, not a new computed source surface or clearance result.
+
+A preserve this separate correction with the exact original pins: this makes the historical scope truthful without altering reviewed executable code, artist values, manifests or the expired source gate. B leave the broader wording unqualified would misstate the actual preparation. The existing executable-source verdict is unchanged because the cited operation only inspected saved data and did not execute the six candidate modules or change their predicates. This correction adds no execution or native admission and does not extend any gate. A future sole construction still requires its own separate plan and root admission.

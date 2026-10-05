@@ -1,0 +1,100 @@
+{
+  "utc": "2026-10-05T00:06:21.910248+00:00",
+  "decision": "A entire fixed executable-source preparation only; no execution/native admission",
+  "nineInputsExact": true,
+  "effortMinutes": 35,
+  "sourceSaveGate": "2026-10-05T00:35:19.599169+00:00",
+  "rootCloseGate": "2026-10-05T00:39:19.599169+00:00",
+  "actuallyViewedCompleteSourceImages": "Both 1280x859 coverage originals inspected in96bf12, not newly captured",
+  "fullPlanInputRead": "4578c9",
+  "pathResolution": {
+    "initial": "Incorrect October5 evidence prefix was absent in c9abd5; no candidate input evaluated",
+    "resolved": "rg files c65996 found current October4 packet; complete actual PLAN/INPUTS then read"
+  },
+  "fullPriorContractReview": "43684f/376025/8474f2 and source-envelope-contract/SOURCE-RESULT.md",
+  "sourceOnlyConditions": [
+    "All six modules complete and inspected",
+    "Exact full-domain predicates and explicit narrow-phase cases",
+    "No artist/geometry/threshold/policy changes",
+    "Actual failure operands and external finite accounting",
+    "Separate fresh execution/root admission before invocation"
+  ],
+  "noCodeAuthorshipImportsFieldPredicateLedgerGLBDecodeEngineOnlineNativeOrFrozenEdits": true,
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/SURFACE-CONTRACT.md",
+      "bytes": 15428,
+      "sha256": "6f258951246c40820e664ac02816a4fc9e3b79102ee48d67af771876df43bc5a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/CLARIFICATIONS.md",
+      "bytes": 5109,
+      "sha256": "c8beb096afac32436a1e22168f134f98374eae07a828f102b5d10920c713bcb4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/ARTIST.json",
+      "bytes": 2604,
+      "sha256": "42989446292114fa4c7af9d1705094a97d45aeb3e2f77d49565807a40a141464"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/SOURCE-RESULT.md",
+      "bytes": 4594,
+      "sha256": "bc1298b5fd9231bfb5f64d50583faaa0db6d0a9211f8fd456c4ac82e1bc0c813"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/SOURCE-RECEIPT.json",
+      "bytes": 7477,
+      "sha256": "6be0ed0d82de2e321ff2048bbdde690e403af4cf1e6157bed56aa378272bece2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/ROOT-RESULT.json",
+      "bytes": 2510,
+      "sha256": "0fe0d1922bc57f9aedd93cc72e19a3c0a2cfd046d6bdcdb7c90bfdf57aaae2ab"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/MANIFEST.json",
+      "bytes": 3470,
+      "sha256": "a9e176f536df81fba4e21b8a4c93d9b199a4c1f189ab3c8b429ab216bca87160"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/PLAN.json",
+      "bytes": 1628,
+      "sha256": "e743344c80e795e5845d0628c87b2fbdd8b8a8e499d4695469e4bdf412521099"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/INPUTS.json",
+      "bytes": 1925,
+      "sha256": "79084a1fefecae1248f547362bc13c93081414faadd4baae9b26a9a74d8555ab"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/WORTH.md",
+      "bytes": 2990,
+      "sha256": "fafc30b81fd8d46a0b46b50f8e57f352339f9e88e0c16883a89004efd5dc0b01"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-back.jpg",
+      "bytes": 61844,
+      "sha256": "d46a402c0ec86a0cd7b6b8e286aa879874546fa5332ca87d9783b7742899957c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-oblique.jpg",
+      "bytes": 63758,
+      "sha256": "e6b1748ad07e9aa9ced70e9400d3d60e924a87f756469c956e265928fb7fca19"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    }
+  ]
+}

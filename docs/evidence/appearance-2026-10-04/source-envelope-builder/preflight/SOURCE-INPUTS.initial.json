@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-05T00:28:28.775011+00:00",
+  "scope": "Full final unrun source and source-only review inputs; installed Python executable pin does not claim complete dependency/environment inventory",
+  "sources": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py",
+      "bytes": 9555,
+      "sha256": "5d0c38013b748fef05d659ad4962c40159f70a884f56a16a7c50e337997c9414"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/author.py",
+      "bytes": 7533,
+      "sha256": "e7deac048f0ad3d70ebf6bd3cd2fe87b03983068eae1a6e867313ce981fdb4cc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/exact.py",
+      "bytes": 7314,
+      "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/runner.py",
+      "bytes": 3896,
+      "sha256": "eabc740fee18e47f5f875e87b52edca37f32b03051240a841bcb2f1eb6224bea"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/spatial.py",
+      "bytes": 4682,
+      "sha256": "d86a340992acbbc6ce73730c7b8b57fe3d79e9e573123d863615865761fc9562"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/surface.py",
+      "bytes": 14548,
+      "sha256": "b7e3f1174147589d2f4142f5df7c2eb54afc18b9baf63771308984e0a16dbd62"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE.md",
+      "bytes": 7327,
+      "sha256": "69544389d4e46a4f580a695efc36c8cbfcfcec527412e152d93e934f49e2719c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/PLAN.json",
+      "bytes": 1628,
+      "sha256": "e743344c80e795e5845d0628c87b2fbdd8b8a8e499d4695469e4bdf412521099"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/INPUTS.json",
+      "bytes": 1925,
+      "sha256": "79084a1fefecae1248f547362bc13c93081414faadd4baae9b26a9a74d8555ab"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/PREP-SCHEMA.json",
+      "bytes": 2890,
+      "sha256": "dfa836c5170867d56028fef023ed67bf0adbd624b2153e452c80fa7e81ed0034"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/WORTH.md",
+      "bytes": 2990,
+      "sha256": "fafc30b81fd8d46a0b46b50f8e57f352339f9e88e0c16883a89004efd5dc0b01"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/WORTH-RECEIPT.json",
+      "bytes": 4370,
+      "sha256": "503aef84f765a55cfcd64ab57cfe6457463886ae4604589519090ce63c828d37"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/ROOT-WORTH.json",
+      "bytes": 984,
+      "sha256": "65ab92a0fba93c47c0f145f212f18cfd2cf9287d1cb01535cab12e080f845251"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/ROOT-AST.json",
+      "bytes": 2022,
+      "sha256": "45daac6fe46000f898be2c09dfc14536ca9856f0b8fdea367d79804dacc132ba"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/PREFLIGHT-CHANGES.json",
+      "bytes": 883,
+      "sha256": "5ccfa2e8deecec83da2dad71f2a66b0353243946b437af69ce5ecd20d6de57c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/ROOT-AST.initial.json",
+      "bytes": 2022,
+      "sha256": "91c405b08ee65af960097a9e6d459a22a8d5f74f4f8ea402fb1c28253510cf1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/audit.py.initial",
+      "bytes": 9452,
+      "sha256": "29463e89b5afc16e5281a054034355c914a0ceaaee9e53d36959d55821369881"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/surface.py.initial",
+      "bytes": 14427,
+      "sha256": "d65b8803e79230ff99ef1749c72c8d117f458561d9bca92e08480d3bd4213732"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    }
+  ]
+}

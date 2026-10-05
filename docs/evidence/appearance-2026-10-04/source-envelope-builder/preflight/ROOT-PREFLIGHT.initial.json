@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-05T00:29:44.783633+00:00",
+  "pinSets": {
+    "INPUTS.json": 9,
+    "SOURCE-INPUTS.json": 19,
+    "WORTH-RECEIPT.json": 15
+  },
+  "readAllSixSourceModules": true,
+  "exactPredicateSourceReasoning": "Full convex coplanar clipping/noncoplanar interval intersection; complete6vertex-face+9edge-edge distance and intersection; only declared simplex; inclusive exact box bounds/slabs; ambiguity refusal, never sampled substitution. Source reasoning only, not executed geometry proof.",
+  "preflightEditsIndependentlyRead": "Allareaobserver and fullpool retention additions inspected; initial exact hashes retained.",
+  "sourceManifest": {
+    "path": "docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE-INPUTS.json",
+    "bytes": 4227,
+    "sha256": "d82054daa3ccc50c79faf9afc50b4f47c74b7cb9d9655821128b21c4a3b386da"
+  },
+  "scope": "No candidate import/evaluation/geometry/native. Source review is incomplete until critic full handoff independently reconciled."
+}

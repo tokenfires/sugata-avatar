@@ -1,0 +1,219 @@
+{
+  "savedUTC": "2026-10-05T00:33:28.174367+00:00",
+  "sourceGateUTC": "2026-10-05T00:35:19.599169+00:00",
+  "decision": "A complete source preparation; conditional worth A for one separately admitted 600-second CPU construction; B invocation/native in this packet",
+  "scope": "Full literal source read and metadata hashing only",
+  "candidateImports": 0,
+  "candidateExecutions": 0,
+  "geometryEvaluations": 0,
+  "nativeCaptures": 0,
+  "all22SourcePinsMatch": true,
+  "all9OriginalPinsMatch": true,
+  "sourceManifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE-INPUTS.json",
+    "bytes": 4907,
+    "sha256": "885f31f5005fb17efadece699b472b92b5f86a2c42ded7854866467be8972bee"
+  },
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py",
+      "bytes": 9555,
+      "sha256": "5d0c38013b748fef05d659ad4962c40159f70a884f56a16a7c50e337997c9414"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/author.py",
+      "bytes": 7533,
+      "sha256": "e7deac048f0ad3d70ebf6bd3cd2fe87b03983068eae1a6e867313ce981fdb4cc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/exact.py",
+      "bytes": 7314,
+      "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/runner.py",
+      "bytes": 3901,
+      "sha256": "c3d619f71f905c1eb3fbc4262cd67a962798e5eb60aa8dd31269e064b18a86f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/spatial.py",
+      "bytes": 4682,
+      "sha256": "d86a340992acbbc6ce73730c7b8b57fe3d79e9e573123d863615865761fc9562"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/surface.py",
+      "bytes": 14548,
+      "sha256": "b7e3f1174147589d2f4142f5df7c2eb54afc18b9baf63771308984e0a16dbd62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE.md",
+      "bytes": 7546,
+      "sha256": "5990e3da838383482750316a84e68e8a6f7087381fffc6ece45d532124238533"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/PLAN.json",
+      "bytes": 1628,
+      "sha256": "e743344c80e795e5845d0628c87b2fbdd8b8a8e499d4695469e4bdf412521099"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/INPUTS.json",
+      "bytes": 1925,
+      "sha256": "79084a1fefecae1248f547362bc13c93081414faadd4baae9b26a9a74d8555ab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/PREP-SCHEMA.json",
+      "bytes": 2890,
+      "sha256": "dfa836c5170867d56028fef023ed67bf0adbd624b2153e452c80fa7e81ed0034"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/WORTH.md",
+      "bytes": 2990,
+      "sha256": "fafc30b81fd8d46a0b46b50f8e57f352339f9e88e0c16883a89004efd5dc0b01"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/WORTH-RECEIPT.json",
+      "bytes": 4370,
+      "sha256": "503aef84f765a55cfcd64ab57cfe6457463886ae4604589519090ce63c828d37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/ROOT-WORTH.json",
+      "bytes": 984,
+      "sha256": "65ab92a0fba93c47c0f145f212f18cfd2cf9287d1cb01535cab12e080f845251"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/ROOT-AST.json",
+      "bytes": 2022,
+      "sha256": "d943bc66f9969b27a41af695de1d1c4e1f2d5971bbf5bc51303f3321cea4b911"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/PREFLIGHT-CHANGES.json",
+      "bytes": 1301,
+      "sha256": "833754522ec6a2beebc4d4d24cdc98c185070bf7ca33f2d3601b042912515976"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/ROOT-AST.initial.json",
+      "bytes": 2022,
+      "sha256": "91c405b08ee65af960097a9e6d459a22a8d5f74f4f8ea402fb1c28253510cf1c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/ROOT-AST.interim.json",
+      "bytes": 2022,
+      "sha256": "45daac6fe46000f898be2c09dfc14536ca9856f0b8fdea367d79804dacc132ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/SOURCE-INPUTS.initial.json",
+      "bytes": 4227,
+      "sha256": "d82054daa3ccc50c79faf9afc50b4f47c74b7cb9d9655821128b21c4a3b386da"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/audit.py.initial",
+      "bytes": 9452,
+      "sha256": "29463e89b5afc16e5281a054034355c914a0ceaaee9e53d36959d55821369881"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/runner.py.initial",
+      "bytes": 3896,
+      "sha256": "eabc740fee18e47f5f875e87b52edca37f32b03051240a841bcb2f1eb6224bea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/preflight/surface.py.initial",
+      "bytes": 14427,
+      "sha256": "d65b8803e79230ff99ef1749c72c8d117f458561d9bca92e08480d3bd4213732"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-contract/SURFACE-CONTRACT.md",
+      "bytes": 15428,
+      "sha256": "6f258951246c40820e664ac02816a4fc9e3b79102ee48d67af771876df43bc5a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-contract/CLARIFICATIONS.md",
+      "bytes": 5109,
+      "sha256": "c8beb096afac32436a1e22168f134f98374eae07a828f102b5d10920c713bcb4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-contract/ARTIST.json",
+      "bytes": 2604,
+      "sha256": "42989446292114fa4c7af9d1705094a97d45aeb3e2f77d49565807a40a141464"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-contract/SOURCE-RESULT.md",
+      "bytes": 4594,
+      "sha256": "bc1298b5fd9231bfb5f64d50583faaa0db6d0a9211f8fd456c4ac82e1bc0c813"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-contract/SOURCE-RECEIPT.json",
+      "bytes": 7477,
+      "sha256": "6be0ed0d82de2e321ff2048bbdde690e403af4cf1e6157bed56aa378272bece2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-contract/ROOT-RESULT.json",
+      "bytes": 2510,
+      "sha256": "0fe0d1922bc57f9aedd93cc72e19a3c0a2cfd046d6bdcdb7c90bfdf57aaae2ab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-contract/MANIFEST.json",
+      "bytes": 3470,
+      "sha256": "a9e176f536df81fba4e21b8a4c93d9b199a4c1f189ab3c8b429ab216bca87160"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE-INPUTS.json",
+      "bytes": 4907,
+      "sha256": "885f31f5005fb17efadece699b472b92b5f86a2c42ded7854866467be8972bee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-back.jpg",
+      "bytes": 61844,
+      "sha256": "d46a402c0ec86a0cd7b6b8e286aa879874546fa5332ca87d9783b7742899957c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-oblique.jpg",
+      "bytes": 63758,
+      "sha256": "e6b1748ad07e9aa9ced70e9400d3d60e924a87f756469c956e265928fb7fca19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    }
+  ],
+  "note": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/SOURCE-RESULT.md",
+    "bytes": 4610,
+    "sha256": "9d6541d6916ec8e335c52eb35b8f6c978a9419eec280b2f94774f4880b88ea06"
+  },
+  "metadataProcess": {
+    "pid": 72991,
+    "startedUTC": "2026-10-05T00:33:28.159981+00:00",
+    "operation": "stdlib byte hashing and critic note/receipt save only; no candidate import or execution"
+  },
+  "readCommands": [
+    "be6519 full exact.py/spatial.py",
+    "550c39 full author.py/runner.py",
+    "75394c full surface.py/audit.py after truncated first aggregate",
+    "c6ad8e complete final surface.py/audit.py",
+    "f9790a complete SOURCE/PLAN/INPUTS/source manifest",
+    "54e62e PREP-SCHEMA/ROOT-AST/ROOT-WORTH",
+    "d869b3 complete final runner.py/current manifest",
+    "503a20 complete final SOURCE/ROOT-AST and retained three-module diffs (diff exit1 denotes differences)"
+  ],
+  "limits": [
+    "Static source review does not prove runtime correctness or performance",
+    "No future invocation admitted without fresh separately reviewed root plan/admission",
+    "Initial source coverage only; no fit/GPU/motion/material/appearance acceptance"
+  ]
+}
