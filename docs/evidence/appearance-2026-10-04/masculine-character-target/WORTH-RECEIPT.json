@@ -1,0 +1,152 @@
+{
+  "kind": "Independent source/image artist-composition worth",
+  "decision": "Conditional A for reference/prompt preparation only; exact prompt/generation admission separate",
+  "pid": 45257,
+  "startedUtc": "2026-10-05T04:05:35.280623+00:00",
+  "savedUtc": "2026-10-05T04:06:55.158246+00:00",
+  "hardStopUtc": "2026-10-05T04:42:56.090755+00:00",
+  "plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/PLAN.json",
+    "bytes": 2253,
+    "sha256": "546c2db2f5203185ca5d1054056064fabd5bf21322c0b3c986e0c362906b7cae"
+  },
+  "inputManifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/INPUTS.json",
+    "bytes": 2344,
+    "sha256": "c0efee01d5c09e0ac7b803351285c4f4ea2d6c22c5411bf562acddc8dd3df0ac"
+  },
+  "worth": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/WORTH.md",
+    "bytes": 4043,
+    "sha256": "28ee5dd7e4d1ef4539fb654f3c50830b09cc4ba61a6e874706ec9168cc5df359"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "expectedBytes": 30923,
+      "expectedSha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c",
+      "expectedBytes": 4214,
+      "expectedSha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/BRIEF.md",
+      "bytes": 2416,
+      "sha256": "6c65ece98c0bc33f3ba9991abf3ad04de0d59661600392c19ee39f3272d303f6",
+      "expectedBytes": 2416,
+      "expectedSha256": "6c65ece98c0bc33f3ba9991abf3ad04de0d59661600392c19ee39f3272d303f6",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+      "expectedBytes": 2439336,
+      "expectedSha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait-worth/ARTIST-DECISION.md",
+      "bytes": 2898,
+      "sha256": "00ae6737fad4932ce508e35e643aa51baa687bd4e152b1faf21cd9880114c47b",
+      "expectedBytes": 2898,
+      "expectedSha256": "00ae6737fad4932ce508e35e643aa51baa687bd4e152b1faf21cd9880114c47b",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/ARTISTIC-STOP.md",
+      "bytes": 2492,
+      "sha256": "0860fb17e7e29468fefa243827e0407d2f95d1bb5c5a1b5f93651c0b4fdfd59b",
+      "expectedBytes": 2492,
+      "expectedSha256": "0860fb17e7e29468fefa243827e0407d2f95d1bb5c5a1b5f93651c0b4fdfd59b",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/front.jpg",
+      "bytes": 53638,
+      "sha256": "05f0b6e884b36798099a586fc163cc8fdaa56d73b6bc20cd3a45cb0d5ac6e473",
+      "expectedBytes": 53638,
+      "expectedSha256": "05f0b6e884b36798099a586fc163cc8fdaa56d73b6bc20cd3a45cb0d5ac6e473",
+      "matches": true
+    }
+  ],
+  "actuallyViewed": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "actualView": "tools.view_image detail original; complete untouched image"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/front.jpg",
+      "width": 1280,
+      "height": 720,
+      "actualView": "tools.view_image detail original; complete untouched image"
+    }
+  ],
+  "readingScope": {
+    "PLAN.json": "Complete",
+    "INPUTS.json": "Complete; all seven byte/hash pins independently matched",
+    "KNIT-CHARACTER-TARGET-2026-10-04.md": "Complete",
+    "knit-character-concept/BRIEF.md": "Complete",
+    "rowan-portrait-worth/ARTIST-DECISION.md": "Complete; historical original bake designation not adopted as new authority",
+    "rowan-portrait/ARTISTIC-STOP.md": "Complete",
+    "PRODUCT-ROADMAP.md": "Relevant Phase 1 representation/finish/expression/performance and immediate-work-order/later-style passages; no new full roadmap audit",
+    "overshirt/LAYER-BRIEF.md": "Complete literal written postflight; old raster not viewed or requalified",
+    "masculine-character-target/BRIEF.md": "Complete new original-character composition and scope"
+  },
+  "readTools": [
+    {
+      "chunk": "39530c",
+      "exit": 0,
+      "scope": "Full current plan and input manifest; UTC clock 04:03:26"
+    },
+    {
+      "chunk": "b90833",
+      "exit": 0,
+      "scope": "Four full retained briefs/stop documents; two independent complete original image views in same functions call"
+    },
+    {
+      "chunk": "5cf1f0",
+      "exit": 0,
+      "scope": "Numbered brief/stop/relevant roadmap witnesses"
+    },
+    {
+      "chunk": "0af7fa",
+      "exit": 0,
+      "scope": "Named brief path inventory only"
+    },
+    {
+      "chunk": "b7453b",
+      "exit": 0,
+      "scope": "Full numbered old layer postflight and new character brief"
+    }
+  ],
+  "limits": [
+    "No query/fetch/browser/native capture/imagegen/GLB decode/construction or current source/asset/default edit",
+    "Only WORTH.md and this receipt written",
+    "Illustrative composition worth does not qualify a representative runtime starter, perceived gender, human attractiveness, metric/hidden geometry, fit, motion or performance",
+    "Receipt publisher reads/hashes files and concept PNG IHDR; no candidate/geometry computation"
+  ],
+  "finalCollectionPid": 45388,
+  "additionalExaminedInputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/overshirt/LAYER-BRIEF.md",
+      "bytes": 1881,
+      "sha256": "046c493bd142de9d7e6bba0765f29fec46461db88b36d7c1345cc61b76a0b81d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/BRIEF.md",
+      "bytes": 2723,
+      "sha256": "37d5414fb0753d4fc05ec294843c00865bc9c5a401d333fbcd9cf3d14d471188"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Root's check of the critic's facial-hair limit
+
+After the independent visual message, root re-inspected the same complete untouched1536×1024 original, not a new crop/capture. Fine dark follicles/beard shadow are visible near the upper lip and chin (approximately x1140–1230/y399–575). PROMPT line6 asked for a clean-shaven face. ROOT-IMAGE's initial A did not name this mismatch; preserve that initial reading rather than rewrite its history.
+
+BRIEF line9 explicitly allows named minor illustrative differences while refusing omissions, materially conflicting identity/outfit or unreadable face/layers. The light shadow does not hide the jaw, eyes/brows or selected short-groom/layered composition. A retain the actual face as an artist target with visible fine beard shadow and no literal clean-shaven claim; this keeps the already readable composition without another image. B treat exact clean-shaven appearance as mandatory for a separately authored source goal; this gives tighter facial-surface fidelity but adds work without changing the current composition decision. Root chooses A within the predeclared illustrative limit. No edit/regeneration/source/asset change follows, and the exact prompt remains intact.
+
+This is an observed image variation, not a beard mesh/shader or identity-support diagnosis. Runtime, full head/scalp/garment source, fit, expression/motion and representative/AAA acceptance remain open.

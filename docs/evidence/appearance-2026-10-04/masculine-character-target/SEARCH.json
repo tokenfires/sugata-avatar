@@ -1,0 +1,55 @@
+{
+  "started": {
+    "current_time": "2026-10-05 04:07:45 UTC"
+  },
+  "args": {
+    "query": "men olive cotton twill overshirt",
+    "includeDomains": [
+      "jcrew.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "limit": 3
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/garment-dyed-twill-overshirt/CI472?srsltid=AU7gw4WWBmvKes76BPshpSMGBL-k_MiueAoYAaWscHe9lpxDaFNzhbPz\",\"title\":\"Garment-dyed Twill Overshirt For Men - J.Crew\",\"description\":\"Rating 4.8(58) · $7 delivery · 30-day returnsIt's garment-dyed for highs and lows at the seams and will fade gently over time depending on how you wear it. 97% cotton/3% elastane. Point collar. Due to the ...\",\"position\":1},{\"url\":\"https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/CI472?display=all&fit=Men&colorProductCode=CI472&colorCode=GR8463&srsltid=AU7gw4UhmE3QdzLxRhV81daUiKko1qU8fzrbjkvIz_kMdZCQHXvM0zVA\",\"title\":\"Garment-dyed Twill Overshirt For Men - J.Crew\",\"description\":\"Rating 4.8(58) · $7 delivery · 30-day returnsIt's garment-dyed for highs and lows at the seams and will fade gently over time depending on how you wear it. 97% cotton/3% elastane. Point collar. Due to the ...\",\"position\":2},{\"url\":\"https://www.jcrew.com/ca/p/mens/categories/clothing/shirts/heritage-twill/CI472?display=sale&fit=Classic&colorProductCode=CI472&isFromSale=true&colorCode=GR8463&srsltid=AU7gw4W4oN92Jl7V1uh9j--lNu-deF4rbuQ_EqhuQ9YRCcKJj01YgpH9\",\"title\":\"Garment-dyed Twill Overshirt For Men | J.Crew\",\"description\":\"It's garment-dyed for highs and lows at the seams and will fade gently over time depending on how you wear it. 97% cotton/3% elastane. Point collar. Due to the ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10a3f-0c38-73ef-a4d6-67c3035c3f1f\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/garment-dyed-twill-overshirt/CI472?srsltid=AU7gw4WWBmvKes76BPshpSMGBL-k_MiueAoYAaWscHe9lpxDaFNzhbPz\\\", #2, #3). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/garment-dyed-twill-overshirt/CI472?srsltid=AU7gw4WWBmvKes76BPshpSMGBL-k_MiueAoYAaWscHe9lpxDaFNzhbPz\", #2, #3). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/garment-dyed-twill-overshirt/CI472?srsltid=AU7gw4WWBmvKes76BPshpSMGBL-k_MiueAoYAaWscHe9lpxDaFNzhbPz",
+            "title": "Garment-dyed Twill Overshirt For Men - J.Crew",
+            "description": "Rating 4.8(58) · $7 delivery · 30-day returnsIt's garment-dyed for highs and lows at the seams and will fade gently over time depending on how you wear it. 97% cotton/3% elastane. Point collar. Due to the ...",
+            "position": 1
+          },
+          {
+            "url": "https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/CI472?display=all&fit=Men&colorProductCode=CI472&colorCode=GR8463&srsltid=AU7gw4UhmE3QdzLxRhV81daUiKko1qU8fzrbjkvIz_kMdZCQHXvM0zVA",
+            "title": "Garment-dyed Twill Overshirt For Men - J.Crew",
+            "description": "Rating 4.8(58) · $7 delivery · 30-day returnsIt's garment-dyed for highs and lows at the seams and will fade gently over time depending on how you wear it. 97% cotton/3% elastane. Point collar. Due to the ...",
+            "position": 2
+          },
+          {
+            "url": "https://www.jcrew.com/ca/p/mens/categories/clothing/shirts/heritage-twill/CI472?display=sale&fit=Classic&colorProductCode=CI472&isFromSale=true&colorCode=GR8463&srsltid=AU7gw4W4oN92Jl7V1uh9j--lNu-deF4rbuQ_EqhuQ9YRCcKJj01YgpH9",
+            "title": "Garment-dyed Twill Overshirt For Men | J.Crew",
+            "description": "It's garment-dyed for highs and lows at the seams and will fade gently over time depending on how you wear it. 97% cotton/3% elastane. Point collar. Due to the ...",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a10a3f-0c38-73ef-a4d6-67c3035c3f1f",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}

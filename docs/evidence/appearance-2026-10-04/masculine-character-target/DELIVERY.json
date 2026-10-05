@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-05T04:25:16.998270+00:00",
+  "criticDelivery": "77e470/0, message reports04:22:10: fullpendingdraft after sealedimageA; pendingstatus and unnamedstubble are finalization findings. No other actionable discrepancy. No changes in between draft and this exact snapshot.",
+  "origins": [
+    {
+      "originPath": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/DELIVERY-DRAFT.review.md",
+        "bytes": 2896,
+        "sha256": "bff94a742a0019b20ec19ac577b04a87bb2fb789a72523543be60168a3787414"
+      }
+    },
+    {
+      "originPath": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/PROJECT-CHECKLIST.before.md",
+        "bytes": 3577,
+        "sha256": "4ddcc7d924484b8198171d67be3ff6477690300758656134b93b821d5e2fbfe2"
+      }
+    }
+  ],
+  "currentDelivery": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+    "bytes": 3264,
+    "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+  },
+  "currentChecklist": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+    "bytes": 3755,
+    "sha256": "84da480b79044b1b95d38cc62bf7a9635fda43c8a59b31b7ca61f2c8b981fff4"
+  },
+  "replacements": [
+    [
+      "**Original artist concept, pending independent image review.**",
+      "**Retained original artist-discussion target, October 4.**"
+    ],
+    [
+      "The face, hair, collar and material palette are visually coherent to root; independent postflight remains pending.",
+      "Root and the independent critic independently inspected the complete original and retain its coherent face, hair, collar and material palette. Fine beard shadow differs from the prompt\u2019s clean-shaven intention; it is a named minor illustrative variation, not exact facial-finish acceptance."
+    ],
+    [
+      "[root image reading](../evidence/appearance-2026-10-04/masculine-character-target/ROOT-IMAGE.md).",
+      "[independent image verdict](../evidence/appearance-2026-10-04/masculine-character-target/RESULT.md), [root image reading](../evidence/appearance-2026-10-04/masculine-character-target/ROOT-IMAGE.md) and [exact receipt](../evidence/appearance-2026-10-04/masculine-character-target/RECEIPT.md)."
+    ]
+  ],
+  "checklistInsertion": "- [x] Original short-groom, layered masculine artist target, with full-body and portrait discussion views. [Character design](research/MASCULINE-CHARACTER-TARGET-2026-10-04.md)\n",
+  "counts": {
+    "checked": 11,
+    "open": 10
+  },
+  "scope": "Three exact delivery replacements and one artist-reference bullet only; root exact reverse check passed. Outstanding representation/runtime goal unchanged; no overall percentage."
+}
