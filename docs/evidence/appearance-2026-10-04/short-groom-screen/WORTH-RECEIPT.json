@@ -1,0 +1,173 @@
+{
+  "decision": "B \u2014 duplicate quiff screen; no native inquiry admitted",
+  "startedAt": "2026-10-05T04:47:25.742048+00:00",
+  "savedAt": "2026-10-05T04:47:25.752094+00:00",
+  "pid": 49633,
+  "declaredInputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/hair.js",
+      "bytes": 49905,
+      "sha256": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/hair.html",
+      "bytes": 2962,
+      "sha256": "2f9efb2461b087d1bdadae20a992b7ae4359cb81288d204e50496189d502a70a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/hair/manifest.json",
+      "bytes": 8843,
+      "sha256": "02fb1bb35d345fb5765fd5b72403764d254aa8f115ec9a014e13d0cfd62c73ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/hair/quiff01/g050.glb",
+      "bytes": 3105068,
+      "sha256": "87766b82692acf777d98e9957b013d09ec39b3753d3f1490a85eb35c93a2537d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/hair/quiff01/albedo.png",
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/hair/quiff01/normal.png",
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/hair/quiff01/flow.png",
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/hair/quiff01/depth.png",
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/README.md",
+      "bytes": 91488,
+      "sha256": "9e6278c0d550936826a30572ae705a1b6b2dac3d20604b49cfee748f0ea2db50"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/hairstyle-targets.md",
+      "bytes": 10560,
+      "sha256": "574f0928f871bc092411847a6b662bfc7a228147dba82b5f7484154d116fe8db"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g050.glb",
+      "bytes": 11567392,
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/CAPTURE-SCOPE.md",
+      "bytes": 1133,
+      "sha256": "798a762a1c29ae7a39ca86b1544ecd90c091af4749056619d2872e356cde14a2"
+    }
+  ],
+  "additionalReviewedBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/PLAN.json",
+      "bytes": 2147,
+      "sha256": "3a135aef5fd891b1895ad4a1d61066ec81306d70f963c9a9c4b713c32bd46332"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/INPUTS.json",
+      "bytes": 2760,
+      "sha256": "fae6f2328d201a830cf228ac1f87a97e869017c64aac5a1c1e0a6f0e8ca98442"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/ADDITIONAL-INPUTS.json",
+      "bytes": 601,
+      "sha256": "a0a06d613b3552ac0e33ff1160bdcc97f146d1420755d8ba3b4a4e7178eaf97f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/CHECKPOINT.md",
+      "bytes": 130674,
+      "sha256": "2192f080f6cd75bfc27d94d5f9fcc710fc76474a0b89a279551ae8f330714247"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROGRESS-2026-09-24.md",
+      "bytes": 23488,
+      "sha256": "b03c177513c4a9c93f03a1e92e9a96ea69ebebaac2f4dc0efc093c362ed677f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-09-24/verify-all.txt",
+      "bytes": 115801,
+      "sha256": "3bad15e29e37034343e880643a74a423a7b8e01df6f75a07ae69bb275371b3f8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/hair-2026-09-24/body-occlusion-comparison.json",
+      "bytes": 10016,
+      "sha256": "b5b06e77839da253c00d7101525a33683ec465e3976b4091110f4d0cd34f9ee5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/WORTH.md",
+      "bytes": 2572,
+      "sha256": "91c1db3557aa0f380bacfb7ae6594d1f1d16922b0ee7ff4953fc9b6c32da19ac"
+    }
+  ],
+  "sourceReadingScope": {
+    "complete": [
+      "PLAN.json",
+      "INPUTS.json",
+      "ADDITIONAL-INPUTS.json",
+      "CAPTURE-SCOPE.md",
+      "hair.html",
+      "hairstyle-targets.md"
+    ],
+    "selected": [
+      "hair.js:130\u2013475 (no full source/native admission)",
+      "manifest.json:140\u2013179",
+      "hair_cards.py:360\u2013475 plus quiff-symbol search only",
+      "CHECKPOINT.md:900\u2013985,1780\u20131813",
+      "PROGRESS-2026-09-24.md:19\u201361 relevant passages; aggregate long output truncated later",
+      "verify-all.txt:2230\u20132306",
+      "body-occlusion-comparison.json:320\u2013365"
+    ],
+    "historicalFindingsOnly": true
+  },
+  "actualImageWitness": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+    "inspection": "Actually viewed whole original at original detail in preceding current slice; image bytes independently reverified here. No fresh capture/view required.",
+    "quiffImage": "No current quiff original independently viewed; no present-pixel claim. Historical reported visual refusal is attributed to CHECKPOINT only."
+  },
+  "readCommands": [
+    "dac874",
+    "9e9c63",
+    "fa3d93",
+    "8fe516",
+    "ce3e9a",
+    "381e04",
+    "143b46",
+    "896fd1"
+  ],
+  "limits": [
+    "No GLB/header/JSON/binary decode or generator import/execution.",
+    "No new native/browser/GPU/render/geometry/query/imagegen.",
+    "No historical capture byte-identity claim from equal file sizes.",
+    "Narrow filename/text search is not global image absence.",
+    "Historical measurement and reported appearance do not qualify current pixels, fit, g100 or moving hair."
+  ],
+  "publication": "One stdlib pin/document publisher; all 16 declared pins verified before writing; only WORTH and receipt created."
+}
