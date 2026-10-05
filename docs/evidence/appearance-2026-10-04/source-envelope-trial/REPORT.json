@@ -1,0 +1,75 @@
+{
+  "status": "refused",
+  "job": {
+    "pid": 89129,
+    "started": "2026-10-05T00:42:42.988982+00:00",
+    "sourceDirectory": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder",
+    "outputDirectory": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial",
+    "phase": "closed-extraction-topology",
+    "admission": {
+      "utc": "2026-10-05T00:42:30.981427+00:00",
+      "decision": "A sole CPU construction",
+      "maximumInvocations": 1,
+      "wallLimitSeconds": 600,
+      "executeBeforeUTC": "2026-10-05T00:44:39.724705+00:00",
+      "sourceManifestSHA256": "885f31f5005fb17efadece699b472b92b5f86a2c42ded7854866467be8972bee",
+      "inputManifestSHA256": "79084a1fefecae1248f547362bc13c93081414faadd4baae9b26a9a74d8555ab",
+      "trialInputManifest": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/INPUTS.json",
+        "bytes": 2761,
+        "sha256": "4a380df33980ff87991b2816d6108378512524da5ac8837367f77ec7e303e1ce"
+      },
+      "fullCriticHandoffRead": true,
+      "allCriticBindingSetsMatch": {
+        "sourceBindings": 22,
+        "originalBindings": 9,
+        "frozenPayloads": 35,
+        "trialInputs": 13,
+        "directBindings": 4
+      },
+      "sourceCodeUnchanged": true,
+      "bindings": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/PLAN.json",
+          "bytes": 1737,
+          "sha256": "9060a2d60f1e6b51e3e7459d3fc05a040bcfc762ee13f3777dd4778a39a5280c"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/WORTH-SOURCE.md",
+          "bytes": 3785,
+          "sha256": "6f177f48d301863d4327ec823558ec34fc02625ad9d8cb3c07e74df00a22739e"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/WORTH-SOURCE-RECEIPT.json",
+          "bytes": 22021,
+          "sha256": "01fbc92e0cfbbee219b206e50a566c97603a7fcba82523c45f0c54a3b2d5515a"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-PREFLIGHT.json",
+          "bytes": 857,
+          "sha256": "50450737541e1a99b947dd363aa9297d60768e70c70a1395a1882d87ae883096"
+        }
+      ],
+      "limits": [
+        "First refusal/timeout ends fixed method without retune/retry",
+        "No native/fit/appearance admission",
+        "Complete data still needs independent saved-data checks and root reconciliation"
+      ],
+      "scopeCorrection": "Saved JSON schema parsing included in prior preparation; original GLB/candidate evaluation absent then. This fresh trial admits saved source geometry computation."
+    },
+    "updated": "2026-10-05T00:43:29.474635+00:00",
+    "status": "refused",
+    "ended": "2026-10-05T00:43:32.087077+00:00"
+  },
+  "report": {
+    "exception": "ValueError({'multipleComponents': 24, 'firstUnseen': 24334})",
+    "operands": [
+      {
+        "multipleComponents": 24,
+        "firstUnseen": 24334
+      }
+    ],
+    "traceback": "Traceback (most recent call last):\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/author.py\", line 87, in main\n    rawtop,_=audit.topology(raw,True,2,artist);save('EXTRACTED-TOPOLOGY.json',rawtop)\n             ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py\", line 39, in topology\n    require(len(seen)==len(faces),{'multipleComponents':len(faces)-len(seen),'firstUnseen':next((j for j in range(len(faces)) if j not in seen),None)})\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py\", line 9, in require\n    if not test:raise ValueError(witness)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: {'multipleComponents': 24, 'firstUnseen': 24334}\n",
+    "failedPhase": "closed-extraction-topology"
+  }
+}

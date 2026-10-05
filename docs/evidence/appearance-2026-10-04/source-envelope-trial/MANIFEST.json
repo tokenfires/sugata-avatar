@@ -1,0 +1,334 @@
+{
+  "frozenUTC": "2026-10-05T01:02:57.074720+00:00",
+  "rootCloseGateUTC": "2026-10-05T01:04:39.724705+00:00",
+  "decision": "B fixed construction; independently qualified actual topology refusal only",
+  "payloads": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CHECKPOINT.md",
+      "bytes": 1835,
+      "sha256": "ee42a970469e07265453ffeb182891f436647b3248891309fe754eb2263a5404"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK-JOB.json",
+      "bytes": 1953,
+      "sha256": "e83fd94ccbd0aba7313f683e8b3f1a5e318b88004097e6fae55f9e4f76ffe71d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK-STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK-STDOUT.txt",
+      "bytes": 415,
+      "sha256": "42214d52c5de17420057330180a14082e77249efc56292b2d77c0ba75ee69493"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK.json",
+      "bytes": 32412,
+      "sha256": "cc84947512d938d9f37ac5a2316ee87bea33c4472021e4e15884d44c271fae83"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECKER-PREFLIGHT.json",
+      "bytes": 1950,
+      "sha256": "f5bc16d3210b68e07a5ec988bf5073001c4a1ad699fe1abee6cb52c2d31cea2e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-COMPONENTS.u32",
+      "bytes": 519472,
+      "sha256": "74c1973255b5a98319dd6f066d7f68b9de936e39dc7b05411484e9fdcc756e1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-RECEIPT.json",
+      "bytes": 36626,
+      "sha256": "c1a1a6c598345f18b5d0a7b73f216a91b0a27677661523b5383612ec337068f5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-RECEIPT.prose-initial.json",
+      "bytes": 36417,
+      "sha256": "df3c618da258c94ae79d76f054dd9641c5c2a28ea7cd9a5f4212a3b2241adb04"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/EXTRACTED.json",
+      "bytes": 46729855,
+      "sha256": "fd3f063a6527db61b48ae7821ee519873eb8413593d0c4db541fecc82e1aa943"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/FRAGMENTS.json",
+      "bytes": 25272118,
+      "sha256": "7b89d583c67683747b9b0b2f9f1f8508d9e10706c32919f67aaf3078bfd06b5b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/GRID-VALUES.bin",
+      "bytes": 3647576,
+      "sha256": "a4d7f44674d891ab0fa097adae25ea715e8b0ddf76ba4f4f84fda0b92edf1f50"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/GRID-VISITS.bin",
+      "bytes": 1823788,
+      "sha256": "050d800dcb649d096d475e8b153710afb49f2732ee2459ff710ef3b7f470b2b9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/GRID-WINNERS.bin",
+      "bytes": 1823788,
+      "sha256": "69288c50c28760cc6c898d9b9467c30f56b883e7bc712f32991125577dee4d46"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/GRID.json",
+      "bytes": 548,
+      "sha256": "5c52a8124bf15b7daab1c219f4a3376a2517bdabd5330de58fdea8330a84dbc7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/INPUTS.json",
+      "bytes": 2761,
+      "sha256": "4a380df33980ff87991b2816d6108378512524da5ac8837367f77ec7e303e1ce"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/JOB.json",
+      "bytes": 2856,
+      "sha256": "60b98d5c2c87bcbe793f439694d674b804ad742454936c53fb93225de357393c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/PARTIAL.json",
+      "bytes": 261,
+      "sha256": "7479b74764b571ace34945b496babb929d3b8813e383e31884f7f6238cd5ae79"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/PLAN.json",
+      "bytes": 1737,
+      "sha256": "9060a2d60f1e6b51e3e7459d3fc05a040bcfc762ee13f3777dd4778a39a5280c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/PRIMITIVES.json",
+      "bytes": 32649347,
+      "sha256": "517c279dccd8f37a4f0fa5cc38d6c1fc8266e8df49cbbe358a986000ce34ae9c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/README.md",
+      "bytes": 2034,
+      "sha256": "603bc9103d795f22911291329a5c902989a9fc2a14d9cd87d50e0d7771f35ec8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/RECEIPT.md",
+      "bytes": 5805,
+      "sha256": "f8e2b47ffa4c93a6ed653d037c25de4b18c2dade8c2916b37dde86f342afe1ec"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/REFUSAL.json",
+      "bytes": 1277,
+      "sha256": "19f1c58e59d72a375701ec6288141f69fcdbf3d5ba3718dafc6600836b66e355"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/REPORT.json",
+      "bytes": 4322,
+      "sha256": "737f683f4d6a140cd620cf517f3e9e1da1d34cb8b3e3f7c18b729b008e17dbf2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/RESULT.md",
+      "bytes": 4738,
+      "sha256": "157cc4408115c86ef585b38b8b67be11bc4d1fadb07df18739c17993a4b2121c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/RESULT.prose-initial.md",
+      "bytes": 4695,
+      "sha256": "6626a2cc6d16b9c26cfb6d4736b004ce513ddbf5d0e177c07f39efb5cb0f2133"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/RETURN-METADATA-MAPPING.json",
+      "bytes": 1199,
+      "sha256": "00bbb160fbeca498e7ab82b57ce82d43afb7ade9511787fcd3389ec07846b073"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-CHECK-JOB.json",
+      "bytes": 411,
+      "sha256": "7e6396f711cacd1c208ad01cdbb2da1edabdb6fd964d6410c3215e642f2bbe13"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-CHECK.json",
+      "bytes": 15615,
+      "sha256": "bc3744609b9a1696a6e46cfb6b169a4046063252d6a04996044c039c376f0ed8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-CRITIC-ADMISSION.json",
+      "bytes": 1543,
+      "sha256": "0d5165623cae66aa15adf2accad8c66250e5645765e42c4d09c0ca1324dc1368"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-DATA-RESULT.json",
+      "bytes": 4417,
+      "sha256": "10243cab22c46f25e8852236bd238a944fe57b4169db9a81e8b6f58e2f4a02c8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-FINDING.json",
+      "bytes": 1527,
+      "sha256": "0acb3d0d17d367a0c78958f4e93ba0e725f33dd4c2a86f81576b118a95736c77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-FINDING.md",
+      "bytes": 2558,
+      "sha256": "ac90ff78b0601b2c3dadc69de7e6a250e14c03ad8da801c55702693fc7ee5a97"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-INVOCATION.json",
+      "bytes": 287,
+      "sha256": "63e584eb5e35d5faf775caef5db980db88c1fd7a1b1d9abdbdae7f55078dc248"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-PREFLIGHT.json",
+      "bytes": 857,
+      "sha256": "50450737541e1a99b947dd363aa9297d60768e70c70a1395a1882d87ae883096"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-RETURN.json",
+      "bytes": 11385,
+      "sha256": "e6072825ae1c6b4bdbd0a0c50aee54b54744088939c8cdfbf20aebcf7ad94a8c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-RUN-ADMISSION.json",
+      "bytes": 2274,
+      "sha256": "917c88aaae6b25983a352f4c2fa1c1938e27e20c142d1fdf9d5f3c8ecb0afda8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/RUN.json",
+      "bytes": 6992,
+      "sha256": "e1ca1b4bcd9be0887e7e29526619894d1f3c720018ab4a5962cd577363dc99fb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/SAVED-REVIEW-PLAN.md",
+      "bytes": 3496,
+      "sha256": "4d0ec5597527484cd979a29bd2b793c7fcebff12a21d1d10109ab5488d18af4c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/SOURCE-DOMAIN.json",
+      "bytes": 4247,
+      "sha256": "bd9b73ece71be6f4fd178d32dfd97344716c95de1de2aafd3df2efd1332dcdd4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/STATE.json",
+      "bytes": 1044,
+      "sha256": "11626afb63f21d016e3b459f1e72db08e1ed59c64fc9eccd65671fb1a4f890ea"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/STDERR.txt",
+      "bytes": 1020,
+      "sha256": "874ac4ec1e7fc8bb767b391c472ee7bb4a213c302811cf7646998271ac85f5db"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/STDOUT.txt",
+      "bytes": 6846,
+      "sha256": "62671359e6b7984965dcba09585ef214f069e691796ec9b2aa53bb0a0aac5914"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/WORTH-SOURCE-RECEIPT.json",
+      "bytes": 22021,
+      "sha256": "01fbc92e0cfbbee219b206e50a566c97603a7fcba82523c45f0c54a3b2d5515a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/WORTH-SOURCE.md",
+      "bytes": 3785,
+      "sha256": "6f177f48d301863d4327ec823558ec34fc02625ad9d8cb3c07e74df00a22739e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-check.initial.py.source",
+      "bytes": 12242,
+      "sha256": "bcc385870bb27cac126b366f0971bd9ad701d6ffa2f672211557592999b79c97"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-check.py",
+      "bytes": 12256,
+      "sha256": "b2fc12f3ec254457ed63515f111f1f9376ae2565cf201e6518195feb42c41f87"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-run.py",
+      "bytes": 2052,
+      "sha256": "5ca7ef3b8155abed20acaa10ccd07538785b690bcd8cbee5a06319a16be9f0c3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/return-metadata/CHECKPOINT.return.md",
+      "bytes": 869,
+      "sha256": "1a8f15a8bf0bc7780ce0ffe8dc441b1141c4afe65926a344151e8540381e3aa8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/return-metadata/RECEIPT.return.md",
+      "bytes": 1541,
+      "sha256": "26078424834d338ed58d517c41c5903e29f4de276ab008572f533d1e3587ef88"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-trial/root-check.py",
+      "bytes": 4844,
+      "sha256": "a6a1f8a3eafbb70983531119b94a6e60ae39cc3ffe415a7ddea0449b92b2fa7c"
+    }
+  ],
+  "payloadCount": 51,
+  "payloadBytes": 112733914,
+  "verifiedDeliveryLinks": [
+    {
+      "document": "README.md",
+      "target": "REFUSAL.json"
+    },
+    {
+      "document": "README.md",
+      "target": "RUN.json"
+    },
+    {
+      "document": "README.md",
+      "target": "EXTRACTED.json"
+    },
+    {
+      "document": "README.md",
+      "target": "RESULT.md"
+    },
+    {
+      "document": "README.md",
+      "target": "CRITIC-RECEIPT.json"
+    },
+    {
+      "document": "README.md",
+      "target": "ROOT-DATA-RESULT.json"
+    },
+    {
+      "document": "README.md",
+      "target": "CRITIC-CHECK.json"
+    },
+    {
+      "document": "README.md",
+      "target": "ROOT-CHECK.json"
+    },
+    {
+      "document": "README.md",
+      "target": "ROOT-FINDING.md"
+    },
+    {
+      "document": "README.md",
+      "target": "PLAN.json"
+    },
+    {
+      "document": "README.md",
+      "target": "INPUTS.json"
+    },
+    {
+      "document": "README.md",
+      "target": "ROOT-RUN-ADMISSION.json"
+    },
+    {
+      "document": "README.md",
+      "target": "ROOT-RETURN.json"
+    },
+    {
+      "document": "README.md",
+      "target": "RETURN-METADATA-MAPPING.json"
+    },
+    {
+      "document": "README.md",
+      "target": "RECEIPT.md"
+    },
+    {
+      "document": "README.md",
+      "target": "CHECKPOINT.md"
+    },
+    {
+      "document": "README.md",
+      "target": "STATE.json"
+    }
+  ]
+}

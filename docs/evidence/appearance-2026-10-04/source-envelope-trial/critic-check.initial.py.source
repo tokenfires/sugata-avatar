@@ -1,0 +1,136 @@
+"""One saved-only refusal check. Never imports the producer or constructs a mesh."""
+import array,datetime,hashlib,json,math,os,pathlib,struct,sys,traceback
+from collections import defaultdict
+from fractions import Fraction
+ROOT=pathlib.Path('/Users/robault/GitHub/sugata-avatar')
+BASE=pathlib.Path(__file__).resolve().parent
+BUILDER=ROOT/'docs/evidence/appearance-2026-10-04/source-envelope-builder'
+now=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat()
+def pin(p):
+ p=pathlib.Path(p);p=p if p.is_absolute() else ROOT/p;r=p.read_bytes()
+ return {'path':str(p),'bytes':len(r),'sha256':hashlib.sha256(r).hexdigest()}
+def load(p):return json.loads(pathlib.Path(p).read_text())
+def require(value,witness):
+ if not value:raise ValueError(witness)
+def sub(a,b):return tuple(a[k]-b[k] for k in range(3))
+def cross(a,b):return (a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0])
+def dot(a,b):return sum(a[k]*b[k] for k in range(3))
+def ratio(q):return {'n':str(q.numerator),'d':str(q.denominator),'decimalObserver':float(q)}
+def main():
+ start=now();job={'pid':os.getpid(),'startedUTC':start,'status':'running','scope':'Saved refusal verification only; no producer/engine/GLB imports'}
+ out=BASE/'CRITIC-CHECK.json';require(not out.exists(),'sole checker output already exists')
+ result={};bindings=[]
+ try:
+  for fn,field in [('SOURCE-INPUTS.json','sources'),('INPUTS.json','inputs'),('MANIFEST.json','payloads')]:
+   for row in load(BUILDER/fn)[field]:
+    a=pin(row['path']);require(all(a[k]==row[k] for k in ('bytes','sha256')),{'staleFrozen':row,'actual':a});bindings.append(a)
+  for row in load(BASE/'INPUTS.json')['inputs']:
+   a=pin(row['path']);require(all(a[k]==row[k] for k in ('bytes','sha256')),{'staleTrialInput':row,'actual':a});bindings.append(a)
+  run=load(BASE/'RUN.json');jobdata=load(BASE/'JOB.json');partial=load(BASE/'PARTIAL.json');refusal=load(BASE/'REFUSAL.json');report=load(BASE/'REPORT.json');admission=load(BASE/'ROOT-RUN-ADMISSION.json');plan=load(BASE/'PLAN.json')
+  require(run['status']=='refused' and run['exitCode']==1 and run['maximumInvocations']==1 and run['wallLimitSeconds']==600,{'run':run})
+  require('timeoutObserved' not in run and 'exception' not in run,'unexpected runner timeout/error')
+  require(admission==jobdata['admission'] and run['childPid']==jobdata['pid']==run['processGroup'],'process/admission association')
+  require(admission['utc']<run['started']<jobdata['started']<jobdata['ended']<=run['fullReturn']<plan['rootCloseGate'],'actual ordered times')
+  require(run['started']<plan['launchGate'] and jobdata['started']<admission['executeBeforeUTC'],'launch deadline')
+  require(report['job']==jobdata and report['report']==refusal and report['status']==partial['status']==jobdata['status']=='refused','saved status association')
+  require(jobdata['phase']==refusal['failedPhase']==partial['phase']=='closed-extraction-topology','first failed phase')
+  stream=[json.loads(line) for line in (BASE/'STDOUT.txt').read_text().splitlines()]
+  require(stream[-1]=={'status':'refused','ended':jobdata['ended'],'phase':jobdata['phase']},'last stdout association')
+  require('ValueError' in (BASE/'STDERR.txt').read_text() and str(refusal['operands'][0]) in (BASE/'STDERR.txt').read_text(),'stderr exact refusal witness')
+  historical={'CHECKPOINT.md':BASE/'return-metadata/CHECKPOINT.return.md','RECEIPT.md':BASE/'return-metadata/RECEIPT.return.md'}
+  for row in run['outputs']:
+   original=pathlib.Path(row['path']);actual=pin(historical.get(original.name,original))
+   require(all(actual[k]==row[k] for k in ('bytes','sha256')),{'returnInventory':row,'actual':actual});bindings.append(actual)
+  for fn in ['RUN.json','ROOT-RUN-ADMISSION.json','ROOT-INVOCATION.json','RETURN-METADATA-MAPPING.json','PLAN.json','INPUTS.json']:
+   bindings.append(pin(BASE/fn))
+  absent=['EXTRACTED-TOPOLOGY.json','PHYSICAL.json','PHYSICAL-TOPOLOGY.json','OPENINGS.json','TEST-SOLID.json','TEST-TOPOLOGY.json','COVERAGE.json','sweater.obj']
+  require(all(not(BASE/f).exists() for f in absent),{'unexpectedLaterOutput':absent})
+  raw=load(BASE/'EXTRACTED.json');points=raw['vertices'];faces=raw['faces'];vp=raw['vertexProvenance'];fp=raw['faceProvenance'];grid=load(BASE/'GRID.json')
+  require(len(points)==len(vp)==64936 and len(faces)==len(fp)==129868,'raw actual counts')
+  require(grid['complete'] and grid['completedNodes']==grid['savedPrefix']==grid['vertices']==455947,'complete grid prefix')
+  dims=grid['dimensions'];require(math.prod(dims)==grid['vertices'] and math.prod(k-1 for k in dims)==grid['cells'],'grid dimensional counts')
+  require(dims==[grid['H'][k]-grid['L'][k]+1 for k in range(3)],'grid index domain')
+  values=array.array('d');values.frombytes((BASE/'GRID-VALUES.bin').read_bytes())
+  winners=array.array('I');winners.frombytes((BASE/'GRID-WINNERS.bin').read_bytes())
+  visits=array.array('I');visits.frombytes((BASE/'GRID-VISITS.bin').read_bytes())
+  require(values.itemsize==8 and winners.itemsize==visits.itemsize==4,'recorded numeric encoding')
+  if grid['byteOrder']!=sys.byteorder:
+   values.byteswap();winners.byteswap();visits.byteswap()
+  require(len(values)==len(winners)==len(visits)==455947 and all(math.isfinite(x) and abs(x)>1e-12 for x in values),'complete finite nonzero field')
+  primitives=load(BASE/'PRIMITIVES.json');require(all(0<=x<len(primitives) for x in winners) and all(x>0 for x in visits),'winning primitive/count domain')
+  nx,ny,nz=dims;h=grid['spacing'];L=grid['L']
+  def lattice(i):
+   z,left=divmod(i,nx*ny);y,x=divmod(left,nx);return [(L[0]+x)*h,(L[1]+y)*h,(L[2]+z)*h]
+  def gid(p):return p[0]+nx*p[1]+nx*ny*p[2]
+  max_t_error=Fraction(0);max_position_error=Fraction(0);edgeIDs=set()
+  for i,(p,v) in enumerate(zip(points,vp)):
+   require(len(p)==3 and all(math.isfinite(x) for x in p),'nonfinite raw position')
+   a,b=v['gridEdge'];t=v['t'];require(0<=a<b<len(values) and 0<t<1 and values[a]*values[b]<0,{'rawCrossing':i,'provenance':v})
+   require((a,b) not in edgeIDs,{'duplicateSharedCrossing':i});edgeIDs.add((a,b))
+   exact_t=Fraction(values[a])/(Fraction(values[a])-Fraction(values[b]));err=abs(Fraction(t)-exact_t);max_t_error=max(max_t_error,err)
+   require(err<=Fraction(math.ulp(t)),{'interpolationRatio':i,'error':str(err)})
+   A,B=lattice(a),lattice(b)
+   for k in range(3):
+    expected=Fraction(A[k])+Fraction(t)*(Fraction(B[k])-Fraction(A[k]));max_position_error=max(max_position_error,abs(Fraction(p[k])-expected))
+    require(p[k]==A[k]+t*(B[k]-A[k]),{'recordedCrossPosition':i,'axis':k})
+  parent=list(range(len(faces)));rank=[1]*len(faces)
+  def find(i):
+   while parent[i]!=i:parent[i]=parent[parent[i]];i=parent[i]
+   return i
+  def union(a,b):
+   a,b=find(a),find(b)
+   if a!=b:
+    if rank[a]<rank[b]:a,b=b,a
+    parent[b]=a;rank[a]+=rank[b]
+  edgeRows={};faceKeys=set();tetRows=defaultdict(list);used=set()
+  for fi,(f,p) in enumerate(zip(faces,fp)):
+   require(len(f)==3 and len(set(f))==3 and all(0<=i<len(points) for i in f),{'invalidRawTriangle':fi})
+   key=tuple(sorted(f));require(key not in faceKeys,{'duplicateRawFace':fi});faceKeys.add(key);used.update(f)
+   cube=p['cube'];axes=p['axes'];require(all(0<=cube[k]<dims[k]-1 for k in range(3)) and sorted(axes)==[0,1,2],{'sourceCube':fi})
+   cur=cube[:];tet=[gid(cur)]
+   for k in axes:cur[k]+=1;tet.append(gid(cur))
+   require(tet==p['gridTet'],{'gridTetProvenance':fi})
+   allowed={tuple(sorted((tet[i],tet[j]))) for i in range(4) for j in range(i+1,4) if values[tet[i]]*values[tet[j]]<0}
+   require(len(allowed) in (3,4) and all(tuple(vp[i]['gridEdge']) in allowed for i in f),{'crossingFaceAuthority':fi})
+   require(tuple(vp[f[0]]['gridEdge'])==min(allowed),{'declaredFanStart':fi})
+   tetRows[tuple(tet)].append(fi)
+   for i in range(3):
+    a,b=f[i],f[(i+1)%3];edge=tuple(sorted((a,b)))
+    if edge in edgeRows:union(edgeRows[edge][0][2],fi)
+    edgeRows.setdefault(edge,[]).append((a,b,fi))
+  require(used==set(range(len(points))),'unused raw vertices')
+  for tet,ids in tetRows.items():
+   crossCount=sum(values[tet[i]]*values[tet[j]]<0 for i in range(4) for j in range(i+1,4))
+   require(len(ids)==crossCount-2 and len({i for f in ids for i in faces[f]})==crossCount,{'tetraFanCount':tet,'faces':ids})
+  for edge,rs in edgeRows.items():
+   require(len(rs)==2 and rs[0][0]==rs[1][1] and rs[0][1]==rs[1][0],{'closedEdge':edge,'rows':rs})
+  groups=defaultdict(list)
+  for i in range(len(faces)):groups[find(i)].append(i)
+  comps=sorted(groups.values(),key=lambda ids:ids[0]);labels=[0]*len(faces)
+  scale=max(x.as_integer_ratio()[1].bit_length()-1 for p in points for x in p)
+  ip=[tuple(x.as_integer_ratio()[0]<<(scale-(x.as_integer_ratio()[1].bit_length()-1)) for x in p) for p in points]
+  summaries=[];minarea=None
+  for ci,ids in enumerate(comps):
+   vertexIDs={v for fi in ids for v in faces[fi]};edges={tuple(sorted((faces[fi][i],faces[fi][(i+1)%3]))) for fi in ids for i in range(3)}
+   origin=ip[min(vertexIDs)];detSum=0
+   for fi in ids:
+    labels[fi]=ci;a,b,c=(ip[v] for v in faces[fi]);normal=cross(sub(b,a),sub(c,a));sq=dot(normal,normal)
+    require(sq*10**36>4*(1<<(4*scale)),{'exactRawArea':fi,'squaredCrossNumerator':str(sq),'coordinateScale':scale})
+    if minarea is None or sq<minarea[0]:minarea=(sq,fi)
+    detSum+=dot(sub(a,origin),normal)
+   vol=Fraction(detSum,6*(1<<(3*scale)))
+   summaries.append({'component':ci,'firstFace':ids[0],'lastFace':ids[-1],'faceCount':len(ids),'vertexCount':len(vertexIDs),'edgeCount':len(edges),'EulerObserver':len(vertexIDs)-len(edges)+len(ids),'closedOppositeEdgePairs':True,'signedVolumeExact':ratio(vol),'bounds':[[min(points[v][k] for v in vertexIDs) for k in range(3)],[max(points[v][k] for v in vertexIDs) for k in range(3)]],'allFaceIDs':ids if ci else None})
+  unreached=sum(len(ids) for ids in comps[1:]);first=min(fi for ids in comps[1:] for fi in ids)
+  require(refusal['operands']==[{'multipleComponents':unreached,'firstUnseen':first}] and unreached==24 and first==24334,'independent actual refusal operands')
+  labelpath=BASE/'CRITIC-COMPONENTS.u32';require(not labelpath.exists(),'sole component labels already exist')
+  with labelpath.open('xb') as f:f.write(struct.pack('<'+str(len(labels))+'I',*labels))
+  result={'componentCount':len(comps),'componentSummaries':summaries,'rawVertices':len(points),'rawFaces':len(faces),'rawEdges':len(edgeRows),'firstComponentFaces':len(comps[0]),'unreachedFaces':unreached,'firstUnseenFace':first,'refusalLabelMeaning':'multipleComponents is unreached-face count, not component count','minimumSquaredCrossExact':ratio(Fraction(minarea[0],1<<(4*scale))),'minimumAreaFace':minarea[1],'coordinateIntegerScalePower':scale,'exactVolumeMethod':'Per-component translated-origin determinant sum using dyadic integer coordinates; closed-edge cancellation makes volume origin independent','connectivityMethod':'Union-find over complete indexed edge incidence, independent of producer DFS/root BFS','gridCompleteNodes':len(values),'tetrahedraWithCrossing':len(tetRows),'primitives':len(primitives),'maximumRatioError':ratio(max_t_error),'maximumExactInterpolationPositionErrorMetres':ratio(max_position_error),'fieldCheckScope':'All saved field values/winner domains/prefix and all extracted crossing provenance; not a full recomputation of the primitive distance field','laterOutputsAbsent':absent,'componentLabels':pin(labelpath),'runnerFullReturn':run['fullReturn'],'producerElapsedSeconds':(datetime.datetime.fromisoformat(run['fullReturn'])-datetime.datetime.fromisoformat(run['started'])).total_seconds(),'stableBindings':bindings}
+  job['status']='verified-refusal'
+ except BaseException as e:
+  job['status']='checker-refused';result={'exception':repr(e),'traceback':traceback.format_exc(),'availableBindings':bindings}
+ finally:
+  job['endedUTC']=now();payload={'job':job,'result':result,'checkerSource':pin(__file__)}
+  with out.open('x') as f:json.dump(payload,f,indent=2,allow_nan=False);f.write('\n')
+  print(json.dumps({'status':job['status'],'pid':job['pid'],'startedUTC':start,'endedUTC':job['endedUTC'],'result':pin(out),'componentCount':result.get('componentCount'),'unreachedFaces':result.get('unreachedFaces')}),flush=True)
+ return 0 if job['status']=='verified-refusal' else 1
+if __name__=='__main__':raise SystemExit(main())

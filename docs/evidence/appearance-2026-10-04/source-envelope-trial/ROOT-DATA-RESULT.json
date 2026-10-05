@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-05T00:57:50.631073+00:00",
+  "decision": "A independently qualified raw refusal only; B garment construction/data acceptance/fit/appearance",
+  "rootFullCheckerHandoffRead": "8a2c59 complete job/metrics/scope/streams; all108stablebindingrows verified",
+  "stableCriticBindingCount": 108,
+  "allComponentLabelMembershipsMatchIndependentRootBFS": true,
+  "allComponentCountsEulerBoundsVolumesAndExactMinimumAreaAgree": true,
+  "methods": "Root BFS+global-origin dyadic integer determinant sums; critic union-find+per-component translated-origin dyadic sums; producer DFS/Fraction gate",
+  "actualComponents": 2,
+  "unreachedFaces": 24,
+  "mainEulerObserver": 0,
+  "extraEulerObserver": 2,
+  "remainingLimits": [
+    "No full primitive field re-evaluation",
+    "No vertex-link/self-intersection/nesting/source-body cause proof",
+    "No cuts/caps/clearance/enclosure/export/native/fit/appearance"
+  ],
+  "criticJob": {
+    "runnerPid": 10145,
+    "startedUTC": "2026-10-05T00:54:28.986425+00:00",
+    "wallLimitSeconds": 60,
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-check.py"
+    ],
+    "source": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-check.py",
+      "bytes": 12256,
+      "sha256": "b2fc12f3ec254457ed63515f111f1f9376ae2565cf201e6518195feb42c41f87"
+    },
+    "wrapper": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-run.py",
+      "bytes": 2052,
+      "sha256": "5ca7ef3b8155abed20acaa10ccd07538785b690bcd8cbee5a06319a16be9f0c3"
+    },
+    "childPid": 10146,
+    "launchedUTC": "2026-10-05T00:54:28.988167+00:00",
+    "exitCode": 0,
+    "fullReturnUTC": "2026-10-05T00:54:31.569649+00:00",
+    "outputs": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK.json",
+        "bytes": 32412,
+        "sha256": "cc84947512d938d9f37ac5a2316ee87bea33c4472021e4e15884d44c271fae83"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-COMPONENTS.u32",
+        "bytes": 519472,
+        "sha256": "74c1973255b5a98319dd6f066d7f68b9de936e39dc7b05411484e9fdcc756e1c"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK-STDOUT.txt",
+        "bytes": 415,
+        "sha256": "42214d52c5de17420057330180a14082e77249efc56292b2d77c0ba75ee69493"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK-STDERR.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "rootResult": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/ROOT-CHECK.json",
+    "bytes": 15615,
+    "sha256": "bc3744609b9a1696a6e46cfb6b169a4046063252d6a04996044c039c376f0ed8"
+  },
+  "criticResult": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-CHECK.json",
+    "bytes": 32412,
+    "sha256": "cc84947512d938d9f37ac5a2316ee87bea33c4472021e4e15884d44c271fae83"
+  },
+  "criticFullFinalNote": "d23219+902364 full reasoning/scopes/metadata;132bindingrows independently reverified",
+  "finalReconciledUTC": "2026-10-05T01:00:33.035990+00:00",
+  "allFinalCriticBindings": {
+    "direct": 24,
+    "stable": 108
+  },
+  "finalCriticNote": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/RESULT.md",
+    "bytes": 4738,
+    "sha256": "157cc4408115c86ef585b38b8b67be11bc4d1fadb07df18739c17993a4b2121c"
+  },
+  "finalCriticReceipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/CRITIC-RECEIPT.json",
+    "bytes": 36626,
+    "sha256": "c1a1a6c598345f18b5d0a7b73f216a91b0a27677661523b5383612ec337068f5"
+  },
+  "nextWorth": "ConditionalA separately bounded complete topology-by-construction artist source/design study only; constructor/fixedmethodrescueB",
+  "allFinalSavedBeforeGate": true
+}

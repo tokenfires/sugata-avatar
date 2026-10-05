@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-05T00:47:32.392406+00:00",
+  "reason": "Root rewrote stale running checkpoint/added receipt after producer had already returned; preserve exact original metadata bound by RUN before further changes. No candidate output or input modified.",
+  "receipt": "Exact current prefix independently matches RUN1541byte/hash",
+  "checkpoint": "Exact known23676a source text and one bounded1001microsecond reconstruction around actual print timestamp; only exact RUN SHA match retained",
+  "matchedMicrosecond": 524440,
+  "originalPins": {
+    "RECEIPT.md": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/RECEIPT.md",
+      "bytes": 1541,
+      "sha256": "26078424834d338ed58d517c41c5903e29f4de276ab008572f533d1e3587ef88"
+    },
+    "CHECKPOINT.md": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/CHECKPOINT.md",
+      "bytes": 869,
+      "sha256": "1a8f15a8bf0bc7780ce0ffe8dc441b1141c4afe65926a344151e8540381e3aa8"
+    }
+  },
+  "mapping": {
+    "RECEIPT.md": "return-metadata/RECEIPT.return.md",
+    "CHECKPOINT.md": "return-metadata/CHECKPOINT.return.md"
+  }
+}

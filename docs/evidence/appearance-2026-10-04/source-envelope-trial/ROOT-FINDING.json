@@ -1,0 +1,59 @@
+{
+  "V": 64936,
+  "F": 129868,
+  "E": 194802,
+  "actualComponentCount": 2,
+  "unreachedFaceCount": 24,
+  "refusalReproduced": true,
+  "decision": "B original one-component source gate; no cuts/export/native/fit/appearance. Distinct shells verified, cause not diagnosed.",
+  "components": [
+    {
+      "firstFace": 0,
+      "faces": 129844,
+      "vertices": 64922,
+      "edges": 194766,
+      "Euler": 0,
+      "exactSignedVolume": {
+        "n": "108863209594352975581605920297067329827997043149205513154068480",
+        "d": "1234128417990904531616226886918012878737051899225184897511456768"
+      },
+      "signedVolumeMetresCubedObserver": 0.08821060110711695,
+      "bounds": [
+        [
+          -0.5017821063869297,
+          0.693,
+          -0.14012417058974402
+        ],
+        [
+          0.5017821063869297,
+          1.5038410273404899,
+          0.247
+        ]
+      ]
+    },
+    {
+      "firstFace": 24334,
+      "faces": 24,
+      "vertices": 14,
+      "edges": 36,
+      "Euler": 2,
+      "exactSignedVolume": {
+        "n": "-27194762340393166230877987793591526628990803677020160",
+        "d": "1234128417990904531616226886918012878737051899225184897511456768"
+      },
+      "signedVolumeMetresCubedObserver": -2.203560176068613e-11,
+      "bounds": [
+        [
+          -0.04146975424744469,
+          0.8585302457525553,
+          -0.050024203356262766
+        ],
+        [
+          -0.03995055601512924,
+          0.8601090149428907,
+          -0.049898511048165034
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/author.py", line 87, in main
+    rawtop,_=audit.topology(raw,True,2,artist);save('EXTRACTED-TOPOLOGY.json',rawtop)
+             ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py", line 39, in topology
+    require(len(seen)==len(faces),{'multipleComponents':len(faces)-len(seen),'firstUnseen':next((j for j in range(len(faces)) if j not in seen),None)})
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py", line 9, in require
+    if not test:raise ValueError(witness)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: {'multipleComponents': 24, 'firstUnseen': 24334}

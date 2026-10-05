@@ -1,0 +1,9 @@
+# Closed fixed-method checkpoint
+
+2026-10-05T01:02:15.676449+00:00 — B source-envelope construction, first closed-topology failure. Sole runner89128/author89129 runs00:42:42.941727–00:43:32.136059UTC, exit1/no timeout. Actual24unreached faces/first24334 belong to a second indexed-edge component. No cuts/caps/gap/enclosure/OBJ/native. Never repeat, remove/fill shells or tune this field/radius/grid/equation.
+
+Root independent BFS/global-origin integer check6fa06c/0/PID1322 and critic union-find/translated-origin checker6896c5→bd2320/0/PIDs10145→10146 agree on complete label memberships/exact volumes/counts/Euler/area. Critic final saved00:58:46.076475 before01:02:39; root37d7d7 at01:00:33 fully reads and reconciles132bindings. Root's stale running phase/metadata overwrite is explicitly corrected; exact return checkpoint/receipt archived via RETURN-METADATA-MAPPING. Source/geometry bytes unchanged.
+
+All owned jobs collected/gone. Review1023/127.0.0.1:5173 and ACTIVE10min recovery live reverified; no browser/GPU/native work. Frozen builder7f1ae31/accepted assets/originals/prior guides/unrelated worktrees and fullAAAroadmap preserved. Current human resume remains; newer check-in/pause takes precedence.
+
+Next conditional bounded source/design only: complete topology-by-construction artist surfaces in the original source pose, shared oriented seams/four unique opening cycles and whole-original-fragment enclosure/ease/clearance obligations. This must be a genuinely different complete contract, not old fixed-net repair or failed-field shell selection. Source inspection/design references may precede code; no constructor admitted. If full metric surfaces/seams cannot be owned in finite gate, B without repeated tweaks. Preserve full character/expression/wardrobe/representation and later VTuber/Mii ambition.

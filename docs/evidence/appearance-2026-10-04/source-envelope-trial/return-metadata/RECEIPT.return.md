@@ -1,0 +1,7 @@
+# Sole unchanged source-envelope CPU trial receipt
+
+Fresh plan8cc46f/0 starts2026-10-05T00:39:39.724705+00:00, with independent source save00:43:39.724705, root launch00:44:39.724705 and final root close01:04:39.724705. Source preparation7f1ae31 and all frozen payloads are preserved; no deadline extension or old construction repair. Maximum one producer,600seconds child computation, at most10seconds termination collection. No native/GPU/browser admission.
+
+Bound inputs13exact pins include final source/input/frozen manifest, full independent/root reviews and explicit scope correction plus prior real coverage guide images/policy. Root18dd4f reads fresh PLAN and entire runner and actually inspects the whole unchanged front/back original; no new capture. Root41f2da/0 at00:40:35.035268 independently verifies13trial/9original/22source/35frozen payload bindings, source readonly/no cache and no live producer. Final fresh source worth/admission pending at this interim receipt.
+
+Exact prospective command is in PLAN.json; it has not yet been issued. On launch RUN/JOB/stdout/stderr/output inventory will own actual command/PIDs/start/fullreturn/status and available exact records. First refusal/timeout closes without source/predicate/artist/radius/grid/field/normal/material/camera retune or retry. Incomplete data cannot qualify a mesh. A complete producer still needs independent saved-data checks/root reconciliation; native/fit/moving appearance remain open. Full character/expression/wardrobe/representation roadmap is preserved.

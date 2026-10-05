@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-05T00:54:06.269875+00:00",
+  "decision": "A one independent saved refusal checker; no producer/native",
+  "rootFullInitialCheckerRead": "52df18 entire source",
+  "rootFullFinalWrapperDeltaRead": "5c4717 full external wrapper/prefight; exact lone guard substitution independently verified",
+  "unsupportedGuardCorrection": "Fixed recipe prescribes actual Float64 division, no1ulp exact-ratio threshold. Rational error retained as observer. Initial exact source preserved before any checker invocation.",
+  "wallLimitSeconds": 60,
+  "forcedCollectionSeconds": 5,
+  "maximumInvocations": 1,
+  "sources": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-check.py",
+      "bytes": 12256,
+      "sha256": "b2fc12f3ec254457ed63515f111f1f9376ae2565cf201e6518195feb42c41f87"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-check.initial.py.source",
+      "bytes": 12242,
+      "sha256": "bcc385870bb27cac126b366f0971bd9ad701d6ffa2f672211557592999b79c97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-trial/critic-run.py",
+      "bytes": 2052,
+      "sha256": "5ca7ef3b8155abed20acaa10ccd07538785b690bcd8cbee5a06319a16be9f0c3"
+    }
+  ],
+  "limits": [
+    "Full primitive field and vertex-link/self-intersection/later clearance/appearance unqualified",
+    "B first checker failure/timeout, no retry"
+  ]
+}

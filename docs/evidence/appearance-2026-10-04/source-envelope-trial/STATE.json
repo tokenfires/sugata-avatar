@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-05T01:00:33.046704+00:00",
+  "currentProcessReadback": "  PID  PPID     ELAPSED COMMAND\n 1023     1 02-11:30:40 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort\n",
+  "ownedProducerAndChecksGone": true,
+  "reviewServer": "PID1023/127.0.0.1:5173 retained",
+  "automation": {
+    "name": "Advance Sugata until check-in",
+    "status": "ACTIVE",
+    "kind": "heartbeat",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  },
+  "automationPin": {
+    "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+    "bytes": 2940,
+    "sha256": "f69648b59c2107f17177fde67cc5864bbd2956f20cfbe5d1101bdb2ddb5ef8db"
+  },
+  "browser": "No browser/native/GPU action in this trial; previous six tabs retained by saved closeout, not new enumeration",
+  "rootScope": "Fixedfield methodB; no rereun/retune/native/currentpause",
+  "baseSourceCommit": "7f1ae31"
+}
