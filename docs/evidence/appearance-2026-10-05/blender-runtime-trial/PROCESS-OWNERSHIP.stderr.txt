@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/blender-runtime-trial/check-process-ownership.py", line 51, in <module>
+    function(source)(child)
+    ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/blender-runtime-trial/probe.py", line 81, in stop_child
+    os.killpg(child.pid, 0)
+    ~~~~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/blender-runtime-trial/check-process-ownership.py", line 61, in <module>
+    if group_alive(child.pid):
+       ~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/blender-runtime-trial/check-process-ownership.py", line 28, in group_alive
+    os.killpg(pid, 0)
+    ~~~~~~~~~^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted

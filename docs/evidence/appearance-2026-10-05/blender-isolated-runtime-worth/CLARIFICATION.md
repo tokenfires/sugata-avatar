@@ -1,0 +1,5 @@
+# Trust-stage clarification
+
+The critic's collected original WORTH remains unchanged. Its fifth paragraph literally overstated application-signature checks before mounting. Root identified the staging ambiguity before any online/package/mount/executable action; critic reread its complete note (`c2addb`) and explicitly clarified the order in its final handoff.
+
+A: verify official exact package identity, published SHA256/size and disk-image integrity before an owned read-only mount. Then inspect the mounted application's bundle identity, architecture, codesign/spctl and host compatibility before a direct executable probe. Any refusal requires owned detach. B: require a separately verifiable outer-image signature before mounting; stricter, but may decline a publisher package without answering application trust. Root and critic choose A. No outer-image signature, bundle identity or source compatibility is currently inferred. This is a fresh source duty, not an altered historical result or execution admission.

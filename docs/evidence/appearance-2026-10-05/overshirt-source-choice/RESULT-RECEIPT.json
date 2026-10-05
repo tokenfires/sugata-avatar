@@ -1,0 +1,59 @@
+{
+  "saved_utc": "2026-10-05T09:41:40.946473+00:00",
+  "decision": "B no eligible named candidate; first inquiry stop",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-source-choice/PLAN.json",
+      "bytes": 2552,
+      "sha256": "09797df56222a6264ab7bbe8e25e1521f8974037bb4b9eeefe4968b21cef9127"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-source-choice/SEARCH.json",
+      "bytes": 3028,
+      "sha256": "f31b9ba176f9106494699afbab421a86303f2f22ce4ae3b9f3f7b00fe0976de1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-source-choice/OUTCOME.json",
+      "bytes": 1671,
+      "sha256": "20069985f7b866495b1b93712941779bef79422d98d0466f7f52f3667a56a53d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/next-phase1-worth/WORTH.md",
+      "bytes": 4353,
+      "sha256": "c37f3e17a61ead78d18cf3946a8d1e1d0f638416e127e9d5a1975b9b1a2b5d99"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/next-phase1-worth/WORTH-RECEIPT.json",
+      "bytes": 9451,
+      "sha256": "236419582647b00dde941c84789915bed866100c4b98a30af1fcac30f59b93c0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/next-phase1-worth/ROOT-CLOSE.json",
+      "bytes": 1363,
+      "sha256": "9428d9e56a642d28435eb225d4eee49b7aec6248dd3d04b449b8f12b618673f1"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/overshirt-source-choice/RESULT.md",
+    "bytes": 1435,
+    "sha256": "e0339e51bafdbb4d9041fbfb7c8ce49419bb04d192521c219732ff11fe866eb4"
+  },
+  "commands": [
+    {
+      "chunk": "677eaf",
+      "exit_code": 0,
+      "scope": "Full actual PLAN/search MCP duplicate representations/outcome; no online action"
+    }
+  ],
+  "verification": "Exact query args agree with PLAN, structured/text data agree, two generic results and provider/2credits/clock bounds agree. Four prior input hashes match.",
+  "limits": [
+    "No source candidate/creator/reuse/referenceframe/image/geometry qualified.",
+    "No universal suitable-source absence claim.",
+    "No further page/query/download/parser/native or source-hunt continuation admitted."
+  ]
+}

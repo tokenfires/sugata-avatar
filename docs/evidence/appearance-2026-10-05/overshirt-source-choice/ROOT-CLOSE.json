@@ -1,0 +1,34 @@
+{
+  "saved_utc": "2026-10-05T09:43:53.995655+00:00",
+  "decision": "B source choice; immediate stop before fetch/download/native",
+  "verified_bindings": 8,
+  "root_review": "Complete saved critic result/receipt plus independently read exact2excerpts/args/twin response/selection. No primary source candidate was selected.",
+  "actual_dispatch_return_bounds": [
+    {
+      "current_time": "2026-10-05 09:36:56 UTC"
+    },
+    {
+      "current_time": "2026-10-05 09:36:59 UTC"
+    }
+  ],
+  "query": {
+    "query": "open collared long sleeve shirt 3D clothing asset",
+    "includeDomains": [
+      "makehumancommunity.org"
+    ],
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "limit": 3
+  },
+  "provider_id": "01a10b6c-6f30-71fd-b932-a1c5f8786e28",
+  "reported_credits": 2,
+  "critic_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/overshirt-source-choice/RESULT-RECEIPT.json",
+    "bytes": 2353,
+    "sha256": "2e9c376f53e872af120a601c3664aed19ddebe211138a150e7e06bc804468528"
+  },
+  "scope": "No primary page, source file, image, data parse, construction, native, accepted/default or checklist change. No absence-of-suitable-source inference.",
+  "next": "No search reformulation or source-hop. Distinct isolated runtime worth is separately proposed; no execution admission inherited."
+}

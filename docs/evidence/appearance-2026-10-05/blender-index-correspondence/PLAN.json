@@ -1,0 +1,48 @@
+{
+  "started_utc": "2026-10-05T09:59:20.132853+00:00",
+  "stop_utc": "2026-10-05T10:16:00Z",
+  "decision": "A separate indexed-package correspondence inquiry only, conditional on root independently collecting and verifying the critic worth. The current-download-page contract remains closed B.",
+  "usable_goal": "A verified reversible temporary authoring runtime for original editable character inventory; metadata alone does not deliver that improvement.",
+  "research_question": "Does the literal official Blender5.2 index supply one indexed macOS arm64 stable package and same-version SHA256 entry that can support a later separately reviewed package controller?",
+  "maximum_requests": 2,
+  "first_url": "https://download.blender.org/release/Blender5.2/",
+  "request_args": {
+    "formats": [
+      "markdown",
+      "links"
+    ],
+    "maxAge": 0,
+    "timeout": 30000
+  },
+  "selection": "From literal official same-directory links only: choose highest stable 5.2 patch <= the observed current 5.2.2 for which both blender-5.2.P-macos-arm64.dmg and blender-5.2.P.sha256 are indexed. Explicitly permits older stable 5.2.P; never substitute its digest for 5.2.2. Read only that selected checksum link as second request. Require exactly one 64-hex SHA256 row for the exact selected filename. No substitution after selection, other family/platform/mirror/search/version guess or third request.",
+  "stop": "First missing/ambiguous literal identity/digest/compatibility duty, response error/unavailable, unexpected binary response or fixed deadline. No package GET/HEAD/download/mount/probe/install/source extraction/load/native/browser/GPU action.",
+  "compatibility_context": "Actual arm64 host macOS27.0.1 build26A434; observed official 5.2 current macOS package requires macOS13 or newer. Older-version runtime compatibility remains a later explicit validation duty, not proven by this family constraint.",
+  "input_bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PLAN.json",
+      "bytes": 2475,
+      "sha256": "b7af670370a43b25884b2e55921b125ffefefc1ef726c4678ce053e467a76478"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-0.json",
+      "bytes": 31103,
+      "sha256": "15f8a2549f41433f94c6b337e6b889ada191b53628803904d2cd9802b1e2490f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-2.json",
+      "bytes": 3142,
+      "sha256": "9e62e9c13610504a35f99c61ea273693c10cb460899d0e701889147562c1cdd8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/OUTCOME.json",
+      "bytes": 4569,
+      "sha256": "8970aba65719981a69232f95fbae6475e010cf4ff374a18464785ed72af5abbc"
+    }
+  ],
+  "criticism_and_root_gate": "Saved independent RESULT/receipt and root close from preceding metadata packet must be independently read/verified before dispatch; retain actual values in this packet RECEIPT."
+}

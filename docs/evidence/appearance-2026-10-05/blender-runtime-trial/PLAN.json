@@ -1,0 +1,62 @@
+{
+  "started_utc": "2026-10-05T10:04:32.903693+00:00",
+  "source_review_cutoff_utc": "2026-10-05T10:15:00Z",
+  "stop_utc": "2026-10-05T10:24:30Z",
+  "decision": "One isolated runtime trial only after independent and root full controller review; no inferred execution admission from metadata.",
+  "usable_goal": "A verified recoverable temporary Blender authoring runtime whose original DMG and direct version identity can be reused in later artist-source work.",
+  "research_question": "Do the exact indexed bytes pass publisher SHA256, image-integrity, actual mounted arm64/bundle/signature/Gatekeeper duties and one no-script factory offline version probe on this host?",
+  "package": {
+    "url": "https://download.blender.org/release/Blender5.2/blender-5.2.2-macos-arm64.dmg",
+    "filename": "blender-5.2.2-macos-arm64.dmg",
+    "bytes": 346286611,
+    "sha256": "dc4125399b8bfefe283cc1624d6cfc7809d1cac20ace51072127eb371f31f210",
+    "version": "5.2.2"
+  },
+  "limits": {
+    "official_package_gets": 1,
+    "redirects": 0,
+    "maximum_package_bytes": 786432000,
+    "download_seconds": 180,
+    "total_controller_seconds": 480,
+    "version_invocations": 1,
+    "version_seconds": 15,
+    "utility_seconds_maximum": 45
+  },
+  "owned_store": "assets/vendor/tooling/blender-runtime-20261005T1004Z",
+  "mount_contract": "Only newly created owned mountpoint, read-only, verified image, noautoopen; final detach exact mountpoint, no force/sudo/security bypass; record cleanup refusal. Local hdiutil help d62533/be352e/c1a1b8/0 documents flags and deprecation. Omit unlisted nobrowse flag.",
+  "execution_contract": "Direct actual owned Blender executable; signed bundle accepted by codesign and Gatekeeper first, record actual identifier/authority/team and arm64 arch; owned resources/config/scripts/extensions/data/temp per child, inherited BLENDER/PYTHON/DYLD/OCIO settings excluded; HOME and PATH stay unchanged. Only background/disable-autoexec/factory-startup/offline/version, no file/python command, no installed-path change.",
+  "stop": "First failure or either deadline; save actual outputs/partials, reap owned child group, detach owned volume when present. No retry/mirror/version/subscription/model/purchase/security-bypass fallback.",
+  "scope": "No Applications/Homebrew/PATH/file-registration/permanent installation, quarantine changes, ZIP extraction/Snow load/Sugata image/fit promotion/native GPU/browser capture. Package is original tool bytes outside Git; source/output/receipt committed locally.",
+  "input_bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/OUTCOME.json",
+      "bytes": 2673,
+      "sha256": "129666ebfa50691236bb8d7e0c9cf61b1c0f0fe07c2d363adb3a3e3e2312aeeb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT.md",
+      "bytes": 2449,
+      "sha256": "160ce7dd474b658adc0d8fd0244bcdafa1ce0626f5bc4fcec8c2c2457fe715ac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT-RECEIPT.json",
+      "bytes": 5285,
+      "sha256": "1037eb2a3a2cb4a73599fe9b254b45e88e2738b7a69441841148695567189fb6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/ROOT-CLOSE.json",
+      "bytes": 630,
+      "sha256": "c552f46cf43aaa87736cbcb8b0fc0dba2d62cc0457b7b194d5df6746c4b5b2bc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/CLARIFICATION.md",
+      "bytes": 1021,
+      "sha256": "2e3dccf63b15987459a12077b258c8a8bdeaba786d40f72acb0464827b30ef73"
+    }
+  ]
+}

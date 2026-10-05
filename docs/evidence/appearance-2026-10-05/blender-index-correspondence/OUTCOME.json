@@ -1,0 +1,58 @@
+{
+  "saved_utc": "2026-10-05T10:01:33.670198+00:00",
+  "decision": "A retained literal same-version package/digest lead only; not downloaded, mounted or executed.",
+  "selected_package": {
+    "selected_utc": {
+      "current_time": "2026-10-05 10:00:41 UTC"
+    },
+    "filename": "blender-5.2.2-macos-arm64.dmg",
+    "version": "5.2.2",
+    "package_url": "https://download.blender.org/release/Blender5.2/blender-5.2.2-macos-arm64.dmg",
+    "digest_url": "https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256",
+    "index_literal_row": "blender-5.2.2-macos-arm64.dmg                      15-Sep-2026 09:17           346286611",
+    "bytes": 346286611,
+    "eligible_indexed_versions": [
+      2,
+      1,
+      0
+    ],
+    "rule": "Highest literal indexed 5.2.P arm64 stable package and same-version sha256 link with P<=2, per fresh PLAN; no version substitution after selection."
+  },
+  "sha256": "dc4125399b8bfefe283cc1624d6cfc7809d1cac20ace51072127eb371f31f210",
+  "exact_digest_row": "dc4125399b8bfefe283cc1624d6cfc7809d1cac20ace51072127eb371f31f210  blender-5.2.2-macos-arm64.dmg",
+  "requests": 2,
+  "reported_credits": 2,
+  "ids": [
+    "01a10b81-b01c-71ba-b29c-a3ff38f3c601",
+    "01a10b82-29c7-74fb-b132-6e78de5b9365"
+  ],
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/PLAN.json",
+      "bytes": 3189,
+      "sha256": "44c40a3b498b05eb39c276d1b5f62b15ec4660113aab38bd98f0e132539a6023"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/ADMISSION.json",
+      "bytes": 1073,
+      "sha256": "e9734aaa3276a34a65dfbf79e3ba1096cb416e11a66c33d095257285f8ab462d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/INDEX.json",
+      "bytes": 12529,
+      "sha256": "b3dd63569a9778c9adf84e7f70649f5079bf1f836a39129e46020f48aaeed7f0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/SELECTION.json",
+      "bytes": 685,
+      "sha256": "f2e7ed2c484c11dc6844e260dded718649c15eb2d927169b2783a101a43575c4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/CHECKSUM.json",
+      "bytes": 3194,
+      "sha256": "0f2d7d720cbdb1bc14fb9090c1d038ae1a63eb40cb44685e6f485cbbcff8a985"
+    }
+  ],
+  "root_observation": "Actual 10:00:10-12 index and10:00:41-43 checksum; deterministic sorted indexed pair chosen. Latest page wrong linked version remains closed independently.",
+  "scope": "Metadata only; no installation/version/source/native action. Exact runtime/model/script behavior still requires its own owned controller and review."
+}

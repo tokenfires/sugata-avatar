@@ -1,0 +1,96 @@
+{
+  "collected_utc": "2026-10-05T10:12:14.050483+00:00",
+  "decision": "B exact unrun controller; two witnessed mount/lifetime blockers",
+  "scope": "Complete static source/source-data read and hashing only; no probe import/execution, network, package, mount, binary, native/browser/GPU or Snow source work",
+  "commands": [
+    {
+      "chunk": "6a4472",
+      "exit": 0,
+      "scope": "Full current PLAN/probe source and exact hashes; finite packet file names"
+    },
+    {
+      "chunk": "7ad143",
+      "exit": 0,
+      "scope": "Initial/current source exact diff; all six PLAN bindings; complete indexed OUTCOME/ROOT-CLOSE"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/OUTCOME.json",
+      "bytes": 2673,
+      "sha256": "129666ebfa50691236bb8d7e0c9cf61b1c0f0fe07c2d363adb3a3e3e2312aeeb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT.md",
+      "bytes": 2449,
+      "sha256": "160ce7dd474b658adc0d8fd0244bcdafa1ce0626f5bc4fcec8c2c2457fe715ac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT-RECEIPT.json",
+      "bytes": 5285,
+      "sha256": "1037eb2a3a2cb4a73599fe9b254b45e88e2738b7a69441841148695567189fb6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/ROOT-CLOSE.json",
+      "bytes": 630,
+      "sha256": "c552f46cf43aaa87736cbcb8b0fc0dba2d62cc0457b7b194d5df6746c4b5b2bc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/CLARIFICATION.md",
+      "bytes": 1021,
+      "sha256": "2e3dccf63b15987459a12077b258c8a8bdeaba786d40f72acb0464827b30ef73"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/PLAN.json",
+      "bytes": 3830,
+      "sha256": "04276fe1b1837aff179d52f05cfd1b654cb491110bc1832c9ff84810f2acc3b0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/probe.py",
+      "bytes": 13609,
+      "sha256": "b9fc89f17cbe96d91756609e5056a4fd9a0e9f4fc742d54bdae9e72238aa3727"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/probe.initial.py",
+      "bytes": 12626,
+      "sha256": "04ad38bb595a9f8b1686c2daba546cfc5995ad76a7b7df1dd3f5950d93401554"
+    }
+  ],
+  "findings": [
+    {
+      "file": "probe.py",
+      "lines": [
+        199,
+        203,
+        263,
+        270
+      ],
+      "issue": "Additional actual attachment-mounted entities are neither refused nor fully cleaned"
+    },
+    {
+      "file": "probe.py",
+      "lines": [
+        100,
+        261,
+        262
+      ],
+      "issue": "Final child cleanup exception bypasses mount cleanup and final accounting"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/SOURCE-RESULT.md",
+    "bytes": 2671,
+    "sha256": "ccefed343bd34ad58a43a521733a21b2f398e6f18b6ea15f59fb620011527868"
+  },
+  "limits": [
+    "Static review does not prove package trust or runtime behavior",
+    "No actual mount layout, process failure or application signature observed",
+    "Initial source hash reviewed by exact comparison, not execution",
+    "No source correction or execution admitted by this refusal"
+  ]
+}

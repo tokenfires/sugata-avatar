@@ -1,0 +1,215 @@
+{
+  "collected_utc": "2026-10-05T09:58:58.043518+00:00",
+  "decision": "B current literal stable package/digest qualification; conditional A fresh bounded official release-index metadata worth only",
+  "scope": "Saved JSON/source read and hashing only. No network/native/browser/GPU/package/mount/executable/source-load action by critic. No relevant memory evidence used; one registry keyword search returned only an unrelated historical hit.",
+  "read_commands": [
+    {
+      "chunk": "6ba680",
+      "exit": 0,
+      "scope": "PLAN and initial raw response print; output truncated, not full-response inspection by itself"
+    },
+    {
+      "chunk": "3e8996",
+      "exit": 0,
+      "scope": "All three response schemas/content and raw-text JSON vs structured equality; complete download/digest Markdown and most manual, remaining manual lines completed separately"
+    },
+    {
+      "chunk": "953cad",
+      "exit": 0,
+      "scope": "Manual Markdown7\u2013175 completing full deduplicated content; complete CLARIFICATION/ROOT-CLOSE"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/WORTH.md",
+      "bytes": 3429,
+      "sha256": "a3877bffcb7a2dce05a8691c5a9b891ea9c896e462352978640de0fdd6264cfd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/WORTH-RECEIPT.json",
+      "bytes": 3561,
+      "sha256": "92a003a7f69fbcf04fe68f390ab18fedae2573a02d8bc030ad43d3d12a721f5b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/CLARIFICATION.md",
+      "bytes": 1021,
+      "sha256": "2e3dccf63b15987459a12077b258c8a8bdeaba786d40f72acb0464827b30ef73"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-isolated-runtime-worth/ROOT-CLOSE.json",
+      "bytes": 1311,
+      "sha256": "23d3b8db0af93f911b78cb87ee24ed9e6e2ca93bdd6406e66a2a2cc69a54cefa"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PLAN.json",
+      "bytes": 2475,
+      "sha256": "b7af670370a43b25884b2e55921b125ffefefc1ef726c4678ce053e467a76478"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-0.json",
+      "bytes": 31103,
+      "sha256": "15f8a2549f41433f94c6b337e6b889ada191b53628803904d2cd9802b1e2490f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-2.json",
+      "bytes": 3142,
+      "sha256": "9e62e9c13610504a35f99c61ea273693c10cb460899d0e701889147562c1cdd8"
+    }
+  ],
+  "responses": [
+    {
+      "request": {
+        "url": "https://www.blender.org/download/",
+        "formats": [
+          "markdown",
+          "links"
+        ],
+        "maxAge": 0,
+        "timeout": 30000
+      },
+      "started": {
+        "current_time": "2026-10-05 09:51:12 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 09:51:16 UTC"
+      },
+      "isError": false,
+      "metadata": {
+        "keywords": "blender, latest, release, latest release, download, download blender, blender download latest release, animation, grease pencil, eevee, cycles, modeling, geometry nodes, 3d",
+        "og:site_name": "Blender",
+        "og:url": "https://www.blender.org/download/",
+        "language": "en",
+        "title": "  Download \u2014 Blender",
+        "description": "Blender is free and open source. Forever.",
+        "og:image": "https://www.blender.org/wp-content/uploads/2026/06/splash5_2.webp",
+        "author": "Blender Foundation",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "twitter:card": "summary_large_image",
+        "ogImage": "https://www.blender.org/wp-content/uploads/2026/06/splash5_2.webp",
+        "twitter:creator": "@blender",
+        "theme-color": "#ed8f31",
+        "og:type": "website",
+        "ogDescription": "Blender is free and open source. Forever.",
+        "og:description": "Blender is free and open source. Forever.",
+        "twitter:site": "@blender",
+        "twitter:title": "  Download \u2014 Blender",
+        "twitter:description": "Blender is free and open source. Forever.",
+        "twitter:image:alt": "Blender is free and open source. Forever.",
+        "robots": "max-image-preview:large",
+        "generator": "WordPress 7.1",
+        "ogTitle": "  Download \u2014 Blender",
+        "ogSiteName": "Blender",
+        "ogUrl": "https://www.blender.org/download/",
+        "og:title": "  Download \u2014 Blender",
+        "twitter:image": "https://www.blender.org/wp-content/uploads/2026/06/splash5_2.webp",
+        "favicon": "https://www.blender.org/wp-content/themes/bthree/assets/icons/favicon.svg",
+        "scrapeId": "01a10b79-7a41-75b6-b71f-64043824dd42",
+        "sourceURL": "https://www.blender.org/download/",
+        "url": "https://www.blender.org/download/",
+        "statusCode": 200,
+        "contentType": "text/html; charset=UTF-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "8378d02c-4a1c-4153-bdf4-6b384bf98686",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "raw_text_equals_structured": true
+    },
+    {
+      "request": {
+        "url": "https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html",
+        "formats": [
+          "markdown",
+          "links"
+        ],
+        "maxAge": 0,
+        "timeout": 30000
+      },
+      "started": {
+        "current_time": "2026-10-05 09:51:12 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 09:51:16 UTC"
+      },
+      "isError": false,
+      "metadata": {
+        "language": "en",
+        "title": "Command Line Arguments - Blender 5.2 LTS Manual",
+        "viewport": [
+          "width=device-width,initial-scale=1",
+          "width=device-width, initial-scale=1"
+        ],
+        "color-scheme": "light dark",
+        "favicon": "https://docs.blender.org/manual/en/latest/_static/favicon.png",
+        "scrapeId": "01a10b79-80d1-702c-9f4f-75fbb528da70",
+        "sourceURL": "https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html",
+        "url": "https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html",
+        "statusCode": 200,
+        "contentType": "text/html",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "2c2f3ec6-3c87-4f93-9b86-30cbff26dec0",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "raw_text_equals_structured": true
+    },
+    {
+      "request": {
+        "url": "https://download.blender.org/release/Blender5.2/blender-5.2.1.sha256",
+        "formats": [
+          "markdown"
+        ],
+        "maxAge": 0,
+        "timeout": 30000
+      },
+      "started": {
+        "current_time": "2026-10-05 09:52:26 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 09:52:27 UTC"
+      },
+      "isError": false,
+      "metadata": {
+        "scrapeId": "01a10b7a-9a89-77ba-90c5-1392b68b7563",
+        "sourceURL": "https://download.blender.org/release/Blender5.2/blender-5.2.1.sha256",
+        "url": "https://download.blender.org/release/Blender5.2/blender-5.2.1.sha256",
+        "statusCode": 200,
+        "contentType": "text/plain",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "90c59c3a-ffb0-44ba-849a-f6dc40d42d60",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "raw_text_equals_structured": true
+    }
+  ],
+  "witnesses": {
+    "download_markdown_lines": [
+      29,
+      42
+    ],
+    "digest_rows": 8,
+    "selected_filename": "blender-5.2.2-macos-arm64.dmg",
+    "digest_arm64_filename": "blender-5.2.1-macos-arm64.dmg",
+    "selected_filename_digest_rows": 0
+  },
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/RESULT.md",
+    "bytes": 2302,
+    "sha256": "abe76fcefba68a7f346ece6c779672480d88b49dfb4592b7d767da5451cd90e6"
+  },
+  "limits": [
+    "No current or alternative package bytes qualified",
+    "No global digest-absence or exclusive publisher/caching cause",
+    "Manual semantics documented only",
+    "Fresh metadata worth is not controller/download/mount/identity or Snow admission"
+  ]
+}

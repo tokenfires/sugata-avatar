@@ -1,0 +1,14 @@
+{
+  "saved_utc": "2026-10-05T09:41:20.449361+00:00",
+  "architecture": "arm64",
+  "documented_target": "/Applications/Blender.app/Contents/MacOS/Blender",
+  "target_is_file": false,
+  "target_xaccess": false,
+  "bundle_exists": false,
+  "free_bytes_at_repo": 2647417552896,
+  "wrapper_path": "/opt/homebrew/Caskroom/blender/5.2.1/.homebrew-command-wrappers/blender",
+  "wrapper_bytes": 74,
+  "wrapper_sha256": "a12b9bc15c1a0f62c50fac2efef8f3b89040e5bcd11c00c58d7b374e66e0b106",
+  "wrapper_text": "#!/bin/bash\nexec \"/Applications/Blender.app/Contents/MacOS/Blender\"  \"$@\"\n",
+  "scope": "Literal documented route read/access and disk/architecture metadata only; no machinewide search, executable invocation, version, network, install/mount/load/native."
+}

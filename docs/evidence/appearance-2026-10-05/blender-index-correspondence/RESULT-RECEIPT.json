@@ -1,0 +1,135 @@
+{
+  "collected_utc": "2026-10-05T10:02:51.779270+00:00",
+  "decision": "A exact indexed filename/size/digest correspondence; conditional A fresh isolated package/controller preparation only",
+  "scope": "Complete saved-source response read/deduplication, hashing and literal metadata selection verification only. No network/browser/native/GPU/package/mount/executable/source-load work. Prior frozen packets unchanged.",
+  "commands": [
+    {
+      "chunk": "4beb5c",
+      "exit": 0,
+      "read_scope": "Complete PLAN/ADMISSION/SELECTION; complete INDEX/CHECKSUM metadata, links and Markdown, raw text JSON equals structured content"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PLAN.json",
+      "bytes": 2475,
+      "sha256": "b7af670370a43b25884b2e55921b125ffefefc1ef726c4678ce053e467a76478"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-0.json",
+      "bytes": 31103,
+      "sha256": "15f8a2549f41433f94c6b337e6b889ada191b53628803904d2cd9802b1e2490f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-2.json",
+      "bytes": 3142,
+      "sha256": "9e62e9c13610504a35f99c61ea273693c10cb460899d0e701889147562c1cdd8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/OUTCOME.json",
+      "bytes": 4569,
+      "sha256": "8970aba65719981a69232f95fbae6475e010cf4ff374a18464785ed72af5abbc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/RESULT.md",
+      "bytes": 2302,
+      "sha256": "abe76fcefba68a7f346ece6c779672480d88b49dfb4592b7d767da5451cd90e6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/RESULT-RECEIPT.json",
+      "bytes": 8451,
+      "sha256": "e5c10fe972bead20b76ab0a038b55b573656b09dca8ef212a521c969770eb5c1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/ROOT-CLOSE.json",
+      "bytes": 876,
+      "sha256": "8cae84902e0f25b6685d227bb11165d97389e9b92a317ed1d5ed1034f172ee42"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/MANIFEST.json",
+      "bytes": 1943,
+      "sha256": "a442ec87d41c90bcff9fb6c80e062233425bdd45596096b095c80dedd30fb8c2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/PLAN.json",
+      "bytes": 3189,
+      "sha256": "44c40a3b498b05eb39c276d1b5f62b15ec4660113aab38bd98f0e132539a6023"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/ADMISSION.json",
+      "bytes": 1073,
+      "sha256": "e9734aaa3276a34a65dfbf79e3ba1096cb416e11a66c33d095257285f8ab462d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/INDEX.json",
+      "bytes": 12529,
+      "sha256": "b3dd63569a9778c9adf84e7f70649f5079bf1f836a39129e46020f48aaeed7f0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/SELECTION.json",
+      "bytes": 685,
+      "sha256": "f2e7ed2c484c11dc6844e260dded718649c15eb2d927169b2783a101a43575c4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/CHECKSUM.json",
+      "bytes": 3194,
+      "sha256": "0f2d7d720cbdb1bc14fb9090c1d038ae1a63eb40cb44685e6f485cbbcff8a985"
+    }
+  ],
+  "independent_metadata_checks": {
+    "eligible_patches": [
+      2,
+      1,
+      0
+    ],
+    "selected_filename": "blender-5.2.2-macos-arm64.dmg",
+    "index_bytes": 346286611,
+    "matching_sha256_rows": 1,
+    "publisher_sha256": "dc4125399b8bfefe283cc1624d6cfc7809d1cac20ace51072127eb371f31f210",
+    "actual_downloaded_package_verified": false
+  },
+  "requests": [
+    {
+      "url": "https://download.blender.org/release/Blender5.2/",
+      "started": {
+        "current_time": "2026-10-05 10:00:10 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 10:00:12 UTC"
+      },
+      "status": 200,
+      "scrape_id": "01a10b81-b01c-71ba-b29c-a3ff38f3c601",
+      "reported_credits": 1,
+      "raw_text_equals_structured": true
+    },
+    {
+      "url": "https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256",
+      "started": {
+        "current_time": "2026-10-05 10:00:41 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 10:00:43 UTC"
+      },
+      "status": 200,
+      "scrape_id": "01a10b82-29c7-74fb-b132-6e78de5b9365",
+      "reported_credits": 1,
+      "raw_text_equals_structured": true
+    }
+  ],
+  "limits": [
+    "Metadata identity only, not acquired bytes or signature/runtime qualification",
+    "Old current-download-page B unchanged",
+    "Fresh complete controller/root/critic source review precedes any package action",
+    "No Snow extraction/load, Sugata transfer, fit or appearance admission"
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT.md",
+    "bytes": 2449,
+    "sha256": "160ce7dd474b658adc0d8fd0244bcdafa1ce0626f5bc4fcec8c2c2457fe715ac"
+  }
+}

@@ -1,0 +1,2 @@
+Actual 1ad9ca exit1: fixed parsed stop_child raises PermissionError from os.killpg(child.pid,0) at probe.py81; fixture finally raises PermissionError at group_alive28. No full package controller invocation. Observed 2026-10-05T10:11:34.743045+00:00
+

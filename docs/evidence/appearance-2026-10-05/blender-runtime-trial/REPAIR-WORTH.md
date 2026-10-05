@@ -1,0 +1,11 @@
+# Focused runtime ownership repair worth
+
+**Conditional A for fresh bounded ownership/controller preparation plus one separately admitted CPU ownership test.** Original sourceB remains unchanged; no package invocation or correction is admitted here.
+
+`PROCESS-OWNERSHIP-FAILURE.txt` records root's actual1ad9ca exit1: corrected `probe.py:81` and fixture `group_alive():28` raised PermissionError from killpg-zero checks. The fixture's complete source catches only ProcessLookupError there; its final recovery repeats the same check. Two retained markers contain83596/83598. This is a concrete failed ownership-observer route, not proof that a group was alive/gone or an exclusive permission cause; root separately reports those two PID lookups absent. The failed fixture is not a completed four-case certificate.
+
+The sourceB also identifies unowned extra attachment volumes and child-cleanup exceptions skipping mount detach. These are actionable tool-lifetime duties, while the official index already owns a matching exact package/digest. A focused repair can therefore change a real pre-execution decision without another appearance/source search.
+
+AlternativeA: fresh source owns exact attachment image/parent-device provenance, rejects unexpected mounted layout, reconciles only its exact imagepath after incomplete attach, and independently attempts child collection/detach/final recording. Bounded actual PID/PGID observations replace killpg-zero membership inference; only witnessed owned groups are signalled, and permission/identity ambiguity refuses. One owned CPU test must cover exited-leader descendants and cleanup errors before any package trial. This costs finite engineering and can still fail, but could earn the missing safe runtime path. AlternativeB: defer tooling and pursue a genuinely original open/full-wrist overshirt artist source from the retained target; more direct art value, but complete metric joins/openings remain unauthored and the runtime blocker persists. ChooseA once, with first source/test refusal stopping—no ownership-method retry loop.
+
+Fresh deadlines, complete controller review and root admission are required. Package/trust/version duties stay unchanged; no permanent install, security bypass, Snow load or garment/fit/AAA qualification follows.

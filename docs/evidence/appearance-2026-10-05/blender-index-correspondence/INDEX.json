@@ -1,0 +1,75 @@
+{
+  "started": {
+    "current_time": "2026-10-05 10:00:10 UTC"
+  },
+  "args": {
+    "url": "https://download.blender.org/release/Blender5.2/",
+    "formats": [
+      "markdown",
+      "links"
+    ],
+    "maxAge": 0,
+    "timeout": 30000
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"markdown\": \"# Index of /release/Blender5.2/\\n\\n* * *\\n\\n```\\n../\\nblender-5.2.0-linux-x64.tar.xz                     14-Jul-2026 07:24           384441228\\nblender-5.2.0-macos-arm64.dmg                      14-Jul-2026 07:24           346163615\\nblender-5.2.0-windows-arm64.msi                    14-Jul-2026 07:24           237719552\\nblender-5.2.0-windows-arm64.msix                   14-Jul-2026 07:23           289016705\\nblender-5.2.0-windows-arm64.zip                    14-Jul-2026 07:24           274036838\\nblender-5.2.0-windows-x64.msi                      14-Jul-2026 07:23           365240320\\nblender-5.2.0-windows-x64.msix                     14-Jul-2026 07:23           422214402\\nblender-5.2.0-windows-x64.zip                      14-Jul-2026 07:24           404954661\\nblender-5.2.0.md5                                  14-Jul-2026 07:23                 521\\nblender-5.2.0.sha256                               14-Jul-2026 07:23                 777\\nblender-5.2.1-linux-x64.tar.xz                     25-Aug-2026 09:09           383688088\\nblender-5.2.1-macos-arm64.dmg                      25-Aug-2026 09:00           346264899\\nblender-5.2.1-windows-arm64.msi                    25-Aug-2026 09:01           237694976\\nblender-5.2.1-windows-arm64.msix                   25-Aug-2026 09:05           289034925\\nblender-5.2.1-windows-arm64.zip                    25-Aug-2026 09:03           274046853\\nblender-5.2.1-windows-x64.msi                      25-Aug-2026 09:03           365113344\\nblender-5.2.1-windows-x64.msix                     25-Aug-2026 09:08           422121581\\nblender-5.2.1-windows-x64.zip                      25-Aug-2026 09:06           404851964\\nblender-5.2.1.md5                                  25-Aug-2026 09:08                 521\\nblender-5.2.1.sha256                               25-Aug-2026 09:00                 777\\nblender-5.2.2-linux-x64.tar.xz                     15-Sep-2026 09:18           383295504\\nblender-5.2.2-macos-arm64.dmg                      15-Sep-2026 09:17           346286611\\nblender-5.2.2-windows-arm64.msi                    15-Sep-2026 09:12           237707264\\nblender-5.2.2-windows-arm64.msix                   15-Sep-2026 09:13           289026870\\nblender-5.2.2-windows-arm64.zip                    15-Sep-2026 09:14           274036892\\nblender-5.2.2-windows-x64.msi                      15-Sep-2026 09:20           364822528\\nblender-5.2.2-windows-x64.msix                     15-Sep-2026 09:21           421698707\\nblender-5.2.2-windows-x64.zip                      15-Sep-2026 09:16           404453484\\nblender-5.2.2.md5                                  15-Sep-2026 09:14                 521\\nblender-5.2.2.sha256                               15-Sep-2026 09:14                 777\\n```\\n\\n* * *\",\n  \"metadata\": {\n    \"title\": \"Index of /release/Blender5.2/\",\n    \"scrapeId\": \"01a10b81-b01c-71ba-b29c-a3ff38f3c601\",\n    \"sourceURL\": \"https://download.blender.org/release/Blender5.2/\",\n    \"url\": \"https://download.blender.org/release/Blender5.2/\",\n    \"statusCode\": 200,\n    \"contentType\": \"text/html\",\n    \"timezone\": \"America/New_York\",\n    \"proxyUsed\": \"basic\",\n    \"indexId\": \"758e963e-de92-431f-831b-e73c767914b1\",\n    \"creditsUsed\": 1,\n    \"concurrencyLimited\": false\n  },\n  \"links\": [\n    \"https://download.blender.org/release/\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-linux-x64.tar.xz\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-macos-arm64.dmg\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-arm64.msi\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-arm64.msix\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-arm64.zip\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-x64.msi\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-x64.msix\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-x64.zip\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0.md5\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.0.sha256\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-linux-x64.tar.xz\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-macos-arm64.dmg\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-arm64.msi\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-arm64.msix\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-arm64.zip\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-x64.msi\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-x64.msix\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-x64.zip\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1.md5\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.1.sha256\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-linux-x64.tar.xz\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-macos-arm64.dmg\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-arm64.msi\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-arm64.msix\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-arm64.zip\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.msi\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.msix\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.zip\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2.md5\",\n    \"https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256\"\n  ]\n}"
+      }
+    ],
+    "structuredContent": {
+      "markdown": "# Index of /release/Blender5.2/\n\n* * *\n\n```\n../\nblender-5.2.0-linux-x64.tar.xz                     14-Jul-2026 07:24           384441228\nblender-5.2.0-macos-arm64.dmg                      14-Jul-2026 07:24           346163615\nblender-5.2.0-windows-arm64.msi                    14-Jul-2026 07:24           237719552\nblender-5.2.0-windows-arm64.msix                   14-Jul-2026 07:23           289016705\nblender-5.2.0-windows-arm64.zip                    14-Jul-2026 07:24           274036838\nblender-5.2.0-windows-x64.msi                      14-Jul-2026 07:23           365240320\nblender-5.2.0-windows-x64.msix                     14-Jul-2026 07:23           422214402\nblender-5.2.0-windows-x64.zip                      14-Jul-2026 07:24           404954661\nblender-5.2.0.md5                                  14-Jul-2026 07:23                 521\nblender-5.2.0.sha256                               14-Jul-2026 07:23                 777\nblender-5.2.1-linux-x64.tar.xz                     25-Aug-2026 09:09           383688088\nblender-5.2.1-macos-arm64.dmg                      25-Aug-2026 09:00           346264899\nblender-5.2.1-windows-arm64.msi                    25-Aug-2026 09:01           237694976\nblender-5.2.1-windows-arm64.msix                   25-Aug-2026 09:05           289034925\nblender-5.2.1-windows-arm64.zip                    25-Aug-2026 09:03           274046853\nblender-5.2.1-windows-x64.msi                      25-Aug-2026 09:03           365113344\nblender-5.2.1-windows-x64.msix                     25-Aug-2026 09:08           422121581\nblender-5.2.1-windows-x64.zip                      25-Aug-2026 09:06           404851964\nblender-5.2.1.md5                                  25-Aug-2026 09:08                 521\nblender-5.2.1.sha256                               25-Aug-2026 09:00                 777\nblender-5.2.2-linux-x64.tar.xz                     15-Sep-2026 09:18           383295504\nblender-5.2.2-macos-arm64.dmg                      15-Sep-2026 09:17           346286611\nblender-5.2.2-windows-arm64.msi                    15-Sep-2026 09:12           237707264\nblender-5.2.2-windows-arm64.msix                   15-Sep-2026 09:13           289026870\nblender-5.2.2-windows-arm64.zip                    15-Sep-2026 09:14           274036892\nblender-5.2.2-windows-x64.msi                      15-Sep-2026 09:20           364822528\nblender-5.2.2-windows-x64.msix                     15-Sep-2026 09:21           421698707\nblender-5.2.2-windows-x64.zip                      15-Sep-2026 09:16           404453484\nblender-5.2.2.md5                                  15-Sep-2026 09:14                 521\nblender-5.2.2.sha256                               15-Sep-2026 09:14                 777\n```\n\n* * *",
+      "links": [
+        "https://download.blender.org/release/",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-linux-x64.tar.xz",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-macos-arm64.dmg",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-arm64.msi",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-arm64.msix",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-arm64.zip",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-x64.msi",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-x64.msix",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0-windows-x64.zip",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0.md5",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.0.sha256",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-linux-x64.tar.xz",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-macos-arm64.dmg",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-arm64.msi",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-arm64.msix",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-arm64.zip",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-x64.msi",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-x64.msix",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1-windows-x64.zip",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1.md5",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.1.sha256",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-linux-x64.tar.xz",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-macos-arm64.dmg",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-arm64.msi",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-arm64.msix",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-arm64.zip",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.msi",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.msix",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.zip",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2.md5",
+        "https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256"
+      ],
+      "metadata": {
+        "title": "Index of /release/Blender5.2/",
+        "scrapeId": "01a10b81-b01c-71ba-b29c-a3ff38f3c601",
+        "sourceURL": "https://download.blender.org/release/Blender5.2/",
+        "url": "https://download.blender.org/release/Blender5.2/",
+        "statusCode": 200,
+        "contentType": "text/html",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "758e963e-de92-431f-831b-e73c767914b1",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      }
+    },
+    "isError": false
+  },
+  "ended": {
+    "current_time": "2026-10-05 10:00:12 UTC"
+  }
+}

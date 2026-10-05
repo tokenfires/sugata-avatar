@@ -1,0 +1,98 @@
+{
+  "saved_utc": "2026-10-05T09:57:40.302595+00:00",
+  "decision": "B for current-stable exact package/digest preparation; original PLAN stop triggered by missing exact package entry. No runtime provision or version probe admitted.",
+  "actual_package_link": "https://www.blender.org/download/release/Blender5.2/blender-5.2.2-macos-arm64.dmg/",
+  "actual_linked_checksum_url": "https://download.blender.org/release/Blender5.2/blender-5.2.1.sha256",
+  "actual_digest_body_entries": [
+    "6409e21de80994db5f4c4a34486b6fd43cea21085b912f7491c53e923acb65a3  blender-5.2.1-macos-arm64.dmg",
+    "a31f524fa99a527d3d52b7f5aaa68c34e1a19d5a1c9473f79c5cc610fd5b10e9  blender-5.2.1-linux-x64.tar.xz",
+    "bebb90fc5bf7e3ec7ab4eb34f4c5a5b54e28e582a722152a47fd4ee66ec3c6fa  blender-5.2.1-windows-x64.msi",
+    "fd967566cb42cda884d3317570d2298372548a44202085d25bcf7562b926b694  blender-5.2.1-windows-x64.msix",
+    "0e631dad7d0cad6d5d18abdd2e2550f6c0213215334eda00ddbd3d22b96ecb2c  blender-5.2.1-windows-x64.zip",
+    "7c87fadd9611739111b71e2cb6c083d976876aa71cbb1f80e63bfc81d175da25  blender-5.2.1-windows-arm64.msi",
+    "8b3791b36accb8da99a99e2506f18d3d481970c256e4761038d283b20bf5f967  blender-5.2.1-windows-arm64.msix",
+    "62047464d21ea954b997db94bf5518eac9240b900d98bb324bc02416ad892860  blender-5.2.1-windows-arm64.zip"
+  ],
+  "mismatch": "Current page names 5.2.2; its linked SHA256 body contains only 5.2.1 filenames. No advertised 5.2.2 arm64 digest in the fetched body. This does not prove a defect in Blender or absence of an official matching release.",
+  "commands_and_witnesses": [
+    "f92a9d persisted PRIMARY-2; original dispatcher clocks/provider ids preserved inside every PRIMARY file.",
+    "01f3f5 root independently reads saved full response shapes and exact advertised macOS version/digest filenames.",
+    "c4f688 finds actual current DAY-REPORT-2026-10-04.md; attempted Oct5 filename in bf3b51 was absent, no file created."
+  ],
+  "requests_executed": 3,
+  "reported_credits_total": 3,
+  "requests_budget": 4,
+  "unused_budget_does_not_override_first_failure_stop": true,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-0.json",
+      "bytes": 31103,
+      "sha256": "15f8a2549f41433f94c6b337e6b889ada191b53628803904d2cd9802b1e2490f",
+      "args": {
+        "url": "https://www.blender.org/download/",
+        "formats": [
+          "markdown",
+          "links"
+        ],
+        "maxAge": 0,
+        "timeout": 30000
+      },
+      "started": {
+        "current_time": "2026-10-05 09:51:12 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 09:51:16 UTC"
+      },
+      "provider_id": "01a10b79-7a41-75b6-b71f-64043824dd42",
+      "status_code": 200,
+      "reported_credits": 1
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-1.json",
+      "bytes": 45516,
+      "sha256": "f6e1956e4270e31d85986947bebf243f87be4ad4263b1d4281f953f4c4d02bd5",
+      "args": {
+        "url": "https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html",
+        "formats": [
+          "markdown",
+          "links"
+        ],
+        "maxAge": 0,
+        "timeout": 30000
+      },
+      "started": {
+        "current_time": "2026-10-05 09:51:12 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 09:51:16 UTC"
+      },
+      "provider_id": "01a10b79-80d1-702c-9f4f-75fbb528da70",
+      "status_code": 200,
+      "reported_credits": 1
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-primary/PRIMARY-2.json",
+      "bytes": 3142,
+      "sha256": "9e62e9c13610504a35f99c61ea273693c10cb460899d0e701889147562c1cdd8",
+      "args": {
+        "url": "https://download.blender.org/release/Blender5.2/blender-5.2.1.sha256",
+        "formats": [
+          "markdown"
+        ],
+        "maxAge": 0,
+        "timeout": 30000
+      },
+      "started": {
+        "current_time": "2026-10-05 09:52:26 UTC"
+      },
+      "ended": {
+        "current_time": "2026-10-05 09:52:27 UTC"
+      },
+      "provider_id": "01a10b7a-9a89-77ba-90c5-1392b68b7563",
+      "status_code": 200,
+      "reported_credits": 1
+    }
+  ],
+  "scope": "Metadata only. No package GET/HEAD/download/mount/probe/installer/extraction/Snow load/native/GPU/browser/product source/asset/default/checklist action. Review server retained.",
+  "next": "Independent critic must close original result; a distinct official indexed-package correspondence contract would require its own worth, input witness, limit and root review."
+}

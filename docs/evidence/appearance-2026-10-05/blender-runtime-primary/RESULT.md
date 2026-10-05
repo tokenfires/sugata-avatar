@@ -1,0 +1,11 @@
+# Runtime primary result
+
+**B: the literal current-stable package choice is unqualified; stop before package action.** No download, mount, executable probe or Snow load occurred in the reviewed metadata study.
+
+PRIMARY-0.json `result.structuredContent.markdown` lines29–42 names `blender-5.2.2-macos-arm64.dmg`, labels5.2.2 LTS/330MB/Apple Silicon/macOS13+, but links `blender-5.2.1.sha256`. Complete PRIMARY-2 has eight digest rows; row1 names only `blender-5.2.1-macos-arm64.dmg` with SHA256 `6409e21de80994db5f4c4a34486b6fd43cea21085b912f7491c53e923acb65a3`. It supplies no digest for the selected5.2.2 filename. PLAN.selection permits only the current-stable literal package and prohibits version substitution/fallback. Applying the older digest cannot qualify the selected bytes. This is a mismatch in these saved responses, not a universal missing-checksum, package-corruption or publisher-failure claim.
+
+All three saved requests returned HTTP200/non-error and one reported credit each: initial page/manual clock brackets09:51:12–16UTC, digest09:52:26–27. Raw MCP text JSON equals each structured response. PRIMARY-1 documents background/disable-autoexec/factory-startup/version and isolated user-resource variables; documentation is not actual runtime behavior or package trust.
+
+**Conditional A for a separate bounded official5.2 release-index inquiry only.** The actual older arm64 digest is a concrete lead that could change the literal package choice under explicitly different selection criteria. Require a retained official index entry and exact matching publisher digest, deterministic stable-version selection, scoped compatibility evidence, finite request cap and first ambiguity/error stop. No inferred filename, unofficial mirror or current-plan repair; package/controller/signature/execution remain separately gated.
+
+AlternativeA: close this study and inspect that official index under a fresh contract allowing indexed older stable versions; costs another bounded metadata inquiry but may supply the missing package/digest pair. AlternativeB: defer provisioning and keep available Node/browser work; saves setup effort while leaving the demonstrated artist-runtime route blocker. ChooseA conditionally, not repeated download-page probing. No new operation is admitted here.

@@ -1,0 +1,42 @@
+{
+  "started": {
+    "current_time": "2026-10-05 10:00:41 UTC"
+  },
+  "args": {
+    "url": "https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256",
+    "formats": [
+      "markdown",
+      "links"
+    ],
+    "maxAge": 0,
+    "timeout": 30000
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"markdown\": \"dc4125399b8bfefe283cc1624d6cfc7809d1cac20ace51072127eb371f31f210  blender-5.2.2-macos-arm64.dmg\\n84098912789dc450e95697c4184fb8a90acbe5111c2ba4aede3fecb57806a168  blender-5.2.2-linux-x64.tar.xz\\n8dac2751ebe8e3867327eec52f1ef9b344c0a27499bb6221a301b4b35f2828d1  blender-5.2.2-windows-x64.msi\\nb0a9bb1d4c585389f86fbb982cbb49c6b7a8e4fb2dc9011d98d3756c1c958e03  blender-5.2.2-windows-x64.msix\\n3849d17a682cba006075aaa3f3597ecb5c9c30ec31035b2e092c53e40679b535  blender-5.2.2-windows-x64.zip\\n9e7072c44d94a5a372231148f1cc8ebe3cb2c97f05282877a77c60c1209a8bda  blender-5.2.2-windows-arm64.msi\\ne5a8d6762824b08c0671529c003c95e1375fa95f98833844a2483b4a00903e18  blender-5.2.2-windows-arm64.msix\\n2e90b53c9443cc56d2be75a61550a38e4aba942c8cded046ceff98ed58ebc67b  blender-5.2.2-windows-arm64.zip\\n\",\n  \"metadata\": {\n    \"scrapeId\": \"01a10b82-29c7-74fb-b132-6e78de5b9365\",\n    \"sourceURL\": \"https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256\",\n    \"url\": \"https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256\",\n    \"statusCode\": 200,\n    \"contentType\": \"text/plain\",\n    \"timezone\": \"America/New_York\",\n    \"proxyUsed\": \"basic\",\n    \"indexId\": \"a18f5a5f-68a2-47bf-882c-64d4ad1fe258\",\n    \"creditsUsed\": 1,\n    \"concurrencyLimited\": false\n  },\n  \"links\": []\n}"
+      }
+    ],
+    "structuredContent": {
+      "markdown": "dc4125399b8bfefe283cc1624d6cfc7809d1cac20ace51072127eb371f31f210  blender-5.2.2-macos-arm64.dmg\n84098912789dc450e95697c4184fb8a90acbe5111c2ba4aede3fecb57806a168  blender-5.2.2-linux-x64.tar.xz\n8dac2751ebe8e3867327eec52f1ef9b344c0a27499bb6221a301b4b35f2828d1  blender-5.2.2-windows-x64.msi\nb0a9bb1d4c585389f86fbb982cbb49c6b7a8e4fb2dc9011d98d3756c1c958e03  blender-5.2.2-windows-x64.msix\n3849d17a682cba006075aaa3f3597ecb5c9c30ec31035b2e092c53e40679b535  blender-5.2.2-windows-x64.zip\n9e7072c44d94a5a372231148f1cc8ebe3cb2c97f05282877a77c60c1209a8bda  blender-5.2.2-windows-arm64.msi\ne5a8d6762824b08c0671529c003c95e1375fa95f98833844a2483b4a00903e18  blender-5.2.2-windows-arm64.msix\n2e90b53c9443cc56d2be75a61550a38e4aba942c8cded046ceff98ed58ebc67b  blender-5.2.2-windows-arm64.zip\n",
+      "links": [],
+      "metadata": {
+        "scrapeId": "01a10b82-29c7-74fb-b132-6e78de5b9365",
+        "sourceURL": "https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256",
+        "url": "https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256",
+        "statusCode": 200,
+        "contentType": "text/plain",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "a18f5a5f-68a2-47bf-882c-64d4ad1fe258",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      }
+    },
+    "isError": false
+  },
+  "ended": {
+    "current_time": "2026-10-05 10:00:43 UTC"
+  }
+}

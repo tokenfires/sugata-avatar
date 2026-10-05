@@ -1,0 +1,76 @@
+{
+  "collected_utc": "2026-10-05T10:14:54.134666+00:00",
+  "decision": "Conditional A fresh focused ownership source/test preparation only",
+  "scope": "Saved source/data read and hashing; no corrections, fixture invocation, process discovery, network/package/mount/runtime/native/source-load action by critic",
+  "commands": [
+    {
+      "chunk": "a5fc14",
+      "exit": 0,
+      "scope": "Full retained failure note and previous source handoff"
+    },
+    {
+      "chunk": "e610b8",
+      "exit": 0,
+      "scope": "Full fixture source and two literal PID-marker files"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/PLAN.json",
+      "bytes": 3830,
+      "sha256": "04276fe1b1837aff179d52f05cfd1b654cb491110bc1832c9ff84810f2acc3b0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/probe.py",
+      "bytes": 13609,
+      "sha256": "b9fc89f17cbe96d91756609e5056a4fd9a0e9f4fc742d54bdae9e72238aa3727"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/SOURCE-RESULT.md",
+      "bytes": 2671,
+      "sha256": "ccefed343bd34ad58a43a521733a21b2f398e6f18b6ea15f59fb620011527868"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/SOURCE-RECEIPT.json",
+      "bytes": 3504,
+      "sha256": "182ba558e5006956d498ca3210d254a56473a9740ab44799865b5f4e8d91e33c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/PROCESS-OWNERSHIP-FAILURE.txt",
+      "bytes": 250,
+      "sha256": "e1aab551c2b4134434eea46898601227f9b2a1c958363412d967d307e250eb53"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/check-process-ownership.py",
+      "bytes": 3467,
+      "sha256": "9ead0e4d4a4439735d42f3a42f03fee57cf0810dca88a71605ead8d416aac452"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/fixture-0.json",
+      "bytes": 5,
+      "sha256": "af2e75cf8e7aa00ff6e56afd80720889b3898d8fcf96e4f734d23b6680767499"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/fixture-1.json",
+      "bytes": 5,
+      "sha256": "b21d3ad8f140b5407df4fd99de2e977fd7a48a18d85687ee24352daa3ea39915"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-index-correspondence/RESULT.md",
+      "bytes": 2449,
+      "sha256": "160ce7dd474b658adc0d8fd0244bcdafa1ce0626f5bc4fcec8c2c2457fe715ac"
+    }
+  ],
+  "failure_provenance": "PROCESS-OWNERSHIP-FAILURE.txt is a root-authored record of actual tool1ad9ca failure, not a raw traceback or critic-executed test. Parent20da1f PID-absence observation is reported only, not independently reproduced.",
+  "limits": [
+    "No completed four-fixture result exists in the inspected saved material",
+    "EPERM is not membership or exclusive-cause proof",
+    "Original controller remains uninvoked/source B",
+    "No new source correction, CPU fixture, download, mount or executable admission"
+  ],
+  "worth": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-runtime-trial/REPAIR-WORTH.md",
+    "bytes": 2297,
+    "sha256": "1b3bb802d8628c7a9882e8d19b3f07fd8c0dbee9c973be6a81f2184093a5aa7e"
+  }
+}

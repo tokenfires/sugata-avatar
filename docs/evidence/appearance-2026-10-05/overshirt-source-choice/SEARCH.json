@@ -1,0 +1,52 @@
+{
+  "started": {
+    "current_time": "2026-10-05 09:36:56 UTC"
+  },
+  "args": {
+    "query": "open collared long sleeve shirt 3D clothing asset",
+    "includeDomains": [
+      "makehumancommunity.org"
+    ],
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "limit": 3
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"http://www.makehumancommunity.org/clothesgallery.html\",\"title\":\"Clothes and body extensions thumbnail gallery\",\"description\":\"This is an alternate view of user contributed clothes. Note that only clothes with a submitted thumbnail are listed on this page.\",\"position\":1},{\"url\":\"https://static.makehumancommunity.org/assets/assetpacks/release_20221122.html\",\"title\":\"Release 2022-11-22 - MakeHuman Community\",\"description\":\"The following notes regard all changes since the initial release of asset packs in 2021. All assets packs can be found on the Asset Packs page.\",\"position\":2}]},\"creditsUsed\":2,\"id\":\"01a10b6c-6f30-71fd-b932-a1c5f8786e28\",\"agent_hints\":[\"All 2 web results are excerpts only (#1 \\\"http://www.makehumancommunity.org/clothesgallery.html\\\", #2 \\\"https://static.makehumancommunity.org/assets/assetpacks/release_20221122.html\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 2 web results are excerpts only (#1 \"http://www.makehumancommunity.org/clothesgallery.html\", #2 \"https://static.makehumancommunity.org/assets/assetpacks/release_20221122.html\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "http://www.makehumancommunity.org/clothesgallery.html",
+            "title": "Clothes and body extensions thumbnail gallery",
+            "description": "This is an alternate view of user contributed clothes. Note that only clothes with a submitted thumbnail are listed on this page.",
+            "position": 1
+          },
+          {
+            "url": "https://static.makehumancommunity.org/assets/assetpacks/release_20221122.html",
+            "title": "Release 2022-11-22 - MakeHuman Community",
+            "description": "The following notes regard all changes since the initial release of asset packs in 2021. All assets packs can be found on the Asset Packs page.",
+            "position": 2
+          }
+        ]
+      },
+      "id": "01a10b6c-6f30-71fd-b932-a1c5f8786e28",
+      "creditsUsed": 2
+    },
+    "isError": false
+  },
+  "ended": {
+    "current_time": "2026-10-05 09:36:59 UTC"
+  }
+}

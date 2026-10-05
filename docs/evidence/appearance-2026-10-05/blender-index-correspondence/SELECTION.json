@@ -1,0 +1,17 @@
+{
+  "selected_utc": {
+    "current_time": "2026-10-05 10:00:41 UTC"
+  },
+  "filename": "blender-5.2.2-macos-arm64.dmg",
+  "version": "5.2.2",
+  "package_url": "https://download.blender.org/release/Blender5.2/blender-5.2.2-macos-arm64.dmg",
+  "digest_url": "https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256",
+  "index_literal_row": "blender-5.2.2-macos-arm64.dmg                      15-Sep-2026 09:17           346286611",
+  "bytes": 346286611,
+  "eligible_indexed_versions": [
+    2,
+    1,
+    0
+  ],
+  "rule": "Highest literal indexed 5.2.P arm64 stable package and same-version sha256 link with P<=2, per fresh PLAN; no version substitution after selection."
+}
