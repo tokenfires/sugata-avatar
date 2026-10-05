@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-05T02:03:50.851053+00:00",
+  "decision": "A complete static preparation only; separate fresh sole-CPU worth/admission required",
+  "rootJob": {
+    "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 -B docs/evidence/appearance-2026-10-04/sewn-panel-builder/root-check.py",
+    "execChunk": "1ac4f0",
+    "exitCode": 0,
+    "actualReturnUTC": "2026-10-05T02:03:08.683178+00:00",
+    "bindingRows": 123,
+    "uniquePayloads": 50
+  },
+  "critic": "Final and collected explicitly confirmed after saved current result/receipt; no outstanding work/source changes; 3a7102 full result reread and123pins match after collection",
+  "criticReceipt": {
+    "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/CRITIC-RECEIPT.json",
+    "bytes": 12209,
+    "sha256": "ed0b226f14837a637e91df055112a5f3d367df37f022b25e5f7262faae1d3647"
+  },
+  "rootResult": {
+    "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/ROOT-RESULT.json",
+    "bytes": 30862,
+    "sha256": "be1c6e30607cd3804cc21eb1b60b6daf63b9e2d5b430a7c50b3fac79995f0ccc"
+  },
+  "preparedInvocations": 0,
+  "candidateOrNativeJobs": [],
+  "scope": "Static source/inert syntax only; no original world-source reconstruction, constructor import or geometry/predicate evaluation"
+}

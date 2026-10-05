@@ -1,0 +1,72 @@
+"""Fixed BVHs. Triangle predicates and acceptance bounds use exact rational operands."""
+import math
+import exact as E
+
+def triangle_tree(triangles):
+    boxes=[E.bbox(t) for t in triangles];nodes=[]
+    def make(ids):
+        lo=tuple(min(boxes[j][0][i] for j in ids) for i in range(3))
+        hi=tuple(max(boxes[j][1][i] for j in ids) for i in range(3))
+        k=len(nodes);node={'id':k,'box':(lo,hi)};nodes.append(node)
+        if len(ids)<=8:node['ids']=ids
+        else:
+            axis=max(range(3),key=lambda i:hi[i]-lo[i])
+            ids=sorted(ids,key=lambda j:((boxes[j][0][axis]+boxes[j][1][axis])/2,j))
+            m=len(ids)//2;node['children']=(make(ids[:m]),make(ids[m:]))
+        return k
+    if not triangles:raise ValueError('empty triangle tree')
+    make(list(range(len(triangles))))
+    return nodes,boxes
+
+def overlap_ids(nodes,box):
+    stack=[0]
+    while stack:
+        node=nodes[stack.pop()]
+        if not E.boxes_overlap(box,node['box']):continue
+        if 'ids' in node:yield from node['ids']
+        else:stack.extend(reversed(node['children']))
+
+def clearance_certificate(source,triangles,nodes,boxes,gate):
+    """Exact threshold certificate; intentionally does not claim a global minimum."""
+    box=E.bbox(source);stack=[0];pruned=[];pairs=[];worst=None
+    while stack:
+        node=nodes[stack.pop()];d=E.box_distance2(box,node['box'])
+        if d>=gate:
+            pruned.append(node['id']);continue
+        if 'ids' not in node:stack.extend(reversed(node['children']));continue
+        for j in node['ids']:
+            bb=E.box_distance2(box,boxes[j])
+            if bb>=gate:pairs.append((j,'AABB',bb));continue
+            actual,witness=E.triangle_distance2(source,triangles[j])
+            pairs.append((j,'triangle',actual,witness))
+            if worst is None or actual<worst[0]:worst=(actual,j,witness)
+            if actual<gate:return False,{'prunedNodes':pruned,'pairs':pairs,'failure':worst}
+    return True,{'prunedNodes':pruned,'pairs':pairs,'minimumEvaluatedPair':worst,'kind':'threshold certificate only'}
+
+def parity(p,d,triangles,nodes,boxes):
+    stack=[0];hits=[];visited=0
+    while stack:
+        node=nodes[stack.pop()];visited+=1
+        if not E.ray_box(p,d,node['box']):continue
+        if 'ids' not in node:stack.extend(reversed(node['children']));continue
+        for j in node['ids']:
+            if not E.ray_box(p,d,boxes[j]):continue
+            try:hit=E.ray_hit(p,d,triangles[j])
+            except ValueError as error:
+                raise ValueError({'rayPredicateFace':j,'exactOrigin':p,'exactDirection':d,'exactTriangle':triangles[j],'hitPrefix':hits,'nodesVisited':visited,'inner':error.args}) from error
+            if hit is not None:hits.append((j,hit))
+    return len(hits)%2,{'hits':hits,'nodesVisited':visited}
+
+def disjoint_certificate(source,triangles,nodes,boxes):
+    """Strict complete separation; zero AABB distance is NOT a prune certificate."""
+    box=E.bbox(source);stack=[0];pruned=[];pairs=[]
+    while stack:
+        node=nodes[stack.pop()];lower=E.box_distance2(box,node['box'])
+        if lower>0:pruned.append(node['id']);continue
+        if 'ids' not in node:stack.extend(reversed(node['children']));continue
+        for j in node['ids']:
+            lower=E.box_distance2(box,boxes[j])
+            if lower>0:pairs.append((j,'AABB',lower));continue
+            actual,witness=E.triangle_distance2(source,triangles[j]);pairs.append((j,'triangle',actual,witness))
+            if actual==0:return False,{'prunedNodes':pruned,'pairs':pairs,'failure':(j,actual,witness)}
+    return True,{'prunedNodes':pruned,'pairs':pairs,'kind':'strict disjointness certificate only'}

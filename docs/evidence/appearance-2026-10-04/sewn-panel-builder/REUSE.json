@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-05T01:37:39.370184+00:00",
+  "originals": [
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/exact.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/exact.py.source",
+      "bytes": 7314,
+      "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/spatial.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/spatial.py.source",
+      "bytes": 4682,
+      "sha256": "d86a340992acbbc6ce73730c7b8b57fe3d79e9e573123d863615865761fc9562"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/audit.py.source",
+      "bytes": 9555,
+      "sha256": "5d0c38013b748fef05d659ad4962c40159f70a884f56a16a7c50e337997c9414"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/author.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/author.py.source",
+      "bytes": 7533,
+      "sha256": "e7deac048f0ad3d70ebf6bd3cd2fe87b03983068eae1a6e867313ce981fdb4cc"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/runner.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/runner.py.source",
+      "bytes": 3901,
+      "sha256": "c3d619f71f905c1eb3fbc4262cd67a962798e5eb60aa8dd31269e064b18a86f2"
+    }
+  ],
+  "scope": "Generic exact and triangleBVH source reuse only; failed field/grid/oldmesh code not imported or evaluated; snapshots preserve existing bytes"
+}

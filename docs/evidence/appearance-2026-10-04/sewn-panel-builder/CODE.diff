@@ -1,0 +1,91 @@
+--- preflight/panel.py.initial
++++ panel.py
+@@ -72,20 +72,24 @@
+ def physical(progress):
+     n=[-.5112641203138838,.5200705037271678,-.6842044069082285]
+     o=[.44542589397128357,1.0233330556297953,.17296551767825433]
+-    C=[o[i]-.015*n[i] for i in range(3)];D=math.sqrt(n[0]*n[0]+n[1]*n[1]);require(D>0 and math.isfinite(D),'cuff D')
++    C=[o[i]-.015*n[i] for i in range(3)];D=math.sqrt(n[0]*n[0]+n[1]*n[1])
++    progress('metric-scalars',{'n':n,'o':o,'C':C,'D':D})
++    require(D>0 and math.isfinite(D),{'cuff D':D,'n':n,'o':o,'C':C})
+     U=[n[1]/D,-n[0]/D,0.];V=vfcross(U,n)
+     residuals={'normalLength':abs(math.sqrt(vfdot(n,n))-1.),'ULength':abs(math.sqrt(vfdot(U,U))-1.),'VLength':abs(math.sqrt(vfdot(V,V))-1.),'nU':abs(vfdot(n,U)),'nV':abs(vfdot(n,V)),'UV':abs(vfdot(U,V))}
+-    require(all(math.isfinite(x) and x<=1e-12 for x in residuals.values()),{'cuffFrame':residuals})
++    progress('metric-frame',{'n':n,'o':o,'C':C,'D':D,'U':U,'V':V,'residuals':residuals})
++    require(all(math.isfinite(x) and x<=1e-12 for x in residuals.values()),{'cuffFrame':residuals,'C':C,'D':D,'U':U,'V':V})
+     rim=lambda a,b:[(C[i]+a*U[i])+b*V[i] for i in range(3)]
+     front=[[-.20,.805,.22],[.20,.805,.22],[.22,1.04,.27],[.245,1.19,.27],rim(-.07,.10),[C[i]+.12*V[i] for i in range(3)],rim(.07,.10),[.37,1.26,.24],[.205,1.455,.24],[.095,1.44,.19],[0.,1.44,.27],[-.095,1.44,.19]]
+     back=[[-.20,.805,-.15],[.20,.805,-.15],[.22,1.04,-.17],[.245,1.19,-.17],rim(-.07,-.09),[C[i]-.11*V[i] for i in range(3)],rim(.07,-.09),[.37,1.26,-.16],[.205,1.455,-.16],[.095,1.44,-.14],[0.,1.44,-.17],[-.095,1.44,-.14]]
+     for ps in (front,back):ps.extend(mirror(ps[i]) for i in (8,7,6,5,4,3,2))
+-    vertices=front+back;require(all(math.isfinite(x) for p in vertices for x in p),'metric finite')
++    vertices=front+back
+     planes=[{'name':'neck','normal':[0.,-1.,0.],'origin':[0.,1.44,0.],'originalOrigin':[0.,1.425,0.]},
+             {'name':'hem','normal':[0.,1.,0.],'origin':[0.,.805,0.],'originalOrigin':[0.,.82,0.]},
+             {'name':'cuff_l','normal':n,'origin':C,'originalOrigin':o},
+             {'name':'cuff_r','normal':mirror(n),'origin':mirror(C),'originalOrigin':mirror(o)}]
+     progress('metric-operands',{'vertices':vertices,'names':['F'+str(i) for i in range(19)]+['B'+str(i) for i in range(19)],'cuffFrame':{'n':n,'o':o,'C':C,'D':D,'U':U,'V':V,'residuals':residuals},'planes':planes})
++    require(all(math.isfinite(x) for p in vertices for x in p),{'metric finite':vertices})
+     ff,frecords=ears(front,'front',progress);bf,brecords=ears(back,'back',progress)
+     faces=[list(f) for f in ff]+[[c+19,b+19,a+19] for a,b,c in bf]
+     ownership=[{'panel':'front','ear':i} for i in range(17)]+[{'panel':'back','ear':i} for i in range(17)]
+--- preflight/spatial.py.initial
++++ spatial.py
+@@ -51,7 +51,9 @@
+         if 'ids' not in node:stack.extend(reversed(node['children']));continue
+         for j in node['ids']:
+             if not E.ray_box(p,d,boxes[j]):continue
+-            hit=E.ray_hit(p,d,triangles[j])
++            try:hit=E.ray_hit(p,d,triangles[j])
++            except ValueError as error:
++                raise ValueError({'rayPredicateFace':j,'exactOrigin':p,'exactDirection':d,'exactTriangle':triangles[j],'hitPrefix':hits,'nodesVisited':visited,'inner':error.args}) from error
+             if hit is not None:hits.append((j,hit))
+     return len(hits)%2,{'hits':hits,'nodesVisited':visited}
+ 
+--- preflight/author.py.initial
++++ author.py
+@@ -1,5 +1,5 @@
+ """One separately admitted panel constructor; no candidate evaluation at import."""
+-import datetime,hashlib,json,os,pathlib,sys,traceback
++import datetime,hashlib,json,math,os,pathlib,struct,sys,traceback
+ from fractions import Fraction as Q
+ import audit
+ import panel
+@@ -9,6 +9,7 @@
+ now=lambda:datetime.datetime.now(datetime.UTC).isoformat()
+ def encoded(x):
+     if isinstance(x,Q):return {'n':str(x.numerator),'d':str(x.denominator)}
++    if isinstance(x,float) and not math.isfinite(x):return {'nonfiniteBinary64Hex':struct.pack('!d',x).hex(),'observer':x.hex()}
+     if isinstance(x,dict):return {str(k):encoded(v) for k,v in x.items()}
+     if isinstance(x,(tuple,list)):return [encoded(v) for v in x]
+     if isinstance(x,set):return [encoded(v) for v in sorted(x)]
+@@ -49,6 +50,8 @@
+             if data['completed']%100==0:phase('fragment-progress',data)
+             return
+         phase(name,data)
++        if name=='metric-scalars':save('METRIC-SCALARS.json',data)
++        if name=='metric-frame':save('METRIC-FRAME.json',data)
+         if name=='metric-operands':save('METRIC-OPERANDS.json',data)
+         if name.startswith('ear-'):save('EARS-'+data['panel'].upper()+'.json',data)
+         if name=='ray-operands':save('RAY-OPERANDS.json',data)
+--- preflight/runner.py.initial
++++ runner.py
+@@ -3,7 +3,7 @@
+ ROOT=pathlib.Path('/Users/robault/GitHub/sugata-avatar')
+ SOURCE=pathlib.Path(__file__).resolve().parent
+ now=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat()
+-OWNED=set('JOB.json STDOUT.txt STDERR.txt PARTIAL.json REPORT.json REFUSAL.json METRIC-OPERANDS.json EARS-FRONT.json EARS-BACK.json PHYSICAL.json TOPOLOGY-PHYSICAL.json OPENINGS.json SELF-PHYSICAL.json TEST-SOLID.json TOPOLOGY-TEST.json SELF-TEST.json FRAGMENTS.json SOURCE-DOMAIN.json RAY-OPERANDS.json FRAGMENT-CERTIFICATES.jsonl COVERAGE.json sweater.obj'.split())
++OWNED=set('JOB.json STDOUT.txt STDERR.txt PARTIAL.json REPORT.json REFUSAL.json METRIC-SCALARS.json METRIC-FRAME.json METRIC-OPERANDS.json EARS-FRONT.json EARS-BACK.json PHYSICAL.json TOPOLOGY-PHYSICAL.json OPENINGS.json SELF-PHYSICAL.json TEST-SOLID.json TOPOLOGY-TEST.json SELF-TEST.json FRAGMENTS.json SOURCE-DOMAIN.json RAY-OPERANDS.json FRAGMENT-CERTIFICATES.jsonl COVERAGE.json sweater.obj'.split())
+ def owned(p):return p.name in OWNED or (p.name.endswith('.writing') and p.name[:-8] in OWNED)
+ def pin(p):
+     raw=p.read_bytes();return {'path':str(p),'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+--- preflight/SOURCE.md.initial
++++ SOURCE.md
+@@ -11,6 +11,8 @@
+ 
+ REUSE preserves all five unmodified original module snapshots; these are evidence, not active imports. Source selection changes remove closed field/cut construction and replace it with the reviewed two disk/four bridge method. The earlier raw two-component failure is neither imported nor rescued. Current normalized cap distance uses exact squared comparisons instead of floating sqrt; no tolerance is widened. Every domain's physical disjointness follows10mm threshold, while strict cap triangles are checked separately to cover the entire test boundary even with tiny rounded cap-planarity residuals. The fan representative is exact, on one positive saved triangle; no all-corner coplanarity assumption or rounded-mean membership claim.
+ 
++Two recording-only preflight corrections preserve exact initial active files/bindings in preflight. Available cuff scalar operands publish before the D guard; U/V/residuals before the frame guard; full XYZ before finite/ear predicates. Nonfinite diagnostic operands retain their exact8byte binary64 representation plus a named observer, without making them admissible coordinates. Parity ambiguity now retains the actual face ID/exact origin/direction/triangle and prior hit prefix through its wrapper; the generic exact ray kernel is unchanged. The external return inventory includes both new metric prefix files. CODE.diff and ROOT-PREFLIGHT own the witnessed omissions/two alternatives and entire change. No metric expression, diagonal, source domain, predicate, threshold or decision was adjusted; no candidate ever ran.
++
+ Future root admission must state decision='A sole CPU construction', maximumInvocations=1, wallLimitSeconds=600, exact sourceDirectory/outputDirectory, executeBeforeUTC, sourceManifestSHA256 and inputManifestSHA256. Command then is /opt/homebrew/opt/python@3.14/bin/python3.14 -B <this-directory>/runner.py <fresh-isolated-trial-directory>. This source-preparation packet is NEVER the output directory and grants no invocation. A future separate fresh worth/full source/root admission is mandatory. External return owns produced output files only, not mutable recovery prose. First failed/timeout/missing responsibility closes this literal shape; no retuning, vertex dropping/selection, smoothing, split/weld, ray search, tolerance/material/camera retries.
+ 
+ SOURCE-INPUTS binds complete active code, provenance/planning/contracts and the Python binary used for a future direct invocation. This pins source and executable, not every standard-library/runtime/environment file. Actual arithmetic operands are recorded before predicates; no performance/cross-runtime reproducibility claim follows static preparation. Data, fit, fabric/material, morph/expression/motion, GPU/native/AAA appearance remain open. All original/default/accepted/frozen/unrelated work and full character/wardrobe/representation roadmap remain preserved.

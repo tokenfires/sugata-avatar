@@ -1,0 +1,89 @@
+"""One separately admitted panel constructor; no candidate evaluation at import."""
+import datetime,hashlib,json,os,pathlib,sys,traceback
+from fractions import Fraction as Q
+import audit
+import panel
+
+ROOT=pathlib.Path('/Users/robault/GitHub/sugata-avatar')
+SOURCE=pathlib.Path(__file__).resolve().parent
+now=lambda:datetime.datetime.now(datetime.UTC).isoformat()
+def encoded(x):
+    if isinstance(x,Q):return {'n':str(x.numerator),'d':str(x.denominator)}
+    if isinstance(x,dict):return {str(k):encoded(v) for k,v in x.items()}
+    if isinstance(x,(tuple,list)):return [encoded(v) for v in x]
+    if isinstance(x,set):return [encoded(v) for v in sorted(x)]
+    return x
+def pin(p):
+    b=p.read_bytes();return {'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def admission(out):
+    a=json.loads((out/'ROOT-RUN-ADMISSION.json').read_text())
+    if a['decision']!='A sole CPU construction' or a['maximumInvocations']!=1 or a['wallLimitSeconds']!=600:raise ValueError('execution scope absent')
+    if a['sourceDirectory']!=str(SOURCE) or a['outputDirectory']!=str(out):raise ValueError('source/output scope mismatch')
+    if datetime.datetime.now(datetime.UTC)>=datetime.datetime.fromisoformat(a['executeBeforeUTC']):raise ValueError('expired execution admission')
+    for name,key in [('SOURCE-INPUTS.json','sourceManifestSHA256'),('INPUTS.json','inputManifestSHA256')]:
+        if pin(SOURCE/name)['sha256']!=a[key]:raise ValueError('admission manifest mismatch')
+    for name,field in [('SOURCE-INPUTS.json','sources'),('INPUTS.json','inputs')]:
+        for row in json.loads((SOURCE/name).read_text())[field]:
+            path=pathlib.Path(row['path']);path=path if path.is_absolute() else ROOT/path;actual=pin(path)
+            if any(actual[k]!=row[k] for k in ('bytes','sha256')):raise ValueError({'stalePin':row,'actual':actual})
+    run=json.loads((out/'RUN.json').read_text())
+    if run['command']!=[sys.executable,'-B',str(SOURCE/'author.py'),str(out)] or run['maximumInvocations']!=1:raise ValueError('external runner ownership absent')
+    return a
+
+def main(out):
+    out=out.resolve()
+    if not out.is_relative_to(ROOT/'docs/evidence') or out==SOURCE or not out.is_dir():raise ValueError('isolated preowned output required')
+    a=admission(out);job={'pid':os.getpid(),'started':now(),'phase':'admitted','sourceDirectory':str(SOURCE),'outputDirectory':str(out),'admission':a}
+    with (out/'JOB.json').open('x') as stream:json.dump(job,stream,indent=2)
+    state={'phase':'admitted','status':'running','completedFragmentRows':0}
+    def save(name,data):
+        path=out/name;temp=out/(name+'.writing');temp.write_text(json.dumps(encoded(data),indent=2,allow_nan=False)+'\n');os.replace(temp,path)
+    def phase(name,data=None):
+        job.update(phase=name,updated=now());save('JOB.json',job);state.update(phase=name,utc=job['updated'])
+        if data is not None:state['witness']=data
+        save('PARTIAL.json',state);print(json.dumps({'utc':job['updated'],'phase':name}),flush=True)
+    def progress(name,data,*rows):
+        if name=='fragment-certificate':
+            with (out/'FRAGMENT-CERTIFICATES.jsonl').open('a') as stream:stream.write(json.dumps(encoded(rows[0]),separators=(',',':'),allow_nan=False)+'\n')
+            state['completedFragmentRows']=data['completed']
+            if data['completed']%100==0:phase('fragment-progress',data)
+            return
+        phase(name,data)
+        if name=='metric-operands':save('METRIC-OPERANDS.json',data)
+        if name.startswith('ear-'):save('EARS-'+data['panel'].upper()+'.json',data)
+        if name=='ray-operands':save('RAY-OPERANDS.json',data)
+    status='refused';report={}
+    try:
+        phase('literal-metric-panels-and-ears');physical=panel.physical(progress);save('PHYSICAL.json',physical)
+        phase('physical-topology');top,points=audit.topology(physical,False,-2)
+        audit.require([top[k] for k in ('vertices','edges','faces')]==[38,98,58],{'physicalCounts':top});save('TOPOLOGY-PHYSICAL.json',top)
+        loops=audit.opening_loops(physical,top['boundaryEdges']);save('OPENINGS.json',loops)
+        phase('physical-self-intersections');_,_,_,selfphysical=audit.self_intersections(physical,points,progress);save('SELF-PHYSICAL.json',selfphysical)
+        phase('temporary-caps');capped=panel.caps(physical,loops);save('TEST-SOLID.json',capped);audit.projected_caps(capped)
+        captop,capPoints=audit.topology(capped,True,2)
+        audit.require([captop[k] for k in ('vertices','edges','faces')]==[42,120,80],{'cappedCounts':captop});save('TOPOLOGY-TEST.json',captop)
+        phase('complete-test-solid-self-intersections');_,_,_,selftest=audit.self_intersections(capped,capPoints,progress);save('SELF-TEST.json',selftest)
+        phase('load-complete-bound-source-domains')
+        ledger=json.loads((ROOT/'docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json').read_text())
+        part=json.loads((ROOT/'docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json').read_text())
+        audit.require([p['name'] for p in part['planes']]==[p['name'] for p in physical['planes']],'intent plane order')
+        for original,plane in zip(part['planes'],physical['planes']):
+            audit.require(original['normal']==plane['normal'] and original['origin']==plane['originalOrigin'],{'immutableIntentPlane':plane['name']})
+        fragments,domain=panel.required_fragments(ledger,part);save('FRAGMENTS.json',fragments);save('SOURCE-DOMAIN.json',domain)
+        phase('all-required-continuous-gap-cap-disjointness-and-rational-enclosure')
+        coverage=audit.full_fragments(fragments,physical,capped,capPoints,progress);save('COVERAGE.json',coverage)
+        phase('export-physical-surface-only')
+        with (out/'sweater.obj').open('x') as stream:
+            stream.write('# Literal two-panel physical garment, metres; no temporary caps\n')
+            for point in physical['vertices']:stream.write('v '+' '.join(format(x,'.17g') for x in point)+'\n')
+            for face in physical['faces']:stream.write('f '+' '.join(str(i+1) for i in face)+'\n')
+        status='complete';report={'scope':'Initial literal artist source only; no fit/material/motion/GPU/appearance acceptance','physicalTopology':top,'cappedTopology':captop,'sourceDomain':domain,'coverage':coverage}
+    except BaseException as error:
+        report={'failedPhase':job['phase'],'exception':repr(error),'operands':error.args,'traceback':traceback.format_exc()};save('REFUSAL.json',report);traceback.print_exc()
+    finally:
+        ended=now();state.update(status=status,ended=ended);save('PARTIAL.json',state);job.update(status=status,ended=ended);save('JOB.json',job)
+        save('REPORT.json',{'status':status,'job':job,'report':report});print(json.dumps({'status':status,'fullAuthorReturn':ended,'phase':job['phase']}),flush=True)
+    return 0 if status=='complete' else 1
+if __name__=='__main__':
+    if len(sys.argv)!=2:raise SystemExit('author.py needs one isolated trial directory')
+    raise SystemExit(main(pathlib.Path(sys.argv[1])))

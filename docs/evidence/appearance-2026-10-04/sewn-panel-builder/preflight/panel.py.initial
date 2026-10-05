@@ -1,0 +1,130 @@
+"""Literal paired panels and four bridge strips; no evaluation at import."""
+import math
+from fractions import Fraction as Q
+import exact as E
+
+def require(test,witness):
+    if not test:raise ValueError(witness)
+def vfsub(a,b):return [a[i]-b[i] for i in range(3)]
+def vfcross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
+def vfdot(a,b):return (a[0]*b[0]+a[1]*b[1])+a[2]*b[2]
+def mean(ps):
+    acc=[0.,0.,0.]
+    for p in ps:
+        for k in range(3):acc[k]+=p[k]
+    return [x/len(ps) for x in acc]
+def unit(v):
+    length=math.sqrt(vfdot(v,v));require(length>0 and math.isfinite(length),'normalization')
+    return [x/length for x in v]
+def basis(n):
+    axis=min(range(3),key=lambda k:abs(n[k]));a=[0.,0.,0.];a[axis]=1.
+    u=unit(vfcross(n,a));return u,vfcross(n,u)
+def mirror(p):return [-p[0],p[1],p[2]]
+def cross2(a,b):return a[0]*b[1]-a[1]*b[0]
+def sub2(a,b):return (a[0]-b[0],a[1]-b[1])
+
+def segment_hits(a,b,c,d):
+    u,v,w=sub2(b,a),sub2(d,c),sub2(c,a);det=cross2(u,v)
+    if det:
+        t,s=cross2(w,v)/det,cross2(w,u)/det
+        return [(a[0]+t*u[0],a[1]+t*u[1])] if 0<=t<=1 and 0<=s<=1 else []
+    if cross2(w,u):return []
+    require(u!=(0,0) and v!=(0,0),'zero projected segment')
+    k=max(range(2),key=lambda i:abs(u[i]));lo=max(min(a[k],b[k]),min(c[k],d[k]));hi=min(max(a[k],b[k]),max(c[k],d[k]))
+    if lo>hi:return []
+    return list(dict.fromkeys((a[0]+(x-a[k])/u[k]*u[0],a[1]+(x-a[k])/u[k]*u[1]) for x in (lo,hi)))
+
+def ears(points,label,progress):
+    xy=[(Q(p[0]),Q(p[1])) for p in points];n=len(xy)
+    require(n==19 and len(set(xy))==19,{'projectedIDs':label})
+    area=sum((cross2(xy[i],xy[(i+1)%n]) for i in range(n)),Q(0))/2
+    require(area>0,{'projectedArea':label,'area':area})
+    for i in range(n):
+        for j in range(i+1,n):
+            hits=segment_hits(xy[i],xy[(i+1)%n],xy[j],xy[(j+1)%n])
+            shared=set((xy[i],xy[(i+1)%n]))&set((xy[j],xy[(j+1)%n]))
+            require((not hits and not shared) or (bool(shared) and set(hits)==shared),{'projectedEdges':label,'edges':[i,j],'hits':hits,'shared':shared})
+    active=list(range(n));faces=[];records=[]
+    while len(active)>3:
+        scans=[];selected=None
+        for b in sorted(active):
+            index=active.index(b);a,c=active[index-1],active[(index+1)%len(active)]
+            turn=E.orient2(xy[a],xy[b],xy[c]);row={'a':a,'b':b,'c':c,'turn':turn};scans.append(row)
+            if turn<=0:row['refusal']='nonpositive turn';continue
+            contained=[i for i in active if i not in (a,b,c) and all(E.orient2(xy[x],xy[y],xy[i])>=0 for x,y in ((a,b),(b,c),(c,a)))]
+            row['closedTriangleOtherVertices']=contained
+            if contained:row['refusal']='contains remaining vertex';continue
+            diagonal=[]
+            for k,u in enumerate(active):
+                v=active[(k+1)%len(active)];hits=segment_hits(xy[a],xy[c],xy[u],xy[v]);shared={xy[a],xy[c]}&{xy[u],xy[v]}
+                if any(p not in shared for p in hits):diagonal.append({'edge':[u,v],'hits':hits})
+            row['diagonalConflicts']=diagonal
+            if diagonal:row['refusal']='diagonal intersection';continue
+            selected=(a,b,c);break
+        require(selected is not None,{'noEar':label,'active':active,'scans':scans})
+        records.append({'remaining':list(active),'scans':scans,'selected':selected});faces.append(selected);active.remove(selected[1])
+        progress('ear-prefix',{'panel':label,'faces':faces,'records':records,'projectedArea':area})
+    require(E.orient2(*(xy[i] for i in active))>0,{'lastEar':label,'active':active})
+    faces.append(tuple(active));require(len(faces)==17,'panel triangle count')
+    progress('ear-complete',{'panel':label,'faces':faces,'records':records,'last':active,'projectedArea':area})
+    return faces,records
+
+def physical(progress):
+    n=[-.5112641203138838,.5200705037271678,-.6842044069082285]
+    o=[.44542589397128357,1.0233330556297953,.17296551767825433]
+    C=[o[i]-.015*n[i] for i in range(3)];D=math.sqrt(n[0]*n[0]+n[1]*n[1]);require(D>0 and math.isfinite(D),'cuff D')
+    U=[n[1]/D,-n[0]/D,0.];V=vfcross(U,n)
+    residuals={'normalLength':abs(math.sqrt(vfdot(n,n))-1.),'ULength':abs(math.sqrt(vfdot(U,U))-1.),'VLength':abs(math.sqrt(vfdot(V,V))-1.),'nU':abs(vfdot(n,U)),'nV':abs(vfdot(n,V)),'UV':abs(vfdot(U,V))}
+    require(all(math.isfinite(x) and x<=1e-12 for x in residuals.values()),{'cuffFrame':residuals})
+    rim=lambda a,b:[(C[i]+a*U[i])+b*V[i] for i in range(3)]
+    front=[[-.20,.805,.22],[.20,.805,.22],[.22,1.04,.27],[.245,1.19,.27],rim(-.07,.10),[C[i]+.12*V[i] for i in range(3)],rim(.07,.10),[.37,1.26,.24],[.205,1.455,.24],[.095,1.44,.19],[0.,1.44,.27],[-.095,1.44,.19]]
+    back=[[-.20,.805,-.15],[.20,.805,-.15],[.22,1.04,-.17],[.245,1.19,-.17],rim(-.07,-.09),[C[i]-.11*V[i] for i in range(3)],rim(.07,-.09),[.37,1.26,-.16],[.205,1.455,-.16],[.095,1.44,-.14],[0.,1.44,-.17],[-.095,1.44,-.14]]
+    for ps in (front,back):ps.extend(mirror(ps[i]) for i in (8,7,6,5,4,3,2))
+    vertices=front+back;require(all(math.isfinite(x) for p in vertices for x in p),'metric finite')
+    planes=[{'name':'neck','normal':[0.,-1.,0.],'origin':[0.,1.44,0.],'originalOrigin':[0.,1.425,0.]},
+            {'name':'hem','normal':[0.,1.,0.],'origin':[0.,.805,0.],'originalOrigin':[0.,.82,0.]},
+            {'name':'cuff_l','normal':n,'origin':C,'originalOrigin':o},
+            {'name':'cuff_r','normal':mirror(n),'origin':mirror(C),'originalOrigin':mirror(o)}]
+    progress('metric-operands',{'vertices':vertices,'names':['F'+str(i) for i in range(19)]+['B'+str(i) for i in range(19)],'cuffFrame':{'n':n,'o':o,'C':C,'D':D,'U':U,'V':V,'residuals':residuals},'planes':planes})
+    ff,frecords=ears(front,'front',progress);bf,brecords=ears(back,'back',progress)
+    faces=[list(f) for f in ff]+[[c+19,b+19,a+19] for a,b,c in bf]
+    ownership=[{'panel':'front','ear':i} for i in range(17)]+[{'panel':'back','ear':i} for i in range(17)]
+    chains=[[1,2,3],[6,7,8],[11,12,13],[16,17,18]]
+    for chain,edges in enumerate(chains):
+        for i in edges:
+            j=(i+1)%19;faces.extend([[j,i,i+19],[j,i+19,j+19]])
+            ownership.extend([{'seamChain':chain,'edge':i,'half':h,'diagonal':[j,i+19]} for h in (0,1)])
+    loops={'hem':[0,1,20,19],'cuff_l':[4,5,6,25,24,23],'neck':[9,10,11,30,29,28],'cuff_r':[14,15,16,35,34,33]}
+    tags=[(sorted((a,loop[(k+1)%len(loop)])),[role]) for role,loop in loops.items() for k,a in enumerate(loop)]
+    return {'vertices':vertices,'faces':faces,'faceProvenance':ownership,'panelEars':{'front':frecords,'back':brecords},'seamChains':chains,'planes':planes,'declaredLoops':loops,'proceduralEdgeRoles':tags}
+
+def caps(mesh,loops):
+    vertices=[list(p) for p in mesh['vertices']];faces=[list(f) for f in mesh['faces']];rows=[]
+    for role in ('neck','hem','cuff_l','cuff_r'):
+        loop=loops[role];ps=[vertices[i] for i in loop];c=mean(ps);plane=next(p for p in mesh['planes'] if p['name']==role)
+        n,o=E.point(plane['normal']),E.point(plane['origin']);n2=E.norm2(n)
+        for p in ps+[c]:
+            residual=E.dot(n,E.sub(E.point(p),o));require(residual*residual<=Q(1,10**10)**2*n2,{'capPlane':role,'point':p,'residual':residual})
+        U,V=basis(plane['normal']);index=len(vertices);vertices.append(c)
+        first=len(faces)
+        for k,a in enumerate(loop):faces.append([loop[(k+1)%len(loop)],a,index])
+        projected=[[vfdot(vfsub(p,c),U),vfdot(vfsub(p,c),V)] for p in ps]
+        rows.append({'role':role,'centerVertex':index,'center':c,'loop':loop,'faceIDs':list(range(first,len(faces))),'U':U,'V':V,'projectedLoop':projected,'projectedCenter':[0.,0.]})
+    return {'vertices':vertices,'faces':faces,'caps':rows,'planes':mesh['planes'],'physicalFaceCount':len(mesh['faces'])}
+
+def required_fragments(ledger,part):
+    require(len(ledger['owners'])==len(part['owners'])==9,'owner count');fragments=[];counts=[]
+    for owner,p in zip(ledger['owners'],part['owners']):
+        require(all(owner[k]==p[k] for k in ('uuid','key','name')),'owner identity')
+        n=len(owner['triangles']);ids=p['required']+[i for values in p['exposed'].values() for i in values]+[c['id'] for c in p['cut']]+p['degenerate']
+        require(p['sourceTriangles']==n and sorted(ids)==list(range(n)),{'originalIDs':owner['uuid']})
+        rows=[(tid,[[1.,0.,0.],[0.,1.,0.],[0.,0.,1.]]) for tid in p['required']]+[(c['id'],c['required']) for c in p['cut'] if c['required']]
+        for tid,barys in rows:
+            corners=[owner['worldPositions'][j] for j in owner['triangles'][tid]]
+            ps=[[(0.+b[0]*corners[0][k]+b[1]*corners[1][k])+b[2]*corners[2][k] for k in range(3)] for b in barys]
+            require(len(ps)>=3 and all(math.isfinite(x) for v in ps for x in v),{'requiredPoints':owner['uuid'],'id':tid})
+            fragments.append({'key':[owner['uuid'],tid,0],'owner':owner['uuid'],'triangleID':tid,'ordinal':0,'barycentric':barys,'points':ps,'originalVertexIDs':owner['triangles'][tid]})
+        counts.append({'uuid':owner['uuid'],'originalTriangles':n,'originalPoints':len(owner['worldPositions']),'requiredPolygons':len(rows),'wholeRequired':len(p['required']),'cutRequired':len(rows)-len(p['required']),'exposedByRole':{k:len(v) for k,v in p['exposed'].items()},'degenerateIDs':p['degenerate']})
+        if owner['key']=='bra':require(len(p['required'])==22090 and not p['cut'] and not any(p['exposed'].values()),'complete bra')
+    require(sum(r['originalTriangles'] for r in counts)==71512 and sum(r['originalPoints'] for r in counts)==39546,'complete source counts')
+    return fragments,{'owners':counts,'requiredPolygons':len(fragments),'sourceFrame':'immutable zero-morph initial CPU worldPositions'}

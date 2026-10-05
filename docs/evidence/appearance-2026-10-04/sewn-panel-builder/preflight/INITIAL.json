@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-05T01:52:29.271270+00:00",
+  "scope": "Exact initial active code and source binding before recording-only preflight repairs, unrun",
+  "snapshots": [
+    {
+      "original": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/panel.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/panel.py.initial",
+      "bytes": 9676,
+      "sha256": "f4ab4b0292be3dc64ff32671e05103257e8799af71c44e1d93a71c7c0a799bc8"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/spatial.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/spatial.py.initial",
+      "bytes": 3441,
+      "sha256": "284fbf205eab6151a5bf0065639d97fe060aee103ef1ea6bd1d943027376bc77"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/author.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/author.py.initial",
+      "bytes": 7088,
+      "sha256": "dba6260ccb73c144786ae9d551babf1013d2860385a36c82e028bd6d1d9e54a3"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/runner.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/runner.py.initial",
+      "bytes": 4823,
+      "sha256": "a0bc6fb008d2c244984265732eb7403581150a53d7656063f959197f6cf44d3f"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE.md",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/SOURCE.md.initial",
+      "bytes": 5027,
+      "sha256": "d54bc324105988d833d628c253724a54f73458f2ea67fc5502a57d88cb854d1c"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE-INPUTS.json",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/SOURCE-INPUTS.json.initial",
+      "bytes": 4185,
+      "sha256": "ab085ba0831103f190bb1ea17d93ce4660c625178db69bbe6785209bcdb3d0fe"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/AST.json",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/AST.json.initial",
+      "bytes": 1547,
+      "sha256": "23874de96c860b8c75138f6150fb99faa251ce66f3e554037b2b718b8d37bb82"
+    }
+  ]
+}

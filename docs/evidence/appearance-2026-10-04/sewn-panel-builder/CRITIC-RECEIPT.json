@@ -1,0 +1,292 @@
+{
+  "savedUtc": "2026-10-05T01:59:20.264974+00:00",
+  "decision": "A static full executable preparation only; no invocation/native admitted",
+  "nextWorth": "Conditional A for a fresh separately declared sole <=600s CPU trial; first actual refusal/timeout stops the literal source",
+  "sourceSaveGate": "2026-10-05T02:01:06.384463+00:00",
+  "rootCloseGate": "2026-10-05T02:08:06.384463+00:00",
+  "sourceManifest": {
+    "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE-INPUTS.json",
+    "bytes": 6395,
+    "sha256": "7c1a835cc12628a4b3a760473e95e50fcf27abc43478fd48bfff39f100f34224"
+  },
+  "sourceBindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/exact.py",
+      "bytes": 7314,
+      "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/spatial.py",
+      "bytes": 3676,
+      "sha256": "649c53684e54363c73d2ac1f5397fe575ba36ade7a58a3933cf94b8e7a0e6c1e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/panel.py",
+      "bytes": 9887,
+      "sha256": "6889eb45547dcacef1a4a0a2ed8774e48a3aa6d470ce1474dce84349371efa82"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/audit.py",
+      "bytes": 10992,
+      "sha256": "6a2e1bc0e00c926938c2de52c29f73e86bd6de64a847e9aaabc737fbacee531b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/author.py",
+      "bytes": 7359,
+      "sha256": "bf0b4edcb94ef6dc2af22a66fe5395bd6fff185b707dd11c9d38b6431828bbe3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/runner.py",
+      "bytes": 4861,
+      "sha256": "d5c991197e27c8b3b677beb28ddee4a33105cd5837f055afaf2185b156fe032e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE.md",
+      "bytes": 5853,
+      "sha256": "9ac81b683afb8a4fa0e61f568d86e4fe1c7bb5f159e045519bc2dffd2b16ebe4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/REUSE.json",
+      "bytes": 1757,
+      "sha256": "67a53ae37e4dc4e57e0d0d76559e1a83f274f8ed22fd7d2ba6e8ef73301fd43f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/PLAN.json",
+      "bytes": 1352,
+      "sha256": "3082c29b346bcc44a5a5e5824e4fe721747c29d8bd26ab47a26f6f49ae5b1006"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/INPUTS.json",
+      "bytes": 2274,
+      "sha256": "6dda41661f03b7814799520caaa639387c6c81ca60c14c93f441095931d8dee1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/WORTH.md",
+      "bytes": 2632,
+      "sha256": "e8886c01e33f338f7677c26aca59b95dcc9c5a89770dd7534e74a1694144ea3a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/WORTH-RECEIPT.json",
+      "bytes": 3345,
+      "sha256": "39ce9604a9d992358d17177991e0f61978bcc84244984bfef9ad345c4836d034"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/ROOT-WORTH.json",
+      "bytes": 3330,
+      "sha256": "db0fa75c993b3a5d1e93ae51225bedb6325424071e053ba486f89b6510a14e80"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/AST.json",
+      "bytes": 1552,
+      "sha256": "270d81fa18b3decf9ccb3c41e8faedf07c4f5cdfa59d634cbf620c99892ea40c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/CODE.diff",
+      "bytes": 8944,
+      "sha256": "6099ed04c1d583968d2b99eb1caaeb4d280be0a77b67f9b100582294d17bfefd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/ROOT-PREFLIGHT.md",
+      "bytes": 2237,
+      "sha256": "7325096fc32a133a373d243099c769b2460b06b02ab618fea5526586d84a3050"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/audit.py.source",
+      "bytes": 9555,
+      "sha256": "5d0c38013b748fef05d659ad4962c40159f70a884f56a16a7c50e337997c9414"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/author.py.source",
+      "bytes": 7533,
+      "sha256": "e7deac048f0ad3d70ebf6bd3cd2fe87b03983068eae1a6e867313ce981fdb4cc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/exact.py.source",
+      "bytes": 7314,
+      "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/runner.py.source",
+      "bytes": 3901,
+      "sha256": "c3d619f71f905c1eb3fbc4262cd67a962798e5eb60aa8dd31269e064b18a86f2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/spatial.py.source",
+      "bytes": 4682,
+      "sha256": "d86a340992acbbc6ce73730c7b8b57fe3d79e9e573123d863615865761fc9562"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/AST.json.initial",
+      "bytes": 1547,
+      "sha256": "23874de96c860b8c75138f6150fb99faa251ce66f3e554037b2b718b8d37bb82"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/INITIAL.json",
+      "bytes": 2340,
+      "sha256": "5ed51dbdc20c84a4267d7fbdfbe99d54f516e3afe49c198a1a990f6a08b51980"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/SOURCE-INPUTS.json.initial",
+      "bytes": 4185,
+      "sha256": "ab085ba0831103f190bb1ea17d93ce4660c625178db69bbe6785209bcdb3d0fe"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/SOURCE.md.initial",
+      "bytes": 5027,
+      "sha256": "d54bc324105988d833d628c253724a54f73458f2ea67fc5502a57d88cb854d1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/author.py.initial",
+      "bytes": 7088,
+      "sha256": "dba6260ccb73c144786ae9d551babf1013d2860385a36c82e028bd6d1d9e54a3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/panel.py.initial",
+      "bytes": 9676,
+      "sha256": "f4ab4b0292be3dc64ff32671e05103257e8799af71c44e1d93a71c7c0a799bc8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/runner.py.initial",
+      "bytes": 4823,
+      "sha256": "a0bc6fb008d2c244984265732eb7403581150a53d7656063f959197f6cf44d3f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/spatial.py.initial",
+      "bytes": 3441,
+      "sha256": "284fbf205eab6151a5bf0065639d97fe060aee103ef1ea6bd1d943027376bc77"
+    },
+    {
+      "path": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    }
+  ],
+  "originalInputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/PANEL-CONTRACT.md",
+      "bytes": 13054,
+      "sha256": "4a7bb06cd04f9bb823e541df7ced962b5748a7f207c1c3a61b5c0f709cad43d4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/REPRESENTATIVE-CLARIFICATION.md",
+      "bytes": 3752,
+      "sha256": "7c81f8e181ebf75b217d01bcb3bb22dbb7fd05ff7aecf50522a729e54919f451"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/SOURCE-RESULT.md",
+      "bytes": 4234,
+      "sha256": "22c2cddf16e002f1bb4c27caabb4cfe4805587b5780ca256f6124a30dea5cda4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/CRITIC-RECEIPT.json",
+      "bytes": 11641,
+      "sha256": "7b6d404fd966b529468ee6fb8502cb97c7e76528f9d995b4f84df99e72f75f15"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/ROOT-RESULT.json",
+      "bytes": 18315,
+      "sha256": "dcaaa0a552278af13a44502512c5abd68fca392918851475629493fde394c726"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/MANIFEST.json",
+      "bytes": 3564,
+      "sha256": "5986b0ccd3b4c25405e458fcb650cb16f2ece1deabbea936d22640bc4669dcd3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-contract/FINAL-SOURCE.json",
+      "bytes": 3559,
+      "sha256": "2447ea97454a345f2d1e976be23fa47e410de6988584f1fdcbd0842c268c483b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    }
+  ],
+  "reuseEquivalence": [
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/exact.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/exact.py.source",
+      "bytes": 7314,
+      "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/spatial.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/spatial.py.source",
+      "bytes": 4682,
+      "sha256": "d86a340992acbbc6ce73730c7b8b57fe3d79e9e573123d863615865761fc9562"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/audit.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/audit.py.source",
+      "bytes": 9555,
+      "sha256": "5d0c38013b748fef05d659ad4962c40159f70a884f56a16a7c50e337997c9414"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/author.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/author.py.source",
+      "bytes": 7533,
+      "sha256": "e7deac048f0ad3d70ebf6bd3cd2fe87b03983068eae1a6e867313ce981fdb4cc"
+    },
+    {
+      "original": "docs/evidence/appearance-2026-10-04/source-envelope-builder/runner.py",
+      "snapshot": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/runner.py.source",
+      "bytes": 3901,
+      "sha256": "c3d619f71f905c1eb3fbc4262cd67a962798e5eb60aa8dd31269e064b18a86f2"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE-RESULT.md",
+    "bytes": 4889,
+    "sha256": "478caecd0f6c0a48c3ca9d5626469df7bfee8d4bdef4d0f77945482995fb8e74"
+  },
+  "scope": {
+    "fullActiveModulesRead": [
+      "exact.py",
+      "spatial.py",
+      "panel.py",
+      "audit.py",
+      "author.py",
+      "runner.py"
+    ],
+    "fullProvenanceRead": [
+      "SOURCE.md",
+      "SOURCE-INPUTS.json",
+      "PLAN.json",
+      "INPUTS.json",
+      "WORTH.md",
+      "WORTH-RECEIPT.json",
+      "ROOT-WORTH.json",
+      "REUSE.json",
+      "AST.json",
+      "CODE.diff",
+      "ROOT-PREFLIGHT.md",
+      "preflight/INITIAL.json"
+    ],
+    "frozenContract": "PANEL and REPRESENTATIVE-CLARIFICATION fully read in the immediately preceding contract gate and exact current bytes verified; source review compared literal responsibility/operation order without evaluating geometry.",
+    "initialDrafts": "Initial six active sources were fully read before recording correction; four exact preserved initial source snapshots and initialSOURCE/manifest/AST bytes verified. Five generic provenance snapshots verified against originals by exact bytes/SHA.",
+    "largeData": "LEDGER/PARTITION bytes hashed only, not JSON-decoded or geometrically reconstructed",
+    "notPerformed": [
+      "candidate import/execution",
+      "source coordinate/geometric arithmetic or predicate evaluation",
+      "producer/checker invocation",
+      "original GLB decode",
+      "online/HTTP/browser/native/GPU/capture"
+    ]
+  }
+}
