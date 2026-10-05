@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-05T11:03:41.488753+00:00",
+  "decision": "B close exact first source before export or native action",
+  "witness": "viewer.mjs20 pagehide cleanup;25 pre-digest closed guard;26 awaited digest;28 onward owner allocations;11 already-closed cleanup returns",
+  "explanation": "Pagehide during digest closes empty owner collection. Resuming after await allocates/renders without another guard; closed cleanup cannot collect late owners. Root independently confirms complete source536e62/eb9895 and unchanged eight pins.",
+  "alternatives": [
+    "A one separate lifecycle-only post-digest guard with unchanged garment/check/camera/material source, conditional critic worth and fresh finite source gate; could unlock first export/view at small bounded cost",
+    "B withhold viewer/export, retain source only; avoids unowned late resources but leaves garment appearance unobserved"
+  ],
+  "executions": {
+    "export": 0,
+    "check": 0,
+    "native": 0,
+    "GPU": 0,
+    "online": 0
+  },
+  "limits": "Source lifecycle failure only; no actual topology, geometry or appearance defect observed. Source clock in PLAN is declared preparation timing, not an execution timestamp.",
+  "pending": "Collect final critic source receipt and any distinct worth; no onward operation admitted."
+}

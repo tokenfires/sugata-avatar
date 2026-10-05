@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-05T11:11:28.885003+00:00",
+  "decision": "A sole first fixed front/profile/rear native viewport",
+  "root_cpu_observation": "25657d/0; both sole subprocesses exit0/reaped and complete stdout/stderr observed; source/checker independently read536e62. Five current source pins and actual saved outputs/job records verified.",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json",
+      "bytes": 30694,
+      "sha256": "bac92957a37762cc8c2b5b472ed9946f2b3c13882c38cd716f58b393faab86db"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/export/overshirt.obj",
+      "bytes": 11321,
+      "sha256": "368844a36162638e7453c57849a64acfcb2b6eb79bbf7a22692d3f56af19a868"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/CPU-RESULT.json",
+      "bytes": 600,
+      "sha256": "a4db1caeca9887711aea8e4f41d28bba7017f49292eb0d8997cd22e5c90c568b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/CPU-JOBS.json",
+      "bytes": 1345,
+      "sha256": "79864b58c3781bafa833862368c2f32c40cee1a3583e89eaebdbde40e825546d"
+    }
+  ],
+  "tab": "One new owned hidden iab; prior tabs inventory empty, retain review1023/5173. Set fixed1280x900 once for repeatable three-view first evidence, reset before close.",
+  "limits": "Native image still required; CPU support is topology only. No cloth/self-intersection/body-fit/material/AAA qualification. No retake/correction; work11:47UTC."
+}

@@ -19,6 +19,8 @@ Updated October 5, 2026. **Customization is usable; complete character quality i
 - [x] Wide-trouser artist target with deliberately chosen profile, seat and rear. [Three-view design](research/WIDE-TROUSER-DESIGN-2026-10-04.md)
 - [x] Editable unitless trouser blockout with an authored seat, shared crotch and three actual mesh views. [Source and OBJ](evidence/appearance-2026-10-04/trouser-artist-source/README.md)
 
+- [x] Editable unitless open overshirt blockout with an attached collar, full hanging sleeves and an actual front/profile/rear image; collar/cuff finish and wearable fit remain open. [Source, OBJ and reviewed image](evidence/appearance-2026-10-05/overshirt-first-view/README.md)
+
 - [x] Original short-groom, layered masculine artist target, with full-body and portrait discussion views. [Character design](research/MASCULINE-CHARACTER-TARGET-2026-10-04.md)
 
 These references do not establish physical folding, wearable fit or finished garment appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)

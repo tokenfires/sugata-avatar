@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-05T11:05:54.690246+00:00",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/build.py",
+      "bytes": 8223,
+      "sha256": "cbaa652042008d835c531abb8e7514ec727a41d7bba126ac91d5f23fca048423"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/check.py",
+      "bytes": 4568,
+      "sha256": "aa1f670e861b1859fbb64d49ad8a4e123df81bba3207f3f5e9bccb5874d31d9b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/index.html",
+      "bytes": 2343,
+      "sha256": "31f886b2b3b0ef3722ee5b47f4a3dc969329462bd42ba0c5ac9bc9de5c5ed704"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/viewer.mjs",
+      "bytes": 4326,
+      "sha256": "f7e45eddd5ecc5b8dcf9bcdc78284dd867cc9a9c4850ca0d1ad7041054521012"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/PLAN.json",
+      "bytes": 3548,
+      "sha256": "ab50a8d5a3c97c08d9c24ff57b590e53fbc0c1cd37daf25c95c9914cf7ae350f"
+    }
+  ],
+  "source_delta": "Only viewer post-digest guard; copied original source files are unchanged",
+  "prior_source_receipt": "docs/evidence/appearance-2026-10-05/overshirt-artist-source/SOURCE-BINDINGS.json"
+}

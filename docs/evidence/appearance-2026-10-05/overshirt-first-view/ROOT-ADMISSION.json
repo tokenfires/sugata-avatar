@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-05T11:10:46.241007+00:00",
+  "decision": "A sole export/check; first native view only if actual CPU steps pass",
+  "root_full_handoff": "d83cad/0",
+  "verified_pins": 18,
+  "source_reads": [
+    "536e62/0",
+    "eb9895/0",
+    "cc7951/0"
+  ],
+  "source_receipt_sha256": "6690ad472416c6e7a22fd463ae30e8b457764ffe3716fb877b0658d739308605",
+  "independent_review": "Single post-digest guard before synchronous resource allocations independently confirmed; no later await. Exact original numeric construction/check/cameras/material unchanged. Actual source graph/visual gates still unknown.",
+  "stop": "First export/check/native/image failure stops, no further lifecycle correction or geometry/material/camera retry. Work11:47UTC."
+}

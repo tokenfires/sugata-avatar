@@ -1,0 +1,16 @@
+{
+  "mesh_sha256": "bac92957a37762cc8c2b5b472ed9946f2b3c13882c38cd716f58b393faab86db",
+  "vertices": 215,
+  "quads": 188,
+  "edges": 404,
+  "euler": -1,
+  "face_components": 1,
+  "boundary_loops": {
+    "continuous_collar_front_hem": 40,
+    "left_wrist": 8,
+    "right_wrist": 8
+  },
+  "minimum_quad_area": 0.002828427124746191,
+  "checks": "Finite, distinct nondegenerate corners, edge twins, connected face/vertex links, named boundaries, Euler, OBJ roundtrip",
+  "limits": "Topology only; no general self-intersection, garment recognizability, cloth, body/pose clearance or wearable-fit proof"
+}

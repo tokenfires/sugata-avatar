@@ -1,0 +1,15 @@
+# Source verdict: B — unchanged and unrun
+
+Saved 2026-10-05T11:06:19.750768+00:00. The complete build, independent saved-mesh checker, viewer, HTML, plan and bound reference documents were read. All eight source bindings still match. PLAN.json:9 closes this exact experiment on its first source refusal; **no export/check or first native view is admitted**.
+
+**Actionable lifetime blocker.** `viewer.mjs:25` checks `lifetime.closed`, then line26 awaits the digest. The next continuation allocates geometry at28, materials32–35 and renderer41–42 without another closed check. `pagehide`20 can call cleanup10–18 during that await; cleanup marks the lifetime closed and retires the then-current owners. Later cleanup returns at11, so resources allocated by the resumed continuation escape that cleanup. This is a literal source control-flow defect, not an observed GPU leak or garment/image defect.
+
+Two alternatives: **A**, in a separately admitted copy, check closed immediately after the digest and before parsing/allocation; this preserves every garment, checker, camera and material value while preventing that late continuation. **B**, withhold publication and keep this source unrendered; it avoids another source pass but produces no editable or visual deliverable. Current plan requires B and leaves these exact bytes unchanged.
+
+The constructor owns shared panel/shoulder/sleeve/collar IDs and first-construction winding normalization (`build.py:64–166`). `check.py:18–86` owns the stated nonzero-area, incidence, vertex-link, three-boundary/Euler and OBJ checks. Their actual results and all first-view appearance remain unknown. No self-intersection, cloth, body/boot fit, material finish, motion, identity or AAA qualification follows this static review.
+
+## Separate fresh repair worth: conditional A only
+
+One new lifecycle-only source contract is worth doing. The previously viewed whole-character original has an open collar/ivory gap (x325–447, y135–476) and full wrist sleeves (x238–280 and478–521, y450–509). The retained folded J.Crew frame supports collar/placket vocabulary, while its hem, full sleeves and rear remain unseen. The exact newly authored source would therefore make a still-unanswered first topology/export/three-view decision; no geometry was evaluated or rescued here.
+
+**A:** preserve the failed original, add only the post-digest closed guard in a fresh copy, independently bind/review the complete unchanged garment/check/view source, then consider one sole export/check/first view under a fresh finite plan. It can yield the missing editable blockout, with topology/readability still allowed to refuse. **B:** defer this source and retain the existing reference target; lower effort, but no original editable garment. Conditional A is worth only, not source or execution admission. The first new substantive source, CPU, retrieval or visual refusal must stop this viewer-publication method without another correction, geometry/material/camera adjustment or retake loop.

@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "docs/evidence/appearance-2026-10-05/overshirt-first-view/build.py"
+    ],
+    "pid": 99824,
+    "started_utc": "2026-10-05T11:10:46.241180+00:00",
+    "ended_utc": "2026-10-05T11:10:46.265264+00:00",
+    "seconds": 0.024099125002976507,
+    "exit": 0,
+    "timeout": false,
+    "stdout_sha256": "62aecfe9df202ada3a780ac0f1a636ae31b39bd122779e16147c0dcf5e39fbce",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "cbaa652042008d835c531abb8e7514ec727a41d7bba126ac91d5f23fca048423",
+    "owned_child_reaped": true
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "docs/evidence/appearance-2026-10-05/overshirt-first-view/check.py"
+    ],
+    "pid": 99825,
+    "started_utc": "2026-10-05T11:10:46.265445+00:00",
+    "ended_utc": "2026-10-05T11:10:46.289345+00:00",
+    "seconds": 0.023912958014989272,
+    "exit": 0,
+    "timeout": false,
+    "stdout_sha256": "96d6849f9cd717358de6a138394217a3531f85fe0052101b5131af0bbd6d968f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "aa1f670e861b1859fbb64d49ad8a4e123df81bba3207f3f5e9bccb5874d31d9b",
+    "owned_child_reaped": true
+  }
+]
