@@ -1,0 +1,82 @@
+{
+  "saved_utc": "2026-10-05T14:29:24.737569+00:00",
+  "timely_at_save": false,
+  "stop_utc": "2026-10-05T14:29:00Z",
+  "decision": "B first-insufficient query; no primary page/native/prompt/generation/successor",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/PLAN.json",
+      "bytes": 4579,
+      "sha256": "73f71e751585ef4ccee21f7a8a3e759d2d08b1850681cf556d05db4f1aa77d8d",
+      "read_scope": "Entire unchanged file read in edc914; bytes rehashed at handoff."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/SOURCE-RESULT.md",
+      "bytes": 2028,
+      "sha256": "e1e8c40ec59493180de647d7b73a59790b64bddb34fe04bdd66e609f1d1db809",
+      "read_scope": "Entire unchanged file read in edc914; bytes rehashed at handoff."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/SOURCE-RECEIPT.json",
+      "bytes": 3605,
+      "sha256": "df5f0b7b00d8e12c11a6577adab98452d639df14cee16bae61ba0b56baab1e5d",
+      "read_scope": "Entire unchanged file read in edc914; bytes rehashed at handoff."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/ROOT-ADMISSION.json",
+      "bytes": 908,
+      "sha256": "573465477123fb0a9467c3564cb2d1ae484c079b23f44a218d732fff028359e1",
+      "read_scope": "Entire unchanged file read in edc914; bytes rehashed at handoff."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/SEARCH.requested.json",
+      "bytes": 337,
+      "sha256": "c3c7ead0adc08d5d66acb0fe396de3a5c788debe4777ab34ebf8d869f2930b17",
+      "read_scope": "Entire unchanged file read in edc914; bytes rehashed at handoff."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/SEARCH.json",
+      "bytes": 1784,
+      "sha256": "8948638906efd8d84b9d6a21c96b53b609bdc74bd282afeeeef82b27119487c5",
+      "read_scope": "Entire unchanged file read in edc914; bytes rehashed at handoff."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/ROOT-OBSERVATION.json",
+      "bytes": 4100,
+      "sha256": "494a055f443ba76da692aa627b5a920b56cd5697d2337c35a4ec94b107ba0ce0",
+      "read_scope": "Entire unchanged file read in edc914; bytes rehashed at handoff."
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/RESULT.md",
+    "bytes": 2060,
+    "sha256": "75c650808cf490abd720284036cccb5a10c37983829b076d9551ad2ec70c3c25"
+  },
+  "verification": {
+    "exact_request_equals_plan_and_admission": true,
+    "content_text_equals_structured": true,
+    "root_query_summary_equals_actual": true,
+    "root_observation_six_bindings_match": true,
+    "admission_before_sole_query_before_stop": true,
+    "web_result_count": 1,
+    "provider_id": "01a10c6e-6d58-722a-ad51-50259dfc8590",
+    "reported_credits": 2
+  },
+  "commands": [
+    {
+      "chunk_id": "30d407",
+      "scope": "Scoped packet filenames only."
+    },
+    {
+      "chunk_id": "edc914",
+      "scope": "Complete seven actual files; PLAN.md absent, PLAN.json actual exact contract. Clock14:28:20UTC."
+    }
+  ],
+  "limits": [
+    "No new search/page/image/network/native/browser/GPU/capture/producer/imagegen/import or prior-file/source/default/frozen edit.",
+    "Only own RESULT.md and RECEIPT.json written.",
+    "No new pixels observed; no current publisher availability, page failure, package/rights/geometry/runtime/fit assertion.",
+    "Root no-page/no-native history is reviewed from saved records, not a global process/browser audit.",
+    "Prior source A remains unchanged; the actual insufficient result triggers B without fallback."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "observed_utc": "2026-10-05T14:21:33.052395+00:00",
+  "decision": "B stop current selected reference-dependent neutral art nomination after first insufficient query result; no next primarypage/native/prompt/imagegen",
+  "root_actual_read": "c4efbf complete raw SEARCH/REQUEST; structured response was actually returned to root14:18:46.511, full content-text parsed equals structuredContent exactly; literal request matches admitted PLAN",
+  "query_result": {
+    "agent_hints": [
+      "All 1 web results are excerpts only (#1 \"https://t-o-o-g-o-o-d.com/?srsltid=AU7gw4ViSslMI5U5S6aMKBmP_r7TD-aKKhv02oAaU5vPRl14lIcixfOh\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://t-o-o-g-o-o-d.com/?srsltid=AU7gw4ViSslMI5U5S6aMKBmP_r7TD-aKKhv02oAaU5vPRl14lIcixfOh",
+          "title": "Faye Toogood: Home",
+          "description": "Faye Toogood MBE is a British artist and designer working at the boundary between functional object and sculpture.",
+          "position": 1
+        }
+      ]
+    },
+    "id": "01a10c6e-6d58-722a-ad51-50259dfc8590",
+    "creditsUsed": 2
+  },
+  "job": "Sole mcp__codex_apps__firecrawl_firecrawl_search started14:18:44.545/returned14:18:46.511UTC; success true/isErrorfalse/2reportedcredits. No owned CPU/native/tab/backendPID or retirement observed. CUA docs recovery only beforequery, no browser inventory/tab/page/capture action.",
+  "finding": "Only one FayeToogood home excerpt, no named official worn workjacket or visible garment boundaries. This cannot nominate the required actual design page/image. It is a query relevance limit, not current publisher availability/geometry/identity/fit absence or webpage retrieval failure. No primarypage or pixels inspected.",
+  "alternatives": [
+    "A follow homepage navigation/reformulate query/changepublisher or generatefromdeclaredproportions could findlater art but violates this exact firstinsufficient-query/nominationstop; not admitted.",
+    "B preserve exact single excerpt andstop withoutpage/native/gen/default/source change; leavesselectedartundelivered andfullrepresentation open. B."
+  ],
+  "next_worth": "B next exactprompt/generation for this reference-dependentnomination; no new source/design/lookup/inquiry admitted bythisreceipt. Distinctfullsource/character/wardrobegoal ornewhumansteering needsfreshplan/worth.",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-reference/PLAN.json",
+      "bytes": 4579,
+      "sha256": "73f71e751585ef4ccee21f7a8a3e759d2d08b1850681cf556d05db4f1aa77d8d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-reference/SOURCE-RESULT.md",
+      "bytes": 2028,
+      "sha256": "e1e8c40ec59493180de647d7b73a59790b64bddb34fe04bdd66e609f1d1db809"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-reference/SOURCE-RECEIPT.json",
+      "bytes": 3605,
+      "sha256": "df5f0b7b00d8e12c11a6577adab98452d639df14cee16bae61ba0b56baab1e5d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-reference/ROOT-ADMISSION.json",
+      "bytes": 908,
+      "sha256": "573465477123fb0a9467c3564cb2d1ae484c079b23f44a218d732fff028359e1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-reference/SEARCH.requested.json",
+      "bytes": 337,
+      "sha256": "c3c7ead0adc08d5d66acb0fe396de3a5c788debe4777ab34ebf8d869f2930b17"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-reference/SEARCH.json",
+      "bytes": 1784,
+      "sha256": "8948638906efd8d84b9d6a21c96b53b609bdc74bd282afeeeef82b27119487c5"
+    }
+  ],
+  "preservation": "Alloriginal/accepted/default/frozen/unrelated/fullAAA preserved;14scoped/10broad unchanged. No imagegen or fallback/generic query. Existingreview5173/ACTIVEtenminute retained;humansteeringwins."
+}

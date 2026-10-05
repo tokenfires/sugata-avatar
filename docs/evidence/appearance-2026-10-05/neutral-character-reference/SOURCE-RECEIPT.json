@@ -1,0 +1,66 @@
+{
+  "saved_utc": "2026-10-05T14:17:15.615033+00:00",
+  "decision": "A exact reference-only source contract; no generation/source construction admission",
+  "source_save_gate_utc": "2026-10-05T14:20:00Z",
+  "experiment_stop_utc": "2026-10-05T14:29:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/PLAN.json",
+      "bytes": 4579,
+      "sha256": "73f71e751585ef4ccee21f7a8a3e759d2d08b1850681cf556d05db4f1aa77d8d",
+      "read_scope": "Complete58-line exact reference-only contract."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-worth/PLAN.json",
+      "bytes": 5821,
+      "sha256": "7e7a2cd19c87c5c2af731a1dacb50ab687b7a05905c932ebb0153d472b298563",
+      "read_scope": "Entire exact document read; prior worth PLAN already fully read and exact bytes reverified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-worth/RESULT.md",
+      "bytes": 3513,
+      "sha256": "ffaec28b6dc75f73ad6b116b1dadf0f368a74df5555c7ca84c1fc0f7a58d379d",
+      "read_scope": "Entire exact document read; prior worth PLAN already fully read and exact bytes reverified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-worth/RECEIPT.json",
+      "bytes": 6632,
+      "sha256": "870eb030923ada3d1a3c44dec887b1d96ff09212b18cca23027f420caf1bd60e",
+      "read_scope": "Entire exact document read; prior worth PLAN already fully read and exact bytes reverified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-worth/ROOT-CLOSE.json",
+      "bytes": 2343,
+      "sha256": "3708f33a4e841501e3a540104205a488310e6444e8420c3e01edfc99a5783575",
+      "read_scope": "Entire exact document read; prior worth PLAN already fully read and exact bytes reverified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-worth/MANIFEST.json",
+      "bytes": 1316,
+      "sha256": "dd98b5f3460b6f8de09b51e0e4f299293633b42ea0ac5e8b1d738b0d2d0bed2f",
+      "read_scope": "Complete document read; manifest metadata only, not a new audit of all payload content."
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/SOURCE-RESULT.md",
+    "bytes": 2028,
+    "sha256": "e1e8c40ec59493180de647d7b73a59790b64bddb34fe04bdd66e609f1d1db809"
+  },
+  "commands": [
+    {
+      "chunk_id": "61211d",
+      "scope": "Complete exact reference PLAN; all five bound input size/SHA assertions pass. Clock14:15:40UTC."
+    },
+    {
+      "chunk_id": "894c5b",
+      "scope": "Full prior RESULT/RECEIPT/ROOT-CLOSE/MANIFEST readback. Prior PLAN already fully read in same logical session and current bytes reverified."
+    }
+  ],
+  "limits": [
+    "Source contract only; no online/query/scrape/native/browser/GPU/capture/import/program/constructor/imagegen or existing/frozen/default edit.",
+    "Only own SOURCE-RESULT.md and SOURCE-RECEIPT.json written.",
+    "No new image inspection in this short gate; previous complete masculine image observation is owned by immutable worth receipt.",
+    "No current publisher availability/rights/source-layout/fit/identity/gender claim.",
+    "One query/page and conditional whole image only; first failure stops without fallback. Fresh exact prompt needs actual root/critic reference verdict."
+  ]
+}

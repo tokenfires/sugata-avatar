@@ -1,0 +1,27 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://t-o-o-g-o-o-d.com/?srsltid=AU7gw4ViSslMI5U5S6aMKBmP_r7TD-aKKhv02oAaU5vPRl14lIcixfOh\",\"title\":\"Faye Toogood: Home\",\"description\":\"Faye Toogood MBE is a British artist and designer working at the boundary between functional object and sculpture.\",\"position\":1}]},\"creditsUsed\":2,\"id\":\"01a10c6e-6d58-722a-ad51-50259dfc8590\",\"agent_hints\":[\"All 1 web results are excerpts only (#1 \\\"https://t-o-o-g-o-o-d.com/?srsltid=AU7gw4ViSslMI5U5S6aMKBmP_r7TD-aKKhv02oAaU5vPRl14lIcixfOh\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "All 1 web results are excerpts only (#1 \"https://t-o-o-g-o-o-d.com/?srsltid=AU7gw4ViSslMI5U5S6aMKBmP_r7TD-aKKhv02oAaU5vPRl14lIcixfOh\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://t-o-o-g-o-o-d.com/?srsltid=AU7gw4ViSslMI5U5S6aMKBmP_r7TD-aKKhv02oAaU5vPRl14lIcixfOh",
+          "title": "Faye Toogood: Home",
+          "description": "Faye Toogood MBE is a British artist and designer working at the boundary between functional object and sculpture.",
+          "position": 1
+        }
+      ]
+    },
+    "id": "01a10c6e-6d58-722a-ad51-50259dfc8590",
+    "creditsUsed": 2
+  },
+  "isError": false
+}
