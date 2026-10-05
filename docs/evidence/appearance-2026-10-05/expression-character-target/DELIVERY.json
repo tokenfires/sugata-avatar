@@ -1,0 +1,39 @@
+{
+  "delivered_utc": "2026-10-05T20:00:37.200523+00:00",
+  "decision": "Truthful local partial-study delivery only; critic complete-A and root complete-B unchanged",
+  "draft": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/DELIVERY-DRAFT.md",
+    "bytes": 2427,
+    "sha256": "895543f9ddef37b7b66a78423cc37e5a5febc9fcaf184504471ad1285e95df76"
+  },
+  "delivered": {
+    "path": "docs/research/EXPRESSION-CHARACTER-TARGET-2026-10-05.md",
+    "bytes": 2516,
+    "sha256": "b17aca96f8a1c18ace67b485740f74b6cf7ce46e7fae8d74d25a46122d7ba91d"
+  },
+  "literal_replacements": [
+    {
+      "old": "The requested final lowered-chin cue remains open: the independent critic reads a gentle tuck, while root finds the turn/tilt clearer than a distinct lowering.",
+      "new": "The requested final lowered-chin cue remains open. The independent critic accepted the complete static sheet and reads a gentle tuck in the last panel. Root withholds complete acceptance because a distinct lowering is less clear than the turn/tilt.",
+      "reason": "Optional independent critic clarity finding DELIVERY-RESULT; explicitly preserve categorical disagreement in readable prose"
+    }
+  ],
+  "critic_delivery_result": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/DELIVERY-RESULT.md",
+    "bytes": 4492,
+    "sha256": "f4571473f6383bcb2251893744ccb648a70d3bc344a171c93cf187825b7ecb86"
+  },
+  "critic_delivery_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/DELIVERY-RECEIPT.json",
+    "bytes": 9795,
+    "sha256": "7b1e793e790dce3df6333667dba4193c515e5fc3f9408298d4a091dcb7648213"
+  },
+  "root_full_read": [
+    "fe4cdc complete4492-byte delivery result",
+    "8f8abc complete9795-byte delivery receipt"
+  ],
+  "all_binding_rows_verified": 76,
+  "local_links": 8,
+  "external_url": "Matches saved Epic primary; no new lookup",
+  "status": "No checklist/roadmap/default/product/source/runtime promotion; original PNG unchanged; no retake/edit/variant; not externally published"
+}

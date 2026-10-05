@@ -1,0 +1,123 @@
+{
+  "collected_utc": "2026-10-05T19:42:21.976255+00:00",
+  "decision": "A exact single built-in REQUEST only after root full source/pin admission; actual full output gate remains pending",
+  "direct_inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/PLAN.json",
+      "bytes": 3431,
+      "sha256": "eed26a19508b2ed612a2b3571d8d62afd84bf8f923e649c6f3b47a0c35d011a6",
+      "read_scope": "Complete3431-byte JSON read649b48, current11declared main/owned inputs reverified; generation/result/first-refusal lifecycle considered."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/BRIEF.md",
+      "bytes": 2929,
+      "sha256": "b23fcc6aac1bd66573e0c3861bec47f43de18e089feee4a56821789a9c8827cc",
+      "read_scope": "Complete11lines, numbered9a5ccd; literal visual gates/no retrospective partial-full acceptance."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/PROMPT.txt",
+      "bytes": 2505,
+      "sha256": "f77740a8ef088c62db0fc6446cb5be15776b17ec39f947d73dd156ccc87f82ff",
+      "read_scope": "Complete8literal lines, numbered9a5ccd; all three authored poses/frame/identity/finish exclusions read."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/REQUEST.json",
+      "bytes": 2731,
+      "sha256": "d42f6b0337a596a413c6897304a7f50c7e8a48ea03a67a962aa5cfa5ca1cb259",
+      "read_scope": "Complete exact prompt/reference path/opaque JSON; asserted equality with PROMPT and sole original reference."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/ROOT-CLOSE.json",
+      "bytes": 1579,
+      "sha256": "08d0e41df49706809dc7bfba6349cf4dc55b12aa1c301a57dee6ef213fb332af",
+      "read_scope": "Complete JSON read ed0e9f19:19:30; current pin reverified. Prior worth/source-only scope, no successor assumed."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/ROOT-CLOSE.json",
+      "bytes": 1645,
+      "sha256": "ae03110cc6235f4d4c1afcd3ffc81fc9b0b66ef41424f6153b7ef0707d55bd9d",
+      "read_scope": "Complete30numbered lines read9a5ccd; actual prior reference closed/A preparation only."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/RESULT.md",
+      "bytes": 5110,
+      "sha256": "47051a06e485aa8676ca30bcc6735aa589a27bfc3b2d1171fef4fde29140f826",
+      "read_scope": "Complete own5110-byte actual reference result read backb6f48019:36:02; current pin reverified. Its image contrast is historical here; no publisher screenshot submitted."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/RECEIPT.json",
+      "bytes": 9028,
+      "sha256": "7a5f8894a5b0dfbb5ef0d2afc45a8a7e8420645cf280f1a3639a5b73e7534998",
+      "read_scope": "Complete own9028-byte receipt parsed/verifiedb6f480; exact current hash. Old operations not replayed."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Whole unchanged1536x1024 original-detail view before identity/image claims649b48. Right portrait eyes/brows approx1065–1275/235–338; mouth1055–1215/418–480; whole swept crown/olive collar/ivory tee visible."
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete13numbered lines read9a5ccd; artist identity/finish/representation limitations and original references distinguished."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete45lines read6ea7ca19:13:06; current pin reverified,14checked/10open literal counts; no changes."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Current35–65/118–148 read6ea7ca19:13:06; current complete hash verified. No new runtime/semantic acceptance inferred."
+    }
+  ],
+  "source_result": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/SOURCE-RESULT.md",
+    "bytes": 5086,
+    "sha256": "6469fdb5772982e1d9fc896e061e207c9a2466494c111bc4fa5100e0d279a16c"
+  },
+  "verification": {
+    "main_bindings": 8,
+    "owned_input_bindings": 3,
+    "all_exact": true,
+    "prompt_equals_request": true,
+    "referenced_image_count": 1,
+    "referenced_image_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+    "transparent_background": false,
+    "original_whole_view_before_image_claims": true,
+    "original_dimensions": [
+      1536,
+      1024
+    ]
+  },
+  "commands": [
+    {
+      "tool": "649b48",
+      "scope": "functions.exec tools.view_image(detail original) emits full adult original; then stdlib individually reads/hashes complete four new source files/UTC. No art action."
+    },
+    {
+      "tool": "9a5ccd",
+      "scope": "stdlib verifies all11PLAN bindings, reads complete current adult research brief/prior reference ROOT-CLOSE, numbers complete BRIEF/PROMPT, asserts exact request/prompt/reference/opacity; no application import."
+    }
+  ],
+  "stops": {
+    "source": "2026-10-05T19:50:00Z",
+    "nomination": "2026-10-05T19:53:00Z",
+    "result": "2026-10-05T20:12:00Z",
+    "root_close": "2026-10-05T20:18:00Z",
+    "first_refusal": "One fixed candidate; any wrong identity/required feature/panel/pose coherence or presentation failure refuses full target, no variant/edit/retake. Capacity/error checkpoint has no retry; running tool recorded pending/collected safely, never duplicated."
+  },
+  "limits": [
+    "Source-only A is not generated-image acceptance.",
+    "No generation/network/browser/native/GPU/runtime/import/helper/producer/test/build or product/default/frozen edit by critic.",
+    "No emotion recognition, universal coy/teasing semantics, sourness attribution, FACS/current rig/channel/PAD/control, continuous motion, fit or AAA qualification.",
+    "Both prior references remain exact; only adult original submitted, publisher screenshot not submitted.",
+    "Only these two exclusive critic files written; no further successor admitted."
+  ],
+  "stable_no_pending_edits": true,
+  "stable_readback_utc": "2026-10-05T19:42:49.661604+00:00"
+}

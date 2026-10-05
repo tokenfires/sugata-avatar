@@ -1,0 +1,48 @@
+{
+  "closed_utc": "2026-10-05T20:02:14.784430+00:00",
+  "decision": "B complete exact three-pose target; retain unchanged partial artist study. Independent critic A preserved.",
+  "verified_rows": 80,
+  "source_result": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/SOURCE-RESULT.md",
+    "bytes": 5086,
+    "sha256": "6469fdb5772982e1d9fc896e061e207c9a2466494c111bc4fa5100e0d279a16c"
+  },
+  "source_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/SOURCE-RECEIPT.json",
+    "bytes": 6649,
+    "sha256": "bfe3576ea1572126108eb293dfab0a890ec87c288d37d00825222bb1a4e87d70"
+  },
+  "actual_result": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RESULT.md",
+    "bytes": 5706,
+    "sha256": "32cf5f7fc87aa258f1597f909665a3647c028c34b66ae91964b08e6314f21571"
+  },
+  "actual_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RECEIPT.json",
+    "bytes": 10558,
+    "sha256": "6c4a0e39147ac14bd982bf98ec43f6c55ca0cc3cef2cb83c88df77cd1652c3fc"
+  },
+  "root_reconciliation": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RECONCILIATION.md",
+    "bytes": 2876,
+    "sha256": "872a3c1e656527f150c138d2d3f96365a58908cc05177a2f18996751b3202072"
+  },
+  "delivery": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/DELIVERY.json",
+    "bytes": 2065,
+    "sha256": "dd6028de061125ee1985238c7d05e7ae6d317ae732ffa525ffce0d23e64ef45e"
+  },
+  "delivered": {
+    "path": "docs/research/EXPRESSION-CHARACTER-TARGET-2026-10-05.md",
+    "bytes": 2516,
+    "sha256": "b17aca96f8a1c18ace67b485740f74b6cf7ce46e7fae8d74d25a46122d7ba91d"
+  },
+  "root_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RECEIPT.md",
+    "bytes": 3448,
+    "sha256": "ed5fda3e533451ca187556c472789fd491f6852379076f17c4a3ce29d285a540"
+  },
+  "jobs": "One built-in generation completed; copy completed/recordedPID97129 absent2c4941. Critic collected stable. No active owned query/browser/native/generation job; opaque backend lifetime remains unknown. Vite1023 retained.",
+  "qualification": "Actual whole image qualifies partial appearance; hashes/dimensions support provenance only. All fixed raster variations closed, no runtime or checklist promotion.",
+  "next": "Fresh distinct character-source worth; retain full roadmap and all closed methods/assets. Human checkin/pause wins."
+}

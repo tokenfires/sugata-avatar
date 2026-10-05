@@ -1,0 +1,38 @@
+{
+  "reviewed_utc": "2026-10-05T19:52:29.549372+00:00",
+  "decision": "B complete exact pose target; retain partial original artist discussion evidence",
+  "independent_critic": "A complete static sheet remains unchanged; genuine qualitative right-chin judgment disagreement",
+  "critic_result": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RESULT.md",
+    "bytes": 5706,
+    "sha256": "32cf5f7fc87aa258f1597f909665a3647c028c34b66ae91964b08e6314f21571"
+  },
+  "critic_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RECEIPT.json",
+    "bytes": 10558,
+    "sha256": "6c4a0e39147ac14bd982bf98ec43f6c55ca0cc3cef2cb83c88df77cd1652c3fc"
+  },
+  "root_image": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/ROOT-IMAGE.md",
+    "bytes": 2886,
+    "sha256": "684e98956173676f0869cf2c1268ae84e2de4d693507f186579295439e2242bc"
+  },
+  "reconciliation": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RECONCILIATION.md",
+    "bytes": 2876,
+    "sha256": "872a3c1e656527f150c138d2d3f96365a58908cc05177a2f18996751b3202072"
+  },
+  "binding_rows_verified": 48,
+  "image": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/concept-v1.png",
+    "bytes": 2298128,
+    "sha256": "da0ea2fafa7f3cff794f89601509c17686f419d59b6eb70d04e58d386334624b"
+  },
+  "delivery_draft": {
+    "path": "docs/evidence/appearance-2026-10-05/expression-character-target/DELIVERY-DRAFT.md",
+    "bytes": 2427,
+    "sha256": "895543f9ddef37b7b66a78423cc37e5a5febc9fcaf184504471ad1285e95df76"
+  },
+  "whole_review": "Root actual whole image before critic and re-view19:49:17; full stable handoff69ad61/c47f23; no coordinate pitch inference",
+  "next": "Critic checks truthful partial-delivery wording only; no capture/art/implementation/test/default/status successor"
+}

@@ -1,0 +1,71 @@
+{
+  "prepared_utc": "2026-10-05T19:39:41.440747+00:00",
+  "head": "a7b9fc93859449bc48d04bd11bb3e5444806e96d",
+  "source_stop_utc": "2026-10-05T19:50:00Z",
+  "generation_nomination_stop_utc": "2026-10-05T19:53:00Z",
+  "result_review_stop_utc": "2026-10-05T20:12:00Z",
+  "root_close_stop_utc": "2026-10-05T20:18:00Z",
+  "usable_improvement": "One original static adult-character expression sheet with separately owned artist-intent labels",
+  "bounded_question": "Does the actual one-sheet output keep one adult reference identity/presentation and visibly distinguish the three literal poses?",
+  "decision": "Fresh source A admits exactly one literal REQUEST.json built-in call only. Actual rendered whole-image A/B later; no second candidate, retake or edit; any unavailable capacity/error ends checkpoint without retry. If generation still running at result deadline record pending owned job and await/collect safely rather than duplicate it. Human checkin/pause wins.",
+  "bindings": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/ROOT-CLOSE.json",
+      "bytes": 1579,
+      "sha256": "08d0e41df49706809dc7bfba6349cf4dc55b12aa1c301a57dee6ef213fb332af"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/ROOT-CLOSE.json",
+      "bytes": 1645,
+      "sha256": "ae03110cc6235f4d4c1afcd3ffc81fc9b0b66ef41424f6153b7ef0707d55bd9d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/RESULT.md",
+      "bytes": 5110,
+      "sha256": "47051a06e485aa8676ca30bcc6735aa589a27bfc3b2d1171fef4fde29140f826"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/RECEIPT.json",
+      "bytes": 9028,
+      "sha256": "7a5f8894a5b0dfbb5ef0d2afc45a8a7e8420645cf280f1a3639a5b73e7534998"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    }
+  ],
+  "owned_inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/PROMPT.txt",
+      "bytes": 2505,
+      "sha256": "f77740a8ef088c62db0fc6446cb5be15776b17ec39f947d73dd156ccc87f82ff"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/REQUEST.json",
+      "bytes": 2731,
+      "sha256": "d42f6b0337a596a413c6897304a7f50c7e8a48ea03a67a962aa5cfa5ca1cb259"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/BRIEF.md",
+      "bytes": 2929,
+      "sha256": "b23fcc6aac1bd66573e0c3861bec47f43de18e089feee4a56821789a9c8827cc"
+    }
+  ],
+  "preservation": "Accepted/default/original/frozen/unrelated work and all closed approaches;14scoped/10broad/fullAAA remain. Vite5173/ACTIVE10minute recovery retained; no push/publish/install/purchase/model/subscription/resetcredits/otherproject action."
+}
