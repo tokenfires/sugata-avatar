@@ -1,0 +1,47 @@
+{
+  "observed_utc": "2026-10-05T16:03:32.917408+00:00",
+  "tab_id": "44",
+  "native": "NATIVE.json",
+  "decision": "A native identity/layout/originalcapture scope; underlying assets not requalified",
+  "desktop_gate_command": "c2a0a6",
+  "mobile_gate_command": "0f9198",
+  "captures": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/wardrobe-board/desktop-first.jpg",
+      "bytes": 335535,
+      "sha256": "20f99523f6cb93a5f5938dea9c177047a1c7b0ffe950616fa1c403cb4f595e8f",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        3008
+      ]
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/wardrobe-board/mobile-first.jpg",
+      "bytes": 247189,
+      "sha256": "138966ddf5863bbc58e91c11ec7f72e47d34db42df314bfdcaf92fb9bf3c4536",
+      "format": "JPEG",
+      "dimensions": [
+        390,
+        4740
+      ]
+    }
+  ],
+  "viewport_override": [
+    390,
+    844
+  ],
+  "reset_returned": true,
+  "post_reset_observed_viewport": {
+    "devicePixelRatio": 2,
+    "height": 844,
+    "width": 390
+  },
+  "reset_limit": "Supported reset() calledonce andreturned; immediate DOMobserved390x844/DPR2 ratherthanprior1280x720/DPR2. Prior defaultwidth not confirmed restored. No furtherresize/reload/tab/capture was attempted. Owned44 closed andafterinventory empty.",
+  "before_tabs": [],
+  "after_tabs": [],
+  "closed_utc": "2026-10-05T16:02:43.131Z",
+  "source_identity_limits": "All6currentSrc literal URLs/natural dimensions/complete/unchangedoriginalstorageSHA plusactualwhole images. HTTPresponse bytes/SHA uninstrumented.",
+  "links": "25DOMliteral destinations matchHTML; localtargets exist. No clicks/downloads/keyboard behavior exercised.",
+  "limits": "No source/layout/crop/retake edits. Native44 only. No oldviewer/producer/import/replay/build/art/groom/fit/motion/accessibility/performance qualification. Closure/reset do not proveGPU retirement."
+}

@@ -1,0 +1,100 @@
+{
+  "prepared_utc": "2026-10-05T15:24:11.942988+00:00",
+  "worth_stop_utc": "2026-10-05T15:55:00Z",
+  "goal": "One usable visual wardrobe board showing two retained complete synthetic character targets and four independently retained editable unitless wardrobe drafts with original-image, evidence and actual source links. No new character, garment, fit or metadata qualification.",
+  "usable_improvement": "New docs/ARTIST-WARDROBE.html with visible character target vs editable-source status and actual complete originals; add one access link to project checklist only after final independent/root review. No new checkbox or broad-status change.",
+  "bounded_research_question": "Can complete original images plus external plain-language captions make the gap between retained character targets and editable coarse pieces understandable at desktop and mobile, without cropping images or presenting separate unregistered pieces as one wearable outfit?",
+  "decision": "Retain the one board as a navigable authoring catalogue or stop if identity/loaded image/readability/provenance distinctions fail. Do not infer target-to-source dimension, colour/lighting/material equality, combined assembly, body/pose fit, representation or AAA quality.",
+  "effort_limit": "Worth15:55UTC, exact source16:10UTC, sole desktop+mobile visual checks16:25UTC, critic/root decision16:40UTC. First concrete missing source/image, first native identity/load/overflow/caption readability refusal stops the fixed board; no repeated layout retunes. No CPU geometry/new render/asset/source/closed-guide repair.",
+  "native_contract": "Root only; preserve existing tabs; one owned background board tab. Default1280x720 desktop and one explicit390x844 mobile override admitted for layout only with reset in finally. At most one unchanged fullpage original each layout. All6 images same original URL/bytes, complete/naturalDims>0 and uncropped aspect; actual board URL/heading/captions/source links/DOM-bound observations. DOM-backed public source record if needed, no custom-window retrieval assumption. Root actually inspects both originals, then critic same actual bytes. Close onlyownedtab/resetoverride/inventory. No download/open source live viewer/re-render old mesh.",
+  "source_observations": "d243b1 complete checklist14scopedchecked/10broadopen;41436a full roadmap preserves Phase1 then stylized phases; c12ff7 full October2 review has saved features and hair studies only;6a3d67 complete two character briefs;74cbc3 complete four source README descriptions/limits; root separately views all6 whole unchanged original images now. Knit target blue/charcoal/brown and short-groom target olive/ivory/sand/brown are polished illustrations; sweater T-rest simple volume, trousers broad seat/straight legs, overshirt box shoulders/small collar, boots faceted instep/raiseddetails remain visibly coarse. Existing checklist text links them individually; board supports easier visual access only.",
+  "alternatives": [
+    {
+      "choice": "A create a new board with two clear target cards and four source cards, complete originals and scoped direct links",
+      "tradeoff": "Makes retained work easier to see and reuse; adds a maintained access page and needs desktop/mobile visual review."
+    },
+    {
+      "choice": "B retain individual checklist/README links only",
+      "tradeoff": "No additional navigation page or upkeep; user still opens many separate documents to compare existing art and sources."
+    }
+  ],
+  "online_reference": "If worthA, one live primary W3C https://www.w3.org/WAI/tutorials/images/complex/ text inquiry only for meaningful captions/full-image access. It supports accessible information presentation only, no fashion/geometry/identity inference; failure stops that reference inquiry, independently chosen semantic HTML can still be considered explicitly as local authoring. No generated art/fallbackpublisher images/query reformulation.",
+  "inputs": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4807,
+      "sha256": "2e2d39fe2e95b94068ae7b1e1de55e59cb7d64f347bef416d7859183f3b58cfc"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-02/review.html",
+      "bytes": 7019,
+      "sha256": "dcb409f7eaefe5177016c15e91ec5da2c999241758f566d8bbd27bce09826ca6"
+    },
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-artist-source/README.md",
+      "bytes": 1832,
+      "sha256": "da5e9c2fca0bdba39ab2e5cf25179c1476fc515ff04357669267f363235bb463"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "bytes": 2553,
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/README.md",
+      "bytes": 3116,
+      "sha256": "bbd931ba1329b3b7c112015b22f1ed6dc2df5ae82fb128ee1cdd893db5710553"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+      "bytes": 37822,
+      "sha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+      "bytes": 46998,
+      "sha256": "459c0f23d5d46be2c9e1421d132979044cca159f444c12d270b6e50cfe1ef13f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "bytes": 47399,
+      "sha256": "5fd1071f64a7a7a1ebb5e36bd677b6412defba321a061a2e34e5b8dfb15b65da"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/triptych-first.jpg",
+      "bytes": 62548,
+      "sha256": "b08dd2d698032cdbbe58514337f8075c01ac7fb6f92e78ece396ca542d3011c3"
+    }
+  ],
+  "preservation": "All originals/frozen/accepted/default/unrelated/fullroadmap unchanged. Current fixed footwearguide identity refusal closed; this board does not use that candidate or repair its observation transport. No new material/camera/source/fit/raster expression/representation method. Review5173 andACTIVEtenminute recovery retained; newerhumansteeringwins. No push/publish/install/purchase/capacity/model/subscription/resetcredit/otherproject action."
+}
