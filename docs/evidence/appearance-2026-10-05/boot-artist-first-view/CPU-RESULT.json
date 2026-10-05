@@ -1,0 +1,354 @@
+{
+  "mesh_sha256": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5",
+  "vertices": 2720,
+  "triangles": 5288,
+  "parts": 38,
+  "per_part": [
+    {
+      "part": "left.upper",
+      "vertices": 514,
+      "triangles": 1024,
+      "edges": 1536,
+      "euler": 2,
+      "signed_volume": 0.1616093110441603,
+      "minimum_triangle_area": 0.0007214201999999999
+    },
+    {
+      "part": "left.nominal",
+      "vertices": 258,
+      "triangles": 512,
+      "edges": 768,
+      "euler": 2,
+      "signed_volume": 0.39172416667654064,
+      "minimum_triangle_area": 0.0005102257563497777
+    },
+    {
+      "part": "left.sole",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "signed_volume": 0.08294138533722056,
+      "minimum_triangle_area": 0.0015399969487571335
+    },
+    {
+      "part": "left.heel",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "signed_volume": 0.015453494506264116,
+      "minimum_triangle_area": 0.0020778797086322687
+    },
+    {
+      "part": "left.tongue",
+      "vertices": 26,
+      "triangles": 48,
+      "edges": 72,
+      "euler": 2,
+      "signed_volume": 0.004028999990000033,
+      "minimum_triangle_area": 0.0006009726125206043
+    },
+    {
+      "part": "left.rear_strip",
+      "vertices": 30,
+      "triangles": 56,
+      "edges": 84,
+      "euler": 2,
+      "signed_volume": 0.001666000000000008,
+      "minimum_triangle_area": 0.0004249999999999989
+    },
+    {
+      "part": "left.counter",
+      "vertices": 136,
+      "triangles": 268,
+      "edges": 402,
+      "euler": 2,
+      "signed_volume": 0.00790504430794468,
+      "minimum_triangle_area": 0.0002177635496287501
+    },
+    {
+      "part": "left.lace.0.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00028393697277932697,
+      "minimum_triangle_area": 7.523651649682797e-05
+    },
+    {
+      "part": "left.lace.0.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00028393697277935575,
+      "minimum_triangle_area": 7.523651649682793e-05
+    },
+    {
+      "part": "left.lace.1.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00024038320139454537,
+      "minimum_triangle_area": 7.523649682777727e-05
+    },
+    {
+      "part": "left.lace.1.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00024038320139452093,
+      "minimum_triangle_area": 7.52364968277773e-05
+    },
+    {
+      "part": "left.lace.2.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00022081639636136786,
+      "minimum_triangle_area": 7.52364561912946e-05
+    },
+    {
+      "part": "left.lace.2.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00022081639552013282,
+      "minimum_triangle_area": 7.523645619129472e-05
+    },
+    {
+      "part": "left.lace.3.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.0002058374686064273,
+      "minimum_triangle_area": 7.523647082323006e-05
+    },
+    {
+      "part": "left.lace.3.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.0002058374686064298,
+      "minimum_triangle_area": 7.523647082322997e-05
+    },
+    {
+      "part": "left.lace.4.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020586347798225724,
+      "minimum_triangle_area": 7.523644480557877e-05
+    },
+    {
+      "part": "left.lace.4.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020586347962412723,
+      "minimum_triangle_area": 7.52364448055789e-05
+    },
+    {
+      "part": "left.lace.5.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020591316954941626,
+      "minimum_triangle_area": 7.523645719700558e-05
+    },
+    {
+      "part": "left.lace.5.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.0002059131711629362,
+      "minimum_triangle_area": 7.523645719700558e-05
+    },
+    {
+      "part": "right.upper",
+      "vertices": 514,
+      "triangles": 1024,
+      "edges": 1536,
+      "euler": 2,
+      "signed_volume": 0.16160931104416001,
+      "minimum_triangle_area": 0.0007214201999999999
+    },
+    {
+      "part": "right.nominal",
+      "vertices": 258,
+      "triangles": 512,
+      "edges": 768,
+      "euler": 2,
+      "signed_volume": 0.39172416667654064,
+      "minimum_triangle_area": 0.0005102257563497777
+    },
+    {
+      "part": "right.sole",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "signed_volume": 0.08294138533722058,
+      "minimum_triangle_area": 0.0015399969487571335
+    },
+    {
+      "part": "right.heel",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "signed_volume": 0.015453494506264102,
+      "minimum_triangle_area": 0.0020778797086322687
+    },
+    {
+      "part": "right.tongue",
+      "vertices": 26,
+      "triangles": 48,
+      "edges": 72,
+      "euler": 2,
+      "signed_volume": 0.004028999989999972,
+      "minimum_triangle_area": 0.0006009726125206043
+    },
+    {
+      "part": "right.rear_strip",
+      "vertices": 30,
+      "triangles": 56,
+      "edges": 84,
+      "euler": 2,
+      "signed_volume": 0.0016659999999999657,
+      "minimum_triangle_area": 0.0004249999999999989
+    },
+    {
+      "part": "right.counter",
+      "vertices": 136,
+      "triangles": 268,
+      "edges": 402,
+      "euler": 2,
+      "signed_volume": 0.007905044307944777,
+      "minimum_triangle_area": 0.0002177635496287501
+    },
+    {
+      "part": "right.lace.0.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.0002839369727793366,
+      "minimum_triangle_area": 7.523651649682797e-05
+    },
+    {
+      "part": "right.lace.0.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.0002839369727793632,
+      "minimum_triangle_area": 7.523651649682793e-05
+    },
+    {
+      "part": "right.lace.1.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00024038320139453567,
+      "minimum_triangle_area": 7.523649682777728e-05
+    },
+    {
+      "part": "right.lace.1.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00024038320139451922,
+      "minimum_triangle_area": 7.52364968277773e-05
+    },
+    {
+      "part": "right.lace.2.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.0002208163963613602,
+      "minimum_triangle_area": 7.52364561912946e-05
+    },
+    {
+      "part": "right.lace.2.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00022081639552012558,
+      "minimum_triangle_area": 7.523645619129472e-05
+    },
+    {
+      "part": "right.lace.3.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020583746860643648,
+      "minimum_triangle_area": 7.523647082323006e-05
+    },
+    {
+      "part": "right.lace.3.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020583746860643518,
+      "minimum_triangle_area": 7.523647082322997e-05
+    },
+    {
+      "part": "right.lace.4.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.0002058634779822216,
+      "minimum_triangle_area": 7.523644480557877e-05
+    },
+    {
+      "part": "right.lace.4.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020586347962409535,
+      "minimum_triangle_area": 7.52364448055789e-05
+    },
+    {
+      "part": "right.lace.5.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020591316954942965,
+      "minimum_triangle_area": 7.523645719700558e-05
+    },
+    {
+      "part": "right.lace.5.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "signed_volume": 0.00020591317116295862,
+      "minimum_triangle_area": 7.523645719700558e-05
+    }
+  ],
+  "pair_exact": true,
+  "obj_roundtrips": true,
+  "checks": "Raw finite/indexed/used/nondegenerate triangle graphs; closed oriented edge twins and connected manifold vertex links; Euler2/positive volume per named part; role/interfaces/reflected pair and OBJ identity",
+  "limits": "Topology/identity only; not general self-intersection, inter-part collision/contact, cavity/enclosure, recognizability, physical last/body fit/rig/morph/pose/motion/AAA proof"
+}

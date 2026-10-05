@@ -1,0 +1,121 @@
+{
+  "canvas": {
+    "bottom": 700,
+    "height": 560,
+    "left": 28,
+    "right": 1252,
+    "top": 140,
+    "width": 1224,
+    "x": 28,
+    "y": 140
+  },
+  "record": {
+    "bounds": {
+      "max": [
+        1.045,
+        1.29,
+        1.33
+      ],
+      "min": [
+        -1.045,
+        0,
+        -0.592375
+      ]
+    },
+    "camera": {
+      "far": 10,
+      "halfVertical": 1.692490196078431,
+      "near": 0.1,
+      "target": [
+        0,
+        0.645,
+        0.3688125
+      ],
+      "views": {
+        "front": [
+          0,
+          0.995,
+          4.3688125
+        ],
+        "profile": [
+          4,
+          0.995,
+          0.3688125
+        ],
+        "rear": [
+          0,
+          0.995,
+          -3.6311875
+        ]
+      }
+    },
+    "draws": 3,
+    "error": null,
+    "excludedParts": [
+      "left.nominal",
+      "right.nominal"
+    ],
+    "lifetime": {
+      "attempts": [],
+      "closed": false,
+      "reason": null
+    },
+    "limits": [
+      "Original fictional unitless choices; no image dimensions or human-foot source recovered",
+      "Coarse artist source, no physical last/fit/material-finish/rig/morph/pose/motion/AAA qualification",
+      "Closed per-part topology is not general self-intersection, inter-part contact or continuous cavity/enclosure proof"
+    ],
+    "material": "Fixed brown upper/counter/front facing, tan laces and darker sole/heel clay",
+    "meshSha": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5",
+    "parts": 38,
+    "renderedParts": [
+      "left.upper",
+      "left.sole",
+      "left.heel",
+      "left.tongue",
+      "left.rear_strip",
+      "left.counter",
+      "left.lace.0.0",
+      "left.lace.0.1",
+      "left.lace.1.0",
+      "left.lace.1.1",
+      "left.lace.2.0",
+      "left.lace.2.1",
+      "left.lace.3.0",
+      "left.lace.3.1",
+      "left.lace.4.0",
+      "left.lace.4.1",
+      "left.lace.5.0",
+      "left.lace.5.1",
+      "right.upper",
+      "right.sole",
+      "right.heel",
+      "right.tongue",
+      "right.rear_strip",
+      "right.counter",
+      "right.lace.0.0",
+      "right.lace.0.1",
+      "right.lace.1.0",
+      "right.lace.1.1",
+      "right.lace.2.0",
+      "right.lace.2.1",
+      "right.lace.3.0",
+      "right.lace.3.1",
+      "right.lace.4.0",
+      "right.lace.4.1",
+      "right.lace.5.0",
+      "right.lace.5.1"
+    ],
+    "triangles": 5288,
+    "vertices": 2720,
+    "viewport": [
+      1224,
+      560
+    ]
+  },
+  "status": "Ready · original paired source · three fixed views · unitless",
+  "viewport": [
+    1280,
+    720
+  ]
+}

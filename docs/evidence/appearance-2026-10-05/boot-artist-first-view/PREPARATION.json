@@ -1,0 +1,39 @@
+{
+  "prepared_utc": "2026-10-05T13:17:55.351004+00:00",
+  "root_source_reads": "46e6db full build.py/check.py;fd4d9e full PLAN/viewer/index;d99a5f complete retained prior renderer/HTML ande9a25f complete retained producer/checker for source pattern context",
+  "syntax_only": [
+    "9fe319 Python AST parse of build.py/check.py, no execution/import",
+    "e2cf6a Node --check viewer.mjs exits0, no module execution/import/browser"
+  ],
+  "geometry_jobs": "None;export and CPU-RESULT absent;critic source review active",
+  "browser_scope": "cua.rewriteDocumentation and local-web-development/viewport documentation only, no native page/DOM/pixels/render/browser selection or viewport mutation",
+  "fixed_native_policy": "Use current/default viewport, no resize override;record actual camera/viewport/override none, save one full-page original if admitted. No framing rescue/retake on failed reading. Critic told before result.",
+  "source_identity": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/PLAN.json",
+      "bytes": 5677,
+      "sha256": "ab4d3e332a1dcdfb02e94b4b9b4210d09b877eb23a7c9049e109a1129a7b8668"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/build.py",
+      "bytes": 11389,
+      "sha256": "1ddbbd3a99e1617d96e1d520c3378c06a630ffdb25fb13973a2e982c782c12f5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/check.py",
+      "bytes": 6917,
+      "sha256": "803a5753fbbbb03b894976fde2b03e3ae8b282dc8c96c0502a50657886fcf374"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/viewer.mjs",
+      "bytes": 4333,
+      "sha256": "637fcaee51b812099f33ea1714fccc9721bfd7cf6fa114d1222efc14fce016fb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/index.html",
+      "bytes": 2452,
+      "sha256": "5f2aa1aa009c7d711eb24e4d3b5dfa1afcf0daddcb9c9d507faa51a25534cb5c"
+    }
+  ],
+  "limits": "Preparation only;no successful topology/appearance/fit or execution admission claimed. Newer human steering wins."
+}

@@ -1,0 +1,17 @@
+{
+  "admitted_utc": "2026-10-05T13:21:08.024677+00:00",
+  "decision": "A sole original boot builder and independent saved-only checker; native conditional on actual CPU/root output admission",
+  "root_source_reads": "46e6db complete242linebuilder/112linechecker;fd4d9e completePLAN/61lineviewer/24lineHTML;87b355 complete actual SOURCE-RESULT and SOURCE-RECEIPT;all14pins verified now",
+  "source_hashes": {
+    "PLAN.json": "ab4d3e332a1dcdfb02e94b4b9b4210d09b877eb23a7c9049e109a1129a7b8668",
+    "build.py": "1ddbbd3a99e1617d96e1d520c3378c06a630ffdb25fb13973a2e982c782c12f5",
+    "check.py": "803a5753fbbbb03b894976fde2b03e3ae8b282dc8c96c0502a50657886fcf374",
+    "viewer.mjs": "637fcaee51b812099f33ea1714fccc9721bfd7cf6fa114d1222efc14fce016fb",
+    "index.html": "5f2aa1aa009c7d711eb24e4d3b5dfa1afcf0daddcb9c9d507faa51a25534cb5c",
+    "SOURCE-BINDINGS.json": "28530cf24bb39b7b027f280029f543a408d27476aa3a344eeff961cbcc524969"
+  },
+  "source_receipt_sha256": "9b6dfecf99c0e89abfe485130abeb039d84b3ed8b75b254b7692ab5794823d28",
+  "owned_jobs": "At most one each exact build.py and check.py child sequentially;30stimeout/killownedprocessgroup/reap, exactstart/PID/streams/exit. First refusal/error stops, no patch/retry/variant. Sources never imported by root/helper.",
+  "native_gate": "CPU pass plus independent saved graph/bytes/role/interface/OBJ readback and root actual-output admission; one owned tab/defaultviewport nooverride, exactservedSHA/DOM, one whole fullpage original, closeownedtab. Required first-reading roles fixed. No render before this gate.",
+  "limits": "Original unitless art only, no physical last/anatomical source/fit/generalselfintersection/contact/enclosure/materialfinish/rig/morph/motion/AAA;fullroadmap and accepted/default/original/frozen/unrelated unchanged;newer steering wins."
+}

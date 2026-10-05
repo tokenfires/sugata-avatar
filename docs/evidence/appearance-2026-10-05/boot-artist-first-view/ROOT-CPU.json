@@ -1,0 +1,389 @@
+{
+  "observed_utc": "2026-10-05T13:22:44.610587+00:00",
+  "independent_saved_only": true,
+  "parts": [
+    {
+      "part": "left.upper",
+      "vertices": 514,
+      "triangles": 1024,
+      "edges": 1536,
+      "euler": 2,
+      "volume": 0.16160931104416035,
+      "min_area": 0.0007214201999999999
+    },
+    {
+      "part": "left.nominal",
+      "vertices": 258,
+      "triangles": 512,
+      "edges": 768,
+      "euler": 2,
+      "volume": 0.39172416667654064,
+      "min_area": 0.0005102257563497777
+    },
+    {
+      "part": "left.sole",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "volume": 0.08294138533722056,
+      "min_area": 0.0015399969487571335
+    },
+    {
+      "part": "left.heel",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "volume": 0.015453494506264117,
+      "min_area": 0.0020778797086322687
+    },
+    {
+      "part": "left.tongue",
+      "vertices": 26,
+      "triangles": 48,
+      "edges": 72,
+      "euler": 2,
+      "volume": 0.004028999990000033,
+      "min_area": 0.0006009726125206043
+    },
+    {
+      "part": "left.rear_strip",
+      "vertices": 30,
+      "triangles": 56,
+      "edges": 84,
+      "euler": 2,
+      "volume": 0.0016660000000000106,
+      "min_area": 0.0004249999999999989
+    },
+    {
+      "part": "left.counter",
+      "vertices": 136,
+      "triangles": 268,
+      "edges": 402,
+      "euler": 2,
+      "volume": 0.007905044307944682,
+      "min_area": 0.0002177635496287501
+    },
+    {
+      "part": "left.lace.0.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.0002839369727793245,
+      "min_area": 7.523651649682797e-05
+    },
+    {
+      "part": "left.lace.0.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00028393697277935543,
+      "min_area": 7.523651649682793e-05
+    },
+    {
+      "part": "left.lace.1.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00024038320139454635,
+      "min_area": 7.523649682777727e-05
+    },
+    {
+      "part": "left.lace.1.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00024038320139452084,
+      "min_area": 7.52364968277773e-05
+    },
+    {
+      "part": "left.lace.2.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.0002208163963613645,
+      "min_area": 7.523645619129459e-05
+    },
+    {
+      "part": "left.lace.2.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00022081639552013277,
+      "min_area": 7.523645619129471e-05
+    },
+    {
+      "part": "left.lace.3.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.000205837468606426,
+      "min_area": 7.523647082323006e-05
+    },
+    {
+      "part": "left.lace.3.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020583746860642978,
+      "min_area": 7.523647082322997e-05
+    },
+    {
+      "part": "left.lace.4.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020586347798225773,
+      "min_area": 7.523644480557877e-05
+    },
+    {
+      "part": "left.lace.4.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020586347962412815,
+      "min_area": 7.52364448055789e-05
+    },
+    {
+      "part": "left.lace.5.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020591316954941732,
+      "min_area": 7.523645719700558e-05
+    },
+    {
+      "part": "left.lace.5.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020591317116293615,
+      "min_area": 7.523645719700558e-05
+    },
+    {
+      "part": "right.upper",
+      "vertices": 514,
+      "triangles": 1024,
+      "edges": 1536,
+      "euler": 2,
+      "volume": 0.16160931104416018,
+      "min_area": 0.0007214201999999999
+    },
+    {
+      "part": "right.nominal",
+      "vertices": 258,
+      "triangles": 512,
+      "edges": 768,
+      "euler": 2,
+      "volume": 0.39172416667654064,
+      "min_area": 0.0005102257563497777
+    },
+    {
+      "part": "right.sole",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "volume": 0.08294138533722056,
+      "min_area": 0.0015399969487571335
+    },
+    {
+      "part": "right.heel",
+      "vertices": 66,
+      "triangles": 128,
+      "edges": 192,
+      "euler": 2,
+      "volume": 0.015453494506264102,
+      "min_area": 0.0020778797086322687
+    },
+    {
+      "part": "right.tongue",
+      "vertices": 26,
+      "triangles": 48,
+      "edges": 72,
+      "euler": 2,
+      "volume": 0.00402899998999997,
+      "min_area": 0.0006009726125206043
+    },
+    {
+      "part": "right.rear_strip",
+      "vertices": 30,
+      "triangles": 56,
+      "edges": 84,
+      "euler": 2,
+      "volume": 0.0016659999999999644,
+      "min_area": 0.0004249999999999989
+    },
+    {
+      "part": "right.counter",
+      "vertices": 136,
+      "triangles": 268,
+      "edges": 402,
+      "euler": 2,
+      "volume": 0.007905044307944786,
+      "min_area": 0.0002177635496287501
+    },
+    {
+      "part": "right.lace.0.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.0002839369727793447,
+      "min_area": 7.523651649682797e-05
+    },
+    {
+      "part": "right.lace.0.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.000283936972779363,
+      "min_area": 7.523651649682793e-05
+    },
+    {
+      "part": "right.lace.1.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00024038320139453318,
+      "min_area": 7.523649682777727e-05
+    },
+    {
+      "part": "right.lace.1.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00024038320139451922,
+      "min_area": 7.52364968277773e-05
+    },
+    {
+      "part": "right.lace.2.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00022081639636136033,
+      "min_area": 7.52364561912946e-05
+    },
+    {
+      "part": "right.lace.2.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00022081639552012558,
+      "min_area": 7.523645619129471e-05
+    },
+    {
+      "part": "right.lace.3.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020583746860643878,
+      "min_area": 7.523647082323006e-05
+    },
+    {
+      "part": "right.lace.3.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020583746860643596,
+      "min_area": 7.523647082322997e-05
+    },
+    {
+      "part": "right.lace.4.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020586347798222176,
+      "min_area": 7.523644480557877e-05
+    },
+    {
+      "part": "right.lace.4.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.0002058634796240928,
+      "min_area": 7.52364448055789e-05
+    },
+    {
+      "part": "right.lace.5.0",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.00020591316954942732,
+      "min_area": 7.523645719700558e-05
+    },
+    {
+      "part": "right.lace.5.1",
+      "vertices": 22,
+      "triangles": 40,
+      "edges": 60,
+      "euler": 2,
+      "volume": 0.0002059131711629588,
+      "min_area": 7.523645719700558e-05
+    }
+  ],
+  "vertices": 2720,
+  "triangles": 5288,
+  "roles": {
+    "upper_shell": 2,
+    "fictional_reference": 2,
+    "sole": 2,
+    "heel": 2,
+    "tongue_front_facing": 2,
+    "rear_strip": 2,
+    "counter": 2,
+    "lace": 24
+  },
+  "mirror_and_obj_identity": true,
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/export/mesh.json",
+      "bytes": 760165,
+      "sha256": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/export/boots.obj",
+      "bytes": 165962,
+      "sha256": "fec52e5b21ec1c346f513e4d5f6756b840f3e8296ed256705afb769bc7219c84"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/export/nominal-reference.obj",
+      "bytes": 113799,
+      "sha256": "4a2e5718e2b105f5a7bbf5e63049754be7db79b7aacb2aba188e1bb9e57642d1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/CPU-RESULT.json",
+      "bytes": 9186,
+      "sha256": "51417a89fd3fc44595ab500183d31f280fec1353dbba8ef94ffd3ce675d6a053"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/CPU-JOBS.json",
+      "bytes": 1638,
+      "sha256": "f05e2c6dcddedee75d6a259407d0852ea4d218b3bf154ff527b26fd1c5469a3f"
+    }
+  ],
+  "limits": "Topology/identity only;no general self-intersection/interpart contact/continuous cavity or anatomical enclosure/fit/material/rig/motion/appearance acceptance. No producer/checker imported or rerun."
+}

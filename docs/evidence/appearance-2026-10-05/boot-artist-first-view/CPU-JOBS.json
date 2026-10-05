@@ -1,0 +1,42 @@
+[
+  {
+    "controller_pid": 26373,
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/build.py"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "started_utc": "2026-10-05T13:21:08.088657+00:00",
+    "source_sha256": "1ddbbd3a99e1617d96e1d520c3378c06a630ffdb25fb13973a2e982c782c12f5",
+    "timeout_seconds": 30,
+    "pid": 26374,
+    "finished_utc": "2026-10-05T13:21:08.127096+00:00",
+    "elapsed_seconds": 0.0382552919909358,
+    "exit_code": 0,
+    "reaped": true,
+    "timeout": false,
+    "stdout_sha256": "3198df19b54c183ad0d60630ffb1134e7ab808aacd0f6fbf6888626a7042e997",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "controller_pid": 26373,
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/check.py"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "started_utc": "2026-10-05T13:21:08.127354+00:00",
+    "source_sha256": "803a5753fbbbb03b894976fde2b03e3ae8b282dc8c96c0502a50657886fcf374",
+    "timeout_seconds": 30,
+    "pid": 26375,
+    "finished_utc": "2026-10-05T13:21:08.208694+00:00",
+    "elapsed_seconds": 0.08132362499600276,
+    "exit_code": 0,
+    "reaped": true,
+    "timeout": false,
+    "stdout_sha256": "cc8fb859fb9cd28b5649a85f903ac0666899f592ed8768b6d5a313188d0a27fa",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

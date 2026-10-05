@@ -1,0 +1,86 @@
+{
+  "saved_utc": "2026-10-05T13:03:08.005681+00:00",
+  "input_bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-worth/PLAN.json",
+      "bytes": 6180,
+      "sha256": "316464e6150ac161b2340446a2befbbca5849a13ec52b4fd135283cde9940660",
+      "read_scope": "Complete literal plan read in 98ac6e and cd7ae8."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/boots-proposal-v1.png",
+      "bytes": 1842677,
+      "sha256": "cdac6241119851e8398c01b05255a148c9da77bd77f470bd5574a50b63b19066",
+      "read_scope": "Complete unchanged 1774x887 original actually viewed at original detail in 98ac6e; no crop or new render."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/RESULT.json",
+      "bytes": 4440,
+      "sha256": "31357027b28d481efec0c20597b3312324522831b9e7b1240151f48c8ffeb155",
+      "read_scope": "Complete retained result read in db7cb2; path disambiguated by packet below."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/ROOT-CLOSE.json",
+      "bytes": 2127,
+      "sha256": "19f8250fc3396fef479363460c82f87318ca8a00a7c02aa3708d69242418a513",
+      "read_scope": "Complete retained closure read in db7cb2; path disambiguated by packet below."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/RESULT.json",
+      "bytes": 5432,
+      "sha256": "7590de4e1456ab7e2b601b63cb92241cd33d8875f7fe8f6359b4a917ec356acc",
+      "read_scope": "Complete retained result read in db7cb2; path disambiguated by packet below."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/ROOT-CLOSE.json",
+      "bytes": 3013,
+      "sha256": "618cf35ea32e74e36ed20c198b4d80626f536199bae91a7ef5c0a34fcd3380ac",
+      "read_scope": "Complete retained closure read in db7cb2; path disambiguated by packet below."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Complete 41-line current checklist read in db7cb2."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Whole bytes/hash verified; relevant lines44-52 and129-145 read in db7cb2, not a new full roadmap audit."
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/boot-artist-worth/RESULT.json",
+    "bytes": 3665,
+    "sha256": "efc498dc7788e3efdf82659e3304844e1d74fc1f161f0bbe90a66a1446050a87"
+  },
+  "commands": [
+    {
+      "id": "98ac6e",
+      "utc": "2026-10-05T12:56:09.065020Z",
+      "scope": "Full PLAN read/hash and whole original image view at original detail; no geometry or derived-image operation."
+    },
+    {
+      "id": "db7cb2",
+      "utc": "2026-10-05T12:57:19.831191Z",
+      "scope": "All seven bound bytes/hash equality; complete two RESULT/two ROOT-CLOSE/current checklist reads, selected roadmap lines44-52 and129-145."
+    },
+    {
+      "id": "cd7ae8",
+      "utc": "2026-10-05T13:01:21Z",
+      "scope": "Complete PLAN reread and own-handoff absence check."
+    },
+    {
+      "id": "1da0a4",
+      "scope": "Read-only source line-location lookup; output was truncated, used only visible literal PLAN/foot-result witnesses already fully read."
+    },
+    {
+      "id": "this_save",
+      "scope": "Rehash eight direct inputs, check both own files absent/deadline, save RESULT and RECEIPT only, parse/hash readback."
+    }
+  ],
+  "scope": "Independent worth only. No constructor, asset decode, BIN/world/skin/subset/metric computation, imports/tests, browser/native/GPU/network/capture, raster generation or prior source/default/frozen edit.",
+  "stable": true,
+  "pending_edits": false
+}

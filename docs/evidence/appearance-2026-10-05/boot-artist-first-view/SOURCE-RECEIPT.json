@@ -1,0 +1,107 @@
+{
+  "saved_utc": "2026-10-05T13:19:11.097252+00:00",
+  "decision": "A exact source only, conditional actual CPU/root qualification before first native; no geometry or appearance acceptance",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/PLAN.json",
+      "bytes": 5677,
+      "sha256": "ab4d3e332a1dcdfb02e94b4b9b4210d09b877eb23a7c9049e109a1129a7b8668",
+      "read_scope": "Complete literal numbered read in77c7b3."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/build.py",
+      "bytes": 11389,
+      "sha256": "1ddbbd3a99e1617d96e1d520c3378c06a630ffdb25fb13973a2e982c782c12f5",
+      "read_scope": "Entire242lines read in77c7b3; static source only, no import or arithmetic/geometry evaluation."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/check.py",
+      "bytes": 6917,
+      "sha256": "803a5753fbbbb03b894976fde2b03e3ae8b282dc8c96c0502a50657886fcf374",
+      "read_scope": "Entire112lines read in77c7b3; static source only, no import/test or saved-mesh computation."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/viewer.mjs",
+      "bytes": 4333,
+      "sha256": "637fcaee51b812099f33ea1714fccc9721bfd7cf6fa114d1222efc14fce016fb",
+      "read_scope": "Entire61lines read in77c7b3; static source only, no module import/browser/GPU."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/index.html",
+      "bytes": 2452,
+      "sha256": "5f2aa1aa009c7d711eb24e4d3b5dfa1afcf0daddcb9c9d507faa51a25534cb5c",
+      "read_scope": "Entire24lines read in77c7b3; no browser/render."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-worth/PLAN.json",
+      "bytes": 6180,
+      "sha256": "316464e6150ac161b2340446a2befbbca5849a13ec52b4fd135283cde9940660",
+      "read_scope": "Complete prior continuing-run reads98ac6e/cd7ae8; exact bytes/hash reverified294e2c and save."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-worth/RESULT.json",
+      "bytes": 3665,
+      "sha256": "efc498dc7788e3efdf82659e3304844e1d74fc1f161f0bbe90a66a1446050a87",
+      "read_scope": "Complete current result read in294e2c."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-worth/ROOT-CLOSE.json",
+      "bytes": 1690,
+      "sha256": "fb5d8bf37e00c8e3844df30f4cfd9b3ccee51862586f93dc5aea15b0e091ef01",
+      "read_scope": "Complete current closure read in294e2c."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/boots-proposal-v1.png",
+      "bytes": 1842677,
+      "sha256": "cdac6241119851e8398c01b05255a148c9da77bd77f470bd5574a50b63b19066",
+      "read_scope": "Whole unchanged1774x887 original actually viewed at original detail during fresh worth98ac6e12:56:09; source review reverified hash only, no new image or crop."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/viewer.mjs",
+      "bytes": 4326,
+      "sha256": "f7e45eddd5ecc5b8dcf9bcdc78284dd867cc9a9c4850ca0d1ad7041054521012",
+      "read_scope": "Entire69lines read in294e2c as retained lifetime/camera publication reference; no claim of byte equality to newboot viewer."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Complete current checklist read in prior continuing-run db7cb2; current bytes/hash verified294e2c and save."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Relevant Phase1 lines44-52/129-145 read in prior db7cb2; current whole bytes/hash verified, not a new full audit."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/SOURCE-BINDINGS.json",
+      "bytes": 1156,
+      "sha256": "28530cf24bb39b7b027f280029f543a408d27476aa3a344eeff961cbcc524969",
+      "read_scope": "Complete literal numbered read in77c7b3; all five declared rows independently verified in294e2c and this save."
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/SOURCE-RESULT.md",
+    "bytes": 3762,
+    "sha256": "a3de82633106b9e943a8d8b12c03fee39a0518838015c0c73613d844eac6b5fb"
+  },
+  "commands": [
+    {
+      "id": "77c7b3",
+      "utc": "2026-10-05T13:15:26Z",
+      "scope": "Full complete PLAN/manifest/four source files numbered read and hashes; parallel clock read; no import/evaluation."
+    },
+    {
+      "id": "294e2c",
+      "scope": "All five SOURCE-BINDINGS/all seven PLAN binding equality; full worth result/closure/retained viewer read; handoff absence."
+    },
+    {
+      "id": "this_save",
+      "scope": "Reverify exact13usedinputbytes/hash, deadline/own-file absence, save only SOURCE-RESULT.md/SOURCE-RECEIPT.json and readback."
+    }
+  ],
+  "scope": "Static review only. No producer/checker/helper imports/tests/geometry computation, GLB/BIN/world/skin/subset/metrics, online/browser/native/GPU/render/capture, new raster or candidate/prior/default/frozen edits. Existing original image was actually viewed in the immediately preceding fresh worth; here hash verified only. Root native viewport clarification is communicated policy, not a separately bound source-file edit.",
+  "stable": true,
+  "pending_edits": false
+}
