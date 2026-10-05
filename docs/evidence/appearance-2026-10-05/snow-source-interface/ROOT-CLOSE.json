@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-05T07:11:39.791318+00:00",
+  "pid": 64868,
+  "decision": "B currentCPUinventory at firstmissingknownruntime; no globalruntimeabsence or source defect. Conditional nextlocationworth only.",
+  "full_handoff_read": "02b5ed",
+  "verified_binding_rows": 11,
+  "payloads": 5,
+  "bytes": 12473,
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/MANIFEST.json",
+    "bytes": 1092,
+    "sha256": "5f8e04d7bf0ba0808fbdb719b1844ce3120a4f5933fa94f01335cdf770238f98"
+  },
+  "local_links": [
+    "ROOT-OBSERVATION.json",
+    "RESULT.md",
+    "RECEIPT.json",
+    "PLAN.json",
+    "../../appearance-2026-10-04/snow-archive-interface/README.md"
+  ],
+  "jobs": "No owned version/HTTP/archive/runtime/nativejob launched; criticcollected. Review1023/5173 andACTIVE10min retained from prior close.",
+  "stop_utc": "2026-10-05T07:42:04.940832+00:00"
+}

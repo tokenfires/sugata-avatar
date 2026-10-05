@@ -1,0 +1,96 @@
+{
+  "saved_utc": "2026-10-05T07:10:01.966058+00:00",
+  "decision": "B current CPU inventory; conditional A future location-only worth, no admission",
+  "binding_verification": {
+    "chunk": "1fc38d",
+    "exit_code": 0,
+    "utc": "2026-10-05T07:09:00.690909+00:00",
+    "pid": 64539,
+    "actual_plan_inputs": 8,
+    "all_match": true,
+    "scope": "Raw-byte SHA/stat-size verification only for binary. No archive decode or runtime-location inspection."
+  },
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/PLAN.json",
+      "bytes": 5274,
+      "sha256": "00ed36e3674ee582f97dea991af00dc76e63a5f29353abb81f9c78482de9fb78"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "bytes": 9150,
+      "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "bytes": 3191,
+      "sha256": "cff66a5cfb418272aeb5c4764507d4a5d9fbd2b3eeb66a5d287786d2d36e5e45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/MANIFEST.json",
+      "bytes": 5785,
+      "sha256": "a1dc701ab61d5b0f214ad2cd1322cb41f410a200cbbd3c32a53411004ddfbe8b"
+    },
+    {
+      "path": "assets/vendor/snow-v42/snow_v42.zip",
+      "bytes": 111580346,
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 5019,
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    },
+    {
+      "path": "tools/figure-pipeline/README.md",
+      "bytes": 91488,
+      "sha256": "9e6278c0d550936826a30572ae705a1b6b2dac3d20604b49cfee748f0ea2db50"
+    }
+  ],
+  "runtime_witness": {
+    "root_tool": "8d7864",
+    "serialized_in": "PLAN.json:known_executable",
+    "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "exists": false,
+    "observation_limit": "One known path only; critic reads the root observation, does not perform onward location inventory."
+  },
+  "source_witnesses": [
+    "PLAN.json:decision/stop_conditions",
+    "tools/figure-pipeline/README.md:42/55"
+  ],
+  "alternatives": {
+    "A": "Fresh <=10min location-only PATH/immediate Applications inventory; can identify an existing candidate, suitability remains unproved.",
+    "B": "Defer Snow, retain source map, avoid more setup work; interface unresolved."
+  },
+  "operations": [
+    "036172/0: full PLAN read and packet file list; only PLAN existed",
+    "1fc38d/0: eight exact input hashes plus documentation path lines; no decoder/import/process/source job",
+    "Current exclusive writes: RESULT.md and RECEIPT.json only"
+  ],
+  "scope_limits": [
+    "No version command, primary fetch, source author, archive extraction/load/import/renderer/GPU/native or current candidate job",
+    "No independent claim of global Blender absence",
+    "No Snow format/version/corruption/interface acceptance",
+    "No onward inventory/admission, frozen evidence untouched"
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/RESULT.md",
+    "bytes": 1687,
+    "sha256": "16fa2f73fc9b4e6d9f6fb10736ac1f416c426efc3a88d5a84d53085993cdbbc3"
+  }
+}

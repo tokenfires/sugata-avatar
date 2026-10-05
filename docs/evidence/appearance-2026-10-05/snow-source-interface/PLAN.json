@@ -1,0 +1,89 @@
+{
+  "started_utc": "2026-10-05T07:07:04.940832+00:00",
+  "stop_utc": "2026-10-05T07:42:04.940832+00:00",
+  "pid": 64230,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "bytes": 9150,
+      "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "bytes": 3191,
+      "sha256": "cff66a5cfb418272aeb5c4764507d4a5d9fbd2b3eeb66a5d287786d2d36e5e45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/MANIFEST.json",
+      "bytes": 5785,
+      "sha256": "a1dc701ab61d5b0f214ad2cd1322cb41f410a200cbbd3c32a53411004ddfbe8b"
+    },
+    {
+      "path": "assets/vendor/snow-v42/snow_v42.zip",
+      "bytes": 111580346,
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 5019,
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    }
+  ],
+  "known_executable": {
+    "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "exists": false
+  },
+  "source_for_runtime_path": "tools/figure-pipeline/README.md42/55; rg977cb0 outputtruncated, only actual returned path relied upon. Exact known path stat/hash only, no executable run.",
+  "usable_improvement": "An actual original-Snow mesh/material/image/library/rig/text ownership map to guide a separate stylized character study. Not a Sugata starter or currentnaturalisticgroom.",
+  "research_question": "Can the installed runtime load the exact original source with automatic embedded scripts disabled, and expose coherent bounded original object/material/dependency data without evaluating or exporting it?",
+  "decision": "Retain a concrete source-interface handoff if actual load and complete bounded inventory succeeds; refuse at first missing runtime/member/authority/timeout/load/size failure. Classify missing or external dependencies explicitly; no imported readiness/appearance claim.",
+  "preparation_bounds": {
+    "version_commands": 1,
+    "version_timeout_seconds": 15,
+    "official_primary_reads": 1,
+    "url": "https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html",
+    "source_authoring": "One complete source-reviewed runner/Blender observer before any ZIP extraction or load."
+  },
+  "execution_bounds": {
+    "loads": 1,
+    "cpu_job_timeout_seconds": 120,
+    "process_group": "Owned child, TERM then KILL if needed, reap, save actual exit/streams/partial output hashes. No renderer or GPU scene capture.",
+    "fresh_storage": "assets/vendor/snow-v42-interface (existing ignored vendor rule; fresh owned directory only)",
+    "extraction": "Exact35 known central rows only, no arbitrary archive traversal; total112080359 declared bytes with perentry/cumulativeactual caps and complete streamed SHA/CRC as available. Preserve original ZIP unchanged; complete/partial files remain accounted/read-only. No execution of extracted text/scripts.",
+    "blender_flags": [
+      "--background",
+      "--factory-startup",
+      "--disable-autoexec"
+    ],
+    "load": "bpy.ops.wm.open_mainfile with load_ui=False,use_scripts=False; observe stored data only, no dependency-graph evaluation, Python drivers, modifier application, render, export, pose/morph/edit/save or network.",
+    "maximums": {
+      "objects": 1024,
+      "materials": 256,
+      "images": 256,
+      "nodes_total": 8192,
+      "links_total": 16384,
+      "armature_bones_total": 4096,
+      "text_blocks": 128,
+      "text_bytes_each": 262144,
+      "json_bytes": 2097152
+    },
+    "observer": "Record stored object names/types/parent/collections/local transform and raw mesh counts/local bounds/armature and shape-key names, material-node types/links/image references, image stored dimensions/paths/resolution/existingmember mapping, linkedlibraries paths, text-block names/bytes/hashes without execution or full text output. Membership/integrity claims separate from actualgeometry/material/view orrigbehavior qualification."
+  },
+  "stop_conditions": "First unavailablecapacity/executable/timeout/authority/data/read/decode/cap failure ends operation, no retry/version fallback/install/retuning. Stop by fixedtime. No automatic scripts, source modifications, accepted/default/checklist/roadmap change, new character/groom creation, adaptation/fit/runtime/render/GPU/browser/native capture or successor admission.",
+  "state": "Prior Snow slice closedc417ca4 clean; ZIPreadonlyignored; no owned candidate job; criticcollected; review1023/5173 and ACTIVE10min recovery retained. Newerhumancheck-in/pause wins."
+}
