@@ -1,0 +1,41 @@
+{
+  "arguments": {
+    "query": "MakeHuman basemesh facial topology eyes eyelids editable export",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "includeDomains": [
+      "makehumancommunity.org"
+    ],
+    "domainTools": false
+  },
+  "clocks": {
+    "start": {
+      "current_time": "2026-10-05 21:18:17 UTC"
+    },
+    "end": {
+      "current_time": "2026-10-05 21:18:20 UTC"
+    }
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[]},\"creditsUsed\":0,\"id\":\"01a10dee-8cc4-742b-b348-005ea118a2c1\",\"agent_hints\":[\"No web results were returned. If the task is still unresolved, use firecrawl_search again with {\\\"query\\\":\\\"<broader or alternative query>\\\",\\\"sources\\\":[\\\"web\\\"]}.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "No web results were returned. If the task is still unresolved, use firecrawl_search again with {\"query\":\"<broader or alternative query>\",\"sources\":[\"web\"]}."
+      ],
+      "success": true,
+      "data": {
+        "web": []
+      },
+      "id": "01a10dee-8cc4-742b-b348-005ea118a2c1",
+      "creditsUsed": 0
+    },
+    "isError": false
+  }
+}

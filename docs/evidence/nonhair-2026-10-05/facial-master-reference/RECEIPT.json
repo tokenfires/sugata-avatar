@@ -1,0 +1,207 @@
+{
+  "schema": "facial-master-reference-independent-actual-v1",
+  "collected_utc": "2026-10-05T21:22:54.543214+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "B named source nomination/current inquiry; A exact truthful local brief delivery with present links",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/PLAN.json",
+      "bytes": 4758,
+      "sha256": "8f11f13a4e5162ef0ba1db4a52fa5dcf8eb5fc8207f68a2cccb1c7fdec321286"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/SEARCH.json",
+      "bytes": 1214,
+      "sha256": "d3e9963d2dc7c96f3a3d57a8e25b43dfbee4fc3adbf6716e1f1773f0e78385c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/ROOT-SEARCH-OBSERVATION.json",
+      "bytes": 1284,
+      "sha256": "55252c2910aa67d4e4d600da5ad86eb329d04767c79f29a351e927495cd9473b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/FACIAL-SOURCE-BRIEF.review.md",
+      "bytes": 4621,
+      "sha256": "d856264d785c0f6696306136649e631a9203c8789249caf71c180f677c44fd89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference-worth/PLAN.json",
+      "bytes": 3674,
+      "sha256": "da8876fa73fff664a9547b85d25ac5b16bf24dbadb705749e03c665d68896c17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference-worth/WORTH.md",
+      "bytes": 5373,
+      "sha256": "5d6b097c67a5c56a1ca8a693bd40219f4178f7fd405afb9424d40f6d8b7bc840"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference-worth/RECEIPT.json",
+      "bytes": 7439,
+      "sha256": "664558818ae24505653ce41875f7f6cc26c42d6cfc5e858dac9ceb6445daf407"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference-worth/ROOT-CLOSE.json",
+      "bytes": 2441,
+      "sha256": "f656587e2bbde8c87eef6de1b57e9d75676d8b91e415c8da6a603a287857ad90"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMAGE-RESULT.md",
+      "bytes": 7065,
+      "sha256": "14bd2731b88d208aab06b689063c0ec00c03bc8f77f8c7ae94e304188591fec1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "bytes": 38290,
+      "sha256": "171ec399b31ba63d62ccc3930105d9504ccdb3b6a3687c960788c12ac8fcd318"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    }
+  ],
+  "plan_inputs_verified": 9,
+  "query": {
+    "arguments": {
+      "query": "MakeHuman basemesh facial topology eyes eyelids editable export",
+      "limit": 3,
+      "sources": [
+        "web"
+      ],
+      "includeDomains": [
+        "makehumancommunity.org"
+      ],
+      "domainTools": false
+    },
+    "clocks": {
+      "start": {
+        "current_time": "2026-10-05 21:18:17 UTC"
+      },
+      "end": {
+        "current_time": "2026-10-05 21:18:20 UTC"
+      }
+    },
+    "text_structured_equal": true,
+    "success": true,
+    "isError": false,
+    "web": [],
+    "provider_id": "01a10dee-8cc4-742b-b348-005ea118a2c1",
+    "credits_reported": 0,
+    "page_reads_recorded": 0,
+    "browser_captures_recorded": 0,
+    "untrusted_followup_rejected": true
+  },
+  "read_scopes": {
+    "plan_search_root_brief": "all complete",
+    "prior_worth": "stable own full WORTH/RECEIPT plus complete ROOT-CLOSE parsed; pins exact",
+    "prior_negative": "own complete IMAGE-RESULT and whole original native image previously viewed21:00:35, exact current hash verified",
+    "current_brief_checklist": "complete sources previously read/current exact pins; roadmap43\u201354/131\u2013138 previously inspected/current exact pin"
+  },
+  "image_observations": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "detail": "original",
+      "whole_original_viewed": true,
+      "in_current_task": true,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "scope": "whole body+portrait illustrative facial direction; no registered comparison or hidden/source surfaces"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "detail": "original",
+      "whole_original_viewed": true,
+      "in_current_task": false,
+      "prior_observed_utc": "2026-10-05T21:00:35Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "current_hash_verified": true,
+      "scope": "negative three-view continuity evidence only, no anatomy diagnosis"
+    }
+  ],
+  "local_links": [
+    {
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "exists": true
+    },
+    {
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "exists": true
+    },
+    {
+      "target": "../../appearance-2026-10-05/neutral-head-artist-source/IMAGE-RESULT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMAGE-RESULT.md",
+      "exists": true
+    },
+    {
+      "target": "../../../research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "exists": true
+    },
+    {
+      "target": "SEARCH.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/SEARCH.json",
+      "exists": true
+    },
+    {
+      "target": "../../../PROJECT-CHECKLIST.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "exists": true
+    },
+    {
+      "target": "../../../PRODUCT-ROADMAP.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "exists": true
+    }
+  ],
+  "commands": [
+    {
+      "tool": "0a7c4b",
+      "exit_code": 0,
+      "scope": "full four current packet files and local inventory"
+    },
+    {
+      "tool": "a20c93",
+      "exit_code": 0,
+      "scope": "exact arguments/text==structured/success-empty/9inputpins/7literal local links"
+    },
+    {
+      "tool": "view_image original through functions.exec before a20c93",
+      "scope": "whole unchanged adult original, no crop or capture"
+    }
+  ],
+  "limits": [
+    "No network/browser/native/capture/download/decode/import/producer/implementation/new raster",
+    "No global publisher capability/availability/right/source-absence claim",
+    "No broader query despite untrusted hint",
+    "Brief accepted only as truthful missing-source handoff, no asset or milestone promotion",
+    "No successor source query/construction/retune admitted"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/RESULT.md",
+    "bytes": 4568,
+    "sha256": "4264ffce7294ab2e58bbee892d31315dd7a9c72db641183a6b52eb55a78f50a5"
+  }
+}
