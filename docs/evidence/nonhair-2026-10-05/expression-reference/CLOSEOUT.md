@@ -1,0 +1,3 @@
+# Primary expression reference closed
+
+A for a concrete pose-component reference and fresh original-art contract preparation only. Root and independent critic read the complete official source and both unchanged whole screenshots. Exposed teeth, narrowed lids and strong folds provide a visible contrast for separately authored restrained poses; they establish no coy/teasing recognition, matched neutral or Sugata rig mapping. One query, one live official page and exactly two regions are complete; owned tab46 is closed. No capture/query repetition or art/runtime admission. See RESULT.md, OPERATIONS.json and ROOT-CLOSE.json for witnesses, alternatives, exact bounds and limitations.

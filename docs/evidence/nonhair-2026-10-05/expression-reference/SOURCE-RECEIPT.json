@@ -1,0 +1,94 @@
+{
+  "collected_utc": "2026-10-05T19:20:24.060625+00:00",
+  "decision": "A exact single reference inquiry only, subject to root complete source/pin admission",
+  "plan_inputs_verified": 6,
+  "direct_inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/PLAN.json",
+      "bytes": 3435,
+      "sha256": "6a01022432abde715b4609e137d5e88141e0d2bc69007d329cd165603220b582",
+      "read_scope": "Complete JSON, scope/decision/jobs/preservation and all six bindings."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-reference/SEARCH-REQUEST.json",
+      "bytes": 187,
+      "sha256": "954ba4c0a5619d40be09c206bc491fc6f48ce3adf567328f69e94ecfaf58687e",
+      "read_scope": "Complete exact five-key JSON; asserted literal query/domain/result count/source/tool flag."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/PLAN.json",
+      "bytes": 4040,
+      "sha256": "3e07e4756b283688e1995167178b0204c7ef1f0a23ad00004888ae1a03b4948b",
+      "read_scope": "Complete source plan re-read60522819:12:41; current complete hash reverified."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/WORTH.md",
+      "bytes": 4830,
+      "sha256": "9104415f4c3660b84cd5a7e2f319d2c358baf94cf56df64bd16924f58bed0155",
+      "read_scope": "Complete own stable4830-byte worth readback9472f319:15:53; exact current hash reverified."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/RECEIPT.json",
+      "bytes": 8380,
+      "sha256": "bd93cbe21e2e61247546ec667cc266ca427924bd49ce4c74074c37b2b3bc34ff",
+      "read_scope": "Complete JSON parsed ed0e9f; decision, result, scopes, closure list/readback/limits interpreted; all bytes hashed, no old application evidence replay."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/ROOT-CLOSE.json",
+      "bytes": 1579,
+      "sha256": "08d0e41df49706809dc7bfba6349cf4dc55b12aa1c301a57dee6ef213fb332af",
+      "read_scope": "Complete JSON individually printed ed0e9f; supplemental root-image claim remains root-only, no image viewed by critic."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete current45lines read6ea7ca19:13:06 and current hash reverified;14checked/10open literal counts."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Current lines35–65/118–148 read6ea7ca19:13:06; rest hash only; exact bytes unchanged."
+    }
+  ],
+  "source_result": {
+    "path": "docs/evidence/nonhair-2026-10-05/expression-reference/SOURCE-RESULT.md",
+    "bytes": 3685,
+    "sha256": "26c9c736bbe2d57ffbef30f5a8f64a8c32498b13e2e224b0e232c628191cdacb"
+  },
+  "exact_search_request": {
+    "query": "MetaHuman facial expressions pose library face rig",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "includeDomains": [
+      "dev.epicgames.com"
+    ],
+    "domainTools": false
+  },
+  "commands": [
+    {
+      "tool": "fb1da6",
+      "command": "python3 heredoc: individually print/hash complete PLAN.json and SEARCH-REQUEST.json; UTC",
+      "scope": "Read-only metadata/prose."
+    },
+    {
+      "tool": "ed0e9f",
+      "command": "python3 heredoc: verify each of six declared input hashes/sizes; print complete ROOT-CLOSE and parse full prior receipt/interpret selected fields; assert exact five-key request; UTC",
+      "scope": "No network, code import, historical source replay or image view."
+    }
+  ],
+  "recording_scope": "stdlib metadata script hashes eight direct inputs, verifies six PLAN rows and writes only exclusive SOURCE-RESULT.md and SOURCE-RECEIPT.json",
+  "limits": [
+    "No network/search/scrape/browser/native/GPU/capture, image-generation, package download, application import, producer/helper/test/build or source replay.",
+    "No actual primary page, image or returned results yet; no publication/content availability claim.",
+    "Root image metadata is not critic actual pixel inspection.",
+    "No universal label, recognition, FACS/rig/model/Sugata correspondence, live/runtime/motion/fit/AAA qualification.",
+    "Prior runtime expression closures/defaults/accepted/frozen/product files preserved.",
+    "No generation or successor admitted by this source A."
+  ],
+  "stable_no_pending_edits": true,
+  "stable_readback_utc": "2026-10-05T19:20:46.347786+00:00"
+}

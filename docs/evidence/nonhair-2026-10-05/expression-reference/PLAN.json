@@ -1,0 +1,45 @@
+{
+  "prepared_utc": "2026-10-05T19:18:10.403398+00:00",
+  "source_review_stop_utc": "2026-10-05T19:32:00Z",
+  "reference_stop_utc": "2026-10-05T19:42:00Z",
+  "root_close_stop_utc": "2026-10-05T19:48:00Z",
+  "usable_improvement": "A source-grounded original static artist expression brief with separately authored labels; this stage only provides one actual current primary pose-image example",
+  "research_question": "Can one official facial-pose library/example concretely inform observable brow/mouth/head/gaze authorship without semantic label, rig correspondence or emotion-recognition claims?",
+  "request": "SEARCH-REQUEST.json",
+  "scope": "One exact Firecrawl web-only query, at most3 official-domain results. Select first returned official documentation page whose title/excerpt identifies facial-pose/library/expression visual examples. If none, B stop. One selected page only; prepare/save its exact live scrape args (markdown,links,maxAge0,onlyMainContent true,domainTools false,timeout20000) before calling. One root-owned IAB page to inspect actual complete page/pose image(s), at most one screenshot per actual relevant visible region; no remote media download/crop. No browser interaction beyond safe reading/scrolling, no login/publisher mutation. Read returned primary content independently; clarify current primary fact vs authored inference.",
+  "decision": "A usable actual facial expression/pose image example supports selecting observable components for later originalartcontract only. B if error/insufficient/query or page has only technical terminology/no usable actual image, or source is unrelated/unsafe-to-display. No fallback query/page ladder, generation/runtime or default modification. No MetaHuman/physicalFACS mapping endorsement of labels.",
+  "jobs": "Root serializes network/browser; critic reads exact source contract and later returned source/actual screenshot only. Close only owned new tab; keep original review server/tabs. No artist generation, producer/test/build/Avatar/nativeGPU.",
+  "bindings": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/PLAN.json",
+      "bytes": 4040,
+      "sha256": "3e07e4756b283688e1995167178b0204c7ef1f0a23ad00004888ae1a03b4948b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/WORTH.md",
+      "bytes": 4830,
+      "sha256": "9104415f4c3660b84cd5a7e2f319d2c358baf94cf56df64bd16924f58bed0155"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/RECEIPT.json",
+      "bytes": 8380,
+      "sha256": "bd93cbe21e2e61247546ec667cc266ca427924bd49ce4c74074c37b2b3bc34ff"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/ROOT-CLOSE.json",
+      "bytes": 1579,
+      "sha256": "08d0e41df49706809dc7bfba6349cf4dc55b12aa1c301a57dee6ef213fb332af"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    }
+  ],
+  "preservation": "All expression/iris/hair/garment closed methods remain, same14/10/fullAAAambition; accepted/frozen/original/unrelated bytes unchanged. Humancheckin/pause wins; no push/publish/install/purchase/model/subscription/resetcredit/otherproject action."
+}

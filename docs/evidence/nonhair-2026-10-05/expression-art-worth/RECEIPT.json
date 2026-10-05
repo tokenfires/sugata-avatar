@@ -1,0 +1,179 @@
+{
+  "collected_utc": "2026-10-05T19:15:27.238414+00:00",
+  "decision": "conditional A, reference/design preparation only; no query/art/runtime admission",
+  "plan_binding_count": 5,
+  "all_plan_bindings_verified": true,
+  "direct_inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/PLAN.json",
+      "bytes": 4040,
+      "sha256": "3e07e4756b283688e1995167178b0204c7ef1f0a23ad00004888ae1a03b4948b",
+      "read_scope": "Complete JSON; all five declared rows independently rehashed, no application execution."
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete 45-line document; counted 14 checked and 10 open rows from literal Markdown."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Current lines35–65 and118–148 plus narrowly matched expression/work-order lines; complete file hash only outside these scopes."
+    },
+    {
+      "path": "docs/EXPRESSION-INVENTORY-2026-09-13.md",
+      "bytes": 8500,
+      "sha256": "ae1eba7a028cb10649267e8a96ee1c73c167d47f2214ecab4d3fdead0e60126c",
+      "read_scope": "Complete 60-line document, twice read with numbered second read; historical evidence claims read as claims, not re-exercised."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/EXPRESSION-VALUE.md",
+      "bytes": 4578,
+      "sha256": "18d3e52c20f5e8b3086b5ea36d2fcddd82ed52e9b7ec747584f284a8ec1db8d2",
+      "read_scope": "Complete 20-line document, twice read with numbered second read; no historical gallery pixels re-viewed."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/iris-setting-recovery/ROOT-CLOSE.json",
+      "bytes": 1580,
+      "sha256": "daa5dd66081be4d849f5bce4b7d6336477e930a1faba80332125aaf86e11f05e",
+      "read_scope": "Complete JSON; confirms separately recovered duplicate integration closure, not a new expression owner."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/expression-next/DECISION.md",
+      "bytes": 2069,
+      "sha256": "4e16c816e3e3be6e8c82ecc7a008bcff403c0e659598da130fd40e686c734ca0",
+      "read_scope": "Complete 15-line closure; historical visual opinions not independently re-qualified."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/expression-intent-inputs/WORTH.md",
+      "bytes": 3467,
+      "sha256": "a38348dbca540b6d2a96b1feac9811402b228d6d05fe9dad73e5236291890509",
+      "read_scope": "Complete 13-line closure; current review interprets its scope, not its historical pixel coordinates."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-determination-worth/RESULT.md",
+      "bytes": 3752,
+      "sha256": "2b83bd2837012f47fae075113756e54d2f36dc654fa4bca5c7bb844d2d61347d",
+      "read_scope": "Complete 13-line later closure; no current code/asset/morph or historical image validation."
+    },
+    {
+      "path": "docs/NONHAIR-QUEUE-2026-09-26.md",
+      "bytes": 8497,
+      "sha256": "8ec43923434789a3eadb9dea41f4c440279e99e28b2a8ec433e52c2f407161b7",
+      "read_scope": "Exact lines58–75; complete file hash, other prose not interpreted."
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/ROOT-OBSERVATION.md",
+      "bytes": 2882,
+      "sha256": "0e0f1ee3db9334d951e4cac31b8511face237f3a0206c204091ac6e7eb8a0307",
+      "read_scope": "Complete 9-line comparative observation read after independent closure/source assessment; no root opinion substitutes for critic."
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/expression-art-worth/WORTH.md",
+    "bytes": 4830,
+    "sha256": "9104415f4c3660b84cd5a7e2f319d2c358baf94cf56df64bd16924f58bed0155"
+  },
+  "observations": {
+    "new_image_viewed": false,
+    "historical_visual_reviews_read_as_source": true,
+    "later_closures_read": [
+      "September26 DECISION complete",
+      "October4 expression-intent WORTH complete",
+      "October5 expression-determination RESULT complete"
+    ],
+    "no_superseding_artist_sheet_found": "Only scoped expression path inventory and narrow current recovery/journal matches; no global absence inference",
+    "checklist_literal_counts": {
+      "checked": 14,
+      "open": 10
+    },
+    "root_comparison": "Read full ROOT-OBSERVATION after independent source assessment; no root pixels or opinion used as critic observation"
+  },
+  "commands": [
+    {
+      "tool": "605228",
+      "command": "python3 heredoc: read/hash complete PLAN, expression inventory, EXPRESSION-VALUE and iris ROOT-CLOSE",
+      "scope": "Read-only source metadata and prose; no imported project code."
+    },
+    {
+      "tool": "ee429d",
+      "command": "rg --files docs/evidence | rg '(expression|EXPRESSION|nonhair-queue)'",
+      "scope": "Discovery-only paths; no non-expression asset listing interpreted."
+    },
+    {
+      "tool": "c53e04",
+      "command": "rg -n -i 'coy|teas|expression|character.first|Phase 1|work order|cue' docs/PRODUCT-ROADMAP.md docs/PROJECT-CHECKLIST.md docs/WORK-WINDOW* docs/*QUEUE*",
+      "scope": "Matched prose only; primary closure files subsequently read completely. No full journal read or current code inference."
+    },
+    {
+      "tool": "6ea7ca",
+      "command": "python3 heredoc: numbered complete three closure documents/checklist, queue58–75, roadmap35–65/118–148; print size/SHA256 for each",
+      "scope": "Read-only exact prose/metadata."
+    },
+    {
+      "tool": "30b816",
+      "command": "rg -n -i 'expression.{0,50}(art|sheet|target)|static.{0,40}expression|coy|teas' docs/DAY-REPORT-2026-10-04.md docs/WORK-WINDOW-2026-10-02.md docs/EXPRESSION-INVENTORY-2026-09-13.md docs/evidence/nonhair-2026-10-05/expression-determination-worth/RESULT.md docs/evidence/appearance-2026-10-04/expression-intent-inputs/WORTH.md docs/research",
+      "scope": "Discovery-only matching prose; unrelated decoy/hair matches not interpreted and journal bytes not authority for verdict."
+    },
+    {
+      "tool": "5d06f2",
+      "command": "python3 heredoc: numbered complete inventory, value refusal and root comparative observation with exact hashes",
+      "scope": "No historical frames or source code exercised."
+    }
+  ],
+  "recording_command": "python3 stdlib heredoc verifies five PLAN pins/checklist counts, hashes eleven actually used direct inputs, writes exclusive WORTH.md/RECEIPT.json; no application import or producer",
+  "deadlines": {
+    "inventory_cut_utc": "2026-10-05T19:22:00Z",
+    "critic_stop_utc": "2026-10-05T19:27:00Z",
+    "root_close_stop_utc": "2026-10-05T19:32:00Z"
+  },
+  "limits": [
+    "No image inspection in this worth; no pixel/perception success claim.",
+    "No application import, helper replay, producer, test/build, network, query, generation, browser, native/GPU or capture.",
+    "No runtime field, label, PAD, cue/control/default/source/product/frozen edit.",
+    "Only these two exclusive critic files written; no successor admitted.",
+    "Current runtime, semantic recognition, continuous motion and speech/rig/channel composition remain unqualified."
+  ],
+  "precollection_note": "Corrected only own draft documentation-link traversal before stable collection; no bound source or verdict changed.",
+  "readback": {
+    "utc": "2026-10-05T19:15:53.619815+00:00",
+    "all_direct_inputs_verified": 11,
+    "all_result_links_exist": [
+      {
+        "target": "RECEIPT.json",
+        "exists": true
+      },
+      {
+        "target": "../../../EXPRESSION-INVENTORY-2026-09-13.md",
+        "exists": true
+      },
+      {
+        "target": "../../nonhair-2026-10-03/EXPRESSION-VALUE.md",
+        "exists": true
+      },
+      {
+        "target": "../../nonhair-2026-09-26/expression-next/DECISION.md",
+        "exists": true
+      },
+      {
+        "target": "../../appearance-2026-10-04/expression-intent-inputs/WORTH.md",
+        "exists": true
+      },
+      {
+        "target": "../expression-determination-worth/RESULT.md",
+        "exists": true
+      },
+      {
+        "target": "../../../PRODUCT-ROADMAP.md",
+        "exists": true
+      },
+      {
+        "target": "../../../PROJECT-CHECKLIST.md",
+        "exists": true
+      }
+    ],
+    "stable_no_pending_edits": true
+  }
+}

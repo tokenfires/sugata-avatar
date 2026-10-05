@@ -1,0 +1,31 @@
+{
+  "selected_utc": "2026-10-05T19:23:07.842922+00:00",
+  "selected_position": 2,
+  "selected_result": {
+    "url": "https://dev.epicgames.com/documentation/metahuman/expression-poses",
+    "title": "Expression Poses | MetaHuman Documentation",
+    "description": "To load animation on the Faceboard, the FBX file must be on the appropriate channels of the Faceboard controls as they exist in the scene assembled in ...",
+    "position": 2
+  },
+  "reason": "First official documentation result. Positions1/3 are community tutorials and do not meet official documentation contract. Expression Poses identifies faceboard/expression pose material; actual usable image still unobserved and required.",
+  "search": {
+    "path": "docs/evidence/nonhair-2026-10-05/expression-reference/SEARCH-RETURNED.json",
+    "bytes": 4045,
+    "sha256": "195d77b41111d14b893a0578f60bd94b520109c4cd5a11d74c230ef8e1f1e751",
+    "id": "01a10d84-5d27-739d-a078-7b09afae394d",
+    "reported_credits": 2,
+    "text_structured_equality": true
+  },
+  "actual_scrape_request": {
+    "url": "https://dev.epicgames.com/documentation/metahuman/expression-poses",
+    "formats": [
+      "markdown",
+      "links"
+    ],
+    "maxAge": 0,
+    "onlyMainContent": true,
+    "domainTools": false,
+    "timeout": 20000
+  },
+  "limits": "One selectedpage only; no community tutorial/provider/media/page fallback; any error or noactualusableposeimage closesB. At most2 screenshots of samepage; nogeneration."
+}

@@ -1,0 +1,31 @@
+{
+  "admitted_utc": "2026-10-05T19:22:09.689585+00:00",
+  "decision": "A exact single primary visual reference inquiry only",
+  "source_full_read": "ec44dd complete stable SOURCE-RESULT and SOURCE-RECEIPT",
+  "verified_binding_rows": 15,
+  "exact_search_request": {
+    "query": "MetaHuman facial expressions pose library face rig",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "includeDomains": [
+      "dev.epicgames.com"
+    ],
+    "domainTools": false
+  },
+  "extra_tighter_limit": "MAX2 saved screenshot regions total in sole selected official page; critic later confirms compatible with stable A. No viewport hunting, separate media/page, consent/login mutation or fallback.",
+  "source_result": {
+    "path": "docs/evidence/nonhair-2026-10-05/expression-reference/SOURCE-RESULT.md",
+    "bytes": 3685,
+    "sha256": "26c9c736bbe2d57ffbef30f5a8f64a8c32498b13e2e224b0e232c628191cdacb"
+  },
+  "source_receipt": {
+    "path": "docs/evidence/nonhair-2026-10-05/expression-reference/SOURCE-RECEIPT.json",
+    "bytes": 4575,
+    "sha256": "c5cf664215877238e2c2a5fee50afad60b357296b01933cbc01f539335d3a3c0"
+  },
+  "stops": "one query/3officialresults/first eligiblepage only; any inadequate/error/technicalonly/noactualusableimage endsB; inquiry19:42/close19:48",
+  "ownership": "Root sole query/livefetch/browserowner; no generation/Avatar/GPU application/test/helpers; close only owned newtab; retainreview5173",
+  "interpretation": "Primary technical/image components only; no emotion-label/rig-transfer/currentAvatar/recognition/AAA claim"
+}
