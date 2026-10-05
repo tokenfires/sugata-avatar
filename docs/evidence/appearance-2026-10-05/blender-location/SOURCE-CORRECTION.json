@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-05T07:14:46.715148+00:00",
+  "initial": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-location/initial-source/locate.py",
+    "bytes": 3450,
+    "sha256": "c272330dabcce5d276e566a53bc49998dd7250c64f0552a85896e19850974a25"
+  },
+  "current": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-location/locate.py",
+    "bytes": 3452,
+    "sha256": "7c70c1f2230d965f38ef2ec4bddbdcb8ff6811870c786b39c5e3a50679a11072"
+  },
+  "source_witness": "Initial assigns directory count from n retained in locals. After any first directory iteration and an empty second directory, n is stale. Source control-flow defect in observer metadata, not an observed directory/runtime defect.",
+  "correction": "Explicit fresh count0 per root, assign count during only that root loop; no discovery predicates, roots or execution expanded. Initial source preserved; corrected AST parsed before first invocation.",
+  "execution": "None yet; no runtime/ZIP/native."
+}

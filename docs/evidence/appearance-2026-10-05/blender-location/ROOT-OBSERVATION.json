@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-05T07:16:58.495803+00:00",
+  "pid": 65736,
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 -B docs/evidence/appearance-2026-10-05/blender-location/locate.py",
+  "tool_chunk": "21c9a8",
+  "exit_code": 0,
+  "controller_pid": 65482,
+  "owned_pid_absent": true,
+  "actual_interval": [
+    "2026-10-05T07:15:26.255649+00:00",
+    "2026-10-05T07:15:26.256514+00:00"
+  ],
+  "elapsed_seconds": 0.0008674580021761358,
+  "combined_tool_output": "Fully printed LOCATION JSON, no other reported text; no separate stdout/stderr capture claimed.",
+  "program": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-location/locate.py",
+    "bytes": 3452,
+    "sha256": "7c70c1f2230d965f38ef2ec4bddbdcb8ff6811870c786b39c5e3a50679a11072"
+  },
+  "output": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-location/LOCATION.json",
+    "bytes": 1436,
+    "sha256": "e2f0fc0f723ee4b41174cfeff0431e6e05e76094417a4e5dffa44f486e7ce636"
+  },
+  "root_observation": "PATH has two spellings resolving same74byte Homebrew wrapper; two immediateappdir scopes have no matchingBlender.app. Source filename5.2.1 is no runtime/version/suitability qualification. No wrappercontents were read.",
+  "decision": "A concrete launch-path candidate for separate source/version choice only; no onwardadmission."
+}

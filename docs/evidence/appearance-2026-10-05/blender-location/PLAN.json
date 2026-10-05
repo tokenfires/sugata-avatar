@@ -1,0 +1,48 @@
+{
+  "started_utc": "2026-10-05T07:12:52.901193+00:00",
+  "stop_utc": "2026-10-05T07:22:52.901193+00:00",
+  "pid": 65062,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/RESULT.md",
+      "bytes": 1687,
+      "sha256": "16fa2f73fc9b4e6d9f6fb10736ac1f416c426efc3a88d5a84d53085993cdbbc3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/RECEIPT.json",
+      "bytes": 3838,
+      "sha256": "279b7ddf5f729c53ba970d08810fea862704def5e94b20193bcb5d33c3667d4f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/ROOT-OBSERVATION.json",
+      "bytes": 544,
+      "sha256": "a527ae05a90f2be623431f26261c731bc30b1fee07a86d24c66b766087131bac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    }
+  ],
+  "usable_improvement": "An honest existing-runtime location map for later source work, without changing the machine or inspecting the original Snow archive.",
+  "research_question": "Does PATH or either immediate Applications directory expose an existing named Blender executable candidate?",
+  "decision": "Choose a concrete candidate path for a separate future version/source gate if found; otherwise defer the Snow CPU inquiry under this discovery scope. No globalabsence or installation claim.",
+  "bounds": {
+    "controller_invocations": 1,
+    "path_names": [
+      "blender",
+      "Blender"
+    ],
+    "application_roots": [
+      "/Applications",
+      "/Users/robault/Applications"
+    ],
+    "immediate_entries_each_max": 4096,
+    "matching_bundles_each_max": 16,
+    "bundle_match": "Immediate .app entry whose name contains Blender, case insensitive; no recursive discovery.",
+    "metadata": "Only matching bundle Contents/Info.plist <=65536bytes; return CFBundleIdentifier/CFBundleExecutable/CFBundleShortVersionString/CFBundleVersion and candidate executable stat/xaccess/resolvedpath. PATH uses shutil.which, no process invocation.",
+    "directory_absence": "Record as a bounded negative source result, not globalabsence or automatic stop on missingroot. Stop on unreadable/malformed/excessive data without retry/expansion.",
+    "no_actions": "No candidateexecution/--version/primaryquery/ZIPread/load/extraction/scripts/install/purchases/GPU/native/render/model/subscription/accepted/default/checklist/roadmap/unrelatedprojectchanges; no futureadmission."
+  },
+  "state": "Prior9282eab clean/criticcollected/noownedjob/review1023/5173 andACTIVE10min retained. Humanresumeongoing; newercheck-in/pausewins."
+}

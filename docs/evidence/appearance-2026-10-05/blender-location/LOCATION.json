@@ -1,0 +1,50 @@
+{
+  "started_utc": "2026-10-05T07:15:26.255649+00:00",
+  "pid": 65482,
+  "path_results": [
+    {
+      "name": "blender",
+      "candidate": {
+        "path": "/opt/homebrew/bin/blender",
+        "exists": true,
+        "is_file": true,
+        "is_symlink": true,
+        "resolved_path": "/opt/homebrew/Caskroom/blender/5.2.1/.homebrew-command-wrappers/blender",
+        "executable_access": true,
+        "bytes": 74
+      }
+    },
+    {
+      "name": "Blender",
+      "candidate": {
+        "path": "/opt/homebrew/bin/Blender",
+        "exists": true,
+        "is_file": true,
+        "is_symlink": true,
+        "resolved_path": "/opt/homebrew/Caskroom/blender/5.2.1/.homebrew-command-wrappers/blender",
+        "executable_access": true,
+        "bytes": 74
+      }
+    }
+  ],
+  "application_roots": [
+    {
+      "root": "/Applications",
+      "exists": true,
+      "is_dir": true,
+      "matches": [],
+      "immediate_entry_count": 64
+    },
+    {
+      "root": "/Users/robault/Applications",
+      "exists": true,
+      "is_dir": true,
+      "matches": [],
+      "immediate_entry_count": 7
+    }
+  ],
+  "scope": "PATH lookups/immediate app entries/matching Info.plist core metadata only; no execution/version or recursive search",
+  "decision": "Complete scoped location observations; candidate suitability/version untested",
+  "completed_utc": "2026-10-05T07:15:26.256514+00:00",
+  "elapsed_seconds": 0.0008674580021761358
+}

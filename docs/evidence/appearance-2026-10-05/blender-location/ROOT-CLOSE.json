@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-05T07:20:17.097883+00:00",
+  "pid": 66065,
+  "full_handoff_read": "8111c3",
+  "binding_rows_verified": 13,
+  "decision": "A metadata candidatepath map; B actualversion/runtime/suitability/source. No successoradmission.",
+  "payloads": 12,
+  "bytes": 26110,
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-location/MANIFEST.json",
+    "bytes": 2492,
+    "sha256": "3ded05ab29d1021f2b689e59cc6f8be5bb93beef002c59f4c3fe4ae21ea2f027"
+  },
+  "local_links": [
+    "LOCATION.json",
+    "RESULT.md",
+    "RESULT-RECEIPT.json",
+    "ROOT-OBSERVATION.json",
+    "SOURCE-CORRECTION.json"
+  ],
+  "jobs": "Owned65482absent by e54703, criticcollected; no launcher/version/source/nativejob.",
+  "stop_utc": "2026-10-05T07:22:52.901193+00:00"
+}

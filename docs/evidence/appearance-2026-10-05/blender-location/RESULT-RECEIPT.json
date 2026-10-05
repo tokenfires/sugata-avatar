@@ -1,0 +1,112 @@
+{
+  "saved_utc": "2026-10-05T07:18:05.431623+00:00",
+  "decision": "A candidate location map; B tested runtime/version/source suitability",
+  "input_bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/RESULT.md",
+      "bytes": 1687,
+      "sha256": "16fa2f73fc9b4e6d9f6fb10736ac1f416c426efc3a88d5a84d53085993cdbbc3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/RECEIPT.json",
+      "bytes": 3838,
+      "sha256": "279b7ddf5f729c53ba970d08810fea862704def5e94b20193bcb5d33c3667d4f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/snow-source-interface/ROOT-OBSERVATION.json",
+      "bytes": 544,
+      "sha256": "a527ae05a90f2be623431f26261c731bc30b1fee07a86d24c66b766087131bac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/PLAN.json",
+      "bytes": 2693,
+      "sha256": "8912a4b7b743bef6501dd7d81c680a00bb726fd43d587f67444dbbb9d73e5368"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/WORTH.md",
+      "bytes": 1489,
+      "sha256": "26d25209ec1a051b99317fc566d0233f3cf3148305bcce87ecbf3ccda2453049"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/RECEIPT.json",
+      "bytes": 2270,
+      "sha256": "5686f755b16d595b6f8786f2960aedaeba3b666ac95d64b9442922d5528d7cae"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/ADMISSION.json",
+      "bytes": 1307,
+      "sha256": "20a71cc1ba2040c3a0c9218a8c4e53c14792f33338dc0aec7237f5df358e1f97"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/SOURCE-CORRECTION.json",
+      "bytes": 980,
+      "sha256": "1d99359aaa693b94c73fb54e44a9b94fbae605d8d81f8c23c5eff3d8c1b2074b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/locate.py",
+      "bytes": 3452,
+      "sha256": "7c70c1f2230d965f38ef2ec4bddbdcb8ff6811870c786b39c5e3a50679a11072"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/initial-source/locate.py",
+      "bytes": 3450,
+      "sha256": "c272330dabcce5d276e566a53bc49998dd7250c64f0552a85896e19850974a25"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/blender-location/LOCATION.json",
+      "bytes": 1436,
+      "sha256": "e2f0fc0f723ee4b41174cfeff0431e6e05e76094417a4e5dffa44f486e7ce636"
+    }
+  ],
+  "verified_plan_inputs": 4,
+  "saved_metadata_checks": {
+    "admission_current_source_pins": true,
+    "preexecution_counter_correction_pins": true,
+    "admission_before_start_before_completion_before_end": true,
+    "path_records": 2,
+    "same_resolved_wrapper": true,
+    "wrapper_recorded_bytes": 74,
+    "immediate_entry_counts": [
+      64,
+      7
+    ],
+    "matching_app_bundles": [
+      0,
+      0
+    ],
+    "no_recorded_error": true
+  },
+  "actual_controller": {
+    "root_tool": "21c9a8",
+    "exit_code": 0,
+    "pid": 65482,
+    "started_utc": "2026-10-05T07:15:26.255649+00:00",
+    "completed_utc": "2026-10-05T07:15:26.256514+00:00",
+    "elapsed_seconds": 0.0008674580021761358
+  },
+  "commands": [
+    "654d39/0 full LOCATION/ADMISSION/correction read; nonexistent discover.py was skipped, actual locate.py used",
+    "a9793f/0 full corrected and preserved initial locate.py reads",
+    "Current saved-JSON/pin observer only; no source import or discovery"
+  ],
+  "witnesses": [
+    "LOCATION.json:path_results/application_roots",
+    "locate.py: per-root count=0/current candidate() metadata",
+    "SOURCE-CORRECTION.json preexecution counter ownership"
+  ],
+  "next_alternatives": {
+    "A": "Fresh exact bounded wrapper text read; if one direct target, separately owned one --version with target pin/timeout/reap/streams. Stop ambiguous route without executing launcher.",
+    "B": "Defer Snow with package/path map; no runtime suitability claim."
+  },
+  "scope": "Critic reads/hashes repository source and saved records only. No PATH/Applications or wrapper/target lookup, no executable/version/archive/HTTP/native/model/engine invocation.",
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/blender-location/RESULT.md",
+    "bytes": 1678,
+    "sha256": "dbfba1d9f4209ea5be5ab3deb6786047f3b8d824925037f6930413a9afc68ff2"
+  }
+}
