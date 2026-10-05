@@ -1,0 +1,55 @@
+{
+  "started_utc": "2026-10-05T07:47:50.089330+00:00",
+  "stop_utc": "2026-10-05T08:32:50.089330+00:00",
+  "head": "366b6ccb8536376ff01e42529e0ddf7155abf670",
+  "usable_improvement": "Reusable opt-in read-only outfit suggestion view in actual Showcase, accessed through ?suggestions=1; request explanation and dismissal while current look remains owned by existing controls.",
+  "research_question": "Does the real caller afford a clear request/read/dismiss interaction and preserve clothes/settings/store on desktop and narrow mobile without stale owner references?",
+  "decision": "Retain optional UI only if independent complete source review, one build and actual desktop request/dismiss plus mobile observation support it. Otherwise preserve isolated candidate/evidence and decline delivery.",
+  "contract": {
+    "caller": "Current Avatar remains owner. Resolve live wardrobe for every synchronous request; CatalogueDresser receives copied existing SHOWCASE_OUTFITS. No agency/store/profile/mood/pin/apply creation.",
+    "view": "Reusable callback-only component uses native details/select/buttons, textContent, explicit labels, polite status, dismissal focus; no fetch/storage/renderer/assets. Busy/export/failure gate and stale-card clearing.",
+    "isolation": "Only query suggestions=1 mounts view; ordinary appearance/presets/assets/settings schema unchanged. Do not promote wider agency/fit acceptance.",
+    "lifetime": "Controller owns DOM/listeners only. Current nonpersisted pagehide disposes it; persisted pagehide retains it. Never dispose borrowed wardrobe/Avatar/Stage.",
+    "references": "At most one current official MDN native details primary page if useful. Save response; no broad examples/image generation needed for this existing design language.",
+    "verification": "Root complete changed source + independent critic source verdict before execution. One bounded Vite build (120s). Root serializes one desktop tab and one mobile tab, original captures, request/dismiss preservation data; close only owned tabs. No mirrored unit test.",
+    "stop": "45min hard effort bound. Stop native on unsupported state/render/error rather than repeat captures/epochs. Pre-native proved source defects may be corrected with exact original retained and full source re-review. No post-native cosmetic tuning without a separate decision."
+  },
+  "inputs": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/README.md",
+      "bytes": 2676,
+      "sha256": "d7e54488fae2cc64355244a9f91f4ef18f179c7fd33734c996465265c1ce5294"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/RESULT.md",
+      "bytes": 3116,
+      "sha256": "795ed681aeb48dd9c484b21351ac9c1c754d35cb7e34e7b30fec4540048f64e2"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    }
+  ],
+  "state": "366b6cc clean; review1023/5173 retained; ACTIVE10min unchanged. Latest human resume current, newer check-in/pause wins. Full AAA/wardrobe/representation/expression/performance roadmap and frozen/default/original/unrelated work preserved."
+}
