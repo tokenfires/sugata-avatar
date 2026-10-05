@@ -1,0 +1,229 @@
+{
+  "collected_utc": "2026-10-05T17:47:00.335853+00:00",
+  "source_stop_utc": "2026-10-05T18:02:00Z",
+  "generation_stop_utc": "2026-10-05T18:15:00Z",
+  "final_stop_utc": "2026-10-05T18:35:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-art/PLAN.json",
+      "bytes": 5017,
+      "sha256": "5cec4634ef5b95466e834380d856f8822f101413cf9149372614a12843624eb5",
+      "read_scope": "Complete sourcegate literalplan"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/PLAN.json",
+      "bytes": 7358,
+      "sha256": "118200e60076a069bf15d0b2df96c9df7841f2d5ec85255fba827209c69eecde",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/WORTH.md",
+      "bytes": 4124,
+      "sha256": "90cdbe0e00f0ce78fa9bb3f88afadd789078183dd913ad6b5601a7b9bfbf6163",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/RECEIPT.json",
+      "bytes": 10763,
+      "sha256": "13286e9a9de7742175eb382e1e4505c89277cc303879879c9e347e030395f567",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/ROOT-CLOSE.json",
+      "bytes": 5195,
+      "sha256": "a105aa3b15907b7a69b82414c2e7b60a20ad1e4bf062031d45b374b3ed1769fd",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/MANIFEST.json",
+      "bytes": 1066,
+      "sha256": "f09ed2ff33644f01c532e9441815118051b8cc4dbee6aaca13c91ef44a073e8d",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-art/PROMPT.txt",
+      "bytes": 2809,
+      "sha256": "4eacb03c91deb9da791c7fb72f97b470cc9dd975e0f0214e0fa248cef16bf83f",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-art/IMAGEGEN.requested.json",
+      "bytes": 2878,
+      "sha256": "72ec0bb35149ece174767e138cfe4b9d93b5bd91bc978c633c58f9b9e968de7d",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Complete exact source or full previous/current handoff scope described in read_scope"
+    }
+  ],
+  "preserved_worth_chain_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/PLAN.json",
+      "bytes": 7358,
+      "sha256": "118200e60076a069bf15d0b2df96c9df7841f2d5ec85255fba827209c69eecde",
+      "read_scope": "Complete literal plan"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/representation-value/CRITIC-VALUE.md",
+      "bytes": 5468,
+      "sha256": "92c5bcaf59f87ad41f4f17dcbf8668fff52e9eaf0c0290f0135ec0b5f6d6a0b7",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/endpoint-starter-value/CRITIC-VALUE.md",
+      "bytes": 7576,
+      "sha256": "4ff32d468e666cdbb9f196cccbe2ee90372c17484bb1e0ab095a0da8e332719d",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-worth/PLAN.json",
+      "bytes": 5821,
+      "sha256": "7e7a2cd19c87c5c2af731a1dacb50ab687b7a05905c932ebb0153d472b298563",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-worth/RESULT.md",
+      "bytes": 3513,
+      "sha256": "ffaec28b6dc75f73ad6b116b1dadf0f368a74df5555c7ca84c1fc0f7a58d379d",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-character-reference/RESULT.md",
+      "bytes": 2060,
+      "sha256": "75c650808cf490abd720284036cccb5a10c37983829b076d9551ad2ec70c3c25",
+      "read_scope": "Complete literal text read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+      "read_scope": "Whole original view at original detail"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Whole original view at original detail"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/ROOT-OBSERVATION.json",
+      "bytes": 5264,
+      "sha256": "1774eafd6af6a82516f5612019f0bafa59b52615ea2e0b6424b29b1ec809a79e",
+      "read_scope": "Complete comparative root record, after independent image/source observations"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-worth/WORTH.md",
+      "bytes": 4124,
+      "sha256": "90cdbe0e00f0ce78fa9bb3f88afadd789078183dd913ad6b5601a7b9bfbf6163",
+      "read_scope": "Complete independentworth"
+    }
+  ],
+  "all6_frozenworth_manifest_payloads_match": true,
+  "decision": "A sole exact original-art experiment only, conditional root fullread/pinverification before18:02UTC",
+  "scope": "Complete literal static prompt/request/PLAN and frozen worth handoff review only. No image generation/output qualification or next experiment admission.",
+  "findings": [
+    {
+      "witness": "PROMPT.txt3–5,7; PLAN6–9; previous actual whole target images and worth source limits",
+      "explanation": "Exact fullprofile/rear choices and cross-view consistency test materially extend the two near-front targets; no metric/hiddengeometry borrowed.",
+      "alternatives": [
+        "A one complete new sheet can choose actual side/rear design, risking view/detail drift and onegeneration cost.",
+        "B prioritize full editable source gives potential source utility at greater authoring cost, leaving turnaround unchosen."
+      ]
+    },
+    {
+      "witness": "PROMPT.txt3,5,7; PLAN13",
+      "explanation": "True side/whole body visibility are qualitative art requirements; tee front/portrait requirement does not demand impossible rear transparency; natural occlusion is not a missing-view waiver.",
+      "alternatives": [
+        "A judge the actual whole singleoutput against declaredcompleteviews/detail; mayfirstrefuse.",
+        "B withholdgeneration andowncompleteeditableposedsource; costsmoreauthoring andno immediate artguide."
+      ]
+    },
+    {
+      "witness": "IMAGEGEN.requested.json2–3; PLAN9–12; frozenworthROOT-CLOSE",
+      "explanation": "Exact arguments are newimageonly and first-failure boundaries own output/accounting; priorworth never licenses generation without freshrootadmission.",
+      "alternatives": [
+        "A one exacttoolcall followed by actualwholeoriginal independent/rootdecision; failure gives nocompleteguide.",
+        "B retain brief and stop withouttoolcost; cannot supply newprofile/rear evidence."
+      ]
+    }
+  ],
+  "verification": {
+    "all9_plan_bindings_match": true,
+    "all14_worth_receipt_rows_match": true,
+    "exact_prompt_request_equality": true,
+    "exact_argument_keys": [
+      "prompt",
+      "transparent_background"
+    ],
+    "transparent_background": false,
+    "reference_images_absent": true
+  },
+  "commands": [
+    {
+      "chunk": "7ac028",
+      "scope": "Complete currentPLAN/PROMPT/IMAGEGEN requested source, numbered literal lines"
+    },
+    {
+      "chunk": "233a81",
+      "scope": "Complete frozenWORTH/RECEIPT/ROOT-CLOSE/MANIFEST, no truncation"
+    },
+    {
+      "chunk": "dd0b9b",
+      "scope": "All9 plan/currentsource pins and all14 frozenworth receipt pins, exact prompt and argumentkey equality; JSON/bytes only"
+    }
+  ],
+  "read_scope": {
+    "current_source": "Complete literal current PLAN/PROMPT/IMAGEGEN.requested; all9 boundinputs read complete now or, for unchanged checklist/roadmap, complete in immediatelyprecedingworth and exact fullbytes reverified.",
+    "worth": "Complete worthPLAN/WORTH/RECEIPT/ROOT-CLOSE/MANIFEST; exactoriginal input chain reverified withoutreplaying any experiment.",
+    "images": "Both untouched whole1536x1024 comparison PNGs independently inspected via view_image detail original in immediatelyprecedingworth; exactbytes reverified. No new output image exists or was inspected in sourcegate.",
+    "historical": "OldToogood/reference result and representation/endpoint limits independently read complete in worth; currentreceipt carries exactbytes and scope. No runtime equivalence/inventory rerun.",
+    "code_or_runtime": "No code/producer/native/GPU/import/build/generation/query/download/online operation. JSON/bytehash readings are metadata verification only."
+  },
+  "limits": [
+    "Only exclusive SOURCE-RESULT.md and SOURCE-RECEIPT.json written in newleaf; frozen/currentsource/default/original assets unchanged.",
+    "A exactprompt/source decision only, not actualimage/geometry/runtime/gender/fit/AAA qualification.",
+    "Firstactualrefusal stops; no variant/crop/edit/regeneration/fallback/retry/successor admission.",
+    "Oldneutralreference-dependent query/prompt B remainsclosed and unanswered."
+  ],
+  "pending_edits": false,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-art/SOURCE-RESULT.md",
+    "bytes": 3340,
+    "sha256": "e4e9761f2c283e70df595d7c0d207928296fc5173f93e02252864e0caa37b1bf",
+    "read_scope": "Complete independentexactsource result"
+  },
+  "save_pid": 91222
+}

@@ -1,0 +1,98 @@
+{
+  "recorded_utc": "2026-10-05T17:35:10.017056+00:00",
+  "status": "worth pending; generation unadmitted",
+  "read_commands": [
+    "f636df complete earlier PLAN/RESULT/reference RESULT",
+    "6db2d9 current checklist and complete two target briefs",
+    "b80ac4 representation and endpoint reads; aggregate endpoint output truncated",
+    "f34505 full endpoint recovered separately"
+  ],
+  "source_pins": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/representation-value/CRITIC-VALUE.md",
+      "bytes": 5468,
+      "sha256": "92c5bcaf59f87ad41f4f17dcbf8668fff52e9eaf0c0290f0135ec0b5f6d6a0b7"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/endpoint-starter-value/CRITIC-VALUE.md",
+      "bytes": 7576,
+      "sha256": "4ff32d468e666cdbb9f196cccbe2ee90372c17484bb1e0ab095a0da8e332719d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-worth/PLAN.json",
+      "bytes": 5821,
+      "sha256": "7e7a2cd19c87c5c2af731a1dacb50ab687b7a05905c932ebb0153d472b298563"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-worth/RESULT.md",
+      "bytes": 3513,
+      "sha256": "ffaec28b6dc75f73ad6b116b1dadf0f368a74df5555c7ca84c1fc0f7a58d379d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-character-reference/RESULT.md",
+      "bytes": 2060,
+      "sha256": "75c650808cf490abd720284036cccb5a10c37983829b076d9551ad2ec70c3c25"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    }
+  ],
+  "actual_root_images": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "scope": "whole unchanged original1536x1024, view_image original; actual pixel observation after new plan",
+      "observation": "Left complete near-front body plus right portrait only. Pale-blue crew knit full sleeves/rib hem, wide dark legs and brown boots. Bob and face readable; no rear/profile sheet. Skin/body ethnic identity not inferred."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "scope": "whole unchanged original1536x1024, view_image original; actual pixel observation after new plan",
+      "observation": "Left near-front full body plus right portrait. Open olive long pointed-collar layer/ivory tee/sand legs and brown lace boots; swept longish crown. No rear/profile sheet. Portrait beard-shadow variation already noted in actual brief."
+    }
+  ],
+  "actionable_findings": [
+    {
+      "witness": "KNIT-CHARACTER-TARGET complete What still needs authoring section + whole actual knit original leftbody/rightportrait",
+      "explanation": "Near-front concept does not select complete side/rear jacket, groom or seat views. A new complete turnaround could make these original art decisions visible; illustration cannot resolve geometry or coupled fit.",
+      "alternatives": [
+        "One wholly original complete front/profile/rear/portrait guide with explicit around-body details costs one generation and could fail consistency.",
+        "Retain shallow references and prioritize fully editable complete 3D source costs more authorship and leaves this selected neutral design direction unchosen."
+      ]
+    },
+    {
+      "witness": "neutral-character-reference/RESULT.md actual B and neutral-character-worth/PLAN.json design/reference gate",
+      "explanation": "Earlier exact reference query and dependent original generation were stopped on irrelevant excerpt. New plan must own a different complete-turnaround question; avoiding a rejected reference requirement alone is not progress.",
+      "alternatives": [
+        "Independent worth may accept the additional around-body source obligations and separately review exact original prompt.",
+        "Decline as a duplicate brief; save the refusal and do not generate."
+      ]
+    }
+  ],
+  "review_limits": "Original discussion artwork only; no anatomical labels, real identity/perceived gender, hidden geometry correspondence, fit/skin/morph/rig/runtime/motion/AAA qualification. No current publisher example or network investigation; earlier Toogood query remains insufficient and closed. Root waits actual critic result."
+}

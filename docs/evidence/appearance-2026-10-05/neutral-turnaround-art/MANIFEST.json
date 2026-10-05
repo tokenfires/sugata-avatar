@@ -1,0 +1,131 @@
+{
+  "closed_utc": "2026-10-05T18:03:07.452424+00:00",
+  "files": [
+    {
+      "path": "CLOSEOUT.md",
+      "bytes": 2510,
+      "sha256": "a3749270deb6395f9736a2c7742f1c70b81bfa115d317277f03d733bc7fa79df"
+    },
+    {
+      "path": "IMAGEGEN.JOB.json",
+      "bytes": 468,
+      "sha256": "eceeb5653a08cac2fb4bff4a7376e0582273fdda0d52403f5a5484d17002dac7"
+    },
+    {
+      "path": "IMAGEGEN.RESULT.json",
+      "bytes": 1663,
+      "sha256": "429d1b7a937bcbe830c6da4ee03abc90ab6f2417afa699bb1c577603c0683ca8"
+    },
+    {
+      "path": "IMAGEGEN.requested.json",
+      "bytes": 2878,
+      "sha256": "72ec0bb35149ece174767e138cfe4b9d93b5bd91bc978c633c58f9b9e968de7d"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 5017,
+      "sha256": "5cec4634ef5b95466e834380d856f8822f101413cf9149372614a12843624eb5"
+    },
+    {
+      "path": "PROMPT.txt",
+      "bytes": 2809,
+      "sha256": "4eacb03c91deb9da791c7fb72f97b470cc9dd975e0f0214e0fa248cef16bf83f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 182,
+      "sha256": "3e54b5ebb753873057a64eb1e2649ff5579f107c2dcacca007adf32d7006afe5"
+    },
+    {
+      "path": "RECEIPT.json",
+      "bytes": 22828,
+      "sha256": "d1d5319a254030eba52806e4327a64221b27c23eb0f732acdeb48524eabda297"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 4099,
+      "sha256": "702a425fdbe1adcc936cb941586ec3c765d4ff2006a0ba5511a31489ec3fc2b1"
+    },
+    {
+      "path": "ROOT-ADMISSION.json",
+      "bytes": 9405,
+      "sha256": "d06a01a847f8eb9aea33453c21525c2931da4d1726979ae26d764ac8cfe36ede"
+    },
+    {
+      "path": "ROOT-CLOSE.json",
+      "bytes": 2815,
+      "sha256": "81c7c2b2ffe07423efe412919e49eee360ad56fdc12e2c1e4accf266f42fccf1"
+    },
+    {
+      "path": "ROOT-IMAGE.json",
+      "bytes": 4655,
+      "sha256": "c926491a5f50cc812bd5f908ca797649b27501596e265efaa9a32f1df69d1f14"
+    },
+    {
+      "path": "ROOT-SOURCE-CHECK.json",
+      "bytes": 3091,
+      "sha256": "8879bb35e2b483a80073c2027c5c66ffe55bfccde1c5d2745af7fcefdf482acc"
+    },
+    {
+      "path": "SOURCE-RECEIPT.json",
+      "bytes": 12172,
+      "sha256": "6b6bba4055d336ddc6275f158fa31768e3d4f297c77535dc30f9e12ea0d8bb14"
+    },
+    {
+      "path": "SOURCE-RESULT.md",
+      "bytes": 3340,
+      "sha256": "e4e9761f2c283e70df595d7c0d207928296fc5173f93e02252864e0caa37b1bf"
+    },
+    {
+      "path": "turnaround-v1.png",
+      "bytes": 2259142,
+      "sha256": "0d891df3364adbba6aace67246dc454a5ee46e9adf20ef320f1bced08f978801"
+    }
+  ],
+  "links_verified": [
+    {
+      "source": "CLOSEOUT.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-turnaround-art/turnaround-v1.png"
+    },
+    {
+      "source": "CLOSEOUT.md",
+      "target": "PROMPT.txt"
+    },
+    {
+      "source": "CLOSEOUT.md",
+      "target": "IMAGEGEN.requested.json"
+    },
+    {
+      "source": "CLOSEOUT.md",
+      "target": "IMAGEGEN.RESULT.json"
+    },
+    {
+      "source": "CLOSEOUT.md",
+      "target": "RESULT.md"
+    },
+    {
+      "source": "CLOSEOUT.md",
+      "target": "RECEIPT.json"
+    },
+    {
+      "source": "CLOSEOUT.md",
+      "target": "ROOT-IMAGE.json"
+    },
+    {
+      "source": "CLOSEOUT.md",
+      "target": "ROOT-CLOSE.json"
+    },
+    {
+      "source": "README.md",
+      "target": "PROMPT.txt"
+    },
+    {
+      "source": "README.md",
+      "target": "PLAN.json"
+    },
+    {
+      "source": "SOURCE-RESULT.md",
+      "target": "SOURCE-RECEIPT.json"
+    }
+  ]
+}
