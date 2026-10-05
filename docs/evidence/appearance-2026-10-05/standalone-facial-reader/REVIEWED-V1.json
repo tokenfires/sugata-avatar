@@ -1,0 +1,67 @@
+{
+  "saved_utc": "2026-10-05T22:48:19.630565+00:00",
+  "purpose": "Exact pre-correction reviewed v1; original handoff immutable; current code paths may change after this freeze",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/PLAN.json",
+      "bytes": 6270,
+      "lines": 82,
+      "sha256": "43c1c6943769a8c83e81df35be4fe53deced8d38cde22bc02866eddf53cc7078",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/PLAN.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reader.py",
+      "bytes": 39930,
+      "lines": 661,
+      "sha256": "18b13b820752129f4fd32614265f333c19c819e42e0d205bb1eb89db5995f25f",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/reader.py"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/cpu-oracle.mjs",
+      "bytes": 17431,
+      "lines": 260,
+      "sha256": "a32cd326f4aeb17d66d7b611f50bd3b20f1af73b60070e2e56099d57505cf61c",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/cpu-oracle.mjs"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/check-packet.py",
+      "bytes": 19720,
+      "lines": 268,
+      "sha256": "7615a1375f884fe917e1d4fc79b2cd6271de3a4e59bc7dbb9d57a3e0042af2a8",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/check-packet.py"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-MAP.md",
+      "bytes": 8386,
+      "lines": 23,
+      "sha256": "d64d1cfe4e6d5ceaa0fbe13b0a943ac8a1876a254e4dd75889ae0de85cdc6b14",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/SOURCE-MAP.md"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/DEPENDENCY-PINS.json",
+      "bytes": 145185,
+      "lines": 3770,
+      "sha256": "0f8d7aff88c3840a35e1518f846a4e13ffaa05ae9a9c76baf83b111ed30d0bd3",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/DEPENDENCY-PINS.json"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-HANDOFF.json",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/SOURCE-HANDOFF.json",
+      "bytes": 2417,
+      "sha256": "926c39a960730d7b5bf786df0a8266bbda63492c85f7f99d7e21bd099a75e68c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/ROOT-PREPARATION-READBACK.json",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/ROOT-PREPARATION-READBACK.json",
+      "bytes": 2273,
+      "sha256": "9fd539781e48a5825ba2c79288279658740c13b215f0398f13d68d19b4b66791"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/RESOURCE-QUESTION.md",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/RESOURCE-QUESTION.md",
+      "bytes": 2183,
+      "sha256": "0071add7af7fb57f3d055e4be17f3fd8c64471394cd74945376c697492573647"
+    }
+  ],
+  "no_source_decode_or_program_evaluation": true
+}

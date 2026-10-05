@@ -1,0 +1,48 @@
+{
+  "closed_utc": "2026-10-05T23:03:04.151628+00:00",
+  "stop_utc": "2026-10-05T23:23:00Z",
+  "verdict": "A corrected inert source suitability; B execution now; A separate supervisor preparation worth",
+  "critic_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-RESULT.md",
+    "bytes": 8069,
+    "sha256": "a3650e84778e9048bb39d2026710b3d9fce34b90c4763548c8ffcc5b188ca2f6"
+  },
+  "critic_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-RECEIPT.json",
+    "bytes": 14307,
+    "sha256": "ee56aadc083d7b76bb4e077ccb3e35add97c437b0b6d37bd672ca8348203a562"
+  },
+  "root_full_handoff_read": "df872a complete result+receipt5594tokens/no truncation",
+  "root_independent_source": "prior full3program reads plus98cad8 corrected fullchecker/selectedreader,5ef87c fullcode delta,446540/b620cf normative exactclauses",
+  "verified_binding_rows": 815,
+  "unique_binding_files": 793,
+  "v1_exact_readonly": 9,
+  "frozen_payloads": 788,
+  "frozen_payload_bytes": 5888581,
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/FROZEN-INPUTS.json",
+    "bytes": 513163,
+    "sha256": "0ac73a59ba389b7224f19a71a9ce17b6dba9b4518df491a5b658a13311256ede"
+  },
+  "source_and_data": "originalwholehashonlyunchanged; outputabsent; no source program imports/evaluation/CPU/native/network/browser",
+  "syntax": "rootASTPython/nodechecksyntaxonly, no critic execution",
+  "jobs": "critic collected; noownedcompute; Vite1023/5173retained483637; savedACTIVEtenminute66261e",
+  "next": "Fresh literal serial120s supervisor/RSS+Nodeoldspace/resource/pins/error/partial/collection source and full independent/root review beforefirstdata; no preliminary trial/retry",
+  "preserved": "14scoped10broad/fullAAA/accepted/default/original/frozen/unrelated/closedroutes; currenthumanresume; newercheckin/pausewins; nopushpublishpurchaseinstallotherprojects",
+  "checkpoint_correction": {
+    "recorded_utc": "2026-10-05T23:03:04.149882+00:00",
+    "cause": "The first freeze selector tested only /node_modules/ and missed relative node_modules paths in the dependency table; currentownedleaf retained those installed source bytes too. Prior metadata claimed pinned-only and was inaccurate. All initial snapshots and initial manifests/close are preserved exactly; no evidence deleted, imported or evaluated.",
+    "dependency_byte_snapshots": 752,
+    "initial_manifest": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/FROZEN-INPUTS.initial.json",
+      "bytes": 473975,
+      "sha256": "eaaf6acf1d38ecaf1ca0fc27b22d7dfaa91b7ce803164386a7270237fa03d84a"
+    }
+  },
+  "installed_dependency_scope": "752 installed dependency byte snapshots; direct dependency pins also remain in bindings. No full transitive source/API review, imports or evaluation.",
+  "initial_close": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/ROOT-CLOSE.initial.json",
+    "bytes": 2054,
+    "sha256": "e6479c5d1bb54110c5f1a61421dbd8888bc55e4c390da4d7429cf36652cb9a1c"
+  }
+}

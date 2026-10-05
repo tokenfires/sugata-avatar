@@ -1,0 +1,3770 @@
+{
+  "recorded_utc": "2026-10-05T22:34:12.976664+00:00",
+  "scope": "Bytepins only of installed Three source tree/loaders/version; no whole-library review or imports/evaluation",
+  "python_metadata": {
+    "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]"
+  },
+  "records": [
+    {
+      "path": "node_modules/three/src/Three.Core.js",
+      "bytes": 9859,
+      "sha256": "57a3290473ff312de7e58601151b8866268af64c9d3b466ab78fb929a71eea0e"
+    },
+    {
+      "path": "node_modules/three/src/Three.Legacy.js",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "node_modules/three/src/Three.TSL.js",
+      "bytes": 29626,
+      "sha256": "ff15590763128b06835ea951a820813efdad5f06607fee741c2b094747c3e476"
+    },
+    {
+      "path": "node_modules/three/src/Three.WebGPU.Nodes.js",
+      "bytes": 2171,
+      "sha256": "27b5ef653272ba4843cf10ee1a6060d8effa913943d1c512bbc1dc00cfcc709b"
+    },
+    {
+      "path": "node_modules/three/src/Three.WebGPU.js",
+      "bytes": 3047,
+      "sha256": "e17430590cc9d0cf2637194ff92194ea94b232dcd4ddc5c635a5f5c91b75da7f"
+    },
+    {
+      "path": "node_modules/three/src/Three.js",
+      "bytes": 561,
+      "sha256": "935f59de685cf5030b2e2052c28aa81cdb09bfb75dc8720a8a898de72d3e203d"
+    },
+    {
+      "path": "node_modules/three/src/animation/AnimationAction.js",
+      "bytes": 19867,
+      "sha256": "9d99b25c1e9d81bf45e6ee4502f934b839eabe0d7e62e850a2fad8a62bc190a3"
+    },
+    {
+      "path": "node_modules/three/src/animation/AnimationClip.js",
+      "bytes": 11396,
+      "sha256": "3a662ff441ceb5501c6d0a6a6e24542a76dbd4f10e6a21a6e66c24f1286ed2fa"
+    },
+    {
+      "path": "node_modules/three/src/animation/AnimationMixer.js",
+      "bytes": 19624,
+      "sha256": "7b05af5507aa4edfe3d6b5debcda23c8f0d9b910928debff7fc50748954d533c"
+    },
+    {
+      "path": "node_modules/three/src/animation/AnimationObjectGroup.js",
+      "bytes": 9986,
+      "sha256": "de9873adfa6624f621c4ecbd7fdb0cee9a971b65783128c703b62a8949da7522"
+    },
+    {
+      "path": "node_modules/three/src/animation/AnimationUtils.js",
+      "bytes": 12129,
+      "sha256": "cd2e6f42b7d225349902465d254a90a7a32e1866e45702c4adb4a7cd08aa2877"
+    },
+    {
+      "path": "node_modules/three/src/animation/KeyframeTrack.js",
+      "bytes": 13657,
+      "sha256": "3cddf8febcf9fd8d84283731972347a6146143a7ddb3f1372053e9d655b57b1a"
+    },
+    {
+      "path": "node_modules/three/src/animation/PropertyBinding.js",
+      "bytes": 18237,
+      "sha256": "2130038f275f69a5be6e9654a44f65f239c5cceab71af1ac8e3490721733e81a"
+    },
+    {
+      "path": "node_modules/three/src/animation/PropertyMixer.js",
+      "bytes": 8069,
+      "sha256": "c76a791999a707e39d231ead8cca86492e63f230971fa7d7970b5342b06e771b"
+    },
+    {
+      "path": "node_modules/three/src/animation/tracks/BooleanKeyframeTrack.js",
+      "bytes": 1407,
+      "sha256": "ab68a2ea9fa619f1a952010a55a1afacbae5ca6604609097eda2542cfdc53d30"
+    },
+    {
+      "path": "node_modules/three/src/animation/tracks/ColorKeyframeTrack.js",
+      "bytes": 865,
+      "sha256": "5dbd0467b36f00563cd8557fac3f02c78776ff9df88adf364c690f2a55a33161"
+    },
+    {
+      "path": "node_modules/three/src/animation/tracks/NumberKeyframeTrack.js",
+      "bytes": 873,
+      "sha256": "555b67d92cb1d99e740fdfe284c56d1831dc8be262a3483ee42481234bb24c1d"
+    },
+    {
+      "path": "node_modules/three/src/animation/tracks/QuaternionKeyframeTrack.js",
+      "bytes": 1440,
+      "sha256": "206698869823d7281f9715105359b212799a85b89f17d74db3a8f3a457ed1e00"
+    },
+    {
+      "path": "node_modules/three/src/animation/tracks/StringKeyframeTrack.js",
+      "bytes": 1401,
+      "sha256": "f7fc9f661df43557d382c2aee16267aacaf45a6a1bfbbe8e3fd60be984e0b81c"
+    },
+    {
+      "path": "node_modules/three/src/animation/tracks/VectorKeyframeTrack.js",
+      "bytes": 872,
+      "sha256": "03b361e13d11ae9fc7a4cf71622e29e44f5eb8979a8954f59be20835e3b528ff"
+    },
+    {
+      "path": "node_modules/three/src/audio/Audio.js",
+      "bytes": 15238,
+      "sha256": "f71877450dff95393dc889b373a9ad9a1dc4feb44a2acc784ed67e16f17f2793"
+    },
+    {
+      "path": "node_modules/three/src/audio/AudioAnalyser.js",
+      "bytes": 2328,
+      "sha256": "d377f52872ca52a81c7be3952b9fe61b0454019239bf2a638032aba17df05312"
+    },
+    {
+      "path": "node_modules/three/src/audio/AudioContext.js",
+      "bytes": 631,
+      "sha256": "49e14163ea6c1ef5888b153ac7f4f1e6dc70a29fa8d8700516f731cd1d558bf7"
+    },
+    {
+      "path": "node_modules/three/src/audio/AudioListener.js",
+      "bytes": 4904,
+      "sha256": "5d2026ed1b4e53cfdada64ec519f3dd5bd19e03a0c1c6ada3c8aabfaa7a9792a"
+    },
+    {
+      "path": "node_modules/three/src/audio/PositionalAudio.js",
+      "bytes": 6126,
+      "sha256": "db43e0b09f1f8b35c7303ae7af90fd858372b6e81472052f7c89f74e2c6e6fd5"
+    },
+    {
+      "path": "node_modules/three/src/cameras/ArrayCamera.js",
+      "bytes": 1205,
+      "sha256": "897eab35d639568d93e149c09682fb753ac2904ed7ab8a88cd59d8d4329dc259"
+    },
+    {
+      "path": "node_modules/three/src/cameras/Camera.js",
+      "bytes": 3459,
+      "sha256": "e64f3eea112454a52eb52fa4b567bb53853f2e9f8a562d263b55903e4464646d"
+    },
+    {
+      "path": "node_modules/three/src/cameras/CubeCamera.js",
+      "bytes": 7174,
+      "sha256": "72c9e37ef416758c23052c82c64e27fef7014b915b668e155e67ad16fee8723f"
+    },
+    {
+      "path": "node_modules/three/src/cameras/OrthographicCamera.js",
+      "bytes": 5806,
+      "sha256": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54"
+    },
+    {
+      "path": "node_modules/three/src/cameras/PerspectiveCamera.js",
+      "bytes": 10651,
+      "sha256": "1cc44938885f785649a978ecb6f57c444561381ddab24de19fc59b400009b111"
+    },
+    {
+      "path": "node_modules/three/src/cameras/StereoCamera.js",
+      "bytes": 4030,
+      "sha256": "04c11c9838a3fba99fc5e4308cea288be175d4a7db0f461bdcd97daa209da68a"
+    },
+    {
+      "path": "node_modules/three/src/constants.js",
+      "bytes": 32951,
+      "sha256": "3444ef8433dedd2d8b391bc1139b5f3c9f433ea3487473b366e624814d73d26e"
+    },
+    {
+      "path": "node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    {
+      "path": "node_modules/three/src/core/BufferGeometry.js",
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+    },
+    {
+      "path": "node_modules/three/src/core/Clock.js",
+      "bytes": 2243,
+      "sha256": "3face6f02cfaf83e89ec8d2f4ca1718eb3228dc2517cf71118e981ba9009434b"
+    },
+    {
+      "path": "node_modules/three/src/core/EventDispatcher.js",
+      "bytes": 2733,
+      "sha256": "bf032f809ea34e50cf0b63512d9c7e0ba9fd90ca8b0c81c9e5efe121bce1bd97"
+    },
+    {
+      "path": "node_modules/three/src/core/GLBufferAttribute.js",
+      "bytes": 3965,
+      "sha256": "d7d240782a9a695d2499c5ce7724bd7b2bcfc06072e5219e6883c543586da524"
+    },
+    {
+      "path": "node_modules/three/src/core/InstancedBufferAttribute.js",
+      "bytes": 1529,
+      "sha256": "930a65bd2867c30a692e41879ddf9c440a3bd13e25fde3542ad3052d6a8a4a5b"
+    },
+    {
+      "path": "node_modules/three/src/core/InstancedBufferGeometry.js",
+      "bytes": 870,
+      "sha256": "a511b56184a146a830eac7b4e3809e82b7c4d05595933bc53c2b0a1b3bedecba"
+    },
+    {
+      "path": "node_modules/three/src/core/InstancedInterleavedBuffer.js",
+      "bytes": 1493,
+      "sha256": "08b1be1eb24a1213fb06f185aa4f0b46a34f45fff956dc1116b4d8542569a560"
+    },
+    {
+      "path": "node_modules/three/src/core/InterleavedBuffer.js",
+      "bytes": 7163,
+      "sha256": "cc707c6be450a957bf326debd5554d1d65bd6f150cbff7ec38cf5de466c07fc4"
+    },
+    {
+      "path": "node_modules/three/src/core/InterleavedBufferAttribute.js",
+      "bytes": 12824,
+      "sha256": "d6dd88892b8d0064f753f0238aabc603ef016d4a8f8a45850eed883e4bb31792"
+    },
+    {
+      "path": "node_modules/three/src/core/Layers.js",
+      "bytes": 2259,
+      "sha256": "0727a1f8f987a0da6ffe91ea55cef7e8c18822dc1a69c44fc282525127b361ea"
+    },
+    {
+      "path": "node_modules/three/src/core/Object3D.js",
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    {
+      "path": "node_modules/three/src/core/Raycaster.js",
+      "bytes": 8169,
+      "sha256": "6e473179b1b146e9e2fb7aed9025a3db162484077b82cef051d5e744ee7c2f8f"
+    },
+    {
+      "path": "node_modules/three/src/core/RenderTarget.js",
+      "bytes": 11171,
+      "sha256": "4d40b09380a7fe9148f2949dbec9d1ab5cfc6270e22c96ff5f2f6e8c3d22a8fc"
+    },
+    {
+      "path": "node_modules/three/src/core/RenderTarget3D.js",
+      "bytes": 1101,
+      "sha256": "91e2eef11b116c639ce8e248975acefa0f614f76a5c91f2e6f8155d2797b01f9"
+    },
+    {
+      "path": "node_modules/three/src/core/Timer.js",
+      "bytes": 4022,
+      "sha256": "a50dcc31e34476bd5d7fed92efce26afe7141ffc038fe301ee88eb3e5dc43a53"
+    },
+    {
+      "path": "node_modules/three/src/core/Uniform.js",
+      "bytes": 976,
+      "sha256": "06a921ad1cf3a42aed1b43882d78f4c149694bdb401967104a0566b05dfca5ea"
+    },
+    {
+      "path": "node_modules/three/src/core/UniformsGroup.js",
+      "bytes": 3650,
+      "sha256": "de6927f16736fd2bfb62894470468ebdea53fdc6f7805cc8654869c1eabcad43"
+    },
+    {
+      "path": "node_modules/three/src/extras/Controls.js",
+      "bytes": 2721,
+      "sha256": "8cfc4e837b99a3edd5a939861dadbdc15dc2688690a79818f4e1a02561a6277d"
+    },
+    {
+      "path": "node_modules/three/src/extras/DataUtils.js",
+      "bytes": 4553,
+      "sha256": "c13af55f853b7882c7435d06b9c66333e9d68b42b22f6c257a060d6248052d6b"
+    },
+    {
+      "path": "node_modules/three/src/extras/Earcut.js",
+      "bytes": 850,
+      "sha256": "16c3d0751246cb455d09429a3aa3efb0294564f340a8f525f1638f57d0fdbb13"
+    },
+    {
+      "path": "node_modules/three/src/extras/ImageUtils.js",
+      "bytes": 2850,
+      "sha256": "864c388a71ff12221dbb7f88fdbfe44a49bd83597419cf8c26d5268a50fb23ad"
+    },
+    {
+      "path": "node_modules/three/src/extras/PMREMGenerator.js",
+      "bytes": 30684,
+      "sha256": "9ca266e7d718cd3c7b22f4b77950b7442d5f95376aab4bb5e04f1cd331f8d83d"
+    },
+    {
+      "path": "node_modules/three/src/extras/ShapeUtils.js",
+      "bytes": 2312,
+      "sha256": "35906703cbb1c4162f5e2b4bb22bda9c8a9ed8ed43306bf9a71b15c4bcab00fe"
+    },
+    {
+      "path": "node_modules/three/src/extras/TextureUtils.js",
+      "bytes": 10486,
+      "sha256": "db0b359003d59cee86574c7df5238438083364cdf6cc8c94c6f4f6a16ff0cbd6"
+    },
+    {
+      "path": "node_modules/three/src/extras/core/Curve.js",
+      "bytes": 12394,
+      "sha256": "e15b70663608e578e693813d88e46d1da9e4103b56b457334f6858613690bda2"
+    },
+    {
+      "path": "node_modules/three/src/extras/core/CurvePath.js",
+      "bytes": 5728,
+      "sha256": "a7bcb163455bb44c77a93fa3c86f7bf1af04ff777e3dfe2ec42d02696d7fcce1"
+    },
+    {
+      "path": "node_modules/three/src/extras/core/Interpolations.js",
+      "bytes": 2417,
+      "sha256": "98f55e0ae77b69cb122124acc5adbcd53e0fc0b8009632022acddc3b404a828b"
+    },
+    {
+      "path": "node_modules/three/src/extras/core/Path.js",
+      "bytes": 9306,
+      "sha256": "8c3d9ddbddfed2cac8499efa345a7d63c7192615de621f7d107ce7fc5cf52693"
+    },
+    {
+      "path": "node_modules/three/src/extras/core/Shape.js",
+      "bytes": 3257,
+      "sha256": "998b7747f2c4bcbeec74ca8efb9227eb7ae8aa9028345a8b475334c80135fb73"
+    },
+    {
+      "path": "node_modules/three/src/extras/core/ShapePath.js",
+      "bytes": 9471,
+      "sha256": "c04bd651c4af33246242a7313949b9182b5a1956c87f81064c2dc21abcfceef4"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/ArcCurve.js",
+      "bytes": 1064,
+      "sha256": "250f67e8af9be652074dc50f7b93c1adeafc9b356567848f863a5608f219662c"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/CatmullRomCurve3.js",
+      "bytes": 7372,
+      "sha256": "768ef1d2e91fbf024bfe5d97ddeadc7c41764689a3e7a775340824d05b1c9281"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/CubicBezierCurve.js",
+      "bytes": 2830,
+      "sha256": "84bc4ed1ed087f671269259454440c2a143931b517b589d3ccda81469c917658"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/CubicBezierCurve3.js",
+      "bytes": 2373,
+      "sha256": "6d9d54a65e0d7d2050e1cb9c469e90b76abd721ddd3d7778f990ce51beb2284d"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/Curves.js",
+      "bytes": 540,
+      "sha256": "506c35f73bba72b6ebcb26189967fdff73b2202a96156ce0a1db4efe7d036e5c"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/EllipseCurve.js",
+      "bytes": 5540,
+      "sha256": "12b415fb8126097f037a5ca0238c82f9cdbd45eb2abed2e5cb1cbbcce814f37a"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/LineCurve.js",
+      "bytes": 2064,
+      "sha256": "2eb1f869556f2c78c0ab394dbfafe69995bcb24501d88c10556963c1b84c722a"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/LineCurve3.js",
+      "bytes": 2068,
+      "sha256": "8619575f09e94287d68597190617abb2f701eaf4ced5a75c8529b5a4c51b2f3c"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/QuadraticBezierCurve.js",
+      "bytes": 2546,
+      "sha256": "bd4ef6068773e492c7618afd2e0decd38a61aac4acc9e2fe3896b33337475fa8"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/QuadraticBezierCurve3.js",
+      "bytes": 2117,
+      "sha256": "6e5832266f6268580df604eb984f68e606cff0d4087799e86c31ecd0f7eed2c9"
+    },
+    {
+      "path": "node_modules/three/src/extras/curves/SplineCurve.js",
+      "bytes": 2963,
+      "sha256": "312bd4b787d69f32ce742e019cffb35af4e977f4049da9688c30c40dd20190de"
+    },
+    {
+      "path": "node_modules/three/src/extras/lib/earcut.js",
+      "bytes": 21364,
+      "sha256": "1e1d25448661b04a034155fba7df43662a8f039e3ec33b1f7a1c16283d688d5a"
+    },
+    {
+      "path": "node_modules/three/src/geometries/BoxGeometry.js",
+      "bytes": 5933,
+      "sha256": "9b3799b446b031e55ac60795859f3f941cb8bd32579ea43d29f32d98cd661d7c"
+    },
+    {
+      "path": "node_modules/three/src/geometries/CapsuleGeometry.js",
+      "bytes": 5763,
+      "sha256": "ec15a52b030e91457641882bd95d236714dd564aff185cc78995c910fbb5a8a9"
+    },
+    {
+      "path": "node_modules/three/src/geometries/CircleGeometry.js",
+      "bytes": 3522,
+      "sha256": "8edbd82ac884294689e8e3fd2d7b2981ba1d683cae2e4ac8e51da00304453e36"
+    },
+    {
+      "path": "node_modules/three/src/geometries/ConeGeometry.js",
+      "bytes": 2296,
+      "sha256": "7a7bc9c8ffb715d9c9ffc547bded0ab590dd5aa581cc1dbe135cc0424f6febcc"
+    },
+    {
+      "path": "node_modules/three/src/geometries/CylinderGeometry.js",
+      "bytes": 7603,
+      "sha256": "ec4aaa60e490afaf76c6ee6e2c11a373f647381eb737d1d6f095f4cbb0c063ff"
+    },
+    {
+      "path": "node_modules/three/src/geometries/DodecahedronGeometry.js",
+      "bytes": 2418,
+      "sha256": "524d37a936890ad9bbd8de858f62ff8f288ff0ab75dc119d50d0701b3f98823c"
+    },
+    {
+      "path": "node_modules/three/src/geometries/EdgesGeometry.js",
+      "bytes": 4957,
+      "sha256": "36ff16fb1b0b0541b2f34503fd6ff72816e6b3768c559ec770b208965dc97ba5"
+    },
+    {
+      "path": "node_modules/three/src/geometries/ExtrudeGeometry.js",
+      "bytes": 21582,
+      "sha256": "e9b7550aacea7dd6a68cf5dbd52975dfdb2fd5badddeabb4c8ddaa855681f723"
+    },
+    {
+      "path": "node_modules/three/src/geometries/Geometries.js",
+      "bytes": 797,
+      "sha256": "e89a1b90600c34f039283f98174d026f4b1f8e10ee1be8405f2fb3e6b0a64a5c"
+    },
+    {
+      "path": "node_modules/three/src/geometries/IcosahedronGeometry.js",
+      "bytes": 1955,
+      "sha256": "43d6dc2837507722d2a5ab0a6865ddd4c3bb2fdad9ebf90056556a46bd795ef9"
+    },
+    {
+      "path": "node_modules/three/src/geometries/LatheGeometry.js",
+      "bytes": 5388,
+      "sha256": "61450b2a2894a634e4d15d41dc6c0be169a9ae94b184e77c4028f679e7a70ddf"
+    },
+    {
+      "path": "node_modules/three/src/geometries/OctahedronGeometry.js",
+      "bytes": 1691,
+      "sha256": "30730533c4f0cfe5def833a454e23a45c26ce0720252fd7a6dd26fa2839c2988"
+    },
+    {
+      "path": "node_modules/three/src/geometries/PlaneGeometry.js",
+      "bytes": 3142,
+      "sha256": "1e04283cdf4336000dc4c7244794929eabe583057a5bb3f970467b3338f3db7e"
+    },
+    {
+      "path": "node_modules/three/src/geometries/PolyhedronGeometry.js",
+      "bytes": 7514,
+      "sha256": "f421a0a8c3912a9184e5fc178983cdf523baef2851a52ee708d98a4beed6ec11"
+    },
+    {
+      "path": "node_modules/three/src/geometries/RingGeometry.js",
+      "bytes": 4123,
+      "sha256": "5681dc191f015a69e5f3d5c7038ebd9999c560141f11b27984a4a6aef9bf7602"
+    },
+    {
+      "path": "node_modules/three/src/geometries/ShapeGeometry.js",
+      "bytes": 4882,
+      "sha256": "0714706c29c23481a735f5d5385440559e305ff4e91a935df52e334818b495c2"
+    },
+    {
+      "path": "node_modules/three/src/geometries/SphereGeometry.js",
+      "bytes": 4551,
+      "sha256": "3a824a3cb7bbc16516b8ed5a40a6815857e5d6a3c9406d445e34175179bf9081"
+    },
+    {
+      "path": "node_modules/three/src/geometries/TetrahedronGeometry.js",
+      "bytes": 1649,
+      "sha256": "b006bea749e5fee850678e9a931b881cad501efea997373ff9a115b93b32b182"
+    },
+    {
+      "path": "node_modules/three/src/geometries/TorusGeometry.js",
+      "bytes": 4138,
+      "sha256": "a2d615ec5749f06c8abef0b4de310aee50b5c741850961394b69d7bb45a0c153"
+    },
+    {
+      "path": "node_modules/three/src/geometries/TorusKnotGeometry.js",
+      "bytes": 5767,
+      "sha256": "775c6c72fa98302716d5696b5a240859d9036ff91c5a9efce27454bd1a2733c3"
+    },
+    {
+      "path": "node_modules/three/src/geometries/TubeGeometry.js",
+      "bytes": 5931,
+      "sha256": "8b63d228b7589a1397d961c76a13e72e047d5a4e0f74fe81e123374654f9f072"
+    },
+    {
+      "path": "node_modules/three/src/geometries/WireframeGeometry.js",
+      "bytes": 3836,
+      "sha256": "d03f328d637c015870a19ecd7c9a6de939ec8199b88e829915948a3089e08927"
+    },
+    {
+      "path": "node_modules/three/src/helpers/ArrowHelper.js",
+      "bytes": 4437,
+      "sha256": "0add7caca3e55246e3602e053cba57308c4d0a34adee49110cdab191cfff1711"
+    },
+    {
+      "path": "node_modules/three/src/helpers/AxesHelper.js",
+      "bytes": 2341,
+      "sha256": "9de29c092daeeacccdbb212da64f4b69310a6738fa7b4ddda1687470b1feb042"
+    },
+    {
+      "path": "node_modules/three/src/helpers/Box3Helper.js",
+      "bytes": 1989,
+      "sha256": "99445d60b56a02ae2ea1cad1d9015fdecd2ee28bc626ed17129849709cab6970"
+    },
+    {
+      "path": "node_modules/three/src/helpers/BoxHelper.js",
+      "bytes": 3767,
+      "sha256": "5baad1e7e49b4319bec4f5aeca8ce10c41f8d5b2e6a4fd7cd9dca72496df72ac"
+    },
+    {
+      "path": "node_modules/three/src/helpers/CameraHelper.js",
+      "bytes": 10386,
+      "sha256": "f5c93250af94de668306fe56d24758865b5d86faead0afdf28e7b34559f87627"
+    },
+    {
+      "path": "node_modules/three/src/helpers/DirectionalLightHelper.js",
+      "bytes": 3866,
+      "sha256": "bcabe79b360b444ff120abd2bfcd404d597acfa4da0307c1d8cb0d3a54d703bd"
+    },
+    {
+      "path": "node_modules/three/src/helpers/GridHelper.js",
+      "bytes": 2263,
+      "sha256": "d1a12ede88fe4429a686126d0392ef013a94f625eadfd98098966098c68cfb47"
+    },
+    {
+      "path": "node_modules/three/src/helpers/HemisphereLightHelper.js",
+      "bytes": 3373,
+      "sha256": "373f9bb290e25db8dbbdb46e536d08c39d2a1a907adde932722890eed8ceef31"
+    },
+    {
+      "path": "node_modules/three/src/helpers/PlaneHelper.js",
+      "bytes": 2507,
+      "sha256": "209aad78eecfb060a4f00fdf85aefe42b5f8f764b5f209bb5098c989ab8d2cf7"
+    },
+    {
+      "path": "node_modules/three/src/helpers/PointLightHelper.js",
+      "bytes": 2420,
+      "sha256": "27474c180ceeefde56c308e7c5aa64883325f04b3c6e63f450fd821a08f15a09"
+    },
+    {
+      "path": "node_modules/three/src/helpers/PolarGridHelper.js",
+      "bytes": 3267,
+      "sha256": "d1b37bc34c73af5db271c6433c033017167cd69a3012e63a3c5729f9d2643563"
+    },
+    {
+      "path": "node_modules/three/src/helpers/SkeletonHelper.js",
+      "bytes": 4324,
+      "sha256": "c65121239e90157fe2b7a191032c51237f21efca274837cf15489308050da9f7"
+    },
+    {
+      "path": "node_modules/three/src/helpers/SpotLightHelper.js",
+      "bytes": 3576,
+      "sha256": "125569f8549de5ce88e101c5ccb44591fdc1d8599326ca4816e7799c7472996e"
+    },
+    {
+      "path": "node_modules/three/src/lights/AmbientLight.js",
+      "bytes": 828,
+      "sha256": "38bf70b78fecb527e9bb63073d6123f5748810d0b0f06eb84e5c8f8b0f3e9633"
+    },
+    {
+      "path": "node_modules/three/src/lights/DirectionalLight.js",
+      "bytes": 2837,
+      "sha256": "142b2d35911bb8c52d6465b4841729cc4616166e4486c61b4959281454af2644"
+    },
+    {
+      "path": "node_modules/three/src/lights/DirectionalLightShadow.js",
+      "bytes": 609,
+      "sha256": "f0afb02a77b310d2bc938789c870dbf3c3b3427903f059b194a2c005c6c5c8df"
+    },
+    {
+      "path": "node_modules/three/src/lights/HemisphereLight.js",
+      "bytes": 1515,
+      "sha256": "801fc56baaee3a0c60993cf601ae94298e23aacfb058384e3c1daea48330467c"
+    },
+    {
+      "path": "node_modules/three/src/lights/Light.js",
+      "bytes": 1449,
+      "sha256": "3c06d07fb1ff6bb3e6a78a03ac8301afb2f0f488b420c44e6e89756d9a91b44b"
+    },
+    {
+      "path": "node_modules/three/src/lights/LightProbe.js",
+      "bytes": 1942,
+      "sha256": "5770fc47c9e3160ae558c93ab4d50aff9d220b6b8a293de5bb450665cd8dbf20"
+    },
+    {
+      "path": "node_modules/three/src/lights/LightShadow.js",
+      "bytes": 8268,
+      "sha256": "d4d3faaaae0ad570174674d125f863ad8a1695ee4a1c548fdb891f0c66c1dde4"
+    },
+    {
+      "path": "node_modules/three/src/lights/PointLight.js",
+      "bytes": 3047,
+      "sha256": "1ad93ac773bd881f30d923624e663b237c1209d29aa14e9bc7ae5ea81ab4365f"
+    },
+    {
+      "path": "node_modules/three/src/lights/PointLightShadow.js",
+      "bytes": 567,
+      "sha256": "ce69df14975daa360e54e4cabcaaa0bbaca90c1e3a3813a66fdf7ff451545413"
+    },
+    {
+      "path": "node_modules/three/src/lights/RectAreaLight.js",
+      "bytes": 2612,
+      "sha256": "3d602afb9af5a0d62cc94d2c6df050de1778711efa9312566006e14fa0029d11"
+    },
+    {
+      "path": "node_modules/three/src/lights/SpotLight.js",
+      "bytes": 5014,
+      "sha256": "8f1af695946fd14f3f9b0e93778549fb0859a1011ca12a04a6039b6b851681e8"
+    },
+    {
+      "path": "node_modules/three/src/lights/SpotLightShadow.js",
+      "bytes": 1494,
+      "sha256": "5a983974745d905559102e7a97669d316bf2e31516e952fae2a6103d7a09b074"
+    },
+    {
+      "path": "node_modules/three/src/lights/webgpu/IESSpotLight.js",
+      "bytes": 1374,
+      "sha256": "549b0a77feb11def74dc89b6255a803866c37d29c52a22e87a9caf09d121c260"
+    },
+    {
+      "path": "node_modules/three/src/lights/webgpu/ProjectorLight.js",
+      "bytes": 1312,
+      "sha256": "48ebfe3fa4a3d8a45070438e8f9b28e93bcb82632f547cc918a834e36bde528f"
+    },
+    {
+      "path": "node_modules/three/src/loaders/AnimationLoader.js",
+      "bytes": 2175,
+      "sha256": "865f87877fdd27be168b2487dca81ace9762cba3535ae5937cca81cf6376d8c0"
+    },
+    {
+      "path": "node_modules/three/src/loaders/AudioLoader.js",
+      "bytes": 2499,
+      "sha256": "300171a5ca3d7fa46665db294cd0839748df2a8d1346613def613b3f640c8a6f"
+    },
+    {
+      "path": "node_modules/three/src/loaders/BufferGeometryLoader.js",
+      "bytes": 6380,
+      "sha256": "22ba3f93bfdcd6f56772a64b3ae791af2ab79863cc4e0345917cfeada535fb7e"
+    },
+    {
+      "path": "node_modules/three/src/loaders/Cache.js",
+      "bytes": 2194,
+      "sha256": "e07792536bda2efe6ba985ff8b0fd4c33635bfebc283fece85125218d66fa653"
+    },
+    {
+      "path": "node_modules/three/src/loaders/CompressedTextureLoader.js",
+      "bytes": 4266,
+      "sha256": "5e6eee29b3cc41e07528384a87f66d13cba8ddd2b1623a748b2aa29cc6bafad2"
+    },
+    {
+      "path": "node_modules/three/src/loaders/CubeTextureLoader.js",
+      "bytes": 3066,
+      "sha256": "88a54cdda320d8422f4e580331421e4530e1f9d0eebc48405fbe9b31826a47c9"
+    },
+    {
+      "path": "node_modules/three/src/loaders/DataTextureLoader.js",
+      "bytes": 5512,
+      "sha256": "5cef1fe7003d77d96753f91a7500775b1abfbe157d795f7fa785bf423bfadd37"
+    },
+    {
+      "path": "node_modules/three/src/loaders/FileLoader.js",
+      "bytes": 7851,
+      "sha256": "e3f730f2fdefdd4e9285883fb2eb7ca40e13d58ea96e969a669d3eaacd7d0c03"
+    },
+    {
+      "path": "node_modules/three/src/loaders/ImageBitmapLoader.js",
+      "bytes": 5603,
+      "sha256": "e549af8e615e28094d89d9a262802eb8f662bf314567d8d8c76204695238e351"
+    },
+    {
+      "path": "node_modules/three/src/loaders/ImageLoader.js",
+      "bytes": 3548,
+      "sha256": "0507db81b6214afd32f4c781e08acd88005ab4988f93de583f34ded571f1fbcc"
+    },
+    {
+      "path": "node_modules/three/src/loaders/Loader.js",
+      "bytes": 5151,
+      "sha256": "951f06ea3126819c2ccceea3db3fbeaaaf8159fde3edfd4a6119a4d59e5b7abc"
+    },
+    {
+      "path": "node_modules/three/src/loaders/LoaderUtils.js",
+      "bytes": 1286,
+      "sha256": "c5917991bc2f17edae2034996cac2d960f0288859cf1d173c049064cdac90311"
+    },
+    {
+      "path": "node_modules/three/src/loaders/LoadingManager.js",
+      "bytes": 7519,
+      "sha256": "c75cacaad679ab05760924951c675619b381111d5272da21e974742536938282"
+    },
+    {
+      "path": "node_modules/three/src/loaders/MaterialLoader.js",
+      "bytes": 4486,
+      "sha256": "73c8f218cb6bcf78710d3cbe53a9eb118425aa1fe18ffd936e82e66660e9b2aa"
+    },
+    {
+      "path": "node_modules/three/src/loaders/ObjectLoader.js",
+      "bytes": 31332,
+      "sha256": "d134c51b8d98794b9d59ea45a20796e84238baf9a115b6159ef3316484de70c4"
+    },
+    {
+      "path": "node_modules/three/src/loaders/TextureLoader.js",
+      "bytes": 2060,
+      "sha256": "e774b09c9bb463e3eac3b35b69d26c733205a27372e2549a604494fec4b9075f"
+    },
+    {
+      "path": "node_modules/three/src/loaders/nodes/NodeLoader.js",
+      "bytes": 3858,
+      "sha256": "325cd367058951ae974ea7cee04f58865628572824542773c02f1224fe4789d9"
+    },
+    {
+      "path": "node_modules/three/src/loaders/nodes/NodeMaterialLoader.js",
+      "bytes": 2138,
+      "sha256": "5818ed577636c3b22dbd2a456a4557c3d1e3ae030c043a32cfc49ea700e7b19e"
+    },
+    {
+      "path": "node_modules/three/src/loaders/nodes/NodeObjectLoader.js",
+      "bytes": 3526,
+      "sha256": "2863bb9951150defab4b70439af4fc0eef4d31119a9daf327e794616c67359b4"
+    },
+    {
+      "path": "node_modules/three/src/materials/LineBasicMaterial.js",
+      "bytes": 2583,
+      "sha256": "fbc541d620fa64943ca967e58ac918e4543472890521db09889bcfe8caa1942b"
+    },
+    {
+      "path": "node_modules/three/src/materials/LineDashedMaterial.js",
+      "bytes": 1595,
+      "sha256": "1c90afe9b1b1bf82eb9cecd0a43672f5bb11c275e36ecec9b6f7cbd5ab52afa3"
+    },
+    {
+      "path": "node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "node_modules/three/src/materials/Materials.js",
+      "bytes": 1428,
+      "sha256": "c6593291701abd43f3c247ed307d01d1d7ca0a5d9a11f51378ac90bcdbf9deef"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshBasicMaterial.js",
+      "bytes": 7031,
+      "sha256": "79e238375aa086b602e322a71dced8a6b0cbac37074a465da3c4b57d26c85286"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshDepthMaterial.js",
+      "bytes": 4352,
+      "sha256": "30faf8368568b703e4b1db209d49c66b196891109628bcbfe4cef49f0ff4c7d9"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshDistanceMaterial.js",
+      "bytes": 3808,
+      "sha256": "abcc7aa841dfd18b243099cacebcba1c2ddfbf93f5b0edbbc1aca7f707303159"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshLambertMaterial.js",
+      "bytes": 12445,
+      "sha256": "8eaeb090f586a1568397e61394a5c716d70951d8a978b3e7c4af178ef27b74cb"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshMatcapMaterial.js",
+      "bytes": 7519,
+      "sha256": "27d2eeb7fbad0b272000ed9f3bb30b79c6b9f25e89b670b8ecde9ac737f6ab14"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshNormalMaterial.js",
+      "bytes": 4927,
+      "sha256": "65b2985b1e81eec81439005e10fe112b76e7298642d1c229eaa9d72403951e4d"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshPhongMaterial.js",
+      "bytes": 12940,
+      "sha256": "3aae05eda8b6e9436b441b6459093c4cb48db9f1cdf733b01ec3ab0380bd20f3"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshPhysicalMaterial.js",
+      "bytes": 15088,
+      "sha256": "34c5353800285dc83d1eec22af545db3ff2f861dc73aac4d53429c7f1f6ae19a"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshStandardMaterial.js",
+      "bytes": 13835,
+      "sha256": "c1dc5c36d5360498cccae2513dae74349de62a48a9ed19b540cf3d7905a03a1f"
+    },
+    {
+      "path": "node_modules/three/src/materials/MeshToonMaterial.js",
+      "bytes": 9742,
+      "sha256": "9073be856c2c0355b3b2e5f56f39f57ccf1f91d311a19a1d756484bde10f95a0"
+    },
+    {
+      "path": "node_modules/three/src/materials/PointsMaterial.js",
+      "bytes": 3740,
+      "sha256": "de0c800fb60cfe809aa24a56cf444c5bdfdc160a6e6265176b7257b82cd8204b"
+    },
+    {
+      "path": "node_modules/three/src/materials/RawShaderMaterial.js",
+      "bytes": 1031,
+      "sha256": "b56b8d5d650541460354e86001a8c2737912bd03280ad5ebe92d92c8a6d06bde"
+    },
+    {
+      "path": "node_modules/three/src/materials/ShaderMaterial.js",
+      "bytes": 12619,
+      "sha256": "86daa7b59e29660d2caf219a2e58edeb9da0cb81bc6ca0b6dfbd39bf77c202c0"
+    },
+    {
+      "path": "node_modules/three/src/materials/ShadowMaterial.js",
+      "bytes": 1758,
+      "sha256": "9de4022504a8da0934569c8d125e00d6309892af78d3c485dac0c02e909efc40"
+    },
+    {
+      "path": "node_modules/three/src/materials/SpriteMaterial.js",
+      "bytes": 3349,
+      "sha256": "4b977c1bb6225d9747ae8c35f317ea9d8bb65d7e712294fdd35f82a587f2a05e"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/Line2NodeMaterial.js",
+      "bytes": 16648,
+      "sha256": "9fefdb289e601e96b06a22d3063e40e95454693017b285aa112fec09c1da93e6"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/LineBasicNodeMaterial.js",
+      "bytes": 823,
+      "sha256": "a4e42b7314b8eb102463928793bc2f64bba883c02faabffe2c563b90521a3ce2"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/LineDashedNodeMaterial.js",
+      "bytes": 3786,
+      "sha256": "4719f9870ba3597093ac9c4e51b00c8627da2725879c9fc7f548b2acf2da820b"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshBasicNodeMaterial.js",
+      "bytes": 3136,
+      "sha256": "21b0bf4a56ba8901dd2bd5d5fa09e0d32ab38608d71386d3042efecbe4a18cff"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshLambertNodeMaterial.js",
+      "bytes": 1779,
+      "sha256": "9c73fda2f2129581b7f3198f60ebe4c7919e64b36cd9ae0d5366a9571bed8263"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshMatcapNodeMaterial.js",
+      "bytes": 1617,
+      "sha256": "c4e193b353b5ddd0282360498aa4185073891015da687e1b041cbe1bd8aea828"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshNormalNodeMaterial.js",
+      "bytes": 1732,
+      "sha256": "110ae971d8fc671a4460cd30619270ae59fea7780904fe12067f2385d87bca6b"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshPhongNodeMaterial.js",
+      "bytes": 3274,
+      "sha256": "e6ebd4dc69635ab4ed8ec2a3d4db21b900871e0b96d19b39985e00ecfa1e98f5"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshPhysicalNodeMaterial.js",
+      "bytes": 15599,
+      "sha256": "501eef8b78bc5bf44a392bb9662ecacb8f78434d6a215e6725d8ca1054af709a"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshSSSNodeMaterial.js",
+      "bytes": 4564,
+      "sha256": "2814295872e5a44bd6137d9927ad8a70ab0b716723b9f7f45aaaa9a21e7a2ac9"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshStandardNodeMaterial.js",
+      "bytes": 4641,
+      "sha256": "98030c8814d5344a10f8d890c5be57dec396080d183cc44aa96d094d9671be35"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/MeshToonNodeMaterial.js",
+      "bytes": 1203,
+      "sha256": "7b5be02f0ff22fde873b55ef722a3a6cccfa3cb777e6fd730bef032d43beb3a7"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/NodeMaterial.js",
+      "bytes": 33182,
+      "sha256": "dbef1e6d16b4291afd41e98d06e865f912ea317de3b3298ff0fc057aa3ce24c6"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/NodeMaterials.js",
+      "bytes": 1546,
+      "sha256": "1eec1d9415926e2f238213b77da5b314943fa7eb5fbc186bde0b864285d8a0e0"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/PointsNodeMaterial.js",
+      "bytes": 4647,
+      "sha256": "ab656b4aa057da8c0d7e449ebf678e896889ffa935d09af95ba0acaf252de3f0"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/ShadowNodeMaterial.js",
+      "bytes": 1361,
+      "sha256": "8f60ea3960c1bb7fd4976c543edbba48d65aaba71bf123fc00df5fbeb66dbeb6"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/SpriteNodeMaterial.js",
+      "bytes": 4444,
+      "sha256": "7610cf839f76239d6db7db3d146322cf71a79c62a4f6d4d624a0496dc62edd13"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/VolumeNodeMaterial.js",
+      "bytes": 1426,
+      "sha256": "b53fa2ab764feefa95b90be3f3726a2b09b084a950b8c15de4b135f2347d87af"
+    },
+    {
+      "path": "node_modules/three/src/materials/nodes/manager/NodeMaterialObserver.js",
+      "bytes": 16170,
+      "sha256": "f51b62f1436ee81be0f146002c22014c428b8f5b2eb69513061377af7d3e4fb2"
+    },
+    {
+      "path": "node_modules/three/src/math/Box2.js",
+      "bytes": 9518,
+      "sha256": "baaf24e705da19647786513503d796103a4f0094467f4544c2df0bcec46e5cd0"
+    },
+    {
+      "path": "node_modules/three/src/math/Box3.js",
+      "bytes": 21469,
+      "sha256": "382b33a3b235b3f5a37a8949d8f8a9efdf056c62ce5ed79692b54944a80487e1"
+    },
+    {
+      "path": "node_modules/three/src/math/Color.js",
+      "bytes": 25857,
+      "sha256": "cec06093018d8a4e9aad19a3a6825ceb1a76995fb7f3b8c21eff7ffea78f44f7"
+    },
+    {
+      "path": "node_modules/three/src/math/ColorManagement.js",
+      "bytes": 5639,
+      "sha256": "0c8ff5b0a220e736ceb68bb845ff30605b3c7850ebd8f37ff242907295fab949"
+    },
+    {
+      "path": "node_modules/three/src/math/Cylindrical.js",
+      "bytes": 2601,
+      "sha256": "d9f3ce4b08817687c17651717637f1d54c45f30d2619d8e0761f9fae1a8aab88"
+    },
+    {
+      "path": "node_modules/three/src/math/Euler.js",
+      "bytes": 9275,
+      "sha256": "33a964a95f6c87ccc65e5d049810f9133e0f1a574777a37a724c7c03b4adba22"
+    },
+    {
+      "path": "node_modules/three/src/math/Frustum.js",
+      "bytes": 7615,
+      "sha256": "2332e8d732aace16957af57f82733969416827a4cfad8d5bea338fee9f082077"
+    },
+    {
+      "path": "node_modules/three/src/math/FrustumArray.js",
+      "bytes": 5273,
+      "sha256": "965da8c98b18829a4ecb2ed4aca6ebfdd149e909ff05c83b5e0ec6ffff804284"
+    },
+    {
+      "path": "node_modules/three/src/math/Interpolant.js",
+      "bytes": 6140,
+      "sha256": "2eb2f374fd85baf1f59f84b8f786c9def614c8f60777cb7e697fadd5c3464704"
+    },
+    {
+      "path": "node_modules/three/src/math/Line3.js",
+      "bytes": 7916,
+      "sha256": "d957eb3f3ca5989e24147d5461ac07e6c5f312c25d9cae4a2303fab2b934b316"
+    },
+    {
+      "path": "node_modules/three/src/math/MathUtils.js",
+      "bytes": 21991,
+      "sha256": "e329b0574b9b1ed34c169c11abfd3cfb3cf5ea61b062e17a72d400a8515b1f16"
+    },
+    {
+      "path": "node_modules/three/src/math/Matrix2.js",
+      "bytes": 2962,
+      "sha256": "3b833e92a5b775d7cace652717e13fc4cee7854a34e31442814ecc809031b618"
+    },
+    {
+      "path": "node_modules/three/src/math/Matrix3.js",
+      "bytes": 14250,
+      "sha256": "cb9e8810e0d2d3005098aad5f3b4837f65e9c3685776cabea6f4d953ab4f0e98"
+    },
+    {
+      "path": "node_modules/three/src/math/Matrix4.js",
+      "bytes": 34258,
+      "sha256": "11d813da5b4a03de3e75dcb9780657a9cc276f682c30aa876c461d6429dcf39c"
+    },
+    {
+      "path": "node_modules/three/src/math/Plane.js",
+      "bytes": 9295,
+      "sha256": "050306c827986b8befabdf72bf5b7c1d960ac822e1978db901f64fb75416c1b9"
+    },
+    {
+      "path": "node_modules/three/src/math/Quaternion.js",
+      "bytes": 20970,
+      "sha256": "27de8858ac6ec90f0b830c8e1bc5c2c6d8f1328a9b9903fd73b24e0d25389d29"
+    },
+    {
+      "path": "node_modules/three/src/math/Ray.js",
+      "bytes": 15906,
+      "sha256": "602318aea40bf007a542fb6562d12d21a41d2e4cbb0aec5b86edd757e32ddd69"
+    },
+    {
+      "path": "node_modules/three/src/math/Sphere.js",
+      "bytes": 8846,
+      "sha256": "b242e17b2d5aa4d519c42122143c9587b3aff8df629d3a8ad6dcef1b66030ac2"
+    },
+    {
+      "path": "node_modules/three/src/math/Spherical.js",
+      "bytes": 3095,
+      "sha256": "71ccc04f9f78ef85a503bc58f05ce0bc042c75c206be50cdb7d8b70988c07f14"
+    },
+    {
+      "path": "node_modules/three/src/math/SphericalHarmonics3.js",
+      "bytes": 7921,
+      "sha256": "d5c5e747bdcabbd599115a711427dad497ded3d3acf788a240aa3032f9bebc0b"
+    },
+    {
+      "path": "node_modules/three/src/math/Triangle.js",
+      "bytes": 15175,
+      "sha256": "365e342b914cd5a415160868ee55dc9db5effaffa9a85a21e447938655ce7a02"
+    },
+    {
+      "path": "node_modules/three/src/math/Vector2.js",
+      "bytes": 18292,
+      "sha256": "29af0fe7fd3431d9d63e2f54251e08d08f044858ec6e14ddf44de81ed1a07858"
+    },
+    {
+      "path": "node_modules/three/src/math/Vector3.js",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    {
+      "path": "node_modules/three/src/math/Vector4.js",
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28"
+    },
+    {
+      "path": "node_modules/three/src/math/interpolants/BezierInterpolant.js",
+      "bytes": 2991,
+      "sha256": "00a594ef97f9c23ca47035583d4477099f7bda438aca369c25cdd6b9b6d1248a"
+    },
+    {
+      "path": "node_modules/three/src/math/interpolants/CubicInterpolant.js",
+      "bytes": 3315,
+      "sha256": "71bb5bda3a58436b64778158c8501f843de7980ce8f86ce5ecd7e4457d997ca3"
+    },
+    {
+      "path": "node_modules/three/src/math/interpolants/DiscreteInterpolant.js",
+      "bytes": 831,
+      "sha256": "709eaf1e453a89ce3393b97113c9c2c162f33be3a67491a49fa5ac7b81cf7a30"
+    },
+    {
+      "path": "node_modules/three/src/math/interpolants/LinearInterpolant.js",
+      "bytes": 1094,
+      "sha256": "bb7c547eb069694e795fe360fd68b4925e2427793eca7b997e4558513bad5d49"
+    },
+    {
+      "path": "node_modules/three/src/math/interpolants/QuaternionLinearInterpolant.js",
+      "bytes": 1138,
+      "sha256": "0ba036b170bf0260b0a863ba21fd3f101302bab9102583b11e6ad9d2c119d659"
+    },
+    {
+      "path": "node_modules/three/src/nodes/Nodes.js",
+      "bytes": 9739,
+      "sha256": "ba04abc779a9586a372c7ed509e35f322cfcf52704aec52419f904d14879cff3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/TSL.js",
+      "bytes": 6561,
+      "sha256": "d0c782ca4466acbc903b5a70296a577558e0bc41aca00ccea7f3a08baa28109a"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/AccessorsUtils.js",
+      "bytes": 1633,
+      "sha256": "d7c6259e6d243804def9337577165e5eca007389a883d79e20c4a62860741d80"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Arrays.js",
+      "bytes": 1912,
+      "sha256": "6eebca9e7cee82b251e8020cbc102b0d0dd997131532697ec619293140315b6c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Batch.js",
+      "bytes": 3456,
+      "sha256": "1fa1d6caa3b216fb48eced14215b42f984a9a3909476b4e9dca24f2a7219f569"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Bitangent.js",
+      "bytes": 2525,
+      "sha256": "6e18d23c4e6cc298d76882ea0e8601c7520859c5d18e10b06c4b6650a1dbdc08"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/BufferAttributeNode.js",
+      "bytes": 11709,
+      "sha256": "9f33b4fe6d83247f34155c918dd9ab6d0d35a7f6e23cff0f340aac9caec4e571"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/BufferNode.js",
+      "bytes": 2829,
+      "sha256": "7359672fdb68eb23b532ccecfe51cec056b04423bbe17ad4f8a0995a12968693"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/BuiltinNode.js",
+      "bytes": 1213,
+      "sha256": "463eb955a422cb47cbc475a1ae43cf80a9001f316e9b0cc035b1965b68a6e455"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Camera.js",
+      "bytes": 9945,
+      "sha256": "9684d34de95563b0614128466652b489fa441dbbf12a7753eb9420bc45fc831c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/ClippingNode.js",
+      "bytes": 6553,
+      "sha256": "d97bb3e88f7d4d3a7da4d9228a089b9b986ae02eb4aa5da8df44954ff0c40e2e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/CubeTextureNode.js",
+      "bytes": 5444,
+      "sha256": "b70034a29691ba2fb9c1577956013f5ae3faec9487ec1a0f160dd9ad0f2b2050"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Instance.js",
+      "bytes": 7437,
+      "sha256": "645a0c38ac315047bf5baba2e2e2ed3529f8102a4cd5397157bc92c29fca356d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Lights.js",
+      "bytes": 4043,
+      "sha256": "5e374947db782dc73667eeb743a9e83c50abea7d67000bed4bf81d10ad822889"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/MaterialNode.js",
+      "bytes": 21635,
+      "sha256": "de5734457b4231388ec4e6295a836e2240e3dec4de41828482c296333598c706"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/MaterialProperties.js",
+      "bytes": 1919,
+      "sha256": "d794149478aabeb95a9e486ac539e9783e4caf05e6eb20e1c2ed62da9a80139f"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/MaterialReferenceNode.js",
+      "bytes": 2424,
+      "sha256": "c9ea1771ddc8db6b20b95158f3dc2be8250946a9264ae956dc1b304b313848b4"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/ModelNode.js",
+      "bytes": 4791,
+      "sha256": "4e9486e564a7121ed903b44305dfb5e8f037c94147d8b621f853c65bc8fb7432"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/ModelViewProjectionNode.js",
+      "bytes": 407,
+      "sha256": "1a9e38bee43217a393ff32916cb7e7ed8b8281855d9fb9abfce5b2da58bd1f7b"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Morph.js",
+      "bytes": 8300,
+      "sha256": "7d5a2e6f20801269dbfeeb5308874d7dd78732c0728f77edbc66037b071b108d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Normal.js",
+      "bytes": 6457,
+      "sha256": "dce31d2d414a8d2a6408f091ca65d480d3e976d8998318acfe5565bb92c21069"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Object3DNode.js",
+      "bytes": 6975,
+      "sha256": "ecf6fb182c7729235194d1ad7389e661f4370bc568bbd5110f1999d62eabcdf7"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/PointUVNode.js",
+      "bytes": 973,
+      "sha256": "ddfc97be838d7811c704931cbbece2dd27d5b9fc3991b5d94feecf8b2539e20d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Position.js",
+      "bytes": 3647,
+      "sha256": "f042c04153c3a4da86fdc70843b7bc0c6d8358fa0202c4990d34bd87ec37b3db"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/ReferenceBaseNode.js",
+      "bytes": 8202,
+      "sha256": "ae773e5545b6b0ded43dad206a9ea49a4aba4d5bfa0e1685a1b9d6cb39d11588"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/ReferenceNode.js",
+      "bytes": 9610,
+      "sha256": "86813e6c5b79058f0c22cada66fa4e833a2d3bbb35e9fa1220649e2f3c06b2c2"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/ReflectVector.js",
+      "bytes": 1046,
+      "sha256": "ff142b4d222a0710767970671162eeb94076ebeb838ce2c8c5bc5b8051d26940"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/RendererReferenceNode.js",
+      "bytes": 2371,
+      "sha256": "72ea922a0620ad861f83d52a79296c004b88ed6afb04f3059c24886d9b0b00f8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/SceneProperties.js",
+      "bytes": 1416,
+      "sha256": "21fb31d29242b89bc28ff8ab72e48b4317f6a9a46dfafb720caf2b1787925cff"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Skinning.js",
+      "bytes": 9048,
+      "sha256": "ccf42177f6bf11d11e99b6224241965d67723deed43999c70bb18dc84533a67e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/StorageBufferNode.js",
+      "bytes": 8838,
+      "sha256": "434b1ffce22864f4509c786c8fac41298613cf57194bc9bad7cbe4e7e80303e1"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/StorageTexture3DNode.js",
+      "bytes": 2558,
+      "sha256": "40ba25c8eb56594cb61b0e59e25e4158be99a6257d34f27e64069b2abe9c032a"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/StorageTextureNode.js",
+      "bytes": 7740,
+      "sha256": "b8c3092d484b63b9099bb350c911ae9fe62874b2c207d814bf6afe048ee71f60"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Tangent.js",
+      "bytes": 1665,
+      "sha256": "6c2029447553a114a9d09c96cf13133fe0a970de147c2e4a392dc692b6c971e5"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/TangentUtils.js",
+      "bytes": 1365,
+      "sha256": "b0ae2d345cd1e2accf4fc691620383d1cd69480f8df06fb1505a628ebc4d7c04"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/Texture3DNode.js",
+      "bytes": 5116,
+      "sha256": "ac52e9bd9d82dd98d29b4f4394ad6cc568ad5d1abcdbef95ddc48c018943034c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/TextureBicubic.js",
+      "bytes": 3320,
+      "sha256": "86a5a0078e88adeb835f7a618310dd669757932c6e26bdf898bea9b62b28ba52"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/TextureNode.js",
+      "bytes": 25781,
+      "sha256": "0cbb3362f54fad336e84612954c444ecc05c17221c449260b40b468be7eaabb3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/TextureSizeNode.js",
+      "bytes": 1879,
+      "sha256": "a8bae911229871017064135bacf40d762dc794bf41eb769d315f79a177fab3e7"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/UV.js",
+      "bytes": 351,
+      "sha256": "ab66afd6261df9ef1a6c5ff64ab3a2381c421f3733ec372b91fb1cf5445745cc"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/UniformArrayNode.js",
+      "bytes": 7830,
+      "sha256": "ec9eb124b1806baeda8b13cc32b87f086c96e9290f28b530a7317a6136ec7a4d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/UserDataNode.js",
+      "bytes": 2330,
+      "sha256": "bf06956df06b127de3410ced8373ea7a3c31e8d6b5d8a16f9b34fcf92c5e474e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/VelocityNode.js",
+      "bytes": 5665,
+      "sha256": "e9de8e0a3e7da47d9ad37eb31de4773f502d6b2eee40c31a33cb2b904ab39e94"
+    },
+    {
+      "path": "node_modules/three/src/nodes/accessors/VertexColorNode.js",
+      "bytes": 1916,
+      "sha256": "cec5c59734dbd1af26d1416305a16233d1eba9f5915050816c5a19a667092a26"
+    },
+    {
+      "path": "node_modules/three/src/nodes/code/CodeNode.js",
+      "bytes": 3454,
+      "sha256": "f41d5efc80922e377b0d41b9fba2ec5cb35f960bde6a7885b69d760a1a3349e3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/code/ExpressionNode.js",
+      "bytes": 1317,
+      "sha256": "9b5b020540ce76714a8bb7c511061b69bc6fb7aacbe9ce7b73c1dac553492208"
+    },
+    {
+      "path": "node_modules/three/src/nodes/code/FunctionCallNode.js",
+      "bytes": 3996,
+      "sha256": "1fecfad68730386c46306304745114361ebda2aa1b42addd133077d40e776f27"
+    },
+    {
+      "path": "node_modules/three/src/nodes/code/FunctionNode.js",
+      "bytes": 3796,
+      "sha256": "1d09b73cddabedc88ccb4ead67fd29c4a9674a03785ed3a7646306ffe1b53d71"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/ArrayNode.js",
+      "bytes": 3405,
+      "sha256": "d6f18b8fbb54117136edd88e86555853fe1e86c3f42d4e872155ec01f348c0bb"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/AssignNode.js",
+      "bytes": 4412,
+      "sha256": "6293c23ad55804835d5348ac13aba67d83c11e280e85a274dbd5c63aed326086"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/AttributeNode.js",
+      "bytes": 3376,
+      "sha256": "8d3478b9d788efc4d8fa3b312a62b7b68d8303868cfd60af6ea4925b78fa744c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/BypassNode.js",
+      "bytes": 1680,
+      "sha256": "2cf1b3b6685888caa0df55334ba5391745c0601c3611ac93bc9984dc41ac1b4c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/ConstNode.js",
+      "bytes": 1387,
+      "sha256": "7cee22f84f9d4264fb086726c73da675d2885d32cf161a02272b0d24b124fcdc"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/ContextNode.js",
+      "bytes": 6298,
+      "sha256": "287cc5a3752f9d077dc2f65a63fdf8dbeaf647748f24be9ced6067922322857d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/IndexNode.js",
+      "bytes": 3976,
+      "sha256": "d04042d411947dabac48502ed03ab5fa4e944428dce880017b9d10a576a7963b"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/InputNode.js",
+      "bytes": 3071,
+      "sha256": "beb3688e4a192520e8162d1720ca5f716f98dcacb3da365e739b785e239dd220"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/InspectorNode.js",
+      "bytes": 2764,
+      "sha256": "72542465dfe8455639df13bc3ad4084452814901e23a6adea7869b3aa8bc3210"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/IsolateNode.js",
+      "bytes": 2594,
+      "sha256": "c894d2dd6012cdb2eef02a7b310e5dfc07c894cee4eb435c31a5c44d6afe8fab"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/LightingModel.js",
+      "bytes": 2030,
+      "sha256": "5e7e400b03f37c27c58969dc5789df144d0e94a539e3cd3bbf007fd6ef2f8479"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/MRTNode.js",
+      "bytes": 4240,
+      "sha256": "40c74c1e3f7575790bd0b0ee6cedfe813aefe49f289136e0840b360ca394cdc0"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/Node.js",
+      "bytes": 26195,
+      "sha256": "0720d248724842ffb5dbefc14b2ccfd26a5f7ec18136bed0a6d7ad3c93303dda"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeAttribute.js",
+      "bytes": 1109,
+      "sha256": "9b9520c1fd1cc9d684397bf7cb8f1937a868cb7ee0e9610f9522138ffe312cdb"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeBuilder.js",
+      "bytes": 78044,
+      "sha256": "9eedd8f7f71b6516d7ee1a8dd62d989732f9b0b66d5c139335b9925b66412b88"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeCache.js",
+      "bytes": 1203,
+      "sha256": "ea5bc07f1cfe6e7f523af43f0893c4d3752a88b38ab6c4662465274b93d4fbca"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeCode.js",
+      "bytes": 925,
+      "sha256": "a7589a497a1d80285e53ecef09f19a6cd5534d3edfc47934832294cf02890975"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeError.js",
+      "bytes": 439,
+      "sha256": "0f82d62ac73ed462c035692898c3f3a295cfc1a502587d89a4786440c34542aa"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeFrame.js",
+      "bytes": 6462,
+      "sha256": "50b38f505f83c8548bce8867594eb8f5a31eb2cea18690286ed6b91202e418b3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeFunction.js",
+      "bytes": 1479,
+      "sha256": "d9e8d0fc46a46dac92b8219cd345c98bf7dfa4c50566e8a51ad82a0c6eeb7d7f"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeFunctionInput.js",
+      "bytes": 1307,
+      "sha256": "8ba3091a5af1448261df36d2f8446fc1bb1e0adf712ed79f40bc0f2974ec02f8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeParser.js",
+      "bytes": 478,
+      "sha256": "889c9cf29aeb85fd7cfc038c5e7c49042a39eb27da05e2b7fcc2da6214671e51"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeUniform.js",
+      "bytes": 1417,
+      "sha256": "22c3d82fd88140351f076c415b8a2c0c42e1d7855f8c5aeb222c7990f1ebbcc3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeUtils.js",
+      "bytes": 9063,
+      "sha256": "474f395ea3e1e4de76137cc6f0f0d89f6e179bafba7cd8b50903879fba8f06f3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeVar.js",
+      "bytes": 1160,
+      "sha256": "66c8241c8667ab2aa1e4590f9c141924dd28b24bd67ff5f620e44631fad94aeb"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/NodeVarying.js",
+      "bytes": 1570,
+      "sha256": "2ecea30617b8d9f2079bd88144cdb57ee31b4f7279b3721cb34cf5fc646c0eaf"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/OutputStructNode.js",
+      "bytes": 2079,
+      "sha256": "5768f8a9cd8e804c80f8bf1f1cd4aa82d1d23c01e05b581486a211e374330428"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/OverrideContextNode.js",
+      "bytes": 4255,
+      "sha256": "0bdcb4968d4130f1d5b9032ef547804f880b665d32c009c895bc9c9cb6dde414"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/ParameterNode.js",
+      "bytes": 1770,
+      "sha256": "3b359434c7591b54b8bfd02bf3f04bd2b5e703d610bdccc58a84fb716b16dd33"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/PropertyNode.js",
+      "bytes": 10372,
+      "sha256": "447410b33ea22830af51c5a06f9eea6a73582aba7af576a895cdbac85188ab60"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/StackNode.js",
+      "bytes": 8779,
+      "sha256": "3272e10155c905310b09823f7ed07f0a89f496a07fb341b07aed6168d3812963"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/StackTrace.js",
+      "bytes": 3162,
+      "sha256": "22f647cde3beb2a9a696e2f14d8b019079ef1e373bce3a54b6d7ea54851d284a"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/StructNode.js",
+      "bytes": 2730,
+      "sha256": "c3c5e94115e13274e090b210bfb4182908cee5423af41d6cc5eeb821b325c675"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/StructType.js",
+      "bytes": 157,
+      "sha256": "2127533ec08221d3bfdc5662d070ca8f3c9731c46d1a8c7f6742699ef97cd184"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/StructTypeNode.js",
+      "bytes": 3728,
+      "sha256": "902f5fde93cb1fff0f30f601535c98e9871a74759d9a84ef1b358ca59fea8a4a"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/SubBuildNode.js",
+      "bytes": 1710,
+      "sha256": "a6c6dd8b3a4b9d2aac6cfc3fc3c2215a31032dcfedce9ade396c23d4b443fca9"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/TempNode.js",
+      "bytes": 1899,
+      "sha256": "874dbcd71605af420746d9ebd03a12dc33c60732effc007863ff82d549d24ed0"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/UniformGroupNode.js",
+      "bytes": 4040,
+      "sha256": "cc973582af02b9819a1866b5a06c9c1fbbbbee63f158ff6a6fcd0aea317ea8db"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/UniformNode.js",
+      "bytes": 5166,
+      "sha256": "8d32d2fc0b66e3992303643ff4bd5dcf35cbed83f7e18e2247764431abfa516f"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/VarNode.js",
+      "bytes": 7307,
+      "sha256": "d925cf88b8db25864ff6772412ac7a79cd05c6688e028e01b3d2eec26203e20b"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/VaryingNode.js",
+      "bytes": 4966,
+      "sha256": "78c01b45b8ba8d43441ef8cee5a425fefdbda0ac16bdaa6bc7b3ddddfd2ca9ff"
+    },
+    {
+      "path": "node_modules/three/src/nodes/core/constants.js",
+      "bytes": 2074,
+      "sha256": "d997f7caa7fe5b1d0f0bf69f8b84695675d2379ff02a590cde558e6660c95bf4"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/BlendModes.js",
+      "bytes": 4195,
+      "sha256": "048c47606acf014cc88a40acf87b1bf88d054b8ff692171e883cef12fbaef15e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/BumpMapNode.js",
+      "bytes": 3305,
+      "sha256": "904e900f0d3cb0f30d457ac75d213b35aeba40283cc9b58fdb4cf0cfe23869dd"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ColorAdjustment.js",
+      "bytes": 5958,
+      "sha256": "7f61a20a91abd59a32d80ae541d5e082881947d07ac2fb212808e2f19a2c4a42"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ColorSpaceFunctions.js",
+      "bytes": 1264,
+      "sha256": "7e4bb9713bbb2d0746338a9ea07008611641b2180c9f00a63fde6d3066bbbea7"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ColorSpaceNode.js",
+      "bytes": 4375,
+      "sha256": "db73e31706c7bed2c83c33b89246b97be02407cce5af49936f1ee2f44d96933b"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/FrontFacingNode.js",
+      "bytes": 3045,
+      "sha256": "fe48d4c1d797a44a5a50751eddd52c035a4b2580d4d7853bb1d188c35aae9850"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/NormalMapNode.js",
+      "bytes": 3413,
+      "sha256": "6380f0c48a20cdbae2a81a29864bda61d36034f0eb8caa6ffa6562b82fbf811e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/PassNode.js",
+      "bytes": 23743,
+      "sha256": "fb77784aa79440ad76a3e114ac205e89a0f07ea96052e3790c16636fe6b56ca3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/PremultiplyAlphaFunctions.js",
+      "bytes": 1486,
+      "sha256": "0a211eb51d57c10a37c7fec5247230fa98e6386cfcadefac7c36fad6dfe4d348"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/RenderOutputNode.js",
+      "bytes": 3952,
+      "sha256": "50d95ac17beb0d1aa022465d848aa2458d770dc3077f97065fbbae2c35deb899"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ScreenNode.js",
+      "bytes": 6495,
+      "sha256": "350ff3e72871d50fccb4d66e4b287287ac7501e49025ea02d18b631a1d4f94a6"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ToneMappingFunctions.js",
+      "bytes": 7377,
+      "sha256": "5d35ded1f71a06cebfd69b307e4902243b663ff1b5335d1de2d71123ddb05266"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ToneMappingNode.js",
+      "bytes": 3228,
+      "sha256": "ac9cb1238b3ac468ed841267f5309d56f39be380b3f99a75de46342b2d06ffe7"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ToonOutlinePassNode.js",
+      "bytes": 5167,
+      "sha256": "8833152c12cc0f6249172ec6051e6e4b040846fda4a9f4fc6eab658f84c96ee3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ViewportDepthNode.js",
+      "bytes": 10802,
+      "sha256": "4090bce996d51b6c5ca00b3276a833ca05bfa5d63ab4766b38dae8a6c171d382"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ViewportDepthTextureNode.js",
+      "bytes": 1685,
+      "sha256": "dbb9be047c22a3178d6cbaf1338f8252b2864c422a13ad529c889c0a2ff7b3cd"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ViewportSharedTextureNode.js",
+      "bytes": 1751,
+      "sha256": "76f472b139ac76c555ad565a20e1ea92c581acaa3f8e70ad0c3258f5cbfe50da"
+    },
+    {
+      "path": "node_modules/three/src/nodes/display/ViewportTextureNode.js",
+      "bytes": 7213,
+      "sha256": "81ad0e0845f9144fc42f1bdb1605c2ac537bbf15db62e30f66d15a0f5e437194"
+    },
+    {
+      "path": "node_modules/three/src/nodes/fog/Fog.js",
+      "bytes": 2556,
+      "sha256": "2099d3b7547b179ecf1a9be0615fac3513be67b43069cbfd7ee5bb01bf8dcfac"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/BRDF_GGX.js",
+      "bytes": 2008,
+      "sha256": "dd9ca4d221a94d9aa6e1da96b472b147eabf9ca1908a5c8c256a2dc63ac4ae5c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/BRDF_GGX_Multiscatter.js",
+      "bytes": 2201,
+      "sha256": "ec0cf884f5e1a2c0baf1cce959e83834b425e5506c46158e5dc5ba37100b212f"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/BRDF_Lambert.js",
+      "bytes": 215,
+      "sha256": "3124e5b22f8a186a1c3a494c2a3db1c30dd8c9c08cfaa5190c2508e50fecb4b8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/BRDF_Sheen.js",
+      "bytes": 1845,
+      "sha256": "782b46cb8661bb86dd1ad64a0edee410d0cd2f347041a93ba77b1c0de1253705"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/DFGLUT.js",
+      "bytes": 5074,
+      "sha256": "d54e6861e25ee96f5dc76ea8881dd0fd2050e147cd928736e2da97a1830baddb"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/D_GGX.js",
+      "bytes": 666,
+      "sha256": "6fb861ead4ca93e667c7480b0f9a8cfd14df8121c61a634c009f39b2e59e210b"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/D_GGX_Anisotropic.js",
+      "bytes": 916,
+      "sha256": "28837aa92fbbff26a45c502fe076ea4fd7333de2e18d1c34625a5c18cc8be680"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/EnvironmentBRDF.js",
+      "bytes": 356,
+      "sha256": "6852ae668af2c1a37190b215c5948885f6f32da0e93160954f790d39c6407b03"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/F_Schlick.js",
+      "bytes": 547,
+      "sha256": "c57e15368eb20c68b852eaad9ca13125c3c7bf748f248a81622d39832cf7f86c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/LTC.js",
+      "bytes": 5449,
+      "sha256": "59266aa65ec9901d501836f279e5184e57fe348aef4e10e8184d2e4dd90a96a8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/Schlick_to_F0.js",
+      "bytes": 498,
+      "sha256": "5e85c1c40ccab2c61211d94007ee6fc3b98381327fb0a3665cd2c2fbc3d181f2"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/V_GGX_SmithCorrelated.js",
+      "bytes": 871,
+      "sha256": "9056d20b03b1452600c2d7d0c0b7b583a7388dce6dbd1686246e2eb51583304a"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BSDF/V_GGX_SmithCorrelated_Anisotropic.js",
+      "bytes": 1197,
+      "sha256": "beca8c182abf5cdd3697ac40ea984df76283fc627e66f86eb36820a2820f37b9"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/BasicLightingModel.js",
+      "bytes": 2609,
+      "sha256": "b26747c9c3d697b270d5211701e4585fa85a10432cae6cf6b28c2733e357776c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/PhongLightingModel.js",
+      "bytes": 2878,
+      "sha256": "0ee1088014a42a67ea78f45e0305434748a27795785f58b6ea4bfc3f9d3b236e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/PhysicalLightingModel.js",
+      "bytes": 27971,
+      "sha256": "54d0110e6433551a4c5dda746c2ff665fba1c260c98c04bfeb044736a01154f8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/ShadowMaskModel.js",
+      "bytes": 1122,
+      "sha256": "d8bf62b46f664ca6790ab46951bceed5fbd12c3d6d3c81dcd5efefd7322f3e15"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/ToonLightingModel.js",
+      "bytes": 2214,
+      "sha256": "70f4127dbdf3753c0eec5ef3a71198f883746936be462b28c59324ef062ba03e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/VolumetricLightingModel.js",
+      "bytes": 5717,
+      "sha256": "f1d59b8ac2e06f60a85c3bdf40422959dfff6ccbdb02d5927cb10fb1861a4306"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/material/getAlphaHashThreshold.js",
+      "bytes": 2284,
+      "sha256": "8df1e14c8eb5bd8b77a835f443277f04b31841a633ba56406b6dc9d20c46d9ec"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/material/getGeometryRoughness.js",
+      "bytes": 486,
+      "sha256": "919509b09ac4fbfe1bdba075c165455f4ded8c5692cb3c8236406184e7bafdfc"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/material/getParallaxCorrectNormal.js",
+      "bytes": 1727,
+      "sha256": "50cbdcfa61184a621a25ead342ecd429cc1f6de19ca3179538966b94ad99b613"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/material/getRoughness.js",
+      "bytes": 520,
+      "sha256": "24b38219d7d4c866cf34fdf4fe388db17e24ea8405ae878070377816fc32e97f"
+    },
+    {
+      "path": "node_modules/three/src/nodes/functions/material/getShIrradianceAt.js",
+      "bytes": 1116,
+      "sha256": "29f464cb74c3d9270ee733dce15f4d2153ce11f1de49b75a375c1d5e4e303a3d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/geometry/RangeNode.js",
+      "bytes": 5442,
+      "sha256": "815738121b0867201fb1cb92a296fc39d9c1397410206d88be0557add6793847"
+    },
+    {
+      "path": "node_modules/three/src/nodes/gpgpu/AtomicFunctionNode.js",
+      "bytes": 8126,
+      "sha256": "d6ad141c0113996ef9826038a6f9b4311f3de45c0d708e700b7b2cca344a3154"
+    },
+    {
+      "path": "node_modules/three/src/nodes/gpgpu/BarrierNode.js",
+      "bytes": 2085,
+      "sha256": "7a6c85c742615b79a86399080aac8e8f004aaa4ab06d6b26f3d28e336c577891"
+    },
+    {
+      "path": "node_modules/three/src/nodes/gpgpu/ComputeBuiltinNode.js",
+      "bytes": 5159,
+      "sha256": "7cb07a1cb88540b51673ed75946b751e8ee6bc8bdab519dcd51200785c2b8cf4"
+    },
+    {
+      "path": "node_modules/three/src/nodes/gpgpu/ComputeNode.js",
+      "bytes": 6630,
+      "sha256": "91fb31404fa7150ede2e5ea960e133b2251bc8e90fac379869a836f780cae2e9"
+    },
+    {
+      "path": "node_modules/three/src/nodes/gpgpu/SubgroupFunctionNode.js",
+      "bytes": 15668,
+      "sha256": "f23a54d6d3cd9feb665ec77d3ad9e58dfb79f52cabd2146f96305c0b38411aaa"
+    },
+    {
+      "path": "node_modules/three/src/nodes/gpgpu/WorkgroupInfoNode.js",
+      "bytes": 4913,
+      "sha256": "69fa97b288804031913b6cc2968e7a356d447d83fd14b0e594f3cbc9f1e06647"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/AONode.js",
+      "bytes": 766,
+      "sha256": "2f1b87fef3534de6636bcd66f2891f64b74f743af0a6166fe9c7bc00898f17ee"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/AmbientLightNode.js",
+      "bytes": 553,
+      "sha256": "2d1518f26dce1e700951847d618b1c636534a789c084c0c13f02f5a5b63f2835"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/AnalyticLightNode.js",
+      "bytes": 6583,
+      "sha256": "a895ddc65ab05c6c4b7190eb9f7ec60f91c9efd4d7b65e8bd8fa7c8c6347c88e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/BasicEnvironmentNode.js",
+      "bytes": 1047,
+      "sha256": "a19ee95dadd25cc88895a34e76388faaf6e119e1c61c9feaae3614b50c3b073e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/BasicLightMapNode.js",
+      "bytes": 996,
+      "sha256": "d02851e726944dd79614f4fe40f22f83003d0fe3e89bb571222a10de36741e56"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/DirectionalLightNode.js",
+      "bytes": 727,
+      "sha256": "4fe5d229aab041874c9386a8403e9ca0aff573d25659855fb1f50a975a8bfa72"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/EnvironmentNode.js",
+      "bytes": 4187,
+      "sha256": "ff585f0841b88683deef259f9997c9f6b59ba28436dc3cf187e1de26d384fda9"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/HemisphereLightNode.js",
+      "bytes": 1984,
+      "sha256": "aabda1d588da48dcf62abd66c920c0894a03d8e7d15d21311a14f7226653f730"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/IESSpotLightNode.js",
+      "bytes": 1743,
+      "sha256": "974612ff44bafc8061b27a9cd59a3e5b6265d6557578ac95f5d60978baae4b27"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/IrradianceNode.js",
+      "bytes": 733,
+      "sha256": "dc9d0d55c1794905a44a05c6276ea4b94dbd0013877a7bceb240160f3ce0fc2e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/LightProbeNode.js",
+      "bytes": 1457,
+      "sha256": "fc5c558d82146ef848652b041d96ec55880e7140b5adaccc464dfa45854c0c83"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/LightUtils.js",
+      "bytes": 1070,
+      "sha256": "a129fdeb6a255b4a659f9e915bc40cff8b05ce8e65a04bf858fc47a0f2950ff2"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/LightingContextNode.js",
+      "bytes": 3056,
+      "sha256": "dd8bd577fad18310dd800d22b1cedb4b4facf23dab882b26445649a32c3a3923"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/LightingNode.js",
+      "bytes": 455,
+      "sha256": "617bce848da562c112a8a3db8eb72cce2fe2467aab2f71f9f570e69854107b84"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/LightsNode.js",
+      "bytes": 10250,
+      "sha256": "42ab14670e1c8d0bd50bb8797fe80b1f3b68c85fa712c99800d1f705bbbd8d68"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/PointLightNode.js",
+      "bytes": 2104,
+      "sha256": "6d27bd3fc21b09d756e18e3e4c38d16be9a432b0367033b62e970ac2f94f8ed8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/PointShadowNode.js",
+      "bytes": 12387,
+      "sha256": "f7b27667814192caf0c61ff809cf5f5af87bbc0106cac7690b083d49f285b3df"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/ProjectorLightNode.js",
+      "bytes": 2212,
+      "sha256": "dc0a5edd454729b6959800a48b70e9a6af517420617eb8613011ae1517667182"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/RectAreaLightNode.js",
+      "bytes": 2974,
+      "sha256": "8d847da8cf25e06b9b986a2421b1bdbf1f2f122cc7b39b9027e8ea0a3b9dbc45"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/ShadowBaseNode.js",
+      "bytes": 1809,
+      "sha256": "25b17eb064a3a898dec8cdd1c2407605f36fe2f571461a6685af744520f3f9bc"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/ShadowFilterNode.js",
+      "bytes": 7814,
+      "sha256": "bccd8d9f0826ae3793b629041fa55a68abac4bac5f0476f366d03b52e0af8521"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/ShadowNode.js",
+      "bytes": 26181,
+      "sha256": "53e00fe59bd13b9a113cf6b4e014002d2a0cee6c1b8bd99bfae4ebf1f57343cf"
+    },
+    {
+      "path": "node_modules/three/src/nodes/lighting/SpotLightNode.js",
+      "bytes": 4026,
+      "sha256": "282a7c46b7167e20347fd74d6413e5b75f9e179f68a85f77acff96751b6a3589"
+    },
+    {
+      "path": "node_modules/three/src/nodes/materialx/MaterialXNodes.js",
+      "bytes": 8730,
+      "sha256": "5325f75ceac88fe8dd1d647ad063bb44e65bb93f962fd16f4071c44ab1668767"
+    },
+    {
+      "path": "node_modules/three/src/nodes/materialx/lib/mx_hsv.js",
+      "bytes": 2652,
+      "sha256": "a5c42b9ebb9413c3d7cea06f4d998201a4816930aa617309174e6d68ba354aaf"
+    },
+    {
+      "path": "node_modules/three/src/nodes/materialx/lib/mx_noise.js",
+      "bytes": 45793,
+      "sha256": "74eafe7b791882f69e9db5920e0ec9b02046304b134ba5d6eb3a1522a0ece52d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/materialx/lib/mx_transform_color.js",
+      "bytes": 862,
+      "sha256": "fe1703c337c2c49a00cb85c0af18c1b0f427aa7ca0c92ab22bde1c11e1daae6b"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/BitcastNode.js",
+      "bytes": 3783,
+      "sha256": "8fccba3c86c95cc6c1ce268633ea37f20e86ee167c337cf2354941f5fd444420"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/BitcountNode.js",
+      "bytes": 9147,
+      "sha256": "0cd713ba872a6e6c1c476c1e33248e87dbb1db74fbd5b1fc296071966e4cc2ec"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/ConditionalNode.js",
+      "bytes": 5836,
+      "sha256": "323394ddbe991b6dc905cc7c740dc479b32476fcc7fdd7e053de904c0c910dc3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/Hash.js",
+      "bytes": 665,
+      "sha256": "4e7b7268a22ed74b5dcb9a53dc8b0e6580bd3fd350d8e12e1a7b957e375f6a6d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/MathNode.js",
+      "bytes": 31587,
+      "sha256": "a5ae3604dfb3ef1cc9fdbd48b3cf7399be1135518d1ec6e1ef7e49e508819c0f"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/MathUtils.js",
+      "bytes": 2359,
+      "sha256": "62adaab531fdaa909bafae98d722d09626703ed2665a9be80056dd90d305cfab"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/OperatorNode.js",
+      "bytes": 17050,
+      "sha256": "7dd2e6f558a5053f6e6db2126d5a236760998aed45d3071ec237328799a43197"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/PackFloatNode.js",
+      "bytes": 2384,
+      "sha256": "661ac68ee4adecd09c61615bfa3f9ad6f308c932af205ffbe59d9c44109a7e81"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/TriNoise3D.js",
+      "bytes": 1725,
+      "sha256": "45d6b4f6f1935e08e6d6e1973c2b09e9786717324fce2861559be0d43a02edf2"
+    },
+    {
+      "path": "node_modules/three/src/nodes/math/UnpackFloatNode.js",
+      "bytes": 2386,
+      "sha256": "353a442c7776244aecd5ea47b5a2b31733000d2f132e6fd3c75e4f422868a773"
+    },
+    {
+      "path": "node_modules/three/src/nodes/parsers/GLSLNodeFunction.js",
+      "bytes": 3257,
+      "sha256": "b2fd53af869b79504bf504f2789ecd34d4b0bfeb175ca8410e5092aabb29fb72"
+    },
+    {
+      "path": "node_modules/three/src/nodes/parsers/GLSLNodeParser.js",
+      "bytes": 488,
+      "sha256": "e9ce71f46f374eb1581fca5619bdafe13da27ff3fd17ca8c1de541521ed2651e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/pmrem/PMREMNode.js",
+      "bytes": 8536,
+      "sha256": "a59da8f04ab6545d411552464f798738216c4acba00cf96ae16b299ac28ea571"
+    },
+    {
+      "path": "node_modules/three/src/nodes/pmrem/PMREMUtils.js",
+      "bytes": 13347,
+      "sha256": "7b1531c68fc6a0230cb909228c53fe3180635ae4d4bab34e501e0a8c29a6fca3"
+    },
+    {
+      "path": "node_modules/three/src/nodes/procedural/Checker.js",
+      "bytes": 512,
+      "sha256": "e73d621ec4068f723a37fbad4e56dd9e4294f757593eedc901d11b6f09045c75"
+    },
+    {
+      "path": "node_modules/three/src/nodes/shapes/Shapes.js",
+      "bytes": 769,
+      "sha256": "1d66777cf3d73f51edc6b4f62ac11d0fc99124986dc9e1eb0f2b7ecf9cc64674"
+    },
+    {
+      "path": "node_modules/three/src/nodes/tsl/TSLBase.js",
+      "bytes": 1924,
+      "sha256": "7f89e7655c9fc8ecc39f26ac4eaaab7adca38525e51e6d3ac2bc5939c8d7d85a"
+    },
+    {
+      "path": "node_modules/three/src/nodes/tsl/TSLCore.js",
+      "bytes": 25668,
+      "sha256": "6deeda9575ef08802464222ca24c234ec6b81f154be229d1786f09a1ddc2e045"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/ArrayElementNode.js",
+      "bytes": 1883,
+      "sha256": "60edf08e00a2e3f6c5270edfa95971ed6f9f122a9b7844eafcd51357ee497aa8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/ConvertNode.js",
+      "bytes": 1969,
+      "sha256": "8820eee63b53d944de5ff1e236dcc9b67dfb9777cc530ef134ed170ca36778d8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/CubeMapNode.js",
+      "bytes": 5391,
+      "sha256": "7210caed1b9ab9327a03b8b0ebe603e03c3124e2d278402ad996d9fb1bdfcb57"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/DebugNode.js",
+      "bytes": 1511,
+      "sha256": "c17b57979611a04afe8ce8f8c4f7f4142e45734dfaf9d818fbbc7d38f46a1daa"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/Discard.js",
+      "bytes": 816,
+      "sha256": "217a355c1de8781c989fd9ce7066b89bbf88224f21846c66e97ad1474e22d373"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/EquirectUV.js",
+      "bytes": 1578,
+      "sha256": "152c470206919ea79e7932dbdc442d48c313e844258c307fb5e0bb4ca89ffdc2"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/EventNode.js",
+      "bytes": 4336,
+      "sha256": "de4d3bf5411105cba3b4c1a03aee7b78e90b1216352d5a15f5514f2ee1ea45e5"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/FlipNode.js",
+      "bytes": 2384,
+      "sha256": "95f64f331b4d04e8e8d809b5f7409fd35027a0e87f6d9347773467842a0961df"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/FunctionOverloadingNode.js",
+      "bytes": 3477,
+      "sha256": "8ebe1a19ca3441d655cf8b9ff82bf39e0cc363e42b3280546d03b4c816cbb76b"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/JoinNode.js",
+      "bytes": 2737,
+      "sha256": "9668292b9e248c282d16f931648a985803ab006e651bd9acff07f45288db4b2d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/LoopNode.js",
+      "bytes": 7491,
+      "sha256": "ca96416acfd1457a403ced89328d0c78a06206deb397c85cd5ca24b333353a37"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/MatcapUV.js",
+      "bytes": 826,
+      "sha256": "e2b4080633939eba575ea2980a219a1ac10094619b0494a24e35c3582f11e819"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/MaxMipLevelNode.js",
+      "bytes": 2025,
+      "sha256": "f95dc77bd2987df67f778bcc80208b4fc98679d89a6b4ec7cb9c28b23e872c20"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/MemberNode.js",
+      "bytes": 1954,
+      "sha256": "2704c59ae4a3160b8d9216fed437272cc7e0c40801b7dbca3b0b1678c89e5029"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/Oscillators.js",
+      "bytes": 1177,
+      "sha256": "4752c5d8690216742b290a00e7f5ab9227fe64e4ad4944612d3df86f3a1756ba"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/Packing.js",
+      "bytes": 1825,
+      "sha256": "12ee5ee66c7827a8fb18b9943a3165114c687e037abadb3b9e92b2b297d6a93d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/PostProcessingUtils.js",
+      "bytes": 6573,
+      "sha256": "db431284e8bc521103829d8ddf000dd209562603bcc98dbae627d24342f426b7"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/RTTNode.js",
+      "bytes": 7285,
+      "sha256": "e6fb5b871b678cf02b7ead405c0d0fcb1833ee00dbf2501f6cdc1fff5c0c50dc"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/ReflectorNode.js",
+      "bytes": 16348,
+      "sha256": "8af2835832d243b141598801a9a0c7d2e51e13f35e6e3ca12441a7c3ea8dfa0d"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/Remap.js",
+      "bytes": 2099,
+      "sha256": "9fbd6d049f666b539af0bd771f7aaec9dfd75545d3124ecd9b1cbf0b0ef0830c"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/RotateNode.js",
+      "bytes": 3007,
+      "sha256": "8395ed764ca7f1721923e9cebf24ca19a33187933930f5d3b20ee9e57b0da5a9"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/SampleNode.js",
+      "bytes": 2016,
+      "sha256": "b0b76f95c285a42e34c7a80b611436b257a0d35b1c116c3ef5a61d764eda611e"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/SetNode.js",
+      "bytes": 2371,
+      "sha256": "118674541a44b026bf9e4859bf726c7e782884de138a82df163a55b0bcccc7d0"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/SplitNode.js",
+      "bytes": 3480,
+      "sha256": "71f35d2bb2332ceb3b12ca0b62c567e62cd431449e86119266e829af72ccc966"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/SpriteSheetUV.js",
+      "bytes": 1134,
+      "sha256": "806fe69c27f18c809e024553bef0bddbd70c52f9724a8154b9ff9389a12b1c71"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/SpriteUtils.js",
+      "bytes": 1854,
+      "sha256": "23df890388c9ae03b2ad813b584ffad334a99099eb776983d9ba8da668313384"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/StorageArrayElementNode.js",
+      "bytes": 2713,
+      "sha256": "4cd65821e31284781b98c2ce75fae29eb76f7c05c553f5fa091a3c36703074b8"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/Timer.js",
+      "bytes": 744,
+      "sha256": "331435e09aa5b544add1f41c2cbdcc4eaa4cc83ac7edc5ce0162d81e17d9a1f9"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/TriplanarTextures.js",
+      "bytes": 2699,
+      "sha256": "2515b6c6f45a3097cb122d02665425131fff1a783ee64d4b65b1de679e3a9a61"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/UVUtils.js",
+      "bytes": 1939,
+      "sha256": "3294c6d4be4313bc66edf6e464df808a419f59dfff37b2bd4190c92643d1c248"
+    },
+    {
+      "path": "node_modules/three/src/nodes/utils/ViewportUtils.js",
+      "bytes": 1008,
+      "sha256": "d5575935c6c13d5f22d693f0984d12b6bea7606ae467bc4fe4c03efdaba65d0e"
+    },
+    {
+      "path": "node_modules/three/src/objects/BatchedMesh.js",
+      "bytes": 47901,
+      "sha256": "a7b4154d996fe13b73bfd986e09903779c902ad4dd86d8e667a83abd77aab329"
+    },
+    {
+      "path": "node_modules/three/src/objects/Bone.js",
+      "bytes": 612,
+      "sha256": "2af7e9223d192b917ac9109d8dddb00f435c68ebf0f6d31e812d78f6fc4c7031"
+    },
+    {
+      "path": "node_modules/three/src/objects/ClippingGroup.js",
+      "bytes": 1336,
+      "sha256": "c4ae22ada9075cd8913bd5364214d5bc68780b431f59d489cc0344feaeff85cb"
+    },
+    {
+      "path": "node_modules/three/src/objects/Group.js",
+      "bytes": 702,
+      "sha256": "6ae4c6558ac82863e933f8dc649b96d1d5f7798daeab902530a3bb760949780b"
+    },
+    {
+      "path": "node_modules/three/src/objects/InstancedMesh.js",
+      "bytes": 10725,
+      "sha256": "e167019e8ed01bc70b7922787355b19990349968ddab69432b6fc0d1be546e24"
+    },
+    {
+      "path": "node_modules/three/src/objects/LOD.js",
+      "bytes": 6483,
+      "sha256": "f79f369aa420520d666ff463de33ea1dacec0430c00efac16a81619fe359942c"
+    },
+    {
+      "path": "node_modules/three/src/objects/Line.js",
+      "bytes": 8334,
+      "sha256": "575a141e6c5c6933172082ab2584473240864488cc9c708f7f0bf67e6c06ce7d"
+    },
+    {
+      "path": "node_modules/three/src/objects/LineLoop.js",
+      "bytes": 730,
+      "sha256": "e6e6d8ae980f800feeced9ba349645376f3236745aef863fb53f6158ba221e87"
+    },
+    {
+      "path": "node_modules/three/src/objects/LineSegments.js",
+      "bytes": 1651,
+      "sha256": "8342ff11b7ff23949eb66a2eb1d478c354321a155c6d25c3181a681dd7791da5"
+    },
+    {
+      "path": "node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "node_modules/three/src/objects/Points.js",
+      "bytes": 5719,
+      "sha256": "7834088cd4a4ae34415d6aeb366bb81d5b67895b8fd33a7fe59820d32339c6b8"
+    },
+    {
+      "path": "node_modules/three/src/objects/Skeleton.js",
+      "bytes": 7906,
+      "sha256": "37eaa7755b39775411fe32bafbf9a0273bdad6bb7976114ed63f8700f4b4b0e9"
+    },
+    {
+      "path": "node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "node_modules/three/src/objects/Sprite.js",
+      "bytes": 6360,
+      "sha256": "34eb1fdfa3f429b5379a3d6c7e2c348e85ce90808ed55adb59f3e62c75ba86ec"
+    },
+    {
+      "path": "node_modules/three/src/renderers/WebGL3DRenderTarget.js",
+      "bytes": 1166,
+      "sha256": "778d64077ec15c489605457413347242b6e19bb225ad88a087a0d2c71428d668"
+    },
+    {
+      "path": "node_modules/three/src/renderers/WebGLArrayRenderTarget.js",
+      "bytes": 1194,
+      "sha256": "e5ab436c2cf633e6ae9b6e4111e87e0c1f73b38ed22a6192faa84afde5bee18e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/WebGLCubeRenderTarget.js",
+      "bytes": 4932,
+      "sha256": "1a4d500fa317badcd6e1303b1d60036a241b5448bda9d515a600a3d86e5cc17c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/WebGLRenderTarget.js",
+      "bytes": 739,
+      "sha256": "f7117333010f869b0e792b17230d6a0120e0f2870d200d8c9f7c382f74eedb33"
+    },
+    {
+      "path": "node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Animation.js",
+      "bytes": 2885,
+      "sha256": "253fcef5f7bfed144946e7c6ed790c0a494a2c8c275a290bcec05f0ac60ff401"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Attributes.js",
+      "bytes": 2910,
+      "sha256": "82e7eb71dca1a723f522725a9a824da6eaa04b4f1a8e5a7d21ace7868a9a840d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Backend.js",
+      "bytes": 19906,
+      "sha256": "c9373cbc7c562812a0d018685efbbc59390ddd661e8aadc67b8671d6ceca5dc0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Background.js",
+      "bytes": 6673,
+      "sha256": "d06aa01d4f12a384800baf00caddc406f03d276309b9cb82236a91709ea3e86a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/BindGroup.js",
+      "bytes": 814,
+      "sha256": "2de98e538c1ef63b7bef319a9483ffdbef6ec2b46c2b5acc5868f17635677b5f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Binding.js",
+      "bytes": 1212,
+      "sha256": "137d712569e6cc8713f2d7b5432f804b30772c5cca7245a655c9d6c7028dd07a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Bindings.js",
+      "bytes": 9748,
+      "sha256": "347ad3f0d102b67bf837b85806ef74e231a75836f43fe854160259dce4e97904"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/BlendMode.js",
+      "bytes": 5391,
+      "sha256": "153472070fd273cf187ce38a7cbcef78c9b6563f5c332f4efa79d5d36bbc04e8"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Buffer.js",
+      "bytes": 1985,
+      "sha256": "972257d5dcde5a7099abd043580b397fa5a714e289954eba5811c50ef0c191ea"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/BufferUtils.js",
+      "bytes": 1535,
+      "sha256": "f08e2e9f31a5fb491b7ae284a025583c1329945843f1bca2ee022aea39b930c9"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/BundleGroup.js",
+      "bytes": 1748,
+      "sha256": "5660ed7ca239632ee0224323e40773f92f3f79900a11cd5ca2b99a837875af1f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/CanvasTarget.js",
+      "bytes": 7965,
+      "sha256": "86785fa70d60ff824a085254e8c38237180b553dd0114a2cd337b901c6804f30"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/ChainMap.js",
+      "bytes": 2219,
+      "sha256": "b3265c8a108d2a501c2550f0ac30e9a6af2b853f60b060cfbb894070899a5a9b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/ClippingContext.js",
+      "bytes": 5737,
+      "sha256": "261b70c852bbb65800714950d4497079c1fefb66334dd791d0ba70d97e6c961e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Color4.js",
+      "bytes": 1581,
+      "sha256": "a2bb2ac536b3cc6d2686fce28483965fc47bbe4018bcf0ef7175515939f3861f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/ComputePipeline.js",
+      "bytes": 741,
+      "sha256": "044ed8a937ac0b15b1a97eef77cfd781c0881e0469394cf3e8e21a06e495e3a4"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Constants.js",
+      "bytes": 283,
+      "sha256": "4ec0844d2aeeffdfa06e06070092d586fb479af91d1fa7576b9b6f033f10f5ee"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/CubeRenderTarget.js",
+      "bytes": 4662,
+      "sha256": "9db2979e0dce21ef42def6b0d2d5abda022e6a4e5952b0ebfee30a49202a6014"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/DataMap.js",
+      "bytes": 1328,
+      "sha256": "943c549f262d6f60ced6e9d5d3a1c614149166f934ed8e4f2aae3ef9be22d8de"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Geometries.js",
+      "bytes": 8701,
+      "sha256": "38c8195bc93057e220759e6f9ff577be4f1dbaea63af118c1c5d9f02d87881f2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/IndirectStorageBufferAttribute.js",
+      "bytes": 998,
+      "sha256": "093de55c9d67c16de7766baeeb4ef7036db1ca103ae5ced511b1aa131e891227"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Info.js",
+      "bytes": 14059,
+      "sha256": "ae82fd9eef48b6f9973fc032588c3f35dc58225afad3c3e68e334381d838fcec"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/InspectorBase.js",
+      "bytes": 3201,
+      "sha256": "1a4bc297d3ade5e9b4f8c02ff7dd33eb782084b84472854368b0cd16b6e46979"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Lighting.js",
+      "bytes": 2177,
+      "sha256": "0b72affad42dcbe60cc47f13fa9f80d2400ae65f38abb9963e6e7d5d1342f67a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Pipeline.js",
+      "bytes": 484,
+      "sha256": "c7242021caa5a1b59848a764f95feceb78ce8dd86c30698ba8cda69621d8145a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Pipelines.js",
+      "bytes": 12821,
+      "sha256": "a0d039dcd0e055dbcc46e9af540c28ced606815700b4b46d91110c702ae0a805"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/PostProcessing.js",
+      "bytes": 904,
+      "sha256": "dfef686ca0185e5e7c632b0746200258e58cb1a9d72eefe1228a70e266bed179"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/ProgrammableStage.js",
+      "bytes": 1761,
+      "sha256": "0dbef1bd23252462df624214007c662d3faeb330fb35f637374e744ee521d48f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/QuadMesh.js",
+      "bytes": 2681,
+      "sha256": "5ed200346ed07b0aeb248677e2242478a1057b0fd1404212f2b43b591cb3cdea"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/ReadbackBuffer.js",
+      "bytes": 1423,
+      "sha256": "265685c0d440af026a359e265305934c3500b415c32de56e7103f7cc09199979"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderBundle.js",
+      "bytes": 602,
+      "sha256": "10b30088a4e21f979bdff32b64da781df06e66e24b4b9817cc932a3fbc268b3d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderBundles.js",
+      "bytes": 1362,
+      "sha256": "50a1afe2f538b941e3c56d084e0465617a0ba231199f295431446070fce1c47f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderContext.js",
+      "bytes": 5223,
+      "sha256": "e0c9ca4597221c50299689b39ed381955372b11492a2a184f52d5ffcdce4f450"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderContexts.js",
+      "bytes": 2095,
+      "sha256": "29f2a883cb138304de8ff2d2021cc462fa3884826bdf8716cc3f8dbad88b5851"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderList.js",
+      "bytes": 11492,
+      "sha256": "f5fce4235188b4f368ddd4e067d337d4d5d581b92b1a67de9730229e99d84b13"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderLists.js",
+      "bytes": 1324,
+      "sha256": "5800aa64ec64b7cac7c8e5d54c773ce3c8cd031931317ce66f0decb8342d5ce1"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderObject.js",
+      "bytes": 20805,
+      "sha256": "8a4fc82b26bb416270e32c2e436238fe0390f53a4c981a3ec61224529001953e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderObjectPipeline.js",
+      "bytes": 825,
+      "sha256": "52c5d094503997b9b4991149e1766e15a7969660688d54bb77d805812eaab716"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderObjects.js",
+      "bytes": 5524,
+      "sha256": "86bc0e8c44f89f7619341cec0a3f4fc9b6e9196a5dbbdc58dfa1088527e50f42"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RenderPipeline.js",
+      "bytes": 5793,
+      "sha256": "9dcf203793aec85ab2faf21a1acfc3e61869a5b073e6e119c4ea8c1cfb386c17"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Renderer.js",
+      "bytes": 102228,
+      "sha256": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/RendererUtils.js",
+      "bytes": 5602,
+      "sha256": "11e8c6da6f70545364b7a83715bb47f35ef4eb063b4e33a11ebe2c840147de61"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/SampledTexture.js",
+      "bytes": 2762,
+      "sha256": "ff78adb262b08b0c247d945169a3f754db7830fa17ab4136384d153b15b73005"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Sampler.js",
+      "bytes": 1971,
+      "sha256": "de18a7b14e6a23581320e06bdef4a9a7a2f1c484c4e45cd963a08b919028daf6"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Storage3DTexture.js",
+      "bytes": 2320,
+      "sha256": "8b9e47f5209dd7d6e9b3467ffcf09ae602fe66ce7d6cbf61da08d2e464972603"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/StorageArrayTexture.js",
+      "bytes": 1968,
+      "sha256": "eefc96ae1e83e46aaec9b721b9bdf3183ea1a9bafd73b106557841a0fafb8b26"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/StorageBuffer.js",
+      "bytes": 860,
+      "sha256": "d638ba50f71fb7660c804d6fed249befea084e4e00eb6439e489be865411508a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/StorageBufferAttribute.js",
+      "bytes": 1472,
+      "sha256": "e7bd357166d3d64f410f6a59a0a17d5c037928074e93e64f396ba690bf26214e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/StorageInstancedBufferAttribute.js",
+      "bytes": 1555,
+      "sha256": "56821ed35892306ec66aea81655fd415556c92b100a298e2f95c09fb2b259ff4"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/StorageTexture.js",
+      "bytes": 1902,
+      "sha256": "74ed60aff0b601fe9a4a96c178d7190a6fb70969a460d490aa5cd777e0b97697"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Textures.js",
+      "bytes": 15247,
+      "sha256": "c91bf90f3d04431e1a3343601e9883bb0d09f7a80105843258653f5896b607cb"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/TimestampQueryPool.js",
+      "bytes": 3135,
+      "sha256": "7c11475084bd8198f2de0fe170e2d0c5d455c80611050fdab621d722d8bc3da6"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/Uniform.js",
+      "bytes": 6136,
+      "sha256": "ae9852a3e4f8b3c5a7c5dce1c81c207ade66f307273778371344e7b825a8e079"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/UniformBuffer.js",
+      "bytes": 561,
+      "sha256": "3827ff0ca7ce0518e9469d738201aa80865b84a5ae22ac71744dcec53c677c7e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/UniformsGroup.js",
+      "bytes": 12143,
+      "sha256": "2c9287d8e35bf35aa43b3c1d7cc20e79dbce32a77210ed03b9eb01b88c578b86"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/XRManager.js",
+      "bytes": 51028,
+      "sha256": "90ca54c144a00467444345a5b512dc3239b0fc49b12be13ff78eed24d1b08595"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/XRRenderTarget.js",
+      "bytes": 2291,
+      "sha256": "ca91cf9e068d10a5141b3c1d30ad24adf7a0323cf400f2bbb23b2a8a5626655c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/extras/PMREMGenerator.js",
+      "bytes": 29640,
+      "sha256": "3335cabca124a648f6b8c3dad474a4b5c48eccfee9e987a7b2eb4450836eeb13"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeBuilderState.js",
+      "bytes": 4114,
+      "sha256": "2dd0ebc7b0d6ec87c4d013c35616d0c2342c59cdc512ffe525cf9dd810504ec5"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeLibrary.js",
+      "bytes": 5412,
+      "sha256": "08dac5926e537761cdefe038b73a01152fe9fc8d4fa580598383cb506c7ff77c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeManager.js",
+      "bytes": 24078,
+      "sha256": "dd3da027ea55b59557bc143426fe1db3f0b0d7c17d6bddd8270709c35cf06aae"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeSampledTexture.js",
+      "bytes": 2950,
+      "sha256": "7fbca5e2c133d9a265e7b87fd3f3f95cab8c4eaf4eb4aa64a4ef51b0ec783d2f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeSampler.js",
+      "bytes": 1097,
+      "sha256": "db732bab94f7468e30b93047272cf95e782ae0ca47771e239b9c7de3841d63ee"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeStorageBuffer.js",
+      "bytes": 1303,
+      "sha256": "86d2eeed3a8bb0825ab59f7615382da52ffb3a7f02f4f4bbdee9317c7fa59803"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeUniform.js",
+      "bytes": 6721,
+      "sha256": "584e991648e3348e91c95f311ba6559c3e960765bbb12ea6c47c53a5b0c8a36d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeUniformBuffer.js",
+      "bytes": 2080,
+      "sha256": "70e128d03507ba03c401c0c3247fe1dc5c1c9039d2e11612924a4b89dbdcfda6"
+    },
+    {
+      "path": "node_modules/three/src/renderers/common/nodes/NodeUniformsGroup.js",
+      "bytes": 872,
+      "sha256": "26c194bfc51c2f0d4f8cdc280b05fc22ba009f130879d0d3378f6ea0252a3835"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/DFGLUTData.js",
+      "bytes": 4843,
+      "sha256": "4a6e5e13121a71227524272d63e38adc9f6b3ecad9265f7bb001a0cd8b8990c4"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/alphahash_fragment.glsl.js",
+      "bytes": 129,
+      "sha256": "db3bbf74774c9acae537f3c46d0de9c7a68ea7f013cc108ccf3d18660a96971c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/alphahash_pars_fragment.glsl.js",
+      "bytes": 1816,
+      "sha256": "a75bdc8b27398e193ebb0ffbfbd1156bb1d6c164c9e98d69c391bc96a0b39df2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/alphamap_fragment.glsl.js",
+      "bytes": 116,
+      "sha256": "97d97d0a89e2383cee9aa15b28901678ff5bf73b255e8d39c41348339aac8ae6"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/alphamap_pars_fragment.glsl.js",
+      "bytes": 88,
+      "sha256": "0d91d29a4b063f86a42d6f871c8715c5df4217da95beb27460032dec649bdb28"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/alphatest_fragment.glsl.js",
+      "bytes": 285,
+      "sha256": "2c0b0884e65f318ea594375d3bfe8d2ee007fd40128abd7641bab37419d4aaed"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/alphatest_pars_fragment.glsl.js",
+      "bytes": 84,
+      "sha256": "7262984386bddd10336ba4a5caa6f63d6637965d23d335cb7a82d249a8d67460"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/aomap_fragment.glsl.js",
+      "bytes": 700,
+      "sha256": "fefcc44a84254b93317a2002f02f408915b26961228314538b49ae019ea584ca"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/aomap_pars_fragment.glsl.js",
+      "bytes": 113,
+      "sha256": "99605016fdf6e6e11a93ef5afec6534dd0a3c0e559a5da128833d5a2cfc96312"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/batching_pars_vertex.glsl.js",
+      "bytes": 1219,
+      "sha256": "f1010ad0951f5870cb4d12789dd0799a59eb365da814682f8e2a5f9fa585d0c9"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/batching_vertex.glsl.js",
+      "bytes": 132,
+      "sha256": "266f63ad1197571269f6eb9363a2c916e120fccee3d897181805c831918ef34b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/begin_vertex.glsl.js",
+      "bytes": 129,
+      "sha256": "5ddab48ccb50c7baf958047f834496cf1c2be197e00d03d7776b30f353f39392"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/beginnormal_vertex.glsl.js",
+      "bytes": 138,
+      "sha256": "14f1aae97b9293f7fa62f6a049f755080904efbaf7ad351b60cbffec45e22aa8"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/bsdfs.glsl.js",
+      "bytes": 845,
+      "sha256": "a9ed310493241cbbd14e58dbdc37e3fcfac42779c8a0e45f58dacd405185df51"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/bumpmap_pars_fragment.glsl.js",
+      "bytes": 1263,
+      "sha256": "262903707a8b271adc1882da9f1d60e919726660c082e91bb10c83b5c54bf76c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/clearcoat_normal_fragment_begin.glsl.js",
+      "bytes": 104,
+      "sha256": "510d06c529559cb23d6b814a0ccadcf329201ee44b469ccf686b640a75e9942e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/clearcoat_normal_fragment_maps.glsl.js",
+      "bytes": 262,
+      "sha256": "4e0ac6b902d7db1aff5ec16e56c21db8e290b7adb85badd48b1920f0975cbdfe"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/clearcoat_pars_fragment.glsl.js",
+      "bytes": 299,
+      "sha256": "40ec1daa9c227ab341b032c053364fdc088e83ca7f70a28462b77d56c6043662"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/clipping_planes_fragment.glsl.js",
+      "bytes": 1762,
+      "sha256": "bbe5c1295a292e2312642f92a65945a9708692cfcd00637e67c4260e9fd0513c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/clipping_planes_pars_fragment.glsl.js",
+      "bytes": 150,
+      "sha256": "8bd64633bda6d1cbabb4e768e9e302a7ce75960306a24f8d634ae8b387bdb21b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/clipping_planes_pars_vertex.glsl.js",
+      "bytes": 96,
+      "sha256": "30832c3f5e0d4691c76fe183a2e31d3b78fac6fa2b4c8ffb52ace85140919512"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/clipping_planes_vertex.glsl.js",
+      "bytes": 102,
+      "sha256": "b7fe83c2a20b5d82d1cb1d95340c1d7cf93691beb8dcd258c29e5e83a30032b6"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/color_fragment.glsl.js",
+      "bytes": 119,
+      "sha256": "d5cd4a0f9e962375ceb31f6cab720c12ba3d4ef90894be65fd0cbc835ed518cc"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/color_pars_fragment.glsl.js",
+      "bytes": 116,
+      "sha256": "b3d0254ea2f6b6a56368c5ba8f8bba50e307e5826b1aa4744b7d68d968b023f1"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/color_pars_vertex.glsl.js",
+      "bytes": 184,
+      "sha256": "dd42f0c72d95d6b181e7e80c1a2e9bb880421c335586673bcec86172bea8e61a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/color_vertex.glsl.js",
+      "bytes": 457,
+      "sha256": "d68ccbbf5a015dad9211c49eb20e9d1ebc8b69fa1249122f776c1261cf91a56a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/colorspace_fragment.glsl.js",
+      "bytes": 82,
+      "sha256": "a3ebaeed04d728c04c4b3f8d0dc52b83b12dd77474907450f8fe5265955ed3b0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/colorspace_pars_fragment.glsl.js",
+      "bytes": 525,
+      "sha256": "609ef2ba45f73b95a8980cb91b62b61d65581d75067e7c1e45b976aaa397052a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/common.glsl.js",
+      "bytes": 3640,
+      "sha256": "6525fd3046be23b6de6072e526067b0579dc1c82db41085f79bda2035d31d2b1"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/cube_uv_reflection_fragment.glsl.js",
+      "bytes": 3878,
+      "sha256": "8610f2598b998c8443c89c24f712ca8c36197f5d7152811c7176f9e0e255553c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/default_fragment.glsl.js",
+      "bytes": 90,
+      "sha256": "61771f4e12b137b05da81dc0a08c0f134b82bb4dbc8d39934fdfe0256519eb4a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/default_vertex.glsl.js",
+      "bytes": 121,
+      "sha256": "c93ed0a4d38dcf36e520588fb3552e6528a5fa7d51377c84f2470ea818477db2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/defaultnormal_vertex.glsl.js",
+      "bytes": 1195,
+      "sha256": "4246f76524da8fcde17934603abf0467163fff241441b19ea5c6fe02f0ff61cb"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/displacementmap_pars_vertex.glsl.js",
+      "bytes": 169,
+      "sha256": "2f4c3a4170c9aac018954532689b28bcb608b20b5848d2562df9c9ffd824a399"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/displacementmap_vertex.glsl.js",
+      "bytes": 205,
+      "sha256": "bcb7ce41aca931d9bc13bf34d5d010d07c772a27ec5c779d2d910b1c3b3589ec"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/dithering_fragment.glsl.js",
+      "bytes": 107,
+      "sha256": "fee1f9d401244bdf6c1b4ba2383c3786e7119fe0bea6532e7de5a5d4d941dabe"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/dithering_pars_fragment.glsl.js",
+      "bytes": 608,
+      "sha256": "81b09cfa9d6dbc4d04d0e42f87fb45ecf55136fec497d2c1df2554b37eb780df"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/emissivemap_fragment.glsl.js",
+      "bytes": 377,
+      "sha256": "9e24be6269b62748a04ca97ca149278af4f02efed67925ac59efbee8f8c865f0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/emissivemap_pars_fragment.glsl.js",
+      "bytes": 94,
+      "sha256": "cca17327f5d3aeba9903c43a234bee95bd64fbd9e62b34bfb3e90bc91cfeed74"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/envmap_common_pars_fragment.glsl.js",
+      "bytes": 218,
+      "sha256": "6c69270e6a0ebc5e2e979bc1df8ae82c07d25a78fec13d510e080b2610a887fe"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/envmap_fragment.glsl.js",
+      "bytes": 1197,
+      "sha256": "b8e8a32447aa762657da69ce169fec11d6d7e3d4c263f7fa598ca9c903e7b727"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/envmap_pars_fragment.glsl.js",
+      "bytes": 345,
+      "sha256": "04bd9a2675a8b258f9ec499ea3456fc8aa6ed18cbba78a288f26004ad050d00a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/envmap_pars_vertex.glsl.js",
+      "bytes": 320,
+      "sha256": "98c79076d211b0f8abac471d10c0babcb48ac1f0b7c084c9a8180bf493de3d6b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/envmap_physical_pars_fragment.glsl.js",
+      "bytes": 1715,
+      "sha256": "2cda3236b62412f2c4aaafa2e3323c5029304c7357e91c959cbc4e0896ed60ac"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/envmap_vertex.glsl.js",
+      "bytes": 656,
+      "sha256": "7cf913de3094b8af87c15f6631365275304302a26afd9810544a4714da76a39e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/fog_fragment.glsl.js",
+      "bytes": 303,
+      "sha256": "611d35fe58f82cd1ba3f85da61206351b6fb7be95a100fbb7b3800018072309a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/fog_pars_fragment.glsl.js",
+      "bytes": 218,
+      "sha256": "4047f5f9dbac598c27717a9a4a77447230fbab48106e6ac6780565debfea5582"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/fog_pars_vertex.glsl.js",
+      "bytes": 80,
+      "sha256": "a5f8c0ead9ad03c34917b22ce85f3ff7ee193b5335b86f3103f0dbb03a4e0f55"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/fog_vertex.glsl.js",
+      "bytes": 83,
+      "sha256": "8d7433a889503ceee56f505e4642f570ce079cb187c13ba545e28fe17476a9b8"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/gradientmap_pars_fragment.glsl.js",
+      "bytes": 512,
+      "sha256": "4cce38a33747ceeaca0c077afc0f9886ca05013b306e9aefcca907c9d4ea8b04"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/iridescence_fragment.glsl.js",
+      "bytes": 3612,
+      "sha256": "92568a7a97493ac1af7995fa054d5fafcd3789b1c715c805983af9790ab4f345"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/iridescence_pars_fragment.glsl.js",
+      "bytes": 191,
+      "sha256": "370beaba9b3664a83656d63f7ef00ff653e8d1a91b1bc144ca11df8edee50a2f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lightmap_pars_fragment.glsl.js",
+      "bytes": 122,
+      "sha256": "9bab85d200c0f2f525e4ebb494e5ea7272f407132a92e71d957cea7abf3cb366"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lightprobes_pars_fragment.glsl.js",
+      "bytes": 3171,
+      "sha256": "4ab00b54b8ad60dae6c05021a01d425965d2d7a0f8a1e02d61ac098b8c524c8c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_fragment_begin.glsl.js",
+      "bytes": 6924,
+      "sha256": "ed2bdfd304540e57a0ee42e4b8af37ca1a83da52958ff0789dc1976941261123"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_fragment_end.glsl.js",
+      "bytes": 511,
+      "sha256": "86c8d57f48adb304f6f9b791066ecd5f79ac746c521b7f4ae441feeb661615dd"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_fragment_maps.glsl.js",
+      "bytes": 954,
+      "sha256": "7b71f722a5c5942edddb418fe23c4faa3423f9bd40203879d062c877d40dc327"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_lambert_fragment.glsl.js",
+      "bytes": 144,
+      "sha256": "ec5aaaa26b9ce0f98ce60035524dca729aa6606e529d04dc471b815027a5d05c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_lambert_pars_fragment.glsl.js",
+      "bytes": 1064,
+      "sha256": "4550b02e83fa8ffd5064449e33bf97457878edefc633eb4ca35034bf8c43c08d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_pars_begin.glsl.js",
+      "bytes": 5292,
+      "sha256": "803e1d89886993a4a5e5d0d495090549cc0dac4590da5cd62f79b0a6298e4bbc"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_phong_fragment.glsl.js",
+      "bytes": 222,
+      "sha256": "a800314e97ceafdef9d52e5a8d5e8413a5ec321d105f485ec71e738cc9e89e72"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_phong_pars_fragment.glsl.js",
+      "bytes": 1335,
+      "sha256": "f8be7271fc207651837930583b74e08f95fca5d951af2af6a16ad1fa00ac4871"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_physical_fragment.glsl.js",
+      "bytes": 4327,
+      "sha256": "7dbd1c6b069716d31016ed4456424cd94ce381a9302dc8306166f72c71015c95"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_physical_pars_fragment.glsl.js",
+      "bytes": 22120,
+      "sha256": "93c6fbb624f9adbc0ac6ea0b01180a980ed11eeed7686bcade07b631270e8a9b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_toon_fragment.glsl.js",
+      "bytes": 95,
+      "sha256": "c3732624da5b10e41fb28e95f4210c9dfef4071e452360866821a74ff44d39b3"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/lights_toon_pars_fragment.glsl.js",
+      "bytes": 1002,
+      "sha256": "31ef0879bd75db20937b994328ef5b880053043224d1c801a6e30bf75aa075e8"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/logdepthbuf_fragment.glsl.js",
+      "bytes": 291,
+      "sha256": "86182a73cd956728caa1d9c0e757e380d3121d12b94455c4a88c429c445a9f6b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/logdepthbuf_pars_fragment.glsl.js",
+      "bytes": 171,
+      "sha256": "90cbdd01231d363236a6dad82ac11beda1da75d4b719f76a64a9c2b247451a21"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/logdepthbuf_pars_vertex.glsl.js",
+      "bytes": 133,
+      "sha256": "666318e28e5b38e8318552ae2bdedae417f00bb450d82b95ad21aa2878736ad3"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/logdepthbuf_vertex.glsl.js",
+      "bytes": 178,
+      "sha256": "2be7c4abcfd70402722a4f11f987c49e33a661d9d1c99d26b1c094aa189ece73"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/map_fragment.glsl.js",
+      "bytes": 355,
+      "sha256": "0965b7aea34da013a1286f0a90a801c280b0fa0c516661b8e3f4f4f539431cb3"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/map_pars_fragment.glsl.js",
+      "bytes": 78,
+      "sha256": "b3efc62fa9a1bd38d70cd0f1d2612b40e688c8ef70821d5b59733a032b72281e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/map_particle_fragment.glsl.js",
+      "bytes": 381,
+      "sha256": "8eb4b1df5c3926152648b068f6365516787703ee150e574da21bd2896b8df0fe"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/map_particle_pars_fragment.glsl.js",
+      "bytes": 292,
+      "sha256": "fb1f05dc9665dcf96341685a5b6c9c9107029420a566e8be52d559b432e16ec7"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/metalnessmap_fragment.glsl.js",
+      "bytes": 294,
+      "sha256": "5b1c3df1697d096c315c723103e55e9fd506d829da98f45f23d6c643cbd94c64"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/metalnessmap_pars_fragment.glsl.js",
+      "bytes": 96,
+      "sha256": "df938ebb57ad229cbb17128abfe4e69d06a5cda65306801e1175b3d1a7a4665d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/morphcolor_vertex.glsl.js",
+      "bytes": 826,
+      "sha256": "961d07b672ba39450833cfaa2949eb2b44c14481ab65bac11c3cdc23b8626886"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/morphinstance_vertex.glsl.js",
+      "bytes": 364,
+      "sha256": "4158d4c04bf73a9be231240ad6dcbe93c6dbaca20f0ec9d8af309294877c4150"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/morphnormal_vertex.glsl.js",
+      "bytes": 641,
+      "sha256": "a5833b2d2b8ffc70a4d9ff76a9ffeda6bf5c2754374cde6a3f32bc0899a3e30c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/morphtarget_pars_vertex.glsl.js",
+      "bytes": 678,
+      "sha256": "2c5aecb0d8aab6057d2791b06b92abcde363896cc95db2b0c55c9c37ef78b08a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/morphtarget_vertex.glsl.js",
+      "bytes": 641,
+      "sha256": "9d1babad50bc8b1fff96e1ba9d6bff1e2126c2ce9c580b7a95365463fba84ea9"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_begin.glsl.js",
+      "bytes": 1267,
+      "sha256": "528bc133122cd63341c01e568b69a12034bfd6efb8ff031bb3d13e4bb09cbe2b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_maps.glsl.js",
+      "bytes": 768,
+      "sha256": "7e23407015f8f3dcda7ff6371cb0ab700c586aaeec48273eed5bb0e8c53ec050"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/normal_pars_fragment.glsl.js",
+      "bytes": 165,
+      "sha256": "e171ed98c15cb8fff0fa55c21258d3884a15841ab29d3b9318f61da8fab7f131"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/normal_pars_vertex.glsl.js",
+      "bytes": 165,
+      "sha256": "e171ed98c15cb8fff0fa55c21258d3884a15841ab29d3b9318f61da8fab7f131"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/normal_vertex.glsl.js",
+      "bytes": 365,
+      "sha256": "dc2bb76df6c6829d909b155f0936793c26b097394e0d43911eb51a3279696c9b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/normalmap_pars_fragment.glsl.js",
+      "bytes": 971,
+      "sha256": "9eaf54e726bbc9727f61597f43fa6f9e446faa13389d96a4d025caea5fdc01de"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/opaque_fragment.glsl.js",
+      "bytes": 206,
+      "sha256": "324862640144661f29b44f4cb485bf407cedbcdef99abb78f058680f75868966"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/packing.glsl.js",
+      "bytes": 3356,
+      "sha256": "baaf3e0633bab03dd145e32705f66db08f72a2a73ad63dfc1dc70201ac722b32"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/premultiplied_alpha_fragment.glsl.js",
+      "bytes": 103,
+      "sha256": "0aff0335f03283bb55780658f2c05b42b474d9fd6afd1a7382e4b604243dce04"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/project_vertex.glsl.js",
+      "bytes": 312,
+      "sha256": "74632caa5cc4a9812b1bb423aac7574748e648613c18898c6bf57d26b85600d3"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/roughnessmap_fragment.glsl.js",
+      "bytes": 294,
+      "sha256": "6566652068d55f54ede23f6d6f4e58009cdd3b764c9174340ebbfb64887bffaa"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/roughnessmap_pars_fragment.glsl.js",
+      "bytes": 96,
+      "sha256": "1fb30448fa3f616860cac0fcd0ebc5d71428e7ccce6a972741e95f3ee047d4ef"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/shadowmap_pars_fragment.glsl.js",
+      "bytes": 10487,
+      "sha256": "18e692b928e27a636cd68ec43121728c11df6914063ab215892861a8a437bf88"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/shadowmap_pars_vertex.glsl.js",
+      "bytes": 1446,
+      "sha256": "73cdab4947d51febd2b37733d0aa8fcd8429636b57eca57bf02da7f79db23561"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/shadowmap_vertex.glsl.js",
+      "bytes": 1913,
+      "sha256": "ff341a8d85b4efd6235234fd805149e0f5aaa07e0c758b814b7960eba455a8e9"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/shadowmask_pars_fragment.glsl.js",
+      "bytes": 1670,
+      "sha256": "ded57a9baac06240448f01dfa77b9fe719ff37e90baef1756f41ab1e73f71195"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/skinbase_vertex.glsl.js",
+      "bytes": 247,
+      "sha256": "b7c3bd51471e993f8fae0463733b534529e32cb91cdabb423b4d89ed3ca7c5bf"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/skinning_pars_vertex.glsl.js",
+      "bytes": 589,
+      "sha256": "6b67abcff3043a161c55a11e2994a1d0ee9c37626aa6fbe35a81f63893e7ce26"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/skinning_vertex.glsl.js",
+      "bytes": 400,
+      "sha256": "4422467001348636551ce64f1e6631d8a5032b7ac2788596c2dc5269618c7602"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/skinnormal_vertex.glsl.js",
+      "bytes": 481,
+      "sha256": "5e6f1857d196e7ca79cc4e2ee35fbd128ca74003ad8b96484723d918ca631e49"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/specularmap_fragment.glsl.js",
+      "bytes": 221,
+      "sha256": "098d8ab59b11c5b06acd176c56ef71ab4749a013a51bc5cf981e4701e458930a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/specularmap_pars_fragment.glsl.js",
+      "bytes": 94,
+      "sha256": "ac921db9035362e206a1a1a27fe6dd5808e76f02e859c4d118efef8e9068b9cc"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/tonemapping_fragment.glsl.js",
+      "bytes": 120,
+      "sha256": "f03f887404ceb572e1197d7a8f9a47aa23e3c5ef53ddf3b84af22ebce4954f21"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/tonemapping_pars_fragment.glsl.js",
+      "bytes": 5260,
+      "sha256": "447958b93d07616c83d9273829ed810eb734d02ebbe60f12fc9bdda4f7928f44"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/transmission_fragment.glsl.js",
+      "bytes": 1140,
+      "sha256": "a7bf6155b8e0ae78665382f4e45d654aa198d6714e7fbed2a18fb694beb67fa4"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/transmission_pars_fragment.glsl.js",
+      "bytes": 7316,
+      "sha256": "586f774384f3442bdca1270d203b19f4cc318fd56ee522cdecc4a8b1cb9fc8fc"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/uv_pars_fragment.glsl.js",
+      "bytes": 1633,
+      "sha256": "1b7f24f0a10b67355a8629620ff0075eb0e85943f8546639ae827f5b36ca5751"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/uv_pars_vertex.glsl.js",
+      "bytes": 2496,
+      "sha256": "24cc0d8c4d32dfba83c7880e5eeab3f6a69d6257432791392c8de885cf9e76f0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/uv_vertex.glsl.js",
+      "bytes": 2758,
+      "sha256": "5d29f5e50b8bfd59db1ab0d6bada406da6fac531d45ed4fc3de8bed94fd9af21"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk/worldpos_vertex.glsl.js",
+      "bytes": 439,
+      "sha256": "d291ca05988f57312c060b33fa271472b3756b6a6b737934f5a04f882bf4f17f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderChunk.js",
+      "bytes": 15640,
+      "sha256": "471f53cd38f3d86889f534a25b1829643db475e968627f5528d2a254a189eaae"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/background.glsl.js",
+      "bytes": 829,
+      "sha256": "0c8cfc87b295b403f46f77bf238dd464181c32e1409cb654ab0871a0c361c77b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/backgroundCube.glsl.js",
+      "bytes": 1086,
+      "sha256": "a1059e15668c720c1f3e767787652e30b0206752bd76331c1705783a86ae600f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/cube.glsl.js",
+      "bytes": 654,
+      "sha256": "a63db157216812253ab882cd4777b7f165cbbc34e38df49c7b7a003f61bbc36e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/depth.glsl.js",
+      "bytes": 2539,
+      "sha256": "860fa71a028d9678198f7aea0e6a4336c9663bbb761be6f34437fbbd4c257891"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/distance.glsl.js",
+      "bytes": 1643,
+      "sha256": "8c04e5dbcc88fce477b6b445425d4a4495b53f206958eff1c4fb28983cbe62a5"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/equirect.glsl.js",
+      "bytes": 568,
+      "sha256": "d51f0e2635714ffa6e4e04d360f27e7adb3e8563a32013eb4cd86ba312ab91e8"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/linedashed.glsl.js",
+      "bytes": 1556,
+      "sha256": "1b850ff1a6f8690c8ebe5d19f9268dac08a298d3f0eb92cfe11a52ab3b00e0d2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/meshbasic.glsl.js",
+      "bytes": 2720,
+      "sha256": "da0944dc1e73d0d77a5cde9b93f7d1bdc5c1e825e28e8c582ab1f06692992495"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/meshlambert.glsl.js",
+      "bytes": 3253,
+      "sha256": "8741038bf1cb0f015d269deeb8bf61cb552538fed968f0c723b06ce67a53e228"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/meshmatcap.glsl.js",
+      "bytes": 2692,
+      "sha256": "6e0f370afd832a4802bc9aa05d9b6fb6543ea0184bfdc87c8f635de564b405d6"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/meshnormal.glsl.js",
+      "bytes": 1859,
+      "sha256": "3fc3202f96d8031f29444df6d80becc0d1bea99be87be8dafcc5b6b3efd67150"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/meshphong.glsl.js",
+      "bytes": 3359,
+      "sha256": "5b73f9e05b81a26c60f0caa7d81745e4c360185bfad9cdfba47ea011dbe8d5b1"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/meshphysical.glsl.js",
+      "bytes": 5308,
+      "sha256": "2fc4c7abab0acb6a1a83bd67eb313c277ebecd74258a804adcadc8c880e39a5c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/meshtoon.glsl.js",
+      "bytes": 2973,
+      "sha256": "898e8e99c884c59bba06de9022a8be95a1e410c27a58e7cfa8a9bdcbbe4ffa7e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/points.glsl.js",
+      "bytes": 1760,
+      "sha256": "9568f49ebbab4445979b1027f1faab0fa3d2c14a47d344b36e97323ecee67e13"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/shadow.glsl.js",
+      "bytes": 1245,
+      "sha256": "20421c168192f5768477b4641d9004d85e1a50ecf2cf748f51568482fb6847a1"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/sprite.glsl.js",
+      "bytes": 1834,
+      "sha256": "ec697ffb9101a43d40ad223f1c692dfab15329353eee7603c4f74b75023f6ef8"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib/vsm.glsl.js",
+      "bytes": 1152,
+      "sha256": "0bd3b13a03e43709aa3583bc07f57581798dc92ce5aeee30712c503e3997cdb5"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/ShaderLib.js",
+      "bytes": 8437,
+      "sha256": "949bff0846e59874b3eb482abe3ba29971c19ba1d05ae5f948073b3cd8743dc4"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/UniformsLib.js",
+      "bytes": 4825,
+      "sha256": "24d043f63abce0c0e433becdda9307f58b022774e3a0446754a1ab238c0002ff"
+    },
+    {
+      "path": "node_modules/three/src/renderers/shaders/UniformsUtils.js",
+      "bytes": 2980,
+      "sha256": "2f5bb9c21190ba37cd5d80d9eb8501e4ff06ac91e678dc7d59dcc80f6b53011e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLAnimation.js",
+      "bytes": 826,
+      "sha256": "00285e16bba8683dfb1ecb11c8c5d364c079a9458350732cd9a11fdf2d969632"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLAttributes.js",
+      "bytes": 5087,
+      "sha256": "9132425f2359093927d6208ceedf7447e8157c1a3325cda45f941428b166fbf2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLBackground.js",
+      "bytes": 7677,
+      "sha256": "faf9d8dfefe385cc139e36783daa32413f9090bcb403dbcf50d1e037e81baf26"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLBindingStates.js",
+      "bytes": 13845,
+      "sha256": "2cff5bf80b72044bfbd952151a5888c173048755039501921063f561261ca210"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLBufferRenderer.js",
+      "bytes": 978,
+      "sha256": "ebab65ed80fa55e0afe39bf36c48228203569e6b6d07696f886347f1dcc263ad"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLCapabilities.js",
+      "bytes": 4038,
+      "sha256": "19d270a7ec31b7d8c2673e4868384e8290306fd9340613e8f7726352e6974c3d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLClipping.js",
+      "bytes": 3372,
+      "sha256": "5728f4ee3f35167e7b258e1519bff7f7a43f219c53760fedb113164310639d7d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLEnvironments.js",
+      "bytes": 4743,
+      "sha256": "69d82f1752b3244682b480cdf31d88c508b4617c5035217061635a326601ff38"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLExtensions.js",
+      "bytes": 987,
+      "sha256": "d6fa3d4570e3ed914dbe40329bc2660f4e70c30de0523683b9bc977a6ba74396"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLGeometries.js",
+      "bytes": 3489,
+      "sha256": "d04c0ef5e4ccf862867be3a00d5c4a12de1f0939f81e7d5c50c5c4dcb3bc0eff"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLIndexedBufferRenderer.js",
+      "bytes": 1209,
+      "sha256": "8025355954db283196b21fbf158888df9c0dc60f7de070fa607a69a49e4bd4c0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLInfo.js",
+      "bytes": 1052,
+      "sha256": "eee7c3f0f54643080d478a23acd964fe858143406fea62980f911393d995c532"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLLights.js",
+      "bytes": 13548,
+      "sha256": "43c3edba697cbd764a82b42901960813bc04a0be6d6b5b5442e9d592ae43f3a0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLMaterials.js",
+      "bytes": 14159,
+      "sha256": "00397e5df3d10da9363b39570c7ae986947aef4e121ac91d3c4aa7857b199b15"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLMorphtargets.js",
+      "bytes": 4569,
+      "sha256": "2ce90a7fbe8d817b2addec2e70047c5c240dd366ba2b5a4ffb52acf5b5758907"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLObjects.js",
+      "bytes": 1650,
+      "sha256": "60829abba98579b02a84177ce86b3eea127a7decac487b69c70f0e3e83a1d923"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLOutput.js",
+      "bytes": 7068,
+      "sha256": "732b46882bfbaa7858918519482a4363c7cfa369305c3f0a2613b89ae406ac65"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLProgram.js",
+      "bytes": 31134,
+      "sha256": "a341febd40f5f16253c1fd624f6ae7d0ca34b7a5411fcee1699b87962081ec72"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLPrograms.js",
+      "bytes": 22602,
+      "sha256": "9cf7738b5167a6965e174092d85a519c6e64c401b6273e03cf7aa29ef16a416c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLProperties.js",
+      "bytes": 639,
+      "sha256": "fefb713d30e2df865b867e725592e8949c5735805a7d8963b98eb471c06c1589"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLRenderLists.js",
+      "bytes": 4560,
+      "sha256": "2606792964fa351876798a68317b3d8ca0fb466b5fbef5f7592ecb7f40b743b0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLRenderStates.js",
+      "bytes": 1924,
+      "sha256": "04bebc4f2eab3c34e2583e183aa5fa2a51d7afcfb5465b51eb98889d95dbcc7b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLShader.js",
+      "bytes": 196,
+      "sha256": "19a7dc05063c1367fd718806028eff6f30c4b4c5cabfec21eff0a11ea4459f98"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLShaderCache.js",
+      "bytes": 1781,
+      "sha256": "0327a8f797105550545e276545428b9600db627a61c66943e8511cc104cc9503"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLShadowMap.js",
+      "bytes": 16927,
+      "sha256": "7d69ca09821ed119d7e1db25e88ad43c2b8c7dd87e8746e1c63f8b86086b3e05"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLState.js",
+      "bytes": 27161,
+      "sha256": "fd6adb6c01d75a148ef6ebc8ea948a38acc1a48d3cfdbbb1d12dbde668092431"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLTextures.js",
+      "bytes": 71606,
+      "sha256": "241557c9b4a4cbbc76f4328329f6a26db2f27162e327ac2bb9eb4f851744184a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLUniforms.js",
+      "bytes": 21518,
+      "sha256": "a1910ebdedfb7903b8d6155515ffb414add03108c222de95868eee790bef2317"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLUniformsGroups.js",
+      "bytes": 9240,
+      "sha256": "ef8e5dabfbf4fb57dabd09614a9482c2e2b691004669e0d6a8ecec58b24a8800"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLUtils.js",
+      "bytes": 10058,
+      "sha256": "63b51eb813151817e52d9b2fcb9f91fee3f111f3924af71ec8337caf367ed740"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/WebGLBackend.js",
+      "bytes": 72141,
+      "sha256": "64c9989107b7da10f5a8cc76e7d328fa15f5517240c086a05a62dd6570a916e8"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/WebGLBufferRenderer.js",
+      "bytes": 1610,
+      "sha256": "f8276981e2903131c0abb5e5cf44c42779bb8ce7493c82752153ee598cad7d06"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/nodes/GLSLNodeBuilder.js",
+      "bytes": 47662,
+      "sha256": "0988f39d23449361676560dc99afca190aca780a950990b8985f214055a64d51"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLAttributeUtils.js",
+      "bytes": 8569,
+      "sha256": "32058486fcb3f74e5ce03e8bcfe1462ebf096a8ad000503c65d875f9785079d2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLCapabilities.js",
+      "bytes": 1861,
+      "sha256": "26ca82fb8f01a8f99c9b0283e5f3c60d4ba0e4ee07559578c372f5986b70f396"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLConstants.js",
+      "bytes": 538,
+      "sha256": "e288722d3f0e439aff1329d214aa516ddd7eede236367b2c7fee4ce3b89f7546"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLExtensions.js",
+      "bytes": 1544,
+      "sha256": "7376618f1a6f89a15c56abb7ecb4aed4cabcc7a518d78748dc8628594b3fd5d0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLState.js",
+      "bytes": 32060,
+      "sha256": "b2d1a7e517e19122c13a541e273377c22fa55fa98c7bcf86423354b5eb02d85f"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLTextureUtils.js",
+      "bytes": 40561,
+      "sha256": "e2714d93fc6455828d023a28b5e4529996126885147b5aebd3ae0d6162589ff3"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLTimestampQueryPool.js",
+      "bytes": 7924,
+      "sha256": "246ac8e3899b25d69cbb2692e04e602c01f05fe7b1233c832113b70c186e58d9"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl-fallback/utils/WebGLUtils.js",
+      "bytes": 11822,
+      "sha256": "9f6415d0bb0606b2dd7846d6c65018c274c747f44897da0aab9ff6a44ab8aea4"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/WebGPUBackend.js",
+      "bytes": 79976,
+      "sha256": "ffd7f720c3cbbe4c6ec9757dd73b003fa340b1c2e40ccf4be131b6025a649e31"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/WebGPURenderer.Nodes.js",
+      "bytes": 1485,
+      "sha256": "5189d329c883e9d31094b72cd0ea139d9b699a194e7f2d67643698d1b7a12d0e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/WebGPURenderer.js",
+      "bytes": 3606,
+      "sha256": "b17a6f55a82dc51109ab489c110a52bb0a91ee5dbbe557819ade4071776fb19b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUBindGroupDescriptor.js",
+      "bytes": 736,
+      "sha256": "f8efed78850ed6fad8ecab5c16bdeec277d002e31a77d6eda1ee562aa7373c18"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUBufferDescriptor.js",
+      "bytes": 790,
+      "sha256": "7b8e70a5ffbd691ee5c9c49812267e698cf57048947ad8774f363a4910da4838"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUCommandEncoderDescriptor.js",
+      "bytes": 382,
+      "sha256": "25f7d69a6228c1fbac5a6568845088de9ff78bf9b1ddcfd04e6f9bc3ab9b8308"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUComputePassDescriptor.js",
+      "bytes": 556,
+      "sha256": "57e15d0cc81ca2110697827a3a7226a65fcdc55628387a31d1e340489519ac0e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUComputePipelineDescriptor.js",
+      "bytes": 711,
+      "sha256": "b00de4261a4a9db78cf68d4388ca6a29fd117babf4fad2cd4ef3ce46eaaa8843"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUCopyExternalImageDestInfo.js",
+      "bytes": 885,
+      "sha256": "ceeda458dafefafa17c833c47c2a524a85b2869d1e4ca6009875471512874e5c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUCopyExternalImageSourceInfo.js",
+      "bytes": 899,
+      "sha256": "72796a803ed8840179519660aa403600b09c97b608ef1b8e8c8956e10cb38dc3"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUExtent3D.js",
+      "bytes": 787,
+      "sha256": "d435db0112c5313a3c6074149c5e77e1a200a0482212070dba9c3233eeda8b25"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUPipelineLayoutDescriptor.js",
+      "bytes": 590,
+      "sha256": "be01afed4209eab3538645cea84bc74c01d1c840f5c224fd9b1e287ae1cc491b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUQuerySetDescriptor.js",
+      "bytes": 638,
+      "sha256": "428c1f43ddde8de605ea902af5559345375db7cce74a390172e15311035d64f9"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPURenderBundleEncoderDescriptor.js",
+      "bytes": 1313,
+      "sha256": "5e46f6472b25c50f955d778b292fad27abb8c0212af3d9259b1be3b2a7e08d1d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPURenderPassColorAttachment.js",
+      "bytes": 1340,
+      "sha256": "577153aca87927fb5af0486ffff88819b38ece68701d2a19040f98c3b9d54355"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPURenderPassDepthStencilAttachment.js",
+      "bytes": 1979,
+      "sha256": "c0364034b60507cf7e0906d19e72591e607c6e1d32455feaa21712f58f0d1424"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPURenderPassDescriptor.js",
+      "bytes": 1383,
+      "sha256": "15318b0db14f72e683f526b8821682758eed5f59a268f4cb78abe1f4ed2f86b0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPURenderPassTimestampWrites.js",
+      "bytes": 965,
+      "sha256": "5601bcc4a8c1f4bf9f783b32c352b75a60f89b2eb0ef3682ee304c6d48cd139b"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPURenderPipelineDescriptor.js",
+      "bytes": 2137,
+      "sha256": "d374d1cda8f6bb84914d7a30d7335f36c634ebfe18d96a853b588c333fede513"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUSamplerDescriptor.js",
+      "bytes": 2035,
+      "sha256": "cc9144a65f2c499a3d6a866b2e5e7bdf17d22ef1a70e0584488888e4f0dd7d5d"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUShaderModuleDescriptor.js",
+      "bytes": 687,
+      "sha256": "c94315696c06e4f5d82bc3d8640b7740d60a64b2b073b74884a5e589f334a6b0"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUTexelCopyBufferInfo.js",
+      "bytes": 981,
+      "sha256": "67e3736f4a1f18487d9185c1614deae2fb80df43f299208cd70e7985bca1aaf1"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUTexelCopyBufferLayout.js",
+      "bytes": 828,
+      "sha256": "409d33d56b6d84e857a6390395dfffa9bf009b65cb98597082282055e6c2da68"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUTexelCopyTextureInfo.js",
+      "bytes": 1003,
+      "sha256": "0afd945517c194301b46287682fe783fe254f093d58589573344f9c57b637df7"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUTextureDescriptor.js",
+      "bytes": 1731,
+      "sha256": "11623f1e27671e0cbbb76bbc13ddf85672e0ac4ec4a654001fd7cfaab0036a15"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/descriptors/GPUTextureViewDescriptor.js",
+      "bytes": 1882,
+      "sha256": "15084cf9b66ed6b031b90b33d541c40e44cfd9fe7c9431745d871df94b51ffd2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/nodes/BasicNodeLibrary.js",
+      "bytes": 2420,
+      "sha256": "1bd6bcf537749b26bbcdb596c9a779476bc178ca11a50044bd0e195d14bec576"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/nodes/StandardNodeLibrary.js",
+      "bytes": 4845,
+      "sha256": "f88854507f68522a8c7919fa0ac4fd983f6a3ac0bc23334525b962ac31746da2"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/nodes/WGSLNodeBuilder.js",
+      "bytes": 77605,
+      "sha256": "1bef5f23edb17cafc2808db0bf9c51f24b162353c3dc8bc14d98a761f9b75b8c"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/nodes/WGSLNodeFunction.js",
+      "bytes": 3946,
+      "sha256": "2b3310d5e6324bcd95442b279414af29eb863a3d986df0fd037b8299a35a7a39"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/nodes/WGSLNodeParser.js",
+      "bytes": 500,
+      "sha256": "eb8c8bb893a503ce802eeaf4486d6e83dec60493c28eb90ecd57056ccae31474"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUAttributeUtils.js",
+      "bytes": 15410,
+      "sha256": "5d48062586c7e0f37da9d0e91fcbfd586cb2306cb8628855a70b2a72f8a0e2cb"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUBindingUtils.js",
+      "bytes": 15243,
+      "sha256": "405eb575da574ff6c4cafa429004182be6c1829364f49b3a83428296bb96c654"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUCapabilities.js",
+      "bytes": 861,
+      "sha256": "3ab09e8313fc3e39188e04e2cb244f04da8900995535bf4fa32070be92baa6c5"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUConstants.js",
+      "bytes": 8584,
+      "sha256": "80093ba158428ad402e588819cdd51f4b6e5ee1d81e93f516d4fc7099983b269"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUPipelineUtils.js",
+      "bytes": 24461,
+      "sha256": "3cf042142b37f7b71c57f8d68e3815b8a5fdada5ffb5ce47dc79dca305f06fdb"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUTexturePassUtils.js",
+      "bytes": 13585,
+      "sha256": "d15c9b19468eac2c89457e1606af85fe5f9221afbb78cd8717f27ead9e59bf38"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUTextureUtils.js",
+      "bytes": 54932,
+      "sha256": "ed63e9734e9dd591579d1994e941f252f9bf356f3e166f72b86bab56e35ef050"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUTimestampQueryPool.js",
+      "bytes": 7231,
+      "sha256": "a8b5374d5fd05ab4712f771ffe9b7c054b6fbc333e560f599c0311cc173b2806"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgpu/utils/WebGPUUtils.js",
+      "bytes": 6768,
+      "sha256": "b75f10d99dabc50a71d93aeb146a4ae7aa1767abfd4d22dae61c5a12aee9c8ce"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webxr/WebXRController.js",
+      "bytes": 9203,
+      "sha256": "3ac24667a2449ba1e31a26a636eaf502adc2ca72fd5d4684ac6a2115c6315ae5"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webxr/WebXRDepthSensing.js",
+      "bytes": 2901,
+      "sha256": "c0fd937dcef48f7667c54b9dd2fdb9285e4d2681cb094569b73a47ab0f6d482e"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webxr/WebXRManager.js",
+      "bytes": 28592,
+      "sha256": "0fa8dc5416307e67ddedea067a9af7c735b50d4688c420050e11349076de306f"
+    },
+    {
+      "path": "node_modules/three/src/scenes/Fog.js",
+      "bytes": 1950,
+      "sha256": "bc0c369cc86b5b84e035bc50d2fa0dd569c6d44e9aad9c4c0342c4521cad3306"
+    },
+    {
+      "path": "node_modules/three/src/scenes/FogExp2.js",
+      "bytes": 1607,
+      "sha256": "c1fbafffb04670fc17fc64ec313c5209a0bdc7191a064fd50d8a3e8ac30ff43c"
+    },
+    {
+      "path": "node_modules/three/src/scenes/Scene.js",
+      "bytes": 4244,
+      "sha256": "c6dcb7e8d243d31b08f7ac80be8b1d7e1337c10e837c2b38204b789d8cc4917c"
+    },
+    {
+      "path": "node_modules/three/src/textures/CanvasTexture.js",
+      "bytes": 1417,
+      "sha256": "f6258ea9f08f511b79c86c530665747f7152e5345abbfe4dff7d7ea60bca634b"
+    },
+    {
+      "path": "node_modules/three/src/textures/CompressedArrayTexture.js",
+      "bytes": 2399,
+      "sha256": "c8cbeae2e300c82e2dfe749ef185600c37600830fe39b758a2b39bdbebd18488"
+    },
+    {
+      "path": "node_modules/three/src/textures/CompressedCubeTexture.js",
+      "bytes": 1123,
+      "sha256": "7a8266c421b691d3bd1fc6829b4029ed06978e77707f45ba45460bfa9b0e7cfa"
+    },
+    {
+      "path": "node_modules/three/src/textures/CompressedTexture.js",
+      "bytes": 2597,
+      "sha256": "26b1fd0afee60a738282661332cc7cce8aeab7771490998f9864699fed3cb8f4"
+    },
+    {
+      "path": "node_modules/three/src/textures/CubeDepthTexture.js",
+      "bytes": 2211,
+      "sha256": "845d2d09064eb356ad08ac9e7f56c1f47b8c233d3bc7a9237a6f44641f40282a"
+    },
+    {
+      "path": "node_modules/three/src/textures/CubeTexture.js",
+      "bytes": 2143,
+      "sha256": "3d53b1529eeea457a2a48f72ad68289b7df0a2fe0745a439a36a2d0245ef5231"
+    },
+    {
+      "path": "node_modules/three/src/textures/Data3DTexture.js",
+      "bytes": 2931,
+      "sha256": "ca280cae0ec3771eeabe2e2d4842818d482d196b18193ef30e5bbfb791c542b9"
+    },
+    {
+      "path": "node_modules/three/src/textures/DataArrayTexture.js",
+      "bytes": 3388,
+      "sha256": "99c0abfbc7fad10e4c807c881cb4eec87fe75059cf89d50bff17e0f6a3411827"
+    },
+    {
+      "path": "node_modules/three/src/textures/DataTexture.js",
+      "bytes": 2639,
+      "sha256": "2c2a008a69a4be320698f24dbea286de80e73a2aec4f5bb4ad88a4c2ecb0c9aa"
+    },
+    {
+      "path": "node_modules/three/src/textures/DepthTexture.js",
+      "bytes": 2886,
+      "sha256": "ec7925946e350656ac9aece127527743191de08df5536a529f0043ac816b7a9a"
+    },
+    {
+      "path": "node_modules/three/src/textures/ExternalTexture.js",
+      "bytes": 939,
+      "sha256": "92b649e3178eedec7dd3ee55d47a5b34268eb77c8fdceda1b912949c00c78a35"
+    },
+    {
+      "path": "node_modules/three/src/textures/FramebufferTexture.js",
+      "bytes": 2415,
+      "sha256": "2c4baf4ae8984860a42bda8e7a0c9d4eb15a6401a897a164cf43a73707e8a03f"
+    },
+    {
+      "path": "node_modules/three/src/textures/HTMLTexture.js",
+      "bytes": 1841,
+      "sha256": "5f4f57f98377e164e915db2a529f56e04096d622fe25ee5357283b8ec6df6ad9"
+    },
+    {
+      "path": "node_modules/three/src/textures/Source.js",
+      "bytes": 4481,
+      "sha256": "5378078428637f94f8d7d447f984515cd35fb1ad9113ced086aad16a2f743f5e"
+    },
+    {
+      "path": "node_modules/three/src/textures/Texture.js",
+      "bytes": 18698,
+      "sha256": "ab2b297f91c58c69a95849ef8d1d3a9b7c0e7d2c3a574964b0ffd90b107452c6"
+    },
+    {
+      "path": "node_modules/three/src/textures/VideoFrameTexture.js",
+      "bytes": 2062,
+      "sha256": "c4ec3a2f938fa884ef47b53aefb7686e3dbea6786d590b34e95ac17aad49d339"
+    },
+    {
+      "path": "node_modules/three/src/textures/VideoTexture.js",
+      "bytes": 3329,
+      "sha256": "1ff70de3a313d53cb3fd57e308f3664a650fd3247899651c2942bd2c20c17e2d"
+    },
+    {
+      "path": "node_modules/three/src/utils.js",
+      "bytes": 12516,
+      "sha256": "28f06d2e36ee99dcf3bad7dc10b13ed8715a5b8ed3468b1c7386384b0699e52a"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    }
+  ]
+}

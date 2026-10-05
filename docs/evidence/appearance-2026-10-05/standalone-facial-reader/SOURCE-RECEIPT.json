@@ -1,0 +1,322 @@
+{
+  "schema": "standalone-facial-reader-independent-source-review-v1",
+  "collected_utc": "2026-10-05T23:00:18.358125+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "A corrected inert source suitability; B immediate execution; A next separate supervisor preparation worth only",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/CORRECTED-HANDOFF.json",
+      "bytes": 3463,
+      "sha256": "82b26d382d71a6fe36d0e0c9e556752bd014d72fc6d3dbbd64879261d6534233"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/PLAN.json",
+      "bytes": 6270,
+      "sha256": "43c1c6943769a8c83e81df35be4fe53deced8d38cde22bc02866eddf53cc7078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reader.py",
+      "bytes": 40181,
+      "sha256": "95bfacdf97cc34a7027e221ac029a42729ea39fa0b5327030bf384580f9127bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/cpu-oracle.mjs",
+      "bytes": 17431,
+      "sha256": "a32cd326f4aeb17d66d7b611f50bd3b20f1af73b60070e2e56099d57505cf61c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/check-packet.py",
+      "bytes": 23269,
+      "sha256": "dcb52d37b2afac5678622d8ba89c66f7ce68f57f9f116c775c079cf7720591b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-MAP.md",
+      "bytes": 9861,
+      "sha256": "eab721ec066c085facc76c1c9c9c3c40a61272a999e32540953222d497145cbc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/DEPENDENCY-PINS.json",
+      "bytes": 145185,
+      "sha256": "0f8d7aff88c3840a35e1518f846a4e13ffaa05ae9a9c76baf83b111ed30d0bd3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-HANDOFF.json",
+      "bytes": 2417,
+      "sha256": "926c39a960730d7b5bf786df0a8266bbda63492c85f7f99d7e21bd099a75e68c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/REVIEWED-V1.json",
+      "bytes": 3936,
+      "sha256": "6251460d45d7939d4135a860b26c8c9609d3851210b30b979a055341b6591508"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/ROOT-SOURCE-CORRECTIONS.md",
+      "bytes": 3660,
+      "sha256": "8b25a99c90dd9f409ad245cd8e60a754f915a144beb685b033c66187dceaf4d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/RESOURCE-QUESTION.md",
+      "bytes": 2183,
+      "sha256": "0071add7af7fb57f3d055e4be17f3fd8c64471394cd74945376c697492573647"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/PLAN.json",
+      "bytes": 6270,
+      "sha256": "43c1c6943769a8c83e81df35be4fe53deced8d38cde22bc02866eddf53cc7078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/reader.py",
+      "bytes": 39930,
+      "sha256": "18b13b820752129f4fd32614265f333c19c819e42e0d205bb1eb89db5995f25f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/cpu-oracle.mjs",
+      "bytes": 17431,
+      "sha256": "a32cd326f4aeb17d66d7b611f50bd3b20f1af73b60070e2e56099d57505cf61c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/check-packet.py",
+      "bytes": 19720,
+      "sha256": "7615a1375f884fe917e1d4fc79b2cd6271de3a4e59bc7dbb9d57a3e0042af2a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/SOURCE-MAP.md",
+      "bytes": 8386,
+      "sha256": "d64d1cfe4e6d5ceaa0fbe13b0a943ac8a1876a254e4dd75889ae0de85cdc6b14"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/DEPENDENCY-PINS.json",
+      "bytes": 145185,
+      "sha256": "0f8d7aff88c3840a35e1518f846a4e13ffaa05ae9a9c76baf83b111ed30d0bd3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/SOURCE-HANDOFF.json",
+      "bytes": 2417,
+      "sha256": "926c39a960730d7b5bf786df0a8266bbda63492c85f7f99d7e21bd099a75e68c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/ROOT-PREPARATION-READBACK.json",
+      "bytes": 2273,
+      "sha256": "9fd539781e48a5825ba2c79288279658740c13b215f0398f13d68d19b4b66791"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reviewed-v1/RESOURCE-QUESTION.md",
+      "bytes": 2183,
+      "sha256": "0071add7af7fb57f3d055e4be17f3fd8c64471394cd74945376c697492573647"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/SOURCE-CONTRACT.review.md",
+      "bytes": 15923,
+      "sha256": "c99ae130d77237c3c1aec65728d64634dee5f59e654c95d07888cd56bf81eca6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-CONTRACT-CORRECTIONS.md",
+      "bytes": 4611,
+      "sha256": "ab19ecde23f6aa2551791444f288af984c2919167f8e4e6be9f933bdc1801dc2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-OWNER-CORRECTIONS.md",
+      "bytes": 3243,
+      "sha256": "cf2de3feee11b6b85a03b8cc4f9219ce0f75b8a6901affcc14504dc369c2f8e0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ALIAS-POLICY.md",
+      "bytes": 3609,
+      "sha256": "487a8e581bd8573c94f7671456718154efad3f7002470f38b9844611776052ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/CONTRACT-RESULT.md",
+      "bytes": 7888,
+      "sha256": "2abf0fecca946b4926cfe7596b911f4105042b4c5bff8d99fec125c37428a8bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/CONTRACT-RECEIPT.json",
+      "bytes": 14078,
+      "sha256": "c787fabaa46de5d6e4b5ea532267d0fee5a2902e694f0008dc7b730eaa4821af"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/ROOT-CLOSE.json",
+      "bytes": 1930,
+      "sha256": "389229c5157d10959244da49645d54b2949bc4df55cd86b570191bf71623d18a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-source/FROZEN-INPUTS.json",
+      "bytes": 11915,
+      "sha256": "00c44b274f740c9aab681e2588a22aff32930598da4eaff7ea299925cf376cab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/facial-master-reference/FACIAL-SOURCE-BRIEF.md",
+      "bytes": 4621,
+      "sha256": "d856264d785c0f6696306136649e631a9203c8789249caf71c180f677c44fd89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector4.js",
+      "bytes": 22958,
+      "sha256": "a4d494cb760048f8eb330bab4c65ac545a4ea77ea0da958190ba69fefd4b3a28"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    }
+  ],
+  "verified_tables": {
+    "corrected_handoff_files": 10,
+    "plan_inputs": 12,
+    "preserved_v1_snapshots": 9,
+    "dependency_byte_rows": 752
+  },
+  "dependency_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/DEPENDENCY-PINS.json",
+    "bytes": 145185,
+    "sha256": "0f8d7aff88c3840a35e1518f846a4e13ffaa05ae9a9c76baf83b111ed30d0bd3",
+    "all_records_verified": true,
+    "records": 752,
+    "scope": "exact byte pins only; no whole-library review or imports"
+  },
+  "read_scopes": {
+    "initial": "complete reader1\u2013661/oracle1\u2013260/checker1\u2013268 and initial map/handoff",
+    "corrected": "complete reader1\u2013665/checker1\u2013316/map/correction/handoff/resource question; oracle unchanged full prior read and current exact hash",
+    "contracts": "full corrected authoritative four-part contract previously reviewed, current12PLANinputs exact",
+    "normative": "retained primary selected actual1056\u20131088/1379\u20131385/2498\u20132507 reread here; prior corrected-contract normative scopes retained without full7301line assertion",
+    "APIs": "actual selected BufferAttribute375\u2013405,Vector4884\u2013916,GLTFLoader2243\u20132277/3240\u20133288 and earlier corrected-contract operator/cache/backing scopes; unused Mesh325\u2013355 read does not constitute added qualification",
+    "source_asset": "whole-byte hash only; no header/JSON/BIN/image/mesh interpretation",
+    "preserved": "all9 v1 snapshot hashes verified and reader/checker text-only complete diffs examined; immutable original handoff not asserted to pin changed current files"
+  },
+  "commands": [
+    {
+      "tool": "575213",
+      "exit_code": 0,
+      "scope": "complete initial map/handoff plus three source sizes/pins"
+    },
+    {
+      "tool": "333060",
+      "exit_code": 0,
+      "scope": "initial reader1\u2013220"
+    },
+    {
+      "tool": "b82bc9",
+      "exit_code": 0,
+      "scope": "complete unchanged oracle1\u2013260"
+    },
+    {
+      "tool": "49f3bb",
+      "exit_code": 0,
+      "scope": "initial reader221\u2013442"
+    },
+    {
+      "tool": "8e33ec",
+      "exit_code": 0,
+      "scope": "complete initial checker1\u2013268"
+    },
+    {
+      "tool": "6c8eae",
+      "exit_code": 0,
+      "scope": "initial reader443\u2013661"
+    },
+    {
+      "tool": "bf3213",
+      "exit_code": 0,
+      "scope": "initial dependency wrapper inspection used wrong records key; wrapper shape recovered, no input failure; actual normative bounds/scene scopes"
+    },
+    {
+      "tool": "55eb5b",
+      "exit_code": 0,
+      "scope": "installed default material/sampler clauses, unrelated Mesh excerpt"
+    },
+    {
+      "tool": "d0cf52",
+      "exit_code": 0,
+      "scope": "all752actual dependency records and six initial source handoff rows independently hashed"
+    },
+    {
+      "tool": "b5a537",
+      "exit_code": 0,
+      "scope": "actual normalized getter API"
+    },
+    {
+      "tool": "d4bd98",
+      "exit_code": 0,
+      "scope": "complete corrected metadata/map/correction"
+    },
+    {
+      "tool": "95f420",
+      "exit_code": 0,
+      "scope": "complete corrected checker1\u2013316"
+    },
+    {
+      "tool": "e229b0",
+      "exit_code": 0,
+      "scope": "corrected reader1\u2013225"
+    },
+    {
+      "tool": "826ca2",
+      "exit_code": 0,
+      "scope": "corrected reader226\u2013450"
+    },
+    {
+      "tool": "255dc9",
+      "exit_code": 0,
+      "scope": "corrected reader451\u2013665"
+    },
+    {
+      "tool": "599ecd",
+      "exit_code": 0,
+      "scope": "complete resourcequestion/v1map/current10handoffpins/outputabsence"
+    },
+    {
+      "tool": "cd2baa",
+      "exit_code": 0,
+      "scope": "all9 preserved snapshots and exact source diffs"
+    },
+    {
+      "tool": "this final stdlib metadata/hash/write/readback only",
+      "scope": "all current10/12/752 and9historical reverified; no target program invocation"
+    }
+  ],
+  "limits": [
+    "No source/GLB/header/JSON/BIN/image/geometry decode; no original values observed",
+    "No reader/oracle/checker import/run/AST or Node--check by critic; root syntax-only results are not data proof",
+    "No new network/browser/native/GPU/capture/default or source candidate edits",
+    "Full3file static review/752bytepins not formal source/API correctness or wholelibrary conformance certificate",
+    "Actual supervisor/resource/pin/collection source still requires fresh independent/root review before first data",
+    "CPU/idealshader comparisons do not certify actual GPU or facial appearance",
+    "Original3findings resolved in preserved corrected source, not g100 defect diagnoses"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-RESULT.md",
+    "bytes": 8069,
+    "sha256": "a3650e84778e9048bb39d2026710b3d9fce34b90c4763548c8ffcc5b188ca2f6"
+  }
+}

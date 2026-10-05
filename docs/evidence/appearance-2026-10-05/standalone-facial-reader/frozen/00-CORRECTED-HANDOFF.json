@@ -1,0 +1,81 @@
+{
+  "prepared_utc": "2026-10-05T22:51:13.486091+00:00",
+  "stable_sources": true,
+  "pending_edits": false,
+  "scope": "one coherent correction set from independently witnessed v1; inert source suitability only",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/PLAN.json",
+      "bytes": 6270,
+      "lines": 82,
+      "sha256": "43c1c6943769a8c83e81df35be4fe53deced8d38cde22bc02866eddf53cc7078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reader.py",
+      "bytes": 40181,
+      "lines": 665,
+      "sha256": "95bfacdf97cc34a7027e221ac029a42729ea39fa0b5327030bf384580f9127bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/cpu-oracle.mjs",
+      "bytes": 17431,
+      "lines": 260,
+      "sha256": "a32cd326f4aeb17d66d7b611f50bd3b20f1af73b60070e2e56099d57505cf61c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/check-packet.py",
+      "bytes": 23269,
+      "lines": 316,
+      "sha256": "dcb52d37b2afac5678622d8ba89c66f7ce68f57f9f116c775c079cf7720591b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-MAP.md",
+      "bytes": 9861,
+      "lines": 25,
+      "sha256": "eab721ec066c085facc76c1c9c9c3c40a61272a999e32540953222d497145cbc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/DEPENDENCY-PINS.json",
+      "bytes": 145185,
+      "lines": 3770,
+      "sha256": "0f8d7aff88c3840a35e1518f846a4e13ffaa05ae9a9c76baf83b111ed30d0bd3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-HANDOFF.json",
+      "bytes": 2417,
+      "lines": 55,
+      "sha256": "926c39a960730d7b5bf786df0a8266bbda63492c85f7f99d7e21bd099a75e68c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/REVIEWED-V1.json",
+      "bytes": 3936,
+      "lines": 67,
+      "sha256": "6251460d45d7939d4135a860b26c8c9609d3851210b30b979a055341b6591508"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/ROOT-SOURCE-CORRECTIONS.md",
+      "bytes": 3660,
+      "lines": 13,
+      "sha256": "8b25a99c90dd9f409ad245cd8e60a754f915a144beb685b033c66187dceaf4d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/RESOURCE-QUESTION.md",
+      "bytes": 2183,
+      "lines": 9,
+      "sha256": "0071add7af7fb57f3d055e4be17f3fd8c64471394cd74945376c697492573647"
+    }
+  ],
+  "root_actual_reads": [
+    "446540 retained primary1058-1072",
+    "b620cf retained primary1359-1394",
+    "e3b862 original affected clauses/producer sums/map",
+    "98cad8 corrected full checker and selected reader",
+    "29673c oracle140-178 exact inverse bind and matrix observer duties"
+  ],
+  "syntax": [
+    "c0895e Python ast.parse only",
+    "159722 Node--check only"
+  ],
+  "no_source_decode_import_evaluation_or_output": true,
+  "held": "Exact future serial supervisor/resource/pin/collection source still unowned; no execution admission"
+}

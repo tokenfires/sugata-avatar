@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-10-05T22:54:44.563767+00:00",
+  "scope": "corrected stable source preparation only; no original source fields evaluated",
+  "handoff": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/CORRECTED-HANDOFF.json",
+    "bytes": 3463,
+    "sha256": "82b26d382d71a6fe36d0e0c9e556752bd014d72fc6d3dbbd64879261d6534233"
+  },
+  "actual_root_reads": [
+    "dd549b/f41272 full original reader",
+    "767d74 full oracle plus Vector4manhattanLength",
+    "25459a full original checker",
+    "446540 retained primary1058-1072",
+    "b620cf retained primary1359-1394",
+    "e3b862 original affected clauses/producer sums/map",
+    "98cad8 full corrected checker316lines and selected reader665line revision",
+    "29673c actual oracle140-178 allmatrix/inversebind checks",
+    "5ef87c full code delta and exact byte pins"
+  ],
+  "corrections": "A exacttypedextrema+exception+boundrecords+animationinputpresence; A inactiveownerpreservation; A allsum/zeroExtra/sourceassociation/unskinnedfield ownership",
+  "stable_utc": "2026-10-05T22:51:13.486091+00:00",
+  "syntax_only": [
+    "c0895e ast.parse twoPythonfiles exit0",
+    "159722 node--check unchangedoracle exit0"
+  ],
+  "bindings_verified": {
+    "correctedhandoff": 10,
+    "reviewed_v1_snapshots": 9,
+    "PLANinputs": 12,
+    "dependency_byte_rows": 752
+  },
+  "jobs": "independent critic source rereview; no owned decoder/CPU/native/network/browser; originalhashonly, outputabsent",
+  "review_server": "483637 actualVite1023 LISTEN127.0.0.1:5173 retained",
+  "automation": "66261e savedACTIVEheartbeat10minutes unchanged",
+  "gate": "source verdictpending; later exactserialsupervisor/resource/termination/pin/collection source is unowned; execution held",
+  "broader_status": "14scoped/10broad/fullAAA unchanged; no master/appearance/conformance/anatomy/representation/gender/fit/rig/motion/adoption credit"
+}

@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-10-05T22:42:09.942501+00:00",
+  "source_state": "Stable inert code and map under independent review; no program run/import/evaluation, originalhashonly",
+  "root_full_source_reads": [
+    "dd549b reader1-340",
+    "f41272 reader341-end",
+    "767d74 fullCPUoracle and Vector4manhattan",
+    "25459a fullcoveragechecker",
+    "2dea0d latecanonical/base-morph guard reread"
+  ],
+  "final_syntax_checks": [
+    "ea62b1 bothPythonASTonlyexit0",
+    "8eb022 Node--checkonlyexit0"
+  ],
+  "source_duty_corrections_before_stable_handoff": [
+    "Original raw JSON chunk copied as exactbytes, not serializedreplacement",
+    "Explicit reciprocal-and-multiply L1 order to match current Vector4/SkinnedMesh",
+    "Canonicalset/base-morph-originalattribute guards",
+    "Fullsource/effectiveweightmaxwitness",
+    "Absentmaterial/installedsamplerdefaultownership",
+    "Independent allpointidealshaderledgerverification; no actualGPUclaim"
+  ],
+  "actual_extra_source_reads": [
+    "048bcd currentGLTFLoader2243-2276/3240-3283 defaultmaterial/samplers",
+    "ac159a Vector4addScaled actualselectedlines343-366; attemptedmanhattan800-823 wrongscope recovered767d74 actual894-909"
+  ],
+  "environment_witnesses": [
+    "ac159a existingViteVSZ499251136KiB/RSS131024KiB, not oraclebaseline",
+    "a1e377 Nodev8optionsoldspaceflag metadata only",
+    "d44011 Python3.14.7 metadataonly"
+  ],
+  "pin_verification": [
+    {
+      "table": "SOURCE-HANDOFF.json",
+      "rows": 6
+    },
+    {
+      "table": "PLAN.json",
+      "rows": 12
+    },
+    {
+      "table": "DEPENDENCY-PINS.json",
+      "rows": 752
+    }
+  ],
+  "pin_verification_tools": [
+    "48cb40 all6handoff12PLAN752librarypins",
+    "ea62b1 stableexactsourceSHA/AST/nooutput"
+  ],
+  "unsupported_cases": "source extension/URI/sparsematrix/interleaved+sparse/alias/mixedclass/positiveextra influence/ref failures are located refusals, no original property alleged before firstdata",
+  "held_gate": "exactserialsupervisor/time/memory/group/error/exit/warning/partial/pin/collectionsourceandadmission still unowned; code review alone cannot launch originaldata",
+  "no_output": true,
+  "jobs": "critic source review only; no owned decoder/CPU/native/browser/network. Vite retained, automationunchanged."
+}

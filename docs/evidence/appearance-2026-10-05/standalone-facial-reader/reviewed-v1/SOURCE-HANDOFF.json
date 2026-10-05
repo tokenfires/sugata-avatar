@@ -1,0 +1,55 @@
+{
+  "prepared_utc": "2026-10-05T22:34:50.102708+00:00",
+  "stable_sources": true,
+  "pending_edits": false,
+  "scope": "new isolated inert source only; not decode/import/evaluation admission",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/PLAN.json",
+      "bytes": 6270,
+      "lines": 82,
+      "sha256": "43c1c6943769a8c83e81df35be4fe53deced8d38cde22bc02866eddf53cc7078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reader.py",
+      "bytes": 39930,
+      "lines": 661,
+      "sha256": "18b13b820752129f4fd32614265f333c19c819e42e0d205bb1eb89db5995f25f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/cpu-oracle.mjs",
+      "bytes": 17431,
+      "lines": 260,
+      "sha256": "a32cd326f4aeb17d66d7b611f50bd3b20f1af73b60070e2e56099d57505cf61c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/check-packet.py",
+      "bytes": 19720,
+      "lines": 268,
+      "sha256": "7615a1375f884fe917e1d4fc79b2cd6271de3a4e59bc7dbb9d57a3e0042af2a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-MAP.md",
+      "bytes": 8386,
+      "lines": 23,
+      "sha256": "d64d1cfe4e6d5ceaa0fbe13b0a943ac8a1876a254e4dd75889ae0de85cdc6b14"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/DEPENDENCY-PINS.json",
+      "bytes": 145185,
+      "lines": 3770,
+      "sha256": "0f8d7aff88c3840a35e1518f846a4e13ffaa05ae9a9c76baf83b111ed30d0bd3"
+    }
+  ],
+  "root_full_reads": [
+    "dd549b reader1-340",
+    "f41272 reader341-end",
+    "767d74 completeoracle/Vector4manhattanLength",
+    "25459a completechecker"
+  ],
+  "syntax": "ast.parse bothPythonfilesonly; node--check prior efed45 then final command separately",
+  "original_candidate": "hash-only unchanged currentoriginal; no output dir or source fields parsed",
+  "no_execution": true,
+  "no_network_native_browser": true,
+  "future_supervisor_unowned": "SOURCE-MAP explicitly holds serial supervisor/memory/processgroup review before any firstdecode; existingViteVSZ witness not this oracle measurement"
+}

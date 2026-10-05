@@ -1,0 +1,7 @@
+# Complete original source reader — preparation checkpoint
+
+[Independent source verdict](SOURCE-RESULT.md): corrected inert sources are suitable for a separately supervised first attempt. Execution remains held. The original standalone g100 was only hashed; no header, source fields, image pixels or geometry was decoded and output/ does not exist. This checkpoint grants no facial, anatomy, rig, motion, material or broader project completion credit.
+
+[Root receipt](RECEIPT.md), [exact closure](ROOT-CLOSE.json), [corrected stable source handoff](CORRECTED-HANDOFF.json) and [preserved input manifest](FROZEN-INPUTS.json) retain the input bytes, actual read scopes, commands, limits, three resolved source findings and next action. The initial reviewed revision and immutable old handoff are preserved separately. Root's checkpoint metadata correction is explicit in the final closure; installed dependency byte snapshots do not imply a complete library/API review.
+
+Next: prepare and independently review an exact serial120-second supervisor with source/dependency guards, declared Node heap and observed resident limits, warning/exit/partial accounting and collected termination. No preliminary source trial or retry is admitted. After that separate gate, complete actual data and later unchanged whole/front/three-quarter/profile images can answer whether the original is a useful editable facial input.
