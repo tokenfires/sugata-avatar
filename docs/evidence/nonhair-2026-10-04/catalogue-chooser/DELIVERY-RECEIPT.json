@@ -1,0 +1,326 @@
+{
+  "savedAt": "2026-10-05T05:37:45.590252+00:00",
+  "writerPid": 54805,
+  "decision": "A exact tested-byte API/guide delivery; root closure record read and bound, freeze not claimed",
+  "scope": "Final static full delivered-source/doc read and local links/byte equality only; no rerun/import/decode/native/browser/engine. Earlier result/receipt unchanged.",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "bytes": 1741,
+      "sha256": "74690f0010ea2d0e4af56159e37b33ecf4ecb841952a65406869706730736471"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RECEIPT.md",
+      "bytes": 4619,
+      "sha256": "8714d97fcc9347e9c230d8ba9b7d0735e936b8fc236f937f48019f0f201840bd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/PROMOTION.json",
+      "bytes": 1558,
+      "sha256": "21cadbe7c76259853cb18dd0148323dc2efc667e2e93b59f4fef45bedd6925c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/DELIVERY-FINAL.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/ROOT-RESULT.json",
+      "bytes": 14167,
+      "sha256": "a2ae78a6a5cb64b368c52f429a106d6f57d69c2c17b089ab34471d645156765c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RESULT.md",
+      "bytes": 3582,
+      "sha256": "e88f3d18d4bf7f27db3949f3774e60b651f89dfd8a25b09621d325fd257d6dc9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RESULT-RECEIPT.json",
+      "bytes": 16402,
+      "sha256": "84d32f558ac0a461b8237a11acbefa10d23e95532dbab433a1c6dfb8c60e5464"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+      "bytes": 7475,
+      "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/CLOSE.json",
+      "bytes": 1681,
+      "sha256": "5ff7b460efc5998405d7f51b24c692cc1b67a251cf67175a13781989a485d9bb"
+    }
+  ],
+  "promotionPairs": [
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/candidate/CatalogueDresser.js",
+        "bytes": 4807,
+        "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+      },
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+        "bytes": 4807,
+        "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+      },
+      "byteEqual": true
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/candidate/CatalogueDresser.selftest.mjs",
+        "bytes": 7475,
+        "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+      },
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+        "bytes": 7475,
+        "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+      },
+      "byteEqual": true
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/DELIVERY-FINAL.md",
+        "bytes": 3478,
+        "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+      },
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+        "bytes": 3478,
+        "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+      },
+      "byteEqual": true
+    }
+  ],
+  "localLinks": [
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "label": "Exact test and review receipt",
+      "href": "../evidence/nonhair-2026-10-04/catalogue-chooser/RECEIPT.md",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RECEIPT.md",
+        "bytes": 4619,
+        "sha256": "8714d97fcc9347e9c230d8ba9b7d0735e936b8fc236f937f48019f0f201840bd"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Readable API",
+      "href": "../../../research/CATALOGUE-DRESSER-2026-10-04.md",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+        "bytes": 3478,
+        "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Core module",
+      "href": "../../../../packages/core/src/wardrobe/CatalogueDresser.js",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+        "bytes": 4807,
+        "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "test",
+      "href": "../../../../packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+        "bytes": 7475,
+        "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Contract",
+      "href": "CONTRACT.md",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/CONTRACT.md",
+        "bytes": 2355,
+        "sha256": "f54ec2099ec0f0df134f0e234b8eda2d6d51505006511c30569901d665b91c1c"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "source review",
+      "href": "SOURCE-RESULT.md",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/SOURCE-RESULT.md",
+        "bytes": 3668,
+        "sha256": "1dcfb4c095460ae8c2ebf2cec76a8e077784a51fe9c7993cbb25c1a181259fb2"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "actual result review",
+      "href": "RESULT.md",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RESULT.md",
+        "bytes": 3582,
+        "sha256": "e88f3d18d4bf7f27db3949f3774e60b651f89dfd8a25b09621d325fd257d6dc9"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Full assertion output",
+      "href": "TEST-STDOUT.txt",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDOUT.txt",
+        "bytes": 1125,
+        "sha256": "56dcefe8c8e7e966251409b42f71b20465383eacb08198b096e1e880527c013b"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "warning",
+      "href": "TEST-STDERR.txt",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDERR.txt",
+        "bytes": 176,
+        "sha256": "bdfd96ddbdc6ce09c9959af7d5d1dae2d76814ea47cd660c1dc527f0afdb3354"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "owned job",
+      "href": "TEST-JOB.json",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-JOB.json",
+        "bytes": 1033,
+        "sha256": "66bcb7ce6a842d021836b844ed490ac62fb511c1b62a6a83f2377c0ef65ced15"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Exact receipt",
+      "href": "RECEIPT.md",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RECEIPT.md",
+        "bytes": 4619,
+        "sha256": "8714d97fcc9347e9c230d8ba9b7d0735e936b8fc236f937f48019f0f201840bd"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "root verification",
+      "href": "ROOT-RESULT.json",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/ROOT-RESULT.json",
+        "bytes": 14167,
+        "sha256": "a2ae78a6a5cb64b368c52f429a106d6f57d69c2c17b089ab34471d645156765c"
+      }
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "promotion hashes",
+      "href": "PROMOTION.json",
+      "target": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/PROMOTION.json",
+        "bytes": 1558,
+        "sha256": "21cadbe7c76259853cb18dd0148323dc2efc667e2e93b59f4fef45bedd6925c7"
+      }
+    }
+  ],
+  "all13LinksExist": true,
+  "historicalCloseAbsence": {
+    "chunk": "f8d678",
+    "utc": "2026-10-05T05:36:24.347991+00:00",
+    "exists": false
+  },
+  "closeExistsAtWriter": true,
+  "commands": [
+    {
+      "chunk": "6e3f33",
+      "exitCode": 0,
+      "scope": "Full promoted core sources/PROMOTION/DELIVERY-FINAL read"
+    },
+    {
+      "chunk": "092de1",
+      "exitCode": 0,
+      "scope": "Independent exact3pair comparison at05:34:28Z; README/receipt still absent then"
+    },
+    {
+      "chunk": "73a3a9",
+      "exitCode": 0,
+      "scope": "Complete README/receipt/research/root-result read"
+    },
+    {
+      "chunk": "f8d678",
+      "exitCode": 0,
+      "scope": "Resolve13local links and observe CLOSE absence"
+    },
+    {
+      "chunk": "b594e2",
+      "exitCode": 0,
+      "scope": "Full root-owned CLOSE record read; no independent process/heartbeat probe"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/DELIVERY-RESULT.md",
+    "bytes": 2153,
+    "sha256": "d2ea75697e30daefbd238051d6f2d1f614b8525ca01df60e3507f145eff94117"
+  },
+  "finalSavedAt": "2026-10-05T05:38:34.102279+00:00",
+  "closureRecord": {
+    "utc": "2026-10-05T05:37:43.392761+00:00",
+    "ownerPid": 54777,
+    "state": "Bounded test/API delivery complete; final independent delivery note and freeze/readback still being collected before original05:47 stop.",
+    "ownedCompletedPublishers": [
+      {
+        "pid": 52063,
+        "observedAbsent": true,
+        "psExit": 1
+      },
+      {
+        "pid": 53717,
+        "observedAbsent": true,
+        "psExit": 1
+      },
+      {
+        "pid": 53843,
+        "observedAbsent": true,
+        "psExit": 1
+      },
+      {
+        "pid": 53844,
+        "observedAbsent": true,
+        "psExit": 1
+      },
+      {
+        "pid": 54238,
+        "observedAbsent": true,
+        "psExit": 1
+      },
+      {
+        "pid": 54267,
+        "observedAbsent": true,
+        "psExit": 1
+      }
+    ],
+    "reviewServer": {
+      "pid": 1023,
+      "actualLsof": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    1023 robault   23u  IPv4 0xbfef6cdca24b5a14      0t0  TCP 127.0.0.1:5173 (LISTEN)\n",
+      "retained": true
+    },
+    "savedAutomation": {
+      "status": "ACTIVE",
+      "rrule": "FREQ=MINUTELY;INTERVAL=10",
+      "sha256": "f69648b59c2107f17177fde67cc5864bbd2956f20cfbe5d1101bdb2ddb5ef8db",
+      "mutation": false
+    },
+    "nextAction": "Collect final independent delivery handoff; root reconcile exact pins/current3copy pairs/local links; freeze packet and record actual manifest/readback in live journals, local scoped commit. Any new UI only fresh plan/worth.",
+    "limits": "No owned candidate/native job remains. Critic final-readback agent may still run; no GPU/backend retirement certificate inferred. Existing checklist/roadmap/default/original/frozen/unrelated work unchanged. Newer human steering wins."
+  }
+}

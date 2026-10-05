@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-05T05:30:29.289651+00:00",
+  "decision": "A actual bounded policy/agency test; final independent handoff pending before delivery.",
+  "actualJob": {
+    "startedAt": "2026-10-05T05:29:14.489681+00:00",
+    "ownerPid": 53843,
+    "command": [
+      "/Users/robault/.brv-cli/bin/node",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/candidate/CatalogueDresser.selftest.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "timeoutSeconds": 60,
+    "stopAt": "2026-10-05T05:47:04.054325+00:00",
+    "childPid": 53844,
+    "completedAt": "2026-10-05T05:29:14.582314+00:00",
+    "elapsedSeconds": 0.09265058301389217,
+    "exitCode": 0,
+    "timedOut": false,
+    "outputs": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDOUT.txt",
+        "bytes": 1125,
+        "sha256": "56dcefe8c8e7e966251409b42f71b20465383eacb08198b096e1e880527c013b"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDERR.txt",
+        "bytes": 176,
+        "sha256": "bdfd96ddbdc6ce09c9959af7d5d1dae2d76814ea47cd660c1dc527f0afdb3354"
+      }
+    ]
+  },
+  "actualAssertions": {
+    "startedAt": "2026-10-05T05:29:14.529Z",
+    "completedAt": "2026-10-05T05:29:14.578Z",
+    "pid": 53844,
+    "checks": [
+      "actual manifest selects both declared recipes and the live foundation",
+      "constructor inputs and catalogue/choice outputs cannot rewrite stored recipes",
+      "invalid preferences leave the wardrobe and previous explanation unchanged",
+      "a valid foundation/footwear set is refused as incomplete outer clothing",
+      "actual conflict and unknown-garment policy is retained",
+      "a sparse catalogue refuses before it can create an empty candidate",
+      "changed live floor replaces prior foundation ids in each proposal",
+      "changed unsupported figure policy refuses without changing the last explanation",
+      "an unresolved tie preserves caller order",
+      "a tie preserves the actual currently worn candidate",
+      "real pinned agency records a different proposal and leaves the actual outfit alone",
+      "canonical floor inclusion recognizes a proposal already worn"
+    ],
+    "passed": 12,
+    "scope": "CPU policy/agency only; 1x1 image stubs; no rendered fit or mood/climate qualification"
+  },
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/ROOT-ADMISSION.json",
+      "bytes": 10811,
+      "sha256": "8491237cf709c6e855543272cd8ca1fc8e3161f5c6a881697815988b2065d344"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-JOB.json",
+      "bytes": 1033,
+      "sha256": "66bcb7ce6a842d021836b844ed490ac62fb511c1b62a6a83f2377c0ef65ced15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-START.json",
+      "bytes": 409,
+      "sha256": "9e5038547b0c2413362081deb2dff1797719d05152b6b6b62d037b5c97c9ce90"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDOUT.txt",
+      "bytes": 1125,
+      "sha256": "56dcefe8c8e7e966251409b42f71b20465383eacb08198b096e1e880527c013b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDERR.txt",
+      "bytes": 176,
+      "sha256": "bdfd96ddbdc6ce09c9959af7d5d1dae2d76814ea47cd660c1dc527f0afdb3354"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/DELIVERY-DRAFT.md",
+      "bytes": 3355,
+      "sha256": "421c61e4cbbfe4c0de07f7e1e10d98a0d5a08983a8b68b538d9c05801a9d11f1"
+    }
+  ],
+  "witness": "Full1d3e8c reads stdout/stderr; complete assertion source independently reviewed; source and output hashes reverified. Both owned process IDs absent.",
+  "limits": "One test only; jaw/eye rig warning retained as existing-source limitation, no new render/morph/physical fit/mood/thermal/full9.11 qualification. Unsupportedg100 is metadata policy on existingg050 fixture; elegant is metadata proposal, not loaded garment."
+}

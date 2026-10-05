@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-05T05:20:14.306081+00:00",
+  "reason": "Root pre-execution review proves missing explicit by:user on the selftest pin call against actual WardrobeAgency.js:284-289. Preserve initial source; correct harness before first invocation. Clarify label bound as UTF-16 code units; no candidate behavior change. No module import/test has run.",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/initial-source/API.md",
+      "bytes": 2088,
+      "sha256": "58cdfa3d6d446d2cadd2f0faadf85369d9252c62096472e55c97e4ee41717782"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/initial-source/CONTRACT.md",
+      "bytes": 2348,
+      "sha256": "425c6c643474d8369766906798f341bb386ee3390cbb9cf4f578eadca234a4bd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/initial-source/CatalogueDresser.js",
+      "bytes": 4605,
+      "sha256": "943b024fb21e3d0bc4a1111dfbd0de97067f07cb1fbf38f273cf0e1df8d38f76"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/initial-source/CatalogueDresser.selftest.mjs",
+      "bytes": 7265,
+      "sha256": "7fbf3260cefecd61f9f559d8f5a65d787f54e8d556c210dbc4d063a0ecdd5379"
+    }
+  ]
+}

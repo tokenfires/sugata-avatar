@@ -1,0 +1,28 @@
+{
+  "startedAt": "2026-10-05T05:29:14.489681+00:00",
+  "ownerPid": 53843,
+  "command": [
+    "/Users/robault/.brv-cli/bin/node",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/candidate/CatalogueDresser.selftest.mjs"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "timeoutSeconds": 60,
+  "stopAt": "2026-10-05T05:47:04.054325+00:00",
+  "childPid": 53844,
+  "completedAt": "2026-10-05T05:29:14.582314+00:00",
+  "elapsedSeconds": 0.09265058301389217,
+  "exitCode": 0,
+  "timedOut": false,
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDOUT.txt",
+      "bytes": 1125,
+      "sha256": "56dcefe8c8e7e966251409b42f71b20465383eacb08198b096e1e880527c013b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDERR.txt",
+      "bytes": 176,
+      "sha256": "bdfd96ddbdc6ce09c9959af7d5d1dae2d76814ea47cd660c1dc527f0afdb3354"
+    }
+  ]
+}

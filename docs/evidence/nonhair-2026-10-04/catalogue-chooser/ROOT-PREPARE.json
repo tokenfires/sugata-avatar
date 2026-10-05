@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-05T05:12:24.041116+00:00",
+  "decision": "A preparation only; no execution yet",
+  "fullHandoffRead": "current complete WORTH/receipt",
+  "bindingsVerified": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/outfit-suggestion-worth/RECEIPT.md",
+      "bytes": 1791,
+      "sha256": "5d953d586e65d3aff095f41eb0c6443fd4bb8a354f4e0481f5df573bae5208b0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/PLAN.json",
+      "bytes": 3389,
+      "sha256": "c9bc6d7df2a57bf96e5fefa562f0bc97173833e411faeda39bd7364e83edb0a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/INPUTS.json",
+      "bytes": 2210,
+      "sha256": "1d123d9b9036c888e3f2d387f3e56aa15a3956ae13ab18fab139d5afc2406326"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/WORTH.md",
+      "bytes": 3159,
+      "sha256": "b654eed9d07ad1b82be3985cc17ff7c32c9994831937fa441e7edb5195befccf"
+    }
+  ],
+  "contract": "Completeness excludes FOUNDATION and requires declared TORSO/ARMS/HIPS/LEGS/FEET union; rating maximum non-foundation authored formality; tie prefers current canonical worn set, then caller catalogue order; all candidates revalidate live before each public catalogue/choice, copied inputs/results; invalid preference refuses before last explanation or wardrobe mutation. No physical/thermal/mood/9.11 claim.",
+  "limits": "Whole module/test/doc source and additional asset pins need critic/root before sole CPU test."
+}

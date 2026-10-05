@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-05T05:32:38.354518+00:00",
+  "ownerPid": 54238,
+  "decision": "Exact tested module/selftest copied to separately named opt-in core API; no existing file/default/preset changed. Final doc only updates actual delivery status and evidence link.",
+  "copies": [
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/candidate/CatalogueDresser.js",
+      "target": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/candidate/CatalogueDresser.selftest.mjs",
+      "target": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+      "bytes": 7475,
+      "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+    },
+    {
+      "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/DELIVERY-FINAL.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    }
+  ],
+  "testsRun": 1,
+  "limits": "No new UI/fit/appearance/full9.11 completion; existing checklist/roadmap unchanged. Critic actual pass/draft A received before this copy; final artifact readback pending."
+}

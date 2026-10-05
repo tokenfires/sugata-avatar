@@ -1,0 +1,11 @@
+# Opt-in catalogue chooser contract
+
+This named partial capability proposes one of the caller's recipes through WardrobeAgency's existing `choose` / `explain` seam. It is separate from the full PAD/thermal/colour/time-of-day Dresser in punch-list9.11. It imports no renderer, selects no mode, fetches nothing and dresses nothing.
+
+The caller supplies 1–32 distinct recipes with exactly `id`, `label`, `garments`. IDs use letters, numbers, underscore or hyphen; labels are nonempty single-line text, at most80 characters. Arrays and returned metadata are copied. All recipes must pass actual live Wardrobe.validateOutfit, which adds the current foundation floor and checks conflicts/declared figure fragments. Every public catalogue/choice operation revalidates every original recipe, so cached foundation IDs cannot bypass a changed floor or figure policy.
+
+Completeness is an explicit metadata rule: non-FOUNDATION garments must collectively declare TORSO, ARMS, HIPS, LEGS and FEET. This permits the two current composite outfits plus footwear; a policy-valid floor or shoes-only request fails. Declared slots do not prove geometric coverage, compatibility beyond manifest policy, surface clearance, comfort or motion.
+
+Each recipe's rating is the maximum formality among non-FOUNDATION garments, including footwear and optional accessories. This aggregation and the manifest's integer1–5 values are authored design choices. The request supplies integer `formality`1–5. Choose the smallest absolute rating difference; on a tie retain a candidate equal to the current worn set, otherwise retain caller catalogue order. No mood, temperature or activity inference is made. Invalid input/live policy failure refuses before replacing the prior explanation or touching wardrobe state.
+
+The sole CPU test parses existing real g050 body/garment GLBs with the existing GLTFLoader, uses actual manifest/Wardrobe/floor/agency policy, and substitutes1×1 CPU image handles only. It tests canonical availability, incomplete/conflicting/unsupported refusal, input/output isolation, exact authored choices, stable ties, live-floor replacement and pinned agency ownership. This is no rendered image or physical-fit qualification. One externally60-second bounded invocation only, after whole source/critic/root admission; first failure stops without rerun.

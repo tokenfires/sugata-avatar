@@ -1,0 +1,7 @@
+# Source findings resolved before first execution
+
+Root independently reads actual WardrobeAgency.js284–290 and initial-source/CatalogueDresser.selftest.mjs97: `pin` requires an explicit `{ by: 'user' }`, absent in the initial harness. It would refuse before the intended pinned ownership observation. A supplies that exact user-owned harness argument, preserving the actual agency boundary; B withholds the test/API until a separately reviewed harness is ready, delaying useful policy evidence. A is selected before any import or test; no agency implementation changes.
+
+The critic's initial-source/CatalogueDresser.js23–40 witness is independently confirmed: `map` skips absent indices in a sparse array despite its positive length. A rejects absent own indices before mapping, preserving every ranking/policy rule, and adds the concrete sparse error case; B withholds the API, avoiding an unvalidated candidate but delivering no chooser. A is selected before the first invocation. The exact initial files and before-repair input pins remain retained; SPARSE-REPAIR.json records the source decision.
+
+The initial contract says80 characters while the validator uses JS string.length, which counts UTF-16 code units. A describes that exact bound in the contract, retaining the reviewed implementation; B changes the validator to count Unicode code points, requiring additional input choices and review. A is selected as a documentation clarification. No human-language suitability, geometry or appearance claim follows from any repair.

@@ -1,0 +1,97 @@
+{
+  "utc": "2026-10-05T05:38:36.389986+00:00",
+  "decision": "All current13 readable API/README local links resolve; source/test equality already checked, final critic receipt pending.",
+  "links": [
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Readable API",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "bytes": 3478,
+      "sha256": "2f2807b79f51aa8d4bc74543cd2ef5652fd55c67480c83d713986a03dd0dd828"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Core module",
+      "target": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "test",
+      "target": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+      "bytes": 7475,
+      "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Contract",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/CONTRACT.md",
+      "bytes": 2355,
+      "sha256": "f54ec2099ec0f0df134f0e234b8eda2d6d51505006511c30569901d665b91c1c"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "source review",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/SOURCE-RESULT.md",
+      "bytes": 3668,
+      "sha256": "1dcfb4c095460ae8c2ebf2cec76a8e077784a51fe9c7993cbb25c1a181259fb2"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "actual result review",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RESULT.md",
+      "bytes": 3582,
+      "sha256": "e88f3d18d4bf7f27db3949f3774e60b651f89dfd8a25b09621d325fd257d6dc9"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Full assertion output",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDOUT.txt",
+      "bytes": 1125,
+      "sha256": "56dcefe8c8e7e966251409b42f71b20465383eacb08198b096e1e880527c013b"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "warning",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-STDERR.txt",
+      "bytes": 176,
+      "sha256": "bdfd96ddbdc6ce09c9959af7d5d1dae2d76814ea47cd660c1dc527f0afdb3354"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "owned job",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/TEST-JOB.json",
+      "bytes": 1033,
+      "sha256": "66bcb7ce6a842d021836b844ed490ac62fb511c1b62a6a83f2377c0ef65ced15"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "Exact receipt",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RECEIPT.md",
+      "bytes": 4619,
+      "sha256": "8714d97fcc9347e9c230d8ba9b7d0735e936b8fc236f937f48019f0f201840bd"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "root verification",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/ROOT-RESULT.json",
+      "bytes": 14167,
+      "sha256": "a2ae78a6a5cb64b368c52f429a106d6f57d69c2c17b089ab34471d645156765c"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/README.md",
+      "label": "promotion hashes",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/PROMOTION.json",
+      "bytes": 1558,
+      "sha256": "21cadbe7c76259853cb18dd0148323dc2efc667e2e93b59f4fef45bedd6925c7"
+    },
+    {
+      "from": "/Users/robault/GitHub/sugata-avatar/docs/research/CATALOGUE-DRESSER-2026-10-04.md",
+      "label": "Exact test and review receipt",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/RECEIPT.md",
+      "bytes": 4619,
+      "sha256": "8714d97fcc9347e9c230d8ba9b7d0735e936b8fc236f937f48019f0f201840bd"
+    }
+  ]
+}

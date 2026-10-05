@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-10-05T05:29:14.529Z",
+  "completedAt": "2026-10-05T05:29:14.578Z",
+  "pid": 53844,
+  "checks": [
+    "actual manifest selects both declared recipes and the live foundation",
+    "constructor inputs and catalogue/choice outputs cannot rewrite stored recipes",
+    "invalid preferences leave the wardrobe and previous explanation unchanged",
+    "a valid foundation/footwear set is refused as incomplete outer clothing",
+    "actual conflict and unknown-garment policy is retained",
+    "a sparse catalogue refuses before it can create an empty candidate",
+    "changed live floor replaces prior foundation ids in each proposal",
+    "changed unsupported figure policy refuses without changing the last explanation",
+    "an unresolved tie preserves caller order",
+    "a tie preserves the actual currently worn candidate",
+    "real pinned agency records a different proposal and leaves the actual outfit alone",
+    "canonical floor inclusion recognizes a proposal already worn"
+  ],
+  "passed": 12,
+  "scope": "CPU policy/agency only; 1x1 image stubs; no rendered fit or mood/climate qualification"
+}

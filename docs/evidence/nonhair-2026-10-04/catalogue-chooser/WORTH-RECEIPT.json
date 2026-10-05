@@ -1,0 +1,117 @@
+{
+  "decision": "Conditional A \u2014 complete opt-in CatalogueDresser source/test preparation only; no code or test execution admission",
+  "startedAt": "2026-10-05T05:10:35.688817+00:00",
+  "savedAt": "2026-10-05T05:10:35.689744+00:00",
+  "pid": 52063,
+  "inputPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/outfit-suggestion-worth/RECEIPT.md",
+      "bytes": 1791,
+      "sha256": "5d953d586e65d3aff095f41eb0c6443fd4bb8a354f4e0481f5df573bae5208b0"
+    }
+  ],
+  "additionalPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/PLAN.json",
+      "bytes": 3389,
+      "sha256": "c9bc6d7df2a57bf96e5fefa562f0bc97173833e411faeda39bd7364e83edb0a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/INPUTS.json",
+      "bytes": 2210,
+      "sha256": "1d123d9b9036c888e3f2d387f3e56aa15a3956ae13ab18fab139d5afc2406326"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-chooser/WORTH.md",
+      "bytes": 3159,
+      "sha256": "b654eed9d07ad1b82be3985cc17ff7c32c9994831937fa441e7edb5195befccf"
+    }
+  ],
+  "readingScope": {
+    "complete": [
+      "PLAN.json",
+      "INPUTS.json",
+      "outfit-suggestion-worth/RECEIPT.md"
+    ],
+    "selected": [
+      "WardrobeAgency.js:1\u201379,176\u2013239,305\u2013384,596\u2013612",
+      "Wardrobe.js:495\u2013555,765\u2013816",
+      "GarmentManifest.js:153\u2013175,217\u2013260",
+      "FoundationLayer.js:71\u201389; full source emitted in aggregate read",
+      "agency.selftest.mjs:80\u2013154 (initial aggregate truncation;81\u2013110 separately retained)",
+      "wardrobe.js:88\u2013132",
+      "manifest.json:whole source emitted;140\u2013174,194\u2013209 separately retained",
+      "PUNCHLIST.md:2180\u20132235",
+      "PRODUCT-ROADMAP.md:115\u2013143 selected current goals; aggregate tail truncated"
+    ],
+    "inventory": "Current wardrobe directory filename search found WardrobeAgency and no Dresser/Catalogue filename; not a universal repository absence claim."
+  },
+  "actualWitnessType": "Source-only engine seam/policy/stand-in utility; no new image or appearance verdict",
+  "readCommandChunks": [
+    "b4e425",
+    "86a8ee",
+    "59286d",
+    "c75f72",
+    "e421cc",
+    "feb54c"
+  ],
+  "limits": [
+    "No implementation or imports/tests run.",
+    "Conditional worth is not source/native/test admission.",
+    "Policy validity and authored metadata completeness do not prove physical fit/coverage/comfort.",
+    "Partial CatalogueDresser does not complete PUNCHLIST9.11 or replace its thermal/PAD/time-of-day gates.",
+    "No defaults, modes or automatic application selected.",
+    "Prior Ink suggestion-card refusal and all appearance/geometry closures remain preserved."
+  ],
+  "publication": "One stdlib documentation/pin publisher; all11 declared pins verified before writing only worth and receipt."
+}

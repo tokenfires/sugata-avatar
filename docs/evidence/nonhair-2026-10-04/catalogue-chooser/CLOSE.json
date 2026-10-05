@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-05T05:37:43.392761+00:00",
+  "ownerPid": 54777,
+  "state": "Bounded test/API delivery complete; final independent delivery note and freeze/readback still being collected before original05:47 stop.",
+  "ownedCompletedPublishers": [
+    {
+      "pid": 52063,
+      "observedAbsent": true,
+      "psExit": 1
+    },
+    {
+      "pid": 53717,
+      "observedAbsent": true,
+      "psExit": 1
+    },
+    {
+      "pid": 53843,
+      "observedAbsent": true,
+      "psExit": 1
+    },
+    {
+      "pid": 53844,
+      "observedAbsent": true,
+      "psExit": 1
+    },
+    {
+      "pid": 54238,
+      "observedAbsent": true,
+      "psExit": 1
+    },
+    {
+      "pid": 54267,
+      "observedAbsent": true,
+      "psExit": 1
+    }
+  ],
+  "reviewServer": {
+    "pid": 1023,
+    "actualLsof": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    1023 robault   23u  IPv4 0xbfef6cdca24b5a14      0t0  TCP 127.0.0.1:5173 (LISTEN)\n",
+    "retained": true
+  },
+  "savedAutomation": {
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "sha256": "f69648b59c2107f17177fde67cc5864bbd2956f20cfbe5d1101bdb2ddb5ef8db",
+    "mutation": false
+  },
+  "nextAction": "Collect final independent delivery handoff; root reconcile exact pins/current3copy pairs/local links; freeze packet and record actual manifest/readback in live journals, local scoped commit. Any new UI only fresh plan/worth.",
+  "limits": "No owned candidate/native job remains. Critic final-readback agent may still run; no GPU/backend retirement certificate inferred. Existing checklist/roadmap/default/original/frozen/unrelated work unchanged. Newer human steering wins."
+}
