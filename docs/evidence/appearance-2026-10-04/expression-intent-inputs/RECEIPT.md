@@ -1,0 +1,13 @@
+# Receipt — expression intent inputs
+
+Fresh plan: 2026-10-05 03:45:28.699283 UTC; fixed close 04:10:28.699283 UTC, base 2c6876f. Goal was a useful source/intent brief only if new evidence could choose an experiment. Actual result **B**, retained input refusal instead of duplicate brief. No query or implementation followed.
+
+[PLAN.json](PLAN.json), [INPUTS.json](INPUTS.json), [ROOT-PREFLIGHT.json](ROOT-PREFLIGHT.json), [WORTH.md](WORTH.md), [WORTH-RECEIPT.json](WORTH-RECEIPT.json), [ROOT-CLOSE.json](ROOT-CLOSE.json), [SERVICES.json](SERVICES.json) retain exact bytes, SHA256, scopes and jobs. Two original 932×850 Quiet step100 images were actually viewed unchanged by root and critic; no new image/capture or epoch search. Current source and old notes were read, not executed.
+
+Read-only tools: 75b517 initially includes absent top-level src/exit2, corrected actual package paths; 8077bf full historical notes, a461ed selected manifest/pins, 665ea8 manifest schema, 5837c6 cited source; current root 841d3b and a899a6 re-read cited source passages. Critic d2e192 initial guessed path/exit1 corrected 4801da; exact remaining reading scopes/chunks in its receipt. Combined output truncation is disclosed, not a complete source or 54-frame audit. Full handoff e40994 and dfd9c0 read and independently reconciled before closing. Latest inventory/tails 0bb5cc,9be8bb,e55867,8860a0: one incorrectly guessed FROZEN-MANIFEST filename absent, no mutation; prior SERVICES observed, not used as current job proof.
+
+Critic receipt publisher PID28428 saved 03:54:52.202788 UTC; process gone at root close, no outstanding review. No candidate/decode/geometry/GPU/browser/online job launched. Review1023/5173 and ACTIVE ten-minute recovery retained. Frozen payload manifest is an exact final readback, not a runtime or appearance certificate.
+
+Rejected: another label/intent summary, parameter search, gaze coupling or speculative lip sculpt on these same inputs. A general reference/new brief collects terminology but lacks a new selected target; B preserve the already owned decision and move to an independently admitted unfinished goal. No next expression study admitted. Historical still readings are subjective; no natural release, intelligibility, universal intent or current-runtime proof.
+
+No accepted/default/original/older frozen asset or roadmap change; no checklist checkbox added. No push, publication, purchase, install, model/subscription/reset-credit or other-project action. Newer human check-in/pause wins. Next: inspect an existing character brief, then decide whether one distinct curated starter target would add a missing representation decision; fresh plan/worth required, no generation inherited.

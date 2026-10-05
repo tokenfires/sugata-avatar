@@ -1,0 +1,198 @@
+{
+  "kind": "Independent finite source/image worth refusal",
+  "decision": "B stop duplicate expression-intent brief/research",
+  "pid": 28428,
+  "startedUtc": "2026-10-05T03:54:52.200519+00:00",
+  "savedUtc": "2026-10-05T03:54:52.202788+00:00",
+  "hardStopUtc": "2026-10-05T04:10:28.699283+00:00",
+  "plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/expression-intent-inputs/PLAN.json",
+    "bytes": 1958,
+    "sha256": "04d3c137f7cb1e9816123ad30eadfe57b89de861b867431335ccacdc09011ce8"
+  },
+  "inputsManifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/expression-intent-inputs/INPUTS.json",
+    "bytes": 3132,
+    "sha256": "f28570656fc4c1ab4845b74a1a658646341c6f5700bf95b2a580e42c8fcdbbfc"
+  },
+  "worth": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/expression-intent-inputs/WORTH.md",
+    "bytes": 3467,
+    "sha256": "a38348dbca540b6d2a96b1feac9811402b228d6d05fe9dad73e5236291890509"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "expectedBytes": 30923,
+      "expectedSha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0",
+      "expectedBytes": 10788,
+      "expectedSha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764",
+      "expectedBytes": 9867,
+      "expectedSha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/ExpressionBank.js",
+      "bytes": 14362,
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e",
+      "expectedBytes": 14362,
+      "expectedSha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/affect/ExpressionMap.js",
+      "bytes": 44748,
+      "sha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d",
+      "expectedBytes": 44748,
+      "expectedSha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/EXPRESSION-INVENTORY-2026-09-13.md",
+      "bytes": 8500,
+      "sha256": "ae1eba7a028cb10649267e8a96ee1c73c167d47f2214ecab4d3fdead0e60126c",
+      "expectedBytes": 8500,
+      "expectedSha256": "ae1eba7a028cb10649267e8a96ee1c73c167d47f2214ecab4d3fdead0e60126c",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/expression-next/review-manifest.json",
+      "bytes": 106531,
+      "sha256": "95ae1ea840ed57d73539cd0a9978836865aafd932fc04b5051b8866a57c06467",
+      "expectedBytes": 106531,
+      "expectedSha256": "95ae1ea840ed57d73539cd0a9978836865aafd932fc04b5051b8866a57c06467",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/expression-next/DECISION.md",
+      "bytes": 2069,
+      "sha256": "4e16c816e3e3be6e8c82ecc7a008bcff403c0e659598da130fd40e686c734ca0",
+      "expectedBytes": 2069,
+      "expectedSha256": "4e16c816e3e3be6e8c82ecc7a008bcff403c0e659598da130fd40e686c734ca0",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/expression-next/VISUAL-CRITIQUE-BLIND.md",
+      "bytes": 5111,
+      "sha256": "6023dcf85e29c100a865ac79af575493f8ae6656782fe529cba57c35fc3fa474",
+      "expectedBytes": 5111,
+      "expectedSha256": "6023dcf85e29c100a865ac79af575493f8ae6656782fe529cba57c35fc3fa474",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0100.png",
+      "bytes": 808201,
+      "sha256": "73f0213772e8a324c06147030c809a0468303a4acb31f8531f0301e224122fc7",
+      "expectedBytes": 808201,
+      "expectedSha256": "73f0213772e8a324c06147030c809a0468303a4acb31f8531f0301e224122fc7",
+      "matches": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0100.png",
+      "bytes": 858777,
+      "sha256": "548835c02f69ce8e20eed9f477001c66365b8553aa36c152aab5cc0b42a1d3a2",
+      "expectedBytes": 858777,
+      "expectedSha256": "548835c02f69ce8e20eed9f477001c66365b8553aa36c152aab5cc0b42a1d3a2",
+      "matches": true
+    }
+  ],
+  "actuallyViewed": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0100.png",
+      "bytes": 808201,
+      "sha256": "73f0213772e8a324c06147030c809a0468303a4acb31f8531f0301e224122fc7",
+      "width": 932,
+      "height": 850,
+      "actualView": "tools.view_image detail original, entire untouched image",
+      "step": 100
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0100.png",
+      "bytes": 858777,
+      "sha256": "548835c02f69ce8e20eed9f477001c66365b8553aa36c152aab5cc0b42a1d3a2",
+      "width": 932,
+      "height": 850,
+      "actualView": "tools.view_image detail original, entire untouched image",
+      "step": 100
+    }
+  ],
+  "readingScope": {
+    "packages/testbed/src/portrait.js": "Entire current file, numbered 1\u2013228; literal targets/release/attention separation",
+    "packages/testbed/src/portrait.html": "Relevant expression/attention control lines 77\u201388; hashed whole file",
+    "packages/core/src/figure/ExpressionBank.js": "Entire current file, numbered 1\u2013386",
+    "packages/core/src/affect/ExpressionMap.js": "Relevant current header/face/body/guard passages; not a full-map audit",
+    "docs/PRODUCT-ROADMAP.md": "Relevant Phase 1 rows and expression/work-order/later-style passages; not a new full-roadmap audit",
+    "docs/EXPRESSION-INVENTORY-2026-09-13.md": "Entire document",
+    "docs/evidence/nonhair-2026-09-26/expression-next/DECISION.md": "Entire document",
+    "docs/evidence/nonhair-2026-09-26/expression-next/VISUAL-CRITIQUE-BLIND.md": "Entire document, historical reviewer scope retained",
+    "docs/evidence/nonhair-2026-09-26/expression-next/review-manifest.json": "Parsed saved JSON schema and only two matching step-100 entries; whole bytes hashed; no 54-frame re-audit"
+  },
+  "selectedManifestEntries": [
+    {
+      "step": 100,
+      "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0100.png"
+    },
+    {
+      "step": 100,
+      "src": "/@fs/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0100.png"
+    }
+  ],
+  "observerTools": [
+    {
+      "chunk": "d2e192",
+      "exit": 1,
+      "scope": "Initial guessed nonhair packet path absent; no mutation"
+    },
+    {
+      "chunk": "4801da",
+      "exit": 0,
+      "scope": "rg found actual appearance packet"
+    },
+    {
+      "chunk": "7aeec8",
+      "exit": 0,
+      "scope": "Read full PLAN/INPUTS"
+    },
+    {
+      "chunk": "2a8ab1",
+      "exit": 0,
+      "scope": "Read full three historical documents; separate image views in same functions call"
+    },
+    {
+      "chunks": [
+        "6fe7e7",
+        "fa6dd5",
+        "82b675",
+        "2fbbe9",
+        "226d05"
+      ],
+      "exit": 0,
+      "scope": "Current literal source/context reads; combined output truncation addressed for complete Bank and cited relevant Map/roadmap ranges"
+    },
+    {
+      "chunk": "34d284",
+      "exit": 0,
+      "scope": "Saved manifest selected entries only"
+    }
+  ],
+  "limits": [
+    "Historical two stills only; no current runtime equivalence or new expression semantics",
+    "No online query, native/browser/GPU/capture, model/GLB decode, producer/helper import or parameter/source change",
+    "Receipt publisher reads and hashes files and PNG IHDR only; no geometry computation",
+    "Only WORTH.md and this receipt written; next nomination conditional and unadmitted"
+  ]
+}

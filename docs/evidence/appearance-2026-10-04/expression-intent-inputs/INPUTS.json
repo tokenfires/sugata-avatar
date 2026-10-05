@@ -1,0 +1,76 @@
+{
+  "utc": "2026-10-05T03:47:01.903876+00:00",
+  "selection": "Exactly Quiet step100 previously reviewed representative held moment, views2/3 only, not a capture epoch search. These are historical original frames, not current runtime qualification. Current portrait source separately pinned.",
+  "selectedFrames": [
+    {
+      "label": "View 2",
+      "step": 100,
+      "time": 1.6666666666666667,
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0100.png"
+    },
+    {
+      "label": "View 3",
+      "step": 100,
+      "time": 1.6666666666666667,
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0100.png"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "bytes": 10788,
+      "sha256": "d62d9d190d9fd00a0309821ea6432ce999d0514a96b6bf7f94497e638adbf5c0"
+    },
+    {
+      "path": "packages/testbed/src/portrait.html",
+      "bytes": 9867,
+      "sha256": "a61e72ef3d0b65d03f2a7699dd984c556591980d8be13e1998704c61e9478764"
+    },
+    {
+      "path": "packages/core/src/figure/ExpressionBank.js",
+      "bytes": 14362,
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e"
+    },
+    {
+      "path": "packages/core/src/affect/ExpressionMap.js",
+      "bytes": 44748,
+      "sha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d"
+    },
+    {
+      "path": "docs/EXPRESSION-INVENTORY-2026-09-13.md",
+      "bytes": 8500,
+      "sha256": "ae1eba7a028cb10649267e8a96ee1c73c167d47f2214ecab4d3fdead0e60126c"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/expression-next/review-manifest.json",
+      "bytes": 106531,
+      "sha256": "95ae1ea840ed57d73539cd0a9978836865aafd932fc04b5051b8866a57c06467"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/expression-next/DECISION.md",
+      "bytes": 2069,
+      "sha256": "4e16c816e3e3be6e8c82ecc7a008bcff403c0e659598da130fd40e686c734ca0"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-09-26/expression-next/VISUAL-CRITIQUE-BLIND.md",
+      "bytes": 5111,
+      "sha256": "6023dcf85e29c100a865ac79af575493f8ae6656782fe529cba57c35fc3fa474"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-2-0100.png",
+      "bytes": 808201,
+      "sha256": "73f0213772e8a324c06147030c809a0468303a4acb31f8531f0301e224122fc7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/captures/expression-isolation-2026-09-26/comparison-v1/review/quiet-view-3-0100.png",
+      "bytes": 858777,
+      "sha256": "548835c02f69ce8e20eed9f477001c66365b8553aa36c152aab5cc0b42a1d3a2"
+    }
+  ],
+  "priorClosures": "Sept26 inconclusive eyeWide/Determined and engaged gaze findings preserved; no sustained squint/brow or parameter/gaze-coupling search. No coy/teasing source attribution."
+}
