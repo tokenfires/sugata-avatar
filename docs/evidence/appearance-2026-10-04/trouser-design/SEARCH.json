@@ -1,0 +1,60 @@
+{
+  "args": {
+    "query": "charcoal wide leg wool tailored trousers",
+    "includeDomains": [
+      "cos.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "limit": 3
+  },
+  "started": {
+    "current_time": "2026-10-05 02:41:34 UTC"
+  },
+  "returned": {
+    "current_time": "2026-10-05 02:41:37 UTC"
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.cos.com/en-us/women/trousers/wool-trousers\",\"title\":\"Wool Pants | COS US\",\"description\":\"# Wool Pants\\n### Wool-blend wide-leg pants\\n[Topstitched barrel-leg pants](https://www.cos.com/en-us/women/womenswear/suitsandtailoring/tailoredtrousers/product/topstitched-barrel-leg-trousers-charcoal-1353361002)\",\"position\":1},{\"url\":\"https://www.cos.com/en-ww/women/womenswear/trousers/slimfit/product/wool-blend-slim-leg-trousers-charcoal-1305258001\",\"title\":\"WOOL-BLEND SLIM-LEG TROUSERS - CHARCOAL - COS\",\"description\":\"In stock Rating 4.3(1)Crafted from an RWS wool blend, these refined trousers are tailored in a slim, elongated shape with a darted waistband and pressed creases along each leg. They' ...\",\"position\":2},{\"url\":\"https://www.cos.com/en-eu-e/women/womenswear/trousers/wideleg/product/regular-wool-blend-wide-leg-trousers-black-1248656007\",\"title\":\"REGULAR WOOL-BLEND WIDE-LEG TROUSERS - BLACK | COS\",\"description\":\"In stock Rating 3.4(4)Offered in a chocolate mélange hue, these trousers are made from a tactile merino-wool blend and cut in an effortless wide-leg shape that's suited to weekends ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a109f0-286e-7558-ad92-f64b01dcd099\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.cos.com/en-us/women/trousers/wool-trousers\\\", #2 \\\"https://www.cos.com/en-ww/women/womenswear/trousers/slimfit/product/wool-blend-slim-leg-trousers-charcoal-1305258001\\\", #3 \\\"https://www.cos.com/en-eu-e/women/womenswear/trousers/wideleg/product/regular-wool-blend-wide-leg-trousers-black-1248656007\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://www.cos.com/en-us/women/trousers/wool-trousers\", #2 \"https://www.cos.com/en-ww/women/womenswear/trousers/slimfit/product/wool-blend-slim-leg-trousers-charcoal-1305258001\", #3 \"https://www.cos.com/en-eu-e/women/womenswear/trousers/wideleg/product/regular-wool-blend-wide-leg-trousers-black-1248656007\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.cos.com/en-us/women/trousers/wool-trousers",
+            "title": "Wool Pants | COS US",
+            "description": "# Wool Pants\n### Wool-blend wide-leg pants\n[Topstitched barrel-leg pants](https://www.cos.com/en-us/women/womenswear/suitsandtailoring/tailoredtrousers/product/topstitched-barrel-leg-trousers-charcoal-1353361002)",
+            "position": 1
+          },
+          {
+            "url": "https://www.cos.com/en-ww/women/womenswear/trousers/slimfit/product/wool-blend-slim-leg-trousers-charcoal-1305258001",
+            "title": "WOOL-BLEND SLIM-LEG TROUSERS - CHARCOAL - COS",
+            "description": "In stock Rating 4.3(1)Crafted from an RWS wool blend, these refined trousers are tailored in a slim, elongated shape with a darted waistband and pressed creases along each leg. They' ...",
+            "position": 2
+          },
+          {
+            "url": "https://www.cos.com/en-eu-e/women/womenswear/trousers/wideleg/product/regular-wool-blend-wide-leg-trousers-black-1248656007",
+            "title": "REGULAR WOOL-BLEND WIDE-LEG TROUSERS - BLACK | COS",
+            "description": "In stock Rating 3.4(4)Offered in a chocolate mélange hue, these trousers are made from a tactile merino-wool blend and cut in an effortless wide-leg shape that's suited to weekends ...",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a109f0-286e-7558-ad92-f64b01dcd099",
+      "creditsUsed": 2
+    },
+    "isError": false
+  },
+  "selectedResult": 3,
+  "reason": "Result3 explicitly names a wide-leg product; result1 is a category and result2 is slim. Excerpt colour/title disagreement needs live fullpage read; no shape observation yet."
+}

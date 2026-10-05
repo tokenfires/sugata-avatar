@@ -1,0 +1,9 @@
+# Root original-image review
+
+Root actually inspects the returned original at02:47:06 and its byte-identical workspace original at02:48:30, full1374×1145 detail. **A for a useful garment-only artist target**, pending final critic handoff/source readback. Full three views fit inside the sheet: front x55–456, profile x508–805, rear x943–1320, from waistband roughlyy59–103 to sole roughlyy1063. These are visual witness locations, not projection measurements.
+
+Front defines a plain waistband/fly, discreet pocket openings and broad charcoal legs. Profile's seat atx730–807/y120–320 is gently convex and flows into a long straight leg; the rear's centre seam/plain seat atx985–1300/y66–370 supplies the previously missing rear choice. Matching dark woven-looking cloth and brown boot family link the views. Small folds near the hems express a controlled instep break; side toe/heel and rear heel/sole boundaries remain readable, without floor pooling or narrow denim taper. Comparable waist/hem levels and complete boots make it useful for visual discussion.
+
+A retain this one explicit seat/profile/rear choice gives a concrete brief for future editable source. B wait for an actual garment source avoids illustrative assumptions but leaves those design choices unresolved. Root chooses A within illustration scope. No actionable defect is established by the observed picture.
+
+The two side boots are slightly offset in depth/stance; the image reads as profile, with no renderer camera metadata or metric orthographic proof. Rise, body dimensions, front-to-back geometric identity, physical cloth, seam/pocket interiors, pattern manufacture and body/foundation/pose/morph/moving fit are unqualified. Source correspondence cannot be recovered as fact from these pixels. No accepted runtime asset/default change or synthetic-body representation qualification. No regeneration, cropping or editing.

@@ -1,0 +1,574 @@
+{
+  "utc": "2026-10-05T02:56:33.122333+00:00",
+  "decision": "A retained artist target; final delivery prose review pending",
+  "verifiedBindings": [
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md",
+      "bytes": 3330,
+      "sha256": "e6bb083dd7484110a6106ef201d0346d0f3c40bfb4fcdb759a575f2862d35420"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PLAN.json",
+      "bytes": 2385,
+      "sha256": "d5a3b0dba9c6b037eae773a4d5616f12fdf78718ad96e9d249fc48345bc855e2"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/INPUTS.json",
+      "bytes": 1178,
+      "sha256": "7e852f8425fe58771214bb93f4a6092fd28f30922c575f6f7129aabf4686b0dd"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md",
+      "bytes": 3330,
+      "sha256": "e6bb083dd7484110a6106ef201d0346d0f3c40bfb4fcdb759a575f2862d35420"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/WORTH.md",
+      "bytes": 2197,
+      "sha256": "bd7e3dfac18497d38c9c4dd702cd2e637c6eab82b981a919a0f67926a0ba23b1"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PLAN.json",
+      "bytes": 2385,
+      "sha256": "d5a3b0dba9c6b037eae773a4d5616f12fdf78718ad96e9d249fc48345bc855e2",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/INPUTS.json",
+      "bytes": 1178,
+      "sha256": "7e852f8425fe58771214bb93f4a6092fd28f30922c575f6f7129aabf4686b0dd",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/WORTH.md",
+      "bytes": 2197,
+      "sha256": "bd7e3dfac18497d38c9c4dd702cd2e637c6eab82b981a919a0f67926a0ba23b1",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.txt",
+      "bytes": 2701,
+      "sha256": "cd8691dc512775fdc453ad75d5d73965f9cccd80dd1ae8a045a7817c8d6f6f37",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/REFERENCES.md",
+      "bytes": 1423,
+      "sha256": "785b54377c5b047c6fe1e6323ecd73cc5105a3746136a1eec2abea815145303b",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SEARCH.json",
+      "bytes": 4775,
+      "sha256": "4c90417580a1054187f7dd277755dbba970f12bebdc9be216a545b1cb407f149",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/FETCH.json",
+      "bytes": 13858,
+      "sha256": "5967105b113a9ab0f98d9e4de94a67068acba140554768aaf15b4fd46012d6b9",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.initial.txt",
+      "bytes": 2601,
+      "sha256": "2846e01946a257008c92abbb6a8382a13c13b7156ffe9d411f7a4ccbd411e30f",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.diff",
+      "bytes": 2975,
+      "sha256": "0d7e0423fbbf4c90f5c18d6a9b04f8d479c2d224f6adbde002575ba7dde9d7e7",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/ROOT-PREFLIGHT.md",
+      "bytes": 984,
+      "sha256": "25753761386599401f64c2af32d604d68d2a9229dc28605ca05e35068f87aa20",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md",
+      "bytes": 3330,
+      "sha256": "e6bb083dd7484110a6106ef201d0346d0f3c40bfb4fcdb759a575f2862d35420"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "origin": "SOURCE-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SOURCE.md",
+      "bytes": 2025,
+      "sha256": "483afc0c2712f615b941475164bff3f1d248c651789a590dfe560e2c7e343d1a"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PLAN.json",
+      "bytes": 2385,
+      "sha256": "d5a3b0dba9c6b037eae773a4d5616f12fdf78718ad96e9d249fc48345bc855e2",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/INPUTS.json",
+      "bytes": 1178,
+      "sha256": "7e852f8425fe58771214bb93f4a6092fd28f30922c575f6f7129aabf4686b0dd",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/WORTH.md",
+      "bytes": 2197,
+      "sha256": "bd7e3dfac18497d38c9c4dd702cd2e637c6eab82b981a919a0f67926a0ba23b1",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.txt",
+      "bytes": 2701,
+      "sha256": "cd8691dc512775fdc453ad75d5d73965f9cccd80dd1ae8a045a7817c8d6f6f37",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/REFERENCES.md",
+      "bytes": 1423,
+      "sha256": "785b54377c5b047c6fe1e6323ecd73cc5105a3746136a1eec2abea815145303b",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SEARCH.json",
+      "bytes": 4775,
+      "sha256": "4c90417580a1054187f7dd277755dbba970f12bebdc9be216a545b1cb407f149",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/FETCH.json",
+      "bytes": 13858,
+      "sha256": "5967105b113a9ab0f98d9e4de94a67068acba140554768aaf15b4fd46012d6b9",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.initial.txt",
+      "bytes": 2601,
+      "sha256": "2846e01946a257008c92abbb6a8382a13c13b7156ffe9d411f7a4ccbd411e30f",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.diff",
+      "bytes": 2975,
+      "sha256": "0d7e0423fbbf4c90f5c18d6a9b04f8d479c2d224f6adbde002575ba7dde9d7e7",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/ROOT-PREFLIGHT.md",
+      "bytes": 984,
+      "sha256": "25753761386599401f64c2af32d604d68d2a9229dc28605ca05e35068f87aa20",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md",
+      "bytes": 3330,
+      "sha256": "e6bb083dd7484110a6106ef201d0346d0f3c40bfb4fcdb759a575f2862d35420"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SOURCE.md",
+      "bytes": 2025,
+      "sha256": "483afc0c2712f615b941475164bff3f1d248c651789a590dfe560e2c7e343d1a"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SOURCE-RECEIPT.json",
+      "bytes": 4739,
+      "sha256": "df1fcfd0cb46ff2194d87dbff2bb2b605e7aa7648fe6fbf6733d34aead628902"
+    },
+    {
+      "origin": "ROOT-ADMISSION.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/WORTH-RECEIPT.json",
+      "bytes": 2233,
+      "sha256": "78b6c7bd3c42d098d8da44cedb69b557ec8733e468a58e800be2acc45c246992"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PLAN.json",
+      "bytes": 2385,
+      "sha256": "d5a3b0dba9c6b037eae773a4d5616f12fdf78718ad96e9d249fc48345bc855e2"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/INPUTS.json",
+      "bytes": 1178,
+      "sha256": "7e852f8425fe58771214bb93f4a6092fd28f30922c575f6f7129aabf4686b0dd"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/WORTH.md",
+      "bytes": 2197,
+      "sha256": "bd7e3dfac18497d38c9c4dd702cd2e637c6eab82b981a919a0f67926a0ba23b1"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/WORTH-RECEIPT.json",
+      "bytes": 2233,
+      "sha256": "78b6c7bd3c42d098d8da44cedb69b557ec8733e468a58e800be2acc45c246992"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.txt",
+      "bytes": 2701,
+      "sha256": "cd8691dc512775fdc453ad75d5d73965f9cccd80dd1ae8a045a7817c8d6f6f37"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.initial.txt",
+      "bytes": 2601,
+      "sha256": "2846e01946a257008c92abbb6a8382a13c13b7156ffe9d411f7a4ccbd411e30f"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.diff",
+      "bytes": 2975,
+      "sha256": "0d7e0423fbbf4c90f5c18d6a9b04f8d479c2d224f6adbde002575ba7dde9d7e7"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/ROOT-PREFLIGHT.md",
+      "bytes": 984,
+      "sha256": "25753761386599401f64c2af32d604d68d2a9229dc28605ca05e35068f87aa20"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/REFERENCES.md",
+      "bytes": 1423,
+      "sha256": "785b54377c5b047c6fe1e6323ecd73cc5105a3746136a1eec2abea815145303b"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SEARCH.json",
+      "bytes": 4775,
+      "sha256": "4c90417580a1054187f7dd277755dbba970f12bebdc9be216a545b1cb407f149"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/FETCH.json",
+      "bytes": 13858,
+      "sha256": "5967105b113a9ab0f98d9e4de94a67068acba140554768aaf15b4fd46012d6b9"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SOURCE.md",
+      "bytes": 2025,
+      "sha256": "483afc0c2712f615b941475164bff3f1d248c651789a590dfe560e2c7e343d1a"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SOURCE-RECEIPT.json",
+      "bytes": 4739,
+      "sha256": "df1fcfd0cb46ff2194d87dbff2bb2b605e7aa7648fe6fbf6733d34aead628902"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/ROOT-WORTH.json",
+      "bytes": 2189,
+      "sha256": "1a778ca35701534df6762d51e7242a1be460bba7510b6630b6f43d8ed60a1875"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/ROOT-ADMISSION.json",
+      "bytes": 4997,
+      "sha256": "c2d1428ce178259b868fcf43c49fbbbe4f826ed71b37c312e3245e3dc8e905a5"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/IMAGEGEN-JOB.json",
+      "bytes": 382,
+      "sha256": "86d0f994a33597fc28bdc09f3fa352e1cf921bab1aa21b727e493837b8369a77"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/IMAGEGEN-OUTPUT.json",
+      "bytes": 859,
+      "sha256": "76535324e792d350f24a23400afcb6d6edf0fe05d9a3672caabcd05b4e010ae3"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/trousers-v1.png",
+      "bytes": 2013757,
+      "sha256": "a44f073b43b0b3d260267b259accb3db3a5469edebd1834473befd0c6fc36ff8"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md",
+      "bytes": 3330,
+      "sha256": "e6bb083dd7484110a6106ef201d0346d0f3c40bfb4fcdb759a575f2862d35420"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-d3b6396e-9bed-4bda-9124-e06a8f930cbd.png",
+      "bytes": 2013757,
+      "sha256": "a44f073b43b0b3d260267b259accb3db3a5469edebd1834473befd0c6fc36ff8"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/RESULT.md",
+      "bytes": 2424,
+      "sha256": "dd5668d0bbf9f064a7498af992a0b02ed86417a7a45c0d3a5bed96a6108cfba1"
+    }
+  ],
+  "imageByteIdentity": true,
+  "deliveryLinks": [
+    {
+      "source": "docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "target": "KNIT-CHARACTER-TARGET-2026-10-04.md"
+    },
+    {
+      "source": "docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-design/trousers-v1.png"
+    },
+    {
+      "source": "docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "target": "../PRODUCT-ROADMAP.md"
+    },
+    {
+      "source": "docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "target": "../evidence/appearance-2026-10-04/trouser-design/REFERENCES.md"
+    },
+    {
+      "source": "docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "target": "../evidence/appearance-2026-10-04/trouser-design/PROMPT.txt"
+    },
+    {
+      "source": "docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "target": "../evidence/appearance-2026-10-04/trouser-design/ROOT-IMAGE.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "evidence/nonhair-2026-10-03/hair-cut/README.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "PRODUCT-ROADMAP.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "evidence/appearance-2026-10-02/saved-colours/README.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "PRODUCT-ROADMAP.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "evidence/appearance-2026-10-02/saved-export/README.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "../looks/INK-DENIM.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "evidence/appearance-2026-10-04/piece-publisher/README.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "evidence/appearance-2026-10-04/whole-knit-serving/README.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "research/WIDE-TROUSER-DESIGN-2026-10-04.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "DAY-REPORT-2026-10-04.md"
+    },
+    {
+      "source": "docs/PROJECT-CHECKLIST.md",
+      "target": "PRODUCT-ROADMAP.md"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "../../../research/WIDE-TROUSER-DESIGN-2026-10-04.md"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "trousers-v1.png"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "RESULT.md"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "ROOT-IMAGE.md"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "PROMPT.txt"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "REFERENCES.md"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "SOURCE.md"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "IMAGEGEN-JOB.json"
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-04/trouser-design/README.md",
+      "target": "IMAGEGEN-OUTPUT.json"
+    }
+  ],
+  "actualRootViews": "Full returned original02:47:06 and unchanged complete workspace02:48:30, original detail. ROOT-IMAGE saved before full critic final read; both independently choose A illustration only.",
+  "criticCollected": true,
+  "boundaries": "No unobserved COS shape/photo, source mesh/pattern/body/fit/rig/morph/motion or complete-avatar qualification. Profile is visually readable; no camera/projection metadata. One actual generation, no repeat/edit.",
+  "failure": "BOOKKEEPING-FAILURE retains actual error text attributed to root tool observation, not raw external log; corrective status Update and sole byte copy do not change image.",
+  "pending": "Finite brief/entry/failure-record delivery review, then freeze/checkpoint/local commit within unchanged stop."
+}

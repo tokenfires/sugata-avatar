@@ -15,8 +15,9 @@ Updated October 4, 2026. **Customization is usable; complete character quality i
 
 - [x] Editable five-piece sweater sheet with named joins and openings. [SVG and JSON](evidence/appearance-2026-10-04/piece-publisher/README.md)
 - [x] Editable unitless sweater volume with front, oblique and back references. [Preview and OBJ](evidence/appearance-2026-10-04/whole-knit-serving/README.md)
+- [x] Wide-trouser artist target with deliberately chosen profile, seat and rear. [Three-view design](research/WIDE-TROUSER-DESIGN-2026-10-04.md)
 
-These drafts do not establish physical folding, wearable fit or finished knit appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)
+These references do not establish physical folding, wearable fit or finished garment appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)
 
 ## Outstanding
 

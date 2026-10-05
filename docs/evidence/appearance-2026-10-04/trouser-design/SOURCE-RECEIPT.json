@@ -1,0 +1,110 @@
+{
+  "savedAtUTC": "2026-10-05T02:45:24.533921+00:00",
+  "decision": "A exact prompt for one generation only; root admission and actual original review remain required",
+  "stopAt": "2026-10-05T03:08:50.731931+00:00",
+  "promptSHA256": "cd8691dc512775fdc453ad75d5d73965f9cccd80dd1ae8a045a7817c8d6f6f37",
+  "fullTextInputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PLAN.json",
+      "bytes": 2385,
+      "sha256": "d5a3b0dba9c6b037eae773a4d5616f12fdf78718ad96e9d249fc48345bc855e2",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/INPUTS.json",
+      "bytes": 1178,
+      "sha256": "7e852f8425fe58771214bb93f4a6092fd28f30922c575f6f7129aabf4686b0dd",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/WORTH.md",
+      "bytes": 2197,
+      "sha256": "bd7e3dfac18497d38c9c4dd702cd2e637c6eab82b981a919a0f67926a0ba23b1",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.txt",
+      "bytes": 2701,
+      "sha256": "cd8691dc512775fdc453ad75d5d73965f9cccd80dd1ae8a045a7817c8d6f6f37",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/REFERENCES.md",
+      "bytes": 1423,
+      "sha256": "785b54377c5b047c6fe1e6323ecd73cc5105a3746136a1eec2abea815145303b",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/SEARCH.json",
+      "bytes": 4775,
+      "sha256": "4c90417580a1054187f7dd277755dbba970f12bebdc9be216a545b1cb407f149",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/FETCH.json",
+      "bytes": 13858,
+      "sha256": "5967105b113a9ab0f98d9e4de94a67068acba140554768aaf15b4fd46012d6b9",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.initial.txt",
+      "bytes": 2601,
+      "sha256": "2846e01946a257008c92abbb6a8382a13c13b7156ffe9d411f7a4ccbd411e30f",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/PROMPT.diff",
+      "bytes": 2975,
+      "sha256": "0d7e0423fbbf4c90f5c18d6a9b04f8d479c2d224f6adbde002575ba7dde9d7e7",
+      "scope": "full text read for this prompt admission"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/ROOT-PREFLIGHT.md",
+      "bytes": 984,
+      "sha256": "25753761386599401f64c2af32d604d68d2a9229dc28605ca05e35068f87aa20",
+      "scope": "full text read for this prompt admission"
+    }
+  ],
+  "retainedWitnessInputsVerified": [
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md",
+      "bytes": 3330,
+      "sha256": "e6bb083dd7484110a6106ef201d0346d0f3c40bfb4fcdb759a575f2862d35420"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    }
+  ],
+  "imageViews": {
+    "actualWholeOriginals": "concept-v1.png and accepted neutral-body.png viewed at original detail 2026-10-05T02:32:29UTC; no new image view for this prompt gate",
+    "noNewPrimaryPhoto": "FETCH provides country selector; no new image pixels inspected"
+  },
+  "clarification": "Only current line6 per-view boot visibility substitution independently verified; prior initial prompt not admitted",
+  "limitations": [
+    "No online call, native capture, generation, constructor or source edits by critic",
+    "No new primary visual garment claim",
+    "No metric/source/fit/runtime or demographic qualification"
+  ],
+  "sourceNote": {
+    "path": "docs/evidence/appearance-2026-10-04/trouser-design/SOURCE.md",
+    "bytes": 2025,
+    "sha256": "483afc0c2712f615b941475164bff3f1d248c651789a590dfe560e2c7e343d1a"
+  }
+}

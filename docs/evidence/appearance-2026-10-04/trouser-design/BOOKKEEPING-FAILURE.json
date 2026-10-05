@@ -1,0 +1,9 @@
+{
+  "recordedUtc": "2026-10-05T02:51:52.567664+00:00",
+  "operation": "Post-return IMAGEGEN-JOB status bookkeeping patch",
+  "tool": "functions.exec -> tools.apply_patch",
+  "actualError": "apply_patch verification failed: invalid patch: multiple operations target /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-design/IMAGEGEN-JOB.json",
+  "cause": "Root supplied Delete and Add operations for the same existing path in one patch; tool refused before later sequential copy/view calls",
+  "result": "No copy/view call followed the rejected patch. Corrected ordinary single Update then sole copy3e5370/7572/exit0 at02:48:30. Generation already returned once; no extra generation/editing/output change.",
+  "limits": "No shell PID/tool chunk ID supplied for failed JS/patch call; unavailable rather than invented"
+}

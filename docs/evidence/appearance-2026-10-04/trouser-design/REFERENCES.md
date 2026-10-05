@@ -1,0 +1,7 @@
+# Trouser target references
+
+The retained whole-character concept supplies the broad charcoal front silhouette and warm brown ankle boots. Both root and critic inspect its complete unchanged original; the seat, profile and rear are deliberately new authored choices. The accepted Ink image shows the narrower existing denim/boot separation, without a claim that denim is defective.
+
+One current Firecrawl search returns three COS excerpts (search01a109f0-286e-7558-ad92-f64b01dcd099,2 reported credits). Result3 names a wide-leg product; result1 is a category and result2 is slim. The sole live [COS result page](https://www.cos.com/en-eu-e/women/womenswear/trousers/wideleg/product/regular-wool-blend-wide-leg-trousers-black-1248656007) returns HTTP200 country selection, scrape01a109f0-7d44-760a-af61-54177b87f4f8,1 reported credit. It supplies no actual new trouser photo, product colour or hidden shape. SEARCH/FETCH retain exact arguments/responses and surrounding root clocks. No retry, alternate URL, country interaction or second photo hunt occurs.
+
+The generated sheet therefore uses our existing artist direction and the explicit new design choices, not unobserved COS garment geometry. No external image is an edit target; the new sheet is one brand-new built-in generation with no image inputs. It is an illustration, not a copied pattern, metric surface, fit result, demographic qualification or new wearable.
