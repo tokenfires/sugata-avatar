@@ -1,0 +1,1368 @@
+{
+  "input": {
+    "path": "assets/wardrobe/shoes01/g050.glb",
+    "bytes": 2345604,
+    "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "read_scope": "Complete-byte hash and length only; no GLB container/JSON/buffer decode"
+  },
+  "header": {
+    "magic": 1179937895,
+    "version": 2,
+    "length": 2345604
+  },
+  "chunks": [
+    {
+      "type": 1313821514,
+      "bytes": 15024,
+      "data_start": 20,
+      "data_end": 15044
+    },
+    {
+      "type": 5130562,
+      "bytes": 2330552,
+      "data_start": 15052,
+      "data_end": 2345604
+    }
+  ],
+  "json_chunk_sha256": "8b05a6a28307d38ffb60583c4ca826515a3c56af6569629aeb07bd40e178fd1f",
+  "json_chunk_base64": "eyJhc3NldCI6eyJnZW5lcmF0b3IiOiJLaHJvbm9zIGdsVEYgQmxlbmRlciBJL08gdjUuMi4zOSIsInZlcnNpb24iOiIyLjAifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibmFtZSI6IlNjZW5lIiwibm9kZXMiOls1NF19XSwibm9kZXMiOlt7Im5hbWUiOiJpbmRleF8wM19sIiwicm90YXRpb24iOlswLjA2MjcyMDMyMTExODgzMTYzLDAuMDAwNjQ0OTI2NTA1NjI4OTczMiwwLjAxODY3MTI5NjUzNjkyMjQ1NSwwLjk5Nzg1NjI1OTM0NjAwODNdLCJzY2FsZSI6WzAuOTk5OTk5OTQwMzk1MzU1MiwwLjk5OTk5OTk0MDM5NTM1NTIsMV0sInRyYW5zbGF0aW9uIjpbLTEuNDkwMTE2MTE5Mzg0NzY1NmUtMDgsMC4wMjMwNzY0MDc2MTEzNzAwODcsLTEuNDkwMTE2MTE5Mzg0NzY1NmUtMDhdfSx7ImNoaWxkcmVuIjpbMF0sIm5hbWUiOiJpbmRleF8wMl9sIiwicm90YXRpb24iOlswLjEwODY3NDk1ODM0ODI3NDIzLDAuMDAyODkwNjAwMzU3MjA0Njc1NywwLjAwNjE0OTY0NTQyOTEwNDU2NywwLjk5NDA1NDA3OTA1NTc4NjFdLCJzY2FsZSI6WzAuOTk5OTk5OTQwMzk1MzU1MiwxLjAwMDAwMDExOTIwOTI4OTYsMV0sInRyYW5zbGF0aW9uIjpbMCwwLjAyNTgyNDI4NjA0MzY0Mzk1LDBdfSx7ImNoaWxkcmVuIjpbMV0sIm5hbWUiOiJpbmRleF8wMV9sIiwicm90YXRpb24iOlswLjExMDA5MTUzNzIzNzE2NzM2LDAuNDc5MTkyNzkzMzY5MjkzMiwtMC4wMDMzMzU4NDgyMTc4MzAwNjIsMC44NzA3NzE1MjcyOTAzNDQyXSwic2NhbGUiOlswLjk5OTk5OTk0MDM5NTM1NTIsMC45OTk5OTk5NDAzOTUzNTUyLDAuOTk5OTk5ODgwNzkwNzEwNF0sInRyYW5zbGF0aW9uIjpbLTAuMDEyOTE2MjM3MTE1ODU5OTg1LDAuMTA1MTU1NjMxODk5ODMzNjgsMC4wMDkxOTgyNjMyODc1NDQyNV19LHsibmFtZSI6Im1pZGRsZV8wM19sIiwicm90YXRpb24iOlswLjA2NzY3OTM5MDMxMTI0MTE1LDAuMDAwOTE5NTc3ODk4NDU3NjQ2NCwtMC4wMDU4NTAxMzAyMjY0NjMwNzk1LDAuOTk3Njg5NTQ1MTU0NTcxNV0sInRyYW5zbGF0aW9uIjpbLTIuOTgwMjMyMjM4NzY5NTMxMmUtMDgsMC4wMjc1OTA2MTc1Mzc0OTg0NzQsLTYuNzA1NTIyNTM3MjMxNDQ1ZS0wOF19LHsiY2hpbGRyZW4iOlszXSwibmFtZSI6Im1pZGRsZV8wMl9sIiwicm90YXRpb24iOlswLjA0Njg0Mzc1MjI2NDk3NjUsMC4wMDA1MjA0NTA3MDMzMzQwNjMzLDAuMDM2NjY5NjM0MjgyNTg4OTYsMC45OTgyMjg3ODgzNzU4NTQ1XSwic2NhbGUiOlsxLDEsMS4wMDAwMDAxMTkyMDkyODk2XSwidHJhbnNsYXRpb24iOls3LjQ1MDU4MDU5NjkyMzgyOGUtMDgsMC4wMzM4MDMxODczMTA2OTU2NSw0LjQ3MDM0ODM1ODE1NDI5N2UtMDhdfSx7ImNoaWxkcmVuIjpbNF0sIm5hbWUiOiJtaWRkbGVfMDFfbCIsInJvdGF0aW9uIjpbMC4wOTgxOTU3OTEyNDQ1MDY4NCwwLjQxMzExNzcwNjc3NTY2NTMsLTAuMTUyMzgwNDM2NjU4ODU5MjUsMC44OTI0NTI1MzgwMTM0NTgzXSwic2NhbGUiOlsxLDAuOTk5OTk5OTQwMzk1MzU1MiwxXSwidHJhbnNsYXRpb24iOlswLjAwMjg3ODE3NDE4NTc1Mjg2ODcsMC4xMDE0MzE4NzY0MjA5NzQ3MywtMC4wMTE2ODg5ODEyMDUyMjQ5OV19LHsibmFtZSI6InBpbmt5XzAzX2wiLCJyb3RhdGlvbiI6Wy0wLjAwODcyNzc3MDI5ODcxOTQwNiwtMC4wMDAyMzQ3ODQzNjkyNDA1MTQ5MywtMC4wMTEzMjE2NDYxNjEzNzc0MywwLjk5OTg5Nzc3ODAzNDIxMDJdLCJzY2FsZSI6WzAuOTk5OTk5ODgwNzkwNzEwNCwxLDFdLCJ0cmFuc2xhdGlvbiI6Wy0yLjk4MDIzMjIzODc2OTUzMTJlLTA4LDAuMDE1NTk1OTU3NjM2ODMzMTkxLDEuODYyNjQ1MTQ5MjMwOTU3ZS0wOF19LHsiY2hpbGRyZW4iOls2XSwibmFtZSI6InBpbmt5XzAyX2wiLCJyb3RhdGlvbiI6WzAuMDgwOTM2NTg4MzQ2OTU4MTYsMC4wMDExMDYxOTgwNjIxODg5MjM0LDAuMDI0NTk4NjM1NzMzMTI3NTk0LDAuOTk2NDE1MDE5MDM1MzM5NF0sInNjYWxlIjpbMC45OTk5OTk5NDAzOTUzNTUyLDEuMDAwMDAwMTE5MjA5Mjg5NiwxXSwidHJhbnNsYXRpb24iOlsyLjk4MDIzMjIzODc2OTUzMTJlLTA4LDAuMDIxMjk5MzI0OTI5NzE0MjAzLDQuNDcwMzQ4MzU4MTU0Mjk3ZS0wOF19LHsiY2hpbGRyZW4iOls3XSwibmFtZSI6InBpbmt5XzAxX2wiLCJyb3RhdGlvbiI6WzAuMDQ2NzIxMzEzMTQ4NzM2OTU0LDAuMjkyMTAzNTU4Nzc4NzYyOCwtMC4zMDMzMjEwNjM1MTg1MjQxNywwLjkwNTgwODQ0ODc5MTUwMzldLCJzY2FsZSI6WzEsMSwwLjk5OTk5OTk0MDM5NTM1NTJdLCJ0cmFuc2xhdGlvbiI6WzAuMDMzMDgzNDAxNjIwMzg4MDMsMC4wODI5MjEyNjY1NTU3ODYxMywtMC4wMzIxODA4NjA2Mzg2MTg0N119LHsibmFtZSI6InJpbmdfMDNfbCIsInJvdGF0aW9uIjpbMC4wNTk2MjYzOTMwMjAxNTMwNDYsMC4wMDA2ODM3Njc1NDY0MzM5NTU0LC0wLjAyNDUzMDE3MDQ4NTM3NzMxLDAuOTk3OTE5MDgyNjQxNjAxNl0sInNjYWxlIjpbMC45OTk5OTk5NDAzOTUzNTUyLDEuMDAwMDAwMTE5MjA5Mjg5NiwwLjk5OTk5OTg4MDc5MDcxMDRdLCJ0cmFuc2xhdGlvbiI6Wy0yLjk4MDIzMjIzODc2OTUzMTJlLTA4LDAuMDI0Nzg3Mjk5MzM1MDAyOSwzLjcyNTI5MDI5ODQ2MTkxNGUtMDhdfSx7ImNoaWxkcmVuIjpbOV0sIm5hbWUiOiJyaW5nXzAyX2wiLCJyb3RhdGlvbiI6WzAuMDU5NTE4NjE2NjQ2NTI4MjQ0LDAuMDAwMzM5NDQxMTQ2OTM0NDA0OTcsMC4wNDMxNDUxOTgzNzQ5ODY2NSwwLjk5NzI5NDMwNjc1NTA2NTldLCJ0cmFuc2xhdGlvbiI6Wy0xLjQ5MDExNjExOTM4NDc2NTZlLTA4LDAuMDI5Njk0ODEwNTA5NjgxNywtMy43MjUyOTAyOTg0NjE5MTRlLTA4XX0seyJjaGlsZHJlbiI6WzEwXSwibmFtZSI6InJpbmdfMDFfbCIsInJvdGF0aW9uIjpbMC4wNTIxNDU5NTA0OTYxOTY3NSwwLjM4OTU1NjkxNDU2Nzk0NzQsLTAuMjMwNDUzMTAzNzgwNzQ2NDYsMC44OTAxNzgzODIzOTY2OThdLCJzY2FsZSI6WzAuOTk5OTk5OTQwMzk1MzU1MiwxLDFdLCJ0cmFuc2xhdGlvbiI6WzAuMDE2NjEzMjc0ODEyNjk4MzY0LDAuMDkzODM2MTg4MzE2MzQ1MjEsLTAuMDI0Mzc1OTcxNDA2Njk4MjI3XX0seyJuYW1lIjoidGh1bWJfMDNfbCIsInJvdGF0aW9uIjpbMC4xNDIwNTA5OTY0MjI3Njc2NCwtMC4wMDY5MjQwOTEzNzI2Mzg5NDEsLTAuMDMyODEwNzIxNTQ2NDExNTE0LDAuOTg5MjkxMTkxMTAxMDc0Ml0sInRyYW5zbGF0aW9uIjpbMi45ODAyMzIyMzg3Njk1MzEyZS0wOCwwLjAzNjIwODU0MDIwMTE4NzEzNCwtMi4yMzUxNzQxNzkwNzcxNDg0ZS0wOF19LHsiY2hpbGRyZW4iOlsxMl0sIm5hbWUiOiJ0aHVtYl8wMl9sIiwicm90YXRpb24iOlswLjA2ODk4NTg2NDUyMDA3Mjk0LC0wLjAxNzEwMjczMTM5MTc4NzUzLC0wLjE4Mjg5NTMwMjc3MjUyMTk3LDAuOTgwNTU5OTQ1MTA2NTA2M10sInNjYWxlIjpbMSwxLDAuOTk5OTk5OTQwMzk1MzU1Ml0sInRyYW5zbGF0aW9uIjpbLTUuOTYwNDY0NDc3NTM5MDYzZS0wOCwwLjAzMDc5Mzg2MDU1NDY5NTEzLC0zLjcyNTI5MDI5ODQ2MTkxNGUtMDhdfSx7ImNoaWxkcmVuIjpbMTNdLCJuYW1lIjoidGh1bWJfMDFfbCIsInJvdGF0aW9uIjpbMC4yNzQ0MjY0MDA2NjE0Njg1LDAuNzMxMjAxMDUyNjY1NzEwNCwwLjQzNzU3NDAyODk2ODgxMTA0LDAuNDQ1NjA1Mzk3MjI0NDI2MjddLCJzY2FsZSI6WzEsMC45OTk5OTk4ODA3OTA3MTA0LDFdLCJ0cmFuc2xhdGlvbiI6Wy0wLjAxNDIyNTk0MTE1MTM4MDUzOSwwLjAzOTQzMjcwNDQ0ODY5OTk1LDAuMDE0ODQxMjkyMDUzNDYxMDc1XX0seyJjaGlsZHJlbiI6WzIsNSw4LDExLDE0XSwibmFtZSI6ImhhbmRfbCIsInJvdGF0aW9uIjpbMC4xMTAyMzYxNzUzNTgyOTU0NCwwLjQxMTA4NDI2NDUxNjgzMDQ0LC0wLjAxNjA1NzMwNTAzNzk3NTMxLDAuOTA0NzY1MDY5NDg0NzEwN10sInNjYWxlIjpbMSwwLjk5OTk5OTg4MDc5MDcxMDQsMC45OTk5OTk4ODA3OTA3MTA0XSwidHJhbnNsYXRpb24iOlszLjcyNTI5MDI5ODQ2MTkxNGUtMDgsMC4yMzg0ODM2NjczNzM2NTcyMyw1Ljk2MDQ2NDQ3NzUzOTA2M2UtMDhdfSx7ImNoaWxkcmVuIjpbMTVdLCJuYW1lIjoibG93ZXJhcm1fbCIsInJvdGF0aW9uIjpbMC4zNjY5NDUxMTc3MTIwMjA5LDAuMDAxODM4MTYxNjEwMDY2ODkwNywwLjAwMzE0NDkwMTAxMzAwMTc5OTYsMC45MzAyMzU1MDUxMDQwNjQ5XSwidHJhbnNsYXRpb24iOlstNC40OTk0NTIxODg2MTEwMzA2ZS0wOCwwLjI0MjAwMjQ0MjQ3OTEzMzYsOS4zMTMyMjU3NDYxNTQ3ODVlLTEwXX0seyJjaGlsZHJlbiI6WzE2XSwibmFtZSI6InVwcGVyYXJtX2wiLCJyb3RhdGlvbiI6Wy0wLjAwODE0MjY5NzYyNDg2MjE5NCwwLjAxMjIxOTY4NDE5ODQ5ODcyNiwtMC4zMzg4MTc2NTYwNDAxOTE2NSwwLjk0MDczNzQ4NTg4NTYyMDFdLCJzY2FsZSI6WzAuOTk5OTk5ODgwNzkwNzEwNCwxLDFdLCJ0cmFuc2xhdGlvbiI6Wy01LjcyNzYzMzgzMzg4NTE5M2UtMDgsMC4xNDg5NjA5MTgxODgwOTUxLDQuMTkwOTUxNTg1NzY5NjUzZS0wOV19LHsiY2hpbGRyZW4iOlsxN10sIm5hbWUiOiJjbGF2aWNsZV9sIiwicm90YXRpb24iOlstMC4wMDcwNjAzNDI5MzM5ODI2MTEsMC4wMTM2ODgyMTU5ODU4OTQyMDMsLTAuNzU3NzU3MTg2ODg5NjQ4NCwwLjY1MjM1NDgzNjQ2MzkyODJdLCJ0cmFuc2xhdGlvbiI6WzAuMDIyNzc0NDQxMTY3NzEyMjEsMC4yNDQ3OTUzMjI0MTgyMTI5LDAuMDQ4MTQ1MzA5MDkwNjE0MzJdfSx7Im5hbWUiOiJpbmRleF8wM19yIiwicm90YXRpb24iOlswLjA2MjcyMDMyMTExODgzMTYzLC0wLjAwMDY0NDkyNjUwNTYyODk3MzIsLTAuMDE4NjcxMjk2NTM2OTIyNDU1LDAuOTk3ODU2MjU5MzQ2MDA4M10sInNjYWxlIjpbMC45OTk5OTk5NDAzOTUzNTUyLDAuOTk5OTk5OTQwMzk1MzU1MiwxXSwidHJhbnNsYXRpb24iOlsxLjQ5MDExNjExOTM4NDc2NTZlLTA4LDAuMDIzMDc2NDA3NjExMzcwMDg3LC0xLjQ5MDExNjExOTM4NDc2NTZlLTA4XX0seyJjaGlsZHJlbiI6WzE5XSwibmFtZSI6ImluZGV4XzAyX3IiLCJyb3RhdGlvbiI6WzAuMTA4Njc0OTU4MzQ4Mjc0MjMsLTAuMDAyODkwNjAwMzU3MjA0Njc1NywtMC4wMDYxNDk2NDU0MjkxMDQ1NjcsMC45OTQwNTQwNzkwNTU3ODYxXSwic2NhbGUiOlswLjk5OTk5OTk0MDM5NTM1NTIsMS4wMDAwMDAxMTkyMDkyODk2LDFdLCJ0cmFuc2xhdGlvbiI6WzAsMC4wMjU4MjQyODYwNDM2NDM5NSwwXX0seyJjaGlsZHJlbiI6WzIwXSwibmFtZSI6ImluZGV4XzAxX3IiLCJyb3RhdGlvbiI6WzAuMTEwMDkxNTM3MjM3MTY3MzYsLTAuNDc5MTkyNzkzMzY5MjkzMiwwLjAwMzMzNTg0ODIxNzgzMDA2MiwwLjg3MDc3MTUyNzI5MDM0NDJdLCJzY2FsZSI6WzAuOTk5OTk5OTQwMzk1MzU1MiwwLjk5OTk5OTk0MDM5NTM1NTIsMC45OTk5OTk4ODA3OTA3MTA0XSwidHJhbnNsYXRpb24iOlswLjAxMjkxNjIzNzExNTg1OTk4NSwwLjEwNTE1NTYzMTg5OTgzMzY4LDAuMDA5MTk4MjYzMjg3NTQ0MjVdfSx7Im5hbWUiOiJtaWRkbGVfMDNfciIsInJvdGF0aW9uIjpbMC4wNjc2NzkzOTAzMTEyNDExNSwtMC4wMDA5MTk1Nzc4OTg0NTc2NDY0LDAuMDA1ODUwMTMwMjI2NDYzMDc5NSwwLjk5NzY4OTU0NTE1NDU3MTVdLCJ0cmFuc2xhdGlvbiI6WzIuOTgwMjMyMjM4NzY5NTMxMmUtMDgsMC4wMjc1OTA2MTc1Mzc0OTg0NzQsLTYuNzA1NTIyNTM3MjMxNDQ1ZS0wOF19LHsiY2hpbGRyZW4iOlsyMl0sIm5hbWUiOiJtaWRkbGVfMDJfciIsInJvdGF0aW9uIjpbMC4wNDY4NDM3NTIyNjQ5NzY1LC0wLjAwMDUyMDQ1MDcwMzMzNDA2MzMsLTAuMDM2NjY5NjM0MjgyNTg4OTYsMC45OTgyMjg3ODgzNzU4NTQ1XSwic2NhbGUiOlsxLDEsMS4wMDAwMDAxMTkyMDkyODk2XSwidHJhbnNsYXRpb24iOlstNy40NTA1ODA1OTY5MjM4MjhlLTA4LDAuMDMzODAzMTg3MzEwNjk1NjUsNC40NzAzNDgzNTgxNTQyOTdlLTA4XX0seyJjaGlsZHJlbiI6WzIzXSwibmFtZSI6Im1pZGRsZV8wMV9yIiwicm90YXRpb24iOlswLjA5ODE5NTc5MTI0NDUwNjg0LC0wLjQxMzExNzcwNjc3NTY2NTMsMC4xNTIzODA0MzY2NTg4NTkyNSwwLjg5MjQ1MjUzODAxMzQ1ODNdLCJzY2FsZSI6WzEsMC45OTk5OTk5NDAzOTUzNTUyLDFdLCJ0cmFuc2xhdGlvbiI6Wy0wLjAwMjg3ODE3NDE4NTc1Mjg2ODcsMC4xMDE0MzE4NzY0MjA5NzQ3MywtMC4wMTE2ODg5ODEyMDUyMjQ5OV19LHsibmFtZSI6InBpbmt5XzAzX3IiLCJyb3RhdGlvbiI6Wy0wLjAwODcyNzc3MDI5ODcxOTQwNiwwLjAwMDIzNDc4NDM2OTI0MDUxNDkzLDAuMDExMzIxNjQ2MTYxMzc3NDMsMC45OTk4OTc3NzgwMzQyMTAyXSwic2NhbGUiOlswLjk5OTk5OTg4MDc5MDcxMDQsMSwxXSwidHJhbnNsYXRpb24iOlsyLjk4MDIzMjIzODc2OTUzMTJlLTA4LDAuMDE1NTk1OTU3NjM2ODMzMTkxLDEuODYyNjQ1MTQ5MjMwOTU3ZS0wOF19LHsiY2hpbGRyZW4iOlsyNV0sIm5hbWUiOiJwaW5reV8wMl9yIiwicm90YXRpb24iOlswLjA4MDkzNjU4ODM0Njk1ODE2LC0wLjAwMTEwNjE5ODA2MjE4ODkyMzQsLTAuMDI0NTk4NjM1NzMzMTI3NTk0LDAuOTk2NDE1MDE5MDM1MzM5NF0sInNjYWxlIjpbMC45OTk5OTk5NDAzOTUzNTUyLDEuMDAwMDAwMTE5MjA5Mjg5NiwxXSwidHJhbnNsYXRpb24iOlstMi45ODAyMzIyMzg3Njk1MzEyZS0wOCwwLjAyMTI5OTMyNDkyOTcxNDIwMyw0LjQ3MDM0ODM1ODE1NDI5N2UtMDhdfSx7ImNoaWxkcmVuIjpbMjZdLCJuYW1lIjoicGlua3lfMDFfciIsInJvdGF0aW9uIjpbMC4wNDY3MjEzMTMxNDg3MzY5NTQsLTAuMjkyMTAzNTU4Nzc4NzYyOCwwLjMwMzMyMTA2MzUxODUyNDE3LDAuOTA1ODA4NDQ4NzkxNTAzOV0sInNjYWxlIjpbMSwxLDAuOTk5OTk5OTQwMzk1MzU1Ml0sInRyYW5zbGF0aW9uIjpbLTAuMDMzMDgzNDAxNjIwMzg4MDMsMC4wODI5MjEyNjY1NTU3ODYxMywtMC4wMzIxODA4NjA2Mzg2MTg0N119LHsibmFtZSI6InJpbmdfMDNfciIsInJvdGF0aW9uIjpbMC4wNTk2MjYzOTMwMjAxNTMwNDYsLTAuMDAwNjgzNzY3NTQ2NDMzOTU1NCwwLjAyNDUzMDE3MDQ4NTM3NzMxLDAuOTk3OTE5MDgyNjQxNjAxNl0sInNjYWxlIjpbMC45OTk5OTk5NDAzOTUzNTUyLDEuMDAwMDAwMTE5MjA5Mjg5NiwwLjk5OTk5OTg4MDc5MDcxMDRdLCJ0cmFuc2xhdGlvbiI6WzIuOTgwMjMyMjM4NzY5NTMxMmUtMDgsMC4wMjQ3ODcyOTkzMzUwMDI5LDMuNzI1MjkwMjk4NDYxOTE0ZS0wOF19LHsiY2hpbGRyZW4iOlsyOF0sIm5hbWUiOiJyaW5nXzAyX3IiLCJyb3RhdGlvbiI6WzAuMDU5NTE4NjE2NjQ2NTI4MjQ0LC0wLjAwMDMzOTQ0MTE0NjkzNDQwNDk3LC0wLjA0MzE0NTE5ODM3NDk4NjY1LDAuOTk3Mjk0MzA2NzU1MDY1OV0sInRyYW5zbGF0aW9uIjpbMS40OTAxMTYxMTkzODQ3NjU2ZS0wOCwwLjAyOTY5NDgxMDUwOTY4MTcsLTMuNzI1MjkwMjk4NDYxOTE0ZS0wOF19LHsiY2hpbGRyZW4iOlsyOV0sIm5hbWUiOiJyaW5nXzAxX3IiLCJyb3RhdGlvbiI6WzAuMDUyMTQ1OTUwNDk2MTk2NzUsLTAuMzg5NTU2OTE0NTY3OTQ3NCwwLjIzMDQ1MzEwMzc4MDc0NjQ2LDAuODkwMTc4MzgyMzk2Njk4XSwic2NhbGUiOlswLjk5OTk5OTk0MDM5NTM1NTIsMSwxXSwidHJhbnNsYXRpb24iOlstMC4wMTY2MTMyNzQ4MTI2OTgzNjQsMC4wOTM4MzYxODgzMTYzNDUyMSwtMC4wMjQzNzU5NzE0MDY2OTgyMjddfSx7Im5hbWUiOiJ0aHVtYl8wM19yIiwicm90YXRpb24iOlswLjE0MjA1MDk5NjQyMjc2NzY0LDAuMDA2OTI0MDkxMzcyNjM4OTQxLDAuMDMyODEwNzIxNTQ2NDExNTE0LDAuOTg5MjkxMTkxMTAxMDc0Ml0sInRyYW5zbGF0aW9uIjpbLTIuOTgwMjMyMjM4NzY5NTMxMmUtMDgsMC4wMzYyMDg1NDAyMDExODcxMzQsLTIuMjM1MTc0MTc5MDc3MTQ4NGUtMDhdfSx7ImNoaWxkcmVuIjpbMzFdLCJuYW1lIjoidGh1bWJfMDJfciIsInJvdGF0aW9uIjpbMC4wNjg5ODU4NjQ1MjAwNzI5NCwwLjAxNzEwMjczMTM5MTc4NzUzLDAuMTgyODk1MzAyNzcyNTIxOTcsMC45ODA1NTk5NDUxMDY1MDYzXSwic2NhbGUiOlsxLDEsMC45OTk5OTk5NDAzOTUzNTUyXSwidHJhbnNsYXRpb24iOls1Ljk2MDQ2NDQ3NzUzOTA2M2UtMDgsMC4wMzA3OTM4NjA1NTQ2OTUxMywtMy43MjUyOTAyOTg0NjE5MTRlLTA4XX0seyJjaGlsZHJlbiI6WzMyXSwibmFtZSI6InRodW1iXzAxX3IiLCJyb3RhdGlvbiI6WzAuMjc0NDI2NDAwNjYxNDY4NSwtMC43MzEyMDEwNTI2NjU3MTA0LC0wLjQzNzU3NDAyODk2ODgxMTA0LDAuNDQ1NjA1Mzk3MjI0NDI2MjddLCJzY2FsZSI6WzEsMC45OTk5OTk4ODA3OTA3MTA0LDFdLCJ0cmFuc2xhdGlvbiI6WzAuMDE0MjI1OTQxMTUxMzgwNTM5LDAuMDM5NDMyNzA0NDQ4Njk5OTUsMC4wMTQ4NDEyOTIwNTM0NjEwNzVdfSx7ImNoaWxkcmVuIjpbMjEsMjQsMjcsMzAsMzNdLCJuYW1lIjoiaGFuZF9yIiwicm90YXRpb24iOlswLjExMDIzNjE3NTM1ODI5NTQ0LC0wLjQxMTA4NDI2NDUxNjgzMDQ0LDAuMDE2MDU3MzA1MDM3OTc1MzEsMC45MDQ3NjUwNjk0ODQ3MTA3XSwic2NhbGUiOlsxLDAuOTk5OTk5ODgwNzkwNzEwNCwwLjk5OTk5OTg4MDc5MDcxMDRdLCJ0cmFuc2xhdGlvbiI6Wy0zLjcyNTI5MDI5ODQ2MTkxNGUtMDgsMC4yMzg0ODM2NjczNzM2NTcyMyw1Ljk2MDQ2NDQ3NzUzOTA2M2UtMDhdfSx7ImNoaWxkcmVuIjpbMzRdLCJuYW1lIjoibG93ZXJhcm1fciIsInJvdGF0aW9uIjpbMC4zNjY5NDUxMTc3MTIwMjA5LC0wLjAwMTgzODE2MTYxMDA2Njg5MDcsLTAuMDAzMTQ0OTAxMDEzMDAxNzk5NiwwLjkzMDIzNTUwNTEwNDA2NDldLCJ0cmFuc2xhdGlvbiI6WzQuNDk5NDUyMTg4NjExMDMwNmUtMDgsMC4yNDIwMDI0NDI0NzkxMzM2LDkuMzEzMjI1NzQ2MTU0Nzg1ZS0xMF19LHsiY2hpbGRyZW4iOlszNV0sIm5hbWUiOiJ1cHBlcmFybV9yIiwicm90YXRpb24iOlstMC4wMDgxNDI2OTc2MjQ4NjIxOTQsLTAuMDEyMjE5Njg0MTk4NDk4NzI2LDAuMzM4ODE3NjU2MDQwMTkxNjUsMC45NDA3Mzc0ODU4ODU2MjAxXSwic2NhbGUiOlswLjk5OTk5OTg4MDc5MDcxMDQsMSwxXSwidHJhbnNsYXRpb24iOls1LjcyNzYzMzgzMzg4NTE5M2UtMDgsMC4xNDg5NjA5MTgxODgwOTUxLDQuMTkwOTUxNTg1NzY5NjUzZS0wOV19LHsiY2hpbGRyZW4iOlszNl0sIm5hbWUiOiJjbGF2aWNsZV9yIiwicm90YXRpb24iOlstMC4wMDcwNjAzNDI5MzM5ODI2MTEsLTAuMDEzNjg4MjE1OTg1ODk0MjAzLDAuNzU3NzU3MTg2ODg5NjQ4NCwwLjY1MjM1NDgzNjQ2MzkyODJdLCJ0cmFuc2xhdGlvbiI6Wy0wLjAyMjc3NDQ0MTE2NzcxMjIxLDAuMjQ0Nzk1MzIyNDE4MjEyOSwwLjA0ODE0NTMwOTA5MDYxNDMyXX0seyJuYW1lIjoiaGVhZCIsInJvdGF0aW9uIjpbLTAuMjA1NzcwNDYyNzUxMzg4NTUsMCwwLDAuOTc4NjAwMjYzNTk1NTgxXSwidHJhbnNsYXRpb24iOlswLDAuMTA4MTcyOTYwNTc5Mzk1Myw3LjQ1MDU4MDU5NjkyMzgyOGUtMDhdfSx7ImNoaWxkcmVuIjpbMzhdLCJuYW1lIjoibmVja18wMSIsInJvdGF0aW9uIjpbMC4yMTg1Nzc1MDQxNTgwMjAwMiwwLDAsMC45NzU4MTk1ODc3MDc1MTk1XSwic2NhbGUiOlsxLDAuOTk5OTk5OTQwMzk1MzU1MiwxXSwidHJhbnNsYXRpb24iOlswLDAuMzE2OTg4NzY2MTkzMzg5OSwwLjAzNjQxODcyMTA3OTgyNjM1NV19LHsiY2hpbGRyZW4iOlsxOCwzNywzOV0sIm5hbWUiOiJzcGluZV8wMyIsInJvdGF0aW9uIjpbLTAuMDQ4NjYzOTk2MTYwMDMwMzY1LDAsMCwwLjk5ODgxNTE3ODg3MTE1NDhdLCJ0cmFuc2xhdGlvbiI6WzAsMC4wNzUyNTU4NTU5MTc5MzA2LC05LjMxMzIyNTc0NjE1NDc4NWUtMTBdfSx7ImNoaWxkcmVuIjpbNDBdLCJuYW1lIjoic3BpbmVfMDIiLCJyb3RhdGlvbiI6Wy0wLjEwMjYxOTA3NDI4NTAzMDM2LDAsMCwwLjk5NDcyMDY5NzQwMjk1NDFdLCJ0cmFuc2xhdGlvbiI6WzAsMC4wNjgwNjY1MTUwMjg0NzY3Miw5LjMxMzIyNTc0NjE1NDc4NWUtMDldfSx7ImNoaWxkcmVuIjpbNDFdLCJuYW1lIjoic3BpbmVfMDEiLCJyb3RhdGlvbiI6WzAuMzM0NDU4MTEyNzE2Njc0OCwwLDAsMC45NDI0MTA2NDc4NjkxMTAxXSwic2NhbGUiOlsxLDAuOTk5OTk5OTQwMzk1MzU1MiwwLjk5OTk5OTk0MDM5NTM1NTJdLCJ0cmFuc2xhdGlvbiI6WzAsMC4wODgzMDk1MzM4OTQwNjIwNCwtMy43MjUyOTAyOTg0NjE5MTRlLTA5XX0seyJuYW1lIjoiYmFsbF9sIiwicm90YXRpb24iOlstMC4yNjIyMDY2NDM4MTk4MDg5NiwwLjAwNzI3ODkzMTc5MjgyNTQ2MDQsMC4wMjkxNjk4MDM0ODUyNzQzMTUsMC45NjQ1NDMzNDI1OTAzMzJdLCJzY2FsZSI6WzAuOTk5OTk5OTQwMzk1MzU1MiwxLjAwMDAwMDExOTIwOTI4OTYsMV0sInRyYW5zbGF0aW9uIjpbLTIuMTgyNzg3Mjg0MjU1MDI3OGUtMDksMC4xMzE1NjkyMDY3MTQ2MzAxMywtNy40NTA1ODA1OTY5MjM4MjhlLTA5XX0seyJjaGlsZHJlbiI6WzQzXSwibmFtZSI6ImZvb3RfbCIsInJvdGF0aW9uIjpbLTAuNTM1MzIxMTE2NDQ3NDQ4NywtMC4wMDEwNjU3NzY5MTYyMjA3ODQyLDAuMDAwNzYxMzc1MzU1MDY4NTk0MiwwLjg0NDY0NzY0NTk1MDMxNzRdLCJ0cmFuc2xhdGlvbiI6WzkuOTY0NDIzOTUyNjI0MjAyZS0wOSwwLjQwNzMzMTEwOTA0NjkzNjA0LC0yLjAwODE2NDMwMTUxNDYyNTVlLTA5XX0seyJjaGlsZHJlbiI6WzQ0XSwibmFtZSI6ImNhbGZfbCIsInJvdGF0aW9uIjpbMC4wNTg4NDQ2MTEwNDg2OTg0MjUsMC4yMzIxNzcxODMwMzIwMzU4MywtMC4wMDg1MzAwMTE0MDA1ODA0MDYsMC45NzA4NTQ0NjExOTMwODQ3XSwic2NhbGUiOlswLjk5OTk5OTk0MDM5NTM1NTIsMC45OTk5OTk4ODA3OTA3MTA0LDAuOTk5OTk5OTQwMzk1MzU1Ml0sInRyYW5zbGF0aW9uIjpbLTcuNDUwNTgwNTk2OTIzODI4ZS0wOSwwLjM5NDcwNjk2NDQ5Mjc5Nzg1LDBdfSx7ImNoaWxkcmVuIjpbNDVdLCJuYW1lIjoidGhpZ2hfbCIsInJvdGF0aW9uIjpbLTAuOTU4MDc0NTEwMDk3NTAzNywtMC4wOTE3NDAxMjM5Mjc1OTMyMywwLjIxMzkwMzkwMzk2MTE4MTY0LDAuMTY3MDk5MzI2ODQ4OTgzNzZdLCJzY2FsZSI6WzAuOTk5OTk5NTIzMTYyODQxOCwwLjk5OTk5OTc2MTU4MTQyMDksMC45OTk5OTYwNjYwOTM0NDQ4XSwidHJhbnNsYXRpb24iOlswLjEwMTQ3MTUyODQxMDkxMTU2LC0wLjAwMzgyOTA0Nzc4MjM0NjYwNjMsLTAuMDEwOTkwMzM1NjA2MDM4NTddfSx7Im5hbWUiOiJiYWxsX3IiLCJyb3RhdGlvbiI6Wy0wLjI2MjIwNjY0MzgxOTgwODk2LC0wLjAwNzI3ODkzMTc5MjgyNTQ2MDQsLTAuMDI5MTY5ODAzNDg1Mjc0MzE1LDAuOTY0NTQzMzQyNTkwMzMyXSwic2NhbGUiOlswLjk5OTk5OTk0MDM5NTM1NTIsMS4wMDAwMDAxMTkyMDkyODk2LDFdLCJ0cmFuc2xhdGlvbiI6WzIuMTgyNzg3Mjg0MjU1MDI3OGUtMDksMC4xMzE1NjkyMDY3MTQ2MzAxMywtNy40NTA1ODA1OTY5MjM4MjhlLTA5XX0seyJjaGlsZHJlbiI6WzQ3XSwibmFtZSI6ImZvb3RfciIsInJvdGF0aW9uIjpbLTAuNTM1MzIxMTE2NDQ3NDQ4NywwLjAwMTA2NTc3NjkxNjIyMDc4NDIsLTAuMDAwNzYxMzc1MzU1MDY4NTk0MiwwLjg0NDY0NzY0NTk1MDMxNzRdLCJ0cmFuc2xhdGlvbiI6Wy05Ljk2NDQyMzk1MjYyNDIwMmUtMDksMC40MDczMzExMDkwNDY5MzYwNCwtMi4wMDgxNjQzMDE1MTQ2MjU1ZS0wOV19LHsiY2hpbGRyZW4iOls0OF0sIm5hbWUiOiJjYWxmX3IiLCJyb3RhdGlvbiI6WzAuMDU4ODQ0NjExMDQ4Njk4NDI1LC0wLjIzMjE3NzE4MzAzMjAzNTgzLDAuMDA4NTMwMDExNDAwNTgwNDA2LDAuOTcwODU0NDYxMTkzMDg0N10sInNjYWxlIjpbMC45OTk5OTk5NDAzOTUzNTUyLDAuOTk5OTk5ODgwNzkwNzEwNCwwLjk5OTk5OTk0MDM5NTM1NTJdLCJ0cmFuc2xhdGlvbiI6WzcuNDUwNTgwNTk2OTIzODI4ZS0wOSwwLjM5NDcwNjk2NDQ5Mjc5Nzg1LDBdfSx7ImNoaWxkcmVuIjpbNDldLCJuYW1lIjoidGhpZ2hfciIsInJvdGF0aW9uIjpbLTAuOTU4MDc0NTEwMDk3NTAzNywwLjA5MTc0MDEyMzkyNzU5MzIzLC0wLjIxMzkwMzkwMzk2MTE4MTY0LDAuMTY3MDk5MzI2ODQ4OTgzNzZdLCJzY2FsZSI6WzAuOTk5OTk5NTIzMTYyODQxOCwwLjk5OTk5OTc2MTU4MTQyMDksMC45OTk5OTYwNjYwOTM0NDQ4XSwidHJhbnNsYXRpb24iOlstMC4xMDE0NzE1Mjg0MTA5MTE1NiwtMC4wMDM4MjkwNDc3ODIzNDY2MDYzLC0wLjAxMDk5MDMzNTYwNjAzODU3XX0seyJjaGlsZHJlbiI6WzQyLDQ2LDUwXSwibmFtZSI6InBlbHZpcyIsInJvdGF0aW9uIjpbMC41MzA1ODk3NTkzNDk4MjMsMCwwLDAuODQ3NjI4NzcyMjU4NzU4NV0sInRyYW5zbGF0aW9uIjpbMCwtMC4wMTMyMTY1NjA3MDY0OTYyMzksMC44NzQ0NDg4OTU0NTQ0MDY3XX0seyJjaGlsZHJlbiI6WzUxXSwibmFtZSI6IlJvb3QiLCJyb3RhdGlvbiI6Wy0wLjcwNzEwNjc2OTA4NDkzMDQsMCwwLDAuNzA3MTA2NzY5MDg0OTMwNF0sInRyYW5zbGF0aW9uIjpbMCwtMC4wMDA1NjI1MTg4MzUwNjc3NDksNi4xMDAxNjI4NjM3MzEzODRlLTA4XX0seyJleHRyYXMiOnsiTVBGQl9HRU5fYXNzZXRfc291cmNlIjoic2hvZXMwMS9zaG9lczAxLm1oY2xvIiwiTVBGQl9HRU5fb2JqZWN0X3R5cGUiOiJDbG90aGVzIiwiTWhPYmplY3RUeXBlIjoiQ2xvdGhlcyIsIk1QRkJfR0VOX3V1aWQiOiI2ZTBjNTUyZS1lMjA3LTQ0ZGYtOGY3MC1jOWJmZGVkZGQ4YzYiLCJNUEZCX01DX2F1dGhvciI6InVua25vd24iLCJNaENsb3RoZXNBdXRob3IiOiJ1bmtub3duIiwiTVBGQl9NQ19kZWxldGVfZ3JvdXAiOiJEZWxldGUuc2hvZXMwMSIsIk1oRGVsZXRlR3JvdXAiOiJEZWxldGUuc2hvZXMwMSIsIk1QRkJfTUNfZGVzY3JpcHRpb24iOiJubyBkZXNjcmlwdGlvbiIsIk1oQ2xvdGhlc0Rlc2MiOiJubyBkZXNjcmlwdGlvbiIsIk1QRkJfTUNfbGljZW5zZSI6MSwiTWhDbG90aGVzTGljZW5zZSI6MSwiTVBGQl9NQ19uYW1lIjoic2hvZXMwMSIsIk1oQ2xvdGhlc05hbWUiOiJzaG9lczAxIn0sIm1lc2giOjAsIm5hbWUiOiJIdW1hbi5zaG9lczAxIiwic2tpbiI6MH0seyJjaGlsZHJlbiI6WzUzLDUyXSwiZXh0cmFzIjp7Ik1QRkJfR0VOX3NjYWxlX2ZhY3RvciI6MC4xMDAwMDAwMDE0OTAxMTYxMiwiTWhTY2FsZUZhY3RvciI6MC4xMDAwMDAwMDE0OTAxMTYxMiwiTVBGQl9HRU5fb2JqZWN0X3R5cGUiOiJTa2VsZXRvbiIsIk1oT2JqZWN0VHlwZSI6IlNrZWxldG9uIn0sIm5hbWUiOiJIdW1hbi5yaWcifV0sIm1hdGVyaWFscyI6W3sibmFtZSI6Ikh1bWFuLnNob2VzMDEiLCJub3JtYWxUZXh0dXJlIjp7ImluZGV4IjowfSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yVGV4dHVyZSI6eyJpbmRleCI6MX0sIm1ldGFsbGljRmFjdG9yIjowLCJyb3VnaG5lc3NGYWN0b3IiOjAuNjAwMDAwMDIzODQxODU3OX19XSwibWVzaGVzIjpbeyJuYW1lIjoic2hvZXMwMSIsInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIk5PUk1BTCI6MSwiVEVYQ09PUkRfMCI6MiwiSk9JTlRTXzAiOjMsIldFSUdIVFNfMCI6NH0sImluZGljZXMiOjUsIm1hdGVyaWFsIjowfV19XSwidGV4dHVyZXMiOlt7InNhbXBsZXIiOjAsInNvdXJjZSI6MH0seyJzYW1wbGVyIjowLCJzb3VyY2UiOjF9XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3Ijo2LCJtaW1lVHlwZSI6ImltYWdlL3BuZyIsIm5hbWUiOiJzaG9lczAxX25vcm1hbCJ9LHsiYnVmZmVyVmlldyI6NywibWltZVR5cGUiOiJpbWFnZS9wbmciLCJuYW1lIjoic2hvZXMwMV9kaWZmdXNlIn1dLCJza2lucyI6W3siaW52ZXJzZUJpbmRNYXRyaWNlcyI6Niwiam9pbnRzIjpbNTIsNTEsNDIsNDEsNDAsMTgsMTcsMTYsMTUsMiwxLDAsNSw0LDMsOCw3LDYsMTEsMTAsOSwxNCwxMywxMiwzNywzNiwzNSwzNCwyMSwyMCwxOSwyNCwyMywyMiwyNywyNiwyNSwzMCwyOSwyOCwzMywzMiwzMSwzOSwzOCw0Niw0NSw0NCw0Myw1MCw0OSw0OCw0N10sIm5hbWUiOiJIdW1hbi5yaWcifV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwiY291bnQiOjE4NDYsIm1heCI6WzAuMjM4NzYwNzY5MzY3MjE4MDIsMC4yMTA4MjY0NzE0NDc5NDQ2NCwwLjIwNzYxMDYzNjk0OTUzOTE4XSwibWluIjpbLTAuMjM4NzYwNzY5MzY3MjE4MDIsLTAuMDAxMTI4OTQxNzc0MzY4Mjg2MSwtMC4wNDI5OTQ5MzUwNjU1MDc4OV0sInR5cGUiOiJWRUMzIn0seyJidWZmZXJWaWV3IjoxLCJjb21wb25lbnRUeXBlIjo1MTI2LCJjb3VudCI6MTg0NiwidHlwZSI6IlZFQzMifSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsImNvdW50IjoxODQ2LCJ0eXBlIjoiVkVDMiJ9LHsiYnVmZmVyVmlldyI6MywiY29tcG9uZW50VHlwZSI6NTEyMSwiY291bnQiOjE4NDYsInR5cGUiOiJWRUM0In0seyJidWZmZXJWaWV3Ijo0LCJjb21wb25lbnRUeXBlIjo1MTI2LCJjb3VudCI6MTg0NiwidHlwZSI6IlZFQzQifSx7ImJ1ZmZlclZpZXciOjUsImNvbXBvbmVudFR5cGUiOjUxMjMsImNvdW50Ijo5OTYwLCJ0eXBlIjoiU0NBTEFSIn0seyJidWZmZXJWaWV3Ijo4LCJjb21wb25lbnRUeXBlIjo1MTI2LCJjb3VudCI6NTMsInR5cGUiOiJNQVQ0In1dLCJidWZmZXJWaWV3cyI6W3siYnVmZmVyIjowLCJieXRlTGVuZ3RoIjoyMjE1MiwiYnl0ZU9mZnNldCI6MCwidGFyZ2V0IjozNDk2Mn0seyJidWZmZXIiOjAsImJ5dGVMZW5ndGgiOjIyMTUyLCJieXRlT2Zmc2V0IjoyMjE1MiwidGFyZ2V0IjozNDk2Mn0seyJidWZmZXIiOjAsImJ5dGVMZW5ndGgiOjE0NzY4LCJieXRlT2Zmc2V0Ijo0NDMwNCwidGFyZ2V0IjozNDk2Mn0seyJidWZmZXIiOjAsImJ5dGVMZW5ndGgiOjczODQsImJ5dGVPZmZzZXQiOjU5MDcyLCJ0YXJnZXQiOjM0OTYyfSx7ImJ1ZmZlciI6MCwiYnl0ZUxlbmd0aCI6Mjk1MzYsImJ5dGVPZmZzZXQiOjY2NDU2LCJ0YXJnZXQiOjM0OTYyfSx7ImJ1ZmZlciI6MCwiYnl0ZUxlbmd0aCI6MTk5MjAsImJ5dGVPZmZzZXQiOjk1OTkyLCJ0YXJnZXQiOjM0OTYzfSx7ImJ1ZmZlciI6MCwiYnl0ZUxlbmd0aCI6ODc1NDczLCJieXRlT2Zmc2V0IjoxMTU5MTJ9LHsiYnVmZmVyIjowLCJieXRlTGVuZ3RoIjoxMzM1NzcyLCJieXRlT2Zmc2V0Ijo5OTEzODh9LHsiYnVmZmVyIjowLCJieXRlTGVuZ3RoIjozMzkyLCJieXRlT2Zmc2V0IjoyMzI3MTYwfV0sInNhbXBsZXJzIjpbeyJtYWdGaWx0ZXIiOjk3MjksIm1pbkZpbHRlciI6OTk4N31dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoyMzMwNTUyfV19",
+  "gltf": {
+    "asset": {
+      "generator": "Khronos glTF Blender I/O v5.2.39",
+      "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+      {
+        "name": "Scene",
+        "nodes": [
+          54
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "name": "index_03_l",
+        "rotation": [
+          0.06272032111883163,
+          0.0006449265056289732,
+          0.018671296536922455,
+          0.9978562593460083
+        ],
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1
+        ],
+        "translation": [
+          -1.4901161193847656e-08,
+          0.023076407611370087,
+          -1.4901161193847656e-08
+        ]
+      },
+      {
+        "children": [
+          0
+        ],
+        "name": "index_02_l",
+        "rotation": [
+          0.10867495834827423,
+          0.0028906003572046757,
+          0.006149645429104567,
+          0.9940540790557861
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          1
+        ],
+        "translation": [
+          0,
+          0.02582428604364395,
+          0
+        ]
+      },
+      {
+        "children": [
+          1
+        ],
+        "name": "index_01_l",
+        "rotation": [
+          0.11009153723716736,
+          0.4791927933692932,
+          -0.003335848217830062,
+          0.8707715272903442
+        ],
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          0.9999998807907104
+        ],
+        "translation": [
+          -0.012916237115859985,
+          0.10515563189983368,
+          0.00919826328754425
+        ]
+      },
+      {
+        "name": "middle_03_l",
+        "rotation": [
+          0.06767939031124115,
+          0.0009195778984576464,
+          -0.0058501302264630795,
+          0.9976895451545715
+        ],
+        "translation": [
+          -2.9802322387695312e-08,
+          0.027590617537498474,
+          -6.705522537231445e-08
+        ]
+      },
+      {
+        "children": [
+          3
+        ],
+        "name": "middle_02_l",
+        "rotation": [
+          0.0468437522649765,
+          0.0005204507033340633,
+          0.03666963428258896,
+          0.9982287883758545
+        ],
+        "scale": [
+          1,
+          1,
+          1.0000001192092896
+        ],
+        "translation": [
+          7.450580596923828e-08,
+          0.03380318731069565,
+          4.470348358154297e-08
+        ]
+      },
+      {
+        "children": [
+          4
+        ],
+        "name": "middle_01_l",
+        "rotation": [
+          0.09819579124450684,
+          0.4131177067756653,
+          -0.15238043665885925,
+          0.8924525380134583
+        ],
+        "scale": [
+          1,
+          0.9999999403953552,
+          1
+        ],
+        "translation": [
+          0.0028781741857528687,
+          0.10143187642097473,
+          -0.01168898120522499
+        ]
+      },
+      {
+        "name": "pinky_03_l",
+        "rotation": [
+          -0.008727770298719406,
+          -0.00023478436924051493,
+          -0.01132164616137743,
+          0.9998977780342102
+        ],
+        "scale": [
+          0.9999998807907104,
+          1,
+          1
+        ],
+        "translation": [
+          -2.9802322387695312e-08,
+          0.015595957636833191,
+          1.862645149230957e-08
+        ]
+      },
+      {
+        "children": [
+          6
+        ],
+        "name": "pinky_02_l",
+        "rotation": [
+          0.08093658834695816,
+          0.0011061980621889234,
+          0.024598635733127594,
+          0.9964150190353394
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          1
+        ],
+        "translation": [
+          2.9802322387695312e-08,
+          0.021299324929714203,
+          4.470348358154297e-08
+        ]
+      },
+      {
+        "children": [
+          7
+        ],
+        "name": "pinky_01_l",
+        "rotation": [
+          0.046721313148736954,
+          0.2921035587787628,
+          -0.30332106351852417,
+          0.9058084487915039
+        ],
+        "scale": [
+          1,
+          1,
+          0.9999999403953552
+        ],
+        "translation": [
+          0.03308340162038803,
+          0.08292126655578613,
+          -0.03218086063861847
+        ]
+      },
+      {
+        "name": "ring_03_l",
+        "rotation": [
+          0.059626393020153046,
+          0.0006837675464339554,
+          -0.02453017048537731,
+          0.9979190826416016
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          0.9999998807907104
+        ],
+        "translation": [
+          -2.9802322387695312e-08,
+          0.0247872993350029,
+          3.725290298461914e-08
+        ]
+      },
+      {
+        "children": [
+          9
+        ],
+        "name": "ring_02_l",
+        "rotation": [
+          0.059518616646528244,
+          0.00033944114693440497,
+          0.04314519837498665,
+          0.9972943067550659
+        ],
+        "translation": [
+          -1.4901161193847656e-08,
+          0.0296948105096817,
+          -3.725290298461914e-08
+        ]
+      },
+      {
+        "children": [
+          10
+        ],
+        "name": "ring_01_l",
+        "rotation": [
+          0.05214595049619675,
+          0.3895569145679474,
+          -0.23045310378074646,
+          0.890178382396698
+        ],
+        "scale": [
+          0.9999999403953552,
+          1,
+          1
+        ],
+        "translation": [
+          0.016613274812698364,
+          0.09383618831634521,
+          -0.024375971406698227
+        ]
+      },
+      {
+        "name": "thumb_03_l",
+        "rotation": [
+          0.14205099642276764,
+          -0.006924091372638941,
+          -0.032810721546411514,
+          0.9892911911010742
+        ],
+        "translation": [
+          2.9802322387695312e-08,
+          0.036208540201187134,
+          -2.2351741790771484e-08
+        ]
+      },
+      {
+        "children": [
+          12
+        ],
+        "name": "thumb_02_l",
+        "rotation": [
+          0.06898586452007294,
+          -0.01710273139178753,
+          -0.18289530277252197,
+          0.9805599451065063
+        ],
+        "scale": [
+          1,
+          1,
+          0.9999999403953552
+        ],
+        "translation": [
+          -5.960464477539063e-08,
+          0.03079386055469513,
+          -3.725290298461914e-08
+        ]
+      },
+      {
+        "children": [
+          13
+        ],
+        "name": "thumb_01_l",
+        "rotation": [
+          0.2744264006614685,
+          0.7312010526657104,
+          0.43757402896881104,
+          0.44560539722442627
+        ],
+        "scale": [
+          1,
+          0.9999998807907104,
+          1
+        ],
+        "translation": [
+          -0.014225941151380539,
+          0.03943270444869995,
+          0.014841292053461075
+        ]
+      },
+      {
+        "children": [
+          2,
+          5,
+          8,
+          11,
+          14
+        ],
+        "name": "hand_l",
+        "rotation": [
+          0.11023617535829544,
+          0.41108426451683044,
+          -0.01605730503797531,
+          0.9047650694847107
+        ],
+        "scale": [
+          1,
+          0.9999998807907104,
+          0.9999998807907104
+        ],
+        "translation": [
+          3.725290298461914e-08,
+          0.23848366737365723,
+          5.960464477539063e-08
+        ]
+      },
+      {
+        "children": [
+          15
+        ],
+        "name": "lowerarm_l",
+        "rotation": [
+          0.3669451177120209,
+          0.0018381616100668907,
+          0.0031449010130017996,
+          0.9302355051040649
+        ],
+        "translation": [
+          -4.4994521886110306e-08,
+          0.2420024424791336,
+          9.313225746154785e-10
+        ]
+      },
+      {
+        "children": [
+          16
+        ],
+        "name": "upperarm_l",
+        "rotation": [
+          -0.008142697624862194,
+          0.012219684198498726,
+          -0.33881765604019165,
+          0.9407374858856201
+        ],
+        "scale": [
+          0.9999998807907104,
+          1,
+          1
+        ],
+        "translation": [
+          -5.727633833885193e-08,
+          0.1489609181880951,
+          4.190951585769653e-09
+        ]
+      },
+      {
+        "children": [
+          17
+        ],
+        "name": "clavicle_l",
+        "rotation": [
+          -0.007060342933982611,
+          0.013688215985894203,
+          -0.7577571868896484,
+          0.6523548364639282
+        ],
+        "translation": [
+          0.02277444116771221,
+          0.2447953224182129,
+          0.04814530909061432
+        ]
+      },
+      {
+        "name": "index_03_r",
+        "rotation": [
+          0.06272032111883163,
+          -0.0006449265056289732,
+          -0.018671296536922455,
+          0.9978562593460083
+        ],
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1
+        ],
+        "translation": [
+          1.4901161193847656e-08,
+          0.023076407611370087,
+          -1.4901161193847656e-08
+        ]
+      },
+      {
+        "children": [
+          19
+        ],
+        "name": "index_02_r",
+        "rotation": [
+          0.10867495834827423,
+          -0.0028906003572046757,
+          -0.006149645429104567,
+          0.9940540790557861
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          1
+        ],
+        "translation": [
+          0,
+          0.02582428604364395,
+          0
+        ]
+      },
+      {
+        "children": [
+          20
+        ],
+        "name": "index_01_r",
+        "rotation": [
+          0.11009153723716736,
+          -0.4791927933692932,
+          0.003335848217830062,
+          0.8707715272903442
+        ],
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          0.9999998807907104
+        ],
+        "translation": [
+          0.012916237115859985,
+          0.10515563189983368,
+          0.00919826328754425
+        ]
+      },
+      {
+        "name": "middle_03_r",
+        "rotation": [
+          0.06767939031124115,
+          -0.0009195778984576464,
+          0.0058501302264630795,
+          0.9976895451545715
+        ],
+        "translation": [
+          2.9802322387695312e-08,
+          0.027590617537498474,
+          -6.705522537231445e-08
+        ]
+      },
+      {
+        "children": [
+          22
+        ],
+        "name": "middle_02_r",
+        "rotation": [
+          0.0468437522649765,
+          -0.0005204507033340633,
+          -0.03666963428258896,
+          0.9982287883758545
+        ],
+        "scale": [
+          1,
+          1,
+          1.0000001192092896
+        ],
+        "translation": [
+          -7.450580596923828e-08,
+          0.03380318731069565,
+          4.470348358154297e-08
+        ]
+      },
+      {
+        "children": [
+          23
+        ],
+        "name": "middle_01_r",
+        "rotation": [
+          0.09819579124450684,
+          -0.4131177067756653,
+          0.15238043665885925,
+          0.8924525380134583
+        ],
+        "scale": [
+          1,
+          0.9999999403953552,
+          1
+        ],
+        "translation": [
+          -0.0028781741857528687,
+          0.10143187642097473,
+          -0.01168898120522499
+        ]
+      },
+      {
+        "name": "pinky_03_r",
+        "rotation": [
+          -0.008727770298719406,
+          0.00023478436924051493,
+          0.01132164616137743,
+          0.9998977780342102
+        ],
+        "scale": [
+          0.9999998807907104,
+          1,
+          1
+        ],
+        "translation": [
+          2.9802322387695312e-08,
+          0.015595957636833191,
+          1.862645149230957e-08
+        ]
+      },
+      {
+        "children": [
+          25
+        ],
+        "name": "pinky_02_r",
+        "rotation": [
+          0.08093658834695816,
+          -0.0011061980621889234,
+          -0.024598635733127594,
+          0.9964150190353394
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          1
+        ],
+        "translation": [
+          -2.9802322387695312e-08,
+          0.021299324929714203,
+          4.470348358154297e-08
+        ]
+      },
+      {
+        "children": [
+          26
+        ],
+        "name": "pinky_01_r",
+        "rotation": [
+          0.046721313148736954,
+          -0.2921035587787628,
+          0.30332106351852417,
+          0.9058084487915039
+        ],
+        "scale": [
+          1,
+          1,
+          0.9999999403953552
+        ],
+        "translation": [
+          -0.03308340162038803,
+          0.08292126655578613,
+          -0.03218086063861847
+        ]
+      },
+      {
+        "name": "ring_03_r",
+        "rotation": [
+          0.059626393020153046,
+          -0.0006837675464339554,
+          0.02453017048537731,
+          0.9979190826416016
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          0.9999998807907104
+        ],
+        "translation": [
+          2.9802322387695312e-08,
+          0.0247872993350029,
+          3.725290298461914e-08
+        ]
+      },
+      {
+        "children": [
+          28
+        ],
+        "name": "ring_02_r",
+        "rotation": [
+          0.059518616646528244,
+          -0.00033944114693440497,
+          -0.04314519837498665,
+          0.9972943067550659
+        ],
+        "translation": [
+          1.4901161193847656e-08,
+          0.0296948105096817,
+          -3.725290298461914e-08
+        ]
+      },
+      {
+        "children": [
+          29
+        ],
+        "name": "ring_01_r",
+        "rotation": [
+          0.05214595049619675,
+          -0.3895569145679474,
+          0.23045310378074646,
+          0.890178382396698
+        ],
+        "scale": [
+          0.9999999403953552,
+          1,
+          1
+        ],
+        "translation": [
+          -0.016613274812698364,
+          0.09383618831634521,
+          -0.024375971406698227
+        ]
+      },
+      {
+        "name": "thumb_03_r",
+        "rotation": [
+          0.14205099642276764,
+          0.006924091372638941,
+          0.032810721546411514,
+          0.9892911911010742
+        ],
+        "translation": [
+          -2.9802322387695312e-08,
+          0.036208540201187134,
+          -2.2351741790771484e-08
+        ]
+      },
+      {
+        "children": [
+          31
+        ],
+        "name": "thumb_02_r",
+        "rotation": [
+          0.06898586452007294,
+          0.01710273139178753,
+          0.18289530277252197,
+          0.9805599451065063
+        ],
+        "scale": [
+          1,
+          1,
+          0.9999999403953552
+        ],
+        "translation": [
+          5.960464477539063e-08,
+          0.03079386055469513,
+          -3.725290298461914e-08
+        ]
+      },
+      {
+        "children": [
+          32
+        ],
+        "name": "thumb_01_r",
+        "rotation": [
+          0.2744264006614685,
+          -0.7312010526657104,
+          -0.43757402896881104,
+          0.44560539722442627
+        ],
+        "scale": [
+          1,
+          0.9999998807907104,
+          1
+        ],
+        "translation": [
+          0.014225941151380539,
+          0.03943270444869995,
+          0.014841292053461075
+        ]
+      },
+      {
+        "children": [
+          21,
+          24,
+          27,
+          30,
+          33
+        ],
+        "name": "hand_r",
+        "rotation": [
+          0.11023617535829544,
+          -0.41108426451683044,
+          0.01605730503797531,
+          0.9047650694847107
+        ],
+        "scale": [
+          1,
+          0.9999998807907104,
+          0.9999998807907104
+        ],
+        "translation": [
+          -3.725290298461914e-08,
+          0.23848366737365723,
+          5.960464477539063e-08
+        ]
+      },
+      {
+        "children": [
+          34
+        ],
+        "name": "lowerarm_r",
+        "rotation": [
+          0.3669451177120209,
+          -0.0018381616100668907,
+          -0.0031449010130017996,
+          0.9302355051040649
+        ],
+        "translation": [
+          4.4994521886110306e-08,
+          0.2420024424791336,
+          9.313225746154785e-10
+        ]
+      },
+      {
+        "children": [
+          35
+        ],
+        "name": "upperarm_r",
+        "rotation": [
+          -0.008142697624862194,
+          -0.012219684198498726,
+          0.33881765604019165,
+          0.9407374858856201
+        ],
+        "scale": [
+          0.9999998807907104,
+          1,
+          1
+        ],
+        "translation": [
+          5.727633833885193e-08,
+          0.1489609181880951,
+          4.190951585769653e-09
+        ]
+      },
+      {
+        "children": [
+          36
+        ],
+        "name": "clavicle_r",
+        "rotation": [
+          -0.007060342933982611,
+          -0.013688215985894203,
+          0.7577571868896484,
+          0.6523548364639282
+        ],
+        "translation": [
+          -0.02277444116771221,
+          0.2447953224182129,
+          0.04814530909061432
+        ]
+      },
+      {
+        "name": "head",
+        "rotation": [
+          -0.20577046275138855,
+          0,
+          0,
+          0.978600263595581
+        ],
+        "translation": [
+          0,
+          0.1081729605793953,
+          7.450580596923828e-08
+        ]
+      },
+      {
+        "children": [
+          38
+        ],
+        "name": "neck_01",
+        "rotation": [
+          0.21857750415802002,
+          0,
+          0,
+          0.9758195877075195
+        ],
+        "scale": [
+          1,
+          0.9999999403953552,
+          1
+        ],
+        "translation": [
+          0,
+          0.3169887661933899,
+          0.036418721079826355
+        ]
+      },
+      {
+        "children": [
+          18,
+          37,
+          39
+        ],
+        "name": "spine_03",
+        "rotation": [
+          -0.048663996160030365,
+          0,
+          0,
+          0.9988151788711548
+        ],
+        "translation": [
+          0,
+          0.0752558559179306,
+          -9.313225746154785e-10
+        ]
+      },
+      {
+        "children": [
+          40
+        ],
+        "name": "spine_02",
+        "rotation": [
+          -0.10261907428503036,
+          0,
+          0,
+          0.9947206974029541
+        ],
+        "translation": [
+          0,
+          0.06806651502847672,
+          9.313225746154785e-09
+        ]
+      },
+      {
+        "children": [
+          41
+        ],
+        "name": "spine_01",
+        "rotation": [
+          0.3344581127166748,
+          0,
+          0,
+          0.9424106478691101
+        ],
+        "scale": [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation": [
+          0,
+          0.08830953389406204,
+          -3.725290298461914e-09
+        ]
+      },
+      {
+        "name": "ball_l",
+        "rotation": [
+          -0.26220664381980896,
+          0.0072789317928254604,
+          0.029169803485274315,
+          0.964543342590332
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          1
+        ],
+        "translation": [
+          -2.1827872842550278e-09,
+          0.13156920671463013,
+          -7.450580596923828e-09
+        ]
+      },
+      {
+        "children": [
+          43
+        ],
+        "name": "foot_l",
+        "rotation": [
+          -0.5353211164474487,
+          -0.0010657769162207842,
+          0.0007613753550685942,
+          0.8446476459503174
+        ],
+        "translation": [
+          9.964423952624202e-09,
+          0.40733110904693604,
+          -2.0081643015146255e-09
+        ]
+      },
+      {
+        "children": [
+          44
+        ],
+        "name": "calf_l",
+        "rotation": [
+          0.058844611048698425,
+          0.23217718303203583,
+          -0.008530011400580406,
+          0.9708544611930847
+        ],
+        "scale": [
+          0.9999999403953552,
+          0.9999998807907104,
+          0.9999999403953552
+        ],
+        "translation": [
+          -7.450580596923828e-09,
+          0.39470696449279785,
+          0
+        ]
+      },
+      {
+        "children": [
+          45
+        ],
+        "name": "thigh_l",
+        "rotation": [
+          -0.9580745100975037,
+          -0.09174012392759323,
+          0.21390390396118164,
+          0.16709932684898376
+        ],
+        "scale": [
+          0.9999995231628418,
+          0.9999997615814209,
+          0.9999960660934448
+        ],
+        "translation": [
+          0.10147152841091156,
+          -0.0038290477823466063,
+          -0.01099033560603857
+        ]
+      },
+      {
+        "name": "ball_r",
+        "rotation": [
+          -0.26220664381980896,
+          -0.0072789317928254604,
+          -0.029169803485274315,
+          0.964543342590332
+        ],
+        "scale": [
+          0.9999999403953552,
+          1.0000001192092896,
+          1
+        ],
+        "translation": [
+          2.1827872842550278e-09,
+          0.13156920671463013,
+          -7.450580596923828e-09
+        ]
+      },
+      {
+        "children": [
+          47
+        ],
+        "name": "foot_r",
+        "rotation": [
+          -0.5353211164474487,
+          0.0010657769162207842,
+          -0.0007613753550685942,
+          0.8446476459503174
+        ],
+        "translation": [
+          -9.964423952624202e-09,
+          0.40733110904693604,
+          -2.0081643015146255e-09
+        ]
+      },
+      {
+        "children": [
+          48
+        ],
+        "name": "calf_r",
+        "rotation": [
+          0.058844611048698425,
+          -0.23217718303203583,
+          0.008530011400580406,
+          0.9708544611930847
+        ],
+        "scale": [
+          0.9999999403953552,
+          0.9999998807907104,
+          0.9999999403953552
+        ],
+        "translation": [
+          7.450580596923828e-09,
+          0.39470696449279785,
+          0
+        ]
+      },
+      {
+        "children": [
+          49
+        ],
+        "name": "thigh_r",
+        "rotation": [
+          -0.9580745100975037,
+          0.09174012392759323,
+          -0.21390390396118164,
+          0.16709932684898376
+        ],
+        "scale": [
+          0.9999995231628418,
+          0.9999997615814209,
+          0.9999960660934448
+        ],
+        "translation": [
+          -0.10147152841091156,
+          -0.0038290477823466063,
+          -0.01099033560603857
+        ]
+      },
+      {
+        "children": [
+          42,
+          46,
+          50
+        ],
+        "name": "pelvis",
+        "rotation": [
+          0.530589759349823,
+          0,
+          0,
+          0.8476287722587585
+        ],
+        "translation": [
+          0,
+          -0.013216560706496239,
+          0.8744488954544067
+        ]
+      },
+      {
+        "children": [
+          51
+        ],
+        "name": "Root",
+        "rotation": [
+          -0.7071067690849304,
+          0,
+          0,
+          0.7071067690849304
+        ],
+        "translation": [
+          0,
+          -0.000562518835067749,
+          6.100162863731384e-08
+        ]
+      },
+      {
+        "extras": {
+          "MPFB_GEN_asset_source": "shoes01/shoes01.mhclo",
+          "MPFB_GEN_object_type": "Clothes",
+          "MhObjectType": "Clothes",
+          "MPFB_GEN_uuid": "6e0c552e-e207-44df-8f70-c9bfdeddd8c6",
+          "MPFB_MC_author": "unknown",
+          "MhClothesAuthor": "unknown",
+          "MPFB_MC_delete_group": "Delete.shoes01",
+          "MhDeleteGroup": "Delete.shoes01",
+          "MPFB_MC_description": "no description",
+          "MhClothesDesc": "no description",
+          "MPFB_MC_license": 1,
+          "MhClothesLicense": 1,
+          "MPFB_MC_name": "shoes01",
+          "MhClothesName": "shoes01"
+        },
+        "mesh": 0,
+        "name": "Human.shoes01",
+        "skin": 0
+      },
+      {
+        "children": [
+          53,
+          52
+        ],
+        "extras": {
+          "MPFB_GEN_scale_factor": 0.10000000149011612,
+          "MhScaleFactor": 0.10000000149011612,
+          "MPFB_GEN_object_type": "Skeleton",
+          "MhObjectType": "Skeleton"
+        },
+        "name": "Human.rig"
+      }
+    ],
+    "materials": [
+      {
+        "name": "Human.shoes01",
+        "normalTexture": {
+          "index": 0
+        },
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicFactor": 0,
+          "roughnessFactor": 0.6000000238418579
+        }
+      }
+    ],
+    "meshes": [
+      {
+        "name": "shoes01",
+        "primitives": [
+          {
+            "attributes": {
+              "POSITION": 0,
+              "NORMAL": 1,
+              "TEXCOORD_0": 2,
+              "JOINTS_0": 3,
+              "WEIGHTS_0": 4
+            },
+            "indices": 5,
+            "material": 0
+          }
+        ]
+      }
+    ],
+    "textures": [
+      {
+        "sampler": 0,
+        "source": 0
+      },
+      {
+        "sampler": 0,
+        "source": 1
+      }
+    ],
+    "images": [
+      {
+        "bufferView": 6,
+        "mimeType": "image/png",
+        "name": "shoes01_normal"
+      },
+      {
+        "bufferView": 7,
+        "mimeType": "image/png",
+        "name": "shoes01_diffuse"
+      }
+    ],
+    "skins": [
+      {
+        "inverseBindMatrices": 6,
+        "joints": [
+          52,
+          51,
+          42,
+          41,
+          40,
+          18,
+          17,
+          16,
+          15,
+          2,
+          1,
+          0,
+          5,
+          4,
+          3,
+          8,
+          7,
+          6,
+          11,
+          10,
+          9,
+          14,
+          13,
+          12,
+          37,
+          36,
+          35,
+          34,
+          21,
+          20,
+          19,
+          24,
+          23,
+          22,
+          27,
+          26,
+          25,
+          30,
+          29,
+          28,
+          33,
+          32,
+          31,
+          39,
+          38,
+          46,
+          45,
+          44,
+          43,
+          50,
+          49,
+          48,
+          47
+        ],
+        "name": "Human.rig"
+      }
+    ],
+    "accessors": [
+      {
+        "bufferView": 0,
+        "componentType": 5126,
+        "count": 1846,
+        "max": [
+          0.23876076936721802,
+          0.21082647144794464,
+          0.20761063694953918
+        ],
+        "min": [
+          -0.23876076936721802,
+          -0.0011289417743682861,
+          -0.04299493506550789
+        ],
+        "type": "VEC3"
+      },
+      {
+        "bufferView": 1,
+        "componentType": 5126,
+        "count": 1846,
+        "type": "VEC3"
+      },
+      {
+        "bufferView": 2,
+        "componentType": 5126,
+        "count": 1846,
+        "type": "VEC2"
+      },
+      {
+        "bufferView": 3,
+        "componentType": 5121,
+        "count": 1846,
+        "type": "VEC4"
+      },
+      {
+        "bufferView": 4,
+        "componentType": 5126,
+        "count": 1846,
+        "type": "VEC4"
+      },
+      {
+        "bufferView": 5,
+        "componentType": 5123,
+        "count": 9960,
+        "type": "SCALAR"
+      },
+      {
+        "bufferView": 8,
+        "componentType": 5126,
+        "count": 53,
+        "type": "MAT4"
+      }
+    ],
+    "bufferViews": [
+      {
+        "buffer": 0,
+        "byteLength": 22152,
+        "byteOffset": 0,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 22152,
+        "byteOffset": 22152,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 14768,
+        "byteOffset": 44304,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 7384,
+        "byteOffset": 59072,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 29536,
+        "byteOffset": 66456,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 19920,
+        "byteOffset": 95992,
+        "target": 34963
+      },
+      {
+        "buffer": 0,
+        "byteLength": 875473,
+        "byteOffset": 115912
+      },
+      {
+        "buffer": 0,
+        "byteLength": 1335772,
+        "byteOffset": 991388
+      },
+      {
+        "buffer": 0,
+        "byteLength": 3392,
+        "byteOffset": 2327160
+      }
+    ],
+    "samplers": [
+      {
+        "magFilter": 9729,
+        "minFilter": 9987
+      }
+    ],
+    "buffers": [
+      {
+        "byteLength": 2330552
+      }
+    ]
+  }
+}

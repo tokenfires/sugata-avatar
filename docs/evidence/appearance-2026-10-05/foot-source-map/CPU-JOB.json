@@ -1,0 +1,21 @@
+{
+  "controller_pid": 22467,
+  "pid": 22468,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/foot-source-map/inspect.py"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "started_utc": "2026-10-05T12:39:20.237856+00:00",
+  "source_sha256": "c55ab3bd9be0eb4e668bde087a50ae7c03ab468d5a33eefedcb5c2cb2fc45804",
+  "timeout_seconds": 15,
+  "single_observer": true,
+  "finished_utc": "2026-10-05T12:39:20.288803+00:00",
+  "elapsed_seconds": 0.05095125001389533,
+  "exit_code": 0,
+  "reaped": true,
+  "timeout": false,
+  "stdout_sha256": "fda9679e58f18325405a473dcf7b523658fab1243e30eca00f741fc7577d2de2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

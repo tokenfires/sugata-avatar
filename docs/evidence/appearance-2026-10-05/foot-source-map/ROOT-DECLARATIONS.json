@@ -1,0 +1,1607 @@
+{
+  "observed_utc": "2026-10-05T12:40:55.156825+00:00",
+  "scope": "Root independent saved-metadata/reference equality observer, not producer replay or geometry decode",
+  "operands": {
+    "body": {
+      "counts": {
+        "nodes": 61,
+        "meshes": 7,
+        "skins": 1,
+        "accessors": 285,
+        "default_scene_mesh_owners": 7
+      },
+      "default_scene": {
+        "name": "Scene",
+        "nodes": [
+          60
+        ]
+      },
+      "owners": [
+        {
+          "node_id": 53,
+          "node_name": "Human",
+          "mesh_id": 0,
+          "mesh_name": "base.001",
+          "ancestry": [
+            60,
+            53
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 101,
+              "declaration": {
+                "bufferView": 191,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 191,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 7180172
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 11796996
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 6,
+                  "declaration": {
+                    "bufferView": 6,
+                    "componentType": 5126,
+                    "count": 14517,
+                    "max": [
+                      0.5255246162414551,
+                      1.6594313383102417,
+                      0.33447206020355225
+                    ],
+                    "min": [
+                      -0.5255246162414551,
+                      1.1175870895385742e-08,
+                      -0.09550102800130844
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 6,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 174204,
+                    "byteOffset": 348408,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 9,
+                  "declaration": {
+                    "bufferView": 9,
+                    "componentType": 5121,
+                    "count": 14517,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 9,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 58068,
+                    "byteOffset": 812952,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 10,
+                  "declaration": {
+                    "bufferView": 10,
+                    "componentType": 5126,
+                    "count": 14517,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 10,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 232272,
+                    "byteOffset": 871020,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 11,
+                "declaration": {
+                  "bufferView": 11,
+                  "componentType": 5123,
+                  "count": 80268,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 11,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 160536,
+                  "byteOffset": 1103292,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 11796996
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        },
+        {
+          "node_id": 54,
+          "node_name": "Human.cornea",
+          "mesh_id": 1,
+          "mesh_name": "cornea",
+          "ancestry": [
+            60,
+            54
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 101,
+              "declaration": {
+                "bufferView": 191,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 191,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 7180172
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 11796996
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 102,
+                  "declaration": {
+                    "bufferView": 192,
+                    "componentType": 5126,
+                    "count": 524,
+                    "max": [
+                      0.04438001289963722,
+                      1.5681143999099731,
+                      0.13460412621498108
+                    ],
+                    "min": [
+                      -0.044380009174346924,
+                      1.53836190700531,
+                      0.11124511808156967
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 192,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 6288,
+                    "byteOffset": 7183564,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 105,
+                  "declaration": {
+                    "bufferView": 195,
+                    "componentType": 5121,
+                    "count": 524,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 195,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 2096,
+                    "byteOffset": 7200332,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 106,
+                  "declaration": {
+                    "bufferView": 196,
+                    "componentType": 5126,
+                    "count": 524,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 196,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 8384,
+                    "byteOffset": 7202428,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 107,
+                "declaration": {
+                  "bufferView": 197,
+                  "componentType": 5123,
+                  "count": 2940,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 197,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 5880,
+                  "byteOffset": 7210812,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 11796996
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        },
+        {
+          "node_id": 55,
+          "node_name": "Human.eyebrow001",
+          "mesh_id": 2,
+          "mesh_name": "eyebrow001",
+          "ancestry": [
+            60,
+            55
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 101,
+              "declaration": {
+                "bufferView": 191,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 191,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 7180172
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 11796996
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 116,
+                  "declaration": {
+                    "bufferView": 214,
+                    "componentType": 5126,
+                    "count": 124,
+                    "max": [
+                      0.057311199605464935,
+                      1.567185640335083,
+                      0.14325882494449615
+                    ],
+                    "min": [
+                      -0.057311199605464935,
+                      1.5568345785140991,
+                      0.11297065764665604
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 214,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 1488,
+                    "byteOffset": 7246036,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 119,
+                  "declaration": {
+                    "bufferView": 217,
+                    "componentType": 5121,
+                    "count": 124,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 217,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 496,
+                    "byteOffset": 7250004,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 120,
+                  "declaration": {
+                    "bufferView": 218,
+                    "componentType": 5126,
+                    "count": 124,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 218,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 1984,
+                    "byteOffset": 7250500,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 121,
+                "declaration": {
+                  "bufferView": 219,
+                  "componentType": 5123,
+                  "count": 576,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 219,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 1152,
+                  "byteOffset": 7252484,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 11796996
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        },
+        {
+          "node_id": 56,
+          "node_name": "Human.eyelashes01",
+          "mesh_id": 3,
+          "mesh_name": "eyelashes01",
+          "ancestry": [
+            60,
+            56
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 101,
+              "declaration": {
+                "bufferView": 191,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 191,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 7180172
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 11796996
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 171,
+                  "declaration": {
+                    "bufferView": 318,
+                    "componentType": 5126,
+                    "count": 250,
+                    "max": [
+                      0.04734501615166664,
+                      1.558701753616333,
+                      0.1386519968509674
+                    ],
+                    "min": [
+                      -0.04734501615166664,
+                      1.544451355934143,
+                      0.1257544457912445
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 318,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 3000,
+                    "byteOffset": 7357184,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 174,
+                  "declaration": {
+                    "bufferView": 321,
+                    "componentType": 5121,
+                    "count": 250,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 321,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 1000,
+                    "byteOffset": 7365184,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 175,
+                  "declaration": {
+                    "bufferView": 322,
+                    "componentType": 5126,
+                    "count": 250,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 322,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 4000,
+                    "byteOffset": 7366184,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 176,
+                "declaration": {
+                  "bufferView": 323,
+                  "componentType": 5123,
+                  "count": 1104,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 323,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 2208,
+                  "byteOffset": 7370184,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 11796996
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        },
+        {
+          "node_id": 57,
+          "node_name": "Human.high-poly",
+          "mesh_id": 4,
+          "mesh_name": "high-poly",
+          "ancestry": [
+            60,
+            57
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 101,
+              "declaration": {
+                "bufferView": 191,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 191,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 7180172
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 11796996
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 204,
+                  "declaration": {
+                    "bufferView": 379,
+                    "componentType": 5126,
+                    "count": 552,
+                    "max": [
+                      0.043975699692964554,
+                      1.567696213722229,
+                      0.1323121041059494
+                    ],
+                    "min": [
+                      -0.043975699692964554,
+                      1.5387717485427856,
+                      0.11143594980239868
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 379,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 6624,
+                    "byteOffset": 7493548,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 207,
+                  "declaration": {
+                    "bufferView": 382,
+                    "componentType": 5121,
+                    "count": 552,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 382,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 2208,
+                    "byteOffset": 7511212,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 208,
+                  "declaration": {
+                    "bufferView": 383,
+                    "componentType": 5126,
+                    "count": 552,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 383,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 8832,
+                    "byteOffset": 7513420,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 209,
+                "declaration": {
+                  "bufferView": 384,
+                  "componentType": 5123,
+                  "count": 3180,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 384,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 6360,
+                  "byteOffset": 7522252,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 11796996
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        },
+        {
+          "node_id": 58,
+          "node_name": "Human.teeth_base",
+          "mesh_id": 5,
+          "mesh_name": "teeth_base",
+          "ancestry": [
+            60,
+            58
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 101,
+              "declaration": {
+                "bufferView": 191,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 191,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 7180172
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 11796996
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 218,
+                  "declaration": {
+                    "bufferView": 402,
+                    "componentType": 5126,
+                    "count": 4494,
+                    "max": [
+                      0.029767952859401703,
+                      1.5046327114105225,
+                      0.13964004814624786
+                    ],
+                    "min": [
+                      -0.029768262058496475,
+                      1.4565991163253784,
+                      0.06806144118309021
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 402,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 53928,
+                    "byteOffset": 8170344,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 221,
+                  "declaration": {
+                    "bufferView": 405,
+                    "componentType": 5121,
+                    "count": 4494,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 405,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 17976,
+                    "byteOffset": 8314152,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 222,
+                  "declaration": {
+                    "bufferView": 406,
+                    "componentType": 5126,
+                    "count": 4494,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 406,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 71904,
+                    "byteOffset": 8332128,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 223,
+                "declaration": {
+                  "bufferView": 407,
+                  "componentType": 5123,
+                  "count": 21360,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 407,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 42720,
+                  "byteOffset": 8404032,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 11796996
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        },
+        {
+          "node_id": 59,
+          "node_name": "Human.tongue01",
+          "mesh_id": 6,
+          "mesh_name": "tongue01",
+          "ancestry": [
+            60,
+            59
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 101,
+              "declaration": {
+                "bufferView": 191,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 191,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 7180172
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 11796996
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  60,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 251,
+                  "declaration": {
+                    "bufferView": 463,
+                    "componentType": 5126,
+                    "count": 253,
+                    "max": [
+                      0.021747004240751266,
+                      1.4967033863067627,
+                      0.13079248368740082
+                    ],
+                    "min": [
+                      -0.021747004240751266,
+                      1.470597267150879,
+                      0.06202547252178192
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 463,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 3036,
+                    "byteOffset": 11070724,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 254,
+                  "declaration": {
+                    "bufferView": 466,
+                    "componentType": 5121,
+                    "count": 253,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 466,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 1012,
+                    "byteOffset": 11078820,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 255,
+                  "declaration": {
+                    "bufferView": 467,
+                    "componentType": 5126,
+                    "count": 253,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 467,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 4048,
+                    "byteOffset": 11079832,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 11796996
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 256,
+                "declaration": {
+                  "bufferView": 468,
+                  "componentType": 5123,
+                  "count": 1344,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 468,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 2688,
+                  "byteOffset": 11083880,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 11796996
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        }
+      ],
+      "json_chunk_bytes": 119752,
+      "json_chunk_sha256": "2e6aae02c37ab9cb125be599c8c04322ebac59638eba52f8be99f9d426fa318e",
+      "source_equality_check": "Exact raw JSON chunk matches original pinned GLB; parsed declared owner/joint/accessor records independently compare equal; no BIN values or world math"
+    },
+    "shoes01": {
+      "counts": {
+        "nodes": 55,
+        "meshes": 1,
+        "skins": 1,
+        "accessors": 7,
+        "default_scene_mesh_owners": 1
+      },
+      "default_scene": {
+        "name": "Scene",
+        "nodes": [
+          54
+        ]
+      },
+      "owners": [
+        {
+          "node_id": 53,
+          "node_name": "Human.shoes01",
+          "mesh_id": 0,
+          "mesh_name": "shoes01",
+          "ancestry": [
+            54,
+            53
+          ],
+          "skin": {
+            "id": 0,
+            "joint_count": 53,
+            "inverse_bind_descriptor": {
+              "id": 6,
+              "declaration": {
+                "bufferView": 8,
+                "componentType": 5126,
+                "count": 53,
+                "type": "MAT4"
+              },
+              "bufferView_id": 8,
+              "bufferView": {
+                "buffer": 0,
+                "byteLength": 3392,
+                "byteOffset": 2327160
+              },
+              "buffer_id": 0,
+              "buffer": {
+                "byteLength": 2330552
+              },
+              "embedded_BIN_declared": true
+            },
+            "foot_name_joints": [
+              {
+                "joint_order": 47,
+                "node_id": 44,
+                "node": {
+                  "children": [
+                    43
+                  ],
+                  "name": "foot_l",
+                  "rotation": [
+                    -0.5353211164474487,
+                    -0.0010657769162207842,
+                    0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  54,
+                  52,
+                  51,
+                  46,
+                  45,
+                  44
+                ]
+              },
+              {
+                "joint_order": 51,
+                "node_id": 48,
+                "node": {
+                  "children": [
+                    47
+                  ],
+                  "name": "foot_r",
+                  "rotation": [
+                    -0.5353211164474487,
+                    0.0010657769162207842,
+                    -0.0007613753550685942,
+                    0.8446476459503174
+                  ],
+                  "translation": [
+                    -9.964423952624202e-09,
+                    0.40733110904693604,
+                    -2.0081643015146255e-09
+                  ]
+                },
+                "ancestry": [
+                  54,
+                  52,
+                  51,
+                  50,
+                  49,
+                  48
+                ]
+              }
+            ]
+          },
+          "primitives": [
+            {
+              "id": 0,
+              "attributes": {
+                "POSITION": {
+                  "id": 0,
+                  "declaration": {
+                    "bufferView": 0,
+                    "componentType": 5126,
+                    "count": 1846,
+                    "max": [
+                      0.23876076936721802,
+                      0.21082647144794464,
+                      0.20761063694953918
+                    ],
+                    "min": [
+                      -0.23876076936721802,
+                      -0.0011289417743682861,
+                      -0.04299493506550789
+                    ],
+                    "type": "VEC3"
+                  },
+                  "bufferView_id": 0,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 22152,
+                    "byteOffset": 0,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 2330552
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "JOINTS_0": {
+                  "id": 3,
+                  "declaration": {
+                    "bufferView": 3,
+                    "componentType": 5121,
+                    "count": 1846,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 3,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 7384,
+                    "byteOffset": 59072,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 2330552
+                  },
+                  "embedded_BIN_declared": true
+                },
+                "WEIGHTS_0": {
+                  "id": 4,
+                  "declaration": {
+                    "bufferView": 4,
+                    "componentType": 5126,
+                    "count": 1846,
+                    "type": "VEC4"
+                  },
+                  "bufferView_id": 4,
+                  "bufferView": {
+                    "buffer": 0,
+                    "byteLength": 29536,
+                    "byteOffset": 66456,
+                    "target": 34962
+                  },
+                  "buffer_id": 0,
+                  "buffer": {
+                    "byteLength": 2330552
+                  },
+                  "embedded_BIN_declared": true
+                }
+              },
+              "indices": {
+                "id": 5,
+                "declaration": {
+                  "bufferView": 5,
+                  "componentType": 5123,
+                  "count": 9960,
+                  "type": "SCALAR"
+                },
+                "bufferView_id": 5,
+                "bufferView": {
+                  "buffer": 0,
+                  "byteLength": 19920,
+                  "byteOffset": 95992,
+                  "target": 34963
+                },
+                "buffer_id": 0,
+                "buffer": {
+                  "byteLength": 2330552
+                },
+                "embedded_BIN_declared": true
+              }
+            }
+          ]
+        }
+      ],
+      "json_chunk_bytes": 15024,
+      "json_chunk_sha256": "8b05a6a28307d38ffb60583c4ca826515a3c56af6569629aeb07bd40e178fd1f",
+      "source_equality_check": "Exact raw JSON chunk matches original pinned GLB; parsed declared owner/joint/accessor records independently compare equal; no BIN values or world math"
+    }
+  },
+  "limits": "Named foot nodes are labels only. No anatomical surface partition/bind world/frame equality/pose/fit/new ankle-boot source verified."
+}

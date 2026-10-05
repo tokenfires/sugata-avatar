@@ -1,0 +1,73 @@
+{
+  "saved_utc": "2026-10-05T12:22:36.443710+00:00",
+  "verdict": "A conditional worth for one separately source-reviewed declared body/shoe metadata map; no observer execution admitted",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map-worth/PLAN.json",
+      "bytes": 4382,
+      "sha256": "a3781f34d61b82f92fb74e8c3621319acd25008c657fe7ea71bea64d47b108b4",
+      "read_scope": "Complete literal PLAN JSON"
+    },
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "read_scope": "Complete 214-line JSON manifest read; no referenced payload interpreted"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "read_scope": "Complete-byte hash and length only; no GLB container/JSON/buffer decode"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "read_scope": "Complete-byte hash and length only; no GLB container/JSON/buffer decode"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/ROOT-CLOSE.json",
+      "bytes": 2127,
+      "sha256": "19f8250fc3396fef479363460c82f87318ca8a00a7c02aa3708d69242418a513",
+      "read_scope": "Complete 17-line JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/RESULT.json",
+      "bytes": 4440,
+      "sha256": "31357027b28d481efec0c20597b3312324522831b9e7b1240151f48c8ffeb155",
+      "read_scope": "Complete 57-line JSON read; own complete original image judgment retained from preceding actual view"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Current complete-byte hash verified; complete text read earlier in this continuing session, not a new text audit"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Current complete-byte hash verified; relevant lines 25-65 and 105-145 read earlier in this continuing session, not a new full audit"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/foot-source-map-worth/RESULT.json",
+    "bytes": 4349,
+    "sha256": "8b84ad34b7880137ae29e70c6ffddc7116a64ea42b9dd1f3a1bbecfe7e6eccda"
+  },
+  "observed_commands": [
+    {
+      "command_id": "394d12",
+      "scope": "Complete PLAN bytes/text/hash and UTC"
+    },
+    {
+      "command_id": "c028de",
+      "scope": "Seven exact input hashes verified; complete manifest, boot ROOT-CLOSE and completed boot RESULT read"
+    }
+  ],
+  "image_witness": "Complete unchanged boots-proposal-v1.png was actually viewed at original detail in the immediately preceding result review, before ROOT-IMAGE; that completed exact-image result is bound here. No new image acquisition or visual claim about shoes01 occurred.",
+  "scope": "Only RESULT.json and RECEIPT.json written in this new worth leaf. No GLB decode, vertex/weight/topology buffer reads, skin/world computations, source reuse, producer/executable import or run, online/native/browser/GPU/capture/generation, asset/default/checklist/source or older frozen edits.",
+  "pin_count": 8,
+  "worth_deadline_utc": "2026-10-05T12:35:00Z"
+}

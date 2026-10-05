@@ -1,0 +1,28 @@
+{
+  "note": "Punch-list 9.1. The garments below are MPFB2's CC0 assets and are PLUMBING STAND-INS, not the shipping capsule \u2014 9.9 authors that. They exist so dress/undress, the hide-mask rebuild and the asset gate are exercised against real skinned geometry rather than a fixture.",
+  "figureCoverage": "Only g050 is declared. A garment fragment CANNOT be shared across the five figures \u2014 female_casualsuit01 drifts mean 95.145 mm / max 143.066 mm between g000 and g100, and cross-fitting puts 84.4% of the covered skin outside the cloth (research/wardrobe-system.md \u00a73.3). Punch-list 9.4 bakes the other four and measures the fit; declaring paths to files nobody has measured would be a promise this manifest cannot keep, and GarmentManifest.fragmentUrl throws a named error for a figure a garment does not ship.",
+  "shoe": {
+    "id": "shoes01",
+    "name": "Low shoes",
+    "layer": "FOOTWEAR",
+    "slots": [
+      "FEET"
+    ],
+    "hideMask": "_hide_shoes01",
+    "alphaMode": "OPAQUE",
+    "clo": 0.02,
+    "cloSource": "ASHRAE 55-2013 Table 5.2.2.2B, 'shoes' 0.02.",
+    "fabric": "leather",
+    "formality": 2,
+    "formalitySource": "AUTHORED, as above.",
+    "palette": [
+      "#3a3129",
+      "#151517"
+    ],
+    "fragments": {
+      "g050": "shoes01/g050.glb"
+    },
+    "source": "MPFB2 / MakeHuman system assets, CC0."
+  },
+  "scope": "g050 plumbing reference only"
+}

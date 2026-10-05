@@ -1,0 +1,71 @@
+{
+  "prepared_utc": "2026-10-05T12:31:29.876168+00:00",
+  "bindings": [
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "read_scope": "Complete 214-line JSON manifest read; no referenced payload interpreted"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "read_scope": "Complete-byte hash and length only; no GLB container/JSON/buffer decode"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "read_scope": "Complete-byte hash and length only; no GLB container/JSON/buffer decode"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/ROOT-CLOSE.json",
+      "bytes": 2127,
+      "sha256": "19f8250fc3396fef479363460c82f87318ca8a00a7c02aa3708d69242418a513",
+      "read_scope": "Complete 17-line JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/RESULT.json",
+      "bytes": 4440,
+      "sha256": "31357027b28d481efec0c20597b3312324522831b9e7b1240151f48c8ffeb155",
+      "read_scope": "Complete 57-line JSON read; own complete original image judgment retained from preceding actual view"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Current complete-byte hash verified; complete text read earlier in this continuing session, not a new text audit"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Current complete-byte hash verified; relevant lines 25-65 and 105-145 read earlier in this continuing session, not a new full audit"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map-worth/RESULT.json",
+      "bytes": 4349,
+      "sha256": "8b84ad34b7880137ae29e70c6ffddc7116a64ea42b9dd1f3a1bbecfe7e6eccda"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/PLAN.json",
+      "bytes": 4797,
+      "sha256": "136e87b38f8a42e8cc1d8485f4603947661f8fb5be1be28925ecbe5a251fa420"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/inspect.py",
+      "bytes": 11574,
+      "sha256": "c55ab3bd9be0eb4e668bde087a50ae7c03ab468d5a33eefedcb5c2cb2fc45804"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857"
+    }
+  ],
+  "primary_read": "c90e78 current200/onecredit/full content+structured equality/hash; c34d64 full selected source lines609\u2013689/832\u2013930/1359\u20131478/2363\u20132485. No full specification audit. PRIMARY.JSON643397reportedchars actually644559UTF8bytes.",
+  "syntax": "AST only, source not imported/executed; no GLB decode yet",
+  "preparation": "Source pre-gate tightened UTC parsing and skin skeleton index checking; no execution/source refusal or frozen source changed",
+  "scope": "One fixed literal local metadata observer; no BIN values/world/geometry/skin/pose/fit operations; declared routes only"
+}

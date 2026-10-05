@@ -1,0 +1,41 @@
+{
+  "saved_utc": "2026-10-05T12:37:00.479512+00:00",
+  "decision": "A source admission for exactly one readonly container/JSON metadata observer after independent root verification; no source-surface or frame-equivalence qualification",
+  "worth": true,
+  "source_assessment": "Complete 211-line inspect.py and PLAN reviewed. No concrete blocking defect found within this metadata-only contract. This is not a complete glTF schema/conformance validator; successful route recording does not qualify values or physical correspondence.",
+  "witnesses": [
+    {
+      "source": "inspect.py lines 36-73, 79-112, 114-174; saved PRIMARY markdown 609-689, 832-930, 1359-1478 and 2363-2485",
+      "observation": "The source checks pinned bytes, GLB magic/version/length/chunk alignment and JSON/BIN ordering, preserves exact JSON bytes as base64 plus parsed declarations before route checks, rejects hierarchy cycles/multiple parents/default-scene ambiguity, and records ordered joint/node/primitive/accessor routes. Only container headers and JSON are interpreted; no BIN accessor values or world/skin transforms are computed.",
+      "explanation": "The literal observer can supply the previously unobserved shoes01 owner/joint/accessor route while keeping physical source ownership separate. The selected primary passages support the recorded declaration structure; they do not turn names into geometry.",
+      "alternatives": [
+        {
+          "A": "Run this exact observer once under the fresh root-owned deadline, then independently inspect saved declarations and any first refusal",
+          "tradeoff": "May identify a usable declared g050 foot-reference lead; bind/world equality, anatomical foot surfaces and data validity still require separate actual operands."
+        },
+        {
+          "B": "Defer the worksheet until complete metric footwear source/interfaces are owned",
+          "tradeoff": "Avoids an intermediate record but leaves the shoe source route unknown; the raster and g050 filename cannot fill it."
+        }
+      ]
+    },
+    {
+      "source": "inspect.py lines 162-171 and 195-199; manifest lines 3-5 and 160-175; preceding complete boot original judgment bound by RESULT",
+      "observation": "The observer permits complete multiple-owner records, requires a declared skinned owner and labels foot/toe/ankle strings as name leads only. The existing fragment is Low shoes/plumbing reference, while the completed boot image remains perspective art.",
+      "explanation": "A completed metadata run can nominate or refuse declared source routes only. Name leads, transform literals and accessor descriptors must not be presented as an anatomical foot partition, a new boot mesh or frame/fit equivalence.",
+      "alternatives": [
+        {
+          "A": "Deliver complete declarations/IDs and retain this narrow lead qualification",
+          "tradeoff": "Makes later source selection concrete without silently choosing a mesh or inferring physical sameness."
+        },
+        {
+          "B": "Decline later reuse if the actual owner/joint declarations are ambiguous or insufficient",
+          "tradeoff": "Preserves the missing-interface conclusion rather than forcing a footwear constructor; no repair or broader source search follows."
+        }
+      ]
+    }
+  ],
+  "gate": "Root must independently read/verify this handoff and current exact source before the sole observer. First malformed/unsupported/ambiguous route refusal ends the fixed method; retain actual outputs/streams and partial records. Execution/collection must remain within the 13:05 research stop. No correction, replay, geometry decoding or subsequent constructor inherits A.",
+  "limits": "No BIN interpretation of position, weight, index, morph, animation or bind values; no geometry, topology, world/skin arithmetic, loader/import, pose, native/render/capture, new ankle-boot source, foot interface, g100 transfer, fit, asset/default/checklist or AAA acceptance. Primary audit limited to stated passages.",
+  "next": "The sole literal metadata run remains worth doing for a declared-source ownership decision. Any actual-data conclusion and later foot-surface study require separate evidence and admission."
+}

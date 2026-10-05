@@ -1,0 +1,59 @@
+{
+  "started_utc": "2026-10-05T12:19:06.966683+00:00",
+  "worth_stop_utc": "2026-10-05T12:35:00Z",
+  "scope": "Worth only. Path inventory183a98/6aa173 names local body/shoes01 g050 GLBs and manifest; their metadata/geometry/interface have not been inspected under this proposal.",
+  "usable_improvement": "A precise local source-ownership map that identifies or refuses actual declared body/shoe meshes, node frame, skin/joint correspondence and embedded position/index/bind descriptors. Could make a later foot-interface/surface contract concrete; this map itself would qualify no new footwear, geometry or fit.",
+  "question": "Do these two exact local g050 files and manifest supply a named same-frame skin/joint/foot-source lead, or is the assumed interface missing/ambiguous?",
+  "decision": "Worth one separately source-reviewed readonly GLB-container/JSON metadata observer, or B defer. Declared source ownership/frame/skin relation can change a later physical-source nomination; mere filename or raster shape cannot.",
+  "proposed_later_scope": "Read exact manifest and two complete GLB containers/header/JSON chunks and record all declared nodes, meshes/accessors, skins/joints, transforms and embedded buffer descriptors. One local CPU metadata observer only, no model execution/GLTFLoader/import/native/browser/GPU/capture/mount/new files under assets. No vertex/weight/topology/morph/animation buffer decode or source construction in this first metadata scope. Compare actual names/descriptors only; repeated filenames are no correspondence proof. Preserve whole JSON chunks and input bytes.",
+  "proposed_primary_reference": "At most one exact official Khronos glTF2 specification page for container/skin/accessor semantics if needed; only metadata text. No asset/image/query/download/payload/other-source hunt and no package installs.",
+  "proposed_later_stop": "Fresh source plan/controller/critic-root admission and deadline. Exactly one readonly observer; first malformed/unsupported/ambiguous source refusal stops without repair/retry or broader asset search. No construction, fit, rig/pose or public status promotion.",
+  "alternatives": [
+    {
+      "A": "Nominate a bounded same-source body/shoe metadata map",
+      "tradeoff": "Could identify actual owner/frame/joint routes and expose missing responsibility cheaply; names and descriptors still cannot prove foot surface or fit"
+    },
+    {
+      "B": "Wait for a complete metric artist-owned footwear source contract",
+      "tradeoff": "Avoids metadata work but leaves existing source-frame/foot-interface availability unknown; no forced constructor or new raster follows"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/ROOT-CLOSE.json",
+      "bytes": 2127,
+      "sha256": "19f8250fc3396fef479363460c82f87318ca8a00a7c02aa3708d69242418a513"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/RESULT.json",
+      "bytes": 4440,
+      "sha256": "31357027b28d481efec0c20597b3312324522831b9e7b1240151f48c8ffeb155"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53"
+    }
+  ],
+  "limits": "Artist reference completed/further raster retuning B; literal wellies search and earlier closed hair/foundation/mesh-follow/runtime repair methods remain closed. No accepted/default/original/frozen/unrelated mutation, source reuse/reshape/geometry/fit/pose/frame assertion, push/publish/purchase/install/model/subscription/credit redemption/other-project action. Checklist13scoped10broadopen and fullAAA preserved; newerhumansteering wins."
+}

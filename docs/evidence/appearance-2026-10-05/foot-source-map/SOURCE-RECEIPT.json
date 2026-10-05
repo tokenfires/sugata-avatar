@@ -1,0 +1,110 @@
+{
+  "saved_utc": "2026-10-05T12:37:00.479512+00:00",
+  "verdict": "A source admission for exactly one readonly container/JSON metadata observer after independent root verification; no source-surface or frame-equivalence qualification",
+  "bindings": [
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "read_scope": "Complete 214-line JSON manifest read; no referenced payload interpreted"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "read_scope": "Complete-byte hash and length only; no GLB container/JSON/buffer decode"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "read_scope": "Complete-byte hash and length only; no GLB container/JSON/buffer decode"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/ROOT-CLOSE.json",
+      "bytes": 2127,
+      "sha256": "19f8250fc3396fef479363460c82f87318ca8a00a7c02aa3708d69242418a513",
+      "read_scope": "Complete 17-line JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/RESULT.json",
+      "bytes": 4440,
+      "sha256": "31357027b28d481efec0c20597b3312324522831b9e7b1240151f48c8ffeb155",
+      "read_scope": "Complete 57-line JSON read; own complete original image judgment retained from preceding actual view"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Current complete-byte hash verified; complete text read earlier in this continuing session, not a new text audit"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Current complete-byte hash verified; relevant lines 25-65 and 105-145 read earlier in this continuing session, not a new full audit"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map-worth/RESULT.json",
+      "bytes": 4349,
+      "sha256": "8b84ad34b7880137ae29e70c6ffddc7116a64ea42b9dd1f3a1bbecfe7e6eccda",
+      "read_scope": "Complete text previously read in current session; unchanged bytes verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/PLAN.json",
+      "bytes": 4797,
+      "sha256": "136e87b38f8a42e8cc1d8485f4603947661f8fb5be1be28925ecbe5a251fa420",
+      "read_scope": "Complete literal source read in e102d6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/inspect.py",
+      "bytes": 11574,
+      "sha256": "c55ab3bd9be0eb4e668bde087a50ae7c03ab468d5a33eefedcb5c2cb2fc45804",
+      "read_scope": "Complete literal source read in e102d6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857",
+      "read_scope": "Complete saved response JSON parsed for wrapper/metadata/content equality; complete markdown passages 609-689, 832-930, 1359-1478 and 2363-2485 read in clean bounded e79169. No full specification audit."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/SOURCE-INPUTS.json",
+      "bytes": 3485,
+      "sha256": "c88c747c6061bb92adc71b0de9a9fff1f240cdd317d039a6a7c16523a78054b2",
+      "read_scope": "Complete source-binding JSON read in e102d6"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/foot-source-map/SOURCE-RESULT.json",
+    "bytes": 4225,
+    "sha256": "b21f232ed6c405426373cce8d9225043ed79cbdae2cb5c4b1bbfb8c71458ddc2"
+  },
+  "observed_commands": [
+    {
+      "command_id": "e102d6",
+      "scope": "Complete PLAN, SOURCE-INPUTS and inspect.py text/hash; no import or execution"
+    },
+    {
+      "command_id": "1224cb",
+      "scope": "Initial primary outer-wrapper assumption produced zero markdown lines; no source verdict relied on that output"
+    },
+    {
+      "command_id": "bd1d7d",
+      "scope": "Correct nested response and full duplicate JSON equality/metadata; accidental whole markdown output truncated, so no full-read claim"
+    },
+    {
+      "command_id": "e79169",
+      "scope": "Clean complete bounded primary passages 609-689, 832-930, 1359-1478 and 2363-2485; response content/structured equality true, HTTP200, scrape01a10c06-d833-7636-a3e0-33cc33fe318d, one reported credit"
+    },
+    {
+      "command_id": "88fa5d",
+      "scope": "All eleven current source/input byte/hash bindings independently verified"
+    }
+  ],
+  "read_scope": "Entire inspector/source plan/bindings read; primary only stated passages audited. Earlier worth manifest, boot result/close and image findings retain their exact verified source scope. Both GLBs were read solely for byte/hash identity in this critic review, never container/JSON/BIN decoded.",
+  "operations": "Only SOURCE-RESULT.json and SOURCE-RECEIPT.json written in this map leaf. No producer/import/test/GLB decode, source-data computation, network/native/browser/GPU/imagegen/capture or existing/frozen/source/default/checklist changes.",
+  "pin_count": 12,
+  "source_deadline_utc": "2026-10-05T12:45:00Z",
+  "research_stop_utc": "2026-10-05T13:05:00Z"
+}

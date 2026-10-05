@@ -1,0 +1,218 @@
+{
+  "saved_utc": "2026-10-05T12:49:22.164185+00:00",
+  "verdict": "A retain the actual declared g050 body/shoe ownership worksheet; B anatomical foot partition, physical frame/bind equality, new boot source or fit qualification",
+  "bindings": [
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "read_scope": "Complete 214-line JSON manifest read; no referenced payload interpreted"
+    },
+    {
+      "path": "assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+      "read_scope": "Pinned complete bytes hashed; original GLB header and JSON chunk only decoded in independent comparison f4acea, no BIN accessor values"
+    },
+    {
+      "path": "assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+      "read_scope": "Pinned complete bytes hashed; original GLB header and JSON chunk only decoded in independent comparison f4acea, no BIN accessor values"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/ROOT-CLOSE.json",
+      "bytes": 2127,
+      "sha256": "19f8250fc3396fef479363460c82f87318ca8a00a7c02aa3708d69242418a513",
+      "read_scope": "Complete 17-line JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/ankle-boot-design-proposal/RESULT.json",
+      "bytes": 4440,
+      "sha256": "31357027b28d481efec0c20597b3312324522831b9e7b1240151f48c8ffeb155",
+      "read_scope": "Complete 57-line JSON read; own complete original image judgment retained from preceding actual view"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Current complete-byte hash verified; complete text read earlier in this continuing session, not a new text audit"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Current complete-byte hash verified; relevant lines 25-65 and 105-145 read earlier in this continuing session, not a new full audit"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map-worth/RESULT.json",
+      "bytes": 4349,
+      "sha256": "8b84ad34b7880137ae29e70c6ffddc7116a64ea42b9dd1f3a1bbecfe7e6eccda",
+      "read_scope": "Complete source previously read; current bytes reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/PLAN.json",
+      "bytes": 4797,
+      "sha256": "136e87b38f8a42e8cc1d8485f4603947661f8fb5be1be28925ecbe5a251fa420",
+      "read_scope": "Complete source previously read; current bytes reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/inspect.py",
+      "bytes": 11574,
+      "sha256": "c55ab3bd9be0eb4e668bde087a50ae7c03ab468d5a33eefedcb5c2cb2fc45804",
+      "read_scope": "Complete source previously read; current bytes reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/PRIMARY.json",
+      "bytes": 644559,
+      "sha256": "ac22acfff7493c598bfeaf2789566810884b2c7eaf6348ab69760fb8361cc857",
+      "read_scope": "Saved primary JSON parsed earlier; only markdown609-689/832-930/1359-1478/2363-2485 audited, no full specification audit"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/SOURCE-INPUTS.json",
+      "bytes": 3485,
+      "sha256": "c88c747c6061bb92adc71b0de9a9fff1f240cdd317d039a6a7c16523a78054b2",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/SOURCE-RESULT.json",
+      "bytes": 4225,
+      "sha256": "b21f232ed6c405426373cce8d9225043ed79cbdae2cb5c4b1bbfb8c71458ddc2",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/SOURCE-RECEIPT.json",
+      "bytes": 5576,
+      "sha256": "febcbff59e5a46b1b33b6d08989668bf6e06c26056b722d683c0763c735e4976",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/ROOT-ADMISSION.json",
+      "bytes": 1173,
+      "sha256": "94e56000125c73f18cab9262f9f4f683228d6c69a85bb8583db9d365919f77a6",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/CPU-JOB.json",
+      "bytes": 799,
+      "sha256": "2c7c06683a3826516e24c8e6b630491ab5fcd425076b6d866d4ba0d10c1740a4",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/CPU-JOB.requested.json",
+      "bytes": 473,
+      "sha256": "f8bca78b039b1a382d73852288fe39f11beac2cf9db4e9babf39e84eeb7d233f",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/CPU.stdout.txt",
+      "bytes": 1306,
+      "sha256": "fda9679e58f18325405a473dcf7b523658fab1243e30eca00f741fc7577d2de2",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/CPU.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/OBSERVER.json",
+      "bytes": 383,
+      "sha256": "931c1abfc86dc6ef4c301f05d119156308a7d8f07516d22ed17adada8e90a9d3",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/SUMMARY.json",
+      "bytes": 796,
+      "sha256": "0acd952a080309bfe2018f43d72c604e40fb3f5e479bc8ae89c69108d00d87c1",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/manifest-route.json",
+      "bytes": 1401,
+      "sha256": "b8df93a42c6b6574832c89d39f01174efbc76868fc35c79cbcc01df79fc5d549",
+      "read_scope": "Complete text/JSON read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/body.declarations.json",
+      "bytes": 399801,
+      "sha256": "08c430246cf4cea9cf236656b203cf2737545a0d0d14fa28ddebaa9a440c5b0a",
+      "read_scope": "Complete saved JSON parsed; all raw-document/owner/primitive/skin/joint/accessor records compared against original JSON declarations in f4acea, no producer import or replay"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/body.routes.json",
+      "bytes": 423119,
+      "sha256": "2918700e830303da6f3270144696d551cd2ed451b663da6b189f4571563c336b",
+      "read_scope": "Complete saved JSON parsed; all raw-document/owner/primitive/skin/joint/accessor records compared against original JSON declarations in f4acea, no producer import or replay"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/shoes01.declarations.json",
+      "bytes": 49043,
+      "sha256": "63376843f1327ba5a1f5b7e8a267da778a66b9e003335e0dcdda3610193998a1",
+      "read_scope": "Complete saved JSON parsed; all raw-document/owner/primitive/skin/joint/accessor records compared against original JSON declarations in f4acea, no producer import or replay"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/shoes01.routes.json",
+      "bytes": 54822,
+      "sha256": "0e798d1ee8bc54bbc332cfd096eae33ee0931704ddf476dc890d3a3a940aa4af",
+      "read_scope": "Complete saved JSON parsed; all raw-document/owner/primitive/skin/joint/accessor records compared against original JSON declarations in f4acea, no producer import or replay"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/foot-source-map/ROOT-DECLARATIONS.json",
+      "bytes": 48854,
+      "sha256": "83cbf22b91ccfc4b1e361d846ec302bbf30c6881db327acfce4e2602b61f838a",
+      "read_scope": "Complete saved JSON parsed and hash verified; top-level scope/limits and operand schema inspected only after independent comparison. Root metrics not used as own algorithm"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/foot-source-map/RESULT.json",
+    "bytes": 5432,
+    "sha256": "7590de4e1456ab7e2b601b63cb92241cd33d8875f7fe8f6359b4a917ec356acc"
+  },
+  "observed_commands": [
+    {
+      "command_id": "f2fcad",
+      "scope": "Narrow packet filename listing"
+    },
+    {
+      "command_id": "725d0e",
+      "scope": "Complete actual CPU/admission/observer/summary/manifest-route/streams read and hashed"
+    },
+    {
+      "command_id": "f4acea",
+      "exit_code": 0,
+      "observed_utc": "2026-10-05T12:44:42.583282+00:00",
+      "scope": "Independent inline stdlib saved-data comparison: original JSON chunk bytes versus saved base64/raw document; iterative scene walk/parent ancestry; source-local owner/mesh/primitive/ordered-joint/selected-accessor exact equality; manifest/stream/job/deadline accounting. No producer or helper imports, no BIN values."
+    },
+    {
+      "command_id": "0a77b9",
+      "scope": "Literal owner names/foot joint records/root declarations and53 crossfile joint-node declaration comparisons; root saved scope/schema inspected afterward"
+    }
+  ],
+  "independent_checks": {
+    "lossless_json_chunks": [
+      {
+        "source": "body",
+        "bytes": 119752,
+        "sha256": "2e6aae02c37ab9cb125be599c8c04322ebac59638eba52f8be99f9d426fa318e"
+      },
+      {
+        "source": "shoes01",
+        "bytes": 15024,
+        "sha256": "8b05a6a28307d38ffb60583c4ca826515a3c56af6569629aeb07bd40e178fd1f"
+      }
+    ],
+    "all_owners": 8,
+    "all_primitives": 8,
+    "ordered_joint_records": 424,
+    "crossfile_ordered_joint_node_declarations_equal": 53,
+    "source_document_and_selected_routes_equal": true,
+    "manifest_stdout_receipt_summary_equal": true,
+    "stream_hashes_clock_order_source_identity_pass": true
+  },
+  "image_scope": "Supporting boot pixel evidence comes from the preceding actual complete unchanged original view/RESULT, already bound. No actual image of body/shoes01 was acquired or appearance inferred here.",
+  "operations": "Only RESULT.json and RESULT-RECEIPT.json written. Original GLB container/JSON metadata reading was explicitly permitted for saved equality, while BIN bytes were not interpreted. No producer rerun/import, network/browser/native/GPU/capture/generation, source construction, buffer-value/world/skin computation, mask, asset/default/checklist or older frozen/source edits.",
+  "pin_count": 27,
+  "research_stop_utc": "2026-10-05T13:05:00Z"
+}

@@ -1,0 +1,52 @@
+{
+  "receipt": {
+    "pid": 22468,
+    "started_utc": "2026-10-05T12:39:20.260346+00:00",
+    "scope": "Container/JSON declarations only; no BIN values, world/skin arithmetic or model import",
+    "status": "metadata observer completed",
+    "finished_utc": "2026-10-05T12:39:20.285976+00:00",
+    "elapsed_seconds": 0.025510583975119516,
+    "outputs": [
+      "body.routes.json",
+      "shoes01.routes.json"
+    ]
+  },
+  "summary": {
+    "decision": "Declared metadata routes recorded; no physical/source equivalence qualification",
+    "body_counts": {
+      "nodes": 61,
+      "meshes": 7,
+      "skins": 1,
+      "accessors": 285,
+      "default_scene_mesh_owners": 7
+    },
+    "shoe_counts": {
+      "nodes": 55,
+      "meshes": 1,
+      "skins": 1,
+      "accessors": 7,
+      "default_scene_mesh_owners": 1
+    },
+    "body_foot_name_leads": [
+      {
+        "id": 44,
+        "name": "foot_l"
+      },
+      {
+        "id": 48,
+        "name": "foot_r"
+      }
+    ],
+    "shoe_foot_name_leads": [
+      {
+        "id": 44,
+        "name": "foot_l"
+      },
+      {
+        "id": 48,
+        "name": "foot_r"
+      }
+    ],
+    "limits": "No claim that names identify anatomical foot surfaces or that local transforms/joint routes equal physical bind/world/fit. No new ankle-boot source."
+  }
+}
