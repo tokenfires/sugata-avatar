@@ -1,0 +1,197 @@
+{
+  "collected_utc": "2026-10-05T20:08:44.593568+00:00",
+  "decision": "A complete original neutral whole-head source preparation only",
+  "source_preparation_only": true,
+  "direct_inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/PLAN.json",
+      "bytes": 4480,
+      "sha256": "0c0fcb590fa03840ed18ffef0fcf650668e7670bc7ce022c89941510dfb865ab",
+      "read_scope": "Complete JSON"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete 45-line document; observed 14 scoped checked and 10 broad open items"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Lines 30-65 and 115-148, with relevant numbered lines 38-53 and 121-139 recovered independently"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete 13-line brief"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Whole unchanged 1536x1024 original emitted through view_image(detail original); file bytes hashed only"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/ROOT-CLOSE.json",
+      "bytes": 2482,
+      "sha256": "298e82b8b01a7b4e37ec38d63e0d2ce60a383886c069cc040654d7e0c041ca72",
+      "read_scope": "Complete JSON; recorded closure only, no independent process inventory"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/expression-character-target/RECONCILIATION.md",
+      "bytes": 2876,
+      "sha256": "872a3c1e656527f150c138d2d3f96365a58908cc05177a2f18996751b3202072",
+      "read_scope": "Complete 9-line document; preserves independent critic A/root B and aggregate partial"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/whole-head-volume/PLAN.md",
+      "bytes": 6529,
+      "sha256": "f04ae1b88299592e96b17190a7b4a86c76cf051435464d12f0f9e9fea32047c8",
+      "read_scope": "Complete 19-line historical hair-volume plan; followed the literal cross-reference found by first locator"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/whole-head-volume/ROOT-DECISION.md",
+      "bytes": 3264,
+      "sha256": "5cabd8ce27cf24b1e658a275468e85637e2c66abad6c1a86226a77bf53a40f3c",
+      "read_scope": "Complete historical refusal; topology source witness only, no reconstruction or replay"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/whole-head-volume/CRITIC-POSTFLIGHT.md",
+      "bytes": 4259,
+      "sha256": "5e65bf334d170fc3fa3b0d247aad070db22395678ee64486371e906a7fca2152",
+      "read_scope": "Complete historical refusal; retained index/key evidence read only"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/short-groom-artist-source/CLOSEOUT.md",
+      "bytes": 2750,
+      "sha256": "d27c52faf0c06b7f9c4ffe711c0544fd9a2861e0831b161cf78fb8122c943944",
+      "read_scope": "Complete 15-line closeout; old source appearance findings read as historical evidence, no old image viewed in this nomination"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/short-groom-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 5182,
+      "sha256": "70d8d69d303714c8149b9f50144761ec4a6ecc694852a792689c95d3b79f928f",
+      "read_scope": "Complete contract (sed 1-85 covered entire document); fictional head scaffold and closed hair method boundaries"
+    },
+    {
+      "path": "docs/research/base-mesh-verification.md",
+      "bytes": 13070,
+      "sha256": "90ce6aa730ff3401411e4f998849fb39e8a90bd58fc06155bec280936fa18d95",
+      "read_scope": "Lines 1-140 only; historical base-source selection context, no current primary/licence/channel/runtime claims adopted"
+    },
+    {
+      "path": "/Users/robault/.codex/memories/MEMORY.md",
+      "bytes": 99687,
+      "sha256": "e578a5a84f48268864e4c875a0ae798caf6f4d594608ffab32560485904c8285",
+      "read_scope": "Quick registry keyword pass; line 388 orientation refreshed by current exact PLAN and source. No unverified service/asset/authorization state used"
+    }
+  ],
+  "plan_bindings_verified": 6,
+  "worth": {
+    "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/WORTH.md",
+    "bytes": 4430,
+    "sha256": "2e84fa168df8b7c8829abf5e58df5393511f5b3e76ebe5cb93fbdafba7c31913"
+  },
+  "locators": [
+    {
+      "number": 1,
+      "command": "rg -n -i --glob '*.md' --glob '*.json' --glob '!MANIFEST*' --glob '!*-RECEIPT*' --glob '!RECEIPT*' 'neutral[- ]head|whole[- ]head|head[- ]source|character[- ]source' docs/research docs/evidence/appearance-2026-10-04 docs/evidence/appearance-2026-10-05 docs/evidence/nonhair-2026-10-04 docs/evidence/nonhair-2026-10-05",
+      "exit_code": 0,
+      "chunk_id": "512024"
+    },
+    {
+      "number": 2,
+      "command": "rg -n -i --glob '*PLAN*' --glob '*RESULT*' --glob '*DECISION*' --glob 'README*' 'neutral.{0,24}(head|face)|whole[- ]head|complete.{0,32}(head|face).{0,32}(source|artist)|head.{0,24}(volume|foundation|proxy)' docs/research docs/evidence/appearance-2026-10-04 docs/evidence/appearance-2026-10-05 docs/evidence/nonhair-2026-10-04 docs/evidence/nonhair-2026-10-05",
+      "exit_code": 0,
+      "chunk_id": "0a3a36"
+    },
+    {
+      "number": 3,
+      "command": "rg -n -i --glob '*PLAN*' --glob '*RESULT*' --glob '*CONTRACT*' --glob 'README*' --glob '*CLOSEOUT*' 'neutral[- ]head|head[- ]source|face[- ]source|original.{0,48}head.{0,36}(source|mesh)|facial.{0,32}(authorship|geometry)' docs/research docs/evidence/appearance-2026-10-04 docs/evidence/appearance-2026-10-05 docs/evidence/nonhair-2026-10-04 docs/evidence/nonhair-2026-10-05",
+      "exit_code": 0,
+      "chunk_id": "9da070"
+    }
+  ],
+  "commands_and_scope": [
+    {
+      "chunk_id": "d47b7a",
+      "scope": "Complete new PLAN; exit 0"
+    },
+    {
+      "chunk_id": "0634c3",
+      "scope": "Memory registry keyword orientation; returned output truncated. No stale project fact used; no rollout opened"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "scope": "Whole original image displayed; no crop or derived file"
+    },
+    {
+      "chunks": [
+        "bd9208",
+        "83fe25",
+        "643826",
+        "1e693f",
+        "3726f0"
+      ],
+      "scope": "Complete checklist/brief/root closure/reconciliation; numbered roadmap relevant scopes. Initial aggregate output was truncated; these individually returned full selected scopes"
+    },
+    {
+      "chunks": [
+        "4111cf",
+        "e122a0",
+        "699e7f",
+        "1ee8ab"
+      ],
+      "scope": "Complete named historical hair refusal/plan and current groom closeout/contract, plus historical base-verification lines 1-140; source read only"
+    },
+    {
+      "scope": "This sole metadata/hash/write command; stdlib reads and hashes consulted files, verifies six PLAN pins and exclusively writes own two handoff files. No geometric calculation, executable source import or helper replay"
+    }
+  ],
+  "errors_or_limits": [
+    "Initial multi-read aggregate was truncated; relevant documents/scopes recovered individually before decision",
+    "Three scoped locator calls only; no machine-wide/global source-absence claim",
+    "Historical source findings are not current appearance witnesses; only adult original was viewed in this nomination",
+    "No source geometry, GLB/BIN/accessor, worlds, field, predicates or candidate numerical evaluation"
+  ],
+  "image_observation": {
+    "whole_original": true,
+    "detail": "original",
+    "dimensions_documented": [
+      1536,
+      1024
+    ],
+    "regions_pixels": {
+      "face": [
+        1040,
+        235,
+        1315,
+        575
+      ],
+      "near_ear": [
+        916,
+        250,
+        1035,
+        435
+      ],
+      "visible_neck": [
+        1040,
+        535,
+        1300,
+        745
+      ]
+    },
+    "limits": "Observable face intention only; perspective/lighting/hair occlusion prevent full hidden surface or metric identity inference"
+  },
+  "preservation": "No current/frozen/product/default/accepted file changed. No source construction, network, browser, GPU, native, render, imagegen, tests or application imports. No successor admitted.",
+  "deadline": {
+    "inventory_stop_utc": "2026-10-05T20:15:00Z",
+    "critic_stop_utc": "2026-10-05T20:20:00Z",
+    "root_close_stop_utc": "2026-10-05T20:25:00Z",
+    "collected_before_inventory_stop": true
+  }
+}
