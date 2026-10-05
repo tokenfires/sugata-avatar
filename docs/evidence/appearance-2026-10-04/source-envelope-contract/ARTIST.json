@@ -1,0 +1,119 @@
+{
+  "frame": "Literal original zero-morph CPU world frame, metres, X left/right/Y up/Z front; no restPose/GPU/runtime inference",
+  "kernelEaseMetres": 0.025,
+  "minimumPhysicalClearanceMetres": 0.01,
+  "garmentOpeningOutwardMetres": 0.015,
+  "gridMetres": 0.01,
+  "domainPaddingCells": 3,
+  "maximumGridVertices": 2000000,
+  "maximumGridCells": 1500000,
+  "maximumMeshTriangles": 200000,
+  "fieldZeroRefusalMetres": 1e-12,
+  "minimumTriangleAreaSquareMetres": 1e-18,
+  "tracePlaneMetres": 1e-10,
+  "sourceReconstructionMetres": 1e-12,
+  "rayBarycentricAmbiguity": 1e-12,
+  "capsules": [
+    {
+      "id": "torso",
+      "a": [
+        0,
+        0.84,
+        0.1
+      ],
+      "b": [
+        0,
+        1.33,
+        0.08
+      ],
+      "radius": 0.147
+    },
+    {
+      "id": "upper-chest",
+      "a": [
+        -0.13,
+        1.32,
+        0.08
+      ],
+      "b": [
+        0.13,
+        1.32,
+        0.08
+      ],
+      "radius": 0.109
+    },
+    {
+      "id": "neck",
+      "a": [
+        0,
+        1.32,
+        0.08
+      ],
+      "b": [
+        0,
+        1.425,
+        0.065
+      ],
+      "radius": 0.079
+    },
+    {
+      "id": "upper-arm-l",
+      "a": [
+        0.145,
+        1.31,
+        0.025
+      ],
+      "b": [
+        0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "radius": 0.069
+    },
+    {
+      "id": "forearm-l",
+      "a": [
+        0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "b": [
+        0.45309485577599184,
+        1.0155319980738877,
+        0.18322858378187776
+      ],
+      "radius": 0.049
+    },
+    {
+      "id": "upper-arm-r",
+      "a": [
+        -0.145,
+        1.31,
+        0.025
+      ],
+      "b": [
+        -0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "radius": 0.069
+    },
+    {
+      "id": "forearm-r",
+      "a": [
+        -0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "b": [
+        -0.45309485577599184,
+        1.0155319980738877,
+        0.18322858378187776
+      ],
+      "radius": 0.049
+    }
+  ],
+  "smoothingPasses": 0,
+  "componentRule": "Exactly one connected oriented closed component before cutting; any additional inner/outer component refuses. No largest-component selection/discard.",
+  "futureDataInvocation": "At most one source-envelope author, proposed wall cap600seconds; external runner owns source pins, launch/fullreturn, logs, exact current job/output inventory and timeout/termination. No invocation admitted by this contract."
+}

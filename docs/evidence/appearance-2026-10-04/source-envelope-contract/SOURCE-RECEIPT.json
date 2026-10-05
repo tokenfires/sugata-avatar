@@ -1,0 +1,177 @@
+{
+  "utc": "2026-10-04T23:58:55.466944+00:00",
+  "pid": 13888,
+  "decision": "A combined literal source contract/preparing separately reviewed builder only; B construction/predicate/field/native execution",
+  "fullSourceReads": [
+    "SURFACE-CONTRACT.md",
+    "ARTIST.json",
+    "PLAN.json",
+    "INPUTS.json",
+    "REFERENCES.md",
+    "SOURCE-INPUTS.json",
+    "WORTH.md",
+    "WORTH-RECEIPT.json",
+    "ROOT-WORTH.json",
+    "CLARIFICATIONS.initial.md",
+    "AMENDED-SOURCE-INPUTS.initial.json",
+    "CLARIFICATIONS.md",
+    "AMENDED-SOURCE-INPUTS.json",
+    "WORDING-REVISION.md"
+  ],
+  "reviewEvidence": {
+    "originalFullContractArtistPlanAndManifests": "43684f",
+    "rootWorthAndPreviousReceipt": "90939d",
+    "fullInitialAddendum": "376025",
+    "fullFinalAddendumRevisionAndManifest": "8474f2"
+  },
+  "originalSourcePinsExact": 8,
+  "finalAmendedSourcePinsExact": 9,
+  "originalInputPinsExact": 10,
+  "historicalSnapshotsExact": 2,
+  "singleSentenceWordingRevisionOnly": true,
+  "geometryArtistPlanSourcesUnchanged": true,
+  "actualOriginalViews": "Coverage front/back and front/oblique full originals at original detail in96bf12; no new capture",
+  "resolvedClauses": {
+    "primitiveOrder": "SURFACE7/13/17 -> CLARIFICATIONS1",
+    "onPlaneCutEdgeProvenance": "SURFACE33-35 -> CLARIFICATIONS2",
+    "undefinedNearAndRayOperandClaim": "SURFACE41-49 -> CLARIFICATIONS3 and WORDING-REVISION",
+    "genusZero": "SURFACE27/35/37 -> CLARIFICATIONS4; new artist constraint",
+    "capBasis": "SURFACE37 -> CLARIFICATIONS5"
+  },
+  "nextWorth": "Conditional A fresh bounded exact builder preparation only; stopB on unowned predicate/changed artist choice/deadline; separate source/root admission required before any invocation",
+  "sourceSaveGate": "2026-10-05T00:02:00Z",
+  "rootCloseGate": "2026-10-05T00:04:39.010839Z",
+  "noCandidateOrPredicateFieldKernelMeshEvaluationEngineDecoderNativeHTTPOrFrozenEdit": true,
+  "limits": [
+    "Contract completeness at preparation scope only",
+    "No exact-predicate implementation or local robustness/performance proof",
+    "No original body solid, GPU source equivalence, garment/fit/enclosure result, motion or AAA acceptance"
+  ],
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/ARTIST.json",
+      "bytes": 2604,
+      "sha256": "42989446292114fa4c7af9d1705094a97d45aeb3e2f77d49565807a40a141464"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/SURFACE-CONTRACT.md",
+      "bytes": 15428,
+      "sha256": "6f258951246c40820e664ac02816a4fc9e3b79102ee48d67af771876df43bc5a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/REFERENCES.md",
+      "bytes": 1487,
+      "sha256": "2a409a45912fc54de8590618f01783b20093ef8da1b9834de7491d760cf62679"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/PLAN.json",
+      "bytes": 1508,
+      "sha256": "9a5b02ec040e3a8297f7dd3233a5f354131c1a5fc0e2e50e8eeb5506b1e19ed1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/INPUTS.json",
+      "bytes": 2140,
+      "sha256": "b06fd796c47556e13866222822e22efd178c22de793e11c9fda0cf3e313f34b7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/WORTH.md",
+      "bytes": 3371,
+      "sha256": "592d123ee9c9afafc0d39096426216ea027a83b7df0dd0b48f7ea2859fd9ec13"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/WORTH-RECEIPT.json",
+      "bytes": 3635,
+      "sha256": "d7cea80fa8d1fafaa51ddb2d626198b30bec4e4b8153d5be37aef6ee5e4596c0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/ROOT-WORTH.json",
+      "bytes": 1106,
+      "sha256": "6b36b6f2cfe72dfce361578539d007ad78be4d55b78bcca1670cdc5f9fd028f7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/CLARIFICATIONS.md",
+      "bytes": 5109,
+      "sha256": "c8beb096afac32436a1e22168f134f98374eae07a828f102b5d10920c713bcb4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/CLARIFICATIONS.initial.md",
+      "bytes": 4949,
+      "sha256": "11a901bf56dd11e8082ad7c86ffba9a32fe9959e4c7f549041692657f2ece071"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/AMENDED-SOURCE-INPUTS.initial.json",
+      "bytes": 2177,
+      "sha256": "7bf9e06aaebed09b3d70620bf596bd6ad3c25b3df9fcb98b88cae42f80d07a01"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/SOURCE-INPUTS.json",
+      "bytes": 1740,
+      "sha256": "0f7154d8c413a709a81efb284cc93a06498b25a6d6ff8a970d84e8eced5872c1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+      "bytes": 1872,
+      "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/RESULT.md",
+      "bytes": 3691,
+      "sha256": "1d99a173935133cd1ae4727cdbded02eaba4efecdf06e50da510a8ae2355c75c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-back.jpg",
+      "bytes": 61844,
+      "sha256": "d46a402c0ec86a0cd7b6b8e286aa879874546fa5332ca87d9783b7742899957c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sweater-coverage-owned/front-oblique.jpg",
+      "bytes": 63758,
+      "sha256": "e6b1748ad07e9aa9ced70e9400d3d60e924a87f756469c956e265928fb7fca19"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-pose-knit-trial/CRITIC-RESULT.md",
+      "bytes": 3369,
+      "sha256": "4ccd4bb8d54b860df0b8f97d604d2f5e06f4db6946881abb587d969b95b2a2ae"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/shared-quad-knit/RESULT.md",
+      "bytes": 3787,
+      "sha256": "4952149801413e72ad576960c0695346ed2f462d09c2efbcd9e02fc71160d379"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/REFERENCES.md",
+      "bytes": 2381,
+      "sha256": "b9109f0655b6f07250ba731745ba1f11eff4cad49319b83c22cd3f689618513e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/AMENDED-SOURCE-INPUTS.json",
+      "bytes": 2659,
+      "sha256": "dd3a801e1fcb058969004fe4c215c5e85b4c63fd21e4c75ceebae4eeb1fd4c56"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/WORDING-REVISION.md",
+      "bytes": 779,
+      "sha256": "ef231f6b575f4eb8ffbe739f5778ed85e9ba52871f35092bb5d3e9004b597b0f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/SOURCE-RESULT.md",
+      "bytes": 4594,
+      "sha256": "bc1298b5fd9231bfb5f64d50583faaa0db6d0a9211f8fd456c4ac82e1bc0c813"
+    }
+  ]
+}

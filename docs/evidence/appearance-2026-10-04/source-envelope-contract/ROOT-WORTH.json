@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-04T23:47:27.649935+00:00",
+  "decision": "A bounded source contract only; B construction/native",
+  "allWorthBindings": 13,
+  "wholeWorthAndReceiptRead": "9c018a",
+  "specificWorthMessagePrecedesPlanAndTwoPrimaryTechnicalReads": true,
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/WORTH.md",
+      "bytes": 3371,
+      "sha256": "592d123ee9c9afafc0d39096426216ea027a83b7df0dd0b48f7ea2859fd9ec13"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/WORTH-RECEIPT.json",
+      "bytes": 3635,
+      "sha256": "d7cea80fa8d1fafaa51ddb2d626198b30bec4e4b8153d5be37aef6ee5e4596c0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/PLAN.json",
+      "bytes": 1508,
+      "sha256": "9a5b02ec040e3a8297f7dd3233a5f354131c1a5fc0e2e50e8eeb5506b1e19ed1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/source-envelope-contract/INPUTS.json",
+      "bytes": 2140,
+      "sha256": "b06fd796c47556e13866222822e22efd178c22de793e11c9fda0cf3e313f34b7"
+    }
+  ]
+}
