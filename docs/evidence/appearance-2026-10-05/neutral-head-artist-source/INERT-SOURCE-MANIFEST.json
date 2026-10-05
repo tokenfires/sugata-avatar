@@ -1,0 +1,93 @@
+{
+  "prepared_utc": "2026-10-05T20:39:43.000689+00:00",
+  "inputs": [
+    "PLAN.json",
+    "SOURCE.json",
+    "SOURCE-CONTRACT.md",
+    "AUTHORING-ADDENDUM.md",
+    "CAP-ORIENTATION-ADDENDUM.md",
+    "ROOT-CONTRACT-ADMISSION.json"
+  ],
+  "inert_sources": [
+    {
+      "path": "build.py",
+      "bytes": 12303,
+      "sha256": "6b75bffa168cea9fe21e15faaad74bf23ea927520daf5f87269e35f040aad40e",
+      "lines": 270
+    },
+    {
+      "path": "check.py",
+      "bytes": 11303,
+      "sha256": "0ae50d5567c744a7aadacc5375013b3deef25a499558771daadb58e6b8dbc79e",
+      "lines": 148
+    },
+    {
+      "path": "run-one.py",
+      "bytes": 3188,
+      "sha256": "4e476f7fd065b1b8153b2d04336962d91477ce78979d9a38ba28f88fa6b8b9e9",
+      "lines": 54
+    },
+    {
+      "path": "viewer.html",
+      "bytes": 939,
+      "sha256": "6fea55e9f8b909f379a08489e1ac158320fb5be9245e9dac01e758a07f3a7409",
+      "lines": 6
+    },
+    {
+      "path": "viewer.js",
+      "bytes": 10296,
+      "sha256": "c5fdb2f2b48d2f4a77f948a2f0ce2b51dbd08433a0406fbc64a5bf067eaf66d6",
+      "lines": 100
+    }
+  ],
+  "review_stop_utc": "2026-10-05T21:00:00Z",
+  "cpu_nomination_stop_utc": "2026-10-05T21:06:00Z",
+  "native_nomination_stop_utc": "2026-10-05T21:16:00Z",
+  "actual_review_stop_utc": "2026-10-05T21:30:00Z",
+  "root_close_stop_utc": "2026-10-05T21:38:00Z",
+  "next_decision": "Complete independent inert source review and root full source/pin verification before sole CPU. No execution yet. Exact source or cutoff refusal closes unchanged method; no rescue.",
+  "source_api_scope": "Installed Three 0.185.1 selected source scopes 3df18d/cc07ae, first combined API output truncated then recovered. No new network.",
+  "checker_limits": "All saved JSON/binary/OBJ/MTL/material/source identity rows and finite/topology/normal predicates. It does not implement an independent every-coordinate analytic oracle or surface intersection/containment/anatomy certificate. Literal builder formulas are full source-review duties.",
+  "native_contract": {
+    "canvas": [
+      1200,
+      540
+    ],
+    "viewport_min": [
+      1232,
+      680
+    ],
+    "pixel_ratio": 1,
+    "cameras": [
+      [
+        0,
+        0,
+        4
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -4
+      ]
+    ],
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "ortho_vertical_half": 1.28,
+    "ortho_horizontal_half": "1.28*400/540",
+    "near_far": [
+      0.1,
+      10
+    ],
+    "views": "three equal 400x540 original face order/front-side clay material regions. No fallback, camera retune or capture rescue.",
+    "check_before_image": "Actual DOM admission/source uploads/digests/material/group/camera/projected full framing/three draw/resources and no recorded errors, root independently compared to complete saved source. One whole unchanged original image only. Initial tab inventory required; Finish once and attempted owned disposal readback then close owned page only. No GPU retirement or causal global-resource absence certificate."
+  },
+  "execution": "None; no AST import/helper/eval/construction/geometry/checker/test/native. Sources saved as inert text only."
+}

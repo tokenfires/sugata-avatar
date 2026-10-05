@@ -1,0 +1,44 @@
+{
+  "prepared_utc": "2026-10-05T20:43:48.673757+00:00",
+  "source_manifest": "INERT-SOURCE-MANIFEST.json remains preserved; this owns only the checker/controller duty correction",
+  "inert_sources": [
+    {
+      "path": "build.py",
+      "bytes": 12303,
+      "sha256": "6b75bffa168cea9fe21e15faaad74bf23ea927520daf5f87269e35f040aad40e",
+      "lines": 270
+    },
+    {
+      "path": "check-owned.py",
+      "bytes": 12810,
+      "sha256": "222a0e756362da42ddcc0ace568168bfe26d2cb7de1e20416eab27c83ac24c2f",
+      "lines": 171
+    },
+    {
+      "path": "run-owned.py",
+      "bytes": 3194,
+      "sha256": "ff95d0251378d51fa33c39085d2ab3a5bd86037bbd0b3f5d3b01a8bdcb335dc2",
+      "lines": 54
+    },
+    {
+      "path": "viewer.html",
+      "bytes": 939,
+      "sha256": "6fea55e9f8b909f379a08489e1ac158320fb5be9245e9dac01e758a07f3a7409",
+      "lines": 6
+    },
+    {
+      "path": "viewer.js",
+      "bytes": 10296,
+      "sha256": "c5fdb2f2b48d2f4a77f948a2f0ce2b51dbd08433a0406fbc64a5bf067eaf66d6",
+      "lines": 100
+    },
+    {
+      "path": "MATERIAL-OWNERSHIP-ADDENDUM.md",
+      "bytes": 1945,
+      "sha256": "bb6bb772a94c948bb0c8b5730a018ea334ca20698d6cfd572f37ae53b3aef207",
+      "lines": 7
+    }
+  ],
+  "source_review_stop_utc": "2026-10-05T21:00:00Z",
+  "no_execution": true
+}

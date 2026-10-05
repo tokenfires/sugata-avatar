@@ -1,0 +1,369 @@
+{
+  "schema": "sugata-original-neutral-head-artist-v1",
+  "units": "unitless original artist coordinates; no avatar/source-image measurement",
+  "axes": {
+    "up": "+Y",
+    "front": "+Z",
+    "figure_right": "+X"
+  },
+  "grid": {
+    "azimuth_steps": 192,
+    "height_steps": 110,
+    "min_y": -1.1,
+    "max_y": 1.1,
+    "rows": "0..109 rings, single top vertex y1.1; bottom disk cap at y-1.1",
+    "interpolation": "piecewise cubic Hermite; endpoint slopes one-sided, interior slopes adjacent secant across two knots; no clamp/fit/tuning"
+  },
+  "profile_columns": [
+    "y",
+    "half_width",
+    "front_depth",
+    "rear_depth"
+  ],
+  "profile": [
+    [
+      -1.1,
+      0.255,
+      0.25,
+      0.29
+    ],
+    [
+      -0.8,
+      0.275,
+      0.27,
+      0.31
+    ],
+    [
+      -0.64,
+      0.325,
+      0.34,
+      0.36
+    ],
+    [
+      -0.5,
+      0.43,
+      0.43,
+      0.42
+    ],
+    [
+      -0.3,
+      0.555,
+      0.48,
+      0.5
+    ],
+    [
+      0,
+      0.625,
+      0.54,
+      0.61
+    ],
+    [
+      0.28,
+      0.64,
+      0.575,
+      0.69
+    ],
+    [
+      0.55,
+      0.605,
+      0.56,
+      0.7
+    ],
+    [
+      0.78,
+      0.495,
+      0.46,
+      0.57
+    ],
+    [
+      0.96,
+      0.285,
+      0.29,
+      0.35
+    ],
+    [
+      1.1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "facial_features": {
+    "support": "front hemisphere only, multiply every Z sculpt by max(cos(phi),0)^4; skin vertices remain one connected head/neck surface",
+    "gaussians": "height*exp(-((x-x0)/sx)^2-((y-y0)/sy)^2), all positions evaluated once then Float32",
+    "nose_bridge": {
+      "height": 0.12,
+      "centre": [
+        0,
+        0.17
+      ],
+      "sigma": [
+        0.062,
+        0.23
+      ]
+    },
+    "nose_tip": {
+      "height": 0.2,
+      "centre": [
+        0,
+        -0.015
+      ],
+      "sigma": [
+        0.078,
+        0.06
+      ]
+    },
+    "alar_wings": {
+      "height": 0.07,
+      "centres": [
+        [
+          -0.086,
+          -0.045
+        ],
+        [
+          0.086,
+          -0.045
+        ]
+      ],
+      "sigma": [
+        0.039,
+        0.052
+      ]
+    },
+    "nostril_recesses": {
+      "height": -0.032,
+      "centres": [
+        [
+          -0.064,
+          -0.082
+        ],
+        [
+          0.064,
+          -0.082
+        ]
+      ],
+      "sigma": [
+        0.025,
+        0.016
+      ]
+    },
+    "cheeks": {
+      "height": 0.042,
+      "centres": [
+        [
+          -0.32,
+          -0.04
+        ],
+        [
+          0.32,
+          -0.04
+        ]
+      ],
+      "sigma": [
+        0.18,
+        0.17
+      ]
+    },
+    "chin": {
+      "height": 0.04,
+      "centre": [
+        0,
+        -0.48
+      ],
+      "sigma": [
+        0.23,
+        0.1
+      ]
+    },
+    "brow_ridges": {
+      "height": 0.032,
+      "centres": [
+        [
+          -0.23,
+          0.39
+        ],
+        [
+          0.23,
+          0.39
+        ]
+      ],
+      "sigma": [
+        0.155,
+        0.058
+      ]
+    },
+    "eye_socket_recesses": {
+      "height": -0.065,
+      "centres": [
+        [
+          -0.225,
+          0.2
+        ],
+        [
+          0.225,
+          0.2
+        ]
+      ],
+      "sigma": [
+        0.14,
+        0.085
+      ]
+    },
+    "lip_model": {
+      "rest_seam_y": "-.275-.004*(x/.17)^2",
+      "upper_lip_height": 0.047,
+      "upper_offset_y": 0.025,
+      "lower_lip_height": 0.043,
+      "lower_offset_y": -0.028,
+      "sigma": [
+        0.155,
+        0.023
+      ],
+      "seam_recess_height": -0.022,
+      "seam_sigma": [
+        0.17,
+        0.008
+      ],
+      "shape": "two connected skin ridges and recessed closed resting seam; no mouth opening/interior or speech claim"
+    }
+  },
+  "ears": {
+    "surface": "continuous radial deformation of the same skin rings, no separate nose/ear markers",
+    "azimuth_centres": [
+      "+pi/2",
+      "3pi/2"
+    ],
+    "outer_radial_extension": 0.14,
+    "centre_y": 0.07,
+    "height_sigma": 0.24,
+    "azimuth_sigma": 0.16,
+    "outer_law": "extension*exp(-((y-centre_y)/height_sigma)^4-(wrap(phi-earPhi)/azimuth_sigma)^4), displace X by sign(sin(phi))*extension",
+    "inner_fold_extension": -0.04,
+    "inner_centre_y": 0.085,
+    "inner_height_sigma": 0.13,
+    "inner_azimuth_sigma": 0.075,
+    "limits": "original coarse attached pinnal volume/recess; no anatomy/ear-canal/physical solid certificate"
+  },
+  "eyes": {
+    "model": "two sculpted skin eyelid rims and complete concave closed orbital cups joined into skin, each with one independent closed companion-eye surface. Deliberate rim/eye occlusion, not physical union/contact calibration",
+    "patches": [
+      {
+        "name": "right",
+        "u_min": 6,
+        "u_max": 16,
+        "j_min": 60,
+        "j_max": 70,
+        "centre": [
+          0.225,
+          0.2
+        ]
+      },
+      {
+        "name": "left",
+        "u_min": 176,
+        "u_max": 186,
+        "j_min": 60,
+        "j_max": 70,
+        "centre": [
+          -0.225,
+          0.2
+        ]
+      }
+    ],
+    "skin_hole": "omit only patch-interior grid vertices and grid cells whose whole cell lies inside the closed index rectangle. Each perimeter vertex is remapped to the same ordered oval using atan2((j-midJ)/halfJ,(u-midU)/halfU), X=cx+rx*cos(a), Y=cy+ry*sin(a). Adjacent skin faces keep those same boundary indices. No unreachable vertices exported.",
+    "rim_radii": [
+      0.1,
+      0.08
+    ],
+    "rim_z": "faceZ at asin(X/profileWidth(Y)), plus .020*max(sin(a),0)^2 and .006*max(-sin(a),0)^2 for connected upper/lower lid relief",
+    "perimeter_order": "start lower-left; u+ on lower edge, j+ on right edge, u- on upper edge, j- on left, no duplicate corners; 40 vertices per oval",
+    "cup_back": {
+      "z": 0.23,
+      "radii_scale": [
+        1.45,
+        1.65
+      ],
+      "face_pattern": "for each k, rim[k],rim[next],back[next]; rim[k],back[next],back[k]; cap back[k],back[next],centre; shared skin perimeter edge directions opposite. All cup vertices remain skin part.",
+      "centre_y_offset": 0
+    },
+    "companion": {
+      "centres": [
+        [
+          -0.225,
+          0.2,
+          0.43
+        ],
+        [
+          0.225,
+          0.2,
+          0.43
+        ]
+      ],
+      "radii": [
+        0.125,
+        0.11,
+        0.14
+      ],
+      "azimuth_steps": 64,
+      "polar_steps": 32,
+      "polar_axis": "+Z",
+      "material_theta_cutoffs_radians": {
+        "pupil": 0.18,
+        "iris": 0.43,
+        "sclera": "remainder"
+      },
+      "topology": "shared polar rings with single front/rear pole; closed surface, per-face material at mean theta, no separate iris/pupil marker volumes",
+      "limits": "static frontal iris/pupil material regions; no optical cornea, dynamic gaze/blink or finished-eye claim"
+    }
+  },
+  "skin_topology": {
+    "ring_winding": "a(j,u),b(j,u+1),d(j+1,u+1); a,d,c(j+1,u), wrapping u once. Omit eye patch interior cells. Shared original grid/rim IDs cached once. Top fan current,next,top; bottom fan bottom,next,current. Orbital cup closure above uses the same skin boundary IDs.",
+    "closedness": "one connected indexed skin component with ears/nose/lips/neck/lids/cups, oriented paired edges and cycle vertex links; independent2closedeyecomponents. No claim that separate solids Boolean-union or are a calibrated embedding.",
+    "materials_by_skin_face_centroid": "Brow if front hemisphere and |abs(x)-.225|<.15 and |y-(.405-.055*((abs(x)-.225)/.15)^2)|<.014; otherwise Lips if front and (x/.18)^2+((y+.275)/.054)^2<1; otherwise Skin. Cups always Skin.",
+    "normals": "after one Float32 position quantization, sum oriented triangle cross products at shared indices, normalize and quantize Float32 once; no tangent/coordinate repair"
+  },
+  "materials": {
+    "Skin": {
+      "colour": "#b98770",
+      "roughness": 0.72
+    },
+    "Lips": {
+      "colour": "#8e5d55",
+      "roughness": 0.7
+    },
+    "Brow": {
+      "colour": "#40352e",
+      "roughness": 0.82
+    },
+    "Sclera": {
+      "colour": "#dcd5c8",
+      "roughness": 0.45
+    },
+    "Iris": {
+      "colour": "#4a3226",
+      "roughness": 0.5
+    },
+    "Pupil": {
+      "colour": "#151210",
+      "roughness": 0.5
+    }
+  },
+  "landmark_intentions": [
+    "brow/eye rim centres +/-.225,.20",
+    "bridge/tip/alar/nostril surfaces from full connected skin sculpt",
+    "closed lip seam centred0,-.275",
+    "jaw/chin full height profiles and connected chin field",
+    "both ear attached outer/recess deformations",
+    "rear/whole cranium from independent profile depths",
+    "neck base planeY-1.1disk; no body attachment or fit"
+  ],
+  "exports": [
+    "SOURCE.json original editable parameters",
+    "mesh.json all Float32 skin/eye positions,normals,triangles,face-material IDs,feature/perimeter/source IDs",
+    "positions.f32/normals.f32/indices.u32 perpart little-endian actual digests",
+    "neutral-head.obj all exact vertices/face groups/materials",
+    "neutral-head.mtl original named palette",
+    "BUILD.json/CHECK.json exact job/inputs/output/check/failing witnesses"
+  ],
+  "prohibited": "No image projection, g100/g050/body/head/mask/rig/material/texture import; no copied scaffold, old hair net or current expression-channel/PAD tuning; no preset/native/capture/retake rescue"
+}

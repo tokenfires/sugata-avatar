@@ -1,0 +1,312 @@
+{
+  "collected_utc": "2026-10-05T20:48:04.269601+00:00",
+  "cpu_source_decision": "A build.py + check-owned.py via run-owned.py; one supervised attempt only",
+  "native_source_decision": "A conditional only after separate actual numeric/data admission; no native now",
+  "direct_inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/PLAN.json",
+      "bytes": 3577,
+      "sha256": "1aa13c920327a738752ac40a28c1444e7fcd4101b45be52dee80058722fa8cbe",
+      "read_scope": "Complete original 69-line PLAN; unchanged deadlines"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE.json",
+      "bytes": 9274,
+      "sha256": "91aa17950074fc247cab3af3d803018714acc6884523f82c4bb0f7f6a3494737",
+      "read_scope": "Complete original 369-line parameter/topology/material document read in contract stage; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 6390,
+      "sha256": "95a062aa10c5b60c938ca134342189cd3edbaa6254bae5b8ea89ef0b7cdb5354",
+      "read_scope": "Complete 19-line original contract, reread in combined review; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/AUTHORING-ADDENDUM.md",
+      "bytes": 5516,
+      "sha256": "8924e79b93ab623bb38c54b4ff7f9a83558c86d904a15eb5d8a9e03f3d5c9c20",
+      "read_scope": "Complete 21-line formula declaration read in combined review; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CAP-ORIENTATION-ADDENDUM.md",
+      "bytes": 2278,
+      "sha256": "d545483c2d58f498b08830bfd6a0f587649cfff3bca10a6e45fcf825d227e126",
+      "read_scope": "Complete 9-line cap order declaration read in combined review; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-CONTRACT-ADMISSION.json",
+      "bytes": 10001,
+      "sha256": "43e558836a1fcdb4d24ac32a310da4dff8f598126dd7adc939bf1b6cc2eb3e3e",
+      "read_scope": "Complete recorded inert-preparation admission and binding rows, not a new runtime/process witness"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CONTRACT-ADDENDUM-RESULT.md",
+      "bytes": 5221,
+      "sha256": "84cdf60728770e5639ee6846d8fd958e5cd7628d4c62c3b743762d42df6cf7df",
+      "read_scope": "Complete own stable combined source verdict; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CONTRACT-ADDENDUM-RECEIPT.json",
+      "bytes": 9117,
+      "sha256": "f084dd9ca718f9726b7cb5502854b4597ade5179da1cbbd46094f6a1165c3dda",
+      "read_scope": "Complete parsed prior receipt for literal input binding continuity; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/INERT-SOURCE-MANIFEST.json",
+      "bytes": 3184,
+      "sha256": "1d7275e2b69ef3713921adc8d0f460304a1c12d7de92a255ce15f2b2eec36629",
+      "read_scope": "Complete original 93-line manifest; all five initial inert pins verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/INERT-OWNED-MANIFEST.json",
+      "bytes": 1293,
+      "sha256": "abfee17437c425054eaadeb28699c51eeccd755bfcfc85a8f919ce980cc01f12",
+      "read_scope": "Complete corrected manifest; all six chosen source/addendum pins verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/build.py",
+      "bytes": 12303,
+      "sha256": "6b75bffa168cea9fe21e15faaad74bf23ea927520daf5f87269e35f040aad40e",
+      "read_scope": "Complete 270-line source read only; all formula, grid, cap, material and export paths examined"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/check.py",
+      "bytes": 11303,
+      "sha256": "0ae50d5567c744a7aadacc5375013b3deef25a499558771daadb58e6b8dbc79e",
+      "read_scope": "Complete preserved 148-line initial checker; material-duty omission remains history"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/run-one.py",
+      "bytes": 3188,
+      "sha256": "4e476f7fd065b1b8153b2d04336962d91477ce78979d9a38ba28f88fa6b8b9e9",
+      "read_scope": "Complete preserved 54-line initial controller"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/viewer.html",
+      "bytes": 939,
+      "sha256": "6fea55e9f8b909f379a08489e1ac158320fb5be9245e9dac01e758a07f3a7409",
+      "read_scope": "Complete 6-line HTML"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/viewer.js",
+      "bytes": 10296,
+      "sha256": "c5fdb2f2b48d2f4a77f948a2f0ce2b51dbd08433a0406fbc64a5bf067eaf66d6",
+      "read_scope": "Complete 100-line viewer including every async/lifetime/render/error branch"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/check-owned.py",
+      "bytes": 12810,
+      "sha256": "222a0e756362da42ddcc0ace568168bfe26d2cb7de1e20416eab27c83ac24c2f",
+      "read_scope": "Complete 171-line selected checker, plus exact text diff against original; no import, AST or predicates evaluated"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/run-owned.py",
+      "bytes": 3194,
+      "sha256": "ff95d0251378d51fa33c39085d2ab3a5bd86037bbd0b3f5d3b01a8bdcb335dc2",
+      "read_scope": "Complete 54-line selected controller, plus exact text diff against original; no invocation"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/MATERIAL-OWNERSHIP-ADDENDUM.md",
+      "bytes": 1945,
+      "sha256": "bb6bb772a94c948bb0c8b5730a018ea334ca20698d6cfd572f37ae53b3aef207",
+      "read_scope": "Complete 7-line responsibility/scope correction"
+    },
+    {
+      "path": "node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "read_scope": "Complete metadata file; local version/export route only, no import"
+    },
+    {
+      "path": "node_modules/three/src/constants.js",
+      "bytes": 32951,
+      "sha256": "3444ef8433dedd2d8b391bc1139b5f3c9f433ea3487473b366e624814d73d26e",
+      "read_scope": "Selected REVISION declaration, line 1"
+    },
+    {
+      "path": "node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0",
+      "read_scope": "Targeted API declarations/line matches for shader hook, info, drawing buffer, viewport/scissor and disposal; not complete module"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLInfo.js",
+      "bytes": 1052,
+      "sha256": "eee7c3f0f54643080d478a23acd964fe858143406fea62980f911393d995c532",
+      "read_scope": "Complete file within lines 1-105; raw submitted triangle/draw counters and reset semantics only"
+    },
+    {
+      "path": "node_modules/three/src/core/BufferGeometry.js",
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7",
+      "read_scope": "Targeted setAttribute/setIndex/addGroup matches and lines 210-285 setIndex body; not complete module"
+    }
+  ],
+  "historical_plan_bindings_verified": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/ROOT-CLOSE.json",
+      "bytes": 2065,
+      "sha256": "682503cf423efc9d85e98455a0cd73deb7580742e53189065960a23cb5392ec9",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/WORTH.md",
+      "bytes": 4430,
+      "sha256": "2e84fa168df8b7c8829abf5e58df5393511f5b3e76ebe5cb93fbdafba7c31913",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/RECEIPT.json",
+      "bytes": 8874,
+      "sha256": "f52accd9c52c7092f9c98d146b90f19c944f7d125c97bc094db6ac183f253e58",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/short-groom-artist-source/CLOSEOUT.md",
+      "bytes": 2750,
+      "sha256": "d27c52faf0c06b7f9c4ffe711c0544fd9a2861e0831b161cf78fb8122c943944",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "verification": "Metadata/hash-only refresh; preceding worth read scopes retained, no new original view"
+    }
+  ],
+  "sources_read_complete": [
+    "build.py",
+    "check.py",
+    "run-one.py",
+    "viewer.html",
+    "viewer.js",
+    "check-owned.py",
+    "run-owned.py",
+    "MATERIAL-OWNERSHIP-ADDENDUM.md",
+    "INERT-SOURCE-MANIFEST.json",
+    "INERT-OWNED-MANIFEST.json",
+    "ROOT-CONTRACT-ADMISSION.json"
+  ],
+  "commands": [
+    {
+      "chunks": [
+        "58b7b1",
+        "3b603e",
+        "19dd26",
+        "66bdf1",
+        "a082f0",
+        "3f25bb"
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "scope": "Entire initial builder/checker/controller/viewer/HTML/manifest/root source admission"
+    },
+    {
+      "chunks": [
+        "e8ee22",
+        "2bc128",
+        "554aff"
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "scope": "Entire actual corrected checker/controller/addendum/manifest"
+    },
+    {
+      "chunk": "6b5964",
+      "exit_code": 1,
+      "scope": "diff -u initial and owned checker; 1 denotes witnessed added duty block, not a runtime failure"
+    },
+    {
+      "chunk": "21e9a1",
+      "exit_code": 1,
+      "scope": "diff -u initial and owned controller; only selected checker filename differs"
+    },
+    {
+      "chunk": "e9c4fd",
+      "exit_code": 0,
+      "scope": "All initial and selected manifest source pins independently verified metadata-only"
+    },
+    {
+      "chunks": [
+        "b322cd",
+        "789f75",
+        "c65128"
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "scope": "Local primary package/API text scopes, no import or renderer"
+    },
+    {
+      "scope": "This exclusive writer rehashes consulted fixed files/manifests/history, writes only the two requested implementation handoffs; no AST/evaluator/producer/helper code execution"
+    }
+  ],
+  "selected_material_duty": {
+    "initial_witness": [
+      "check.py:41",
+      "check.py:109",
+      "check.py:108",
+      "check.py:124",
+      "check.py:134"
+    ],
+    "corrected_witness": "check-owned.py:105-127",
+    "claim": "Saved-data material allocation recomputation is selected; no actual material assignment evaluated here",
+    "alternatives": {
+      "A": "Preserve initial and add the complete saved-face material duty; stronger ownership, small review cost",
+      "B": "Withhold complete material admission with initial checker; less code, weaker source verification"
+    }
+  },
+  "native_identity_scope": "Locally pinned source code; non-transformed fetched source-data inputs; actual runtime page/token, saved JSON/all uploaded buffers/materials/groups/cameras/framing/draw/resources. No Vite served-code-to-disk byte equality, GPU completion or pixel identity claim.",
+  "original_image_scope": "The unchanged adult portrait was actually viewed whole at original detail during preceding worth; no new image or geometric projection in implementation review",
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMPLEMENTATION-RESULT.md",
+    "bytes": 6021,
+    "sha256": "3545612867bf12b83f7f48c342d68c37a9875d0d2eabef6a928bc9d615319c19"
+  },
+  "limits": [
+    "No candidate coordinates/profile/field/normal/topology/volume/material evaluation",
+    "No AST compile, imports, producers/checkers/helpers, tests, build or runtime",
+    "No browser/native/GPU/network/raster",
+    "Only own two implementation handoffs written; all initial/corrected source bytes and earlier results preserved",
+    "No every-coordinate analytic oracle, embedding/self-intersection, physical clearance/anatomy/rig/fit/motion/AAA pass",
+    "Actual outer caller/streams/available-output inventory and independent actual data/image review required before qualification"
+  ],
+  "deadlines": {
+    "source_contract_stop_utc": "2026-10-05T20:45:00Z",
+    "inert_source_review_stop_utc": "2026-10-05T21:00:00Z",
+    "cpu_nomination_stop_utc": "2026-10-05T21:06:00Z",
+    "native_nomination_stop_utc": "2026-10-05T21:16:00Z",
+    "actual_review_stop_utc": "2026-10-05T21:30:00Z",
+    "root_close_stop_utc": "2026-10-05T21:38:00Z"
+  },
+  "pending_edits": false
+}

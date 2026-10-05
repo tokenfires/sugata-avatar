@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-10-05T20:50:25.789912+00:00",
+  "pid": 1411,
+  "jobs": [
+    {
+      "script": "build.py",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/build.py"
+      ],
+      "started_utc": "2026-10-05T20:50:25.790969+00:00",
+      "pid": 1413,
+      "exit_code": 0,
+      "collected_utc": "2026-10-05T20:50:26.299212+00:00"
+    },
+    {
+      "script": "check-owned.py",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/neutral-head-artist-source/check-owned.py"
+      ],
+      "started_utc": "2026-10-05T20:50:26.299417+00:00",
+      "pid": 1414,
+      "exit_code": 0,
+      "collected_utc": "2026-10-05T20:50:27.025902+00:00"
+    }
+  ],
+  "decision": "A CPU collected; no native/appearance admission",
+  "error": null,
+  "admission_sha256": "5157d4e85b80c54b32e00326453b04d43b2212faa91265c78271d7a6448973cf",
+  "elapsed_seconds": 1.2360627919551916,
+  "collected_utc": "2026-10-05T20:50:27.025978+00:00"
+}

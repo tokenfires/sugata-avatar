@@ -1,0 +1,149 @@
+{
+  "collected_utc": "2026-10-05T20:28:48.142059+00:00",
+  "decision": "B current exact complete-literal contract admission; A distinct complete facial-source worth remains conditional",
+  "direct_inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/PLAN.json",
+      "bytes": 3577,
+      "sha256": "1aa13c920327a738752ac40a28c1444e7fcd4101b45be52dee80058722fa8cbe",
+      "read_scope": "Complete 69-line PLAN"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/ROOT-CLOSE.json",
+      "bytes": 2065,
+      "sha256": "682503cf423efc9d85e98455a0cd73deb7580742e53189065960a23cb5392ec9",
+      "read_scope": "Complete recorded closure JSON; no process or service verification"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/WORTH.md",
+      "bytes": 4430,
+      "sha256": "2e84fa168df8b7c8829abf5e58df5393511f5b3e76ebe5cb93fbdafba7c31913",
+      "read_scope": "Complete current worth read again; original whole-image observation at 20:05 retained"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/neutral-head-worth/RECEIPT.json",
+      "bytes": 8874,
+      "sha256": "f52accd9c52c7092f9c98d146b90f19c944f7d125c97bc094db6ac183f253e58",
+      "read_scope": "Hash and parsed exact binding/read-scope context from own stable receipt; no new locator or geometry"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete 13-line brief read in preceding worth; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Whole unchanged original viewed at original detail in preceding worth at 20:05; current hash reverified only, no second view/crop"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/short-groom-artist-source/CLOSEOUT.md",
+      "bytes": 2750,
+      "sha256": "d27c52faf0c06b7f9c4ffe711c0544fd9a2861e0831b161cf78fb8122c943944",
+      "read_scope": "Complete 15-line document read in preceding worth; unchanged hash reverified"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b",
+      "read_scope": "Complete 45-line document read in preceding worth; unchanged hash reverified, 14 scoped checked/10 broad open"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "Relevant lines 30-65 and 115-148 read in preceding worth; unchanged hash reverified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE.json",
+      "bytes": 9274,
+      "sha256": "91aa17950074fc247cab3af3d803018714acc6884523f82c4bb0f7f6a3494737",
+      "read_scope": "Complete 369-line literal JSON; no parameter/geometry evaluation"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 6390,
+      "sha256": "95a062aa10c5b60c938ca134342189cd3edbaa6254bae5b8ea89ef0b7cdb5354",
+      "read_scope": "Complete 19-line contract; no numerical predicates evaluated"
+    }
+  ],
+  "original_bindings_verified": 10,
+  "source_read_complete": true,
+  "commands": [
+    {
+      "chunk": "2cfc16",
+      "exit_code": 0,
+      "command": "nl -ba docs/evidence/appearance-2026-10-05/neutral-head-artist-source/PLAN.json"
+    },
+    {
+      "chunk": "960bea",
+      "exit_code": 0,
+      "command": "nl -ba docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE-CONTRACT.md"
+    },
+    {
+      "chunk": "fe7950",
+      "exit_code": 0,
+      "command": "nl -ba docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE.json"
+    },
+    {
+      "chunk": "da9ce3",
+      "exit_code": 0,
+      "scope": "Complete current worth ROOT-CLOSE and WORTH"
+    },
+    {
+      "chunk": "558692",
+      "exit_code": 0,
+      "scope": "Stdlib metadata/hash verification of all ten PLAN bindings; no source evaluation"
+    },
+    {
+      "scope": "This exclusive review/receipt writer reads/hashes only those inputs; exact original pins checked again before saving. No executable source imported"
+    }
+  ],
+  "findings": [
+    {
+      "classification": "underspecified",
+      "witnesses": [
+        "SOURCE-CONTRACT.md:3",
+        "SOURCE.json:14-15",
+        "SOURCE.json:213-225",
+        "SOURCE.json:240-244",
+        "SOURCE.json:273-278"
+      ],
+      "responsibility": "Complete coordinate evaluator, shared eye-rim faceZ and inner ear/lip field combination",
+      "alternatives": {
+        "A": "Preserved explicit coordinate/formula addendum before a separately complete source gate; more authorship effort, no numerical evaluation or tuning",
+        "B": "Withhold current exact implementation preparation until complete source exists; avoids implicit choices, delays input"
+      },
+      "present_decision": "B"
+    }
+  ],
+  "image_scope": {
+    "original_whole_view": "Prior direct view_image(detail original) in preceding worth at approximately 20:05 UTC; unchanged exact file pin reverified now",
+    "no_new_image": true,
+    "limits": "Face intention only, no metric hidden-surface, anatomy, identity or current-runtime inference"
+  },
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CONTRACT-RESULT.md",
+    "bytes": 4419,
+    "sha256": "876419b8549107c227005dcb01bdc669596a8071913d5fd25fac7a1a3c48e655"
+  },
+  "scope_limits": [
+    "No numerical profile/field/position/rim/eye/volume/topology evaluation",
+    "No producer/checker/helper/import/replay/test",
+    "No browser/native/GPU/network/raster action",
+    "No product/default/accepted/frozen/checklist changes",
+    "No source correction or successor admitted"
+  ],
+  "deadlines": {
+    "source_contract_stop_utc": "2026-10-05T20:45:00Z",
+    "inert_source_review_stop_utc": "2026-10-05T21:00:00Z",
+    "cpu_nomination_stop_utc": "2026-10-05T21:06:00Z",
+    "native_nomination_stop_utc": "2026-10-05T21:16:00Z",
+    "actual_review_stop_utc": "2026-10-05T21:30:00Z",
+    "root_close_stop_utc": "2026-10-05T21:38:00Z"
+  },
+  "original_sources_unchanged": true,
+  "pending_edits": false
+}

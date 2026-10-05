@@ -1,0 +1,110 @@
+{
+  "prepared_utc": "2026-10-05T20:50:19.250029+00:00",
+  "decision": "A one unchanged supervised CPU attempt only",
+  "nomination_stop_utc": "2026-10-05T21:06:00Z",
+  "shared_inner_budget_seconds": 120,
+  "bindings": [
+    {
+      "path": "PLAN.json",
+      "bytes": 3577,
+      "sha256": "1aa13c920327a738752ac40a28c1444e7fcd4101b45be52dee80058722fa8cbe"
+    },
+    {
+      "path": "SOURCE.json",
+      "bytes": 9274,
+      "sha256": "91aa17950074fc247cab3af3d803018714acc6884523f82c4bb0f7f6a3494737"
+    },
+    {
+      "path": "SOURCE-CONTRACT.md",
+      "bytes": 6390,
+      "sha256": "95a062aa10c5b60c938ca134342189cd3edbaa6254bae5b8ea89ef0b7cdb5354"
+    },
+    {
+      "path": "AUTHORING-ADDENDUM.md",
+      "bytes": 5516,
+      "sha256": "8924e79b93ab623bb38c54b4ff7f9a83558c86d904a15eb5d8a9e03f3d5c9c20"
+    },
+    {
+      "path": "CAP-ORIENTATION-ADDENDUM.md",
+      "bytes": 2278,
+      "sha256": "d545483c2d58f498b08830bfd6a0f587649cfff3bca10a6e45fcf825d227e126"
+    },
+    {
+      "path": "build.py",
+      "bytes": 12303,
+      "sha256": "6b75bffa168cea9fe21e15faaad74bf23ea927520daf5f87269e35f040aad40e"
+    },
+    {
+      "path": "check-owned.py",
+      "bytes": 12810,
+      "sha256": "222a0e756362da42ddcc0ace568168bfe26d2cb7de1e20416eab27c83ac24c2f"
+    },
+    {
+      "path": "run-owned.py",
+      "bytes": 3194,
+      "sha256": "ff95d0251378d51fa33c39085d2ab3a5bd86037bbd0b3f5d3b01a8bdcb335dc2"
+    },
+    {
+      "path": "viewer.html",
+      "bytes": 939,
+      "sha256": "6fea55e9f8b909f379a08489e1ac158320fb5be9245e9dac01e758a07f3a7409"
+    },
+    {
+      "path": "viewer.js",
+      "bytes": 10296,
+      "sha256": "c5fdb2f2b48d2f4a77f948a2f0ce2b51dbd08433a0406fbc64a5bf067eaf66d6"
+    },
+    {
+      "path": "check.py",
+      "bytes": 11303,
+      "sha256": "0ae50d5567c744a7aadacc5375013b3deef25a499558771daadb58e6b8dbc79e"
+    },
+    {
+      "path": "run-one.py",
+      "bytes": 3188,
+      "sha256": "4e476f7fd065b1b8153b2d04336962d91477ce78979d9a38ba28f88fa6b8b9e9"
+    },
+    {
+      "path": "INERT-SOURCE-MANIFEST.json",
+      "bytes": 3184,
+      "sha256": "1d7275e2b69ef3713921adc8d0f460304a1c12d7de92a255ce15f2b2eec36629"
+    },
+    {
+      "path": "INERT-OWNED-MANIFEST.json",
+      "bytes": 1293,
+      "sha256": "abfee17437c425054eaadeb28699c51eeccd755bfcfc85a8f919ce980cc01f12"
+    },
+    {
+      "path": "MATERIAL-OWNERSHIP-ADDENDUM.md",
+      "bytes": 1945,
+      "sha256": "bb6bb772a94c948bb0c8b5730a018ea334ca20698d6cfd572f37ae53b3aef207"
+    },
+    {
+      "path": "ROOT-CONTRACT-ADMISSION.json",
+      "bytes": 10001,
+      "sha256": "43e558836a1fcdb4d24ac32a310da4dff8f598126dd7adc939bf1b6cc2eb3e3e"
+    },
+    {
+      "path": "IMPLEMENTATION-RESULT.md",
+      "bytes": 6021,
+      "sha256": "3545612867bf12b83f7f48c342d68c37a9875d0d2eabef6a928bc9d615319c19"
+    },
+    {
+      "path": "IMPLEMENTATION-RECEIPT.json",
+      "bytes": 14042,
+      "sha256": "b107096dea4e8041c9a8f380543510d4be3f6846df72642f8762adec5509d7b1"
+    },
+    {
+      "path": "ROOT-INERT-REVIEW.md",
+      "bytes": 3227,
+      "sha256": "c61f3d1991d079860448ee24ff987d5561d47b665bb91b264ba1eac739d2f080"
+    },
+    {
+      "path": "ROOT-CORRECTED-SOURCE-REVIEW.md",
+      "bytes": 1810,
+      "sha256": "b8852371e14562c56f907101ef5862e995639222fd692ba89bdb0cd8e2dbbc47"
+    }
+  ],
+  "root_independent_read": "bf0022/b86b95/e7e2aa initial full source; a306ac complete selected corrections; 992d54 exact text-only diff and original/chosen pins; fe5431 complete stable independent implementation handoff. All32direct/history/result rows independently verified now.",
+  "limits": "One unchanged build.py/check-owned.py via run-owned.py. No native/image/appearance admission. First actual refusal closes fixed method; no second build/check retune. No source all-coordinate oracle or embedding/containment/anatomy/fit/rig/motion/AAA claim."
+}

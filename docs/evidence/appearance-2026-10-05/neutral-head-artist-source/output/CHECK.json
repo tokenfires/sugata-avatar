@@ -1,0 +1,149 @@
+{
+  "started_unix": 1791233426.33082,
+  "ended_unix": 1791233426.966672,
+  "pid": 1414,
+  "decision": "A numeric saved-file predicates only",
+  "failure": null,
+  "parts": [
+    {
+      "part": "Skin",
+      "vertices": 21042,
+      "triangles": 42080,
+      "edges": 63120,
+      "components": 1,
+      "euler": 2,
+      "minimum_double_area": 6.501028145797038e-05,
+      "signed_volume": 1.6655281592389524
+    },
+    {
+      "part": "EyeLeft",
+      "vertices": 1986,
+      "triangles": 3968,
+      "edges": 5952,
+      "components": 1,
+      "euler": 2,
+      "minimum_double_area": 1.2967768190955976e-05,
+      "signed_volume": 0.008031092040224466
+    },
+    {
+      "part": "EyeRight",
+      "vertices": 1986,
+      "triangles": 3968,
+      "edges": 5952,
+      "components": 1,
+      "euler": 2,
+      "minimum_double_area": 1.2967768190955976e-05,
+      "signed_volume": 0.00803109204022448
+    }
+  ],
+  "predicates_reached": {
+    "schema": 1,
+    "source bytes": 4,
+    "source roles": 1,
+    "complete materials": 1,
+    "source feature owners": 1,
+    "complete parts": 1,
+    "vertex ownership": 3,
+    "face count": 3,
+    "finite vectors": 3,
+    "unit positive normals": 3,
+    "indices": 3,
+    "face materials": 3,
+    "binary size": 9,
+    "all binary/json values": 9,
+    "duplicate triangle": 50016,
+    "double area": 50016,
+    "opposed edge pair": 75024,
+    "one component/no unreachable": 3,
+    "vertex link degree": 25014,
+    "single link cycle": 25014,
+    "area normal": 25014,
+    "all saved normals": 25014,
+    "positive signed volume": 3,
+    "closed genus zero": 3,
+    "two skin rim owners": 1,
+    "complete shared rim": 2,
+    "shared boundary identity/order": 2,
+    "cup source ids": 2,
+    "cup face present": 240,
+    "complete skin source IDs": 1,
+    "selected face material ownership": 50016,
+    "complete eye IDs": 2,
+    "all six materials reached": 1,
+    "complete output identity": 1,
+    "all output hashes": 11,
+    "OBJ MTL role": 1,
+    "OBJ object": 3,
+    "complete OBJ vertices/normals/part/material/faces": 1,
+    "duplicate MTL": 6,
+    "complete MTL": 1
+  },
+  "limits": "No independent all-coordinate analytic oracle, geometric self-intersection/embedding/skin-eye containment/anatomy/likeness/rig/fit/motion/appearance certificate. Literal evaluator is independently source-reviewed; complete IDs, byte/export/material and actual finite topology predicates checked here.",
+  "inputs": [
+    {
+      "path": "BUILD.json",
+      "bytes": 2677,
+      "sha256": "e1295ded213e685ea2c9eb56b2353034094f1f5cdbec97f92334bf117a725dfb"
+    },
+    {
+      "path": "EyeLeft-normals.f32",
+      "bytes": 23832,
+      "sha256": "44894b320aac84746d47c6f9f178ccb3a637ae78f65269f311c054ba35c9f3e4"
+    },
+    {
+      "path": "EyeLeft-positions.f32",
+      "bytes": 23832,
+      "sha256": "92329333b25e50c30f1531e684fe4af2113f9aaa5a8d2ed89aa3006462a21603"
+    },
+    {
+      "path": "EyeLeft-triangles.u32",
+      "bytes": 47616,
+      "sha256": "e030d208c0b7698a7aedd15ab448967d9616cbb074a7ad791255ca70aaa50069"
+    },
+    {
+      "path": "EyeRight-normals.f32",
+      "bytes": 23832,
+      "sha256": "e891fc5ea6e12175cce77969aedd7d09cb89c115606987dc00050d3ee0b8366a"
+    },
+    {
+      "path": "EyeRight-positions.f32",
+      "bytes": 23832,
+      "sha256": "ae4f1415c5adedf96dd146d99f6e0164661ecccaf5c527c7e75a7a2d30008b8b"
+    },
+    {
+      "path": "EyeRight-triangles.u32",
+      "bytes": 47616,
+      "sha256": "e030d208c0b7698a7aedd15ab448967d9616cbb074a7ad791255ca70aaa50069"
+    },
+    {
+      "path": "Skin-normals.f32",
+      "bytes": 252504,
+      "sha256": "f551f3400bf05a3090c04fcfcd30f1f332f71ee5d04b3b1ad30d2c64e14b5b92"
+    },
+    {
+      "path": "Skin-positions.f32",
+      "bytes": 252504,
+      "sha256": "e852b8be98889fbc5a973ac65b6e8b736410a2222520036fe16e8208e5fb7746"
+    },
+    {
+      "path": "Skin-triangles.u32",
+      "bytes": 504960,
+      "sha256": "aeb9c69d101041a946e0bc1aa8a48cad5ef282bbda13b886436fe3978ae83fb2"
+    },
+    {
+      "path": "mesh.json",
+      "bytes": 4395139,
+      "sha256": "587628525665c43f992d86d0c9fbf035d341bc27c3e2f02f53d4ddb14ed38892"
+    },
+    {
+      "path": "neutral-head.mtl",
+      "bytes": 523,
+      "sha256": "8d78fb6d9c689df1d7b4c54225f9560e626aabc6b94cf8f43d5d35d548ca5d5b"
+    },
+    {
+      "path": "neutral-head.obj",
+      "bytes": 3919896,
+      "sha256": "bde8a4e130307ef0748d586720c640dccff239e07a05087f36e6cbef022703dc"
+    }
+  ]
+}

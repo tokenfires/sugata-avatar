@@ -1,0 +1,135 @@
+{
+  "prepared_utc": "2026-10-05T20:56:16.374495+00:00",
+  "decision": "A one unchanged native only",
+  "nomination_stop_utc": "2026-10-05T21:16:00Z",
+  "source_bindings": [
+    {
+      "path": "SOURCE.json",
+      "bytes": 9274,
+      "sha256": "91aa17950074fc247cab3af3d803018714acc6884523f82c4bb0f7f6a3494737"
+    },
+    {
+      "path": "SOURCE-CONTRACT.md",
+      "bytes": 6390,
+      "sha256": "95a062aa10c5b60c938ca134342189cd3edbaa6254bae5b8ea89ef0b7cdb5354"
+    },
+    {
+      "path": "AUTHORING-ADDENDUM.md",
+      "bytes": 5516,
+      "sha256": "8924e79b93ab623bb38c54b4ff7f9a83558c86d904a15eb5d8a9e03f3d5c9c20"
+    },
+    {
+      "path": "CAP-ORIENTATION-ADDENDUM.md",
+      "bytes": 2278,
+      "sha256": "d545483c2d58f498b08830bfd6a0f587649cfff3bca10a6e45fcf825d227e126"
+    },
+    {
+      "path": "MATERIAL-OWNERSHIP-ADDENDUM.md",
+      "bytes": 1945,
+      "sha256": "bb6bb772a94c948bb0c8b5730a018ea334ca20698d6cfd572f37ae53b3aef207"
+    },
+    {
+      "path": "INERT-OWNED-MANIFEST.json",
+      "bytes": 1293,
+      "sha256": "abfee17437c425054eaadeb28699c51eeccd755bfcfc85a8f919ce980cc01f12"
+    },
+    {
+      "path": "CPU-ADMISSION.json",
+      "bytes": 3854,
+      "sha256": "5157d4e85b80c54b32e00326453b04d43b2212faa91265c78271d7a6448973cf"
+    },
+    {
+      "path": "OUTER.json",
+      "bytes": 1187,
+      "sha256": "22dfd57c44da4895eacf5071897a93f3cb7d9d2130eca6b6872ebed03820f29e"
+    },
+    {
+      "path": "DATA-RESULT.md",
+      "bytes": 5559,
+      "sha256": "34c82c0137c84bafe6a369ed098a386adaba7d694c6bb9975af309c4acc79eb3"
+    },
+    {
+      "path": "DATA-RECEIPT.json",
+      "bytes": 25764,
+      "sha256": "92f4499d1392fdcea0c1f743867b6e7c52300d7869e32a027f34aefa9d83e7b5"
+    }
+  ],
+  "local_code_bindings": [
+    {
+      "path": "build.py",
+      "bytes": 12303,
+      "sha256": "6b75bffa168cea9fe21e15faaad74bf23ea927520daf5f87269e35f040aad40e"
+    },
+    {
+      "path": "check-owned.py",
+      "bytes": 12810,
+      "sha256": "222a0e756362da42ddcc0ace568168bfe26d2cb7de1e20416eab27c83ac24c2f"
+    },
+    {
+      "path": "run-owned.py",
+      "bytes": 3194,
+      "sha256": "ff95d0251378d51fa33c39085d2ab3a5bd86037bbd0b3f5d3b01a8bdcb335dc2"
+    },
+    {
+      "path": "viewer.html",
+      "bytes": 939,
+      "sha256": "6fea55e9f8b909f379a08489e1ac158320fb5be9245e9dac01e758a07f3a7409"
+    },
+    {
+      "path": "viewer.js",
+      "bytes": 10296,
+      "sha256": "c5fdb2f2b48d2f4a77f948a2f0ce2b51dbd08433a0406fbc64a5bf067eaf66d6"
+    }
+  ],
+  "mesh": {
+    "path": "output/mesh.json",
+    "bytes": 4395139,
+    "sha256": "587628525665c43f992d86d0c9fbf035d341bc27c3e2f02f53d4ddb14ed38892"
+  },
+  "check": {
+    "path": "output/CHECK.json",
+    "bytes": 4459,
+    "sha256": "161c0c61deb200c449c8688c7a7035f6008f1dc6d75ec67a5ecb47e20e957116"
+  },
+  "materials": {
+    "Skin": {
+      "colour": "#b98770",
+      "roughness": 0.72
+    },
+    "Lips": {
+      "colour": "#8e5d55",
+      "roughness": 0.7
+    },
+    "Brow": {
+      "colour": "#40352e",
+      "roughness": 0.82
+    },
+    "Sclera": {
+      "colour": "#dcd5c8",
+      "roughness": 0.45
+    },
+    "Iris": {
+      "colour": "#4a3226",
+      "roughness": 0.5
+    },
+    "Pupil": {
+      "colour": "#151210",
+      "roughness": 0.5
+    }
+  },
+  "actual_data_handoff": [
+    {
+      "path": "DATA-RESULT.md",
+      "bytes": 5559,
+      "sha256": "34c82c0137c84bafe6a369ed098a386adaba7d694c6bb9975af309c4acc79eb3"
+    },
+    {
+      "path": "DATA-RECEIPT.json",
+      "bytes": 25764,
+      "sha256": "92f4499d1392fdcea0c1f743867b6e7c52300d7869e32a027f34aefa9d83e7b5"
+    }
+  ],
+  "root_independent_review": "e8e289 actual complete mesh/nine arrays/output pin read and recorded jobs gone; e8d1cc complete independent observer source/direct inputs/actual observation;69c5d4 final full result, final receipt closure/result fields, all35inputs+result/source/stdout verified. Actual outer/stdout JSON equality also independently verified here.",
+  "protocol": "Initial tab inventory; one owned IAB page, actual public DOM receipt saved/full root source/upload/material/group/camera/framing/draw/error audit BEFORE one whole unchanged image; actual image critic and root; Finish once/read attempted owned disposal then close only owned tab. First failure stops no rescue/retake. No served HTML/JS-to-disk byte equality, GPU completion/retirement, appearance, rig/anatomy/fit/motion/AAA certificate.",
+  "local_code_scope": "Vite may transform served HTML/JS; fetch pins select nontransformed authored data. Local reviewed code is independently pinned; actual runtime identity/readback separately required."
+}

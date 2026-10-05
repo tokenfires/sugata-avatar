@@ -1,0 +1,344 @@
+{
+  "schema": "root-neutral-head-closure-v1",
+  "closed_utc": "2026-10-05T21:10:55.249417+00:00",
+  "head_before": "cddb7829e81b5f8d33f5d0f0bade39af7eb1f5c2",
+  "decision": "B complete selected appearance; A actual saved-data/native identity at stated scopes",
+  "fixed_method_closed": true,
+  "no_successor_admitted": true,
+  "root_full_handoff_reads": [
+    "8e55f5",
+    "9b9800"
+  ],
+  "root_latest_independent_readback": "40dd85",
+  "additional_receipt_binding_rows_verified": 136,
+  "actual_source_observer_jobs_collected": [
+    1411,
+    1413,
+    1414,
+    1746,
+    2797
+  ],
+  "retained_review_ps": " 1023 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort\n",
+  "saved_automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "kind": "heartbeat",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10"
+  },
+  "pending_owned_jobs": [],
+  "native": "Only owned47 closed; all10 disposal calls returned; initial/current tab inventories empty; no GPU retirement claim",
+  "outputs_and_history": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/AUTHORING-ADDENDUM.md",
+      "bytes": 5516,
+      "sha256": "8924e79b93ab623bb38c54b4ff7f9a83558c86d904a15eb5d8a9e03f3d5c9c20"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CAP-ORIENTATION-ADDENDUM.md",
+      "bytes": 2278,
+      "sha256": "d545483c2d58f498b08830bfd6a0f587649cfff3bca10a6e45fcf825d227e126"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CONTRACT-ADDENDUM-RECEIPT.json",
+      "bytes": 9117,
+      "sha256": "f084dd9ca718f9726b7cb5502854b4597ade5179da1cbbd46094f6a1165c3dda"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CONTRACT-ADDENDUM-RESULT.md",
+      "bytes": 5221,
+      "sha256": "84cdf60728770e5639ee6846d8fd958e5cd7628d4c62c3b743762d42df6cf7df"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CONTRACT-RECEIPT.json",
+      "bytes": 6536,
+      "sha256": "3102a58e2e5900b25386e990f3340394f71a5991724afd0d8b7d87526fee16c8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CONTRACT-RESULT.md",
+      "bytes": 4419,
+      "sha256": "876419b8549107c227005dcb01bdc669596a8071913d5fd25fac7a1a3c48e655"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/CPU-ADMISSION.json",
+      "bytes": 3854,
+      "sha256": "5157d4e85b80c54b32e00326453b04d43b2212faa91265c78271d7a6448973cf"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/DATA-RECEIPT.json",
+      "bytes": 25764,
+      "sha256": "92f4499d1392fdcea0c1f743867b6e7c52300d7869e32a027f34aefa9d83e7b5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/DATA-RESULT.md",
+      "bytes": 5559,
+      "sha256": "34c82c0137c84bafe6a369ed098a386adaba7d694c6bb9975af309c4acc79eb3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMAGE-RECEIPT.json",
+      "bytes": 24336,
+      "sha256": "4e7dadbba566ed68ac9900b3625d04a086b1acfb51fae4b9416c2e6081af9369"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMAGE-RESULT.md",
+      "bytes": 7065,
+      "sha256": "14bd2731b88d208aab06b689063c0ec00c03bc8f77f8c7ae94e304188591fec1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMPLEMENTATION-RECEIPT.json",
+      "bytes": 14042,
+      "sha256": "b107096dea4e8041c9a8f380543510d4be3f6846df72642f8762adec5509d7b1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/IMPLEMENTATION-RESULT.md",
+      "bytes": 6021,
+      "sha256": "3545612867bf12b83f7f48c342d68c37a9875d0d2eabef6a928bc9d615319c19"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/INERT-OWNED-MANIFEST.json",
+      "bytes": 1293,
+      "sha256": "abfee17437c425054eaadeb28699c51eeccd755bfcfc85a8f919ce980cc01f12"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/INERT-SOURCE-MANIFEST.json",
+      "bytes": 3184,
+      "sha256": "1d7275e2b69ef3713921adc8d0f460304a1c12d7de92a255ce15f2b2eec36629"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/MATERIAL-OWNERSHIP-ADDENDUM.md",
+      "bytes": 1945,
+      "sha256": "bb6bb772a94c948bb0c8b5730a018ea334ca20698d6cfd572f37ae53b3aef207"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/NATIVE-ADMISSION.json",
+      "bytes": 4595,
+      "sha256": "e7c8724c1ee93885054487adc7d4470c1ae54ea681767ef8b6a693d9fed6be20"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/NATIVE-CONSOLE.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/NATIVE-FINISH.json",
+      "bytes": 623253,
+      "sha256": "e3a6edc4d7e14efd35232c6ecdd211518077e93b85c812089dc90b3095a3f215"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/NATIVE-READY.json",
+      "bytes": 621849,
+      "sha256": "233d32ef0efc64dd47fcd5911da3bf202ed63c6942231bef3785d73d44dfd674"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/OUTER.json",
+      "bytes": 1187,
+      "sha256": "22dfd57c44da4895eacf5071897a93f3cb7d9d2130eca6b6872ebed03820f29e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/PLAN.json",
+      "bytes": 3577,
+      "sha256": "1aa13c920327a738752ac40a28c1444e7fcd4101b45be52dee80058722fa8cbe"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/README.md",
+      "bytes": 1503,
+      "sha256": "2c9d46752535a9c9091b1c1b2f97eb8253a98befbb48d6939c51e63ca9a47b59"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/RECEIPT.md",
+      "bytes": 4734,
+      "sha256": "30e113cdad9f5cbaed0df0ab193b4b5a7a332843847da887c43454fc9ddb226c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/RECOVERY-IN-PROGRESS.json",
+      "bytes": 3252,
+      "sha256": "ad7490dc5f9d686b525cea78a895cddb3e35761cb35d3f79858d9843799c1d13"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-CONTRACT-ADMISSION.json",
+      "bytes": 10001,
+      "sha256": "43e558836a1fcdb4d24ac32a310da4dff8f598126dd7adc939bf1b6cc2eb3e3e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-CORRECTED-SOURCE-REVIEW.md",
+      "bytes": 1810,
+      "sha256": "b8852371e14562c56f907101ef5862e995639222fd692ba89bdb0cd8e2dbbc47"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-DATA-READ.json",
+      "bytes": 63131,
+      "sha256": "c5266a47977f535b12c26345b30b8288e38a79d3025550770a799ac7672e8415"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-FIRST-IMAGE.md",
+      "bytes": 2557,
+      "sha256": "ea981336d8f815bdf014d3cea71bad0074dba041e3e65b09bc3aa1328069e2fc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-INERT-REVIEW.md",
+      "bytes": 3227,
+      "sha256": "c61f3d1991d079860448ee24ff987d5561d47b665bb91b264ba1eac739d2f080"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-NATIVE-IDENTITY.json",
+      "bytes": 1186,
+      "sha256": "61616e2061bfe14b0b8036647dd9a6b720e3e1939c62416d0db834fd8ba56cce"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/ROOT-RECONCILIATION.md",
+      "bytes": 3257,
+      "sha256": "e9f6b361f06c2953646d25e58505a45c3ed5f28698b0c1b2a0023ea350119db1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE-CONTRACT.md",
+      "bytes": 6390,
+      "sha256": "95a062aa10c5b60c938ca134342189cd3edbaa6254bae5b8ea89ef0b7cdb5354"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/SOURCE.json",
+      "bytes": 9274,
+      "sha256": "91aa17950074fc247cab3af3d803018714acc6884523f82c4bb0f7f6a3494737"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/TABS-AFTER.json",
+      "bytes": 92,
+      "sha256": "37bab873d3f7120e40ccd077594f1182d1236b4b53ab6b821b8888e27ed12031"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/TABS-BEFORE.json",
+      "bytes": 64,
+      "sha256": "467bf908f797a2f89f6fe1f8728cc8e00ecc38a3d4ba418b7972d381ec9fd1c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/build.py",
+      "bytes": 12303,
+      "sha256": "6b75bffa168cea9fe21e15faaad74bf23ea927520daf5f87269e35f040aad40e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/build.py.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/build.py.stdout.txt",
+      "bytes": 1573,
+      "sha256": "efe9ae9bd81aebbbbb3823291b685a1ba08e94bd0ed624d8461c12f79afe2a39"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/check-owned.py",
+      "bytes": 12810,
+      "sha256": "222a0e756362da42ddcc0ace568168bfe26d2cb7de1e20416eab27c83ac24c2f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/check-owned.py.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/check-owned.py.stdout.txt",
+      "bytes": 3729,
+      "sha256": "2d3e9dc8c36efc45af65ac5a60c6df69a41963b4a88c926ac083acbc7cb99400"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/check.py",
+      "bytes": 11303,
+      "sha256": "0ae50d5567c744a7aadacc5375013b3deef25a499558771daadb58e6b8dbc79e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/native-whole.jpg",
+      "bytes": 38290,
+      "sha256": "171ec399b31ba63d62ccc3930105d9504ccdb3b6a3687c960788c12ac8fcd318"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/BUILD.json",
+      "bytes": 2677,
+      "sha256": "e1295ded213e685ea2c9eb56b2353034094f1f5cdbec97f92334bf117a725dfb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/CHECK.json",
+      "bytes": 4459,
+      "sha256": "161c0c61deb200c449c8688c7a7035f6008f1dc6d75ec67a5ecb47e20e957116"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/EyeLeft-normals.f32",
+      "bytes": 23832,
+      "sha256": "44894b320aac84746d47c6f9f178ccb3a637ae78f65269f311c054ba35c9f3e4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/EyeLeft-positions.f32",
+      "bytes": 23832,
+      "sha256": "92329333b25e50c30f1531e684fe4af2113f9aaa5a8d2ed89aa3006462a21603"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/EyeLeft-triangles.u32",
+      "bytes": 47616,
+      "sha256": "e030d208c0b7698a7aedd15ab448967d9616cbb074a7ad791255ca70aaa50069"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/EyeRight-normals.f32",
+      "bytes": 23832,
+      "sha256": "e891fc5ea6e12175cce77969aedd7d09cb89c115606987dc00050d3ee0b8366a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/EyeRight-positions.f32",
+      "bytes": 23832,
+      "sha256": "ae4f1415c5adedf96dd146d99f6e0164661ecccaf5c527c7e75a7a2d30008b8b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/EyeRight-triangles.u32",
+      "bytes": 47616,
+      "sha256": "e030d208c0b7698a7aedd15ab448967d9616cbb074a7ad791255ca70aaa50069"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/Skin-normals.f32",
+      "bytes": 252504,
+      "sha256": "f551f3400bf05a3090c04fcfcd30f1f332f71ee5d04b3b1ad30d2c64e14b5b92"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/Skin-positions.f32",
+      "bytes": 252504,
+      "sha256": "e852b8be98889fbc5a973ac65b6e8b736410a2222520036fe16e8208e5fb7746"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/Skin-triangles.u32",
+      "bytes": 504960,
+      "sha256": "aeb9c69d101041a946e0bc1aa8a48cad5ef282bbda13b886436fe3978ae83fb2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/mesh.json",
+      "bytes": 4395139,
+      "sha256": "587628525665c43f992d86d0c9fbf035d341bc27c3e2f02f53d4ddb14ed38892"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/neutral-head.mtl",
+      "bytes": 523,
+      "sha256": "8d78fb6d9c689df1d7b4c54225f9560e626aabc6b94cf8f43d5d35d548ca5d5b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/output/neutral-head.obj",
+      "bytes": 3919896,
+      "sha256": "bde8a4e130307ef0748d586720c640dccff239e07a05087f36e6cbef022703dc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/run-one.py",
+      "bytes": 3188,
+      "sha256": "4e476f7fd065b1b8153b2d04336962d91477ce78979d9a38ba28f88fa6b8b9e9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/run-owned.py",
+      "bytes": 3194,
+      "sha256": "ff95d0251378d51fa33c39085d2ab3a5bd86037bbd0b3f5d3b01a8bdcb335dc2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/viewer.html",
+      "bytes": 939,
+      "sha256": "6fea55e9f8b909f379a08489e1ac158320fb5be9245e9dac01e758a07f3a7409"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/neutral-head-artist-source/viewer.js",
+      "bytes": 10296,
+      "sha256": "c5fdb2f2b48d2f4a77f948a2f0ce2b51dbd08433a0406fbc64a5bf067eaf66d6"
+    }
+  ],
+  "next": "Fresh bounded worth for a genuinely distinct complete artist facial source only; no fixed-source/formula/material/tessellation/view/capture retry. Human steering wins."
+}
