@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-05T06:14:34.534441+00:00",
+  "readCommand": "f047a5 full README/RECEIPT",
+  "decision": "A accurately limited observed draft; final root retention/close pending",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+      "bytes": 1902,
+      "sha256": "6c7d53f51df2b917e8b7653823900f4908b1a64384a27abe50733d2c72d9ff8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RECEIPT.md",
+      "bytes": 4220,
+      "sha256": "4370e6248f792f87b617cb2dd8bb1729c8ef9360b1972c3436f3b8c0a7276d17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT.md",
+      "bytes": 3502,
+      "sha256": "02200458de5e90448e85aa5ff7ae2328b27ce3a4577708a88303c3a8f8e2990b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT-RECEIPT.json",
+      "bytes": 10678,
+      "sha256": "f98ef696856cc22550cfe6691d05731d0c4b04fa854dcb423bc803cf9af2cffd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/ROOT-OBSERVATION.json",
+      "bytes": 7036,
+      "sha256": "92235782ca74726ab81d6f509779ddb106ae2e3131781ce2cf86274ed6c0227d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/DELIVERY-DRAFT-REVIEW.md",
+      "bytes": 1195,
+      "sha256": "92d42630e6edfcf32c7cada5a4785b9c8e42141b808f8fb7654aab3ebac80890"
+    }
+  ],
+  "links": [
+    {
+      "target": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/preview.html",
+      "scope": "literal localhost URL only; no HTTP/native read"
+    },
+    {
+      "target": "1-ready.png",
+      "exists": true
+    },
+    {
+      "target": "2-request.png",
+      "exists": true
+    },
+    {
+      "target": "3-dismiss.png",
+      "exists": true
+    },
+    {
+      "target": "CONTRACT.md",
+      "exists": true
+    },
+    {
+      "target": "SOURCE-RESULT.md",
+      "exists": true
+    },
+    {
+      "target": "CORRECTED-SOURCE-RESULT.md",
+      "exists": true
+    },
+    {
+      "target": "ROOT-OBSERVATION.json",
+      "exists": true
+    },
+    {
+      "target": "native-events.json",
+      "exists": true
+    },
+    {
+      "target": "console.json",
+      "exists": true
+    }
+  ],
+  "scope": "Full literal docs/read-only local link existence; no HTTP/native/tests/edits to delivered sources."
+}

@@ -1,0 +1,26 @@
+- generic "Current casual outfit preview"
+- main:
+  - generic: Sugata / wardrobe study
+  - heading "Ask for another option" [level=1]
+  - paragraph: Explore an outfit suggestion while keeping your current look fixed.
+  - region "Current look":
+    - heading "Your current look" [level=2]
+    - paragraph: Tee + denim · Shoes
+    - text: Outfit fixed · Pin holds
+  - generic: How dressy should the suggestion be?
+  - combobox "How dressy should the suggestion be?":
+    - option "1 · Very relaxed"
+    - option "2 · Relaxed"
+    - option "3 · Between relaxed and dressy"
+    - option "4 · Dressy" [selected]
+    - option "5 · Most dressy"
+  - button "Request suggestion" [active]
+  - region "Suggested outfit":
+    - heading "Blouse + skirt" [level=2]
+    - paragraph: Elegant suit · Low shoes
+    - paragraph: "Blouse + skirt: authored catalogue formality 4/5, closest to requested 4/5."
+    - paragraph: Suggestion only. Your current look stays on.
+    - button "Dismiss suggestion"
+  - status: Suggestion recorded. Worn outfit unchanged; pin holds.
+  - text: The ratings are catalogue choices. Finished fit and movement remain under review.
+  - generic "Session record"

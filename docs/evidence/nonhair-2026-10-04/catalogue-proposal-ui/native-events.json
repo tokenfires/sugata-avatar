@@ -1,0 +1,42 @@
+[
+  {
+    "utc": "2026-10-05T06:06:39.330Z",
+    "event": "root-native-start",
+    "baselineTabs": []
+  },
+  {
+    "utc": "2026-10-05T06:06:39.939Z",
+    "event": "created",
+    "tabId": "34"
+  },
+  {
+    "utc": "2026-10-05T06:06:49.891Z",
+    "event": "load-click"
+  },
+  {
+    "utc": "2026-10-05T06:07:01.594Z",
+    "event": "ready-original",
+    "tabId": "34",
+    "output": "1-ready.png"
+  },
+  {
+    "utc": "2026-10-05T06:07:22.638Z",
+    "event": "request4-original",
+    "output": "2-request.png"
+  },
+  {
+    "utc": "2026-10-05T06:07:47.275Z",
+    "event": "dismiss-original",
+    "output": "3-dismiss.png"
+  },
+  {
+    "utc": "2026-10-05T06:07:57.981Z",
+    "event": "owned-tab-close-returned",
+    "tabId": "34"
+  },
+  {
+    "utc": "2026-10-05T06:07:58.094Z",
+    "event": "inventory-readback",
+    "tabs": []
+  }
+]

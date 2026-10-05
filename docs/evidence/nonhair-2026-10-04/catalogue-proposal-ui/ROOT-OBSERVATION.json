@@ -1,0 +1,204 @@
+{
+  "utc": "2026-10-05T06:10:45.566702+00:00",
+  "pid": 58090,
+  "observer": "Root actually viewed all3 complete unchanged originals in CUA tools and independently read complete DOM/state/console/events. Numerical checks support actual visual witness.",
+  "decision": "Source and actual control/state appear useful; awaiting independent image result before qualified retention.",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/1-ready.png",
+      "bytes": 54701,
+      "sha256": "574f89eb42d9083f56cbee6d18f6ffa4493b17b32985e637e5a9d1d43b676526",
+      "actualEncoding": "JPEG/JFIF",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/1-ready-dom.txt",
+      "bytes": 854,
+      "sha256": "3c7a5178f5014e079f86359111ed3d66b12bbeb9479eecf45122f1ea18af221e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/1-ready-record.json",
+      "bytes": 3422,
+      "sha256": "449cc458e211295573ed0ae60dd8de5676088a0f16aff154497f0ff8a5d65449"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/2-request.png",
+      "bytes": 59990,
+      "sha256": "308356a337a7afd72d4802cecf513674d68b792b9c8da8580554447697abc9f9",
+      "actualEncoding": "JPEG/JFIF",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/2-request-dom.txt",
+      "bytes": 1180,
+      "sha256": "3b3805e287916300e1bd06c21a2ed4001a2c1480678b8882c9b6615d673158e2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/2-request-record.json",
+      "bytes": 4100,
+      "sha256": "505b635c7886a54abb470e4c1d82681c993445d4dbc01f49b291305ab0e92974"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/3-dismiss.png",
+      "bytes": 54897,
+      "sha256": "9f353246f1167af2f5b20a604ddd3e03a1c8245c1b9386a873f2fd7ea65e32ae",
+      "actualEncoding": "JPEG/JFIF",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/3-dismiss-dom.txt",
+      "bytes": 875,
+      "sha256": "016a253e160f952833d4f2d2023044b108018112c7acc8cd2cf7697fd2adae41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/3-dismiss-record.json",
+      "bytes": 4570,
+      "sha256": "79f92d029f31e150699ce389eae72222fffc3d733ed22f9ffbcd3f3dec4c3ce3"
+    }
+  ],
+  "observations": [
+    "All3 actual frames retain same blue tee/denim/brown shoes figure, readable currentlook/pin.",
+    "Requested4 shows readable Blouse+skirt and authored4/5 explanation; no outfit change.",
+    "Dismiss removescard, restoresRequestfocus and retains1unhonouredpreference.",
+    "At1280x720 lowerDismissbutton is partially belowfold in request original; semanticclick automatically scrolls as needed, no source/camera/epoch adjustment or retake."
+  ],
+  "state": {
+    "initial": {
+      "utc": "2026-10-05T06:06:49.828Z",
+      "event": "ready",
+      "baseline": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "pinHolds": true
+      },
+      "backend": "webgpu",
+      "preferences": 0
+    },
+    "request": {
+      "utc": "2026-10-05T06:07:22.259Z",
+      "event": "request",
+      "requested": 4,
+      "recipe": "elegant",
+      "proposal": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_elegantsuit01",
+        "shoes01"
+      ],
+      "state": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "pinHolds": true
+      },
+      "preferences": 1,
+      "honoured": false
+    },
+    "dismiss": {
+      "utc": "2026-10-05T06:07:46.937Z",
+      "event": "dismiss",
+      "state": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "female_casualsuit01",
+          "shoes01"
+        ],
+        "pinHolds": true
+      },
+      "preferences": 1
+    }
+  },
+  "console": [
+    {
+      "level": "warn",
+      "message": "Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back \u2014 jaw to the jawOpen morph, gaze to the eyeLook* morphs.",
+      "timestamp": "2026-10-05T06:06:49.713Z",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js?t=1791136763731"
+    }
+  ],
+  "nativeEvents": [
+    {
+      "utc": "2026-10-05T06:06:39.330Z",
+      "event": "root-native-start",
+      "baselineTabs": []
+    },
+    {
+      "utc": "2026-10-05T06:06:39.939Z",
+      "event": "created",
+      "tabId": "34"
+    },
+    {
+      "utc": "2026-10-05T06:06:49.891Z",
+      "event": "load-click"
+    },
+    {
+      "utc": "2026-10-05T06:07:01.594Z",
+      "event": "ready-original",
+      "tabId": "34",
+      "output": "1-ready.png"
+    },
+    {
+      "utc": "2026-10-05T06:07:22.638Z",
+      "event": "request4-original",
+      "output": "2-request.png"
+    },
+    {
+      "utc": "2026-10-05T06:07:47.275Z",
+      "event": "dismiss-original",
+      "output": "3-dismiss.png"
+    },
+    {
+      "utc": "2026-10-05T06:07:57.981Z",
+      "event": "owned-tab-close-returned",
+      "tabId": "34"
+    },
+    {
+      "utc": "2026-10-05T06:07:58.094Z",
+      "event": "inventory-readback",
+      "tabs": []
+    }
+  ],
+  "limits": "Static isolated controls3states only; no overallappearance/hair/fit/motion/mood/thermal/full9.11/representativestarter. Pagehide disposals not independentlyread aftertabclosed; no fullGPU/bitmapretirement certificate.",
+  "observerCorrections": [
+    "64810f/exit1 stopped before output on assumed PNG signature. file b8ceb3/0 established actual JPEG/JFIF. Original .png filenames and complete JPEG bytes untouched; no conversion or capture retry.",
+    "f83eab/exit1 stopped before output: observer treated request-event integer requested4 as asset URL. Restrict source-route check to six asset events; originals/runtime untouched."
+  ]
+}

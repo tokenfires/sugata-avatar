@@ -10,6 +10,7 @@ Updated October 4, 2026. **Customization is usable; complete character quality i
 - [x] Download a saved look's JSON without replacing the active preview. [Export evidence](evidence/appearance-2026-10-02/saved-export/README.md)
 - [x] Use the mobile view-controls row with visible boots in reviewed layouts; short screens require scrolling. [Layout evidence](evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md)
 - [x] Open the optional Ink and denim outfit and compare its captured room/portrait views. [Open and compare Ink](../looks/INK-DENIM.md)
+- [x] Request, read and dismiss authored outfit suggestions in an isolated desktop study while the current casual outfit stays pinned; the proposal panel requires scrolling at the reviewed window height. [Preview and actual controls](evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md)
 
 ## Artist and research deliverables available
 

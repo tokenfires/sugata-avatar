@@ -1,0 +1,234 @@
+{
+  "savedUtc": "2026-10-05T06:13:40.284007+00:00",
+  "observerPid": 58385,
+  "decision": "A isolated desktop request/read/dismiss preview with disclosed panel scrolling",
+  "originalImagesActuallyViewed": [
+    "1-ready.png",
+    "2-request.png",
+    "3-dismiss.png"
+  ],
+  "actualEncoding": "JPEG/JFIF at unchanged .png paths",
+  "sourcePinsVerified": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/CONTRACT.md",
+      "bytes": 3407,
+      "sha256": "fbbd4bdd273db045d3119b4e32f94a557af701aac94845dcb0181f6f6a9505a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/preview.html",
+      "bytes": 3767,
+      "sha256": "ee849a734ef31b11eedd88ac0e3b00dc6f2e0276de0b8f1728151853622f11e2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/preview.js",
+      "bytes": 9412,
+      "sha256": "31ab74305cec0c21746cb76eb199e9e65a6151b2dc63318dec6e0aba241d83e5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/asset-pins.js",
+      "bytes": 1334,
+      "sha256": "db3b890f9f619293baa80c149417371e17b4fb8ec496b5634ab51658c2041329"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/render/Stage.js",
+      "bytes": 42642,
+      "sha256": "726f4002297ee2bd328c9fbc09cfe0c9c6b18c06537d6b8fe7434fc71e3800b0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    }
+  ],
+  "directPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/1-ready.png",
+      "bytes": 54701,
+      "sha256": "574f89eb42d9083f56cbee6d18f6ffa4493b17b32985e637e5a9d1d43b676526"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/2-request.png",
+      "bytes": 59990,
+      "sha256": "308356a337a7afd72d4802cecf513674d68b792b9c8da8580554447697abc9f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/3-dismiss.png",
+      "bytes": 54897,
+      "sha256": "9f353246f1167af2f5b20a604ddd3e03a1c8245c1b9386a873f2fd7ea65e32ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/1-ready-dom.txt",
+      "bytes": 854,
+      "sha256": "3c7a5178f5014e079f86359111ed3d66b12bbeb9479eecf45122f1ea18af221e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/2-request-dom.txt",
+      "bytes": 1180,
+      "sha256": "3b3805e287916300e1bd06c21a2ed4001a2c1480678b8882c9b6615d673158e2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/3-dismiss-dom.txt",
+      "bytes": 875,
+      "sha256": "016a253e160f952833d4f2d2023044b108018112c7acc8cd2cf7697fd2adae41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/1-ready-record.json",
+      "bytes": 3422,
+      "sha256": "449cc458e211295573ed0ae60dd8de5676088a0f16aff154497f0ff8a5d65449"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/2-request-record.json",
+      "bytes": 4100,
+      "sha256": "505b635c7886a54abb470e4c1d82681c993445d4dbc01f49b291305ab0e92974"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/3-dismiss-record.json",
+      "bytes": 4570,
+      "sha256": "79f92d029f31e150699ce389eae72222fffc3d733ed22f9ffbcd3f3dec4c3ce3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/native-events.json",
+      "bytes": 826,
+      "sha256": "7dce96bbd6058a7a4afbc1507912092e6d72fe7ea86dd2e376b557225093584a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/console.json",
+      "bytes": 397,
+      "sha256": "89c01593456ba0184de8c8b84e6a3ef3fdd5b76ccb097c9cb2b234ffb6d09ffc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/ROOT-OBSERVATION.json",
+      "bytes": 7036,
+      "sha256": "92235782ca74726ab81d6f509779ddb106ae2e3131781ce2cf86274ed6c0227d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/ROOT-NATIVE-ADMISSION.json",
+      "bytes": 691,
+      "sha256": "9fde920938979463e754bda3d5f0f0445e6f5cf69a107cf845a37bcf03a11bd8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/CORRECTED-SOURCE-INPUTS.json",
+      "bytes": 3710,
+      "sha256": "8d3290c161c7585d04bd1230cb4d3b463ac7e53b988e9f478043d393feb68d0f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/CORRECTED-SOURCE-RESULT.md",
+      "bytes": 3421,
+      "sha256": "64444ce6e0ae5468b264679b47fabb48be2fbffb03b0a4a3d53495f628689858"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/CORRECTED-SOURCE-RECEIPT.json",
+      "bytes": 11143,
+      "sha256": "d84fe6722e6dc712e2bf3edff50439920fe8cb174308c62e7614842d6ae3592a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/CONTRACT.md",
+      "bytes": 3407,
+      "sha256": "fbbd4bdd273db045d3119b4e32f94a557af701aac94845dcb0181f6f6a9505a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/preview.js",
+      "bytes": 9412,
+      "sha256": "31ab74305cec0c21746cb76eb199e9e65a6151b2dc63318dec6e0aba241d83e5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/preview.html",
+      "bytes": 3767,
+      "sha256": "ee849a734ef31b11eedd88ac0e3b00dc6f2e0276de0b8f1728151853622f11e2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/asset-pins.js",
+      "bytes": 1334,
+      "sha256": "db3b890f9f619293baa80c149417371e17b4fb8ec496b5634ab51658c2041329"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/PLAN.json",
+      "bytes": 2633,
+      "sha256": "9d3888302609fb21cb17ced14da3391da8956516187e95cdd9bf91dad8996dca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/INPUTS.json",
+      "bytes": 2240,
+      "sha256": "1996f38044b7b0cebe10f499a357558cb93628e080d2915de89031fadfdaefd9"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/RESULT.md",
+    "bytes": 3502,
+    "sha256": "02200458de5e90448e85aa5ff7ae2328b27ce3a4577708a88303c3a8f8e2990b"
+  },
+  "independentSavedChecks": {
+    "stateEquality": true,
+    "preferences": [
+      0,
+      1,
+      1
+    ],
+    "requested": 4,
+    "recipe": "elegant",
+    "honoured": false,
+    "actualBackend": "webgpu",
+    "matchingAssetReceiptsPerRecord": 6,
+    "dismissRegionAbsentAndRequestActive": true,
+    "jpegSignaturesAndEOI": true,
+    "knownTab34CloseAndEmptyInventory": true
+  },
+  "readCommands": [
+    "1ca0e8 inventory/UTC",
+    "39052d full three saved records and DOM",
+    "63c4ac full root observation/admission/current pin manifest/asset table and HTML/request-dismiss source"
+  ],
+  "scope": "Current observer uses Python stdlib saved JSON/hash/signature checks only. No producer/core imports, GLB decode, tests, native, image conversion or capture. Images were actually viewed earlier at original detail. No pixel equality or post-close allocator proof.",
+  "rootObserverCorrections": "ROOT-OBSERVATION discloses earlier PNG-header and unfiltered requested-field assumptions; those root checks stopped before output. They changed no native image/source.",
+  "nextWorth": "Immediate short-groom construction B; future complete owned source/head/attachment contract conditional only, no execution admission."
+}
