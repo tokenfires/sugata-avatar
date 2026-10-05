@@ -1,0 +1,166 @@
+{
+  "decision": "B \u2014 metadata reader not worthwhile on current source choice; no reader preparation/execution admitted",
+  "startedAt": "2026-10-05T04:38:59.392346+00:00",
+  "savedAt": "2026-10-05T04:38:59.406101+00:00",
+  "pid": 48628,
+  "publication": "One stdlib documentation/pin publisher; all 18 declared inputs compared before writing; no candidate reader imported or run.",
+  "checkedInputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g100.glb",
+      "bytes": 11917172,
+      "sha256": "0640ab09ab420128cb8fc48236fc25844db36f818105bb4f37637ece43d87c19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_vest/g100.glb",
+      "bytes": 1166188,
+      "sha256": "db0339870e3a438435358f343d1232806aad0e7a3168ef78b88fda42749ec278"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_boxer_brief/g100.glb",
+      "bytes": 543264,
+      "sha256": "a0dfd64cd0712eea8dda1b757c2684984ec490d8978c115aec2b2b48c1040aa3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/RESULT.md",
+      "bytes": 3202,
+      "sha256": "44acfddf7fc70349fdf1e790f411cc9a467167f3560121b42a5b0f7c42b8d626"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-rest-addressed/README.md",
+      "bytes": 2213,
+      "sha256": "ff9b2cd1e67a36e781498d829253bd8794d95bd0429c5466d6f9599be9615527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/README.md",
+      "bytes": 1655,
+      "sha256": "6731d7e9c0f588d6bfbf3e292dd6f90d2ec57f5094cd653df18a69768991da3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/CONTRACT.json",
+      "bytes": 4258,
+      "sha256": "d23d278e11cac535240fb7bc9eb135c589e4cd2c88482651a2416127a457b39b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/ARTISTIC-STOP.md",
+      "bytes": 2492,
+      "sha256": "0860fb17e7e29468fefa243827e0407d2f95d1bb5c5a1b5f93651c0b4fdfd59b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/rowan-portrait/front.jpg",
+      "bytes": 53638,
+      "sha256": "05f0b6e884b36798099a586fc163cc8fdaa56d73b6bc20cd3a45cb0d5ac6e473"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    }
+  ],
+  "additionalPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-source-ownership/PLAN.json",
+      "bytes": 2383,
+      "sha256": "a3873c011eec46ece17104f22ad33475d30fb711d701b22728fddafbcf2a2c05"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-source-ownership/INPUTS.json",
+      "bytes": 4985,
+      "sha256": "5a827be44377f0e7e3043e14a064f34c001d1253cfe8af56561aa2986b2acbe2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-source-ownership/WORTH.md",
+      "bytes": 2843,
+      "sha256": "7047543afcef366b3dec849ea99a3ab2502481dcaf4e1ec9faa5ba3c89db0643"
+    }
+  ],
+  "actualSourceReads": {
+    "full": [
+      "PLAN.json",
+      "INPUTS.json",
+      "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "source-rest-addressed/README.md",
+      "original-surface-ledger/README.md",
+      "original-surface-ledger/CONTRACT.json"
+    ],
+    "selected": [
+      "Identity.js:1\u2013105,180\u2013221,219\u2013290,292\u2013346",
+      "IdentityCatalogue.js:65\u201384",
+      "Avatar.js:774\u2013835,860\u2013933,3027\u20133065,4680\u20134737",
+      "Figure.js:114\u2013117,275\u2013380",
+      "manifest.json:1\u201312,88\u2013104,124\u2013140"
+    ],
+    "noFullAvatarReadClaim": true
+  },
+  "imageObservations": {
+    "freshCaptureOrViewInThisWorth": false,
+    "previousCurrentSliceActualWholeOriginalViews": [
+      "masculine-character-target/concept-v1.png \u2014 original detail; independent verdict before root image review",
+      "rowan-portrait/front.jpg \u2014 whole original; retained prior artistic refusal"
+    ],
+    "imageBytesReverified": true,
+    "scope": "Illustration/style and retained pixel limitations only; no g100 source geometry authority."
+  },
+  "readCommandChunks": [
+    "99f8f6",
+    "2fb9cf",
+    "aaa727",
+    "eae7ab",
+    "abc0c2",
+    "5c14a2",
+    "2a7be4"
+  ],
+  "limits": [
+    "All four GLBs hash-only; no JSON/header/binary decode.",
+    "No metadata reader authored, imported or executed.",
+    "No world/skin computation, renderer, browser, GPU, query or generation.",
+    "Different hashes and sizes are not a geometry-equivalence verdict.",
+    "Existing g050 ledger is not g100 authority.",
+    "No change to accepted sources or frozen evidence; only this worth handoff published."
+  ]
+}
