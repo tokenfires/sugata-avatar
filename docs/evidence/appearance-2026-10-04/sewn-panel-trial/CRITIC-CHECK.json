@@ -1,0 +1,672 @@
+{
+  "decision": "B literal source clearance; independent actual counterexample verified",
+  "started": "2026-10-05T02:15:44.248053+00:00",
+  "completed": "2026-10-05T02:15:44.607047+00:00",
+  "pid": 50617,
+  "pins": {
+    "outputs": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/EARS-BACK.json",
+        "bytes": 11911,
+        "sha256": "f662b01dd3c11d561305a47a6d4a7040afd6beae797b15c7cbed748e86d1702a"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/EARS-FRONT.json",
+        "bytes": 11903,
+        "sha256": "12e0bc77c0c7285729ab41c59769e6e7233495cd13e840b7d74fc0e6ca0e081c"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/FRAGMENT-CERTIFICATES.jsonl",
+        "bytes": 5319520,
+        "sha256": "5d8611a811e6f643677fdc4c570a633ca12da22112a07285591f31725dd68c92"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/FRAGMENTS.json",
+        "bytes": 27371616,
+        "sha256": "bfeb075b96a489ff8d5d18dac1c12f1901f2b80053f7459924ac7c5cdb95b75e"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/JOB.json",
+        "bytes": 26391,
+        "sha256": "dad274c51b0cfd532aac7d1cae792a100356d2e5154aa248900687690f92c7da"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/METRIC-FRAME.json",
+        "bytes": 579,
+        "sha256": "798346de7fa561cd2518cb8f1788488234a855946e302ce48cba09706061e354"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/METRIC-OPERANDS.json",
+        "bytes": 4743,
+        "sha256": "4310ab6aedc435be01666ee0da46b21f59653a611dd54a3cdffd8bfe6347bc79"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/METRIC-SCALARS.json",
+        "bytes": 291,
+        "sha256": "ff44bedca6a3569f2765fafd0ed9739af1d1ad6f93058d30ad272dedd51c191a"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/OPENINGS.json",
+        "bytes": 240,
+        "sha256": "ac76e2907a4fadab000a97323b66d46ae3210a09dfa5b02a6205ecac4e966962"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/PARTIAL.json",
+        "bytes": 333,
+        "sha256": "caf31c1ea1fc80fae26e35655e94e5a56c66803e5274260e35094242068c41db"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/PHYSICAL.json",
+        "bytes": 37669,
+        "sha256": "03edee784207d0e6b20b8c608b13150a9b8cd99f5f58d55e3aaed5a59b223359"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/RAY-OPERANDS.json",
+        "bytes": 616,
+        "sha256": "668d45babc1c333440b4ad6b2b0d052adb2a86b527518d41c4271b0c9b4ff9cd"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/REFUSAL.json",
+        "bytes": 28861,
+        "sha256": "9c1e7ddf5468b7ad99456959de08147885e05404387add4f2f8aedb78ee973c7"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/REPORT.json",
+        "bytes": 57399,
+        "sha256": "f0d2499ce0f8284860772387a5c120f765350cb1392408dc79d8b0519f466f69"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/SELF-PHYSICAL.json",
+        "bytes": 77,
+        "sha256": "47b90d5f9f112363515b1c290915e8a6bd0090f3e85e7d0bb260db5eba85a630"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/SELF-TEST.json",
+        "bytes": 77,
+        "sha256": "fa6993a2589d062bd20e8220b4db6b4aa108af917d7bcdc7050a6d2668a8ac0b"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/SOURCE-DOMAIN.json",
+        "bytes": 3290,
+        "sha256": "b77aca3ebca59fb2f6051f82115d4c220e61540631af16c47c39677fe56bf827"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/STDERR.txt",
+        "bytes": 7460,
+        "sha256": "b6dcdbb92a18aaf265a008eb85ed67e7f32369a1914b6882643c125e7651f3a2"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/STDOUT.txt",
+        "bytes": 3981,
+        "sha256": "905bc93935fcbcb0de721712579e96281928b17604aac673fd42a492d00ca54d"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/TEST-SOLID.json",
+        "bytes": 11358,
+        "sha256": "6bd8db7d65397085e1352ce6149b93ea03842f879aef53223f1dea6fd8a1f001"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/TOPOLOGY-PHYSICAL.json",
+        "bytes": 1223,
+        "sha256": "1b963db98ac8e66d8a54b2f89fb856d4d0bb2f4658a67d427b0966c9c962dac4"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/TOPOLOGY-TEST.json",
+        "bytes": 529,
+        "sha256": "64058b68f0ec785e2e221cb021777afeba2114417b88e88a74d6a317a47b1b13"
+      }
+    ],
+    "source": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/exact.py",
+        "bytes": 7314,
+        "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/spatial.py",
+        "bytes": 3676,
+        "sha256": "649c53684e54363c73d2ac1f5397fe575ba36ade7a58a3933cf94b8e7a0e6c1e"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/panel.py",
+        "bytes": 9887,
+        "sha256": "6889eb45547dcacef1a4a0a2ed8774e48a3aa6d470ce1474dce84349371efa82"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/audit.py",
+        "bytes": 10992,
+        "sha256": "6a2e1bc0e00c926938c2de52c29f73e86bd6de64a847e9aaabc737fbacee531b"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/author.py",
+        "bytes": 7359,
+        "sha256": "bf0b4edcb94ef6dc2af22a66fe5395bd6fff185b707dd11c9d38b6431828bbe3"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/runner.py",
+        "bytes": 4861,
+        "sha256": "d5c991197e27c8b3b677beb28ddee4a33105cd5837f055afaf2185b156fe032e"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE.md",
+        "bytes": 5853,
+        "sha256": "9ac81b683afb8a4fa0e61f568d86e4fe1c7bb5f159e045519bc2dffd2b16ebe4"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/REUSE.json",
+        "bytes": 1757,
+        "sha256": "67a53ae37e4dc4e57e0d0d76559e1a83f274f8ed22fd7d2ba6e8ef73301fd43f"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/PLAN.json",
+        "bytes": 1352,
+        "sha256": "3082c29b346bcc44a5a5e5824e4fe721747c29d8bd26ab47a26f6f49ae5b1006"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/INPUTS.json",
+        "bytes": 2274,
+        "sha256": "6dda41661f03b7814799520caaa639387c6c81ca60c14c93f441095931d8dee1"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/WORTH.md",
+        "bytes": 2632,
+        "sha256": "e8886c01e33f338f7677c26aca59b95dcc9c5a89770dd7534e74a1694144ea3a"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/WORTH-RECEIPT.json",
+        "bytes": 3345,
+        "sha256": "39ce9604a9d992358d17177991e0f61978bcc84244984bfef9ad345c4836d034"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/ROOT-WORTH.json",
+        "bytes": 3330,
+        "sha256": "db0fa75c993b3a5d1e93ae51225bedb6325424071e053ba486f89b6510a14e80"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/AST.json",
+        "bytes": 1552,
+        "sha256": "270d81fa18b3decf9ccb3c41e8faedf07c4f5cdfa59d634cbf620c99892ea40c"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/CODE.diff",
+        "bytes": 8944,
+        "sha256": "6099ed04c1d583968d2b99eb1caaeb4d280be0a77b67f9b100582294d17bfefd"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/ROOT-PREFLIGHT.md",
+        "bytes": 2237,
+        "sha256": "7325096fc32a133a373d243099c769b2460b06b02ab618fea5526586d84a3050"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/audit.py.source",
+        "bytes": 9555,
+        "sha256": "5d0c38013b748fef05d659ad4962c40159f70a884f56a16a7c50e337997c9414"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/author.py.source",
+        "bytes": 7533,
+        "sha256": "e7deac048f0ad3d70ebf6bd3cd2fe87b03983068eae1a6e867313ce981fdb4cc"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/exact.py.source",
+        "bytes": 7314,
+        "sha256": "45d76f407f8b1e581a22a6d19cf3f9380a71d5f6af26fb16b1f68c92d1ce0ca7"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/runner.py.source",
+        "bytes": 3901,
+        "sha256": "c3d619f71f905c1eb3fbc4262cd67a962798e5eb60aa8dd31269e064b18a86f2"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/reuse/spatial.py.source",
+        "bytes": 4682,
+        "sha256": "d86a340992acbbc6ce73730c7b8b57fe3d79e9e573123d863615865761fc9562"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/AST.json.initial",
+        "bytes": 1547,
+        "sha256": "23874de96c860b8c75138f6150fb99faa251ce66f3e554037b2b718b8d37bb82"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/INITIAL.json",
+        "bytes": 2340,
+        "sha256": "5ed51dbdc20c84a4267d7fbdfbe99d54f516e3afe49c198a1a990f6a08b51980"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/SOURCE-INPUTS.json.initial",
+        "bytes": 4185,
+        "sha256": "ab085ba0831103f190bb1ea17d93ce4660c625178db69bbe6785209bcdb3d0fe"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/SOURCE.md.initial",
+        "bytes": 5027,
+        "sha256": "d54bc324105988d833d628c253724a54f73458f2ea67fc5502a57d88cb854d1c"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/author.py.initial",
+        "bytes": 7088,
+        "sha256": "dba6260ccb73c144786ae9d551babf1013d2860385a36c82e028bd6d1d9e54a3"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/panel.py.initial",
+        "bytes": 9676,
+        "sha256": "f4ab4b0292be3dc64ff32671e05103257e8799af71c44e1d93a71c7c0a799bc8"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/runner.py.initial",
+        "bytes": 4823,
+        "sha256": "a0bc6fb008d2c244984265732eb7403581150a53d7656063f959197f6cf44d3f"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/preflight/spatial.py.initial",
+        "bytes": 3441,
+        "sha256": "284fbf205eab6151a5bf0065639d97fe060aee103ef1ea6bd1d943027376bc77"
+      },
+      {
+        "path": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "bytes": 34640,
+        "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+      }
+    ],
+    "original": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/PANEL-CONTRACT.md",
+        "bytes": 13054,
+        "sha256": "4a7bb06cd04f9bb823e541df7ced962b5748a7f207c1c3a61b5c0f709cad43d4"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/REPRESENTATIVE-CLARIFICATION.md",
+        "bytes": 3752,
+        "sha256": "7c81f8e181ebf75b217d01bcb3bb22dbb7fd05ff7aecf50522a729e54919f451"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/SOURCE-RESULT.md",
+        "bytes": 4234,
+        "sha256": "22c2cddf16e002f1bb4c27caabb4cfe4805587b5780ca256f6124a30dea5cda4"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/CRITIC-RECEIPT.json",
+        "bytes": 11641,
+        "sha256": "7b6d404fd966b529468ee6fb8502cb97c7e76528f9d995b4f84df99e72f75f15"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/ROOT-RESULT.json",
+        "bytes": 18315,
+        "sha256": "dcaaa0a552278af13a44502512c5abd68fca392918851475629493fde394c726"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/MANIFEST.json",
+        "bytes": 3564,
+        "sha256": "5986b0ccd3b4c25405e458fcb650cb16f2ece1deabbea936d22640bc4669dcd3"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/FINAL-SOURCE.json",
+        "bytes": 3559,
+        "sha256": "2447ea97454a345f2d1e976be23fa47e410de6988584f1fdcbd0842c268c483b"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+        "bytes": 28552628,
+        "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+        "bytes": 635671,
+        "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+        "bytes": 1872,
+        "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+        "bytes": 30923,
+        "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+      }
+    ],
+    "trial": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE-INPUTS.json",
+        "bytes": 6395,
+        "sha256": "7c1a835cc12628a4b3a760473e95e50fcf27abc43478fd48bfff39f100f34224"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/INPUTS.json",
+        "bytes": 2274,
+        "sha256": "6dda41661f03b7814799520caaa639387c6c81ca60c14c93f441095931d8dee1"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/SOURCE-RESULT.md",
+        "bytes": 4889,
+        "sha256": "478caecd0f6c0a48c3ca9d5626469df7bfee8d4bdef4d0f77945482995fb8e74"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/CRITIC-RECEIPT.json",
+        "bytes": 12209,
+        "sha256": "ed0b226f14837a637e91df055112a5f3d367df37f022b25e5f7262faae1d3647"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/ROOT-RESULT.json",
+        "bytes": 30862,
+        "sha256": "be1c6e30607cd3804cc21eb1b60b6daf63b9e2d5b430a7c50b3fac79995f0ccc"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/MANIFEST.json",
+        "bytes": 8042,
+        "sha256": "58f9205e698e7d5878e511819381b03c2c23915db4f51165e43e2916aeef2596"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/FREEZE.json",
+        "bytes": 559,
+        "sha256": "a78582e5cad410d8c8826992c37d97e022933db1b785dd203efc374777caf382"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-builder/CLOSE.json",
+        "bytes": 1274,
+        "sha256": "582a74445672b82056b1b9ba07566760bb2656b115b0bb59d9c88dc034d3ef96"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/PANEL-CONTRACT.md",
+        "bytes": 13054,
+        "sha256": "4a7bb06cd04f9bb823e541df7ced962b5748a7f207c1c3a61b5c0f709cad43d4"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/REPRESENTATIVE-CLARIFICATION.md",
+        "bytes": 3752,
+        "sha256": "7c81f8e181ebf75b217d01bcb3bb22dbb7fd05ff7aecf50522a729e54919f451"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/SOURCE-RESULT.md",
+        "bytes": 4234,
+        "sha256": "22c2cddf16e002f1bb4c27caabb4cfe4805587b5780ca256f6124a30dea5cda4"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/CRITIC-RECEIPT.json",
+        "bytes": 11641,
+        "sha256": "7b6d404fd966b529468ee6fb8502cb97c7e76528f9d995b4f84df99e72f75f15"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/ROOT-RESULT.json",
+        "bytes": 18315,
+        "sha256": "dcaaa0a552278af13a44502512c5abd68fca392918851475629493fde394c726"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/MANIFEST.json",
+        "bytes": 3564,
+        "sha256": "5986b0ccd3b4c25405e458fcb650cb16f2ece1deabbea936d22640bc4669dcd3"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-contract/FINAL-SOURCE.json",
+        "bytes": 3559,
+        "sha256": "2447ea97454a345f2d1e976be23fa47e410de6988584f1fdcbd0842c268c483b"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+        "bytes": 28552628,
+        "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+        "bytes": 635671,
+        "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/POLICY.json",
+        "bytes": 1872,
+        "sha256": "b6712e80c465965679d5b521ca998ba264383546eadfdba490ef68c6f2625fb5"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+        "bytes": 30923,
+        "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+      }
+    ]
+  },
+  "run": {
+    "runnerPid": 39249,
+    "childPid": 39250,
+    "started": "2026-10-05T02:09:08.693083+00:00",
+    "launched": "2026-10-05T02:09:08.695160+00:00",
+    "fullReturn": "2026-10-05T02:09:13.473558+00:00",
+    "exitCode": 1,
+    "outputs": 22,
+    "timeout": false
+  },
+  "sourceCounts": [
+    {
+      "uuid": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "triangles": 26756,
+      "points": 14517,
+      "required": 5306
+    },
+    {
+      "uuid": "a7a9658c-98c6-4d71-84a2-c3b96fc536f4",
+      "triangles": 980,
+      "points": 524,
+      "required": 0
+    },
+    {
+      "uuid": "c7f16e7f-ae2c-4576-9857-31e3fb77afcd",
+      "triangles": 192,
+      "points": 124,
+      "required": 0
+    },
+    {
+      "uuid": "4b2cb2b4-4ef6-4e42-8bb4-b5f307177de8",
+      "triangles": 368,
+      "points": 250,
+      "required": 0
+    },
+    {
+      "uuid": "ec2b54e5-0684-4532-b426-c952ca10c137",
+      "triangles": 1060,
+      "points": 552,
+      "required": 0
+    },
+    {
+      "uuid": "2da1713d-ae37-4281-8a96-35af4b82a906",
+      "triangles": 7120,
+      "points": 4494,
+      "required": 0
+    },
+    {
+      "uuid": "0f0b54ad-2db8-400c-bef2-d1e60a9d55f9",
+      "triangles": 448,
+      "points": 253,
+      "required": 0
+    },
+    {
+      "uuid": "6d05f94d-df07-40e7-8bcc-cec3a090a0cc",
+      "triangles": 22090,
+      "points": 12030,
+      "required": 22090
+    },
+    {
+      "uuid": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "triangles": 12498,
+      "points": 6802,
+      "required": 7588
+    }
+  ],
+  "fragments": 34984,
+  "completedPrefix": 709,
+  "failedKey": [
+    "6a387a24-324d-438d-b152-fb4b7edc4a45",
+    2810,
+    0
+  ],
+  "failedOriginalVertexIDs": [
+    1837,
+    1838,
+    1855
+  ],
+  "sourceVertex": [
+    {
+      "n": "-8685875526595689",
+      "d": "36028797018963968"
+    },
+    {
+      "n": "5307365630752995",
+      "d": "4503599627370496"
+    },
+    {
+      "n": "5281827755080251",
+      "d": "576460752303423488"
+    }
+  ],
+  "physicalFace": 54,
+  "faceVertexIDs": [
+    18,
+    17,
+    36
+  ],
+  "faceProvenance": {
+    "seamChain": 3,
+    "edge": 17,
+    "half": 0,
+    "diagonal": [
+      18,
+      36
+    ]
+  },
+  "normalProjection": [
+    {
+      "n": "-262833908609596606590387616568457775026101550417",
+      "d": "1081511211624866900338738581514719891933385195520"
+    },
+    {
+      "n": "39818134762581777605432972914021636143817623153",
+      "d": "33797225363277090635585580672334996622918287360"
+    },
+    {
+      "n": "5281827755080251",
+      "d": "576460752303423488"
+    }
+  ],
+  "garmentBarycentric": [
+    {
+      "n": "2371811900765163532257686530537",
+      "d": "30017966213404437279508823508265"
+    },
+    {
+      "n": "2498667374756247367524539825005189719757270533491",
+      "d": "7613838929839063497095175781492304229123501999280"
+    },
+    {
+      "n": "150362575366844101",
+      "d": "253642731013506352"
+    }
+  ],
+  "distanceSquared": {
+    "n": "2362839300114153312116057139583410907673971868651424665769",
+    "d": "608836686208845526769044492058512861227193942059118194054922240"
+  },
+  "distanceMillimetresObserver": 1.9700020862802565,
+  "physicalTopology": {
+    "vertices": 38,
+    "edges": 98,
+    "faces": 58,
+    "Euler": -2,
+    "boundaryDirectedEdges": [
+      [
+        0,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        20,
+        19
+      ],
+      [
+        24,
+        23
+      ],
+      [
+        25,
+        24
+      ],
+      [
+        29,
+        28
+      ],
+      [
+        30,
+        29
+      ],
+      [
+        34,
+        33
+      ],
+      [
+        35,
+        34
+      ],
+      [
+        1,
+        20
+      ],
+      [
+        23,
+        4
+      ],
+      [
+        6,
+        25
+      ],
+      [
+        28,
+        9
+      ],
+      [
+        11,
+        30
+      ],
+      [
+        33,
+        14
+      ],
+      [
+        16,
+        35
+      ],
+      [
+        19,
+        0
+      ]
+    ],
+    "allVertexLinksConnected": true
+  },
+  "cappedTopology": {
+    "vertices": 42,
+    "edges": 120,
+    "faces": 80,
+    "Euler": 2,
+    "boundaryDirectedEdges": [],
+    "allVertexLinksConnected": true
+  },
+  "scope": "Sufficient actual point-pair counterexample, provenance and complete saved output/prefix accounting. No independent full-prefix classifier, all-intersections, global minimum, fit/GPU/motion/appearance claim."
+}

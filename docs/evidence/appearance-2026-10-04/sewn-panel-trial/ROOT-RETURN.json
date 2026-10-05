@@ -1,0 +1,213 @@
+{
+  "utc": "2026-10-05T02:10:34.706098+00:00",
+  "soleProducer": {
+    "execStart": "8ba581",
+    "sessionId": 57512,
+    "execCollected": "5c9c8e",
+    "exitCode": 1,
+    "runnerPid": 39249,
+    "childPid": 39250,
+    "processGroup": 39250,
+    "started": "2026-10-05T02:09:08.693083+00:00",
+    "launched": "2026-10-05T02:09:08.695160+00:00",
+    "fullReturn": "2026-10-05T02:09:13.473558+00:00",
+    "elapsedSeconds": 4.780475
+  },
+  "ownedOutputPinsVerified": 22,
+  "ownedJobsGone": true,
+  "failure": {
+    "originalKey": [
+      "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      2810,
+      0
+    ],
+    "fan": 1,
+    "faceID": 54,
+    "faceIndices": [
+      18,
+      17,
+      36
+    ],
+    "faceProvenance": {
+      "seamChain": 3,
+      "edge": 17,
+      "half": 0,
+      "diagonal": [
+        18,
+        36
+      ]
+    },
+    "squaredDistance": {
+      "n": "2362839300114153312116057139583410907673971868651424665769",
+      "d": "608836686208845526769044492058512861227193942059118194054922240"
+    },
+    "pointWitness": [
+      "vertex-face",
+      0,
+      2,
+      "face",
+      [
+        {
+          "n": "2371811900765163532257686530537",
+          "d": "30017966213404437279508823508265"
+        },
+        {
+          "n": "2498667374756247367524539825005189719757270533491",
+          "d": "7613838929839063497095175781492304229123501999280"
+        },
+        {
+          "n": "150362575366844101",
+          "d": "253642731013506352"
+        }
+      ]
+    ],
+    "sourceFragmentIndex": 709
+  },
+  "sourceDomain": {
+    "owners": [
+      {
+        "uuid": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+        "originalTriangles": 26756,
+        "originalPoints": 14517,
+        "requiredPolygons": 5306,
+        "wholeRequired": 5038,
+        "cutRequired": 268,
+        "exposedByRole": {
+          "neck": 8406,
+          "hem": 6526,
+          "cuff_l": 3259,
+          "cuff_r": 3259
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "a7a9658c-98c6-4d71-84a2-c3b96fc536f4",
+        "originalTriangles": 980,
+        "originalPoints": 524,
+        "requiredPolygons": 0,
+        "wholeRequired": 0,
+        "cutRequired": 0,
+        "exposedByRole": {
+          "neck": 980,
+          "hem": 0,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "c7f16e7f-ae2c-4576-9857-31e3fb77afcd",
+        "originalTriangles": 192,
+        "originalPoints": 124,
+        "requiredPolygons": 0,
+        "wholeRequired": 0,
+        "cutRequired": 0,
+        "exposedByRole": {
+          "neck": 192,
+          "hem": 0,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "4b2cb2b4-4ef6-4e42-8bb4-b5f307177de8",
+        "originalTriangles": 368,
+        "originalPoints": 250,
+        "requiredPolygons": 0,
+        "wholeRequired": 0,
+        "cutRequired": 0,
+        "exposedByRole": {
+          "neck": 368,
+          "hem": 0,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "ec2b54e5-0684-4532-b426-c952ca10c137",
+        "originalTriangles": 1060,
+        "originalPoints": 552,
+        "requiredPolygons": 0,
+        "wholeRequired": 0,
+        "cutRequired": 0,
+        "exposedByRole": {
+          "neck": 1060,
+          "hem": 0,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "2da1713d-ae37-4281-8a96-35af4b82a906",
+        "originalTriangles": 7120,
+        "originalPoints": 4494,
+        "requiredPolygons": 0,
+        "wholeRequired": 0,
+        "cutRequired": 0,
+        "exposedByRole": {
+          "neck": 7120,
+          "hem": 0,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "0f0b54ad-2db8-400c-bef2-d1e60a9d55f9",
+        "originalTriangles": 448,
+        "originalPoints": 253,
+        "requiredPolygons": 0,
+        "wholeRequired": 0,
+        "cutRequired": 0,
+        "exposedByRole": {
+          "neck": 448,
+          "hem": 0,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "6d05f94d-df07-40e7-8bcc-cec3a090a0cc",
+        "originalTriangles": 22090,
+        "originalPoints": 12030,
+        "requiredPolygons": 22090,
+        "wholeRequired": 22090,
+        "cutRequired": 0,
+        "exposedByRole": {
+          "neck": 0,
+          "hem": 0,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      },
+      {
+        "uuid": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+        "originalTriangles": 12498,
+        "originalPoints": 6802,
+        "requiredPolygons": 7588,
+        "wholeRequired": 7417,
+        "cutRequired": 171,
+        "exposedByRole": {
+          "neck": 0,
+          "hem": 4910,
+          "cuff_l": 0,
+          "cuff_r": 0
+        },
+        "degenerateIDs": []
+      }
+    ],
+    "requiredPolygons": 34984,
+    "sourceFrame": "immutable zero-morph initial CPU worldPositions"
+  },
+  "completedPrefixRows": 709,
+  "allRequiredFragments": 34984,
+  "prefixExactKeyOrder": true,
+  "OBJAbsent": true,
+  "coverageAbsent": true,
+  "scope": "Actual external result and full returned-file inventory verified; first counterexample/current709-key prefix only. Later complete domain classification never finished."
+}

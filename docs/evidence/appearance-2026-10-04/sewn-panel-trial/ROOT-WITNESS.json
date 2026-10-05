@@ -1,0 +1,167 @@
+{
+  "utc": "2026-10-05T02:11:44.121318+00:00",
+  "decision": "B literal whole-source clearance; fixed design closed without repair",
+  "originalOwner": {
+    "uuid": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+    "key": "body",
+    "name": "Human"
+  },
+  "key": [
+    "6a387a24-324d-438d-b152-fb4b7edc4a45",
+    2810,
+    0
+  ],
+  "requiredWholeTriangle": true,
+  "originalVertexIDs": [
+    1837,
+    1838,
+    1855
+  ],
+  "sourceCorner": [
+    {
+      "n": "-8685875526595689",
+      "d": "36028797018963968"
+    },
+    {
+      "n": "5307365630752995",
+      "d": "4503599627370496"
+    },
+    {
+      "n": "5281827755080251",
+      "d": "576460752303423488"
+    }
+  ],
+  "garmentFace": 54,
+  "garmentIndices": [
+    18,
+    17,
+    36
+  ],
+  "faceProvenance": {
+    "seamChain": 3,
+    "edge": 17,
+    "half": 0,
+    "diagonal": [
+      18,
+      36
+    ]
+  },
+  "garmentTriangle": [
+    [
+      {
+        "n": "-7926335344172073",
+        "d": "36028797018963968"
+      },
+      {
+        "n": "1170935903116329",
+        "d": "1125899906842624"
+      },
+      {
+        "n": "607985949695017",
+        "d": "2251799813685248"
+      }
+    ],
+    [
+      {
+        "n": "-2206763817411543",
+        "d": "9007199254740992"
+      },
+      {
+        "n": "2679641778285445",
+        "d": "2251799813685248"
+      },
+      {
+        "n": "607985949695017",
+        "d": "2251799813685248"
+      }
+    ],
+    [
+      {
+        "n": "-2206763817411543",
+        "d": "9007199254740992"
+      },
+      {
+        "n": "2679641778285445",
+        "d": "2251799813685248"
+      },
+      {
+        "n": "-6124895493223875",
+        "d": "36028797018963968"
+      }
+    ]
+  ],
+  "nonnegativeBarycentricSumOne": [
+    {
+      "n": "2371811900765163532257686530537",
+      "d": "30017966213404437279508823508265"
+    },
+    {
+      "n": "2498667374756247367524539825005189719757270533491",
+      "d": "7613838929839063497095175781492304229123501999280"
+    },
+    {
+      "n": "150362575366844101",
+      "d": "253642731013506352"
+    }
+  ],
+  "pointOnGarment": [
+    {
+      "n": "-262833908609596606590387616568457775026101550417",
+      "d": "1081511211624866900338738581514719891933385195520"
+    },
+    {
+      "n": "39818134762581777605432972914021636143817623153",
+      "d": "33797225363277090635585580672334996622918287360"
+    },
+    {
+      "n": "5281827755080251",
+      "d": "576460752303423488"
+    }
+  ],
+  "delta": [
+    {
+      "n": "16418675925083901631275229049781415913255319",
+      "d": "8449306340819272658896395168083749155729571840"
+    },
+    {
+      "n": "43783135800223753886415762698883914285511063",
+      "d": "135188901453108362542342322689339986491673149440"
+    },
+    {
+      "n": "0",
+      "d": "1"
+    }
+  ],
+  "squaredDistance": {
+    "n": "2362839300114153312116057139583410907673971868651424665769",
+    "d": "608836686208845526769044492058512861227193942059118194054922240"
+  },
+  "requiredSquaredGap": {
+    "n": "1",
+    "d": "10000"
+  },
+  "distanceMetresObserver": 0.0019700020862802566,
+  "gapShortfallMetresObserver": 0.008029997913719743,
+  "prefixKeyIndex": 709,
+  "physicalGraph": {
+    "vertices": 38,
+    "edges": 98,
+    "faces": 58,
+    "Euler": -2,
+    "boundaryEdges": 22,
+    "edgeConnected": true,
+    "opposedSharedEdges": true,
+    "scope": "Independent complete edge graph only; no independent vertex-link/intersection/cap/enclosure acceptance"
+  },
+  "cappedGraph": {
+    "vertices": 42,
+    "edges": 120,
+    "faces": 80,
+    "Euler": 2,
+    "boundaryEdges": 0,
+    "edgeConnected": true,
+    "opposedSharedEdges": true,
+    "scope": "Independent complete edge graph only; no independent vertex-link/intersection/cap/enclosure acceptance"
+  },
+  "limits": "Counterexample proves failed10mm gap at two actual original/candidate surface points, not contact/intersection/global minimum, all remaining-domain coverage, fit, appearance, or failure cause in prior candidates."
+}

@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-05T02:21:16.440649+00:00",
+  "mapping": [
+    {
+      "observed": {
+        "path": "docs/PRODUCT-ROADMAP.md",
+        "bytes": 30923,
+        "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/planning-witnesses/PRODUCT-ROADMAP.md",
+        "bytes": 30923,
+        "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+      }
+    },
+    {
+      "observed": {
+        "path": "docs/PUNCHLIST.md",
+        "bytes": 282721,
+        "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/planning-witnesses/PUNCHLIST.md",
+        "bytes": 282721,
+        "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a"
+      }
+    },
+    {
+      "observed": {
+        "path": "docs/DAY-REPORT-2026-10-04.md",
+        "bytes": 38429,
+        "sha256": "8349bdf4e1caebb60240446de376bc0d464609ee1a3623710e5d91d39211272d"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/planning-witnesses/DAY-REPORT-2026-10-04.md",
+        "bytes": 38429,
+        "sha256": "8349bdf4e1caebb60240446de376bc0d464609ee1a3623710e5d91d39211272d"
+      }
+    }
+  ],
+  "scope": "Exact observed planning bytes before later recovery-journal append; historical critic pins resolve to these frozen snapshots after live journal changes. No accepted/source inputs rewritten."
+}

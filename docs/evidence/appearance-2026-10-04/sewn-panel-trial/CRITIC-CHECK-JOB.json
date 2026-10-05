@@ -1,0 +1,36 @@
+{
+  "pid": 50616,
+  "started": "2026-10-05T02:15:44.222836+00:00",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/critic-check.py"
+  ],
+  "maximumInvocations": 1,
+  "wallLimitSeconds": 30,
+  "checker": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/critic-check.py",
+    "bytes": 10809,
+    "sha256": "ae30ca52ed5a66f21251f0dd7982106b40aae480a685c2cb7df8c3be0d2b25bd"
+  },
+  "status": "complete",
+  "exitCode": 0,
+  "fullReturn": "2026-10-05T02:15:44.791861+00:00",
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/CRITIC-CHECK.json",
+      "bytes": 25394,
+      "sha256": "f006bb6090f1bd389992b7abe0f71753813deb70912b7b5bec4d84e00ff2c1df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/CRITIC-CHECK-STDOUT.txt",
+      "bytes": 479,
+      "sha256": "61001a218e430bfd8a2a09b8b9fec2d699ea987d90ce3ad59f477870d4964aa6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sewn-panel-trial/CRITIC-CHECK-STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

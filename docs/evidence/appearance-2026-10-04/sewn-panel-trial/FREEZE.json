@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-05T02:22:09.616210+00:00",
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json",
+    "bytes": 10767,
+    "sha256": "7dec1f1c5b8a2ddc59dcc36cbc06129f405fff960f7b47a685cd595849981dff"
+  },
+  "payloads": 51,
+  "payloadBytes": 33494115,
+  "deliveryLinksVerified": 14,
+  "links": [
+    {
+      "from": "README.md",
+      "target": "WORKSHEET.md"
+    },
+    {
+      "from": "README.md",
+      "target": "REFUSAL.json"
+    },
+    {
+      "from": "README.md",
+      "target": "RUN.json"
+    },
+    {
+      "from": "README.md",
+      "target": "ROOT-WITNESS.json"
+    },
+    {
+      "from": "README.md",
+      "target": "ROOT-RETURN.json"
+    },
+    {
+      "from": "README.md",
+      "target": "RESULT.md"
+    },
+    {
+      "from": "README.md",
+      "target": "CRITIC-RECEIPT.json"
+    },
+    {
+      "from": "README.md",
+      "target": "RECEIPT.md"
+    },
+    {
+      "from": "README.md",
+      "target": "CHECKPOINT.md"
+    },
+    {
+      "from": "WORKSHEET.md",
+      "target": "ROOT-WITNESS.json"
+    },
+    {
+      "from": "WORKSHEET.md",
+      "target": "RUN.json"
+    },
+    {
+      "from": "WORKSHEET.md",
+      "target": "REFUSAL.json"
+    },
+    {
+      "from": "WORKSHEET.md",
+      "target": "ROOT-RETURN.json"
+    },
+    {
+      "from": "WORKSHEET.md",
+      "target": "PLAN.json"
+    }
+  ],
+  "readonly": true,
+  "decision": "B fixedsource closed, no retry/native",
+  "rootCloseGate": "2026-10-05T02:34:56.620327+00:00",
+  "historicalPlanningPins": "PLANNING-WITNESS-SNAPSHOTS maps exact observed live planning bytes to frozen copies before future journal changes"
+}
