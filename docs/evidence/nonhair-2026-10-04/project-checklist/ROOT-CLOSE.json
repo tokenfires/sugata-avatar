@@ -1,0 +1,411 @@
+{
+  "utc": "2026-10-05T02:36:30.753783+00:00",
+  "decision": "A routine delivered project-status prose only",
+  "criticSavedUtc": "2026-10-05T02:34:19.243154+00:00",
+  "criticCollected": true,
+  "verifiedBindings": [
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "resolvedPath": "docs/PRODUCT-ROADMAP.md"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a",
+      "resolvedPath": "docs/PUNCHLIST.md"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/DAY-REPORT-2026-10-04.md",
+      "bytes": 40597,
+      "sha256": "e134e67e9264883a65a49eb18e24d1b39c6f0f114641965d7efefed492e33007",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/DAY-REPORT.before.md"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md",
+      "bytes": 5083,
+      "sha256": "84bb23b19931716e91c917a99335de544ba1c562e1a11b72448ad16b09719b34",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json",
+      "bytes": 50401,
+      "sha256": "5843541c55fc3958f7d71bbc8454fddaa1fd16b7fd84f8b8eaef7dcc34674f19",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json"
+    },
+    {
+      "origin": "INPUTS.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json",
+      "bytes": 10767,
+      "sha256": "7dec1f1c5b8a2ddc59dcc36cbc06129f405fff960f7b47a685cd595849981dff",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json"
+    },
+    {
+      "origin": "CLAIM-SOURCES.json",
+      "path": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "bytes": 4920,
+      "sha256": "573b891855ea3a69d5c7bc400fa9fc02f8967fd6addbe07bf83d08e6c17bf3dc",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md"
+    },
+    {
+      "origin": "CLAIM-SOURCES.json",
+      "path": "docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+      "bytes": 5080,
+      "sha256": "1b9186da42c59a8d4ba4dcf89b83afb16cb7dd164c6f082a5fe32b0fb128e59f",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md"
+    },
+    {
+      "origin": "CLAIM-SOURCES.json",
+      "path": "docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "bytes": 3209,
+      "sha256": "c2ddff3acc2e03f1dd3ab9294b1479a45ca3e04331db10453615681c023c2a11",
+      "resolvedPath": "docs/evidence/appearance-2026-10-02/saved-colours/README.md"
+    },
+    {
+      "origin": "CLAIM-SOURCES.json",
+      "path": "docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "bytes": 6063,
+      "sha256": "203a7aef9e3932624281b5971a307b10218136b3ec2378f1fa4c9c4ba840bc16",
+      "resolvedPath": "docs/evidence/appearance-2026-10-02/saved-export/README.md"
+    },
+    {
+      "origin": "CLAIM-SOURCES.json",
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6",
+      "resolvedPath": "looks/INK-DENIM.md"
+    },
+    {
+      "origin": "CLAIM-SOURCES.json",
+      "path": "docs/evidence/appearance-2026-10-04/piece-publisher/README.md",
+      "bytes": 1562,
+      "sha256": "652aa7491ea4df559f1a4eddf498ef928a4a61f655f90b28de2a974f6d965a93",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/piece-publisher/README.md"
+    },
+    {
+      "origin": "CLAIM-SOURCES.json",
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "resolvedPath": "docs/PRODUCT-ROADMAP.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a",
+      "resolvedPath": "docs/PUNCHLIST.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/DAY-REPORT-2026-10-04.md",
+      "bytes": 40597,
+      "sha256": "e134e67e9264883a65a49eb18e24d1b39c6f0f114641965d7efefed492e33007",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/DAY-REPORT.before.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md",
+      "bytes": 5083,
+      "sha256": "84bb23b19931716e91c917a99335de544ba1c562e1a11b72448ad16b09719b34",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json",
+      "bytes": 50401,
+      "sha256": "5843541c55fc3958f7d71bbc8454fddaa1fd16b7fd84f8b8eaef7dcc34674f19",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json",
+      "bytes": 10767,
+      "sha256": "7dec1f1c5b8a2ddc59dcc36cbc06129f405fff960f7b47a685cd595849981dff",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "bytes": 4920,
+      "sha256": "573b891855ea3a69d5c7bc400fa9fc02f8967fd6addbe07bf83d08e6c17bf3dc",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+      "bytes": 5080,
+      "sha256": "1b9186da42c59a8d4ba4dcf89b83afb16cb7dd164c6f082a5fe32b0fb128e59f",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "bytes": 3209,
+      "sha256": "c2ddff3acc2e03f1dd3ab9294b1479a45ca3e04331db10453615681c023c2a11",
+      "resolvedPath": "docs/evidence/appearance-2026-10-02/saved-colours/README.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "bytes": 6063,
+      "sha256": "203a7aef9e3932624281b5971a307b10218136b3ec2378f1fa4c9c4ba840bc16",
+      "resolvedPath": "docs/evidence/appearance-2026-10-02/saved-export/README.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6",
+      "resolvedPath": "looks/INK-DENIM.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/appearance-2026-10-04/piece-publisher/README.md",
+      "bytes": 1562,
+      "sha256": "652aa7491ea4df559f1a4eddf498ef928a4a61f655f90b28de2a974f6d965a93",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/piece-publisher/README.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md"
+    },
+    {
+      "origin": "ROOT-DRAFT.json",
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 3236,
+      "sha256": "130c11dc0d2dafc862036d9a94ba63b084757a38990ace7bc1694bf696e3a08a",
+      "resolvedPath": "docs/PROJECT-CHECKLIST.md"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/PLAN.json",
+      "bytes": 1485,
+      "sha256": "19feb88ad9f454648a3422de526aafbd05539dd2f654656b6b812e2edeca961b",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/PLAN.json"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/INPUTS.json",
+      "bytes": 1264,
+      "sha256": "361a7478d90f12c7622b71ba921da740820f07f9785e073f423d73edb977c92a",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/INPUTS.json"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "resolvedPath": "docs/PRODUCT-ROADMAP.md"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a",
+      "resolvedPath": "docs/PUNCHLIST.md"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/DAY-REPORT-2026-10-04.md",
+      "bytes": 40597,
+      "sha256": "e134e67e9264883a65a49eb18e24d1b39c6f0f114641965d7efefed492e33007",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/DAY-REPORT.before.md"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md",
+      "bytes": 5083,
+      "sha256": "84bb23b19931716e91c917a99335de544ba1c562e1a11b72448ad16b09719b34",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json",
+      "bytes": 50401,
+      "sha256": "5843541c55fc3958f7d71bbc8454fddaa1fd16b7fd84f8b8eaef7dcc34674f19",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json",
+      "bytes": 10767,
+      "sha256": "7dec1f1c5b8a2ddc59dcc36cbc06129f405fff960f7b47a685cd595849981dff",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json"
+    },
+    {
+      "origin": "WORTH-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/WORTH.md",
+      "bytes": 2090,
+      "sha256": "757c23caa8bb5ee72b98e7d156d9f05cd300271e95985e5272c760f5f1b54aa6",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/WORTH.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 3236,
+      "sha256": "130c11dc0d2dafc862036d9a94ba63b084757a38990ace7bc1694bf696e3a08a",
+      "resolvedPath": "docs/PROJECT-CHECKLIST.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/DAY-REPORT-2026-10-04.md",
+      "bytes": 40677,
+      "sha256": "4c4298d0146ff7ff08dbda1441d6658ed81cecd773ba3a94dde2de2ea121f364",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/DAY-REPORT.review.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/DAY-REPORT.before.md",
+      "bytes": 40597,
+      "sha256": "e134e67e9264883a65a49eb18e24d1b39c6f0f114641965d7efefed492e33007",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/DAY-REPORT.before.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/CLAIM-SOURCES.json",
+      "bytes": 1381,
+      "sha256": "aa44c8e0a622be0fc5cf14530189846dc4379660d4bfd7ca0ebd42c16a2e6798",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/CLAIM-SOURCES.json"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "bytes": 4920,
+      "sha256": "573b891855ea3a69d5c7bc400fa9fc02f8967fd6addbe07bf83d08e6c17bf3dc",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+      "bytes": 5080,
+      "sha256": "1b9186da42c59a8d4ba4dcf89b83afb16cb7dd164c6f082a5fe32b0fb128e59f",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "bytes": 3209,
+      "sha256": "c2ddff3acc2e03f1dd3ab9294b1479a45ca3e04331db10453615681c023c2a11",
+      "resolvedPath": "docs/evidence/appearance-2026-10-02/saved-colours/README.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "bytes": 6063,
+      "sha256": "203a7aef9e3932624281b5971a307b10218136b3ec2378f1fa4c9c4ba840bc16",
+      "resolvedPath": "docs/evidence/appearance-2026-10-02/saved-export/README.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6",
+      "resolvedPath": "looks/INK-DENIM.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/piece-publisher/README.md",
+      "bytes": 1562,
+      "sha256": "652aa7491ea4df559f1a4eddf498ef928a4a61f655f90b28de2a974f6d965a93",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/piece-publisher/README.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/PLAN.json",
+      "bytes": 1485,
+      "sha256": "19feb88ad9f454648a3422de526aafbd05539dd2f654656b6b812e2edeca961b",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/PLAN.json"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/INPUTS.json",
+      "bytes": 1264,
+      "sha256": "361a7478d90f12c7622b71ba921da740820f07f9785e073f423d73edb977c92a",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/INPUTS.json"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/WORTH.md",
+      "bytes": 2090,
+      "sha256": "757c23caa8bb5ee72b98e7d156d9f05cd300271e95985e5272c760f5f1b54aa6",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/WORTH.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/WORTH-RECEIPT.json",
+      "bytes": 2633,
+      "sha256": "90d00b917cd4e9f802316c8397cb138cd36ee2ab103792dd201dd56464b23f60",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/WORTH-RECEIPT.json"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "resolvedPath": "docs/PRODUCT-ROADMAP.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a",
+      "resolvedPath": "docs/PUNCHLIST.md"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png"
+    },
+    {
+      "origin": "CRITIC-RECEIPT.json",
+      "path": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md",
+      "bytes": 3330,
+      "sha256": "e6bb083dd7484110a6106ef201d0346d0f3c40bfb4fcdb759a575f2862d35420",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/RESULT.md"
+    }
+  ],
+  "rootSemanticWitnesses": [
+    "PROJECT-CHECKLIST7\u201312 against seven actual feature/source receipts and PRODUCT-ROADMAP36/44",
+    "PROJECT-CHECKLIST16\u201319 against unitless flat-piece/volume scope and independently verified sewn-panel B",
+    "PROJECT-CHECKLIST23\u201332 against PRODUCT-ROADMAP43\u201348/52\u201362/117\u2013144"
+  ],
+  "noActionableDefect": true,
+  "gateLimit": "Original 02:28:27 draft gate missed; limited routine-prose worth reconsidered explicitly, no deadline extension/native admission. Draft02:30:25 after worth save02:29:57; full worth handoff read after drafting. Critic and root close within original overall ceiling.",
+  "preview": "Codex file open queued, not proof of rendered preview",
+  "nextWorth": "Conditional trouser-only front/profile/rear design nomination remains unadmitted; root has read full handoff and verified exact image pins but fresh actual image views/plan/worth required",
+  "services": "ps1023 confirmed review127.0.0.1:5173 at02:32:57; TOML confirms ACTIVE10min heartbeat",
+  "jobs": "No candidate/native/browser/constructor/checker job in prose slice; critic collected"
+}

@@ -1,0 +1,138 @@
+{
+  "utc": "2026-10-05T02:31:27.728512+00:00",
+  "inputs": [
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad",
+      "resolvedPath": "docs/PRODUCT-ROADMAP.md"
+    },
+    {
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a",
+      "resolvedPath": "docs/PUNCHLIST.md"
+    },
+    {
+      "path": "docs/DAY-REPORT-2026-10-04.md",
+      "bytes": 40597,
+      "sha256": "e134e67e9264883a65a49eb18e24d1b39c6f0f114641965d7efefed492e33007",
+      "resolvedPath": "docs/evidence/nonhair-2026-10-04/project-checklist/DAY-REPORT.before.md"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md",
+      "bytes": 5083,
+      "sha256": "84bb23b19931716e91c917a99335de544ba1c562e1a11b72448ad16b09719b34",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json",
+      "bytes": 50401,
+      "sha256": "5843541c55fc3958f7d71bbc8454fddaa1fd16b7fd84f8b8eaef7dcc34674f19",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json",
+      "bytes": 10767,
+      "sha256": "7dec1f1c5b8a2ddc59dcc36cbc06129f405fff960f7b47a685cd595849981dff",
+      "resolvedPath": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+      "bytes": 4920,
+      "sha256": "573b891855ea3a69d5c7bc400fa9fc02f8967fd6addbe07bf83d08e6c17bf3dc"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+      "bytes": 5080,
+      "sha256": "1b9186da42c59a8d4ba4dcf89b83afb16cb7dd164c6f082a5fe32b0fb128e59f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+      "bytes": 3209,
+      "sha256": "c2ddff3acc2e03f1dd3ab9294b1479a45ca3e04331db10453615681c023c2a11"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "bytes": 6063,
+      "sha256": "203a7aef9e3932624281b5971a307b10218136b3ec2378f1fa4c9c4ba840bc16"
+    },
+    {
+      "path": "looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/piece-publisher/README.md",
+      "bytes": 1562,
+      "sha256": "652aa7491ea4df559f1a4eddf498ef928a4a61f655f90b28de2a974f6d965a93"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52"
+    }
+  ],
+  "links": [
+    {
+      "label": "Hair chooser evidence",
+      "target": "evidence/nonhair-2026-10-03/hair-cut/README.md"
+    },
+    {
+      "label": "Current feature status",
+      "target": "PRODUCT-ROADMAP.md"
+    },
+    {
+      "label": "Saved-look evidence",
+      "target": "evidence/appearance-2026-10-02/saved-colours/README.md"
+    },
+    {
+      "label": "feature status",
+      "target": "PRODUCT-ROADMAP.md"
+    },
+    {
+      "label": "Export evidence",
+      "target": "evidence/appearance-2026-10-02/saved-export/README.md"
+    },
+    {
+      "label": "Layout evidence",
+      "target": "evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md"
+    },
+    {
+      "label": "Open and compare Ink",
+      "target": "../looks/INK-DENIM.md"
+    },
+    {
+      "label": "SVG and JSON",
+      "target": "evidence/appearance-2026-10-04/piece-publisher/README.md"
+    },
+    {
+      "label": "Preview and OBJ",
+      "target": "evidence/appearance-2026-10-04/whole-knit-serving/README.md"
+    },
+    {
+      "label": "Current evidence and recovery",
+      "target": "DAY-REPORT-2026-10-04.md"
+    },
+    {
+      "label": "full roadmap",
+      "target": "PRODUCT-ROADMAP.md"
+    }
+  ],
+  "checkedItems": 8,
+  "openItems": 10,
+  "scope": "Current prose/link/source comparison only; original draft gate missed. Whole-document source evidence read by root; no renderer or visual qualification. Eight checked bounded features/deliverables and ten open goals; count is an inventory, not a completion percentage.",
+  "dayReportChange": "One inserted opening checklist link; exact previous input retained",
+  "preview": "open_in_codex queued; not proof of rendered preview",
+  "commands": [
+    "13 exact input/source pin comparisons",
+    "11 checklist local links exist",
+    "Exact DAY-REPORT before plus one insertion comparison",
+    "git diff --check"
+  ],
+  "draft": {
+    "path": "docs/PROJECT-CHECKLIST.md",
+    "bytes": 3236,
+    "sha256": "130c11dc0d2dafc862036d9a94ba63b084757a38990ace7bc1694bf696e3a08a"
+  }
+}

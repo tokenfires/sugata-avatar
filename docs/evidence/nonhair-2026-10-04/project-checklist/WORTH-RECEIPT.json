@@ -1,0 +1,62 @@
+{
+  "savedUtc": "2026-10-05T02:29:57.567130+00:00",
+  "decision": "Limited A routine checklist/draft review after explicit root steering; original draft gate missed",
+  "plan": {
+    "path": "docs/evidence/nonhair-2026-10-04/project-checklist/PLAN.json",
+    "bytes": 1485,
+    "sha256": "19feb88ad9f454648a3422de526aafbd05539dd2f654656b6b812e2edeca961b"
+  },
+  "inputManifest": {
+    "path": "docs/evidence/nonhair-2026-10-04/project-checklist/INPUTS.json",
+    "bytes": 1264,
+    "sha256": "361a7478d90f12c7622b71ba921da740820f07f9785e073f423d73edb977c92a"
+  },
+  "inputs": [
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "docs/PUNCHLIST.md",
+      "bytes": 282721,
+      "sha256": "20b23b2049c84656a8de8ee0f030733673ff6506a264e4cf22ead06a1ebd939a"
+    },
+    {
+      "path": "docs/DAY-REPORT-2026-10-04.md",
+      "bytes": 40597,
+      "sha256": "e134e67e9264883a65a49eb18e24d1b39c6f0f114641965d7efefed492e33007"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/RESULT.md",
+      "bytes": 5083,
+      "sha256": "84bb23b19931716e91c917a99335de544ba1c562e1a11b72448ad16b09719b34"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/CLOSE.json",
+      "bytes": 50401,
+      "sha256": "5843541c55fc3958f7d71bbc8454fddaa1fd16b7fd84f8b8eaef7dcc34674f19"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/sewn-panel-trial/MANIFEST.json",
+      "bytes": 10767,
+      "sha256": "7dec1f1c5b8a2ddc59dcc36cbc06129f405fff960f7b47a685cd595849981dff"
+    }
+  ],
+  "initialGateMiss": {
+    "gate": "2026-10-05T02:28:27.150974+00:00",
+    "toolChunk": "856f8b",
+    "exitCode": 1,
+    "preWriteAssertionRefused": true,
+    "worthFilesEmitted": 0
+  },
+  "remainingCeiling": "2026-10-05T02:38:27.150974+00:00",
+  "witnessScope": "Full unchanged roadmap read in preceding gate; current roadmap42\u201348/119\u2013134, report5\u201328/final sewn-panel update, punchlist3\u201315 read. Trial result already independently read. Exact six bytes verified; no candidate/source geometry evaluation.",
+  "targetInventory": "PROJECT-CHECKLIST.md was absent at the prior worth lookup0417dc; no assertion about later root draft.",
+  "scope": "Metadata/hash/prose only; no new native or prior gate acceptance. Exact draft claims/item counts remain pending.",
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-04/project-checklist/WORTH.md",
+    "bytes": 2090,
+    "sha256": "757c23caa8bb5ee72b98e7d156d9f05cd300271e95985e5272c760f5f1b54aa6"
+  }
+}
