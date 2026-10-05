@@ -1,0 +1,39 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://static.makehumancommunity.org/assets/assetpacks/haireditor.html\",\"title\":\"Hair editor - MakeHuman Community\",\"description\":\"This pack contains two blend files (“hair.blend” and “fur.blend”), both by Tomáš Klecer. Each contain template hair styles.\",\"position\":1},{\"url\":\"https://static.makehumancommunity.org/assets/assetpacks.html\",\"title\":\"Asset Packs - MakeHuman Community\",\"description\":\"Asset packs are zip files with checked assets from MakeHuman and the asset repositories. This includes Hair editor, Visemes. A set of mostly low-poly and ...\",\"position\":2},{\"url\":\"https://static.makehumancommunity.org/mpfb/releases/release_2011.html\",\"title\":\"MPFB 2.0.11 - MakeHuman Community\",\"description\":\"This is a feature release focusing on experimental support for geometry nodes hair and fur. In order to use the new extension, you will need ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10a68-dfc3-728f-a141-eb81268336a7\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://static.makehumancommunity.org/assets/assetpacks/haireditor.html\\\", #2 \\\"https://static.makehumancommunity.org/assets/assetpacks.html\\\", #3 \\\"https://static.makehumancommunity.org/mpfb/releases/release_2011.html\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://static.makehumancommunity.org/assets/assetpacks/haireditor.html\", #2 \"https://static.makehumancommunity.org/assets/assetpacks.html\", #3 \"https://static.makehumancommunity.org/mpfb/releases/release_2011.html\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://static.makehumancommunity.org/assets/assetpacks/haireditor.html",
+          "title": "Hair editor - MakeHuman Community",
+          "description": "This pack contains two blend files (“hair.blend” and “fur.blend”), both by Tomáš Klecer. Each contain template hair styles.",
+          "position": 1
+        },
+        {
+          "url": "https://static.makehumancommunity.org/assets/assetpacks.html",
+          "title": "Asset Packs - MakeHuman Community",
+          "description": "Asset packs are zip files with checked assets from MakeHuman and the asset repositories. This includes Hair editor, Visemes. A set of mostly low-poly and ...",
+          "position": 2
+        },
+        {
+          "url": "https://static.makehumancommunity.org/mpfb/releases/release_2011.html",
+          "title": "MPFB 2.0.11 - MakeHuman Community",
+          "description": "This is a feature release focusing on experimental support for geometry nodes hair and fur. In order to use the new extension, you will need ...",
+          "position": 3
+        }
+      ]
+    },
+    "id": "01a10a68-dfc3-728f-a141-eb81268336a7",
+    "creditsUsed": 2
+  },
+  "isError": false
+}

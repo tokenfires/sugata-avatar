@@ -1,0 +1,97 @@
+{
+  "decision": "Conditional A \u2014 one planned official primary lookup only; no source import/preview execution admitted",
+  "startedAt": "2026-10-05T04:52:37.725760+00:00",
+  "savedAt": "2026-10-05T04:52:37.727649+00:00",
+  "pid": 50186,
+  "inputPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/README.md",
+      "bytes": 91488,
+      "sha256": "9e6278c0d550936826a30572ae705a1b6b2dac3d20604b49cfee748f0ea2db50"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/hairstyle-targets.md",
+      "bytes": 10560,
+      "sha256": "574f0928f871bc092411847a6b662bfc7a228147dba82b5f7484154d116fe8db"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/WORTH.md",
+      "bytes": 2572,
+      "sha256": "91c1db3557aa0f380bacfb7ae6594d1f1d16922b0ee7ff4953fc9b6c32da19ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-screen/ROOT-RESULT.json",
+      "bytes": 10471,
+      "sha256": "1e6ad791bdfeb95571b53a29d9f28cbc9e99ecfda9080f2bd507d4947987fa53"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-source-ownership/README.md",
+      "bytes": 2402,
+      "sha256": "97d2f79dde242c01baf45bce1d68260d53c23c42c2769984aea05560fd7bf26e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    }
+  ],
+  "additionalPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-primary-source/PLAN.json",
+      "bytes": 2552,
+      "sha256": "0c1e95dd3ad956f1315beb40573c69d3053f3d85dbf23d376e931fd3b724f13b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-primary-source/INPUTS.json",
+      "bytes": 1723,
+      "sha256": "97c70ab3709e50049b6432804073b05f4c738a5f7362a75a04654194fa167062"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-primary-source/WORTH.md",
+      "bytes": 2673,
+      "sha256": "d3c36a59fd63ec3062f283593c0a64806ebe8e5ef85b283394009edc4403ae5a"
+    }
+  ],
+  "readingScope": {
+    "complete": [
+      "PLAN.json",
+      "INPUTS.json",
+      "short-groom-screen/WORTH.md",
+      "short-groom-screen/ROOT-RESULT.json",
+      "masculine-source-ownership/README.md"
+    ],
+    "selected": [
+      "tools/figure-pipeline/README.md:850\u2013932, specifically892\u2013900",
+      "hairstyle-targets.md:114\u2013139 (entire document read in preceding current slice)",
+      "MASCULINE-CHARACTER-TARGET-2026-10-04.md:entire current brief read in preceding current slice"
+    ],
+    "search": "Narrow local source text only; first broad output truncated; focused short01 and MakeHuman-grooms queries retained. No global absence claim."
+  },
+  "actualImageWitness": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+    "inspection": "Whole unchanged original actually inspected at original detail in preceding current slice; byte pin reconciled here. No current MPFB page/photo observed.",
+    "limit": "Original illustration is artistic intent, not g100 head geometry or compatible groom source."
+  },
+  "readCommandChunks": [
+    "fbb2c7",
+    "6b7b0a"
+  ],
+  "limits": [
+    "No online or native action by critic.",
+    "Historical MPFB creator/license/maps statements remain historical until current primary corroboration.",
+    "Prior quiff refusal is not a universal short-card mechanism diagnosis.",
+    "No file/archive/media download, GLB/OBJ decode, constructor, shader/material/attachment or fit qualification.",
+    "No inherited later preview/source-import admission."
+  ],
+  "publication": "One stdlib pin/document publisher; all8 inputs compared before writing only WORTH and receipt."
+}
