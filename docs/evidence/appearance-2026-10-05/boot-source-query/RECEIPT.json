@@ -1,0 +1,80 @@
+{
+  "saved_utc": "2026-10-05T11:51:44.687447+00:00",
+  "stop_utc": "2026-10-05T12:00:00Z",
+  "decisions": {
+    "named_publisher_lead": "A scope-limited",
+    "current_target_source": "B",
+    "next_actual_primary_image": "B under current goal"
+  },
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-source-query/PLAN.json",
+      "bytes": 2076,
+      "sha256": "f312f20c9be6dc179bc1bd35d17b2fdb979fdcae00e163f373b459a3a86a0857",
+      "read_scope": "Complete exact plan read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-source-query/SEARCH.json",
+      "bytes": 3381,
+      "sha256": "0eb19309ee89aa491da20e4c1f611dc8c710708bb450d55f65e66876d05e9253",
+      "read_scope": "Full raw JSON parsed; complete returned content/structured equality and all results/metadata read"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-source-query/PAGE.json",
+      "bytes": 34633,
+      "sha256": "a7ab36174ab54c0508cd68ee8faf61bbeafa5a7fdf71680ec745e0af76050177",
+      "read_scope": "Full raw JSON parsed; complete deduplicated markdown166lines, metadata and supplied links read after initial output truncation; content/structured equality verified"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete retained brief read in preceding0808ac worth; unchanged exact bytes verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Actually viewed complete unchanged original at original detail0808ac; hash-only now"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-source-worth/RESULT.json",
+      "bytes": 2635,
+      "sha256": "b21ba0c3d4f524162b27cfc6de5041fefeed93aa563db6becae43207390f72c9",
+      "read_scope": "Prior collected conditional-worth result read/authored; exact match to current plan admission SHA verified"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/boot-source-query/RESULT.json",
+    "bytes": 3285,
+    "sha256": "6db7416e0565f5177bd2b7749a31ada969a7bbab239a090e1af17a2e8d05f77f",
+    "read_scope": "Collected final source/query and next-worth verdict"
+  },
+  "read_records": [
+    {
+      "tool_chunk": "60d51b",
+      "scope": "Complete PLAN/SEARCH and initial PAGE read; output truncated around duplicate full-response string"
+    },
+    {
+      "tool_chunk": "bd967a",
+      "scope": "Full saved responses parsed and content/structured deep-equal; complete deduplicated search, page markdown/metadata/links displayed without truncation",
+      "exit": 0
+    }
+  ],
+  "provider": {
+    "search_id": "01a10be4-3cb7-729c-8754-7215b0d5939e",
+    "search_reported_credits": 2,
+    "page_id": "01a10be4-885c-73a9-9e21-2b722173ba29",
+    "page_reported_credits": 1,
+    "search_clock_bracket": [
+      "2026-10-05 11:47:48 UTC",
+      "2026-10-05 11:47:52 UTC"
+    ],
+    "page_clock_bracket": [
+      "2026-10-05 11:48:08 UTC",
+      "2026-10-05 11:48:10 UTC"
+    ],
+    "actual_primary_pixels_inspected": false
+  },
+  "limits": "Saved-source read/hash review only. No network, new query/page, browser/native/model image acquisition, package/source download/extraction/import/execution, geometry or accepted/default/frozen edits by critic. Source page statements are not package/header/layout/topology/rights/physical-fit or complete footwear qualification. No height/tall-shaft pixel assertion without actual original image; no global model absence."
+}

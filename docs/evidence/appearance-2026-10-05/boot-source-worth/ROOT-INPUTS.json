@@ -1,0 +1,47 @@
+{
+  "observed_utc": "2026-10-05T11:45:48.415728+00:00",
+  "verified": [
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/REFERENCES.md",
+      "bytes": 2605,
+      "sha256": "3907cacbecaeaf5958650f4ca60e602a65c48dad5bb3df9c05cec40923390052"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/ROOT-CLOSE.json",
+      "bytes": 2385,
+      "sha256": "804eb7e2a1be400891c9ed7b41282c6cb2d5f34668a5abb4b60856407aa4f1b1"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53"
+    }
+  ],
+  "review_ps": {
+    "returncode": 0,
+    "stdout": " 1023 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort\n",
+    "stderr": ""
+  },
+  "automation": {
+    "bytes": 2940,
+    "sha256": "f69648b59c2107f17177fde67cc5864bbd2956f20cfbe5d1101bdb2ddb5ef8db",
+    "active": true,
+    "ten_minute": true
+  },
+  "no_network_browser_geometry_or_job": true
+}

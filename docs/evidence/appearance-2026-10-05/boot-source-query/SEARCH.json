@@ -1,0 +1,58 @@
+{
+  "arguments": {
+    "query": "boots 3D model",
+    "includeDomains": [
+      "polyhaven.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "limit": 3
+  },
+  "started": {
+    "current_time": "2026-10-05 11:47:48 UTC"
+  },
+  "ended": {
+    "current_time": "2026-10-05 11:47:52 UTC"
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://polyhaven.com/models\",\"title\":\"Models - Poly Haven\",\"description\":\"Hundreds of free 3D models, ready to use for any purpose. Rubber Boots Rubber Boots 3 months ago. Learn from us with full-length video courses.\",\"position\":1},{\"url\":\"https://polyhaven.com/a/rubber_boots\",\"title\":\"Rubber Boots Model - Poly Haven\",\"description\":\"Free 8K model: deep green rubber wellies, glossy shafts with black rims and toe guards, chunky tread soles, subtle seams, scuffs, mud splashes, ...\",\"position\":2},{\"url\":\"https://polyhaven.com/all\",\"title\":\"All Assets - Poly Haven\",\"description\":\"Hundreds of free HDRIs, textures, and 3D models, ready to use for any purpose. No login required. Rubber Boots Rubber Boots 3 months ago … full-length video ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10be4-3cb7-729c-8754-7215b0d5939e\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://polyhaven.com/models\\\", #2 \\\"https://polyhaven.com/a/rubber_boots\\\", #3 \\\"https://polyhaven.com/all\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://polyhaven.com/models\", #2 \"https://polyhaven.com/a/rubber_boots\", #3 \"https://polyhaven.com/all\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://polyhaven.com/models",
+            "title": "Models - Poly Haven",
+            "description": "Hundreds of free 3D models, ready to use for any purpose. Rubber Boots Rubber Boots 3 months ago. Learn from us with full-length video courses.",
+            "position": 1
+          },
+          {
+            "url": "https://polyhaven.com/a/rubber_boots",
+            "title": "Rubber Boots Model - Poly Haven",
+            "description": "Free 8K model: deep green rubber wellies, glossy shafts with black rims and toe guards, chunky tread soles, subtle seams, scuffs, mud splashes, ...",
+            "position": 2
+          },
+          {
+            "url": "https://polyhaven.com/all",
+            "title": "All Assets - Poly Haven",
+            "description": "Hundreds of free HDRIs, textures, and 3D models, ready to use for any purpose. No login required. Rubber Boots Rubber Boots 3 months ago … full-length video ...",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a10be4-3cb7-729c-8754-7215b0d5939e",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}

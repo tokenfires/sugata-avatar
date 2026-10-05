@@ -1,0 +1,69 @@
+{
+  "saved_utc": "2026-10-05T11:46:14.536301+00:00",
+  "stop_utc": "2026-10-05T11:50:00Z",
+  "decision": "A worth only; separate source/query admission required",
+  "bindings": [
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba",
+      "read_scope": "Complete current brief read with numbered lines; exact bytes verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "read_scope": "Actual complete unchanged original viewed at original detail in0808ac; exact bytes verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/REFERENCES.md",
+      "bytes": 2605,
+      "sha256": "3907cacbecaeaf5958650f4ca60e602a65c48dad5bb3df9c05cec40923390052",
+      "read_scope": "Complete current reference limits read; exact bytes verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/ROOT-CLOSE.json",
+      "bytes": 2385,
+      "sha256": "804eb7e2a1be400891c9ed7b41282c6cb2d5f34668a5abb4b60856407aa4f1b1",
+      "read_scope": "Complete current closed-method/next-boundary record read; exact bytes verified"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 4489,
+      "sha256": "dd67ca24c00f19dcdf4bc95b2054efc702a9a05bf73833b227feda7b0fc405b5",
+      "read_scope": "Complete matching retained/current checklist previously read; exact current bytes verified"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 31912,
+      "sha256": "f4581a9525451c1405faf399a676a536808d68b90d49978cae546a8c4950ef53",
+      "read_scope": "Complete exact adopted review bytes previously read, including readback; current installed bytes verified"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-source-worth/PLAN.json",
+      "bytes": 3924,
+      "sha256": "b8eb4c8d4d1b00ed59bd740cec980236e932ccad4ab8dc719db373b3a488c4ca",
+      "read_scope": "Complete current plan with all six embedded binding rows read; no separate INPUTS required"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-05/boot-source-worth/RESULT.json",
+    "bytes": 2635,
+    "sha256": "b21ba0c3d4f524162b27cfc6de5041fefeed93aa563db6becae43207390f72c9",
+    "read_scope": "Collected final worth verdict"
+  },
+  "observations": [
+    {
+      "tool_chunk": "48e7e5",
+      "scope": "Complete PLAN read; extra guessed INPUTS.json read failed after plan because no separate file exists. Required six bindings are embedded in PLAN; no missing required authority or source change inferred.",
+      "exit": 1
+    },
+    {
+      "tool_chunk": "0808ac",
+      "scope": "Six exact bindings verified; full brief/REFERENCES/ROOT-CLOSE read and actual complete unchanged concept image viewed at original detail",
+      "exit": 0,
+      "verified_utc": "2026-10-05T11:44:39.155625+00:00"
+    }
+  ],
+  "limits": "Read/hash and unchanged local original-image inspection only. No network/query/page/download/extraction/import/executable/geometry/render/native/capture/source/accepted/default edit. No assertion about current Poly Haven catalogue, licensing, model existence or fitness; those are the future question."
+}

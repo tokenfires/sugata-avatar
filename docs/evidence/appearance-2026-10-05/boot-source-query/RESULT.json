@@ -1,0 +1,30 @@
+{
+  "saved_utc": "2026-10-05T11:51:44.687447+00:00",
+  "source_nomination": "A precise named publisher model lead only: Poly Haven Rubber Boots, credited L.",
+  "current_target_selection": "B; do not select this described green rubber-wellies style for the retained brown ankle-boot character target.",
+  "source_witness": {
+    "query": "SEARCH.arguments exactly matches PLAN.query; only named result position2 is the fetched literal official /a/rubber_boots page. The other two returned entries are generic galleries.",
+    "page": "PAGE structuredContent markdown1/119\u2013144 identifies Rubber Boots, author L, displays a CC0 link, Blend/glTF/USD/FBX/ZIP options and 35K tris. Metadata reports HTTP200 and the literal official URL. These are publisher statements/controls, not inspected package, rights, layout, source topology or fit.",
+    "style": "PAGE markdown3 and metadata.description describe deep-green rubber wellies with glossy shafts, black trim/toe guards and chunky tread. No primary model pixels were acquired or inspected; exact shaft height and geometry remain unknown."
+  },
+  "actual_target_witness": {
+    "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+    "read_scope": "Complete unchanged original actually viewed in0808ac during the immediately preceding worth review; hash reverified now.",
+    "coordinates": "Brown ankle uppers/toes/soles at approximately x183\u2013308/y882\u2013964 and x348\u2013456/y846\u2013930, with trouser hems overlapping the ankle tops.",
+    "source": "Retained brief3/7 explicitly chooses brown boots and visible upper/sole styling;11 leaves actual source/boot interfaces undefined."
+  },
+  "explanation": "The query found a real named model page, but the declared source style already differs materially from the retained outfit. A named page does not earn complete/editable/wearable acceptance or justify changing the target to a different boot class.",
+  "alternatives": [
+    {
+      "A": "Retain the exact publisher lead as an unqualified reference for a future separately chosen rain/workwear direction.",
+      "tradeoff": "Preserves a useful concrete name and provenance, but does not solve the current brown-ankle-footwear decision or admit any further operation."
+    },
+    {
+      "B": "Stop this current target-source line without image inspection/download/reformulation.",
+      "tradeoff": "Avoids an image/package detour whose stated style does not address the current target; physical source ownership for the target remains open."
+    }
+  ],
+  "selected": "A provenance retention, B target selection and next image inspection under this goal.",
+  "next_image_worth": "B now. A later source image could document this wellies model itself, but no distinct rain/workwear decision is currently owned; it would not remove the declared palette/material-style mismatch. Do not create a successor merely to inspect a known different style.",
+  "closeout": "One recorded query11:47:48\u201352UTC with2 reported credits; one live page11:48:08\u201310UTC with1 reported credit. No onward query, image acquisition, package/rights page/API, asset execution or accepted/default/status promotion admitted. No universal absence claim; other boots were not exhaustively searched."
+}
