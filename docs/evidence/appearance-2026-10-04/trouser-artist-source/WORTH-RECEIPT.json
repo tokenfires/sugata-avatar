@@ -1,0 +1,80 @@
+{
+  "savedAtUTC": "2026-10-05T03:06:47.399827+00:00",
+  "decision": "Conditional A complete original artist-source preparation only",
+  "stopAt": "2026-10-05T03:44:20.803946+00:00",
+  "planningPins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-artist-source/PLAN.json",
+      "bytes": 2880,
+      "sha256": "10ceafc6c0a052129d8388051044bad5fc2bc4d37da907402691d10703930ef4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-artist-source/INPUTS.json",
+      "bytes": 1652,
+      "sha256": "63eb1c8a1daca9c4fb1d3311af46fad402b67ff5eae7db5424f32d5ae871da28"
+    }
+  ],
+  "verifiedInputPins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/trousers-v1.png",
+      "bytes": 2013757,
+      "sha256": "a44f073b43b0b3d260267b259accb3db3a5469edebd1834473befd0c6fc36ff8"
+    },
+    {
+      "path": "docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "bytes": 2401,
+      "sha256": "20c9cf52a00099e63badeb6be800e69403efed2446c823b8d8e256a4adc8de20"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/RESULT.md",
+      "bytes": 2424,
+      "sha256": "dd5668d0bbf9f064a7498af992a0b02ed86417a7a45c0d3a5bed96a6108cfba1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/trouser-design/ROOT-CLOSE.json",
+      "bytes": 7916,
+      "sha256": "9e7e43a81b14542198cbb1c9a250e277691cf40cd5f8daa19e9d8d2c4440e58f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/viewer.mjs",
+      "bytes": 3893,
+      "sha256": "3df646cf0d8432fc19c7a2ac600854445c811831d0026b3230b2ca7dee726468"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/whole-knit-serving/index.html",
+      "bytes": 2650,
+      "sha256": "04fc7be512927517ae89eedcc340960da6efdf324cd9df814a9ffe7d2de4d413"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    }
+  ],
+  "actualReadScope": {
+    "fullText": [
+      "PLAN.json",
+      "INPUTS.json",
+      "WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "trouser-design/RESULT.md",
+      "trouser-design/ROOT-CLOSE.json",
+      "whole-knit-serving/viewer.mjs",
+      "whole-knit-serving/index.html"
+    ],
+    "roadmap": "Current bytepin matches the previously fully read roadmap; no new roadmap claims or changes",
+    "image": "Complete original-detail trousers-v1.png inspected before 02:49:56UTC, same pinned bytes, no extra view or capture"
+  },
+  "alternatives": "A Cora original complete explicit unitless source plus independent source/data/actual-view qualification; B wait for external complete source. Preparation A, producer/native not admitted.",
+  "boundaries": [
+    "No image-to-mesh/copy of measurements, old-mesh warp, denim scaling or body-fitting",
+    "Three ports must be literal and shared surface/join responsibilities complete",
+    "Boot relation terminal intent only, not actual boot geometry or fit",
+    "No constructors/imports/assets decode/online/browser/capture/generation by critic",
+    "Full source and root review precede one future execution; first failure closes, no geometry rescue"
+  ],
+  "worthNote": {
+    "path": "docs/evidence/appearance-2026-10-04/trouser-artist-source/WORTH.md",
+    "bytes": 2526,
+    "sha256": "c0b0502c124420d095ae25f4ce7a645e466beac0f45bb37dfcc7e9cd14b17dcb"
+  }
+}

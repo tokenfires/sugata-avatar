@@ -1,0 +1,59 @@
+"""External finite once-only producer accounting; no construction on import."""
+import datetime
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+root = Path(__file__).resolve().parent
+stop_at = datetime.datetime.fromisoformat("2026-10-05T03:44:20.803946+00:00")
+if datetime.datetime.now(datetime.timezone.utc) >= stop_at:
+    raise SystemExit("fixed total stop already reached; no invocation")
+(root / "ATTEMPT.marker").open("x").close()
+out = root / "export"
+out.mkdir()
+started = datetime.datetime.now(datetime.timezone.utc).isoformat()
+command = [sys.executable,"-B",str(root / "producer.py"),str(root / "ARTIST-DATA.json"),str(out)]
+def pins():
+    return [{"path":p.name,"bytes":p.stat().st_size,"sha256":hashlib.sha256(p.read_bytes()).hexdigest()} for p in [root / "runner.py",root / "producer.py",root / "ARTIST-DATA.json"]]
+record = {"runnerPid":os.getpid(),"childPid":None,"startedUtc":started,"command":command,"inputPins":pins(),"timeoutSeconds":10,"termWaitSeconds":2,"killWaitSeconds":2,"timeout":False,"actions":[],"exit":None,"outputs":[]}
+def save():
+    (root / "RUN.json").write_text(json.dumps(record,indent=2)+"\n")
+save()
+begin = time.monotonic()
+child = None
+try:
+    with (root / "stdout.txt").open("wb") as stdout, (root / "stderr.txt").open("wb") as stderr:
+        child = subprocess.Popen(command, stdout=stdout, stderr=stderr)
+        record["childPid"] = child.pid
+        save()
+        try:
+            record["exit"] = child.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            record["timeout"] = True
+            child.terminate()
+            record["actions"].append("TERM")
+            try:
+                record["exit"] = child.wait(timeout=2)
+            except subprocess.TimeoutExpired:
+                child.kill()
+                record["actions"].append("KILL")
+                record["exit"] = child.wait(timeout=2)
+except Exception as error:
+    record["runnerError"] = repr(error)
+    if child is not None and child.poll() is None:
+        child.kill()
+        record["actions"].append("KILL after accounting error")
+        record["exit"] = child.wait(timeout=2)
+finally:
+    record["finishedUtc"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    record["wallSeconds"] = time.monotonic()-begin
+    for p in sorted([root / "stdout.txt",root / "stderr.txt",*out.glob("*")]):
+        if p.is_file():
+            record["outputs"].append({"path":str(p.relative_to(root)),"bytes":p.stat().st_size,"sha256":hashlib.sha256(p.read_bytes()).hexdigest()})
+    save()
+print(json.dumps(record))
+raise SystemExit(0 if record["exit"] == 0 and not record["timeout"] and "runnerError" not in record else 1)

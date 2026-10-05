@@ -1,0 +1,27 @@
+{
+  "pid": 26528,
+  "startedUtc": "2026-10-05T03:34:59.878491+00:00",
+  "finishedUtc": "2026-10-05T03:34:59.892726+00:00",
+  "actual": {
+    "vertices": 320,
+    "quads": 289,
+    "triangles": 578,
+    "triangleEdges": 899,
+    "boundaryEdges": 64,
+    "boundaryLoops": 3,
+    "euler": -1
+  },
+  "triangleFaceComponents": 1,
+  "boundaryComponentLengths": [
+    16,
+    16,
+    32
+  ],
+  "allVertexLinksPass": true,
+  "objExact": true,
+  "exactSquaredCrossMinimumObserver": 2.3051025000000246e-05,
+  "nativeIdentityAndFloat32Bounds": true,
+  "drawsUnchanged": true,
+  "knownTabClosed": true,
+  "limits": "Saved topology/export/record observation only; no producer imports, global intersections, material/fit/physical or GPU-ledger certificate."
+}

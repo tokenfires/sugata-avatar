@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-05T03:27:33.097472+00:00",
+  "rootIndependentSavedDataCheck": "Full quad edge/union-find/vertex-link/boundary component/OBJ observer; no producer import or new construction",
+  "actual": {
+    "vertices": 320,
+    "quads": 289,
+    "quadEdges": 610,
+    "quadEuler": -1,
+    "boundaryEdges": 64,
+    "boundaryCycles": [
+      16,
+      16,
+      32
+    ],
+    "faceComponents": 1,
+    "allVertexLinks": "connected cycle or boundary interval",
+    "allVerticesUsed": true,
+    "objExactRoundTrip": true,
+    "bounds": {
+      "min": [
+        -0.6599999999999999,
+        0.4,
+        -0.42
+      ],
+      "max": [
+        0.6599999999999999,
+        4.4,
+        0.28
+      ]
+    }
+  },
+  "run": {
+    "runnerPid": 25654,
+    "childPid": 25655,
+    "startedUtc": "2026-10-05T03:26:38.692740+00:00",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/producer.py",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/ARTIST-DATA.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/export"
+    ],
+    "inputPins": [
+      {
+        "path": "runner.py",
+        "bytes": 2726,
+        "sha256": "8e425cf96dba5c63adf9723337389039d66bbc5592bbe5b6e7b67ab9eb750e1f"
+      },
+      {
+        "path": "producer.py",
+        "bytes": 6827,
+        "sha256": "5f384c95e6f9acc667c7f82649f588aede192da2bc9b9e65bd5ff9ed5160d146"
+      },
+      {
+        "path": "ARTIST-DATA.json",
+        "bytes": 2857,
+        "sha256": "a6d5e5dff82567d89ad1116f08ca089ea0892bb2cb1066b89bffa3956d975a78"
+      }
+    ],
+    "timeoutSeconds": 10,
+    "termWaitSeconds": 2,
+    "killWaitSeconds": 2,
+    "timeout": false,
+    "actions": [],
+    "exit": 0,
+    "outputs": [
+      {
+        "path": "export/CHECK.json",
+        "bytes": 675,
+        "sha256": "c3383c422bb59ec8657e21c788ddc7499587b68ba50eb27b651ab51f0f54050c"
+      },
+      {
+        "path": "export/PARTIAL.json",
+        "bytes": 139,
+        "sha256": "c447bb09742e5b52b1aa66523a667af7d385430849c4cbef91b76771eebef485"
+      },
+      {
+        "path": "export/mesh.json",
+        "bytes": 39533,
+        "sha256": "4910c843a839615eb2974b50653f4f7ab1fb9cd8c3e06e2e9246712eb0db7248"
+      },
+      {
+        "path": "export/surface-partial.json",
+        "bytes": 39289,
+        "sha256": "8df41d780f64f260eb8672df3fd57bc75a3e1e0ea6ded32670bc78422d5f04b7"
+      },
+      {
+        "path": "export/trousers.obj",
+        "bytes": 23888,
+        "sha256": "f8d0b7d553b6493e91a76899f07c02589182ae9a120990d3bb722291aef326f1"
+      },
+      {
+        "path": "stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "finishedUtc": "2026-10-05T03:26:38.735737+00:00",
+    "wallSeconds": 0.04272483300883323
+  },
+  "meshSha": "4910c843a839615eb2974b50653f4f7ab1fb9cd8c3e06e2e9246712eb0db7248",
+  "decision": "A source/export; conditional admitted one fixed first native triptych now. Appearance unobserved.",
+  "limits": "Original unitless artist geometry; no metric/body/foundation/boot correspondence, image measurement, physical pattern/drape, seam/pocket interiors, material finish, rig/morph/pose/motion/fit/AAA qualification. No full self-intersection or collision predicate. Hem is an open design interface; actual boot break is untested."
+}

@@ -1,0 +1,26 @@
+{
+  "author": "Cora / original Sugata artist blockout",
+  "frame": {"units": "original unitless artist proportions", "up": "+Y", "front": "+Z", "mirror": "X", "origin": "ground-centre design datum; no body registration"},
+  "upperShape": {"x": [-1,-0.94,-0.85,-0.70,-0.50,-0.35,-0.20,-0.10,0,0.10,0.20,0.35,0.50,0.70,0.85,0.94,1], "depth": [0,0.341,0.527,0.714,0.866,0.937,0.98,0.995,1,0.995,0.98,0.937,0.866,0.714,0.527,0.341,0]},
+  "legShape": {"x": [-1,-0.92,-0.78,-0.50,0,0.50,0.78,0.92,1], "depth": [0,0.392,0.626,0.866,1,0.866,0.626,0.392,0]},
+  "upperRows": [
+    {"name":"waist-mouth","y":4.40,"halfWidth":0.48,"frontDepth":0.21,"backDepth":0.23},
+    {"name":"waistband-bottom","y":4.30,"halfWidth":0.48,"frontDepth":0.21,"backDepth":0.23},
+    {"name":"high-seat","y":4.00,"halfWidth":0.60,"frontDepth":0.26,"backDepth":0.40},
+    {"name":"full-seat","y":3.65,"halfWidth":0.64,"frontDepth":0.28,"backDepth":0.42},
+    {"name":"fork-root","y":3.30,"halfWidth":0.65,"frontDepth":0.28,"backDepth":0.35}
+  ],
+  "legRows": [
+    {"name":"leg-mouth","y":3.10,"centreMagnitude":0.355,"halfWidth":0.295,"frontDepth":0.265,"backDepth":0.29},
+    {"name":"thigh","y":2.65,"centreMagnitude":0.36,"halfWidth":0.29,"frontDepth":0.26,"backDepth":0.29},
+    {"name":"knee","y":2.20,"centreMagnitude":0.36,"halfWidth":0.29,"frontDepth":0.26,"backDepth":0.27},
+    {"name":"lower-leg","y":0.65,"centreMagnitude":0.36,"halfWidth":0.30,"frontDepth":0.255,"backDepth":0.265},
+    {"name":"hem-mouth","y":0.40,"centreMagnitude":0.36,"halfWidth":0.29,"frontDepth":0.25,"backDepth":0.25}
+  ],
+  "surfaceContract": "Every front/back outer endpoint is the same vertex. Upper rows loft through complete arcs. Each half of the final upper front/back arcs lofts to its corresponding complete leg mouth. One crotch diamond joins upper-front centre, left-leg inner endpoint, upper-back centre, right-leg inner endpoint. All lower leg rows loft completely. No independent intersecting tubes or inferred hidden fill.",
+  "triangulation": "Each authored oriented quad [a,b,c,d] becomes [a,b,c] and [a,c,d], including crotch diamond. No triangulation search.",
+  "ports": ["waist-mouth (32 vertices)","left-hem-mouth (16 vertices)","right-hem-mouth (16 vertices)"],
+  "expected": {"vertices":320,"quads":289,"triangles":578,"triangleEdges":899,"boundaryEdges":64,"boundaryLoops":3,"euler":-1},
+  "materials": {"waistband":"neutral charcoal clay region, not stitched fabric","body":"neutral charcoal clay region, not wool/cloth simulation"},
+  "limits": "Original unitless artist geometry; no metric/body/foundation/boot correspondence, image measurement, physical pattern/drape, seam/pocket interiors, material finish, rig/morph/pose/motion/fit/AAA qualification. No full self-intersection or collision predicate. Hem is an open design interface; actual boot break is untested."
+}

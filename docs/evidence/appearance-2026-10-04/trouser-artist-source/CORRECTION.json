@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-05T03:23:48.636132+00:00",
+  "witness": "runner.initial.py.txt first-line no-construction-on-import assertion contradicts its top-level marker/Popen lines; complete code independently read26ff22.",
+  "decision": "A wording-only correction; preserve exact original. B main-guard architecture would add unnecessary runtime change for the admitted script-only operation.",
+  "unchanged": "All lines after docstring byte-identical; no executable/data/geometry/limits change; no invocation yet",
+  "diff": "--- runner.initial.py.txt\n+++ runner.py\n@@ -1,4 +1,4 @@\n-\"\"\"External finite once-only producer accounting; no construction on import.\"\"\"\n+\"\"\"External finite once-only producer accounting; use as an admitted script.\"\"\"\n import datetime\n import hashlib\n import json\n"
+}
