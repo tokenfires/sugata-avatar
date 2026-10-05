@@ -1,0 +1,653 @@
+{
+  "recorded_utc": "2026-10-05T07:02:57.060252+00:00",
+  "pid": 63625,
+  "decision": "A exact original-package/credit handoff; B current groom/Sugata transfer/fullsource qualification. Critic collected; fixed slice closes with no nextjob.",
+  "verified_binding_rows": 106,
+  "unique_binding_paths": 32,
+  "bindings": [
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "sha256": "a4d838fba8bca7d409e5e7a1e2b65071fbe2cfc8d0637ca8695e7c9d2ce23b19"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RECEIPT.json",
+      "sha256": "d95947b540d4652c269a9d6fdf2a5d10a71e032c4744590bbca61a756e87d668"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-PREFLIGHT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-PREFLIGHT.json",
+      "sha256": "d76b990316e275c27cba6909fc7836ad602d695e4f6108b5e2017750bcefbe69"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "sha256": "bf87e17110584b034a11f0ea1383663b24ed7beca39b82be7ea9984a14666b1a"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RECEIPT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/RECEIPT.md",
+      "sha256": "06a811a968dbfe70f986d2a1f624a5af61798bdc6579103b721fbef95a93359b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/README.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/README.md",
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/RECEIPT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/RECEIPT.md",
+      "sha256": "06a811a968dbfe70f986d2a1f624a5af61798bdc6579103b721fbef95a93359b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DRAFTS.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DRAFTS.json",
+      "sha256": "f92f364b77dcfc1a4566d124205ea55f751505c0478e9e663d6244d62dd1d752"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "sha256": "cff66a5cfb418272aeb5c4764507d4a5d9fbd2b3eeb66a5d287786d2d36e5e45"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT-RECEIPT.json",
+      "sha256": "f3a75dd78b07c47e402262de5d84ac28f9bc58930d3e3e17dc54bd1ee266e34d"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "sha256": "c17c00cfeadd06f6690926626b1bc96009798d0e9a754fd5b6baebad1787220a"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "sha256": "29750331307d413a6752914a5b0acf45ac330b0e1d7d884763bc07ea8262464b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "sha256": "4529ce4b20b5230e76dfb70f1464872eed5009835754741c64bded582e68dc96"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+      "sha256": "bdca353aadbdda42a747de0a5c42ee235c513f0ec45fd7364fd5c3fa44d2dbfc"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RESULT.md",
+      "sha256": "9a2bbebfbc62757dd244faab633600ae78d31c1a01eecb19674530f5039b7852"
+    },
+    {
+      "recorded_path": "assets/vendor/snow-v42/snow_v42.zip.part",
+      "resolved_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "recorded_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "resolved_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "recorded_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "resolved_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "recorded_path": "docs/PRODUCT-ROADMAP.md",
+      "resolved_path": "docs/PRODUCT-ROADMAP.md",
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "recorded_path": ".gitignore",
+      "resolved_path": ".gitignore",
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    },
+    {
+      "recorded_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "resolved_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "recorded_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "resolved_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "recorded_path": "docs/PRODUCT-ROADMAP.md",
+      "resolved_path": "docs/PRODUCT-ROADMAP.md",
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "recorded_path": ".gitignore",
+      "resolved_path": ".gitignore",
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "sha256": "a4d838fba8bca7d409e5e7a1e2b65071fbe2cfc8d0637ca8695e7c9d2ce23b19"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RECEIPT.json",
+      "sha256": "d95947b540d4652c269a9d6fdf2a5d10a71e032c4744590bbca61a756e87d668"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ADMISSION.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ADMISSION.json",
+      "sha256": "62d312dc26fb9eeeddf8d3781927b591f16f813cb6cfbbb2d788f057c1924b0f"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-PREFLIGHT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-PREFLIGHT.json",
+      "sha256": "d76b990316e275c27cba6909fc7836ad602d695e4f6108b5e2017750bcefbe69"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "sha256": "29750331307d413a6752914a5b0acf45ac330b0e1d7d884763bc07ea8262464b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "sha256": "4529ce4b20b5230e76dfb70f1464872eed5009835754741c64bded582e68dc96"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "sha256": "bf87e17110584b034a11f0ea1383663b24ed7beca39b82be7ea9984a14666b1a"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.json",
+      "sha256": "3c6d1d33d2b8addc5c9ca02e983b73f8cda60f998eb1761c10c619e86946aae1"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "sha256": "c17c00cfeadd06f6690926626b1bc96009798d0e9a754fd5b6baebad1787220a"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+      "sha256": "bdca353aadbdda42a747de0a5c42ee235c513f0ec45fd7364fd5c3fa44d2dbfc"
+    },
+    {
+      "recorded_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "resolved_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "sha256": "cff66a5cfb418272aeb5c4764507d4a5d9fbd2b3eeb66a5d287786d2d36e5e45"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RESULT.md",
+      "sha256": "9a2bbebfbc62757dd244faab633600ae78d31c1a01eecb19674530f5039b7852"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RECEIPT.json",
+      "sha256": "e0e68dfc8e3147c651a3f79e55cdb25b9eb3dd4abb7e6cfaf3350f54b4260eb4"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/RECEIPT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/RECEIPT.md",
+      "sha256": "06a811a968dbfe70f986d2a1f624a5af61798bdc6579103b721fbef95a93359b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RECEIPT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RECEIPT.md",
+      "sha256": "41c99f3505b24d9f9e632574c8192271a44ad69bd7c9914a2f31aa94f94d86f6"
+    },
+    {
+      "recorded_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "resolved_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ADMISSION.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ADMISSION.json",
+      "sha256": "62d312dc26fb9eeeddf8d3781927b591f16f813cb6cfbbb2d788f057c1924b0f"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "sha256": "29750331307d413a6752914a5b0acf45ac330b0e1d7d884763bc07ea8262464b"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "sha256": "4529ce4b20b5230e76dfb70f1464872eed5009835754741c64bded582e68dc96"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "sha256": "bf87e17110584b034a11f0ea1383663b24ed7beca39b82be7ea9984a14666b1a"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.json",
+      "sha256": "3c6d1d33d2b8addc5c9ca02e983b73f8cda60f998eb1761c10c619e86946aae1"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "sha256": "c17c00cfeadd06f6690926626b1bc96009798d0e9a754fd5b6baebad1787220a"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "recorded_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "resolved_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "recorded_path": "docs/PRODUCT-ROADMAP.md",
+      "resolved_path": "docs/PRODUCT-ROADMAP.md",
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "recorded_path": ".gitignore",
+      "resolved_path": ".gitignore",
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "sha256": "bf87e17110584b034a11f0ea1383663b24ed7beca39b82be7ea9984a14666b1a"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "sha256": "a4d838fba8bca7d409e5e7a1e2b65071fbe2cfc8d0637ca8695e7c9d2ce23b19"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "sha256": "cff66a5cfb418272aeb5c4764507d4a5d9fbd2b3eeb66a5d287786d2d36e5e45"
+    },
+    {
+      "recorded_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT-RECEIPT.json",
+      "sha256": "f3a75dd78b07c47e402262de5d84ac28f9bc58930d3e3e17dc54bd1ee266e34d"
+    },
+    {
+      "recorded_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "resolved_path": "assets/vendor/snow-v42/snow_v42.zip",
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "sha256": "a4d838fba8bca7d409e5e7a1e2b65071fbe2cfc8d0637ca8695e7c9d2ce23b19"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "resolved_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "resolved_path": "docs/PRODUCT-ROADMAP.md",
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/.gitignore",
+      "resolved_path": ".gitignore",
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "resolved_path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "resolved_path": "docs/PRODUCT-ROADMAP.md",
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/.gitignore",
+      "resolved_path": ".gitignore",
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "recorded_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "resolved_path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+    }
+  ],
+  "current_local_links": [
+    {
+      "from": "README.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/assets/vendor/snow-v42/snow_v42.zip"
+    },
+    {
+      "from": "README.md",
+      "target": "../short-groom-named-source/primary-view.jpg"
+    },
+    {
+      "from": "README.md",
+      "target": "../../../research/MASCULINE-CHARACTER-TARGET-2026-10-04.md"
+    },
+    {
+      "from": "README.md",
+      "target": "INVENTORY.json"
+    },
+    {
+      "from": "README.md",
+      "target": "LICENSE.md"
+    },
+    {
+      "from": "README.md",
+      "target": "RECEIPT.md"
+    },
+    {
+      "from": "README.md",
+      "target": "ROOT-OBSERVATION.json"
+    },
+    {
+      "from": "README.md",
+      "target": "RESULT.md"
+    },
+    {
+      "from": "README.md",
+      "target": "SOURCE-RESULT.md"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "PLAN.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "ADMISSION.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "RUN.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "DOWNLOAD.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "INVENTORY.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "LICENSE-REQUEST.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "LICENSE.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "LICENSE.md"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "ROOT-OBSERVATION.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "ROOT-CLOSE.json"
+    },
+    {
+      "from": "RECEIPT.md",
+      "target": "MANIFEST.json"
+    }
+  ],
+  "payload_count": 26,
+  "payload_bytes": 110046,
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/MANIFEST.json",
+    "bytes": 5785,
+    "sha256": "a1dc701ab61d5b0f214ad2cd1322cb41f410a200cbbd3c32a53411004ddfbe8b"
+  },
+  "original_archive": {
+    "path": "assets/vendor/snow-v42/snow_v42.zip",
+    "bytes": 111580346,
+    "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+  },
+  "recorded_job_pids_absent": {
+    "61506": true,
+    "61856": true,
+    "62036": true,
+    "62037": true,
+    "62171": true,
+    "62972": true,
+    "63180": true,
+    "63433": true
+  },
+  "review_server": "PID1023 loopback5173 verified",
+  "automation": {
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "sha256": "f69648b59c2107f17177fde67cc5864bbd2956f20cfbe5d1101bdb2ddb5ef8db",
+    "note": "saved recurrence only; no delivery punctuality proof or mutation"
+  },
+  "critic": "RESULT06:57:57 + DELIVERY06:59:58 fullhandoffs/root94a3cd/facb17; finalcollected.",
+  "stop_utc": "2026-10-05T07:09:32.418304+00:00",
+  "limits": "No new GPU/native/Blender/parser/import/extraction/PNGpixel/fullCRC/sourcecompleteness/fit/motion/starter/AAA acceptance. No nextadmission; accepted/default/roadmap/checklist/olderfrozen/unrelated work intact."
+}

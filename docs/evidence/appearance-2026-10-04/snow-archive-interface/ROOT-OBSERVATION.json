@@ -1,0 +1,84 @@
+{
+  "utc": "2026-10-05T06:48:17.891793+00:00",
+  "pid": 62171,
+  "read_chunks": [
+    "e1dcc4",
+    "Firecrawl unique LICENSE structuredContent"
+  ],
+  "invocation": {
+    "launch_chunk": "3ea20f",
+    "session_id": 33669,
+    "full_return_chunk": "1d109d",
+    "exit": 0,
+    "wrapper_pid": 62036,
+    "child_pid": 62037
+  },
+  "actual_archive": {
+    "path": "assets/vendor/snow-v42/snow_v42.zip",
+    "bytes": 111580346,
+    "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+  },
+  "job_pids_absent": true,
+  "counts": {
+    "central_entries": 35,
+    "directory_entries": 1,
+    "blend_files": 1,
+    "png_names": 33,
+    "declared_total_bytes": 112080359,
+    "separately_listed_license_readme_text": 0
+  },
+  "license_page": {
+    "scrape_id": "01a10ad1-58cb-7239-85c8-49029596f702",
+    "http": 200,
+    "reported_credits": 1,
+    "scope": "Full returned official CC-BY4.0 deed read; linked legal code not followed. Page attribution, changes and restriction summary observed; not a full legal review."
+  },
+  "decision": "A exact original Snow package/texture-name/credit-route handoff only. No payload decode/texture pixels/rig/material connections/editability/hair separation/Sugata interface or current starter qualification.12-byte .blend prefix is not literalBLENDER; no corruption/version claim or fallback decode.",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "bytes": 4245,
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ADMISSION.json",
+      "bytes": 2050,
+      "sha256": "62d312dc26fb9eeeddf8d3781927b591f16f813cb6cfbbb2d788f057c1924b0f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "bytes": 9521,
+      "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "bytes": 694,
+      "sha256": "29750331307d413a6752914a5b0acf45ac330b0e1d7d884763bc07ea8262464b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "bytes": 1408,
+      "sha256": "4529ce4b20b5230e76dfb70f1464872eed5009835754741c64bded582e68dc96"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "bytes": 9150,
+      "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "bytes": 194,
+      "sha256": "bf87e17110584b034a11f0ea1383663b24ed7beca39b82be7ea9984a14666b1a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.json",
+      "bytes": 11084,
+      "sha256": "3c6d1d33d2b8addc5c9ca02e983b73f8cda60f998eb1761c10c619e86946aae1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "bytes": 3522,
+      "sha256": "c17c00cfeadd06f6690926626b1bc96009798d0e9a754fd5b6baebad1787220a"
+    }
+  ]
+}

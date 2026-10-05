@@ -1,0 +1,23 @@
+{
+  "started_utc": "2026-10-05T06:46:58.644810+00:00",
+  "wrapper_pid": 62036,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+    "--download"
+  ],
+  "timeout_seconds": 120,
+  "child_pid": 62037,
+  "returncode": 0,
+  "timed_out": false,
+  "completed_utc": "2026-10-05T06:47:05.028065+00:00",
+  "elapsed_seconds": 6.383275957981823,
+  "stdout": "",
+  "stderr": "",
+  "retained_response": {
+    "path": "assets/vendor/snow-v42/snow_v42.zip",
+    "bytes": 111580346,
+    "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+  }
+}

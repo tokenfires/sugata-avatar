@@ -1,0 +1,80 @@
+{
+  "started_utc": "2026-10-05T06:39:32.418304+00:00",
+  "stop_utc": "2026-10-05T07:09:32.418304+00:00",
+  "owner_pid": 61242,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "bytes": 6594,
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "bytes": 29125,
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "bytes": 69875,
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "bytes": 3216,
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 5019,
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    }
+  ],
+  "goal": "A nonexecuting original Snow v4.2 package handoff for a separately named stylized whole-character source study; not the naturalistic short-groom target or g050 attachment.",
+  "usable_improvement": "An exact source/package/license/dependency map with original ZIP local and preserved, if admitted and available. No full-character starter selection.",
+  "research_question": "Does this sole official named archive expose a bounded inspectable file/credit/material/script source handoff for Snow on its own head/body?",
+  "decision": "Retain exact original package as a separate editable-source lead if actual ZIP central-directory and bounded textual evidence support it; otherwise stop at named reference. File names and blend headers alone do not establish editability or material/rig interfaces.",
+  "bounds": {
+    "fetches": 1,
+    "url": "https://studio.blender.org/download-source/files/ba/0f/ba0fe6d810333b1d73c1c359e4dc03cb-6.zip",
+    "redirects": 3,
+    "redirect_hosts": [
+      "studio.blender.org"
+    ],
+    "scheme": "https",
+    "download_seconds": 120,
+    "compressed_bytes_max": 136314880,
+    "zip_entries_max": 512,
+    "total_declared_uncompressed_max": 1073741824,
+    "single_entry_declared_max": 536870912,
+    "text_entries_max": 4,
+    "text_bytes_each_max": 32768,
+    "text_bytes_total_max": 131072,
+    "blend_headers_max": 8,
+    "blend_bytes_each_max": 12,
+    "license_pages": 1,
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "storage": "assets/vendor/snow-v42/snow_v42.zip (existing ignore rule /assets/vendor/, fresh exact owned directory; preserve complete original read-only, never stage binary)",
+  "stop_conditions": "First permission/capacity/network/timeout/size/authority/archive/entry limit failure stops this operation without retry or refinement. Stop at declared time even if information incomplete. No archive extraction, Blender/parser/import/embedded scripts, install, generation, geometry, runtime/native capture, fit/adaptation, successor experiment or candidate/default/roadmap/checklist changes.",
+  "free_bytes": 2647938801664,
+  "prior_close_whitespace": {
+    "commit": "3a1a349fb35fef9480a0dd540b32fdc21aee3d19",
+    "observer_chunk": "d7561e",
+    "full_check_exit": 2,
+    "diagnostics": 170,
+    "only_path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+    "reason": "Exact vendor HTML trailing whitespace; frozen original preserved. Authored diff excluding this exact path passes exit0.",
+    "full_output_sha256": "dc443f6f29406359ce1bbdb69c839a0b7d1212e3525a8966b1ceac71ad748b1a"
+  },
+  "scoped_search_limit": "501927 searched docs/research; scripts path absent and pipeline status0 does not prove broad absence. No broad search needed."
+}

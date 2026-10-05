@@ -1,0 +1,50 @@
+{
+  "admit": true,
+  "utc": "2026-10-05T06:46:52.607731+00:00",
+  "pid": 62017,
+  "program": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+    "bytes": 9521,
+    "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+  },
+  "plan": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+    "bytes": 4245,
+    "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+  },
+  "handoffs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "bytes": 2315,
+      "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "bytes": 3498,
+      "sha256": "a4d838fba8bca7d409e5e7a1e2b65071fbe2cfc8d0637ca8695e7c9d2ce23b19"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "bytes": 2916,
+      "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RECEIPT.json",
+      "bytes": 4004,
+      "sha256": "d95947b540d4652c269a9d6fdf2a5d10a71e032c4744590bbca61a756e87d668"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-PREFLIGHT.json",
+      "bytes": 3639,
+      "sha256": "d76b990316e275c27cba6909fc7836ad602d695e4f6108b5e2017750bcefbe69"
+    }
+  ],
+  "verified_binding_rows": 21,
+  "root_full_handoff_read": "718e3e and22c09c; source/target/image independently inspected",
+  "decision": "A one exact script invocation + one exact linked-license request. No retries/adaptation/import/native. Stop at07:09:32 unchanged.",
+  "license_request": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+    "bytes": 194,
+    "sha256": "bf87e17110584b034a11f0ea1383663b24ed7beca39b82be7ea9984a14666b1a"
+  }
+}

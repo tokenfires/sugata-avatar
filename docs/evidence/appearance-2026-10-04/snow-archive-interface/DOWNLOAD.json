@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-10-05T06:46:58.680723+00:00",
+  "pid": 62037,
+  "url": "https://studio.blender.org/download-source/files/ba/0f/ba0fe6d810333b1d73c1c359e4dc03cb-6.zip",
+  "redirects": [
+    {
+      "utc": "2026-10-05T06:46:59.035734+00:00",
+      "http_status": 302,
+      "host": "studio.blender.org",
+      "scheme": "https",
+      "path": "/files/ba/0f/ba0fe6d810333b1d73c1c359e4dc03cb-6.zip",
+      "allowed": true
+    }
+  ],
+  "http_status": 200,
+  "final_url": "https://studio.blender.org/files/ba/0f/ba0fe6d810333b1d73c1c359e4dc03cb-6.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=WPXVUIKB8MLIOWB7INUX%2F20261005%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261005T064658Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a7e7bab380deb851d398b9abbf0684eec8f79a8b5bd65d3c9d64de2e7f394dd4",
+  "headers": {
+    "Content-Type": "application/zip",
+    "Content-Length": "111580346",
+    "ETag": "\"418f6f8a306ce9dd87a117f732119ca6-1\"",
+    "Last-Modified": "Tue, 17 Mar 2026 10:33:25 GMT",
+    "Content-Encoding": null
+  },
+  "decision": "complete exact response; ZIP not yet inspected",
+  "completed_utc": "2026-10-05T06:47:04.956989+00:00",
+  "elapsed_seconds": 6.2763026659959,
+  "partial_or_complete": {
+    "path": "assets/vendor/snow-v42/snow_v42.zip.part",
+    "bytes": 111580346,
+    "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+  }
+}

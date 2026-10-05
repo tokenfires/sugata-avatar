@@ -1,0 +1,227 @@
+{
+  "saved_utc": "2026-10-05T06:59:58.248001+00:00",
+  "decision": "A source-map/draft-delivery wording; factual collected-result finalization remains root-owned, no next operation",
+  "readback_utc": "2026-10-05T06:59:00.070709+00:00",
+  "observer_tool": {
+    "chunk": "497ad4",
+    "exit_code": 0
+  },
+  "observer_command": "python3 - <<'PY'\nfrom pathlib import Path\nfrom datetime import datetime,timezone\nimport hashlib,json,re,difflib\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-04/snow-archive-interface'\ndef pin(q):\n b=q.read_bytes();return {'path':str(q.relative_to(root)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nlinks=[];diffs={};docs={}\nfor name in ['README.md','RECEIPT.md']:\n q=p/name;s=q.read_text();docs[name]=s\n old=(p/'drafts'/name).read_text()\n diffs[name]=list(difflib.unified_diff(old.splitlines(True),s.splitlines(True),fromfile='drafts/'+name,tofile=name))\n for label,target in re.findall(r'\\[([^\\]]+)\\]\\(([^)]+)\\)',s):\n  if re.match(r'https?://',target):continue\n  path=(q.parent/target).resolve()\n  links.append({'from':name,'label':label,'target':target,'resolved':str(path),'exists':path.exists()})\nassert all(r['exists'] for r in links),links\nbindings=[pin(p/n) for n in ['README.md','RECEIPT.md','drafts/README.md','drafts/RECEIPT.md','DRAFTS.json','RESULT.md','RESULT-RECEIPT.json','INVENTORY.json','LICENSE.md','RUN.json','DOWNLOAD.json','SOURCE-RESULT.md','ROOT-OBSERVATION.json']]\nprint(json.dumps({'utc':datetime.now(timezone.utc).isoformat(),'bindings':bindings,'local_links':links,'diffs':diffs,'full_docs':docs},ensure_ascii=False))\nPY",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RECEIPT.md",
+      "bytes": 4091,
+      "sha256": "06a811a968dbfe70f986d2a1f624a5af61798bdc6579103b721fbef95a93359b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/README.md",
+      "bytes": 3542,
+      "sha256": "bc39f8fe704f78736dee3fce2eb6a8bb3cc357c6055654e4065411ccc825b318"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/RECEIPT.md",
+      "bytes": 4091,
+      "sha256": "06a811a968dbfe70f986d2a1f624a5af61798bdc6579103b721fbef95a93359b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DRAFTS.json",
+      "bytes": 839,
+      "sha256": "f92f364b77dcfc1a4566d124205ea55f751505c0478e9e663d6244d62dd1d752"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "bytes": 3191,
+      "sha256": "cff66a5cfb418272aeb5c4764507d4a5d9fbd2b3eeb66a5d287786d2d36e5e45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT-RECEIPT.json",
+      "bytes": 13768,
+      "sha256": "f3a75dd78b07c47e402262de5d84ac28f9bc58930d3e3e17dc54bd1ee266e34d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "bytes": 9150,
+      "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "bytes": 3522,
+      "sha256": "c17c00cfeadd06f6690926626b1bc96009798d0e9a754fd5b6baebad1787220a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "bytes": 694,
+      "sha256": "29750331307d413a6752914a5b0acf45ac330b0e1d7d884763bc07ea8262464b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "bytes": 1408,
+      "sha256": "4529ce4b20b5230e76dfb70f1464872eed5009835754741c64bded582e68dc96"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "bytes": 2916,
+      "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+      "bytes": 3229,
+      "sha256": "bdca353aadbdda42a747de0a5c42ee235c513f0ec45fd7364fd5c3fa44d2dbfc"
+    }
+  ],
+  "local_links": [
+    {
+      "from": "README.md",
+      "label": "snow_v42.zip",
+      "target": "/Users/robault/GitHub/sugata-avatar/assets/vendor/snow-v42/snow_v42.zip",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/assets/vendor/snow-v42/snow_v42.zip",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "unchanged reference viewport",
+      "target": "../short-groom-named-source/primary-view.jpg",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "naturalistic short-groom target",
+      "target": "../../../research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "central-directory inventory",
+      "target": "INVENTORY.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "Saved deed",
+      "target": "LICENSE.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "Exact receipt",
+      "target": "RECEIPT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/RECEIPT.md",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "root observation",
+      "target": "ROOT-OBSERVATION.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "independent result",
+      "target": "RESULT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "label": "independent source review",
+      "target": "SOURCE-RESULT.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "PLAN.json",
+      "target": "PLAN.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "ADMISSION.json",
+      "target": "ADMISSION.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/ADMISSION.json",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "RUN.json",
+      "target": "RUN.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "DOWNLOAD.json",
+      "target": "DOWNLOAD.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "INVENTORY.json",
+      "target": "INVENTORY.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "license request",
+      "target": "LICENSE-REQUEST.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "LICENSE.json",
+      "target": "LICENSE.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.json",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "LICENSE.md",
+      "target": "LICENSE.md",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+      "exists": true
+    },
+    {
+      "from": "RECEIPT.md",
+      "label": "ROOT-OBSERVATION.json",
+      "target": "ROOT-OBSERVATION.json",
+      "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+      "exists": true
+    }
+  ],
+  "draft_diffs": {
+    "README.md": [],
+    "RECEIPT.md": []
+  },
+  "scope": "Complete current README/RECEIPT text read, compared with exact retained drafts, local link existence only. No browser/render/HTTP/archive or engine read.",
+  "actionable_draft_status": {
+    "witness": "RECEIPT.md:13 versus RESULT.md collected06:57:57.755606UTC",
+    "explanation": "Pending result is historical draft status after actual result collection.",
+    "A": "Append factual collected result/root readback, preserve future closure and exact draft snapshots.",
+    "B": "Keep explicitly historical draft and leave current delivery finalization pending.",
+    "choice": "A remains the existing root-authorized finalization; no factual freeze claimed."
+  },
+  "limits": [
+    "Original result/source receipts unchanged",
+    "No complete editability/material/rig/groom/fit/Sugata/AAA acceptance",
+    "No successful closure/freeze assertion; root creates subsequent proof"
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RESULT.md",
+    "bytes": 1538,
+    "sha256": "9a2bbebfbc62757dd244faab633600ae78d31c1a01eecb19674530f5039b7852"
+  }
+}

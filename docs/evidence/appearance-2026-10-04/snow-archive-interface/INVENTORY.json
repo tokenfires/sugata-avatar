@@ -1,0 +1,339 @@
+{
+  "started_utc": "2026-10-05T06:47:05.106645+00:00",
+  "pid": 62036,
+  "archive": {
+    "path": "assets/vendor/snow-v42/snow_v42.zip",
+    "bytes": 111580346,
+    "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+  },
+  "scope": "ZIP central-directory and bounded source text/12-byte signatures only; no extraction or Blender decoding",
+  "entries": [
+    {
+      "name": "Snow/snow_v4.2.blend",
+      "compressed_bytes": 8348483,
+      "declared_bytes": 8377421,
+      "crc32": "752d03bd",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/",
+      "compressed_bytes": 0,
+      "declared_bytes": 0,
+      "crc32": "00000000",
+      "compression_method": 0,
+      "external_mode": 0,
+      "directory": true
+    },
+    {
+      "name": "Snow/textures/eyes_diffuse.png",
+      "compressed_bytes": 1254743,
+      "declared_bytes": 1286452,
+      "crc32": "28e8fa63",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/eyes_metalic.png",
+      "compressed_bytes": 8750,
+      "declared_bytes": 13572,
+      "crc32": "719f51a6",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/eyes_normal.png",
+      "compressed_bytes": 291787,
+      "declared_bytes": 322608,
+      "crc32": "cbe93af7",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/eyes_specular.png",
+      "compressed_bytes": 69128,
+      "declared_bytes": 141770,
+      "crc32": "c09188e4",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/hair_anisotropy.png",
+      "compressed_bytes": 49408,
+      "declared_bytes": 49957,
+      "crc32": "cbbc8e85",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/hair_anisotropy_rotation.png",
+      "compressed_bytes": 1436142,
+      "declared_bytes": 1436352,
+      "crc32": "ceee7696",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/hair_diffuse.png",
+      "compressed_bytes": 1506965,
+      "declared_bytes": 1509001,
+      "crc32": "4912e6c7",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/hair_roughness.png",
+      "compressed_bytes": 521723,
+      "declared_bytes": 522116,
+      "crc32": "a1fbde5d",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/hair_specular.png",
+      "compressed_bytes": 791616,
+      "declared_bytes": 791790,
+      "crc32": "4b191a42",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/hair_sss_color.png",
+      "compressed_bytes": 13485,
+      "declared_bytes": 16586,
+      "crc32": "c025485f",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/hair_sss_value.png",
+      "compressed_bytes": 301029,
+      "declared_bytes": 312142,
+      "crc32": "74b2a919",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/pants_diffuse.png",
+      "compressed_bytes": 22186518,
+      "declared_bytes": 22205417,
+      "crc32": "89cf0820",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/pants_normal.png",
+      "compressed_bytes": 24839461,
+      "declared_bytes": 24855323,
+      "crc32": "c7b7ff43",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/pants_roughness.png",
+      "compressed_bytes": 7082038,
+      "declared_bytes": 7087235,
+      "crc32": "f927f234",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/shirt_diffuse.png",
+      "compressed_bytes": 1624138,
+      "declared_bytes": 1653162,
+      "crc32": "b72dfd66",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/shirt_normal.png",
+      "compressed_bytes": 4139539,
+      "declared_bytes": 4157409,
+      "crc32": "0f002881",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/shirt_roughness.png",
+      "compressed_bytes": 788816,
+      "declared_bytes": 790282,
+      "crc32": "da757a0f",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/shoes_diffuse.png",
+      "compressed_bytes": 2907299,
+      "declared_bytes": 2910242,
+      "crc32": "3747e1ff",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/shoes_metalness.png",
+      "compressed_bytes": 3060,
+      "declared_bytes": 8940,
+      "crc32": "a7baa285",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/shoes_normal.png",
+      "compressed_bytes": 5676538,
+      "declared_bytes": 5677803,
+      "crc32": "2aeab370",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/shoes_roughness.png",
+      "compressed_bytes": 1234328,
+      "declared_bytes": 1234818,
+      "crc32": "7bc069a3",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_diffuse.1001.png",
+      "compressed_bytes": 7702625,
+      "declared_bytes": 7739547,
+      "crc32": "25e4f37e",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_diffuse.1002.png",
+      "compressed_bytes": 756423,
+      "declared_bytes": 777615,
+      "crc32": "88b5d6c2",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_diffuse.1003.png",
+      "compressed_bytes": 1740629,
+      "declared_bytes": 1749732,
+      "crc32": "5eadeff8",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_roughness.1001.png",
+      "compressed_bytes": 5862819,
+      "declared_bytes": 5908666,
+      "crc32": "6f26f57f",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_roughness.1002.png",
+      "compressed_bytes": 605123,
+      "declared_bytes": 628553,
+      "crc32": "e0631b11",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_roughness.1003.png",
+      "compressed_bytes": 1740567,
+      "declared_bytes": 1754544,
+      "crc32": "bb4ca1f1",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_sss_color.1001.png",
+      "compressed_bytes": 5885370,
+      "declared_bytes": 5923576,
+      "crc32": "aedb2e44",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_sss_color.1002.png",
+      "compressed_bytes": 603080,
+      "declared_bytes": 623679,
+      "crc32": "8891a5ee",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_sss_color.1003.png",
+      "compressed_bytes": 1491166,
+      "declared_bytes": 1501218,
+      "crc32": "4cd7088f",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_sss_value.1001.png",
+      "compressed_bytes": 66530,
+      "declared_bytes": 66762,
+      "crc32": "27653c6c",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_sss_value.1002.png",
+      "compressed_bytes": 16817,
+      "declared_bytes": 16836,
+      "crc32": "a80cb1dd",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    },
+    {
+      "name": "Snow/textures/skin_sss_value.1003.png",
+      "compressed_bytes": 29243,
+      "declared_bytes": 29233,
+      "crc32": "5c8e7e62",
+      "compression_method": 8,
+      "external_mode": 0,
+      "directory": false
+    }
+  ],
+  "texts": [],
+  "blend_headers": [
+    {
+      "name": "Snow/snow_v4.2.blend",
+      "prefix_hex": "28b52ffda0f40401007d6000",
+      "literal_BLENDER": false,
+      "whole_entry_read": false
+    }
+  ],
+  "decision": "bounded inventory complete; no geometry/material/rig/runtime/editability qualification",
+  "completed_utc": "2026-10-05T06:47:05.145332+00:00",
+  "elapsed_seconds": 0.03869437499088235
+}

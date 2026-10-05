@@ -1,0 +1,232 @@
+{
+  "saved_utc": "2026-10-05T06:57:57.755606+00:00",
+  "decision": {
+    "package_map": "A",
+    "naturalistic_groom_or_Sugata_transfer": "B",
+    "next": "Conditional worth only; no onward operation admitted"
+  },
+  "observer": {
+    "started_utc": "2026-10-05T06:56:37.763310+00:00",
+    "completed_utc": "2026-10-05T06:56:37.825414+00:00",
+    "pid": 62972,
+    "checks": {
+      "plan_inputs": true,
+      "admission_inputs": true,
+      "original_archive_pin": true,
+      "download_response_pin": true,
+      "archive_readonly": true,
+      "part_absent": true,
+      "metadata_counts": true,
+      "unique_names": true,
+      "texture_groups": true,
+      "prefix_observation": true,
+      "run_success": true,
+      "transport": true,
+      "clock_order": true,
+      "deed_response_equality": true,
+      "deed_markdown_equality": true,
+      "deed_metadata": true,
+      "deed_scope": true,
+      "owned_pids_absent": true,
+      "ignored_untracked_archive": true
+    },
+    "counts": {
+      "entries": 35,
+      "directories": 1,
+      "blend": 1,
+      "png": 33,
+      "declared_bytes": 112080359,
+      "text_records": 0
+    },
+    "texture_groups": {
+      "eyes": 4,
+      "hair": 7,
+      "pants": 3,
+      "shirt": 3,
+      "shoes": 4,
+      "skin": 12
+    },
+    "archive": {
+      "path": "assets/vendor/snow-v42/snow_v42.zip",
+      "bytes": 111580346,
+      "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+    },
+    "archive_mode": "0o444",
+    "owned_pids_absent": {
+      "62036": true,
+      "62037": true
+    },
+    "git_commands": [
+      [
+        "git",
+        "check-ignore",
+        "--",
+        "assets/vendor/snow-v42/snow_v42.zip"
+      ],
+      [
+        "git",
+        "ls-files",
+        "--",
+        "assets/vendor/snow-v42/snow_v42.zip"
+      ]
+    ],
+    "git_exit_codes": [
+      0,
+      0
+    ],
+    "bindings": [
+      {
+        "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+        "bytes": 6594,
+        "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+        "bytes": 29125,
+        "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+        "bytes": 69875,
+        "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+        "bytes": 3216,
+        "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+      },
+      {
+        "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+        "bytes": 3264,
+        "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+      },
+      {
+        "path": "docs/PRODUCT-ROADMAP.md",
+        "bytes": 30923,
+        "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+      },
+      {
+        "path": ".gitignore",
+        "bytes": 5019,
+        "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+        "bytes": 4245,
+        "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+        "bytes": 9521,
+        "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+        "bytes": 2315,
+        "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+        "bytes": 3498,
+        "sha256": "a4d838fba8bca7d409e5e7a1e2b65071fbe2cfc8d0637ca8695e7c9d2ce23b19"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+        "bytes": 2916,
+        "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RECEIPT.json",
+        "bytes": 4004,
+        "sha256": "d95947b540d4652c269a9d6fdf2a5d10a71e032c4744590bbca61a756e87d668"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ADMISSION.json",
+        "bytes": 2050,
+        "sha256": "62d312dc26fb9eeeddf8d3781927b591f16f813cb6cfbbb2d788f057c1924b0f"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-PREFLIGHT.json",
+        "bytes": 3639,
+        "sha256": "d76b990316e275c27cba6909fc7836ad602d695e4f6108b5e2017750bcefbe69"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RUN.json",
+        "bytes": 694,
+        "sha256": "29750331307d413a6752914a5b0acf45ac330b0e1d7d884763bc07ea8262464b"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DOWNLOAD.json",
+        "bytes": 1408,
+        "sha256": "4529ce4b20b5230e76dfb70f1464872eed5009835754741c64bded582e68dc96"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/INVENTORY.json",
+        "bytes": 9150,
+        "sha256": "ddb97bff1d12447dd7f3b2395ff64bb6952a033655994df9ef46d201ecb1cf45"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE-REQUEST.json",
+        "bytes": 194,
+        "sha256": "bf87e17110584b034a11f0ea1383663b24ed7beca39b82be7ea9984a14666b1a"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.json",
+        "bytes": 11084,
+        "sha256": "3c6d1d33d2b8addc5c9ca02e983b73f8cda60f998eb1761c10c619e86946aae1"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/LICENSE.md",
+        "bytes": 3522,
+        "sha256": "c17c00cfeadd06f6690926626b1bc96009798d0e9a754fd5b6baebad1787220a"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/ROOT-OBSERVATION.json",
+        "bytes": 3229,
+        "sha256": "bdca353aadbdda42a747de0a5c42ee235c513f0ec45fd7364fd5c3fa44d2dbfc"
+      },
+      {
+        "path": "assets/vendor/snow-v42/snow_v42.zip",
+        "bytes": 111580346,
+        "sha256": "98d58ef3a07083ede14140bc462cccb55d317062846aa0eb652d2e4a7ac422a6"
+      }
+    ],
+    "scope": "Saved JSON arithmetic/equality and raw-byte archive hash/stat only. No ZIP directory or member read, extraction, Blender/parser/engine/import/HTTP/native."
+  },
+  "observer_command": "python3 - <<'PY'\nfrom pathlib import Path\nfrom datetime import datetime,timezone\nfrom collections import Counter\nimport hashlib,json,os,stat,subprocess\nroot=Path('/Users/robault/GitHub/sugata-avatar')\np=root/'docs/evidence/appearance-2026-10-04/snow-archive-interface'\nstart=datetime.now(timezone.utc).isoformat()\ndef pin(q):\n h=hashlib.sha256()\n with q.open('rb') as f:\n  while b:=f.read(1048576): h.update(b)\n return {'path':str(q.relative_to(root)),'bytes':q.stat().st_size,'sha256':h.hexdigest()}\ndef load(name): return json.loads((p/name).read_text())\nplan=load('PLAN.json');run=load('RUN.json');download=load('DOWNLOAD.json');inv=load('INVENTORY.json');admit=load('ADMISSION.json');license=load('LICENSE.json')\nchecks={}\nchecks['plan_inputs']=all(pin(root/r['path'])==r for r in plan['inputs'])\nchecks['admission_inputs']=all(pin(root/r['path'])==r for r in [admit['program'],admit['plan'],admit['license_request'],*admit['handoffs']])\narchive=root/inv['archive']['path'];actual=pin(archive)\nchecks['original_archive_pin']=actual==inv['archive']==run['retained_response']\nchecks['download_response_pin']=actual['bytes']==download['partial_or_complete']['bytes']==int(download['headers']['Content-Length']) and actual['sha256']==download['partial_or_complete']['sha256']\nchecks['archive_readonly']=stat.S_IMODE(archive.stat().st_mode)==0o444\nchecks['part_absent']=not (root/download['partial_or_complete']['path']).exists()\nentries=inv['entries'];names=[r['name'] for r in entries]\ncounts={'entries':len(entries),'directories':sum(r['directory'] for r in entries),'blend':sum(n.endswith('.blend') for n in names),'png':sum(n.endswith('.png') for n in names),'declared_bytes':sum(r['declared_bytes'] for r in entries),'text_records':len(inv['texts'])}\ngroups=dict(Counter(Path(n).name.split('_')[0] for n in names if n.endswith('.png')))\nchecks['metadata_counts']=counts=={'entries':35,'directories':1,'blend':1,'png':33,'declared_bytes':112080359,'text_records':0}\nchecks['unique_names']=len(set(names))==35\nchecks['texture_groups']=groups=={'eyes':4,'hair':7,'pants':3,'shirt':3,'shoes':4,'skin':12}\nchecks['prefix_observation']=inv['blend_headers']==[{'name':'Snow/snow_v4.2.blend','prefix_hex':'28b52ffda0f40401007d6000','literal_BLENDER':False,'whole_entry_read':False}] and len(bytes.fromhex(inv['blend_headers'][0]['prefix_hex']))==12\nchecks['run_success']=run['returncode']==0 and not run['timed_out'] and run['stdout']==run['stderr']==''\nchecks['transport']=download['http_status']==200 and len(download['redirects'])==1 and download['redirects'][0]['http_status']==302 and download['redirects'][0]['host']=='studio.blender.org' and download['redirects'][0]['allowed']\nts=lambda s:datetime.fromisoformat(s)\nchecks['clock_order']=ts(plan['started_utc'])<ts(admit['utc'])<ts(run['started_utc'])<ts(download['started_utc'])<ts(download['completed_utc'])<ts(run['completed_utc'])<ts(inv['started_utc'])<ts(inv['completed_utc'])<ts(plan['stop_utc'])\nsc=license['structuredContent'];returned=json.loads(license['content'][0]['text'])\nchecks['deed_response_equality']=returned==sc and not license['isError']\nchecks['deed_markdown_equality']=(p/'LICENSE.md').read_bytes()==(sc['markdown']+'\\n').encode()\nchecks['deed_metadata']=sc['metadata']['statusCode']==200 and sc['metadata']['sourceURL']=='https://creativecommons.org/licenses/by/4.0/' and sc['metadata']['scrapeId']=='01a10ad1-58cb-7239-85c8-49029596f702' and sc['metadata']['creditsUsed']==1\nchecks['deed_scope']='It is not a license and has no legal value.' in sc['markdown'] and 'https://creativecommons.org/licenses/by/4.0/legalcode.en' in sc['links']\nabsent={}\nfor pid in [62036,62037]:\n try: os.kill(pid,0); absent[str(pid)]=False\n except ProcessLookupError: absent[str(pid)]=True\nchecks['owned_pids_absent']=all(absent.values())\ngit_ignore=subprocess.run(['git','check-ignore','--',str(archive.relative_to(root))],cwd=root,capture_output=True,text=True)\ngit_index=subprocess.run(['git','ls-files','--',str(archive.relative_to(root))],cwd=root,capture_output=True,text=True)\nchecks['ignored_untracked_archive']=git_ignore.returncode==0 and git_ignore.stdout.strip()==str(archive.relative_to(root)) and git_index.returncode==0 and git_index.stdout==''\nassert all(checks.values()),checks\nfiles=['PLAN.json','inspect.py','WORTH.md','WORTH-RECEIPT.json','SOURCE-RESULT.md','SOURCE-RECEIPT.json','ADMISSION.json','ROOT-PREFLIGHT.json','RUN.json','DOWNLOAD.json','INVENTORY.json','LICENSE-REQUEST.json','LICENSE.json','LICENSE.md','ROOT-OBSERVATION.json']\nunique={r['path']:r for r in plan['inputs']}\nfor n in files:\n r=pin(p/n);unique[r['path']]=r\nunique[actual['path']]=actual\nprint(json.dumps({'started_utc':start,'completed_utc':datetime.now(timezone.utc).isoformat(),'pid':os.getpid(),'checks':checks,'counts':counts,'texture_groups':groups,'archive':actual,'archive_mode':oct(stat.S_IMODE(archive.stat().st_mode)),'owned_pids_absent':absent,'git_commands':[git_ignore.args,git_index.args],'git_exit_codes':[git_ignore.returncode,git_index.returncode],'bindings':list(unique.values()),'scope':'Saved JSON arithmetic/equality and raw-byte archive hash/stat only. No ZIP directory or member read, extraction, Blender/parser/engine/import/HTTP/native.'}))\nPY",
+  "observer_tool": {
+    "chunk": "2c06e3",
+    "exit_code": 0
+  },
+  "actual_image_review": {
+    "path": "docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+    "tool_chunk": "10c6a4",
+    "detail": "original",
+    "scope": "Complete unchanged original viewed; no new capture/crop/redraw",
+    "witness": "Stylized eyes/cropped sides/rolled forelock/top-rear bun; complete character and source geometry not observed"
+  },
+  "full_saved_file_reads": [
+    "9df088",
+    "10c6a4",
+    "86d539",
+    "66ba6f",
+    "90cd80"
+  ],
+  "metadata_read_failure": {
+    "chunk": "1423df",
+    "exit_code": 1,
+    "reason": "Requested nonexistent INPUTS.json; this packet owns inputs in PLAN.json. Stopped file-read before remaining list; actual PLAN inputs used and independently verified. No candidate/archive inspection or online operation."
+  },
+  "scope_limits": [
+    "No new HTTP/archive directory/member read/extraction/Blender/parser/engine/import/native",
+    "Raw ZIP hashing/stat only, saved JSON metadata arithmetic and equality",
+    "No PNG pixels, full CRC, Blend version/geometry/rig/material/source completeness, fit/motion/AAA acceptance",
+    "RUN time is download collection, not full inventory completion",
+    "Root full-return and source provenance remain attributed to their saved records"
+  ],
+  "result": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RESULT.md",
+    "bytes": 3191,
+    "sha256": "cff66a5cfb418272aeb5c4764507d4a5d9fbd2b3eeb66a5d287786d2d36e5e45"
+  }
+}

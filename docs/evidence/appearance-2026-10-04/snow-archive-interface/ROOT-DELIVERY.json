@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-05T07:01:39.582181+00:00",
+  "pid": 63433,
+  "full_handoff_read": "facb17",
+  "verified_delivery_binding_rows": 14,
+  "verified_prior_links": 18,
+  "delivery": [
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RESULT.md",
+      "bytes": 1538,
+      "sha256": "9a2bbebfbc62757dd244faab633600ae78d31c1a01eecb19674530f5039b7852"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/DELIVERY-RECEIPT.json",
+      "bytes": 10346,
+      "sha256": "e0e68dfc8e3147c651a3f79e55cdb25b9eb3dd4abb7e6cfaf3350f54b4260eb4"
+    }
+  ],
+  "initial_receipt": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/drafts/RECEIPT.md",
+    "bytes": 4091,
+    "sha256": "06a811a968dbfe70f986d2a1f624a5af61798bdc6579103b721fbef95a93359b"
+  },
+  "current_receipt": {
+    "path": "docs/evidence/appearance-2026-10-04/snow-archive-interface/RECEIPT.md",
+    "bytes": 5358,
+    "sha256": "41c99f3505b24d9f9e632574c8192271a44ad69bd7c9914a2f31aa94f94d86f6"
+  },
+  "append_only": true,
+  "readme_unchanged": true,
+  "decision": "A factual collected result/root chronology only; original draft and frozen source inputs intact. Await subsequent root binding/link/job/manifest close; no acceptance/successor expansion."
+}

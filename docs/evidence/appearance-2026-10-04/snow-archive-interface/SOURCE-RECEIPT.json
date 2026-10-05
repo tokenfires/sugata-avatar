@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-05T06:46:11.606480+00:00",
+  "pid": 61856,
+  "decision": "A one exact admitted bounded archive script; licence page separately root-owned within PLAN; source inventory only",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/PLAN.json",
+      "bytes": 4245,
+      "sha256": "8b77e007ee866d2fe42d868d7a0172245bf95ca2e0c57b22d18b501ebc25f672"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/inspect.py",
+      "bytes": 9521,
+      "sha256": "ff132e56cb286ea5501cbb2f8d0c84c3178aadb059d4c6967a3822e19377b0c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH.md",
+      "bytes": 2315,
+      "sha256": "7724be33043079b142d45cb7bc80189ab397b981e80bdb33cb58dd49e1e20e37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/WORTH-RECEIPT.json",
+      "bytes": 3498,
+      "sha256": "a4d838fba8bca7d409e5e7a1e2b65071fbe2cfc8d0637ca8695e7c9d2ce23b19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.md",
+      "bytes": 6594,
+      "sha256": "7ab5f7fc85ca02d448470e7c574b18ad6afbcd8a706db85df5709b0665859a4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/PRIMARY.html",
+      "bytes": 29125,
+      "sha256": "426d12d6217c38b18968a7f424b08d38f8dd86de18408b6e8c73a4e37ee9f903"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/primary-view.jpg",
+      "bytes": 69875,
+      "sha256": "8ac187071a600dc41c0aec22fb1517c76f18d6aeed4dc830a29b18c213b5fdf0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/short-groom-named-source/RESULT.md",
+      "bytes": 3216,
+      "sha256": "20af5dd8f111b3d62224214ddc0a0d6ab89860966043f9eba5829098f3939237"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/.gitignore",
+      "bytes": 5019,
+      "sha256": "6b889c6c4481c0474b9f5b75f03ecfe926c92070d677ae2a2fc4f0a6a5919e69"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/snow-archive-interface/SOURCE-RESULT.md",
+    "bytes": 2916,
+    "sha256": "7abc3046ea5db323554fcf1a622140a3a171b97a1cf401078adf17a3d490b39b"
+  },
+  "observations": {
+    "programBytes": 9521,
+    "storageAbsentAtReadback": true,
+    "astOnly": "Module parse be7f94; candidate not imported",
+    "fixedStop": "2026-10-05T07:09:32.418304+00:00",
+    "originalInputRowsVerified": 7,
+    "programFullRead": true
+  },
+  "commands": [
+    "6783ac full numbered inspect.py",
+    "be7f94 inertAST/hash/UTC/storageabsence inventory",
+    "current stdlib inputbindings/hash/save"
+  ],
+  "sourceWitnesses": [
+    "inspect.py28\u201379 literal redirects/streamed download",
+    "inspect.py81\u2013137 central-directory/text/header bounds",
+    "inspect.py139\u2013172 exact input/admission/virgin directory/owned child accounting",
+    ".gitignore7 existing /assets/vendor/ rule"
+  ],
+  "scope": "No HTTP/ZIP download/enumeration/decompression/header reads/extraction/Blender/parser/import/scripts/source geometry/native/engine/test by critic. Hashes of retained existing primary sources only. No editability/material/rig/fit/Sugata compatibility acceptance."
+}
