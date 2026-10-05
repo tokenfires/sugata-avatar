@@ -1,0 +1,122 @@
+{
+  "observed_utc": "2026-10-05T15:04:33.433312+00:00",
+  "decision": "A saved original-source intent data/OBJ only; pending independent actual-data critic and native admission",
+  "originalOwners": 9,
+  "originalVertices": 39546,
+  "originalTriangles": 71512,
+  "maximumBarycentricErrorMetres": 2.7755575615628914e-17,
+  "maximumAreaErrorM2": 6.505213034913027e-19,
+  "chosenAreasM2": {
+    "-X": 0.0990377952502503,
+    "+X": 0.09903803304338957
+  },
+  "originalSourceDegenerates": 0,
+  "canonicalCrossingEdges": 82,
+  "crossingTraces": 80,
+  "geometricAdjacency": [
+    {
+      "canonicalA": [
+        5180,
+        5200
+      ],
+      "canonicalB": [
+        5181,
+        5201
+      ],
+      "owner": 0,
+      "pointA": [
+        -0.11867280808867735,
+        0.28,
+        0.006099252089229148
+      ],
+      "pointB": [
+        -0.11867280808867735,
+        0.28,
+        0.006099252089229148
+      ],
+      "maximumCoordinateDifferenceMetres": 0.0
+    },
+    {
+      "canonicalA": [
+        12334,
+        12354
+      ],
+      "canonicalB": [
+        12333,
+        12353
+      ],
+      "owner": 0,
+      "pointA": [
+        0.11867280881650721,
+        0.28,
+        0.00609925211498429
+      ],
+      "pointB": [
+        0.11867280881650721,
+        0.28,
+        0.00609925211498429
+      ],
+      "maximumCoordinateDifferenceMetres": 0.0
+    }
+  ],
+  "adjacencyLimit": "Explicit same-point source-edge witnesses at1e-12m, no source-ID welding, continuous loop/manifold/anatomical/enclosure/fit claim.",
+  "obj": {
+    "vertices": 215016,
+    "triangles": 71672,
+    "lines": 80,
+    "allGroupLabelsAndSourceIDCommentsExact": true
+  },
+  "guideSHA256": "dc38f2c4431c6de3ed49a4e8ec0921d6c85d115279f614712f1f6de87ba996f4",
+  "nativeExpectedGroups": {
+    "0.outside": {
+      "vertices": 66324,
+      "positionSHA256": "579e806bd2b682f0a2dc00b5c3dafea96c59828692e2b061c14b4d76d904c6e9"
+    },
+    "0.-X": {
+      "vertices": 7212,
+      "positionSHA256": "7a17e5129b80ad130232234b060bb0e6f57da8833d7c829d5fa1872bee0f4dca"
+    },
+    "0.+X": {
+      "vertices": 7212,
+      "positionSHA256": "1152d3dfcecaa7cd958a173565fc0e0fc3a3406fb4bbe7155a16ccd0e3360ff8"
+    },
+    "1.outside": {
+      "vertices": 2940,
+      "positionSHA256": "df9f3007ca7c91586f4c7026de1b609e9424bfb2d04d3be7642c1dccb4540fdb"
+    },
+    "2.outside": {
+      "vertices": 576,
+      "positionSHA256": "dce759a1a894d104f35b37b3e6c75ed948606b0135baa849760602baa8813b0a"
+    },
+    "3.outside": {
+      "vertices": 1104,
+      "positionSHA256": "fb8f4ca45d777ac88b084755bc3995213a6b354260bff276517e657539fdb8b8"
+    },
+    "4.outside": {
+      "vertices": 3180,
+      "positionSHA256": "20db423cca78529b65b7eb4f5f13d35dbffa43f286ae6f24745b514230cb0851"
+    },
+    "5.outside": {
+      "vertices": 21360,
+      "positionSHA256": "19bcda87338467ddba1709434b62228ea237be9f988779e4a5b3d30872b011d7"
+    },
+    "6.outside": {
+      "vertices": 1344,
+      "positionSHA256": "bd218c781067e1049cfab80579574d135443c315f299b833d52e41f856d6ac10"
+    },
+    "7.outside": {
+      "vertices": 66270,
+      "positionSHA256": "f30d2fc857613edcba7e31f72217f0b2e36ac3ae42798a519f7f5539abaf34b8"
+    },
+    "8.outside": {
+      "vertices": 37494,
+      "positionSHA256": "ac5c306d29f17d386805dd2e21b9583b8be4b9884384eab3bf0455e4900e2412"
+    }
+  },
+  "nativeExpectedTrace": {
+    "vertices": 160,
+    "positionSHA256": "d353fce569526637b9ec4f9d8c92188723162056338684038fe167120511a021"
+  },
+  "jobs": "Sole df975e children95689/95744 exit0/reaped/no timeout, original streams equal BUILD/CHECK. This root saved-data comparison does not import/invoke either producer/checker or old decoder.",
+  "limits": "Saved zero-morph source intent/partition/OBJ authority only. No boot/anatomical/frame reconstruction/solid/GPU/contact/fit/morph/pose/motion/default/AAA;14scoped/10broad unchanged."
+}

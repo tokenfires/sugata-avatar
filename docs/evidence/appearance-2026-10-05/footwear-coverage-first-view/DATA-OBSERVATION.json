@@ -1,0 +1,193 @@
+{
+  "started_utc": "2026-10-05T15:06:31.776714+00:00",
+  "pid": 4283,
+  "timeout_seconds": 60,
+  "passed": true,
+  "scope": "One independent saved-data comparison; no producer/checker imports, replay or new geometry.",
+  "owners": 9,
+  "source_vertices": 39546,
+  "original_records": 71512,
+  "positive_fragments": 71592,
+  "degenerate_originals": 0,
+  "coplanar_positive_originals": 0,
+  "crossing_triangles": 80,
+  "canonical_crossing_edges": 82,
+  "side_records": {
+    "-X": 2384,
+    "+X": 2384
+  },
+  "side_trace_counts": {
+    "-X": 40,
+    "+X": 40
+  },
+  "side_area_m2": {
+    "-X": 0.09903779525025011,
+    "+X": 0.09903803304338926
+  },
+  "maximum_barycentric_sum_error": 0.0,
+  "maximum_barycentric_reconstruction_m": 2.7755575615628914e-17,
+  "maximum_simplex_area_conservation_error_m2": 3.37394075355641e-20,
+  "maximum_boundary_vector_area_conservation_error_m2": 6.864990279259291e-17,
+  "maximum_boundary_vector_component_error_m2": 6.481919628863533e-17,
+  "obj_vertices": 215016,
+  "obj_triangles": 71672,
+  "obj_lines": 80,
+  "obj_owner_role_groups": 71592,
+  "guide_sha256": "dc38f2c4431c6de3ed49a4e8ec0921d6c85d115279f614712f1f6de87ba996f4",
+  "obj_sha256": "3c7175387174332641f45248a31c4a8751d1496b2df98625ef199f6e775dac90",
+  "process_records": {
+    "admitted_utc": "2026-10-05T15:01:16.647266+00:00",
+    "controller_pid": 95688,
+    "builder_pid": 95689,
+    "checker_pid": 95744,
+    "collected_utc": "2026-10-05T15:01:50.405148+00:00",
+    "saved_reaped_exit0_no_timeout": true,
+    "empty_stderr": true
+  },
+  "method": "Full literal owner equality; unique original ID coverage; barycentric simplex boundary-shoelace/convexity conservation and world polygon boundary-vector comparison; canonical original-edge operands; exact parsed OBJ groups/comments/coordinates/indices/lines; source/process/output hashes.",
+  "ended_utc": "2026-10-05T15:06:33.869809+00:00",
+  "elapsed_seconds": 2.0929010409745388,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/PLAN.json",
+      "bytes": 8253,
+      "sha256": "01e73efbf5e237921ec8c05acaa393eaf038506450b7ff1bf09df41f08e5cd57"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-guide-worth/PLAN.json",
+      "bytes": 7222,
+      "sha256": "191b3a9fe9f72c533f0684192999e3ec7f0a2ce0022232e131e254f3f1112669"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-guide-worth/RESULT.md",
+      "bytes": 3241,
+      "sha256": "d7312eb005659f0d0cf24c76910df2b3277bd03db4b76f14a98e87e8b25a214a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-guide-worth/RECEIPT.json",
+      "bytes": 8230,
+      "sha256": "beeace41c88aa4613798425ab4f890785abee414450a542628d84b82138f4212"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-guide-worth/ROOT-CLOSE.json",
+      "bytes": 1535,
+      "sha256": "43002018d787a9a89bc7489b6fc54f1bb58269a68a16298bafa6595df2161483"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-guide-worth/MANIFEST.json",
+      "bytes": 1298,
+      "sha256": "e650af03b2da875a062e3152ec09a99ef4c1bf73509b2397fa9cb11b67655add"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py",
+      "bytes": 8284,
+      "sha256": "3eb6c011a7fb9ecc95844bb07f66adb464a2cc345048b130c6f85b1e3407e0ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py",
+      "bytes": 8113,
+      "sha256": "f1dd329fc9cd59d3bd27bc9765d8405fd89337047fe0f7ce56009bb2c380d3ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/viewer.mjs",
+      "bytes": 6486,
+      "sha256": "75e19d1148354a2e30c26a8d1a1ad0da7d269d788a3db865c7a3a259880fce68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/index.html",
+      "bytes": 2101,
+      "sha256": "bfd96d54a57991502bcd08ed7fe619fc230199067785220cad7462b5bcfb9704"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py",
+      "bytes": 8284,
+      "sha256": "3eb6c011a7fb9ecc95844bb07f66adb464a2cc345048b130c6f85b1e3407e0ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py",
+      "bytes": 8113,
+      "sha256": "f1dd329fc9cd59d3bd27bc9765d8405fd89337047fe0f7ce56009bb2c380d3ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/viewer.mjs",
+      "bytes": 6486,
+      "sha256": "75e19d1148354a2e30c26a8d1a1ad0da7d269d788a3db865c7a3a259880fce68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/index.html",
+      "bytes": 2101,
+      "sha256": "bfd96d54a57991502bcd08ed7fe619fc230199067785220cad7462b5bcfb9704"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/SOURCE-RESULT.md",
+      "bytes": 3343,
+      "sha256": "9da48b3571190b7baa3be6719cc739905609f1fde535e26971af3226b8f245e8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/SOURCE-RECEIPT.json",
+      "bytes": 7320,
+      "sha256": "5669b4d0a8343ba672361760da9784b0971f4888a21dca286a10ca334eb72237"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/ROOT-ADMISSION.json",
+      "bytes": 1851,
+      "sha256": "ff47e2836e9c3d977c80b4dc3ca990e52f551342947059f757c0963e2e2b8e29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/CPU-JOB.requested.json",
+      "bytes": 581,
+      "sha256": "ebf0225f85692f43084c8df2c4075e709c6f8a765ed664dd55fd6fda74662d89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/CPU-JOB.json",
+      "bytes": 2374,
+      "sha256": "d42111afe2c2d65794d82bf9edc50fb722585d83d450b2d164b5410df4f72abf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/BUILD.stdout.txt",
+      "bytes": 487,
+      "sha256": "148aa2272e842557f47f9ce152413c2d9e227e16f27c44f2b2ad0007bb644229"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/BUILD.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/BUILD.json",
+      "bytes": 595,
+      "sha256": "6260caf8bbc66b55204e057e84e57736cb1ccc4b08e5f026ba302a711232d7f8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/CHECK.stdout.txt",
+      "bytes": 641,
+      "sha256": "eb7d7553f6320f4556ee763a82824706e00a2a5c1c6e1a61a099042e0909902e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/CHECK.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/CHECK.json",
+      "bytes": 699,
+      "sha256": "cb311183e23bd0949cac6168a3b1b55be438810ab5dd41aa986b5b43a303327b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/guide.json",
+      "bytes": 29572400,
+      "sha256": "dc38f2c4431c6de3ed49a4e8ec0921d6c85d115279f614712f1f6de87ba996f4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/source-guide.obj",
+      "bytes": 18691302,
+      "sha256": "3c7175387174332641f45248a31c4a8751d1496b2df98625ef199f6e775dac90"
+    }
+  ],
+  "limits": "Saved-data guide only. No original GLB/BIN decode, producer/checker import/rerun, new candidate, source topology/solid/anatomical/enclosure/contact/fit/GPU/native/appearance qualification. Zero degenerate/coplanar categories if observed do not exercise those cases."
+}

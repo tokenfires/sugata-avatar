@@ -1,0 +1,53 @@
+{
+  "observed_utc": "2026-10-05T15:19:15.286309+00:00",
+  "decision": "B first native identity retrieval refusal; fixed guide closed without screenshot",
+  "actual_witnesses": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/NATIVE-PRE.json",
+      "bytes": 1530,
+      "sha256": "370144d7a3d23f71dee4416d655946bbc966825cf8a74a93376ee8f5ae97badd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/NATIVE.json",
+      "bytes": 3289,
+      "sha256": "21f83bde6bee4dfa610f313870dedd82a406282eba695bf37ada8a8dba3df256"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/viewer.mjs",
+      "bytes": 6486,
+      "sha256": "75e19d1148354a2e30c26a8d1a1ad0da7d269d788a3db865c7a3a259880fce68"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/ROOT-NATIVE-ADMISSION.json",
+      "bytes": 2705,
+      "sha256": "d6505fef42a347882574f4200c2bc58bd0cdd9c42e87221d8bba59fe783eb600"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/ROOT-DATA.json",
+      "bytes": 3848,
+      "sha256": "b9193f16d07726718f28253a6c4809474a239c4089c86391f3b6d1e1d6667141"
+    }
+  ],
+  "tool_calls": [
+    "CUA documentation recovery",
+    "before inventory []",
+    "one create 43 at 15:17:44.405Z, Ready AX",
+    "one DOM snapshot and one read-only evaluation: stage/viewport/URL returned, observation property absent",
+    "6f6f2d complete 76-line viewer source read establishes assigned window.guideObservation; no actual public data received",
+    "Finish guide click once, finished DOM read, close43 once, afterinventory []"
+  ],
+  "explanation": "The Ready DOM is an execution-status witness only. The admitted native gate requires actual fetched guide SHA, source-owner counts, draw hashes and cameras from returned observation. The sole browser read omitted observation entirely. Cause is undetermined; it is not evidence of a source/renderer defect, source mismatch or missing page global. No retry, rewritten observation transport, source edit, viewport change or capture rescue.",
+  "alternatives": [
+    {
+      "choice": "A salvage through a fresh DOM evidence transport or another observation route",
+      "tradeoff": "Could recover actual identity but changes the fixed source/retrieval contract after its first refusal; rejected here. Requires a genuinely new, explicitly reviewed observability contract."
+    },
+    {
+      "choice": "B retain independently checked saved source JSON/OBJ and close fixed native guide",
+      "tradeoff": "Preserves source responsibility/provenance but leaves rendered framing/readability and appearance unqualified; chosen."
+    }
+  ],
+  "project_status": "14 scoped checked/10 broad open unchanged; no footwear fit or visual guide completion. Full AAA/wardrobe/representation/expression/motion remains open.",
+  "cleanup": "Only owned43 closed; inventories before and after empty. Finished DOM reports disposal attempts, per-resource returns unobserved and GPU retirement unmeasured. Review5173 retained.",
+  "next_experiment_worth": "Ask critic whether a fresh observability transport contract is genuinely worth doing; fixed plane/material/camera/viewport/capture rescue remains B. No successor admitted."
+}

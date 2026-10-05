@@ -1,0 +1,36 @@
+{
+  "admitted_utc": "2026-10-05T15:01:16.647266+00:00",
+  "decision": "A sole combined30second builder/checker only; native still unadmitted",
+  "source_handoff_read": "e19ccc complete actual SOURCE-RESULT3343 and SOURCE-RECEIPT7320;12directpins verified now",
+  "source_full_root_read": "83754a+6a9573 complete final4sources+PLAN;360b1f own source observation and10pins;190273 AST/e54f90 Node--check only;4f7dc7 modulepath resolves. No source mutation or execution.",
+  "critic_result": {
+    "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/SOURCE-RESULT.md",
+    "bytes": 3343,
+    "sha256": "9da48b3571190b7baa3be6719cc739905609f1fde535e26971af3226b8f245e8"
+  },
+  "critic_receipt": {
+    "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/SOURCE-RECEIPT.json",
+    "bytes": 7320,
+    "sha256": "5669b4d0a8343ba672361760da9784b0971f4888a21dca286a10ca334eb72237"
+  },
+  "verified_handoff_pins": 12,
+  "commands": [
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py"
+    ],
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py"
+    ]
+  ],
+  "combined_timeout_seconds": 30,
+  "limits": "First source/data/CPU error or cutoff stops before native, no retry or tuning. All source owners/triangles/provenance/OBJ must pass independently/root before native admission. No anatomical/boot/fit/default/AAA acceptance.",
+  "source_plan": {
+    "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/PLAN.json",
+    "bytes": 8253,
+    "sha256": "01e73efbf5e237921ec8c05acaa393eaf038506450b7ff1bf09df41f08e5cd57"
+  }
+}

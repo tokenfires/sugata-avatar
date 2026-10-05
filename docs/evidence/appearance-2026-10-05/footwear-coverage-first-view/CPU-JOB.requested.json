@@ -1,0 +1,18 @@
+{
+  "requested_utc": "2026-10-05T15:01:47.409368+00:00",
+  "commands": [
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py"
+    ],
+    [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py"
+    ]
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "combined_timeout_seconds": 30,
+  "controller_pid": 95688
+}

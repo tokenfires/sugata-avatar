@@ -1,0 +1,99 @@
+{
+  "prepared_utc": "2026-10-05T14:49:26.061142+00:00",
+  "source_stop_utc": "2026-10-05T15:12:00Z",
+  "cpu_stop_utc": "2026-10-05T15:17:00Z",
+  "native_stop_utc": "2026-10-05T15:27:00Z",
+  "decision_stop_utc": "2026-10-05T15:40:00Z",
+  "goal": "Complete unchanged original source responsibility at exactly y=.28m; accept/reject guide only. No boot construction, transform, fit or anatomical naming.",
+  "bindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-guide-worth/PLAN.json",
+      "bytes": 7222,
+      "sha256": "191b3a9fe9f72c533f0684192999e3ec7f0a2ce0022232e131e254f3f1112669"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-guide-worth/RESULT.md",
+      "bytes": 3241,
+      "sha256": "d7312eb005659f0d0cf24c76910df2b3277bd03db4b76f14a98e87e8b25a214a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-guide-worth/RECEIPT.json",
+      "bytes": 8230,
+      "sha256": "beeace41c88aa4613798425ab4f890785abee414450a542628d84b82138f4212"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-guide-worth/ROOT-CLOSE.json",
+      "bytes": 1535,
+      "sha256": "43002018d787a9a89bc7489b6fc54f1bb58269a68a16298bafa6595df2161483"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-guide-worth/MANIFEST.json",
+      "bytes": 1298,
+      "sha256": "e650af03b2da875a062e3152ec09a99ef4c1bf73509b2397fa9cb11b67655add"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py",
+      "bytes": 8284,
+      "sha256": "3eb6c011a7fb9ecc95844bb07f66adb464a2cc345048b130c6f85b1e3407e0ac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py",
+      "bytes": 8113,
+      "sha256": "f1dd329fc9cd59d3bd27bc9765d8405fd89337047fe0f7ce56009bb2c380d3ad"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/viewer.mjs",
+      "bytes": 6486,
+      "sha256": "75e19d1148354a2e30c26a8d1a1ad0da7d269d788a3db865c7a3a259880fce68"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/index.html",
+      "bytes": 2101,
+      "sha256": "bfd96d54a57991502bcd08ed7fe619fc230199067785220cad7462b5bcfb9704"
+    }
+  ],
+  "policy": {
+    "original_authority": "All9 saved ledger owners/all39546worldpositions/all71512originaltriangles preserved literally with owner, vertex/triangle IDs, association. Source SHA d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e; no GLB/BIN/skin/frame decoder or old producer.",
+    "plane": "One worldY=.28m halfspace. Positive-area below fragments are selected coverage intent; above are outside this working region. Entire coplanar positive-area triangles belong below only; shared on-plane edges/vertices are zero-area shared boundaries. No original point is shifted to force the plane.",
+    "degenerate": "Exact original zero-area triangles keep original ID/positions as a separate evidence category; zero support inferred. Every original crossing edge, including zero-area records, has canonical low/high original vertex IDs, tFromLow and original-world point. No positive-area trace invented from degenerates.",
+    "provenance": "Per-source-owner edge cache; canonical low/high original IDs preserve exact cut points across incident original triangles and both sides. UV/seam duplicate IDs remain independent. No welding/capping/remesh. Fragment barycentric triples reconstruct original triangle world points within1e-12m; weights sum1/nonnegative within1e-12. Cut-plane trace tolerance1e-12m.",
+    "partition_gate": "Every original ID appears once as a record; every positive-area clipped polygon exactly owns expected original corners plus original-edge cuts. Positive fragment orientation/halfspace and area/vector conservation max(1e-12m2,originalarea*1e-9). Below positive area only body/Human, strict negative-X or positive-X; cross-X or unexpected owner refuses. Both sides require area and cut trace. No source connectivity/manifold/anatomy claim.",
+    "obj": "Full fragment geometry and raw zero-area original records, named owner/role groups and source triangle comments, plus opening-trace original owner/triangle comments and literal endpoints; no scaling/recenter/weld/cap. Checker compares all OBJ vertices/faces/lines to guide records. JSON owns complete original vertex/triangle metadata.",
+    "viewer": "Unchanged saved source fragment positions only, Float32 diagnostic draws. Three fixed panels: full source front offset[0,.12,4], full below-plane pair profile/oblique[4,.12,1], full source rear[0,.12,-4]. Original-world bounds and projection-specific eight-corner fitting*1.18, near.1/far20. Fixed560CSSpx stage/defaultviewport/nooverride/pixelratio1. All declared bounds visible; no clipping/tuning/retake. Materials teal/blue chosen sides, muted outside source, yellow cut lines (depthTestfalse for readable provenance, not visible contour/contact proof).",
+    "lifetime": "Fetch+byte checksum and each position/trace checksum await has live guard. All async operations precede GPU allocation; every returned renderer/geometry/material is immediately registered. Finish/pagehide tries each resource.dispose once, continues after failure, records returned attempts. Shared geometries/materials registered once, no animation/resize/importedasset/model/editor/source/default change. Closure/dispose return is not GPU retirement."
+  },
+  "admission": "Independent critic complete exact source agreement plus root actual full source read/verification before a single CPU builder/check. CPU firstfailure stops native. Native needs separately verified CPU/source/guide pins and root own image capture; critic then reads same actual whole original and saved records before root acceptance.",
+  "cpu": {
+    "controller": "One root subprocess controller,30seconds combined builder then checker, cwdrepository, stdout/stderr original bytes and exact requested commands/start/collect/PIDs/exits/reaping saved; builder failure stops before checker. No retries.",
+    "commands": [
+      [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py"
+      ],
+      [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py"
+      ]
+    ],
+    "outputs": [
+      "guide.json",
+      "source-guide.obj",
+      "BUILD.json",
+      "CHECK.json"
+    ],
+    "scope": "Portable saved-source partition/OBJ only; no native point equivalence, physical solid/fit or accepted asset."
+  },
+  "native": {
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/index.html",
+    "ownership": "Root only. Recover CUA docs first; read existing IAB inventory, one owned backgroundtab, preserve all other tabs. No viewportoverride/camera/material/plane change. Read own public DOM/state; actualguideSHA must match sole CPU and sourceowner counts/noerror. At most one unchanged fullpageJPEG. Root whole original read; Finish once, read returned disposal attempts, closeonlyownedtab and afterinventory. First failure/framing/refusal stops no capture rescue."
+  },
+  "stop": "First fresh source refusal, CPU error, missing ownership/ID/interface gate, native retrieval/identity/framing/readability refusal or deadline closes fixedplane/guide. Preserve failure bytes and exact jobs; no source/plane/mask/topology/material/camera/recapture adjustment. No boot assembly admitted.",
+  "preservation": "Accepted/default/original/frozen/unrelated and14scopedchecked/10broadopen/fullAAA stay unchanged. Closed originalmethods stayclosed. Review5173/ACTIVE10minute retained; newer human steering wins. No push/publish/purchase/install/capacity/model/subscription/reset-credit/other-project action."
+}

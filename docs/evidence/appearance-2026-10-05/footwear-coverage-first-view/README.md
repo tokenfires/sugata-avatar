@@ -1,0 +1,9 @@
+# Footwear source intent — data retained, visual guide stopped
+
+[Editable guide JSON](guide.json) and [source-fragment OBJ](source-guide.obj) preserve all nine original owners,39,546 world positions and71,512 original triangles at a deliberate y=.28m working cut. Crossing fragments and original IDs remain explicit. Two geometric sides each contain2,384 chosen records and40 cut traces; this is chosen authoring intent, not an anatomical ankle or fitted boot cuff.
+
+Root and the independent critic separately checked the complete saved source, fragments, barycentric/area conservation, original-edge provenance and OBJ geometry/annotations. [Root data](ROOT-DATA.json), [independent data](DATA-RESULT.md) and [exact observer](DATA-RECEIPT.json) retain their scopes. Degenerate/coplanar source branches were unexercised on this actual dataset.
+
+**The complete visual guide is unqualified.** The sole native page reached Ready, but returned observation omitted the actual identity/owner/buffer/camera record. Cause is unknown. The first retrieval refusal stopped before any screenshot; framing, readability and appearance were not reviewed. Finish was clicked once and only the owned tab was closed. Individual disposal returns and GPU retirement were unobserved. [Native witness](NATIVE.json), [root refusal](ROOT-NATIVE.json), [independent final result](RESULT.md), [exact receipt](RECEIPT.json) and [root close](ROOT-CLOSE.json).
+
+Fixed source/plane/material/camera/viewport/retrieval/capture rescue is closed. This data alone admits no new footwear construction. Anatomical last, metric cavity, physical enclosure/clearance/contact/body fit, materials, rig, morph/pose/motion and AAA character quality remain open. Accepted assets and all earlier evidence remain intact; fourteen scoped checked deliverables and ten broad goals are unchanged.

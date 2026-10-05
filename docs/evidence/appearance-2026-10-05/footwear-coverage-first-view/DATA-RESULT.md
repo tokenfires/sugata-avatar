@@ -1,0 +1,15 @@
+# Footwear source guide — independent saved-data review
+
+**A — complete-source intent data/OBJ accepted at this scope; one unchanged native guide is worth doing after root admission.** Saved 2026-10-05T15:08:54.843983+00:00 before15:17UTC. [DATA-RECEIPT.json](DATA-RECEIPT.json) binds the source, actual outputs, process records and sole independent observer.
+
+[DATA-OBSERVATION.json](DATA-OBSERVATION.json) records one stdlib comparison, PID4283,15:06:31.776714–15:06:33.869809UTC,exit0,60-second bound. It imports neither producer nor saved checker. All nine original owners,39,546 literal world positions, original vertex/triangle IDs, indices and associations match the pinned ledger. Every one of71,512 original triangle IDs has exactly one record;71,592 positive fragments retain the prescribed simplex corner/canonical crossing vertices and orientation.
+
+Independent barycentric boundary-shoelace conservation and world polygon boundary-vector checks pass. Maximum barycentric reconstruction error is2.7755575615628914e−17m; maximum simplex area error3.37394075355641e−20m² and world boundary-vector area error6.864990279259291e−17m² remain below the unchanged tolerance. There are no original zero-area or wholly coplanar positive-area triangles in this actual dataset: those source branches were not exercised.
+
+Below-plane support belongs only to body/Human and strictly −X or +X:2,384 records each, positive areas approximately.09903779525/.09903803304m² and40 trace segments each. All82 canonical crossing edges and80 crossing-triangle traces match original edge operands/barycentrics. No IDs are welded. Supplementary [ROOT-DATA.json](ROOT-DATA.json) identifies two distinct-edge pairs sharing cut coordinates; that is a root geometric-adjacency observation, not my independent loop/manifold proof.
+
+Every actual OBJ owner/role group and original-triangle comment,215,016 vertices,71,672 faces and80 line segments matches the saved records. [CPU-JOB.json](CPU-JOB.json) records the admitted sole builder95689/checker95744,exit0/reaped/no timeout,15:01:47.409604–15:01:50.405148UTC. Requested commands, source/output hashes, original stdout equality and empty stderr agree. Reaping here is verified from saved process records, not a new live PID inspection.
+
+**Alternative A:** admit the first fixed full/front, lower-pair oblique and full/rear native guide; actual readability can decide whether the editable interface is useful. This costs one bounded view and may still refuse. **Alternative B:** retain the qualified numeric/OBJ guide without native; lower effort, but visible framing/trace utility remains untested. Choose A for the next sole unchanged native, subject to root's separate exact admission. It does not follow merely from numeric counts.
+
+No actionable data discrepancy found. No anatomical foot, closed solid, source connectivity, enclosure/contact/clearance, boot construction/fit, native/GPU equivalence, pose/motion/default or AAA claim follows. Yellow depth-disabled lines remain provenance. First native identity/framing/readability/deadline failure stops without rescue.

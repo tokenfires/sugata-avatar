@@ -1,0 +1,66 @@
+{
+  "controller_pid": 95688,
+  "requested": {
+    "requested_utc": "2026-10-05T15:01:47.409368+00:00",
+    "commands": [
+      [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py"
+      ],
+      [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py"
+      ]
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "combined_timeout_seconds": 30,
+    "controller_pid": 95688
+  },
+  "jobs": [
+    {
+      "role": "BUILD",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/build.py"
+      ],
+      "pid": 95689,
+      "started_utc": "2026-10-05T15:01:47.409604+00:00",
+      "collected_utc": "2026-10-05T15:01:48.490035+00:00",
+      "elapsed_seconds": 1.0806992919533513,
+      "exit_code": 0,
+      "reaped": true,
+      "timeout": false,
+      "kill_escalated": false,
+      "stdout_bytes": 487,
+      "stderr_bytes": 0,
+      "stdout_sha256": "148aa2272e842557f47f9ce152413c2d9e227e16f27c44f2b2ad0007bb644229",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "role": "CHECK",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/check.py"
+      ],
+      "pid": 95744,
+      "started_utc": "2026-10-05T15:01:48.490338+00:00",
+      "collected_utc": "2026-10-05T15:01:50.404799+00:00",
+      "elapsed_seconds": 1.9147671660175547,
+      "exit_code": 0,
+      "reaped": true,
+      "timeout": false,
+      "kill_escalated": false,
+      "stdout_bytes": 641,
+      "stderr_bytes": 0,
+      "stdout_sha256": "eb7d7553f6320f4556ee763a82824706e00a2a5c1c6e1a61a099042e0909902e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "passed": true,
+  "collected_utc": "2026-10-05T15:01:50.405148+00:00",
+  "limits": "Recorded process completion only, no native/appearance/fit/GPU retirement."
+}

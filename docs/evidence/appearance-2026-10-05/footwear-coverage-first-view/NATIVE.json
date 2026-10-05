@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-10-05T15:17:44.405Z",
+  "identity_refusal_utc": "2026-10-05T15:18:33.727Z",
+  "closed_utc": "2026-10-05T15:18:34.143Z",
+  "tab_id": "43",
+  "before_tabs": [],
+  "after_tabs": [],
+  "pre_observation": {
+    "stage": {
+      "height": 560,
+      "width": 1224,
+      "x": 28,
+      "y": 202.5
+    },
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/index.html",
+    "viewport": {
+      "devicePixelRatio": 2,
+      "height": 720,
+      "width": 1280
+    }
+  },
+  "ready_dom": "- heading \"Original footwear source guide\" [level=1]\n- paragraph: Saved body and foundation surfaces, in metres. A deliberate y=.28m working cut for later footwear authorship.\n- button \"Finish guide\"\n- status: Ready — complete original source; blue/teal chosen region, yellow cut trace.\n- generic: Full source front\n- generic: Lower region profile / oblique\n- generic: Full source rear\n- generic \"Complete original source guide in three fixed views\"\n- generic: −X chosen region\n- generic: +X chosen region\n- generic: Opening trace\n- generic: \"Muted surfaces: outside this working region\"\n- contentinfo:\n  - text: Artist responsibility only. The cut is chosen, not an anatomical ankle or a fitted boot cuff. All original source triangles and crossing fragments are retained; no source welding or caps. Source pose, finished footwear, clearance, body fit and motion remain separate questions.\n  - link \"Editable guide OBJ\":\n    - /url: source-guide.obj\n  - text: ·\n  - link \"Original IDs and source fragments\":\n    - /url: guide.json",
+  "finished_dom": "- heading \"Original footwear source guide\" [level=1]\n- paragraph: Saved body and foundation surfaces, in metres. A deliberate y=.28m working cut for later footwear authorship.\n- button \"Finish guide\" [active]\n- status: Finished — disposal attempts recorded; GPU retirement unmeasured.\n- generic: Full source front\n- generic: Lower region profile / oblique\n- generic: Full source rear\n- generic \"Complete original source guide in three fixed views\"\n- generic: −X chosen region\n- generic: +X chosen region\n- generic: Opening trace\n- generic: \"Muted surfaces: outside this working region\"\n- contentinfo:\n  - text: Artist responsibility only. The cut is chosen, not an anatomical ankle or a fitted boot cuff. All original source triangles and crossing fragments are retained; no source welding or caps. Source pose, finished footwear, clearance, body fit and motion remain separate questions.\n  - link \"Editable guide OBJ\":\n    - /url: source-guide.obj\n  - text: ·\n  - link \"Original IDs and source fragments\":\n    - /url: guide.json",
+  "decision": "B missing public guideObservation in returned read-only browser state; first identity retrieval refusal stops fixed native guide",
+  "captures": 0,
+  "retakes": 0,
+  "source_changes": 0,
+  "finish_clicked_once": true,
+  "dispose_attempts": "Unobserved: returned DOM reports completion; custom public observation was absent. Closing does not demonstrate GPU retirement.",
+  "limits": "Ready DOM alone does not establish exact source SHA, draw hashes, cameras, framing or readable appearance. No capture or native qualification."
+}
