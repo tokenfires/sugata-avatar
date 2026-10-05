@@ -1,0 +1,36 @@
+{
+  "observed_utc": "2026-10-05T08:23:21.487188+00:00",
+  "source_bindings": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 35393,
+      "sha256": "d654b7338fb646dc0773c43226dee543b731da7bda61a2d6729b50438945a5e1"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "bytes": 1096,
+      "sha256": "252853e362b7d64a28231eb4799d4363d1e0056485d31d5ab52e96d0db2dcf89"
+    },
+    {
+      "path": "vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "vite.pages.config.js",
+      "bytes": 1669,
+      "sha256": "5afe43855c78f82298fcdb546b81b4078328d71f8dfa57e0d7429dd4e21ce1eb"
+    }
+  ],
+  "root_complete_read": "308c86/0 complete three changed sources; root agrees with actual source observations",
+  "origin": "Exact16006a5 Showcase source copied to ORIGINAL-showcase.js; no correction before first execution",
+  "build_preparation": "229f40 actual pages config lists Showcase; default build misses it. Use existing pages config and new unique temp outDir, one120s bound; no production output replacement.",
+  "primary": "Firecrawl live MDN details01a10b21-0ba7-76dc-b73b-b3497a1d8f85 HTTP200/1reportedcredit, complete PRIMARY-RESPONSE.json. Root full returned unique markdown read; native details/summary and plain open property, no extra role/custom keyboard handling. Other links unfollowed.",
+  "browser": "Only docs restoration/read; no tab/action/render yet",
+  "verdict": "Source appears consistent with declared ownership/readiness/lifetime contract; execution waits for independently saved critic source receipt and root pin reconciliation."
+}

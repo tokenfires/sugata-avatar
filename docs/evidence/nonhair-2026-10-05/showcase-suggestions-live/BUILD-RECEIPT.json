@@ -1,0 +1,58 @@
+{
+  "started_utc": "2026-10-05T08:24:37.557010+00:00",
+  "collected_utc": "2026-10-05T08:24:37.878835+00:00",
+  "elapsed_s": 0.3217340839910321,
+  "wrapper_pid": 72666,
+  "child_pid": 72675,
+  "command": [
+    "/Users/robault/.brv-cli/bin/node",
+    "node_modules/vite/bin/vite.js",
+    "build",
+    "--config",
+    "vite.pages.config.js",
+    "--outDir",
+    "/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-showcase-suggestions-build-x9_hg2o8"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "timeout_s": 120,
+  "timed_out": false,
+  "exit_code": 0,
+  "output_dir": "/var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-showcase-suggestions-build-x9_hg2o8",
+  "showcase_built": true,
+  "source_bindings": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 35393,
+      "sha256": "d654b7338fb646dc0773c43226dee543b731da7bda61a2d6729b50438945a5e1"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "bytes": 1096,
+      "sha256": "252853e362b7d64a28231eb4799d4363d1e0056485d31d5ab52e96d0db2dcf89"
+    },
+    {
+      "path": "vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "vite.pages.config.js",
+      "bytes": 1669,
+      "sha256": "5afe43855c78f82298fcdb546b81b4078328d71f8dfa57e0d7429dd4e21ce1eb"
+    }
+  ],
+  "stdout": {
+    "bytes": 30346,
+    "sha256": "5f9cd29ae59827ded5e69bb736a5a5909ed118c3673e3eb87d0aab280d7bf7f8"
+  },
+  "stderr": {
+    "bytes": 360,
+    "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4"
+  },
+  "limit": "Production compile only, includes existing18pages; no native/assetfit/UI preservation result. No output overwrites or publication."
+}

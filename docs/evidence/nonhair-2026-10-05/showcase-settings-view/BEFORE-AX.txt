@@ -1,0 +1,103 @@
+Browser tab: 37, Title: "Sugata 姿 — wardrobe studies", URL: "http://127.0.0.1:5173/src/showcase.html?capture=&suggestions=1&preset=casual#outfit-suggestions".
+0 AXWebArea Sugata 姿 — wardrobe studies, URL: 127.0.0.1:5173/src/showcase.html?capture=&suggestions=1&preset=casual#outfit-suggestions
+	1 container
+		2 link Description: SUGATA, Value: 127.0.0.1:5173/
+		3 container Main
+			4 link Description: Portrait, Value: 127.0.0.1:5173/src/portrait.html
+			5 link Description: Testbed ↗, Value: 127.0.0.1:5173/
+	6 container
+		7 container Interactive clothing study
+			8 container
+				89 text 01 / EVERYDAY
+				10 text REAL-TIME AVATAR · WARDROBE STUDY
+				11 image Description: Clothed avatar. Drag to turn; scroll to zoom., ID: stage
+			13 container
+				14 container View controls
+					15 button Front
+					16 button Side
+					17 button Back
+					18 button Reset view, Help: Return to the starting view for the current framing, ID: reset-view
+				19 text Drag to turn · scroll to explore
+		20 text THE LOOKBOOK / FIRST STUDIES
+		21 heading A change of clothes., Value: 1
+			22 text A change
+			23 text of clothes.
+		24 text Two starting looks for an embodied AI. Turn, explore, and make the combination your own.
+		25 container Starting look
+			26 link Description: 01 Everyday Chin-length bob ↗, Value: 127.0.0.1:5173/src/showcase.html?preset=casual&capture=#outfit-suggestions
+			27 link Description: 02 After hours Long bob, Value: 127.0.0.1:5173/src/showcase.html?preset=elegant&capture=#outfit-suggestions
+		28 container Description: HAIR CUT, ID: hair-cut-controls
+			29 text HAIR CUT
+			30 checkbox Chin-length bob, Value: 1
+			31 checkbox Long bob, Value: 0
+			32 text Keep your applied clothes and colours while opening a fresh preview.
+		33 container Description: OUTFIT, ID: outfit-controls
+			34 text OUTFIT
+			35 checkbox Tee + denim, Value: 1
+			36 checkbox Blouse + skirt, Value: 0
+			90 container outfit-suggestions
+				91 button (expanded) Suggest an outfit, Secondary Actions: Collapse
+					92 text Suggest an outfit
+				93 text Find the closest match from these clothing studies. Suggestions leave your current look in place.
+				94 text How formal?
+				95 pop up button (collapsed, settable) How formal?, Value: 4, ID: outfit-suggestions-formality, Secondary Actions: Expand
+					96 menu
+						97 1 · Most casual
+						98 2
+						99 3
+						100 (selected) 4
+						101 5 · Most formal
+				102 button Request suggestion
+				103 text Formality changed. Request a new suggestion.
+		39 container Description: BASE PALETTE, ID: style-controls
+			40 text BASE PALETTE
+			41 checkbox Ecru, Value: 1
+			42 checkbox Charcoal, Value: 0
+			43 checkbox Original, Value: 0
+			44 button (collapsed) Compare palettes, Secondary Actions: Expand
+				45 text Compare palettes
+		46 button (collapsed) Mix colours, Secondary Actions: Expand
+			47 text Mix colours
+		48 button (collapsed) Hair colour, Secondary Actions: Expand
+			49 text Hair colour
+		50 container Description: FRAMING, ID: framing-controls
+			51 text FRAMING
+			52 checkbox Full look, Value: 1
+			53 checkbox Portrait, Value: 0
+		54 container Description: SCENE, ID: scene-controls
+			55 text SCENE
+			56 checkbox Studio, Value: 1
+			57 checkbox Kitchen, Value: 0
+		58 container Description: LIGHT, ID: lighting-controls
+			59 text LIGHT
+			60 checkbox Studio, Value: 1
+			61 checkbox Warm, Value: 0
+			62 checkbox Neutral, Value: 0
+		63 container Description: ATTENTION · EXPERIMENTAL, ID: attention-controls
+			64 text ATTENTION · EXPERIMENTAL
+			65 button Look toward me, ID: look-toward-me
+			66 button Look with a smile, ID: look-with-smile
+			67 button (disabled) Release, ID: release-attention
+			104 text Ready when you are
+		69 text Androgynous body study
+		105 text Chin-length bob
+		71 button Save image (PNG) ↓, ID: save-image
+		72 button Save settings (JSON), ID: save
+		73 button Copy settings, ID: copy
+		74 button Open settings (JSON) ↑, ID: open-settings
+		75 button View settings (JSON), ID: view-settings
+		76 text Reopen a saved look to restore its clothes, colours, cut, framing and scene.
+		77 button (collapsed) ▸ Saved looks 0 / 12, Secondary Actions: Expand
+			106 text ▸
+			79 text Saved looks
+			80 text 0 / 12
+		81 checkbox Pause motion, Value: 0, ID: pause
+		107 text Settings ready to inspect
+		83 text Clothing studies, still in progress.
+		84 text Try coordinated ecru or charcoal colours on both outfits, or revisit their original fabrics in Studio or Kitchen.
+		85 button (collapsed) About this study, Secondary Actions: Expand
+			86 text About this study
+	87 container
+		88 text Sugata 姿 · A body for an AI Wardrobe studies · 01—02
+
+The focused UI element is 75 button View settings (JSON), ID: view-settings

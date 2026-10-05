@@ -1,0 +1,60 @@
+{
+  "saved_utc": "2026-10-05T09:21:01.319826+00:00",
+  "stop_utc": "2026-10-05T09:23:27.950259+00:00",
+  "decision": "A desktop request/read/dismiss/public-configuration preservation and mobile request-card access only; B more UI capture/review",
+  "root_handoff_check": "c8cae6/0: 42 exact bindings, after complete 51d284 read; d48e68/0 actual data checks and root direct native original inspections",
+  "critic_receipt_sha256": "2c9357b382da447691af5de436f5102caeac55e9dd2ebc2649c43910e25a7a30",
+  "configuration_bytes_each": 426,
+  "configuration_sha256": "6e424b89cb781449fad8e8856fbc7bfeabc2f1d209dff664fbb5ed620fe25edd",
+  "unchanged_source_origins": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "frozen_origin": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/TESTED-showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "frozen_origin": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/TESTED-showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "frozen_origin": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/TESTED-showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "frozen_origin": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/TESTED-showcase-outfit-suggestions.css",
+      "bytes": 1137,
+      "sha256": "264360780c4faff4200cb6e721710547b6241599df78016129da36aaa52e0db3"
+    }
+  ],
+  "prior_frozen_packets": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/MANIFEST.json",
+      "bytes": 3025,
+      "sha256": "3b8594112b050fa391bfb4b928c79bdd7350a2d6a74bf6e92bb9de3a6a063a6c",
+      "verified_payloads": 18
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-export/MANIFEST.json",
+      "bytes": 2350,
+      "sha256": "aa25dfe63ba5c834cfe1ffcd77c74d4b84675a588163ed8a58a2add7aec37a3f",
+      "verified_payloads": 14
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/MANIFEST.json",
+      "bytes": 4870,
+      "sha256": "d6ca453e929d572bd90f7aa5646440887eb3e3f997a0ae995f3a3e1f8fe205cc",
+      "verified_payloads": 30
+    }
+  ],
+  "next": "B more UI capture/review. Fresh reference/owned pose-surface contract and critic worth required for substantial artist source work.",
+  "checklist": {
+    "checked": 12,
+    "outstanding": 10
+  }
+}

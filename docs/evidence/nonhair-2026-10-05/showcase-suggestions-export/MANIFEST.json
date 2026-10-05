@@ -1,0 +1,76 @@
+{
+  "frozen_utc": "2026-10-05T08:47:23.458581+00:00",
+  "qualification": "Source/one build A; native/public export interaction B; originals preserved. Root read critic and actual original image; no appearance/fit/AAA acceptance.",
+  "payloads": [
+    {
+      "path": "ORIGINAL-OUTCOME.json",
+      "bytes": 2259,
+      "sha256": "7d35ec0e4030c3a7c5c73fe80958791f1761d40d94dc4c384749ed2f1836310c"
+    },
+    {
+      "path": "OUTCOME.json",
+      "bytes": 2654,
+      "sha256": "2e822a232b197f98548568959cdf318f837729a09985a79474568a248e5b6334"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 3820,
+      "sha256": "928a545324759b45697553519da7ff87f66f8f0ddc059df92fa5eb94a2cc37b8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1717,
+      "sha256": "65d544cc3719c3247b4600803d49934ea29705e1eb8739c2b51972c88a7d740b"
+    },
+    {
+      "path": "RESULT-RECEIPT.json",
+      "bytes": 6297,
+      "sha256": "c20df0c9ad07540f1be76584bf6f236c6fd4954bd6a0afe2609b2436397473d2"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 3239,
+      "sha256": "308fee0fd4cbdc60fa08f8dbbf7281bc939986e0300981ae033151bb75c4bacc"
+    },
+    {
+      "path": "ROOT-ADMISSION.json",
+      "bytes": 582,
+      "sha256": "690aa354297ef99350cb2d6726402a07e1bcfe98e4e7fb65e1f103ffd1d24765"
+    },
+    {
+      "path": "SOURCE-ORIGINS.json",
+      "bytes": 1204,
+      "sha256": "237ab6b02738a32629b1d386768666692819428cb7c61f2e76a332cd2766a2d6"
+    },
+    {
+      "path": "TESTED-showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "WORTH-RECEIPT.json",
+      "bytes": 2703,
+      "sha256": "cd08071942f4c00cb90d9222abde2aad78e3976788f6b9e59b8eb94a69df1cf3"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 1651,
+      "sha256": "0a29cde57ff7772ea659938c593569ca4502c98a0aff8ed1d41f284fff938823"
+    },
+    {
+      "path": "stopped-AX.txt",
+      "bytes": 281,
+      "sha256": "56f06f41b9afe9544c2c71e13c4f689b70fa5b60c47390a0d6c91b60beeb5a8e"
+    },
+    {
+      "path": "stopped-logs.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "stopped-ready.jpg",
+      "bytes": 34258,
+      "sha256": "f637a8267ec38871cf32d1bdff742acc512e8fe77d6aa65c0276605457a9b38a"
+    }
+  ]
+}

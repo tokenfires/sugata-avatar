@@ -1,0 +1,116 @@
+- banner:
+  - link "SUGATA":
+    - /url: ../
+    - generic: 姿
+    - text: SUGATA
+  - navigation "Main":
+    - link "Portrait":
+      - /url: ./portrait.html
+    - link "Testbed ↗":
+      - /url: ../
+- main:
+  - region "Interactive clothing study":
+    - strong: 01 / Everyday
+    - generic: Real-time avatar · wardrobe study
+    - generic "Clothed avatar. Drag to turn; scroll to zoom."
+    - generic "View controls":
+      - button "Front" [disabled]
+      - button "Side" [disabled]
+      - button "Back" [disabled]
+      - button "Reset view" [disabled]
+    - paragraph: Drag to turn · scroll to explore
+  - complementary:
+    - paragraph: The lookbook / First studies
+    - heading "A change of clothes." [level=1]:
+      - text: A change
+      - text: of clothes.
+    - paragraph: Two starting looks for an embodied AI. Turn, explore, and make the combination your own.
+    - generic "Starting look":
+      - link "01 Everyday Chin-length bob ↗":
+        - /url: http://127.0.0.1:5173/src/showcase.html?preset=casual&capture=#outfit-suggestions
+        - generic: "01"
+        - strong: Everyday
+        - generic: Chin-length bob
+        - text: ↗
+      - link "02 After hours Long bob":
+        - /url: http://127.0.0.1:5173/src/showcase.html?preset=elegant&capture=#outfit-suggestions
+        - generic: "02"
+        - strong: After hours
+        - generic: Long bob
+    - group "Hair cut":
+      - generic: Hair cut
+      - button "Chin-length bob" [disabled] [pressed]
+      - button "Long bob" [disabled]
+      - paragraph: Keep your applied clothes and colours while opening a fresh preview.
+    - group "Outfit":
+      - generic: Outfit
+      - button "Tee + denim" [disabled] [pressed]
+      - button "Blouse + skirt" [disabled]
+      - generic "Suggest an outfit"
+      - paragraph: Find the closest match from these clothing studies. Suggestions leave your current look in place.
+      - generic: How formal?
+      - combobox "How formal?" [disabled]:
+        - option "1 · Most casual" [disabled]
+        - option "2" [disabled]
+        - option "3" [disabled]
+        - option "4" [disabled] [selected]
+        - option "5 · Most formal" [disabled]
+      - button "Request suggestion" [disabled]
+      - status: Outfit suggestions are unavailable while your look is being prepared.
+    - group "Base palette":
+      - generic: Base palette
+      - button "Ecru" [disabled] [pressed]
+      - button "Charcoal" [disabled]
+      - button "Original" [disabled]
+      - generic "Compare palettes"
+      - text: ✓ ✓
+    - generic "Mix colours"
+    - generic "Hair colour"
+    - option "Original" [disabled] [selected]
+    - option "Black" [disabled]
+    - option "Brown" [disabled]
+    - option "Auburn" [disabled]
+    - option "Blonde" [disabled]
+    - option "Red" [disabled]
+    - option "Grey" [disabled]
+    - option "White" [disabled]
+    - option "Custom" [disabled]
+    - group "Framing":
+      - generic: Framing
+      - button "Full look" [disabled] [pressed]
+      - button "Portrait" [disabled]
+    - group "Scene":
+      - generic: Scene
+      - button "Studio" [disabled] [pressed]
+      - button "Kitchen" [disabled]
+    - group "Light":
+      - generic: Light
+      - button "Studio" [disabled] [pressed]
+      - button "Warm" [disabled]
+      - button "Neutral" [disabled]
+    - group "Attention · experimental":
+      - generic: Attention · experimental
+      - button "Look toward me" [disabled]
+      - button "Look with a smile" [disabled]
+      - button "Release" [disabled]
+      - status: Preparing attention
+    - paragraph:
+      - generic: Androgynous body study
+      - generic: Chin-length bob
+    - button "Save image (PNG) ↓" [disabled]
+    - button "Save settings (JSON)" [disabled]
+    - button "Copy settings" [disabled]
+    - button "Open settings (JSON) ↑" [disabled]
+    - button "View settings (JSON)" [disabled]
+    - paragraph: Reopen a saved look to restore its clothes, colours, cut, framing and scene.
+    - generic "▸ Saved looks 0 / 12":
+      - text: ▸ Saved looks
+      - generic: 0 / 12
+    - button "Pause motion" [disabled]
+    - generic: Changing clothes…
+    - strong: Clothing studies, still in progress.
+    - paragraph: Try coordinated ecru or charcoal colours on both outfits, or revisit their original fabrics in Studio or Kitchen.
+    - generic "About this study"
+- contentinfo:
+  - generic: Sugata 姿 · A body for an AI
+  - generic: Wardrobe studies · 01—02

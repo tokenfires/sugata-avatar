@@ -1,0 +1,12 @@
+.outfit-suggestions{margin:12px 0 0;border:1px solid var(--line);border-radius:3px;padding:0 12px}
+.outfit-suggestions summary{padding:12px 0;min-height:44px;font-size:12px;color:var(--ink)}
+.outfit-suggestions p{font-size:12px;line-height:1.55;overflow-wrap:anywhere}
+.outfit-suggestion-inputs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin:14px 0}
+.outfit-suggestion-inputs label{grid-column:1/-1;font-size:12px;color:var(--ink)}
+.outfit-suggestion-inputs select{min-width:0;min-height:44px;padding:8px;background:var(--panel);border:1px solid var(--line);border-radius:3px;color:var(--ink);font:inherit}
+.outfit-suggestions select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.outfit-suggestion-card{border-top:1px solid var(--line);padding-top:14px}
+.outfit-suggestion-card h3{margin:0;font-size:15px;font-weight:500;color:var(--accent)}
+.outfit-suggestion-card p{margin:8px 0;color:var(--muted)}
+.outfit-suggestion-card button{width:100%;min-height:44px;margin:4px 0 8px}
+.outfit-suggestion-feedback{margin:10px 0 14px;color:var(--muted)}

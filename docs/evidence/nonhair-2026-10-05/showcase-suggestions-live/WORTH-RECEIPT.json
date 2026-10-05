@@ -1,0 +1,70 @@
+{
+  "saved_utc": "2026-10-05T08:15:32.978136+00:00",
+  "decision": "conditional A source preparation only; no build or native admission",
+  "inputs": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/PLAN.json",
+      "bytes": 4887,
+      "sha256": "d52e0d3c0492d695464b6dac2f2630941047745564372091315cae232bfb4e12"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/README.md",
+      "bytes": 2676,
+      "sha256": "d7e54488fae2cc64355244a9f91f4ef18f179c7fd33734c996465265c1ce5294"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/RESULT.md",
+      "bytes": 3116,
+      "sha256": "795ed681aeb48dd9c484b21351ac9c1c754d35cb7e34e7b30fec4540048f64e2"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 30923,
+      "sha256": "678a24a84012e5936dfd9cb8dd2ef88975ec1ebb676a1448fc56c7083fff45ad"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions/PLAN.json",
+      "bytes": 3874,
+      "sha256": "24348a997e26a06aa4a3920c475d5f6d993fbd45e71764a146c76504ceecbd57"
+    }
+  ],
+  "worth": {
+    "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/WORTH.md",
+    "bytes": 1975,
+    "sha256": "192505900908553693d925d827deffe1a794348499371ea2578b21c369711a5d"
+  },
+  "commands": [
+    {
+      "chunk": "230076",
+      "exit_code": 0,
+      "scope": "full fresh PLAN source read and clock"
+    },
+    {
+      "chunk": "39beb7",
+      "exit_code": 0,
+      "scope": "all seven initial hash checks; directed current Showcase/CatalogueDresser and complete prior README reads"
+    }
+  ],
+  "scope": "Read-only source/metadata plus these two handoff files. No import, test, build, runtime, browser, asset decode, online call, code or frozen-file edit. Prior PLAN/result full read in 016633, exit0. Source review still separate.",
+  "correction": "Old capacity-closed plan stop08:32:50 had not expired at08:11; no admission extended."
+}

@@ -1,0 +1,71 @@
+{
+  "saved_utc": "2026-10-05T08:31:32.291065+00:00",
+  "decision": "conditional A exact fresh public-export method; prior probe B unchanged",
+  "bindings": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-export/PLAN.json",
+      "bytes": 3820,
+      "sha256": "928a545324759b45697553519da7ff87f66f8f0ddc059df92fa5eb94a2cc37b8"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 35393,
+      "sha256": "d654b7338fb646dc0773c43226dee543b731da7bda61a2d6729b50438945a5e1"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "bytes": 1096,
+      "sha256": "252853e362b7d64a28231eb4799d4363d1e0056485d31d5ab52e96d0db2dcf89"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/PROBE-REFUSAL.json",
+      "bytes": 1316,
+      "sha256": "572bc500a8758975c883c032b65e842d393dd9d57e2303a7f11857fa7613f42e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/SOURCE-RECEIPT.json",
+      "bytes": 5177,
+      "sha256": "dd55cba126ea388ea95ab965739885e5899ff9f24b8b7485a92b5ccf9f4d8c9e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/BUILD-RECEIPT.json",
+      "bytes": 1961,
+      "sha256": "75e2bca57392dce1201989408e353bf9cb7ad931ea749d0d7fb6cadd60dbc8e4"
+    }
+  ],
+  "worth": {
+    "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-export/WORTH.md",
+    "bytes": 1651,
+    "sha256": "0a29cde57ff7772ea659938c593569ca4502c98a0aff8ed1d41f284fff938823"
+  },
+  "observations": [
+    {
+      "chunk": "b9cbfb",
+      "exit_code": 0,
+      "scope": "complete fresh PLAN and all seven input hash matches"
+    },
+    {
+      "chunk": "c9d0a2",
+      "exit_code": 0,
+      "scope": "direct current public save/strict report export source read"
+    }
+  ],
+  "read_scope": "Full PLAN, actual PROBE-REFUSAL and BUILD-RECEIPT; changed sources/full caller previously independently read at source gate and current hashes exact. No native actions or new build/imports.",
+  "limits": [
+    "No live storage certificate",
+    "No private owner/GPU ledger claim",
+    "No settings equality inferred before actual file acquisition/comparison",
+    "No reload/rebuild/code/capture changes",
+    "Root serializes owned actions under fresh contract"
+  ]
+}

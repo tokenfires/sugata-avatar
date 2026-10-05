@@ -1,0 +1,24 @@
+{
+  "collected_utc": "2026-10-05T08:43:00.721812+00:00",
+  "purpose": "Exact source of first build599973/pass and stopped native/public-export trials; future source change must not alter these originals.",
+  "bindings": [
+    {
+      "source": "packages/testbed/src/showcase.js",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/TESTED-showcase.js",
+      "bytes": 35393,
+      "sha256": "d654b7338fb646dc0773c43226dee543b731da7bda61a2d6729b50438945a5e1"
+    },
+    {
+      "source": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/TESTED-showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "source": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/TESTED-showcase-outfit-suggestions.css",
+      "bytes": 1096,
+      "sha256": "252853e362b7d64a28231eb4799d4363d1e0056485d31d5ab52e96d0db2dcf89"
+    }
+  ]
+}

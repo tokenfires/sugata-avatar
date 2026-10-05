@@ -15,6 +15,9 @@ import { mountColourControls } from './showcase-colour-controls.mjs';
 import './showcase-colour-controls.css';
 import { savedColourRecipe } from './showcase-saved-colours.mjs';
 import './showcase-saved-colours.css';
+import { CatalogueDresser } from '../../core/src/wardrobe/CatalogueDresser.js';
+import { mountOutfitSuggestions } from './showcase-outfit-suggestions.mjs';
+import './showcase-outfit-suggestions.css';
 import casualEcru from './palette-references/casual-ecru.png';
 import casualCharcoal from './palette-references/casual-charcoal.png';
 import casualOriginal from './palette-references/casual-original.png';
@@ -34,8 +37,9 @@ const downloadUrls = new Set();
 // Review links enter the requested editor once controls are ready. Fragment-only
 // navigation changes disclosure/focus, leaving applied settings and drafts intact.
 function revealColourEditor() {
-    if (busy || failed || !['#mix-colours', '#hair-colours'].includes(location.hash)) return;
+    if (busy || failed || !['#mix-colours', '#hair-colours', '#outfit-suggestions'].includes(location.hash)) return;
     const section = document.getElementById(location.hash.slice(1));
+    if (!section) return;
     section.open = true;
     section.querySelector('summary').focus({ preventScroll: true });
     section.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' });
@@ -64,6 +68,26 @@ const paletteReferences = mountPaletteReferences(document.getElementById('style-
     {outfit: 'elegant', style: 'charcoal', src: elegantCharcoal},
     {outfit: 'elegant', style: 'original', src: elegantOriginal}
 ]);
+// Optional read-only catalogue access. Avatar and the existing Outfit controls retain dressing.
+const outfitSuggestions = params.get('suggestions') === '1' ? mountOutfitSuggestions(
+    document.getElementById('outfit-controls'), ({formality}) => {
+        if (busy || savingImage || failed || !avatar || avatar.disposed || !avatar.wardrobe)
+            throw new Error('Wait for the supported look to finish loading.');
+        const dresser = new CatalogueDresser(avatar.wardrobe, Object.entries(SHOWCASE_OUTFITS)
+            .map(([id, recipe]) => ({id, label: recipe.label, garments: [...recipe.garments]})));
+        const garments = dresser.choose({formality});
+        const recipe = dresser.catalogue().find(item => item.garments.length === garments.length && item.garments.every(id => garments.includes(id)));
+        if (!recipe) throw new Error('No supported catalogue suggestion.');
+        return {label: recipe.label, reason: dresser.explain()};
+    }
+) : null;
+if (outfitSuggestions) {
+    const view = document.createElement('button');
+    view.id = 'view-settings'; view.type = 'button'; view.className = 'secondary settings-view';
+    view.textContent = 'View settings (JSON)'; view.disabled = true;
+    view.addEventListener('click', viewLook);
+    document.getElementById('open-settings').after(view);
+}
 let collectionBlocked = true, collectionCount = 0, renameDraft = null, renameFocusId = null;
 const renameDialog = document.getElementById('rename-look-dialog');
 function renameFeedback(message) {
@@ -86,8 +110,9 @@ function updateCollectionControls() {
     document.getElementById('rename-look-retry').disabled = busy || savingImage || failed || !avatar || avatar.disposed;
 }
 function enableControls() {
-    for (const control of document.querySelectorAll('fieldset, [data-angle], #reset-view, #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
+    for (const control of document.querySelectorAll('fieldset, [data-angle], #reset-view, #pause, #save-image, #save, #copy, #open-settings, #view-settings')) control.disabled = busy || savingImage || failed;
     colourControls.setDisabled(busy || savingImage || failed);
+    outfitSuggestions?.setDisabled(busy || savingImage || failed);
     updateCollectionControls(); updateAttention();
 }
 function collectionFeedback(message, error = false) {
@@ -208,6 +233,7 @@ function updateUrl() {
     }
 }
 function refresh() {
+    outfitSuggestions?.invalidate();
     const report = avatar.report(); selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
     selected = selectionWithColours(selected, report.wardrobe.appearance.colours);
     const colours = coloursFromSelection(selected);
@@ -334,6 +360,13 @@ async function saveImage() {
             if (!captured && !failed && !avatar.disposed) frame = requestAnimationFrame(animate);
         }
     }
+}
+function viewLook() {
+    try {
+        const text = configurationText(), input = document.getElementById('config-text');
+        input.value = text; dialog.showModal(); input.focus(); input.select();
+        setStatus('Settings ready to inspect');
+    } catch (error) { setStatus(error.message); }
 }
 async function copyLook() {
     try {
@@ -462,7 +495,7 @@ try {
 } catch (error) { showFailure(error); }
 
 document.addEventListener('visibilitychange', () => { previousTime = null; });
-addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
+addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; outfitSuggestions?.dispose(); attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
 addEventListener('pageshow', event => {
     if (!event.persisted || !avatar || avatar.disposed || failed) return;
     renderCollection();

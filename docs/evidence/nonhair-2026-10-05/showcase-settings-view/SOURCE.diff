@@ -1,0 +1,107 @@
+diff --git a/packages/testbed/src/showcase.html b/packages/testbed/src/showcase.html
+index a388b2d..0c5faed 100644
+--- a/packages/testbed/src/showcase.html
++++ b/packages/testbed/src/showcase.html
+@@ -80,7 +80,7 @@ aside{padding:40px 0 36px}.eyebrow{margin:0 0 14px;font-size:10px;letter-spacing
+ </main>
+ <footer><span>Sugata 姿 · A body for an AI</span><span>Wardrobe studies · 01—02</span></footer>
+ <dialog id="rename-look-dialog" aria-labelledby="rename-look-title" aria-describedby="rename-look-help"><h2 id="rename-look-title">Rename saved look</h2><p id="rename-look-help">Change its name in this browser. The saved settings and your current view stay the same.</p><form id="rename-look-form" class="rename-form"><label for="rename-look-name">Look name</label><input id="rename-look-name" name="look-name" autocomplete="off" aria-describedby="rename-look-help rename-look-error" autofocus><p id="rename-look-error" role="alert" hidden></p><button id="rename-look-retry" class="secondary" type="button" hidden>Retry saved looks</button><div class="export"><button id="rename-look-save" class="primary" type="submit">Save name</button><button id="rename-look-cancel" class="secondary" type="button">Cancel</button></div></form></dialog>
+-<dialog id="copy-dialog"><h2>Your look, as settings.</h2><p id="copy-help">Copy the selected text, or save it as a JSON file.</p><textarea id="config-text" readonly aria-label="Avatar configuration"></textarea><div class="export"><button class="primary" id="dialog-save">Save settings (JSON) ↓</button><button class="secondary" id="dialog-close">Done</button></div></dialog>
++<dialog id="copy-dialog" aria-labelledby="config-title" aria-describedby="copy-help"><h2 id="config-title">Your look, as settings.</h2><p id="copy-help">Copy the selected text, or save it as a JSON file.</p><textarea id="config-text" readonly aria-label="Avatar configuration"></textarea><div class="export"><button class="primary" id="dialog-save">Save settings (JSON) ↓</button><button class="secondary" id="dialog-close">Done</button></div></dialog>
+ <script type="module" src="./showcase.js"></script>
+ </body>
+ </html>
+diff --git a/packages/testbed/src/showcase.js b/packages/testbed/src/showcase.js
+index f36ac00..c3d838c 100644
+--- a/packages/testbed/src/showcase.js
++++ b/packages/testbed/src/showcase.js
+@@ -15,6 +15,9 @@ import { mountColourControls } from './showcase-colour-controls.mjs';
+ import './showcase-colour-controls.css';
+ import { savedColourRecipe } from './showcase-saved-colours.mjs';
+ import './showcase-saved-colours.css';
++import { CatalogueDresser } from '../../core/src/wardrobe/CatalogueDresser.js';
++import { mountOutfitSuggestions } from './showcase-outfit-suggestions.mjs';
++import './showcase-outfit-suggestions.css';
+ import casualEcru from './palette-references/casual-ecru.png';
+ import casualCharcoal from './palette-references/casual-charcoal.png';
+ import casualOriginal from './palette-references/casual-original.png';
+@@ -34,8 +37,9 @@ const downloadUrls = new Set();
+ // Review links enter the requested editor once controls are ready. Fragment-only
+ // navigation changes disclosure/focus, leaving applied settings and drafts intact.
+ function revealColourEditor() {
+-    if (busy || failed || !['#mix-colours', '#hair-colours'].includes(location.hash)) return;
++    if (busy || failed || !['#mix-colours', '#hair-colours', '#outfit-suggestions'].includes(location.hash)) return;
+     const section = document.getElementById(location.hash.slice(1));
++    if (!section) return;
+     section.open = true;
+     section.querySelector('summary').focus({ preventScroll: true });
+     section.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' });
+@@ -64,6 +68,26 @@ const paletteReferences = mountPaletteReferences(document.getElementById('style-
+     {outfit: 'elegant', style: 'charcoal', src: elegantCharcoal},
+     {outfit: 'elegant', style: 'original', src: elegantOriginal}
+ ]);
++// Optional read-only catalogue access. Avatar and the existing Outfit controls retain dressing.
++const outfitSuggestions = params.get('suggestions') === '1' ? mountOutfitSuggestions(
++    document.getElementById('outfit-controls'), ({formality}) => {
++        if (busy || savingImage || failed || !avatar || avatar.disposed || !avatar.wardrobe)
++            throw new Error('Wait for the supported look to finish loading.');
++        const dresser = new CatalogueDresser(avatar.wardrobe, Object.entries(SHOWCASE_OUTFITS)
++            .map(([id, recipe]) => ({id, label: recipe.label, garments: [...recipe.garments]})));
++        const garments = dresser.choose({formality});
++        const recipe = dresser.catalogue().find(item => item.garments.length === garments.length && item.garments.every(id => garments.includes(id)));
++        if (!recipe) throw new Error('No supported catalogue suggestion.');
++        return {label: recipe.label, reason: dresser.explain()};
++    }
++) : null;
++if (outfitSuggestions) {
++    const view = document.createElement('button');
++    view.id = 'view-settings'; view.type = 'button'; view.className = 'secondary settings-view';
++    view.textContent = 'View settings (JSON)'; view.disabled = true;
++    view.addEventListener('click', viewLook);
++    document.getElementById('open-settings').after(view);
++}
+ let collectionBlocked = true, collectionCount = 0, renameDraft = null, renameFocusId = null;
+ const renameDialog = document.getElementById('rename-look-dialog');
+ function renameFeedback(message) {
+@@ -86,8 +110,9 @@ function updateCollectionControls() {
+     document.getElementById('rename-look-retry').disabled = busy || savingImage || failed || !avatar || avatar.disposed;
+ }
+ function enableControls() {
+-    for (const control of document.querySelectorAll('fieldset, [data-angle], #reset-view, #pause, #save-image, #save, #copy, #open-settings')) control.disabled = busy || savingImage || failed;
++    for (const control of document.querySelectorAll('fieldset, [data-angle], #reset-view, #pause, #save-image, #save, #copy, #open-settings, #view-settings')) control.disabled = busy || savingImage || failed;
+     colourControls.setDisabled(busy || savingImage || failed);
++    outfitSuggestions?.setDisabled(busy || savingImage || failed);
+     updateCollectionControls(); updateAttention();
+ }
+ function collectionFeedback(message, error = false) {
+@@ -208,6 +233,7 @@ function updateUrl() {
+     }
+ }
+ function refresh() {
++    outfitSuggestions?.invalidate();
+     const report = avatar.report(); selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
+     selected = selectionWithColours(selected, report.wardrobe.appearance.colours);
+     const colours = coloursFromSelection(selected);
+@@ -335,6 +361,13 @@ async function saveImage() {
+         }
+     }
+ }
++function viewLook() {
++    try {
++        const text = configurationText(), input = document.getElementById('config-text');
++        input.value = text; dialog.showModal(); input.focus(); input.select();
++        setStatus('Settings ready to inspect');
++    } catch (error) { setStatus(error.message); }
++}
+ async function copyLook() {
+     try {
+         const text = configurationText();
+@@ -462,7 +495,7 @@ try {
+ } catch (error) { showFailure(error); }
+ 
+ document.addEventListener('visibilitychange', () => { previousTime = null; });
+-addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
++addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; outfitSuggestions?.dispose(); attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
+ addEventListener('pageshow', event => {
+     if (!event.persisted || !avatar || avatar.disposed || failed) return;
+     renderCollection();

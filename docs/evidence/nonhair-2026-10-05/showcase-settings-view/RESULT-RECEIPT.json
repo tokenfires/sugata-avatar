@@ -1,0 +1,159 @@
+{
+  "saved_utc": "2026-10-05T09:03:56.423736+00:00",
+  "writer_pid": 76720,
+  "decision": "B current native plan; public baseline inspection observed only; next viewport-only UI trial conditional worth A, never source/native admission",
+  "bindings": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "bytes": 1137,
+      "sha256": "264360780c4faff4200cb6e721710547b6241599df78016129da36aaa52e0db3"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "vite.pages.config.js",
+      "bytes": 1669,
+      "sha256": "5afe43855c78f82298fcdb546b81b4078328d71f8dfa57e0d7429dd4e21ce1eb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/PLAN.json",
+      "bytes": 3359,
+      "sha256": "02251a9961feef436fc9b5c3f1768fd842d1764486dd8be75acd79687453c183"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/SOURCE-INPUTS.json",
+      "bytes": 1898,
+      "sha256": "27d0ed1ba5674b068475f8ab6be3274d58e6b97b8f7a7eaaab55ed8d9fa210c5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/SOURCE-RESULT.md",
+      "bytes": 2382,
+      "sha256": "d78c018da86eb3769a97194eb94893359ef212076fcdc9af53d96414977cbb39"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/SOURCE-RECEIPT.json",
+      "bytes": 3850,
+      "sha256": "a5e52e3443aad3c7bd1806b5cf5106b4b6a7e0aa41ac1a1625640c54fda8f56e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/OUTCOME.json",
+      "bytes": 3729,
+      "sha256": "607a9fce2ca5a8dbd2ca838b9e8076506a2e10d51d3c6cb046039222e57a60df"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/BEFORE.json",
+      "bytes": 426,
+      "sha256": "6e424b89cb781449fad8e8856fbc7bfeabc2f1d209dff664fbb5ed620fe25edd"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/BEFORE-dialog.txt",
+      "bytes": 4640,
+      "sha256": "3e89afebf7802390749d6f6f6d5d9eb16677fb4f65f68de3113452d437c6903e"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/BEFORE-AX.txt",
+      "bytes": 4741,
+      "sha256": "b9314bca7772007d7f8288f3251961e3848d151650b449583028cd25930aa21f"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/BEFORE.jpg",
+      "bytes": 149663,
+      "sha256": "7a6c71332185302610566ec93a266eac5d830ca2494b8e21ca611f9ea32c93ed"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/STOPPED-geometry.json",
+      "bytes": 265,
+      "sha256": "e00fd7f23280f69aea3cb2b542a05c29f69be5cefd2f08e23e484b6e5a9bfc20"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/STOPPED-logs.json",
+      "bytes": 1233,
+      "sha256": "5d57d2be8dae7ead19a5db965499dce7e1e67eeab45040ec41e5918dbb043207"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/BUILD-RECEIPT.json",
+      "bytes": 2524,
+      "sha256": "4e28f1ade1468831204430f02d56e45fbcadadc28634cd17e3000dbabfbc8893"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/BUILD.stdout.log",
+      "bytes": 29142,
+      "sha256": "8f1aba6eb03f19d082ac1ced0500db15b454059b97b4e2cd15b40d530f2bf73b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/BUILD.stderr.log",
+      "bytes": 360,
+      "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/RESULT.md",
+    "bytes": 3640,
+    "sha256": "0655a1c5077367121124459904b2b55e41177b7bfce8a79d4b36460316002b1d"
+  },
+  "commands": [
+    {
+      "chunk": "b6f16a",
+      "exit_code": 0,
+      "scope": "prior portion of this same review: complete actual outcome/configuration/AX/geometry/build receipt and image metadata"
+    },
+    {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-settings-view/BEFORE.jpg",
+      "detail": "original",
+      "scope": "complete untouched original independently inspected earlier in this same review; no crop/edit"
+    },
+    {
+      "chunk": "974d23",
+      "exit_code": 0,
+      "scope": "complete dialog/logs/outcome/plan/prior source result and receipt"
+    },
+    {
+      "chunk": "b8137c",
+      "exit_code": 0,
+      "scope": "all8 source/all7 outcome bindings; public methods/readonly HTML/final AX focus"
+    },
+    {
+      "chunk": "306f6c",
+      "exit_code": 0,
+      "scope": "complete build receipt/stderr, stdout final1400characters and full-byte log hashes"
+    }
+  ],
+  "read_scope": "Current caller/component/CSS/HTML were fully read for prior exact source review; current bytes reverified, public snapshot method/HTML reread. Complete saved native records listed were read. Build stdout summary tail only; raw full bytes hashed. No root visual verdict was used as independent image evidence. OUTCOME closure is saved root accounting, not a critic live inventory.",
+  "limits": [
+    "Exactly one baseline configuration; no before/after equality or Request/Dismiss/mobile qualification.",
+    "Postcapture stage measurements are not acquisition-time geometry or exclusive-cause evidence.",
+    "No imports/builds/runtime/browser/HTTP/asset decode/capture/source edits by critic.",
+    "No actual quality/backend, storage/profile/pin, full GPU ledger, appearance/fit/AAA promotion.",
+    "No filesystem mtime used as native acquisition time; current plan remains fixed and stopped.",
+    "Fresh conditional next-worth requires explicit separate plan, full source bindings and root admission."
+  ]
+}

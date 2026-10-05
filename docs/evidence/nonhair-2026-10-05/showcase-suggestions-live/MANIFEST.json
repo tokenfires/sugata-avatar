@@ -1,0 +1,96 @@
+{
+  "frozen_utc": "2026-10-05T08:47:23.457606+00:00",
+  "qualification": "Source/one build A; native/public export interaction B; originals preserved. Root read critic and actual original image; no appearance/fit/AAA acceptance.",
+  "payloads": [
+    {
+      "path": "BUILD-RECEIPT.json",
+      "bytes": 1961,
+      "sha256": "75e2bca57392dce1201989408e353bf9cb7ad931ea749d0d7fb6cadd60dbc8e4"
+    },
+    {
+      "path": "BUILD.stderr.log",
+      "bytes": 360,
+      "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4"
+    },
+    {
+      "path": "BUILD.stdout.log",
+      "bytes": 30346,
+      "sha256": "5f9cd29ae59827ded5e69bb736a5a5909ed118c3673e3eb87d0aab280d7bf7f8"
+    },
+    {
+      "path": "ORIGINAL-showcase.js",
+      "bytes": 34033,
+      "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 4887,
+      "sha256": "d52e0d3c0492d695464b6dac2f2630941047745564372091315cae232bfb4e12"
+    },
+    {
+      "path": "PRIMARY-RESPONSE.json",
+      "bytes": 60166,
+      "sha256": "ef8f9cb708f68c650e1123505e1b3954bf959d003277606eafcf0be3df41e760"
+    },
+    {
+      "path": "PROBE-REFUSAL.json",
+      "bytes": 1316,
+      "sha256": "572bc500a8758975c883c032b65e842d393dd9d57e2303a7f11857fa7613f42e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1219,
+      "sha256": "add90bbf585b2491ebec983b3681a0c3175d4eef80547411a4b820c8a847205a"
+    },
+    {
+      "path": "ROOT-ADMISSION.json",
+      "bytes": 421,
+      "sha256": "b1be641e57a3936d4f8f97aac39ea09d4e886e7b6acf01915854a163353203c9"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 1896,
+      "sha256": "c00a69d1587d20a2e087fccf0135cbf24a1e8087fc6fc186745fd02fd26d9cf2"
+    },
+    {
+      "path": "SOURCE-RECEIPT.json",
+      "bytes": 5177,
+      "sha256": "dd55cba126ea388ea95ab965739885e5899ff9f24b8b7485a92b5ccf9f4d8c9e"
+    },
+    {
+      "path": "SOURCE-RESULT.md",
+      "bytes": 2809,
+      "sha256": "929b031af51ecc3d1861dc6f9b6f9a73b5e36dc022316ded3f5af57ce7f3395e"
+    },
+    {
+      "path": "SOURCE-SNAPSHOTS.json",
+      "bytes": 1112,
+      "sha256": "f05c83009a1402af3708d8525db765a47d71f05486b6eaa753b74b8547770363"
+    },
+    {
+      "path": "TESTED-showcase-outfit-suggestions.css",
+      "bytes": 1096,
+      "sha256": "252853e362b7d64a28231eb4799d4363d1e0056485d31d5ab52e96d0db2dcf89"
+    },
+    {
+      "path": "TESTED-showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "TESTED-showcase.js",
+      "bytes": 35393,
+      "sha256": "d654b7338fb646dc0773c43226dee543b731da7bda61a2d6729b50438945a5e1"
+    },
+    {
+      "path": "WORTH-RECEIPT.json",
+      "bytes": 2667,
+      "sha256": "2717c3536a101c886ffcac67a47bdeff7b3224f41b5065d56f70e33e4f770d72"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 1975,
+      "sha256": "192505900908553693d925d827deffe1a794348499371ea2578b21c369711a5d"
+    }
+  ]
+}

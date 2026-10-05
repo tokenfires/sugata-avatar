@@ -1,0 +1,148 @@
+{
+  "saved_utc": "2026-10-05T08:22:25.399790+00:00",
+  "decision": "A exact source; root binding before one bounded build and prescribed native trial; no runtime qualification",
+  "bindings": [
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/PLAN.json",
+      "bytes": 4887,
+      "sha256": "d52e0d3c0492d695464b6dac2f2630941047745564372091315cae232bfb4e12"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "bytes": 1096,
+      "sha256": "252853e362b7d64a28231eb4799d4363d1e0056485d31d5ab52e96d0db2dcf89"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 35393,
+      "sha256": "d654b7338fb646dc0773c43226dee543b731da7bda61a2d6729b50438945a5e1"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21873,
+      "sha256": "6e2b676c1353a9462c5a0c4f6ba59d3cff4a3202070cf064204ac2bcf55533fb"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/PRIMARY-RESPONSE.json",
+      "bytes": 60166,
+      "sha256": "ef8f9cb708f68c650e1123505e1b3954bf959d003277606eafcf0be3df41e760"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/WORTH.md",
+      "bytes": 1975,
+      "sha256": "192505900908553693d925d827deffe1a794348499371ea2578b21c369711a5d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/WORTH-RECEIPT.json",
+      "bytes": 2667,
+      "sha256": "2717c3536a101c886ffcac67a47bdeff7b3224f41b5065d56f70e33e4f770d72"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/RESULT.md",
+      "bytes": 3116,
+      "sha256": "795ed681aeb48dd9c484b21351ac9c1c754d35cb7e34e7b30fec4540048f64e2"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/proposal-consumer/README.md",
+      "bytes": 2676,
+      "sha256": "d7e54488fae2cc64355244a9f91f4ef18f179c7fd33734c996465265c1ce5294"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/showcase-suggestions-live/SOURCE-RESULT.md",
+    "bytes": 2809,
+    "sha256": "929b031af51ecc3d1861dc6f9b6f9a73b5e36dc022316ded3f5af57ce7f3395e"
+  },
+  "historical_baseline": {
+    "git_ref": "16006a5",
+    "path": "packages/testbed/src/showcase.js",
+    "bytes": 34033,
+    "sha256": "46cb5812515e43dae775d72a767399321d644d224386eafa32aa8d0632fbf189"
+  },
+  "diff_observation": {
+    "command": [
+      "git",
+      "diff",
+      "16006a5",
+      "--",
+      "packages/testbed/src/showcase.js",
+      "packages/testbed/src/showcase.html"
+    ],
+    "bytes": 4744,
+    "sha256": "b0a9b6dc13baab2ef7dbe5dc0d037d12404f639bbd8bc3f74453ba838c2021e8"
+  },
+  "commands": [
+    {
+      "chunk": "6260e3",
+      "exit_code": 0,
+      "scope": "full new component/CSS and source metadata"
+    },
+    {
+      "chunk": "818bf0",
+      "exit_code": 0,
+      "scope": "complete caller diff; unchanged HTML diff empty"
+    },
+    {
+      "chunk": "5e8c4e",
+      "exit_code": 0,
+      "scope": "caller ranges and dependent source; combined output truncated, completed in subsequent reads"
+    },
+    {
+      "chunk": "84ba40",
+      "exit_code": 0,
+      "scope": "caller415\u2013495, complete presets/CatalogueDresser"
+    },
+    {
+      "chunk": "f874a2",
+      "exit_code": 0,
+      "scope": "complete unchanged HTML, caller306\u2013381; full saved JSON parsed, deduplicated relevant MDN disclosure/usage and metadata read"
+    },
+    {
+      "chunk": "589832",
+      "exit_code": 0,
+      "scope": "caller117\u2013184, directed Avatar dressing/replacement/disposal source"
+    }
+  ],
+  "read_scope": {
+    "complete": [
+      "showcase-outfit-suggestions.mjs",
+      "showcase-outfit-suggestions.css",
+      "showcase.js via combined contiguous reads",
+      "showcase.html",
+      "showcase-presets.mjs",
+      "CatalogueDresser.js",
+      "fresh PLAN and prior proposal-consumer result/README"
+    ],
+    "directed_only": [
+      "Avatar.js2440\u20132474/3100\u20133143/3818\u20133834",
+      "PRIMARY-RESPONSE deduplicated disclosure/usage passages and metadata; global navigation not a semantic authority"
+    ]
+  },
+  "limits": [
+    "Source only, no execution or native claim.",
+    "No agency/profile/pin/mood/apply or store created by the addition.",
+    "No new complete Avatar startup/resource-lifetime guarantee.",
+    "Native must independently show interaction, layout and preserved state.",
+    "Old capacity closure unchanged; no inherited admission."
+  ]
+}

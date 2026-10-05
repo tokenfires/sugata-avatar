@@ -1,0 +1,100 @@
+{
+  "saved_utc": "2026-10-05T08:51:59.300328+00:00",
+  "decision": "A exact source: root verified binding before one120s multipage build and declared native observation",
+  "bindings": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "packages/testbed/src/showcase-outfit-suggestions.css",
+      "bytes": 1137,
+      "sha256": "264360780c4faff4200cb6e721710547b6241599df78016129da36aaa52e0db3"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "vite.pages.config.js",
+      "bytes": 1669,
+      "sha256": "5afe43855c78f82298fcdb546b81b4078328d71f8dfa57e0d7429dd4e21ce1eb"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/PLAN.json",
+      "bytes": 3359,
+      "sha256": "02251a9961feef436fc9b5c3f1768fd842d1764486dd8be75acd79687453c183"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/SOURCE-INPUTS.json",
+      "bytes": 1898,
+      "sha256": "27d0ed1ba5674b068475f8ab6be3274d58e6b97b8f7a7eaaab55ed8d9fa210c5"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/SOURCE.diff",
+      "bytes": 8049,
+      "sha256": "c3b1e3a5ef343de107aca01d15392f42c9ff19fa03526f4a0891c15d12cb5694"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/PRIMARY-RESPONSE.json",
+      "bytes": 114762,
+      "sha256": "c908fa48fc4e1b54a49c5833487f2d084b59d17558cb0f93b2cd80e330c935e8"
+    }
+  ],
+  "result": {
+    "path": "docs/evidence/nonhair-2026-10-05/showcase-settings-view/SOURCE-RESULT.md",
+    "bytes": 2382,
+    "sha256": "d78c018da86eb3769a97194eb94893359ef212076fcdc9af53d96414977cbb39"
+  },
+  "commands": [
+    {
+      "chunk": "f95433",
+      "exit_code": 0,
+      "scope": "full SOURCE-INPUTS/cumulative diff; caller1\u2013260"
+    },
+    {
+      "chunk": "6f3d2a",
+      "exit_code": 0,
+      "scope": "caller261\u2013509/full component/CSS/pages config"
+    },
+    {
+      "chunk": "5a3606",
+      "exit_code": 0,
+      "scope": "HTML and base config/full source read output partly truncated; completed next; saved primary JSON parsed and relevant MDN Description/Accessibility read only"
+    },
+    {
+      "chunk": "ab73c6",
+      "exit_code": 0,
+      "scope": "completes HTML73\u201386 and base config1\u201314"
+    }
+  ],
+  "read_scope": "Complete new caller/component/CSS/HTML/diff/current Vite configs/PLAN/SOURCE-INPUTS. Presets and CatalogueDresser previously fully independently read; current pins unchanged. Saved MDN relevant semantic content only; no global-navigation source claim.",
+  "limits": [
+    "Source acceptance only; root owns all builds/native actions.",
+    "Fresh public snapshot does not qualify live storage/private owner or engine lifetime.",
+    "Earlier observer failures retained; no inferred exporter/product defect.",
+    "Actual JSON comparison, focus, visibility and mobile layout remain pending."
+  ]
+}
