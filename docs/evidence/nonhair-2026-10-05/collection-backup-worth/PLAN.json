@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-06T05:14:50.076319+00:00",
+  "decision": "Is an additive whole saved-look collection backup/previewed restore with raw-string fidelity and guarded undo worth implementing now?",
+  "usableImprovement": "Carry all named looks together to another browser/address, preserving names, IDs, order, configured colours and obsolete entries; explicit previewed replacement plus guarded Undo. This is proposed, not a completed feature.",
+  "boundedResearchQuestion": "Can the existing version1 raw collection be portable through an explicit backup-envelope string without changing unsupported numeric literals, negative zero or lone UTF-16 surrogates? One literal current MDN JSON.stringify primary page in a separate admitted plan plus bounded storage-adapter fidelity/refusal tests; no search ladder.",
+  "witnesses": [
+    "Complete current SavedLooks source: raw localStorage envelope version1/12 max, original metadata/parser authority; obsolete configurations retained; rename explicitly refuses nonfinite/-0 serialization changes.",
+    "Current Showcase HTML Saved looks paragraph says clearing browser data removes entries and only individual Download JSON is offered; individual unavailable configuration has Download disabled in actual source. No measured loss/current corruption claim.",
+    "Current export serializes one configuration; current Open settings accepts one supported configuration, not a collection. New workflow is an additive feature, not a bug allegation."
+  ],
+  "proposedContract": [
+    "A separate same-origin no-avatar/no-GPU collection page; current preview remains open in its existing tab. Product entry link only after qualification. No core/asset/accepted look/wardrobe/motion changes.",
+    "Backup format exact keys format=\"sugata-saved-looks\",version=1,raw=original localStorage string or null. JSON.stringify encodes raw as a STRING to preserve original numeric lexemes and escaped/lone surrogate code units; no parse/stringify of configurations. MIME application/json and bounded file input; null retains empty-source meaning.",
+    "Existing metadata parser remains authority; validation uses an isolated storage adapter feeding SavedLooks.read, no application write. Unsupported configurations stay unavailable for Open as now. Unknown backup versions/keys, bad metadata, duplicate IDs/names, oversize and unreadable file refuse without modifying storage.",
+    "File choice reads/validates only and shows names/count plus explicit replacement notice. Restore is a separate explicit human button after preview, compares full current raw snapshot again before one set/remove write. No automatic restore on select/load.",
+    "After successful replacement, one Undo restores the exact previous raw string or absent-key state only while current raw still equals applied raw. Intervening local/other-tab changes invalidate preview/undo; compare-and-write is existing best-effort synchronous storage guarding, not cross-tab atomic locking.",
+    "No-op leaves existing data and Undo unchanged; errors preserve prior raw and active preview. In-memory preview/undo are page-lifetime only, plainly stated. Download object URL lifecycle owned/revoked; pagehide cancels UI continuations and disposes listeners/URLs without claiming uncancellable File.text cancellation.",
+    "Candidate new modules/page remain unlinked and isolated from active Showcase until full independent/root source, meaningful storage-adapter tests and first actual desktop/mobile UI review. Root serializes captures and does not write to real user storage in native review; fixture storage only for unit tests. Actual browser functional replacement beyond read-only UI remains explicitly unqualified if no isolated native storage owner is admitted.",
+    "Acceptance must decide whether these source/unit/actual UI limits suffice for local additive delivery. No whole-avatar appearance or broad roadmap checkbox credit."
+  ],
+  "effortAndStops": {
+    "criticUTC": "2026-10-06T05:40:00Z",
+    "rootUTC": "2026-10-06T05:50:00Z",
+    "successor": "Worth A admits only separate full literal source/primary/test/native ownership planning before implementation. Worth B stops this nomination without code/query.",
+    "implementationTarget": "One small page and pure backup-owner module, no migration/backend/sync/thumbnail service. If complete correctness/real UI review cannot be bounded, defer rather than expand."
+  },
+  "alternatives": [
+    {
+      "id": "A",
+      "choice": "Whole collection portable backup/previewed restore/Undo",
+      "tradeoff": "Usable continuity for existing customization and obsolete records, but introduces guarded storage replacement and file lifecycle duties; requires meaningful fidelity/refusal tests and visible review."
+    },
+    {
+      "id": "B",
+      "choice": "Keep individual JSON downloads and focus only on character/garment authoring",
+      "tradeoff": "No new storage-write risk or functional scope, but repeated manual backup loses collection names/order and cannot preserve unavailable configurations through the current individual export."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    }
+  ],
+  "rootReadScope": "Full current collection/settings/saved-colour modules read; scoped Showcase renderer/collection/export/HTML source, not full app audit. One combined broader source read truncated; retained only visible complete spans. No native or target evaluation performed.",
+  "retainedScope": "16 scoped checked/10 broad open, complete AAA/character/wardrobe/representation/expression/fit/motion/performance/VTuber/Mii, closed methods, accepted/default/original/frozen/unrelated/Vite/recovery unchanged"
+}

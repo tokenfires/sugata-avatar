@@ -636,3 +636,8 @@ Critic7a00ae/exit0/PID7694 stable04:53:53,result2870/145b0669d27efbe011a3fd948d2
 ## October 5, 22:10 Pacific — analytic fit nomination deferred
 
 [Independent/root worth and recovery](evidence/appearance-2026-10-05/solid-union-fit-worth/README.md): B for this exact Boolean-manual/contract branch. The method is distinct, but literal artist planes, physical portals/caps and a verified executable owner remain unowned. Both agents inspect whole original coverage guides; root fully reads the handoff and verifies27 binding rows before05:45UTC. Critic stable05:09:21/root05:10:44; no query, geometry, kernel install or native. No feature/checkbox credit;16scoped10broad/fullAAA and accepted/default/original/frozen/unrelated/Vite/recovery preserved. Next genuinely distinct justified work; newer human steering wins.
+
+
+## October 5, 22:20 Pacific — whole collection continuity worth
+
+[Independent/root worth and recovery](evidence/nonhair-2026-10-05/collection-backup-worth/README.md): A for complete backup/previewed restore/guarded Undo owner planning only. Source shows individual exports omit names/order and unavailable records; no loss/corruption claimed. Critic stable05:19:56/root05:20:41UTC;15 bindings verified. Whole feature needs same-controller isolated native fixture Restore/Undo/download, beyond CPU tests/read-only UI. No query/code/evaluation/storage/native yet. Next literal MDN/source/test/native plan, then full review.16scoped10broad/fullAAA/accepteddefaultoriginalfrozenunrelated/Vite/recovery unchanged; newer steering wins.

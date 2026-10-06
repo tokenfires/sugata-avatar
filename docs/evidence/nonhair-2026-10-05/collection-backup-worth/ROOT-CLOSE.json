@@ -1,0 +1,130 @@
+{
+  "utc": "2026-10-06T05:20:41.945170+00:00",
+  "pid": 10278,
+  "decision": "A for bounded complete owner/source/primary/test/native planning only, independent root agreement with strong F4 condition",
+  "bindings": [
+    {
+      "scope": "plan",
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "scope": "plan",
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "scope": "plan",
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "scope": "plan",
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    },
+    {
+      "scope": "plan",
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7"
+    },
+    {
+      "scope": "plan",
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "read_scope": "complete115line current owner"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "read_scope": "complete74line current single-look reconstruction/file owner"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "targeted1-16/91-196/295-336/397-414/491-509, source only; no fullapp audit"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc",
+      "read_scope": "targeted complete64-84lines and savedcollection/export CSS locator11; no fullHTML/render audit"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7",
+      "read_scope": "complete49line current checklist"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "selected43-50/131-138; not full32741byte manual audit"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-worth/PLAN.json",
+      "bytes": 6670,
+      "sha256": "874a7c895ff2f4762d6109b1dedc733e28b0e8f0444b757e51943029a6be9c4a",
+      "read_scope": "complete exact worth PLAN and all6 source bytepins"
+    },
+    {
+      "scope": "critic",
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-saved-colours.mjs",
+      "bytes": 1461,
+      "sha256": "fddb4c115fdd581da362487203bad5c7b7c3cfd47ab207fd1b494860d35e6070",
+      "read_scope": "complete26line chosen-recipe UI module"
+    },
+    {
+      "scope": "result",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-worth/RESULT.md",
+      "bytes": 8108,
+      "sha256": "9c700b5ff38bdd0dd34b3dc5728c53c1fb7469bfb7ec0f7f5682cf9c3f4d8417",
+      "readback": "exact UTF-8 bytes"
+    }
+  ],
+  "receipt": {
+    "bytes": 7111,
+    "sha256": "680bae83dba5572cc442fbd4379b1fcc4d2252c6ed338da5457ea2d3bc48b5f0"
+  },
+  "independentRead": [
+    "8e6c3f whole SavedLooks,3c4261 whole settings/scoped HTML,0ceb92 whole saved-colour source before opinion",
+    "1f0c8c scoped app collection/export read; combined output truncated, c92f35 independently recovers full namedlook mutation/storage listener",
+    "bd6a6a/8f2dcf full independent result/receipt; later source491-515 recovery confirms BFCache reload/Download URL retirement existing owner",
+    "bd6a6a/8f2dcf full independent result/receipt; later source491-515 recovery confirms BFCache continuations and Download URL retirement existing owner"
+  ],
+  "agreement": [
+    "Source proves current individual downloads omit names/IDs/order and unsupported entries cannot use Download; additive continuity useful within existing usable customization. No loss/corruption alleged.",
+    "Raw-string envelope is necessary to preserve unsupported lexemes/-0 and original order; metadata validation through current SavedLooks.read authority, not new schema/profile. Byte/codeunit limits and null/absence must be literal.",
+    "Preview plus separate explicit user Restore and raw snapshot guard/one Undo; current corrupted/unreadable storage stops. Synchronous guard not CAS/lock.",
+    "Lifetime token/pagehide/URLs/listeners and BFCache return policy explicit; no hard File.text cancellation claim.",
+    "Full feature requires separately reviewed isolated native SAME-controller real fixture-storage Restore/Undo/download roundtrip. Source/unit plus read-only UI alone insufficient."
+  ],
+  "next": "Separate literal MDN JSON.stringify page plus complete inert source/test/native fixture owner PLAN, then whole source critic/root before evaluation",
+  "status": "16 scoped checked/10 broad open; full AAA/appearance/fit/motion roadmap retained; no feature credit",
+  "observerCorrection": {
+    "utc": "2026-10-06T05:21:29.307830+00:00",
+    "v1Sha256": "07ea6b4eab4e4818820f94703b3633bdb989a513a7bb221301dfb52928bf0bd1",
+    "change": "Replace erroneous observer word reload with continuations; actual current source returns through pageshow and does not reload. No source/runtime/contract result changed."
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "decision": "A bounded complete backup owner/source/primary/test/native planning worth only; no implementation or execution",
+  "collected_utc": "2026-10-06T05:19:56.734201+00:00",
+  "writer_started_utc": "2026-10-06T05:19:56.733579+00:00",
+  "writer_pid": 10197,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "criticUTC": "2026-10-06T05:40:00Z",
+    "rootUTC": "2026-10-06T05:50:00Z",
+    "successor": "Worth A admits only separate full literal source/primary/test/native ownership planning before implementation. Worth B stops this nomination without code/query.",
+    "implementationTarget": "One small page and pure backup-owner module, no migration/backend/sync/thumbnail service. If complete correctness/real UI review cannot be bounded, defer rather than expand."
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "read_scope": "complete115line current owner"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "read_scope": "complete74line current single-look reconstruction/file owner"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "targeted1-16/91-196/295-336/397-414/491-509, source only; no fullapp audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc",
+      "read_scope": "targeted complete64-84lines and savedcollection/export CSS locator11; no fullHTML/render audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7",
+      "read_scope": "complete49line current checklist"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "selected43-50/131-138; not full32741byte manual audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-worth/PLAN.json",
+      "bytes": 6670,
+      "sha256": "874a7c895ff2f4762d6109b1dedc733e28b0e8f0444b757e51943029a6be9c4a",
+      "read_scope": "complete exact worth PLAN and all6 source bytepins"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-saved-colours.mjs",
+      "bytes": 1461,
+      "sha256": "fddb4c115fdd581da362487203bad5c7b7c3cfd47ab207fd1b494860d35e6070",
+      "read_scope": "complete26line chosen-recipe UI module"
+    }
+  ],
+  "all6PLANpins_exact": true,
+  "direct_binding_count": 8,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-worth/RESULT.md",
+    "bytes": 8108,
+    "sha256": "9c700b5ff38bdd0dd34b3dc5728c53c1fb7469bfb7ec0f7f5682cf9c3f4d8417",
+    "readback": "exact UTF-8 bytes"
+  },
+  "commands_jobs": [
+    {
+      "chunk": "31b5b6",
+      "pid": 9818,
+      "utc": "2026-10-06T05:15:17.369619Z",
+      "exit": 0,
+      "command": "python3 complete worth PLAN read"
+    },
+    {
+      "chunk": "0b0766",
+      "pid": 9869,
+      "utc": "2026-10-06T05:15:57.094931Z",
+      "exit": 0,
+      "command": "python3 fullcollection/settings/savedcolour source read"
+    },
+    {
+      "chunk": "3662d2",
+      "exit": 0,
+      "command": "rg literal savedlook/export HTML locators and python3 targeted Showcase1-16/91-196/295-336/397-414/491-509 read"
+    },
+    {
+      "chunk": "215888",
+      "pid": 9960,
+      "utc": "2026-10-06T05:17:03.630217Z",
+      "exit": 0,
+      "command": "python3 HTML64-84/checklistwhole49/roadmap43-50,131-138 literal read"
+    },
+    {
+      "pid": 10197,
+      "command": "python3 stdlib rawbyte verification and exclusive own result/receipt write; no target import/evaluation"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "source_witness": "SavedLooks4-6/17-33/50-61/79-85; settings5/20-49/53",
+      "type": "new raw-string fidelity/validation/unit limits responsibility",
+      "alternatives": [
+        "rawSTRING transport with isolated metadata-authority adapter",
+        "canonical supportedrecipes/individualexports, no rawfidelity promise"
+      ]
+    },
+    {
+      "id": "F2",
+      "source_witness": "SavedLooks44-61/109-113; Showcase397-413",
+      "type": "new exactsnapshot/explicitrestore/oneUndo/noop/concurrency state duty",
+      "alternatives": [
+        "strict best-effort samekey rawtransaction owner",
+        "backup/preview-only, Restore/Undo unfinished"
+      ]
+    },
+    {
+      "id": "F3",
+      "source_witness": "settings52-58; Showcase317-334/498-509; Showcase135/145; savedcolour22",
+      "type": "file selection/late-read/URL/DOM/pagehide/BFCache owner",
+      "alternatives": [
+        "complete small standalone lifetime owner",
+        "defer imported workflow, keep individual exports"
+      ]
+    },
+    {
+      "id": "F4",
+      "source_witness": "PLAN proposedContract7-8; actual current UI source identifies individualexports only",
+      "type": "tests and readonly native do not certify actual persistentbrowser Restore/Undo",
+      "alternatives": [
+        "separately admitted isolatednative public functional owner with explicitfixture limits",
+        "limited module/candidate/readonlyUI delivery, wholefeaturecompletion open"
+      ]
+    }
+  ],
+  "next_conditions": {
+    "one_literal_MDN_JSONstringify_primary_plan_worth": true,
+    "network_admitted_here": false,
+    "fullsource_required_beforeimplementation": true,
+    "adapter_tests_notexecuted": true,
+    "real_user_storage_writes_notadmitted": true,
+    "stronger_isolatednative_owner_required_forfunctionalclaim": true,
+    "no_schema_key_migration_merge_or_application": true
+  },
+  "scope_limits": [
+    "No current corruption/loss or wholemachine featureabsence allegation",
+    "No serialization/storage/code/test/import/target evaluation",
+    "No actual UI/browser/image/native or browserdownload/Restore/Undo qualification",
+    "Best-effort exactraw guard, not atomiccross-tab lock",
+    "No privateprofile/secondauthority or realstorage read/write",
+    "No primary response read or UTF16fidelity oracle run",
+    "No current code/product/default/frozen edits"
+  ],
+  "retained_errors": "none in this finite source read; no target trial attempted",
+  "preserved_status": {
+    "scoped_checked": 16,
+    "broad_open": 10
+  },
+  "next": "root independent fullread/pins then fresh complete source/reference/test/native ownership planning ifA; no successor action inherited"
+}
