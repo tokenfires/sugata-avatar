@@ -1,0 +1,43 @@
+{
+  "identity": "mara-midi-original-unitless-v1",
+  "scope": "Literal newly authored artist choices; no evaluated positions or body/pattern reconstruction",
+  "frame": {"units": "unitless", "handedness": "right", "up": "+Y", "front": "+Z", "right": "+X", "origin": "hem plane, centre axis", "height": 1},
+  "angular_samples": 64,
+  "row_columns": ["u_down", "radius_x", "radius_z", "centre_z", "fold_amplitude"],
+  "rows": [
+    [0.000, 0.180, 0.130, 0.000, 0.000],
+    [0.040, 0.183, 0.133, -0.002, 0.000],
+    [0.080, 0.190, 0.140, -0.004, 0.000],
+    [0.120, 0.205, 0.150, -0.007, 0.010],
+    [0.180, 0.227, 0.164, -0.012, 0.022],
+    [0.240, 0.247, 0.177, -0.016, 0.034],
+    [0.300, 0.267, 0.189, -0.018, 0.044],
+    [0.360, 0.284, 0.199, -0.018, 0.051],
+    [0.420, 0.299, 0.208, -0.017, 0.057],
+    [0.480, 0.313, 0.216, -0.015, 0.062],
+    [0.540, 0.327, 0.224, -0.013, 0.067],
+    [0.600, 0.341, 0.232, -0.011, 0.071],
+    [0.660, 0.355, 0.240, -0.009, 0.075],
+    [0.720, 0.369, 0.247, -0.007, 0.078],
+    [0.780, 0.383, 0.254, -0.005, 0.080],
+    [0.840, 0.397, 0.260, -0.003, 0.082],
+    [0.900, 0.410, 0.265, -0.001, 0.084],
+    [0.940, 0.419, 0.268, 0.000, 0.085],
+    [0.970, 0.425, 0.270, 0.000, 0.085],
+    [0.985, 0.428, 0.271, 0.000, 0.085],
+    [1.000, 0.430, 0.272, 0.000, 0.085]
+  ],
+  "fold": {"harmonic_8_weight": 0.65, "harmonic_8_phase_per_u": 0.4, "harmonic_6_weight": 0.35, "harmonic_6_phase": -0.2},
+  "inner_radius_reduction_x_z": 0.006,
+  "coordinate_quantum": 0.00000001,
+  "rounding": "nearest quantum, exact half away from zero",
+  "band_outer_row_segments": [0, 1],
+  "material_palette": {
+    "plum": {"srgb_hex": "#4b2b47", "roughness": 0.88, "metalness": 0},
+    "band": {"srgb_hex": "#43233e", "roughness": 0.88, "metalness": 0},
+    "inside": {"srgb_hex": "#342132", "roughness": 0.88, "metalness": 0}
+  },
+  "counts_symbolic_only": {"vertices": 2688, "quads": 2688, "triangles": 5376, "material_edges": 5376, "material_boundary_edges": 0, "euler": 0, "connected_components": 1},
+  "exports_future": ["mesh.json", "mara-midi.obj", "mara-midi.mtl", "CHECK.json"],
+  "claims_excluded": ["physical scale", "body or foundation fit", "pattern provenance", "constant physical thickness", "global self-intersection certificate", "contact or continuous clearance", "cloth physics", "registered human silhouette", "UV or weave texture", "rig or morph or motion", "runtime starter", "AAA appearance"]
+}
