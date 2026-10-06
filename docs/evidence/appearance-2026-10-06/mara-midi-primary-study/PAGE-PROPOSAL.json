@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-06T08:10:18.244037+00:00",
+  "pid": 27652,
+  "decision": "Propose ONE supplied official result2 page; no page/native admission until fullsearch-critic/root review",
+  "search": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/SEARCH.json",
+    "bytes": 4276,
+    "sha256": "d8d8d66438891b098d4d5f1aaeaf8f33749c8a16ebeb3aab4d35fa7abb40065f",
+    "requested": "2026-10-06 08:07:59 UTC",
+    "returned": "2026-10-06 08:08:01 UTC",
+    "search_id": "01a11041-58f0-7421-9a34-0de8ff5d04e4",
+    "credits_used": 2,
+    "text_structured_equal": true
+  },
+  "selected_excerpt": {
+    "url": "https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001",
+    "title": "RUCHED-WAIST MIDI SKIRT - BLACK | COS US",
+    "description": "Crafted from a soft cotton blend, it's designed with a delicately ruched waistband with a midi silhouette and tonal drawstrings.",
+    "position": 2
+  },
+  "rejected": [
+    {
+      "position": 1,
+      "reason": "Collection page cannot satisfy supplied garmentpage contract"
+    },
+    {
+      "position": 3,
+      "reason": "Excerpt says open-knit slightlysheer straight cut; doesnot support proposedopaqueexpanding woven premise"
+    }
+  ],
+  "arguments": {
+    "url": "https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001",
+    "formats": [
+      "markdown"
+    ],
+    "maxAge": 0,
+    "timeout": 45000
+  },
+  "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+  "reason": "Only supplied opaque-midi candidate describesvisiblewaistband. Page may establishwhether waistbandANDcontrolledfall canberead; ruche/drawstring isnot assumedto matchoriginalquietwaist.",
+  "possible_decisions": [
+    "A actualwaist/fall evidence clarifiescontrast, retainquiet originalwaist andexplicitlyown newhiddenroles",
+    "B actualexampleinadequate/straight/hiddenwaist/failure, closewithoutanotherquery/page/image/sourcefallback"
+  ],
+  "stop": "Onepage only, before08:26UTC. Insufficientreturnedgarmentcontext or unavailablecapacity stop; no retries. Nativeexactfirstwholeframe command separatelyownedafteractualpage.",
+  "limits": "Excerptonly; no actualpage/image/garment construction/Aline/woven/matching appearance observed orasserted yet. No purchasedcapacity orsourceauthoring."
+}

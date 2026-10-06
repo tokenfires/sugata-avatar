@@ -1,0 +1,91 @@
+{
+  "collected_utc": "2026-10-06T08:21:58.996468+00:00",
+  "writer_pid": 28779,
+  "decision": "A page context and A conditional exact first image worth only",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PLAN.json",
+      "bytes": 2544,
+      "sha256": "34071c7e65d7dfd41f0388f0e1fa21eba6e1a67d62b7d9b32b180249c3c14767"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/ROOT-PAGE-GATE.json",
+      "bytes": 3357,
+      "sha256": "e338ae3904bb544018b33bba428daa5a6f428015caa141c9142b0eec463fc1a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PAGE-START.json",
+      "bytes": 394,
+      "sha256": "7352bc3202d56addb1e766620aefb6c4d79eb6695e8b9512dc2bfceb451e2dad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PRIMARY.json",
+      "bytes": 16756,
+      "sha256": "452010325b80236daa86a019d8264d2a8b89646e607ed302f0e8babd141d832a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PAGE-PROPOSAL.json",
+      "bytes": 2387,
+      "sha256": "c8f56ad3d300c63682555bb75a2c407cd009b0f6ab38ab63d9a979bfb4cdc243"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/IMAGE-PROPOSAL.json",
+      "bytes": 2245,
+      "sha256": "cde8d091c8b350a00611df3ed157ce6f269f0be7d4cb29da7c78f78df9be1920"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/CUA-COMMAND.js",
+      "bytes": 2715,
+      "sha256": "294667c2ddf0a380270dcb565e570b4257adf8cba8153224ba9baf1f383b7cb7"
+    }
+  ],
+  "verified_manifest": {
+    "root_page_gate": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/ROOT-PAGE-GATE.json",
+      "bytes": 3357,
+      "sha256": "e338ae3904bb544018b33bba428daa5a6f428015caa141c9142b0eec463fc1a5"
+    },
+    "all7rows_byte_verified": true,
+    "upstream_rows_are_byte_checks_not_whole_new_semantic_reviews": true
+  },
+  "read_scopes": "Complete actual16756-byte PRIMARY wrapper/result parsed and represented text/structured equality checked; all65 markdown lines and metadata fully read. Full2245-byte IMAGE-PROPOSAL and entire33-line2715-byte CUA command; complete3357-byte ROOT-PAGE-GATE and394-byte PAGE-START. Existing PLAN2544 and PAGE-PROPOSAL2387 were completely read in the preceding own stage; their current raw pins reverified. No source image viewed because none acquired.",
+  "jobs": [
+    {
+      "chunk": "c378ff",
+      "pid": 28546,
+      "utc": "2026-10-06T08:19:04.559083+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib whole actual response/metadata/65-line markdown, image proposal33? actual26 lines and complete33-line native command; SHA/size",
+      "note": "Optional PAGE-ADMISSION.json lookup absent; actual ROOT-PAGE-GATE is separately read, no absent-gate inference."
+    },
+    {
+      "chunk": "88a0e3",
+      "pid": 28618,
+      "utc": "2026-10-06T08:19:58.017780+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full actual root page gate/start; exact page arguments/first markdown image URL/one capture command and source-output absence"
+    },
+    {
+      "pid": 28779,
+      "utc": "2026-10-06T08:21:58.996468+00:00",
+      "command": "python3 heredoc stdlib final gate7pin/request/source/equality/absence checks and exclusive two-file JSON write/readback; tool chunk/exit separate"
+    }
+  ],
+  "observed_errors": [],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PAGE-RESULT.json",
+      "bytes": 4961,
+      "sha256": "830af26b7ecfedb9f7376563ce39cce6257bac5759c0eae10fc194acecf9255f"
+    }
+  ],
+  "limits": "Only local saved-source text/JSON/metadata/raw hashing and these two exclusive writes. No API/runtime import, command evaluation, tool/mock/producer, new fetch/network, browser/native/GPU/capture, source-image decode or product/frozen/source edit. Outer45s and cleanup where possible are root responsibilities, not source hard-real-time proof. Exact saved response representation equality is not HTTP wire-byte equality.",
+  "stops_utc": {
+    "page_critic": "2026-10-06T08:24:00Z",
+    "search_page": "2026-10-06T08:26:00Z",
+    "first_frame": "2026-10-06T08:30:00Z",
+    "critic": "2026-10-06T08:37:00Z",
+    "root_close": "2026-10-06T08:40:00Z"
+  },
+  "pending_edits": false
+}

@@ -1,0 +1,63 @@
+{
+  "collected_utc": "2026-10-06T08:21:58.996468+00:00",
+  "writer_pid": 28779,
+  "page_decision": "A narrowly relevant declared garment context, not image/appearance qualification",
+  "first_image_worth": "A exactly first supplied image under independent root ownership/admission; no native action by this result",
+  "actual_page": {
+    "requested_utc": "2026-10-06 08:14:09 UTC",
+    "returned_utc": "2026-10-06 08:14:16 UTC",
+    "isError": false,
+    "status_reported": 200,
+    "credits_reported": 1,
+    "scrape_id": "01a11046-fe07-76a0-ad67-4447fdc64601",
+    "complete_markdown_lines": 65,
+    "represented_content_equality": true
+  },
+  "findings": [
+    {
+      "witness": "PRIMARY markdown15\u201320 and returned metadata; first image entry1 and additional returned captions3/5/11/22.",
+      "explanation": "The actual body text names cotton blend, a ruched waistband, midi silhouette, drawstrings and relaxed fit. Returned image descriptions point to waistband/fall views, but no pixels have been inspected. Weave/opacity and a smooth waistband cannot be attributed to this text; the latter remains an independent artist choice. Size/wash/fit language is not our unitless source dimensions or physical-cloth proof.",
+      "alternatives": [
+        {
+          "choice": "A one visual qualification",
+          "tradeoff": "Observe only the first literal supplied image to accept/reject actual waist AND controlled fall relevance, using ruching as an explicit contrast if useful. Small remaining budget, no hidden/source/material/fit authority."
+        },
+        {
+          "choice": "B text-only close",
+          "tradeoff": "Retain the declared garment lead without a visual vocabulary claim or drawing admission. Avoids native cost but cannot answer the visible-waist/fall question."
+        }
+      ]
+    },
+    {
+      "witness": "IMAGE-PROPOSAL16\u201325 and CUA-COMMAND1\u201333, especially ownership6\u20139,40s guard12,one screenshot13\u201314,exclusive image19,close26 and trace30\u201331.",
+      "explanation": "The literal command uses the exact first markdown image URL, creates one owned tab, requests one whole screenshot, preserves raw capture bytes exclusively and attempts only that tab close. The40s check occurs before screenshot; the declared45s outer call and possible5s cleanup are not unconditional navigation/capture/OS/backend cancellation guarantees. Final inventory/trace awaits may also fail, so root must collect partial evidence and close an identified owned tab externally if necessary; no completed cleanup is presently asserted.",
+      "alternatives": [
+        {
+          "choice": "A disclosed finite attempt",
+          "tradeoff": "Root binds its documented browser3/file handles and exact outer command, owns timeout and any identified-tab collection, then accepts only actual complete first-frame evidence. Risk of first-attempt partial failure remains and closes the route."
+        },
+        {
+          "choice": "B withhold native",
+          "tradeoff": "End at text and retain the open visual question if complete collection cannot be owned. No retry, alternate image or new controller/observer repair is admitted."
+        }
+      ]
+    }
+  ],
+  "source_blockers": "No further blocker demonstrated within the declared one first-image scope and disclosed external collection limits. Parent-provided initialized browser3/collectionBrowser/collectionFs documentation context is not independently live-probed by critic.",
+  "exact_first_image_url": "https://media.cos.com/assets/001/bb/32/bb328fe70e823658611939c53f0b90ca11e449fe_xxl-1.jpg?imwidth=2160",
+  "source_command": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/CUA-COMMAND.js",
+    "bytes": 2715,
+    "sha256": "294667c2ddf0a380270dcb565e570b4257adf8cba8153224ba9baf1f383b7cb7"
+  },
+  "next_gate": "Root independently reads/rehashes this complete handoff, exact source command and proposal before one45s outer native call. First image blocked/unreadable/incomplete or lacking waist AND controlled fall is B; no altered URL, zoom, viewport override, crop, alternate image, retake or source-generation fallback. Only after actual visual A may a separate full original SVG/JSON contract be considered.",
+  "limits": "No actual pixels, browser-fetched media hash, visual A-line/opacity/weave, hidden construction, registered projections, measured pattern, physical garment/fit or runtime acceptance. Caption wording and maker text are data, not a visual substitute. Critic did no network/browser/GPU/native/capture/source or target-code evaluation; current source outputs absent. No checklist/source/drawing credit.",
+  "stops_utc": {
+    "page_critic": "2026-10-06T08:24:00Z",
+    "search_page": "2026-10-06T08:26:00Z",
+    "first_frame": "2026-10-06T08:30:00Z",
+    "critic": "2026-10-06T08:37:00Z",
+    "root_close": "2026-10-06T08:40:00Z"
+  },
+  "pending_edits": false
+}

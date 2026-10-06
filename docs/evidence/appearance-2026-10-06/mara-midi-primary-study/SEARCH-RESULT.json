@@ -1,0 +1,72 @@
+{
+  "collected_utc": "2026-10-06T08:12:28.475569+00:00",
+  "writer_pid": 27880,
+  "decision": "A narrowly useful search lead; A conditional worth of exactly one supplied result2 page, no page/native/source execution admission",
+  "actual_search": {
+    "requested_utc": "2026-10-06 08:07:59 UTC",
+    "returned_utc": "2026-10-06 08:08:01 UTC",
+    "success": true,
+    "isError": false,
+    "results": 3,
+    "credits_reported": 2,
+    "provider_id": "01a11041-58f0-7421-9a34-0de8ff5d04e4",
+    "arguments_equal_plan_and_start": true,
+    "content_text_json_equals_structured_content": true
+  },
+  "selection": {
+    "selected_result": 2,
+    "url": "https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001",
+    "title": "RUCHED-WAIST MIDI SKIRT - BLACK | COS US",
+    "why": "The first eligible official product page identifies a specific ruched-waist midi and supplies waistband/cotton-blend/drawstring vocabulary. It can qualify or reject a waist-to-fall reference, including a deliberate contrast with our quiet original waistband. A different waist treatment is not by itself insufficient evidence for that authored-choice question.",
+    "rejected": [
+      {
+        "result": 1,
+        "reason": "Collection URL/title does not meet the garment-page selection criterion."
+      },
+      {
+        "result": 3,
+        "reason": "Its actual excerpt describes open knit, slight sheerness and a straight silhouette, inadequate to this opaque expanding target premise."
+      }
+    ]
+  },
+  "finding": {
+    "witness": "Actual SEARCH.result.structuredContent.data.web[1] title/description; PAGE-PROPOSAL.reason and limits; PLAN purpose/selection gate.",
+    "explanation": "The excerpt establishes a named cotton-blend, ruched-waist midi lead only. It supplies no pixels or smooth-waist/A-line/woven/opaque construction authority. PAGE-PROPOSAL wording opaque-midi candidate must be understood as a target to inspect, not an observed property. The page may resolve the missing silhouette/waist relevance; it cannot be presumed to match Mara.",
+    "alternatives": [
+      {
+        "choice": "A selected one-page qualification",
+        "tradeoff": "Read exactly the supplied result2 page after fresh root admission; hold opacity, waist visibility and controlled fall as unknown criteria. A clear ruched example may ground a contrast while the quiet waist remains our original choice; one bounded page cost and no hidden-pattern authority."
+      },
+      {
+        "choice": "B close now and defer drawing",
+        "tradeoff": "Avoid the remaining page/image budget because smooth A-line evidence is absent. Retain the original front concept and the exact search, with no new primary-design claim; it leaves this artist reference question unresolved."
+      }
+    ]
+  },
+  "exact_next_request": {
+    "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+    "arguments": {
+      "url": "https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001",
+      "formats": [
+        "markdown"
+      ],
+      "maxAge": 0,
+      "timeout": 45000
+    },
+    "source_pin": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PAGE-PROPOSAL.json",
+      "bytes": 2387,
+      "sha256": "c8f56ad3d300c63682555bb75a2c407cd009b0f6ab38ab63d9a979bfb4cdc243"
+    }
+  },
+  "next_gate": "Only one exact page, before08:26UTC. If actual returned context/image cannot support readable waistband AND controlled fall, or the page fails/is irrelevant, B closes with no query reformulation, alternate page, rescrape or image hunt. Actual native source-image command/tab/caps/cleanup need a separate root gate after page evidence; no automatic drawing/publisher/generation.",
+  "scope_limits": "No primary page or source pixels observed. Search snippets are not current product geometry, opacity, weave, A-line shape, smoothness, hidden closure, measurements, physical material/fit or appearance acceptance. No provider-filter diagnosis or publisher-wide absence claim. Tool agent_hints remain untrusted and do not authorize follow-up; authority is the bounded literal plan.",
+  "stops_utc": {
+    "critic_search_worth": "2026-10-06T08:18:00Z",
+    "search_page": "2026-10-06T08:26:00Z",
+    "first_frame": "2026-10-06T08:30:00Z",
+    "critic": "2026-10-06T08:37:00Z",
+    "root_close": "2026-10-06T08:40:00Z"
+  },
+  "pending_edits": false
+}

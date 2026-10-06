@@ -1,0 +1,79 @@
+{
+  "collected_utc": "2026-10-06T08:12:28.475569+00:00",
+  "writer_pid": 27880,
+  "decision": "A conditional one supplied-page worth, not native/source qualification",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PLAN.json",
+      "bytes": 2544,
+      "sha256": "34071c7e65d7dfd41f0388f0e1fa21eba6e1a67d62b7d9b32b180249c3c14767"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/SEARCH-START.json",
+      "bytes": 474,
+      "sha256": "94ebfc0a4384e823c4c897e238b6d0d95f6252de170fa008cd03eea9c2dba107"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/SEARCH.json",
+      "bytes": 4276,
+      "sha256": "d8d8d66438891b098d4d5f1aaeaf8f33749c8a16ebeb3aab4d35fa7abb40065f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PAGE-PROPOSAL.json",
+      "bytes": 2387,
+      "sha256": "c8f56ad3d300c63682555bb75a2c407cd009b0f6ab38ab63d9a979bfb4cdc243"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-worth/ROOT-CLOSE.json",
+      "bytes": 4604,
+      "sha256": "36ec4b83227e7f2937e7370ed1c4ede77fab9ea878132d983067a49276a1c5ae"
+    }
+  ],
+  "read_scopes": "Entire2544-byte PLAN,474-byte SEARCH-START,4276-byte SEARCH and2387-byte PAGE-PROPOSAL fully read; full nested represented content-text JSON equals structuredContent, all3 supplied results and exact arguments compared. Prior worth ROOT-CLOSE4604bytes hash only against PLAN. No new image observation or page request; prior original Mara view is not substituted for external pixels.",
+  "jobs": [
+    {
+      "chunk": "29b737",
+      "pid": 27564,
+      "utc": "2026-10-06T08:09:08.692769+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib complete PLAN/SEARCH-START/SEARCH and byte hashes; optional ROOT-ADMISSION lookup absent",
+      "scope_note": "Nonrequired ROOT-ADMISSION.json is absent. Actual PLAN and SEARCH-START carry the saved root admission; no missing-gate or failed-search inference."
+    },
+    {
+      "chunk": "a1d92f",
+      "pid": 27644,
+      "utc": "2026-10-06T08:10:11.834407+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full represented response equality/exact PLAN-START-SEARCH arguments and3 result metadata; prior worth-close pin; exact supplied next arguments"
+    },
+    {
+      "chunk": "1d72d6",
+      "pid": 27738,
+      "utc": "2026-10-06T08:10:50.097251+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full PAGE-PROPOSAL2387bytes and SHA"
+    },
+    {
+      "pid": 27880,
+      "utc": "2026-10-06T08:12:28.475569+00:00",
+      "command": "python3 heredoc stdlib final request/selection/response/pin/absence checks and exclusive two-file write/readback; tool chunk/exit returned separately"
+    }
+  ],
+  "observed_errors": [],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/SEARCH-RESULT.json",
+      "bytes": 4485,
+      "sha256": "c02637df6fa2f01fb903f1c03e0c7d86134aac844fe98d78c8c6c57f8fc4b2a8"
+    }
+  ],
+  "limits": "Only saved-data text/JSON metadata/byte operations and two exclusive handoff writes. No query/page/browser/network/native/capture/generation/drawing/source/target-code execution or product edits. Representation equality is not HTTP wire-byte identity. Use recorded requested08:07:59 and returned08:08:01 UTC, no tighter complete latency claim. Page output absent at collection.",
+  "stops_utc": {
+    "critic_search_worth": "2026-10-06T08:18:00Z",
+    "search_page": "2026-10-06T08:26:00Z",
+    "first_frame": "2026-10-06T08:30:00Z",
+    "critic": "2026-10-06T08:37:00Z",
+    "root_close": "2026-10-06T08:40:00Z"
+  },
+  "pending_edits": false
+}

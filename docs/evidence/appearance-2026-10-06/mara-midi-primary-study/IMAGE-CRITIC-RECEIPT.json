@@ -1,0 +1,117 @@
+{
+  "collected_utc": "2026-10-06T08:36:43.714240+00:00",
+  "writer_pid": 30347,
+  "decision": "A scoped source image relevance; A exact new inert2D source worth only",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/source-first.jpg",
+      "bytes": 26776,
+      "sha256": "41be8c66d7e6381eb7f989ec65665114d6c095cb014ed9f0d7e00b08ebdc109c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/NATIVE-TRACE.json",
+      "bytes": 835,
+      "sha256": "fdb3dc83dc9c8cebb64b6f3712fcffa758fd0ac3458d00e6d4b29c1b314b3bfe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/NATIVE-JOB.json",
+      "bytes": 2263,
+      "sha256": "683f791c1620f6d1dd5f547850264dea588a20ab2f961ddf906b2e9bff2cd2bd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/ROOT-NATIVE-GATE.json",
+      "bytes": 4467,
+      "sha256": "ad571a05f78e59b11c661a4ed42981e2d6638c61c20f35b86052b938724f3e15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/ROOT-NATIVE-OBSERVATION.json",
+      "bytes": 2212,
+      "sha256": "34a7b79ac8dc4c341d313e957f11a32c3074e8c3f752b9146b76dcb346e85f0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PLAN.json",
+      "bytes": 2544,
+      "sha256": "34071c7e65d7dfd41f0388f0e1fa21eba6e1a67d62b7d9b32b180249c3c14767"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/NATIVE-PLAN.json",
+      "bytes": 3223,
+      "sha256": "0059a50ccf9bbe164aadef0f322cfb88494cba1c65add2955fc6bb7e402f1f2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PRIMARY.json",
+      "bytes": 16756,
+      "sha256": "452010325b80236daa86a019d8264d2a8b89646e607ed302f0e8babd141d832a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/IMAGE-PROPOSAL.json",
+      "bytes": 2245,
+      "sha256": "cde8d091c8b350a00611df3ed157ce6f269f0be7d4cb29da7c78f78df9be1920"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/CUA-COMMAND.js",
+      "bytes": 2715,
+      "sha256": "294667c2ddf0a380270dcb565e570b4257adf8cba8153224ba9baf1f383b7cb7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/ROOT-PAGE-GATE.json",
+      "bytes": 3357,
+      "sha256": "e338ae3904bb544018b33bba428daa5a6f428015caa141c9142b0eec463fc1a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/PAGE-START.json",
+      "bytes": 394,
+      "sha256": "7352bc3202d56addb1e766620aefb6c4d79eb6695e8b9512dc2bfceb451e2dad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/PLAN.json",
+      "bytes": 6111,
+      "sha256": "6371ed8c4ad76c2baf389d59a8c3a36c91404465ac9435e7ef5cfe93ccc9627e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/BRIEF.md",
+      "bytes": 2631,
+      "sha256": "4c1947a971c09acfe83ce6fed4f9dc3586b8f5867f0b89410f8cc92e11f87ffc"
+    }
+  ],
+  "read_scopes": "Actual whole1280x720 JPEG viewed original first; full NATIVE-TRACE835/JOB2263/GATE4467/ROOT-NATIVE-OBSERVATION2212 read afterward. Complete46-line NATIVE-PLAN3223 and exact new104-line PLAN6111/11-line BRIEF2631 read. Existing33-line CUA command/full65-line PRIMARY markdown+metadata/PLAN were independently wholly read earlier same slice and rehashed; first URL/equality/gate associations reverified. All10 native-gate rows and9 proposed-source rows byte-verified, not a new semantic review of every transitive input.",
+  "jobs": [
+    {
+      "tool": "functions.exec tools.view_image",
+      "pid": null,
+      "command": "view_image original-detail exact source-first.jpg; emit whole unchanged JPEG before root observation read",
+      "clock": "No per-image PID/clock reported by tool; whole view preceded08:34:31.780782Z metadata observer."
+    },
+    {
+      "chunk": "4b73a7",
+      "pid": 30174,
+      "utc": "2026-10-06T08:34:31.780782+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full four actual native/gate/observation records and frame SHA/size"
+    },
+    {
+      "chunk": "a0fdf5",
+      "pid": 30211,
+      "utc": "2026-10-06T08:34:58.109053+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib entire NATIVE-PLAN and new literal source PLAN/BRIEF with byte/SHA"
+    },
+    {
+      "pid": 30347,
+      "utc": "2026-10-06T08:36:43.714240+00:00",
+      "command": "python3 heredoc stdlib native trace/job/firstURL/submitted-newline/sourcepin comparisons, all10gate/9newplan rows, exclusive two-file JSON write/readback; returned tool chunk/exit separate"
+    }
+  ],
+  "retained_root_observer_error": "Root5cc04a imported unavailable PIL before writes; actual root e34dac/exit0/PID29224/08:26:32.356560Z changed only metadata reader to stdlib JPEG SOF. Original first frame/trace unchanged; no native retry/install/image alteration. This is root context, not a critic-run program or image failure.",
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/IMAGE-RESULT.json",
+      "bytes": 6423,
+      "sha256": "b5c702fcd704ba9f61cdb06cfea1e1e6f3deb60063de57f952602c4bdeee40d4"
+    }
+  ],
+  "limits": "Only saved text/metadata/hash operations and whole local image inspection; no target import/evaluation/producer, new raster/browser/GPU/network/capture/drawing/source edit or parent journals. No fetched-photo byte identity, registered projections/measurements/manufacturing/physical fabric/anatomical fit/appearanceasset/runtime/checklist credit. All17scoped/10broad/fullAAA and original/default/closedroutes preserved.",
+  "stop_utc": "2026-10-06T08:37:00Z",
+  "root_close_utc": "2026-10-06T08:40:00Z",
+  "pending_edits": false
+}

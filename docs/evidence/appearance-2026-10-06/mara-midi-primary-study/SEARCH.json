@@ -1,0 +1,54 @@
+{
+  "requested_utc": "2026-10-06 08:07:59 UTC",
+  "returned_utc": "2026-10-06 08:08:01 UTC",
+  "arguments": {
+    "query": "site:cos.com women A-line midi skirt waistband woven",
+    "includeDomains": [
+      "cos.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "limit": 3,
+    "domainTools": false
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.cos.com/en-us/women/skirts/mid-length-skirts?page=3\",\"title\":\"Midi Skirts | A-Line & Pencil Styles | COS US\",\"description\":\"4.614 · Free delivery over $150A selection of our skirts are cut to a refined mid-length; made from crisp cotton, fluid silk or warm wool. Ruched-waist midi skirt $110\",\"position\":1},{\"url\":\"https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001\",\"title\":\"RUCHED-WAIST MIDI SKIRT - BLACK | COS US\",\"description\":\"Crafted from a soft cotton blend, it's designed with a delicately ruched waistband with a midi silhouette and tonal drawstrings.\",\"position\":2},{\"url\":\"https://www.cos.com/en-no/women/womenswear/skirts/midlength/product/textured-open-knit-midi-skirt-black-1293489001\",\"title\":\"TEXTURED OPEN-KNIT MIDI SKIRT - BLACK | COS NO\",\"description\":\"This modern midi skirt is made from tactile yarn that's open-knitted for a slightly sheer look and cut in a straight silhouette with an elasticated waistband.\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a11041-58f0-7421-9a34-0de8ff5d04e4\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.cos.com/en-us/women/skirts/mid-length-skirts?page=3\\\", #2 \\\"https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001\\\", #3 \\\"https://www.cos.com/en-no/women/womenswear/skirts/midlength/product/textured-open-knit-midi-skirt-black-1293489001\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://www.cos.com/en-us/women/skirts/mid-length-skirts?page=3\", #2 \"https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001\", #3 \"https://www.cos.com/en-no/women/womenswear/skirts/midlength/product/textured-open-knit-midi-skirt-black-1293489001\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.cos.com/en-us/women/skirts/mid-length-skirts?page=3",
+            "title": "Midi Skirts | A-Line & Pencil Styles | COS US",
+            "description": "4.614 · Free delivery over $150A selection of our skirts are cut to a refined mid-length; made from crisp cotton, fluid silk or warm wool. Ruched-waist midi skirt $110",
+            "position": 1
+          },
+          {
+            "url": "https://www.cos.com/en-us/women/womenswear/skirts/midlength/product/ruched-waist-midi-skirt-black-1340474001",
+            "title": "RUCHED-WAIST MIDI SKIRT - BLACK | COS US",
+            "description": "Crafted from a soft cotton blend, it's designed with a delicately ruched waistband with a midi silhouette and tonal drawstrings.",
+            "position": 2
+          },
+          {
+            "url": "https://www.cos.com/en-no/women/womenswear/skirts/midlength/product/textured-open-knit-midi-skirt-black-1293489001",
+            "title": "TEXTURED OPEN-KNIT MIDI SKIRT - BLACK | COS NO",
+            "description": "This modern midi skirt is made from tactile yarn that's open-knitted for a slightly sheer look and cut in a straight silhouette with an elasticated waistband.",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a11041-58f0-7421-9a34-0de8ff5d04e4",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}
