@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-06T06:59:12.154299+00:00",
+  "payloads": [
+    {
+      "path": "CRITIC-RECEIPT.json",
+      "bytes": 5850,
+      "sha256": "19744017bdad415493fd4c05d339a2be41e4f0ffb785b0fdc77ad8673fa2c66a"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 5532,
+      "sha256": "86d3789cc32d118085aa73adfc466eea9389d6183cc9705f6d08e24245b338a6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 703,
+      "sha256": "79460412b8825525c87f8c66eba60298152a1f6e64a4ed9f3129a1436da41d64"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 6522,
+      "sha256": "79aafc94047769bc019d07dc53e0d07f6c9556ba7016298fda3a2b3c8e1c4a98"
+    },
+    {
+      "path": "ROOT-CLOSE.json",
+      "bytes": 938,
+      "sha256": "68e58fd2206d9d7d6d76e8c96bc5a57674b868fc337206348167bf15b8c0235c"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 689,
+      "sha256": "ce77f22fdc11ac6ecfe2e46a0bb54ea3c184419e8b96939cbd99661ce7ef8849"
+    }
+  ],
+  "limit": "Local write-bit protection, not immutable storage or backup."
+}

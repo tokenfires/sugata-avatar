@@ -1,0 +1,139 @@
+{
+  "decision": "A exactfiniteunchangedacceptedcore memory probe worth only",
+  "collected_utc": "2026-10-06T06:57:56.639008+00:00",
+  "writer_started_utc": "2026-10-06T06:57:56.638118+00:00",
+  "writer_pid": 19909,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "critic_worth": "2026-10-06T07:03:00Z",
+    "root_worth": "2026-10-06T07:07:00Z"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "read_scope": "complete115line current acceptedowner, read only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d",
+      "read_scope": "complete137line existing tests, assertions notrun"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "actual92-188/395-412 GUIcaller/feedback scopes, nofullappaudit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/PRIMARY.json",
+      "bytes": 64353,
+      "sha256": "839e0e789308d99f469854ceecbbe335c02ebc8b4aff80b12e6a7c78a877dec6",
+      "read_scope": "whole64353rawJSON/retainedargs/clocks/metadata/textstructured equality; selected140-145/192-205 of540markdownlines only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/ROOT-CLOSE.json",
+      "bytes": 3864,
+      "sha256": "02b240313860563fbe520d2e6d169517d34493209a6b967d07f5f47cee2cae9e",
+      "read_scope": "whole62line closedbackup source/nativeB record, no rescue"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5848,
+      "sha256": "6e238f3365bf145fbbf5b4065f78d440553cf651ee064ac29290212a1c68d183",
+      "read_scope": "priorwhole51line current17/10 deliveryreview reused at unchangedbytepin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-fidelity-worth/PLAN.json",
+      "bytes": 5532,
+      "sha256": "86d3789cc32d118085aa73adfc466eea9389d6183cc9705f6d08e24245b338a6",
+      "read_scope": "complete exactnewworthplan/sixrawpins"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-fidelity-worth/ROOT-PREFLIGHT.json",
+      "bytes": 689,
+      "sha256": "ce77f22fdc11ac6ecfe2e46a0bb54ea3c184419e8b96939cbd99661ce7ef8849",
+      "read_scope": "complete parentnomination with independentdecision fromliteralactualsource"
+    }
+  ],
+  "direct_bindings": 8,
+  "all6PLANpins_exact": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-fidelity-worth/RESULT.json",
+    "bytes": 6522,
+    "sha256": "79aafc94047769bc019d07dc53e0d07f6c9556ba7016298fda3a2b3c8e1c4a98",
+    "readback": "JSONvalue+UTF8 bytes"
+  },
+  "commands_jobs": [
+    {
+      "chunk": "047119",
+      "pid": 19448,
+      "utc": "2026-10-06T06:52:09.277283Z",
+      "exit": 0,
+      "command": "python3 wholePLAN/ROOTPREFLIGHT savedsource read"
+    },
+    {
+      "chunk": "58884f",
+      "pid": 19587,
+      "utc": "2026-10-06T06:53:49.668135Z",
+      "exit": 0,
+      "command": "python3 entire115lineSavedLooks/137lineexistingSelftest read, noimport"
+    },
+    {
+      "chunk": "96fccb",
+      "pid": 19586,
+      "utc": "2026-10-06T06:53:49.669149Z",
+      "exit": 0,
+      "command": "python3 GUI92-188/395-412, primaryselected140-145/192-205 exactmetadata/equality, wholebackupROOTCLOSE read"
+    },
+    {
+      "pid": 19909,
+      "command": "python3 wholebyte hashes/retainedJSONresponse equality/exclusive ownworth/result receipt writer; no targetoracle evaluation"
+    }
+  ],
+  "actual_read_limits": {
+    "primary_total_md_lines": 540,
+    "primary_selected_ranges": [
+      [
+        140,
+        145
+      ],
+      [
+        192,
+        205
+      ]
+    ],
+    "primary_requests_here": 0,
+    "primary_rawtext_structured_equal": true,
+    "all_currentsource_read": true,
+    "all_current_selftest_read": true,
+    "Showcase_full_manual_audit": false,
+    "target_cases_executed": 0,
+    "images_or_liveUI_inspected": 0
+  },
+  "fidelity_probe_preconditions": [
+    "injected memoryMap only/deterministic IDs/no globalpersonalstorage",
+    "unchanged acceptedsource and canonicaldependency pins",
+    "two literals times four cases inoneinvocation",
+    "rawbefore/intermediate/after and taggedkind/nonfinite/negativezero/Object.is beforeevidenceJSONserialization",
+    "expectedAPIrefusals are data, unexpectedharness/storageerrors firststop",
+    "fullliteralprobe+runner sourcecritic/rootgate before run",
+    "bounded process/output/collection duties, no retry/sourcefix inherited"
+  ],
+  "alternatives_scope": "Readable sourcewitnesses and two alternatives/tradeoffs perF1/F2/F3 are inRESULT; no implementation choice final beforeactualproof",
+  "retained_errors": "none inthissource-only worth; closedbackup event refusal/source-prefix limits preserved",
+  "rejected": [
+    "No currenthumanloss/actualdefectclaim",
+    "No backupcandidate adoption or downloadobserver rescue",
+    "No full lexeme preservation from Infinity/-0 guard",
+    "No codechange/native/realstorage/newquery/test run"
+  ],
+  "status": {
+    "scoped_checked": 17,
+    "broad_open": 10
+  },
+  "next": "rootfullread/pin gate then separate literalprobe/supervisor preparation ifapproved; no inheritedexecution"
+}

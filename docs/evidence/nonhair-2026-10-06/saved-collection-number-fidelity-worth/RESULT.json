@@ -1,0 +1,50 @@
+{
+  "decision": "A \u2014 one finite memory-only probe of unchanged accepted SavedLooks is worth separately preparing and reviewing. No actual defect, human loss, fix, CPU or native acceptance is established here.",
+  "collected_utc": "2026-10-06T06:57:56.639008+00:00",
+  "why_this_changes_a_decision": "Existing source permits unavailable configurations but serializes parsed remaining configurations on Add/Remove/Undo. The existing numeric-loss guards/tests cover Rename. A narrow eight-case result can establish or refuse the predicted semantic reinterpretation and determine whether a smaller guarded writer/comparator/raw Undo owner is justified. This is existing-core mutation responsibility, distinct from the closed whole-backup browser/file workflow.",
+  "findings": [
+    {
+      "id": "F1",
+      "witness": "showcase-collection.mjs17-33,50-61,63-73,75-92,100-114; full selftest39-48/124-136; retained PRIMARY markdown143/201",
+      "explanation": "The metadata reader retains unsupported configurations. commit reserializes all supplied parsed data; Add carries current.looks, Remove carries remaining records, and Undo carries parsed before.looks. Only Rename scans for nonfinite numbers and negative zero. The retained MDN page describes nonfinite numbers becoming null during JSON serialization. These literals plausibly predict loss of the selected JS number meaning outside Rename; no target function or oracle was run and no user collection was inspected.",
+      "alternatives": [
+        "A separately probe unchanged source, then, only if the actual fixture proves the issue, review a fail-closed target-write guard, number-aware expected comparison and raw-source removal Undo. This is smaller and can allow safe deletion of the unsafe target, but may refuse writes while unsafe unrelated records remain and does not preserve every numeric lexeme.",
+        "B pursue a full configuration-lexeme-preserving mutation serializer only if independently justified. It could allow more metadata actions without reinterpretation, but requires new scanner/duplicate-key/depth/roundtrip/staleness authority and much broader proof. No such serializer is selected now."
+      ]
+    },
+    {
+      "id": "F2",
+      "witness": "showcase-collection.mjs9,103,106-113; selftest124-136 tests stale/unsafe numbers only for Rename; showcase.js147/172-177/397-408",
+      "explanation": "Remove compares expected items through JSON.stringify and returns a JSON-copied item; removal Undo retains parsed objects. The GUI keeps Remove available on unavailable entries and passes the displayed item, while Add/Undo use the same accepted owner. The planned stale expected number-to-null/zero and own Remove-to-Undo cases can test value distinctions and returned/intermediate data at those exact paths. This is a targeted source risk, not an observed UI/storage failure or a diagnosis of human loss.",
+      "alternatives": [
+        "A include all four proposed operations per literal and retain raw before/intermediate/after plus tagged meaning. That is a finite eight-case proof with actionable ownership scope, but no browser or all-data guarantee.",
+        "B keep the existing regular-configuration tests and defer numeric mutation work. This avoids extra scope, but leaves the clearly identified unsupported-number/stale-comparison paths unresolved."
+      ]
+    },
+    {
+      "id": "F3",
+      "witness": "PLAN.proposed_probe requires raw and Object.is oracle; retained PRIMARY143/201 and current module copy9/commit51 show why ordinary numeric JSON output is unsuitable evidence",
+      "explanation": "The probe must classify observed number type, nonfinite value and negative zero and compute Object.is comparisons before serializing its evidence. Otherwise serializing Infinity or negative zero into the report can erase the distinction under investigation. Expected API refusal is an observed outcome; an unexpected harness/storage error is a first-stop refusal. This is a source-preparation duty, not a failure of a nonexistent probe.",
+      "alternatives": [
+        "A use exact raw strings plus explicit value-kind/nonfinite/signed-zero tags and pre-serialization Object.is observations, preserving the eight-case evidence with a small literal oracle.",
+        "B emit only parsed numeric JSON values or operation-success labels. That is simpler but cannot faithfully establish this question, so it should be refused as an insufficient probe."
+      ]
+    }
+  ],
+  "next_probe_worth": "A for exactly one later fully reviewed/pinned probe and supervisor: unchanged accepted source, injected Map storage and deterministic IDs, two literals 1e400/-0 times Add/Remove-other/Remove-own+Undo/stale-expected; canonical supported Add fixture; explicit expected-result versus unexpected-error handling; raw strings and tagged Object.is oracle. Keep30s/64KiB collected output/128MiB old-space as declared limits, with exact parent/child/PID/streams/exit/collection ownership before execution. First unexpected failure/timeout/uncollected/unsupported setup stops without replay or a diagnostic ladder. No source authoring or run is admitted by this worth result.",
+  "source_scope": "Whole115line owner and137line selftest, actual Showcase92-188/395-412, retained primary selected clauses and complete closed backup receipt read. All6 pins are exact. Existing canonical settings/presets authority was previously read; the future literal probe must rebind the actual dependencies before its source gate.",
+  "closed_route": "Backup ROOT-CLOSE records download-event/file acquisition B with separate cleanup A. Its source/file/event/lifetime/controller/transport/UI/capture rescue remains closed. This proposal neither adopts CollectionBackup nor changes download behavior, browser storage, active avatar or backup qualifications.",
+  "current_status": {
+    "scoped_checked": 17,
+    "broad_open": 10
+  },
+  "limits": [
+    "No target import/run/test, storage mutation, browser/GPU/network/new reference or source/product/default/frozen change.",
+    "No actual numerical-loss fixture or current user-data loss claim.",
+    "Guard alternative concerns specified decoded JS nonfinite/-0 meaning; it is not a full raw lexical precision/duplicate-key fidelity promise.",
+    "Metadata caller source is evidence of reachability, not new live UI/functional acceptance.",
+    "Only own RESULT.json and CRITIC-RECEIPT.json written; no successor automatically admitted."
+  ],
+  "stable": true,
+  "pending_edits": false
+}

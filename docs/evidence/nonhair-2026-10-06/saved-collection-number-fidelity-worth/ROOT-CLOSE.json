@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-06T06:59:12.154299+00:00",
+  "pid": 20023,
+  "decision": "A for one separately reviewed memory-only unchanged-module probe. No defect or fix proved.",
+  "root_reads": [
+    "41e316 whole accepted module",
+    "8b99d1 whole tests",
+    "1a7c96 GUI callers and closed backup record",
+    "8d34f3 whole presets/settings",
+    "430ad3 retained current MDN clauses",
+    "33b2af whole critic result and receipt"
+  ],
+  "verified_bindings": 9,
+  "critic_result_sha256": "79aafc94047769bc019d07dc53e0d07f6c9556ba7016298fda3a2b3c8e1c4a98",
+  "critic_receipt_sha256": "19744017bdad415493fd4c05d339a2be41e4f0ffb785b0fdc77ad8673fa2c66a",
+  "limits": "Only specified decoded Infinity/-0 meanings; no full lexical fidelity, human loss, browser or appearance claim. No module executed or product changed.",
+  "next": "Prepare one literal eight-case probe and bounded supervisor; independent whole-source review before execution."
+}
