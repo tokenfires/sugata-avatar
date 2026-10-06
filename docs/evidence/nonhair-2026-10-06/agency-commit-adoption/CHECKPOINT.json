@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-06T11:08:35.878756+00:00",
+  "pid": 52812,
+  "commit": "92ceefa839882df82746dc1e1d2bbb1956707ed5",
+  "decision": "Exact reviewed3file adoption locally committed; clean tree observed before writing this final evidence checkpoint.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-adoption/ADOPTION-RECEIPT.json",
+      "bytes": 8227,
+      "sha256": "4bb001b2e1ac278fc69381114e3d8135455e9f706139e4ad5b034c681d048f1c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-adoption/README.md",
+      "bytes": 3193,
+      "sha256": "db744f4ee0f64c45911614d2cd0361b86a498bb44929f2a7b4425fbf4c3f0849"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-adoption/ROOT-DELIVERY-CLOSE.json",
+      "bytes": 2608,
+      "sha256": "38303f2b83958867b687208d6f7f554c9e79f119fdd4d0f3e8430617f0c306d1"
+    }
+  ],
+  "production": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23800,
+      "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency-completion.selftest.mjs",
+      "bytes": 16920,
+      "sha256": "73f2c15e512cedbda6189ff642db5b4fbe1dc52931cf2d0424a61deea2391808"
+    }
+  ],
+  "scope": "No push/publish or new target. One completed43411 CPU child remains sole candidate invocation; review Vite retained. Existing ten-minute recovery ACTIVE retained, no automation mutation. Wider roadmap/checklist17/10 and accepted assets preserved.",
+  "next": "Distinct bounded useful improvement/question and independent worth; no repeated wardrobe tests or browser rescue. Human check-in/pause wins."
+}
