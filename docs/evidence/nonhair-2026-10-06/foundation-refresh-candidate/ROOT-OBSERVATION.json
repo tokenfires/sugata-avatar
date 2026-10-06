@@ -1,0 +1,341 @@
+{
+  "utc": "2026-10-06T12:36:57.242317+00:00",
+  "pid": 77552,
+  "decision": "All12 predeclared literal/raw pin/floor/metadata/error/collection cases qualify at CPU scope only.",
+  "verified_execution_pins": 52,
+  "counts": {
+    "cases": 12,
+    "snapshots": 59,
+    "settlements": 43,
+    "stored_documents": 28,
+    "stored_document_references": 39,
+    "foundation_saves_reparsed": 33,
+    "write_attempts": 29
+  },
+  "cases": [
+    {
+      "name": "null-torso-and-same-choice",
+      "worn": [
+        "foundation_briefs",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": null,
+      "request": null,
+      "mode": "pinned",
+      "writes": 1,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "torso",
+        "same"
+      ]
+    },
+    {
+      "name": "null-hips",
+      "worn": [
+        "foundation_boxer_brief",
+        "foundation_bra",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": null,
+      "request": null,
+      "mode": "pinned",
+      "writes": 1,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "hips"
+      ]
+    },
+    {
+      "name": "active-pin-two-slots",
+      "worn": [
+        "foundation_boxer_brief",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": [
+        "foundation_boxer_brief",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "request": [
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "mode": "pinned",
+      "writes": 3,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "torso",
+        "hips",
+        "restore"
+      ]
+    },
+    {
+      "name": "dormant-pin-own-outers-restart",
+      "worn": [
+        "foundation_briefs",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": [
+        "foundation_briefs",
+        "foundation_vest",
+        "fedora01"
+      ],
+      "request": [
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "mode": "agent",
+      "writes": 5,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "consider",
+        "torso",
+        "wake",
+        "restore"
+      ]
+    },
+    {
+      "name": "preexisting-pin-drift",
+      "worn": [
+        "foundation_briefs",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": [
+        "foundation_briefs",
+        "foundation_vest",
+        "fedora01"
+      ],
+      "request": [
+        "fedora01"
+      ],
+      "mode": "pinned",
+      "writes": 2,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "rogueDress",
+        "torso"
+      ]
+    },
+    {
+      "name": "ask-pending-history",
+      "worn": [
+        "foundation_boxer_brief",
+        "foundation_bra",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": [
+        "foundation_boxer_brief",
+        "foundation_bra",
+        "fedora01"
+      ],
+      "request": [
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "mode": "ask",
+      "writes": 7,
+      "pending": {
+        "outfit": [
+          "fedora01"
+        ],
+        "reason": "chosen by Object at mood P0.00 A0.00 D0.00",
+        "at": 5000000,
+        "mode": "ask",
+        "differsFromWorn": true,
+        "honoured": false,
+        "id": "5000000"
+      },
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "consider",
+        "propose",
+        "hips"
+      ]
+    },
+    {
+      "name": "invalid-choice-and-user-mark",
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": null,
+      "request": null,
+      "mode": "pinned",
+      "writes": 0,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "unauthorized"
+      ]
+    },
+    {
+      "name": "precommit-load-failure",
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "request": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "mode": "pinned",
+      "writes": 1,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "failed"
+      ]
+    },
+    {
+      "name": "superseded-refresh",
+      "worn": [
+        "foundation_briefs",
+        "foundation_vest",
+        "fedora01"
+      ],
+      "pin": [
+        "foundation_briefs",
+        "foundation_vest",
+        "fedora01"
+      ],
+      "request": [
+        "fedora01"
+      ],
+      "mode": "pinned",
+      "writes": 2,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "obsolete",
+        "newerPin"
+      ]
+    },
+    {
+      "name": "actualcommit-delivery-held",
+      "worn": [
+        "foundation_briefs",
+        "foundation_vest",
+        "fedora01"
+      ],
+      "pin": [
+        "foundation_briefs",
+        "foundation_vest",
+        "fedora01"
+      ],
+      "request": [
+        "fedora01"
+      ],
+      "mode": "pinned",
+      "writes": 3,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "newerPin",
+        "heldDelivery"
+      ]
+    },
+    {
+      "name": "disposed-refusal",
+      "worn": [],
+      "pin": null,
+      "request": null,
+      "mode": "pinned",
+      "writes": 0,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "disposed"
+      ]
+    },
+    {
+      "name": "postcommit-store-rejection",
+      "worn": [
+        "foundation_briefs",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "pin": [
+        "foundation_briefs",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "request": [
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "mode": "pinned",
+      "writes": 2,
+      "pending": null,
+      "settlement_labels": [
+        "initialDress",
+        "pin",
+        "postcommitError"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14437,
+      "sha256": "8d54d9fae28c7d426b129117e2aa3b4f7c0e18d9fb534ad868c0910e7f370eba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/JOB.json",
+      "bytes": 1421,
+      "sha256": "e11decb70cdc62adffc16f4d6817b19d8ea6f2f2c3e708e6dca07c38a2c2df08"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/STDOUT.txt",
+      "bytes": 61167,
+      "sha256": "8e6292fb16290bb7fc63f7e92d21cff9a3e1307f8a38fe213ca6dd3999cc0038"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/STDERR.txt",
+      "bytes": 2112,
+      "sha256": "53eff51b92b48f935021b89f83f96d1d6e20e6d1099ef3acd805abce3d9327b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/check-raw.py",
+      "bytes": 13333,
+      "sha256": "1f21aa42b7aaaed3799cac45d3ff053967e22119898265d5efa8bcf261542c66"
+    }
+  ],
+  "limits": "Controlled real-source CPU/privateMemoryStore/loader/delivery observations; no testbedhelper/DOM/personalstorage/browser/bodycoverage/fit/appearance/performance/AAA; postcommiterror notrollback; no old13replay."
+}

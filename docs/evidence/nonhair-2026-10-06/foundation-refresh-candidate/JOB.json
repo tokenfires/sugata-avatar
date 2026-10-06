@@ -1,0 +1,38 @@
+{
+  "started_utc": "2026-10-06T12:36:35.167336+00:00",
+  "collected_utc": "2026-10-06T12:36:35.437176+00:00",
+  "supervisor_pid": 77507,
+  "child_pid": 77508,
+  "argv": [
+    "/Users/robault/.brv-cli/bin/node",
+    "--max-old-space-size=512",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/probe-v2.mjs"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "returncode": 0,
+  "elapsed_monotonic_seconds": 0.27006379200611264,
+  "stop_reason": null,
+  "collected": true,
+  "errors": [],
+  "pipes_closed": {
+    "stdout": true,
+    "stderr": true
+  },
+  "outputs": {
+    "stdout": {
+      "bytes": 61167,
+      "observed_read_bytes": 61167,
+      "eof": true,
+      "written": true,
+      "sha256": "8e6292fb16290bb7fc63f7e92d21cff9a3e1307f8a38fe213ca6dd3999cc0038"
+    },
+    "stderr": {
+      "bytes": 2112,
+      "observed_read_bytes": 2112,
+      "eof": true,
+      "written": true,
+      "sha256": "53eff51b92b48f935021b89f83f96d1d6e20e6d1099ef3acd805abce3d9327b7"
+    }
+  },
+  "limits": "One owned CPU child;20s supervision plus at most two2s retirement waits,512MiB V8 heap not totalRSS. Errors may leave child unreaped; captured prefixes and EOF scope reported honestly. Single group kill and only-on-error direct owned-child fallback are cleanup, not a second trial. No renderer/pixels/fit/globalOS/GPU retirement or complete startup performance claim."
+}

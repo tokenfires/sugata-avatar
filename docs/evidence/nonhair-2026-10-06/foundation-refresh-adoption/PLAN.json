@@ -1,0 +1,99 @@
+{
+  "utc": "2026-10-06T12:38:07.544774+00:00",
+  "pid": 78411,
+  "decision": "Concrete exact3file proposal only; NOT admitted until actualcritic A plus independent root close/freeze/bindings",
+  "pairs": [
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/WardrobeAgency.js.txt",
+        "bytes": 25868,
+        "sha256": "5c4629925a940b470d574d5db37220c40a453bc39932215118feb60892a608b5"
+      },
+      "destination": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "before": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+        "bytes": 23800,
+        "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+      },
+      "original_snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ORIGINAL-WardrobeAgency.js.txt",
+        "bytes": 23800,
+        "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/testbed-wardrobe.js.txt",
+        "bytes": 50843,
+        "sha256": "307f16928b25273df44df84e40e46b5fc7ec942807293efbcab2b7978c84d99d"
+      },
+      "destination": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "before": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+        "bytes": 50738,
+        "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+      },
+      "original_snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ORIGINAL-testbed-wardrobe.js.txt",
+        "bytes": 50738,
+        "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/foundation-refresh.selftest.mjs.txt",
+        "bytes": 14758,
+        "sha256": "5039fad3aa8d49b90a858ab89bd55cd84e9a0310aa3a7a90e1bd5f8508731fa8"
+      },
+      "destination": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/foundation-refresh.selftest.mjs",
+      "before": null,
+      "original_snapshot": null
+    }
+  ],
+  "gate_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/SOURCE-PLAN.json",
+      "bytes": 6622,
+      "sha256": "fad5220d42e2824f45f9d027fad6e6e0b19534fe4c9c5e22a06c2fbf2b4f68a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14437,
+      "sha256": "8d54d9fae28c7d426b129117e2aa3b4f7c0e18d9fb534ad868c0910e7f370eba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ROOT-OBSERVATION.json",
+      "bytes": 7901,
+      "sha256": "5dd5a3a6d26ba87112b3231c822b2760d8233d5246390121144ac7af483d53cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ROOT-ACTUAL-PENDING.json",
+      "bytes": 5285,
+      "sha256": "7d36d37e1cfd0fd1191c04016e47db38d36e5ddf3147a50f180328dfd0792e7e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1182,
+      "sha256": "c29a8b03a245479bb2e6c3c90fbea8b59ace66d2fa45ef0827dc460b7baa2546"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/PATCHES.json",
+      "bytes": 4186,
+      "sha256": "81d59b5c1a85d34708d468b428aec756c5246d88bd5f9ec7af9eb5c89ca10275"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/TEST-PROJECTION.json",
+      "bytes": 681,
+      "sha256": "8a45ea108cf13707d6c440a42d8f85aab0ffd01969b005b8a84acf853876a1fe"
+    }
+  ],
+  "requirements": [
+    "Whole criticactual pair read/root raw recheck and source/runtime projection equality",
+    "Freeze every owned candidate payload before exact copies; confirm all frozen hashes afterward",
+    "Preserve two old logical sources at exact snapshot SHA, older pre92ceefa uses older map",
+    "Full productiondiff and entire new canonical test read; gitdiffcheck",
+    "No candidate/helper/Node/oracle/old13/serial28/globalrunner replay"
+  ],
+  "stop": "2026-10-06T13:45:00Z",
+  "limits": "CPU policy and source wiring only. DOM/sharedhelper/realstorage and moving-avatar fit/appearance/physicalcoverage/fullAAA remain open."
+}

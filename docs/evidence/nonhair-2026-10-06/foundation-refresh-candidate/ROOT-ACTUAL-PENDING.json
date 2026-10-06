@@ -1,0 +1,125 @@
+{
+  "utc": "2026-10-06T12:37:17.303244+00:00",
+  "pid": 77589,
+  "decision": "Root raw A pending independent actual critic; no adoption",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14437,
+      "sha256": "8d54d9fae28c7d426b129117e2aa3b4f7c0e18d9fb534ad868c0910e7f370eba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/JOB.json",
+      "bytes": 1421,
+      "sha256": "e11decb70cdc62adffc16f4d6817b19d8ea6f2f2c3e708e6dca07c38a2c2df08"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/STDOUT.txt",
+      "bytes": 61167,
+      "sha256": "8e6292fb16290bb7fc63f7e92d21cff9a3e1307f8a38fe213ca6dd3999cc0038"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/STDERR.txt",
+      "bytes": 2112,
+      "sha256": "53eff51b92b48f935021b89f83f96d1d6e20e6d1099ef3acd805abce3d9327b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ROOT-OBSERVATION.json",
+      "bytes": 7901,
+      "sha256": "5dd5a3a6d26ba87112b3231c822b2760d8233d5246390121144ac7af483d53cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/SOURCE-PLAN.json",
+      "bytes": 6622,
+      "sha256": "fad5220d42e2824f45f9d027fad6e6e0b19534fe4c9c5e22a06c2fbf2b4f68a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1182,
+      "sha256": "c29a8b03a245479bb2e6c3c90fbea8b59ace66d2fa45ef0827dc460b7baa2546"
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "8d52b4",
+      "exit": 0,
+      "pid": 77483,
+      "utc": "2026-10-06T12:36:31.609120+00:00",
+      "scope": "fresh source52pins/3wholeprojectiongroups11rules admission"
+    },
+    {
+      "chunk": "bdb310",
+      "exit": 0,
+      "supervisor": 77507,
+      "child": 77508,
+      "scope": "sole12case target; tool0.227808625s not supervisor0.270063792006s/performance"
+    },
+    {
+      "chunks": [
+        "07e574",
+        "0e861e",
+        "98e1ff"
+      ],
+      "exit": 0,
+      "scope": "root entire13JSONlines61167stdout/2112stderr/JOB; no truncation"
+    },
+    {
+      "chunk": "1b5edf",
+      "exit": 0,
+      "pid": 77552,
+      "utc": "2026-10-06T12:36:57.242317+00:00",
+      "scope": "sole predeclared savedraw checker"
+    }
+  ],
+  "counts": {
+    "cases": 12,
+    "snapshots": 59,
+    "settlements": 43,
+    "stored_documents": 28,
+    "stored_document_references": 39,
+    "foundation_saves_reparsed": 33,
+    "write_attempts": 29
+  },
+  "collection": {
+    "started_utc": "2026-10-06T12:36:35.167336+00:00",
+    "collected_utc": "2026-10-06T12:36:35.437176+00:00",
+    "supervisor_pid": 77507,
+    "child_pid": 77508,
+    "argv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "--max-old-space-size=512",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-candidate/probe-v2.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "returncode": 0,
+    "elapsed_monotonic_seconds": 0.27006379200611264,
+    "stop_reason": null,
+    "collected": true,
+    "errors": [],
+    "pipes_closed": {
+      "stdout": true,
+      "stderr": true
+    },
+    "outputs": {
+      "stdout": {
+        "bytes": 61167,
+        "observed_read_bytes": 61167,
+        "eof": true,
+        "written": true,
+        "sha256": "8e6292fb16290bb7fc63f7e92d21cff9a3e1307f8a38fe213ca6dd3999cc0038"
+      },
+      "stderr": {
+        "bytes": 2112,
+        "observed_read_bytes": 2112,
+        "eof": true,
+        "written": true,
+        "sha256": "53eff51b92b48f935021b89f83f96d1d6e20e6d1099ef3acd805abce3d9327b7"
+      }
+    },
+    "limits": "One owned CPU child;20s supervision plus at most two2s retirement waits,512MiB V8 heap not totalRSS. Errors may leave child unreaped; captured prefixes and EOF scope reported honestly. Single group kill and only-on-error direct owned-child fallback are cleanup, not a second trial. No renderer/pixels/fit/globalOS/GPU retirement or complete startup performance claim."
+  },
+  "root_conclusion": "Raw documents/pin/floor/wear/request and exact failure/held-delivery/supersession phases match predeclared contract. Null and own-outer pins/modes/proposal/honour/history preserved; private store rejection after actual application explicitly retained. Selected preferences may remain after precommit rejection. No retry or target/source/oracle rescue.",
+  "source_qualification_limits": "Both testbed entrypoints bound to shared helper; CPU suite does not execute DOM/localStorage/sharedhelper.",
+  "next": "Independent actualA/B and worth exact3file adoption before root closure/freeze/copy; first blocker or deadline closes unadopted.",
+  "limits": "Controlled real-source CPU/privateMemoryStore/loader/delivery observations; no testbedhelper/DOM/personalstorage/browser/bodycoverage/fit/appearance/performance/AAA; postcommiterror notrollback; no old13replay."
+}
