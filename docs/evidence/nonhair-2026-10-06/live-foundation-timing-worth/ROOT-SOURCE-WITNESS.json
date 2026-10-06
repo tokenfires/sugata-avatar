@@ -1,0 +1,117 @@
+{
+  "utc": "2026-10-06T11:24:36.139892+00:00",
+  "pid": 70590,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/wardrobe.selftest.mjs",
+      "bytes": 54500,
+      "sha256": "cf4ad2671caab6332bb4dbb74138e6a50a044a174f92a3728d5887976fc2c246"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-adoption/ADOPTION-RECEIPT.json",
+      "bytes": 8227,
+      "sha256": "4bb001b2e1ac278fc69381114e3d8135455e9f706139e4ad5b034c681d048f1c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/decency.selftest.mjs",
+      "bytes": 52582,
+      "sha256": "cb941ab64561e371f337bb47470f2312464d140456824aeebe8d7ee4dc638999"
+    }
+  ],
+  "original_timing_classification": "Unsupported as a generic commit-time live-floor defect. FoundationLayer83-85 promises preference is picked up on NEXT dress; caller-driven preference change must submit a valid replacement request. No setDecencyFloor API exists in actual Wardrobe; originalPLAN used that term as an unverified candidate locator. This additive witness corrects it without modifying PLAN.",
+  "concrete_narrower_question": "Does the actual testbed foundation-switch recipe reject an ordinary valid alternative before application because it includes the old foundation garment, while leaving selected preference/persisted choice changed?",
+  "source_witnesses": [
+    {
+      "path": "packages/testbed/src/wardrobe.js",
+      "lines": "251-253 and447-449",
+      "fact": "Both existing switch entrypoints prefer/save first then dress(wardrobe.worn), so requestedIDs retain current foundation pieces."
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "lines": "514-533/553-567/783-790",
+      "fact": "Validates resolvedoutfit before token/loading; resolver unions currentfloor plus ALL caller garmentIDs, no foundation replacement/filter. Conflict throws before new token."
+    },
+    {
+      "path": "packages/core/src/wardrobe/FoundationLayer.js",
+      "lines": "83-93/136-149",
+      "fact": "Floor reads current preference; prefer changes requestedslot immediately; one garment per slot."
+    },
+    {
+      "path": "packages/core/src/wardrobe/GarmentManifest.js",
+      "lines": "239-269",
+      "fact": "Two garments sharing FOUNDATION/TORSO orFOUNDATION/HIPS are conflicts, without foundation specialcase."
+    },
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "fact": "foundation_bra andfoundation_vest bothFOUNDATION/TORSO, briefs andboxer bothFOUNDATION/HIPS; all four declareg050 fragments."
+    }
+  ],
+  "new_usable_improvement_if_actual": "Have supported floor-switch callers request current outer garments with the selected current foundation exactly once, rather than re-requesting obsolete floor IDs. Any persistence/async ownership/Agencypin consequence must be separately bounded, not casually repaired here.",
+  "existing_test_scope": "Current wardrobe1140-1163 fixedshoes floor union/undress/takeOff sequential; decency444/479/563-625 constructs separateFoundation perpreference, no prefer() call in targetedliteral search. decency742-834 sampler observes dresses with fixedfoundation; does not establish live switch handling. Scoped searches/reads only, no whole-file behavior audit or global absence claim.",
+  "jobs": [
+    {
+      "chunk": "5cd2c0",
+      "exit": 0,
+      "pid": 68924,
+      "utc": "2026-10-06T11:21:23.616075+00:00",
+      "command": "python3 stdlib PLAN then targetedrg source locators"
+    },
+    {
+      "chunk": "76a08e",
+      "exit": 0,
+      "command": "rg resolve/floor then full selectedWardrobe ctor/validate/apply,Foundation65-178,testbed426-456,wardrobe1134-1175"
+    },
+    {
+      "chunk": "47cc94",
+      "exit": 0,
+      "command": "completeWardrobe resolve783-790,GarmentManifest locator,publictestbed236-260"
+    },
+    {
+      "chunk": "6282b3",
+      "exit": 0,
+      "command": "completeManifestconflicts239-278,actual raw4foundation JSON rows, scopeddecency locator"
+    },
+    {
+      "chunk": "58b085",
+      "exit": 0,
+      "command": "decency742-834+scopedprefer/currentfloor locators; onlytwo-dateleaf filenames locator"
+    }
+  ],
+  "decision": "Root source gap supports asking critic for a separately gated minimal actual sequential caller probe, not an asynchrony/physicalcoverage claim. Await worthA/B. No target/harness/edit admitted yet.",
+  "alternatives": [
+    {
+      "choice": "A qualify exact current callerrecipe actual outcomes and a correct explicit replacement-request control in one new finite CPU run",
+      "tradeoff": "Could establish usable callerrequest fix without changing conflict/floor logic; requires actual data and freshharness sourcegate."
+    },
+    {
+      "choice": "B keep actual source finding only/stop if already covered or route unsupported",
+      "tradeoff": "Avoids another CPU target but leaves the observed caller concern unqualified."
+    }
+  ],
+  "limits": "No code/prefs/storage/defaultasset edits, no CPU/import/runner/GLB/browser/network/frame/image/GPU orclosedfoundationoffset/weight/mask/fit tuning. Policy IDs only; no actual body exposure, physicaldecency/coverage, pixel orUI delivered acceptance. Currentcontract adaptation is justified by declared Foundation/testbed source scope; broadoriginal timing conjecture not asserted."
+}

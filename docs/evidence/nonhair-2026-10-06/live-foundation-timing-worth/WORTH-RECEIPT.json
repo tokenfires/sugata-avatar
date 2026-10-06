@@ -1,0 +1,146 @@
+{
+  "collected_utc": "2026-10-06T11:29:02.703736+00:00",
+  "writer_pid": 71002,
+  "decision": "A corrected narrow sequential source-only probe worth; B original generic live-floor timing conjecture",
+  "result_words": 374,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/live-foundation-timing-worth/PLAN.json",
+      "bytes": 4467,
+      "sha256": "410a007bafe9211bd7a21485b82d578114962f1043c02012489188427ef4ae43",
+      "read_scope": "entire original unmodified plan; asynchronous conjecture retained as unsupported"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/live-foundation-timing-worth/ROOT-SOURCE-WITNESS.json",
+      "bytes": 6430,
+      "sha256": "e73d74af33de2c66c30784ff9f0d1000d4436930a2710f725cbe0a0d5dc9d532",
+      "read_scope": "entire additive correction; parent source claims independently checked below"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936",
+      "read_scope": "whole byte hash; current395\u2013485/514\u2013569/605\u2013647/775\u2013843/920\u2013978; complete ctor/dress/validate/resolve/apply/fragment-load ownership methods within those scopes, not whole1121-line re-audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646",
+      "read_scope": "entire192 lines, all getter/prefer/serialization/problem methods"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/wardrobe.selftest.mjs",
+      "bytes": 54500,
+      "sha256": "cf4ad2671caab6332bb4dbb74138e6a50a044a174f92a3728d5887976fc2c246",
+      "read_scope": "whole byte hash; targeted1134\u20131178 fixed-floor assertions, not all wardrobe tests"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd",
+      "read_scope": "whole byte hash;239\u2013279, full conflicts239\u2013268"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "read_scope": "whole byte hash and JSON declaration read; entire four foundation rows only semantically inspected; no GLB/header/BIN decode"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207",
+      "read_scope": "whole byte hash;195\u2013218/235\u2013262/335\u2013385/410\u2013465, complete publicprefer/body wiring/preference storage/run/renderFoundationButtons scopes; not full1272-line UI audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-adoption/ADOPTION-RECEIPT.json",
+      "bytes": 8227,
+      "sha256": "4bb001b2e1ac278fc69381114e3d8135455e9f706139e4ad5b034c681d048f1c",
+      "read_scope": "whole byte hash only for current accepted source provenance; no previous CPU/job re-audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/decency.selftest.mjs",
+      "bytes": 52582,
+      "sha256": "cb941ab64561e371f337bb47470f2312464d140456824aeebe8d7ee4dc638999",
+      "read_scope": "whole byte hash; literal prefer/preference/floor locators and444\u2013518/555\u2013625/742\u2013834; complete per-preference construction and sampler; not whole-file behavior audit"
+    }
+  ],
+  "verified_rows": {
+    "PLAN": 7,
+    "ROOT_SOURCE_WITNESS": 8,
+    "unique_bound_source_files": 8
+  },
+  "classification": {
+    "original_async_timing": "Unsupported; explicit next-dress contract, no source-backed automatic floor-change API duty established.",
+    "retained_ID_recipe": "Concrete source-backed conflict/refusal concern before token/loading; actual outcome still unobserved.",
+    "test_coverage": "Inspected fixed-floor and separate-per-preference fixtures do not establish same-live-wardrobe prefer then dress(worn) recipe; no global absence claim."
+  },
+  "jobs": [
+    {
+      "chunk": "526a19",
+      "pid": 70720,
+      "utc": "2026-10-06T11:25:18.597263Z",
+      "exit": 0,
+      "command": "python3 stdlib whole original PLAN/additive ROOT-SOURCE-WITNESS text/hash"
+    },
+    {
+      "chunk": "0f0a58",
+      "pid": 70764,
+      "utc": "2026-10-06T11:25:54.111565Z",
+      "exit": 0,
+      "command": "python3 stdlib all7+8 bytepins; wholeFoundation192; selected Wardrobe/Manifest/testbed/wardrobeassertions; raw manifest four foundation declarations"
+    },
+    {
+      "chunk": "71849b",
+      "exit": 0,
+      "pid": "not reported",
+      "command": "rg constructor/decencyFloor/load/token/setDecency in Wardrobe; Foundation/prefer/floor in testbed; prefer/preference/floor/switch in decency.selftest",
+      "scope": "Source-only targeted locators; no execution or global API/test absence assertion"
+    },
+    {
+      "chunk": "4f53fb",
+      "pid": 70833,
+      "utc": "2026-10-06T11:26:47.808505Z",
+      "exit": 0,
+      "command": "python3 stdlib selected complete ctor/dress-support stats/apply/load/testbedpreferpersist-run and decency per-preference/sampler clauses"
+    },
+    {
+      "pid": 71002,
+      "utc": "2026-10-06T11:29:02.703736+00:00",
+      "command": "python3 stdlib final7+8 bytepins and exclusive <=450word WORTH/receipt complete readback; output chunk/exit separate"
+    }
+  ],
+  "next_if_separately_admitted": {
+    "usable_decision": "Determine whether caller replacement requests, rather than floor/conflict/async changes, address the actual source-backed switch fault.",
+    "one_run_cases": "Successfully initialize real Wardrobe/Foundation; current TORSO/HIPS prefer\u2192memory save\u2192dress(worn) recipe versus explicit non-foundation request under selected current floor. Record request/preference/raw memory save/worn/exception/token/loading/settlement and final disposal.",
+    "source_gate_required": "New finite literal real-source/asset/helper/import-isolation/output/collection plan and full independent critic/root source gate before execution. No authoring or run admitted by worth.",
+    "expected_API_refusal": "Observe explicitly, do not treat returned current stats or observer boolean alone as successful switch.",
+    "stop": "Unexpected harness/error/binding/timeout/uncollected result stops without retries; do not repeat accepted13fixtures or broaden into parallel-policy repair."
+  },
+  "alternatives": [
+    {
+      "choice": "A one separately source-gated sequential baseline/control",
+      "tradeoff": "Can establish a usable caller request fix while preserving core floor and slot conflict policy; costs one bounded actual run"
+    },
+    {
+      "choice": "B source concern only and withhold run",
+      "tradeoff": "Avoids speculation/execution; actual outcome and repair remain unqualified"
+    }
+  ],
+  "limits": "Read-only local source/declaration worth; no target/helper/Node/import/evaluation/runner/build/GLB/header/BIN/mesh/browser/capture/network/GPU, no source/code/prefs/realstorage/assets/default/frozen edits. No physical minimumcoverage/decency geometry/body/morph/pose/clearance/fit/pixels/UI/AAA, source API absence beyond inspected current scope, or global test absence claim.",
+  "stops": {
+    "root_source_inquiry": "2026-10-06T11:27:00Z",
+    "critic_worth_inquiry": "2026-10-06T11:35:00Z",
+    "critic_worth_collection": "2026-10-06T11:40:00Z",
+    "root_worth_close": "2026-10-06T11:45:00Z"
+  },
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/live-foundation-timing-worth/WORTH.md",
+      "bytes": 3003,
+      "sha256": "8637a4f3ab79344b1a3346a5bad4b819e73ae9040b051fac9d910b3bf9f97113",
+      "read_scope": "complete own exclusive result readback"
+    }
+  ],
+  "pending_edits": false
+}
