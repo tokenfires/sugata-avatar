@@ -1,0 +1,232 @@
+{
+  "schema": "independent-first-original-cpu-refusal-review-v1",
+  "collected_utc": "2026-10-05T23:57:14.862676+00:00",
+  "stable": true,
+  "pending_edits": false,
+  "decision": "B source/data/master attempt; recorded collected refusal retained at scoped operational evidence only, no retry",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/HANDOFF.json",
+      "bytes": 2529,
+      "sha256": "74fc3dab6699b6ee1388ed53fa9065fba1d5f10141c45862f374462fde3fa5c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/ROOT-LOG-CORRECTION.md",
+      "bytes": 1397,
+      "sha256": "545831e0a2a203a00279b38f3071e79f9052ed49fb33d98f9bdd95befa67b624"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/POST-INPUTS.json",
+      "bytes": 312,
+      "sha256": "b331b613ff66249a7028f65d768511e9492aee77534432972c13f1cf27209b30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/PLAN.json",
+      "bytes": 6489,
+      "sha256": "ce0c004b33772c305bea66b857b83f8b5928161d66112d35820b68ab63361c15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/ROOT-COLLECTION.json",
+      "bytes": 3663,
+      "sha256": "b9018438337b404243929984e07a34b8d51a7187a48ade68acfb111070aec4b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/ADMISSION.json",
+      "bytes": 1940,
+      "sha256": "b905af273a1c329c28dd4ccdbad0dc15e0f24828bee2ae126663fcddcf55cece"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/receipt.json",
+      "bytes": 3991,
+      "sha256": "f14d445ba57263ecff7557f0c6bb52cb8838f912507a281bee70221a3152bb8e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/attempt.lock",
+      "bytes": 37,
+      "sha256": "25a89fd20030288e26f0b31b7c6dfe652759a4ee4dc6d3d221b49947c8233b74"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/reader.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/reader.stderr",
+      "bytes": 35,
+      "sha256": "5b5219954d38b8245d6083467c9471169a66e4dd94a1a76bacdbdf21758a9ee6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/supervise.py",
+      "bytes": 19398,
+      "sha256": "76ee6788cd5e154d51d30f45545e26164d8fd299ee0773eff9b87e207844ac64"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/reader.py",
+      "bytes": 40181,
+      "sha256": "95bfacdf97cc34a7027e221ac029a42729ea39fa0b5327030bf384580f9127bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/INPUTS.json",
+      "bytes": 180009,
+      "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-RESULT.md",
+      "bytes": 6812,
+      "sha256": "457425744c82f1ce8585f809df8b47f34efdb972b357f701abe6188b2b131e31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-RECEIPT.json",
+      "bytes": 9049,
+      "sha256": "bc6f6490c4d36d04a1628dec43b2775a55de2b55edac477aa3ac19ddbe445f5c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/ROOT-READBACK.json",
+      "bytes": 2482,
+      "sha256": "12a1498a73560ce60928e196d689d975ecdbfa45a53a0d4631720f4163c5ca3c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/ROOT-CLOSE.json",
+      "bytes": 3644,
+      "sha256": "b739e4d28ff589d918c9562c395ad3affb1884eb7e9ed21058f1159ee5d5275d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/cpu-oracle.mjs",
+      "bytes": 17431,
+      "sha256": "a32cd326f4aeb17d66d7b611f50bd3b20f1af73b60070e2e56099d57505cf61c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/check-packet.py",
+      "bytes": 23269,
+      "sha256": "dcb52d37b2afac5678622d8ba89c66f7ce68f57f9f116c775c079cf7720591b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-RESULT.md",
+      "bytes": 8069,
+      "sha256": "a3650e84778e9048bb39d2026710b3d9fce34b90c4763548c8ffcc5b188ca2f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/SOURCE-RECEIPT.json",
+      "bytes": 14307,
+      "sha256": "ee56aadc083d7b76bb4e077ccb3e35add97c437b0b6d37bd672ca8348203a562"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-reader/ROOT-CLOSE.json",
+      "bytes": 3273,
+      "sha256": "5e7e33cc58d0a19d74d9a4240cabc17c70e250bea1643a29172001edbffaa544"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g100.glb",
+      "bytes": 11567784,
+      "sha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811"
+    }
+  ],
+  "verified_tables": {
+    "handoff_rows": 9,
+    "trial_source_pin_rows": 13,
+    "root_collection_input_rows": 6,
+    "actual_log_pins": true
+  },
+  "actual": {
+    "parentPid": 31184,
+    "readerPidPGID": 31186,
+    "parent_exit": 1,
+    "reader_collected_exit": -15,
+    "stages": [
+      "reader"
+    ],
+    "stdout_bytes": 0,
+    "stderr_bytes": 35,
+    "stderr_sha256": "5b5219954d38b8245d6083467c9471169a66e4dd94a1a76bacdbdf21758a9ee6",
+    "stderr_exact_repr": "b'Traceback (most recent call last):\\n'",
+    "underlying_cause": "unestablished; traceback body absent",
+    "internal_decode_progress": "unestablished; no inference from absent output",
+    "term_sent": true,
+    "kill_permission_error_retained": true,
+    "collected": {
+      "collected": true,
+      "signals": [
+        {
+          "signal": 15,
+          "result": "sent"
+        },
+        {
+          "signal": 9,
+          "result": "error",
+          "error": "PermissionError: [Errno 1] Operation not permitted"
+        }
+      ],
+      "exit": -15,
+      "remainingGroup": [],
+      "observationSeconds": 0.02536262501962483,
+      "directChildReaped": true,
+      "pipesClosed": true,
+      "logError": null,
+      "cleanupSeconds": 0.23559104197192937,
+      "cleanupErrors": [
+        {
+          "operation": "signal",
+          "signal": 9,
+          "result": "error",
+          "error": "PermissionError: [Errno 1] Operation not permitted"
+        }
+      ]
+    },
+    "output_absent": true,
+    "oracle_checker_not_launched": true,
+    "external_start": "2026-10-05T23:48:02Z",
+    "external_return_observation": "2026-10-05T23:48:14Z",
+    "tool_reported_wall_seconds": 0.251784459,
+    "internal_elapsed_seconds": 0.35621045797597617,
+    "max_observed_rss_kib": 31632,
+    "scoped_post_return_owned_rows": []
+  },
+  "read_scopes": {
+    "HANDOFF/PLAN/ROOT-COLLECTION/ROOT-LOG-CORRECTION/POST-INPUTS": "complete raw metadata/text read, source/actual table pins verified",
+    "ADMISSION/parentreceipt/lock/readerstdout/stderr": "complete exact saved bytes read",
+    "supervise.py": "previous complete335line independent source gate; exact unchanged pin and relevant125\u2013186/230\u2013250/294\u2013331 read now; a nine-token tool truncation of236 is covered by prior full source read, no altered-source inference",
+    "reader/oracle/checker": "unchanged reviewed source pins verified; no import/replay, data schema or asset inspection",
+    "originalg100": "wholebytehash only; child internal progress remains unknown",
+    "live processes": "root recorded separate numeric absence only; no new helper by critic"
+  },
+  "commands": [
+    {
+      "tool": "6f7c48",
+      "exit_code": 0,
+      "scope": "complete current HANDOFF/ROOTCOLLECTION/PLAN"
+    },
+    {
+      "tool": "e75b93",
+      "exit_code": 0,
+      "scope": "full actual ADMISSION/jobreceipt/stdout/stderr/lock and outputabsence"
+    },
+    {
+      "tool": "6fe8fc",
+      "exit_code": 0,
+      "scope": "exact stop/collection/final source clauses, minor bounded-output truncation recovered from priorfullread"
+    },
+    {
+      "tool": "4de99e",
+      "exit_code": 0,
+      "scope": "full additive quotation/post-input metadata and all9actual/logpin verification"
+    },
+    {
+      "tool": "final metadata/hash/write/readback only",
+      "scope": "all9/13/6table rows/actual stderr prefix/currentabsence; no source/helper invocation"
+    }
+  ],
+  "limits": [
+    "No source program/parser/library/helper/synthetic child/import/evaluation or data/native/browser/GPU/network work",
+    "No underlying reader failure or internal header/data progress attribution",
+    "No total startup/performance/memory guarantee from internal/tool/sample counters",
+    "No new live process discovery, root post-return observation remains source-provided evidence",
+    "No source/launch/logging/cap/tolerance/retry/rescue admission",
+    "Original ROOT-COLLECTION/HANDOFF retained with additive exact-log quotation correction",
+    "New distinct artist worth remains separate and unadmitted"
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/RESULT.md",
+    "bytes": 5215,
+    "sha256": "3d15d72127a0fa31059c059f2cf5defba00f78ed72d3c3d276b8b54a793f4638"
+  }
+}

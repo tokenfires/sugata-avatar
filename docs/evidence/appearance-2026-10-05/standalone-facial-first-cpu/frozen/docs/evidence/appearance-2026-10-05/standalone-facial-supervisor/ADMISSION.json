@@ -1,0 +1,36 @@
+{
+  "schema": "standalone-supervisor-root-admission-v1",
+  "allow_first_cpu_attempt": true,
+  "admitted_utc": "2026-10-05T23:47:50.198261+00:00",
+  "supervisor": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/supervise.py",
+    "bytes": 19398,
+    "sha256": "76ee6788cd5e154d51d30f45545e26164d8fd299ee0773eff9b87e207844ac64"
+  },
+  "inputs_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/INPUTS.json",
+    "bytes": 180009,
+    "sha256": "4839f5bf469e682f5096be11fde9ede6ba2171618a4bd3b7651b561e91d5a0be"
+  },
+  "critic_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-RESULT.md",
+    "bytes": 6812,
+    "sha256": "457425744c82f1ce8585f809df8b47f34efdb972b357f701abe6188b2b131e31"
+  },
+  "critic_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/CORRECTED-RECEIPT.json",
+    "bytes": 9049,
+    "sha256": "bc6f6490c4d36d04a1628dec43b2775a55de2b55edac477aa3ac19ddbe445f5c"
+  },
+  "root_readback": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/ROOT-READBACK.json",
+    "bytes": 2482,
+    "sha256": "12a1498a73560ce60928e196d689d975ecdbfa45a53a0d4631720f4163c5ca3c"
+  },
+  "fixed_trial_plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/PLAN.json",
+    "bytes": 6489,
+    "sha256": "ce0c004b33772c305bea66b857b83f8b5928161d66112d35820b68ab63361c15"
+  },
+  "conditions": "One exact first original120s serial attempt under reviewed unchanged supervisor/reader/oracle/checker; source/worth gate only, no runtime/appearance acceptance; external root timing/collection; firstfailurestopsnorescue"
+}
