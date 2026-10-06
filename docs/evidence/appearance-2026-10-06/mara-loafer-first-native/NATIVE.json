@@ -1,0 +1,37 @@
+{
+  "started": "2026-10-06T06:31:20.036Z",
+  "finished": "2026-10-06T06:31:36.105Z",
+  "browser": "3",
+  "tab": "55",
+  "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/review.html",
+  "before": [],
+  "after": [],
+  "dom": "- banner:\n  - heading \"Mara / original oxblood loafer design\" [level=1]\n  - paragraph: Six editable views of one left shoe. Unitless artist intentions; fit, manufacturing and runtime remain open.\n  - navigation:\n    - link \"Editable SVG\":\n      - /url: loafer.svg\n    - text: ·\n    - link \"Complete JSON\":\n      - /url: design.json\n    - text: ·\n    - link \"Design brief\":\n      - /url: BRIEF.md\n    - text: ·\n    - link \"Reference boundaries\":\n      - /url: ../mara-loafer-primary-study/README.md\n- main:\n  - 'img \"Original six-view oxblood loafer sheet: top, lateral profile, front, rear, outsole and inside schematic\"'\n- contentinfo: Original apron, plain oval slit, counter, low heel and cream lining. The intended pair shares these roles; these drawings are not registered anatomical projections.",
+  "metadata": {
+    "documentHeight": 1109,
+    "documentWidth": 1280,
+    "images": [
+      {
+        "complete": true,
+        "displayHeight": 924.4375,
+        "displayWidth": 1280,
+        "naturalHeight": 1040,
+        "naturalWidth": 1440,
+        "src": "loafer.svg"
+      }
+    ]
+  },
+  "logs": [],
+  "commands": [
+    "create owned55 hidden suppliedlocalstaticreview",
+    "domSnapshot",
+    "readonly image complete/natural/display/doc metadata",
+    "first screenshot fullPage true",
+    "readonly warn/error logs limit12",
+    "close owned55",
+    "narrow tabs after"
+  ],
+  "screenshot": "original-first.jpg",
+  "screenshotBytes": 115247,
+  "closed": true
+}

@@ -1,0 +1,370 @@
+{
+  "decision": "A exactdocumentarydelivery andlocalcheckpoint worth; no demonstratedactionabledefect/newexperiment",
+  "collected_utc": "2026-10-06T06:46:27.567824+00:00",
+  "writer_started_utc": "2026-10-06T06:46:27.565928+00:00",
+  "writer_pid": 18797,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "critic": "2026-10-06T06:53:00Z",
+    "root": "2026-10-06T06:57:00Z"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+      "bytes": 2164,
+      "sha256": "be3d7e95da79ad6dd177b71d1afeb76999f4456d651bd1676b6473ae7d2ddecd",
+      "read_scope": "whole13line newprose read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+      "bytes": 1215,
+      "sha256": "34ff68f220e57d70ba01177804dfa27a767ce8933e6ebfab66374d0026d8ec58",
+      "read_scope": "whole7line newprose read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/CHECKLIST-BEFORE.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7",
+      "read_scope": "whole49line preservedbefore read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/DELIVERY-PLAN.json",
+      "bytes": 1116,
+      "sha256": "b171505b102942ac6f60bf79c53f17952184b884ea0925d602df4c8fa2ac689b",
+      "read_scope": "whole21line literal deliveryplan"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ROOT-IMAGE-CLOSE.json",
+      "bytes": 1313,
+      "sha256": "327ddc59f4c045484173598814313f05650d8e64f200aa68830959e499a33044",
+      "read_scope": "whole1313byte factual closure read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5848,
+      "sha256": "6e238f3365bf145fbbf5b4065f78d440553cf651ee064ac29290212a1c68d183",
+      "read_scope": "whole51line currentafter read and exactsingleinsertion comparison"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/DELIVERY-INPUTS.json",
+      "bytes": 1714,
+      "sha256": "799d65109c792cc81a7ae5719f3c46b803742890fc50535ba31b6a3676e17e0e",
+      "read_scope": "whole38line deliverybindings all6verified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/IMAGE-RESULT.md",
+      "bytes": 5677,
+      "sha256": "2d2654ec67eabb2743fb652b8212138d0e84491bf2ee3197919b1cef321b00aa",
+      "read_scope": "priorwhole independent5677byte actualimage/data verdict reused, currenthash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/IMAGE-CRITIC-RECEIPT.json",
+      "bytes": 12270,
+      "sha256": "7a065017c9f73f3ae38cb99faf585f67b19a38f5ec4dcea2a9f35a495657e768",
+      "read_scope": "completeparsedprior12270byte exactreceipt/currenthash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/original-first.jpg",
+      "bytes": 115247,
+      "sha256": "1072ca75f96e2d2f784fce195997c9a5c6e82c236cdacb2853f4996137f458dc",
+      "read_scope": "priorWHOLE original-detail1280x1109 firstimage observation reused unchangedhash; no newcapture/view"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/loafer.svg",
+      "bytes": 13149,
+      "sha256": "71b8aff21e19a71fc0703ce564bf3936274c1c8a6739d4d260a2c216474059c6",
+      "read_scope": "priorwhole115line originalartist source reused exactbytes, no parser/render"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/design.json",
+      "bytes": 76118,
+      "sha256": "234c47f0bf1245e6d675eb42ad258b7110c6e67261241fbb2e3ca6b2586633d4",
+      "read_scope": "priorwhole100node11field/26featurefullXMLassociation reused exactbytes, no newcomparisonrun"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/BRIEF.md",
+      "bytes": 2657,
+      "sha256": "51fb9da6e76b85d7b2c855e3c49a73bc787e631d8a3b6c018845a3e90315822c",
+      "read_scope": "priorwhole13line sourcebrief reused exactbytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/review.html",
+      "bytes": 1321,
+      "sha256": "72448cd4796195926e7d42b160e304c5594ae2a2384e66837234d8f7e5c6ed70",
+      "read_scope": "priorwhole10line wrapper reused exactbytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/publish-registry.py",
+      "bytes": 3811,
+      "sha256": "4c6db330648af9989d33f896ad8bbfdddd31cd0c0e83520b58c1fd49e6659399",
+      "read_scope": "priorwhole75line publisher source reused exactbytes, no replay"
+    }
+  ],
+  "direct_input_count": 15,
+  "all6DELIVERYpins_exact": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/DELIVERY-RESULT.md",
+    "bytes": 2673,
+    "sha256": "9663330da492235df82900b61055b35a5fda8be4d7400fa612188a2bcf087026",
+    "readback": "exact UTF8 bytes"
+  },
+  "exact_delta": {
+    "single_new_row": "- [x] Original editable Mara loafer technical drawing with top, profile, front, rear, outsole and inside views of one left shoe; unitless artist intent, with anatomical pairing, manufacturing, 3D fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md)",
+    "before_bytes": 5518,
+    "before_sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7",
+    "removing_row_and_blank_restores_allbeforebytes": true,
+    "all10broad_open_rows_unchanged": true,
+    "counts": {
+      "scoped_checked": 17,
+      "broad_open": 10
+    }
+  },
+  "local_links": {
+    "total": 40,
+    "by_document": {
+      "ARTIST-HANDOFF.md": 9,
+      "README.md": 9,
+      "PROJECT-CHECKLIST.md": 22
+    },
+    "all_present": true,
+    "scope": "literal path existence only, no browser click/test/newhosting/oldqualification",
+    "occurrences": [
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "original-first.jpg",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/original-first.jpg"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "../mara-loafer-technical-design/loafer.svg",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/loafer.svg"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "../mara-loafer-technical-design/design.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/design.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "../mara-loafer-technical-design/BRIEF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/BRIEF.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "../mara-loafer-technical-design/review.html",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/review.html"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "../mara-loafer-primary-study/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-primary-study/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "IMAGE-RESULT.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/IMAGE-RESULT.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "IMAGE-CRITIC-RECEIPT.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/IMAGE-CRITIC-RECEIPT.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "literal": "ROOT-IMAGE-CLOSE.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ROOT-IMAGE-CLOSE.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "ARTIST-HANDOFF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "PLAN.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/PLAN.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "NATIVE.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/NATIVE.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "original-first.jpg",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/original-first.jpg"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "IMAGE-RESULT.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/IMAGE-RESULT.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "IMAGE-CRITIC-RECEIPT.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/IMAGE-CRITIC-RECEIPT.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "ROOT-IMAGE-CLOSE.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ROOT-IMAGE-CLOSE.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "DELIVERY-PLAN.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/DELIVERY-PLAN.json"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "literal": "CHECKLIST-BEFORE.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/CHECKLIST-BEFORE.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/nonhair-2026-10-03/hair-cut/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "PRODUCT-ROADMAP.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-02/saved-colours/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "PRODUCT-ROADMAP.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-02/saved-export/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "../looks/INK-DENIM.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-04/piece-publisher/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/piece-publisher/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-04/trouser-artist-source/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-05/boot-artist-first-view/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/README.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "ARTIST-WARDROBE.html",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "DAY-REPORT-2026-10-04.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/DAY-REPORT-2026-10-04.md"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "literal": "PRODUCT-ROADMAP.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md"
+      }
+    ]
+  },
+  "commands_jobs": [
+    {
+      "chunk": "ea6ab9",
+      "pid": 18547,
+      "utc": "2026-10-06T06:43:22.217340Z",
+      "exit": 0,
+      "command": "python3 complete2prose/deliveryPLAN/INPUTS/before-current checklists literalread"
+    },
+    {
+      "chunk": "50ec7f",
+      "pid": 18649,
+      "utc": "2026-10-06T06:44:42.493733Z",
+      "exit": 0,
+      "command": "python3 fullROOTIMAGECLOSE/exactoneinsertion/count17-10/all40localtargetexistence metadata check"
+    },
+    {
+      "pid": 18797,
+      "command": "python3 exactrawhashes/priorimage-source binding comparison/exclusive own2file documentarywriter"
+    }
+  ],
+  "prior_actual_evidence": "Samecompleteoriginal115247byte1280x1109 image andsource13KB/full100nodeJSON independentcomparison reused exactpins, no newcapture/observerrun",
+  "limits": [
+    "Artistunitlessunregisteredoneleftshoe source only",
+    "Rightpartneranatomy/last/material/manufacturing/3Dfit/motion/runtime/fullAAA remainsopen",
+    "No browser/image/capture/network/publisher/parse/render orsource/producteditbycritic",
+    "Only2ownhandofffileswritten, oldreviewsunchanged",
+    "No currentfrozencheckpointstatusclaimed before rootfinish",
+    "No fixedsource/art/renderer/layout/board/native rescue/newscope admitted"
+  ],
+  "retained_errors": "none currentdocumentaryread/check; priorproducer/native timer andmetadata scopes retained",
+  "status": {
+    "scoped_checked": 17,
+    "broad_open": 10
+  },
+  "next": "rootfullread/pins then exactlocaldocumentarycheckpoint/closure; no subsequent experiment admitted"
+}
