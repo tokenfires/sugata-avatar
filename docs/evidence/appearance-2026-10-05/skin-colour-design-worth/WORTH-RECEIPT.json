@@ -1,0 +1,236 @@
+{
+  "decision": "A worth of distinct bounded primary-reference/complete artist skin-colour owner contract only; no implementation/native admission",
+  "collected_utc": "2026-10-06T04:47:32.929228+00:00",
+  "writer_started_utc": "2026-10-06T04:47:32.928419+00:00",
+  "writer_pid": 6976,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "critic_worth": "2026-10-06T05:00:00Z",
+    "root_worth": "2026-10-06T05:10:00Z"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+      "read_scope": "targeted literal lines294-402,510-578,834-868,905-926,930-1215,1241-1342 plus rg locators; earlier aggregate truncation recovered needed1030-1215; no full70957byte manual audit or shader evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "read_scope": "targeted lines900-971,1033-1067,3004-3142,3210-3269,3825-3875 plus rg ownership locators; truncated initial900-3118 recovered; no full252785byte audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "read_scope": "complete74line current module"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "read_scope": "complete97line current module"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "read_scope": "targeted1-106,235-270,295-336,390-432,491-509 and exact scopedrg results; no fullmodule audit/runtime"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7",
+      "read_scope": "complete49line current document;16checked10broadopen"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "selected15-52/131-138 and scopedrg matches; no whole32741byte manual audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/skin-finish-sdk/CHECKPOINT.md",
+      "bytes": 1423,
+      "sha256": "70dc26bfd572f7d69180a49fa8d180c4dc964357db06f3a582a9aa6a2d492a4c",
+      "read_scope": "complete7line skin-finish-sdk closure; no oldcandidateexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/REQUEST.jpg",
+      "bytes": 49567,
+      "sha256": "d41ed883c4a05ac8457b6ec3f7701e14b9567597c290b426d6ad0d99d0901328",
+      "read_scope": "whole unchanged1280x720 view_image original; face/head absent; UI/capture-boundary witness only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md",
+      "bytes": 2518,
+      "sha256": "61ceb90b2fd595d16af967736816c09414c156ab1bd87e59ad4bf1cf832ae608",
+      "read_scope": "complete11line Showcase-viewport UI qualification/closure"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ROOT-DELIVERY-CLOSE.json",
+      "bytes": 1542,
+      "sha256": "a3a23ba87f73eb575e2a3ff75fe37934f5c5b73c5c66e59b01e37a352322dc0c",
+      "read_scope": "complete current limited Mara documentary closure"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/skin-colour-design-worth/PLAN.json",
+      "bytes": 6222,
+      "sha256": "a8e6db3382137ca6c724b3d528436d915726e982b354c61ebdd1da9924cffebe",
+      "read_scope": "complete literal worth plan and all11 current rawbyte bindings"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "read_scope": "complete115line actual SavedLooks owner, duplicated printed100line harmless; no storage read/write"
+    }
+  ],
+  "direct_bindings": 13,
+  "all11PLANpins_exact": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/skin-colour-design-worth/WORTH.md",
+    "bytes": 7618,
+    "sha256": "62d834f4b5cbf9aa82b62560faf914d1b6aed5ac9d3ce9179260e6da997adf74",
+    "readback": "exact UTF-8 bytes"
+  },
+  "commands_jobs": [
+    {
+      "chunk": "30d650",
+      "pid": 6509,
+      "utc": "2026-10-06T04:42:27.071707Z",
+      "exit": 0,
+      "command": "python3 stdlib complete PLAN read"
+    },
+    {
+      "chunk": "b129da",
+      "exit": 0,
+      "command": "rg SkinMaterial current named colour/cavity/create/uniform owner locators"
+    },
+    {
+      "chunk": "1097c8",
+      "exit": 0,
+      "command": "rg Avatar current skin/session/map owner locators"
+    },
+    {
+      "chunk": "91398f",
+      "pid": 6554,
+      "utc": "2026-10-06T04:42:42.703529Z",
+      "exit": 0,
+      "command": "python3 full skin-finish CHECKPOINT/ShowcaseREADME/settings/presets/checklist read"
+    },
+    {
+      "chunks": [
+        "1d54be",
+        "9ac58a"
+      ],
+      "exit": 0,
+      "utc": "2026-10-06T04:43:04.084435Z",
+      "command": "targeted SkinMaterial/Avatar scopes and Showcase/roadmap rg; aggregate output truncated, retained and recovered next"
+    },
+    {
+      "chunk": "fcf450",
+      "pid": 6606,
+      "utc": "2026-10-06T04:43:18.859919Z",
+      "exit": 0,
+      "command": "recover needed Skin1030-1215/Avatar900-971,1033-1067,3004-3118 ranges"
+    },
+    {
+      "chunk": "646dd9",
+      "exit": 0,
+      "command": "targeted Showcase owner scopes plus roadmap15-52/131-138"
+    },
+    {
+      "tool": "functions.exec/tools.view_image",
+      "arguments": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/REQUEST.jpg",
+        "detail": "original"
+      },
+      "scope": "whole existing image only; no crop/new capture; exact tool clock not separately recorded"
+    },
+    {
+      "chunk": "e6f01b",
+      "pid": 6667,
+      "utc": "2026-10-06T04:44:06.707606Z",
+      "exit": 0,
+      "command": "targeted Avatar material retirement/apply and Skin apply/constructor source; scoped SavedLooks locator"
+    },
+    {
+      "chunk": "2801c3",
+      "pid": 6718,
+      "utc": "2026-10-06T04:44:37.912303Z",
+      "exit": 0,
+      "command": "Skin loadDataMap1241-1289/full SavedLooks115lines/current Mara closure"
+    },
+    {
+      "pid": 6976,
+      "command": "python3 stdlib whole byte hashing and exclusive WORTH/receipt write/readback; no target execution"
+    }
+  ],
+  "actual_original_image": {
+    "dimensions": [
+      1280,
+      720
+    ],
+    "detail": "original",
+    "whole": true,
+    "face_head_present": false,
+    "pixel_scope": "left lower trouser/boot canvas55-809x0-291, right UI; no skin-quality baseline",
+    "time_scope": "view after04:43 source read and before04:44:06.707606 metadata clock; exact view clock unrecorded"
+  },
+  "actionable_future_contract_responsibilities": [
+    {
+      "id": "F1",
+      "witness": "SkinMaterial1079-1083/1125 vs384/993/834-861/1045-1062",
+      "classification": "new composition duty, no current defect",
+      "alternatives": [
+        "own composed artist colour and cavity/region policy preservingOriginal",
+        "defer for coupled albedo/diffusion/texture source"
+      ]
+    },
+    {
+      "id": "F2",
+      "witness": "Avatar915-968/3052-3090/3234-3235/3835-3854; complete settings/presets/SavedLooks; Showcase295-334/401/418",
+      "classification": "complete public-value/default/lifetime/persistence owner required before newsource",
+      "alternatives": [
+        "validated default-preserving supported field through existingowners",
+        "isolated nonpersistent plate, no supportedsetting claim"
+      ]
+    },
+    {
+      "id": "F3",
+      "witness": "whole REQUEST image face absent; README5-11",
+      "classification": "image boundary, no skin appearance evidence",
+      "alternatives": [
+        "future separatelyadmitted complete body/face fixed comparison",
+        "defer to new coupled source/physiology authority"
+      ]
+    }
+  ],
+  "next_reference_conditions": {
+    "query_max": 1,
+    "supplied_official_pages_max": 2,
+    "decision_changing_supplied_image_max": 1,
+    "fresh_literal_rootrequest_required": true,
+    "network_admitted_here": false,
+    "first_insufficient_error_stop": true,
+    "no_reformulation_refetch_fallback": true,
+    "question": "artist colour versus albedo/region/scattering/cavity composition, no physiology or source/runtime equivalence"
+  },
+  "errors_and_limits": [
+    "Initial aggregate source print truncation recovered needed ranges; no source invocation/error trial",
+    "targeted source scopes only, not complete Avatar/SkinMaterial audits",
+    "legacy source comments are not current live measuredskin/performance proof",
+    "No current skin defect/RGBunitsbug or global capability absence claimed",
+    "Existing skin-finish/coat/media/observer/lifecycle/camera method remains closed",
+    "No shader/material/Avatar construction, runtime/storage/BIN/geometry/numerical evaluation"
+  ],
+  "unchanged_status": {
+    "scoped_checked": 16,
+    "broad_open": 10
+  },
+  "next": "root independent read/hash gate, then separately bounded literal primary-reference/complete contract question ifA; no code/native successor inherited"
+}

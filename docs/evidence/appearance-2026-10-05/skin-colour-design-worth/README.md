@@ -1,0 +1,9 @@
+# Artist skin-colour control: bounded worth
+
+Independent/root A for a new primary-reference and complete ownership-contract study only. Current mapped skin replaces colorNode, so ordinary material.color is bypassed; diffuse texture/lip/thin-tissue composition and separate cavity albedo need an explicit new policy. Supported values also need default/report/JSON/URL/named-look and asynchronous lifetime ownership. No current skin defect or RGB-units bug is proved.
+
+[Full critic worth](WORTH.md), [exact receipt](WORTH-RECEIPT.json), [blind root observation](ROOT-OBSERVATION.json) and [root closure](ROOT-CLOSE.json) retain the actual source witnesses and two alternatives for each duty. Root independently reviewed the relevant code and the whole retained UI image; that image excludes the face and provides no skin-quality baseline. Reads are targeted and explicitly scoped, without shader/material/runtime evaluation.
+
+Next is a separately bounded literal primary inquiry:1 query, at most2 supplied official pages and at most1 supplied image if it changes the composition decision. First insufficient/error response stops; no reference ladder. No code, new colour mapping or native trial is admitted by this worth checkpoint. The old coat/skin-finish/media/observer/lifetime/camera route stays closed. Full16 scoped checked/10 broad open and the wider AAA character/representation roadmap remain.
+
+Actual jobs: initial plan a8cb4d/exit0; critic82327e/exit0/PID6976 stable04:47:32.929228UTC; root full10c022/e9a84b and independent93302a/2135c7 plus prior cited source/image observations. Root verifies14 direct/result+11 PLAN byte pins before05:10. Source search errors and truncated broad searches are recorded in ROOT-OBSERVATION, with no conclusions from unread output. This is worth/source reading only, not an implementation or appearance milestone. FROZEN.json holds original documentary payloads read-only, without copying code or image assets.
