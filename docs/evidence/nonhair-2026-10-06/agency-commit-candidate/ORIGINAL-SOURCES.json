@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-10-06T10:12:26.705855+00:00",
+  "writer_pid": 39679,
+  "files": [
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "snapshot": "ORIGINAL-Wardrobe.js.txt",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "snapshot": "ORIGINAL-WardrobeAgency.js.txt",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "snapshot": "ORIGINAL-agency.selftest.mjs.txt",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+      "snapshot": "ORIGINAL-CatalogueDresser.selftest.mjs.txt",
+      "bytes": 7475,
+      "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+    }
+  ],
+  "scope": "Exact originals before any candidate/product changes; snapshots resolve against this manifest directory. Historical input rows for eventual product revisions bind these original bytes, never a changed live file."
+}

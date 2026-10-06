@@ -1,0 +1,90 @@
+{
+  "collected_utc": "2026-10-06T10:17:03.766736+00:00",
+  "writer_pid": 40071,
+  "decision": "A synchronous actual-commit callback isolated candidate preparation worth only; source/test/adoption unadmitted",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PLAN.json",
+      "bytes": 3533,
+      "sha256": "ecbb67f76d052d605b24d96a258f0e2db45cd7b39f7b197fd1cc4afcb05ed4aa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/DESIGN.md",
+      "bytes": 4444,
+      "sha256": "5119331d248bb6bf87b7b5f259b50af1d106a8b85cb8fcca4512932e3ddb3a32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/FROZEN.json",
+      "bytes": 7118,
+      "sha256": "297c3dd7363b61092abab42a839bcf1c838f2ea511b38a7cba467b04571cb141"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-ACTUAL-CLOSE.json",
+      "bytes": 5249,
+      "sha256": "a25b22ab5e06907c677314d0fd3a37329a1e7f0755331bbf74c903e099c281af"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ACTUAL-RESULT.md",
+      "bytes": 6028,
+      "sha256": "bd793776cd95042061af883bb85767075407b638843ae531869ca754744b7521"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ACTUAL-CRITIC-RECEIPT.json",
+      "bytes": 7567,
+      "sha256": "8254bc636302800bc51814db7e164f2bd011dd6da8c67440e516e60223503789"
+    }
+  ],
+  "read_scopes": "Entire62-line PLAN3533 and17-line DESIGN4444 read. Current Wardrobe500\u2013537/770\u2013838 and Agency248\u2013298/510\u2013558 reread. Earlier own entireAgency683/agency.selftest559 and explicit caller/loader/stats scopes remain exact and reused; no full new1108-line Wardrobe/1222-line caller/library audit. Wardrobe.create493\u2013497/dynamic import495 was actually read in earlier source review and used for projection duty. Frozen proof/close/result/receipt byte pins checked only; original raw3cases not reverified and no fourth empirical result. No new primary/network query or binary decode.",
+  "findings_status": "Callback-current/historical ownership/error/reentrancy and third import are literal source/preparation duties. Only the two original mismatches are empirical. No separate epoch recommended for scoped synchronous internal-callback commit order; no general clock/store/scene/mode/multiagency/rogue guarantee.",
+  "jobs": [
+    {
+      "chunk": "931018",
+      "pid": 39499,
+      "utc": "2026-10-06T10:10:26.203308+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib complete current PLAN/DESIGN plus exact current Wardrobe/Agency scopes and byte/SHA"
+    },
+    {
+      "pid": 40071,
+      "utc": "2026-10-06T10:17:03.766736+00:00",
+      "command": "python3 heredoc stdlib final sixPLAN/DESIGN/source-proof byte checks and exclusive worth two-file write/readback; returned tool chunk/exit separate"
+    }
+  ],
+  "observed_errors": [],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/WORTH-RESULT.md",
+      "bytes": 6044,
+      "sha256": "4f12ebf94a258cf2790e34067e35745f79fe8bc6f6b82162c1077b34ca022d4c"
+    }
+  ],
+  "limits": "Only source/saved metadata text/hash and these two own files; no source candidate authoring, target/helper/Node/tests/import/evaluation/fault fixture, loader/GLB/mesh decode, browser/GPU/network/new render/capture/product/default/frozen edits. This selects a bounded future ownership question rather than qualifying any unimplemented API or data behavior. Root message adopting projection/reentrancy limits is design steering, not observed execution.",
+  "stops": {
+    "critic_inquiry": "2026-10-06T10:17:00Z",
+    "critic_collection": "2026-10-06T10:20:00Z",
+    "root_worth": "2026-10-06T10:23:00Z",
+    "isolated_source_preparation": "2026-10-06T10:40:00Z",
+    "conditional_source_review_and_one_CPU_gate": "2026-10-06T11:00:00Z"
+  },
+  "pending_edits": false
+}

@@ -1,0 +1,96 @@
+{
+  "created_utc": "2026-10-06T10:21:28.064019+00:00",
+  "writer_pid": 40488,
+  "files": [
+    {
+      "canonical": "Wardrobe.js.txt",
+      "runtime": "Wardrobe.mjs",
+      "rules": [
+        {
+          "from": "'./GarmentInterior.js'",
+          "to": "'../../../../packages/core/src/wardrobe/GarmentInterior.js'"
+        },
+        {
+          "from": "'./WardrobeStyleOptions.js'",
+          "to": "'../../../../packages/core/src/wardrobe/WardrobeStyleOptions.js'"
+        },
+        {
+          "from": "'./GarmentManifest.js'",
+          "to": "'../../../../packages/core/src/wardrobe/GarmentManifest.js'"
+        }
+      ]
+    },
+    {
+      "canonical": "WardrobeAgency.js.txt",
+      "runtime": "WardrobeAgency.mjs",
+      "rules": []
+    },
+    {
+      "canonical": "agency-completion.selftest.mjs.txt",
+      "runtime": "agency-completion.selftest.mjs",
+      "rules": [
+        {
+          "from": "'../figure/Figure.js'",
+          "to": "'../../../../packages/core/src/figure/Figure.js'"
+        },
+        {
+          "from": "'./GarmentManifest.js'",
+          "to": "'../../../../packages/core/src/wardrobe/GarmentManifest.js'"
+        },
+        {
+          "from": "'./FoundationLayer.js'",
+          "to": "'../../../../packages/core/src/wardrobe/FoundationLayer.js'"
+        },
+        {
+          "from": "'./Wardrobe.js'",
+          "to": "'./Wardrobe.mjs'"
+        },
+        {
+          "from": "'./WardrobeAgency.js'",
+          "to": "'./WardrobeAgency.mjs'"
+        }
+      ]
+    },
+    {
+      "canonical": "ORIGINAL-agency.selftest.mjs.txt",
+      "runtime": "agency.serial.selftest.mjs",
+      "rules": [
+        {
+          "from": "'../figure/Figure.js'",
+          "to": "'../../../../packages/core/src/figure/Figure.js'"
+        },
+        {
+          "from": "'./GarmentManifest.js'",
+          "to": "'../../../../packages/core/src/wardrobe/GarmentManifest.js'"
+        },
+        {
+          "from": "'./FoundationLayer.js'",
+          "to": "'../../../../packages/core/src/wardrobe/FoundationLayer.js'"
+        },
+        {
+          "from": "'./Wardrobe.js'",
+          "to": "'./Wardrobe.mjs'"
+        },
+        {
+          "from": "'./WardrobeAgency.js'",
+          "to": "'./WardrobeAgency.mjs'"
+        }
+      ]
+    },
+    {
+      "canonical": "ORIGINAL-CatalogueDresser.selftest.mjs.txt",
+      "runtime": "catalogue.selftest.mjs",
+      "rules": [
+        {
+          "from": "'./CatalogueDresser.js'",
+          "to": "'../../../../packages/core/src/wardrobe/CatalogueDresser.js'"
+        },
+        {
+          "from": "const loadModule = file => import( pathToFileURL( path.join( root, 'packages/core/src', file ) ).href );",
+          "to": "const loadModule = file => import( file === 'wardrobe/Wardrobe.js' ? './Wardrobe.mjs' : file === 'wardrobe/WardrobeAgency.js' ? './WardrobeAgency.mjs' : pathToFileURL( path.join( root, 'packages/core/src', file ) ).href );"
+        }
+      ]
+    }
+  ],
+  "source_preparation_notes": "Root corrected new JSDoc to applied-or-current completion snapshot, not obsolete own-commit claim; cleanup drains requests appended by synchronous callbacks. Both before first source handoff/evaluation. Existing agency/catalogue original assertions unchanged; only exact listed import projection sites differ."
+}

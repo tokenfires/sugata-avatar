@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-10-06T10:06:47.684259+00:00",
+  "writer_pid": 39167,
+  "usable_improvement": "Accurate applied/honour/request/persistence/history when outfit calls overlap; preserve newest valid Wardrobe winner and serial honour.",
+  "bounded_question": "Choose actual commit-time ownership versus immutable outcome/current-applied receipt so genuinely applied history survives newer pending or failed request; invalid newer validation must not supersede older loading request.",
+  "decision": "Whether one narrowly scoped product candidate is worth authoring and what precise API owns commit/honour/currentRequest. Original proof closed; no inherited execution/adoption.",
+  "alternatives": [
+    {
+      "choice": "Immutable applied outcome + current applied-commit identity",
+      "tradeoff": "Explicit source provenance; asynchronous historical/outgoing-state reconciliation may remain complex."
+    },
+    {
+      "choice": "Synchronous commit callback owned by Agency through backward-compatible dress second options argument",
+      "tradeoff": "Bookkeeping at real commit avoids continuation races; callback error/validation semantics and API compatibility must be explicit."
+    },
+    {
+      "choice": "Serialize Agency requests",
+      "tradeoff": "Simple order but delays newest wearer request and changes latest-valid-wins policy."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/FROZEN.json",
+      "bytes": 7118,
+      "sha256": "297c3dd7363b61092abab42a839bcf1c838f2ea511b38a7cba467b04571cb141"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-ACTUAL-CLOSE.json",
+      "bytes": 5249,
+      "sha256": "a25b22ab5e06907c677314d0fd3a37329a1e7f0755331bbf74c903e099c281af"
+    }
+  ],
+  "stops": {
+    "critic_inquiry": "2026-10-06T10:17:00Z",
+    "critic_collection": "2026-10-06T10:20:00Z",
+    "root_worth": "2026-10-06T10:23:00Z",
+    "isolated_source_preparation": "2026-10-06T10:40:00Z",
+    "conditional_source_review_and_one_CPU_gate": "2026-10-06T11:00:00Z"
+  },
+  "scope": "Only worth inquiry now. Future source preparation if root admits; separate source review before target run. No product/asset/default adoption without actual meaningful regression gates and independent critic/root review.",
+  "preserved": "Original/probe frozen evidence, accepted assets/defaults, broad AAA/expression/wardrobe/representation/fit/motion/performance/VTuber roadmap, review server/ACTIVE recovery/unrelated worktrees. No capture rescue/push/publish/purchase/install/model changes/otherprojects."
+}
