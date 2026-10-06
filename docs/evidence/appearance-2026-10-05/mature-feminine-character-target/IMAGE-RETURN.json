@@ -1,0 +1,32 @@
+{
+  "collected_utc": "2026-10-06T00:30:15.370583+00:00",
+  "tool_return_observed_utc": "2026-10-06 00:29:36 UTC",
+  "tool": "image_gen.imagegen",
+  "call": "functions exec imagegen one exact request",
+  "job_reference": "IMAGE-JOB.json",
+  "tool_wall_seconds_reported": 26.3,
+  "state": "one complete image returned and displayed",
+  "request": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-REQUEST.json",
+    "bytes": 2988,
+    "sha256": "dfff958593d8682b2115a8f02816dbd2e6c44233eab1cbb8c633c11f6d19f792"
+  },
+  "preserved_default_original": {
+    "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-df7a1ffd-bbaa-41ed-9081-08be0000aaea.png",
+    "bytes": 2383355,
+    "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+  },
+  "selected_workspace_copy": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+    "bytes": 2383355,
+    "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+  },
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "copy": "unchanged exact bytes, no editing/crop/resize/regeneration",
+  "local_process_identity": "tool-owned request; no invented local PID or internal sampler progress",
+  "calls": 1,
+  "retries": 0
+}

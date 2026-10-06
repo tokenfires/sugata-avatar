@@ -1,0 +1,86 @@
+{
+  "prepared_utc": "2026-10-06T00:28:42.781403+00:00",
+  "scope": "One original Mara concept illustration, whole unchanged image review only",
+  "usable_improvement": "One complete mature/cardigan/midi/flatshoe artist discussion direction",
+  "bounded_question": "Does the exact first image actually express the authored face/hair/layer/hem/material/fullbody-plus-portrait duties clearly enough for an artist target?",
+  "decision": "A retain artist target versusB retain as rejected evidence and brief only; no edit/regeneration/retry/sourcefit credit",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-HANDOFF.json",
+      "bytes": 3648,
+      "sha256": "446ebb7ee76c0e8137c5730d2262456f130020d98ec9c6b39c3c5ab15b22e18a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-RESULT.md",
+      "bytes": 6339,
+      "sha256": "e1e94e38f2ad06efe7095dc52befed067b6c720cba3808cffafa5c17ef092dce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-RECEIPT.json",
+      "bytes": 8073,
+      "sha256": "79b9d3354b6288b07cd9d99b8446a4e51189662139e10635668453fd5b6ef9c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/PLAN.json",
+      "bytes": 4276,
+      "sha256": "0c52265b15ee4a5c948f1a713cfb72e946b2135181663922af6be0d68566ac78"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md",
+      "bytes": 3630,
+      "sha256": "962f4927f70174d82daa5fdaa3b902e6853c0db16388d689f6f5ba62c40c6255"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/PROMPT.txt",
+      "bytes": 2924,
+      "sha256": "666b5eb9d42c63a17b19f2f58754f475e6d0baa5ba065e9db59585080f39afd5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/REFERENCES.md",
+      "bytes": 3623,
+      "sha256": "010d93a9b7c7a113a4522598a655f1bc945be67bab4c2e5a3f7112dd7fd3a00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/REFERENCE-VIEW.json",
+      "bytes": 1523,
+      "sha256": "e861305fc6295b6d83f6bf4f832bdd460a9172d2079f1919fcbf88bb993953d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/reference-first.jpg",
+      "bytes": 24516,
+      "sha256": "9581c23de9ca8f78be898e145b0e2a3ba1ecedf942ce1bc9d41ead70f19ad765"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-ROOT-READBACK.json",
+      "bytes": 3903,
+      "sha256": "349a41ca785eae43d40eb9d3ee51121120c8ab6bcd8ad89d29a1f35da4c125fa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-ROOT-CLOSE.json",
+      "bytes": 906,
+      "sha256": "59fe4c972866e800c5e4545616ff1e12eaa645716cf844820fa9500540ef822b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-REQUEST.json",
+      "bytes": 2988,
+      "sha256": "dfff958593d8682b2115a8f02816dbd2e6c44233eab1cbb8c633c11f6d19f792"
+    }
+  ],
+  "tool": "image_gen.imagegen built-in, exact IMAGE-REQUEST args",
+  "budget": {
+    "calls": 1,
+    "variants_or_edits": 0,
+    "retries": 0,
+    "network_or_photo_extension": 0,
+    "constructors": 0
+  },
+  "stops_utc": {
+    "launch": "2026-10-06T00:35:00Z",
+    "result_collection": "2026-10-06T00:45:00Z",
+    "critic": "2026-10-06T01:00:00Z",
+    "root_close": "2026-10-06T01:10:00Z"
+  },
+  "on_failure": "Preserve actual result/error and checkpoint; no CLI/model/capacitypurchase/params/logging/capture/source rescue. Builtin asynchronous request is tool-owned; no local PID inventing or forced rerun.",
+  "required_review": "Root/critic each whole unchanged original, image-coordinate witnesses/explanation/twoalternatives. Completeheadhandsfeet, facecues/samecharacter, bob/eyevisibility, cardigan/tee/waist/skirt/hems/shoes/material readings. No fixed registered panels/hidden surfaces/physicalfit/runtime acceptance.",
+  "retained": "Full14scoped10broad/AAA/representation/expression/wardrobe/accepted/default/original/frozen/unrelated/ViteACTIVE10min; human steering wins"
+}

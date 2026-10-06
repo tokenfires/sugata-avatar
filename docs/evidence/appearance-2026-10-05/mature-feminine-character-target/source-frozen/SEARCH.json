@@ -1,0 +1,59 @@
+{
+  "began": {
+    "current_time": "2026-10-06 00:09:34 UTC"
+  },
+  "ended": {
+    "current_time": "2026-10-06 00:09:36 UTC"
+  },
+  "request": {
+    "query": "long open cardigan A-line midi skirt site:eileenfisher.com",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "includeDomains": [
+      "eileenfisher.com"
+    ],
+    "domainTools": false
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.eileenfisher.com/shop/clothing/sweaters-cardigans?srsltid=AU7gw4VSE7EIn8bD-Rji7KGV8hPrbhmGbUJXCl7ZMVii4hcMFzcFE6VQ\",\"title\":\"Women's Sweaters & Cardigans | EILEEN FISHER\",\"description\":\"4.043 · Free deliveryLong Cardigan Boxy Fit, Long Length $548.00. Find cozy women's sweaters and women's cardigan sweaters in timeless shapes and signature ...\",\"position\":1},{\"url\":\"https://www.eileenfisher.com/organic-linen-d%C3%A9lav%C3%A9-long-cardigan/S4KMR-K5414.html?srsltid=AU7gw4X_rbYRv6x9Upo5nJHPIpeVcU-QlyH6dMV1yFPFMOF_fCplUU9g\",\"title\":\"Organic Linen Délavé Long Cardigan | EILEEN FISHER\",\"description\":\"In stock Rating 4.7(34)A crocheted cardigan with a high collar and short sleeves. Layer it over tanks or tees, in textural organic linen. High collar, cap sleeves, 7-inch side slits. ...\",\"position\":2},{\"url\":\"https://www.eileenfisher.com/stretch-jersey-knit-a-line-skirt/196124719871.html?bvstate=pg:2/ct:r&srsltid=AU7gw4UA-T-ImxxRw0wk5LYIs1-N-pLvKDXKRFcbLADxENc7IH_LKct5\",\"title\":\"Stretch Jersey Knit A-Line Skirt | EILEEN FISHER\",\"description\":\"A fluid A-line skirt with an elastic waistband and full length. In a stretchyjersey knit made from sustainable Tencel™ Lyocell.\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10e8b-5784-74ae-ba41-70fac8c37e64\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.eileenfisher.com/shop/clothing/sweaters-cardigans?srsltid=AU7gw4VSE7EIn8bD-Rji7KGV8hPrbhmGbUJXCl7ZMVii4hcMFzcFE6VQ\\\", #2 \\\"https://www.eileenfisher.com/organic-linen-d%C3%A9lav%C3%A9-long-cardigan/S4KMR-K5414.html?srsltid=AU7gw4X_rbYRv6x9Upo5nJHPIpeVcU-QlyH6dMV1yFPFMOF_fCplUU9g\\\", #3 \\\"https://www.eileenfisher.com/stretch-jersey-knit-a-line-skirt/196124719871.html?bvstate=pg:2/ct:r&srsltid=AU7gw4UA-T-ImxxRw0wk5LYIs1-N-pLvKDXKRFcbLADxENc7IH_LKct5\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://www.eileenfisher.com/shop/clothing/sweaters-cardigans?srsltid=AU7gw4VSE7EIn8bD-Rji7KGV8hPrbhmGbUJXCl7ZMVii4hcMFzcFE6VQ\", #2 \"https://www.eileenfisher.com/organic-linen-d%C3%A9lav%C3%A9-long-cardigan/S4KMR-K5414.html?srsltid=AU7gw4X_rbYRv6x9Upo5nJHPIpeVcU-QlyH6dMV1yFPFMOF_fCplUU9g\", #3 \"https://www.eileenfisher.com/stretch-jersey-knit-a-line-skirt/196124719871.html?bvstate=pg:2/ct:r&srsltid=AU7gw4UA-T-ImxxRw0wk5LYIs1-N-pLvKDXKRFcbLADxENc7IH_LKct5\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.eileenfisher.com/shop/clothing/sweaters-cardigans?srsltid=AU7gw4VSE7EIn8bD-Rji7KGV8hPrbhmGbUJXCl7ZMVii4hcMFzcFE6VQ",
+            "title": "Women's Sweaters & Cardigans | EILEEN FISHER",
+            "description": "4.043 · Free deliveryLong Cardigan Boxy Fit, Long Length $548.00. Find cozy women's sweaters and women's cardigan sweaters in timeless shapes and signature ...",
+            "position": 1
+          },
+          {
+            "url": "https://www.eileenfisher.com/organic-linen-d%C3%A9lav%C3%A9-long-cardigan/S4KMR-K5414.html?srsltid=AU7gw4X_rbYRv6x9Upo5nJHPIpeVcU-QlyH6dMV1yFPFMOF_fCplUU9g",
+            "title": "Organic Linen Délavé Long Cardigan | EILEEN FISHER",
+            "description": "In stock Rating 4.7(34)A crocheted cardigan with a high collar and short sleeves. Layer it over tanks or tees, in textural organic linen. High collar, cap sleeves, 7-inch side slits. ...",
+            "position": 2
+          },
+          {
+            "url": "https://www.eileenfisher.com/stretch-jersey-knit-a-line-skirt/196124719871.html?bvstate=pg:2/ct:r&srsltid=AU7gw4UA-T-ImxxRw0wk5LYIs1-N-pLvKDXKRFcbLADxENc7IH_LKct5",
+            "title": "Stretch Jersey Knit A-Line Skirt | EILEEN FISHER",
+            "description": "A fluid A-line skirt with an elastic waistband and full length. In a stretchyjersey knit made from sustainable Tencel™ Lyocell.",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a10e8b-5784-74ae-ba41-70fac8c37e64",
+      "creditsUsed": 2
+    },
+    "isError": false
+  },
+  "no_followup_or_retry": true
+}

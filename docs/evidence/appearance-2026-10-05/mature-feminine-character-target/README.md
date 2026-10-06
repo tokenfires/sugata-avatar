@@ -1,0 +1,19 @@
+# Mara: retained artist direction
+
+The unchanged first Mara sheet passed independent and root visual review as a fictional artist discussion target. It adds a silver bob, literal mature-face details and a caramel-cardigan/plum-midi silhouette. Low leather loafers have small raised heels; the portrait has fine flyaways. Editable character, garment fit, motion, runtime, perceived age/gender and AAA qualification remain open.
+
+[Complete original](concept-v1.png) · [Design brief](BRIEF.md) · [Exact prompt](PROMPT.txt) · [Observed reference and authored choices](REFERENCES.md) · [Independent image review](IMAGE-RESULT.md) · [Root observations](IMAGE-ROOT-OBSERVATION.md)
+
+One fixed Firecrawl query returned three official EILEEN FISHER excerpts. Two exact supplied pages were scraped once; one supplied skirt photograph was viewed/captured once in the browser. Four total credits were reported. The photograph informs broad skirt fall and the hem-to-shoe interval. Its waist is concealed and it contains no cardigan. The cardigan page describes different cap-sleeved crochet; Mara's full sleeves, waistband visibility, face/body and palette are authored choices. No reformulation, refetch or second photo occurred. Selected actual text scopes and native screenshot limits are in REFERENCES and SOURCE-RECEIPT; neither whole page was manually reviewed.
+
+Source critic A was stable at 00:26:07 UTC October 6; root independently read its complete result/receipt, inspected the whole saved screenshot and verified all pins/requests. Source inquiry closed at 00:28:42, before its 00:55 gate. Exact IMAGE-REQUEST contains the 2,924-byte PROMPT (SHA256 666b5eb9d42c63a17b19f2f58754f475e6d0baa5ba065e9db59585080f39afd5) and transparent_background=false only; both image-reference mechanisms are omitted.
+
+Root requested one built-in image_gen.imagegen call at 00:29:05. It returned one complete image, observed 00:29:36; tool-reported duration 26.3 seconds, collection 00:30:15. The tool-owned backend process/progress/retirement is unavailable; no local generation PID is invented. IMAGE-JOB is historical pre-return metadata, superseded by IMAGE-RETURN. No retry, variant, image edit or source constructor occurred.
+
+The retained default file is /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-df7a1ffd-bbaa-41ed-9081-08be0000aaea.png. The project copy is byte-identical: 1,536×1,024, 2,383,355 bytes, SHA256 163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311. Root whole-original view f4e995 preceded critic appearance opinion; critic blind whole-original view was 00:31:09. Critic result was stable 00:41:38, before 01:00. Root fully read result 33a6be and receipt 366423, independently reconciled visible limits, and verified 20 critic direct inputs/result, 15 handoff, 12 plan and six admission rows in 3990f0. Exact timings and hashes are in ROOT-CLOSE/IMAGE-ROOT-READBACK.
+
+FROZEN binds 11 initial, four source-close and 11 image documentary snapshots, all read-only, plus the unchanged read-only project image and preserved default original. Evidence hashes support the actual visual review; they do not establish stronger character qualification.
+
+The rejected fixed source/CPU/head/groom/foot/sweater/capture methods stay closed. Accepted assets, original references, unrelated worktrees, all 14 scoped checklist deliverables and ten broad open goals remain. Vite and the saved active ten-minute recovery are retained. No purchase, installation, model/subscription change, push, publication or other project work occurred. Newer human check-in or pause wins.
+
+Next: a separate bounded local board access entry, with source and actual desktop/mobile review. Its inert conditional plan is prepared; no board, checklist, runtime or asset promotion follows this art closure automatically.

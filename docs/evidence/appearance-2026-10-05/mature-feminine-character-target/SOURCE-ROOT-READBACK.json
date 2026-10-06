@@ -1,0 +1,69 @@
+{
+  "readback_utc": "2026-10-06T00:28:42.781403+00:00",
+  "decision": "A exact one-original artist illustration preparation, no appearance/source/runtime credit",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-HANDOFF.json",
+      "bytes": 3648,
+      "sha256": "446ebb7ee76c0e8137c5730d2262456f130020d98ec9c6b39c3c5ab15b22e18a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-RESULT.md",
+      "bytes": 6339,
+      "sha256": "e1e94e38f2ad06efe7095dc52befed067b6c720cba3808cffafa5c17ef092dce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/SOURCE-RECEIPT.json",
+      "bytes": 8073,
+      "sha256": "79b9d3354b6288b07cd9d99b8446a4e51189662139e10635668453fd5b6ef9c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/PLAN.json",
+      "bytes": 4276,
+      "sha256": "0c52265b15ee4a5c948f1a713cfb72e946b2135181663922af6be0d68566ac78"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md",
+      "bytes": 3630,
+      "sha256": "962f4927f70174d82daa5fdaa3b902e6853c0db16388d689f6f5ba62c40c6255"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/PROMPT.txt",
+      "bytes": 2924,
+      "sha256": "666b5eb9d42c63a17b19f2f58754f475e6d0baa5ba065e9db59585080f39afd5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/REFERENCES.md",
+      "bytes": 3623,
+      "sha256": "010d93a9b7c7a113a4522598a655f1bc945be67bab4c2e5a3f7112dd7fd3a00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/REFERENCE-VIEW.json",
+      "bytes": 1523,
+      "sha256": "e861305fc6295b6d83f6bf4f832bdd460a9172d2079f1919fcbf88bb993953d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/reference-first.jpg",
+      "bytes": 24516,
+      "sha256": "9581c23de9ca8f78be898e145b0e2a3ba1ecedf942ce1bc9d41ead70f19ad765"
+    }
+  ],
+  "actual_reads": [
+    "76b50c complete PLAN/BRIEF/PROMPT/REFERENCES/SOURCE-HANDOFF",
+    "67142a complete critic SOURCE-RESULT and SOURCE-RECEIPT",
+    "f16116 root whole saved1280x720 reference original detail and recovered work-window tail",
+    "c664eb skirt markdown218-249/cardigan214-243,10handoff/11snapshot pins",
+    "dae464 all10handoff/6PLAN/16criticdirect/result pins, exact request/status/content equivalence, full REFERENCE-VIEW"
+  ],
+  "source_identity_verification": "Exact search request matchesPLAN; both requestURLs are returnedwebURLs; view URL is PAGE1ogImage; selected garment clauses independently inspected",
+  "independent_findings": "Saved photo shows gently widening skirt/broad lower folds and hem-to-flatshoe interval, hidden waist and no cardigan. Cardigan text is cap-sleeved crochet/highcollar. Mara fullsleeve cardigan/woven midi/tucked visible waist/face/body/palette are explicitly authored, so limited reference suffices for original illustrative composition only. No fineweave/hiddengeometry/fit/weareragegender source claim.",
+  "alternatives": "A exact original art with narrow observed skirt authority and explicit newchoices; B retainbriefonly avoiding speculative art but deferring the composition. Root selectsA at artist scope.",
+  "counts": {
+    "query": 1,
+    "pages": 2,
+    "external_photo_views": 1,
+    "generation": 0,
+    "source_trials": 0
+  },
+  "pending_edits": false
+}
