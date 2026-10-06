@@ -1,0 +1,28 @@
+{
+  "stage": "finished",
+  "utc": "2026-10-06T05:52:19.480Z",
+  "elapsedMs": 64790,
+  "dom": "- banner:\n  - link \"SUGATA\":\n    - /url: ../../../../packages/testbed/src/showcase.html\n    - text: 姿SUGATA\n- main:\n  - paragraph: Saved looks\n  - heading \"Keep your collection.\" [level=1]\n  - paragraph: Download all your named looks together, or bring back a collection you saved earlier. Your current wardrobe preview stays as it is.\n  - region \"In this browser 2 / 12\":\n    - heading \"In this browser 2 / 12\" [level=2]:\n      - text: In this browser\n      - generic: 2 / 12\n    - paragraph: These looks belong to this site's address and browser profile. Clearing browser data removes them.\n    - list \"Current saved looks\":\n      - listitem: Quiet morning\n      - text: Future styling\n      - generic: Unavailable in this version · kept in your backup\n    - button \"Download collection\" [disabled]\n  - region \"Bring back a backup\":\n    - heading \"Bring back a backup\" [level=2]\n    - paragraph: Choose a Sugata collection backup to preview it. Individual look settings files belong in the wardrobe preview's Open settings control.\n    - generic: Collection backup file\n    - button \"Collection backup file\" [disabled]\n    - button \"Cancel preview\" [disabled]\n  - status: Backup download requested. Keep the file somewhere you can find it again.\n  - button \"Refresh saved looks\"\n  - generic: Restore replaces the saved collection in this browser. Undo stays available while this page is open and the restored collection has not changed. Older looks stay in the backup even when this version cannot open them.\n- complementary:\n  - heading \"Isolated test collection\" [level=2]\n  - paragraph: This fixture uses its own temporary browser-storage key. The personal saved-look key is never read or written.\n  - button \"Add a test look\" [disabled]\n  - button \"Finish fixture\" [disabled]\n  - generic: \"{ \\\"key\\\": \\\"sugata:review:collection-backup:8e3183e2-4384-4f17-b616-b9e247cb250f\\\", \\\"stage\\\": \\\"finished\\\", \\\"raw\\\": null, \\\"rawKnown\\\": true, \\\"count\\\": 0, \\\"parseError\\\": null, \\\"operations\\\": [ { \\\"stage\\\": \\\"initialize\\\", \\\"raw\\\": \\\"{\\\\n \\\\\\\"version\\\\\\\":1,\\\\n \\\\\\\"looks\\\\\\\":[\\\\n {\\\\\\\"id\\\\\\\":\\\\\\\"studio\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Quiet morning\\\\\\\",\\\\\\\"configuration\\\\\\\":{\\\\\\\"identity\\\\\\\":{\\\\\\\"gender\\\\\\\":0.5,\\\\\\\"mode\\\\\\\":\\\\\\\"nearest\\\\\\\"},\\\\\\\"hair\\\\\\\":\\\\\\\"bob02\\\\\\\",\\\\\\\"hairColour\\\\\\\":\\\\\\\"#59443b\\\\\\\",\\\\\\\"hairTint\\\\\\\":{\\\\\\\"colour\\\\\\\":\\\\\\\"#776699\\\\\\\",\\\\\\\"amount\\\\\\\":0.23},\\\\\\\"frame\\\\\\\":\\\\\\\"body\\\\\\\",\\\\\\\"quality\\\\\\\":\\\\\\\"balanced\\\\\\\",\\\\\\\"scene\\\\\\\":\\\\\\\"studio\\\\\\\",\\\\\\\"lighting\\\\\\\":\\\\\\\"neutral\\\\\\\",\\\\\\\"seed\\\\\\\":20260807,\\\\\\\"pose\\\\\\\":\\\\\\\"relaxed-standing\\\\\\\",\\\\\\\"wardrobe\\\\\\\":{\\\\\\\"style\\\\\\\":\\\\\\\"charcoal\\\\\\\",\\\\\\\"colours\\\\\\\":{\\\\\\\"top\\\\\\\":\\\\\\\"#c5ba9e\\\\\\\",\\\\\\\"bottom\\\\\\\":\\\\\\\"#292e34\\\\\\\",\\\\\\\"shoes\\\\\\\":\\\\\\\"#714d36\\\\\\\"},\\\\\\\"outfit\\\\\\\":[\\\\\\\"female_casualsuit01\\\\\\\",\\\\\\\"shoes01\\\\\\\"],\\\\\\\"foundation\\\\\\\":{\\\\\\\"TORSO\\\\\\\":\\\\\\\"foundation_bra\\\\\\\",\\\\\\\"HIPS\\\\\\\":\\\\\\\"foundation_briefs\\\\\\\"}}}},\\\\n {\\\\\\\"id\\\\\\\":\\\\\\\"future\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Future styling\\\\\\\",\\\\\\\"configuration\\\\\\\":{\\\\\\\"overflow\\\\\\\":1e400,\\\\\\\"zero\\\\\\\":-0,\\\\\\\"glyph\\\\\\\":\\\\\\\"\\\\ud800\\\\\\\"}}\\\\n ]\\\\n}\\\" }, { \\\"stage\\\": \\\"cleanup\\\" } ], \\\"errors\\\": [], \\\"retirement\\\": \\\"released\\\", \\\"owned\\\": false, \\\"finished\\\": true, \\\"fixtureKeyAbsent\\\": true }\"",
+  "receipt": {
+    "key": "sugata:review:collection-backup:8e3183e2-4384-4f17-b616-b9e247cb250f",
+    "stage": "finished",
+    "raw": null,
+    "rawKnown": true,
+    "count": 0,
+    "parseError": null,
+    "operations": [
+      {
+        "stage": "initialize",
+        "raw": "{\n \"version\":1,\n \"looks\":[\n {\"id\":\"studio\",\"name\":\"Quiet morning\",\"configuration\":{\"identity\":{\"gender\":0.5,\"mode\":\"nearest\"},\"hair\":\"bob02\",\"hairColour\":\"#59443b\",\"hairTint\":{\"colour\":\"#776699\",\"amount\":0.23},\"frame\":\"body\",\"quality\":\"balanced\",\"scene\":\"studio\",\"lighting\":\"neutral\",\"seed\":20260807,\"pose\":\"relaxed-standing\",\"wardrobe\":{\"style\":\"charcoal\",\"colours\":{\"top\":\"#c5ba9e\",\"bottom\":\"#292e34\",\"shoes\":\"#714d36\"},\"outfit\":[\"female_casualsuit01\",\"shoes01\"],\"foundation\":{\"TORSO\":\"foundation_bra\",\"HIPS\":\"foundation_briefs\"}}}},\n {\"id\":\"future\",\"name\":\"Future styling\",\"configuration\":{\"overflow\":1e400,\"zero\":-0,\"glyph\":\"\ud800\"}}\n ]\n}"
+      },
+      {
+        "stage": "cleanup"
+      }
+    ],
+    "errors": [],
+    "retirement": "released",
+    "owned": false,
+    "finished": true,
+    "fixtureKeyAbsent": true
+  }
+}

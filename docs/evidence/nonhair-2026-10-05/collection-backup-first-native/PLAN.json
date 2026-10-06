@@ -1,0 +1,116 @@
+{
+  "utc": "2026-10-06T05:51:02.232341+00:00",
+  "pid": 13386,
+  "checkpoint": "cf7a8c4",
+  "decision": "Does exact same-controller public browser download/picker/RestoreUndo/refusal/cleanup work at fixture scope and is actual product readable? Root admits these TWO serial operations afterwhole CPU/source A; stillunlinked/no featurecredit",
+  "inputs": [
+    {
+      "path": "packages/testbed/src/showcase-collection-backup.mjs",
+      "bytes": 4998,
+      "sha256": "7a8549a4b1f0b7a052a6458e74037479e72e237be08468eeb7044efbdc033264",
+      "lines": 100
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection-backup-ui.mjs",
+      "bytes": 7671,
+      "sha256": "9bf828dcae53c9ad1db97c4d0b8c6dd5678834d04cba924dbb6f772257d7ac12",
+      "lines": 136
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection-backup.html",
+      "bytes": 5208,
+      "sha256": "693f81a74edea42418a476dbf341db934a0a6e0f397e0de1a96a9caa8f26c344",
+      "lines": 36
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection-backup.selftest.mjs",
+      "bytes": 12390,
+      "sha256": "80bd735f754230aa6ae2cdc3552aced35c5b51f7747ec18be6464165fe2e108b",
+      "lines": 134
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/fixture.html",
+      "bytes": 5656,
+      "sha256": "ff92a2b457c461abc7ba98389ca271ec539da5ea5ca19c99f0a42bd4fef708ba",
+      "lines": 37
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/fixture.mjs",
+      "bytes": 4922,
+      "sha256": "54bb520a4638b4979b47ee284783a5cab5963bcb2f85d9d5ae47108402eaf1e5",
+      "lines": 77
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/test-runner.py",
+      "bytes": 4032,
+      "sha256": "7c2fc75b43937157db28ddf4c6a7cda77a259e68c3f6cb5b8df47e1219ce7b4a",
+      "lines": 82
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/ROOT-CLOSE.json",
+      "bytes": 4771,
+      "sha256": "b8185429f044cc5cb23af238a93aa771096c6463b1b61ac0c1dabc5d3e6e7bc8"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/CPU-RESULT.md",
+      "bytes": 4450,
+      "sha256": "a6dd1cf467785cd802d43d07657da8d84c44e8e81cf56fd4d7165b0558762792"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/CPU-RECEIPT.json",
+      "bytes": 14288,
+      "sha256": "c2747b7553c3691a6c50f5f73f398d709cf77323ce171a166c67cb37de7c6b6b"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/SOURCE-V2-RESULT.md",
+      "bytes": 6937,
+      "sha256": "36bc50c41c8b8add9b210e5f5d64f585bd40e5a137c401201703e2a92a11df3d"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/SOURCE-V2-RECEIPT.json",
+      "bytes": 27305,
+      "sha256": "148703b1b6ca86ee5f38ed0333f0c5755308d7bf09ea2c1fbb3cde6bb915d0a3"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/unknown-version.json",
+      "bytes": 55,
+      "sha256": "9ce1111808fd451d8878475898191d45ccdbb71bb24e56d199ad153ce1e9894f"
+    }
+  ],
+  "operation1": {
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/fixture.html",
+    "physicalKey": "sugata:review:collection-backup:8e3183e2-4384-4f17-b616-b9e247cb250f",
+    "sequence": [
+      "absentkey initialization2/checkvisiblezerofaultreceipt",
+      "download public completedpath and read exactbytes; decoded.raw equals visible seedraw and originalUTF16unchanged",
+      "Add3 publicbutton/receipt",
+      "select SAME downloaded absolute path publicfilechooser",
+      "preview2replaces3 visible/currentraw unchanged; firstwholeoriginalpreviewJPEG",
+      "explicitRestore2 raw equalsseed/downloadraw",
+      "Undoexact3 raw equalsAdd3savedstring",
+      "choose literal unknown-version.json/publicchooser/refusal currentraw3unchanged no new fixturewrite",
+      "Finish fixture zerofaults/released/knownraw/absentkey/ownedfalse/finishedtrue; firstwholeoriginalFinishJPEG",
+      "closeonlyownedtab;APIbeforeafterinventory retainserver/usertabs"
+    ],
+    "budget": "fromfirstcreate120s+15s cleanup; allevent/loadwait<=15s; onfirsterror/refusal/time/file/DOM mismatch stop acceptance, independently Finish+record/closeowned; no rescue/retake/reload/sourceedit"
+  },
+  "operation2": {
+    "url": "http://127.0.0.1:5173/src/showcase-collection-backup.html",
+    "scope": "Separatefirst production readonly desktop default1280x720 then mobile390x844; raw userstorage never written; no download/choose/Restore/Undo/testcontrols",
+    "sequence": [
+      "firstdefaultwholeoriginaldesktopJPEG and DOM",
+      "temporary mobileviewport390x844,firstwholeoriginalmobileJPEG and DOM",
+      "consolelimited12warnerror; resetviewport then closeonlyownedtab"
+    ],
+    "budget": "separatefirstcreate120s+15s reset/closecleanup; firstfailedreadability/stage stops no CSS/capture/source/observer rescue"
+  },
+  "ownership": "Rootserial CUA selectedIAB3/documentedDOM/publicchooser/download. No hiddenruntime/storageeval/HTTP/otherbrowser/GPU. Source-derived URLs aca324 confirmedwholeViteconfig; no guessedvariant/fallback. Generatedfixture files toownnamedlocaltestworkflow only, no personalfiles tothirdparty.",
+  "outputs": "Exclusive newleafactualstates/returneddownloadbytes/rawsource-equality/wholefirstJPEG/console/clocks/tabcleanupmetadata; no imageediting/cropping/retakes",
+  "stops": {
+    "criticUTC": "2026-10-06T06:20:00Z",
+    "rootUTC": "2026-10-06T06:30:00Z",
+    "human": "newercheckin/pause/capacitywins"
+  },
+  "acceptance": "Wholefeature maybedelivered onlyif BOTH operations agreeactualinput/output/DOM/cleanup and firstdesktop/mobilereadability, independent wholecritic+root verified sourcehashes. Otherwisecandidateisolated no checkbox. Browserfixture one testedcase; CPU finite broaderenum data; no allbrowser/cross-tabCAS/avatarappearance/fit/AAA credit",
+  "preserved": "16scoped10broad/fullscope/accepteddefaultoriginalfrozenunrelated/reviewVite1023/recoveryautomation;no pushpublishpurchaseinstallmodelsubscriptionotherproject"
+}

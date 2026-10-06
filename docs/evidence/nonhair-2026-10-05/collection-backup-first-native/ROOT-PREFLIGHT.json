@@ -1,0 +1,90 @@
+{
+  "utc": "2026-10-06T05:53:17.667658+00:00",
+  "pid": 13614,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/OPERATION1.json",
+      "bytes": 12957,
+      "sha256": "9822b3f3af795c2598e895ce5cba88ebfd7afee54997e0b3a01e804d6e6d6635"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/PLAN.json",
+      "bytes": 6227,
+      "sha256": "c38c71e70f2f86e882dd3652dbfa5eaa57dc58e497d85090acc2421538441b3e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/fixture-download-unobserved.jpg",
+      "bytes": 272611,
+      "sha256": "f2476b6a2c3f35691040a86fec8ed3278759e333dc2280910a0cb685b4922cf0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/fixture-download-unobserved.json",
+      "bytes": 7259,
+      "sha256": "b81b694261be0ea640edda121fadcce3590c17006f5ad9c0807f3b303dd0d773"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/fixture-finished.jpg",
+      "bytes": 200744,
+      "sha256": "600cb70111ef55cea1c53eacca1ed4871ec171b15de1cf134595e774fb4eacfc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/fixture-finished.json",
+      "bytes": 5124,
+      "sha256": "e1a10d60f72aa95d3b5d8b0bef673431813e94f4f21796868a832d6d66477373"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-first-native/fixture-ready.json",
+      "bytes": 7161,
+      "sha256": "5feed8bfcc20ac5e302893ca673069818359ac13c9fcf93ef64c2006b93e078c"
+    }
+  ],
+  "planInputsExact13": true,
+  "decision": "Root B wholefeature/public completeddownload; actual wholeoriginal failure+Finishimages viewed independently. No retake/sourceedit/alternateevent/chooser/filepathhunt or productionlayout substitution.",
+  "actual": {
+    "operation1": "B public completed download path/filebytes unobserved after first15s wait; no retry/chooser/Add/Restore/Undo/refusal operation attempted; no cause attribution",
+    "startUTC": "2026-10-06T05:51:14.690Z",
+    "finishUTC": "2026-10-06T05:52:19.618Z",
+    "elapsedMs": 64928,
+    "tabId": "53",
+    "downloadWait": "First public waitForEvent(download,15000) registered before click timedout; status says requested. No completedfile/pathbytes observation; completion and cause unknown.",
+    "cleanup": {
+      "key": "sugata:review:collection-backup:8e3183e2-4384-4f17-b616-b9e247cb250f",
+      "stage": "finished",
+      "raw": null,
+      "rawKnown": true,
+      "count": 0,
+      "parseError": null,
+      "operations": [
+        {
+          "stage": "initialize",
+          "raw": "{\n \"version\":1,\n \"looks\":[\n {\"id\":\"studio\",\"name\":\"Quiet morning\",\"configuration\":{\"identity\":{\"gender\":0.5,\"mode\":\"nearest\"},\"hair\":\"bob02\",\"hairColour\":\"#59443b\",\"hairTint\":{\"colour\":\"#776699\",\"amount\":0.23},\"frame\":\"body\",\"quality\":\"balanced\",\"scene\":\"studio\",\"lighting\":\"neutral\",\"seed\":20260807,\"pose\":\"relaxed-standing\",\"wardrobe\":{\"style\":\"charcoal\",\"colours\":{\"top\":\"#c5ba9e\",\"bottom\":\"#292e34\",\"shoes\":\"#714d36\"},\"outfit\":[\"female_casualsuit01\",\"shoes01\"],\"foundation\":{\"TORSO\":\"foundation_bra\",\"HIPS\":\"foundation_briefs\"}}}},\n {\"id\":\"future\",\"name\":\"Future styling\",\"configuration\":{\"overflow\":1e400,\"zero\":-0,\"glyph\":\"\ud800\"}}\n ]\n}"
+        },
+        {
+          "stage": "cleanup"
+        }
+      ],
+      "errors": [],
+      "retirement": "released",
+      "owned": false,
+      "finished": true,
+      "fixtureKeyAbsent": true
+    },
+    "beforeTabs": [],
+    "afterTabs": [],
+    "console": []
+  },
+  "unobserved": [
+    "downloadcompletion/path/filebytes",
+    "Add3",
+    "filechooser",
+    "previewreplacement",
+    "Restore",
+    "Undo",
+    "unknown-version refusal"
+  ],
+  "operation2": "Notstarted: after decisive functionalityB, readonlyproductionviews would not change wholefeature delivery. No screenshotpass substituted for connectedbrowsersequence.",
+  "sourceCurrent": "all13PLANpins exact; accepted/core/checklist/default unchanged; sourceCPUA remains; nativeB no promotion/mainlink/checkbox",
+  "bookkeepingError": "2c97c4 systemPython PIL import unavailable before any metadata/file write; no target/browser/storage action. No install; actual file command used for originalJPEGmetadata.",
+  "next": "Independent actualwholeimage/DOM/receipt review before coherent nativeB checkpoint; select a genuinely distinct worthwhile artist improvement afterward, no download/lifetime/transport/controller/native rescue inherited",
+  "preserved": "16scoped10broad/fullAAA and allstandingboundaries/Vite/recovery"
+}
