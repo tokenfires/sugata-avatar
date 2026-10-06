@@ -1,0 +1,16 @@
+{
+  "started": {
+    "current_time": "2026-10-06 06:29:35 UTC"
+  },
+  "finished": {
+    "current_time": "2026-10-06 06:29:35 UTC"
+  },
+  "cmd": "python3 docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/publish-registry.py",
+  "result": {
+    "chunk_id": "cdb1bd",
+    "wall_time_seconds": 6.708e-06,
+    "exit_code": 0,
+    "original_token_count": 143,
+    "output": "{\"utc\": \"2026-10-06T06:29:35.311800+00:00\", \"pid\": 17142, \"command\": \"python3 docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/publish-registry.py\", \"svg_bytes\": 13149, \"svg_sha256\": \"71b8aff21e19a71fc0703ce564bf3936274c1c8a6739d4d260a2c216474059c6\", \"json_bytes\": 76118, \"json_sha256\": \"234c47f0bf1245e6d675eb42ad258b7110c6e67261241fbb2e3ca6b2586633d4\", \"elements\": 100, \"required_views\": [\"top\", \"lateral-profile\", \"front\", \"rear\", \"sole\", \"inside\"], \"decision_scope\": \"Finite exact source registry only; no rendered appearance or physical acceptance.\"}\n"
+  }
+}

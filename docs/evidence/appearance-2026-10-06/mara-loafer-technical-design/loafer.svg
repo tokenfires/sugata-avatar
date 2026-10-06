@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="mara-loafer-sheet" width="1440" height="1040" viewBox="0 0 1440 1040" role="img" aria-labelledby="sheet-title sheet-description" data-feature="document">
+  <title id="sheet-title">Mara: original oxblood loafer technical design</title>
+  <desc id="sheet-description">Six unitless, unregistered views of one left loafer: top, lateral profile, front, rear, sole and inside schematic. Rounded apron, plain oval saddle slit, cream lining and low heel. Artist design only; no physical fit or manufacturing claim.</desc>
+  <style id="sheet-styles">.ink{stroke:#392929;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.upper{fill:#6f2737}.shade{fill:#491b29}.light{fill:#9d5561}.lining{fill:#ead3b0}.footbed{fill:#d0b38f}.sole{fill:#343033}.midsole{fill:#66513f}.seam{fill:none;stroke:#d4a1a0;stroke-width:1.7;stroke-dasharray:4 5;stroke-linecap:round}.plain{fill:none;stroke:#392929;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.hidden{fill:none;stroke:#9b7c65;stroke-width:2;stroke-dasharray:6 5}.label{font:600 17px system-ui,sans-serif;fill:#392929;letter-spacing:1px}.note{font:16px system-ui,sans-serif;fill:#665b56}.small{font:14px system-ui,sans-serif;fill:#665b56}</style>
+  <rect id="paper" x="0" y="0" width="1440" height="1040" fill="#fbf6ec"/>
+  <g id="header" data-feature="sheet-context">
+    <text id="eyebrow" x="48" y="39" class="label">MARA / FOOTWEAR 01</text>
+    <text id="heading" x="48" y="81" fill="#392929" font-family="Georgia,serif" font-size="36">A quiet oxblood loafer</text>
+    <text id="subheading" x="48" y="112" class="note">Original artist design · Left shoe · Six independently authored, unitless views</text>
+    <path id="header-rule" d="M48 137 H1392" stroke="#c9b6a3" stroke-width="1"/>
+    <rect id="upper-swatch" x="1117" y="45" width="38" height="24" rx="4" fill="#6f2737"/>
+    <rect id="lining-swatch" x="1164" y="45" width="38" height="24" rx="4" fill="#ead3b0"/>
+    <rect id="sole-swatch" x="1211" y="45" width="38" height="24" rx="4" fill="#343033"/>
+    <text id="palette-caption" x="1117" y="92" class="small">Oxblood / cream / charcoal</text>
+  </g>
+  <g id="top-panel" data-view="top" data-feature="top-context">
+    <text id="top-heading" x="48" y="178" class="label">01 / TOP</text>
+    <text id="top-orientation" x="48" y="202" class="small">Toe up · medial edge right</text>
+    <g id="top-shoe" transform="translate(90 226)" class="ink" data-feature="upper-silhouette">
+      <path id="top-sole-edge" class="sole" data-feature="outsole-edge" d="M134 0 C101 -2 79 20 70 56 C62 92 68 133 78 166 C89 195 86 216 90 248 C93 277 109 291 134 293 C159 295 175 281 179 255 C183 229 175 207 177 183 C179 157 193 129 195 91 C198 53 190 26 171 10 C162 3 148 0 134 0 Z"/>
+      <path id="top-upper" class="upper" d="M134 7 C104 6 85 24 77 59 C70 91 75 132 85 163 C96 193 94 216 97 247 C99 270 112 284 134 286 C156 287 170 274 173 253 C176 227 169 207 171 182 C173 155 186 128 188 91 C191 56 185 32 167 17 C158 10 146 7 134 7 Z"/>
+      <path id="top-entry-lining" class="lining" data-feature="collar-entry" d="M101 180 C99 168 109 154 130 152 C151 152 165 165 164 181 L163 249 C162 268 151 278 135 278 C118 277 106 266 105 249 Z"/>
+      <path id="top-entry-footbed" class="footbed" data-feature="footbed" d="M110 180 C109 170 116 163 131 161 C146 160 156 169 155 181 L155 248 C154 262 147 270 135 270 C122 270 115 261 114 248 Z"/>
+      <path id="top-apron-pipe" class="light" data-feature="apron" d="M83 131 C81 111 77 86 81 62 C85 36 102 19 129 17 C154 15 173 29 180 55 C187 83 180 113 172 132 L168 128 C176 107 181 82 175 57 C169 34 153 22 130 24 C108 25 91 40 87 63 C83 86 87 109 89 128 Z"/>
+      <path id="top-apron-stitch" class="seam" data-feature="apron" d="M92 126 C90 107 85 84 90 63 C95 42 110 31 130 30 C150 28 165 40 171 60 C177 82 171 107 165 126"/>
+      <path id="top-saddle" class="shade" data-feature="saddle" d="M83 130 Q133 117 174 131 L171 160 Q132 151 91 161 Z"/>
+      <path id="top-saddle-highlight" class="plain" data-feature="saddle" d="M90 137 Q132 127 167 138"/>
+      <ellipse id="top-saddle-slot" cx="133" cy="142" rx="21" ry="5" class="upper" data-feature="saddle-slot"/>
+      <path id="top-quarter-seam" class="seam" data-feature="quarter-seam" d="M98 184 L101 246 M169 183 L168 248"/>
+      <path id="top-heel-seat" class="plain" data-feature="footbed" d="M119 247 Q135 252 150 247"/>
+    </g>
+    <text id="top-note" x="48" y="555" class="note">Apron pipe ends beside the saddle.</text>
+  </g>
+  <g id="profile-panel" data-view="lateral-profile" data-feature="profile-context">
+    <text id="profile-heading" x="522" y="178" class="label">02 / LATERAL PROFILE</text>
+    <text id="profile-orientation" x="522" y="202" class="small">Left shoe · toe right</text>
+    <g id="profile-shoe" transform="translate(526 297)" class="ink" data-feature="upper-silhouette">
+      <path id="profile-heel" class="sole" data-feature="heel" d="M12 135 L114 135 L109 160 L17 160 Z"/>
+      <path id="profile-heel-stack" class="midsole" data-feature="heel" d="M14 133 H114 L111 150 H17 Z"/>
+      <path id="profile-midsole" class="midsole" data-feature="midsole" d="M8 114 Q73 124 147 122 Q265 127 359 113 L357 131 Q255 145 139 135 Q67 143 11 135 Z"/>
+      <path id="profile-outsole" class="sole" data-feature="outsole" d="M139 132 Q255 140 357 125 L357 134 Q257 149 139 141 Z"/>
+      <path id="profile-upper" class="upper" d="M10 114 C7 95 10 63 19 49 Q49 56 81 65 Q116 77 141 77 Q172 74 190 57 L211 70 Q228 93 278 98 Q320 103 349 101 Q362 103 359 114 Q267 132 155 122 Q77 127 10 114 Z"/>
+      <path id="profile-collar-lining" class="lining" data-feature="collar-entry" d="M19 49 Q57 58 85 66 Q117 79 141 77 Q166 75 188 58 L184 66 Q164 81 139 84 Q113 85 79 73 Q47 63 17 56 Z"/>
+      <path id="profile-counter-seam" class="plain" data-feature="counter" d="M46 62 Q34 86 38 117"/>
+      <path id="profile-counter-stitch" class="seam" data-feature="counter" d="M53 67 Q42 89 46 116"/>
+      <path id="profile-saddle" class="shade" data-feature="saddle" d="M188 57 L211 70 L224 91 L201 96 Q199 76 188 57 Z"/>
+      <path id="profile-apron" class="light" data-feature="apron" d="M221 91 Q270 99 315 97 Q337 96 350 102 L348 107 Q332 102 312 104 Q270 106 222 98 Z"/>
+      <path id="profile-apron-stitch" class="seam" data-feature="apron" d="M229 105 Q284 115 342 111"/>
+      <path id="profile-heel-strata" class="plain" data-feature="heel" d="M22 143 H104"/>
+    </g>
+    <text id="profile-note" x="522" y="520" class="note">Shallow toe fall · narrow sole edge</text>
+    <text id="profile-note-heel" x="522" y="545" class="small">Low heel with a dark contact patch.</text>
+  </g>
+  <g id="front-panel" data-view="front" data-feature="front-context">
+    <text id="front-heading" x="996" y="178" class="label">03 / FRONT</text>
+    <text id="front-orientation" x="996" y="202" class="small">Toe toward viewer</text>
+    <g id="front-shoe" transform="translate(1021 320)" class="ink" data-feature="upper-silhouette">
+      <path id="front-sole-edge" class="sole" data-feature="outsole" d="M8 96 Q130 128 260 96 L254 114 Q130 145 15 114 Z"/>
+      <path id="front-midsole" class="midsole" data-feature="midsole" d="M9 88 Q130 121 259 89 L259 98 Q130 132 11 99 Z"/>
+      <path id="front-upper" class="upper" d="M9 88 Q13 47 51 35 Q81 11 132 11 Q183 11 216 35 Q251 49 259 89 Q130 123 9 88 Z"/>
+      <path id="front-saddle" class="shade" data-feature="saddle" d="M58 35 Q132 18 210 36 L214 54 Q130 39 54 53 Z"/>
+      <ellipse id="front-saddle-slot" cx="133" cy="36" rx="18" ry="3" class="upper" data-feature="saddle-slot"/>
+      <path id="front-apron-pipe" class="light" data-feature="apron" d="M39 61 Q129 40 229 61 L226 70 Q130 51 42 70 Z"/>
+      <path id="front-apron-stitch" class="seam" data-feature="apron" d="M48 76 Q130 62 221 77"/>
+      <path id="front-toe-curve" class="plain" data-feature="toe-fall" d="M38 94 Q133 114 232 94"/>
+    </g>
+    <text id="front-note" x="996" y="520" class="note">Soft round toe · no laces or logo</text>
+    <text id="front-note-slot" x="996" y="545" class="small">Plain slit exposes the vamp beneath.</text>
+  </g>
+  <path id="row-rule" d="M48 579 H1392" stroke="#d6c4b2" stroke-width="1" data-feature="sheet-context"/>
+  <g id="rear-panel" data-view="rear" data-feature="rear-context">
+    <text id="rear-heading" x="48" y="619" class="label">04 / REAR</text>
+    <text id="rear-orientation" x="48" y="643" class="small">Heel toward viewer · continuous counter</text>
+    <g id="rear-shoe" transform="translate(117 733)" class="ink" data-feature="upper-silhouette">
+      <path id="rear-heel" class="sole" data-feature="heel" d="M19 115 Q116 133 211 115 L204 143 Q116 162 25 143 Z"/>
+      <path id="rear-heel-stack" class="midsole" data-feature="heel" d="M20 115 Q116 133 210 115 L207 130 Q116 147 23 130 Z"/>
+      <path id="rear-midsole" class="midsole" data-feature="midsole" d="M12 101 Q114 117 219 101 L215 115 Q116 133 17 115 Z"/>
+      <path id="rear-upper" class="upper" d="M13 101 Q12 39 39 20 Q115 -4 191 20 Q218 38 218 101 Q115 120 13 101 Z"/>
+      <path id="rear-collar" class="lining" data-feature="collar-entry" d="M39 20 Q116 0 191 20 L188 27 Q116 10 42 27 Z"/>
+      <path id="rear-counter-seam" class="plain" data-feature="counter" d="M116 17 L116 109"/>
+      <path id="rear-counter-stitch" class="seam" data-feature="counter" d="M109 24 V106 M123 24 V106"/>
+      <path id="rear-heel-strata" class="plain" data-feature="heel" d="M32 128 Q116 142 197 128"/>
+    </g>
+    <text id="rear-note" x="48" y="962" class="note">Closed heel · modest centre seam</text>
+  </g>
+  <g id="sole-panel" data-view="sole" data-feature="sole-context">
+    <text id="sole-heading" x="522" y="619" class="label">05 / OUTSOLE</text>
+    <text id="sole-orientation" x="522" y="643" class="small">Toe up · medial edge right · authored underside</text>
+    <g id="sole-shoe" transform="translate(573 660)" class="ink" data-feature="outsole">
+      <path id="sole-outline" class="sole" d="M134 0 C101 -2 79 20 70 56 C62 92 68 133 78 166 C89 195 86 216 90 248 C93 277 109 291 134 293 C159 295 175 281 179 255 C183 229 175 207 177 183 C179 157 193 129 195 91 C198 53 190 26 171 10 C162 3 148 0 134 0 Z"/>
+      <path id="sole-forepart-waist" class="midsole" d="M134 8 C105 7 86 26 78 60 C71 91 77 131 87 164 C97 191 97 217 100 240 Q135 250 170 242 C173 217 168 201 170 179 C172 153 187 125 188 91 C191 57 184 32 167 17 C158 11 145 8 134 8 Z"/>
+      <path id="sole-edge-stitch" class="seam" data-feature="outsole-edge" d="M101 233 C100 207 100 188 91 161 C82 133 77 91 85 60 C92 31 109 17 133 16 C156 15 175 34 180 59 C187 91 180 124 168 153 C160 178 165 211 163 234"/>
+      <path id="sole-waist-line" class="plain" data-feature="sole-waist" d="M92 166 Q136 176 174 162"/>
+      <path id="sole-heel-patch" class="sole" data-feature="heel-patch" d="M100 238 Q134 247 172 238 L172 253 C170 274 155 284 135 285 C115 284 104 273 102 254 Z"/>
+      <path id="sole-heel-grooves" fill="none" stroke="#9b8e82" stroke-width="2" data-feature="heel-patch" d="M109 252 Q134 259 164 253 M111 262 Q135 269 160 262 M117 273 Q136 279 153 273"/>
+    </g>
+  </g>
+  <g id="inside-panel" data-view="inside" data-feature="inside-context">
+    <text id="inside-heading" x="996" y="619" class="label">06 / INSIDE SCHEMATIC</text>
+    <text id="inside-orientation" x="996" y="643" class="small">Covering upper omitted · authored full lining</text>
+    <g id="inside-shoe" transform="translate(1054 660)" class="ink" data-feature="lining">
+      <path id="inside-lining-outline" class="lining" d="M134 7 C104 6 85 24 77 59 C70 91 75 132 85 163 C96 193 94 216 97 247 C99 270 112 284 134 286 C156 287 170 274 173 253 C176 227 169 207 171 182 C173 155 186 128 188 91 C191 56 185 32 167 17 C158 10 146 7 134 7 Z"/>
+      <path id="inside-footbed" class="footbed" data-feature="footbed" d="M133 22 C111 21 96 39 91 64 C87 91 92 130 101 157 C111 188 109 214 111 245 C112 261 122 273 135 274 C150 274 160 264 161 248 C164 221 157 205 158 179 C160 153 174 124 175 92 C177 62 172 41 157 29 C151 24 141 22 133 22 Z"/>
+      <path id="inside-vamp-boundary" class="hidden" data-feature="vamp-lining" d="M99 153 Q135 143 165 153"/>
+      <path id="inside-hidden-toe-lining" class="hidden" data-feature="vamp-lining" d="M99 138 C94 111 89 86 95 65 C101 41 115 29 133 28 C151 27 166 44 170 66 C175 91 168 115 161 138"/>
+      <path id="inside-collar-return" class="plain" data-feature="collar-lining" d="M103 183 L108 246 Q110 278 135 281 Q167 278 168 249 L164 182"/>
+      <path id="inside-heel-seat" class="plain" data-feature="footbed" d="M117 244 Q135 249 154 244"/>
+    </g>
+    <text id="inside-note" x="996" y="979" class="small">Dashed toe area sits beneath the vamp.</text>
+  </g>
+  <g id="footer" data-feature="sheet-context">
+    <path id="footer-rule" d="M48 995 H1392" stroke="#c9b6a3" stroke-width="1"/>
+    <text id="footer-limits" x="48" y="1023" class="small">Design intentions only. No measurements, last, sewn pattern, registered projections, 3D fit or motion qualification.</text>
+  </g>
+</svg>

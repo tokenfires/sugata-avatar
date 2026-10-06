@@ -1,0 +1,13 @@
+# Mara / oxblood loafer 01
+
+An original low, closed-back slip-on for Mara's caramel cardigan and plum midi direction. A soft rounded apron, restrained saddle with a plain oval slit, thin sole edge and low heel give the shoe a quiet silhouette. Oxblood upper, warm brown midsole and cream interior are deliberate artist choices. No logos or maker-specific keeper shape are reproduced.
+
+The six views depict the **left shoe**: top, lateral profile, front, rear, outsole and inside schematic. Toe points upward in top/sole/inside and right in profile. The medial edge is right in those plan-like drawings; front and rear face the viewer. They are independently authored, unitless discussion drawings, without registered projections. The intended pair shares these design roles; the right partner's anatomical shape and fit require later authorship.
+
+The saddle spans the vamp just ahead of the entry. Its slit exposes the oxblood vamp beneath, not the lining. The apron pipe follows the rounded toe and ends beside the saddle. Cream lining turns over the inner collar; the rear is continuous and closed, with a modest counter seam. A shallow toe fall, narrow dark edge, brown midsole and low stacked heel are visible in profile. The sole schematic assigns a smooth brown forepart, waist transition and dark heel patch. The inside schematic omits the covering upper to expose lining and footbed roles; the dashed toe region would sit beneath the vamp. These marks describe intended surfaces, not a sewn assembly or a physical cavity.
+
+The [current maker study](../mara-loafer-primary-study/README.md) supports only qualitative apron, saddle, entry and low-heel vocabulary. That maker lists its reference as unlined. This design's full cream lining, plain slit, counter, sole and all coordinates are original departures. The maker page was darkened by a newsletter layer, so it supplies no calibrated colour. Mara's original illustration and the existing ankle boots remain unchanged.
+
+SVG is the editable design authority. Every element is named. The complete JSON registry preserves the original XML, exact SVG byte identity, every attribute/text/tail, parent/child order and view/feature association. It records CSS and inheritance paths, without computing a browser style. Edit a working copy and refresh that association; the registry does not regenerate a drawing.
+
+This is artist design work. Measured dimensions, foot/last anatomy, sewing and leather construction, material behaviour, 3D surfaces, wearable fit, body variants, movement and runtime integration remain open. Source review and a first whole rendered image are separate qualification gates.

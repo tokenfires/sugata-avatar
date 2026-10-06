@@ -1,0 +1,2438 @@
+{
+  "format": "sugata-original-technical-design",
+  "version": 1,
+  "design": "Mara oxblood loafer 01",
+  "source": "loafer.svg",
+  "source_bytes": 13149,
+  "source_sha256": "71b8aff21e19a71fc0703ce564bf3936274c1c8a6739d4d260a2c216474059c6",
+  "source_xml": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"mara-loafer-sheet\" width=\"1440\" height=\"1040\" viewBox=\"0 0 1440 1040\" role=\"img\" aria-labelledby=\"sheet-title sheet-description\" data-feature=\"document\">\n  <title id=\"sheet-title\">Mara: original oxblood loafer technical design</title>\n  <desc id=\"sheet-description\">Six unitless, unregistered views of one left loafer: top, lateral profile, front, rear, sole and inside schematic. Rounded apron, plain oval saddle slit, cream lining and low heel. Artist design only; no physical fit or manufacturing claim.</desc>\n  <style id=\"sheet-styles\">.ink{stroke:#392929;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.upper{fill:#6f2737}.shade{fill:#491b29}.light{fill:#9d5561}.lining{fill:#ead3b0}.footbed{fill:#d0b38f}.sole{fill:#343033}.midsole{fill:#66513f}.seam{fill:none;stroke:#d4a1a0;stroke-width:1.7;stroke-dasharray:4 5;stroke-linecap:round}.plain{fill:none;stroke:#392929;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.hidden{fill:none;stroke:#9b7c65;stroke-width:2;stroke-dasharray:6 5}.label{font:600 17px system-ui,sans-serif;fill:#392929;letter-spacing:1px}.note{font:16px system-ui,sans-serif;fill:#665b56}.small{font:14px system-ui,sans-serif;fill:#665b56}</style>\n  <rect id=\"paper\" x=\"0\" y=\"0\" width=\"1440\" height=\"1040\" fill=\"#fbf6ec\"/>\n  <g id=\"header\" data-feature=\"sheet-context\">\n    <text id=\"eyebrow\" x=\"48\" y=\"39\" class=\"label\">MARA / FOOTWEAR 01</text>\n    <text id=\"heading\" x=\"48\" y=\"81\" fill=\"#392929\" font-family=\"Georgia,serif\" font-size=\"36\">A quiet oxblood loafer</text>\n    <text id=\"subheading\" x=\"48\" y=\"112\" class=\"note\">Original artist design · Left shoe · Six independently authored, unitless views</text>\n    <path id=\"header-rule\" d=\"M48 137 H1392\" stroke=\"#c9b6a3\" stroke-width=\"1\"/>\n    <rect id=\"upper-swatch\" x=\"1117\" y=\"45\" width=\"38\" height=\"24\" rx=\"4\" fill=\"#6f2737\"/>\n    <rect id=\"lining-swatch\" x=\"1164\" y=\"45\" width=\"38\" height=\"24\" rx=\"4\" fill=\"#ead3b0\"/>\n    <rect id=\"sole-swatch\" x=\"1211\" y=\"45\" width=\"38\" height=\"24\" rx=\"4\" fill=\"#343033\"/>\n    <text id=\"palette-caption\" x=\"1117\" y=\"92\" class=\"small\">Oxblood / cream / charcoal</text>\n  </g>\n  <g id=\"top-panel\" data-view=\"top\" data-feature=\"top-context\">\n    <text id=\"top-heading\" x=\"48\" y=\"178\" class=\"label\">01 / TOP</text>\n    <text id=\"top-orientation\" x=\"48\" y=\"202\" class=\"small\">Toe up · medial edge right</text>\n    <g id=\"top-shoe\" transform=\"translate(90 226)\" class=\"ink\" data-feature=\"upper-silhouette\">\n      <path id=\"top-sole-edge\" class=\"sole\" data-feature=\"outsole-edge\" d=\"M134 0 C101 -2 79 20 70 56 C62 92 68 133 78 166 C89 195 86 216 90 248 C93 277 109 291 134 293 C159 295 175 281 179 255 C183 229 175 207 177 183 C179 157 193 129 195 91 C198 53 190 26 171 10 C162 3 148 0 134 0 Z\"/>\n      <path id=\"top-upper\" class=\"upper\" d=\"M134 7 C104 6 85 24 77 59 C70 91 75 132 85 163 C96 193 94 216 97 247 C99 270 112 284 134 286 C156 287 170 274 173 253 C176 227 169 207 171 182 C173 155 186 128 188 91 C191 56 185 32 167 17 C158 10 146 7 134 7 Z\"/>\n      <path id=\"top-entry-lining\" class=\"lining\" data-feature=\"collar-entry\" d=\"M101 180 C99 168 109 154 130 152 C151 152 165 165 164 181 L163 249 C162 268 151 278 135 278 C118 277 106 266 105 249 Z\"/>\n      <path id=\"top-entry-footbed\" class=\"footbed\" data-feature=\"footbed\" d=\"M110 180 C109 170 116 163 131 161 C146 160 156 169 155 181 L155 248 C154 262 147 270 135 270 C122 270 115 261 114 248 Z\"/>\n      <path id=\"top-apron-pipe\" class=\"light\" data-feature=\"apron\" d=\"M83 131 C81 111 77 86 81 62 C85 36 102 19 129 17 C154 15 173 29 180 55 C187 83 180 113 172 132 L168 128 C176 107 181 82 175 57 C169 34 153 22 130 24 C108 25 91 40 87 63 C83 86 87 109 89 128 Z\"/>\n      <path id=\"top-apron-stitch\" class=\"seam\" data-feature=\"apron\" d=\"M92 126 C90 107 85 84 90 63 C95 42 110 31 130 30 C150 28 165 40 171 60 C177 82 171 107 165 126\"/>\n      <path id=\"top-saddle\" class=\"shade\" data-feature=\"saddle\" d=\"M83 130 Q133 117 174 131 L171 160 Q132 151 91 161 Z\"/>\n      <path id=\"top-saddle-highlight\" class=\"plain\" data-feature=\"saddle\" d=\"M90 137 Q132 127 167 138\"/>\n      <ellipse id=\"top-saddle-slot\" cx=\"133\" cy=\"142\" rx=\"21\" ry=\"5\" class=\"upper\" data-feature=\"saddle-slot\"/>\n      <path id=\"top-quarter-seam\" class=\"seam\" data-feature=\"quarter-seam\" d=\"M98 184 L101 246 M169 183 L168 248\"/>\n      <path id=\"top-heel-seat\" class=\"plain\" data-feature=\"footbed\" d=\"M119 247 Q135 252 150 247\"/>\n    </g>\n    <text id=\"top-note\" x=\"48\" y=\"555\" class=\"note\">Apron pipe ends beside the saddle.</text>\n  </g>\n  <g id=\"profile-panel\" data-view=\"lateral-profile\" data-feature=\"profile-context\">\n    <text id=\"profile-heading\" x=\"522\" y=\"178\" class=\"label\">02 / LATERAL PROFILE</text>\n    <text id=\"profile-orientation\" x=\"522\" y=\"202\" class=\"small\">Left shoe · toe right</text>\n    <g id=\"profile-shoe\" transform=\"translate(526 297)\" class=\"ink\" data-feature=\"upper-silhouette\">\n      <path id=\"profile-heel\" class=\"sole\" data-feature=\"heel\" d=\"M12 135 L114 135 L109 160 L17 160 Z\"/>\n      <path id=\"profile-heel-stack\" class=\"midsole\" data-feature=\"heel\" d=\"M14 133 H114 L111 150 H17 Z\"/>\n      <path id=\"profile-midsole\" class=\"midsole\" data-feature=\"midsole\" d=\"M8 114 Q73 124 147 122 Q265 127 359 113 L357 131 Q255 145 139 135 Q67 143 11 135 Z\"/>\n      <path id=\"profile-outsole\" class=\"sole\" data-feature=\"outsole\" d=\"M139 132 Q255 140 357 125 L357 134 Q257 149 139 141 Z\"/>\n      <path id=\"profile-upper\" class=\"upper\" d=\"M10 114 C7 95 10 63 19 49 Q49 56 81 65 Q116 77 141 77 Q172 74 190 57 L211 70 Q228 93 278 98 Q320 103 349 101 Q362 103 359 114 Q267 132 155 122 Q77 127 10 114 Z\"/>\n      <path id=\"profile-collar-lining\" class=\"lining\" data-feature=\"collar-entry\" d=\"M19 49 Q57 58 85 66 Q117 79 141 77 Q166 75 188 58 L184 66 Q164 81 139 84 Q113 85 79 73 Q47 63 17 56 Z\"/>\n      <path id=\"profile-counter-seam\" class=\"plain\" data-feature=\"counter\" d=\"M46 62 Q34 86 38 117\"/>\n      <path id=\"profile-counter-stitch\" class=\"seam\" data-feature=\"counter\" d=\"M53 67 Q42 89 46 116\"/>\n      <path id=\"profile-saddle\" class=\"shade\" data-feature=\"saddle\" d=\"M188 57 L211 70 L224 91 L201 96 Q199 76 188 57 Z\"/>\n      <path id=\"profile-apron\" class=\"light\" data-feature=\"apron\" d=\"M221 91 Q270 99 315 97 Q337 96 350 102 L348 107 Q332 102 312 104 Q270 106 222 98 Z\"/>\n      <path id=\"profile-apron-stitch\" class=\"seam\" data-feature=\"apron\" d=\"M229 105 Q284 115 342 111\"/>\n      <path id=\"profile-heel-strata\" class=\"plain\" data-feature=\"heel\" d=\"M22 143 H104\"/>\n    </g>\n    <text id=\"profile-note\" x=\"522\" y=\"520\" class=\"note\">Shallow toe fall · narrow sole edge</text>\n    <text id=\"profile-note-heel\" x=\"522\" y=\"545\" class=\"small\">Low heel with a dark contact patch.</text>\n  </g>\n  <g id=\"front-panel\" data-view=\"front\" data-feature=\"front-context\">\n    <text id=\"front-heading\" x=\"996\" y=\"178\" class=\"label\">03 / FRONT</text>\n    <text id=\"front-orientation\" x=\"996\" y=\"202\" class=\"small\">Toe toward viewer</text>\n    <g id=\"front-shoe\" transform=\"translate(1021 320)\" class=\"ink\" data-feature=\"upper-silhouette\">\n      <path id=\"front-sole-edge\" class=\"sole\" data-feature=\"outsole\" d=\"M8 96 Q130 128 260 96 L254 114 Q130 145 15 114 Z\"/>\n      <path id=\"front-midsole\" class=\"midsole\" data-feature=\"midsole\" d=\"M9 88 Q130 121 259 89 L259 98 Q130 132 11 99 Z\"/>\n      <path id=\"front-upper\" class=\"upper\" d=\"M9 88 Q13 47 51 35 Q81 11 132 11 Q183 11 216 35 Q251 49 259 89 Q130 123 9 88 Z\"/>\n      <path id=\"front-saddle\" class=\"shade\" data-feature=\"saddle\" d=\"M58 35 Q132 18 210 36 L214 54 Q130 39 54 53 Z\"/>\n      <ellipse id=\"front-saddle-slot\" cx=\"133\" cy=\"36\" rx=\"18\" ry=\"3\" class=\"upper\" data-feature=\"saddle-slot\"/>\n      <path id=\"front-apron-pipe\" class=\"light\" data-feature=\"apron\" d=\"M39 61 Q129 40 229 61 L226 70 Q130 51 42 70 Z\"/>\n      <path id=\"front-apron-stitch\" class=\"seam\" data-feature=\"apron\" d=\"M48 76 Q130 62 221 77\"/>\n      <path id=\"front-toe-curve\" class=\"plain\" data-feature=\"toe-fall\" d=\"M38 94 Q133 114 232 94\"/>\n    </g>\n    <text id=\"front-note\" x=\"996\" y=\"520\" class=\"note\">Soft round toe · no laces or logo</text>\n    <text id=\"front-note-slot\" x=\"996\" y=\"545\" class=\"small\">Plain slit exposes the vamp beneath.</text>\n  </g>\n  <path id=\"row-rule\" d=\"M48 579 H1392\" stroke=\"#d6c4b2\" stroke-width=\"1\" data-feature=\"sheet-context\"/>\n  <g id=\"rear-panel\" data-view=\"rear\" data-feature=\"rear-context\">\n    <text id=\"rear-heading\" x=\"48\" y=\"619\" class=\"label\">04 / REAR</text>\n    <text id=\"rear-orientation\" x=\"48\" y=\"643\" class=\"small\">Heel toward viewer · continuous counter</text>\n    <g id=\"rear-shoe\" transform=\"translate(117 733)\" class=\"ink\" data-feature=\"upper-silhouette\">\n      <path id=\"rear-heel\" class=\"sole\" data-feature=\"heel\" d=\"M19 115 Q116 133 211 115 L204 143 Q116 162 25 143 Z\"/>\n      <path id=\"rear-heel-stack\" class=\"midsole\" data-feature=\"heel\" d=\"M20 115 Q116 133 210 115 L207 130 Q116 147 23 130 Z\"/>\n      <path id=\"rear-midsole\" class=\"midsole\" data-feature=\"midsole\" d=\"M12 101 Q114 117 219 101 L215 115 Q116 133 17 115 Z\"/>\n      <path id=\"rear-upper\" class=\"upper\" d=\"M13 101 Q12 39 39 20 Q115 -4 191 20 Q218 38 218 101 Q115 120 13 101 Z\"/>\n      <path id=\"rear-collar\" class=\"lining\" data-feature=\"collar-entry\" d=\"M39 20 Q116 0 191 20 L188 27 Q116 10 42 27 Z\"/>\n      <path id=\"rear-counter-seam\" class=\"plain\" data-feature=\"counter\" d=\"M116 17 L116 109\"/>\n      <path id=\"rear-counter-stitch\" class=\"seam\" data-feature=\"counter\" d=\"M109 24 V106 M123 24 V106\"/>\n      <path id=\"rear-heel-strata\" class=\"plain\" data-feature=\"heel\" d=\"M32 128 Q116 142 197 128\"/>\n    </g>\n    <text id=\"rear-note\" x=\"48\" y=\"962\" class=\"note\">Closed heel · modest centre seam</text>\n  </g>\n  <g id=\"sole-panel\" data-view=\"sole\" data-feature=\"sole-context\">\n    <text id=\"sole-heading\" x=\"522\" y=\"619\" class=\"label\">05 / OUTSOLE</text>\n    <text id=\"sole-orientation\" x=\"522\" y=\"643\" class=\"small\">Toe up · medial edge right · authored underside</text>\n    <g id=\"sole-shoe\" transform=\"translate(573 660)\" class=\"ink\" data-feature=\"outsole\">\n      <path id=\"sole-outline\" class=\"sole\" d=\"M134 0 C101 -2 79 20 70 56 C62 92 68 133 78 166 C89 195 86 216 90 248 C93 277 109 291 134 293 C159 295 175 281 179 255 C183 229 175 207 177 183 C179 157 193 129 195 91 C198 53 190 26 171 10 C162 3 148 0 134 0 Z\"/>\n      <path id=\"sole-forepart-waist\" class=\"midsole\" d=\"M134 8 C105 7 86 26 78 60 C71 91 77 131 87 164 C97 191 97 217 100 240 Q135 250 170 242 C173 217 168 201 170 179 C172 153 187 125 188 91 C191 57 184 32 167 17 C158 11 145 8 134 8 Z\"/>\n      <path id=\"sole-edge-stitch\" class=\"seam\" data-feature=\"outsole-edge\" d=\"M101 233 C100 207 100 188 91 161 C82 133 77 91 85 60 C92 31 109 17 133 16 C156 15 175 34 180 59 C187 91 180 124 168 153 C160 178 165 211 163 234\"/>\n      <path id=\"sole-waist-line\" class=\"plain\" data-feature=\"sole-waist\" d=\"M92 166 Q136 176 174 162\"/>\n      <path id=\"sole-heel-patch\" class=\"sole\" data-feature=\"heel-patch\" d=\"M100 238 Q134 247 172 238 L172 253 C170 274 155 284 135 285 C115 284 104 273 102 254 Z\"/>\n      <path id=\"sole-heel-grooves\" fill=\"none\" stroke=\"#9b8e82\" stroke-width=\"2\" data-feature=\"heel-patch\" d=\"M109 252 Q134 259 164 253 M111 262 Q135 269 160 262 M117 273 Q136 279 153 273\"/>\n    </g>\n  </g>\n  <g id=\"inside-panel\" data-view=\"inside\" data-feature=\"inside-context\">\n    <text id=\"inside-heading\" x=\"996\" y=\"619\" class=\"label\">06 / INSIDE SCHEMATIC</text>\n    <text id=\"inside-orientation\" x=\"996\" y=\"643\" class=\"small\">Covering upper omitted · authored full lining</text>\n    <g id=\"inside-shoe\" transform=\"translate(1054 660)\" class=\"ink\" data-feature=\"lining\">\n      <path id=\"inside-lining-outline\" class=\"lining\" d=\"M134 7 C104 6 85 24 77 59 C70 91 75 132 85 163 C96 193 94 216 97 247 C99 270 112 284 134 286 C156 287 170 274 173 253 C176 227 169 207 171 182 C173 155 186 128 188 91 C191 56 185 32 167 17 C158 10 146 7 134 7 Z\"/>\n      <path id=\"inside-footbed\" class=\"footbed\" data-feature=\"footbed\" d=\"M133 22 C111 21 96 39 91 64 C87 91 92 130 101 157 C111 188 109 214 111 245 C112 261 122 273 135 274 C150 274 160 264 161 248 C164 221 157 205 158 179 C160 153 174 124 175 92 C177 62 172 41 157 29 C151 24 141 22 133 22 Z\"/>\n      <path id=\"inside-vamp-boundary\" class=\"hidden\" data-feature=\"vamp-lining\" d=\"M99 153 Q135 143 165 153\"/>\n      <path id=\"inside-hidden-toe-lining\" class=\"hidden\" data-feature=\"vamp-lining\" d=\"M99 138 C94 111 89 86 95 65 C101 41 115 29 133 28 C151 27 166 44 170 66 C175 91 168 115 161 138\"/>\n      <path id=\"inside-collar-return\" class=\"plain\" data-feature=\"collar-lining\" d=\"M103 183 L108 246 Q110 278 135 281 Q167 278 168 249 L164 182\"/>\n      <path id=\"inside-heel-seat\" class=\"plain\" data-feature=\"footbed\" d=\"M117 244 Q135 249 154 244\"/>\n    </g>\n    <text id=\"inside-note\" x=\"996\" y=\"979\" class=\"small\">Dashed toe area sits beneath the vamp.</text>\n  </g>\n  <g id=\"footer\" data-feature=\"sheet-context\">\n    <path id=\"footer-rule\" d=\"M48 995 H1392\" stroke=\"#c9b6a3\" stroke-width=\"1\"/>\n    <text id=\"footer-limits\" x=\"48\" y=\"1023\" class=\"small\">Design intentions only. No measurements, last, sewn pattern, registered projections, 3D fit or motion qualification.</text>\n  </g>\n</svg>\n",
+  "frame": {
+    "width": 1440,
+    "height": 1040,
+    "units": "unitless"
+  },
+  "handedness": "One left shoe; toe-up medial-right top/sole/inside, lateral toe-right, front/rear toward viewer. Pair shares roles; right anatomical fit not authored.",
+  "palette": {
+    "upper": "#6f2737",
+    "shade": "#491b29",
+    "highlight": "#9d5561",
+    "lining": "#ead3b0",
+    "footbed": "#d0b38f",
+    "sole": "#343033",
+    "midsole": "#66513f"
+  },
+  "views": [
+    "top",
+    "lateral-profile",
+    "front",
+    "rear",
+    "sole",
+    "inside"
+  ],
+  "nodes": [
+    {
+      "id": "mara-loafer-sheet",
+      "tag": "{http://www.w3.org/2000/svg}svg",
+      "attributes": {
+        "id": "mara-loafer-sheet",
+        "width": "1440",
+        "height": "1040",
+        "viewBox": "0 0 1440 1040",
+        "role": "img",
+        "aria-labelledby": "sheet-title sheet-description",
+        "data-feature": "document"
+      },
+      "text": "\n  ",
+      "tail": null,
+      "parent": null,
+      "ancestors": [],
+      "children": [
+        "sheet-title",
+        "sheet-description",
+        "sheet-styles",
+        "paper",
+        "header",
+        "top-panel",
+        "profile-panel",
+        "front-panel",
+        "row-rule",
+        "rear-panel",
+        "sole-panel",
+        "inside-panel",
+        "footer"
+      ],
+      "view": null,
+      "feature": "document",
+      "document_order": 0
+    },
+    {
+      "id": "sheet-title",
+      "tag": "{http://www.w3.org/2000/svg}title",
+      "attributes": {
+        "id": "sheet-title"
+      },
+      "text": "Mara: original oxblood loafer technical design",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "document",
+      "document_order": 1
+    },
+    {
+      "id": "sheet-description",
+      "tag": "{http://www.w3.org/2000/svg}desc",
+      "attributes": {
+        "id": "sheet-description"
+      },
+      "text": "Six unitless, unregistered views of one left loafer: top, lateral profile, front, rear, sole and inside schematic. Rounded apron, plain oval saddle slit, cream lining and low heel. Artist design only; no physical fit or manufacturing claim.",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "document",
+      "document_order": 2
+    },
+    {
+      "id": "sheet-styles",
+      "tag": "{http://www.w3.org/2000/svg}style",
+      "attributes": {
+        "id": "sheet-styles"
+      },
+      "text": ".ink{stroke:#392929;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.upper{fill:#6f2737}.shade{fill:#491b29}.light{fill:#9d5561}.lining{fill:#ead3b0}.footbed{fill:#d0b38f}.sole{fill:#343033}.midsole{fill:#66513f}.seam{fill:none;stroke:#d4a1a0;stroke-width:1.7;stroke-dasharray:4 5;stroke-linecap:round}.plain{fill:none;stroke:#392929;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.hidden{fill:none;stroke:#9b7c65;stroke-width:2;stroke-dasharray:6 5}.label{font:600 17px system-ui,sans-serif;fill:#392929;letter-spacing:1px}.note{font:16px system-ui,sans-serif;fill:#665b56}.small{font:14px system-ui,sans-serif;fill:#665b56}",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "document",
+      "document_order": 3
+    },
+    {
+      "id": "paper",
+      "tag": "{http://www.w3.org/2000/svg}rect",
+      "attributes": {
+        "id": "paper",
+        "x": "0",
+        "y": "0",
+        "width": "1440",
+        "height": "1040",
+        "fill": "#fbf6ec"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "document",
+      "document_order": 4
+    },
+    {
+      "id": "header",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "header",
+        "data-feature": "sheet-context"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "eyebrow",
+        "heading",
+        "subheading",
+        "header-rule",
+        "upper-swatch",
+        "lining-swatch",
+        "sole-swatch",
+        "palette-caption"
+      ],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 5
+    },
+    {
+      "id": "eyebrow",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "eyebrow",
+        "x": "48",
+        "y": "39",
+        "class": "label"
+      },
+      "text": "MARA / FOOTWEAR 01",
+      "tail": "\n    ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 6
+    },
+    {
+      "id": "heading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "heading",
+        "x": "48",
+        "y": "81",
+        "fill": "#392929",
+        "font-family": "Georgia,serif",
+        "font-size": "36"
+      },
+      "text": "A quiet oxblood loafer",
+      "tail": "\n    ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 7
+    },
+    {
+      "id": "subheading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "subheading",
+        "x": "48",
+        "y": "112",
+        "class": "note"
+      },
+      "text": "Original artist design · Left shoe · Six independently authored, unitless views",
+      "tail": "\n    ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 8
+    },
+    {
+      "id": "header-rule",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "header-rule",
+        "d": "M48 137 H1392",
+        "stroke": "#c9b6a3",
+        "stroke-width": "1"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 9
+    },
+    {
+      "id": "upper-swatch",
+      "tag": "{http://www.w3.org/2000/svg}rect",
+      "attributes": {
+        "id": "upper-swatch",
+        "x": "1117",
+        "y": "45",
+        "width": "38",
+        "height": "24",
+        "rx": "4",
+        "fill": "#6f2737"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 10
+    },
+    {
+      "id": "lining-swatch",
+      "tag": "{http://www.w3.org/2000/svg}rect",
+      "attributes": {
+        "id": "lining-swatch",
+        "x": "1164",
+        "y": "45",
+        "width": "38",
+        "height": "24",
+        "rx": "4",
+        "fill": "#ead3b0"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 11
+    },
+    {
+      "id": "sole-swatch",
+      "tag": "{http://www.w3.org/2000/svg}rect",
+      "attributes": {
+        "id": "sole-swatch",
+        "x": "1211",
+        "y": "45",
+        "width": "38",
+        "height": "24",
+        "rx": "4",
+        "fill": "#343033"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 12
+    },
+    {
+      "id": "palette-caption",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "palette-caption",
+        "x": "1117",
+        "y": "92",
+        "class": "small"
+      },
+      "text": "Oxblood / cream / charcoal",
+      "tail": "\n  ",
+      "parent": "header",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "header"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 13
+    },
+    {
+      "id": "top-panel",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "top-panel",
+        "data-view": "top",
+        "data-feature": "top-context"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "top-heading",
+        "top-orientation",
+        "top-shoe",
+        "top-note"
+      ],
+      "view": "top",
+      "feature": "top-context",
+      "document_order": 14
+    },
+    {
+      "id": "top-heading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "top-heading",
+        "x": "48",
+        "y": "178",
+        "class": "label"
+      },
+      "text": "01 / TOP",
+      "tail": "\n    ",
+      "parent": "top-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "top-context",
+      "document_order": 15
+    },
+    {
+      "id": "top-orientation",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "top-orientation",
+        "x": "48",
+        "y": "202",
+        "class": "small"
+      },
+      "text": "Toe up · medial edge right",
+      "tail": "\n    ",
+      "parent": "top-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "top-context",
+      "document_order": 16
+    },
+    {
+      "id": "top-shoe",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "top-shoe",
+        "transform": "translate(90 226)",
+        "class": "ink",
+        "data-feature": "upper-silhouette"
+      },
+      "text": "\n      ",
+      "tail": "\n    ",
+      "parent": "top-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel"
+      ],
+      "children": [
+        "top-sole-edge",
+        "top-upper",
+        "top-entry-lining",
+        "top-entry-footbed",
+        "top-apron-pipe",
+        "top-apron-stitch",
+        "top-saddle",
+        "top-saddle-highlight",
+        "top-saddle-slot",
+        "top-quarter-seam",
+        "top-heel-seat"
+      ],
+      "view": "top",
+      "feature": "upper-silhouette",
+      "document_order": 17
+    },
+    {
+      "id": "top-sole-edge",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-sole-edge",
+        "class": "sole",
+        "data-feature": "outsole-edge",
+        "d": "M134 0 C101 -2 79 20 70 56 C62 92 68 133 78 166 C89 195 86 216 90 248 C93 277 109 291 134 293 C159 295 175 281 179 255 C183 229 175 207 177 183 C179 157 193 129 195 91 C198 53 190 26 171 10 C162 3 148 0 134 0 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "outsole-edge",
+      "document_order": 18
+    },
+    {
+      "id": "top-upper",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-upper",
+        "class": "upper",
+        "d": "M134 7 C104 6 85 24 77 59 C70 91 75 132 85 163 C96 193 94 216 97 247 C99 270 112 284 134 286 C156 287 170 274 173 253 C176 227 169 207 171 182 C173 155 186 128 188 91 C191 56 185 32 167 17 C158 10 146 7 134 7 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "upper-silhouette",
+      "document_order": 19
+    },
+    {
+      "id": "top-entry-lining",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-entry-lining",
+        "class": "lining",
+        "data-feature": "collar-entry",
+        "d": "M101 180 C99 168 109 154 130 152 C151 152 165 165 164 181 L163 249 C162 268 151 278 135 278 C118 277 106 266 105 249 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "collar-entry",
+      "document_order": 20
+    },
+    {
+      "id": "top-entry-footbed",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-entry-footbed",
+        "class": "footbed",
+        "data-feature": "footbed",
+        "d": "M110 180 C109 170 116 163 131 161 C146 160 156 169 155 181 L155 248 C154 262 147 270 135 270 C122 270 115 261 114 248 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "footbed",
+      "document_order": 21
+    },
+    {
+      "id": "top-apron-pipe",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-apron-pipe",
+        "class": "light",
+        "data-feature": "apron",
+        "d": "M83 131 C81 111 77 86 81 62 C85 36 102 19 129 17 C154 15 173 29 180 55 C187 83 180 113 172 132 L168 128 C176 107 181 82 175 57 C169 34 153 22 130 24 C108 25 91 40 87 63 C83 86 87 109 89 128 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "apron",
+      "document_order": 22
+    },
+    {
+      "id": "top-apron-stitch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-apron-stitch",
+        "class": "seam",
+        "data-feature": "apron",
+        "d": "M92 126 C90 107 85 84 90 63 C95 42 110 31 130 30 C150 28 165 40 171 60 C177 82 171 107 165 126"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "apron",
+      "document_order": 23
+    },
+    {
+      "id": "top-saddle",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-saddle",
+        "class": "shade",
+        "data-feature": "saddle",
+        "d": "M83 130 Q133 117 174 131 L171 160 Q132 151 91 161 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "saddle",
+      "document_order": 24
+    },
+    {
+      "id": "top-saddle-highlight",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-saddle-highlight",
+        "class": "plain",
+        "data-feature": "saddle",
+        "d": "M90 137 Q132 127 167 138"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "saddle",
+      "document_order": 25
+    },
+    {
+      "id": "top-saddle-slot",
+      "tag": "{http://www.w3.org/2000/svg}ellipse",
+      "attributes": {
+        "id": "top-saddle-slot",
+        "cx": "133",
+        "cy": "142",
+        "rx": "21",
+        "ry": "5",
+        "class": "upper",
+        "data-feature": "saddle-slot"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "saddle-slot",
+      "document_order": 26
+    },
+    {
+      "id": "top-quarter-seam",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-quarter-seam",
+        "class": "seam",
+        "data-feature": "quarter-seam",
+        "d": "M98 184 L101 246 M169 183 L168 248"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "quarter-seam",
+      "document_order": 27
+    },
+    {
+      "id": "top-heel-seat",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "top-heel-seat",
+        "class": "plain",
+        "data-feature": "footbed",
+        "d": "M119 247 Q135 252 150 247"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "top-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel",
+        "top-shoe"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "footbed",
+      "document_order": 28
+    },
+    {
+      "id": "top-note",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "top-note",
+        "x": "48",
+        "y": "555",
+        "class": "note"
+      },
+      "text": "Apron pipe ends beside the saddle.",
+      "tail": "\n  ",
+      "parent": "top-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "top-panel"
+      ],
+      "children": [],
+      "view": "top",
+      "feature": "top-context",
+      "document_order": 29
+    },
+    {
+      "id": "profile-panel",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "profile-panel",
+        "data-view": "lateral-profile",
+        "data-feature": "profile-context"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "profile-heading",
+        "profile-orientation",
+        "profile-shoe",
+        "profile-note",
+        "profile-note-heel"
+      ],
+      "view": "lateral-profile",
+      "feature": "profile-context",
+      "document_order": 30
+    },
+    {
+      "id": "profile-heading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-heading",
+        "x": "522",
+        "y": "178",
+        "class": "label"
+      },
+      "text": "02 / LATERAL PROFILE",
+      "tail": "\n    ",
+      "parent": "profile-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "profile-context",
+      "document_order": 31
+    },
+    {
+      "id": "profile-orientation",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-orientation",
+        "x": "522",
+        "y": "202",
+        "class": "small"
+      },
+      "text": "Left shoe · toe right",
+      "tail": "\n    ",
+      "parent": "profile-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "profile-context",
+      "document_order": 32
+    },
+    {
+      "id": "profile-shoe",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "profile-shoe",
+        "transform": "translate(526 297)",
+        "class": "ink",
+        "data-feature": "upper-silhouette"
+      },
+      "text": "\n      ",
+      "tail": "\n    ",
+      "parent": "profile-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel"
+      ],
+      "children": [
+        "profile-heel",
+        "profile-heel-stack",
+        "profile-midsole",
+        "profile-outsole",
+        "profile-upper",
+        "profile-collar-lining",
+        "profile-counter-seam",
+        "profile-counter-stitch",
+        "profile-saddle",
+        "profile-apron",
+        "profile-apron-stitch",
+        "profile-heel-strata"
+      ],
+      "view": "lateral-profile",
+      "feature": "upper-silhouette",
+      "document_order": 33
+    },
+    {
+      "id": "profile-heel",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-heel",
+        "class": "sole",
+        "data-feature": "heel",
+        "d": "M12 135 L114 135 L109 160 L17 160 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "heel",
+      "document_order": 34
+    },
+    {
+      "id": "profile-heel-stack",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-heel-stack",
+        "class": "midsole",
+        "data-feature": "heel",
+        "d": "M14 133 H114 L111 150 H17 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "heel",
+      "document_order": 35
+    },
+    {
+      "id": "profile-midsole",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-midsole",
+        "class": "midsole",
+        "data-feature": "midsole",
+        "d": "M8 114 Q73 124 147 122 Q265 127 359 113 L357 131 Q255 145 139 135 Q67 143 11 135 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "midsole",
+      "document_order": 36
+    },
+    {
+      "id": "profile-outsole",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-outsole",
+        "class": "sole",
+        "data-feature": "outsole",
+        "d": "M139 132 Q255 140 357 125 L357 134 Q257 149 139 141 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "outsole",
+      "document_order": 37
+    },
+    {
+      "id": "profile-upper",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-upper",
+        "class": "upper",
+        "d": "M10 114 C7 95 10 63 19 49 Q49 56 81 65 Q116 77 141 77 Q172 74 190 57 L211 70 Q228 93 278 98 Q320 103 349 101 Q362 103 359 114 Q267 132 155 122 Q77 127 10 114 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "upper-silhouette",
+      "document_order": 38
+    },
+    {
+      "id": "profile-collar-lining",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-collar-lining",
+        "class": "lining",
+        "data-feature": "collar-entry",
+        "d": "M19 49 Q57 58 85 66 Q117 79 141 77 Q166 75 188 58 L184 66 Q164 81 139 84 Q113 85 79 73 Q47 63 17 56 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "collar-entry",
+      "document_order": 39
+    },
+    {
+      "id": "profile-counter-seam",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-counter-seam",
+        "class": "plain",
+        "data-feature": "counter",
+        "d": "M46 62 Q34 86 38 117"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "counter",
+      "document_order": 40
+    },
+    {
+      "id": "profile-counter-stitch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-counter-stitch",
+        "class": "seam",
+        "data-feature": "counter",
+        "d": "M53 67 Q42 89 46 116"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "counter",
+      "document_order": 41
+    },
+    {
+      "id": "profile-saddle",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-saddle",
+        "class": "shade",
+        "data-feature": "saddle",
+        "d": "M188 57 L211 70 L224 91 L201 96 Q199 76 188 57 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "saddle",
+      "document_order": 42
+    },
+    {
+      "id": "profile-apron",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-apron",
+        "class": "light",
+        "data-feature": "apron",
+        "d": "M221 91 Q270 99 315 97 Q337 96 350 102 L348 107 Q332 102 312 104 Q270 106 222 98 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "apron",
+      "document_order": 43
+    },
+    {
+      "id": "profile-apron-stitch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-apron-stitch",
+        "class": "seam",
+        "data-feature": "apron",
+        "d": "M229 105 Q284 115 342 111"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "apron",
+      "document_order": 44
+    },
+    {
+      "id": "profile-heel-strata",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-heel-strata",
+        "class": "plain",
+        "data-feature": "heel",
+        "d": "M22 143 H104"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "profile-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel",
+        "profile-shoe"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "heel",
+      "document_order": 45
+    },
+    {
+      "id": "profile-note",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-note",
+        "x": "522",
+        "y": "520",
+        "class": "note"
+      },
+      "text": "Shallow toe fall · narrow sole edge",
+      "tail": "\n    ",
+      "parent": "profile-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "profile-context",
+      "document_order": 46
+    },
+    {
+      "id": "profile-note-heel",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-note-heel",
+        "x": "522",
+        "y": "545",
+        "class": "small"
+      },
+      "text": "Low heel with a dark contact patch.",
+      "tail": "\n  ",
+      "parent": "profile-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "profile-panel"
+      ],
+      "children": [],
+      "view": "lateral-profile",
+      "feature": "profile-context",
+      "document_order": 47
+    },
+    {
+      "id": "front-panel",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "front-panel",
+        "data-view": "front",
+        "data-feature": "front-context"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "front-heading",
+        "front-orientation",
+        "front-shoe",
+        "front-note",
+        "front-note-slot"
+      ],
+      "view": "front",
+      "feature": "front-context",
+      "document_order": 48
+    },
+    {
+      "id": "front-heading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-heading",
+        "x": "996",
+        "y": "178",
+        "class": "label"
+      },
+      "text": "03 / FRONT",
+      "tail": "\n    ",
+      "parent": "front-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-context",
+      "document_order": 49
+    },
+    {
+      "id": "front-orientation",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-orientation",
+        "x": "996",
+        "y": "202",
+        "class": "small"
+      },
+      "text": "Toe toward viewer",
+      "tail": "\n    ",
+      "parent": "front-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-context",
+      "document_order": 50
+    },
+    {
+      "id": "front-shoe",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "front-shoe",
+        "transform": "translate(1021 320)",
+        "class": "ink",
+        "data-feature": "upper-silhouette"
+      },
+      "text": "\n      ",
+      "tail": "\n    ",
+      "parent": "front-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel"
+      ],
+      "children": [
+        "front-sole-edge",
+        "front-midsole",
+        "front-upper",
+        "front-saddle",
+        "front-saddle-slot",
+        "front-apron-pipe",
+        "front-apron-stitch",
+        "front-toe-curve"
+      ],
+      "view": "front",
+      "feature": "upper-silhouette",
+      "document_order": 51
+    },
+    {
+      "id": "front-sole-edge",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-sole-edge",
+        "class": "sole",
+        "data-feature": "outsole",
+        "d": "M8 96 Q130 128 260 96 L254 114 Q130 145 15 114 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "outsole",
+      "document_order": 52
+    },
+    {
+      "id": "front-midsole",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-midsole",
+        "class": "midsole",
+        "data-feature": "midsole",
+        "d": "M9 88 Q130 121 259 89 L259 98 Q130 132 11 99 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "midsole",
+      "document_order": 53
+    },
+    {
+      "id": "front-upper",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-upper",
+        "class": "upper",
+        "d": "M9 88 Q13 47 51 35 Q81 11 132 11 Q183 11 216 35 Q251 49 259 89 Q130 123 9 88 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "upper-silhouette",
+      "document_order": 54
+    },
+    {
+      "id": "front-saddle",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-saddle",
+        "class": "shade",
+        "data-feature": "saddle",
+        "d": "M58 35 Q132 18 210 36 L214 54 Q130 39 54 53 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "saddle",
+      "document_order": 55
+    },
+    {
+      "id": "front-saddle-slot",
+      "tag": "{http://www.w3.org/2000/svg}ellipse",
+      "attributes": {
+        "id": "front-saddle-slot",
+        "cx": "133",
+        "cy": "36",
+        "rx": "18",
+        "ry": "3",
+        "class": "upper",
+        "data-feature": "saddle-slot"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "saddle-slot",
+      "document_order": 56
+    },
+    {
+      "id": "front-apron-pipe",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-apron-pipe",
+        "class": "light",
+        "data-feature": "apron",
+        "d": "M39 61 Q129 40 229 61 L226 70 Q130 51 42 70 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "apron",
+      "document_order": 57
+    },
+    {
+      "id": "front-apron-stitch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-apron-stitch",
+        "class": "seam",
+        "data-feature": "apron",
+        "d": "M48 76 Q130 62 221 77"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "apron",
+      "document_order": 58
+    },
+    {
+      "id": "front-toe-curve",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-toe-curve",
+        "class": "plain",
+        "data-feature": "toe-fall",
+        "d": "M38 94 Q133 114 232 94"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel",
+        "front-shoe"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "toe-fall",
+      "document_order": 59
+    },
+    {
+      "id": "front-note",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-note",
+        "x": "996",
+        "y": "520",
+        "class": "note"
+      },
+      "text": "Soft round toe · no laces or logo",
+      "tail": "\n    ",
+      "parent": "front-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-context",
+      "document_order": 60
+    },
+    {
+      "id": "front-note-slot",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-note-slot",
+        "x": "996",
+        "y": "545",
+        "class": "small"
+      },
+      "text": "Plain slit exposes the vamp beneath.",
+      "tail": "\n  ",
+      "parent": "front-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "front-panel"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-context",
+      "document_order": 61
+    },
+    {
+      "id": "row-rule",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "row-rule",
+        "d": "M48 579 H1392",
+        "stroke": "#d6c4b2",
+        "stroke-width": "1",
+        "data-feature": "sheet-context"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 62
+    },
+    {
+      "id": "rear-panel",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "rear-panel",
+        "data-view": "rear",
+        "data-feature": "rear-context"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "rear-heading",
+        "rear-orientation",
+        "rear-shoe",
+        "rear-note"
+      ],
+      "view": "rear",
+      "feature": "rear-context",
+      "document_order": 63
+    },
+    {
+      "id": "rear-heading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "rear-heading",
+        "x": "48",
+        "y": "619",
+        "class": "label"
+      },
+      "text": "04 / REAR",
+      "tail": "\n    ",
+      "parent": "rear-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-context",
+      "document_order": 64
+    },
+    {
+      "id": "rear-orientation",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "rear-orientation",
+        "x": "48",
+        "y": "643",
+        "class": "small"
+      },
+      "text": "Heel toward viewer · continuous counter",
+      "tail": "\n    ",
+      "parent": "rear-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-context",
+      "document_order": 65
+    },
+    {
+      "id": "rear-shoe",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "rear-shoe",
+        "transform": "translate(117 733)",
+        "class": "ink",
+        "data-feature": "upper-silhouette"
+      },
+      "text": "\n      ",
+      "tail": "\n    ",
+      "parent": "rear-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel"
+      ],
+      "children": [
+        "rear-heel",
+        "rear-heel-stack",
+        "rear-midsole",
+        "rear-upper",
+        "rear-collar",
+        "rear-counter-seam",
+        "rear-counter-stitch",
+        "rear-heel-strata"
+      ],
+      "view": "rear",
+      "feature": "upper-silhouette",
+      "document_order": 66
+    },
+    {
+      "id": "rear-heel",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-heel",
+        "class": "sole",
+        "data-feature": "heel",
+        "d": "M19 115 Q116 133 211 115 L204 143 Q116 162 25 143 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "heel",
+      "document_order": 67
+    },
+    {
+      "id": "rear-heel-stack",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-heel-stack",
+        "class": "midsole",
+        "data-feature": "heel",
+        "d": "M20 115 Q116 133 210 115 L207 130 Q116 147 23 130 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "heel",
+      "document_order": 68
+    },
+    {
+      "id": "rear-midsole",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-midsole",
+        "class": "midsole",
+        "data-feature": "midsole",
+        "d": "M12 101 Q114 117 219 101 L215 115 Q116 133 17 115 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "midsole",
+      "document_order": 69
+    },
+    {
+      "id": "rear-upper",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-upper",
+        "class": "upper",
+        "d": "M13 101 Q12 39 39 20 Q115 -4 191 20 Q218 38 218 101 Q115 120 13 101 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "upper-silhouette",
+      "document_order": 70
+    },
+    {
+      "id": "rear-collar",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-collar",
+        "class": "lining",
+        "data-feature": "collar-entry",
+        "d": "M39 20 Q116 0 191 20 L188 27 Q116 10 42 27 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "collar-entry",
+      "document_order": 71
+    },
+    {
+      "id": "rear-counter-seam",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-counter-seam",
+        "class": "plain",
+        "data-feature": "counter",
+        "d": "M116 17 L116 109"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "counter",
+      "document_order": 72
+    },
+    {
+      "id": "rear-counter-stitch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-counter-stitch",
+        "class": "seam",
+        "data-feature": "counter",
+        "d": "M109 24 V106 M123 24 V106"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "counter",
+      "document_order": 73
+    },
+    {
+      "id": "rear-heel-strata",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-heel-strata",
+        "class": "plain",
+        "data-feature": "heel",
+        "d": "M32 128 Q116 142 197 128"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel",
+        "rear-shoe"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "heel",
+      "document_order": 74
+    },
+    {
+      "id": "rear-note",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "rear-note",
+        "x": "48",
+        "y": "962",
+        "class": "note"
+      },
+      "text": "Closed heel · modest centre seam",
+      "tail": "\n  ",
+      "parent": "rear-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "rear-panel"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-context",
+      "document_order": 75
+    },
+    {
+      "id": "sole-panel",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "sole-panel",
+        "data-view": "sole",
+        "data-feature": "sole-context"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "sole-heading",
+        "sole-orientation",
+        "sole-shoe"
+      ],
+      "view": "sole",
+      "feature": "sole-context",
+      "document_order": 76
+    },
+    {
+      "id": "sole-heading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "sole-heading",
+        "x": "522",
+        "y": "619",
+        "class": "label"
+      },
+      "text": "05 / OUTSOLE",
+      "tail": "\n    ",
+      "parent": "sole-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "sole-context",
+      "document_order": 77
+    },
+    {
+      "id": "sole-orientation",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "sole-orientation",
+        "x": "522",
+        "y": "643",
+        "class": "small"
+      },
+      "text": "Toe up · medial edge right · authored underside",
+      "tail": "\n    ",
+      "parent": "sole-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "sole-context",
+      "document_order": 78
+    },
+    {
+      "id": "sole-shoe",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "sole-shoe",
+        "transform": "translate(573 660)",
+        "class": "ink",
+        "data-feature": "outsole"
+      },
+      "text": "\n      ",
+      "tail": "\n  ",
+      "parent": "sole-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel"
+      ],
+      "children": [
+        "sole-outline",
+        "sole-forepart-waist",
+        "sole-edge-stitch",
+        "sole-waist-line",
+        "sole-heel-patch",
+        "sole-heel-grooves"
+      ],
+      "view": "sole",
+      "feature": "outsole",
+      "document_order": 79
+    },
+    {
+      "id": "sole-outline",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "sole-outline",
+        "class": "sole",
+        "d": "M134 0 C101 -2 79 20 70 56 C62 92 68 133 78 166 C89 195 86 216 90 248 C93 277 109 291 134 293 C159 295 175 281 179 255 C183 229 175 207 177 183 C179 157 193 129 195 91 C198 53 190 26 171 10 C162 3 148 0 134 0 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "sole-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel",
+        "sole-shoe"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "outsole",
+      "document_order": 80
+    },
+    {
+      "id": "sole-forepart-waist",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "sole-forepart-waist",
+        "class": "midsole",
+        "d": "M134 8 C105 7 86 26 78 60 C71 91 77 131 87 164 C97 191 97 217 100 240 Q135 250 170 242 C173 217 168 201 170 179 C172 153 187 125 188 91 C191 57 184 32 167 17 C158 11 145 8 134 8 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "sole-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel",
+        "sole-shoe"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "outsole",
+      "document_order": 81
+    },
+    {
+      "id": "sole-edge-stitch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "sole-edge-stitch",
+        "class": "seam",
+        "data-feature": "outsole-edge",
+        "d": "M101 233 C100 207 100 188 91 161 C82 133 77 91 85 60 C92 31 109 17 133 16 C156 15 175 34 180 59 C187 91 180 124 168 153 C160 178 165 211 163 234"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "sole-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel",
+        "sole-shoe"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "outsole-edge",
+      "document_order": 82
+    },
+    {
+      "id": "sole-waist-line",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "sole-waist-line",
+        "class": "plain",
+        "data-feature": "sole-waist",
+        "d": "M92 166 Q136 176 174 162"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "sole-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel",
+        "sole-shoe"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "sole-waist",
+      "document_order": 83
+    },
+    {
+      "id": "sole-heel-patch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "sole-heel-patch",
+        "class": "sole",
+        "data-feature": "heel-patch",
+        "d": "M100 238 Q134 247 172 238 L172 253 C170 274 155 284 135 285 C115 284 104 273 102 254 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "sole-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel",
+        "sole-shoe"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "heel-patch",
+      "document_order": 84
+    },
+    {
+      "id": "sole-heel-grooves",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "sole-heel-grooves",
+        "fill": "none",
+        "stroke": "#9b8e82",
+        "stroke-width": "2",
+        "data-feature": "heel-patch",
+        "d": "M109 252 Q134 259 164 253 M111 262 Q135 269 160 262 M117 273 Q136 279 153 273"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "sole-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "sole-panel",
+        "sole-shoe"
+      ],
+      "children": [],
+      "view": "sole",
+      "feature": "heel-patch",
+      "document_order": 85
+    },
+    {
+      "id": "inside-panel",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "inside-panel",
+        "data-view": "inside",
+        "data-feature": "inside-context"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "inside-heading",
+        "inside-orientation",
+        "inside-shoe",
+        "inside-note"
+      ],
+      "view": "inside",
+      "feature": "inside-context",
+      "document_order": 86
+    },
+    {
+      "id": "inside-heading",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-heading",
+        "x": "996",
+        "y": "619",
+        "class": "label"
+      },
+      "text": "06 / INSIDE SCHEMATIC",
+      "tail": "\n    ",
+      "parent": "inside-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "inside-context",
+      "document_order": 87
+    },
+    {
+      "id": "inside-orientation",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-orientation",
+        "x": "996",
+        "y": "643",
+        "class": "small"
+      },
+      "text": "Covering upper omitted · authored full lining",
+      "tail": "\n    ",
+      "parent": "inside-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "inside-context",
+      "document_order": 88
+    },
+    {
+      "id": "inside-shoe",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "inside-shoe",
+        "transform": "translate(1054 660)",
+        "class": "ink",
+        "data-feature": "lining"
+      },
+      "text": "\n      ",
+      "tail": "\n    ",
+      "parent": "inside-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel"
+      ],
+      "children": [
+        "inside-lining-outline",
+        "inside-footbed",
+        "inside-vamp-boundary",
+        "inside-hidden-toe-lining",
+        "inside-collar-return",
+        "inside-heel-seat"
+      ],
+      "view": "inside",
+      "feature": "lining",
+      "document_order": 89
+    },
+    {
+      "id": "inside-lining-outline",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-lining-outline",
+        "class": "lining",
+        "d": "M134 7 C104 6 85 24 77 59 C70 91 75 132 85 163 C96 193 94 216 97 247 C99 270 112 284 134 286 C156 287 170 274 173 253 C176 227 169 207 171 182 C173 155 186 128 188 91 C191 56 185 32 167 17 C158 10 146 7 134 7 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "inside-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel",
+        "inside-shoe"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "lining",
+      "document_order": 90
+    },
+    {
+      "id": "inside-footbed",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-footbed",
+        "class": "footbed",
+        "data-feature": "footbed",
+        "d": "M133 22 C111 21 96 39 91 64 C87 91 92 130 101 157 C111 188 109 214 111 245 C112 261 122 273 135 274 C150 274 160 264 161 248 C164 221 157 205 158 179 C160 153 174 124 175 92 C177 62 172 41 157 29 C151 24 141 22 133 22 Z"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "inside-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel",
+        "inside-shoe"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "footbed",
+      "document_order": 91
+    },
+    {
+      "id": "inside-vamp-boundary",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-vamp-boundary",
+        "class": "hidden",
+        "data-feature": "vamp-lining",
+        "d": "M99 153 Q135 143 165 153"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "inside-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel",
+        "inside-shoe"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "vamp-lining",
+      "document_order": 92
+    },
+    {
+      "id": "inside-hidden-toe-lining",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-hidden-toe-lining",
+        "class": "hidden",
+        "data-feature": "vamp-lining",
+        "d": "M99 138 C94 111 89 86 95 65 C101 41 115 29 133 28 C151 27 166 44 170 66 C175 91 168 115 161 138"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "inside-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel",
+        "inside-shoe"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "vamp-lining",
+      "document_order": 93
+    },
+    {
+      "id": "inside-collar-return",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-collar-return",
+        "class": "plain",
+        "data-feature": "collar-lining",
+        "d": "M103 183 L108 246 Q110 278 135 281 Q167 278 168 249 L164 182"
+      },
+      "text": null,
+      "tail": "\n      ",
+      "parent": "inside-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel",
+        "inside-shoe"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "collar-lining",
+      "document_order": 94
+    },
+    {
+      "id": "inside-heel-seat",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-heel-seat",
+        "class": "plain",
+        "data-feature": "footbed",
+        "d": "M117 244 Q135 249 154 244"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-shoe",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel",
+        "inside-shoe"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "footbed",
+      "document_order": 95
+    },
+    {
+      "id": "inside-note",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-note",
+        "x": "996",
+        "y": "979",
+        "class": "small"
+      },
+      "text": "Dashed toe area sits beneath the vamp.",
+      "tail": "\n  ",
+      "parent": "inside-panel",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "inside-panel"
+      ],
+      "children": [],
+      "view": "inside",
+      "feature": "inside-context",
+      "document_order": 96
+    },
+    {
+      "id": "footer",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "footer",
+        "data-feature": "sheet-context"
+      },
+      "text": "\n    ",
+      "tail": "\n",
+      "parent": "mara-loafer-sheet",
+      "ancestors": [
+        "mara-loafer-sheet"
+      ],
+      "children": [
+        "footer-rule",
+        "footer-limits"
+      ],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 97
+    },
+    {
+      "id": "footer-rule",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "footer-rule",
+        "d": "M48 995 H1392",
+        "stroke": "#c9b6a3",
+        "stroke-width": "1"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "footer",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "footer"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 98
+    },
+    {
+      "id": "footer-limits",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "footer-limits",
+        "x": "48",
+        "y": "1023",
+        "class": "small"
+      },
+      "text": "Design intentions only. No measurements, last, sewn pattern, registered projections, 3D fit or motion qualification.",
+      "tail": "\n  ",
+      "parent": "footer",
+      "ancestors": [
+        "mara-loafer-sheet",
+        "footer"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet-context",
+      "document_order": 99
+    }
+  ],
+  "features": {
+    "document": [
+      "mara-loafer-sheet",
+      "sheet-title",
+      "sheet-description",
+      "sheet-styles",
+      "paper"
+    ],
+    "sheet-context": [
+      "header",
+      "eyebrow",
+      "heading",
+      "subheading",
+      "header-rule",
+      "upper-swatch",
+      "lining-swatch",
+      "sole-swatch",
+      "palette-caption",
+      "row-rule",
+      "footer",
+      "footer-rule",
+      "footer-limits"
+    ],
+    "top-context": [
+      "top-panel",
+      "top-heading",
+      "top-orientation",
+      "top-note"
+    ],
+    "upper-silhouette": [
+      "top-shoe",
+      "top-upper",
+      "profile-shoe",
+      "profile-upper",
+      "front-shoe",
+      "front-upper",
+      "rear-shoe",
+      "rear-upper"
+    ],
+    "outsole-edge": [
+      "top-sole-edge",
+      "sole-edge-stitch"
+    ],
+    "collar-entry": [
+      "top-entry-lining",
+      "profile-collar-lining",
+      "rear-collar"
+    ],
+    "footbed": [
+      "top-entry-footbed",
+      "top-heel-seat",
+      "inside-footbed",
+      "inside-heel-seat"
+    ],
+    "apron": [
+      "top-apron-pipe",
+      "top-apron-stitch",
+      "profile-apron",
+      "profile-apron-stitch",
+      "front-apron-pipe",
+      "front-apron-stitch"
+    ],
+    "saddle": [
+      "top-saddle",
+      "top-saddle-highlight",
+      "profile-saddle",
+      "front-saddle"
+    ],
+    "saddle-slot": [
+      "top-saddle-slot",
+      "front-saddle-slot"
+    ],
+    "quarter-seam": [
+      "top-quarter-seam"
+    ],
+    "profile-context": [
+      "profile-panel",
+      "profile-heading",
+      "profile-orientation",
+      "profile-note",
+      "profile-note-heel"
+    ],
+    "heel": [
+      "profile-heel",
+      "profile-heel-stack",
+      "profile-heel-strata",
+      "rear-heel",
+      "rear-heel-stack",
+      "rear-heel-strata"
+    ],
+    "midsole": [
+      "profile-midsole",
+      "front-midsole",
+      "rear-midsole"
+    ],
+    "outsole": [
+      "profile-outsole",
+      "front-sole-edge",
+      "sole-shoe",
+      "sole-outline",
+      "sole-forepart-waist"
+    ],
+    "counter": [
+      "profile-counter-seam",
+      "profile-counter-stitch",
+      "rear-counter-seam",
+      "rear-counter-stitch"
+    ],
+    "front-context": [
+      "front-panel",
+      "front-heading",
+      "front-orientation",
+      "front-note",
+      "front-note-slot"
+    ],
+    "toe-fall": [
+      "front-toe-curve"
+    ],
+    "rear-context": [
+      "rear-panel",
+      "rear-heading",
+      "rear-orientation",
+      "rear-note"
+    ],
+    "sole-context": [
+      "sole-panel",
+      "sole-heading",
+      "sole-orientation"
+    ],
+    "sole-waist": [
+      "sole-waist-line"
+    ],
+    "heel-patch": [
+      "sole-heel-patch",
+      "sole-heel-grooves"
+    ],
+    "inside-context": [
+      "inside-panel",
+      "inside-heading",
+      "inside-orientation",
+      "inside-note"
+    ],
+    "lining": [
+      "inside-shoe",
+      "inside-lining-outline"
+    ],
+    "vamp-lining": [
+      "inside-vamp-boundary",
+      "inside-hidden-toe-lining"
+    ],
+    "collar-lining": [
+      "inside-collar-return"
+    ]
+  },
+  "style_scope": "Full literal CSS and attributes/ancestry retained; no computed style evaluation.",
+  "limits": "Independently authored unregistered artist views. No measurement, last, sewing pattern, material mechanics, 3D cavity/fit, motion or runtime proof."
+}

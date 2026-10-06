@@ -1,0 +1,185 @@
+{
+  "decision": "A completeinertsource and finitepublisher worth only; firstnative separatelyconditional after actualregistryA",
+  "collected_utc": "2026-10-06T06:28:18.704051+00:00",
+  "writer_started_utc": "2026-10-06T06:28:18.701169+00:00",
+  "writer_pid": 17020,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "source_authorship": "2026-10-06T06:48:00Z",
+    "critic_source": "2026-10-06T06:51:00Z",
+    "root_source_and_registry": "2026-10-06T06:55:00Z"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/PLAN.json",
+      "bytes": 4788,
+      "sha256": "e3d4f33e9e36bcee45b2520a795fdc32992f5b780451f533ce1cbb288c86a52c",
+      "role": "current-source",
+      "read_scope": "whole current61line plan"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/BRIEF.md",
+      "bytes": 2657,
+      "sha256": "51fb9da6e76b85d7b2c855e3c49a73bc787e631d8a3b6c018845a3e90315822c",
+      "role": "current-source",
+      "read_scope": "whole13line literalbrief"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/loafer.svg",
+      "bytes": 13149,
+      "sha256": "71b8aff21e19a71fc0703ce564bf3936274c1c8a6739d4d260a2c216474059c6",
+      "role": "current-source",
+      "read_scope": "whole115lines/everypath/CSS/text/metadata, noXMLparser/path/coordinate/render evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/review.html",
+      "bytes": 1321,
+      "sha256": "72448cd4796195926e7d42b160e304c5594ae2a2384e66837234d8f7e5c6ed70",
+      "role": "current-source",
+      "read_scope": "whole10line staticwrapper"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/publish-registry.py",
+      "bytes": 3811,
+      "sha256": "4c6db330648af9989d33f896ad8bbfdddd31cd0c0e83520b58c1fd49e6659399",
+      "role": "current-source",
+      "read_scope": "whole75line literalpublisher, noimport/AST/run"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-primary-study/ROOT-CLOSE.json",
+      "bytes": 1136,
+      "sha256": "b8021daef1f8dcb5e077f340a2efc08b43c96baf2942e9e53283750688c24e14",
+      "role": "unchanged-input",
+      "read_scope": "priorprimary closure rawhash only, no new opinion substituted"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-primary-study/RESULT.md",
+      "bytes": 4876,
+      "sha256": "fbd0052c53b57b10a25784d1d8a9f05c78f46c6d47f7bfdfddfafc533e100d6a",
+      "role": "unchanged-input",
+      "read_scope": "priorwhole independent4876byte primaryresult reused exactpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-primary-study/first-maker-page.jpg",
+      "bytes": 380432,
+      "sha256": "4b6189a871e857cd1c4f7f4e87281df0f073f52a84cd0a05e9a32dea84c6823b",
+      "role": "unchanged-input",
+      "read_scope": "priorWHOLE1280x5277 original-detail observation reused exacthash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311",
+      "role": "unchanged-input",
+      "read_scope": "priorWHOLE1536x1024 Mara original-detail observation reused exacthash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7",
+      "role": "unchanged-input",
+      "read_scope": "priorwhole49line current16/10 goal/status read reused exacthash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/SOURCE-INPUTS.json",
+      "bytes": 2295,
+      "sha256": "42bfddd4c063c6d87eb4ef7a1bc2222931cb007ce8f48384475b017053f242ed",
+      "role": "current-source-map",
+      "read_scope": "whole40line map/all5currentpins"
+    }
+  ],
+  "direct_input_count": 11,
+  "all5current_sourcepins_exact": true,
+  "all5PLANauthoritypins_exact": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/SOURCE-RESULT.md",
+    "bytes": 5378,
+    "sha256": "17f7d77b50f64d2aa8496e848b1d8c8bfd340ece1c6ed497b7e442387c6c9570",
+    "readback": "exact UTF8bytes"
+  },
+  "commands_jobs": [
+    {
+      "chunk": "0bef35",
+      "pid": 16581,
+      "utc": "2026-10-06T06:23:04.075891Z",
+      "exit": 0,
+      "command": "python3 completePLAN/SOURCEINPUTS/13BRIEF/10HTML/75publisher literalread"
+    },
+    {
+      "chunk": "fc5fae",
+      "pid": 16643,
+      "utc": "2026-10-06T06:23:53.239664Z",
+      "exit": 0,
+      "command": "python3 whole115lineSVG everypath/CSS/text/role read; no parse/eval"
+    },
+    {
+      "chunk": "fd3994",
+      "pid": 16862,
+      "utc": "2026-10-06T06:26:14.123365Z",
+      "exit": 0,
+      "command": "python3 stdlib all5+5 bytepins, existinglocalrefs and pendingoutputs metadataonly"
+    },
+    {
+      "pid": 17020,
+      "command": "python3 rawhashes/exclusive ownsource-result/receipt metadata writer; no target module import/parser invocation"
+    }
+  ],
+  "source_scope": {
+    "complete_lines": {
+      "PLAN": 61,
+      "BRIEF": 13,
+      "SVG": 115,
+      "HTML": 10,
+      "publisher": 75,
+      "SOURCE_INPUTS": 40
+    },
+    "XMLparser_invoked": false,
+    "publisher_invoked": false,
+    "actualnodecount_evaluated": false,
+    "geometry_pathcoordinates_render_evaluated": false,
+    "source_view_intent": [
+      "top",
+      "lateral-profile",
+      "front",
+      "rear",
+      "sole",
+      "inside"
+    ],
+    "handedness": "oneleftshoe, no registered3Dpair or anatomicalmirror claim",
+    "allselected_roles_literal_owned": true,
+    "computed_style": "excluded; literalCSS/attrs/ancestry retained"
+  },
+  "links_and_outputs": {
+    "makerREADME_exists": true,
+    "SVG_BRIEF_exists": true,
+    "design_json": "absent expectedpendingpublisheroutput, no successclaim",
+    "SOURCE_RECEIPT": "absent expectedpendingpublisheroutput"
+  },
+  "reference_scope": "Previously independentwholeunchanged maker/Maraoriginals reused at exactpins; no newphoto/view/capture; onlyqualitativevisiblevocabulary, originallining/hiddenchoices",
+  "actionable_findings": "none demonstrated at full literalsource scope; limits/partialoutputs are declared, not fabricated currenterrors",
+  "alternatives": [
+    "onefiniteunchangedpublisher then separatelygated wholefirstnative tests selectedartistusefulness",
+    "retaininertart/defernewcoupledfootlastsource, largerauthoritywork and unqualifieddrawing"
+  ],
+  "next": {
+    "publisher_worth": "A afterrootcomplete source/pin gate, exact oneoperation; no criticexecution",
+    "native_worth": "conditionalA freshliteralfirstwholeimage plan only after actualcomplete registry equality/rootgate",
+    "no_inherited_admission": true,
+    "firstB_stop": "no source/producer/layout/art/native/rescue/retake"
+  },
+  "retained_errors": "nonecurrentread; priorprimary aggregateprint truncation recovered in its immutable receipt, no sourcechange",
+  "scope_limits": [
+    "No actualregistry/count/appearance/data/physical/sourcefit/runtime/AAA result",
+    "Sourcecode only, allpredicates currentlyunexecuted",
+    "No computedstyle/registeredprojection/path/surface/cavity/last/measurement/gauge/manufacturing proof",
+    "Only own2handofffiles written, source/original/product/default/frozen unchanged"
+  ],
+  "status": {
+    "scoped_checked": 16,
+    "broad_open": 10,
+    "publisher_runs": 0,
+    "native_runs": 0
+  },
+  "no_pending_edits": true
+}
