@@ -1,0 +1,43 @@
+{
+  "status_before": "ACTIVE",
+  "status_after": "PAUSED",
+  "preserved_fields": [
+    "id",
+    "kind",
+    "name",
+    "prompt",
+    "rrule",
+    "target_thread_id",
+    "created_at"
+  ],
+  "app_update_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Updated automation in the app."
+      },
+      {
+        "type": "text",
+        "text": "{\"automationId\":\"advance-sugata-avatar-visual-quality\",\"mode\":\"update\",\"status\":\"PAUSED\"}"
+      }
+    ],
+    "isError": false
+  },
+  "app_view_readback": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Rendered automation card in the app."
+        }
+      ],
+      "isError": false
+    }
+  },
+  "toml_readback_chunk": "0b99ab",
+  "toml_readback_utc": "2026-10-06T13:10:32.486948+00:00",
+  "toml_readback_pid": 37300,
+  "automation_file_sha256": "d755c4bc08e4511986ad35703149e66b92c482bda7dd043e4fb042023fcf1cd1",
+  "prompt_sha256": "d5014b8d75829458336e218a307ced84ed9aaed9ffac96336ca3b804c666009a"
+}
