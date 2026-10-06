@@ -1,0 +1,88 @@
+{
+  "utc": "2026-10-06T11:44:55.900738+00:00",
+  "writer_pid": 72662,
+  "decision": "Actual two exactcaller recipes refuse before token/load and retain old worn IDs; selected/saved memory preferences changed; paired explicit outer controls apply current floor.",
+  "verified_execution_inputs": 38,
+  "raw_cases": 2,
+  "raw_states": 10,
+  "settlements": 6,
+  "known_warnings": 2,
+  "findings": [
+    {
+      "slot": "TORSO",
+      "recipe_error": {
+        "name": "Error",
+        "message": "Wardrobe: this outfit cannot be worn:\n  'foundation_vest' and 'foundation_bra' both claim TORSO at layer FOUNDATION \u2014 they would interpenetrate."
+      },
+      "selected_memory_preference": {
+        "TORSO": "foundation_vest"
+      },
+      "old_worn_retained": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "control_applied": [
+        "foundation_briefs",
+        "foundation_vest",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "recipe_new_load_count": 0,
+      "control_new_load_count": 1
+    },
+    {
+      "slot": "HIPS",
+      "recipe_error": {
+        "name": "Error",
+        "message": "Wardrobe: this outfit cannot be worn:\n  'foundation_briefs' and 'foundation_boxer_brief' both claim HIPS at layer FOUNDATION \u2014 they would interpenetrate."
+      },
+      "selected_memory_preference": {
+        "HIPS": "foundation_boxer_brief"
+      },
+      "old_worn_retained": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "control_applied": [
+        "foundation_boxer_brief",
+        "foundation_bra",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "recipe_new_load_count": 0,
+      "control_new_load_count": 1
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ROOT-SOURCE-GATE.json",
+      "bytes": 11054,
+      "sha256": "93dd5256c151705cf15a7fd96d40c43bbc1faeefc353fb15fcba538b0a21af13"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/JOB.json",
+      "bytes": 1413,
+      "sha256": "0b1f013136611d03e731c2d621fa6448cfd66b082dde2a4519fb8b7b7ba0acb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/STDOUT.txt",
+      "bytes": 13776,
+      "sha256": "b3c06bc453bf018f92fdbe506f1fc584d16ca18b1aeac9fdcee508fe6b5aa0f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/STDERR.txt",
+      "bytes": 352,
+      "sha256": "ad2787e22c245da4ea488a6ea5f079dccae8dac56c2b26341c267869d9d64eec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/check-raw.py",
+      "bytes": 5353,
+      "sha256": "ef50027b19baaa130bb251d1edf291a91731cd112166a09c6812fa58f9322738"
+    }
+  ],
+  "limits": "Real-source CPU policyIDs and private memory only; no actualtestbed catch/DOM/UI/personalstorage/pin/persistence rollback/broadconcurrency/body coverage/fit/renderer/pixels/performance/AAA."
+}

@@ -1,0 +1,104 @@
+{
+  "utc": "2026-10-06T11:45:17.179391+00:00",
+  "writer_pid": 72702,
+  "source_gate_job": {
+    "chunk": "9ad266",
+    "exit": 0,
+    "pid": 72614,
+    "utc": "2026-10-06T11:44:44.996604+00:00"
+  },
+  "sole_actual_job": {
+    "chunk": "6d8e9c",
+    "exit": 0,
+    "started_utc": "2026-10-06T11:44:50.235916+00:00",
+    "collected_utc": "2026-10-06T11:44:50.347741+00:00",
+    "supervisor_pid": 72639,
+    "child_pid": 72641,
+    "argv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "--max-old-space-size=512",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/probe-v2.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "returncode": 0,
+    "elapsed_monotonic_seconds": 0.1120853329775855,
+    "stop_reason": null,
+    "collected": true,
+    "errors": [],
+    "pipes_closed": {
+      "stdout": true,
+      "stderr": true
+    },
+    "outputs": {
+      "stdout": {
+        "bytes": 13776,
+        "observed_read_bytes": 13776,
+        "eof": true,
+        "written": true,
+        "sha256": "b3c06bc453bf018f92fdbe506f1fc584d16ca18b1aeac9fdcee508fe6b5aa0f6"
+      },
+      "stderr": {
+        "bytes": 352,
+        "observed_read_bytes": 352,
+        "eof": true,
+        "written": true,
+        "sha256": "ad2787e22c245da4ea488a6ea5f079dccae8dac56c2b26341c267869d9d64eec"
+      }
+    },
+    "limits": "One owned CPU child;20s supervision plus at most two2s retirement waits,512MiB V8 heap not totalRSS. Errors may leave child unreaped; captured prefixes and EOF scope reported honestly. Single group kill and only-on-error direct owned-child fallback are cleanup, not a second trial. No renderer/pixels/fit/globalOS/GPU retirement or complete startup performance claim."
+  },
+  "raw_root_read": {
+    "chunk": "89465d",
+    "exit": 0,
+    "scope": "entire13776stdout+352stderr+predeclaredcheckercompleteobservation returned4343tokens/no truncation",
+    "checker_pid": 72662,
+    "checker_utc": "2026-10-06T11:44:55.900738+00:00"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ROOT-SOURCE-GATE.json",
+      "bytes": 11054,
+      "sha256": "93dd5256c151705cf15a7fd96d40c43bbc1faeefc353fb15fcba538b0a21af13"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/JOB.json",
+      "bytes": 1413,
+      "sha256": "0b1f013136611d03e731c2d621fa6448cfd66b082dde2a4519fb8b7b7ba0acb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/STDOUT.txt",
+      "bytes": 13776,
+      "sha256": "b3c06bc453bf018f92fdbe506f1fc584d16ca18b1aeac9fdcee508fe6b5aa0f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/STDERR.txt",
+      "bytes": 352,
+      "sha256": "ad2787e22c245da4ea488a6ea5f079dccae8dac56c2b26341c267869d9d64eec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ROOT-OBSERVATION.json",
+      "bytes": 3241,
+      "sha256": "898209e0f4162294bc566a85816b5665ca7b48be1c5b8813c786e1d9a9a429e0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/check-raw.py",
+      "bytes": 5353,
+      "sha256": "ef50027b19baaa130bb251d1edf291a91731cd112166a09c6812fa58f9322738"
+    }
+  ],
+  "decision": "Rootrawliteraloracles pass: actualtwo switchrecipes refuse with oldfoundationIDslotconflict beforetoken/loading; changedselected/privateJSONprefs retained while oldwornIDs remain. Pairedsamefixture explicitouter controls applycurrentfloor+sameouterIDs with exactlyonealternativeload. Actual independent critic stillowed before anyfixcontract/edit.",
+  "warnings": "Exactlytwo known53bone missingjaw/eyes warnings, no otherstderr; stderrnotempty.",
+  "collection_scope": "OwnedCPUchild72641 reaped/EOF/bothpipesclosed/written/readbyteshashes; no helper/targetlivejob.0.112085parentmonotonic vs0.074775toolwall distinct/notperformance.2ownedwardrobesdisposed/pending0/cacheempty plusFigure.disposecalled; noOS/GPUretirement. Nodeactualv24.13.1.",
+  "stops": {
+    "preparation": "2026-10-06T11:50:00Z",
+    "critic_source": "2026-10-06T12:00:00Z",
+    "source_collection": "2026-10-06T12:05:00Z",
+    "root_gate": "2026-10-06T12:10:00Z",
+    "sole_run_latest_start": "2026-10-06T12:12:00Z",
+    "critic_actual": "2026-10-06T12:25:00Z",
+    "actual_collection": "2026-10-06T12:30:00Z",
+    "root_close": "2026-10-06T12:35:00Z"
+  },
+  "limits": "Real-source CPU policyIDs and private memory only; no actualtestbed catch/DOM/UI/personalstorage/pin/persistence rollback/broadconcurrency/body coverage/fit/renderer/pixels/performance/AAA.",
+  "next": "Independentrawactualcritic/rootclose; only thenfreshcallerrepair worth with explicitselection/save/pin contract. No replay/source orobserver rescue."
+}

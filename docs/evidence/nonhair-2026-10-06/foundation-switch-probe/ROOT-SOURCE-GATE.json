@@ -1,0 +1,230 @@
+{
+  "utc": "2026-10-06T11:44:44.996604+00:00",
+  "pid": 72614,
+  "decision": "A exactly one supervisor invocation and predeclared raw checker. No target replay; unexpected target/oracle/collection failure closes.",
+  "critic_job": {
+    "chunk": "989f78",
+    "exit": 0,
+    "pid": 72502,
+    "collected_utc": "2026-10-06T11:43:36.918866+00:00"
+  },
+  "root_reads": [
+    "9c6cd4 entire3200/11616stablecriticpair, ownwholeharness/helper/oracle/currentselectedmethods in33729a/4f5c6e/0b349c/a770a2/f07275",
+    "6e4f90 independent29pins/6literaldeclarations/exactcallers/helperequality/discovery/metadata corrections retained"
+  ],
+  "verified": {
+    "critic_direct": 22,
+    "critic_outputs": 1,
+    "execution_manifest": 29,
+    "worth_reference_rows": 7,
+    "root_preparation_inputs": 6,
+    "owned_discoverable_tests": 0
+  },
+  "execution_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/PLAN.json",
+      "bytes": 4550,
+      "sha256": "f88c3076c27fa8cbe275efa85da290be87e5e1f72566ff4e11af943ad098c83a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/probe-v2.mjs",
+      "bytes": 5514,
+      "sha256": "a0aebf1affcde23b1f8e295484e24fd639aceee2dd04f35f8c3d20d4e4f12413"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/run-once-v2.py",
+      "bytes": 4976,
+      "sha256": "74e4e4ed02bc8c9d33109a8616722f04f69f1e1f45e4161937ee9cfbb179f8fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/check-raw.py",
+      "bytes": 5353,
+      "sha256": "ef50027b19baaa130bb251d1edf291a91731cd112166a09c6812fa58f9322738"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/run-selftests.sh",
+      "bytes": 8425,
+      "sha256": "7add74f960c84dc30ba60bd01016744d03b60be363580b4df0cdf8d8a27ea789"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 37621,
+      "sha256": "5c552223a9309883743b80538d6e9cdb45e3227f30d3ec56fb2c39b46e78d595"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/utils/SkeletonUtils.js",
+      "bytes": 11535,
+      "sha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_vest/g050.glb",
+      "bytes": 1180828,
+      "sha256": "4804bd9e11c7aafacc19ca9fa3ded25fbbd2c4d72c25a17d566087ee09ba6152"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_boxer_brief/g050.glb",
+      "bytes": 529836,
+      "sha256": "4f0a206012250e980ad0f3f4f27101d8af023ce4b52775c986d7a7ee485cdaeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "path": "/Users/robault/.brv-cli/bin/node",
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/live-foundation-timing-worth/ROOT-CLOSE.json",
+      "bytes": 3076,
+      "sha256": "8f0434741655b8fb0a7c4ebef6661e985f78b40d403baf2a40e54ef04c3cd541"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/live-foundation-timing-worth/WORTH.md",
+      "bytes": 3003,
+      "sha256": "8637a4f3ab79344b1a3346a5bad4b819e73ae9040b051fac9d910b3bf9f97113"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/live-foundation-timing-worth/WORTH-RECEIPT.json",
+      "bytes": 8236,
+      "sha256": "a55cc0693a2333542ffe45c240ca976aecc7756576be6d1f238f3a09fd05c3e8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/live-foundation-timing-worth/FROZEN.json",
+      "bytes": 1545,
+      "sha256": "03f6e3fa1f113aea56ba2c7ecdcae0d06028bb5ee36f5f36f44da256ffc23165"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-PLAN.json",
+      "bytes": 4613,
+      "sha256": "91aea6ce1a3da05743785abdcfbf3f8b2d46f2a1c5f4d691c3469d5af7333d20"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/INPUTS.json",
+      "bytes": 6555,
+      "sha256": "52a487753369f0186c424225f7358ca490fc6bc7cb7a0cd9c218d955b960eedf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ROOT-SOURCE-INSPECTION.json",
+      "bytes": 9665,
+      "sha256": "9013d2e22cc578524647ee946cbf8ce1c7ab091020a812e6725c9931973a16c8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-CRITIC.md",
+      "bytes": 3200,
+      "sha256": "47b7793f4e7b39a423056f0b19da475a5ae0fc73b439a14b120048a764190aa4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 11616,
+      "sha256": "a268ff2d9e6efef8fa5ccde125b64bf8ff0fa10786db7adc48fc4d11e0e79c4e"
+    }
+  ],
+  "command": "python3 docs/evidence/nonhair-2026-10-06/foundation-switch-probe/run-once-v2.py",
+  "observer_command": "python3 docs/evidence/nonhair-2026-10-06/foundation-switch-probe/check-raw.py",
+  "bounds": "30s outer; one Node child20s supervision,at mosttwo2s retirementwaits,64KiB eachpipe,512MiB V8oldspace notRSS. Reaped,bothEOF/closed/written/exactobservedbytes mandatory; exclusiveartifacts/no retry.",
+  "raw_oracles": "2cases;10states;6settlements initialfulfilled\u2192recipeRejected\u2192controlFulfilled percase. OldIDs exactlybra/briefs/casual/shoes. NewTORSOfloor briefs/vest, HIPSboxer/bra; token1\u21921\u21921\u21922\u21923, pending0/loadingnull throughout retainedrecords. Changedfloor/privateJSON preference, oldworn retainedrecipe/no newload, onealternativeloadpercontrol; wardrobedisposed+figure.disposecalled. Known2missingjaw/eyes warnings. Target records raw data without expectedoutcome assertions; root/critic separatelyparse.",
+  "stops": {
+    "preparation": "2026-10-06T11:50:00Z",
+    "critic_source": "2026-10-06T12:00:00Z",
+    "source_collection": "2026-10-06T12:05:00Z",
+    "root_gate": "2026-10-06T12:10:00Z",
+    "sole_run_latest_start": "2026-10-06T12:12:00Z",
+    "critic_actual": "2026-10-06T12:25:00Z",
+    "actual_collection": "2026-10-06T12:30:00Z",
+    "root_close": "2026-10-06T12:35:00Z"
+  },
+  "limits": "PolicyIDs only; no realpersonalstorage/UI/button delivery/physical coverage/fit/body/morph/pose/pixels/AAA. No old13-case replay, genericconcurrency/floor-policy repair, closed offsets/weights/masks/frontproxy/haircards/head/capture/renderer rescues. Accepted92ceefa/defaults/assets/frozenrefs/17scoped10broad/roadmap/Vite/ACTIVE recovery remain. No purchase/install/push/publish/model/reset/otherprojects. Human steering wins."
+}

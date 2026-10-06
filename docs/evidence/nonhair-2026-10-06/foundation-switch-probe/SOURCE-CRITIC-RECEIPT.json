@@ -1,0 +1,221 @@
+{
+  "collected_utc": "2026-10-06T11:43:36.918866+00:00",
+  "writer_pid": 72502,
+  "decision": "A source/one-run worth only; independent root exact one-run admission still required",
+  "result_words": 379,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/PLAN.json",
+      "bytes": 4550,
+      "sha256": "f88c3076c27fa8cbe275efa85da290be87e5e1f72566ff4e11af943ad098c83a",
+      "read_scope": "whole exact plan"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-PLAN.json",
+      "bytes": 4613,
+      "sha256": "91aea6ce1a3da05743785abdcfbf3f8b2d46f2a1c5f4d691c3469d5af7333d20",
+      "read_scope": "whole exact source protocol and predeclared oracle/stops"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/INPUTS.json",
+      "bytes": 6555,
+      "sha256": "52a487753369f0186c424225f7358ca490fc6bc7cb7a0cd9c218d955b960eedf",
+      "read_scope": "whole29-row manifest; all raw bytes independently hashed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/probe-v2.mjs",
+      "bytes": 5514,
+      "sha256": "a0aebf1affcde23b1f8e295484e24fd639aceee2dd04f35f8c3d20d4e4f12413",
+      "read_scope": "entire92 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/check-raw.py",
+      "bytes": 5353,
+      "sha256": "ef50027b19baaa130bb251d1edf291a91731cd112166a09c6812fa58f9322738",
+      "read_scope": "entire57 lines; never run/imported"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/run-once-v2.py",
+      "bytes": 4976,
+      "sha256": "74e4e4ed02bc8c9d33109a8616722f04f69f1e1f45e4161937ee9cfbb179f8fd",
+      "read_scope": "entire79 lines; never run/imported; whole equality to prior qualified collector"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e",
+      "read_scope": "current1\u201365/305\u2013351, complete dispose309\u2013330; whole hash, not full464-line class audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936",
+      "read_scope": "current514\u2013567/746\u2013790 plus imports114\u2013117; previous exact-pin worth read395\u2013485/605\u2013647/775\u2013843/920\u2013978 reused; no whole-class re-audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646",
+      "read_scope": "current80\u201394/131\u2013158; previous whole192-line worth read reused only after fresh pin verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd",
+      "read_scope": "current199\u2013239; previous exact-pin239\u2013279 conflict read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207",
+      "read_scope": "current248\u2013254/335\u2013384/443\u2013451; previous same-pin195\u2013218/235\u2013262/410\u2013465 reused; total1222 verified, not whole UI audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "read_scope": "whole JSON read; all six selected raw garment declarations, not GLB data"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/run-selftests.sh",
+      "bytes": 8425,
+      "sha256": "7add74f960c84dc30ba60bd01016744d03b60be363580b4df0cdf8d8a27ea789",
+      "read_scope": "current88\u201395 discovery; whole hash, no runner execution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8",
+      "read_scope": "whole789-byte package"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "read_scope": "whole3826-byte package/import export map"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2",
+      "read_scope": "imports1\u201369 and whole byte hash only; no full loader semantics review"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 37621,
+      "sha256": "5c552223a9309883743b80538d6e9cdb45e3227f30d3ec56fb2c39b46e78d595",
+      "read_scope": "imports1\u201312/byte hash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/utils/SkeletonUtils.js",
+      "bytes": 11535,
+      "sha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f",
+      "read_scope": "imports1\u201310/byte hash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+      "read_scope": "import/export6\u20137/byte hash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0",
+      "read_scope": "import9/whole byte hash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5",
+      "read_scope": "static import absence scan/whole byte hash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/run-once-v2.py",
+      "bytes": 4976,
+      "sha256": "74e4e4ed02bc8c9d33109a8616722f04f69f1e1f45e4161937ee9cfbb179f8fd",
+      "read_scope": "byte equality only to same full collector read; no prior jobs re-audited"
+    }
+  ],
+  "verified_bindings": {
+    "INPUTS_rows": 29,
+    "worth_reference_rows": 7,
+    "worth_unique_files": 4,
+    "six_raw_manifest_declarations": 6,
+    "same_previous_collector_bytes": true,
+    "owned_leaf_selftest_matches": 0,
+    "gate_job_stream_observation_absent": true
+  },
+  "read_scope_limits": "29files byte-pinned, not29semantic reviews. Seven real GLB inputs and Nodebinary remain hash-only; no header/JSON/BIN/mesh decode or binary execution. Current selected owner/caller methods and previous whole Foundation/selected Wardrobe worth scopes reused only at matching raw pins. No full installed-library audit/API or OS guarantee.",
+  "jobs": [
+    {
+      "chunk": "6644e6",
+      "pid": 71900,
+      "utc": "2026-10-06T11:37:43.266532Z",
+      "exit": 0,
+      "command": "python3 stdlib wholePLAN/SOURCE-PLAN/INPUTS text and pins"
+    },
+    {
+      "chunk": "f6bf57",
+      "pid": 71925,
+      "utc": "2026-10-06T11:38:00.975363Z",
+      "exit": 0,
+      "command": "python3 stdlib all29bytepins and entire92/57/79 target-oracle-collector source text; no evaluation"
+    },
+    {
+      "chunk": "c8b1be",
+      "pid": 72187,
+      "utc": "2026-10-06T11:39:52.392292Z",
+      "exit": 0,
+      "command": "python3 stdlib six rawmanifest declarations/static local+installed imports/package export maps/full collector byte equality/absence+selftest checks"
+    },
+    {
+      "chunk": "5e116c",
+      "exit": 0,
+      "pid": "not reported",
+      "command": "rg -n -A42 -B4 '^    dispose\\(' packages/core/src/figure/Figure.js packages/core/src/wardrobe/Wardrobe.js",
+      "scope": "Complete dispose functions and adjacent source only"
+    },
+    {
+      "chunk": "2476e4",
+      "pid": 72296,
+      "utc": "2026-10-06T11:41:04.805723Z",
+      "exit": 0,
+      "command": "python3 stdlib exact selected imports/sort/caller/prefer/save/dress/floor/dispose/global discovery and actual line counts"
+    },
+    {
+      "pid": 72502,
+      "utc": "2026-10-06T11:43:36.918866+00:00",
+      "command": "python3 stdlib final29+7worth pins/absence and exclusive <=500word source result/receipt full readback; outputchunk/exit separate"
+    }
+  ],
+  "retained_errors": [],
+  "parent_errors": "SOURCE-PLAN contains root preauthoring wrong package path and guessed conflict literal, both recorded and corrected before this handoff. Optional unpinned ROOT-SOURCE-INSPECTION was not read or used as oracle; no target fault inferred.",
+  "causal_scope": "Two successfully initialized real Wardrobe/Foundation fixtures; constant suit+shoes explicit control establishes only these source-derived requests. Testbed DOM/run catch/personal localStorage, Agency pin, generic filtering/reentry/concurrent floor changes and persistence rollback are not exercised.",
+  "oracle_expected": "2cases/10states/6settlements; selectedSaved==afterRecipe with literal conflict/no load/no token increment, then selected-floor control success with one alternative load; complete collection/disposal fields and exact2 known rig warnings. First unexpected failure refuses without target replay or oracle rescue.",
+  "next": {
+    "worth": "A one separately root-admitted python3 run-once-v2.py + predeclared saved-output check; no execution by critic",
+    "alternative": "B withhold on any late/missing/pin/source/actual gate; source concern remains without repair credit",
+    "actual_gate": "Mandatory raw-result critic/root review before any new caller/persistence/selection/pin source contract or product change"
+  },
+  "limits": "No target/helper/oracle/Node/import/evaluation/syntax test/globalrunner, GLB/header/BIN/mesh/image decode, browser/network/capture/GPU, no code/asset/preference/realstorage/accepted/default/frozen edit. No actual expected outcome claimed; no physicaldecency/coverage/mask/weight/offset/body/morph/pose/fit/appearance/UI/performance/AAA qualification.17scoped10broad and closedmethods retained.",
+  "stops": {
+    "preparation": "2026-10-06T11:50:00Z",
+    "critic_source": "2026-10-06T12:00:00Z",
+    "source_collection": "2026-10-06T12:05:00Z",
+    "root_gate": "2026-10-06T12:10:00Z",
+    "sole_run_latest_start": "2026-10-06T12:12:00Z",
+    "critic_actual": "2026-10-06T12:25:00Z",
+    "actual_collection": "2026-10-06T12:30:00Z",
+    "root_close": "2026-10-06T12:35:00Z"
+  },
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-CRITIC.md",
+      "bytes": 3200,
+      "sha256": "47b7793f4e7b39a423056f0b19da475a5ae0fc73b439a14b120048a764190aa4",
+      "read_scope": "complete own exclusive result readback"
+    }
+  ],
+  "pending_edits": false
+}
