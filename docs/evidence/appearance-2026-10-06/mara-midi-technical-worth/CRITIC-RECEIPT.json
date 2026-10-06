@@ -1,0 +1,119 @@
+{
+  "collected_utc": "2026-10-06T08:05:05.580808+00:00",
+  "writer_pid": 27099,
+  "worth": "A conditional2D intent/reference worth only; no execution admission",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-worth/PLAN.json",
+      "bytes": 5623,
+      "sha256": "b0a091b927957aa7ea960f534ef01bb16a1b68ef455ae9a9c8c80dd29b136226"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md",
+      "bytes": 3630,
+      "sha256": "962f4927f70174d82daa5fdaa3b902e6853c0db16388d689f6f5ba62c40c6255"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/ROOT-CLOSE.json",
+      "bytes": 3358,
+      "sha256": "db67f68384a079e2cc31d5e1f3c175dde53f4d6797b9a51480cfb26f8148ab92"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+      "bytes": 2119,
+      "sha256": "38c5bada9d90499073eb1e8cd3162d1a42f581d6c7a2b5aa70530176c3f9a4c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+      "bytes": 2164,
+      "sha256": "be3d7e95da79ad6dd177b71d1afeb76999f4456d651bd1676b6473ae7d2ddecd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-adoption/CHECKLIST-BEFORE.md",
+      "bytes": 5848,
+      "sha256": "6e238f3365bf145fbbf5b4065f78d440553cf651ee064ac29290212a1c68d183"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5960,
+      "sha256": "2bb0709ad54908bf78b996d421b9b91e8c1e1cef817c42128df6b0bad0f502b5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-adoption/DOCUMENTATION-PLAN.json",
+      "bytes": 3091,
+      "sha256": "05cec50afc472ad1a6045b2028fd724fb3c6b391220de9962242e6f4695dbfb0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-worth/REFERENCE-PROPOSAL.json",
+      "bytes": 2774,
+      "sha256": "1f12fbe8dd662fcf0ff577389826de8e9a1a8d0c56255cea585f899e062c06bc"
+    }
+  ],
+  "historical_resolution": {
+    "declared_path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+    "expected_historical_bytes": 5848,
+    "expected_historical_sha256": "6e238f3365bf145fbbf5b4065f78d440553cf651ee064ac29290212a1c68d183",
+    "actual_historical_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-adoption/CHECKLIST-BEFORE.md",
+    "current_bytes": 5960,
+    "current_sha256": "2bb0709ad54908bf78b996d421b9b91e8c1e1cef817c42128df6b0bad0f502b5",
+    "verified_delta": "Only existing named-look evidence link and October5\u21926 update date;17checked/10open exact. Current live file is not falsely treated as the old PLAN pin."
+  },
+  "read_scopes": "Complete5623-byte PLAN and2774-byte REFERENCE-PROPOSAL; all six input hashes verified at their proper version. Whole unchanged Mara image viewed at original detail1536x1024. Full15-line BRIEF,52-line old MIDI ROOT-CLOSE,13-line cardigan handoff,13-line loafer handoff and51-line historical checklist read. Current checklist hash and exact two-delta derivation compared; no broad duplicate/source locator or old program/helper replay.",
+  "jobs": [
+    {
+      "chunk": "28f5d4",
+      "pid": 26684,
+      "utc": "2026-10-06T08:00:52.411835+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib whole PLAN read/byte/SHA"
+    },
+    {
+      "tool": "functions.exec tools.view_image",
+      "pid": null,
+      "command": "view_image original-detail at exact Mara concept path, emit entire image unchanged",
+      "scope": "Actual whole1536x1024 view between PLAN observer08:00:52 and subsequent source observer08:01:36; tool does not provide exact capture clock/PID, no new browser/native image"
+    },
+    {
+      "chunk": "9c7413",
+      "pid": 26785,
+      "utc": "2026-10-06T08:01:36.417454+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib verify all six PLAN pins with historical checklist substitution; print full five text inputs and current checklist SHA"
+    },
+    {
+      "chunk": "acd1e9",
+      "pid": 26912,
+      "utc": "2026-10-06T08:02:40.546720+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib compare exact historical/current checklist derivation and17/10 counts; pin existing documentation plan"
+    },
+    {
+      "chunk": "76a14d",
+      "pid": 26926,
+      "utc": "2026-10-06T08:02:52.164087+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full literal reference proposal2774bytes and SHA"
+    },
+    {
+      "pid": 27099,
+      "utc": "2026-10-06T08:05:05.580808+00:00",
+      "command": "python3 heredoc stdlib final pins/versions/count checks; exclusive result/receipt write and whole JSON readback; tool chunk/exit returned separately"
+    }
+  ],
+  "observed_errors": [],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-worth/RESULT.json",
+      "bytes": 7431,
+      "sha256": "35e25f24bef5049db6ed7959e0904019d67fa0fa06fc4adfd9b5d57e07817514"
+    }
+  ],
+  "limits": "Only local saved-source/image worth. No new external source observed; official-source suitability remains unproved. No positions/topology/trigonometry/helper/target evaluation, new raster, browser/GPU or source replay. Whole source image pixels support qualitative front observations only. No guarantee that a future drawing/reference will pass.",
+  "stop_utc": "2026-10-06T08:15:00Z",
+  "pending_edits": false
+}

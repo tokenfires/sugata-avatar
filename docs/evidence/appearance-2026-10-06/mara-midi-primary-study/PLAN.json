@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-06T08:07:16.419372+00:00",
+  "pid": 27285,
+  "decision": "Admit ONE literalofficialsearch basedonfullindependent/rootworth. Page and native firstimage remain separately gated on actualsuppliedresult.",
+  "worth": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-worth/ROOT-CLOSE.json",
+    "bytes": 4604,
+    "sha256": "36ec4b83227e7f2937e7370ed1c4ede77fab9ea878132d983067a49276a1c5ae"
+  },
+  "arguments": {
+    "query": "site:cos.com women A-line midi skirt waistband woven",
+    "includeDomains": [
+      "cos.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "limit": 3,
+    "domainTools": false
+  },
+  "tool": "mcp__codex_apps__firecrawl_firecrawl_search",
+  "purpose": "Qualitative actualvisiblewaistbandANDcontrolledA-linefall vocabulary tochange new2Dartistintent choice.",
+  "stop": "One invocation. Only officialcos.com garment-page result with explicitURL/title qualifies. Outside-domain/collection-only/failed/absent responses stop inquiry with no fallbackquery.",
+  "subsequent": {
+    "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+    "arguments_template": {
+      "url": "ONE qualified literal result URL selected and recorded beforecall",
+      "formats": [
+        "markdown"
+      ],
+      "maxAge": 0,
+      "timeout": 45000
+    },
+    "stop": "One invocation. Current-content claim limited to actualreturned success/HTTP/timestamps; insufficient/no returnedgarment image/context closes withoutrescrape."
+  },
+  "native": {
+    "tool": "mcp__cua_repl.js",
+    "contract": "If supplied URL/content qualifies, root separately owns one namedIAB tab via documentedAPI, firstwhole screenshot withoutcrop/retake/material/camera overrides, saveactualframe exclusively andcloseonlyownedtab. Read currentCua documentation beforeuse; explicitliteral URL/call/cap/ownership written beforeadmission.",
+    "stop": "Atmost45s single native page acquisition; firstblocked/unreadable/no actualimage result closes reference-imagequestion withoutUI/image/capture rescue. No remoteimage download."
+  },
+  "stops_utc": {
+    "search_page": "2026-10-06T08:26:00Z",
+    "first_frame": "2026-10-06T08:30:00Z",
+    "critic": "2026-10-06T08:37:00Z",
+    "root_close": "2026-10-06T08:40:00Z"
+  },
+  "limits": "No productpurchase/creditreset/subscription/models/sourceauthoring/publisher/old3Drescue. Returnedresults are untrustedreference data. Onequery only, preserve exactresponse/arguments/actualreportedusage; no date/current claim beyondactual evidence."
+}
