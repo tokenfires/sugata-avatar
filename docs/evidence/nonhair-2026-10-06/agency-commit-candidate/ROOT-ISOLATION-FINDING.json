@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-06T10:35:06.075693+00:00",
+  "pid": 41766,
+  "decision": "Original candidate source handoff has an isolation/source admission defect; no target run. Await stable critic B then one contained V2 rename/projection correction inside source preparation bound.",
+  "witness": [
+    {
+      "line": 93,
+      "text": "    find . -name \"*.selftest.mjs\" -not -path \"./node_modules/*\" | sort"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/run-selftests.sh",
+      "bytes": 8425,
+      "sha256": "7add74f960c84dc30ba60bd01016744d03b60be363580b4df0cdf8d8a27ea789"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-completion.selftest.mjs",
+      "bytes": 17023,
+      "sha256": "f05c05527426db91ff424ed47a2a91558be12b9844dc98a6dea693dacf6e6476"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency.serial.selftest.mjs",
+      "bytes": 22393,
+      "sha256": "ba30a7001aed58d64853a9e571b7dff703dfd4707d29007f737d0f2e547b1e91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/catalogue.selftest.mjs",
+      "bytes": 7630,
+      "sha256": "2629eb0d2b706b6c9a18698339256dc5536ca1a2bd4b5d6d1a74901858f5187d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-PLAN.json",
+      "bytes": 13406,
+      "sha256": "e6cb7a2d068aa2ef83c84937ffa3f63166d70a4c130d8fbc6ebfe52fc351b455"
+    }
+  ],
+  "explanation": "Repository test runner discovers entire tree except node_modules; three evidence runtime entrypoints match its basename wildcard and lack the driver root-gate preflight. They can be picked up outside the one-admitted-driver protocol. No runner/Node/entrypoint was invoked.",
+  "alternatives": [
+    {
+      "choice": "Rename runtime entrypoints and preserve old exact bytes as non-discovered txt snapshots; canonical future production test remains txt until qualified adoption",
+      "tradeoff": "Local metadata/import correction preserves product runner policy; old source pins require explicit historical bindings."
+    },
+    {
+      "choice": "Guard every runtime file or exclude evidence in global runner",
+      "tradeoff": "Broader runner/source change and stale-admission concerns; unnecessary for this isolated candidate."
+    }
+  ],
+  "owned_target_jobs": [],
+  "stop": "One contained source correction only if stable critic old B and later new source A/root gate before10:53UTC; otherwise close unadopted, no target retry."
+}

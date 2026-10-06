@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-06T10:42:11.022483+00:00",
+  "pid": 42372,
+  "decision": "Close first source B/unrun protocol. Preparation cutoff10:40 reached before root could collect/review and prepare correction. No inherited Node/adoption admission.",
+  "root_read": "f857b6 full3952/8516 handoff; root48fb21 own entire runner/source and e37152 exact basename93 witness plus threepins.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-RESULT.md",
+      "bytes": 3952,
+      "sha256": "1105896e9e944380b46f5be3cd0804e9de3f41688c55e91997ee3a7067cbc2f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 8516,
+      "sha256": "451f005f328a831254a1675ece78e871a0b3a8c53a05e333c1a740173901d3f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-PLAN.json",
+      "bytes": 13406,
+      "sha256": "e6cb7a2d068aa2ef83c84937ffa3f63166d70a4c130d8fbc6ebfe52fc351b455"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ISOLATION-FINDING.json",
+      "bytes": 2694,
+      "sha256": "2a1ca37b08c9a2225e22d4c646346c1063143ea0010c1b5c9cdbcd65aed81dc8"
+    }
+  ],
+  "verified": {
+    "critic_inputs": 15,
+    "critic_outputs": 1,
+    "source_plan_inputs": 24,
+    "external_inputs": 25
+  },
+  "source_job": {
+    "chunk": "2e92aa",
+    "exit": 0,
+    "pid": 42178,
+    "collected_utc": "2026-10-06T10:39:52.089101+00:00"
+  },
+  "scope": "Source discovery issue only; no candidate/import/Node/runner/test or product change. Three runtime names will be safely isolated as retirement cleanup with exact old snapshots; any next execution needs a fresh explicit worth/source plan. All callback/test canonical source unchanged."
+}

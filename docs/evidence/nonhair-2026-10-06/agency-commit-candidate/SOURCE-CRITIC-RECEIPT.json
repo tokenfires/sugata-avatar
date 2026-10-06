@@ -1,0 +1,176 @@
+{
+  "collected_utc": "2026-10-06T10:39:52.089101+00:00",
+  "writer_pid": 42178,
+  "decision": "B original runtime-discovery isolation/source admission; no target execution",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-PLAN.json",
+      "bytes": 13406,
+      "sha256": "e6cb7a2d068aa2ef83c84937ffa3f63166d70a4c130d8fbc6ebfe52fc351b455"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PROJECTIONS.json",
+      "bytes": 3292,
+      "sha256": "df2ac1bb4ed02981ab44ba9271bbc935b93264ff1791fe75ca11e671a32c824a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/REGRESSION-CONTRACT.md",
+      "bytes": 4776,
+      "sha256": "1de5fcd27f4a59ab6e6a8218229901c752d7084d581caace1bee22e960b9d5e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/DESIGN-ADDENDUM.md",
+      "bytes": 1841,
+      "sha256": "f47b15fc719d2362c8c9473be8d45f2174a1b853747b4da6b00dfc014e01a588"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/Wardrobe.js.txt",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/WardrobeAgency.js.txt",
+      "bytes": 23800,
+      "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-completion.selftest.mjs.txt",
+      "bytes": 16920,
+      "sha256": "73f2c15e512cedbda6189ff642db5b4fbe1dc52931cf2d0424a61deea2391808"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-completion.selftest.mjs",
+      "bytes": 17023,
+      "sha256": "f05c05527426db91ff424ed47a2a91558be12b9844dc98a6dea693dacf6e6476"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency.serial.selftest.mjs",
+      "bytes": 22393,
+      "sha256": "ba30a7001aed58d64853a9e571b7dff703dfd4707d29007f737d0f2e547b1e91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/catalogue.selftest.mjs",
+      "bytes": 7630,
+      "sha256": "2629eb0d2b706b6c9a18698339256dc5536ca1a2bd4b5d6d1a74901858f5187d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/probe.mjs",
+      "bytes": 997,
+      "sha256": "333494ceb61852eba83d86b7a1999f881fb967e41803f16aa2e0d5c476b30a2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/run-once.py",
+      "bytes": 4973,
+      "sha256": "7923f5b6cd6b91038dddee0c5ff822e72f8662f4dd03ef121e6a46dcaadf88e7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1441,
+      "sha256": "140a0c288db052eb51656cab6173cae1dc16f94055795677e997bef59665309a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/INPUTS.json",
+      "bytes": 6024,
+      "sha256": "304dcadf2da499498a2de6651a54f9d3218ada05c9e8cdfe8576f3db2b900fd6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/run-selftests.sh",
+      "bytes": 8425,
+      "sha256": "7add74f960c84dc30ba60bd01016744d03b60be363580b4df0cdf8d8a27ea789"
+    }
+  ],
+  "verified_pin_manifests": {
+    "SOURCE_PLAN_leaf24": true,
+    "SOURCE_PLAN_external25": true,
+    "INPUTS_external25": true,
+    "actual_target_gate_outputs_absent": true
+  },
+  "read_scopes": "Complete SOURCE-PLAN13406/PROJECTIONS3292; canonical Wardrobe1121/49992 with aggregate-truncated middle recovered300\u2013670, complete Agency692/23800; full279-line16920canonical regressions/25-line4776contract/7-line1841addendum/17-line997driver/125-line7630catalogue/79-line4973collector/31-line1441original-map/57-line3061rootworth/144-line6024INPUTS. Whole original-to-candidate text diffs. Current serial projection22393 raw pin only at this stage, original559-line assertions fully read in earlier own work; fresh projection reversal not reached before isolation stop. Runtime projected new-regression bytes verified by pin only; semantic source is canonical279 plus declared import map. tools/run-selftests.sh60\u2013110 actual text read, whole8425 bytes SHA verified. All external/GLB files raw hashes only; no binary/header/source/mesh decode or additional library audit.",
+  "finding": {
+    "id": "F1",
+    "witness": "tools/run-selftests.sh75/92\u201394 and three literal runtime filenames versus probe7\u201311 root guard",
+    "status": "Demonstrated source isolation/discovery bypass; no runner/target executed or module defect test result."
+  },
+  "jobs": [
+    {
+      "chunk": "9e371a",
+      "pid": 40902,
+      "utc": "2026-10-06T10:24:46.637134+00:00",
+      "exit": 0,
+      "command": "python3 heredoc full source-plan/projection maps and byte/SHA"
+    },
+    {
+      "chunk": "0ceb4d",
+      "pid": 40944,
+      "utc": "2026-10-06T10:25:21.508482+00:00",
+      "exit": 0,
+      "command": "python3 heredoc full279 canonical regression/contracts/addendum/driver"
+    },
+    {
+      "chunk": "73c9c8",
+      "pid": 40945,
+      "utc": "2026-10-06T10:25:21.506299+00:00",
+      "exit": 0,
+      "command": "python3 heredoc entire original-to-candidate Wardrobe/Agency textual diffs"
+    },
+    {
+      "chunk": "76f3c9 and second aggregate range printer",
+      "pid": 41208,
+      "utc": "2026-10-06T10:28:10.865932+00:00",
+      "exit": 0,
+      "command": "python3 two independent whole Wardrobe ranges1\u2013555 and556\u20131121",
+      "retained_limit": "Combined outer output truncated around first310 through second650; second job identity unavailable in visible aggregate, not guessed. Missing source range recovered separately."
+    },
+    {
+      "chunk": "406175",
+      "pid": 41258,
+      "utc": "2026-10-06T10:28:49.533851+00:00",
+      "exit": 0,
+      "command": "python3 heredoc source300\u2013670 recovery, no candidate/source change"
+    },
+    {
+      "chunk": "f43cc9",
+      "pid": 41307,
+      "utc": "2026-10-06T10:29:26.907531+00:00",
+      "exit": 0,
+      "command": "python3 heredoc complete692 canonical Agency"
+    },
+    {
+      "chunk": "e3bef6",
+      "pid": 41338,
+      "utc": "2026-10-06T10:29:50.707602+00:00",
+      "exit": 0,
+      "command": "python3 heredoc full catalogue projection/collector/original map/root worth/INPUTS"
+    },
+    {
+      "chunk": "5e2448",
+      "pid": 41786,
+      "utc": "2026-10-06T10:35:08.322055+00:00",
+      "exit": 0,
+      "command": "python3 heredoc actual global runner60\u2013110 and three candidate runtime filename/byte identities"
+    },
+    {
+      "pid": 42178,
+      "utc": "2026-10-06T10:39:52.089101+00:00",
+      "command": "python3 heredoc source24/external25/INPUTS pins and exclusive first B result/receipt readback only; returned tool chunk/exit separate"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-RESULT.md",
+      "bytes": 3952,
+      "sha256": "1105896e9e944380b46f5be3cd0804e9de3f41688c55e91997ee3a7067cbc2f1"
+    }
+  ],
+  "limits": "Only local source/text/hash data and these two own writes. No Node, target/helper/test/runner/evaluation/import, synthetic fixture, GLB/payload/geometry/bitmap decode, browser/network/GPU or product/candidate/frozen edits. Driver root guard does not make direct runtime entries inert. Source variants remain exact until root separately owns repair; no conditional target admission by this B.",
+  "stops": {
+    "source_review_inquiry": "2026-10-06T10:47:00Z",
+    "critic_source_collection": "2026-10-06T10:50:00Z",
+    "root_source_gate": "2026-10-06T10:53:00Z",
+    "first_target_and_collect": "2026-10-06T11:00:00Z",
+    "actual_critic_inquiry": "2026-10-06T11:10:00Z",
+    "actual_critic_collection": "2026-10-06T11:13:00Z",
+    "root_result_close": "2026-10-06T11:20:00Z"
+  },
+  "pending_edits": false
+}
