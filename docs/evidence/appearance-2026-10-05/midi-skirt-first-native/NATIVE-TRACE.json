@@ -1,0 +1,100 @@
+{
+  "owner": "root",
+  "startedUTC": "2026-10-06T03:26:43.874Z",
+  "phases": [
+    {
+      "name": "navigation requested",
+      "UTC": "2026-10-06T03:26:43.968Z",
+      "elapsedMilliseconds": 94
+    },
+    {
+      "name": "navigation returned",
+      "UTC": "2026-10-06T03:26:44.264Z",
+      "elapsedMilliseconds": 390
+    },
+    {
+      "name": "only owned tab closed",
+      "UTC": "2026-10-06T03:26:44.299Z",
+      "elapsedMilliseconds": 425
+    }
+  ],
+  "errors": [
+    {
+      "phase": "native",
+      "message": "First readiness refused",
+      "UTC": "2026-10-06T03:26:44.285Z"
+    }
+  ],
+  "screenshotAttempts": 0,
+  "tabsBefore": [],
+  "ownedTabId": "50",
+  "initialDOM": "- banner:\n  - heading \"Mara · midi skirt\" [level=1]\n  - paragraph: Original editable artist draft · unitless · body fit and motion unqualified\n  - button \"Finish review\" [disabled]\n- main:\n  - 'generic \"Original midi skirt: front, right profile and rear\"'\n  - generic: Front\n  - generic: Right profile\n  - generic: Rear\n- contentinfo:\n  - status: \"Review finished: viewport resized; fixed view not redrawn\"\n  - generic \"Review record\"",
+  "initialRecord": {
+    "state": "finished",
+    "starts": 1,
+    "renders": 0,
+    "finishCalls": 1,
+    "startUTC": "2026-10-06T03:26:44.126Z",
+    "inputs": {
+      "mesh": {
+        "bytes": 1172984,
+        "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+      }
+    },
+    "cleanupErrors": [],
+    "finishReason": "viewport resized; fixed view not redrawn",
+    "finishUTC": "2026-10-06T03:26:44.139Z",
+    "pendingOwnedRAF": 0,
+    "pendingOwnedFetch": "Abort requested; platform may settle later",
+    "pendingModuleOrDigest": "Non-abortable platform operation may settle; continuation checks ownership"
+  },
+  "readyDOM": "- banner:\n  - heading \"Mara · midi skirt\" [level=1]\n  - paragraph: Original editable artist draft · unitless · body fit and motion unqualified\n  - button \"Finish review\" [disabled]\n- main:\n  - 'generic \"Original midi skirt: front, right profile and rear\"'\n  - generic: Front\n  - generic: Right profile\n  - generic: Rear\n- contentinfo:\n  - status: \"Review finished: viewport resized; fixed view not redrawn\"\n  - generic \"Review record\"",
+  "readyRecord": {
+    "state": "finished",
+    "starts": 1,
+    "renders": 0,
+    "finishCalls": 1,
+    "startUTC": "2026-10-06T03:26:44.126Z",
+    "inputs": {
+      "mesh": {
+        "bytes": 1172984,
+        "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+      }
+    },
+    "cleanupErrors": [],
+    "finishReason": "viewport resized; fixed view not redrawn",
+    "finishUTC": "2026-10-06T03:26:44.139Z",
+    "pendingOwnedRAF": 0,
+    "pendingOwnedFetch": "Abort requested; platform may settle later",
+    "pendingModuleOrDigest": "Non-abortable platform operation may settle; continuation checks ownership"
+  },
+  "cleanupStartUTC": "2026-10-06T03:26:44.285Z",
+  "finishDOM": "- banner:\n  - heading \"Mara · midi skirt\" [level=1]\n  - paragraph: Original editable artist draft · unitless · body fit and motion unqualified\n  - button \"Finish review\" [disabled]\n- main:\n  - 'generic \"Original midi skirt: front, right profile and rear\"'\n  - generic: Front\n  - generic: Right profile\n  - generic: Rear\n- contentinfo:\n  - status: \"Review finished: viewport resized; fixed view not redrawn\"\n  - generic \"Review record\"",
+  "finishRecord": {
+    "state": "finished",
+    "starts": 1,
+    "renders": 0,
+    "finishCalls": 1,
+    "startUTC": "2026-10-06T03:26:44.126Z",
+    "inputs": {
+      "mesh": {
+        "bytes": 1172984,
+        "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+      }
+    },
+    "cleanupErrors": [],
+    "finishReason": "viewport resized; fixed view not redrawn",
+    "finishUTC": "2026-10-06T03:26:44.139Z",
+    "pendingOwnedRAF": 0,
+    "pendingOwnedFetch": "Abort requested; platform may settle later",
+    "pendingModuleOrDigest": "Non-abortable platform operation may settle; continuation checks ownership"
+  },
+  "finishButtonEnabled": false,
+  "console": [],
+  "closedOwnedTab": true,
+  "tabsAfter": [],
+  "cleanupMilliseconds": 103,
+  "cleanupWithin15s": true,
+  "completedUTC": "2026-10-06T03:26:44.388Z",
+  "totalMilliseconds": 514
+}

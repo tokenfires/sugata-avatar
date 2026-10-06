@@ -1,0 +1,266 @@
+{
+  "collected_utc": "2026-10-06T03:35:22.296724+00:00",
+  "critic": "/root/quality_critic",
+  "decision": "B actualfirstreadiness/fixedmethod closed; retainprior finite source/dataA; no image/artistappearance/board/checkbox credit",
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/NATIVE-RESULT.md",
+    "bytes": 5697,
+    "sha256": "335c1707c80fab5f60dbbae16c4b38430facd0d3c0bd955c3a55730d16208658"
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/PLAN.json",
+      "bytes": 5166,
+      "sha256": "46f2c5fdf2320b8c5d4bb29df670fe942631a0e1024fc21e6c2fcda97161e8cb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/ROOT-ADMISSION.json",
+      "bytes": 1153,
+      "sha256": "4cf205da7750f43729c34d90232f62dd34cc3a8bdbe6394c3959bfbc4062c795"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/JOB.json",
+      "bytes": 760,
+      "sha256": "5d90159e3c1d0ef3b16dbc58e059e14a1f13907174174118a78beeb686381f61"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/CUA-COMMAND.js",
+      "bytes": 5788,
+      "sha256": "16222d3e6514b797e5b8853c6fe8eac4b5caca689e9ce964bf6b7c8d192ce954"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/NATIVE-TRACE.json",
+      "bytes": 4311,
+      "sha256": "8deec7541233df96160d2987b86ac591c3fb81a95f66aec98cdb0fa0a92e704b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/ROOT-NATIVE-OBSERVATION.json",
+      "bytes": 2357,
+      "sha256": "af58e695b53465c3bf783d979897cb82c80bfad84ebd3f59aecd2d7c5700d742"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/TOOL-RETURN.json",
+      "bytes": 583,
+      "sha256": "9c90d65c3cefaaa441ed497f04f5ccc51b5995862851a252fd11cbaa652ab7df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/ROOT-CLOSE.json",
+      "bytes": 3320,
+      "sha256": "5ce1b7f8f55891add64680fd56e1807ec6c2e3c7efd93886d3077272a713d988"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/review.html",
+      "bytes": 1731,
+      "sha256": "4bb1fb9019c39906fd607b518df2c3b2cdfbf8fb82ce4ae8b18511dd5fb71558"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/preview.mjs",
+      "bytes": 14103,
+      "sha256": "efabc733d305c8c5697c1c35bea3cc063b579165d552ef72e89200dd73f70e5b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/VIEWER-CONTRACT.md",
+      "bytes": 10993,
+      "sha256": "14387df2e5c6df1f38675ae6e5de980fb365165fb9234bd634865863c549cfa0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/CORRECTED-SOURCE-RESULT.md",
+      "bytes": 7188,
+      "sha256": "37c9ae6bfaedc8353132db703aff3002cb5494ff4a2918cd19a980e97fb1494d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/CORRECTED-SOURCE-RECEIPT.json",
+      "bytes": 26144,
+      "sha256": "df200824760847ecd7a7b2f37c04529a40418bd5a77ffd7c61d823045d3ff3d0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/CORRECTED-NATIVE-PROPOSAL.json",
+      "bytes": 3879,
+      "sha256": "17c951c00e41c60125b1df237d8237d9cc215e35fbcf832b325ac6c466a9b483"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mesh.json",
+      "bytes": 1172984,
+      "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/CHECK.json",
+      "bytes": 2655,
+      "sha256": "796fb85236e8972ff2f824a648595ee8a2ce92c2369f5b189a337570a07def72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/ROOT-CLOSE.json",
+      "bytes": 2202,
+      "sha256": "6ac18f42ddca7bdcb5b714a1c0a64e3060c5ae5a9495863668f54029edaea289"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/DEPENDENCIES.json",
+      "bytes": 3027,
+      "sha256": "71530beda67f426dff418a4ab994637ade38925e796170284ebc3b2b1f06a8e0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/CORRECTION.json",
+      "bytes": 2528,
+      "sha256": "3894e88d4e6eab0a3fa0c3dbcee208c60d05076d0a453a061be73207c47a444c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/ROOT-F1.json",
+      "bytes": 963,
+      "sha256": "dec104aeb6b82e474f111b9a78ef2ec04f5e9f63f2aac7328c2b4339820ce930"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-native/NATIVE-HANDOFF.json",
+      "bytes": 4980,
+      "sha256": "acb25234c433601fb49c8a2dda78010836be6e9990266604d64e88484fec438e"
+    }
+  ],
+  "independent_checks": {
+    "handoff_rows": 17,
+    "PLAN_rows": 9,
+    "all_current_bytes_exact": true,
+    "initial_ready_finish_records_identical": true,
+    "source_renders": 0,
+    "source_finish_calls": 1,
+    "cleanupErrors": [],
+    "screenshotAttempts": 0,
+    "knownscreenshot_path_absent": true,
+    "onlymesh_rawidentity_reached": true,
+    "onlyowned50closed_APIbeforeafter_empty": true,
+    "no_Finish_click_or_wait_phase": true
+  },
+  "actual_witnesses": {
+    "trace_lines": "NATIVE-TRACE.json32–50/52–70/73–90;28/92–99",
+    "source_lines": "preview.mjs27–28/30–68/72/76/87–100; CUA-COMMAND14/21–28/29–37/47–59",
+    "recorded_reason": "viewport resized; fixed view not redrawn",
+    "source_start": "2026-10-06T03:26:44.126Z",
+    "source_finish": "2026-10-06T03:26:44.139Z",
+    "mesh_raw": {
+      "bytes": 1172984,
+      "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+    },
+    "native_error": [
+      {
+        "phase": "native",
+        "message": "First readiness refused",
+        "UTC": "2026-10-06T03:26:44.285Z"
+      }
+    ],
+    "unobserved": [
+      "actualdimensions/viewport",
+      "CHECKidentity",
+      "dependencyimport",
+      "assignedbuffers/normals/groups/materials/cameras/frame",
+      "readyrenderedimage/artistutility",
+      "platform/GPUretirement"
+    ],
+    "unknown": "Resizeorigin/cause/dimensions unestablished; no geometry/globalrenderer/browser diagnosis or startup/rescueprobe"
+  },
+  "alternatives": [
+    {
+      "A": "Preserve stoppedtrace/source/data-only research, closefixedmethod and await genuinelydifferent root-selected usefulproductworth; recoverable evidence with no falsecredit.",
+      "B": "Shelveproposedskirt delivery/focus another supportedgoal later, reducing investment while deferring appearanceambition.",
+      "choice": "A retention/no further routework; neither admits renamedresize/startup/transport retry"
+    },
+    {
+      "A": "Report rawmesh reach/actualcollection/timer/console bounds exactly, retains truthful partialcredit.",
+      "B": "Withhold stronger runtime/visual/GPU/performance until actualdifferent qualifiedevidence, postpones qualification.",
+      "choice": "A exactreceipt/B strongerclaims"
+    }
+  ],
+  "read_scopes": [
+    {
+      "paths": [
+        "NATIVE-HANDOFF.json",
+        "PLAN.json",
+        "CUA-COMMAND.js",
+        "NATIVE-TRACE.json",
+        "ROOT-ADMISSION.json",
+        "JOB.json",
+        "TOOL-RETURN.json",
+        "ROOT-NATIVE-OBSERVATION.json"
+      ],
+      "scope": "Complete actual rawrecords/controller source read, fulltrace100lines/CUA68lines line-numbered. Savedcommandnever executed."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/ROOT-CLOSE.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/review.html",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/preview.mjs",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/VIEWER-CONTRACT.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/CORRECTED-SOURCE-RESULT.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/CORRECTED-SOURCE-RECEIPT.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/CORRECTED-NATIVE-PROPOSAL.json"
+      ],
+      "scope": "Complete current269lineJS/HTML/contract and correctedhandback/proposal reviewed in previousfreshsourcegate, exactunchanged bytepins; actualstop/guard/finish paths compared now without evaluator. Rootclosurebytebound, not newruntimequalification."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mesh.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/CHECK.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/ROOT-CLOSE.json"
+      ],
+      "scope": "Prioractualfinite data/core fullsavedaudit preserved, currentbytepins only; no trig/normal/geometry reconstruction or source/checker replay."
+    }
+  ],
+  "commands": [
+    {
+      "record": "ff11f3/exit0",
+      "pid": 99228,
+      "utc": "2026-10-06T03:30:22.801349+00:00",
+      "command": "python3 quotedheredoc completehandoff/PLAN/leafmetadata"
+    },
+    {
+      "record": "8c4700/exit0",
+      "pid": 99320,
+      "utc": "2026-10-06T03:31:32.543173+00:00",
+      "command": "python3 quotedheredoc wholeCUA command/fullactualtrace line-numbered"
+    },
+    {
+      "record": "d31402/exit0",
+      "pid": 99319,
+      "utc": "2026-10-06T03:31:32.543161+00:00",
+      "command": "python3 quotedheredoc completeadmission/JOB/tool/rootobservation; independentreadbatched"
+    },
+    {
+      "pid": 99647,
+      "utc": "2026-10-06T03:35:22.296724+00:00",
+      "command": "python3 quotedheredoc exact17/9pins/tracefield/pathabsence checks; exclusiveNATIVE-RESULT/RECEIPT and JSON/textreadback only, no liveprocess/browser/image or diagnostic"
+    }
+  ],
+  "native_job": {
+    "owner": "root",
+    "backend": "CUA IABbrowser3",
+    "tab": "50",
+    "backend_PID": "Unavailable/notinvented",
+    "attempts": 1,
+    "navigation_requested": "2026-10-06T03:26:43.968Z",
+    "navigation_returned": "2026-10-06T03:26:44.264Z",
+    "readiness_refused": "2026-10-06T03:26:44.285Z",
+    "owned_close": "2026-10-06T03:26:44.299Z",
+    "completed": "2026-10-06T03:26:44.388Z",
+    "collector_total_ms": 514,
+    "collector_cleanup_ms": 103,
+    "CUA_reported_wall_seconds": 0.5286,
+    "tooltimeout_ms": 80000,
+    "timer_scope": "Distinctlimitedtimers, no summed/completeperformance/hardOS guarantee",
+    "Finish": "Alreadydisabled/sourcefinished once, collectordidnotclick",
+    "console": "One warn/error limit12 returnedempty, not universal",
+    "source_JOB_chronology": "Preparedstate preserved/superseded actualtrace, not pending livejob"
+  },
+  "next": {
+    "decision": "No successor proposed/admitted. B any fixedviewer/readiness/transport/lifetime/capture/resize/dimension/cause rescue/retry/reframe/renamed startupfix.",
+    "await": "Separate genuinelydifferent usefulproductworth question fromparent, preserving broadartistgoal."
+  },
+  "limits": [
+    "Noimageexists/noimageview performed; no artistappearanceB/A, boardorchecklistpromotion.",
+    "Priorfinite source/dataA unchanged; readinessB cannotdiagnose rawmesh/geometry/renderer/library/globalbrowser cause.",
+    "No strongerCHECK/import/buffer/camera/dimension/promise/GPUretirement observation fabricated.",
+    "Onlytwoownhandoffwrites, allsource/default/product/original/frozen unchanged; no livebrowser/network/diagnostic/sourceimport/normal/geometry/image/program work.",
+    "All15scoped10broad/fullambition/accepteddefaultoriginalunrelated/closedroutes/server preserved."
+  ],
+  "stops_utc": {
+    "critic": "2026-10-06T04:20:00Z",
+    "root": "2026-10-06T04:30:00Z"
+  },
+  "pending_edits": false
+}

@@ -1,0 +1,11 @@
+{
+  "prepared_utc": "2026-10-06T03:25:38.500706+00:00",
+  "state": "Prepared/not yet launched; actualCua trace later supersedes additively",
+  "owner": "root only",
+  "backend": "CUA IAB browser3/default1280x720",
+  "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/review.html",
+  "attempts": 1,
+  "capture": "One wholeviewport JPEG screenshot.jpg/no retake",
+  "budget": "60s firstnavigation-to-capture plus15scleanup; boundedreadinesswait capped40s to reservecollector margin",
+  "script": "FreshCua createownedtab/read initialDOM/boundedreadywait/readactualDOM record/oneJPEG/Finish/readback/closeonlyowned/listafter; catch failures preserve partial traces, no rescue"
+}
