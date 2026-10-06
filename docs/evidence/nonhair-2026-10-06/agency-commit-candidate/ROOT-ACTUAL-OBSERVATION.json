@@ -1,0 +1,696 @@
+{
+  "utc": "2026-10-06T10:52:26.816985+00:00",
+  "pid": 43446,
+  "decision": "Independent raw candidate CPU predicates pass; critic actual review/adoption pending.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/JOB.json",
+      "bytes": 1416,
+      "sha256": "1c3b4718cf62571a5fa262515ba171b5effb036eb5969e51c5f73d1a0b3944f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDOUT.txt",
+      "bytes": 30517,
+      "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDERR.txt",
+      "bytes": 4547,
+      "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14730,
+      "sha256": "422bbe8d44fc1e44bbfc80eda3b598ca9e9d6c96496153976fd33b6e6c577347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/verify-result.py",
+      "bytes": 10608,
+      "sha256": "3551011f2ad497412ae50eb81695e36155930edf4de57434fcc9f6b383ec7812"
+    }
+  ],
+  "execution_inputs_verified": 56,
+  "actual_job": {
+    "started_utc": "2026-10-06T10:52:18.405407+00:00",
+    "collected_utc": "2026-10-06T10:52:18.869985+00:00",
+    "supervisor_pid": 43410,
+    "child_pid": 43411,
+    "argv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "--max-old-space-size=512",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/probe-v2.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "returncode": 0,
+    "elapsed_monotonic_seconds": 0.46479250001721084,
+    "stop_reason": null,
+    "collected": true,
+    "errors": [],
+    "pipes_closed": {
+      "stdout": true,
+      "stderr": true
+    },
+    "outputs": {
+      "stdout": {
+        "bytes": 30517,
+        "observed_read_bytes": 30517,
+        "eof": true,
+        "written": true,
+        "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+      },
+      "stderr": {
+        "bytes": 4547,
+        "observed_read_bytes": 4547,
+        "eof": true,
+        "written": true,
+        "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a"
+      }
+    },
+    "limits": "One owned CPU child;20s supervision plus at most two2s retirement waits,512MiB V8 heap not totalRSS. Errors may leave child unreaped; captured prefixes and EOF scope reported honestly. Single group kill and only-on-error direct owned-child fallback are cleanup, not a second trial. No renderer/pixels/fit/globalOS/GPU retirement or complete startup performance claim."
+  },
+  "cases": 13,
+  "raw_snapshots": [
+    {
+      "case": "old-consider-new-pin",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "old-consider-new-pin",
+      "stage": "newerPin",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ],
+      "raw_store_bytes": 320
+    },
+    {
+      "case": "old-consider-new-pin",
+      "stage": "final",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ],
+      "raw_store_bytes": 320
+    },
+    {
+      "case": "old-pin-new-pin",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "old-pin-new-pin",
+      "stage": "newerPin",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 175
+    },
+    {
+      "case": "old-pin-new-pin",
+      "stage": "final",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 175
+    },
+    {
+      "case": "serial-honour",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "serial-honour",
+      "stage": "considered",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 278
+    },
+    {
+      "case": "serial-honour",
+      "stage": "final",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 322
+    },
+    {
+      "case": "invalid-newer-preserves-valid-old",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "invalid-newer-preserves-valid-old",
+      "stage": "afterInvalid",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ],
+      "raw_store_bytes": 268
+    },
+    {
+      "case": "invalid-newer-preserves-valid-old",
+      "stage": "final",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 278
+    },
+    {
+      "case": "valid-failed-newer-obsoletes-unapplied-old",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "valid-failed-newer-obsoletes-unapplied-old",
+      "stage": "afterFailure",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ],
+      "raw_store_bytes": 268
+    },
+    {
+      "case": "valid-failed-newer-obsoletes-unapplied-old",
+      "stage": "final",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ],
+      "raw_store_bytes": 268
+    },
+    {
+      "case": "applied-old-newer-pending-then-fails",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "applied-old-newer-pending-then-fails",
+      "stage": "committedBeforeDelivery",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 278
+    },
+    {
+      "case": "applied-old-newer-pending-then-fails",
+      "stage": "newerPending",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 278
+    },
+    {
+      "case": "applied-old-newer-pending-then-fails",
+      "stage": "newerFailed",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 278
+    },
+    {
+      "case": "applied-old-newer-pending-then-fails",
+      "stage": "final",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 278
+    },
+    {
+      "case": "two-real-commits-before-old-delivery",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "two-real-commits-before-old-delivery",
+      "stage": "oldCommitted",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ],
+      "raw_store_bytes": 278
+    },
+    {
+      "case": "two-real-commits-before-old-delivery",
+      "stage": "newerCommitted",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": 1600001,
+      "lastWornAt": {
+        "fedora01": 1600001
+      },
+      "honoured": [
+        true,
+        true
+      ],
+      "raw_store_bytes": 439
+    },
+    {
+      "case": "two-real-commits-before-old-delivery",
+      "stage": "final",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": 1600001,
+      "lastWornAt": {
+        "fedora01": 1600001
+      },
+      "honoured": [
+        true,
+        true
+      ],
+      "raw_store_bytes": 439
+    },
+    {
+      "case": "callback-once-invalid-option-preserves-old",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "callback-once-invalid-option-preserves-old",
+      "stage": "final",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "callback-throw-is-postcommit",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "callback-throw-is-postcommit",
+      "stage": "afterThrow",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "callback-throw-is-postcommit",
+      "stage": "final",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "callback-reentrant-commit-snapshot-and-loading-owner",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "callback-reentrant-commit-snapshot-and-loading-owner",
+      "stage": "final",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "pin-input-alias-captured",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "pin-input-alias-captured",
+      "stage": "final",
+      "currentRequest": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 177
+    },
+    {
+      "case": "ordinary-failure-and-disposed-load-never-notify",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "ordinary-failure-and-disposed-load-never-notify",
+      "stage": "afterFailure",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "ordinary-failure-and-disposed-load-never-notify",
+      "stage": "final",
+      "currentRequest": null,
+      "worn": [],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "ask-confirm-obsolete-to-new-user-pin",
+      "stage": "initial",
+      "currentRequest": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [],
+      "raw_store_bytes": 0
+    },
+    {
+      "case": "ask-confirm-obsolete-to-new-user-pin",
+      "stage": "newerPin",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ],
+      "raw_store_bytes": 318
+    },
+    {
+      "case": "ask-confirm-obsolete-to-new-user-pin",
+      "stage": "final",
+      "currentRequest": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ],
+      "raw_store_bytes": 318
+    }
+  ],
+  "owned_settlements": 27,
+  "catalogue_checks": [
+    "actual manifest selects both declared recipes and the live foundation",
+    "constructor inputs and catalogue/choice outputs cannot rewrite stored recipes",
+    "invalid preferences leave the wardrobe and previous explanation unchanged",
+    "a valid foundation/footwear set is refused as incomplete outer clothing",
+    "actual conflict and unknown-garment policy is retained",
+    "a sparse catalogue refuses before it can create an empty candidate",
+    "changed live floor replaces prior foundation ids in each proposal",
+    "changed unsupported figure policy refuses without changing the last explanation",
+    "an unresolved tie preserves caller order",
+    "a tie preserves the actual currently worn candidate",
+    "real pinned agency records a different proposal and leaves the actual outfit alone",
+    "canonical floor inclusion recognizes a proposal already worn"
+  ],
+  "serial_assertions": 28,
+  "stderr": {
+    "known_rig_warnings": 25,
+    "other_lines": [
+      "WardrobeAgency: sugata.wardrobe.agency.v1:gate is not JSON; starting pinned. Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+    ]
+  },
+  "limits": "Raw independent CPU policy values only; no Node replay, visual/fit/AAA/performance or global lifecycle acceptance. Caller delivery seams disclosed. Original serial rigs lack dispose in source; only new13 and catalogue cleanup are asserted."
+}

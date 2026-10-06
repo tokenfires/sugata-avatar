@@ -1,0 +1,94 @@
+{
+  "collected_utc": "2026-10-06T10:48:26.994214+00:00",
+  "writer_pid": 43032,
+  "decision": "A fresh V2 source/worth only, root one-run admission still required",
+  "result_words": 292,
+  "manifest_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-PLAN-V2.json",
+      "bytes": 13797,
+      "sha256": "4acbabc0226e0edb11f8b8dece0b96533e69bcdcbb9b93d3d6e6383c78c507a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PROJECTIONS-V2.json",
+      "bytes": 3456,
+      "sha256": "02f2f8dff96f753d7ab47ed97137be8b9a4283eef2fd8228d16addee2356b61e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ISOLATION-CLEANUP.json",
+      "bytes": 2686,
+      "sha256": "f92fad6db995c1f6889f16b908d57a9ee3d6a6e5a77b6a5ae6ed4ab62e62abb7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1441,
+      "sha256": "140a0c288db052eb51656cab6173cae1dc16f94055795677e997bef59665309a"
+    }
+  ],
+  "verified_rows": {
+    "V2_source": 23,
+    "V2_external": 26,
+    "full_projection_pairs": 5,
+    "unique_forward_reverse_literal_rules": 15,
+    "rules_per_pair": [
+      3,
+      0,
+      5,
+      5,
+      2
+    ],
+    "original_live_snapshot_pairs": 4,
+    "retired_runtime_snapshot_pairs": 3,
+    "driver_name_substitutions": 3,
+    "supervisor_target_substitutions": 1,
+    "owned_runner_matches": 0
+  },
+  "read_scopes": "Complete V2plan13797, current projection3456/isolation2686/driver984/original B-close1957 source text; full five runtime/canonical byte reversals and original snapshot comparisons. Entire previous canonical1121Wardrobe/692Agency/279regression/125catalogue/79collector semantics reused only after fresh hashes. Entire original559 serial semantics were independently read earlier; fresh full projection equality now verifies every assertion and text unchanged. V2 supervisor4976 byte-compared to full previously read79-line collector, only target literal changed; no new class/third-party audit/asset decode.49 manifest rows are byte checks, not semantic review of all libraries.",
+  "jobs": [
+    {
+      "chunk": "8bcee4",
+      "pid": 42675,
+      "utc": "2026-10-06T10:44:26.267462+00:00",
+      "exit": 1,
+      "command": "python3 stdlib read actual V2plan/source pin and protocols; attempted old-schema inputs key",
+      "retained_error": "KeyError: inputs. V2 actual field is source_inputs; stopped before later reads/writes. Critic metadata-schema error, not target/source failure."
+    },
+    {
+      "chunk": "4e1858",
+      "pid": 42761,
+      "utc": "2026-10-06T10:45:03.792441+00:00",
+      "exit": 0,
+      "command": "python3 stdlib actualschema23/26 and entire projection/isolation/driver/B-close reads"
+    },
+    {
+      "chunk": "325633",
+      "pid": 42875,
+      "utc": "2026-10-06T10:46:35.419985+00:00",
+      "exit": 0,
+      "command": "python3 stdlib all49pins/five15rulefullreversals/original4/retired3snapshot/directsuffix/driver3/helper1 exact comparisons and no target artifacts"
+    },
+    {
+      "pid": 43032,
+      "utc": "2026-10-06T10:48:26.994214+00:00",
+      "command": "python3 stdlib final manifest/suffix/absence and exclusive <=400word result/receipt readback; returned chunk/exit separate"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-V2-RESULT.md",
+      "bytes": 2447,
+      "sha256": "9eecb9cb2bba6cf36dae3f48b816e19d28cc9ce34e5e47a5f28c630f3d10715c"
+    }
+  ],
+  "limits": "No helper/Node/module/library import/evaluation/tests/runner/fault fixture, GLB/header/payload/geometry/image decode, browser/network/GPU or candidate/product/original/frozen edits. Prior source B remains preserved; new contract makes no prior test-rerun claim. No actual target outputs exist.",
+  "stops": {
+    "source_inquiry": "2026-10-06T10:55:00Z",
+    "critic_source_collection": "2026-10-06T11:00:00Z",
+    "root_source_gate": "2026-10-06T11:03:00Z",
+    "first_target_collection": "2026-10-06T11:05:00Z",
+    "actual_critic_inquiry": "2026-10-06T11:20:00Z",
+    "actual_critic_collection": "2026-10-06T11:25:00Z",
+    "root_result_close": "2026-10-06T11:30:00Z"
+  },
+  "pending_edits": false
+}

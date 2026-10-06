@@ -1,0 +1,132 @@
+{
+  "utc": "2026-10-06T10:53:37.545115+00:00",
+  "pid": 43617,
+  "decision": "Single actual candidate CPU run complete and root raw predicates pass; independent actual critic pending, unadopted.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-V2-RESULT.md",
+      "bytes": 2447,
+      "sha256": "9eecb9cb2bba6cf36dae3f48b816e19d28cc9ce34e5e47a5f28c630f3d10715c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-V2-CRITIC-RECEIPT.json",
+      "bytes": 4465,
+      "sha256": "bea8cad52ac5e96bb6fb16744d07ebd2b382c0a91b53f9c456cbb0c94458b8e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-V2-SOURCE-CHECK.json",
+      "bytes": 1754,
+      "sha256": "bfc69f064089b4f11fea1d93970d14657524440ddfc10b6fe301eec0fdb9d2d3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14730,
+      "sha256": "422bbe8d44fc1e44bbfc80eda3b598ca9e9d6c96496153976fd33b6e6c577347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/JOB.json",
+      "bytes": 1416,
+      "sha256": "1c3b4718cf62571a5fa262515ba171b5effb036eb5969e51c5f73d1a0b3944f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDOUT.txt",
+      "bytes": 30517,
+      "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDERR.txt",
+      "bytes": 4547,
+      "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ACTUAL-OBSERVATION.json",
+      "bytes": 17398,
+      "sha256": "dff66a14f2fee078169a163e6e961d3ad987a2d0463722ce3ca9c1fcf5f78bd0"
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "d2a1d2",
+      "exit": 0,
+      "pid": 43389,
+      "command": "python3 stdlib stable source handoff49rows+4manifest+1output+Node exactpins and exclusive56row root gate",
+      "utc": "2026-10-06T10:52:14.634399+00:00"
+    },
+    {
+      "chunk": "a1cbba",
+      "exit": 0,
+      "command": "python3 docs/evidence/nonhair-2026-10-06/agency-commit-candidate/run-once-v2.py",
+      "actual_job": {
+        "started_utc": "2026-10-06T10:52:18.405407+00:00",
+        "collected_utc": "2026-10-06T10:52:18.869985+00:00",
+        "supervisor_pid": 43410,
+        "child_pid": 43411,
+        "argv": [
+          "/Users/robault/.brv-cli/bin/node",
+          "--max-old-space-size=512",
+          "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/probe-v2.mjs"
+        ],
+        "cwd": "/Users/robault/GitHub/sugata-avatar",
+        "returncode": 0,
+        "elapsed_monotonic_seconds": 0.46479250001721084,
+        "stop_reason": null,
+        "collected": true,
+        "errors": [],
+        "pipes_closed": {
+          "stdout": true,
+          "stderr": true
+        },
+        "outputs": {
+          "stdout": {
+            "bytes": 30517,
+            "observed_read_bytes": 30517,
+            "eof": true,
+            "written": true,
+            "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+          },
+          "stderr": {
+            "bytes": 4547,
+            "observed_read_bytes": 4547,
+            "eof": true,
+            "written": true,
+            "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a"
+          }
+        },
+        "limits": "One owned CPU child;20s supervision plus at most two2s retirement waits,512MiB V8 heap not totalRSS. Errors may leave child unreaped; captured prefixes and EOF scope reported honestly. Single group kill and only-on-error direct owned-child fallback are cleanup, not a second trial. No renderer/pixels/fit/globalOS/GPU retirement or complete startup performance claim."
+      }
+    },
+    {
+      "chunk": "c6b599",
+      "exit": 0,
+      "command": "cat exact STDOUT.txt STDERR.txt",
+      "read_scope": "Entire8766token raw output returned, no truncation."
+    },
+    {
+      "chunk": "947de5",
+      "exit": 0,
+      "pid": 43446,
+      "command": "python3 docs/evidence/nonhair-2026-10-06/agency-commit-candidate/verify-result.py",
+      "utc": "2026-10-06T10:52:26.816985+00:00"
+    }
+  ],
+  "raw_result": {
+    "new_cases": 13,
+    "snapshots": 39,
+    "owned_settlements": 27,
+    "catalogue_groups": 12,
+    "serial_assertions": 28,
+    "exact_rig_warnings": 25,
+    "malformed_store_warning": 1
+  },
+  "scope": "All56 preflightpins current, no replay. Root manually read actual request/history/store values and independent strictJSON checker verified39raw snapshots plus fixed case predicates.13owned test rigs disposed/promises settled, originalserial rigs dispose not asserted. No pixel/fit/performance/allmode/multiagency/genericreentry/globalOS claim. Current product original2classes unchanged; candidate pending actual review.",
+  "stops": {
+    "source_inquiry": "2026-10-06T10:55:00Z",
+    "critic_source_collection": "2026-10-06T11:00:00Z",
+    "root_source_gate": "2026-10-06T11:03:00Z",
+    "first_target_collection": "2026-10-06T11:05:00Z",
+    "actual_critic_inquiry": "2026-10-06T11:20:00Z",
+    "actual_critic_collection": "2026-10-06T11:25:00Z",
+    "root_result_close": "2026-10-06T11:30:00Z"
+  },
+  "next": "Collect stable actual critic and independently verify handoff; only then root decision on exact reversible canonical adoption."
+}

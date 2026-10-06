@@ -1,0 +1,306 @@
+{
+  "utc": "2026-10-06T10:52:14.634399+00:00",
+  "pid": 43389,
+  "decision": "A root admission for exactly one first candidate CPU invocation after stable fresh V2 critic A and independently verified49manifest inputs; behavior/adoption not yet qualified.",
+  "command": "python3 docs/evidence/nonhair-2026-10-06/agency-commit-candidate/run-once-v2.py",
+  "child_argv": [
+    "/Users/robault/.brv-cli/bin/node",
+    "--max-old-space-size=512",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/probe-v2.mjs"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "execution_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/Wardrobe.js.txt",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/WardrobeAgency.js.txt",
+      "bytes": 23800,
+      "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-completion.selftest.mjs.txt",
+      "bytes": 16920,
+      "sha256": "73f2c15e512cedbda6189ff642db5b4fbe1dc52931cf2d0424a61deea2391808"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/Wardrobe.mjs",
+      "bytes": 50103,
+      "sha256": "3d27a1c45a93cfd54f4f67899846f6f8ee55a6f729804df0dc98bebf896925e2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/WardrobeAgency.mjs",
+      "bytes": 23800,
+      "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/completion-regression.mjs",
+      "bytes": 17023,
+      "sha256": "f05c05527426db91ff424ed47a2a91558be12b9844dc98a6dea693dacf6e6476"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-serial-gate.mjs",
+      "bytes": 22393,
+      "sha256": "ba30a7001aed58d64853a9e571b7dff703dfd4707d29007f737d0f2e547b1e91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/catalogue-gate.mjs",
+      "bytes": 7630,
+      "sha256": "2629eb0d2b706b6c9a18698339256dc5536ca1a2bd4b5d6d1a74901858f5187d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PROJECTIONS-V2.json",
+      "bytes": 3456,
+      "sha256": "02f2f8dff96f753d7ab47ed97137be8b9a4283eef2fd8228d16addee2356b61e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/probe-v2.mjs",
+      "bytes": 984,
+      "sha256": "383081ac1306f16fa0f5719e1c6ff7dc148e90c8c0a9bc823b801452bdc63c63"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/run-once-v2.py",
+      "bytes": 4976,
+      "sha256": "74e4e4ed02bc8c9d33109a8616722f04f69f1e1f45e4161937ee9cfbb179f8fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1441,
+      "sha256": "140a0c288db052eb51656cab6173cae1dc16f94055795677e997bef59665309a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-Wardrobe.js.txt",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-WardrobeAgency.js.txt",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-agency.selftest.mjs.txt",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-CatalogueDresser.selftest.mjs.txt",
+      "bytes": 7475,
+      "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/INPUTS.json",
+      "bytes": 6024,
+      "sha256": "304dcadf2da499498a2de6651a54f9d3218ada05c9e8cdfe8576f3db2b900fd6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/DESIGN.md",
+      "bytes": 4444,
+      "sha256": "5119331d248bb6bf87b7b5f259b50af1d106a8b85cb8fcca4512932e3ddb3a32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/DESIGN-ADDENDUM.md",
+      "bytes": 1841,
+      "sha256": "f47b15fc719d2362c8c9473be8d45f2174a1b853747b4da6b00dfc014e01a588"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/REGRESSION-CONTRACT.md",
+      "bytes": 4776,
+      "sha256": "1de5fcd27f4a59ab6e6a8218229901c752d7084d581caace1bee22e960b9d5e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-WORTH.json",
+      "bytes": 3061,
+      "sha256": "4357f3d9edabb6e00d38670727b634f2b411e469cc8bbd668d065f82b77929b3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-B-ROOT-CLOSE.json",
+      "bytes": 1957,
+      "sha256": "1c2ee2174e6a22171a7c2aa3f775c7e9bd2838d5028bca32c93d8ae81c0c51d9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ISOLATION-CLEANUP.json",
+      "bytes": 2686,
+      "sha256": "f92fad6db995c1f6889f16b908d57a9ee3d6a6e5a77b6a5ae6ed4ab62e62abb7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/fedora01/g050.glb",
+      "bytes": 7638760,
+      "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_elegantsuit01/g050.glb",
+      "bytes": 5066532,
+      "sha256": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.selftest.mjs",
+      "bytes": 7475,
+      "sha256": "6ca3790e7188b2e7a896193cd73cc9cf22b020340a235bd52dba79f6933873a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 37621,
+      "sha256": "5c552223a9309883743b80538d6e9cdb45e3227f30d3ec56fb2c39b46e78d595"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/run-selftests.sh",
+      "bytes": 8425,
+      "sha256": "7add74f960c84dc30ba60bd01016744d03b60be363580b4df0cdf8d8a27ea789"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-PLAN-V2.json",
+      "bytes": 13797,
+      "sha256": "4acbabc0226e0edb11f8b8dece0b96533e69bcdcbb9b93d3d6e6383c78c507a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-V2-RESULT.md",
+      "bytes": 2447,
+      "sha256": "9eecb9cb2bba6cf36dae3f48b816e19d28cc9ce34e5e47a5f28c630f3d10715c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-V2-CRITIC-RECEIPT.json",
+      "bytes": 4465,
+      "sha256": "bea8cad52ac5e96bb6fb16744d07ebd2b382c0a91b53f9c456cbb0c94458b8e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-V2-SOURCE-CHECK.json",
+      "bytes": 1754,
+      "sha256": "bfc69f064089b4f11fea1d93970d14657524440ddfc10b6fe301eec0fdb9d2d3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/verify-result.py",
+      "bytes": 10608,
+      "sha256": "3551011f2ad497412ae50eb81695e36155930edf4de57434fcc9f6b383ec7812"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-VERIFIER-PREPARATION.json",
+      "bytes": 904,
+      "sha256": "b76d360dc486779adcb24efc9bde0f645cd310265a0a166e5415055edfde1e74"
+    },
+    {
+      "path": "/Users/robault/.brv-cli/bin/node",
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    }
+  ],
+  "root_evidence": "Full stable V2 result/receipt read df06e6; own full source/projection/isolation check2a7584; original source/read scopes retained. Receipt4manifest/1output and49current rows freshly recomputed. Entire collector/driver/current independent verifier read df06e6/74dcd9. Node binary pin verified without execution.",
+  "stops": {
+    "source_inquiry": "2026-10-06T10:55:00Z",
+    "critic_source_collection": "2026-10-06T11:00:00Z",
+    "root_source_gate": "2026-10-06T11:03:00Z",
+    "first_target_collection": "2026-10-06T11:05:00Z",
+    "actual_critic_inquiry": "2026-10-06T11:20:00Z",
+    "actual_critic_collection": "2026-10-06T11:25:00Z",
+    "root_result_close": "2026-10-06T11:30:00Z"
+  },
+  "limits": "20s supervision + at most two2s retirement waits,64KiB each pipe,512MiB V8 heap notRSS,30s outer,one invocation/no retry. Original contained supervisor unchanged except target literal; rawprefix/EOF/reaped/written/errors scope retained.",
+  "rejection_rule": "Any actual failure or missing/truncated/error output closes unadopted without replay/observer or source rescue. Actual critic and root qualification required before adoption."
+}
