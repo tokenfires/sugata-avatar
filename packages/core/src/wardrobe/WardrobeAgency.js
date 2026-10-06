@@ -300,6 +300,48 @@ export class WardrobeAgency {
 
     }
 
+    /**
+     * Reapplies a user-selected foundation without changing who owns the outer outfit.
+     *
+     * Configure a FoundationLayer floor and change its preference before calling this. An
+     * existing pin retains its own outer garments, including when it is dormant or already
+     * differs from current wear. Only an actual wardrobe commit rebases the pin and removes
+     * explicit foundation IDs from an existing request; mode, proposals and mood history stay.
+     * Selection/persistence before this call belong to the caller. A callback/store error can
+     * reject after application and metadata changes; this is not an atomic rollback operation.
+     */
+    async refreshFoundation( { by } = {} ) {
+
+        if ( by !== 'user' ) {
+
+            throw new Error( 'WardrobeAgency: foundation refresh is the user\'s call. Pass { by: \'user\' }.' );
+
+        }
+        const manifest = this.wardrobe.manifest;
+        const isFoundation = id => manifest.require( id ).layer === 'FOUNDATION';
+        const outer = ids => ids.filter( id => !isFoundation( id ) );
+        const floor = this.wardrobe.decencyFloor();
+        if ( !Array.isArray( floor ) || floor.length === 0 || !floor.every( isFoundation ) ) {
+
+            throw new Error( 'WardrobeAgency: foundation refresh requires a nonempty FOUNDATION floor.' );
+
+        }
+        const request = outer( this.wardrobe.worn );
+        this.wardrobe.validateOutfit( request );
+        const pinOuter = this.pinnedOutfit === null ? null : outer( this.pinnedOutfit );
+        if ( pinOuter !== null ) this.wardrobe.validateOutfit( pinOuter );
+        const currentRequest = this.currentRequest === null ? null : outer( this.currentRequest );
+        return this.wardrobe.dress( request, { onApplied: ( stats ) => {
+
+            const appliedFloor = stats.worn.filter( isFoundation );
+            if ( pinOuter !== null ) this.pinnedOutfit = manifest.sortByLayer( [ ...appliedFloor, ...pinOuter ] );
+            this.currentRequest = currentRequest;
+            this.#persist();
+
+        } } );
+
+    }
+
     // --- the AI's voice ----------------------------------------------------------------------
 
     /**

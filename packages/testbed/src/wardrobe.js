@@ -221,7 +221,7 @@ async function main() {
     renderManifest( manifest );
     renderMasks( wardrobe );
     renderGarmentButtons( wardrobe, manifest );
-    renderFoundationButtons( wardrobe, foundation );
+    renderFoundationButtons( wardrobe, foundation, agency );
     renderModeButtons( agency, wardrobe, foundation );
     renderStats( wardrobe );
     renderEnvironment( stage, wardrobe );
@@ -247,11 +247,7 @@ async function main() {
         stage,
         dress: ( ids ) => run( wardrobe, () => wardrobe.dress( ids ), agency, foundation ),
         undress: () => run( wardrobe, () => wardrobe.undress(), agency, foundation ),
-        prefer: ( slot, id ) => {
-            foundation.prefer( slot, id );
-            savePreference( foundation );
-            return run( wardrobe, () => wardrobe.dress( wardrobe.worn ), agency, foundation );
-        },
+        prefer: ( slot, id ) => preferFoundation( wardrobe, foundation, agency, slot, id ),
         setMood: ( arousal ) => { pageMood = { ...pageMood, arousal }; return pageMood; },
         stats: () => wardrobe.stats(),
         shading: () => wardrobe.shadingOf(),
@@ -363,6 +359,15 @@ function savePreference( foundation ) {
 
 }
 
+/** A single user-operated switch recipe for the handle and the foundation buttons. */
+function preferFoundation( wardrobe, foundation, agency, slot, id ) {
+
+    foundation.prefer( slot, id );
+    savePreference( foundation );
+    return run( wardrobe, () => agency.refreshFoundation( { by: 'user' } ), agency, foundation );
+
+}
+
 async function run( wardrobe, action, agency = null, foundation = null ) {
 
     try {
@@ -423,7 +428,7 @@ function refresh( wardrobe, agency = null, foundation = null ) {
 
 }
 
-function renderFoundationButtons( wardrobe, foundation ) {
+function renderFoundationButtons( wardrobe, foundation, agency ) {
 
     elements.foundation.innerHTML = '';
 
@@ -444,9 +449,7 @@ function renderFoundationButtons( wardrobe, foundation ) {
 
             button.addEventListener( 'click', () => {
 
-                foundation.prefer( slot, id );
-                savePreference( foundation );
-                run( wardrobe, () => wardrobe.dress( wardrobe.worn ), null, foundation );
+                preferFoundation( wardrobe, foundation, agency, slot, id );
 
             } );
 
