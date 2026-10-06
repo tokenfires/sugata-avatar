@@ -1,0 +1,28 @@
+{
+  "closed_utc": "2026-10-06T02:28:24.179873+00:00",
+  "decision": "A complete corrected source and first60sserialCPU worth; sourceonly, freshtrialadmissionstillrequired",
+  "readback": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/ROOT-READBACK.json",
+    "bytes": 5465,
+    "sha256": "74366ead69156b4c99d4602588d5684ba9149f8b5b39bd28d4862c3f95f646df"
+  },
+  "corrected_handoff": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/CORRECTED-SOURCE-HANDOFF.json",
+    "bytes": 9841,
+    "sha256": "85f640da0de311c467041677ceeb8bedb9e54b72d710551f93038cd1a1868e70"
+  },
+  "inputs": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/INPUTS.json",
+    "bytes": 2353,
+    "sha256": "70e35c76fef3db80d0112cf6c831985b6c9495929c554c773ca1e0af240dc12a"
+  },
+  "firstB_preserved": true,
+  "single_source_correction_complete": "2026-10-06T02:19:59.156310+00:00",
+  "fixed_stops": {
+    "preparation": "2026-10-06T03:10:00Z",
+    "critic": "2026-10-06T03:25:00Z",
+    "root": "2026-10-06T03:40:00Z"
+  },
+  "next": "Local source checkpoint then fresh oneoriginal60sCPU plan/admission/launch/collection/data gate; no trial or native here",
+  "preserved": "15scoped10broad/AAA/accepteddefaultoriginalfrozenunrelated/closedmethods/Vite/ACTIVErecovery; newerhumansteeringwins"
+}

@@ -1,0 +1,85 @@
+{
+  "utc": "2026-10-06T02:19:16.649443+00:00",
+  "critic_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SOURCE-RESULT.md",
+    "bytes": 7576,
+    "sha256": "810e98cb5dbada312fdf71bfce24818c11065acce0c84a53a91f9dd2f3b1c007"
+  },
+  "critic_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SOURCE-RECEIPT.json",
+    "bytes": 17397,
+    "sha256": "f84ad1a544a0b01d5916fb160aed36adc0597ad8cdaac40ff31c0a635c50dce3"
+  },
+  "root_full_result_receipt_reads": [
+    "859e7a",
+    "fd2db2"
+  ],
+  "root_actual_source_witness": "721963 and ROOT-SOURCE-OBSERVATION; full finalchecker3e6c80/supervisor64a556",
+  "verified_direct_and_result_bindings": 30,
+  "verified_map_bindings": 7,
+  "readonly_v1": 12,
+  "initial_review_snapshots": [
+    {
+      "original": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SOURCE-RESULT.md",
+        "bytes": 7576,
+        "sha256": "810e98cb5dbada312fdf71bfce24818c11065acce0c84a53a91f9dd2f3b1c007"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/initial-review/SOURCE-RESULT.md",
+        "bytes": 7576,
+        "sha256": "810e98cb5dbada312fdf71bfce24818c11065acce0c84a53a91f9dd2f3b1c007"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SOURCE-RECEIPT.json",
+        "bytes": 17397,
+        "sha256": "f84ad1a544a0b01d5916fb160aed36adc0597ad8cdaac40ff31c0a635c50dce3"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/initial-review/SOURCE-RECEIPT.json",
+        "bytes": 17397,
+        "sha256": "f84ad1a544a0b01d5916fb160aed36adc0597ad8cdaac40ff31c0a635c50dce3"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SOURCE-HANDOFF.json",
+        "bytes": 12933,
+        "sha256": "5de414d7fe7767c986dcd5af6369697320fd366fff54084a0ab5398fa1e5e3de"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/initial-review/SOURCE-HANDOFF.json",
+        "bytes": 12933,
+        "sha256": "5de414d7fe7767c986dcd5af6369697320fd366fff54084a0ab5398fa1e5e3de"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/ROOT-SOURCE-OBSERVATION.md",
+        "bytes": 2711,
+        "sha256": "89f58bfca26360a3bac1bc5a4d60ad5656ed8c78c982c590d55f570986cff4f5"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/initial-review/ROOT-SOURCE-OBSERVATION.md",
+        "bytes": 2711,
+        "sha256": "89f58bfca26360a3bac1bc5a4d60ad5656ed8c78c982c590d55f570986cff4f5"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/ROOT-PRECRITIC-READBACK.json",
+        "bytes": 15200,
+        "sha256": "f44124e87d56d615bd2b0467d1f11fc0a217fa80b1491d694c665174ac0cd693"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/initial-review/ROOT-PRECRITIC-READBACK.json",
+        "bytes": 15200,
+        "sha256": "f44124e87d56d615bd2b0467d1f11fc0a217fa80b1491d694c665174ac0cd693"
+      }
+    }
+  ],
+  "decision": "B current full source; select one grouped inert F1 ownedunreapedPGIDguard and F2 stricttriangle schema completion; allartist/caps/stops unchanged",
+  "target_evaluation": false
+}

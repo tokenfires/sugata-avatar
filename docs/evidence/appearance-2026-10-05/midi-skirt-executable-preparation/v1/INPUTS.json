@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "role": "design",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/DESIGN.json",
+      "bytes": 2433,
+      "sha256": "8a6a09918d4eca0198e9f82014cf79c282b63c84b1266c7a6cfd1e9fa8a35e29"
+    },
+    {
+      "role": "contract",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/CONTRACT.md",
+      "bytes": 14439,
+      "sha256": "252ccefd46cfe5e2f76421172364d44e162b2f04d056361e459747d130c6f5b9"
+    },
+    {
+      "role": "writer_addendum",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/WRITER-ADDENDUM.md",
+      "bytes": 5309,
+      "sha256": "33dce1b13682305be6f14a7af68efbb65a0e0620ee10611f7b894c4e84edcac6"
+    },
+    {
+      "role": "producer",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+      "bytes": 5598,
+      "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+    },
+    {
+      "role": "checker",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+      "bytes": 12785,
+      "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908"
+    },
+    {
+      "role": "supervisor",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py",
+      "bytes": 12920,
+      "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c"
+    },
+    {
+      "role": "python",
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    }
+  ],
+  "output_directory": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output",
+  "records_directory": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/records",
+  "python_command": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "scope": "Exact seven direct inputs only; no transitive runtime or actual trial admission"
+}

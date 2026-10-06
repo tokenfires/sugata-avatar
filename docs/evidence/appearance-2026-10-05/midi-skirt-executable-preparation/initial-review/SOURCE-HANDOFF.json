@@ -1,0 +1,271 @@
+{
+  "stable_utc": "2026-10-06T02:08:22.039633+00:00",
+  "decision_requested": "A/B full inert three-program source suitability and whether one separately admitted first60s CPU trial is worth doing",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PLAN.json",
+      "bytes": 4080,
+      "sha256": "cf9dd523ce52aef44a29dcd2f12e0f9fb71742d82d05216c5d8df16062c88216"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PREPARATION-ROOT-ADMISSION.json",
+      "bytes": 4195,
+      "sha256": "2585332152c243de3a71cd01a919174cdf9828138a06965aba6ad1ff2d6f1a62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PREVIOUS-CHECKPOINT.json",
+      "bytes": 665,
+      "sha256": "c4ae8c2cabac99028cea425981e61867c8050f3c1f165d62fa088cbad4b88ac9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PRIMARY-WEB-RETURN.json",
+      "bytes": 28209,
+      "sha256": "c02decc8c1d87afb273bd576605521c5be820f8567991dad275a385911e95857"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PRIMARY-SELECTED-RETURN.json",
+      "bytes": 32436,
+      "sha256": "59c561aae53427df7f29ed8d0fb1f7cc0a359a06a7fc45ce6f654e4cf6be634a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/DIRECT-RUNTIME.json",
+      "bytes": 796,
+      "sha256": "ec89bd9db71fe879545420f1aedeaf1471dd6228f06b34f71e34971a0cf4200b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/INPUTS.json",
+      "bytes": 2353,
+      "sha256": "ab273884197d4de7e6cbe08d8b68a7b438becfbf36ff05e34735fd30e27e6e96"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/EXECUTABLE-CONTRACT.md",
+      "bytes": 10009,
+      "sha256": "1a6ff8f8028b2f6292330438acd8e0d74f01f667224061eb3fb977fb4953b838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+      "bytes": 5598,
+      "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+      "bytes": 12785,
+      "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py",
+      "bytes": 12920,
+      "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SYNTAX-PINS.json",
+      "bytes": 1145,
+      "sha256": "77192ea6d0d352292698873359c37d185000a8b3d993dee3e2aab790c64fb2ca"
+    },
+    {
+      "role": "design",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/DESIGN.json",
+      "bytes": 2433,
+      "sha256": "8a6a09918d4eca0198e9f82014cf79c282b63c84b1266c7a6cfd1e9fa8a35e29"
+    },
+    {
+      "role": "contract",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/CONTRACT.md",
+      "bytes": 14439,
+      "sha256": "252ccefd46cfe5e2f76421172364d44e162b2f04d056361e459747d130c6f5b9"
+    },
+    {
+      "role": "writer_addendum",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/WRITER-ADDENDUM.md",
+      "bytes": 5309,
+      "sha256": "33dce1b13682305be6f14a7af68efbb65a0e0620ee10611f7b894c4e84edcac6"
+    },
+    {
+      "role": "producer",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+      "bytes": 5598,
+      "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+    },
+    {
+      "role": "checker",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+      "bytes": 12785,
+      "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908"
+    },
+    {
+      "role": "supervisor",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py",
+      "bytes": 12920,
+      "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c"
+    },
+    {
+      "role": "python",
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    }
+  ],
+  "frozen_v1": [
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PLAN.json",
+        "bytes": 4080,
+        "sha256": "cf9dd523ce52aef44a29dcd2f12e0f9fb71742d82d05216c5d8df16062c88216"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PLAN.json",
+        "bytes": 4080,
+        "sha256": "cf9dd523ce52aef44a29dcd2f12e0f9fb71742d82d05216c5d8df16062c88216"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PREPARATION-ROOT-ADMISSION.json",
+        "bytes": 4195,
+        "sha256": "2585332152c243de3a71cd01a919174cdf9828138a06965aba6ad1ff2d6f1a62"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PREPARATION-ROOT-ADMISSION.json",
+        "bytes": 4195,
+        "sha256": "2585332152c243de3a71cd01a919174cdf9828138a06965aba6ad1ff2d6f1a62"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PREVIOUS-CHECKPOINT.json",
+        "bytes": 665,
+        "sha256": "c4ae8c2cabac99028cea425981e61867c8050f3c1f165d62fa088cbad4b88ac9"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PREVIOUS-CHECKPOINT.json",
+        "bytes": 665,
+        "sha256": "c4ae8c2cabac99028cea425981e61867c8050f3c1f165d62fa088cbad4b88ac9"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PRIMARY-WEB-RETURN.json",
+        "bytes": 28209,
+        "sha256": "c02decc8c1d87afb273bd576605521c5be820f8567991dad275a385911e95857"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PRIMARY-WEB-RETURN.json",
+        "bytes": 28209,
+        "sha256": "c02decc8c1d87afb273bd576605521c5be820f8567991dad275a385911e95857"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PRIMARY-SELECTED-RETURN.json",
+        "bytes": 32436,
+        "sha256": "59c561aae53427df7f29ed8d0fb1f7cc0a359a06a7fc45ce6f654e4cf6be634a"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PRIMARY-SELECTED-RETURN.json",
+        "bytes": 32436,
+        "sha256": "59c561aae53427df7f29ed8d0fb1f7cc0a359a06a7fc45ce6f654e4cf6be634a"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/DIRECT-RUNTIME.json",
+        "bytes": 796,
+        "sha256": "ec89bd9db71fe879545420f1aedeaf1471dd6228f06b34f71e34971a0cf4200b"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/DIRECT-RUNTIME.json",
+        "bytes": 796,
+        "sha256": "ec89bd9db71fe879545420f1aedeaf1471dd6228f06b34f71e34971a0cf4200b"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/INPUTS.json",
+        "bytes": 2353,
+        "sha256": "ab273884197d4de7e6cbe08d8b68a7b438becfbf36ff05e34735fd30e27e6e96"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/INPUTS.json",
+        "bytes": 2353,
+        "sha256": "ab273884197d4de7e6cbe08d8b68a7b438becfbf36ff05e34735fd30e27e6e96"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/EXECUTABLE-CONTRACT.md",
+        "bytes": 10009,
+        "sha256": "1a6ff8f8028b2f6292330438acd8e0d74f01f667224061eb3fb977fb4953b838"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/EXECUTABLE-CONTRACT.md",
+        "bytes": 10009,
+        "sha256": "1a6ff8f8028b2f6292330438acd8e0d74f01f667224061eb3fb977fb4953b838"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+        "bytes": 5598,
+        "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/producer.py",
+        "bytes": 5598,
+        "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+        "bytes": 12785,
+        "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/checker.py",
+        "bytes": 12785,
+        "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py",
+        "bytes": 12920,
+        "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/supervise.py",
+        "bytes": 12920,
+        "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c"
+      },
+      "readonly": true
+    },
+    {
+      "current": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SYNTAX-PINS.json",
+        "bytes": 1145,
+        "sha256": "77192ea6d0d352292698873359c37d185000a8b3d993dee3e2aab790c64fb2ca"
+      },
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/SYNTAX-PINS.json",
+        "bytes": 1145,
+        "sha256": "77192ea6d0d352292698873359c37d185000a8b3d993dee3e2aab790c64fb2ca"
+      },
+      "readonly": true
+    }
+  ],
+  "trial_leaf_absent": true,
+  "source_preparation_stop": "2026-10-06T03:10:00Z",
+  "critic_stop": "2026-10-06T03:25:00Z",
+  "root_stop": "2026-10-06T03:40:00Z",
+  "review_scope": "Entire three sources/contract/map and original design/contract/writer addendum. No target import/evaluation/run/native/network. Any finding needs exact source witness/explanation/twoalternatives. One grouped actual source correction before fixed stop; no actual trial retry."
+}

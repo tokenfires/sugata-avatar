@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-06T02:08:22.037738+00:00",
+  "parsed": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+      "bytes": 5598,
+      "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3",
+      "ast_only": true,
+      "statements": 18
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+      "bytes": 12785,
+      "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908",
+      "ast_only": true,
+      "statements": 22
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py",
+      "bytes": 12920,
+      "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c",
+      "ast_only": true,
+      "statements": 34
+    }
+  ],
+  "seven_pins_current": true,
+  "trial_leaf_absent": true,
+  "scope": "AST-only source parse and read-only byte/schema checks; no target import/evaluation/geometry/job/native"
+}

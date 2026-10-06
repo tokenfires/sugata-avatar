@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-06T02:07:47.780450+00:00",
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "resolved_executable": {
+    "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "bytes": 34640,
+    "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+  },
+  "version_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "--version"
+  ],
+  "version_stdout": "Python 3.14.7\n",
+  "version_stderr": "",
+  "exit_code": 0,
+  "ps": {
+    "path": "/bin/ps",
+    "bytes": 268736,
+    "sha256": "a06fe087161557f1f8c030672eaedcd90bc6a8e92b8f2d44e07cffedc3349205"
+  },
+  "scope": "Read-only direct runtime metadata only; no target program import/evaluation/run or transitive runtime certificate"
+}

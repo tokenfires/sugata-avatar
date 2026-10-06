@@ -1,0 +1,320 @@
+{
+  "collected_utc": "2026-10-06T02:17:49.796230+00:00",
+  "critic": "/root/quality_critic",
+  "decision": "B current complete executable source + current CPU admission; conditionalA worth one corrected/rootadmitted first60s serial attempt only",
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SOURCE-RESULT.md",
+    "bytes": 7576,
+    "sha256": "810e98cb5dbada312fdf71bfce24818c11065acce0c84a53a91f9dd2f3b1c007"
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PLAN.json",
+      "bytes": 4080,
+      "sha256": "cf9dd523ce52aef44a29dcd2f12e0f9fb71742d82d05216c5d8df16062c88216"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PREPARATION-ROOT-ADMISSION.json",
+      "bytes": 4195,
+      "sha256": "2585332152c243de3a71cd01a919174cdf9828138a06965aba6ad1ff2d6f1a62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PREVIOUS-CHECKPOINT.json",
+      "bytes": 665,
+      "sha256": "c4ae8c2cabac99028cea425981e61867c8050f3c1f165d62fa088cbad4b88ac9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PRIMARY-WEB-RETURN.json",
+      "bytes": 28209,
+      "sha256": "c02decc8c1d87afb273bd576605521c5be820f8567991dad275a385911e95857"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/PRIMARY-SELECTED-RETURN.json",
+      "bytes": 32436,
+      "sha256": "59c561aae53427df7f29ed8d0fb1f7cc0a359a06a7fc45ce6f654e4cf6be634a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/DIRECT-RUNTIME.json",
+      "bytes": 796,
+      "sha256": "ec89bd9db71fe879545420f1aedeaf1471dd6228f06b34f71e34971a0cf4200b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/INPUTS.json",
+      "bytes": 2353,
+      "sha256": "ab273884197d4de7e6cbe08d8b68a7b438becfbf36ff05e34735fd30e27e6e96"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/EXECUTABLE-CONTRACT.md",
+      "bytes": 10009,
+      "sha256": "1a6ff8f8028b2f6292330438acd8e0d74f01f667224061eb3fb977fb4953b838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+      "bytes": 5598,
+      "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+      "bytes": 12785,
+      "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py",
+      "bytes": 12920,
+      "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SYNTAX-PINS.json",
+      "bytes": 1145,
+      "sha256": "77192ea6d0d352292698873359c37d185000a8b3d993dee3e2aab790c64fb2ca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/DESIGN.json",
+      "bytes": 2433,
+      "sha256": "8a6a09918d4eca0198e9f82014cf79c282b63c84b1266c7a6cfd1e9fa8a35e29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/CONTRACT.md",
+      "bytes": 14439,
+      "sha256": "252ccefd46cfe5e2f76421172364d44e162b2f04d056361e459747d130c6f5b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/WRITER-ADDENDUM.md",
+      "bytes": 5309,
+      "sha256": "33dce1b13682305be6f14a7af68efbb65a0e0620ee10611f7b894c4e84edcac6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/SOURCE-HANDOFF.json",
+      "bytes": 12933,
+      "sha256": "5de414d7fe7767c986dcd5af6369697320fd366fff54084a0ab5398fa1e5e3de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PLAN.json",
+      "bytes": 4080,
+      "sha256": "cf9dd523ce52aef44a29dcd2f12e0f9fb71742d82d05216c5d8df16062c88216"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PREPARATION-ROOT-ADMISSION.json",
+      "bytes": 4195,
+      "sha256": "2585332152c243de3a71cd01a919174cdf9828138a06965aba6ad1ff2d6f1a62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PREVIOUS-CHECKPOINT.json",
+      "bytes": 665,
+      "sha256": "c4ae8c2cabac99028cea425981e61867c8050f3c1f165d62fa088cbad4b88ac9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PRIMARY-WEB-RETURN.json",
+      "bytes": 28209,
+      "sha256": "c02decc8c1d87afb273bd576605521c5be820f8567991dad275a385911e95857"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PRIMARY-SELECTED-RETURN.json",
+      "bytes": 32436,
+      "sha256": "59c561aae53427df7f29ed8d0fb1f7cc0a359a06a7fc45ce6f654e4cf6be634a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/DIRECT-RUNTIME.json",
+      "bytes": 796,
+      "sha256": "ec89bd9db71fe879545420f1aedeaf1471dd6228f06b34f71e34971a0cf4200b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/INPUTS.json",
+      "bytes": 2353,
+      "sha256": "ab273884197d4de7e6cbe08d8b68a7b438becfbf36ff05e34735fd30e27e6e96"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/EXECUTABLE-CONTRACT.md",
+      "bytes": 10009,
+      "sha256": "1a6ff8f8028b2f6292330438acd8e0d74f01f667224061eb3fb977fb4953b838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/producer.py",
+      "bytes": 5598,
+      "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/checker.py",
+      "bytes": 12785,
+      "sha256": "c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/supervise.py",
+      "bytes": 12920,
+      "sha256": "406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/SYNTAX-PINS.json",
+      "bytes": 1145,
+      "sha256": "77192ea6d0d352292698873359c37d185000a8b3d993dee3e2aab790c64fb2ca"
+    }
+  ],
+  "independent_checks": {
+    "handoff_input_rows": 19,
+    "handoff_unique_input_files": 16,
+    "INPUTS_rows": 7,
+    "v1_readonly_exactpairs": 12,
+    "all_rawbytes_match": true,
+    "trial_leaf_absent": true,
+    "no_target_run_import_evaluation": true
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "source_witness": "supervise.py:113–118/:148/:160–167; EXECUTABLE-CONTRACT onlyownedgroup/collection section",
+      "classification": "Missing directchild/PGID lifetime guard after possible reap",
+      "explanation": "poll can reapleader, then unconditional killpg same numericgroup has no continuing ownership check; no actual PIDreuse/signal claimed.",
+      "alternative_A": "Preserved source-only liveunreaped directPopen/actualPGID guard plus skip/error recording, independently continue drain/wait/groupreadback; bounded cost/no artist change.",
+      "alternative_B": "Withhold CPU/defercompleteownedcollector, avoiding guessed lifetime but delaying artifact.",
+      "choice": "RecommendA onegrouped correction, currentB"
+    },
+    {
+      "id": "F2",
+      "source_witness": "checker.py:160 versus:92–94/:125–128; producer.py:91–94 and originalfixeddiagonals",
+      "classification": "Strict integer triangle source schema absent before value equality",
+      "explanation": "Python bool/float numeric equality may satisfy expectedintegers; malformed typed source records can be credited as exact. Symboliconly,no toy/data.",
+      "alternative_A": "Eachtriangle list/length3/strictint/range before existingwholeorder equality, smallschema completion/no numericalchange.",
+      "alternative_B": "Withhold/narrowaudit/defer under originalcompletecontract, cheaper but loses requiredexactness.",
+      "choice": "RecommendA samegroup, currentB"
+    }
+  ],
+  "read_scopes": [
+    {
+      "paths": [
+        "producer.py",
+        "checker.py",
+        "supervise.py"
+      ],
+      "scope": "ALL complete literal sources read line-numbered126/251/263lines; normal/error/collection/output paths reviewed, no signatures-only shortcut or evaluation."
+    },
+    {
+      "paths": [
+        "SOURCE-HANDOFF.json",
+        "EXECUTABLE-CONTRACT.md",
+        "INPUTS.json",
+        "PLAN.json",
+        "DIRECT-RUNTIME.json",
+        "PREPARATION-ROOT-ADMISSION.json",
+        "PREVIOUS-CHECKPOINT.json",
+        "SYNTAX-PINS.json"
+      ],
+      "scope": "Complete literal text/metadata reads. ASTrecord is root syntax evidence only; no critic AST/target import/test run."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/DESIGN.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/CONTRACT.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/WRITER-ADDENDUM.md"
+      ],
+      "scope": "Complete entire unchanged artistCONTRACT/DESIGN/WRITERADDENDUM reread against everysource; no positions/graph/predicate calculated."
+    },
+    {
+      "paths": [
+        "PRIMARY-WEB-RETURN.json",
+        "PRIMARY-SELECTED-RETURN.json"
+      ],
+      "scope": "Wholebytepins/JSONstringenvelope checked; only retained literal selected Popen.poll/wait aroundreturned395–413 and first start_new_session/signature context read (character10299/10471/243 selectedstring). No wholepage/manual/API/runtime review or new network; docs3.14.8 differslocal3.14.7."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PLAN.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PREPARATION-ROOT-ADMISSION.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PREVIOUS-CHECKPOINT.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PRIMARY-WEB-RETURN.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/PRIMARY-SELECTED-RETURN.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/DIRECT-RUNTIME.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/INPUTS.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/EXECUTABLE-CONTRACT.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/producer.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/checker.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/supervise.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/v1/SYNTAX-PINS.json"
+      ],
+      "scope": "All12 current/snapshot completebyte equality,length/SHA/readonly metadata; no snapshot code invocation."
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scope": "Whole executablebytehash only; direct runtime --version is prior rootrecord, not critic invocation or transitive certificate."
+    }
+  ],
+  "command_records": [
+    {
+      "record": "6d9a38/exit0",
+      "pid": 91394,
+      "utc": "2026-10-06T02:08:57.381418+00:00",
+      "command": "python3 quotedheredoc completehandoff/executablecontract read"
+    },
+    {
+      "record": "8a50d8/exit0",
+      "pid": 91440,
+      "utc": "2026-10-06T02:09:17.618545+00:00",
+      "command": "python3 quotedheredoc full line-numbered producer source"
+    },
+    {
+      "record": "de0c68/exit0",
+      "pid": 91438,
+      "utc": "2026-10-06T02:09:17.618566+00:00",
+      "command": "python3 quotedheredoc full line-numbered checker source"
+    },
+    {
+      "record": "0a90e6/exit0",
+      "pid": 91439,
+      "utc": "2026-10-06T02:09:17.618373+00:00",
+      "command": "python3 quotedheredoc full line-numbered supervisor source; independenttextreads batched"
+    },
+    {
+      "record": "9db21c/exit0",
+      "pid": 91808,
+      "utc": "2026-10-06T02:13:30.224452+00:00",
+      "command": "python3 quotedheredoc fullINPUTS/PLAN/runtime/admission/checkpoint/syntax andprimary envelope shape"
+    },
+    {
+      "record": "fbe5b9/exit0",
+      "pid": 91807,
+      "utc": "2026-10-06T02:13:30.224431+00:00",
+      "command": "python3 quotedheredoc wholeartistCONTRACT/DESIGN/WRITERADDENDUM reread"
+    },
+    {
+      "record": "44a6a5/exit0",
+      "pid": 91913,
+      "utc": "2026-10-06T02:14:51.547469+00:00",
+      "command": "python3 quotedheredoc all19/7pins/12readonlyv1 pairs/knowntrialabsence; retainedprimary selectedtextsnippets only"
+    },
+    {
+      "pid": 92152,
+      "utc": "2026-10-06T02:17:49.796230+00:00",
+      "command": "python3 quotedheredoc exclusiveSOURCE-RESULT/RECEIPT writer, samepin/snapshot/absence/deadline verification and exactJSON/textreadback only"
+    }
+  ],
+  "retained_errors_and_scope": {
+    "target_errors": "None observed because no targetprogram/CPU hasrun; findings are literalsource deficiencies, not geometry/runtime failures.",
+    "critic_metadata_commands": "All reported exit0; no target import/toy/helper/trigonometry performed.",
+    "syntax": "Earlier root AST-only record retained, not data/appearance acceptance.",
+    "historical_PLAN": "Originalconditionalprepchronology preserved; PREPARATION-ROOT-ADMISSION supplies later source-only authority, no CPU trial."
+  },
+  "next_worth": {
+    "choice": "ConditionalA one originalserial60s CPU attempt after actual groupedsourcecorrection fullreview/rootfreshadmission",
+    "current_CPU_admission": false,
+    "question": "Can complete literal newskirt source and independent finitewholedata audit actually pass, yielding editable exports?",
+    "alternatives": "A boundedoriginalownedattempt gainsactualevidence withexactsource/caps/firstrefusal; B defertarget/contract avoids runtimeuncertainty but delays usable source.",
+    "source_correction": "Only one grouped actualsource correction before03:10; preserve v1/firstverdict, rereview correctedfullsource. No trialretry/admission now."
+  },
+  "limits": [
+    "Sourceonly; no data/coordinate/topology/winding/export/material/runtime/performance/appearance pass.",
+    "SampledRSS/log/time/collection controls not peak/hardOS/transitive-runtime/escaped-process/GPUcertificate; disclosedlimits distinguished from missing F1/F2 duty.",
+    "No actualbodyfit/physicalscale/materialphysics/globalSI/continuousclearance/cloth/rigmorphmotion/runtime starter/AAA qualification.",
+    "Onlytwoownhandoffwrites; all originalsource/artist/v1/accepted/default/frozen/product/unrelated preserved.",
+    "All15scoped10broad/fullambition/closedroutes preserved; firstactualfuturefailurestops/no rescue/retry."
+  ],
+  "stops_utc": {
+    "source_preparation": "2026-10-06T03:10:00Z",
+    "critic": "2026-10-06T03:25:00Z",
+    "root_close": "2026-10-06T03:40:00Z"
+  },
+  "pending_edits": false
+}

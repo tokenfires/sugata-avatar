@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-06T02:20:43.842294+00:00",
+  "one_grouped_correction": true,
+  "changes": [
+    {
+      "path": "producer.py",
+      "changed": false,
+      "diff": ""
+    },
+    {
+      "path": "checker.py",
+      "changed": true,
+      "diff": "--- v1/checker.py\n+++ checker.py\n@@ -157,6 +157,10 @@\n     progress['minimum_squared_cross_unitless'] = min_area_squared/(DEN**4)\n     progress['winding_minimum'] = winding_min\n     begin('triangles_edge_incidence_connected_graph_euler_and_vertex_links')\n+    assert type(mesh['triangles']) is list and len(mesh['triangles']) == 5376\n+    for triangle in mesh['triangles']:\n+        assert type(triangle) is list and len(triangle) == 3\n+        assert all(type(index) is int and 0 <= index < 2688 for index in triangle)\n     assert mesh['triangles'] == triangles and len(triangles) == 5376\n     assert all(len(v) == 2 and v[0] == tuple(reversed(v[1])) for v in edges.values())\n     assert len(edges) == 5376 and len(vertices)-len(edges)+len(mesh['quads']) == 0\n"
+    },
+    {
+      "path": "supervise.py",
+      "changed": true,
+      "diff": "--- v1/supervise.py\n+++ supervise.py\n@@ -111,11 +111,21 @@\n                 streams[name].extend(chunk[:available])\n \n     def signal_group(number):\n+        observation = {'signal': number, 'utc': utc(), 'unreaped_direct_child': process.returncode is None}\n         try:\n+            if process.returncode is not None:\n+                observation['skipped'] = 'Direct child already reaped; no continuing group signal authority'\n+                record['signals'].append(observation)\n+                return\n+            # With SIGCHLD default and no other waiter, an unreaped direct child\n+            # retains this PID. Never poll/wait between this guard and signal.\n+            observation['observed_pgid'] = os.getpgid(process.pid)\n+            assert observation['observed_pgid'] == record['pgid'], 'owned group changed'\n             os.killpg(process.pid, number)\n-            record['signals'].append({'signal': number, 'utc': utc(), 'sent': True})\n+            observation['sent'] = True\n         except Exception as error:\n-            record['signals'].append({'signal': number, 'utc': utc(), 'error': repr(error)})\n+            observation['error'] = repr(error)\n+        record['signals'].append(observation)\n \n     try:\n         process = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,\n@@ -199,6 +209,7 @@\n \n \n def main():\n+    signal.signal(signal.SIGCHLD, signal.SIG_DFL)  # Retain direct-child wait ownership.\n     signal.signal(signal.SIGINT, interruption)\n     signal.signal(signal.SIGTERM, interruption)\n     assert stat.S_ISDIR(TRIAL.lstat().st_mode) and not TRIAL.is_symlink()\n"
+    },
+    {
+      "path": "INPUTS.json",
+      "changed": true,
+      "diff": "--- v1/INPUTS.json\n+++ INPUTS.json\n@@ -27,14 +27,14 @@\n     {\n       \"role\": \"checker\",\n       \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py\",\n-      \"bytes\": 12785,\n-      \"sha256\": \"c918e5479b6a29e69e4ad528545f2045ca5a90c6825e6981e108663fa3e2c908\"\n+      \"bytes\": 13046,\n+      \"sha256\": \"243d5b8f85643069bcd2b474ae420b9276c8fc97552a3ccee452c4d04c4f6e5b\"\n     },\n     {\n       \"role\": \"supervisor\",\n       \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py\",\n-      \"bytes\": 12920,\n-      \"sha256\": \"406311dfa7e257c0b04dcb21426fe15c820ea9baaa6d51e9b68aa3d839a8475c\"\n+      \"bytes\": 13620,\n+      \"sha256\": \"9415ef28b3b9a59af0eac2ffa70c954d77657988716bc44d5751c62b85cbe9d2\"\n     },\n     {\n       \"role\": \"python\",\n"
+    },
+    {
+      "path": "EXECUTABLE-CONTRACT.md",
+      "changed": true,
+      "diff": "--- v1/EXECUTABLE-CONTRACT.md\n+++ EXECUTABLE-CONTRACT.md\n@@ -34,6 +34,8 @@\n \n On failure, independently attempt TERM and KILL on only the recorded owned group; each signal exception is retained and cannot suppress subsequent wait, draining or numeric group readback. Cleanup allows3s per stage plus a final ps helper up to1s, separately from the60s work budget. No cleanup-driven work extension or second launch. Collected requires child reaped, both pipes EOF and observed group empty. Failed collection prevents partial hashing and requires root collection of those recorded identities. Successful collection permits bounded hashes only of known regular declared files; unknown/type/cap entries are recorded without traversal or hash. Parent retains stage ownership before launch even if later stream/receipt writing raises. Parent signals are observed; unhandled OS termination cannot guarantee an on-disk receipt, so root retains external job/stream ownership.\n \n+The sole grouped pre-execution correction resolves the actual first source B: each signal first requires the direct Popen child to remain unreaped (`returncode is None`) and observes matching actual PGID immediately before delivery, without an intervening poll/wait. Parent explicitly installs default SIGCHLD behavior and has no other waiter for this direct child. Once reaped, it records a skipped signal; these exact pinned child sources spawn no descendants. Guard/errors/skips never suppress independent collection. Checker also requires every triangle to be a length-three list of strict integer valid indices before full order/value equality. [Root source witness](ROOT-SOURCE-OBSERVATION.md), [first verdict](SOURCE-RESULT.md) and all original v1 bytes remain preserved; no geometry or cap is changed, and no process/toy trial exercises these corrections during preparation.\n+\n records contains exclusive raw producer/checker stdout/stderr and PARENT.json, with source/manifest identities, command/actual jobs, limits, actual samples/collection/exit/refusal/partial-or-final hashes. No parent record goes into the four-file payload. Root independently reads these actual records and corroborates owned-process absence after the future attempt. No retry is admitted by failure, partial data or a passed syntax check.\n \n Only separately reviewed native viewer/lifetime source after actual independent/root data A may observe one first unchanged triptych. Root serializes all browser/GPU captures; source preparation has none. Actual rendered originals determine appearance; counts support them. Original/accepted/default/frozen/unrelated work,15 scoped checks/10 broad open goals and full AAA/character/wardrobe/expression/representation/fit/motion/performance roadmap are preserved. Vite and ACTIVEten-minute recovery are retained. Human check-in/pause wins. No purchase, install, push, publish, model/subscription or other project action.\n"
+    }
+  ],
+  "scope": "Literal source diff only; no import/evaluation/runtime/geometry",
+  "independent_root_full_corrected_sources": [
+    "d7526f",
+    "de0720"
+  ],
+  "initial_B_and_exact_root_witness": [
+    "859e7a",
+    "fd2db2",
+    "721963",
+    "10b9d2"
+  ]
+}
