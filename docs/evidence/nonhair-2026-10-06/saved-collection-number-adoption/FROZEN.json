@@ -1,0 +1,91 @@
+{
+  "utc": "2026-10-06T08:00:19.301117+00:00",
+  "scope": "Owned accepted-fix evidence readonly; originalbefore and qualified sources retained separately; manifest excludes itself.",
+  "files": [
+    {
+      "path": "CHECKLIST-BEFORE.md",
+      "bytes": 5848,
+      "sha256": "6e238f3365bf145fbbf5b4065f78d440553cf651ee064ac29290212a1c68d183"
+    },
+    {
+      "path": "CRITIC-RECEIPT.json",
+      "bytes": 10031,
+      "sha256": "efa79c69af7c48e91b17e104dead049f47242397f3e46f772dd966c719c8a930"
+    },
+    {
+      "path": "DOCUMENTATION-PLAN.json",
+      "bytes": 3091,
+      "sha256": "05cec50afc472ad1a6045b2028fd724fb3c6b391220de9962242e6f4695dbfb0"
+    },
+    {
+      "path": "DOCUMENTATION-RECEIPT.json",
+      "bytes": 9429,
+      "sha256": "2b26a2b7bdf6361f7bfa095e7361288c0a999b03138143cc6fbf16ef8142ae7d"
+    },
+    {
+      "path": "MUTATION.json",
+      "bytes": 1186,
+      "sha256": "c1608802b1f4e45cf17cdec6d9b67937526be93d214a2687ec6556ddd39386bc"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 4639,
+      "sha256": "d97f766e7438b048afebac2e4d78c441c82d79ccdc7cfb17d91bef8e26772846"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1749,
+      "sha256": "3388b319278e118ee3ee9b793168fc61cf21eed3a045023f476efa9ff6227cd5"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 5125,
+      "sha256": "7ae0bee198c9374f6a89ffc9913502521201645eddf8c0e14248fbe9346d464b"
+    },
+    {
+      "path": "ROOT-CLOSE.json",
+      "bytes": 8811,
+      "sha256": "3c17246efae4bea5a8730b0b377f47c6e3f892ca3384ffc1106206f942d70e33"
+    },
+    {
+      "path": "ROOT-GATE.json",
+      "bytes": 5201,
+      "sha256": "b878163af732e65dcbf53fc4c4f9508415c99f8293d7a30963663672d2a2e14a"
+    },
+    {
+      "path": "SUPERVISOR-AUTHORING.json",
+      "bytes": 938,
+      "sha256": "f26da5b6bc4b7134bf85f7da11059ce8f7aa9019930bfcc5e8c141892db63021"
+    },
+    {
+      "path": "TEST-JOB.json",
+      "bytes": 1739,
+      "sha256": "56a2b3291bb9d206f30853f4104c0554d27468c5051b96801b017bbd0759dfeb"
+    },
+    {
+      "path": "TEST-PROCESS.json",
+      "bytes": 985,
+      "sha256": "782cd35ec8ec0f10cf36ce49f7cdf225350eddef630dc59bdff7bfd57d946d39"
+    },
+    {
+      "path": "TEST-START.json",
+      "bytes": 388,
+      "sha256": "2257c557752d068db54922f7ae47ab62144d8fdaa8bcaca29463133ce112283e"
+    },
+    {
+      "path": "TEST-STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "TEST-STDOUT.txt",
+      "bytes": 1736,
+      "sha256": "6302a9b0ea586e53083fe48025b5935adf3e6b378b38351af2a78fbd3933097b"
+    },
+    {
+      "path": "run-accepted.py",
+      "bytes": 4025,
+      "sha256": "8ad2350d3078e4ee9d290d8b91320dd2694cb0b2c726023133a81d6183739ea1"
+    }
+  ]
+}

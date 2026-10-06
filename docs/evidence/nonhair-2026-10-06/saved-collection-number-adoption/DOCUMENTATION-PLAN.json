@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-06T07:56:05.638112+00:00",
+  "pid": 26173,
+  "decision": "Prepare limited documentation, not applied; delivery waits root full actual-adoption critic review",
+  "checklist": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+    "before_bytes": 5848,
+    "before_sha256": "6e238f3365bf145fbbf5b4065f78d440553cf651ee064ac29290212a1c68d183",
+    "proposed_bytes": 5960,
+    "proposed_sha256": "2bb0709ad54908bf78b996d421b9b91e8c1e1cef817c42128df6b0bad0f502b5",
+    "old_row": "- [x] Save, reopen, rename and remove supported named looks; inspect their configured colour chips. [Saved-look evidence](evidence/appearance-2026-10-02/saved-colours/README.md), [feature status](PRODUCT-ROADMAP.md)",
+    "new_row": "- [x] Save, reopen, rename and remove supported named looks; inspect their configured colour chips. [Saved-look evidence](evidence/appearance-2026-10-02/saved-colours/README.md), [feature status](PRODUCT-ROADMAP.md), [numeric-data and removal-Undo safety](evidence/nonhair-2026-10-06/saved-collection-number-adoption/README.md)",
+    "only_other_delta": "UpdateddateOct5\u2192Oct6",
+    "checked": 17,
+    "broad_open": 10
+  },
+  "readme": "# Saved-look numeric data and removal Undo\n\nThe accepted saved-look module now refuses an Add or Remove that would change nonfinite or negative-zero values in remaining, unavailable entries. Removing an unsafe target is allowed when the remaining entries can be preserved. A stale selected item with a changed numeric value is rejected, and Undo restores the exact validated stored text from before that removal.\n\nThe isolated candidate and the accepted import each passed nineteen memory-test groups, including all96supported settings. Original assertions remain intact. The new tests cover numeric refusal/preservation, detached returned data, stale selections, exact raw Undo, storage/read/quota/interleaving errors, the raw size boundary and modified array/Date snapshots.\n\n[Exact adoption result](RESULT.json) \u00b7 [Root verification and recovery](ROOT-CLOSE.json) \u00b7 [Actual accepted-path output](TEST-STDOUT.txt) \u00b7 [Process and command](TEST-PROCESS.json) \u00b7 [Pre-fix original sources](../saved-collection-number-probe/ORIGINAL-SOURCES.json) \u00b7 [Qualified candidate](../saved-collection-number-candidate/README.md)\n\nOnly two accepted source files changed: the qualified module bytes and its tests with one import redirect. The application caller remains unchanged. No personal browser storage was touched by testing. Validation used injected memory storage; this is data-logic qualification and does not add browser or appearance credit.\n\nMultiple unsafe entries may conservatively block Add/Remove until a separately owned recovery mechanism exists. The fix does not universally preserve arbitrary number spelling/precision or duplicate keys, and does not make cross-tab writes atomic. The rejected backup download workflow remains closed.\n",
+  "scope": "Existingrow extra evidence link only; no new checkbox, UI appearance or whole lexical guarantee."
+}

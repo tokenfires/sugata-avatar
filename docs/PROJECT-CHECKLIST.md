@@ -1,12 +1,12 @@
 # Sugata project checklist
 
-Updated October 5, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
+Updated October 6, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
 
 ## Usable now
 
 - [x] Switch between two accepted bob haircuts while retaining applied outfit settings. [Hair chooser evidence](evidence/nonhair-2026-10-03/hair-cut/README.md)
 - [x] Customize hair base/tint and individual Top/Bottom/Shoes colours on supported looks. [Current feature status](PRODUCT-ROADMAP.md)
-- [x] Save, reopen, rename and remove supported named looks; inspect their configured colour chips. [Saved-look evidence](evidence/appearance-2026-10-02/saved-colours/README.md), [feature status](PRODUCT-ROADMAP.md)
+- [x] Save, reopen, rename and remove supported named looks; inspect their configured colour chips. [Saved-look evidence](evidence/appearance-2026-10-02/saved-colours/README.md), [feature status](PRODUCT-ROADMAP.md), [numeric-data and removal-Undo safety](evidence/nonhair-2026-10-06/saved-collection-number-adoption/README.md)
 - [x] Download a saved look's JSON without replacing the active preview. [Export evidence](evidence/appearance-2026-10-02/saved-export/README.md)
 - [x] Use the mobile view-controls row with visible boots in reviewed layouts; short screens require scrolling. [Layout evidence](evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md)
 - [x] Open the optional Ink and denim outfit and compare its captured room/portrait views. [Open and compare Ink](../looks/INK-DENIM.md)

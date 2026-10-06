@@ -14,6 +14,45 @@ export function savedLookName(value) {
     if (!name || [...name].length > 40 || /[\u0000-\u001f\u007f-\u009f\u2028\u2029]/.test(name)) throw new Error('Use a name with 1–40 characters on one line.');
     return name;
 }
+function writeSnapshot(snapshot, encoded) {
+    if (encoded.length > MAX_STORED_LENGTH) throw new Error('The saved collection is too large. Existing looks were kept.');
+    try {
+        if (snapshot.storage.getItem(SAVED_LOOKS_KEY) !== snapshot.raw) throw new Error('changed');
+    } catch (error) {
+        if (error.message === 'changed') throw new Error('The saved collection changed. Try again.');
+        throw new Error('Saved looks could not be read. Existing stored looks were kept.');
+    }
+    try { snapshot.storage.setItem(SAVED_LOOKS_KEY, encoded); }
+    catch { throw new Error('Saved looks could not be updated. Existing stored looks were kept.'); }
+    return encoded;
+}
+function assertEncodableNumbers(values, operation) {
+    const pending = values.slice();
+    while (pending.length) {
+        const value = pending.pop();
+        if (typeof value === 'number' && (!Number.isFinite(value) || Object.is(value, -0)))
+            throw new Error(`This collection has settings that cannot be safely ${operation} in this version. Its stored data was kept.`);
+        if (value && typeof value === 'object') for (const child of Object.values(value)) pending.push(child);
+    }
+}
+// Selected items originate from parsed JSON. Preserve its key-order sensitivity,
+// but distinguish number meanings that JSON.stringify would collapse.
+function sameSelectedItem(actual, expected) {
+    // Keep all prior serialization refusals before testing collapsed numbers.
+    if (JSON.stringify(actual) !== JSON.stringify(expected)) return false;
+    const pending = [[actual, expected]];
+    while (pending.length) {
+        const [left, right] = pending.pop();
+        if (Object.is(left, right)) continue;
+        if (left === null || right === null || typeof left !== 'object' || typeof right !== 'object' ||
+            Array.isArray(left) !== Array.isArray(right)) return false;
+        if (Array.isArray(left) && left.length !== right.length) return false;
+        const keys = Object.keys(left), otherKeys = Object.keys(right);
+        if (keys.length !== otherKeys.length || keys.some((key, index) => key !== otherKeys[index])) return false;
+        for (const key of keys) pending.push([left[key], right[key]]);
+    }
+    return true;
+}
 function parse(raw) {
     if (raw === null) return { version: 1, looks: [] };
     let data;
@@ -27,8 +66,8 @@ function parse(raw) {
         let name; try { name = savedLookName(item.name); } catch { invalid(); }
         if (name !== item.name || ids.has(item.id) || names.has(nameKey(name))) invalid();
         ids.add(item.id); names.add(nameKey(name));
-        // An obsolete/unsupported configuration remains removable and visible as unavailable.
-        // Only metadata/envelope corruption blocks collection writes; Open validates options.
+        // An obsolete/unsupported configuration remains visible as unavailable.
+        // Open validates options; mutations also refuse settings they cannot preserve.
     }
     return data;
 }
@@ -48,17 +87,8 @@ export class SavedLooks {
         return { storage, raw, ...parse(raw) };
     }
     commit(snapshot, data) {
-        const encoded = JSON.stringify(data);
-        if (encoded.length > MAX_STORED_LENGTH) throw new Error('The saved collection is too large. Existing looks were kept.');
-        try {
-            if (snapshot.storage.getItem(SAVED_LOOKS_KEY) !== snapshot.raw) throw new Error('changed');
-        } catch (error) {
-            if (error.message === 'changed') throw new Error('The saved collection changed. Try again.');
-            throw new Error('Saved looks could not be read. Existing stored looks were kept.');
-        }
-        try { snapshot.storage.setItem(SAVED_LOOKS_KEY, encoded); }
-        catch { throw new Error('Saved looks could not be updated. Existing stored looks were kept.'); }
-        return encoded;
+        assertEncodableNumbers(data.looks.map(item => item.configuration), 'updated');
+        return writeSnapshot(snapshot, JSON.stringify(data));
     }
     add(name, configuration) {
         name = savedLookName(name);
@@ -78,12 +108,7 @@ export class SavedLooks {
         if (index < 0) throw new Error('This saved look was removed. Cancel and choose another look.');
         // Parsed JSON may contain Infinity (for example 1e400) or -0; stringify
         // would change those values, even inside an unrelated future look.
-        const pending = [...current.looks.map(item => item.configuration), expectedItem?.configuration];
-        while (pending.length) {
-            const value = pending.pop();
-            if (typeof value === 'number' && (!Number.isFinite(value) || Object.is(value, -0))) throw new Error('This collection has settings that cannot be safely renamed in this version. Its stored data was kept.');
-            if (value && typeof value === 'object') for (const child of Object.values(value)) pending.push(child);
-        }
+        assertEncodableNumbers([...current.looks.map(item => item.configuration), expectedItem?.configuration], 'renamed');
         const previous = current.looks[index];
         if (!expectedItem || JSON.stringify(previous) !== JSON.stringify(expectedItem)) throw new Error('This saved look changed. Cancel and open Rename again.');
         if (previous.name === name) return copy(previous);
@@ -100,16 +125,17 @@ export class SavedLooks {
     remove(id, expectedItem) {
         const current = this.read(), index = current.looks.findIndex(item => item.id === id);
         if (index < 0) throw new Error('This saved look was already removed.');
-        if (expectedItem && JSON.stringify(current.looks[index]) !== JSON.stringify(expectedItem)) throw new Error('This saved look changed. Review it before removing it.');
+        if (expectedItem && !sameSelectedItem(current.looks[index], expectedItem)) throw new Error('This saved look changed. Review it before removing it.');
         const item = current.looks[index], remaining = current.looks.filter(entry => entry.id !== id);
         const after = this.commit(current, { version: 1, looks: remaining });
-        this.undoRecord = { before: { version: 1, looks: current.looks }, after };
-        return copy(item);
+        this.undoRecord = { beforeRaw: current.raw, after };
+        // This read parsed a fresh item; raw Undo retains no reference to it.
+        return item;
     }
     canUndo(raw) { return this.undoRecord !== null && this.undoRecord.after === raw; }
     undo() {
         const current = this.read();
         if (!this.canUndo(current.raw)) throw new Error('The saved collection changed. That removal can no longer be undone.');
-        this.commit(current, this.undoRecord.before); this.undoRecord = null;
+        writeSnapshot(current, this.undoRecord.beforeRaw); this.undoRecord = null;
     }
 }

@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-06T07:53:05.275776+00:00",
+  "pid": 25788,
+  "decision": "A exact two-source promotion and sole accepted-binding invocation admitted",
+  "root_reads": "fc7404 full critic actual-result/adoption-worth handoff;73c404 fulladoptionPLAN/82-line runner/authoring; e5d51f fullqualifiedmodule/test; actualresult3a94ba and independentcandidateclosure d51cf6.",
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+      "bytes": 21718,
+      "sha256": "dc28e7a7f54d3503201ade6a0da60e2574d464c20b79b34f74787a57ce219d3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/TEST-STDOUT.txt",
+      "bytes": 1736,
+      "sha256": "6302a9b0ea586e53083fe48025b5935adf3e6b378b38351af2a78fbd3933097b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/TEST-PROCESS.json",
+      "bytes": 1001,
+      "sha256": "f6a905a103aef9122d0bb746dacdc246ca1641cac0a548c8201374f9d79c8d29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 6853,
+      "sha256": "cb8eb229a87517af38ca7147788dcdc9caad37d22e91ba4c7460e070da59d482"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ORIGINAL-SOURCES.json",
+      "bytes": 801,
+      "sha256": "d0e1be7439e1d010b62d1543c61b252c52d3093092a65df28785c3c70d5e3161"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-adoption/PLAN.json",
+      "bytes": 4639,
+      "sha256": "d97f766e7438b048afebac2e4d78c441c82d79ccdc7cfb17d91bef8e26772846"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-adoption/run-accepted.py",
+      "bytes": 4025,
+      "sha256": "8ad2350d3078e4ee9d290d8b91320dd2694cb0b2c726023133a81d6183739ea1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/RESULT.json",
+      "bytes": 5683,
+      "sha256": "6bd925d251f708bd106b8ac3c2c3495f0dbcd0c330ce0f182cf4679b52de1857"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/CRITIC-RECEIPT.json",
+      "bytes": 9751,
+      "sha256": "321c254cc9edb74e544cdca4c27d9b8c1e8d509e2aa04cbfeed36b856739659a"
+    }
+  ],
+  "qualified_leaf_frozen_verified": true,
+  "expected_mutations": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86",
+      "change": "Exact qualified candidate module bytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 21701,
+      "sha256": "66def4411437519b6f571a59a73706163e168213a3c17cd134ea677785164454",
+      "change": "Exact qualified candidate tests, single import redirect only"
+    }
+  ],
+  "derivations": "Module exact candidate; test one module-import substitution only; supervisor one target-path substitution only.",
+  "recovery": "Original accepted source snapshots at saved-collection-number-probe/ORIGINAL-SOURCES.json plus Gitparentae42e9a; historical pinned inputs remain recoverable, no overwrite of frozen evidence.",
+  "command": [
+    "python3",
+    "docs/evidence/nonhair-2026-10-06/saved-collection-number-adoption/run-accepted.py"
+  ],
+  "caps_and_stop": "One separate bounded accepted-module selftest invocation,30s child+5s cleanup,128MiB V8 oldspace,64KiB postcollection. It validates changed production import path, not candidate replay. Refuse pin drift or unqualified result; first accepted-binding failure/timeout/uncollected/excess output closes this adoption trial without retry or weakening. Preserve originals and checkpoint explicitly. No other build/test/browser/native rescue.",
+  "deadline_cpu": "2026-10-06T08:15:00Z",
+  "limits": "No personal storage, UI layout, browser, renderer/appearance, cross-tab atomicity or full lexical/numerical precision guarantee. Backup download trial closed; all defaults/assets/frozen originals/unrelated worktrees/fullAAA roadmap retained."
+}

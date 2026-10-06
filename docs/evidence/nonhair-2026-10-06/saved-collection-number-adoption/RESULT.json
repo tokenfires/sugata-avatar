@@ -1,0 +1,66 @@
+{
+  "collected_utc": "2026-10-06T07:57:02.052257+00:00",
+  "writer_pid": 26272,
+  "decision": "A delivered accepted numeric-safety and exact removal-Undo fix at the reviewed finite memory scope",
+  "actual_run": {
+    "tool_chunk": "315121",
+    "tool_exit": 0,
+    "parent_pid": 25849,
+    "node_pid": 25850,
+    "start_utc": "2026-10-06T07:53:28.992820+00:00",
+    "return_utc": "2026-10-06T07:53:29.040059+00:00",
+    "parent_elapsed_seconds": 0.047100291994865984,
+    "named_groups": 19,
+    "supported_setting_combinations": 96,
+    "stdout_bytes": 1736,
+    "stderr_bytes": 0,
+    "child_reaped": true,
+    "streams_complete": true,
+    "timeout": false,
+    "errors": []
+  },
+  "qualification": [
+    {
+      "witness": "Current accepted module8721/dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86; accepted selftest21701/66def4411437519b6f571a59a73706163e168213a3c17cd134ea677785164454; ROOT-GATE and MUTATION",
+      "explanation": "Accepted module bytes exactly equal the qualified candidate. The accepted test equals the candidate test after precisely one module-import substitution. Historical preadoption module/test pins are verified through their ORIGINAL-SOURCES relative snapshots, not against changed live files."
+    },
+    {
+      "witness": "Accepted tests1\u2013136/222 and actual stdout1\u201320; full original136-body/summary byte comparison",
+      "explanation": "Original assertions and summary remain exact; all nineteen unique PASS names match the complete reviewed check declarations, including the retained assertion of96 supported configurations. Both test runs are memory-only; this actual one specifically binds the accepted module path."
+    },
+    {
+      "witness": "Accepted module29\u201354/89\u201391/125\u2013139 and tests145\u2013221; stdout14\u201319",
+      "explanation": "Qualified behavior refuses unsafe numbers in remaining settings, distinguishes numeric stale snapshots, preserves removed value meanings with detached return objects, and restores exact validated removal-source raw. Error/interleaving/size and modified-snapshot refusals are covered by the reviewed passing assertions."
+    },
+    {
+      "witness": "START/PROCESS/JOB; admission07:53:05.275776, mutation07:53:22.137617, run07:53:28.992820\u201329.040059UTC",
+      "explanation": "Saved command/cwd/PIDs and process copy agree, chronology is ordered, complete stdout and zero stderr agree with sizes, and the recorded direct child is reaped without timeout/error. The parent limited elapsed interval is not an application performance measurement."
+    }
+  ],
+  "new_actionable_findings": [],
+  "preservation": "Current caller36058/0ec4bc81\u2026, settings4633/5beb01f5\u2026 and presets8690/07e8773e\u2026 remain byte-exact. All seven closed-backup source pins match their retained V2 map. Tracked packages/assets diff against ae42e9a lists only accepted module and selftest; this is not a whole ignored/untracked-asset hash census. Original snapshots, qualified source maps and historical trial evidence remain retained.",
+  "checklist_evidence": {
+    "worth": "A one limited evidence link on the existing supported named-look row after root collection; no additional checkbox or whole UI credit",
+    "witness": "Current PROJECT-CHECKLIST named-look row already checks save/reopen/rename/remove supported looks; current whole checklist17checked/10open is unchanged at review.",
+    "recommended_scope": "Label the link as numeric-safety and exact removal-Undo evidence, with memory-test limits available at its destination. No new browser, persistence, backup or appearance qualification.",
+    "alternatives": [
+      {
+        "choice": "A add the scoped link",
+        "tradeoff": "Makes this verified production fix discoverable under its existing feature without changing broader acceptance; requires the final local evidence destination to exist and state limits."
+      },
+      {
+        "choice": "B leave checklist unchanged",
+        "tradeoff": "Keep delivery evidence solely in this packet, preserving status exactly but making the fix less visible. Further UI/backup trials would require separate genuine ownership and cannot reopen closed download routes."
+      }
+    ]
+  },
+  "material_limits": "Specified decoded nonfinite/negative-zero preservation and exact removal Undo only. Multiple unsafe remaining records can conservatively block mutations. No arbitrary lexeme/precision/duplicate-key guarantee, cross-tab atomicity, real personal-storage/browser/UI/lifecycle/appearance qualification, backup adoption, hard RSS/streaming-output cap or guaranteed OS cleanup on every error. No human-loss claim, new asset/default/checklist credit or fullAAA milestone.",
+  "next": "Close and document the exact accepted fix. More candidate or accepted-memory replay is B absent a new decision-changing source change/failure; no native successor is admitted.",
+  "stops_utc": {
+    "root_gate": "2026-10-06T08:13:00Z",
+    "mutation_and_cpu": "2026-10-06T08:15:00Z",
+    "critic": "2026-10-06T08:23:00Z",
+    "root_close": "2026-10-06T08:27:00Z"
+  },
+  "pending_edits": false
+}

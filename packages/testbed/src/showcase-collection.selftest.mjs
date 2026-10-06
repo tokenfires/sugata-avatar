@@ -134,4 +134,89 @@ check('rename fails closed on raw overflow and negative-zero configurations, inc
         const current = library.read().looks[selectedUnsafe ? 1 : 0]; assert.equal(library.rename(current.id, 'Renamed', current).name, 'Renamed'); assert.equal(writes, 1);
     }
 });
+// Numeric witnesses are literal stored JSON; never build them through stringify.
+const numericRaw = (literal, primitive = false) => `{
+ "version":1,"looks":[
+ {"id":"other","name":"Other","configuration":null},
+ {"id":"future","name":"Future","configuration":${primitive ? literal : `{"nested":[{"number":${literal}}]}`}}
+ ]
+}`;
+const seeded = raw => { const storage = store(); let id = 0; storage.entries.set(SAVED_LOOKS_KEY, raw); return { storage, library: new SavedLooks(() => storage, () => `new-${id++}`) }; };
+check('unsafe remaining settings refuse Add/Remove without writes or consuming prior Undo', () => {
+    for (const literal of ['1e400', '-1e400', '-0']) for (const primitive of [false, true]) for (const action of ['add', 'remove']) {
+        const raw = numericRaw(literal, primitive), { storage, library } = seeded(raw);
+        // Preserve an actual earlier removal record after another writer changes raw.
+        storage.entries.clear(); library.add('Keep', options()); const old = library.add('Removed', options()); library.remove(old.id, old);
+        const undo = library.undoRecord;
+        storage.entries.set(SAVED_LOOKS_KEY, raw); let writes = 0;
+        const set = storage.setItem; storage.setItem = (key, value) => { writes++; set(key, value); };
+        const other = library.read().looks[0];
+        assert.throws(() => action === 'add' ? library.add('New', options()) : library.remove('other', other), /cannot be safely updated/);
+        assert.equal(storage.getItem(SAVED_LOOKS_KEY), raw); assert.equal(writes, 0); assert.equal(library.undoRecord, undo);
+    }
+    const raw = numericRaw('1e400').replace('"configuration":null', '"configuration":{"other":[-0]}'), { storage, library } = seeded(raw);
+    assert.throws(() => library.remove('future', library.read().looks[1]), /cannot be safely updated/);
+    assert.equal(storage.getItem(SAVED_LOOKS_KEY), raw);
+});
+check('unsafe target removal returns detached number meaning and Undo restores exact source text', () => {
+    for (const literal of ['1e400', '-1e400', '-0']) {
+        const raw = numericRaw(literal), { storage, library } = seeded(raw), selected = library.read().looks[1];
+        const value = selected.configuration.nested[0].number, removed = library.remove('future', selected);
+        assert.ok(Object.is(removed.configuration.nested[0].number, value)); assert.equal(library.read().looks.length, 1);
+        const after = storage.getItem(SAVED_LOOKS_KEY); removed.name = 'Returned object changed'; removed.configuration.nested[0].number = 123;
+        assert.equal(storage.getItem(SAVED_LOOKS_KEY), after); assert.equal(library.canUndo(after), true);
+        library.undo(); assert.equal(storage.getItem(SAVED_LOOKS_KEY), raw);
+        assert.ok(Object.is(library.read().looks[1].configuration.nested[0].number, value)); assert.equal(library.undoRecord, null);
+    }
+});
+check('numeric changes reject stale removal snapshots rather than delete the changed entry', () => {
+    for (const literal of ['1e400', '-1e400', '-0']) {
+        const { storage, library } = seeded(numericRaw(literal)), selected = library.read().looks[1];
+        const changed = numericRaw(literal === '-0' ? '0' : 'null'); storage.entries.set(SAVED_LOOKS_KEY, changed);
+        let writes = 0; storage.setItem = () => writes++;
+        assert.throws(() => library.remove('future', selected), /saved look changed/);
+        assert.equal(writes, 0); assert.equal(storage.getItem(SAVED_LOOKS_KEY), changed); assert.equal(library.read().looks.length, 2);
+    }
+});
+check('raw Undo preserves bytes and its record through access/read/quota errors and commit interleaving', () => {
+    for (const literal of ['1e400', '-1e400', '-0']) {
+        const raw = numericRaw(literal), { storage, library } = seeded(raw); library.remove('future', library.read().looks[1]);
+        const after = storage.getItem(SAVED_LOOKS_KEY), undo = library.undoRecord, get = storage.getItem, set = storage.setItem;
+        for (const point of ['access', 'first-read', 'commit-read', 'write']) {
+            let reads = 0; library.storage = () => { if (point === 'access') throw Error('blocked'); return storage; };
+            storage.getItem = key => { if (++reads === (point === 'first-read' ? 1 : point === 'commit-read' ? 2 : -1)) throw Error('blocked'); return get(key); };
+            storage.setItem = (key, value) => { if (point === 'write') throw Error('quota'); set(key, value); };
+            assert.throws(() => library.undo(), /unavailable|could not be read|could not be updated/);
+            assert.equal(get(SAVED_LOOKS_KEY), after); assert.equal(library.undoRecord, undo);
+        }
+        library.storage = () => storage; storage.getItem = get; storage.setItem = set;
+        library.undo(); assert.equal(get(SAVED_LOOKS_KEY), raw);
+        library.remove('future', library.read().looks[1]); const current = get(SAVED_LOOKS_KEY), record = library.undoRecord;
+        const newer = '{"version":1,"looks":[{"id":"newer","name":"Newer","configuration":null}]}'; let reads = 0, writes = 0;
+        storage.getItem = key => { if (++reads === 2) storage.entries.set(SAVED_LOOKS_KEY, newer); return get(key); };
+        storage.setItem = () => writes++;
+        assert.throws(() => library.undo(), /collection changed/); assert.equal(get(SAVED_LOOKS_KEY), newer); assert.equal(writes, 0); assert.equal(library.undoRecord, record);
+        assert.notEqual(current, newer);
+    }
+});
+check('raw removal Undo restores the permitted source-length boundary and overlimit storage refuses writes', () => {
+    const base = numericRaw('-0'), raw = ' '.repeat(256 * 1024 - base.length) + base, { storage, library } = seeded(raw);
+    library.remove('future', library.read().looks[1]); const after = storage.getItem(SAVED_LOOKS_KEY);
+    library.undo(); assert.equal(storage.getItem(SAVED_LOOKS_KEY), raw); assert.equal(raw.length, 256 * 1024);
+    library.remove('future', library.read().looks[1]); const undo = library.undoRecord;
+    const oversized = ' ' + raw; storage.entries.set(SAVED_LOOKS_KEY, oversized); let writes = 0; storage.setItem = () => writes++;
+    assert.throws(() => library.undo(), /could not be read/); assert.equal(writes, 0); assert.equal(storage.getItem(SAVED_LOOKS_KEY), oversized); assert.equal(library.undoRecord, undo);
+    assert.ok(library.canUndo(after)); assert.equal(library.canUndo(oversized), false);
+});
+check('removal refuses changed trailing-hole array lengths and Date substitutions', () => {
+    for (const shape of ['array', 'date']) {
+        const raw = numericRaw(shape === 'array' ? '[]' : '{}'), { storage, library } = seeded(raw);
+        const selected = library.read().looks[1];
+        if (shape === 'array') selected.configuration.nested[0].number.length = 1;
+        else selected.configuration.nested[0].number = new Date(0);
+        let writes = 0; storage.setItem = () => writes++;
+        assert.throws(() => library.remove('future', selected), /saved look changed/);
+        assert.equal(writes, 0); assert.equal(storage.getItem(SAVED_LOOKS_KEY), raw); assert.equal(library.read().looks.length, 2);
+    }
+});
 console.log(`PASS ${checks} saved collection groups`);

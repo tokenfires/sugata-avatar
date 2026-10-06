@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-06T07:53:22.137617+00:00",
+  "pid": 25826,
+  "command": "python3 stdlib gated exact source copy via two precreated owned sibling temporary files and os.replace",
+  "git_parent": "ae42e9a",
+  "gate_utc": "2026-10-06T07:53:05.275776+00:00",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86",
+      "change": "Exact qualified candidate module bytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 21701,
+      "sha256": "66def4411437519b6f571a59a73706163e168213a3c17cd134ea677785164454",
+      "change": "Exact qualified candidate tests, single import redirect only"
+    }
+  ],
+  "mutation_scope": "Exactly acceptedmodule andselftest; all candidate/frozen inputs retained. No target invocation yet.",
+  "recovery": "Original accepted source snapshots at saved-collection-number-probe/ORIGINAL-SOURCES.json plus Gitparentae42e9a; historical pinned inputs remain recoverable, no overwrite of frozen evidence."
+}
