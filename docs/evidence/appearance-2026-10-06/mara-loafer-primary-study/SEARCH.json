@@ -1,0 +1,58 @@
+{
+  "started": {
+    "current_time": "2026-10-06 06:12:18 UTC"
+  },
+  "finished": {
+    "current_time": "2026-10-06 06:12:21 UTC"
+  },
+  "args": {
+    "query": "site:ghbass.com Whitney burgundy Weejuns penny loafer",
+    "sources": [
+      "web"
+    ],
+    "includeDomains": [
+      "ghbass.com"
+    ],
+    "domainTools": false,
+    "limit": 3
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.ghbass.com/products/women-whitney-weejuns-penny-loafer-wine?srsltid=AU7gw4XP4wymlsX0XoKJn2k1td3sZ8A2iILHAmtrrgqurOvhYp_MWZjH\",\"title\":\"Women's Whitney Weejuns® Penny Loafer Wine - G.H.BASS\",\"description\":\"In stock Rating 5.03Blake-stitched construction joins the leather upper to a resoleable leather outsole, finished with a durable rubber heel cap — the original G.H.BASS penny ...\",\"position\":1},{\"url\":\"https://www.ghbass.com/collections/whitney-weejuns?srsltid=AU7gw4VqFKsP2M1nlr4H9SeGP3tlcnEwavIdFUGV4eicTljEAvba79oy\",\"title\":\"Whitney Weejuns - G.H.BASS\",\"description\":\"Whitney Weejun penny loafers. Iconic slip-on style for everyone. combining timeless loafer style with refined details and all-day comfort for versatile wear.\",\"position\":2},{\"url\":\"https://www.ghbass.com/collections/womens-weejuns?srsltid=AU7gw4UKq_bqinabCla_n7Rr1XnIF8JD1xJ7Q94FEstxJYe1CWbmwRDO\",\"title\":\"Women's Weejuns | G.H.BASS\",\"description\":\"Whitney Weejuns® Penny Loafer $195 … comfort-focused features like cushioned footbeds and flexible soles. Each pair is crafted in soft, high-quality leather or ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a10fd7-722f-75b6-b3de-b25a0ed10dcf\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.ghbass.com/products/women-whitney-weejuns-penny-loafer-wine?srsltid=AU7gw4XP4wymlsX0XoKJn2k1td3sZ8A2iILHAmtrrgqurOvhYp_MWZjH\\\", #2 \\\"https://www.ghbass.com/collections/whitney-weejuns?srsltid=AU7gw4VqFKsP2M1nlr4H9SeGP3tlcnEwavIdFUGV4eicTljEAvba79oy\\\", #3 \\\"https://www.ghbass.com/collections/womens-weejuns?srsltid=AU7gw4UKq_bqinabCla_n7Rr1XnIF8JD1xJ7Q94FEstxJYe1CWbmwRDO\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://www.ghbass.com/products/women-whitney-weejuns-penny-loafer-wine?srsltid=AU7gw4XP4wymlsX0XoKJn2k1td3sZ8A2iILHAmtrrgqurOvhYp_MWZjH\", #2 \"https://www.ghbass.com/collections/whitney-weejuns?srsltid=AU7gw4VqFKsP2M1nlr4H9SeGP3tlcnEwavIdFUGV4eicTljEAvba79oy\", #3 \"https://www.ghbass.com/collections/womens-weejuns?srsltid=AU7gw4UKq_bqinabCla_n7Rr1XnIF8JD1xJ7Q94FEstxJYe1CWbmwRDO\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.ghbass.com/products/women-whitney-weejuns-penny-loafer-wine?srsltid=AU7gw4XP4wymlsX0XoKJn2k1td3sZ8A2iILHAmtrrgqurOvhYp_MWZjH",
+            "title": "Women's Whitney Weejuns® Penny Loafer Wine - G.H.BASS",
+            "description": "In stock Rating 5.03Blake-stitched construction joins the leather upper to a resoleable leather outsole, finished with a durable rubber heel cap — the original G.H.BASS penny ...",
+            "position": 1
+          },
+          {
+            "url": "https://www.ghbass.com/collections/whitney-weejuns?srsltid=AU7gw4VqFKsP2M1nlr4H9SeGP3tlcnEwavIdFUGV4eicTljEAvba79oy",
+            "title": "Whitney Weejuns - G.H.BASS",
+            "description": "Whitney Weejun penny loafers. Iconic slip-on style for everyone. combining timeless loafer style with refined details and all-day comfort for versatile wear.",
+            "position": 2
+          },
+          {
+            "url": "https://www.ghbass.com/collections/womens-weejuns?srsltid=AU7gw4UKq_bqinabCla_n7Rr1XnIF8JD1xJ7Q94FEstxJYe1CWbmwRDO",
+            "title": "Women's Weejuns | G.H.BASS",
+            "description": "Whitney Weejuns® Penny Loafer $195 … comfort-focused features like cushioned footbeds and flexible soles. Each pair is crafted in soft, high-quality leather or ...",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a10fd7-722f-75b6-b3de-b25a0ed10dcf",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}
