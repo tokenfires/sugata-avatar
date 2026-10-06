@@ -1,0 +1,196 @@
+{
+  "collected_utc": "2026-10-06T07:40:11.700706+00:00",
+  "writer_pid": 24486,
+  "decision": "A revised source and A conditional next memory-test worth only",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/PLAN.json",
+      "bytes": 5602,
+      "sha256": "3a140e501ef49cb8d1d0eaceb7c38f909e73c7ee67e3c364181c8dab384590ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-INPUTS.json",
+      "bytes": 1147,
+      "sha256": "c332dfee67c968f1b055d7e911c36b758e5ef026676b26c480b2c9891761f121"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/ROOT-AUTHORING.json",
+      "bytes": 1507,
+      "sha256": "2789bcac4f960d961c2464618dc54369dd4c2a54354679c14c1ed20e2bbdeb24"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/REVISION-PLAN.json",
+      "bytes": 3415,
+      "sha256": "cf04664ef7be7fd02ef00f4727ecbcd5377545982f0c01c99cade8379833fe93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/ROOT-INITIAL-B.json",
+      "bytes": 2044,
+      "sha256": "e8dc2464d694015846056d7d985ed005871cff0c3f0fb3e8cf9b5014c8a0c584"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/run-candidate.py",
+      "bytes": 4042,
+      "sha256": "96fb435bc1ce33f3f41c83bc7d467dd2a255eeb22ce28e469cba830f5d50e794"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-RESULT.json",
+      "bytes": 5686,
+      "sha256": "2948074644f82ba8eb8744bbf910feb93505f9d59f15a0fa0cef807d0d17caee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 8980,
+      "sha256": "973c6a1e0303695f22de07f485baec3cebe9fc7f65af2f424aa1a78ce2f4cfc5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-CLOSE.json",
+      "bytes": 1432,
+      "sha256": "443153e3c0f239568e64e1dbd52f9c38d3337d3f221b50cddcf1941dcb1fde30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDOUT.txt",
+      "bytes": 10582,
+      "sha256": "cabda355eec162387db7cf2d508c5c395423c8650ac194c022f613dd87d8e1bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+      "bytes": 21718,
+      "sha256": "dc28e7a7f54d3503201ade6a0da60e2574d464c20b79b34f74787a57ce219d3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.mjs.txt",
+      "bytes": 8488,
+      "sha256": "80fc55710a7723a63bab4fa410b2ce48123d4e7b6b9b14df0ae5fc2d6b44a31b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.selftest.mjs.txt",
+      "bytes": 20992,
+      "sha256": "9fde79b63bbce22c27e3cc365de053b513fef1cf97e5ac841f80ceb372dd7d67"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/SOURCE-INPUTS.json.txt",
+      "bytes": 1147,
+      "sha256": "f0e3211f358889ee8fb2e6c41405b7b0b813b11adc632350878fbbeb35b8dece"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/PRIMARY.json",
+      "bytes": 64353,
+      "sha256": "839e0e789308d99f469854ceecbbe335c02ebc8b4aff80b12e6a7c78a877dec6"
+    }
+  ],
+  "read_scopes": {
+    "current_source": "Complete candidate module1\u2013141, candidate.selftest1\u2013222, run-candidate.py1\u201382; complete PLAN/SOURCE-INPUTS/ROOT-AUTHORING/REVISION-PLAN/ROOT-INITIAL-B metadata.",
+    "preserved_delta": "Whole v1/current textual diffs; historical SOURCE-INPUTS and all three snapshots byte-verified. Full original test body/current prefix compared after import-only redirect, final summary compared. Initial critic result/receipt byte-verified unchanged.",
+    "reused_authority": "Accepted module115 lines, original tests137 lines, presets97 lines and settings74 lines fully read in earlier independent tasks; this revised review rehashes those current bytes. Prior probe ROOT-CLOSE/stdout and original B are reused at their previously complete actual read scopes, freshly hash-verified; no probe replay.",
+    "primary": "Full saved JSON wrapper parsed as data; content[0].text JSON equals structuredContent; only retained markdown151\u2013158 reread here, including actual Date.toJSON/toISOString156. No whole540-line semantic read or fresh URL byte claim."
+  },
+  "jobs": [
+    {
+      "chunk": "968569",
+      "pid": 24265,
+      "utc": "2026-10-06T07:37:33.654870+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full metadata read and byte/SHA listing; no target import"
+    },
+    {
+      "chunk": "bb66e2",
+      "pid": 24279,
+      "utc": "2026-10-06T07:37:43.151452+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib print complete module141 and supervisor82 with line numbers and byte/SHA"
+    },
+    {
+      "chunk": "43a459",
+      "pid": 24287,
+      "utc": "2026-10-06T07:37:49.395605+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib print complete candidate test222 with line numbers and byte/SHA"
+    },
+    {
+      "chunk": "ec2fe1",
+      "pid": 24350,
+      "utc": "2026-10-06T07:38:24.319513+00:00",
+      "exit": 1,
+      "command": "python3 heredoc stdlib verify6PLAN/4current/4revision-current/3historical bindings, original assertion prefix, complete diffs, preserved initial outputs and test-evidence absence; then selected retained-primary read",
+      "retained_error": "KeyError: structuredContent at observer line30; saved PRIMARY has an outer result wrapper. All preceding byte/diff checks printed and completed. This is a critic metadata-path error, not a candidate run or source/test failure."
+    },
+    {
+      "chunk": "d875f6",
+      "pid": 24361,
+      "utc": "2026-10-06T07:38:32.813270+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib inspect only actual saved PRIMARY wrapper keys"
+    },
+    {
+      "chunk": "265e18",
+      "pid": 24373,
+      "utc": "2026-10-06T07:38:40.356865+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib use actual result wrapper, compare full text-JSON/structured metadata and print selected markdown151\u2013158"
+    },
+    {
+      "pid": 24486,
+      "utc": "2026-10-06T07:40:11.700706+00:00",
+      "command": "python3 heredoc stdlib reverify current/historical/initial-output byte pins; exclusive revised two-file write and raw readback. Tool chunk/exit returned separately."
+    }
+  ],
+  "verified_preservation": {
+    "direct_inputs": 20,
+    "old_test_body_lines": 136,
+    "old_import_only_redirect": true,
+    "old_summary_preserved": true,
+    "only_module_delta": "three inserted lines: comment, serialization gate, array length",
+    "only_test_delta": "eleven inserted lines / one two-case group",
+    "unchanged_supervisor": true,
+    "initial_B_outputs_unchanged": true
+  },
+  "evidence_absence": [
+    "TEST-START.json",
+    "TEST-STDOUT.txt",
+    "TEST-STDERR.txt",
+    "TEST-PROCESS.json"
+  ],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/REVISED-SOURCE-RESULT.json",
+      "bytes": 4396,
+      "sha256": "86fffdf60b51c94dfeafd99867cc0a76bf07c9c7b1fedf0b645ec4ce26759ee3"
+    }
+  ],
+  "limits": "Only local stdlib metadata/text/hash/diff operations and these two exclusive handoff writes; no target code/API evaluation, JS serialization, Date construction, syntax/import/test, browser/GPU, network, storage or accepted product edits. Initial B remains historical. Source suitability never implies actual test success/adoption.",
+  "stops_utc": {
+    "authoring": "2026-10-06T07:43:00Z",
+    "source_critic": "2026-10-06T07:50:00Z",
+    "root_gate": "2026-10-06T07:53:00Z",
+    "cpu": "2026-10-06T07:55:00Z",
+    "result_critic": "2026-10-06T08:04:00Z",
+    "root_close": "2026-10-06T08:08:00Z"
+  },
+  "pending_edits": false
+}

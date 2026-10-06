@@ -1,0 +1,20 @@
+PASS all 96 supported settings save canonically and reopen with names separate from options
+PASS names, duplicates, identity and cap reject without changing stored data
+PASS latest-read mutations preserve another tab, and scoped undo refuses any changed list
+PASS unsupported entries stay readable/removable, while malformed envelope blocks all writes
+PASS storage access/quota/interleaved changes fail visibly and preserve prior bytes
+PASS rename preserves full collection IDs, order and all configurations without another slot
+PASS rename follows Unicode/case duplicate rules excluding its own ID and keeps names plain
+PASS rename exact trimmed no-op does not write or consume Undo; real rename clears it
+PASS rename requires its exact selected item but preserves unrelated latest edits
+PASS rename keeps unsupported configuration data exact and refuses corrupt envelopes
+PASS rename access/read/write errors preserve data and existing Undo, then permit retry
+PASS rename refuses commit-time interleaving rather than replacing a newer list
+PASS rename fails closed on raw overflow and negative-zero configurations, including unrelated records
+PASS unsafe remaining settings refuse Add/Remove without writes or consuming prior Undo
+PASS unsafe target removal returns detached number meaning and Undo restores exact source text
+PASS numeric changes reject stale removal snapshots rather than delete the changed entry
+PASS raw Undo preserves bytes and its record through access/read/quota errors and commit interleaving
+PASS raw removal Undo restores the permitted source-length boundary and overlimit storage refuses writes
+PASS removal refuses changed trailing-hole array lengths and Date substitutions
+PASS 19 saved collection groups

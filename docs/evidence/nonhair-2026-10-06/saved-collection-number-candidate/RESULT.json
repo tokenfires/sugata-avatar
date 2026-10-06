@@ -1,0 +1,82 @@
+{
+  "collected_utc": "2026-10-06T07:48:46.527761+00:00",
+  "writer_pid": 25359,
+  "actual_candidate_decision": "A finite memory-only candidate behavior and collection",
+  "adoption_worth": "A exact qualified module promotion and import-only redirected tests, followed by one separately root-admitted accepted-import validation",
+  "actual_run": {
+    "root_tool_chunk": "5af0f2",
+    "tool_exit": 0,
+    "parent_pid": 24869,
+    "node_pid": 24870,
+    "start_utc": "2026-10-06T07:44:27.985867+00:00",
+    "return_utc": "2026-10-06T07:44:28.034061+00:00",
+    "parent_elapsed_seconds": 0.04805195902008563,
+    "groups": 19,
+    "supported_setting_combinations": 96,
+    "stdout_bytes": 1736,
+    "stderr_bytes": 0,
+    "child_reaped": true,
+    "streams_complete": true,
+    "timeout": false,
+    "errors": []
+  },
+  "witnesses": [
+    {
+      "source": "Candidate module29\u201354/89\u201391/125\u2013139; complete stdout14\u201319; tests145\u2013221",
+      "explanation": "The actual unchanged candidate suite verifies refusal of nonfinite and negative-zero remaining settings, detached removed values with preserved number meaning, exact raw Undo, number-aware stale selection, guarded error/interleaving/size behavior and the two modified-snapshot regressions."
+    },
+    {
+      "source": "Candidate tests1\u2013136/222, complete stdout1\u201313/20; original test-body byte comparison",
+      "explanation": "All prior136 body lines remain exact after the single import redirect, the old summary is retained, and nineteen unique PASS names exactly match the literal check calls. The first group retains the actual96-combination assertion; a single headline is not used as independent assertion coverage."
+    },
+    {
+      "source": "TEST-START/PROCESS/JOB; runner39\u201382; ROOT-SOURCE-GATE UTC07:44:23.821776 preceding START07:44:27.985867",
+      "explanation": "Recorded command, cwd and PIDs agree; the direct child completed and was reaped, streams are complete, stderr is empty, no timeout/errors occurred, and output is below the postcollection cap. This is the parent limited timer, not application-performance or a machine-wide process census."
+    }
+  ],
+  "new_actionable_findings": [],
+  "promotion": {
+    "module": {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86",
+      "change": "Exact qualified candidate module bytes"
+    },
+    "test": {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 21701,
+      "sha256": "66def4411437519b6f571a59a73706163e168213a3c17cd134ea677785164454",
+      "change": "Exact qualified candidate tests, single import redirect only"
+    },
+    "exact_derivation": "Independently derived test bytes by one candidate-to-accepted import replacement; no other assertion/data change. Full accepted runner82 lines are identical to the reviewed candidate runner except its one test-target path.",
+    "current_caller": "showcase.js7 imports the accepted module;175 passes its selected item to Remove and176 uses returned name;407 calls Undo. These owner routes remain unchanged and do not inspect the internal Undo record.",
+    "why_next_test_is_worth_doing": "The candidate run binds a different module path. Exact promotion changes the file imported by the application, so one bounded accepted-path test resolves that concrete binding before delivery; it supplies no browser qualification.",
+    "alternatives": [
+      {
+        "choice": "A selected exact small fix",
+        "tradeoff": "Promote only the qualified module and import-adjusted tests after root pin verification, then collect one30s-plus5s accepted-path check. This addresses proven existing-core behavior with preserved API tests; multiple unsafe remaining entries may conservatively block mutations."
+      },
+      {
+        "choice": "B retain original or defer for larger serializer",
+        "tradeoff": "Avoid current product mutation, retaining the reproduced normalization and stale-delete defects for unavailable numeric entries. A broad lexeme serializer would require separately owned precision, duplicate-key, grammar and compatibility proof."
+      }
+    ],
+    "gate": "No adopted source/evidence exists at collection. Root must independently reread this handoff and exact adoption PLAN/runner, verify original and qualified snapshots/current pins, then own mutation and the sole run. First failure/timeout/partial/uncollected/excess output stops without replay or weakening."
+  },
+  "material_limits": "Only the specified decoded nonfinite/negative-zero safety and exact removal Undo are qualified. No human or normal supported-look loss is alleged. Add/Remove can refuse while unsafe records remain; arbitrary number lexemes/precision/duplicate keys are not preserved universally. No cross-tab atomicity, browser storage/UI/lifecycle/appearance, backup adoption, hard RSS/streaming-output cap or unconditional OS collection guarantee. Assets/defaults/unrelated/fullAAA and17scoped/10broad stay unchanged.",
+  "candidate_stops_utc": {
+    "authoring": "2026-10-06T07:43:00Z",
+    "source_critic": "2026-10-06T07:50:00Z",
+    "root_gate": "2026-10-06T07:53:00Z",
+    "cpu": "2026-10-06T07:55:00Z",
+    "result_critic": "2026-10-06T08:04:00Z",
+    "root_close": "2026-10-06T08:08:00Z"
+  },
+  "separate_adoption_stops_utc": {
+    "root_gate": "2026-10-06T08:13:00Z",
+    "mutation_and_cpu": "2026-10-06T08:15:00Z",
+    "critic": "2026-10-06T08:23:00Z",
+    "root_close": "2026-10-06T08:27:00Z"
+  },
+  "pending_edits": false
+}

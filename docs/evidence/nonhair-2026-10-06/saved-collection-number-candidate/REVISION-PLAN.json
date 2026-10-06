@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-06T07:35:14.220839+00:00",
+  "purpose": "One preserved comparator correction before sole candidate trial. Original deadlines/caps/predicates unchanged.",
+  "current_files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+      "bytes": 21718,
+      "sha256": "dc28e7a7f54d3503201ade6a0da60e2574d464c20b79b34f74787a57ce219d3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/PLAN.json",
+      "bytes": 5602,
+      "sha256": "3a140e501ef49cb8d1d0eaceb7c38f909e73c7ee67e3c364181c8dab384590ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/run-candidate.py",
+      "bytes": 4042,
+      "sha256": "96fb435bc1ce33f3f41c83bc7d467dd2a255eeb22ce28e469cba830f5d50e794"
+    }
+  ],
+  "historical_inputs": [
+    {
+      "historical_path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.mjs",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.mjs.txt",
+      "bytes": 8488,
+      "sha256": "80fc55710a7723a63bab4fa410b2ce48123d4e7b6b9b14df0ae5fc2d6b44a31b"
+    },
+    {
+      "historical_path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.selftest.mjs.txt",
+      "bytes": 20992,
+      "sha256": "9fde79b63bbce22c27e3cc365de053b513fef1cf97e5ac841f80ceb372dd7d67"
+    },
+    {
+      "historical_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-INPUTS.json",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/SOURCE-INPUTS.json.txt",
+      "bytes": 1147,
+      "sha256": "f0e3211f358889ee8fb2e6c41405b7b0b813b11adc632350878fbbeb35b8dece"
+    }
+  ],
+  "correction": "Retain original JSON.stringify snapshot equality as initial gate; then typed Object.is/ordered-own-key comparison with explicit array length. Preserve every legacy serialization rejection while rejecting numeric collapses. Add two zero-write API regressions for modified parsed snapshots: trailing-hole array and Date.",
+  "root_decision": "Chosen smaller legacy-gate owner rather than a new prototype/descriptor validation policy; independent source B/worth A verified16bindings before edits.",
+  "limits": "No stricter arbitrary-JS object-domain or whole lexeme claim. No execution/adoption/personal store/browser/GPU/network.",
+  "stops_utc": {
+    "authoring": "2026-10-06T07:43:00Z",
+    "source_critic": "2026-10-06T07:50:00Z",
+    "root_gate": "2026-10-06T07:53:00Z",
+    "cpu": "2026-10-06T07:55:00Z",
+    "result_critic": "2026-10-06T08:04:00Z",
+    "root_close": "2026-10-06T08:08:00Z"
+  }
+}

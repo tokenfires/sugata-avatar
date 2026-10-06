@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-06T07:35:14.220839+00:00",
+  "pid": 24005,
+  "decision": "B current comparator; A one grouped inert correction with complete rereview, no CPU.",
+  "root_whole_read": "277ba2 complete source result/receipt; e6af49 whole module/new tests/supervisor plus aa0638 exact pre-review refinements; c767c3 full original-to-candidate diff.",
+  "verified_bindings": 16,
+  "finding": "Root independently verifies Object.keys alone misses trailing-hole length and Date substitutions; current MDN Date.toJSON clause read. Retain original serialization-equality gate, then typed checks and explicit array length.",
+  "snapshots": [
+    {
+      "historical_path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.mjs",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.mjs.txt",
+      "bytes": 8488,
+      "sha256": "80fc55710a7723a63bab4fa410b2ce48123d4e7b6b9b14df0ae5fc2d6b44a31b"
+    },
+    {
+      "historical_path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.selftest.mjs.txt",
+      "bytes": 20992,
+      "sha256": "9fde79b63bbce22c27e3cc365de053b513fef1cf97e5ac841f80ceb372dd7d67"
+    },
+    {
+      "historical_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-INPUTS.json",
+      "snapshot": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/SOURCE-INPUTS.json.txt",
+      "bytes": 1147,
+      "sha256": "f0e3211f358889ee8fb2e6c41405b7b0b813b11adc632350878fbbeb35b8dece"
+    }
+  ],
+  "limits": "No source counterexample executed; no current accepted-module/test or personal-storage change."
+}

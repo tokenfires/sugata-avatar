@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-06T07:20:42.136846+00:00",
+  "pid": 22698,
+  "decision": "Author one isolated conservative candidate justified by actual eight-case defect proof and independent candidate-worth A. No accepted source or CPU changes by this plan.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-CLOSE.json",
+      "bytes": 1432,
+      "sha256": "443153e3c0f239568e64e1dbd52f9c38d3337d3f221b50cddcf1941dcb1fde30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDOUT.txt",
+      "bytes": 10582,
+      "sha256": "cabda355eec162387db7cf2d508c5c395423c8650ac194c022f613dd87d8e1bf"
+    }
+  ],
+  "one_usable_improvement": "Preserve saved data instead of normalizing unsafe remaining numbers; safely remove an unsafe target when remaining records are encodable, return its detached parsed data, and Undo exactly the validated original raw string.",
+  "bounded_research_question": "Does the complete small guard/comparator/raw-Undo owner satisfy new numeric preservation, stale selection, refusal, raw size/errors/interleaving and return-detachment predicates while retaining all existing13groups/96supported-setting assertions?",
+  "chosen_contract": {
+    "writer": "Private module writer retains length limit and existing raw latest-read check/read/write errors; central commit refuses nonfinite/-0 anywhere in target configurations before JSON serialization. Rename retains its exact prior unsafe-number refusal, including no-op.",
+    "comparison": "Iterative structural selected-item comparison uses Object.is for leaves, distinguishes arrays/objects/null and retains ordered own-key matching equivalent to prior JSON key-order sensitivity. No new broad lexical comparison.",
+    "undo": "Store validated current.raw plus encoded after; guarded raw write restores exact original string, checks existing length/race/read/quota limits, clears Undo only on success.",
+    "removed_return": "Return the freshly parsed removed item; it shares no stored or raw Undo object. Caller mutation cannot change storage or raw Undo.",
+    "preserved": "Key/version/count/name/envelope/API, canonical supported options, finite unavailable configurations, no-op/Undo/error/staleness behavior, existing callers and all old assertions."
+  },
+  "outputs": [
+    "packages/testbed/src/showcase-collection-number-candidate.mjs",
+    "packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+    "owned evidence run-candidate.py/source map"
+  ],
+  "caps": "At most300module lines,250added regression lines plus unchanged137existingtest lines (only candidate import redirected);64KiB per source, one30s CPU+5s cleanup/128MiB old-space/64KiB postcollection output.",
+  "regressions": [
+    "Nonfinite and signed-zero nested/primitive guard; refused writes preserve exact current raw and prior Undo state; multiple unsafe remaining entries conservatively refuse removal.",
+    "Safe unsafe-target removal and exact source-raw Undo, with returned object mutation proving detachment.",
+    "Numeric stale expected snapshots reject null/zero replacements.",
+    "Raw Undo access/first-read/commit-read/quota errors and actual commit-time interleaving preserve current stored bytes and Undo record.",
+    "Exact permitted256Ki-codeunit source boundary restores raw; overlimit current storage refuses without writing.",
+    "All old13groups/96settings assertions retained without weakening."
+  ],
+  "alternatives": [
+    "A small conservative owner is selected: simple auditable predicates, but actions can be refused while unsafe records remain and multiple such entries cannot necessarily be removed one at a time.",
+    "B full lexeme serializer deferred: more capable, much larger scanner/duplicate-key/depth/staleness proof."
+  ],
+  "stop": "One coherent candidate and one independently reviewed bounded invocation. Unexpected test failure/timeout/uncollected/excess output stops this literal trial without test weakening or blind replay. No production adoption before actual result/root review.",
+  "stops_utc": {
+    "authoring": "2026-10-06T07:43:00Z",
+    "source_critic": "2026-10-06T07:50:00Z",
+    "root_gate": "2026-10-06T07:53:00Z",
+    "cpu": "2026-10-06T07:55:00Z",
+    "result_critic": "2026-10-06T08:04:00Z",
+    "root_close": "2026-10-06T08:08:00Z"
+  },
+  "limits": "Specified decoded nonfinite/-0 safety and exact removal Undo, not arbitrary lexical/numeric precision, cross-tab atomicity, native UI or appearance acceptance. No browser/personal storage/network/GPU/backup candidate rescue. FullAAA/acceptedassets/frozen/original/unrelated preserved."
+}

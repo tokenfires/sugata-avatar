@@ -1,0 +1,40 @@
+{
+  "collected_utc": "2026-10-06T07:40:11.700706+00:00",
+  "writer_pid": 24486,
+  "source_decision": "A revised source suitable at declared scope",
+  "next_test_worth": "A one separately root-admitted, 30-second candidate memory test with independent up-to-5-second cleanup; source A does not admit execution or adoption",
+  "review": "Independent full read of corrected module141 lines, complete test222 lines, unchanged supervisor82 lines, all current and historical source maps. Exact revised module/test byte pins are in the receipt.",
+  "prior_finding": {
+    "status": "The original B and its source versions remain preserved; both witnessed comparator facets are resolved in this revision.",
+    "witness": "showcase-collection-number-candidate.mjs:40\u201354 now first checks legacy JSON.stringify equality at42, then Object.is and ordered own-key structure with explicit array.length at49. Regression suite211\u2013221 starts from actual parsed selections, changes nested array length or substitutes Date, and asserts refusal, zero writes, exact raw retention and two remaining entries.",
+    "explanation": "The initial Date/hole serialization differences can no longer pass merely because enumerable keys match. Typed comparison still distinguishes the proven nonfinite/null and negative-zero/positive-zero collisions. This is symbolic source review, not an executed result.",
+    "alternatives": [
+      {
+        "choice": "A selected smaller owner",
+        "tradeoff": "Keep the legacy serialization gate plus the typed checks and execute only the independently admitted bounded suite. This directly tests the existing API defects while retaining established rejection behavior; it supplies no general arbitrary-object or lexical-preservation guarantee."
+      },
+      {
+        "choice": "B stricter snapshot-domain policy",
+        "tradeoff": "Defer this trial and separately own prototype/descriptor validation or a full lexical serializer. Broader guarantees would cost more source and compatibility proof than this targeted fix."
+      }
+    ]
+  },
+  "complete_source_assessment": [
+    "Module17\u201337/89\u2013118 retains latest-raw read/write/size errors, central target-number refusal and original Rename refusal/message/no-op semantics. Removed target is excluded before remaining-number checks125\u2013133; return is the freshly parsed detached item.",
+    "Module130\u2013139 owns beforeRaw/after removal Undo, current-raw guard, exact validated original raw restoration, and clearing the record only after success. It is not cross-tab atomicity or universal preservation of all number lexemes.",
+    "All original136 test-body lines are byte-identical after the single import redirect; the original summary is retained at222. Prior candidate assertions1\u2013210 are unchanged; exactly one11-line regression group was added. Numeric tests145\u2013180, raw Undo errors/interleaving181\u2013201 and size boundary202\u2013210 remain fully read and unweakened.",
+    "Supervisor12\u201316/39\u201382 uses the fixed bundled Node binary, 128MiB old-space flag, exclusive evidence files, 30s communicate then independent signal/drain up to5s, actual complete/partial streams and explicit collection/errors/output checks. Signal/access failure may leave an identified uncollected child; root external ownership remains necessary. No hard RSS, streaming-output or unconditional OS-reap guarantee is asserted."
+  ],
+  "new_actionable_findings": [],
+  "scope_limits": "No target import, execution, test, personal storage, browser, GPU, network or backup rescue. At collection all four test-evidence files were absent. Existing accepted module/test and settings/presets are exact current pins. No production adoption, human-loss claim, browser/UI, arbitrary lexical fidelity, general object-domain or full feature/AAA qualification.",
+  "stop": "One candidate invocation only after independent root input/command gate. Unexpected failure, timeout, uncollected child, excessive output or partial evidence closes this literal trial without retry, test weakening or source rescue.",
+  "stops_utc": {
+    "authoring": "2026-10-06T07:43:00Z",
+    "source_critic": "2026-10-06T07:50:00Z",
+    "root_gate": "2026-10-06T07:53:00Z",
+    "cpu": "2026-10-06T07:55:00Z",
+    "result_critic": "2026-10-06T08:04:00Z",
+    "root_close": "2026-10-06T08:08:00Z"
+  },
+  "pending_edits": false
+}

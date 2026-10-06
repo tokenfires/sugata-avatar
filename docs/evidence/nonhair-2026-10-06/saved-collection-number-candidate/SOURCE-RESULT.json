@@ -1,0 +1,38 @@
+{
+  "decision": "B \u2014 withhold this literal candidate test. The full candidate/test/supervisor review has one comparator responsibility gap with two concrete source counterexamples. One preserved grouped inert correction and complete corrected-source rereview are worth doing before the original deadlines; no execution or accepted-code edit now.",
+  "collected_utc": "2026-10-06T07:33:17.530118+00:00",
+  "finding": {
+    "id": "F1",
+    "source_witness": "showcase-collection-number-candidate.mjs40-51/125; PLAN41/44; current regressions145-210 do not cover the two structural substitutions",
+    "explanation": "sameSelectedItem compares array/nonarray type and enumerable own keys but neither array length nor serialization-sensitive object types. It can therefore accept a modified selected snapshot that the previous JSON.stringify equality rejected. The parsed-origin comment does not enforce immutability or reject post-read mutation.",
+    "counterexamples": [
+      "Store an unavailable configuration with a nested empty array. Take a selected item from read(), then change that nested array length to1, leaving a trailing hole. Candidate sees two arrays and two empty Object.keys lists, so returns true. Prior stringify yields [] versus [null] and rejects; removal may accept a different snapshot. This is symbolic source reasoning, not an executed sparse fixture.",
+      "Store a nested empty object and replace the selected snapshot value with new Date(0). Candidate sees two nonarray objects with no enumerable keys and returns true; prior serialization represents the Date as an ISO string, so rejects. Retained MDN markdown156 corroborates Date.toJSON behavior. No Date construction or target evaluation was performed."
+    ],
+    "alternatives": [
+      "A preserve this exact initial B/source, retain the original JSON.stringify snapshot equality as an initial gate, then apply typed Object.is/structural comparison with explicit array.length. Regress both post-read array-length mutation and Date substitution with refusal/zero writes. This preserves legacy serialization refusals and closes numeric collisions with a small auditable change; it does not create a lexical serializer or execute new callbacks beyond legacy comparison semantics.",
+      "B explicitly own and enforce a restricted JSON-object snapshot domain, including array shape and non-JSON wrapper rejection. This could avoid reliance on serialization transformations but adds prototype/descriptor/compatibility policy; deferring the candidate until that authority is complete is more work and not needed for the limited fix."
+    ],
+    "chosen_next_worth": "A \u2014 root proposed grouped length/legacy-gate correction is materially worth doing, with originals retained and all current predicates/assertions unchanged. This receipt approves only its preparation/rereview, not corrected source or CPU admission."
+  },
+  "otherwise_reviewed": "The complete138-line module,211-line suite and82-line supervisor were read. Target-config nonfinite/-0 guard runs before encoding/write and preserves Rename wording; removal excludes the target before guard, returns the freshly parsed detached item, and stores immutable validated source raw for guarded Undo. The shared writer retains length/latest-read/read/quota handling and only clears Undo after success. The full declared new tests cover nested/primitive unsafe targets, multiple-unsafe refusal, same-instance prior Undo retention, safe target deletion/return detachment/raw restoration, stale null/zero, four raw-Undo error points/interleaving and code-unit boundaries. All137 original test lines are preserved with only candidate import redirected and final summary moved. These predicates remain unexecuted.",
+  "supervisor_scope": "The entire82-line bounded owner retains30s wait plus independently attempted up-to5s cleanup, actual stream prefixes separately from errors, exclusive evidence and collected zeroexit/error/output gate.128MiB old-space is not RSS/address space;64KiB is postcollection, not streaming; signal/access refusal can leave an identified uncollected child. No new supervisor defect was demonstrated at that scope.",
+  "next_test_worth": "The intended single candidate memory test remains worthwhile only after the comparator gap is corrected in a preserved source version, whole corrected candidate/suite/supervisor criticism and root byte gate. It must retain old13groups/96settings and all added regressions plus the two new comparator witnesses, without weakening assertions. Current source B means do not launch. Actual pass/collection is required before any separately reviewed adoption; no native/UI/personal storage or backup rescue is admitted.",
+  "limits": [
+    "This is full static source review, not a target test or runtime structural counterexample.",
+    "The previously proved eight numeric losses belong to unchanged accepted source; this unrun candidate is not adopted.",
+    "Limited decoded-number preservation/raw removal Undo, not every lexical precision/duplicate-key/cross-tab or arbitrary object behavior.",
+    "Only own SOURCE-RESULT.json and SOURCE-CRITIC-RECEIPT.json written; no module/test/frozen/source/product/default/asset change.",
+    "Accepted module and tests remain exactly7433/14574bytes at their initial hashes;17scoped10broad/fullAAA/closures remain."
+  ],
+  "stops_utc": {
+    "authoring": "2026-10-06T07:43:00Z",
+    "source_critic": "2026-10-06T07:50:00Z",
+    "root_gate": "2026-10-06T07:53:00Z",
+    "cpu": "2026-10-06T07:55:00Z",
+    "result_critic": "2026-10-06T08:04:00Z",
+    "root_close": "2026-10-06T08:08:00Z"
+  },
+  "stable": true,
+  "pending_edits": false
+}

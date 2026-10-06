@@ -1,0 +1,179 @@
+{
+  "decision": "B currentcandidateCPU source; A onepreserved groupedcomparator correction/fullrereview worth only",
+  "collected_utc": "2026-10-06T07:33:17.530118+00:00",
+  "writer_started_utc": "2026-10-06T07:33:17.529110+00:00",
+  "writer_pid": 23839,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "authoring": "2026-10-06T07:43:00Z",
+    "source_critic": "2026-10-06T07:50:00Z",
+    "root_gate": "2026-10-06T07:53:00Z",
+    "cpu": "2026-10-06T07:55:00Z",
+    "result_critic": "2026-10-06T08:04:00Z",
+    "root_close": "2026-10-06T08:08:00Z"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "version_scope": "unchanged acceptedproofauthority",
+      "read_scope": "priorwhole115line acceptedowner review reused unchanged7433bytepin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d",
+      "version_scope": "unchanged acceptedproofauthority",
+      "read_scope": "priorwhole137line acceptedtests + exacttextpreservation comparison, notrun"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "version_scope": "unchanged acceptedproofauthority",
+      "read_scope": "priorwhole97line currentcanonicaloptions/report source reused exactpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "version_scope": "unchanged acceptedproofauthority",
+      "read_scope": "priorwhole74line currentreconstruction source reused exactpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-CLOSE.json",
+      "bytes": 1432,
+      "sha256": "443153e3c0f239568e64e1dbd52f9c38d3337d3f221b50cddcf1941dcb1fde30",
+      "version_scope": "unchanged acceptedproofauthority",
+      "read_scope": "actualprobeclosure bytehashonly, earlierfullresultauthority retained"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDOUT.txt",
+      "bytes": 10582,
+      "sha256": "cabda355eec162387db7cf2d508c5c395423c8650ac194c022f613dd87d8e1bf",
+      "version_scope": "unchanged acceptedproofauthority",
+      "read_scope": "priorWHOLE222line actualeightcase proof/independentrawobserver reused samehash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.mjs",
+      "bytes": 8488,
+      "sha256": "80fc55710a7723a63bab4fa410b2ce48123d4e7b6b9b14df0ae5fc2d6b44a31b",
+      "version_scope": "current unexecutedcandidate",
+      "read_scope": "whole138line literalmodule; no import/evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+      "bytes": 20992,
+      "sha256": "9fde79b63bbce22c27e3cc365de053b513fef1cf97e5ac841f80ceb372dd7d67",
+      "version_scope": "current unexecutedcandidate",
+      "read_scope": "whole211line literaltests, assertionsnotrun; original136body+summary exactexceptimport"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/PLAN.json",
+      "bytes": 5602,
+      "sha256": "3a140e501ef49cb8d1d0eaceb7c38f909e73c7ee67e3c364181c8dab384590ee",
+      "version_scope": "current unexecutedcandidate",
+      "read_scope": "whole74line exactcandidate plan/all6pins"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/run-candidate.py",
+      "bytes": 4042,
+      "sha256": "96fb435bc1ce33f3f41c83bc7d467dd2a255eeb22ce28e469cba830f5d50e794",
+      "version_scope": "current unexecutedcandidate",
+      "read_scope": "whole82line literalsupervisor, no launch"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-INPUTS.json",
+      "bytes": 1147,
+      "sha256": "f0e3211f358889ee8fb2e6c41405b7b0b813b11adc632350878fbbeb35b8dece",
+      "version_scope": "currentmetadata/originalpre-reviewdraft/retainedprimary",
+      "read_scope": "whole28line map/all4currentpins"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/ROOT-AUTHORING.json",
+      "bytes": 1507,
+      "sha256": "2789bcac4f960d961c2464618dc54369dd4c2a54354679c14c1ed20e2bbdeb24",
+      "version_scope": "currentmetadata/originalpre-reviewdraft/retainedprimary",
+      "read_scope": "whole27line pre-reviewrefinements/currentpins"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/PRIMARY.json",
+      "bytes": 64353,
+      "sha256": "839e0e789308d99f469854ceecbbe335c02ebc8b4aff80b12e6a7c78a877dec6",
+      "version_scope": "currentmetadata/originalpre-reviewdraft/retainedprimary",
+      "read_scope": "retainedraw64353byteprimary; actualselected151-178 of540markdownlines read here, plusprior143/201; no newnetwork"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/initial-source/showcase-collection-number-candidate.selftest.mjs.txt",
+      "bytes": 21044,
+      "sha256": "b09617110620b89a39686cae39ee74960adce6f50d4fe626cb96645cf770649e",
+      "version_scope": "currentmetadata/originalpre-reviewdraft/retainedprimary",
+      "read_scope": "whole21044byte initialdraft raw/delta provenance, currentfull211lines read, noexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/initial-source/showcase-collection-number-candidate.mjs.txt",
+      "bytes": 8502,
+      "sha256": "513b17a2115f36f86611270dc6e742d0d00e3534c125878e19ecbf6cb731409c",
+      "version_scope": "currentmetadata/originalpre-reviewdraft/retainedprimary",
+      "read_scope": "whole8502byte initialdraft read asstaticdelta/bytes, notexecuted"
+    }
+  ],
+  "direct_input_count": 15,
+  "all6PLANpins_exact": true,
+  "all4currentSOURCEpins_exact": true,
+  "old_test_assertions_and_prefix_preserved_except_import_and_moved_summary": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-RESULT.json",
+    "bytes": 5686,
+    "sha256": "2948074644f82ba8eb8744bbf910feb93505f9d59f15a0fa0cef807d0d17caee",
+    "readback": "JSONvalue+UTF8bytes"
+  },
+  "commands_jobs": [
+    {
+      "chunk": "597360",
+      "pid": 23090,
+      "utc": "2026-10-06T07:23:56.912291Z",
+      "exit": 0,
+      "command": "python3 completePLAN/map/rootauthoring/82supervisor/138module literalread"
+    },
+    {
+      "chunk": "559ca8",
+      "pid": 23365,
+      "utc": "2026-10-06T07:27:28.487946Z",
+      "exit": 0,
+      "command": "python3 whole211line candidateselftest read, noimport/run"
+    },
+    {
+      "chunk": "7e8fff",
+      "pid": 23500,
+      "utc": "2026-10-06T07:29:16.138086Z",
+      "exit": 0,
+      "command": "python3 retainedprimary151-178/old-prefiximport+summaryequality/initialsource rawhashes metadataonly"
+    },
+    {
+      "pid": 23839,
+      "command": "python3 allsource/proof rawbytepins/originalassertiontext/exclusive own2JSON writer; no targetevaluation"
+    }
+  ],
+  "symbolic_witnesses": [
+    "nestedparsed[] with selectedarray.length=1 trailinghole compares equal underownkeys but legacystringify differs",
+    "nestedparsed{} with selectedDate0 compares equal underownkeys but legacyDate.toJSON differs"
+  ],
+  "actual_counterexample_execution": false,
+  "pending_correction": "Root may author legacyserializationgate+arraylength+two regressions beforeexistingauthoring stop; currentsourceimmutableB, fullnewsource gate required",
+  "retained_errors": "No candidate run or actualstorefault; initialsource pre-reviewrefinements preserved; no observer error",
+  "scope_limits": [
+    "No probe/candidate/coretest execution/replay",
+    "No realpersonalstorage/browser/GPU/network/backuprescue",
+    "No acceptedsource/oldtest mutation or adoption",
+    "All newnumeric/rawUndo tests unexecuted, no fullfixedbehaviorclaim"
+  ],
+  "status": {
+    "scoped_checked": 17,
+    "broad_open": 10,
+    "candidate_runs": 0
+  },
+  "next": "collectinitialB then separate exact correctedsource whole review; no currentCPU/native/adoption admission"
+}

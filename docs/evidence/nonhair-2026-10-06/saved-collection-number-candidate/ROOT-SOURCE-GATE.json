@@ -1,0 +1,135 @@
+{
+  "utc": "2026-10-06T07:44:23.821776+00:00",
+  "pid": 24843,
+  "decision": "A one candidate invocation admitted; no adoption",
+  "root_full_reads": [
+    "e82d42 complete revised result/receipt/revision/plan",
+    "e5d51f complete141/222/82-line module/test/supervisor"
+  ],
+  "independent_assessment": "Verified legacy serialization rejection gate plus typed number distinctions and array lengths; remaining-config guard excludes removed target; detached parsed return and beforeRaw/after Undo preserve exact validated raw. Old136 assertion body/import-only redirect and summary exact.",
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/PLAN.json",
+      "bytes": 5602,
+      "sha256": "3a140e501ef49cb8d1d0eaceb7c38f909e73c7ee67e3c364181c8dab384590ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-INPUTS.json",
+      "bytes": 1147,
+      "sha256": "c332dfee67c968f1b055d7e911c36b758e5ef026676b26c480b2c9891761f121"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/ROOT-AUTHORING.json",
+      "bytes": 1507,
+      "sha256": "2789bcac4f960d961c2464618dc54369dd4c2a54354679c14c1ed20e2bbdeb24"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/REVISION-PLAN.json",
+      "bytes": 3415,
+      "sha256": "cf04664ef7be7fd02ef00f4727ecbcd5377545982f0c01c99cade8379833fe93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/ROOT-INITIAL-B.json",
+      "bytes": 2044,
+      "sha256": "e8dc2464d694015846056d7d985ed005871cff0c3f0fb3e8cf9b5014c8a0c584"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/run-candidate.py",
+      "bytes": 4042,
+      "sha256": "96fb435bc1ce33f3f41c83bc7d467dd2a255eeb22ce28e469cba830f5d50e794"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-RESULT.json",
+      "bytes": 5686,
+      "sha256": "2948074644f82ba8eb8744bbf910feb93505f9d59f15a0fa0cef807d0d17caee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 8980,
+      "sha256": "973c6a1e0303695f22de07f485baec3cebe9fc7f65af2f424aa1a78ce2f4cfc5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-CLOSE.json",
+      "bytes": 1432,
+      "sha256": "443153e3c0f239568e64e1dbd52f9c38d3337d3f221b50cddcf1941dcb1fde30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDOUT.txt",
+      "bytes": 10582,
+      "sha256": "cabda355eec162387db7cf2d508c5c395423c8650ac194c022f613dd87d8e1bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-number-candidate.selftest.mjs",
+      "bytes": 21718,
+      "sha256": "dc28e7a7f54d3503201ade6a0da60e2574d464c20b79b34f74787a57ce219d3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.mjs.txt",
+      "bytes": 8488,
+      "sha256": "80fc55710a7723a63bab4fa410b2ce48123d4e7b6b9b14df0ae5fc2d6b44a31b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/showcase-collection-number-candidate.selftest.mjs.txt",
+      "bytes": 20992,
+      "sha256": "9fde79b63bbce22c27e3cc365de053b513fef1cf97e5ac841f80ceb372dd7d67"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/reviewed-v1/SOURCE-INPUTS.json.txt",
+      "bytes": 1147,
+      "sha256": "f0e3211f358889ee8fb2e6c41405b7b0b813b11adc632350878fbbeb35b8dece"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/PRIMARY.json",
+      "bytes": 64353,
+      "sha256": "839e0e789308d99f469854ceecbbe335c02ebc8b4aff80b12e6a7c78a877dec6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/REVISED-SOURCE-RESULT.json",
+      "bytes": 4396,
+      "sha256": "86fffdf60b51c94dfeafd99867cc0a76bf07c9c7b1fedf0b645ec4ce26759ee3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/REVISED-SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 9810,
+      "sha256": "1f5ac1bb90070053bc2b82f82886091fc258efe6136fa62b0be12b9a6a9f8235"
+    }
+  ],
+  "node": {
+    "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "bytes": 121306800,
+    "sha256": "27db838bb204ef7c21df2931f5656e4c8fb32e6e947f363a402b49714d32b5b1",
+    "mode": "0o755"
+  },
+  "command": [
+    "python3",
+    "docs/evidence/nonhair-2026-10-06/saved-collection-number-candidate/run-candidate.py"
+  ],
+  "caps": "one30s child plus independent5s cleanup;128MiB oldspace,64KiB postcollection; CPU before07:55UTC",
+  "stop": "First failure/timeout/uncollected/partial/excess-output closes trial without retry or weakening",
+  "limits": "No personal store/browser/UI/native/GPU/backup rescue or full lexical fidelity; no product adoption"
+}
