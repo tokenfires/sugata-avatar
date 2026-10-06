@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-06T12:07:52.198703+00:00",
+  "pid": 74945,
+  "agency_addition": "    /**\n     * Reapplies a user-selected foundation without changing who owns the outer outfit.\n     *\n     * Configure a FoundationLayer floor and change its preference before calling this. An\n     * existing pin retains its own outer garments, including when it is dormant or already\n     * differs from current wear. Only an actual wardrobe commit rebases the pin and removes\n     * explicit foundation IDs from an existing request; mode, proposals and mood history stay.\n     * Selection/persistence before this call belong to the caller. A callback/store error can\n     * reject after application and metadata changes; this is not an atomic rollback operation.\n     */\n    async refreshFoundation( { by } = {} ) {\n\n        if ( by !== 'user' ) {\n\n            throw new Error( 'WardrobeAgency: foundation refresh is the user\\'s call. Pass { by: \\'user\\' }.' );\n\n        }\n        const manifest = this.wardrobe.manifest;\n        const isFoundation = id => manifest.require( id ).layer === 'FOUNDATION';\n        const outer = ids => ids.filter( id => !isFoundation( id ) );\n        const floor = this.wardrobe.decencyFloor();\n        if ( !Array.isArray( floor ) || floor.length === 0 || !floor.every( isFoundation ) ) {\n\n            throw new Error( 'WardrobeAgency: foundation refresh requires a nonempty FOUNDATION floor.' );\n\n        }\n        const request = outer( this.wardrobe.worn );\n        this.wardrobe.validateOutfit( request );\n        const pinOuter = this.pinnedOutfit === null ? null : outer( this.pinnedOutfit );\n        if ( pinOuter !== null ) this.wardrobe.validateOutfit( pinOuter );\n        const currentRequest = this.currentRequest === null ? null : outer( this.currentRequest );\n        return this.wardrobe.dress( request, { onApplied: ( stats ) => {\n\n            const appliedFloor = stats.worn.filter( isFoundation );\n            if ( pinOuter !== null ) this.pinnedOutfit = manifest.sortByLayer( [ ...appliedFloor, ...pinOuter ] );\n            this.currentRequest = currentRequest;\n            this.#persist();\n\n        } } );\n\n    }\n\n",
+  "agency_anchor": "    // --- the AI's voice ----------------------------------------------------------------------\n",
+  "testbed_patches": [
+    {
+      "from": "    renderFoundationButtons( wardrobe, foundation );",
+      "to": "    renderFoundationButtons( wardrobe, foundation, agency );",
+      "count": 1
+    },
+    {
+      "from": "        prefer: ( slot, id ) => {\n            foundation.prefer( slot, id );\n            savePreference( foundation );\n            return run( wardrobe, () => wardrobe.dress( wardrobe.worn ), agency, foundation );\n        },",
+      "to": "        prefer: ( slot, id ) => preferFoundation( wardrobe, foundation, agency, slot, id ),",
+      "count": 1
+    },
+    {
+      "from": "function renderFoundationButtons( wardrobe, foundation ) {",
+      "to": "function renderFoundationButtons( wardrobe, foundation, agency ) {",
+      "count": 1
+    },
+    {
+      "from": "                foundation.prefer( slot, id );\n                savePreference( foundation );\n                run( wardrobe, () => wardrobe.dress( wardrobe.worn ), null, foundation );",
+      "to": "                preferFoundation( wardrobe, foundation, agency, slot, id );",
+      "count": 1
+    },
+    {
+      "from": "async function run( wardrobe, action, agency = null, foundation = null ) {",
+      "to": "/** A single user-operated switch recipe for the handle and the foundation buttons. */\nfunction preferFoundation( wardrobe, foundation, agency, slot, id ) {\n\n    foundation.prefer( slot, id );\n    savePreference( foundation );\n    return run( wardrobe, () => agency.refreshFoundation( { by: 'user' } ), agency, foundation );\n\n}\n\nasync function run( wardrobe, action, agency = null, foundation = null ) {",
+      "count": 1
+    }
+  ],
+  "rule": "Wholeoriginal+exactaddition/5patchforward AND newcanonical reverseequal original; Agencyruntime exactlycanonical. No othermethods/statements changed. Testprojectionaddedafterauthoring before sourcegate."
+}

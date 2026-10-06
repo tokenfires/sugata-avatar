@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "from": "'../figure/Figure.js'",
+      "to": "'../../../../packages/core/src/figure/Figure.js'",
+      "count": 1
+    },
+    {
+      "from": "'./GarmentManifest.js'",
+      "to": "'../../../../packages/core/src/wardrobe/GarmentManifest.js'",
+      "count": 1
+    },
+    {
+      "from": "'./FoundationLayer.js'",
+      "to": "'../../../../packages/core/src/wardrobe/FoundationLayer.js'",
+      "count": 1
+    },
+    {
+      "from": "'./Wardrobe.js'",
+      "to": "'../../../../packages/core/src/wardrobe/Wardrobe.js'",
+      "count": 1
+    },
+    {
+      "from": "'./WardrobeAgency.js'",
+      "to": "'./WardrobeAgency.mjs'",
+      "count": 1
+    }
+  ]
+}
