@@ -1,0 +1,62 @@
+{
+  "checked_utc": "2026-10-05T23:49:23.441529+00:00",
+  "decision": "B first original attempt refused, no source/data/master/appearance acceptance; no retry/rescue",
+  "exact_launch": "exec /opt/homebrew/opt/python@3.14/bin/python3.14 -I -S -B /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/supervise.py",
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "external_start_utc": "2026-10-05T23:48:02Z",
+  "launch_tool": "3819bb",
+  "launch_exit_code": 1,
+  "launch_tool_wall_time_seconds": 0.251784459,
+  "internal_elapsed_seconds": 0.35621045797597617,
+  "external_return_observation_utc": "2026-10-05T23:48:14Z",
+  "external_return_limit": "Clock records bracket requested start and later root return observation; tool walltime and internal clock differ, no tighter complete startup walltime claim",
+  "parentPid": 31184,
+  "readerPidPGID": 31186,
+  "no_oracle_checker_started": true,
+  "actual_error_witness": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/reader.stderr",
+    "bytes": 35,
+    "sha256": "5b5219954d38b8245d6083467c9471169a66e4dd94a1a76bacdbdf21758a9ee6"
+  },
+  "actual_error_text": "Traceback (most recent call last):\n\n",
+  "cause": "Unestablished: first stderr byte policy terminated reader before traceback body; do not attribute to asset/source/library/capacity",
+  "cleanup": "TERM sent, KILL PermissionError explicitly retained, direct child reaped exit-15, emptygroup/pipesclosed parent record; root subsequent numeric ps shows no parent/child/group/descendant identity present",
+  "post_return_owned_process_rows": [],
+  "output_absent": true,
+  "partial_data_not_parsed": true,
+  "full_parent_receipt_read": "6e5ce0, untruncated; allstdout/stderr actualfull35bytes",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-first-cpu/PLAN.json",
+      "bytes": 6489,
+      "sha256": "ce0c004b33772c305bea66b857b83f8b5928161d66112d35820b68ab63361c15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/ADMISSION.json",
+      "bytes": 1940,
+      "sha256": "b905af273a1c329c28dd4ccdbad0dc15e0f24828bee2ae126663fcddcf55cece"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/receipt.json",
+      "bytes": 3991,
+      "sha256": "f14d445ba57263ecff7557f0c6bb52cb8838f912507a281bee70221a3152bb8e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/attempt.lock",
+      "bytes": 37,
+      "sha256": "25a89fd20030288e26f0b31b7c6dfe652759a4ee4dc6d3d221b49947c8233b74"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/reader.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/standalone-facial-supervisor/job/reader.stderr",
+      "bytes": 35,
+      "sha256": "5b5219954d38b8245d6083467c9471169a66e4dd94a1a76bacdbdf21758a9ee6"
+    }
+  ],
+  "fixed_caps_and_programs_unchanged": true,
+  "next": "Independent critic reviews complete refused receipt and source witnesses, with two alternatives and next genuinely different experiment worth; root double checks; no same-program/launch/recording/cap/tolerance retry, no source/material/native/GPU/appearance credit"
+}
