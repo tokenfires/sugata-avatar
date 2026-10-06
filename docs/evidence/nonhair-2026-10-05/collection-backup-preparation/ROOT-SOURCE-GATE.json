@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-06T05:46:10.569099+00:00",
+  "pid": 12784,
+  "decision": "A exact current source and FIRST CPU trial only; no native/storage/feature credit",
+  "rootWholeRead": "84f4f3 full6937result+27305receipt; independent complete source scopes5694b5/371182/dfcf07/ba6a05",
+  "verifiedBindings": 38,
+  "sourceLines": 602,
+  "criticUTC": "2026-10-06T05:45:21.346628+00:00",
+  "sourceStop": "before06:10; full root before06:40",
+  "sourceResult": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/SOURCE-V2-RESULT.md",
+    "bytes": 6937,
+    "sha256": "36bc50c41c8b8add9b210e5f5d64f585bd40e5a137c401201703e2a92a11df3d",
+    "readback": "exact UTF-8 bytes"
+  },
+  "sourceReceiptSha": "148703b1b6ca86ee5f38ed0333f0c5755308d7bf09ea2c1fbb3cde6bb915d0a3",
+  "executable": "python3 docs/evidence/nonhair-2026-10-05/collection-backup-preparation/test-runner.py",
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "supervision": "exact bundled Node command from reviewed82line source,30s wait+5s independent cleanup;64KiB postcollection/V8heap128MiB notRSS; firstrefusal/uncollected/error stops no retry/assertionchange",
+  "next": "Actual rawstreams/process result fully independently inspect; critic actualCPU review before later separate native admission",
+  "preserved": "all initial7source+2verdict copies exact;5unchanged assertions/data/UI; old9inputs;16checked10open/fullAAA/default/original/frozen/unrelated/Vite/recovery"
+}

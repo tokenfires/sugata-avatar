@@ -641,3 +641,8 @@ Critic7a00ae/exit0/PID7694 stable04:53:53,result2870/145b0669d27efbe011a3fd948d2
 ## October 5, 22:20 Pacific — whole collection continuity worth
 
 [Independent/root worth and recovery](evidence/nonhair-2026-10-05/collection-backup-worth/README.md): A for complete backup/previewed restore/guarded Undo owner planning only. Source shows individual exports omit names/order and unavailable records; no loss/corruption claimed. Critic stable05:19:56/root05:20:41UTC;15 bindings verified. Whole feature needs same-controller isolated native fixture Restore/Undo/download, beyond CPU tests/read-only UI. No query/code/evaluation/storage/native yet. Next literal MDN/source/test/native plan, then full review.16scoped10broad/fullAAA/accepteddefaultoriginalfrozenunrelated/Vite/recovery unchanged; newer steering wins.
+
+
+## October 5, 22:50 Pacific — collection backup source and first CPU
+
+[Exact source/CPU recovery](evidence/nonhair-2026-10-05/collection-backup-preparation/README.md): corrected whole source A and first12-group/96-enum fixture-memory CPU A. Initial critic B and7sources preserved; root confirms F1 runner raw-stream loss/F2 fixture cleanup reporting, one grouped inert correction, full602-line rereview. Actual98b38b/exit0 parent12785/Node12786 at05:46:10UTC complete/reaped/1113stdout0stderr, no retry. Critic source05:45:21/CPU05:49:04; root full handoffs and23currentCPU bindings. One official MDN request/1reportedcredit supports raw-string design only. Candidate unlinked; actual browser file/RestoreUndo/cleanup and desktop/mobile remain next separately admitted work. No checkbox/appearance/fit/AAA credit;16scoped10broad/fullscope/accepteddefaultoriginalfrozenunrelated/Vite/recovery preserved; newer human steering wins.

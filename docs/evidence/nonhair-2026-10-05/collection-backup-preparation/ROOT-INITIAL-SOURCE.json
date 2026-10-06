@@ -1,0 +1,61 @@
+{
+  "utc": "2026-10-06T05:41:01.120090+00:00",
+  "pid": 12192,
+  "all24CriticBindingsExact": true,
+  "sourceRows": [
+    {
+      "original": "packages/testbed/src/showcase-collection-backup.mjs",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/initial-reviewed-v1/showcase-collection-backup.mjs",
+      "bytes": 4998,
+      "sha256": "7a8549a4b1f0b7a052a6458e74037479e72e237be08468eeb7044efbdc033264"
+    },
+    {
+      "original": "packages/testbed/src/showcase-collection-backup-ui.mjs",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/initial-reviewed-v1/showcase-collection-backup-ui.mjs",
+      "bytes": 7671,
+      "sha256": "9bf828dcae53c9ad1db97c4d0b8c6dd5678834d04cba924dbb6f772257d7ac12"
+    },
+    {
+      "original": "packages/testbed/src/showcase-collection-backup.html",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/initial-reviewed-v1/showcase-collection-backup.html",
+      "bytes": 5208,
+      "sha256": "693f81a74edea42418a476dbf341db934a0a6e0f397e0de1a96a9caa8f26c344"
+    },
+    {
+      "original": "packages/testbed/src/showcase-collection-backup.selftest.mjs",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/initial-reviewed-v1/showcase-collection-backup.selftest.mjs",
+      "bytes": 12390,
+      "sha256": "80bd735f754230aa6ae2cdc3552aced35c5b51f7747ec18be6464165fe2e108b"
+    },
+    {
+      "original": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/fixture.html",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/initial-reviewed-v1/fixture.html",
+      "bytes": 5656,
+      "sha256": "ff92a2b457c461abc7ba98389ca271ec539da5ea5ca19c99f0a42bd4fef708ba"
+    },
+    {
+      "original": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/fixture.mjs",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/initial-reviewed-v1/fixture.mjs",
+      "bytes": 3779,
+      "sha256": "fba9e61f2d61da0f005d491ac5dfcb1a7526c7c0f06a7fa94b7bd8285d1ffbc5"
+    },
+    {
+      "original": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/test-runner.py",
+      "snapshot": "docs/evidence/nonhair-2026-10-05/collection-backup-preparation/initial-reviewed-v1/test-runner.py",
+      "bytes": 2566,
+      "sha256": "7a6bab7e58033ac86791657683235ea1f0e9c749cc8e8a7294d61d69b6e2056c"
+    }
+  ],
+  "rootWholeHandoff": "4f1b7d/exit0; whole result7702+receipt16766",
+  "rootWitnesses": [
+    "789549 complete53fixture/50runner source before correction",
+    "5694b5 complete100owner/136UI",
+    "371182 complete134selftest"
+  ],
+  "decision": "Select critic alternatives A; one grouped inert F1+F2 correction before06:10; original runtime7+verdict2 preserved; no target execution/native",
+  "findings": [
+    "F1 actual raw-stream loss/receipt bypass after launch-write and kill errors",
+    "F2 cleanup release/read/remove and malformed changed raw hide visible accounting"
+  ],
+  "limits": "No actual error induced; no claim leaked/current job; unchanged tests/payload/acceptance; CPU/native unadmitted"
+}

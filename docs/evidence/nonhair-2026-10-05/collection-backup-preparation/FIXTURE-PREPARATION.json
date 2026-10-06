@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-06T05:30:48.600305+00:00",
+  "scope": "Inert fixture HTML preparation, no target/DOM evaluation",
+  "productPath": "packages/testbed/src/showcase-collection-backup.html",
+  "productBytes": 5208,
+  "productSha256": "693f81a74edea42418a476dbf341db934a0a6e0f397e0de1a96a9caa8f26c344",
+  "fixtureBytes": 5656,
+  "fixtureSha256": "ff92a2b457c461abc7ba98389ca271ec539da5ea5ca19c99f0a42bd4fef708ba",
+  "exactDifferences": [
+    "same entire product markup/style; bootstrap replaced by fixture.mjs",
+    "relative brand link points to actual original Showcase",
+    "literal isolated test banner/Add/Finish/visible receipt appended aftermain"
+  ],
+  "unknownVersionFileSha256": "9ce1111808fd451d8878475898191d45ccdbb71bb24e56d199ad153ce1e9894f"
+}

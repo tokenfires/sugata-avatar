@@ -1,0 +1,13 @@
+PASS all96 supported configurations and colour/tint data retain complete identity/order/names
+PASS actual Blob UTF8 transport preserves raw lexemes, overflow, negative zero and lone surrogates
+PASS null absence and empty envelope remain distinct through restore and one exact Undo
+PASS invalid metadata, unknown envelopes and duplicate names/IDs refuse without writes
+PASS literal raw code-unit boundary and transport byte/code-unit caps are distinct
+PASS invalid or inaccessible current store blocks backup/preview/Restore without repair
+PASS stale preview and Undo refuse separate-owner updates; observed changes invalidate permanently
+PASS raw no-op preserves an existing Undo and never consumes a storage write
+PASS commit-time interleaving is refused even after initial snapshot passes
+PASS prewrite access/read/set/remove failures preserve raw and publish no new Undo
+PASS failed Undo retains exact prior raw and permits retry when prewrite error clears
+PASS cancellation and disposal remove pending transaction authority without touching storage
+PASS 12 whole-collection backup groups; fixture-memory only

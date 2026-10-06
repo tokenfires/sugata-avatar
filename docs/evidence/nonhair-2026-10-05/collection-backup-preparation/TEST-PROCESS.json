@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "--max-old-space-size=128",
+    "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-backup.selftest.mjs"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar",
+  "parent_pid": 12785,
+  "child_pid": 12786,
+  "start_utc": "2026-10-06T05:46:10.624909+00:00",
+  "return_utc": "2026-10-06T05:46:10.703764+00:00",
+  "elapsed_seconds": 0.07873391598695889,
+  "exit_code": 0,
+  "timeout": false,
+  "child_reaped": true,
+  "streams_complete": true,
+  "errors": [],
+  "stdout_bytes": 1113,
+  "stderr_bytes": 0,
+  "output_limit": 65536,
+  "output_within_limit": true,
+  "scope": "30s child wait, then independent signal/drain up to5s; permission failures may leave uncollected child identified byPID. V8 heap flag not RSS cap; output size checked after collection not streaming cap. Partial raw prefixes retained; supervisor errors never replace child streams."
+}

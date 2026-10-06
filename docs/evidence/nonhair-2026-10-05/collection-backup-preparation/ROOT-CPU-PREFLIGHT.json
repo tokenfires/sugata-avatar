@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-06T05:46:22.361555+00:00",
+  "pid": 12824,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/ROOT-SOURCE-GATE.json",
+      "bytes": 1496,
+      "sha256": "4ba2a978bc05da28fea8b2c9f86810f257718d6ff235f01bbb7dd5a4491157fc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/TEST-START.json",
+      "bytes": 395,
+      "sha256": "717ca8b1da106b68184489e6108cea6f1c1139a5f2a3d06622155563660d7a99"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/TEST-STDOUT.txt",
+      "bytes": 1113,
+      "sha256": "7d789debee8d6da0ef9c861df77d45e666aae175a4cd40d60ec8ab89d43f6e01"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/TEST-STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/collection-backup-preparation/TEST-PROCESS.json",
+      "bytes": 991,
+      "sha256": "dd9c09c4542d245fa485e6500760d58ae019e0438a3eed8be53364514ea7e888"
+    }
+  ],
+  "process": {
+    "command": [
+      "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "--max-old-space-size=128",
+      "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-backup.selftest.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "parent_pid": 12785,
+    "child_pid": 12786,
+    "start_utc": "2026-10-06T05:46:10.624909+00:00",
+    "return_utc": "2026-10-06T05:46:10.703764+00:00",
+    "elapsed_seconds": 0.07873391598695889,
+    "exit_code": 0,
+    "timeout": false,
+    "child_reaped": true,
+    "streams_complete": true,
+    "errors": [],
+    "stdout_bytes": 1113,
+    "stderr_bytes": 0,
+    "output_limit": 65536,
+    "output_within_limit": true,
+    "scope": "30s child wait, then independent signal/drain up to5s; permission failures may leave uncollected child identified byPID. V8 heap flag not RSS cap; output size checked after collection not streaming cap. Partial raw prefixes retained; supervisor errors never replace child streams."
+  },
+  "firstRun": "98b38b/exit0; runtime completed0.0787s;12whole groups including96enum combinations;1113actualstdout0stderr; no retry/no source edits",
+  "decision": "Root actualCPU finite A; await independent whole actual result review. No browser/realstorage/feature credit",
+  "sourceUnchanged7": true,
+  "next": "Critic exactCPU then separately literal root native plan"
+}
