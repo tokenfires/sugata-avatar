@@ -1,0 +1,98 @@
+{
+  "utc": "2026-10-06T11:54:12.579431+00:00",
+  "pid": 73650,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23800,
+      "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/FoundationLayer.js",
+      "bytes": 7226,
+      "sha256": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ROOT-ACTUAL-CLOSE.json",
+      "bytes": 4417,
+      "sha256": "f307f1a4da4e1517bc26db473367168f1a6162c4f19f5a1fce2daeb79b5ec121"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ACTUAL-CRITIC.md",
+      "bytes": 3291,
+      "sha256": "de9f49b8db59a4e73dc3bb90fbdac2364b1cf66eb301481e8efaabb8467bc52d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/FROZEN.json",
+      "bytes": 4708,
+      "sha256": "f5b59c6bb2092e948293487f4d38c2b873138ad51f444b1ebfacb319eb7994ea"
+    }
+  ],
+  "source_jobs": [
+    {
+      "chunk": "27a710",
+      "exit": 0,
+      "scope": "PLAN beforeinquiry; Agency locators andcomplete testbedwiring191\u2013235/pinbutton271\u2013315"
+    },
+    {
+      "chunk": "a694aa",
+      "exit": 0,
+      "scope": "Agency wholeheaders/defaults1\u201388; constructor/wake/setMode/pin164\u2013331; state/pinHolds/restorePin/heldBy/apply/persist436\u2013579; sameOutfit/store/readState629\u2013703; consider/confirm/decline349\u2013431"
+    }
+  ],
+  "witnesses": [
+    {
+      "path": "packages/core/src/wardrobe/WardrobeAgency.js",
+      "lines": "280\u2013299/465\u2013478/229\u2013236/551\u2013568",
+      "finding": "pin stores fullstats.worn including foundation; pinHolds comparesexactstoredIDs; restorePin/wake redressstoredpin; samefloor identityrequired. A baretestbedfilter canapplynewfloor while leaving old foundation in active/dormantpin, so laterpin/wake stillrequestsoldfloor. Sourcebacked integrationrisk, notnewactualAgencyfailure claim."
+    },
+    {
+      "path": "packages/testbed/src/wardrobe.js",
+      "lines": "337\u2013362/251\u2013253/447\u2013449/191\u2013225",
+      "finding": "Foundationchoice is separately persisted identityproperty independentof Agency mode peractualkeycomment. Buttonrenderer currently does not receiveAgency, nullrefresh; bothentrypoints need one sharedoperation/wiring. Existingpreference mutation/savebeforeattempt is established; no rollbackpromised."
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeAgency.js",
+      "lines": "511\u2013538/248\u2013270/652\u2013659/685\u2013691",
+      "finding": "Actualcommitcallback nowowns metadata; mode/userpin switch explicituser boundary; dormantpin persists acrossmodes. Foundation-onlyoperation should nothonourAIpreference,changeuser mode,clear pendingproposal,orassignnewmoodhistory. Savedpin/currentRequest normalization duty needs explicitsourcecontract."
+    }
+  ],
+  "minimal_barefilter_decision": "B ascompletecallerfix: activeanddormant fullfloorpins become inconsistent; defaultpinned-nullbaseline alone insufficient. No barefiltercandidate authored.",
+  "proposal_A": "Worth nominate a narrowly named WardrobeAgency.refreshFoundation({by:user}) and sharedtestbed switchoperation under freshsourcecontract. Userchoice prefer/save staysbeforeattempt ascurrentsemantics(no rollbackclaim); operation derives currentouterrequest by removing only manifest FOUNDATION IDs, validates currentfloor and existingpin rebasing beforeload, uses actualWardrobecommitcallback to rebase storedpin to actually appliedfoundation preservingitsouterIDs (even dormantpin differingfromcurrentouters), normalizes foundationIDs out of currentRequest ifnonnull, persists changedmetadata. Preservemode/pendingproposals/preferencehonour/log/clock/history; nosilentre-pin/modeswitch. No updateonrefused/failed/superseded/disposed dress. Ensure no generic transaction or callback-return error guarantee. Both browserhandle/buttonwire samehelperandAgency instance; refreshAgency onbutton. Exactimplementation/tests onlyafter worthA.",
+  "success_contract": "Currentwear replaces old foundation IDs, retains currentouter IDs; currentconfiguredfloor exactlyonce; activepin updatesfoundation whileouterpinheld, dormantpin preservesdifferentouter selection; currentRequest remains its nonfoundationrequest (null staysnull), moodhistory/AIhonour/askpending/mode untouched. Save remains exactsource-order beforeattempt. Actual callbackownsanypersist updates; no stale completion overwrite.",
+  "failure_contract": "Invalidslotchoice failsbeforemutationascurrentFoundation.prefer. Validselection ispreferred+savedbefore dressattempt, and may remainselected onload/validation failureascurrentcallersemantics; actualworn/pin/requestmetadata stayprevious onno commit. Make no automatic preference/persistence rollback claim; separateknownstate fromappliedstate. Personalstoragefailures/runtimeDOM/native delivery unqualified and norescue.",
+  "bounded_next_ifworthA": "One isolatedcandidatefullsourcegate then finite real-rig cases for TORSO/HIPS regularswitch, activepin, dormantpinwithdifferentouters, askpending/modepreservation, invalidchoiceandfailedloader, supersededcompletion and callbackcommit-before-delivery ifneedednewduties. Existing accepted13cases notreplayed; no physicalfoundation tuning. Exactcaselistandstopbeforeauthoring.",
+  "alternatives": [
+    {
+      "choice": "A pin-aware actualcommit owner method+sharedcaller helper",
+      "tradeoff": "Addresses witnessedswitch and source-proven storedpin duty whilepreservingexistingowners; costs newnarrowAPI/sourceandmeaningfulactualfixtures."
+    },
+    {
+      "choice": "B retainactualcounterexample andwithholdcallerfix",
+      "tradeoff": "Avoids anunsafe partialfilter orbroaderunprovedstateengine; knownswitchmismatch remains."
+    }
+  ],
+  "decision": "Root supportsaskingcriticworth fornamednarrowintegration; no newsource/test/harness/Node/code/prefs edits admitted.",
+  "stops": {
+    "root_source_inquiry": "2026-10-06T12:02:00Z",
+    "critic_worth_inquiry": "2026-10-06T12:10:00Z",
+    "critic_worth_collection": "2026-10-06T12:15:00Z",
+    "root_close": "2026-10-06T12:20:00Z"
+  },
+  "limits": "No source/prefs/realstorage/assets/default/frozen edits, no target/Node/helper/observer/import/GLB/browser/network/render/physical foundation tuning. Accepted92ceefa and newly frozen actual2caseproof retained; no replay. Exactcaller policyquestion, noUI/coverage/body/pose/fit/pixels/perf/AAA acceptance.17scoped10broad/fullroadmap/server/ACTIVE recovery retained; human steering wins."
+}
