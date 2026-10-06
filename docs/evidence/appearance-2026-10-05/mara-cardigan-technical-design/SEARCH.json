@@ -1,0 +1,52 @@
+{
+  "begin": {
+    "current_time": "2026-10-06 03:53:33 UTC"
+  },
+  "end": {
+    "current_time": "2026-10-06 03:53:35 UTC"
+  },
+  "request": {
+    "query": "Esme maxi cardigan patch pockets technical drawing site:namedclothing.com",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "includeDomains": [
+      "namedclothing.com"
+    ],
+    "domainTools": false
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.namedclothing.com/products/esme-maxi-cardigan?srsltid=AU7gw4UaP_7NB_CS--9meQbvDMGvWXQuMVt4OwUV1ZOs6VQIksrdgtM_\",\"title\":\"Esme Maxi Cardigan Sewing Pattern | Named Clothing\",\"description\":\"30-day returnsThis sweater jacket features a chunky button closure, large in-seam front pockets, dropped shoulders, and rolled-up cuffs\",\"position\":1},{\"url\":\"https://www.namedclothing.com/products/lahja-unisex-dressing-gown?srsltid=AU7gw4UWX1FAtW8AujvE_u4ltMM72SS1FAJWY2FKzT7DfopK46GF6MDg\",\"title\":\"Lahja Unisex Dressing Gown Sewing Pattern | Named Clothing\",\"description\":\"30-day returnscut unisex sewing pattern. Both variations feature large patch pockets and a belt fastening. PDF: 54 home printer pages. Esme maxi cardigan PDF / POD / Printed ...\",\"position\":2}]},\"creditsUsed\":2,\"id\":\"01a10f58-6a44-735e-ae77-a25d49bcbe6d\",\"agent_hints\":[\"All 2 web results are excerpts only (#1 \\\"https://www.namedclothing.com/products/esme-maxi-cardigan?srsltid=AU7gw4UaP_7NB_CS--9meQbvDMGvWXQuMVt4OwUV1ZOs6VQIksrdgtM_\\\", #2 \\\"https://www.namedclothing.com/products/lahja-unisex-dressing-gown?srsltid=AU7gw4UWX1FAtW8AujvE_u4ltMM72SS1FAJWY2FKzT7DfopK46GF6MDg\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 2 web results are excerpts only (#1 \"https://www.namedclothing.com/products/esme-maxi-cardigan?srsltid=AU7gw4UaP_7NB_CS--9meQbvDMGvWXQuMVt4OwUV1ZOs6VQIksrdgtM_\", #2 \"https://www.namedclothing.com/products/lahja-unisex-dressing-gown?srsltid=AU7gw4UWX1FAtW8AujvE_u4ltMM72SS1FAJWY2FKzT7DfopK46GF6MDg\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.namedclothing.com/products/esme-maxi-cardigan?srsltid=AU7gw4UaP_7NB_CS--9meQbvDMGvWXQuMVt4OwUV1ZOs6VQIksrdgtM_",
+            "title": "Esme Maxi Cardigan Sewing Pattern | Named Clothing",
+            "description": "30-day returnsThis sweater jacket features a chunky button closure, large in-seam front pockets, dropped shoulders, and rolled-up cuffs",
+            "position": 1
+          },
+          {
+            "url": "https://www.namedclothing.com/products/lahja-unisex-dressing-gown?srsltid=AU7gw4UWX1FAtW8AujvE_u4ltMM72SS1FAJWY2FKzT7DfopK46GF6MDg",
+            "title": "Lahja Unisex Dressing Gown Sewing Pattern | Named Clothing",
+            "description": "30-day returnscut unisex sewing pattern. Both variations feature large patch pockets and a belt fastening. PDF: 54 home printer pages. Esme maxi cardigan PDF / POD / Printed ...",
+            "position": 2
+          }
+        ]
+      },
+      "id": "01a10f58-6a44-735e-ae77-a25d49bcbe6d",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}

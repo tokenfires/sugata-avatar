@@ -1,0 +1,1533 @@
+{
+  "schema": "sugata.original-technical-design/v1",
+  "author": "Cora/root; original literal vector art",
+  "utc": "2026-10-06T04:05:25.090920+00:00",
+  "source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/cardigan.svg",
+    "bytes": 10437,
+    "sha256": "63be0628cfd6afbaa43550c5e2ed4efda3bbb95a4020bbb81289859c9d99b3a8"
+  },
+  "namespace": "http://www.w3.org/2000/svg",
+  "frame": {
+    "width": 1280,
+    "height": 960,
+    "viewBox": "0 0 1280 960",
+    "units": "unitless graphic coordinates; no physical body or pattern dimensions",
+    "views": "Front, authored right profile, authored rear, smaller authored inside-facing schematic; not registered projections"
+  },
+  "palette": {
+    "main": "#b8885c",
+    "band": "#9b683f",
+    "rib": "#a7774c",
+    "pocket": "#bf9168",
+    "inside_body": "#e5d6c4",
+    "inside_band": "#c59a73",
+    "line": "#493728",
+    "paper": "#fbf8f1",
+    "annotation": "#47564d"
+  },
+  "features": [
+    {
+      "id": "B",
+      "role": "Continuous original nape/front band and inward-side design, no physical folded strip authority",
+      "marks": [
+        "front-band",
+        "front-band-inward-edge",
+        "profile-band",
+        "profile-band-edge",
+        "rear-nape-band",
+        "rear-nape-edge",
+        "inside-band",
+        "inside-band-edge"
+      ],
+      "hidden_choices": "Rear/profile and inward-face palette/edge meaning are authored; views unregistered"
+    },
+    {
+      "id": "P-R",
+      "role": "Wearer right/front left patch pocket: top open intent, sides/bottom attached intent",
+      "marks": [
+        "front-pocket-R",
+        "front-pocket-top-R",
+        "front-pocket-attach-R",
+        "front-pocket-name-R",
+        "profile-pocket-R",
+        "profile-pocket-top-R",
+        "profile-pocket-attach-R",
+        "inside-pocket-trace-R"
+      ],
+      "views": "Front full; right profile compressed and partly obscured by sleeve; inside attachment trace only; rear absent"
+    },
+    {
+      "id": "P-L",
+      "role": "Wearer left/front right patch pocket: top open intent, sides/bottom attached intent",
+      "marks": [
+        "front-pocket-L",
+        "front-pocket-top-L",
+        "front-pocket-attach-L",
+        "front-pocket-name-L",
+        "inside-pocket-trace-L"
+      ],
+      "views": "Front full; right profile far pocket hidden; inside attachment trace only; rear absent"
+    },
+    {
+      "id": "C-R",
+      "role": "Wearer right cuff/open wrist intent",
+      "marks": [
+        "front-cuff-R",
+        "front-cuff-ribs-R",
+        "front-wrist-R",
+        "profile-cuff-R",
+        "profile-cuff-ribs-R",
+        "profile-wrist-R",
+        "rear-cuff-R",
+        "rear-cuff-ribs-R",
+        "rear-wrist-R",
+        "inside-cuff-R"
+      ],
+      "views": "Front/inside left, rear right, near right-profile"
+    },
+    {
+      "id": "C-L",
+      "role": "Wearer left cuff/open wrist intent",
+      "marks": [
+        "front-cuff-L",
+        "front-cuff-ribs-L",
+        "front-wrist-L",
+        "rear-cuff-L",
+        "rear-cuff-ribs-L",
+        "rear-wrist-L",
+        "inside-cuff-L"
+      ],
+      "views": "Front/inside right, rear left; far profile hidden"
+    },
+    {
+      "id": "H",
+      "role": "Continuous body hem lower than full sleeve ends, graphic rib only",
+      "marks": [
+        "front-hem-R",
+        "front-hem-L",
+        "front-hem-ribs-R",
+        "front-hem-ribs-L",
+        "profile-hem",
+        "profile-hem-ribs",
+        "rear-hem",
+        "rear-hem-ribs",
+        "inside-hem-R",
+        "inside-hem-L"
+      ],
+      "views": "Two open-front ends; complete rear/profile; inward facing schematic"
+    },
+    {
+      "id": "S",
+      "role": "Full sleeves/dropped shoulder artist attachment marks; all hidden rear/profile roles authored",
+      "marks": [
+        "front-outline",
+        "front-shoulders",
+        "profile-outline",
+        "profile-sleeve-R",
+        "profile-shoulder-R",
+        "rear-outline",
+        "rear-shoulders",
+        "inside-outline"
+      ],
+      "limits": "No sewn edge equality, 3D surface, thickness, physical fold or rigmorphmotion authority"
+    },
+    {
+      "id": "GRAPHICS",
+      "role": "Every remaining element is owned complete sheet/style/pattern/annotation/layout source",
+      "marks": [
+        "sheet",
+        "sheet-title",
+        "sheet-description",
+        "resources",
+        "styles",
+        "rib-mark",
+        "rib-mark-line",
+        "paper",
+        "eyebrow",
+        "heading",
+        "subheading",
+        "top-rule",
+        "column-rules",
+        "front-label",
+        "profile-label",
+        "rear-label",
+        "front",
+        "front-pocket-name-R",
+        "front-pocket-name-L",
+        "front-band-name",
+        "profile",
+        "profile-band-name",
+        "rear",
+        "front-note-1",
+        "front-note-2",
+        "profile-note-1",
+        "profile-note-2",
+        "rear-note-1",
+        "rear-note-2",
+        "lower-rule",
+        "key-title",
+        "key-band",
+        "key-pockets",
+        "key-cuffs",
+        "key-ribs",
+        "key-scope",
+        "key-editability",
+        "inside-label",
+        "inside",
+        "inside-note"
+      ],
+      "limits": "Graphic rib motif not knitting gauge; displayed colour not calibrated material; fonts native system fallback"
+    }
+  ],
+  "element_tree": [
+    {
+      "id": "sheet",
+      "tag": "svg",
+      "parent": null,
+      "attributes": {
+        "id": "sheet",
+        "width": "1280",
+        "height": "960",
+        "viewBox": "0 0 1280 960",
+        "role": "img",
+        "aria-labelledby": "sheet-title sheet-description"
+      },
+      "text": "\n  ",
+      "tail": null,
+      "children": [
+        "sheet-title",
+        "sheet-description",
+        "resources",
+        "paper",
+        "eyebrow",
+        "heading",
+        "subheading",
+        "top-rule",
+        "column-rules",
+        "front-label",
+        "profile-label",
+        "rear-label",
+        "front",
+        "profile",
+        "rear",
+        "front-note-1",
+        "front-note-2",
+        "profile-note-1",
+        "profile-note-2",
+        "rear-note-1",
+        "rear-note-2",
+        "lower-rule",
+        "key-title",
+        "key-band",
+        "key-pockets",
+        "key-cuffs",
+        "key-ribs",
+        "key-scope",
+        "key-editability",
+        "inside-label",
+        "inside",
+        "inside-note"
+      ]
+    },
+    {
+      "id": "sheet-title",
+      "tag": "title",
+      "parent": "sheet",
+      "attributes": {
+        "id": "sheet-title"
+      },
+      "text": "Mara: original long open cardigan technical design",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "sheet-description",
+      "tag": "desc",
+      "parent": "sheet",
+      "attributes": {
+        "id": "sheet-description"
+      },
+      "text": "Complete front, authored right profile and rear, and a smaller authored inside schematic. Long bands, two front patch pockets, full cuffs and lower rib hem. Original unitless art; sewing, 3D, fit and motion are unqualified.",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "resources",
+      "tag": "defs",
+      "parent": "sheet",
+      "attributes": {
+        "id": "resources"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "children": [
+        "styles",
+        "rib-mark"
+      ]
+    },
+    {
+      "id": "styles",
+      "tag": "style",
+      "parent": "resources",
+      "attributes": {
+        "id": "styles"
+      },
+      "text": "\n      text{font-family:Arial,Helvetica,sans-serif;fill:#493728}\n      .title{font-size:30px;font-weight:700}.label{font-size:20px;font-weight:700}\n      .note{font-size:15px;fill:#47564d}.small{font-size:13px;fill:#47564d}\n      .body{fill:#b8885c;stroke:#493728;stroke-width:2;stroke-linejoin:round}\n      .band{fill:#9b683f;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}\n      .rib{fill:#a7774c;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}\n      .pocket{fill:#bf9168;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}\n      .attach{fill:none;stroke:#493728;stroke-width:1.2;stroke-dasharray:4 3;stroke-linecap:round}\n      .edge{fill:none;stroke:#493728;stroke-width:2;stroke-linecap:round}\n      .leader{fill:none;stroke:#7d6956;stroke-width:1}\n      .inside-body{fill:#e5d6c4;stroke:#493728;stroke-width:2;stroke-linejoin:round}\n      .inside-band{fill:#c59a73;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}\n    ",
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rib-mark",
+      "tag": "pattern",
+      "parent": "resources",
+      "attributes": {
+        "id": "rib-mark",
+        "patternUnits": "userSpaceOnUse",
+        "width": "5",
+        "height": "5"
+      },
+      "text": "\n      ",
+      "tail": "\n  ",
+      "children": [
+        "rib-mark-line"
+      ]
+    },
+    {
+      "id": "rib-mark-line",
+      "tag": "path",
+      "parent": "rib-mark",
+      "attributes": {
+        "id": "rib-mark-line",
+        "d": "M2 0V5",
+        "fill": "none",
+        "stroke": "#493728",
+        "stroke-width": "0.65",
+        "opacity": "0.45"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "paper",
+      "tag": "rect",
+      "parent": "sheet",
+      "attributes": {
+        "id": "paper",
+        "width": "1280",
+        "height": "960",
+        "fill": "#fbf8f1"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "eyebrow",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "eyebrow",
+        "x": "48",
+        "y": "40",
+        "class": "small"
+      },
+      "text": "SUGATA / MARA / ORIGINAL WARDROBE DESIGN",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "heading",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "heading",
+        "x": "48",
+        "y": "85",
+        "class": "title"
+      },
+      "text": "Long open cardigan",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "subheading",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "subheading",
+        "x": "48",
+        "y": "115",
+        "class": "note"
+      },
+      "text": "Editable technical art \u00b7 all proportions unitless \u00b7 back, profile and inside deliberately authored",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "top-rule",
+      "tag": "path",
+      "parent": "sheet",
+      "attributes": {
+        "id": "top-rule",
+        "d": "M48 135H1232",
+        "stroke": "#d9cabb",
+        "fill": "none"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "column-rules",
+      "tag": "path",
+      "parent": "sheet",
+      "attributes": {
+        "id": "column-rules",
+        "d": "M435 168V678M805 168V678",
+        "stroke": "#e6dccf",
+        "fill": "none"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "front-label",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "front-label",
+        "x": "100",
+        "y": "174",
+        "class": "label"
+      },
+      "text": "01 / Front",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "profile-label",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "profile-label",
+        "x": "478",
+        "y": "174",
+        "class": "label"
+      },
+      "text": "02 / Right profile",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "rear-label",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "rear-label",
+        "x": "885",
+        "y": "174",
+        "class": "label"
+      },
+      "text": "03 / Rear",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "front",
+      "tag": "g",
+      "parent": "sheet",
+      "attributes": {
+        "id": "front",
+        "transform": "translate(80 210)"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "children": [
+        "front-outline",
+        "front-cuff-R",
+        "front-cuff-L",
+        "front-cuff-ribs-R",
+        "front-cuff-ribs-L",
+        "front-wrist-R",
+        "front-wrist-L",
+        "front-hem-R",
+        "front-hem-L",
+        "front-hem-ribs-R",
+        "front-hem-ribs-L",
+        "front-band",
+        "front-band-inward-edge",
+        "front-shoulders",
+        "front-pocket-R",
+        "front-pocket-L",
+        "front-pocket-top-R",
+        "front-pocket-top-L",
+        "front-pocket-attach-R",
+        "front-pocket-attach-L",
+        "front-pocket-name-R",
+        "front-pocket-name-L",
+        "front-band-name"
+      ]
+    },
+    {
+      "id": "front-outline",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-outline",
+        "class": "body",
+        "d": "M95 10Q120 -3 138 0Q160 20 182 0Q202 -3 225 10L250 28Q269 56 280 88L304 271L276 282L250 144L262 425Q260 432 250 432L197 432L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H70Q60 432 58 425L70 144L50 283L22 272L47 88Q58 56 70 28Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-cuff-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-cuff-R",
+        "class": "rib",
+        "d": "M23 268L51 278L46 307L17 297Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-cuff-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-cuff-L",
+        "class": "rib",
+        "d": "M277 278L303 268L309 297L280 307Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-cuff-ribs-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-cuff-ribs-R",
+        "d": "M23 268L51 278L46 307L17 297Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-cuff-ribs-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-cuff-ribs-L",
+        "d": "M277 278L303 268L309 297L280 307Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-wrist-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-wrist-R",
+        "class": "edge",
+        "d": "M17 297L46 307"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-wrist-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-wrist-L",
+        "class": "edge",
+        "d": "M280 307L309 297"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-hem-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-hem-R",
+        "class": "rib",
+        "d": "M59 405H124L123 432H70Q60 432 58 425Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-hem-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-hem-L",
+        "class": "rib",
+        "d": "M196 405H261L262 425Q260 432 250 432H197Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-hem-ribs-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-hem-ribs-R",
+        "d": "M59 405H124L123 432H70Q60 432 58 425Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-hem-ribs-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-hem-ribs-L",
+        "d": "M196 405H261L262 425Q260 432 250 432H197Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-band",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-band",
+        "class": "band",
+        "d": "M138 0Q160 20 182 0L195 59Q206 138 205 225L213 432H197L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H107L115 225Q114 138 125 59Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-band-inward-edge",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-band-inward-edge",
+        "class": "attach",
+        "d": "M128 59Q117 138 119 225L111 425M191 59Q202 138 201 225L209 425"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-shoulders",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-shoulders",
+        "class": "attach",
+        "d": "M75 35Q94 87 70 144M245 35Q226 87 250 144"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-R",
+        "class": "pocket",
+        "d": "M72 252H107V331Q107 339 99 339H80Q72 339 72 331Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-L",
+        "class": "pocket",
+        "d": "M213 252H248V331Q248 339 240 339H221Q213 339 213 331Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-top-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-top-R",
+        "class": "edge",
+        "d": "M72 252H107"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-top-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-top-L",
+        "class": "edge",
+        "d": "M213 252H248"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-attach-R",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-attach-R",
+        "class": "attach",
+        "d": "M76 258V329Q76 335 82 335H97Q103 335 103 329V258"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-attach-L",
+      "tag": "path",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-attach-L",
+        "class": "attach",
+        "d": "M217 258V329Q217 335 223 335H238Q244 335 244 329V258"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-name-R",
+      "tag": "text",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-name-R",
+        "x": "80",
+        "y": "295",
+        "font-size": "12"
+      },
+      "text": "P-R",
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-pocket-name-L",
+      "tag": "text",
+      "parent": "front",
+      "attributes": {
+        "id": "front-pocket-name-L",
+        "x": "220",
+        "y": "295",
+        "font-size": "12"
+      },
+      "text": "P-L",
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "front-band-name",
+      "tag": "text",
+      "parent": "front",
+      "attributes": {
+        "id": "front-band-name",
+        "x": "146",
+        "y": "180",
+        "font-size": "13"
+      },
+      "text": "B",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "profile",
+      "tag": "g",
+      "parent": "sheet",
+      "attributes": {
+        "id": "profile",
+        "transform": "translate(473 210)"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "children": [
+        "profile-outline",
+        "profile-hem",
+        "profile-hem-ribs",
+        "profile-band",
+        "profile-band-edge",
+        "profile-pocket-R",
+        "profile-pocket-top-R",
+        "profile-pocket-attach-R",
+        "profile-sleeve-R",
+        "profile-shoulder-R",
+        "profile-cuff-R",
+        "profile-cuff-ribs-R",
+        "profile-wrist-R",
+        "profile-band-name"
+      ]
+    },
+    {
+      "id": "profile-outline",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-outline",
+        "class": "body",
+        "d": "M106 8Q140 -8 166 10L178 65Q172 92 170 144L179 432H101L103 180L99 100Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-hem",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-hem",
+        "class": "rib",
+        "d": "M102 405H178L179 432H101Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-hem-ribs",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-hem-ribs",
+        "d": "M102 405H178L179 432H101Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-band",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-band",
+        "class": "band",
+        "d": "M106 8Q137 -8 166 10L165 24Q137 7 120 22L115 100L116 220L114 432H101L103 180L99 100Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-band-edge",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-band-edge",
+        "class": "attach",
+        "d": "M117 25L111 100L112 220L110 425"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-pocket-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-pocket-R",
+        "class": "pocket",
+        "d": "M120 252L135 254V333L119 339Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-pocket-top-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-pocket-top-R",
+        "class": "edge",
+        "d": "M120 252L135 254"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-pocket-attach-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-pocket-attach-R",
+        "class": "attach",
+        "d": "M123 258L122 335L132 331V258"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-sleeve-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-sleeve-R",
+        "class": "body",
+        "d": "M151 17Q169 26 171 58L164 274H128L127 113Q128 63 146 18Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-shoulder-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-shoulder-R",
+        "class": "attach",
+        "d": "M146 18Q134 58 127 113"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-cuff-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-cuff-R",
+        "class": "rib",
+        "d": "M128 272H164L163 307H129Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-cuff-ribs-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-cuff-ribs-R",
+        "d": "M128 272H164L163 307H129Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-wrist-R",
+      "tag": "path",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-wrist-R",
+        "class": "edge",
+        "d": "M129 307H163"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "profile-band-name",
+      "tag": "text",
+      "parent": "profile",
+      "attributes": {
+        "id": "profile-band-name",
+        "x": "79",
+        "y": "205",
+        "font-size": "13"
+      },
+      "text": "B",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "rear",
+      "tag": "g",
+      "parent": "sheet",
+      "attributes": {
+        "id": "rear",
+        "transform": "translate(838 210)"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "children": [
+        "rear-outline",
+        "rear-nape-band",
+        "rear-nape-edge",
+        "rear-shoulders",
+        "rear-cuff-L",
+        "rear-cuff-R",
+        "rear-cuff-ribs-L",
+        "rear-cuff-ribs-R",
+        "rear-wrist-L",
+        "rear-wrist-R",
+        "rear-hem",
+        "rear-hem-ribs"
+      ]
+    },
+    {
+      "id": "rear-outline",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-outline",
+        "class": "body",
+        "d": "M95 10Q120 -3 138 0Q160 20 182 0Q202 -3 225 10L250 28Q269 56 280 88L304 271L276 282L250 144L262 425Q260 432 250 432H70Q60 432 58 425L70 144L50 283L22 272L47 88Q58 56 70 28Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-nape-band",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-nape-band",
+        "class": "band",
+        "d": "M138 0Q160 20 182 0L183 14Q160 33 137 14Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-nape-edge",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-nape-edge",
+        "class": "attach",
+        "d": "M139 12Q160 28 181 12"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-shoulders",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-shoulders",
+        "class": "attach",
+        "d": "M75 35Q94 87 70 144M245 35Q226 87 250 144"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-cuff-L",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-cuff-L",
+        "class": "rib",
+        "d": "M23 268L51 278L46 307L17 297Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-cuff-R",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-cuff-R",
+        "class": "rib",
+        "d": "M277 278L303 268L309 297L280 307Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-cuff-ribs-L",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-cuff-ribs-L",
+        "d": "M23 268L51 278L46 307L17 297Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-cuff-ribs-R",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-cuff-ribs-R",
+        "d": "M277 278L303 268L309 297L280 307Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-wrist-L",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-wrist-L",
+        "class": "edge",
+        "d": "M17 297L46 307"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-wrist-R",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-wrist-R",
+        "class": "edge",
+        "d": "M280 307L309 297"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-hem",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-hem",
+        "class": "rib",
+        "d": "M59 405H261L262 425Q260 432 250 432H70Q60 432 58 425Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "rear-hem-ribs",
+      "tag": "path",
+      "parent": "rear",
+      "attributes": {
+        "id": "rear-hem-ribs",
+        "d": "M59 405H261L262 425Q260 432 250 432H70Q60 432 58 425Z",
+        "fill": "url(#rib-mark)"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "front-note-1",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "front-note-1",
+        "x": "100",
+        "y": "685",
+        "class": "note"
+      },
+      "text": "Open front \u00b7 two low patch pockets",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "front-note-2",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "front-note-2",
+        "x": "100",
+        "y": "709",
+        "class": "small"
+      },
+      "text": "Top open; dashed U attaches sides + bottom.",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "profile-note-1",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "profile-note-1",
+        "x": "478",
+        "y": "685",
+        "class": "note"
+      },
+      "text": "Full sleeve \u00b7 hem below cuff",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "profile-note-2",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "profile-note-2",
+        "x": "478",
+        "y": "709",
+        "class": "small"
+      },
+      "text": "Near P-R partly hidden; far P-L hidden.",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "rear-note-1",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "rear-note-1",
+        "x": "885",
+        "y": "685",
+        "class": "note"
+      },
+      "text": "Quiet long back \u00b7 no rear pockets",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "rear-note-2",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "rear-note-2",
+        "x": "885",
+        "y": "709",
+        "class": "small"
+      },
+      "text": "Nape band belongs to continuous B.",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "lower-rule",
+      "tag": "path",
+      "parent": "sheet",
+      "attributes": {
+        "id": "lower-rule",
+        "d": "M48 734H1232",
+        "stroke": "#d9cabb",
+        "fill": "none"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "key-title",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "key-title",
+        "x": "48",
+        "y": "771",
+        "class": "label"
+      },
+      "text": "Design responsibilities",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "key-band",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "key-band",
+        "x": "48",
+        "y": "802",
+        "class": "note"
+      },
+      "text": "B / one continuous front + nape band; inward side explicitly authored",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "key-pockets",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "key-pockets",
+        "x": "48",
+        "y": "828",
+        "class": "note"
+      },
+      "text": "P-R + P-L / exactly two front pockets; inside shows attachment traces only",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "key-cuffs",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "key-cuffs",
+        "x": "48",
+        "y": "854",
+        "class": "note"
+      },
+      "text": "C-R + C-L / full rib cuffs, open wrist intent \u00b7 H / continuous body hem",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "key-ribs",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "key-ribs",
+        "x": "48",
+        "y": "880",
+        "class": "small"
+      },
+      "text": "Parallel marks mean rib intent; dashed marks mean proposed attachment or inside edge.",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "key-scope",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "key-scope",
+        "x": "48",
+        "y": "910",
+        "class": "small"
+      },
+      "text": "Technical sketches, not registered views or a sewing pattern. No gauge, dimensions, 3D, fit or motion proof.",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "key-editability",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "key-editability",
+        "x": "48",
+        "y": "934",
+        "class": "small"
+      },
+      "text": "Named SVG groups + complete JSON mark registry \u00b7 all coordinates, hidden roles and display colours are original.",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "inside-label",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "inside-label",
+        "x": "900",
+        "y": "768",
+        "class": "label"
+      },
+      "text": "04 / Inside facing",
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "inside",
+      "tag": "g",
+      "parent": "sheet",
+      "attributes": {
+        "id": "inside",
+        "transform": "translate(947 781) scale(.36)"
+      },
+      "text": "\n    ",
+      "tail": "\n  ",
+      "children": [
+        "inside-outline",
+        "inside-cuff-R",
+        "inside-cuff-L",
+        "inside-hem-R",
+        "inside-hem-L",
+        "inside-band",
+        "inside-band-edge",
+        "inside-pocket-trace-R",
+        "inside-pocket-trace-L"
+      ]
+    },
+    {
+      "id": "inside-outline",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-outline",
+        "class": "inside-body",
+        "d": "M95 10Q120 -3 138 0Q160 20 182 0Q202 -3 225 10L250 28Q269 56 280 88L304 271L276 282L250 144L262 425Q260 432 250 432L197 432L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H70Q60 432 58 425L70 144L50 283L22 272L47 88Q58 56 70 28Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-cuff-R",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-cuff-R",
+        "class": "inside-band",
+        "d": "M23 268L51 278L46 307L17 297Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-cuff-L",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-cuff-L",
+        "class": "inside-band",
+        "d": "M277 278L303 268L309 297L280 307Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-hem-R",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-hem-R",
+        "class": "inside-band",
+        "d": "M59 405H124L123 432H70Q60 432 58 425Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-hem-L",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-hem-L",
+        "class": "inside-band",
+        "d": "M196 405H261L262 425Q260 432 250 432H197Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-band",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-band",
+        "class": "inside-band",
+        "d": "M138 0Q160 20 182 0L195 59Q206 138 205 225L213 432H197L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H107L115 225Q114 138 125 59Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-band-edge",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-band-edge",
+        "class": "attach",
+        "d": "M128 59Q117 138 119 225L111 425M191 59Q202 138 201 225L209 425"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-pocket-trace-R",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-pocket-trace-R",
+        "class": "attach",
+        "d": "M76 258V329Q76 335 82 335H97Q103 335 103 329V258"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "children": []
+    },
+    {
+      "id": "inside-pocket-trace-L",
+      "tag": "path",
+      "parent": "inside",
+      "attributes": {
+        "id": "inside-pocket-trace-L",
+        "class": "attach",
+        "d": "M217 258V329Q217 335 223 335H238Q244 335 244 329V258"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "children": []
+    },
+    {
+      "id": "inside-note",
+      "tag": "text",
+      "parent": "sheet",
+      "attributes": {
+        "id": "inside-note",
+        "x": "900",
+        "y": "953",
+        "class": "small"
+      },
+      "text": "Smaller authored schematic; no pocket bag.",
+      "tail": "\n",
+      "children": []
+    }
+  ],
+  "editability": "SVG authoritative, every XML element/parent/attribute/text/tail/child order retained. JSON complete editable tree at this exact checkpoint, no automatic generator/runtime update. Refresh association after edits. Namespace explicit; original SVG bytes kept.",
+  "scope": "Original technical artist design only; no physical manufacturing/seam/gauge/folding/stretch/bodyfit/3D/master/rig/morph/motion/representation/AAA qualification; first native image still unadmitted."
+}

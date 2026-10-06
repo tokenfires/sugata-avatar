@@ -1,0 +1,114 @@
+<svg id="sheet" xmlns="http://www.w3.org/2000/svg" width="1280" height="960" viewBox="0 0 1280 960" role="img" aria-labelledby="sheet-title sheet-description">
+  <title id="sheet-title">Mara: original long open cardigan technical design</title>
+  <desc id="sheet-description">Complete front, authored right profile and rear, and a smaller authored inside schematic. Long bands, two front patch pockets, full cuffs and lower rib hem. Original unitless art; sewing, 3D, fit and motion are unqualified.</desc>
+  <defs id="resources">
+    <style id="styles">
+      text{font-family:Arial,Helvetica,sans-serif;fill:#493728}
+      .title{font-size:30px;font-weight:700}.label{font-size:20px;font-weight:700}
+      .note{font-size:15px;fill:#47564d}.small{font-size:13px;fill:#47564d}
+      .body{fill:#b8885c;stroke:#493728;stroke-width:2;stroke-linejoin:round}
+      .band{fill:#9b683f;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}
+      .rib{fill:#a7774c;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}
+      .pocket{fill:#bf9168;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}
+      .attach{fill:none;stroke:#493728;stroke-width:1.2;stroke-dasharray:4 3;stroke-linecap:round}
+      .edge{fill:none;stroke:#493728;stroke-width:2;stroke-linecap:round}
+      .leader{fill:none;stroke:#7d6956;stroke-width:1}
+      .inside-body{fill:#e5d6c4;stroke:#493728;stroke-width:2;stroke-linejoin:round}
+      .inside-band{fill:#c59a73;stroke:#493728;stroke-width:1.5;stroke-linejoin:round}
+    </style>
+    <pattern id="rib-mark" patternUnits="userSpaceOnUse" width="5" height="5">
+      <path id="rib-mark-line" d="M2 0V5" fill="none" stroke="#493728" stroke-width="0.65" opacity="0.45"/>
+    </pattern>
+  </defs>
+  <rect id="paper" width="1280" height="960" fill="#fbf8f1"/>
+  <text id="eyebrow" x="48" y="40" class="small">SUGATA / MARA / ORIGINAL WARDROBE DESIGN</text>
+  <text id="heading" x="48" y="85" class="title">Long open cardigan</text>
+  <text id="subheading" x="48" y="115" class="note">Editable technical art · all proportions unitless · back, profile and inside deliberately authored</text>
+  <path id="top-rule" d="M48 135H1232" stroke="#d9cabb" fill="none"/>
+  <path id="column-rules" d="M435 168V678M805 168V678" stroke="#e6dccf" fill="none"/>
+  <text id="front-label" x="100" y="174" class="label">01 / Front</text>
+  <text id="profile-label" x="478" y="174" class="label">02 / Right profile</text>
+  <text id="rear-label" x="885" y="174" class="label">03 / Rear</text>
+  <g id="front" transform="translate(80 210)">
+    <path id="front-outline" class="body" d="M95 10Q120 -3 138 0Q160 20 182 0Q202 -3 225 10L250 28Q269 56 280 88L304 271L276 282L250 144L262 425Q260 432 250 432L197 432L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H70Q60 432 58 425L70 144L50 283L22 272L47 88Q58 56 70 28Z"/>
+    <path id="front-cuff-R" class="rib" d="M23 268L51 278L46 307L17 297Z"/>
+    <path id="front-cuff-L" class="rib" d="M277 278L303 268L309 297L280 307Z"/>
+    <path id="front-cuff-ribs-R" d="M23 268L51 278L46 307L17 297Z" fill="url(#rib-mark)"/>
+    <path id="front-cuff-ribs-L" d="M277 278L303 268L309 297L280 307Z" fill="url(#rib-mark)"/>
+    <path id="front-wrist-R" class="edge" d="M17 297L46 307"/>
+    <path id="front-wrist-L" class="edge" d="M280 307L309 297"/>
+    <path id="front-hem-R" class="rib" d="M59 405H124L123 432H70Q60 432 58 425Z"/>
+    <path id="front-hem-L" class="rib" d="M196 405H261L262 425Q260 432 250 432H197Z"/>
+    <path id="front-hem-ribs-R" d="M59 405H124L123 432H70Q60 432 58 425Z" fill="url(#rib-mark)"/>
+    <path id="front-hem-ribs-L" d="M196 405H261L262 425Q260 432 250 432H197Z" fill="url(#rib-mark)"/>
+    <path id="front-band" class="band" d="M138 0Q160 20 182 0L195 59Q206 138 205 225L213 432H197L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H107L115 225Q114 138 125 59Z"/>
+    <path id="front-band-inward-edge" class="attach" d="M128 59Q117 138 119 225L111 425M191 59Q202 138 201 225L209 425"/>
+    <path id="front-shoulders" class="attach" d="M75 35Q94 87 70 144M245 35Q226 87 250 144"/>
+    <path id="front-pocket-R" class="pocket" d="M72 252H107V331Q107 339 99 339H80Q72 339 72 331Z"/>
+    <path id="front-pocket-L" class="pocket" d="M213 252H248V331Q248 339 240 339H221Q213 339 213 331Z"/>
+    <path id="front-pocket-top-R" class="edge" d="M72 252H107"/>
+    <path id="front-pocket-top-L" class="edge" d="M213 252H248"/>
+    <path id="front-pocket-attach-R" class="attach" d="M76 258V329Q76 335 82 335H97Q103 335 103 329V258"/>
+    <path id="front-pocket-attach-L" class="attach" d="M217 258V329Q217 335 223 335H238Q244 335 244 329V258"/>
+    <text id="front-pocket-name-R" x="80" y="295" font-size="12">P-R</text>
+    <text id="front-pocket-name-L" x="220" y="295" font-size="12">P-L</text>
+    <text id="front-band-name" x="146" y="180" font-size="13">B</text>
+  </g>
+  <g id="profile" transform="translate(473 210)">
+    <path id="profile-outline" class="body" d="M106 8Q140 -8 166 10L178 65Q172 92 170 144L179 432H101L103 180L99 100Z"/>
+    <path id="profile-hem" class="rib" d="M102 405H178L179 432H101Z"/>
+    <path id="profile-hem-ribs" d="M102 405H178L179 432H101Z" fill="url(#rib-mark)"/>
+    <path id="profile-band" class="band" d="M106 8Q137 -8 166 10L165 24Q137 7 120 22L115 100L116 220L114 432H101L103 180L99 100Z"/>
+    <path id="profile-band-edge" class="attach" d="M117 25L111 100L112 220L110 425"/>
+    <path id="profile-pocket-R" class="pocket" d="M120 252L135 254V333L119 339Z"/>
+    <path id="profile-pocket-top-R" class="edge" d="M120 252L135 254"/>
+    <path id="profile-pocket-attach-R" class="attach" d="M123 258L122 335L132 331V258"/>
+    <path id="profile-sleeve-R" class="body" d="M151 17Q169 26 171 58L164 274H128L127 113Q128 63 146 18Z"/>
+    <path id="profile-shoulder-R" class="attach" d="M146 18Q134 58 127 113"/>
+    <path id="profile-cuff-R" class="rib" d="M128 272H164L163 307H129Z"/>
+    <path id="profile-cuff-ribs-R" d="M128 272H164L163 307H129Z" fill="url(#rib-mark)"/>
+    <path id="profile-wrist-R" class="edge" d="M129 307H163"/>
+    <text id="profile-band-name" x="79" y="205" font-size="13">B</text>
+  </g>
+  <g id="rear" transform="translate(838 210)">
+    <path id="rear-outline" class="body" d="M95 10Q120 -3 138 0Q160 20 182 0Q202 -3 225 10L250 28Q269 56 280 88L304 271L276 282L250 144L262 425Q260 432 250 432H70Q60 432 58 425L70 144L50 283L22 272L47 88Q58 56 70 28Z"/>
+    <path id="rear-nape-band" class="band" d="M138 0Q160 20 182 0L183 14Q160 33 137 14Z"/>
+    <path id="rear-nape-edge" class="attach" d="M139 12Q160 28 181 12"/>
+    <path id="rear-shoulders" class="attach" d="M75 35Q94 87 70 144M245 35Q226 87 250 144"/>
+    <path id="rear-cuff-L" class="rib" d="M23 268L51 278L46 307L17 297Z"/>
+    <path id="rear-cuff-R" class="rib" d="M277 278L303 268L309 297L280 307Z"/>
+    <path id="rear-cuff-ribs-L" d="M23 268L51 278L46 307L17 297Z" fill="url(#rib-mark)"/>
+    <path id="rear-cuff-ribs-R" d="M277 278L303 268L309 297L280 307Z" fill="url(#rib-mark)"/>
+    <path id="rear-wrist-L" class="edge" d="M17 297L46 307"/>
+    <path id="rear-wrist-R" class="edge" d="M280 307L309 297"/>
+    <path id="rear-hem" class="rib" d="M59 405H261L262 425Q260 432 250 432H70Q60 432 58 425Z"/>
+    <path id="rear-hem-ribs" d="M59 405H261L262 425Q260 432 250 432H70Q60 432 58 425Z" fill="url(#rib-mark)"/>
+  </g>
+  <text id="front-note-1" x="100" y="685" class="note">Open front · two low patch pockets</text>
+  <text id="front-note-2" x="100" y="709" class="small">Top open; dashed U attaches sides + bottom.</text>
+  <text id="profile-note-1" x="478" y="685" class="note">Full sleeve · hem below cuff</text>
+  <text id="profile-note-2" x="478" y="709" class="small">Near P-R partly hidden; far P-L hidden.</text>
+  <text id="rear-note-1" x="885" y="685" class="note">Quiet long back · no rear pockets</text>
+  <text id="rear-note-2" x="885" y="709" class="small">Nape band belongs to continuous B.</text>
+  <path id="lower-rule" d="M48 734H1232" stroke="#d9cabb" fill="none"/>
+  <text id="key-title" x="48" y="771" class="label">Design responsibilities</text>
+  <text id="key-band" x="48" y="802" class="note">B / one continuous front + nape band; inward side explicitly authored</text>
+  <text id="key-pockets" x="48" y="828" class="note">P-R + P-L / exactly two front pockets; inside shows attachment traces only</text>
+  <text id="key-cuffs" x="48" y="854" class="note">C-R + C-L / full rib cuffs, open wrist intent · H / continuous body hem</text>
+  <text id="key-ribs" x="48" y="880" class="small">Parallel marks mean rib intent; dashed marks mean proposed attachment or inside edge.</text>
+  <text id="key-scope" x="48" y="910" class="small">Technical sketches, not registered views or a sewing pattern. No gauge, dimensions, 3D, fit or motion proof.</text>
+  <text id="key-editability" x="48" y="934" class="small">Named SVG groups + complete JSON mark registry · all coordinates, hidden roles and display colours are original.</text>
+  <text id="inside-label" x="900" y="768" class="label">04 / Inside facing</text>
+  <g id="inside" transform="translate(947 781) scale(.36)">
+    <path id="inside-outline" class="inside-body" d="M95 10Q120 -3 138 0Q160 20 182 0Q202 -3 225 10L250 28Q269 56 280 88L304 271L276 282L250 144L262 425Q260 432 250 432L197 432L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H70Q60 432 58 425L70 144L50 283L22 272L47 88Q58 56 70 28Z"/>
+    <path id="inside-cuff-R" class="inside-band" d="M23 268L51 278L46 307L17 297Z"/>
+    <path id="inside-cuff-L" class="inside-band" d="M277 278L303 268L309 297L280 307Z"/>
+    <path id="inside-hem-R" class="inside-band" d="M59 405H124L123 432H70Q60 432 58 425Z"/>
+    <path id="inside-hem-L" class="inside-band" d="M196 405H261L262 425Q260 432 250 432H197Z"/>
+    <path id="inside-band" class="inside-band" d="M138 0Q160 20 182 0L195 59Q206 138 205 225L213 432H197L189 220Q185 163 173 88L161 39L150 88Q135 163 131 220L123 432H107L115 225Q114 138 125 59Z"/>
+    <path id="inside-band-edge" class="attach" d="M128 59Q117 138 119 225L111 425M191 59Q202 138 201 225L209 425"/>
+    <path id="inside-pocket-trace-R" class="attach" d="M76 258V329Q76 335 82 335H97Q103 335 103 329V258"/>
+    <path id="inside-pocket-trace-L" class="attach" d="M217 258V329Q217 335 223 335H238Q244 335 244 329V258"/>
+  </g>
+  <text id="inside-note" x="900" y="953" class="small">Smaller authored schematic; no pocket bag.</text>
+</svg>
