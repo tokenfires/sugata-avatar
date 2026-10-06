@@ -1,0 +1,429 @@
+{
+  "collected_utc": "2026-10-06T01:09:50.987553+00:00",
+  "critic": "/root/quality_critic",
+  "decision": "A exact local board/card/artist-handoff + scoped illustration checklist row delivery after root verification; no source/fit/runtime/broadgoal qualification",
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/RESULT.md",
+    "bytes": 9049,
+    "sha256": "b1fa277cba7b20a87c7b0065ee2b4ad1ad27190057d9a93519c83eb121805785"
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/SOURCE-HANDOFF.json",
+      "bytes": 3693,
+      "sha256": "849735c78f34c18d62a707ee160e2f7cdd128decd732ecd31ff266f53b49e477"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/SOURCE-RESULT.md",
+      "bytes": 5696,
+      "sha256": "def1f0aedc30f479733e2f9d01cd28d3774b8b0a12d33a24d95e7f292abed744"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/SOURCE-RECEIPT.json",
+      "bytes": 13161,
+      "sha256": "62007be1e86adf29bba7ef8286d3d8ff9d9c5a0c3bd7c35f3d46bab74d623198"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/NATIVE-ROOT-ADMISSION.json",
+      "bytes": 2658,
+      "sha256": "3d72355363072b9ccc59ef2b4492731d920df995699d4845411fe38679ddbc4d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/NATIVE-JOB.json",
+      "bytes": 431,
+      "sha256": "1e82d4ec0314dc30be47fe4d146eb68ef5fb2e9a10c575072159f358a94261d9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/NATIVE-TAB-OPEN.json",
+      "bytes": 274,
+      "sha256": "e49bfa6c228c8bafbec39058dbd688bedb4cfcdfc602cc27d59d9b5a1318f717"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/desktop-DOM.json",
+      "bytes": 16084,
+      "sha256": "6265cfbaf033a91c66278beeca182c0833f141c31c2871ea8132e6b57b581368"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/mobile-DOM.json",
+      "bytes": 6512,
+      "sha256": "f6961f4c2749073f72c0d43e45a3f71949df6b476bb56db448fbe84648a0047e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/desktop-first.jpg",
+      "bytes": 392533,
+      "sha256": "be0625e4bafaf2fe92a117e9bc0bb01659832f4072ad24a882a321d4757d5aa0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/mobile-first.jpg",
+      "bytes": 279220,
+      "sha256": "1f89f29038b90aa930328b2ce545985dfa1ccebbfd83a399cdd68e94d9026711"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/NATIVE-RESET-CLOSE.json",
+      "bytes": 509,
+      "sha256": "fa62fbe6dbdf666fadb59232d64d56dd5d75acaaf5fca380cb6694e7d6971237"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/NATIVE-COLLECTION.json",
+      "bytes": 3375,
+      "sha256": "fa6e4837223f0a8475dee676f2f5dcf073376a9afc01b8151ce007bccd102487"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/candidate/ARTIST-WARDROBE.html",
+      "bytes": 13728,
+      "sha256": "d233950cf13e2eab3b97009bdbe721423bbdd6ed0c2e5b769141f8cb75c6c4b3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/candidate/PROJECT-CHECKLIST.md",
+      "bytes": 5216,
+      "sha256": "bb3b1a4e3ef0355276d27cc283d3c57ba6cea85feaf645479b7209526240b476"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-WARDROBE.html.before",
+      "bytes": 12546,
+      "sha256": "dd732ecab1edc4c8c127dd5bbed91921784ab58511fca767c3f54254e3287e3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/PROJECT-CHECKLIST.md.before",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/CAPTURE-PLAN.json",
+      "bytes": 1550,
+      "sha256": "e781ac6afd0f6d710b2d4ba15713ce021255c848abac0feb9c1e8069af4ccf12"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/PLAN.json",
+      "bytes": 3819,
+      "sha256": "7cff4064ebe0842798d884a1b657f6ac96f104daa4054bbdfb8e58d8c80254ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/WORTH.md",
+      "bytes": 5933,
+      "sha256": "bfe6b69781cb4ec15ee9de76a9c4a3687d164da2c20cc6017fd7080b6399551e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/WORTH-RECEIPT.json",
+      "bytes": 10722,
+      "sha256": "1688ef5e1875c00eba84f56990a70e1a78eee1575e1935d195a9fab6ce198dcd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/PREPARATION-ROOT-ADMISSION.json",
+      "bytes": 2665,
+      "sha256": "1091beac81e9445dd343bb0a66bcb825cc3d1cb06d5f4e306b26474e27628275"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-WARDROBE.diff",
+      "bytes": 4319,
+      "sha256": "32efe4a95bbb71f63306a1602d49858ce247b39c1684d50bf670f30ae69da409"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/PROJECT-CHECKLIST.diff",
+      "bytes": 1007,
+      "sha256": "431d5ebf374e75abad98aa1376fd4a8910001f0142709c7ab4ac01560367b278"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/NATIVE-HANDOFF.json",
+      "bytes": 5267,
+      "sha256": "a24cf0e6b08702e4da07c0ea986d655a01e649b85523c3d3a606c784e14a23f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 12546,
+      "sha256": "dd732ecab1edc4c8c127dd5bbed91921784ab58511fca767c3f54254e3287e3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+      "bytes": 37822,
+      "sha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+      "bytes": 46998,
+      "sha256": "459c0f23d5d46be2c9e1421d132979044cca159f444c12d270b6e50cfe1ef13f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "bytes": 47399,
+      "sha256": "5fd1071f64a7a7a1ebb5e36bd677b6412defba321a061a2e34e5b8dfb15b65da"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/triptych-first.jpg",
+      "bytes": 62548,
+      "sha256": "b08dd2d698032cdbbe58514337f8075c01ac7fb6f92e78ece396ca542d3011c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md",
+      "bytes": 3630,
+      "sha256": "962f4927f70174d82daa5fdaa3b902e6853c0db16388d689f6f5ba62c40c6255"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/REFERENCES.md",
+      "bytes": 3623,
+      "sha256": "010d93a9b7c7a113a4522598a655f1bc945be67bab4c2e5a3f7112dd7fd3a00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/reference-first.jpg",
+      "bytes": 24516,
+      "sha256": "9581c23de9ca8f78be898e145b0e2a3ba1ecedf942ce1bc9d41ead70f19ad765"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+      "bytes": 5825,
+      "sha256": "cb77b501d5b99d655f4153422998f7617a9185f5fe2760779c43eb4d157bc9e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/ROOT-CLOSE.json",
+      "bytes": 1843,
+      "sha256": "7d5cd83c8e941bbededbaaa7edc68a8de46b9a93fe70cea46954b66a55afff9c"
+    }
+  ],
+  "independent_checks": {
+    "native_handoff_rows": 18,
+    "source_handoff_rows": 12,
+    "native_admission_rows": 7,
+    "all_current_bytes_exact": true,
+    "current_live_main_equal_before": true,
+    "three_DOM_states_cardtext_identity": true,
+    "seven_complete_urls_sourceordered_each": true,
+    "authored_IDs": 12,
+    "distinct_app_ID": "codex-browser-sidebar-comments-root",
+    "all_IDS_unique": true,
+    "no_horizontal_overflow_each": true,
+    "aspect_max_height_rounding_residual_CSSpx_observer_only": 0.006249999999994316,
+    "desktop_single_Tab_anchor_href_exact": true,
+    "mobile_focus_retained_not_second_Tab": true,
+    "actual_reset_readback": [
+      1280,
+      720
+    ],
+    "owned49closed_after_inventory": []
+  },
+  "whole_original_views": {
+    "detail": "original",
+    "desktop": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/desktop-first.jpg",
+      "bytes": 392533,
+      "sha256": "be0625e4bafaf2fe92a117e9bc0bb01659832f4072ad24a882a321d4757d5aa0"
+    },
+    "desktop_dimensions": [
+      1280,
+      3743
+    ],
+    "mobile": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/mobile-first.jpg",
+      "bytes": 279220,
+      "sha256": "1f89f29038b90aa930328b2ce545985dfa1ccebbfd83a399cdd68e94d9026711"
+    },
+    "mobile_dimensions": [
+      390,
+      5360
+    ],
+    "first_blind_completed_before_utc": "2026-10-06T01:04:01.249057+00:00",
+    "exact_tool_view_clock": "Not separately observed; completed whole views before the subsequent actual local read clock.",
+    "root_UI_opinion_read": false,
+    "unchanged": "Both full originals directly displayed; no crop/edit/resize/retake/new screenshot."
+  },
+  "read_scopes": [
+    {
+      "paths": [
+        "NATIVE-HANDOFF.json",
+        "desktop-DOM.json",
+        "mobile-DOM.json",
+        "NATIVE-ROOT-ADMISSION.json",
+        "NATIVE-COLLECTION.json",
+        "NATIVE-JOB.json",
+        "NATIVE-TAB-OPEN.json",
+        "NATIVE-RESET-CLOSE.json"
+      ],
+      "scope": "Complete literal actual source/metadata/job/DOM records read in this final task; no live retrieval or browser."
+    },
+    {
+      "paths": [
+        "candidate/ARTIST-WARDROBE.html",
+        "candidate/PROJECT-CHECKLIST.md",
+        "ARTIST-HANDOFF.md",
+        "ARTIST-WARDROBE.diff",
+        "PROJECT-CHECKLIST.diff",
+        "CAPTURE-PLAN.json",
+        "SOURCE-HANDOFF.json",
+        "SOURCE-RESULT.md",
+        "SOURCE-RECEIPT.json",
+        "PLAN.json",
+        "WORTH.md",
+        "WORTH-RECEIPT.json",
+        "PREPARATION-ROOT-ADMISSION.json",
+        "ARTIST-WARDROBE.html.before",
+        "PROJECT-CHECKLIST.md.before"
+      ],
+      "scope": "Complete exact text/source reads and full reconstruction in immediately preceding source/worth stages, retained same bytepins verified now; no repeated source evaluation or claim of new runtime."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/REFERENCES.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/reference-first.jpg",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/ROOT-CLOSE.json"
+      ],
+      "scope": "Same fully read source/actual review records and whole original reference photo from preceding Mara gates; current bytepins verified, used only for scoped next-contract worth. No new remote reference or body-source evidence."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/desktop-first.jpg",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/mobile-first.jpg",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/triptych-first.jpg",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/reference-first.jpg"
+      ],
+      "scope": "Whole file length/SHA pins only, except the two whole current native images actually viewed. Retained Mara concept/reference originals were previously whole-viewed at original detail and unchanged pins reused explicitly. No mesh/GLB/world/skin decode or image transformation."
+    }
+  ],
+  "command_records": [
+    {
+      "tool": "functions.exec -> tools.view_image",
+      "arguments": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/desktop-first.jpg",
+          "detail": "original"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/mobile-first.jpg",
+          "detail": "original"
+        }
+      ],
+      "scope": "Independent two whole-image original displays before any root UI opinion; no capture."
+    },
+    {
+      "record": "01b31a/exit0",
+      "pid": 91620,
+      "utc": "2026-10-06T01:04:01.249057+00:00",
+      "command": "python3 quoted-heredoc complete native handoff and leaf metadata read"
+    },
+    {
+      "record": "6f19f4/exit0",
+      "pid": 92612,
+      "utc": "2026-10-06T01:04:35.748043+00:00",
+      "command": "python3 quoted-heredoc complete desktopDOM read"
+    },
+    {
+      "record": "834408/exit0",
+      "pid": 92611,
+      "utc": "2026-10-06T01:04:35.747981+00:00",
+      "command": "python3 quoted-heredoc complete mobileDOM/job/open/resetclose read"
+    },
+    {
+      "record": "358741/exit0",
+      "pid": 92613,
+      "utc": "2026-10-06T01:04:35.748018+00:00",
+      "command": "python3 quoted-heredoc complete nativeadmission/collection read; independent source reads batched"
+    },
+    {
+      "record": "354530/exit0",
+      "pid": 95391,
+      "utc": "2026-10-06T01:06:13.096584+00:00",
+      "command": "python3 quoted-heredoc read-only stdlib all18/12/7pins + savedDOM URL/card/IDs/width/aspect/focus/closure checks",
+      "stderr_observation": "<stdin>:23: SyntaxWarning: invalid decimal literal",
+      "warning_scope": "Critic inline metadata command used compact numeric-and token spacing; Python emitted syntax warning but completed exit0 with checks/output. No candidate program/browser failure, no retry or product change."
+    },
+    {
+      "pid": 1895,
+      "utc": "2026-10-06T01:09:50.987553+00:00",
+      "command": "python3 quoted-heredoc exclusive RESULT/RECEIPT writer and exact JSON/text/currentpin readback; same metadata checks only"
+    }
+  ],
+  "actual_native_job": {
+    "admission_utc": "2026-10-06T00:58:58.730704+00:00",
+    "open_observed_utc": "2026-10-06T00:59:51.802Z",
+    "desktop_DOM_utc": "2026-10-06T01:00:17.972Z",
+    "mobile_DOM_utc": "2026-10-06T01:00:48.500Z",
+    "reset_close_utc": "2026-10-06T01:01:21.838Z",
+    "collection_utc": "2026-10-06T01:02:35.478531+00:00",
+    "counts": {
+      "candidate_navigation": 1,
+      "fullpage_screenshots": 2,
+      "retakes": 0,
+      "image_edits": 0,
+      "runtime_GLB": 0,
+      "external_sources": 0
+    },
+    "screenshot_dimensions": {
+      "desktop": [
+        1280,
+        3743
+      ],
+      "mobile": [
+        390,
+        5360
+      ]
+    },
+    "actual_viewports": {
+      "desktop": [
+        1280,
+        720
+      ],
+      "mobile": [
+        390,
+        844
+      ],
+      "restored": [
+        1280,
+        720
+      ]
+    },
+    "owned_tab": "49",
+    "closure": "Actual1280x720 resetreadback/only49closed/APIafter[]; no GPU/resource-retirement measurement",
+    "historical_JOB_state": "Pre-open state superseded by actual tab-open/collection; not a live pending job",
+    "individual_capture_clocks": "Unavailable in saved records; do not infer exact acquisition times from DOM/collection brackets."
+  },
+  "next_worth": {
+    "decision": "Conditional A complete new Mara midi-skirt authoring contract preparation only; B fixed board/image/source retuning",
+    "actual_witness": "Current board lists four unitless pieces and no skirtentry; actual retained Mara frontfall/waist/hem and previous photo frontfall only; hidden source choices remain unowned.",
+    "usable_future_deliverable": "Complete original editable unitless skirt with later actual fixed whole-view evidence; contract alone is preparation, not improvement/constructor admission.",
+    "question": "Can literal whole waist/seat/inside/hem/profile/rear topology/frame/material/export choices produce the chosen frontfall and coherent owned around-body silhouette?",
+    "required_fresh_input": "Fully authored literal whole source/hidden choices, not image-projected dimensions/g050 fitting/old partition reuse.",
+    "stop": "Missing/ambiguous/duplicate authority or first actual artifact refusal stops, no repair; next exact source/builder/native gates remain separate.",
+    "alternatives": "A new complete authored contract can change a missing editable skirt decision at bounded authoring cost; B retain standalone illustration/defer to complete artist/bodyinterface source avoids speculation but delays skirt ownership."
+  },
+  "limits": [
+    "Catalogue presentation only; no fetched browser-byte SHA/fullkeyboard/linknavigation/resource retirement certificate.",
+    "Mobile retained focus is outside current844viewport bounds, not a second mobileTab test; fullpage picture shows outline only.",
+    "Current14/10live remains unchanged here; prospective15/10 exact restricted row only after root delivery. Ten broad rows/fullAAA/representation/expression/wardrobe/fit/motion/performance remain open.",
+    "No constructor/source import/replay/new data decode/network/browser/GPU/native/capture/generation/retake/product/default/frozen edits; only requested RESULT/RECEIPT writes.",
+    "All fixedmethod rescues/art/board/layout retuning closed; no successor admitted."
+  ],
+  "deadline_utc": "2026-10-06T01:30:00Z",
+  "root_close_utc": "2026-10-06T01:40:00Z",
+  "pending_edits": false
+}

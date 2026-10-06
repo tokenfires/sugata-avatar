@@ -1,0 +1,201 @@
+{
+  "collected_utc": "2026-10-06T00:49:07.563587+00:00",
+  "critic": "/root/quality_critic",
+  "decision": "A exact bounded inert board preparation; conditional scoped artist row only after full integration gate; no candidate/browser/product admission",
+  "worth": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/WORTH.md",
+    "bytes": 5933,
+    "sha256": "bfe6b69781cb4ec15ee9de76a9c4a3687d164da2c20cc6017fd7080b6399551e"
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/PLAN.json",
+      "bytes": 3819,
+      "sha256": "7cff4064ebe0842798d884a1b657f6ac96f104daa4054bbdfb8e58d8c80254ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 12546,
+      "sha256": "dd732ecab1edc4c8c127dd5bbed91921784ab58511fca767c3f54254e3287e3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-HANDOFF.json",
+      "bytes": 5050,
+      "sha256": "e37f3be63e4755d2e3fc5d34c10b6cb56bddc260bc9e040f69a8566c45e624fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-PLAN.json",
+      "bytes": 4738,
+      "sha256": "4da98f6cac4c03ac10ffa58e2a97bc021f1674ed10e65c8bee6de1e3b6c34859"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md",
+      "bytes": 3630,
+      "sha256": "962f4927f70174d82daa5fdaa3b902e6853c0db16388d689f6f5ba62c40c6255"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-WARDROBE.html.before",
+      "bytes": 12546,
+      "sha256": "dd732ecab1edc4c8c127dd5bbed91921784ab58511fca767c3f54254e3287e3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/PROJECT-CHECKLIST.md.before",
+      "bytes": 4938,
+      "sha256": "f7779524481d92c1672f45c02556a0423b1650ec6259e091c0d8b03d4c45489b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+      "bytes": 5825,
+      "sha256": "cb77b501d5b99d655f4153422998f7617a9185f5fe2760779c43eb4d157bc9e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RECEIPT.json",
+      "bytes": 12312,
+      "sha256": "fa5138c702e5e5c9a2bbcb9bef437849e2b8c6df75e985c3643658bfd0ebf705"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-ROOT-READBACK.json",
+      "bytes": 3328,
+      "sha256": "72a7d3741abfa09458395cc9dc28d34c40331fc121b6811695251a39d63d5078"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/ROOT-CLOSE.json",
+      "bytes": 1843,
+      "sha256": "7d5cd83c8e941bbededbaaa7edc68a8de46b9a93fe70cea46954b66a55afff9c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/README.md",
+      "bytes": 3844,
+      "sha256": "6e21ba6ceaaec86763f10dc904d6e3f915dccd7a87228c6e1ce94d5729f277be"
+    }
+  ],
+  "independent_checks": {
+    "plan_rows": 7,
+    "all_exact": true,
+    "both_before_snapshots_equal_live_complete_bytes": true,
+    "current_checklist_counts": {
+      "checked": 14,
+      "broad_open": 10
+    },
+    "image_unchanged_pin": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    "root_and_critic_completed_artist_A": "Collected IMAGE-RESULT/RECEIPT and IMAGE-ROOT-READBACK/ROOT-CLOSE read; no stronger qualification."
+  },
+  "read_scopes": [
+    {
+      "paths": [
+        "PLAN.json"
+      ],
+      "scope": "Complete literal new plan, scope/caps/stops/conditional status terms."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+        "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md"
+      ],
+      "scope": "Complete actual line-numbered live HTML49lines/checklist45lines. Both complete before snapshots byte compared and pinned; no browser rendering or link-click."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "scope": "Whole-byte pin; actual selected lines15–52 and131–145 read for full ambition/representation/current work order; no claim whole roadmap manually reviewed."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RECEIPT.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-ROOT-READBACK.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/ROOT-CLOSE.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/README.md"
+      ],
+      "scope": "Complete saved actual review/status records read. Aggregate951ca0 output truncated after own receipt into root records; root records and README completely recovered in3a5a5f. Immutable critic image verdict preserved."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-HANDOFF.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-PLAN.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md"
+      ],
+      "scope": "Complete exact source/plan text in previous directly preceding image review and current whole-byte pins; no repeated source/references inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "scope": "Same complete original-detail image previously actually viewed blind00:31:09UTC and whole readback during preceding image task; current complete SHA/length verified unchanged. No new capture/edit/registration/agegender inference."
+    }
+  ],
+  "commands": [
+    {
+      "record": "74195b/exit0",
+      "pid": 60468,
+      "utc": "2026-10-06T00:45:55.563334+00:00",
+      "command": "python3 quoted-heredoc stdlib read of newPLAN and immediate leaf filenames"
+    },
+    {
+      "record": "12f849/exit0",
+      "pid": 61065,
+      "utc": "2026-10-06T00:46:14.693655+00:00",
+      "command": "python3 quoted-heredoc stdlib full line-numbered liveHTML/checklist reads and before/current complete-byte equality"
+    },
+    {
+      "record": "951ca0/exit0",
+      "pid": 61757,
+      "utc": "2026-10-06T00:46:39.253550+00:00",
+      "command": "python3 quoted-heredoc stdlib all7PLAN hashchecks; actualreview/rootrecords and selectedroadmap reads; aggregate output truncated, recovered next"
+    },
+    {
+      "record": "3a5a5f/exit0",
+      "pid": 62226,
+      "utc": "2026-10-06T00:46:52.599294+00:00",
+      "command": "python3 quoted-heredoc stdlib complete IMAGE-ROOT-READBACK/ROOT-CLOSE/README recovery"
+    },
+    {
+      "pid": 65997,
+      "utc": "2026-10-06T00:49:07.563587+00:00",
+      "command": "python3 quoted-heredoc stdlib rehash/preserved-snapshot/count/deadline checks; exclusive WORTH/WORTH-RECEIPT writes and exact readback only"
+    }
+  ],
+  "status_choice": {
+    "choice": "Conditional A literal artist-deliverable row under section15 after full source/actual integration/root gates",
+    "credit": "One retained fictional illustration discussion deliverable only, not broader representation or source qualification",
+    "recommended_scope": "Original Mara artist discussion sheet with full-body and portrait views, silver bob and open cardigan/plum midi direction; editable character, fit, motion and runtime remain open.",
+    "ten_broad_rows": "Must remain byte-identical; current14/10 is unchanged by this worth",
+    "alternative": "Access-only integration/leave row unmarked reduces status risk/review cost, but omits a real reviewed art milestone from the deliverable list."
+  },
+  "next_gate": {
+    "stage": "Inert exact candidate + design handoff preparation only after root gate",
+    "actual_native": "Separate complete exactsource/diff/pin review/admission before sole root navigation and one desktop/mobile original each",
+    "stops": {
+      "source_worth": "2026-10-06T00:57:00Z",
+      "root_admission": "2026-10-06T01:00:00Z",
+      "inert_candidate": "2026-10-06T01:05:00Z",
+      "capture": "2026-10-06T01:15:00Z",
+      "critic": "2026-10-06T01:30:00Z",
+      "root_close": "2026-10-06T01:40:00Z"
+    },
+    "first_refusal": "Stop/no style/source/image/capture rescue, retake or regeneration; current image/closedroutes unchanged."
+  },
+  "limits": [
+    "No new browser/network/native/GPU/capture/query/photo/generation/source constructor/program import/replay/test; only local source/docs/hash metadata and own handoff writes.",
+    "No candidate/product/checklist/roadmap/original/frozen/default/unrelated edits.",
+    "Qualitative artist image usefulness only; no editable source/physicalfit/agegender/runtime/motion/fullAAA credit.",
+    "FullAAA/representation/expression/wardrobe/performance and ten broad goals stay open; status credit not inherited from prior image verdict."
+  ],
+  "pending_edits": false
+}

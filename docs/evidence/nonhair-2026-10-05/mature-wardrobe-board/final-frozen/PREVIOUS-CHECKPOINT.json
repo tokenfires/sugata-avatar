@@ -1,0 +1,8 @@
+{
+  "checked_utc": "2026-10-06T00:47:07.950050+00:00",
+  "prior_checkpoint": "e22d8d1e0366412398bbc61464a080530d79fe85",
+  "successful_command": "ea64bb/exit0",
+  "verified": "All60committed/current exact bytes and26 exactreadonly documentary snapshot destinations/source equality; trackedclean, only conditional next board leaf untracked.",
+  "observer_correction": "5bfdf2/exit1 incorrectly selected source path for SOURCE-SNAPSHOT-PINS readonly check;6d39ca actual schema shows snapshot key. No source/digest mismatch or permission change; ea64bb uses exact snapshot/snapshot_path keys.",
+  "limits": "Byte recovery check only, no new image/source/runtime qualification, capture, generation or retry of failed source method."
+}

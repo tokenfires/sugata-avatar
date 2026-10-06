@@ -1,0 +1,15 @@
+# Mara: silver bob and long layers
+
+[Open the complete retained sheet](../../appearance-2026-10-05/mature-feminine-character-target/concept-v1.png). The unchanged full-body and portrait illustration passed independent and root review as an artist discussion target. It is a fictional mature feminine direction by authored intention; it does not certify perceived age or gender, a supported starter, editable source, body fit or runtime appearance.
+
+The warm brown face has readable outer-eye smile lines, lower-lid creases and gentle smile folds. Silver hair alone is not the intended maturity cue. Keep the individual face, natural texture and relaxed upright posture. The body brief calls for a softly fuller waist and hips without an artificial cinch; the illustration is visual direction, not an anatomical measurement.
+
+The jaw-length silver bob has a side part, modest root lift and softly curved ends. Eyes and brows remain visible, and the face reads coherently in both panels. Fine portrait flyaways are part of the actual retained image. Complete scalp, ears, rear depth, neck, eyes/lids and groom surfaces still require authorship and moving review.
+
+The caramel cardigan is open over an ivory crew-neck tee and a deep-plum midi skirt. Full sleeves, cuffs, front bands and two lower pockets make the outer layer readable. The tucked tee and skirt waist are visible without exposed midriff. The cardigan hem sits clearly above the longer skirt hem; broad skirt folds, visible lower legs and complete oxblood loafers finish the silhouette. The actual shoes have small raised heels, rather than strictly level soles. Knit, skirt and leather have distinct illustrative readings; these are not measured physical materials.
+
+The [recorded official reference](../../appearance-2026-10-05/mature-feminine-character-target/REFERENCES.md) informs only broad front skirt fall and the hem-to-shoe relationship. Its waist is concealed and no cardigan is pictured. The separately read cardigan text describes cap-sleeved crochet. Mara's full sleeves, woven skirt, visible waist, face/body, palette and whole composition are original choices. The image is not a reproduction of a photographed person's identity or a garment pattern.
+
+For later 3D work, own the complete head/scalp/neck/eye/lid/groom and body/foundation surfaces; cardigan front/back/inside/sleeves/bands/cuffs/openings; tee and skirt waist/seat/hem; and footwear interfaces. Attachment, frame, export, material, rig, morph, pose, clearance, fit and moving appearance need their own evidence. The two panels are not a registered turnaround. The retained image is unchanged; image variants, retakes and closed source/head/groom/foot/sweater rescues are outside this handoff.
+
+[Independent first-image review](../../appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md) · [Root observations](../../appearance-2026-10-05/mature-feminine-character-target/IMAGE-ROOT-OBSERVATION.md) · [Complete receipt](../../appearance-2026-10-05/mature-feminine-character-target/README.md)
