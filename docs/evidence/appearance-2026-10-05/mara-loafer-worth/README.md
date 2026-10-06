@@ -1,0 +1,9 @@
+# Mara loafer technical-design worth
+
+Conditional A for one complete new original editable shoe drawing. Root and critic independently inspect Mara's whole original illustration and the distinct coarse ankle-boot triptych. The low oxblood slip-ons show an apron/saddle and small raised heels; rear, underside and complete lining are not visible. Those must be deliberately authored. Neither the illustration nor the separate fictional boot reference supplies physical foot fit.
+
+[Independent worth result](RESULT.md), [exact receipt](RECEIPT.json), [root close](ROOT-CLOSE.json) and [original plan](PLAN.json) retain source/image witnesses and two alternatives for each finding. The return on effort is a usable complete artist source, with front/top/profile/rear/sole/lining, handedness and exact all-element SVG/JSON ownership; tracing the front or expanding a gallery would stop B. Proposed caps are250 named nodes,64KiBSVG,512KiBJSON and30minutes source authorship under a future literal contract.
+
+Next is ONE official-maker query, ONE actual supplied selected page and ONE whole-image adequacy question, with a fresh exact stop/owner plan. First insufficient/error/irrelevant reference stops B, no reformulation, alternate page/image or asset hunt. No reference, art, source or native was admitted here. Source and actual first whole drawing criticism/root verification are required before any artist delivery.
+
+Current16scoped checked/10broad open and full AAA/character/representation/wardrobe/expression/fit/motion/performance/later-style ambitions remain. Existing Mara artwork, cardigan, board, boots and every closed native/geometry/backup route stay preserved. This flat would not establish anatomy/last/dimensions/sewing/physical3D/registeredviews/cavity/fit/rig/morph/motion/runtime or a complete outfit.
