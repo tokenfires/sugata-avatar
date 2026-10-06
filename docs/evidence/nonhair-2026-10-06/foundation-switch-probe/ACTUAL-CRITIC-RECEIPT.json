@@ -1,0 +1,169 @@
+{
+  "collected_utc": "2026-10-06T11:49:43.735119+00:00",
+  "writer_pid": 73176,
+  "decision": "A actual selected sequential policy-ID refusal/control qualification; no caller repair or successor admission",
+  "result_words": 385,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/JOB.json",
+      "bytes": 1413,
+      "sha256": "0b1f013136611d03e731c2d621fa6448cfd66b082dde2a4519fb8b7b7ba0acb5",
+      "read_scope": "entire actual process record"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/STDOUT.txt",
+      "bytes": 13776,
+      "sha256": "b3c06bc453bf018f92fdbe506f1fc584d16ca18b1aeac9fdcee508fe6b5aa0f6",
+      "read_scope": "entire3 JSON lines; independently decoded all2cases/10states/6settlements/8noninitial saves"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/STDERR.txt",
+      "bytes": 352,
+      "sha256": "ad2787e22c245da4ea488a6ea5f079dccae8dac56c2b26341c267869d9d64eec",
+      "read_scope": "whole352 bytes/exact2 known fallback warning lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ROOT-SOURCE-GATE.json",
+      "bytes": 11054,
+      "sha256": "93dd5256c151705cf15a7fd96d40c43bbc1faeefc353fb15fcba538b0a21af13",
+      "read_scope": "whole non-row protocol and all38 execution-input byte pins; no transitive semantic review claim"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/PLAN.json",
+      "bytes": 4550,
+      "sha256": "f88c3076c27fa8cbe275efa85da290be87e5e1f72566ff4e11af943ad098c83a",
+      "read_scope": "whole prior source read; current exact binding"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-PLAN.json",
+      "bytes": 4613,
+      "sha256": "91aea6ce1a3da05743785abdcfbf3f8b2d46f2a1c5f4d691c3469d5af7333d20",
+      "read_scope": "whole prior source protocol read; current exact binding"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/INPUTS.json",
+      "bytes": 6555,
+      "sha256": "52a487753369f0186c424225f7358ca490fc6bc7cb7a0cd9c218d955b960eedf",
+      "read_scope": "whole29-row source manifest; every source row also reverified through38-row gate"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-CRITIC.md",
+      "bytes": 3200,
+      "sha256": "47b7793f4e7b39a423056f0b19da475a5ae0fc73b439a14b120048a764190aa4",
+      "read_scope": "own complete prior source verdict reused only at unchanged pin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 11616,
+      "sha256": "a268ff2d9e6efef8fa5ccde125b64bf8ff0fa10786db7adc48fc4d11e0e79c4e",
+      "read_scope": "prior exact whole92/57/79/selected source read scopes retained; current pin"
+    }
+  ],
+  "independent_checks": {
+    "execution_gate_pins": 38,
+    "raw_cases": 2,
+    "states": 10,
+    "settlements": 6,
+    "noninitial_private_JSON_saves_reparsed": 8,
+    "expected_rig_warning_lines": 2,
+    "selectedSaved_equals_afterRecipe_both": true,
+    "recipe_new_loads_percase": 0,
+    "control_new_loads_percase": 1,
+    "token_sequence_percase": [
+      1,
+      1,
+      1,
+      2,
+      3
+    ],
+    "same_outers_preserved": true,
+    "disposed_resident_and_worn_empty": true,
+    "Figure_dispose_call_marker": true,
+    "root_oracle_or_target_imported_or_replayed": false
+  },
+  "actual_process": {
+    "tool_chunk": "6d8e9c",
+    "tool_exit": 0,
+    "supervisor_pid": 72639,
+    "child_pid": 72641,
+    "node_recorded": "v24.13.1",
+    "argv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "--max-old-space-size=512",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/probe-v2.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "started_utc": "2026-10-06T11:44:50.235916+00:00",
+    "collected_utc": "2026-10-06T11:44:50.347741+00:00",
+    "parent_elapsed_monotonic_seconds": 0.1120853329775855,
+    "returncode": 0,
+    "collected": true,
+    "errors": [],
+    "stop_reason": null,
+    "both_EOF_closed_written_exactbytes": true,
+    "stdout_bytes": 13776,
+    "stderr_bytes": 352,
+    "clock_scope": "Parent timer and conservative actual UTC bracket only; no new tool-wall/startup/performance/OS/GPU inference."
+  },
+  "read_scope": "Full actual raw records and process protocol. Source semantics reuse independently whole probe92/oracle57/collector79 and selected actual caller/foundation/validation/conflict/disposal source scopes in unchanged SOURCE-CRITIC-RECEIPT. All38 gate rows fresh byte hashes, GLBs/Nodebinary hash-only; no decode, installed-library replay or full UI audit. Root ROOT-OBSERVATION/checker pass not used as oracle; no need to duplicate its code or all manifest rows.",
+  "jobs": [
+    {
+      "chunk": "b2da82",
+      "pid": 72865,
+      "utc": "2026-10-06T11:45:59.615330Z",
+      "exit": 0,
+      "command": "python3 stdlib whole JOB/STDOUT/STDERR and non-row gate protocol; exact bytes/hashes/count"
+    },
+    {
+      "chunk": "673516",
+      "pid": 72964,
+      "utc": "2026-10-06T11:47:20.513573Z",
+      "exit": 0,
+      "command": "python3 independent saved-data strict duplicate-key/constant JSON observer; all38pins/process+stream identities and every raw request/floor/preference/save/load/token/pending/resident/worn/disposal/settlement/known-warning predicate; no target or check-raw.py import"
+    },
+    {
+      "pid": 73176,
+      "utc": "2026-10-06T11:49:43.735119+00:00",
+      "command": "python3 stdlib final38pins and exclusive <=500word actual-result/receipt complete readback; outputchunk/exit separate"
+    }
+  ],
+  "retained_errors": [],
+  "source_witnesses": {
+    "testbed": "packages/testbed/src/wardrobe.js251\u2013253/360\u2013382/447\u2013449",
+    "foundation": "packages/core/src/wardrobe/FoundationLayer.js83\u201385/136\u2013158",
+    "wardrobe": "packages/core/src/wardrobe/Wardrobe.js521\u2013532/553\u2013565/783\u2013790",
+    "conflicts": "packages/core/src/wardrobe/GarmentManifest.js239\u2013267",
+    "manifest": "six literal selected garment entries retained in source review"
+  },
+  "alternatives": [
+    {
+      "choice": "A separately nominate caller construction/pin/selection/persistence/rollback ownership contract",
+      "tradeoff": "Could deliver the proved switch while preserving core conflict rules; requires fresh worth/source/actual gates"
+    },
+    {
+      "choice": "B retain qualified proof only, no product change",
+      "tradeoff": "Avoids more implementation; actual demonstrated recipe mismatch remains"
+    }
+  ],
+  "next": "No code admitted. Future exact caller-repair worth and complete pin/selection/persistence/error contract must precede authoring; no async/floor-policy or old-method rescue, target/observer replay, weakened oracle or native admission.",
+  "limits": "Private sequential CPU metadata only; no realstorage/testbedDOM/run catch/actual button status/Agency pin/rollback/browser, physical decency/body coverage/mask/weight/offset/morph/pose/fit/pixels/rig/motion/performance/fullAAA credit. Disposal markers/reaping do not certify GPU or all-machine retirement.17scoped10broad/currentaccepted/frozen/defaults/assets retained. Only these2handoff files written.",
+  "stops": {
+    "preparation": "2026-10-06T11:50:00Z",
+    "critic_source": "2026-10-06T12:00:00Z",
+    "source_collection": "2026-10-06T12:05:00Z",
+    "root_gate": "2026-10-06T12:10:00Z",
+    "sole_run_latest_start": "2026-10-06T12:12:00Z",
+    "critic_actual": "2026-10-06T12:25:00Z",
+    "actual_collection": "2026-10-06T12:30:00Z",
+    "root_close": "2026-10-06T12:35:00Z"
+  },
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-switch-probe/ACTUAL-CRITIC.md",
+      "bytes": 3291,
+      "sha256": "de9f49b8db59a4e73dc3bb90fbdac2364b1cf66eb301481e8efaabb8467bc52d",
+      "read_scope": "complete own exclusive result readback"
+    }
+  ],
+  "pending_edits": false
+}
