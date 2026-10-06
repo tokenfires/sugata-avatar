@@ -1,0 +1,127 @@
+{
+  "collected_utc": "2026-10-06T09:40:52.039691+00:00",
+  "writer_pid": 36429,
+  "decision": "B original supervisor/source admission, no CPU; corrected collection-owner worth only after separate complete review",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/PLAN.json",
+      "bytes": 4583,
+      "sha256": "557af9d01d6a83f4b1efce32a361085deff1bf0aa223af75d6514cae8e0329f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/probe.mjs",
+      "bytes": 8069,
+      "sha256": "efef65995111d47c2cdecd18bbdbed3d95fbf95a2e2d9397ea220d016a4edd0f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/run-once.py",
+      "bytes": 2873,
+      "sha256": "b996f4a36da7da23d588c26caa2bbb0b5ce053f395504752daf25e86e80ab38a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/INPUTS.json",
+      "bytes": 3510,
+      "sha256": "68f5f6e968a0b89b603acf470d05229aa33dd78a104241d4bf1f16cb61df2eca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ORIGINAL-SOURCES.json",
+      "bytes": 696,
+      "sha256": "9510373ae43decca7abce849a2f9d603fb27d9c2256fc17863a87c0566c7d8de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-DRAFT-REVIEW.json",
+      "bytes": 1466,
+      "sha256": "4f8e4ec8acdcc6df45bbc10a85f9078cce29a2a9f0b6fccd8ce46580d6be8239"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/probe.initial.mjs.txt",
+      "bytes": 8072,
+      "sha256": "197058485ecd22090abff07351318415d8ae6084a4cb8e4a68bcae272072a4c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ORIGINAL-WardrobeAgency.js.txt",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ORIGINAL-agency.selftest.mjs.txt",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-worth/WORTH.md",
+      "bytes": 4485,
+      "sha256": "5c9fb4f3ebb8a5ddf06d59bb107a3f52b79874beae3c8b25043a430e1afae7a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-worth/CRITIC-RECEIPT.json",
+      "bytes": 6381,
+      "sha256": "457c1b3b613652badf465f1b3b68f604133fc393ec29fbafca6947b9c25ddf25"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-worth/PRIMARY-AWAIT.json",
+      "bytes": 47328,
+      "sha256": "778495354b481dd3c3cf182d4e960eb0f5e5f6b6f759af9f413aebcdee4cd49a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-worth/PRIMARY-RECEIPT.json",
+      "bytes": 1312,
+      "sha256": "ff5268f6560b2a80af1dfe50d817d960563b834c8129ebdf39f7baddc22730ba"
+    },
+    {
+      "path": "/Users/robault/.brv-cli/bin/node",
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    }
+  ],
+  "verified_pin_manifests": {
+    "PLAN_all9": true,
+    "INPUTS_all16": true,
+    "original2relative_snapshots": true,
+    "initial3byte_path_correction_exact": true,
+    "metadata_only_repo_resolution": "/Users/robault/GitHub/sugata-avatar"
+  },
+  "read_scopes": "Entire66-line PLAN4583/current141-line probe8069/original42-line supervisor2873/87-line INPUTS3510/17-line original snapshot map696/42-line root draft1466 fully read. Full target/core Agency683/selftest559 and exact Wardrobe/caller scopes already independently read in same-task worth; current16 input bytes rehashed, no repeated full dependency audit. Five GLBs/manifest plus added Figure/GarmentManifest/FoundationLayer/GarmentInterior/WardrobeStyleOptions/Three package are byte checks only; no asset/library import or decode. Retained PRIMARY-AWAIT47328/PRIMARY-RECEIPT1312 raw byte hashes only, no normative markdown semantic read/claim. New V2 helper not read/covered by this first B.",
+  "finding": {
+    "id": "F1",
+    "source": "run-once.py21/29/34 plus22\u201336 and38\u201342",
+    "actual_status": "Literal uncontained signal/read/wait/close paths can bypass independent duties and partial raw evidence; no injected fault, trial or module defect asserted."
+  },
+  "jobs": [
+    {
+      "chunk": "8d429c",
+      "pid": 35490,
+      "utc": "2026-10-06T09:30:39.548899+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full all six source/protocol/map files with line numbers and bytes/SHA; no target import/evaluation"
+    },
+    {
+      "chunk": "49906e",
+      "pid": 36257,
+      "utc": "2026-10-06T09:38:35.977070+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib nine PLAN/sixteen INPUTS/two original snapshot hash checks, exact dirname correction/repo path comparison/output absence and actual Node byte/executable check; no Node run"
+    },
+    {
+      "pid": 36429,
+      "utc": "2026-10-06T09:40:52.039691+00:00",
+      "command": "python3 heredoc stdlib final original pins/absence check and exclusive first B two-file write/readback; returned tool chunk/exit separate"
+    }
+  ],
+  "observed_errors": [],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/SOURCE-RESULT.md",
+      "bytes": 4521,
+      "sha256": "7d0378f94fa1b45c5b1baf195de799b783d74ae9ae195849d3d0ac5351fe6f83"
+    }
+  ],
+  "limits": "Only saved-source/metadata/raw byte reads/hash comparisons and these two own writes. No helper/probe/target evaluation, library/asset import, GLB/header/JSON/BIN/skin/image decode, synthetic fault fixture, tests, network/browser/GPU/native or source/product edits. Original helper is not run. B is a collection-source duty, not actual module/harness runtime failure. All buffers/records are prospective until a separately admitted one-run attempt.",
+  "stops_utc": {
+    "source_critic": "2026-10-06T09:42:00Z",
+    "first_cpu": "2026-10-06T09:50:00Z",
+    "actual_critic": "2026-10-06T10:00:00Z",
+    "root_close": "2026-10-06T10:08:00Z"
+  },
+  "pending_edits": false
+}

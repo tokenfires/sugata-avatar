@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-06T09:42:16.549888+00:00",
+  "pid": 36556,
+  "decision": "B original supervisor source; no CPU attempted or original helper admitted. Question remains worth one separately reviewed V2.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/PLAN.json",
+      "bytes": 4583,
+      "sha256": "557af9d01d6a83f4b1efce32a361085deff1bf0aa223af75d6514cae8e0329f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/probe.mjs",
+      "bytes": 8069,
+      "sha256": "efef65995111d47c2cdecd18bbdbed3d95fbf95a2e2d9397ea220d016a4edd0f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/run-once.py",
+      "bytes": 2873,
+      "sha256": "b996f4a36da7da23d588c26caa2bbb0b5ce053f395504752daf25e86e80ab38a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/SOURCE-RESULT.md",
+      "bytes": 4521,
+      "sha256": "7d0378f94fa1b45c5b1baf195de799b783d74ae9ae195849d3d0ac5351fe6f83"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 6673,
+      "sha256": "1b79b7ac0f4e52faa0dd021ffc3b315e2eeca01bd8d17c691ab86378830e9fba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/INPUTS.json",
+      "bytes": 3510,
+      "sha256": "68f5f6e968a0b89b603acf470d05229aa33dd78a104241d4bf1f16cb61df2eca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ORIGINAL-SOURCES.json",
+      "bytes": 696,
+      "sha256": "9510373ae43decca7abce849a2f9d603fb27d9c2256fc17863a87c0566c7d8de"
+    }
+  ],
+  "verified_rows": {
+    "source_critic": 14,
+    "source_output": 1,
+    "initial_plan": 9,
+    "target_inputs": 16
+  },
+  "root_scope": "966acc full stable4521/6673 handoff; f0d7ef original entire141/42 source, independent literal unguarded signal/read/wait/close precedes evidence writes. Current pins/output absences verified; no actual fault induced or target evaluated.",
+  "finding": "Original signal/select/read/wait/close exceptions can bypass later independent collection and discard captured buffers/job. This is source duty B, not empirical product/harness runtime failure.",
+  "alternatives": [
+    {
+      "choice": "One separately reviewed supervisor containing each duty and recording partial/EOF/errors/reaped state",
+      "tradeoff": "Keeps exact target question without repeated target trials; requires new literal source A and root gate."
+    },
+    {
+      "choice": "Withhold CPU method and checkpoint",
+      "tradeoff": "Avoids another helper review, leaves product mismatch unproved."
+    }
+  ],
+  "successor_worth": "Conditional A inert V2 collection correction only; target/probe/inputs/assertions unchanged and original exact helper retained. No rerun has occurred.",
+  "target_outputs_absent": true,
+  "limits": "First actual target only after source A by09:48/rootadmission before09:50; no retry/weakening/acceptedassets/product change or broad appearance credit."
+}

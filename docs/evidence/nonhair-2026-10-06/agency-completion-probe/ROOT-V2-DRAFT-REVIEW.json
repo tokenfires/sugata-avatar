@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-06T09:37:02.597070+00:00",
+  "pid": 36096,
+  "initial_v2_sha256": "632b87676f00af9de4ad2a9826f6e5db31d54f33969c6094f78bfb0811c9b09e",
+  "current_v2_sha256": "7923f5b6cd6b91038dddee0c5ff822e72f8662f4dd03ef121e6a46dcaadf88e7",
+  "current_v2_bytes": 4973,
+  "source_correction": "Root caught that clean pipe EOF may precede observable exit, so first V2 draft could kill a normally retiring child. Exact initial source retained; cleanEOF gets one2s wait before any owned retirement signal. Other failure path each duty contains its own exceptions; at most two2s waits, explicit unreaped/partial/errors. No execution or alleged runtime fault.",
+  "target_execution": "none",
+  "syntax": "stdlib AST parse only"
+}
