@@ -1,0 +1,111 @@
+{
+  "collected_utc": "2026-10-06T09:47:34.301074+00:00",
+  "writer_pid": 37111,
+  "decision": "A current V2 source and A one unchanged-target probe worth conditional on separate root gate; no child/test pass",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/PLAN-V2.json",
+      "bytes": 4601,
+      "sha256": "8c3af6775dea47d81e4e4c2448ac940b02f98c565ac485a8369e5ce5eef70571"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/run-once-v2.py",
+      "bytes": 4973,
+      "sha256": "7923f5b6cd6b91038dddee0c5ff822e72f8662f4dd03ef121e6a46dcaadf88e7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-V2-DRAFT-REVIEW.json",
+      "bytes": 728,
+      "sha256": "9d674b01732800f32c214f8da012ccb17e771e8cb2e5511e4937a9b81e28655d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/run-once-v2.initial.py.txt",
+      "bytes": 4538,
+      "sha256": "632b87676f00af9de4ad2a9826f6e5db31d54f33969c6094f78bfb0811c9b09e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/probe.mjs",
+      "bytes": 8069,
+      "sha256": "efef65995111d47c2cdecd18bbdbed3d95fbf95a2e2d9397ea220d016a4edd0f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/INPUTS.json",
+      "bytes": 3510,
+      "sha256": "68f5f6e968a0b89b603acf470d05229aa33dd78a104241d4bf1f16cb61df2eca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ORIGINAL-SOURCES.json",
+      "bytes": 696,
+      "sha256": "9510373ae43decca7abce849a2f9d603fb27d9c2256fc17863a87c0566c7d8de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/SOURCE-B-ROOT-CLOSE.json",
+      "bytes": 3321,
+      "sha256": "7b300d0f8f38864b980b41bdb63e45d8bba9ecb60cd386f71753ec50cc2bf6e0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/SOURCE-RESULT.md",
+      "bytes": 4521,
+      "sha256": "7d0378f94fa1b45c5b1baf195de799b783d74ae9ae195849d3d0ac5351fe6f83"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 6673,
+      "sha256": "1b79b7ac0f4e52faa0dd021ffc3b315e2eeca01bd8d17c691ab86378830e9fba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/PLAN.json",
+      "bytes": 4583,
+      "sha256": "557af9d01d6a83f4b1efce32a361085deff1bf0aa223af75d6514cae8e0329f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/run-once.py",
+      "bytes": 2873,
+      "sha256": "b996f4a36da7da23d588c26caa2bbb0b5ce053f395504752daf25e86e80ab38a"
+    },
+    {
+      "path": "/Users/robault/.brv-cli/bin/node",
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    }
+  ],
+  "verified_manifests": {
+    "PLAN_V2_all10": true,
+    "unchanged_INPUTS_all16": true,
+    "original_B_close_all7": true,
+    "original2relative_snapshots": true,
+    "initial_currentV2_hash_mapping": true,
+    "target_execution_outputs_absent": true
+  },
+  "read_scopes": "Complete current79-line4973-byte V2 supervisor,70-line4601-byte PLAN-V2,10-line728-byte root V2 draft and63-line3321-byte original source-B close read. Initial4538-byte V2 raw-hashed only; no original helper execute. Reuse own complete141-line8069 target/16INPUTS/old helper42/old Agency683/selftest559/explicit Wardrobe/caller semantic source read from prior worth/original source stage, freshly rehashed. Five GLBs/manifest/dependency libraries and supplied primary await remain byte-only, no header/data decode or new normative semantic claim.",
+  "jobs": [
+    {
+      "chunk": "14e696",
+      "pid": 36701,
+      "utc": "2026-10-06T09:42:56.760310+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib complete V2 supervisor/PLAN/root draft/original B-close text and byte/SHA read"
+    },
+    {
+      "pid": 37111,
+      "utc": "2026-10-06T09:47:34.301074+00:00",
+      "command": "python3 heredoc stdlib all10V2/16unchanged/7B-close rows, original/initial-current snapshot mapping, actual Node byte/executable and output-absence checks; exclusive two-file write/readback. Returned tool chunk/exit separate."
+    }
+  ],
+  "observed_errors": [],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/SOURCE-V2-RESULT.md",
+      "bytes": 3695,
+      "sha256": "5039e559d8ecfa609031c91c4e33bc263360ca0a387324919f8e4327e182ae02"
+    }
+  ],
+  "limits": "Local source/metadata/byte reads only and these two exclusive handoff writes. No helper/Node/probe/source/library evaluation/import/test/fault fixture, GLB/image/mesh decode, browser/network/GPU, product/source/original/frozen changes. Ordinary exception containment is not hard OS/back-end cancellation or a guarantee of reaping on permission failure. Executor zero alone is never CPU A. No source version/body/caps/assertion mutation or new trial inherited.",
+  "stops_utc": {
+    "source_v2": "2026-10-06T09:48:00Z",
+    "first_cpu": "2026-10-06T09:50:00Z",
+    "actual_critic": "2026-10-06T10:00:00Z",
+    "root_close": "2026-10-06T10:08:00Z"
+  },
+  "pending_edits": false
+}

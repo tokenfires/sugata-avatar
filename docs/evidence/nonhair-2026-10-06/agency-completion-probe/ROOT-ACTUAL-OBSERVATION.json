@@ -1,0 +1,289 @@
+{
+  "utc": "2026-10-06T09:51:13.426738+00:00",
+  "pid": 37498,
+  "decision": "A finite actual CPU data witness; two obsolete-completion bookkeeping defects proved with sequential control. Independent critic pending, no product adoption.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-SOURCE-GATE.json",
+      "bytes": 6578,
+      "sha256": "7ea440ce8b30ac6ab09833f64e12d26e04e544dbc03e88cbdfb28c973875e6f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/probe.mjs",
+      "bytes": 8069,
+      "sha256": "efef65995111d47c2cdecd18bbdbed3d95fbf95a2e2d9397ea220d016a4edd0f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/run-once-v2.py",
+      "bytes": 4973,
+      "sha256": "7923f5b6cd6b91038dddee0c5ff822e72f8662f4dd03ef121e6a46dcaadf88e7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/JOB.json",
+      "bytes": 1410,
+      "sha256": "30cd0125894f6dd5db959eab8c4d3142486bbb4b098a4bdce0216abd9297645c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/STDOUT.txt",
+      "bytes": 40104,
+      "sha256": "2d7f9c76b9e373bc5e6fadeebf126334322696a210c997761800d1c7c3a832e6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/STDERR.txt",
+      "bytes": 528,
+      "sha256": "18da6e1011fb802f4cb1d01376b9466c5eede6d2cfc7f2db5e6fbcb0e94380de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ORIGINAL-SOURCES.json",
+      "bytes": 696,
+      "sha256": "9510373ae43decca7abce849a2f9d603fb27d9c2256fc17863a87c0566c7d8de"
+    }
+  ],
+  "verified_execution_inputs": 23,
+  "actual_job": {
+    "started_utc": "2026-10-06T09:48:34.448002+00:00",
+    "collected_utc": "2026-10-06T09:48:34.578932+00:00",
+    "supervisor_pid": 37211,
+    "child_pid": 37212,
+    "argv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "--max-old-space-size=512",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/probe.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "returncode": 0,
+    "elapsed_monotonic_seconds": 0.1311510419473052,
+    "stop_reason": null,
+    "collected": true,
+    "errors": [],
+    "pipes_closed": {
+      "stdout": true,
+      "stderr": true
+    },
+    "outputs": {
+      "stdout": {
+        "bytes": 40104,
+        "observed_read_bytes": 40104,
+        "eof": true,
+        "written": true,
+        "sha256": "2d7f9c76b9e373bc5e6fadeebf126334322696a210c997761800d1c7c3a832e6"
+      },
+      "stderr": {
+        "bytes": 528,
+        "observed_read_bytes": 528,
+        "eof": true,
+        "written": true,
+        "sha256": "18da6e1011fb802f4cb1d01376b9466c5eede6d2cfc7f2db5e6fbcb0e94380de"
+      }
+    },
+    "limits": "One owned CPU child;20s supervision plus at most two2s retirement waits,512MiB V8 heap not totalRSS. Errors may leave child unreaped; captured prefixes and EOF scope reported honestly. Single group kill and only-on-error direct owned-child fallback are cleanup, not a second trial. No renderer/pixels/fit/globalOS/GPU retirement or complete startup performance claim."
+  },
+  "standalone_state_verification": [
+    {
+      "case": "slow-consider-then-successful-user-pin",
+      "stage": "initial",
+      "raw_store_bytes": 0,
+      "request": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": null,
+      "honoured": []
+    },
+    {
+      "case": "slow-consider-then-successful-user-pin",
+      "stage": "held",
+      "raw_store_bytes": 261,
+      "request": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ]
+    },
+    {
+      "case": "slow-consider-then-successful-user-pin",
+      "stage": "afterNewerPin",
+      "raw_store_bytes": 313,
+      "request": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": [
+        false
+      ]
+    },
+    {
+      "case": "slow-consider-then-successful-user-pin",
+      "stage": "final",
+      "raw_store_bytes": 333,
+      "request": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {
+        "shoes01": 1000000
+      },
+      "honoured": [
+        true
+      ]
+    },
+    {
+      "case": "slow-user-pin-then-successful-newer-user-pin",
+      "stage": "initial",
+      "raw_store_bytes": 0,
+      "request": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": null,
+      "honoured": []
+    },
+    {
+      "case": "slow-user-pin-then-successful-newer-user-pin",
+      "stage": "held",
+      "raw_store_bytes": 0,
+      "request": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": null,
+      "honoured": []
+    },
+    {
+      "case": "slow-user-pin-then-successful-newer-user-pin",
+      "stage": "afterNewerPin",
+      "raw_store_bytes": 175,
+      "request": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": []
+    },
+    {
+      "case": "slow-user-pin-then-successful-newer-user-pin",
+      "stage": "final",
+      "raw_store_bytes": 176,
+      "request": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": {},
+      "honoured": []
+    },
+    {
+      "case": "sequential-consider-then-user-pin-control",
+      "stage": "initial",
+      "raw_store_bytes": 0,
+      "request": null,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs"
+      ],
+      "lastChangeAt": null,
+      "lastWornAt": null,
+      "honoured": []
+    },
+    {
+      "case": "sequential-consider-then-user-pin-control",
+      "stage": "afterConsider",
+      "raw_store_bytes": 271,
+      "request": [
+        "fedora01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "fedora01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ]
+    },
+    {
+      "case": "sequential-consider-then-user-pin-control",
+      "stage": "final",
+      "raw_store_bytes": 315,
+      "request": [
+        "shoes01"
+      ],
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "shoes01"
+      ],
+      "lastChangeAt": 1000000,
+      "lastWornAt": {},
+      "honoured": [
+        true
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "witness": "STDOUT events[0].afterNewerPin/currentRequest shoes vs final/currentRequest fedora; oldOutcome applied/honoured true while stats.worn never contains fedora afterlaterpin; storedlastWornAt shoes1m while stillworn.",
+      "explanation": "Older unchangedAgency continuation records its original preference/request/history afterrealWardrobe discarded its obsolete application. Newer worn pin remains correct; agency history/request diverge.",
+      "alternatives": [
+        {
+          "choice": "Own asynchronous agency completion before mutating policy state",
+          "tradeoff": "Small isolated data fix preserves latest wearer request; must test rejected/newerfailed and legitimate serial requests."
+        },
+        {
+          "choice": "Serialize every agency change",
+          "tradeoff": "Simpler completion order but delays newer wearer choices and alters latest-request policy; requires broader contract."
+        }
+      ]
+    },
+    {
+      "witness": "STDOUT events[1].afterNewerPin.currentRequest shoes vs final.currentRequest and stored.currentRequest fedora; pinned/worn remain shoes.",
+      "explanation": "An older userpin completion also commits obsolete requested IDs when dress returns newer stats.",
+      "alternatives": [
+        {
+          "choice": "Guard oldpin completion using same explicit owner",
+          "tradeoff": "Keeps metadata tied to latest successful request without delaying input; API stats return stayscurrent."
+        },
+        {
+          "choice": "Withhold fix and retain finite regression witness",
+          "tradeoff": "Preserves unchanged semantics but leaves request/hysteresis records inconsistent."
+        }
+      ]
+    }
+  ],
+  "root_read_scope": "65b976 fullstdoutprint was tool-output-truncated in secondcase, corrected by eb8ff7 entire secondcase; first/third visible complete. Full actualJSON strictparsed, every12 stage snapshot raw-store/actualmetadata relationship and external newerpin IDs independently asserted. All23sourcegateinputs current; no replay or target evaluation.",
+  "stderr_scope": "All528bytes exactly three retained rig missingjaw/eyeLeft/eyeRight fallback warnings; not zero stderr, no new anatomical/motion or appearance claim.",
+  "limits": "Childreaped/cleanIPC is narrow lifecycle;0.131151supervisor monotonic vs0.063931tool clocks not performance acceptance. RealCPU/1x1bitmapstub, no native/pixels/fit/bodydecencygeometry/taste/human UI loss or fullAAA qualification. OwnedCPUjob complete; no target retry, accepted product/source/assets unchanged."
+}

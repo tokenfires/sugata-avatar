@@ -1,0 +1,1411 @@
+{
+  "pid": 37212,
+  "node": "v24.13.1",
+  "events": [
+    {
+      "name": "slow-consider-then-successful-user-pin",
+      "initial": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": null,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 0,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": null,
+        "preferences": [],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 26756,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 0,
+          "garmentTriangles": 34588,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            }
+          ],
+          "drawCalls": 3,
+          "residentFragments": 2,
+          "insulation": {
+            "clo": 0.04,
+            "unrated": []
+          },
+          "lastDressMs": 0.08150000000000546,
+          "lastRebuildMs": 0.051040999999997894,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": null,
+        "stored": null
+      },
+      "olderRequest": [
+        "fedora01"
+      ],
+      "newerUserRequest": [
+        "shoes01"
+      ],
+      "held": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "agent",
+          "pinnedOutfit": null,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 1,
+          "preferencesUnheard": 1,
+          "pinHolds": true
+        },
+        "currentRequest": null,
+        "preferences": [
+          {
+            "outfit": [
+              "fedora01"
+            ],
+            "reason": "fixed probe request, no taste model",
+            "at": 1000000,
+            "mode": "agent",
+            "differsFromWorn": true,
+            "honoured": false
+          }
+        ],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 1,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 26756,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 0,
+          "garmentTriangles": 34588,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            }
+          ],
+          "drawCalls": 3,
+          "residentFragments": 2,
+          "insulation": {
+            "clo": 0.04,
+            "unrated": []
+          },
+          "lastDressMs": 0.08150000000000546,
+          "lastRebuildMs": 0.051040999999997894,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": "{\"version\":1,\"mode\":\"agent\",\"pinnedOutfit\":null,\"lastChangeAt\":null,\"lastWornAt\":{},\"currentRequest\":null,\"preferences\":[{\"outfit\":[\"fedora01\"],\"reason\":\"fixed probe request, no taste model\",\"at\":1000000,\"mode\":\"agent\",\"differsFromWorn\":true,\"honoured\":false}]}",
+        "stored": {
+          "version": 1,
+          "mode": "agent",
+          "pinnedOutfit": null,
+          "lastChangeAt": null,
+          "lastWornAt": {},
+          "currentRequest": null,
+          "preferences": [
+            {
+              "outfit": [
+                "fedora01"
+              ],
+              "reason": "fixed probe request, no taste model",
+              "at": 1000000,
+              "mode": "agent",
+              "differsFromWorn": true,
+              "honoured": false
+            }
+          ]
+        }
+      },
+      "pinResult": {
+        "disposed": false,
+        "pendingFragments": 1,
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "bodyVisible": true,
+        "bodyTriangles": 22228,
+        "fullBodyTriangles": 26756,
+        "hiddenTriangles": 4528,
+        "garmentTriangles": 37908,
+        "occlusion": [
+          {
+            "id": "foundation_bra",
+            "drawnTriangles": 22090,
+            "fullTriangles": 22090,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "foundation_briefs",
+            "drawnTriangles": 12498,
+            "fullTriangles": 12498,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "shoes01",
+            "drawnTriangles": 3320,
+            "fullTriangles": 3320,
+            "occludedBy": [],
+            "carriesUnderMasks": false
+          }
+        ],
+        "drawCalls": 4,
+        "residentFragments": 3,
+        "insulation": {
+          "clo": 0.06,
+          "unrated": []
+        },
+        "lastDressMs": 0.9156669999999991,
+        "lastRebuildMs": 0.9113750000000067,
+        "jointRemapIsIdentity": true
+      },
+      "afterNewerPin": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 1,
+          "preferencesUnheard": 1,
+          "pinHolds": true
+        },
+        "currentRequest": [
+          "shoes01"
+        ],
+        "preferences": [
+          {
+            "outfit": [
+              "fedora01"
+            ],
+            "reason": "fixed probe request, no taste model",
+            "at": 1000000,
+            "mode": "agent",
+            "differsFromWorn": true,
+            "honoured": false
+          }
+        ],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 1,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 22228,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 4528,
+          "garmentTriangles": 37908,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "shoes01",
+              "drawnTriangles": 3320,
+              "fullTriangles": 3320,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 3,
+          "insulation": {
+            "clo": 0.06,
+            "unrated": []
+          },
+          "lastDressMs": 0.9156669999999991,
+          "lastRebuildMs": 0.9113750000000067,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": "{\"version\":1,\"mode\":\"pinned\",\"pinnedOutfit\":[\"foundation_bra\",\"foundation_briefs\",\"shoes01\"],\"lastChangeAt\":null,\"lastWornAt\":{},\"currentRequest\":[\"shoes01\"],\"preferences\":[{\"outfit\":[\"fedora01\"],\"reason\":\"fixed probe request, no taste model\",\"at\":1000000,\"mode\":\"agent\",\"differsFromWorn\":true,\"honoured\":false}]}",
+        "stored": {
+          "version": 1,
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "lastChangeAt": null,
+          "lastWornAt": {},
+          "currentRequest": [
+            "shoes01"
+          ],
+          "preferences": [
+            {
+              "outfit": [
+                "fedora01"
+              ],
+              "reason": "fixed probe request, no taste model",
+              "at": 1000000,
+              "mode": "agent",
+              "differsFromWorn": true,
+              "honoured": false
+            }
+          ]
+        }
+      },
+      "oldOutcome": {
+        "applied": true,
+        "status": null,
+        "reason": "applied",
+        "preference": {
+          "outfit": [
+            "fedora01"
+          ],
+          "reason": "fixed probe request, no taste model",
+          "at": 1000000,
+          "mode": "agent",
+          "differsFromWorn": true,
+          "honoured": true
+        },
+        "stats": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 22228,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 4528,
+          "garmentTriangles": 37908,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "shoes01",
+              "drawnTriangles": 3320,
+              "fullTriangles": 3320,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 4,
+          "insulation": {
+            "clo": 0.06,
+            "unrated": []
+          },
+          "lastDressMs": 0.9156669999999991,
+          "lastRebuildMs": 0.9113750000000067,
+          "jointRemapIsIdentity": true
+        }
+      },
+      "observation": {
+        "wornStillNewerPin": true,
+        "pinStillHolds": true,
+        "oldReportedApplied": true,
+        "oldRecordedHonoured": true,
+        "currentRequestMatchesNewerUserRequest": false,
+        "persistedRequestMatchesNewerUserRequest": false
+      },
+      "final": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "pending": null,
+          "lastChangeAt": 1000000,
+          "preferencesExpressed": 1,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": [
+          "fedora01"
+        ],
+        "preferences": [
+          {
+            "outfit": [
+              "fedora01"
+            ],
+            "reason": "fixed probe request, no taste model",
+            "at": 1000000,
+            "mode": "agent",
+            "differsFromWorn": true,
+            "honoured": true
+          }
+        ],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 22228,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 4528,
+          "garmentTriangles": 37908,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "shoes01",
+              "drawnTriangles": 3320,
+              "fullTriangles": 3320,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 4,
+          "insulation": {
+            "clo": 0.06,
+            "unrated": []
+          },
+          "lastDressMs": 0.9156669999999991,
+          "lastRebuildMs": 0.9113750000000067,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": "{\"version\":1,\"mode\":\"pinned\",\"pinnedOutfit\":[\"foundation_bra\",\"foundation_briefs\",\"shoes01\"],\"lastChangeAt\":1000000,\"lastWornAt\":{\"shoes01\":1000000},\"currentRequest\":[\"fedora01\"],\"preferences\":[{\"outfit\":[\"fedora01\"],\"reason\":\"fixed probe request, no taste model\",\"at\":1000000,\"mode\":\"agent\",\"differsFromWorn\":true,\"honoured\":true}]}",
+        "stored": {
+          "version": 1,
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "lastChangeAt": 1000000,
+          "lastWornAt": {
+            "shoes01": 1000000
+          },
+          "currentRequest": [
+            "fedora01"
+          ],
+          "preferences": [
+            {
+              "outfit": [
+                "fedora01"
+              ],
+              "reason": "fixed probe request, no taste model",
+              "at": 1000000,
+              "mode": "agent",
+              "differsFromWorn": true,
+              "honoured": true
+            }
+          ]
+        }
+      },
+      "floorOn": true,
+      "pendingFragments": 0,
+      "ownedPromises": [
+        {
+          "status": "fulfilled"
+        },
+        {
+          "status": "fulfilled"
+        }
+      ],
+      "cleanup": {
+        "wardrobeDisposed": true,
+        "pendingFragments": 0
+      }
+    },
+    {
+      "name": "slow-user-pin-then-successful-newer-user-pin",
+      "initial": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": null,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 0,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": null,
+        "preferences": [],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 26756,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 0,
+          "garmentTriangles": 34588,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            }
+          ],
+          "drawCalls": 3,
+          "residentFragments": 2,
+          "insulation": {
+            "clo": 0.04,
+            "unrated": []
+          },
+          "lastDressMs": 0.03300000000000125,
+          "lastRebuildMs": 0.02095799999999315,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": null,
+        "stored": null
+      },
+      "olderUserRequest": [
+        "fedora01"
+      ],
+      "newerUserRequest": [
+        "shoes01"
+      ],
+      "held": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": null,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 0,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": null,
+        "preferences": [],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 1,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 26756,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 0,
+          "garmentTriangles": 34588,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            }
+          ],
+          "drawCalls": 3,
+          "residentFragments": 2,
+          "insulation": {
+            "clo": 0.04,
+            "unrated": []
+          },
+          "lastDressMs": 0.03300000000000125,
+          "lastRebuildMs": 0.02095799999999315,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": null,
+        "stored": null
+      },
+      "newerResult": {
+        "disposed": false,
+        "pendingFragments": 1,
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "bodyVisible": true,
+        "bodyTriangles": 22228,
+        "fullBodyTriangles": 26756,
+        "hiddenTriangles": 4528,
+        "garmentTriangles": 37908,
+        "occlusion": [
+          {
+            "id": "foundation_bra",
+            "drawnTriangles": 22090,
+            "fullTriangles": 22090,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "foundation_briefs",
+            "drawnTriangles": 12498,
+            "fullTriangles": 12498,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "shoes01",
+            "drawnTriangles": 3320,
+            "fullTriangles": 3320,
+            "occludedBy": [],
+            "carriesUnderMasks": false
+          }
+        ],
+        "drawCalls": 4,
+        "residentFragments": 3,
+        "insulation": {
+          "clo": 0.06,
+          "unrated": []
+        },
+        "lastDressMs": 0.8995419999999967,
+        "lastRebuildMs": 0.8935419999999965,
+        "jointRemapIsIdentity": true
+      },
+      "afterNewerPin": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 0,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": [
+          "shoes01"
+        ],
+        "preferences": [],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 1,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 22228,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 4528,
+          "garmentTriangles": 37908,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "shoes01",
+              "drawnTriangles": 3320,
+              "fullTriangles": 3320,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 3,
+          "insulation": {
+            "clo": 0.06,
+            "unrated": []
+          },
+          "lastDressMs": 0.8995419999999967,
+          "lastRebuildMs": 0.8935419999999965,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": "{\"version\":1,\"mode\":\"pinned\",\"pinnedOutfit\":[\"foundation_bra\",\"foundation_briefs\",\"shoes01\"],\"lastChangeAt\":null,\"lastWornAt\":{},\"currentRequest\":[\"shoes01\"],\"preferences\":[]}",
+        "stored": {
+          "version": 1,
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "lastChangeAt": null,
+          "lastWornAt": {},
+          "currentRequest": [
+            "shoes01"
+          ],
+          "preferences": []
+        }
+      },
+      "olderResult": {
+        "disposed": false,
+        "pendingFragments": 0,
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "bodyVisible": true,
+        "bodyTriangles": 22228,
+        "fullBodyTriangles": 26756,
+        "hiddenTriangles": 4528,
+        "garmentTriangles": 37908,
+        "occlusion": [
+          {
+            "id": "foundation_bra",
+            "drawnTriangles": 22090,
+            "fullTriangles": 22090,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "foundation_briefs",
+            "drawnTriangles": 12498,
+            "fullTriangles": 12498,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "shoes01",
+            "drawnTriangles": 3320,
+            "fullTriangles": 3320,
+            "occludedBy": [],
+            "carriesUnderMasks": false
+          }
+        ],
+        "drawCalls": 4,
+        "residentFragments": 4,
+        "insulation": {
+          "clo": 0.06,
+          "unrated": []
+        },
+        "lastDressMs": 0.8995419999999967,
+        "lastRebuildMs": 0.8935419999999965,
+        "jointRemapIsIdentity": true
+      },
+      "observation": {
+        "wornStillNewerPin": true,
+        "pinStillHolds": true,
+        "pinnedRecordMatchesWorn": true,
+        "currentRequestMatchesNewerUserRequest": false,
+        "persistedRequestMatchesNewerUserRequest": false
+      },
+      "final": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 0,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": [
+          "fedora01"
+        ],
+        "preferences": [],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 22228,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 4528,
+          "garmentTriangles": 37908,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "shoes01",
+              "drawnTriangles": 3320,
+              "fullTriangles": 3320,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 4,
+          "insulation": {
+            "clo": 0.06,
+            "unrated": []
+          },
+          "lastDressMs": 0.8995419999999967,
+          "lastRebuildMs": 0.8935419999999965,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": "{\"version\":1,\"mode\":\"pinned\",\"pinnedOutfit\":[\"foundation_bra\",\"foundation_briefs\",\"shoes01\"],\"lastChangeAt\":null,\"lastWornAt\":{},\"currentRequest\":[\"fedora01\"],\"preferences\":[]}",
+        "stored": {
+          "version": 1,
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "lastChangeAt": null,
+          "lastWornAt": {},
+          "currentRequest": [
+            "fedora01"
+          ],
+          "preferences": []
+        }
+      },
+      "floorOn": true,
+      "pendingFragments": 0,
+      "ownedPromises": [
+        {
+          "status": "fulfilled"
+        },
+        {
+          "status": "fulfilled"
+        }
+      ],
+      "cleanup": {
+        "wardrobeDisposed": true,
+        "pendingFragments": 0
+      }
+    },
+    {
+      "name": "sequential-consider-then-user-pin-control",
+      "initial": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": null,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "pending": null,
+          "lastChangeAt": null,
+          "preferencesExpressed": 0,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": null,
+        "preferences": [],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 26756,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 0,
+          "garmentTriangles": 34588,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            }
+          ],
+          "drawCalls": 3,
+          "residentFragments": 2,
+          "insulation": {
+            "clo": 0.04,
+            "unrated": []
+          },
+          "lastDressMs": 0.029375000000001705,
+          "lastRebuildMs": 0.018833000000000766,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": null,
+        "stored": null
+      },
+      "considerOutcome": {
+        "applied": true,
+        "status": null,
+        "reason": "applied",
+        "preference": {
+          "outfit": [
+            "fedora01"
+          ],
+          "reason": "fixed probe request, no taste model",
+          "at": 1000000,
+          "mode": "agent",
+          "differsFromWorn": true,
+          "honoured": true
+        },
+        "stats": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "fedora01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 26756,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 0,
+          "garmentTriangles": 35832,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "fedora01",
+              "drawnTriangles": 1244,
+              "fullTriangles": 1244,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 3,
+          "insulation": {
+            "clo": 0.04,
+            "unrated": [
+              "fedora01"
+            ]
+          },
+          "lastDressMs": 0.020915999999999713,
+          "lastRebuildMs": 0.014167000000000485,
+          "jointRemapIsIdentity": true
+        }
+      },
+      "afterConsider": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "agent",
+          "pinnedOutfit": null,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "fedora01"
+          ],
+          "pending": null,
+          "lastChangeAt": 1000000,
+          "preferencesExpressed": 1,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": [
+          "fedora01"
+        ],
+        "preferences": [
+          {
+            "outfit": [
+              "fedora01"
+            ],
+            "reason": "fixed probe request, no taste model",
+            "at": 1000000,
+            "mode": "agent",
+            "differsFromWorn": true,
+            "honoured": true
+          }
+        ],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "fedora01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 26756,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 0,
+          "garmentTriangles": 35832,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "fedora01",
+              "drawnTriangles": 1244,
+              "fullTriangles": 1244,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 3,
+          "insulation": {
+            "clo": 0.04,
+            "unrated": [
+              "fedora01"
+            ]
+          },
+          "lastDressMs": 0.020915999999999713,
+          "lastRebuildMs": 0.014167000000000485,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": "{\"version\":1,\"mode\":\"agent\",\"pinnedOutfit\":null,\"lastChangeAt\":1000000,\"lastWornAt\":{},\"currentRequest\":[\"fedora01\"],\"preferences\":[{\"outfit\":[\"fedora01\"],\"reason\":\"fixed probe request, no taste model\",\"at\":1000000,\"mode\":\"agent\",\"differsFromWorn\":true,\"honoured\":true}]}",
+        "stored": {
+          "version": 1,
+          "mode": "agent",
+          "pinnedOutfit": null,
+          "lastChangeAt": 1000000,
+          "lastWornAt": {},
+          "currentRequest": [
+            "fedora01"
+          ],
+          "preferences": [
+            {
+              "outfit": [
+                "fedora01"
+              ],
+              "reason": "fixed probe request, no taste model",
+              "at": 1000000,
+              "mode": "agent",
+              "differsFromWorn": true,
+              "honoured": true
+            }
+          ]
+        }
+      },
+      "pinResult": {
+        "disposed": false,
+        "pendingFragments": 0,
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "bodyVisible": true,
+        "bodyTriangles": 22228,
+        "fullBodyTriangles": 26756,
+        "hiddenTriangles": 4528,
+        "garmentTriangles": 37908,
+        "occlusion": [
+          {
+            "id": "foundation_bra",
+            "drawnTriangles": 22090,
+            "fullTriangles": 22090,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "foundation_briefs",
+            "drawnTriangles": 12498,
+            "fullTriangles": 12498,
+            "occludedBy": [
+              "shoes01"
+            ],
+            "carriesUnderMasks": true
+          },
+          {
+            "id": "shoes01",
+            "drawnTriangles": 3320,
+            "fullTriangles": 3320,
+            "occludedBy": [],
+            "carriesUnderMasks": false
+          }
+        ],
+        "drawCalls": 4,
+        "residentFragments": 4,
+        "insulation": {
+          "clo": 0.06,
+          "unrated": []
+        },
+        "lastDressMs": 0.3845840000000038,
+        "lastRebuildMs": 0.38091599999999914,
+        "jointRemapIsIdentity": true
+      },
+      "observation": {
+        "consideredFedoraActuallyWorn": true,
+        "considerReportedApplied": true,
+        "considerRecordedHonoured": true,
+        "currentRequestMatchesUserPin": true,
+        "persistedRequestMatchesUserPin": true,
+        "pinStillHolds": true
+      },
+      "final": {
+        "agency": {
+          "profile": "isolated-completion-probe",
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "pending": null,
+          "lastChangeAt": 1000000,
+          "preferencesExpressed": 1,
+          "preferencesUnheard": 0,
+          "pinHolds": true
+        },
+        "currentRequest": [
+          "shoes01"
+        ],
+        "preferences": [
+          {
+            "outfit": [
+              "fedora01"
+            ],
+            "reason": "fixed probe request, no taste model",
+            "at": 1000000,
+            "mode": "agent",
+            "differsFromWorn": true,
+            "honoured": true
+          }
+        ],
+        "wardrobe": {
+          "disposed": false,
+          "pendingFragments": 0,
+          "worn": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "bodyVisible": true,
+          "bodyTriangles": 22228,
+          "fullBodyTriangles": 26756,
+          "hiddenTriangles": 4528,
+          "garmentTriangles": 37908,
+          "occlusion": [
+            {
+              "id": "foundation_bra",
+              "drawnTriangles": 22090,
+              "fullTriangles": 22090,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "foundation_briefs",
+              "drawnTriangles": 12498,
+              "fullTriangles": 12498,
+              "occludedBy": [
+                "shoes01"
+              ],
+              "carriesUnderMasks": true
+            },
+            {
+              "id": "shoes01",
+              "drawnTriangles": 3320,
+              "fullTriangles": 3320,
+              "occludedBy": [],
+              "carriesUnderMasks": false
+            }
+          ],
+          "drawCalls": 4,
+          "residentFragments": 4,
+          "insulation": {
+            "clo": 0.06,
+            "unrated": []
+          },
+          "lastDressMs": 0.3845840000000038,
+          "lastRebuildMs": 0.38091599999999914,
+          "jointRemapIsIdentity": true
+        },
+        "floor": [
+          "foundation_bra",
+          "foundation_briefs"
+        ],
+        "storedRaw": "{\"version\":1,\"mode\":\"pinned\",\"pinnedOutfit\":[\"foundation_bra\",\"foundation_briefs\",\"shoes01\"],\"lastChangeAt\":1000000,\"lastWornAt\":{},\"currentRequest\":[\"shoes01\"],\"preferences\":[{\"outfit\":[\"fedora01\"],\"reason\":\"fixed probe request, no taste model\",\"at\":1000000,\"mode\":\"agent\",\"differsFromWorn\":true,\"honoured\":true}]}",
+        "stored": {
+          "version": 1,
+          "mode": "pinned",
+          "pinnedOutfit": [
+            "foundation_bra",
+            "foundation_briefs",
+            "shoes01"
+          ],
+          "lastChangeAt": 1000000,
+          "lastWornAt": {},
+          "currentRequest": [
+            "shoes01"
+          ],
+          "preferences": [
+            {
+              "outfit": [
+                "fedora01"
+              ],
+              "reason": "fixed probe request, no taste model",
+              "at": 1000000,
+              "mode": "agent",
+              "differsFromWorn": true,
+              "honoured": true
+            }
+          ]
+        }
+      },
+      "floorOn": true,
+      "pendingFragments": 0,
+      "ownedPromises": [
+        {
+          "status": "fulfilled"
+        },
+        {
+          "status": "fulfilled"
+        }
+      ],
+      "cleanup": {
+        "wardrobeDisposed": true,
+        "pendingFragments": 0
+      }
+    }
+  ],
+  "limits": "CPU data-policy only; bitmap1x1 stubs/no renderer/no pixels/fit/taste/human loss or performance acceptance."
+}
