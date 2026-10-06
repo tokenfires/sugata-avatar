@@ -1,0 +1,60 @@
+{
+  "arguments": {
+    "query": "MetaHuman skin material base color subsurface scattering controls",
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "categories": [
+      "developer"
+    ],
+    "includeDomains": [
+      "dev.epicgames.com"
+    ],
+    "domainTools": false
+  },
+  "start": "2026-10-06T04:50:51.951Z",
+  "end": "2026-10-06T04:50:56.040Z",
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://novedge.com/blogs/design-news/cinema-4d-tip-mastering-subsurface-scattering-for-realistic-skin-textures-in-cinema-4d?srsltid=AU7gw4Xi_LqP4IeTpNflUFBxATb_lTlGm-2cWKULobVrZl-72v32FLY1\",\"title\":\"Cinema 4D Tip: Mastering Subsurface Scattering for Realistic Skin ...\",\"description\":\"Configure Basic Channels: Color: Set the base color of your skin material. Specular: Adjust to simulate skin's natural sheen. Bump/Normal\",\"position\":1,\"category\":\"developer\"},{\"url\":\"https://blender.stackexchange.com/questions/121037/principled-bsdf-subsurface-scattering-values-for-skin-material\",\"title\":\"Principled BSDF subsurface scattering values for skin material\",\"description\":\"The Subsurface Color socket is actually the color for SSS shading. It can be used any way you want it,but if you want to create realistic skin,\",\"position\":2,\"category\":\"developer\"},{\"url\":\"https://learn.foundry.com/modo/content/help/pages/shading_lighting/shader_items/skin_material.html\",\"title\":\"Skin Material - Foundry Learn\",\"description\":\"The subsurface scattering is combined with the Diffuse Color to produce the final epidermal layer. Scattering Distance. Determines the distance that light\",\"position\":3,\"category\":\"developer\"}]},\"creditsUsed\":2,\"id\":\"01a10f8c-e135-70af-ac0e-b06537685c81\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://novedge.com/blogs/design-news/cinema-4d-tip-mastering-subsurface-scattering-for-realistic-skin-textures-in-cinema-4d?srsltid=AU7gw4Xi_LqP4IeTpNflUFBxATb_lTlGm-2cWKULobVrZl-72v32FLY1\\\", #2 \\\"https://blender.stackexchange.com/questions/121037/principled-bsdf-subsurface-scattering-values-for-skin-material\\\", #3 \\\"https://learn.foundry.com/modo/content/help/pages/shading_lighting/shader_items/skin_material.html\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://novedge.com/blogs/design-news/cinema-4d-tip-mastering-subsurface-scattering-for-realistic-skin-textures-in-cinema-4d?srsltid=AU7gw4Xi_LqP4IeTpNflUFBxATb_lTlGm-2cWKULobVrZl-72v32FLY1\", #2 \"https://blender.stackexchange.com/questions/121037/principled-bsdf-subsurface-scattering-values-for-skin-material\", #3 \"https://learn.foundry.com/modo/content/help/pages/shading_lighting/shader_items/skin_material.html\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://novedge.com/blogs/design-news/cinema-4d-tip-mastering-subsurface-scattering-for-realistic-skin-textures-in-cinema-4d?srsltid=AU7gw4Xi_LqP4IeTpNflUFBxATb_lTlGm-2cWKULobVrZl-72v32FLY1",
+            "title": "Cinema 4D Tip: Mastering Subsurface Scattering for Realistic Skin ...",
+            "description": "Configure Basic Channels: Color: Set the base color of your skin material. Specular: Adjust to simulate skin's natural sheen. Bump/Normal",
+            "position": 1,
+            "category": "developer"
+          },
+          {
+            "url": "https://blender.stackexchange.com/questions/121037/principled-bsdf-subsurface-scattering-values-for-skin-material",
+            "title": "Principled BSDF subsurface scattering values for skin material",
+            "description": "The Subsurface Color socket is actually the color for SSS shading. It can be used any way you want it,but if you want to create realistic skin,",
+            "position": 2,
+            "category": "developer"
+          },
+          {
+            "url": "https://learn.foundry.com/modo/content/help/pages/shading_lighting/shader_items/skin_material.html",
+            "title": "Skin Material - Foundry Learn",
+            "description": "The subsurface scattering is combined with the Diffuse Color to produce the final epidermal layer. Scattering Distance. Determines the distance that light",
+            "position": 3,
+            "category": "developer"
+          }
+        ]
+      },
+      "id": "01a10f8c-e135-70af-ac0e-b06537685c81",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,9 @@
+# Artist skin-colour primary inquiry: stopped
+
+B at the first insufficient response. The exact query returned three URLs outside the required Epic documentation selection, so zero pages were eligible. No scraping, image, colour mapping, candidate code or native work followed. This does not establish why the provider returned other domains or that relevant documents are absent.
+
+[Literal plan](PLAN.json), [admission](ROOT-ADMISSION.json), [complete original query response](SEARCH.json), [outcome](OUTCOME.json), [independent result](RESULT.md), [receipt](RESULT-RECEIPT.json) and [root closure](ROOT-CLOSE.json) retain the boundary. The single query succeeded at04:50:51.951–04:50:56.040UTC, ID01a10f8c-e135-70af-ac0e-b06537685c81, two reported credits. Root256408 records the first stop; critic7a00ae/exit0/PID7694 stable04:53:53.946715; root full530881/a919b9 independently verifies13 direct/result+8PLAN pins, literal request and full duplicated response equality before05:45.
+
+Alternative A closes this nomination and retains existing source responsibility without an unsupported mapping. Alternative B requires a genuinely different complete coupled source authority, with greater work and no permission to reformulate this query or substitute Foundry. No skin defect, RGB-units error, primary policy, physiology or appearance result was proved. This colour nomination and its query/source/native successors are closed to rescue.
+
+Sixteen scoped checklist items remain checked and ten broad goals remain open. Full AAA/character/representation/wardrobe/expression/fit/motion/performance and later-style ambitions remain, along with all originals/defaults/accepted/frozen/unrelated work and old refusals. No push/publish/purchase/install/model/subscription/other-project action. FROZEN.json holds original documentary payloads read-only; the stopping result does not finish the overall authorized work window.
