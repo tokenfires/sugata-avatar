@@ -1,0 +1,379 @@
+{
+  "decision": "A exact documentary delivery; no demonstrated actionable defect",
+  "collected_utc": "2026-10-06T04:37:16.964552+00:00",
+  "writer_started_utc": "2026-10-06T04:37:16.962866+00:00",
+  "writer_pid": 5927,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "critic": "2026-10-06T05:00:00Z",
+    "root": "2026-10-06T05:10:00Z"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+      "bytes": 2119,
+      "sha256": "38c5bada9d90499073eb1e8cd3162d1a42f581d6c7a2b5aa70530176c3f9a4c3",
+      "read_scope": "complete13line prose read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5518,
+      "sha256": "243c71c6975e3b5b4841ebb5bb4ac356e2e33a073e86a5f7753f4394c3cfa3e7",
+      "read_scope": "complete49lines, exact one-entry removal equality and16/10 count"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ROOT-IMAGE-CLOSE.json",
+      "bytes": 2405,
+      "sha256": "4c03153b9b8a65b28403afbfe2402868965f36711c806acab17e30795660d020",
+      "read_scope": "complete current factual closure read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/IMAGE-RESULT.md",
+      "bytes": 5993,
+      "sha256": "89b5e839a03d11cdeccff1b0af0b1e517a508a86dcff8bdc903261263ed3eba2",
+      "read_scope": "whole independent prior stable5993byte result reused, current hashverified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/IMAGE-RECEIPT-CRITIC.json",
+      "bytes": 21197,
+      "sha256": "353053e97ed72937074cac7f106163e1b116b1105041c5ab3af9a37ddf42cda8",
+      "read_scope": "complete parsed prior stable receipt/currenthash; no rewriting"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/DELIVERY-HANDOFF.json",
+      "bytes": 1839,
+      "sha256": "019217184a62deda4128294780394424bc2939dd9c2c400aa3a4fd4bc1a07e0c",
+      "read_scope": "complete current handoff5rows"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+      "bytes": 116380,
+      "sha256": "639a012ffda45999b721ac602a88ad6a3c109564fffb5b75c871ef6b6360e0a5",
+      "read_scope": "prior whole original-detail image observation reused, current exactbytehash; no newview/capture"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/cardigan.svg",
+      "bytes": 10437,
+      "sha256": "63be0628cfd6afbaa43550c5e2ed4efda3bbb95a4020bbb81289859c9d99b3a8",
+      "read_scope": "prior whole114line source/review identity reused, currenthash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/design.json",
+      "bytes": 38240,
+      "sha256": "554a38612244346f49f8109805c3224947fed071299092a99bc1487147b6f124",
+      "read_scope": "prior complete1533line/94node registry scope reused, currenthash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/BRIEF.md",
+      "bytes": 5986,
+      "sha256": "f2cbe86da7ce1465bab123c8bdfbf66b2af69c60506955b01f5003ceb0c4a750",
+      "read_scope": "prior whole22line read reused/currenthash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/review.html",
+      "bytes": 1210,
+      "sha256": "b8f003e79e0b7fdd00889948695e2737c7b1cea80eda7b8ab3d54ce7e7541539",
+      "read_scope": "prior whole16line read reused/currenthash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCES.md",
+      "bytes": 3135,
+      "sha256": "7e0a318caa2bed5d591ec3e4907485027c572bf5aa23133a5bd2c5c4c757dc1e",
+      "read_scope": "prior whole11line read reused/currenthash"
+    }
+  ],
+  "direct_binding_count": 12,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/DELIVERY-RESULT.md",
+    "bytes": 2733,
+    "sha256": "d1548d92ea90d9cf8eb83e3bd1ccee1065ec2ee44f43f44f518944a06ea8f8af",
+    "readback": "exact UTF-8 bytes"
+  },
+  "actual_checks": {
+    "all5deliverypins_exact": true,
+    "singleartistiteminsertion": true,
+    "recovered_before_bytes": 5216,
+    "recovered_before_sha256": "bb3b1a4e3ef0355276d27cc283d3c57ba6cea85feaf645479b7209526240b476",
+    "counts": {
+      "scoped_checked": 16,
+      "broad_open": 10
+    },
+    "alloldcontentincludingtenbroadrowsunchanged": true,
+    "handoff_links": 9,
+    "checklist_links": 21,
+    "linked_paths": [
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "First whole cardigan sheet",
+        "literal": "original-first.jpg",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "editable SVG",
+        "literal": "../mara-cardigan-technical-design/cardigan.svg",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/cardigan.svg",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "complete design JSON",
+        "literal": "../mara-cardigan-technical-design/design.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/design.json",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "brief",
+        "literal": "../mara-cardigan-technical-design/BRIEF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/BRIEF.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "local review page",
+        "literal": "../mara-cardigan-technical-design/review.html",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/review.html",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "Reference boundaries",
+        "literal": "../mara-cardigan-technical-design/REFERENCES.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCES.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "independent image review",
+        "literal": "IMAGE-RESULT.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/IMAGE-RESULT.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "exact receipt",
+        "literal": "IMAGE-RECEIPT-CRITIC.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/IMAGE-RECEIPT-CRITIC.json",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "label": "root decision",
+        "literal": "ROOT-IMAGE-CLOSE.json",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ROOT-IMAGE-CLOSE.json",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Hair chooser evidence",
+        "literal": "evidence/nonhair-2026-10-03/hair-cut/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/hair-cut/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Current feature status",
+        "literal": "PRODUCT-ROADMAP.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Saved-look evidence",
+        "literal": "evidence/appearance-2026-10-02/saved-colours/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-colours/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "feature status",
+        "literal": "PRODUCT-ROADMAP.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Export evidence",
+        "literal": "evidence/appearance-2026-10-02/saved-export/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Layout evidence",
+        "literal": "evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/mobile-toolbar/RECEIPT.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Open and compare Ink",
+        "literal": "../looks/INK-DENIM.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Current controls and review limits",
+        "literal": "evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "earlier pinned desktop study",
+        "literal": "evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "SVG and JSON",
+        "literal": "evidence/appearance-2026-10-04/piece-publisher/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/piece-publisher/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Preview and OBJ",
+        "literal": "evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Three-view design",
+        "literal": "research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Source and OBJ",
+        "literal": "evidence/appearance-2026-10-04/trouser-artist-source/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Source, OBJ and reviewed image",
+        "literal": "evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Source, OBJ and reviewed image",
+        "literal": "evidence/appearance-2026-10-05/boot-artist-first-view/README.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/README.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Character design",
+        "literal": "research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Character design",
+        "literal": "evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "SVG, JSON and reviewed sheet",
+        "literal": "evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Open the visual wardrobe board",
+        "literal": "ARTIST-WARDROBE.html",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "Current evidence and recovery",
+        "literal": "DAY-REPORT-2026-10-04.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/DAY-REPORT-2026-10-04.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      },
+      {
+        "from": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "label": "full roadmap",
+        "literal": "PRODUCT-ROADMAP.md",
+        "resolved": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+        "exists": true,
+        "scope": "path existence only, no click/render or renewed target qualification"
+      }
+    ]
+  },
+  "commands_jobs": [
+    {
+      "chunk": "83e06d",
+      "pid": 5757,
+      "utc": "2026-10-06T04:35:23.007266Z",
+      "exit": 0,
+      "command": "python3 stdlib complete delivery handoff/ARTIST-HANDOFF/checklist literal read"
+    },
+    {
+      "chunk": "e6a35b",
+      "pid": 5801,
+      "utc": "2026-10-06T04:35:58.298017Z",
+      "exit": 0,
+      "command": "python3 stdlib complete ROOT-IMAGE-CLOSE read,5pin verification, exactinsertion recovery,16/10 and local linkexistence"
+    },
+    {
+      "pid": 5927,
+      "command": "python3 stdlib byte/metadata/exclusive handoff writer; no target execution"
+    }
+  ],
+  "image_scope": "Previously whole-original observed unchanged1280x1131/116380/SHA639a012ffda45999b721ac602a88ad6a3c109564fffb5b75c871ef6b6360e0a5; no new image/tool/capture",
+  "limits": [
+    "documentary closeout only",
+    "no visual retake/render/browser/network or source/product edit",
+    "no physicalpattern/manufacturing/materialphysics/3D/fit/runtime/motion/AAA acceptance",
+    "localpaths existence only, no click/fetched-byte certificate",
+    "oldchecklistclaims not newly requalified",
+    "fixedsource/art/capture tuning remains closed; no successor admitted"
+  ],
+  "retained_errors": "none in this narrow closeout; historical source/native receipts preserved unchanged",
+  "next": "stop documentary review; no new experiment admitted"
+}

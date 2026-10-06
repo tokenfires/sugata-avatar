@@ -27,6 +27,8 @@ Updated October 5, 2026. **Customization is usable; complete character quality i
 
 - [x] Original Mara artist discussion sheet with full-body and portrait views, silver bob and an open cardigan/plum midi direction; editable character, fit, motion and runtime remain open. [Character design](evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md)
 
+- [x] Original editable Mara long-cardigan technical drawing with front, profile, rear and smaller inside-facing views; unitless artist design, with sewing, 3D, body fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md)
+
 [Open the visual wardrobe board](ARTIST-WARDROBE.html) to inspect the retained character directions and editable drafts together.
 
 These references do not establish physical folding, wearable fit or finished garment appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)

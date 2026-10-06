@@ -1,0 +1,431 @@
+{
+  "decision": "A restricted original editable technical-design artist handoff; A conditional truthful local-delivery worth; B fixed-art/capture tuning",
+  "collected_utc": "2026-10-06T04:33:13.206669+00:00",
+  "metadata_writer_started_utc": "2026-10-06T04:33:13.202159+00:00",
+  "metadata_writer_pid": 5481,
+  "stable": true,
+  "pending_edits": false,
+  "fixed_stops_utc": {
+    "critic": "2026-10-06T05:25:00Z",
+    "root": "2026-10-06T05:35:00Z"
+  },
+  "manifest_checks": [
+    {
+      "manifest": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/NATIVE-HANDOFF.json",
+      "all_rows_exact": 18
+    },
+    {
+      "manifest": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/PLAN.json",
+      "all_rows_exact": 18
+    },
+    {
+      "manifest": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/SOURCE-HANDOFF.json",
+      "all_rows_exact": 16
+    },
+    {
+      "manifest": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/FROZEN.json",
+      "all_rows_exact": 24
+    }
+  ],
+  "unique_input_bindings": 35,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/COMMAND-PIN.json",
+      "bytes": 421,
+      "sha256": "187e6db76f19bb71e3ab58394fd5808db8e77d997861bc75c26e81ddc0c66ead",
+      "read_scope": "complete"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/CUA-COMMAND.js",
+      "bytes": 3747,
+      "sha256": "37c01cb10a83d321e525b64e80e9bde89db9eeb4b02f817960bc579866ee6f70",
+      "read_scope": "complete 46-line semantic command source as data, no invocation by critic"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/NATIVE-TRACE.json",
+      "bytes": 2094,
+      "sha256": "d19773767be57e8f637e2f8c27b9cf6f02bd94ce6e7576a735c29df4dc9233a2",
+      "read_scope": "complete 46-line actual trace including DOM readiness and cleanup"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/PLAN.json",
+      "bytes": 7559,
+      "sha256": "50ce66a2d8412ee1f36ec1e7121c167204a52c34d8f79e95c62a56be68f011aa",
+      "read_scope": "complete native plan plus all18 input pins; source PLAN complete reused exact bytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ROOT-ADMISSION.json",
+      "bytes": 509,
+      "sha256": "72ede8eaec2801afad7dd6198f513f741b833a2646033eb3e45f1adf724c9771",
+      "read_scope": "complete native admission; complete source admission reused exact bytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ROOT-IMAGE-OBSERVATION.json",
+      "bytes": 2119,
+      "sha256": "b75503214c1a1eac596e15e13d78343f715aa1e3c42f3448e5a0c41d486c1ae7",
+      "read_scope": "hash-only blind-parent observation, not read or used in critic image judgment"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/TOOL-RETURN.json",
+      "bytes": 310,
+      "sha256": "c87b5ae754e46762540bac2bfbc2db4025d39a0308eb1cfa796af0250fda1a50",
+      "read_scope": "complete actual tool clocks/encoding dimensions scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+      "bytes": 116380,
+      "sha256": "639a012ffda45999b721ac602a88ad6a3c109564fffb5b75c871ef6b6360e0a5",
+      "read_scope": "whole untouched1280x1131 via view_image(detail original) before parent opinion; no crop/edit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/cardigan.svg",
+      "bytes": 10437,
+      "sha256": "63be0628cfd6afbaa43550c5e2ed4efda3bbb95a4020bbb81289859c9d99b3a8",
+      "read_scope": "whole114line literal read current04:30:21 plus prior complete source/registry review; no path evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/design.json",
+      "bytes": 38240,
+      "sha256": "554a38612244346f49f8109805c3224947fed071299092a99bc1487147b6f124",
+      "read_scope": "whole raw JSON parsed; complete1533line manual read in source stage with recovered695-815 truncation, unchanged SHA; complete94node registry checked there; not geometry reconstruction"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/review.html",
+      "bytes": 1210,
+      "sha256": "b8f003e79e0b7fdd00889948695e2737c7b1cea80eda7b8ab3d54ce7e7541539",
+      "read_scope": "whole16line read current04:30:21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/BRIEF.md",
+      "bytes": 5986,
+      "sha256": "f2cbe86da7ce1465bab123c8bdfbf66b2af69c60506955b01f5003ceb0c4a750",
+      "read_scope": "whole22line read current04:30:21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCES.md",
+      "bytes": 3135,
+      "sha256": "7e0a318caa2bed5d591ec3e4907485027c572bf5aa23133a5bd2c5c4c757dc1e",
+      "read_scope": "whole11line read current04:30:21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/reference-first.jpg",
+      "bytes": 45141,
+      "sha256": "b0b4636d4f0c08ddd552c90caa692f2d5f08b863b09bb51d42b1442ef4f663ea",
+      "read_scope": "whole original-detail observation in immediately prior source stage before04:08:46.872811, unchanged hash verified now; no repeat capture"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/SOURCE-RESULT.md",
+      "bytes": 5447,
+      "sha256": "9b353609ace2aa02be721bf0b1343212e9f398757e8d01a75c7bdf4b6ff0c9bf",
+      "read_scope": "complete current source handoff reread04:30:58"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/SOURCE-RECEIPT-CRITIC.json",
+      "bytes": 15359,
+      "sha256": "227fb0d00ba97feafc0c09c61e5995068011331a166e2eae16f163efa3ab6bdf",
+      "read_scope": "complete parsed prior own receipt, exact bytes verified; prior full independent source read scopes preserved"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/ROOT-SOURCE-CLOSE.json",
+      "bytes": 2305,
+      "sha256": "1b641d498bfc980320f3f72ac8792bef817a1f52c9a5363cc9c9c445458d51a6",
+      "read_scope": "complete current root source closure read04:30:21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311",
+      "read_scope": "whole Mara original-detail observation in immediately prior source stage before04:08:46.872811, unchanged hash verified now; no hidden-view inference"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/PLAN.json",
+      "bytes": 6379,
+      "sha256": "20ce6b23b09e0a57f14ba0682bf479cec67be23fbfbb237d3a6e4542c36f386f",
+      "read_scope": "complete native plan plus all18 input pins; source PLAN complete reused exact bytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/ROOT-ADMISSION.json",
+      "bytes": 1236,
+      "sha256": "ec1fdbac8bc7caf99f9e946405f5d6b1f74ffbf9ca60734d7b7ddfbbddd574c7",
+      "read_scope": "complete native admission; complete source admission reused exact bytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCE-RECEIPT.json",
+      "bytes": 1439,
+      "sha256": "826ff1d4be724a687f63018551e0bc382a0d145039dbbe1bba708665100a5843",
+      "read_scope": "whole parsed and prior source-stage full metadata read; exact bytes unchanged"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/SOURCE-HANDOFF.json",
+      "bytes": 6040,
+      "sha256": "f81eff6eb69353595daab0ce736a17ea6ba54f9f17428baab641262f97682a18",
+      "read_scope": "complete source16row handoff reused/current bytes exact"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/SOURCE-RECEIPT.json",
+      "bytes": 4052,
+      "sha256": "5ec08755e4d4494a932c82a4b24cb6f3273dbdbefd7f36240121fac023bc833e",
+      "read_scope": "complete parsed current receipt with prior full source-stage metadata read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/ROOT-SOURCE-OBSERVATION.json",
+      "bytes": 2422,
+      "sha256": "c06f6c17ffbe45c47e8d6eaabda3b113c45c27226510737c392e69e41b6f47a2",
+      "read_scope": "hash-only, source opinion not used"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/NEXT-NATIVE-PROPOSAL.json",
+      "bytes": 5952,
+      "sha256": "508534f8e75e6125038f9da37d6ca0b2debb735850ee7570fdeab95d5cec09f7",
+      "read_scope": "complete exact source-stage read; complete JSON parsed current, exact bytes verified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/FROZEN.json",
+      "bytes": 6304,
+      "sha256": "64e394ae450b83e6f2d113dc97caf1355773384af71bfb32887b11db89129127",
+      "read_scope": "complete24row metadata read04:30:21, every payload byte pin independently verified04:30:58 and collection"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/SEARCH.json",
+      "bytes": 3662,
+      "sha256": "ff3eb844992358f3e914880bab94f8bb857301ab0cd362a7837fc9c18ec19e45",
+      "read_scope": "hash-only now, prior source-stage complete args/result/metadata equality"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/PAGE-1.json",
+      "bytes": 44036,
+      "sha256": "f85619a339118652bdb3c4f927de27e37650205adb1b6694241a62fd72b17c8e",
+      "read_scope": "hash-only now, prior source-stage selected complete markdown1-59/79-112/140-157 with recovery; not whole page manual review"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/PAGE-2.json",
+      "bytes": 53641,
+      "sha256": "1e0607fc1c06b9dd48c28005f55d5bf6b61dcc9c35e76a4b04be7442b9a34a49",
+      "read_scope": "hash-only now, prior source-stage selected complete markdown1-89/109-142/181-185; not whole page manual review"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCE-IMAGE-PLAN.json",
+      "bytes": 1550,
+      "sha256": "dbe0d29164c9b9984fc39171ae059dfe3962f4a37e8f7418fbb05139d756893d",
+      "read_scope": "hash-only now, prior source-stage complete source"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCE-CUA-COMMAND.js",
+      "bytes": 2980,
+      "sha256": "5c113016190786fdb98c890158767e357a65a92233799ddea15624ccafe3eaca",
+      "read_scope": "hash-only now, prior source-stage complete unexecuted semantic command"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCE-IMAGE-TRACE.json",
+      "bytes": 1107,
+      "sha256": "43f0c6bcd7c6b4aa7cc5746564cfadabc0b861da6f7a0401ec29b60cc150e6a6",
+      "read_scope": "hash-only now, prior source-stage complete actual trace"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/README.md",
+      "bytes": 1838,
+      "sha256": "cb480f52f64ae267c1061c3be5abef942ea28288e08801315cb0dbe10d5bd80d",
+      "read_scope": "byte pin verification only from FROZEN; no current delivery claim relied on"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/RUN-RECEIPT.md",
+      "bytes": 3483,
+      "sha256": "00c9d1eff0caad82ec172c9b23c90820c845c5de16f50bf8d474e9ceeefc3479",
+      "read_scope": "byte pin verification only from FROZEN; no current delivery claim relied on"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/NATIVE-HANDOFF.json",
+      "bytes": 5034,
+      "sha256": "4811a916b9c3a064c778adc34b9f2a4458759095798aeb9cce4f719980cb8444",
+      "read_scope": "complete 18-row handoff, all raw byte pins verified"
+    }
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/IMAGE-RESULT.md",
+    "bytes": 5993,
+    "sha256": "89b5e839a03d11cdeccff1b0af0b1e517a508a86dcff8bdc903261263ed3eba2",
+    "readback": "exact UTF-8 bytes"
+  },
+  "original_view": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+    "detail": "original",
+    "whole": true,
+    "dimensions": [
+      1280,
+      1131
+    ],
+    "no_crop": true,
+    "before_opinion": true,
+    "root_opinion": "hash-only, not read",
+    "time_scope": "whole original viewed and independent provisional A messaged before first metadata read04:29:59.515276Z; exact tool clock not separately recorded"
+  },
+  "reused_original_views": {
+    "scope": "whole original-detail observations in immediately prior source review; current raw byte equality verified; no new captures",
+    "reference_dimensions": [
+      1280,
+      720
+    ],
+    "Mara_dimensions": [
+      1536,
+      1024
+    ],
+    "reference_limit": "scaled screenshot of woven robe, mark vocabulary only",
+    "Mara_limit": "front illustration only, hidden views newly authored"
+  },
+  "commands_jobs": [
+    {
+      "tool": "functions.exec/tools.view_image",
+      "arguments": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+        "detail": "original"
+      },
+      "operation": "sole critic whole unchanged output view, no rendering or cropping"
+    },
+    {
+      "chunk": "ad3097",
+      "pid": 5197,
+      "utc": "2026-10-06T04:29:59.515276Z",
+      "exit": 0,
+      "command": "python3 stdlib complete native handoff/PLAN/leaf inventory read"
+    },
+    {
+      "chunk": "08ae05",
+      "pid": 5230,
+      "utc": "2026-10-06T04:30:21.615782Z",
+      "exit": 0,
+      "command": "python3 stdlib full COMMAND-PIN/CUA-COMMAND/TRACE/admission/tool-return/source-close/FROZEN read"
+    },
+    {
+      "chunk": "88354f",
+      "pid": 5231,
+      "utc": "2026-10-06T04:30:21.614827Z",
+      "exit": 0,
+      "command": "python3 stdlib whole numbered BRIEF/SVG/HTML/REFERENCES read"
+    },
+    {
+      "chunk": "50e6ea",
+      "pid": 5280,
+      "utc": "2026-10-06T04:30:58.406056Z",
+      "exit": 0,
+      "command": "python3 stdlib16+18+18binding/24FROZEN byte verification, whole JSON parse/source-result readback; no target import or evaluation"
+    },
+    {
+      "pid": 5481,
+      "command": "python3 stdlib byte verification and exclusive two-file metadata writer",
+      "exit_scope": "recorded by enclosing tool return",
+      "target_execution": false
+    }
+  ],
+  "actual_native": {
+    "owner": "root, one CUA invocation; backend PID unavailable",
+    "tab": "52",
+    "admitted_utc": "2026-10-06T04:27:47.671895+00:00",
+    "trace": {
+      "startUTC": "2026-10-06T04:28:24.768Z",
+      "screenshotAttempts": 1,
+      "errors": [],
+      "before": [],
+      "navigationRequestedUTC": "2026-10-06T04:28:24.866Z",
+      "ownedTab": "52",
+      "navigationReturnedUTC": "2026-10-06T04:28:25.173Z",
+      "initialDOM": "- banner:\n  - heading \"Mara · cardigan design\" [level=1]\n  - paragraph: Original editable artist drawing · unitless · sewing, 3D, body fit and motion unqualified\n- main:\n  - 'img \"Original cardigan technical drawing: front, authored right profile and rear, and smaller authored inside-facing schematic with continuous bands and two front patch pockets.\"'\n- contentinfo:\n  - link \"Editable SVG\":\n    - /url: cardigan.svg\n  - link \"Design JSON\":\n    - /url: design.json\n  - link \"Complete brief\":\n    - /url: BRIEF.md\n  - link \"Reference and limits\":\n    - /url: REFERENCES.md",
+      "ready": {
+        "complete": true,
+        "currentSrc": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/cardigan.svg",
+        "document": {
+          "height": 1131,
+          "width": 1280
+        },
+        "naturalHeight": 960,
+        "naturalWidth": 1280,
+        "rect": {
+          "height": 960,
+          "width": 1280,
+          "x": 0,
+          "y": 106
+        },
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/review.html",
+        "viewport": {
+          "height": 720,
+          "width": 1280
+        }
+      },
+      "screenshotRequestedUTC": "2026-10-06T04:28:25.189Z",
+      "screenshotReturnedUTC": "2026-10-06T04:28:25.274Z",
+      "image": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+        "bytes": 116380,
+        "sha256": "639a012ffda45999b721ac602a88ad6a3c109564fffb5b75c871ef6b6360e0a5"
+      },
+      "captureWithin60Seconds": true,
+      "cleanupStartUTC": "2026-10-06T04:28:25.274Z",
+      "console": [],
+      "closedUTC": "2026-10-06T04:28:25.279Z",
+      "after": [],
+      "cleanupMs": 89,
+      "endUTC": "2026-10-06T04:28:25.363Z",
+      "dateElapsedMs": 595
+    },
+    "tool_return": {
+      "cua_wall_seconds": 0.609,
+      "tooltimeout_ms": 80000,
+      "date_elapsed_ms": 595,
+      "cleanup_ms": 89,
+      "scope": "Actual distinct limited clocks; no benchmark/hard cancellation or GPU retirement certificate",
+      "screenshot_attempts": 1,
+      "image_dimensions": [
+        1280,
+        1131
+      ],
+      "no_retakes": true
+    },
+    "source_identity": "unchanged disk byte pins plus DOM currentSrc/natural/rect/viewport; fetched-byte SHA uninstrumented",
+    "GPU_retirement": "unknown, not asserted"
+  },
+  "visual_witnesses": {
+    "front": [
+      97,
+      315,
+      390,
+      749
+    ],
+    "profile": [
+      573,
+      315,
+      653,
+      749
+    ],
+    "rear": [
+      854,
+      315,
+      1148,
+      749
+    ],
+    "inside": [
+      953,
+      887,
+      1059,
+      1044
+    ],
+    "coordinates": "approximate observed whole-image pixel regions, not geometry/path/projection calculations",
+    "required_roles": "complete4views/band2pocketsUedges/fullcuffs/lowerhem/profileocclusion/rearquiet/insideattachmenttraces all observed",
+    "fine_inside_marks": "delicate but sufficient for labelled schematic; no manufacturing detail pass"
+  },
+  "source_read_scope": "Full prior symbolic/registry review reused exact pins; current entire114lineSVG/22lineBRIEF/16lineHTML/11lineREFERENCES reread. Full1533lineJSON had prior print recovery695-815 and complete94node structural check; current whole parse/hash. No path, coordinate, normal or geometry evaluation.",
+  "retained_errors": [
+    "No current critic/native error. Prior source aggregate print truncations retained/recovered in immutable source receipt; no source correction or retry."
+  ],
+  "scope_limits": [
+    "artist technical drawing only",
+    "no sewing/pattern/gauge/dimension/material-physics/3D/bodyfit/runtime/motion/AAA acceptance",
+    "no registered projections, wearer age/gender or hidden geometry inference",
+    "no browser-fetched bytes/GPU-retirement certificate",
+    "no new network/query/render/capture/generation/program/helper/source import/replay"
+  ],
+  "status_before_delivery": {
+    "scoped_checked": 15,
+    "broad_open": 10,
+    "product_or_checklist_written": false
+  },
+  "next": "Worth of concise local ARTIST-HANDOFF plus exactly one scope-limited item/link after root gate; no automatic product/delivery/capture/source/tuning admission"
+}
