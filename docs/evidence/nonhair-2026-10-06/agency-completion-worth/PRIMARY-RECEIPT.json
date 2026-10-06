@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-06T09:26:29.856340+00:00",
+  "pid": 35117,
+  "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+  "arguments": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await",
+    "formats": [
+      "markdown"
+    ],
+    "maxAge": 0,
+    "timeout": 45000
+  },
+  "reported_tool_wall_seconds": 2.6,
+  "scrape_id": "01a11088-4015-70b8-9650-c5e37efa1d4c",
+  "statusCode": 200,
+  "creditsUsed": 1,
+  "isError": false,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-worth/PRIMARY-AWAIT.json",
+    "bytes": 47328,
+    "sha256": "778495354b481dd3c3cf182d4e960eb0f5e5f6b6f759af9f413aebcdee4cd49a"
+  },
+  "root_scope": "Complete460-line markdown returned and read; actual description/control-flow/resumption and rejection behavior only inform scheduling. Not an empirical Sugata defect or a cancellation guarantee.",
+  "retained_observer_error": "First result inspection printed metadata then failed ReferenceError: TextEncoder is not defined in functions isolate. Corrected own inspection/save only; no second scrape, target/source/browser repair or inference about the page.",
+  "next": "Independent worth then full literal source review before one actual CPU probe; no additional references."
+}

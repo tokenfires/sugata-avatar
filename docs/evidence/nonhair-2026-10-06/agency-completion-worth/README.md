@@ -1,0 +1,5 @@
+One controlled agency-completion probe is worth doing, after its separate full source review. Real Wardrobe suppresses obsolete outfit application, while Agency records the original request after `await`. This is a source-supported question; **no actual defect or visual pin failure has yet been observed**.
+
+[Independent worth](WORTH.md), [root close](ROOT-CLOSE.json), and [new inert protocol](../agency-completion-probe/PLAN.json) preserve exact inputs, witnesses, alternatives and stops. One [official MDN await reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) corroborates suspension/resumption only; the one retrieved response and metadata-only observer error are retained locally. No additional query, renderer or old capture rescue.
+
+Historical Agency/selftest pins resolve to the exact [original snapshots](../agency-completion-probe/ORIGINAL-SOURCES.json) after any future adoption. Accepted code/default/assets/checklist17/10/fullAAA remain unchanged. Source review09:42/soleCPU09:50/actualcritic10:00/root10:08UTC; first failure stops without retry.

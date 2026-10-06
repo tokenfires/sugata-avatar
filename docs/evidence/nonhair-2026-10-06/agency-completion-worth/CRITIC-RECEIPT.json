@@ -1,0 +1,144 @@
+{
+  "collected_utc": "2026-10-06T09:29:50.726155+00:00",
+  "writer_pid": 35404,
+  "decision": "A one actual unchanged-module CPU probe worth after complete separate source review only",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-worth/PLAN.json",
+      "bytes": 4825,
+      "sha256": "a287b4e52ed26966e92247c1e0b78b0dbeb8a0f5a354c744b4cfd87c1556aacd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/fedora01/g050.glb",
+      "bytes": 7638760,
+      "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    }
+  ],
+  "read_scopes": {
+    "WardrobeAgency.js": "Entire683lines/23344bytes.",
+    "agency.selftest.mjs": "Entire559lines/22290bytes, source only; no old selftest replay.",
+    "Wardrobe.js": "Targeted1\u201395,385\u2013432,450\u2013562,584\u2013650,650\u2013760,767\u2013804,907\u20131050; whole49156-byte hash. Constructor/load injection, token dress/validation/stats/floor/apply entry/pending fragments/adoption/disposal scopes; not whole1108-line audit.",
+    "testbed wardrobe.js": "135\u2013163,200\u2013225,225\u2013257,260\u2013310,366\u2013421,447\u2013480; whole50738-byte hash. Status, current caller run/controls/agency ownership and pressed state; not whole1222-line audit.",
+    "manifest_and_5GLBs": "Raw byte/hash checks only. No manifest semantic parse, GLB header/JSON/BIN/mesh/image/skin/pose decode or source import.",
+    "primary_await_and_new_probe": "Not read/used before this worth handoff; reserved for separately assigned source review."
+  },
+  "jobs": [
+    {
+      "chunk": "b2e794",
+      "exit": 2,
+      "pid": null,
+      "command": "rg -n targeted Agency/caller symbols plus guessed WardrobeAgency.selftest.mjs",
+      "retained_error": "Guessed test filename absent; matches in actual Agency/caller printed. Correct actual agency.selftest path located separately, no source/runtime failure."
+    },
+    {
+      "chunk": "5f891a",
+      "pid": 34437,
+      "utc": "2026-10-06T09:19:05.312597+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full683-line Agency and byte/SHA"
+    },
+    {
+      "chunk": "569528",
+      "exit": 0,
+      "pid": null,
+      "command": "rg --files packages tools, scoped filter for agency/wardrobe selftests; actual agency.selftest found"
+    },
+    {
+      "chunk": "889fbd",
+      "pid": 34470,
+      "utc": "2026-10-06T09:19:20.031383+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib targeted Wardrobe and actual caller ranges with whole byte/SHA"
+    },
+    {
+      "chunk": "d82682",
+      "pid": 34537,
+      "utc": "2026-10-06T09:20:05.533747+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full559-line actual agency.selftest and byte/SHA"
+    },
+    {
+      "chunk": "3bdfce",
+      "exit": 0,
+      "pid": null,
+      "command": "rg -n actual status/disabled/busy/token/load/stats constructors in Wardrobe/caller"
+    },
+    {
+      "chunk": "df014a",
+      "pid": 34799,
+      "utc": "2026-10-06T09:22:59.381937+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib whole PLAN plus additional constructor/stats/fragment/floor and caller status/run scopes"
+    },
+    {
+      "chunk": "8eb795",
+      "pid": 35222,
+      "utc": "2026-10-06T09:27:40.522207+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib verify all10 original PLAN byte pins; no binary decode"
+    },
+    {
+      "pid": 35404,
+      "utc": "2026-10-06T09:29:50.726155+00:00",
+      "command": "python3 heredoc stdlib final10pins and exclusive WORTH/receipt write/readback; returned tool chunk/exit separate"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-worth/WORTH.md",
+      "bytes": 4485,
+      "sha256": "5c9fb4f3ebb8a5ddf06d59bb107a3f52b79874beae3c8b25043a430e1afae7a8"
+    }
+  ],
+  "limits": "Source-supported potential mismatch only, no empirical module failure, appearance, real user loss, execution/native admission or source candidate adoption. No target imports/tests/helpers/mock/source/GLB parsing; local text/hash reads and only these two exclusive writes. Full rigorous harness and owner/collection review remains necessary. No capability/absence claim follows the filename miss.",
+  "stops_utc": {
+    "worth": "2026-10-06T09:32:00Z",
+    "probe_if_separately_admitted": "2026-10-06T09:50:00Z"
+  },
+  "pending_edits": false
+}

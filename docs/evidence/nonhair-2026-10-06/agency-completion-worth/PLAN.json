@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-06T09:19:18.218215+00:00",
+  "pid": 34454,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "bytes": 23344,
+      "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49156,
+      "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency.selftest.mjs",
+      "bytes": 22290,
+      "sha256": "1d5992478bba9a5134ef7fd3a21f01625ef8d58776147f44dd417e0b801f7e02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "bytes": 11916776,
+      "sha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "bytes": 921176,
+      "sha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "bytes": 529028,
+      "sha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/fedora01/g050.glb",
+      "bytes": 7638760,
+      "sha256": "f7d35202a0606b7a4a81794e7fec07140de970b0b2cfbf3f9677345120fd4e27"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "bytes": 2345604,
+      "sha256": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+    }
+  ],
+  "usable_improvement": "If proved, prevent an obsolete agency completion falsely honouring a preference or overwriting persistence after a later user pin; otherwise preserve current code with a finite finding.",
+  "research_question": "Does current latest-request-wins real Wardrobe protect the later worn pin while unchanged Agency still changes preference/currentRequest on old completion?",
+  "decision": "Source worth review only. No defect asserted and no target admitted; actual evidence decides whether a small isolated candidate merits authorship.",
+  "witnesses": [
+    "Wardrobe.dress510\u2013541 advances dressToken and stale request returns current stats.",
+    "WardrobeAgency.#apply510\u2013535 awaits dress then unconditionally honours preference/currentRequest; pin280\u2013298 also commits after await.",
+    "Agency header says pinned user owns mode; existing agency.selftest is serial and does not demonstrate asynchronous ownership."
+  ],
+  "alternatives": [
+    {
+      "choice": "Guard agency completion with explicit request ownership after proving mismatch",
+      "tradeoff": "Small data-policy change can preserve truthful preference/pin state; requires meaningful obsolete/normal/failure tests and compatibility review."
+    },
+    {
+      "choice": "Serialize all changes at agency boundary",
+      "tradeoff": "Makes completion order predictable but can delay newer wearer choice and alter Wardrobe latest-request behavior; no automatic admission."
+    }
+  ],
+  "proposed_probe": "One root-owned bounded Node invocation over unchanged Agency and real Wardrobe/g050/foundation, injected local GLTF fragment loader with explicitly held promise. Two finite overlap schedules plus sequential control, actual worn/pin/preference/currentRequest/persisted bytes compared to caller requests. No renderer/HTTP/native/personalstore or repeating old gate. Full literal harness must pass source review before execution.",
+  "proposed_reference": "One supplied official MDN await page if worth A; explain suspension only, not empirical project defect. No query/crawl/design image needed for this data-policy decision.",
+  "stops_utc": {
+    "worth": "2026-10-06T09:32:00Z",
+    "probe_if_separately_admitted": "2026-10-06T09:50:00Z"
+  },
+  "probe_caps": "30s outer,20s child,512MiB Node heap,stdout/stderr caps,local built assets only,temporary memory stores,finite deferred promises released in finally; one invocation no retry/rescue on failure.",
+  "preserve": "FullAAA/defaults/assets/originalfrozen/unrelated/checklist17/10/Vite/recovery retained; no wardrobe appearance/fit/human UI loss inferred; human check-in/pause wins."
+}

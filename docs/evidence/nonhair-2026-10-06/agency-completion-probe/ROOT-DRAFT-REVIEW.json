@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-06T09:22:47.863681+00:00",
+  "pid": 34773,
+  "source_authorship_correction": "Root noticed five-level dirname traversal would resolve GitHub rather than repo before any import/execution. Initial literal preserved; current four-level traversal resolves repo. No target/runtime defect or target retry.",
+  "initial_sha256": "197058485ecd22090abff07351318415d8ae6084a4cb8e4a68bcae272072a4c5",
+  "current_sha256": "efef65995111d47c2cdecd18bbdbed3d95fbf95a2e2d9397ea220d016a4edd0f",
+  "current_bytes": 8069,
+  "resolved_root": "/Users/robault/GitHub/sugata-avatar",
+  "glb_header_metadata": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+      "buffers": 1,
+      "images": 6,
+      "external_uris": 0
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "buffers": 1,
+      "images": 0,
+      "external_uris": 0
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "buffers": 1,
+      "images": 0,
+      "external_uris": 0
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/fedora01/g050.glb",
+      "buffers": 1,
+      "images": 2,
+      "external_uris": 0
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb",
+      "buffers": 1,
+      "images": 2,
+      "external_uris": 0
+    }
+  ],
+  "execution": "none"
+}

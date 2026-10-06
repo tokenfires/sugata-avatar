@@ -1,0 +1,141 @@
+// Inert until the root source gate admits one invocation. Real unchanged Wardrobe/Agency,
+// local built assets, controlled loader promise; no renderer or personal persistence.
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../..');
+const leaf = path.dirname(fileURLToPath(import.meta.url));
+const inputs = JSON.parse(fs.readFileSync(path.join(leaf, 'INPUTS.json'), 'utf8'));
+for (const row of inputs.files) {
+    const bytes = fs.readFileSync(row.path);
+    if (bytes.length !== row.bytes || createHash('sha256').update(bytes).digest('hex') !== row.sha256)
+        throw new Error(`Input changed before probe: ${row.path}`);
+}
+globalThis.self ??= globalThis;
+globalThis.createImageBitmap ??= async () => ({ width: 1, height: 1, close() {} });
+const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
+const { Figure } = await import(pathToFileURL(path.join(root, 'packages/core/src/figure/Figure.js')));
+const { GarmentManifest } = await import(pathToFileURL(path.join(root, 'packages/core/src/wardrobe/GarmentManifest.js')));
+const { FoundationLayer } = await import(pathToFileURL(path.join(root, 'packages/core/src/wardrobe/FoundationLayer.js')));
+const { Wardrobe } = await import(pathToFileURL(path.join(root, 'packages/core/src/wardrobe/Wardrobe.js')));
+const { WardrobeAgency, MemoryStore, STORE_KEY_PREFIX } = await import(pathToFileURL(path.join(root, 'packages/core/src/wardrobe/WardrobeAgency.js')));
+const mood = { layer: 'mood', pleasure: 0, arousal: 0, dominance: 0 };
+const manifestPath = path.join(root, 'assets/wardrobe/manifest.json');
+const manifestSource = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const events = [];
+async function loadGltf(filePath) {
+    const bytes = fs.readFileSync(filePath);
+    const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+    return new Promise((resolve, reject) => new GLTFLoader().parse(buffer, '', resolve, reject));
+}
+async function rig(holdFedora) {
+    const manifest = new GarmentManifest(manifestSource, pathToFileURL(manifestPath).href);
+    const foundation = new FoundationLayer(manifest, {});
+    const figure = new Figure(await loadGltf(path.join(root, 'assets/wardrobe/body/g050.glb')));
+    let release, enteredResolve;
+    const entered = new Promise(resolve => { enteredResolve = resolve; });
+    const gate = new Promise(resolve => { release = resolve; });
+    const wardrobe = new Wardrobe(figure, manifest, {
+        decencyFloor: foundation.floor,
+        loadFragment: async (url, id) => {
+            if (holdFedora && id === 'fedora01') { enteredResolve(); await gate; }
+            return loadGltf(fileURLToPath(url));
+        }
+    });
+    const store = new MemoryStore();
+    const agency = new WardrobeAgency(wardrobe, {
+        dresser: { choose: () => ['fedora01'], explain: () => 'fixed probe request, no taste model' },
+        store, profile: 'isolated-completion-probe', clock: () => 1_000_000
+    });
+    try { await agency.wake(); }
+    catch (error) { release(); wardrobe.dispose(); figure.dispose(); throw error; }
+    return { agency, wardrobe, figure, foundation, store, release, entered };
+}
+function snapshot(r) {
+    const raw = r.store.read(`${STORE_KEY_PREFIX}:isolated-completion-probe`);
+    return {
+        agency: r.agency.state(), currentRequest: r.agency.currentRequest,
+        preferences: r.agency.preferences, wardrobe: r.wardrobe.stats(),
+        floor: r.foundation.currentFloor(), storedRaw: raw,
+        stored: raw === null ? null : JSON.parse(raw)
+    };
+}
+function saved(r) { return JSON.parse(JSON.stringify(snapshot(r))); }
+function outcome(o) {
+    return { applied: o.applied, status: o.status ?? null, reason: o.reason,
+        preference: o.preference, stats: o.stats };
+}
+function same(a, b) { return JSON.stringify([...a].sort()) === JSON.stringify([...b].sort()); }
+async function collectCase(name, hold, exercise) {
+    const r = await rig(hold);
+    const own = [];
+    const record = { name, initial: saved(r) };
+    try {
+        await exercise(r, record, own);
+        record.final = saved(r);
+        record.floorOn = record.final.floor.every(id => record.final.wardrobe.worn.includes(id));
+        record.pendingFragments = r.wardrobe.pendingFragments.size;
+    } finally {
+        r.release();
+        const settled = await Promise.allSettled(own);
+        record.ownedPromises = settled.map(s => ({ status: s.status, ...(s.status === 'rejected' ? { error: String(s.reason) } : {}) }));
+        r.wardrobe.dispose(); r.figure.dispose();
+        record.cleanup = { wardrobeDisposed: r.wardrobe.disposed, pendingFragments: r.wardrobe.pendingFragments.size };
+        events.push(record);
+    }
+}
+await collectCase('slow-consider-then-successful-user-pin', true, async (r, record, own) => {
+    r.agency.setMode('agent', { by: 'user' });
+    const old = r.agency.consider({ mood }); own.push(old);
+    await r.entered;
+    record.olderRequest = ['fedora01']; record.newerUserRequest = ['shoes01'];
+    record.held = saved(r);
+    const pin = r.agency.pin(record.newerUserRequest, { by: 'user' }); own.push(pin);
+    record.pinResult = await pin;
+    record.afterNewerPin = saved(r);
+    r.release(); record.oldOutcome = outcome(await old);
+    const end = saved(r);
+    record.observation = {
+        wornStillNewerPin: same(end.wardrobe.worn, record.afterNewerPin.wardrobe.worn),
+        pinStillHolds: end.agency.pinHolds,
+        oldReportedApplied: record.oldOutcome.applied,
+        oldRecordedHonoured: end.preferences[0]?.honoured,
+        currentRequestMatchesNewerUserRequest: same(end.currentRequest, record.newerUserRequest),
+        persistedRequestMatchesNewerUserRequest: same(end.stored.currentRequest, record.newerUserRequest)
+    };
+});
+await collectCase('slow-user-pin-then-successful-newer-user-pin', true, async (r, record, own) => {
+    record.olderUserRequest = ['fedora01']; record.newerUserRequest = ['shoes01'];
+    const old = r.agency.pin(record.olderUserRequest, { by: 'user' }); own.push(old);
+    await r.entered; record.held = saved(r);
+    const newer = r.agency.pin(record.newerUserRequest, { by: 'user' }); own.push(newer);
+    record.newerResult = await newer; record.afterNewerPin = saved(r);
+    r.release(); record.olderResult = await old;
+    const end = saved(r);
+    record.observation = {
+        wornStillNewerPin: same(end.wardrobe.worn, record.afterNewerPin.wardrobe.worn),
+        pinStillHolds: end.agency.pinHolds,
+        pinnedRecordMatchesWorn: same(end.agency.pinnedOutfit, end.wardrobe.worn),
+        currentRequestMatchesNewerUserRequest: same(end.currentRequest, record.newerUserRequest),
+        persistedRequestMatchesNewerUserRequest: same(end.stored.currentRequest, record.newerUserRequest)
+    };
+});
+await collectCase('sequential-consider-then-user-pin-control', false, async (r, record, own) => {
+    r.agency.setMode('agent', { by: 'user' });
+    const old = r.agency.consider({ mood }); own.push(old);
+    record.considerOutcome = outcome(await old); record.afterConsider = saved(r);
+    const pin = r.agency.pin(['shoes01'], { by: 'user' }); own.push(pin);
+    record.pinResult = await pin;
+    const end = saved(r);
+    record.observation = {
+        consideredFedoraActuallyWorn: record.afterConsider.wardrobe.worn.includes('fedora01'),
+        considerReportedApplied: record.considerOutcome.applied,
+        considerRecordedHonoured: record.afterConsider.preferences[0]?.honoured,
+        currentRequestMatchesUserPin: same(end.currentRequest, ['shoes01']),
+        persistedRequestMatchesUserPin: same(end.stored.currentRequest, ['shoes01']),
+        pinStillHolds: end.agency.pinHolds
+    };
+});
+console.log(JSON.stringify({ pid: process.pid, node: process.version, events,
+    limits: 'CPU data-policy only; bitmap1x1 stubs/no renderer/no pixels/fit/taste/human loss or performance acceptance.' }, null, 2));
