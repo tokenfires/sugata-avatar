@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-06T02:55:35.093389+00:00",
+  "decision": "A exactproposal inertsource only",
+  "plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/PLAN.json",
+    "bytes": 4221,
+    "sha256": "484c431ad78a8b6726b12e266229aedc3668cdd73b72bdd7ec752c115cde5092"
+  },
+  "data_gate": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/ROOT-CLOSE.json",
+    "bytes": 2202,
+    "sha256": "6ac18f42ddca7bdcb5b714a1c0a64e3060c5ae5a9495863668f54029edaea289"
+  },
+  "no_native": true,
+  "fixed_stops": {
+    "source_preparation": "2026-10-06T03:20:00Z",
+    "critic": "2026-10-06T03:40:00Z",
+    "root": "2026-10-06T03:50:00Z"
+  }
+}

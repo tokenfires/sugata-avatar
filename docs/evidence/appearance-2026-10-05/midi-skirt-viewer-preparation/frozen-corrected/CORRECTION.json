@@ -1,0 +1,50 @@
+{
+  "stable_utc": "2026-10-06T03:13:31.389055+00:00",
+  "finding": "F1 actualruntimegeometry/material/camera/frame observation omitted",
+  "root_witness": "650e3b;8b9732/04dfae fullinitialcritic;562bd6 independently32pins/frozen14v1files",
+  "sole_grouped_correction": "Metadata from actualassignedattributes/index/group/material/light/renderer/camera/frustum/matrices/perpass; rawassignedCPUstorageSHA, noGPUbufferreadback. Allnewdigest/callerawaitguarded. No originalgeometry/normal algorithm/frame/palette/light/camera/render/lifetime setting change.",
+  "syntax": {
+    "tool": "79365f/exit0",
+    "command": "/Users/robault/.brv-cli/bin/node --check docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/preview.mjs",
+    "scope": "syntaxonly; no targetimport/evaluation"
+  },
+  "current": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/preview.mjs",
+      "bytes": 14103,
+      "sha256": "efabc733d305c8c5697c1c35bea3cc063b579165d552ef72e89200dd73f70e5b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/review.html",
+      "bytes": 1731,
+      "sha256": "4bb1fb9019c39906fd607b518df2c3b2cdfbf8fb82ce4ae8b18511dd5fb71558"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/VIEWER-CONTRACT.md",
+      "bytes": 10993,
+      "sha256": "14387df2e5c6df1f38675ae6e5de980fb365165fb9234bd634865863c549cfa0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/SELECTED-INSTALLED.json",
+      "bytes": 36444,
+      "sha256": "76a08050c387abc6c0e49c334469d100b68e27d2f6ff56a5b4743f3a833f560a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/DEPENDENCIES.json",
+      "bytes": 3027,
+      "sha256": "71530beda67f426dff418a4ab994637ade38925e796170284ebc3b2b1f06a8e0"
+    }
+  ],
+  "initial_frozen": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-viewer-preparation/V1-FROZEN.json",
+    "bytes": 8254,
+    "sha256": "0070dad6f2c7be7ce05075219c0c8e085f7b9780c8a3cefba157f629013c0d73"
+  },
+  "no_native": true,
+  "remaining_source_corrections": 0,
+  "stops": {
+    "source": "2026-10-06T03:20:00Z",
+    "critic": "2026-10-06T03:40:00Z",
+    "root": "2026-10-06T03:50:00Z"
+  }
+}

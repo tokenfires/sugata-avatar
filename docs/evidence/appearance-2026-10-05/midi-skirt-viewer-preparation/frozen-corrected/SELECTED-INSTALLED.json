@@ -1,0 +1,249 @@
+{
+  "utc": "2026-10-06T03:02:09.411750+00:00",
+  "scope": "Selectedactualinstalledsource only; fullbyteidentity not wholeimplementationcert",
+  "selections": [
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+        "bytes": 108498,
+        "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+      },
+      "selected_line_ranges": [
+        [
+          1,
+          85
+        ],
+        [
+          259,
+          305
+        ],
+        [
+          320,
+          445
+        ],
+        [
+          584,
+          610
+        ],
+        [
+          650,
+          695
+        ],
+        [
+          785,
+          875
+        ],
+        [
+          1068,
+          1125
+        ]
+      ],
+      "text": [
+        "import {\n\tREVISION,\n\tBackSide,\n\tFrontSide,\n\tDoubleSide,\n\tHalfFloatType,\n\tUnsignedByteType,\n\tNoToneMapping,\n\tLinearMipmapLinearFilter,\n\tSRGBColorSpace,\n\tRGBAIntegerFormat,\n\tRGIntegerFormat,\n\tRedIntegerFormat,\n\tUnsignedIntType,\n\tUnsignedShortType,\n\tUnsignedInt248Type,\n\tUnsignedShort4444Type,\n\tUnsignedShort5551Type,\n\tWebGLCoordinateSystem\n} from '../constants.js';\nimport { Color } from '../math/Color.js';\nimport { Frustum } from '../math/Frustum.js';\nimport { Matrix4 } from '../math/Matrix4.js';\nimport { Vector3 } from '../math/Vector3.js';\nimport { Vector4 } from '../math/Vector4.js';\nimport { WebGLAnimation } from './webgl/WebGLAnimation.js';\nimport { WebGLAttributes } from './webgl/WebGLAttributes.js';\nimport { WebGLBackground } from './webgl/WebGLBackground.js';\nimport { WebGLBindingStates } from './webgl/WebGLBindingStates.js';\nimport { WebGLBufferRenderer } from './webgl/WebGLBufferRenderer.js';\nimport { WebGLCapabilities } from './webgl/WebGLCapabilities.js';\nimport { WebGLClipping } from './webgl/WebGLClipping.js';\nimport { WebGLEnvironments } from './webgl/WebGLEnvironments.js';\nimport { WebGLExtensions } from './webgl/WebGLExtensions.js';\nimport { WebGLGeometries } from './webgl/WebGLGeometries.js';\nimport { WebGLIndexedBufferRenderer } from './webgl/WebGLIndexedBufferRenderer.js';\nimport { WebGLInfo } from './webgl/WebGLInfo.js';\nimport { WebGLMorphtargets } from './webgl/WebGLMorphtargets.js';\nimport { WebGLObjects } from './webgl/WebGLObjects.js';\nimport { WebGLOutput } from './webgl/WebGLOutput.js';\nimport { WebGLPrograms } from './webgl/WebGLPrograms.js';\nimport { WebGLProperties } from './webgl/WebGLProperties.js';\nimport { WebGLRenderLists } from './webgl/WebGLRenderLists.js';\nimport { WebGLRenderStates } from './webgl/WebGLRenderStates.js';\nimport { WebGLRenderTarget } from './WebGLRenderTarget.js';\nimport { WebGLShadowMap } from './webgl/WebGLShadowMap.js';\nimport { WebGLState } from './webgl/WebGLState.js';\nimport { WebGLTextures } from './webgl/WebGLTextures.js';\nimport { WebGLUniforms } from './webgl/WebGLUniforms.js';\nimport { WebGLUtils } from './webgl/WebGLUtils.js';\nimport { WebXRManager } from './webxr/WebXRManager.js';\nimport { WebGLMaterials } from './webgl/WebGLMaterials.js';\nimport { WebGLUniformsGroups } from './webgl/WebGLUniformsGroups.js';\nimport { createCanvasElement, probeAsync, error, warn, log } from '../utils.js';\nimport { ColorManagement } from '../math/ColorManagement.js';\nimport { getDFGLUT } from './shaders/DFGLUTData.js';\n\n/**\n * This renderer uses WebGL 2 to display scenes.\n *\n * WebGL 1 is not supported since `r163`.\n */\nclass WebGLRenderer {\n\n\t/**\n\t * Constructs a new WebGL renderer.\n\t *\n\t * @param {WebGLRenderer~Options} [parameters] - The configuration parameter.\n\t */\n\tconstructor( parameters = {} ) {\n\n\t\tconst {\n\t\t\tcanvas = createCanvasElement(),\n\t\t\tcontext = null,\n\t\t\tdepth = true,\n\t\t\tstencil = false,\n\t\t\talpha = false,\n\t\t\tantialias = false,\n\t\t\tpremultipliedAlpha = true,\n\t\t\tpreserveDrawingBuffer = false,\n\t\t\tpowerPreference = 'default',\n\t\t\tfailIfMajorPerformanceCaveat = false,\n\t\t\treversedDepthBuffer = false,\n\t\t\toutputBufferType = UnsignedByteType,\n\t\t} = parameters;\n",
+        "\t\tthis.localClippingEnabled = false;\n\n\t\t// tone mapping\n\n\t\t/**\n\t\t * The tone mapping technique of the renderer.\n\t\t *\n\t\t * @type {(NoToneMapping|LinearToneMapping|ReinhardToneMapping|CineonToneMapping|ACESFilmicToneMapping|CustomToneMapping|AgXToneMapping|NeutralToneMapping)}\n\t\t * @default NoToneMapping\n\t\t */\n\t\tthis.toneMapping = NoToneMapping;\n\n\t\t/**\n\t\t * Exposure level of tone mapping.\n\t\t *\n\t\t * @type {number}\n\t\t * @default 1\n\t\t */\n\t\tthis.toneMappingExposure = 1.0;\n\n\t\t// transmission\n\n\t\t/**\n\t\t * The normalized resolution scale for the transmission render target, measured in percentage\n\t\t * of viewport dimensions. Lowering this value can result in significant performance improvements\n\t\t * when using {@link MeshPhysicalMaterial#transmission}.\n\t\t *\n\t\t * @type {number}\n\t\t * @default 1\n\t\t */\n\t\tthis.transmissionResolutionScale = 1.0;\n\n\t\t// internal properties\n\n\t\tconst _this = this;\n\n\t\tlet _isContextLost = false;\n\t\tlet _nodesHandler = null;\n\n\t\tlet _scratchFramebuffer = null;\n\t\tlet _srcFramebuffer = null;\n\t\tlet _dstFramebuffer = null;\n\n\t\t// internal state cache\n\n\t\tthis._outputColorSpace = SRGBColorSpace;\n\n",
+        "\t\t//\n\n\t\tlet _width = canvas.width;\n\t\tlet _height = canvas.height;\n\n\t\tlet _pixelRatio = 1;\n\t\tlet _opaqueSort = null;\n\t\tlet _transparentSort = null;\n\n\t\tconst _viewport = new Vector4( 0, 0, _width, _height );\n\t\tconst _scissor = new Vector4( 0, 0, _width, _height );\n\t\tlet _scissorTest = false;\n\n\t\t// frustum\n\n\t\tconst _frustum = new Frustum();\n\n\t\t// clipping\n\n\t\tlet _clippingEnabled = false;\n\t\tlet _localClippingEnabled = false;\n\n\t\t// camera matrices cache\n\n\t\tconst _projScreenMatrix = new Matrix4();\n\n\t\tconst _vector3 = new Vector3();\n\n\t\tconst _vector4 = new Vector4();\n\n\t\tconst _emptyScene = { background: null, fog: null, environment: null, overrideMaterial: null, isScene: true };\n\n\t\tlet _renderBackground = false;\n\n\t\tfunction getTargetPixelRatio() {\n\n\t\t\treturn _currentRenderTarget === null ? _pixelRatio : 1;\n\n\t\t}\n\n\t\t// initialize\n\n\t\tlet _gl = context;\n\n\t\tfunction getContext( contextName, contextAttributes ) {\n\n\t\t\treturn canvas.getContext( contextName, contextAttributes );\n\n\t\t}\n\n\t\ttry {\n\n\t\t\tconst contextAttributes = {\n\t\t\t\talpha: true,\n\t\t\t\tdepth,\n\t\t\t\tstencil,\n\t\t\t\tantialias,\n\t\t\t\tpremultipliedAlpha,\n\t\t\t\tpreserveDrawingBuffer,\n\t\t\t\tpowerPreference,\n\t\t\t\tfailIfMajorPerformanceCaveat,\n\t\t\t};\n\n\t\t\t// OffscreenCanvas does not have setAttribute, see #22811\n\t\t\tif ( 'setAttribute' in canvas ) canvas.setAttribute( 'data-engine', `three.js r${REVISION}` );\n\n\t\t\t// event listeners must be registered before WebGL context is created, see #12753\n\t\t\tcanvas.addEventListener( 'webglcontextlost', onContextLost, false );\n\t\t\tcanvas.addEventListener( 'webglcontextrestored', onContextRestore, false );\n\t\t\tcanvas.addEventListener( 'webglcontextcreationerror', onContextCreationError, false );\n\n\t\t\tif ( _gl === null ) {\n\n\t\t\t\tconst contextName = 'webgl2';\n\n\t\t\t\t_gl = getContext( contextName, contextAttributes );\n\n\t\t\t\tif ( _gl === null ) {\n\n\t\t\t\t\tif ( getContext( contextName ) ) {\n\n\t\t\t\t\t\tthrow new Error( 'THREE.WebGLRenderer: Error creating WebGL context with your selected attributes.' );\n\n\t\t\t\t\t} else {\n\n\t\t\t\t\t\tthrow new Error( 'THREE.WebGLRenderer: Error creating WebGL context.' );\n\n\t\t\t\t\t}\n\n\t\t\t\t}\n\n\t\t\t}\n\n\t\t} catch ( e ) {\n\n\t\t\terror( 'WebGLRenderer: ' + e.message );\n\t\t\tthrow e;\n\n\t\t}\n\n\t\tlet extensions, capabilities, state, info;\n\t\tlet properties, textures, environments, attributes, geometries, objects;\n\t\tlet programCache, materials, renderLists, renderStates, clipping, shadowMap;\n\n\t\tlet background, morphtargets, bufferRenderer, indexedBufferRenderer;\n\n\t\tlet utils, bindingStates, uniformsGroups;\n\n\t\tfunction initGLContext() {\n\n\t\t\textensions = new WebGLExtensions( _gl );\n\t\t\textensions.init();\n\n\t\t\tutils = new WebGLUtils( _gl, extensions );\n\n\t\t\tcapabilities = new WebGLCapabilities( _gl, extensions, parameters, utils );\n\n\t\t\tstate = new WebGLState( _gl, extensions );\n\n\t\t\tif ( capabilities.reversedDepthBuffer && reversedDepthBuffer ) {\n\n\t\t\t\tstate.buffers.depth.setReversed( true );\n\n\t\t\t}\n\n\t\t\t_scratchFramebuffer = _gl.createFramebuffer();\n",
+        "\t\t * @return {WebGLContextAttributes} The rendering context attributes.\n\t\t */\n\t\tthis.getContextAttributes = function () {\n\n\t\t\treturn _gl.getContextAttributes();\n\n\t\t};\n\n\t\t/**\n\t\t * Simulates a loss of the WebGL context. This requires support for the `WEBGL_lose_context` extension.\n\t\t */\n\t\tthis.forceContextLoss = function () {\n\n\t\t\tconst extension = extensions.get( 'WEBGL_lose_context' );\n\t\t\tif ( extension ) extension.loseContext();\n\n\t\t};\n\n\t\t/**\n\t\t * Simulates a restore of the WebGL context. This requires support for the `WEBGL_lose_context` extension.\n\t\t */\n\t\tthis.forceContextRestore = function () {\n\n\t\t\tconst extension = extensions.get( 'WEBGL_lose_context' );\n\t\t\tif ( extension ) extension.restoreContext();\n\n\t\t};\n",
+        "\t\t/**\n\t\t * Resizes the output canvas to (width, height) with device pixel ratio taken\n\t\t * into account, and also sets the viewport to fit that size, starting in (0,\n\t\t * 0). Setting `updateStyle` to false prevents any style changes to the output canvas.\n\t\t *\n\t\t * @param {number} width - The width in logical pixels.\n\t\t * @param {number} height - The height in logical pixels.\n\t\t * @param {boolean} [updateStyle=true] - Whether to update the `style` attribute of the canvas or not.\n\t\t */\n\t\tthis.setSize = function ( width, height, updateStyle = true ) {\n\n\t\t\tif ( xr.isPresenting ) {\n\n\t\t\t\twarn( 'WebGLRenderer: Can\\'t change size while VR device is presenting.' );\n\t\t\t\treturn;\n\n\t\t\t}\n\n\t\t\t_width = width;\n\t\t\t_height = height;\n\n\t\t\tcanvas.width = Math.floor( width * _pixelRatio );\n\t\t\tcanvas.height = Math.floor( height * _pixelRatio );\n\n\t\t\tif ( updateStyle === true ) {\n\n\t\t\t\tcanvas.style.width = width + 'px';\n\t\t\t\tcanvas.style.height = height + 'px';\n\n\t\t\t}\n\n\t\t\tif ( output !== null ) {\n\n\t\t\t\toutput.setSize( canvas.width, canvas.height );\n\n\t\t\t}\n\n\t\t\tthis.setViewport( 0, 0, width, height );\n\n\t\t};\n\n\t\t/**\n\t\t * Returns the drawing buffer size in physical pixels. This method honors the pixel ratio.\n\t\t *\n\t\t * @param {Vector2} target - The method writes the result in this target object.\n\t\t * @return {Vector2} The drawing buffer size.\n",
+        "\t\t};\n\n\t\t/**\n\t\t * Sets the viewport to render from `(x, y)` to `(x + width, y + height)`.\n\t\t *\n\t\t * @param {number | Vector4} x - The horizontal coordinate for the lower left corner of the viewport origin in logical pixel unit.\n\t\t * Or alternatively a four-component vector specifying all the parameters of the viewport.\n\t\t * @param {number} y - The vertical coordinate for the lower left corner of the viewport origin  in logical pixel unit.\n\t\t * @param {number} width - The width of the viewport in logical pixel unit.\n\t\t * @param {number} height - The height of the viewport in logical pixel unit.\n\t\t */\n\t\tthis.setViewport = function ( x, y, width, height ) {\n\n\t\t\tif ( x.isVector4 ) {\n\n\t\t\t\t_viewport.set( x.x, x.y, x.z, x.w );\n\n\t\t\t} else {\n\n\t\t\t\t_viewport.set( x, y, width, height );\n\n\t\t\t}\n\n\t\t\tstate.viewport( _currentViewport.copy( _viewport ).multiplyScalar( _pixelRatio ).round() );\n\n\t\t};\n\n\t\t/**\n\t\t * Returns the scissor region.\n\t\t *\n\t\t * @param {Vector4} target - The method writes the result in this target object.\n\t\t * @return {Vector4} The scissor region.\n\t\t */\n\t\tthis.getScissor = function ( target ) {\n\n\t\t\treturn target.copy( _scissor );\n\n\t\t};\n\n\t\t/**\n\t\t * Sets the scissor region to render from `(x, y)` to `(x + width, y + height)`.\n\t\t *\n\t\t * @param {number | Vector4} x - The horizontal coordinate for the lower left corner of the scissor region origin in logical pixel unit.\n\t\t * Or alternatively a four-component vector specifying all the parameters of the scissor region.\n\t\t * @param {number} y - The vertical coordinate for the lower left corner of the scissor region origin  in logical pixel unit.\n\t\t * @param {number} width - The width of the scissor region in logical pixel unit.\n\t\t * @param {number} height - The height of the scissor region in logical pixel unit.\n\t\t */\n\t\tthis.setScissor = function ( x, y, width, height ) {\n\n\t\t\tif ( x.isVector4 ) {\n\n\t\t\t\t_scissor.set( x.x, x.y, x.z, x.w );\n\n\t\t\t} else {\n\n\t\t\t\t_scissor.set( x, y, width, height );\n\n\t\t\t}\n\n\t\t\tstate.scissor( _currentScissor.copy( _scissor ).multiplyScalar( _pixelRatio ).round() );\n\n\t\t};\n\n\t\t/**\n\t\t * Returns `true` if the scissor test is enabled.\n\t\t *\n\t\t * @return {boolean} Whether the scissor test is enabled or not.\n\t\t */\n\t\tthis.getScissorTest = function () {\n\n\t\t\treturn _scissorTest;\n\n\t\t};\n\n\t\t/**\n\t\t * Enable or disable the scissor test. When this is enabled, only the pixels\n\t\t * within the defined scissor area will be affected by further renderer\n\t\t * actions.\n\t\t *\n\t\t * @param {boolean} boolean - Whether the scissor test is enabled or not.\n\t\t */\n\t\tthis.setScissorTest = function ( boolean ) {\n\n\t\t\tstate.setScissorTest( _scissorTest = boolean );\n\n\t\t};\n\n\t\t/**\n\t\t * Sets a custom opaque sort function for the render lists. Pass `null`\n\t\t * to use the default `painterSortStable` function.\n",
+        "\t\t};\n\n\t\t/**\n\t\t * Frees the GPU-related resources allocated by this instance. Call this\n\t\t * method whenever this instance is no longer used in your app.\n\t\t */\n\t\tthis.dispose = function () {\n\n\t\t\tcanvas.removeEventListener( 'webglcontextlost', onContextLost, false );\n\t\t\tcanvas.removeEventListener( 'webglcontextrestored', onContextRestore, false );\n\t\t\tcanvas.removeEventListener( 'webglcontextcreationerror', onContextCreationError, false );\n\n\t\t\tbackground.dispose();\n\t\t\trenderLists.dispose();\n\t\t\trenderStates.dispose();\n\t\t\tproperties.dispose();\n\t\t\tenvironments.dispose();\n\t\t\tobjects.dispose();\n\t\t\tbindingStates.dispose();\n\t\t\tuniformsGroups.dispose();\n\t\t\tprogramCache.dispose();\n\n\t\t\txr.dispose();\n\n\t\t\txr.removeEventListener( 'sessionstart', onXRSessionStart );\n\t\t\txr.removeEventListener( 'sessionend', onXRSessionEnd );\n\n\t\t\tanimation.stop();\n\n\t\t};\n\n\t\t// Events\n\n\t\tfunction onContextLost( event ) {\n\n\t\t\tevent.preventDefault();\n\n\t\t\tlog( 'WebGLRenderer: Context Lost.' );\n\n\t\t\t_isContextLost = true;\n\n\t\t}\n\n\t\tfunction onContextRestore( /* event */ ) {\n\n\t\t\tlog( 'WebGLRenderer: Context Restored.' );\n\n\t\t\t_isContextLost = false;\n\n\t\t\tconst infoAutoReset = info.autoReset;\n\t\t\tconst shadowMapEnabled = shadowMap.enabled;\n\t\t\tconst shadowMapAutoUpdate = shadowMap.autoUpdate;\n\t\t\tconst shadowMapNeedsUpdate = shadowMap.needsUpdate;\n\t\t\tconst shadowMapType = shadowMap.type;\n\n\t\t\tinitGLContext();\n\n\t\t\tinfo.autoReset = infoAutoReset;\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+        "bytes": 34470,
+        "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+      },
+      "selected_line_ranges": [
+        [
+          225,
+          250
+        ],
+        [
+          285,
+          305
+        ],
+        [
+          329,
+          352
+        ],
+        [
+          1464,
+          1485
+        ]
+      ],
+      "text": [
+        "\t * Sets the given index to this geometry.\n\t *\n\t * @param {Array<number>|BufferAttribute} index - The index to set.\n\t * @return {BufferGeometry} A reference to this instance.\n\t */\n\tsetIndex( index ) {\n\n\t\tif ( Array.isArray( index ) ) {\n\n\t\t\tthis.index = new ( arrayNeedsUint32( index ) ? Uint32BufferAttribute : Uint16BufferAttribute )( index, 1 );\n\n\t\t} else {\n\n\t\t\tthis.index = index;\n\n\t\t}\n\n\t\treturn this;\n\n\t}\n\n\t/**\n\t * Sets the given indirect attribute to this geometry.\n\t *\n\t * @param {BufferAttribute} indirect - The attribute holding indirect draw calls.\n\t * @param {number|Array<number>} [indirectOffset=0] - The offset, in bytes, into the indirect drawing buffer where the value data begins. If an array is provided, multiple indirect draw calls will be made for each offset.\n",
+        "\n\t/**\n\t * Sets the given attribute for the given name.\n\t *\n\t * @param {string} name - The attribute name.\n\t * @param {BufferAttribute|InterleavedBufferAttribute} attribute - The attribute to set.\n\t * @return {BufferGeometry} A reference to this instance.\n\t */\n\tsetAttribute( name, attribute ) {\n\n\t\tthis.attributes[ name ] = attribute;\n\n\t\treturn this;\n\n\t}\n\n\t/**\n\t * Deletes the attribute for the given name.\n\t *\n\t * @param {string} name - The attribute name to delete.\n\t * @return {BufferGeometry} A reference to this instance.\n",
+        "\t *\n\t * @param {number} start - The first element in this draw call. That is the first\n\t * vertex for non-indexed geometry, otherwise the first triangle index.\n\t * @param {number} count - Specifies how many vertices (or indices) are part of this group.\n\t * @param {number} [materialIndex=0] - The material array index to use.\n\t */\n\taddGroup( start, count, materialIndex = 0 ) {\n\n\t\tthis.groups.push( {\n\n\t\t\tstart: start,\n\t\t\tcount: count,\n\t\t\tmaterialIndex: materialIndex\n\n\t\t} );\n\n\t}\n\n\t/**\n\t * Clears all groups.\n\t */\n\tclearGroups() {\n\n\t\tthis.groups = [];\n",
+        "\t}\n\n\t/**\n\t * Frees the GPU-related resources allocated by this instance. Call this\n\t * method whenever this instance is no longer used in your app.\n\t *\n\t * @fires BufferGeometry#dispose\n\t */\n\tdispose() {\n\n\t\tthis.dispatchEvent( { type: 'dispose' } );\n\n\t}\n\n}\n\nexport { BufferGeometry };\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/DirectionalLight.js",
+        "bytes": 2837,
+        "sha256": "142b2d35911bb8c52d6465b4841729cc4616166e4486c61b4959281454af2644"
+      },
+      "selected_line_ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "text": [
+        "import { Light } from './Light.js';\nimport { DirectionalLightShadow } from './DirectionalLightShadow.js';\nimport { Object3D } from '../core/Object3D.js';\n\n/**\n * A light that gets emitted in a specific direction. This light will behave\n * as though it is infinitely far away and the rays produced from it are all\n * parallel. The common use case for this is to simulate daylight; the sun is\n * far enough away that its position can be considered to be infinite, and\n * all light rays coming from it are parallel.\n *\n * A common point of confusion for directional lights is that setting the\n * rotation has no effect. This is because three.js's DirectionalLight is the\n * equivalent to what is often called a 'Target Direct Light' in other\n * applications.\n *\n * This means that its direction is calculated as pointing from the light's\n * {@link Object3D#position} to the {@link DirectionalLight#target} position\n * (as opposed to a 'Free Direct Light' that just has a rotation\n * component).\n *\n * This light can cast shadows - see the {@link DirectionalLightShadow} for details.\n *\n * ```js\n * // White directional light at half intensity shining from the top.\n * const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );\n * scene.add( directionalLight );\n * ```\n *\n * @augments Light\n */\nclass DirectionalLight extends Light {\n\n\t/**\n\t * Constructs a new directional light.\n\t *\n\t * @param {(number|Color|string)} [color=0xffffff] - The light's color.\n\t * @param {number} [intensity=1] - The light's strength/intensity.\n\t */\n\tconstructor( color, intensity ) {\n\n\t\tsuper( color, intensity );\n\n\t\t/**\n\t\t * This flag can be used for type testing.\n\t\t *\n\t\t * @type {boolean}\n\t\t * @readonly\n\t\t * @default true\n\t\t */\n\t\tthis.isDirectionalLight = true;\n\n\t\tthis.type = 'DirectionalLight';\n\n\t\tthis.position.copy( Object3D.DEFAULT_UP );\n\t\tthis.updateMatrix();\n\n\t\t/**\n\t\t * The directional light points from its position to the\n\t\t * target's position.\n\t\t *\n\t\t * For the target's position to be changed to anything other\n\t\t * than the default, it must be added to the scene.\n\t\t *\n\t\t * It is also possible to set the target to be another 3D object\n\t\t * in the scene. The light will now track the target object.\n\t\t *\n\t\t * @type {Object3D}\n\t\t */\n\t\tthis.target = new Object3D();\n\n\t\t/**\n\t\t * This property holds the light's shadow configuration.\n\t\t *\n\t\t * @type {DirectionalLightShadow}\n\t\t */\n\t\tthis.shadow = new DirectionalLightShadow();\n\n\t}\n\n\tdispose() {\n\n\t\tsuper.dispose();\n\n\t\tthis.shadow.dispose();\n\n\t}\n\n\tcopy( source ) {\n\n\t\tsuper.copy( source );\n\n\t\tthis.target = source.target.clone();\n\t\tthis.shadow = source.shadow.clone();\n\n\t\treturn this;\n\n\t}\n\n\ttoJSON( meta ) {\n\n\t\tconst data = super.toJSON( meta );\n\n\t\tdata.object.shadow = this.shadow.toJSON();\n\t\tdata.object.target = this.target.uuid;\n\n\t\treturn data;\n\n\t}\n\n}\n\nexport { DirectionalLight };\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/Light.js",
+        "bytes": 1449,
+        "sha256": "3c06d07fb1ff6bb3e6a78a03ac8301afb2f0f488b420c44e6e89756d9a91b44b"
+      },
+      "selected_line_ranges": [
+        [
+          45,
+          65
+        ]
+      ],
+      "text": [
+        "\t\t * @default 1\n\t\t */\n\t\tthis.intensity = intensity;\n\n\t}\n\n\t/**\n\t * Frees the GPU-related resources allocated by this instance. Call this\n\t * method whenever this instance is no longer used in your app.\n\t */\n\tdispose() {\n\n\t\tthis.dispatchEvent( { type: 'dispose' } );\n\n\t}\n\n\tcopy( source, recursive ) {\n\n\t\tsuper.copy( source, recursive );\n\n\t\tthis.color.copy( source.color );\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/LightShadow.js",
+        "bytes": 8268,
+        "sha256": "d4d3faaaae0ad570174674d125f863ad8a1695ee4a1c548fdb891f0c66c1dde4"
+      },
+      "selected_line_ranges": [
+        [
+          257,
+          285
+        ]
+      ],
+      "text": [
+        "\tgetFrameExtents() {\n\n\t\treturn this._frameExtents;\n\n\t}\n\n\t/**\n\t * Frees the GPU-related resources allocated by this instance. Call this\n\t * method whenever this instance is no longer used in your app.\n\t */\n\tdispose() {\n\n\t\tif ( this.map ) {\n\n\t\t\tthis.map.dispose();\n\n\t\t}\n\n\t\tif ( this.mapPass ) {\n\n\t\t\tthis.mapPass.dispose();\n\n\t\t}\n\n\t}\n\n\t/**\n\t * Copies the values of the given light shadow instance to this instance.\n\t *\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/ColorManagement.js",
+        "bytes": 5639,
+        "sha256": "0c8ff5b0a220e736ceb68bb845ff30605b3c7850ebd8f37ff242907295fab949"
+      },
+      "selected_line_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "text": [
+        "import { SRGBColorSpace, LinearSRGBColorSpace, SRGBTransfer, LinearTransfer, NoColorSpace } from '../constants.js';\nimport { Matrix3 } from './Matrix3.js';\nimport { warnOnce } from '../utils.js';\n\nconst LINEAR_REC709_TO_XYZ = /*@__PURE__*/ new Matrix3().set(\n\t0.4123908, 0.3575843, 0.1804808,\n\t0.2126390, 0.7151687, 0.0721923,\n\t0.0193308, 0.1191948, 0.9505322\n);\n\nconst XYZ_TO_LINEAR_REC709 = /*@__PURE__*/ new Matrix3().set(\n\t3.2409699, - 1.5373832, - 0.4986108,\n\t- 0.9692436, 1.8759675, 0.0415551,\n\t0.0556301, - 0.2039770, 1.0569715\n);\n\nfunction createColorManagement() {\n\n\tconst ColorManagement = {\n\n\t\tenabled: true,\n\n\t\tworkingColorSpace: LinearSRGBColorSpace,\n\n\t\t/**\n\t\t * Implementations of supported color spaces.\n\t\t *\n\t\t * Required:\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/MeshStandardMaterial.js",
+        "bytes": 13835,
+        "sha256": "c1dc5c36d5360498cccae2513dae74349de62a48a9ed19b540cf3d7905a03a1f"
+      },
+      "selected_line_ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "text": [
+        "import { TangentSpaceNormalMap } from '../constants.js';\nimport { Material } from './Material.js';\nimport { Vector2 } from '../math/Vector2.js';\nimport { Color } from '../math/Color.js';\nimport { Euler } from '../math/Euler.js';\n\n/**\n * A standard physically based material, using Metallic-Roughness workflow.\n *\n * Physically based rendering (PBR) has recently become the standard in many\n * 3D applications, such as [Unity](https://blogs.unity3d.com/2014/10/29/physically-based-shading-in-unity-5-a-primer/),\n * [Unreal](https://docs.unrealengine.com/latest/INT/Engine/Rendering/Materials/PhysicallyBased/) and\n * [3D Studio Max](http://area.autodesk.com/blogs/the-3ds-max-blog/what039s-new-for-rendering-in-3ds-max-2017).\n *\n * This approach differs from older approaches in that instead of using\n * approximations for the way in which light interacts with a surface, a\n * physically correct model is used. The idea is that, instead of tweaking\n * materials to look good under specific lighting, a material can be created\n * that will react 'correctly' under all lighting scenarios.\n *\n * In practice this gives a more accurate and realistic looking result than\n * the {@link MeshLambertMaterial} or {@link MeshPhongMaterial}, at the cost of\n * being somewhat more computationally expensive. `MeshStandardMaterial` uses per-fragment\n * shading.\n *\n * Note that for best results you should always specify an environment map when using this material.\n *\n * For a non-technical introduction to the concept of PBR and how to set up a\n * PBR material, check out these articles by the people at [marmoset](https://www.marmoset.co):\n *\n * - [Basic Theory of Physically Based Rendering](https://www.marmoset.co/posts/basic-theory-of-physically-based-rendering/)\n * - [Physically Based Rendering and You Can Too](https://www.marmoset.co/posts/physically-based-rendering-and-you-can-too/)\n *\n * Technical details of the approach used in three.js (and most other PBR systems) can be found is this\n * [paper from Disney](https://media.disneyanimation.com/uploads/production/publication_asset/48/asset/s2012_pbs_disney_brdf_notes_v3.pdf)\n * (pdf), by Brent Burley.\n *\n * @augments Material\n * @demo scenes/material-browser.html#MeshStandardMaterial\n */\nclass MeshStandardMaterial extends Material {\n\n\t/**\n\t * Constructs a new mesh standard material.\n\t *\n\t * @param {Object} [parameters] - An object with one or more properties\n\t * defining the material's appearance. Any property of the material\n\t * (including any property from inherited materials) can be passed\n\t * in here. Color values can be passed any type of value accepted\n\t * by {@link Color#set}.\n\t */\n\tconstructor( parameters ) {\n\n\t\tsuper();\n\n\t\t/**\n\t\t * This flag can be used for type testing.\n\t\t *\n\t\t * @type {boolean}\n\t\t * @readonly\n\t\t * @default true\n\t\t */\n\t\tthis.isMeshStandardMaterial = true;\n\n\t\tthis.type = 'MeshStandardMaterial';\n\n\t\tthis.defines = { 'STANDARD': '' };\n\n\t\t/**\n\t\t * Color of the material.\n\t\t *\n\t\t * @type {Color}\n\t\t * @default (1,1,1)\n\t\t */\n\t\tthis.color = new Color( 0xffffff ); // diffuse\n\n\t\t/**\n\t\t * How rough the material appears. `0.0` means a smooth mirror reflection, `1.0`\n\t\t * means fully diffuse. If `roughnessMap` is also provided,\n\t\t * both values are multiplied.\n\t\t *\n\t\t * @type {number}\n\t\t * @default 1\n\t\t */\n\t\tthis.roughness = 1.0;\n\n\t\t/**\n\t\t * How much the material is like a metal. Non-metallic materials such as wood\n\t\t * or stone use `0.0`, metallic use `1.0`, with nothing (usually) in between.\n\t\t * A value between `0.0` and `1.0` could be used for a rusty metal look.\n\t\t * If `metalnessMap` is also provided, both values are multiplied.\n\t\t *\n\t\t * @type {number}\n\t\t * @default 0\n\t\t */\n\t\tthis.metalness = 0.0;\n\n\t\t/**\n\t\t * The color map. May optionally include an alpha channel, typically combined\n\t\t * with {@link Material#transparent} or {@link Material#alphaTest}. The texture map\n\t\t * color is modulated by the diffuse `color`.\n\t\t *\n\t\t * `map` represents color data, and the texture must be assigned a\n\t\t * {@link Texture#colorSpace}. Most `map` textures set\n\t\t * `texture.colorSpace = SRGBColorSpace`.\n\t\t *\n\t\t * @type {?Texture}\n\t\t * @default null\n\t\t */\n\t\tthis.map = null;\n\n\t\t/**\n\t\t * The light map. Requires a second set of UVs.\n\t\t *\n\t\t * `lightMap` represents pre-baked illuminance data, and the texture must be assigned\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/webgl/WebGLProgram.js",
+        "bytes": 31134,
+        "sha256": "a341febd40f5f16253c1fd624f6ae7d0ca34b7a5411fcee1699b87962081ec72"
+      },
+      "selected_line_ranges": [
+        [
+          850,
+          925
+        ]
+      ],
+      "text": [
+        "\t} else if ( parameters.hasPositionAttribute === true ) {\n\n\t\t// below avoids the \"Attribute 0 is disabled\" performance penalty\n\n\t\tgl.bindAttribLocation( program, 0, 'position' );\n\n\t}\n\n\tgl.linkProgram( program );\n\n\tfunction onFirstUse( self ) {\n\n\t\t// check for link errors\n\t\tif ( renderer.debug.checkShaderErrors ) {\n\n\t\t\tconst programInfoLog = gl.getProgramInfoLog( program ) || '';\n\t\t\tconst vertexShaderInfoLog = gl.getShaderInfoLog( glVertexShader ) || '';\n\t\t\tconst fragmentShaderInfoLog = gl.getShaderInfoLog( glFragmentShader ) || '';\n\n\t\t\tconst programLog = programInfoLog.trim();\n\t\t\tconst vertexLog = vertexShaderInfoLog.trim();\n\t\t\tconst fragmentLog = fragmentShaderInfoLog.trim();\n\n\t\t\tlet runnable = true;\n\t\t\tlet haveDiagnostics = true;\n\n\t\t\tif ( gl.getProgramParameter( program, gl.LINK_STATUS ) === false ) {\n\n\t\t\t\trunnable = false;\n\n\t\t\t\tif ( typeof renderer.debug.onShaderError === 'function' ) {\n\n\t\t\t\t\trenderer.debug.onShaderError( gl, program, glVertexShader, glFragmentShader );\n\n\t\t\t\t} else {\n\n\t\t\t\t\t// default error reporting\n\n\t\t\t\t\tconst vertexErrors = getShaderErrors( gl, glVertexShader, 'vertex' );\n\t\t\t\t\tconst fragmentErrors = getShaderErrors( gl, glFragmentShader, 'fragment' );\n\n\t\t\t\t\terror(\n\t\t\t\t\t\t'WebGLProgram: Shader Error ' + gl.getError() + ' - ' +\n\t\t\t\t\t\t'VALIDATE_STATUS ' + gl.getProgramParameter( program, gl.VALIDATE_STATUS ) + '\\n\\n' +\n\t\t\t\t\t\t'Material Name: ' + self.name + '\\n' +\n\t\t\t\t\t\t'Material Type: ' + self.type + '\\n\\n' +\n\t\t\t\t\t\t'Program Info Log: ' + programLog + '\\n' +\n\t\t\t\t\t\tvertexErrors + '\\n' +\n\t\t\t\t\t\tfragmentErrors\n\t\t\t\t\t);\n\n\t\t\t\t}\n\n\t\t\t} else if ( programLog !== '' ) {\n\n\t\t\t\twarn( 'WebGLProgram: Program Info Log:', programLog );\n\n\t\t\t} else if ( vertexLog === '' || fragmentLog === '' ) {\n\n\t\t\t\thaveDiagnostics = false;\n\n\t\t\t}\n\n\t\t\tif ( haveDiagnostics ) {\n\n\t\t\t\tself.diagnostics = {\n\n\t\t\t\t\trunnable: runnable,\n\n\t\t\t\t\tprogramLog: programLog,\n\n\t\t\t\t\tvertexShader: {\n\n\t\t\t\t\t\tlog: vertexLog,\n\t\t\t\t\t\tprefix: prefixVertex\n\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+        "bytes": 108498,
+        "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+      },
+      "selected_line_ranges": [
+        [
+          575,
+          592
+        ],
+        [
+          611,
+          624
+        ],
+        [
+          774,
+          787
+        ],
+        [
+          896,
+          911
+        ]
+      ],
+      "text": [
+        "\t\tthis.getContext = function () {\n\n\t\t\treturn _gl;\n\n\t\t};\n\n\t\t/**\n\t\t * Returns the rendering context attributes.\n\t\t *\n\t\t * @return {WebGLContextAttributes} The rendering context attributes.\n\t\t */\n\t\tthis.getContextAttributes = function () {\n\n\t\t\treturn _gl.getContextAttributes();\n\n\t\t};\n\n\t\t/**\n",
+        "\n\t\t/**\n\t\t * Returns the pixel ratio.\n\t\t *\n\t\t * @return {number} The pixel ratio.\n\t\t */\n\t\tthis.getPixelRatio = function () {\n\n\t\t\treturn _pixelRatio;\n\n\t\t};\n\n\t\t/**\n\t\t * Sets the given pixel ratio and resizes the canvas if necessary.\n",
+        "\n\t\t/**\n\t\t * Returns the viewport definition.\n\t\t *\n\t\t * @param {Vector4} target - The method writes the result in this target object.\n\t\t * @return {Vector4} The viewport definition.\n\t\t */\n\t\tthis.getViewport = function ( target ) {\n\n\t\t\treturn target.copy( _viewport );\n\n\t\t};\n\n\t\t/**\n",
+        "\n\t\t// Clearing\n\n\t\t/**\n\t\t * Returns the clear color.\n\t\t *\n\t\t * @param {Color} target - The method writes the result in this target object.\n\t\t * @return {Color} The clear color.\n\t\t */\n\t\tthis.getClearColor = function ( target ) {\n\n\t\t\treturn target.copy( background.getClearColor() );\n\n\t\t};\n\n\t\t/**\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+        "bytes": 34470,
+        "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+      },
+      "selected_line_ranges": [
+        [
+          210,
+          223
+        ],
+        [
+          272,
+          284
+        ]
+      ],
+      "text": [
+        "\n\t}\n\n\t/**\n\t * Returns the index of this geometry.\n\t *\n\t * @return {?BufferAttribute} The index. Returns `null` if no index is defined.\n\t */\n\tgetIndex() {\n\n\t\treturn this.index;\n\n\t}\n\n",
+        "\n\t/**\n\t * Returns the buffer attribute for the given name.\n\t *\n\t * @param {string} name - The attribute name.\n\t * @return {BufferAttribute|InterleavedBufferAttribute|undefined} The buffer attribute.\n\t * Returns `undefined` if not attribute has been found.\n\t */\n\tgetAttribute( name ) {\n\n\t\treturn this.attributes[ name ];\n\n\t}\n"
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Color.js",
+        "bytes": 25857,
+        "sha256": "cec06093018d8a4e9aad19a3a6825ceb1a76995fb7f3b8c21eff7ffea78f44f7"
+      },
+      "selected_line_ranges": [
+        [
+          525,
+          557
+        ]
+      ],
+      "text": [
+        "\tconvertLinearToSRGB() {\n\n\t\tthis.copyLinearToSRGB( this );\n\n\t\treturn this;\n\n\t}\n\n\t/**\n\t * Returns the hexadecimal value of this color.\n\t *\n\t * @param {string} [colorSpace=SRGBColorSpace] - The color space.\n\t * @return {number} The hexadecimal value.\n\t */\n\tgetHex( colorSpace = SRGBColorSpace ) {\n\n\t\tColorManagement.workingToColorSpace( _color.copy( this ), colorSpace );\n\n\t\treturn Math.round( clamp( _color.r * 255, 0, 255 ) ) * 65536 + Math.round( clamp( _color.g * 255, 0, 255 ) ) * 256 + Math.round( clamp( _color.b * 255, 0, 255 ) );\n\n\t}\n\n\t/**\n\t * Returns the hexadecimal value of this color as a string (for example, 'FFFFFF').\n\t *\n\t * @param {string} [colorSpace=SRGBColorSpace] - The color space.\n\t * @return {string} The hexadecimal value as a string.\n\t */\n\tgetHexString( colorSpace = SRGBColorSpace ) {\n\n\t\treturn ( '000000' + this.getHex( colorSpace ).toString( 16 ) ).slice( - 6 );\n\n\t}\n"
+      ]
+    }
+  ],
+  "correction_scope": "Newgetter selections only; wholeoldsource selections preserved",
+  "correction_utc": "2026-10-06T03:13:31.388493+00:00"
+}
