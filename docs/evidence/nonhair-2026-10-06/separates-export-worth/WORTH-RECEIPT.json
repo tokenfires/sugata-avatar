@@ -1,0 +1,116 @@
+{
+  "collected_utc": "2026-10-06T12:58:55.910931+00:00",
+  "writer_pid": 14951,
+  "decision": "B duplicate nominal tee/denim export preparation; no experiment or immediate successor admitted",
+  "result_words": 252,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/separates-export-worth/PLAN.json",
+      "bytes": 3151,
+      "sha256": "05644912017b6bf99f5e58ccdf82b19e884ed96c9210f56f3fb4107027b86f14",
+      "read_scope": "entire exact3151-byte proposal"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/separates-export-worth/ROOT-WITNESS.json",
+      "bytes": 3424,
+      "sha256": "2b558d8522ff212b0fa578a792c575e2fc074974fbe6c7dea372e9d7a880fa88",
+      "read_scope": "entire corrected3424-byte parent witness; old unmeasured wording correction retained as metadata only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WARDROBE-SEPARATES-CONTRACT-2026-10-03.md",
+      "bytes": 4791,
+      "sha256": "fa57749407f8c03e7772553515d7f551bf6fbeb50f1070ca624ef747cd7676e6",
+      "read_scope": "whole27 lines, directly referenced document1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/garment-separates-worth/CLOSEOUT.md",
+      "bytes": 1355,
+      "sha256": "6ee55fce816c9a2042b6d23f531f0831c4980c31cb7aca887926291103bb5900",
+      "read_scope": "whole7 lines, directly referenced document2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/garment-separates-worth/WORTH.md",
+      "bytes": 4016,
+      "sha256": "5f473acc89dae041d4f332799b0a61c9a72e8a3464c44bc876af64996288b90c",
+      "read_scope": "whole17 lines, directly referenced document3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "read_scope": "whole byte hash; selected43\u201350/66 only, not full roadmap semantic review"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5960,
+      "sha256": "2bb0709ad54908bf78b996d421b9b91e8c1e1cef817c42128df6b0bad0f502b5",
+      "read_scope": "whole byte hash; selected38\u201351 only; prior whole read reused at same pin, no status change"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/foundation-refresh-adoption/FROZEN.json",
+      "bytes": 1500,
+      "sha256": "99d1cb0fbeabc3a028b9df71ad51c1d785616049d91c1080ceab22ebc622d86f",
+      "read_scope": "whole byte hash only, no product/oldproof re-audit"
+    }
+  ],
+  "verified_rows": {
+    "PLAN": 4,
+    "ROOT_WITNESS": 6,
+    "directly_referenced_contract_closure_worth_documents": 3
+  },
+  "finding": {
+    "witness": "Whole contract16/20\u201327, previous CLOSEOUT3/7 and WORTH3/5/13/17 versus currentPLAN bounded_question/decision/inputs",
+    "classification": "Previously closed duplicate with no new complete per-piece owner input",
+    "explanation": "Exact source partitions/attribute provenance remain a lead; another export does not author independent body/foundation coverage, exposed waist/hem, materials/IDs/slots or coupled wearable qualification."
+  },
+  "jobs": [
+    {
+      "chunk": "e489e7",
+      "pid": 9351,
+      "utc": "2026-10-06T12:55:39.200192Z",
+      "exit": 0,
+      "command": "python3 stdlib whole exactPLAN/ROOT-WITNESS text and hashes"
+    },
+    {
+      "chunk": "966fe6",
+      "pid": 10500,
+      "utc": "2026-10-06T12:56:18.755942Z",
+      "exit": 0,
+      "command": "python3 stdlib all4+6input bytepins/wholecontract27+priorclose7+priorworth17 and selectedroadmap43\u201350/66/checklist38\u201351"
+    },
+    {
+      "pid": 14951,
+      "utc": "2026-10-06T12:58:55.910931+00:00",
+      "command": "python3 stdlib final4+6pins and exclusive <=300word WORTH/receipt complete readback; outputchunk/exit separate"
+    }
+  ],
+  "retained_errors": [],
+  "parent_metadata_only_correction": "ROOT-WITNESS retains its priorhash/unmeasured381wordless phrase and correction. No target/source failure inferred; no historical payload overwritten.",
+  "alternatives": [
+    {
+      "choice": "A wait for a genuinely new complete artist-owned coverage/boundary/material/slot interface",
+      "tradeoff": "Can change a later source decision but requires substantive new input; no such next experiment nominated"
+    },
+    {
+      "choice": "B retain combined outfits/partitionlead and close this nomination",
+      "tradeoff": "Avoids duplicate unqualified exports; independent pieces and wearable goals remain open; selected"
+    }
+  ],
+  "next": "None admitted. No renamed split/export/parser/source/capture retry and no immediate successor without a new literal owner.",
+  "limits": "Local source-document duplicate-screening only; no GLB/header/JSON/BIN/mesh/image/source decode or evaluation, Node/import/test/helper/build/globalrunner/browser/network/imagegen/capture, no source/product/prefs/storage/assets/default/original/frozen edits. No masks-absence/globalabsence/currentpixel/fit/bodycoverage/skin/skeleton/material/slot/wearability/AAA qualification inferred.17scoped10broad/fullroadmap and closedroutes remain.",
+  "stops": {
+    "root_source_inquiry": "2026-10-06T13:05:00Z",
+    "critic_worth_inquiry": "2026-10-06T13:20:00Z",
+    "worth_collection": "2026-10-06T13:25:00Z",
+    "root_close": "2026-10-06T13:30:00Z"
+  },
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/separates-export-worth/WORTH.md",
+      "bytes": 2025,
+      "sha256": "e50d183fe7bd668e9e7e76dfb0006b54eb6307c13b8c3802d16e2e47790d3d7f",
+      "read_scope": "complete own exclusive result readback"
+    }
+  ],
+  "pending_edits": false
+}
