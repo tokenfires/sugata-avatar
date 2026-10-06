@@ -1,0 +1,206 @@
+{
+  "decision": "A actualeight-case evidence/collection, B observednumberpreservation, A isolatedlimitedfixpreparation worth only",
+  "collected_utc": "2026-10-06T07:17:04.499105+00:00",
+  "writer_started_utc": "2026-10-06T07:17:04.498068+00:00",
+  "writer_pid": 22334,
+  "stable": true,
+  "pending_edits": false,
+  "critic_stop_utc": "2026-10-06T07:28:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "read_scope": "PLAN unchangedauthority wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d",
+      "read_scope": "PLAN unchangedauthority wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "read_scope": "PLAN unchangedauthority wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "read_scope": "PLAN unchangedauthority wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-fidelity-worth/ROOT-CLOSE.json",
+      "bytes": 938,
+      "sha256": "68e58fd2206d9d7d6d76e8c96bc5a57674b868fc337206348167bf15b8c0235c",
+      "read_scope": "PLAN unchangedauthority wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/probe.mjs",
+      "bytes": 5188,
+      "sha256": "fced8be8efb3d1ededd3157b9bc39e4258639cad5663e2796cb92fbc61727a94",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/run-probe.py",
+      "bytes": 3981,
+      "sha256": "026d372a2549ee254b0ff56f511ef2fecaa3bd9edb82e7a01e3451730266360d",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/PLAN.json",
+      "bytes": 2841,
+      "sha256": "7f446c2e2fc7be6362c04b795ce152dfdde3d0713ef40316e5b79d342f029fad",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-SOURCE-GATE.json",
+      "bytes": 684,
+      "sha256": "be412c6aa30fce9ef9cafe3e6077ed3f59e14858543dc282235f7b12119a7a0d",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-START.json",
+      "bytes": 407,
+      "sha256": "1e0df5679fbea0f336d584e1dd5cf6be9bf53eed501e2de66d8913cfed934ed4",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDOUT.txt",
+      "bytes": 10582,
+      "sha256": "cabda355eec162387db7cf2d508c5c395423c8650ac194c022f613dd87d8e1bf",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-PROCESS.json",
+      "bytes": 1004,
+      "sha256": "871cd1ca0631b9b2d4e95c8702c17cb13c6ec0151b7e15cf98ec1fb5ae8846ee",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/PROBE-JOB.json",
+      "bytes": 1262,
+      "sha256": "b51e20d193cba338da0e6770a8130783e43c754edbe8aa086804e4f6b2a7578d",
+      "read_scope": "ROOT actualprocess/output wholebytes and previouscomplete source review/actualwhole output read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-OBSERVATION.json",
+      "bytes": 5984,
+      "sha256": "d1216e00e13909ecac35de1e90f33a43c6b4ffd22d9b20bba1b07135db13c556",
+      "read_scope": "whole actualmetadata orpreviousfull independent sourcehandoff reused exactbytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/SOURCE-INPUTS.json",
+      "bytes": 797,
+      "sha256": "4b846b7e8878b3543c277452afe8b8c13827cfc705e0ec6cb5c79559724b5704",
+      "read_scope": "whole actualmetadata orpreviousfull independent sourcehandoff reused exactbytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/SOURCE-RESULT.json",
+      "bytes": 4547,
+      "sha256": "f99d6c469277d8d4c8a24a4ad4c0f36c4d971e3251e2f5e803eabb64541e13d4",
+      "read_scope": "whole actualmetadata orpreviousfull independent sourcehandoff reused exactbytes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 7104,
+      "sha256": "444bebc23fc6fd24ca9bb795df148d119af788824360d10c32d6cfef17793b85",
+      "read_scope": "whole actualmetadata orpreviousfull independent sourcehandoff reused exactbytes"
+    }
+  ],
+  "direct_input_count": 18,
+  "all5PLAN/3SOURCE/9ROOTpins_exact": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/RESULT.json",
+    "bytes": 7404,
+    "sha256": "19ab01db5d8f3da359e1b68423dff3b3da9a6d77d63dab9de26f45a9b67a8375",
+    "readback": "JSONvalue+UTF8 bytes"
+  },
+  "actual": {
+    "process": {
+      "command": [
+        "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--max-old-space-size=128",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/probe.mjs"
+      ],
+      "cwd": "/Users/robault/GitHub/sugata-avatar",
+      "parent_pid": 21172,
+      "child_pid": 21173,
+      "start_utc": "2026-10-06T07:08:14.057455+00:00",
+      "return_utc": "2026-10-06T07:08:14.131102+00:00",
+      "elapsed_seconds": 0.07353629200952128,
+      "exit_code": 0,
+      "timeout": false,
+      "child_reaped": true,
+      "streams_complete": true,
+      "errors": [],
+      "stdout_bytes": 10582,
+      "stderr_bytes": 0,
+      "output_limit": 65536,
+      "output_within_limit": true,
+      "scope": "30s child wait, then independent signal/drain up to5s; permission failures may leave uncollected child identified byPID. V8 heap flag not RSS cap; output size checked after collection not streaming cap. Partial raw prefixes retained; supervisor errors never replace child streams."
+    },
+    "outer_tool": "3f6e89",
+    "outer_exit": 0,
+    "outer_reported_wall_seconds": 5.917e-06,
+    "job_printed_process_equals_file": true,
+    "root_embedded_process_equals_file": true,
+    "all8rows_read": true,
+    "observedNodeVersion": "v24.19.0"
+  },
+  "independent_observer": {
+    "chunk": "af0317",
+    "pid": 21912,
+    "utc": "2026-10-06T07:13:25.644524Z",
+    "exit": 0,
+    "method": "savedrawJSON Decimal int/float lexemes preservezero sign; limitbinary64 mapping to two literals; comparebefore/after tags/IDorder/presence/writes/intermediate/Undo withouttargetcode",
+    "all8rawchecks_passed": true,
+    "all8source_literal_casepairs_present": true,
+    "all_actual_counterexamples_agree": true,
+    "removed_return": "actualbound taggedNode record only, notindependentlyrerun"
+  },
+  "commands_jobs": [
+    {
+      "chunk": "6ede52",
+      "pid": 21480,
+      "utc": "2026-10-06T07:09:57.179066Z",
+      "exit": 0,
+      "command": "python3 whole222lineSTDOUT/emptySTDERR/START/PROCESS/PROBEJOB/ROOTOBS read"
+    },
+    {
+      "chunk": "af0317",
+      "pid": 21912,
+      "utc": "2026-10-06T07:13:25.644524Z",
+      "exit": 0,
+      "command": "python3 independent savedrawDecimal semantic/targetID/write comparisons, wholeROOTSOURCEGATE read; no targetrun"
+    },
+    {
+      "pid": 22334,
+      "command": "python3 rawbytebindings/process/output equality and exclusive own2JSON writer"
+    }
+  ],
+  "recommended_fix_scope": "conservative targetnumberguard +typedexpectedcomparison +exactvalidatedsource-raw removalUndo +freshdetachedremovedreturn, preservingacceptedAPI andexisting tests; no fulllexeme promise",
+  "next_source_budget": "candidate<=300modulelines/newregression<=250lines plusunchanged137existingtests redirectimport only; futureexactcontract/testsupervisor/source/root review needed",
+  "rejected": [
+    "No realuserdata/browserloss inference",
+    "No fixedprobe replay/diagnostic ladder",
+    "No backupfeature/native rescue",
+    "No current acceptedmodule/test adoption/edit",
+    "No largelexemescanner fromlimiteddata",
+    "No all-number/all-data/rawprecision/cross-browser proof"
+  ],
+  "retained_errors": "Noneactualprobeunexpected/timeout/error; all8operation andtwoUndo statusesok; data counterexamples are trueobservations not supervisorfailures",
+  "status": {
+    "scoped_checked": 17,
+    "broad_open": 10
+  },
+  "next": "rootfullread/hash checkpoint actualprobe then separatecompletecandidate contract/source preparation ifapproved; no implementation/run adopted now"
+}

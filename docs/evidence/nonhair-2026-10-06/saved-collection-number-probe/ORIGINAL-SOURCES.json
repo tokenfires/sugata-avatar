@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-06T07:19:16.265841+00:00",
+  "source_git_parent": "6869709",
+  "purpose": "Exact pre-fix source recovery after later accepted-code changes; actual probe input bytes unchanged.",
+  "sources": [
+    {
+      "original_path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "snapshot": "ORIGINAL-showcase-collection.mjs.txt",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "original_path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "snapshot": "ORIGINAL-showcase-collection.selftest.mjs.txt",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d"
+    }
+  ]
+}

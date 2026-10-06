@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-06T07:08:13.998888+00:00",
+  "pid": 21171,
+  "decision": "A for exactly one unchanged-module memory probe invocation.",
+  "root_full_reads": [
+    "7b3b47 whole initial probe and supervisor plus a3b780 exact two authoring corrections",
+    "9a1e29 whole source result and receipt"
+  ],
+  "verified_bindings": 13,
+  "exact_initial_to_current_delta": true,
+  "command": [
+    "python3",
+    "docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/run-probe.py"
+  ],
+  "limits": "No product/personal storage/DOM/network/GPU; first actual error or timeout closes without rerun. Tagged individual rows, not aggregate alone, determine the later fix decision."
+}

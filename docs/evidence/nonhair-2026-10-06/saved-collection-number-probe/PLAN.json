@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-06T07:00:13.204807+00:00",
+  "pid": 20155,
+  "purpose": "Prove or refuse the predicted existing numeric mutation defect before choosing a fix.",
+  "command": [
+    "python3",
+    "docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/run-probe.py"
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-fidelity-worth/ROOT-CLOSE.json",
+      "bytes": 938,
+      "sha256": "68e58fd2206d9d7d6d76e8c96bc5a57674b868fc337206348167bf15b8c0235c"
+    }
+  ],
+  "cases": "Two literal numeric settings 1e400 and -0, each through Add, Remove-other, own Remove plus Undo, stale expected-item removal after external null/0 replacement. One invocation only.",
+  "oracle": "Exact raw before/intermediate/interleaved/after plus number tags and Object.is before output JSON. Only the two literal stale-item/Undo API refusal messages are observations; other exceptions or fixture contract failures stop. No predicted loss assertion.",
+  "limits": "30s child wait then up to5s kill/drain; 128MiB V8 old-space not RSS cap;64KiB output checked after collection, not streaming cap; literal finite8 cases. Only injected Map. No global/localStorage/DOM/network/renderer/personal collection.",
+  "stop": "First unexpected failure, timeout, uncollected child or excessive output closes this probe without retry or diagnostic ladder. No source mutation before/during it.",
+  "stops_utc": {
+    "source_critic": "2026-10-06T07:15:00Z",
+    "root_gate": "2026-10-06T07:18:00Z",
+    "execution": "2026-10-06T07:20:00Z",
+    "result_review": "2026-10-06T07:28:00Z"
+  },
+  "next": "Independent whole literal probe and supervisor source review; then root pin gate before sole invocation. Actual results must choose or refuse a separately reviewed fix contract.",
+  "preserved": "Accepted assets, defaults, frozen evidence, unrelated worktrees and full AAA roadmap; backup download path stays closed."
+}

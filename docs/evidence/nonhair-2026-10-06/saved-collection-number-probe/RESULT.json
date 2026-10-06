@@ -1,0 +1,67 @@
+{
+  "decision": "A \u2014 the one collected unchanged-module memory probe supplies actual eight-case numeric/stale-item counterexamples. B for the tested preservation behavior, A for preparing a separately reviewed limited candidate. No fix/adoption, human loss or normal supported-look loss is established.",
+  "collected_utc": "2026-10-06T07:17:04.499105+00:00",
+  "actual_process": {
+    "parent_pid": 21172,
+    "Node_pid": 21173,
+    "started_utc": "2026-10-06T07:08:14.057455+00:00",
+    "returned_utc": "2026-10-06T07:08:14.131102+00:00",
+    "parent_elapsed_seconds": 0.07353629200952128,
+    "exit": 0,
+    "streams_complete": true,
+    "child_reaped": true,
+    "timeout": false,
+    "errors": [],
+    "stdout_bytes": 10582,
+    "stderr_bytes": 0,
+    "node_version_observed": "v24.19.0",
+    "outer_tool": "3f6e89/exit0",
+    "timer_scope": "Parent internal interval and tool-reported microsecond wall field are retained limited clocks, not pure-child/whole-startup performance."
+  },
+  "independent_verification": "The full222-line rawstdout and all actual process/job/source records were read. Saved raw strings were independently decoded with Decimal for both integer and float lexemes, preserving negative-zero sign; numeric projection was limited to the two existing binary64 literals. All8 before/after tags, ID/order/presence, write strings and own-removal intermediate/Undo were checked without target import/replay. Removed-return tags are bound actual Node observations, not a rerun or independent returned-object reconstruction. All source/output pins match.",
+  "findings": [
+    {
+      "id": "F1",
+      "witness": "TEST-STDOUT cases1/2/5/6 (lines5-52/110-159); accepted SavedLooks50-61/63-73/100-105",
+      "explanation": "Successful Add and removal of the other entry replace the future configuration number1e400 with null, and negative zero with positive zero. The unrelated future ID/name remains, so this is a real configuration-meaning mutation in the injected fixture. No human collection was inspected.",
+      "alternatives": [
+        "A a small target-write guard refuses any serialized mutation whose remaining settings contain the selected unsafe decoded number kinds. It is auditable and preserves current data on refusal, but users must remove the problematic entry before some other mutations; it does not promise every numeric lexeme.",
+        "B a full lexeme-preserving metadata serializer permits more actions without changing original text. It requires scanner, duplicate-key/depth/roundtrip/staleness authority and substantially broader proof, beyond the present two-number evidence."
+      ]
+    },
+    {
+      "id": "F2",
+      "witness": "TEST-STDOUT cases3/7 (lines53-86/160-195), intermediateRaw/returned/undo/afterRaw; SavedLooks9/106-113",
+      "explanation": "Removing the unsafe target succeeds; its returned number is reported as null or positive zero. Undo succeeds but restores the target with that changed meaning. The independent raw check verifies target absence between calls, its later return with the same ID/order and transformed number, and both actual write strings. Original raw bytes were not restored.",
+      "alternatives": [
+        "A retain the exact validated pre-removal raw string for guarded Undo and return the already fresh parsed removed item detached from stored state and raw Undo. This avoids a lossy JSON copy or a new clone API and allows safe deletion when only the target is unsafe.",
+        "B add a broad lossless cloning/serialization representation covering arbitrary configuration lexemes. It offers more general preservation but increases data/API/proof scope without evidence that such expansion is required now."
+      ]
+    },
+    {
+      "id": "F3",
+      "witness": "TEST-STDOUT cases4/8 (lines87-109/196-218), interleavedRaw and afterRaw; SavedLooks103",
+      "explanation": "After the fixture changes the selected future number from overflow to null or from negative zero to zero, removal with the old selected item still succeeds and deletes the changed target. The persisted after state contains only other. Thus JSON.stringify-based expected-item equality misses these actual value distinctions. This is memory-only stale comparison, not a browser race measurement.",
+      "alternatives": [
+        "A a number-aware structural expected-item comparison uses Object.is for numbers and explicitly owns object/array/key distinctions, then retains the existing raw snapshot guard. It is small and rejects these stale selections without adding a parser.",
+        "B require an exact per-item raw lexical snapshot comparator, with a scanner/source-span owner. It can distinguish more lexical changes but is larger and not needed merely to distinguish these decoded meanings."
+      ]
+    }
+  ],
+  "next_candidate_worth": "A \u2014 prepare one isolated conservative candidate of the existing owner, with number-safe target serialization, typed expected comparison, exact validated source-raw removal Undo and detached removal return. Keep existing method signatures, key/version/count/name/metadata authority, normal supported configurations, finite unavailable data, exceptions/staleness/no-op/Undo and caller behavior. No backup wrapper/source/UI adoption or current accepted-module edit is admitted.",
+  "recommended_caps": "One isolated module at most300lines, at most250new regression-test lines, plus all137 existing tests with only the candidate import redirected and assertions/fixtures preserved. One separately reviewed bounded test owner can run existing96 enum coverage and added regressions at30s wait+5s cleanup,128MiB old-space and64KiB postcollection output. These are proposed caps for a future contract, not new deadlines/admission.",
+  "test_sufficiency": "The eight original counterexamples are necessary but not sufficient. Add nested arrays/objects and negative overflow, refusal/no-write/Undo-state preservation when unsafe records remain, safe removal when only the target is unsafe, exact raw Undo and detached-return mutation, stale null/zero comparisons, finite unavailable entries, all96 normal combinations, existing name/cap/schema/errors/interleaving/no-op cases and raw-Undo write failure/size validation. The actual fix contract must choose these predicates and preserve all existing assertions before execution. This qualifies limited decoded-number safety and exact removal Undo only, not all raw lexical precision, duplicate-key or arbitrary browser behavior.",
+  "closure": "The completed probe is not retried or modified. Closed backup download/event/controller/lifetime/transport/filepath/UI/native methods remain closed. A full byte-preserving serializer and any browser or real-user-store work require distinct authority; none is inherited.",
+  "limits": [
+    "One unchanged accepted-source Node v24.19.0 injected Map experiment; two literals/four cases only.",
+    "No actual human data loss, normal supported-look corruption, real browser race/storage/UI or AAA claim.",
+    "No target rerun/import, implementation/adoption, source/default/product/frozen edits, browser/GPU/network/backup rescue bycritic.",
+    "Only own RESULT.json and CRITIC-RECEIPT.json written; actual counterexamples justify candidate preparation, not proven fix."
+  ],
+  "stable": true,
+  "pending_edits": false,
+  "status": {
+    "scoped_checked": 17,
+    "broad_open": 10
+  }
+}

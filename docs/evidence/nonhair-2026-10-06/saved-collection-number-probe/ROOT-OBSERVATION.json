@@ -1,0 +1,125 @@
+{
+  "utc": "2026-10-06T07:09:08.543043+00:00",
+  "pid": 21311,
+  "decision": "Actual eight-case counterexample supports a separately reviewed targeted fix contract. No human data loss asserted.",
+  "root_whole_output_read": "708eb1 entire10582-byte stdout",
+  "independent_oracle": "Python JSON with both integer/float lexemes decoded as float to retain signed zero; inspect raw values and target identity separately from producer tags/predicate. No target rerun.",
+  "observations": [
+    {
+      "literal": "1e400",
+      "action": "add",
+      "independent_raw_observation": "Future number became null."
+    },
+    {
+      "literal": "1e400",
+      "action": "remove-other",
+      "independent_raw_observation": "Future number became null."
+    },
+    {
+      "literal": "1e400",
+      "action": "remove-own-undo",
+      "independent_raw_observation": "Future number became null. Removed return value and Undo both changed the number."
+    },
+    {
+      "literal": "1e400",
+      "action": "stale-expected",
+      "independent_raw_observation": "Changed target was removed using an obsolete selected item."
+    },
+    {
+      "literal": "-0",
+      "action": "add",
+      "independent_raw_observation": "Future negative zero became positive zero."
+    },
+    {
+      "literal": "-0",
+      "action": "remove-other",
+      "independent_raw_observation": "Future negative zero became positive zero."
+    },
+    {
+      "literal": "-0",
+      "action": "remove-own-undo",
+      "independent_raw_observation": "Future negative zero became positive zero. Removed return value and Undo both changed the number."
+    },
+    {
+      "literal": "-0",
+      "action": "stale-expected",
+      "independent_raw_observation": "Changed target was removed using an obsolete selected item."
+    }
+  ],
+  "actual_process": {
+    "command": [
+      "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "--max-old-space-size=128",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/probe.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "parent_pid": 21172,
+    "child_pid": 21173,
+    "start_utc": "2026-10-06T07:08:14.057455+00:00",
+    "return_utc": "2026-10-06T07:08:14.131102+00:00",
+    "elapsed_seconds": 0.07353629200952128,
+    "exit_code": 0,
+    "timeout": false,
+    "child_reaped": true,
+    "streams_complete": true,
+    "errors": [],
+    "stdout_bytes": 10582,
+    "stderr_bytes": 0,
+    "output_limit": 65536,
+    "output_within_limit": true,
+    "scope": "30s child wait, then independent signal/drain up to5s; permission failures may leave uncollected child identified byPID. V8 heap flag not RSS cap; output size checked after collection not streaming cap. Partial raw prefixes retained; supervisor errors never replace child streams."
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/probe.mjs",
+      "bytes": 5188,
+      "sha256": "fced8be8efb3d1ededd3157b9bc39e4258639cad5663e2796cb92fbc61727a94"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/run-probe.py",
+      "bytes": 3981,
+      "sha256": "026d372a2549ee254b0ff56f511ef2fecaa3bd9edb82e7a01e3451730266360d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/PLAN.json",
+      "bytes": 2841,
+      "sha256": "7f446c2e2fc7be6362c04b795ce152dfdde3d0713ef40316e5b79d342f029fad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-SOURCE-GATE.json",
+      "bytes": 684,
+      "sha256": "be412c6aa30fce9ef9cafe3e6077ed3f59e14858543dc282235f7b12119a7a0d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-START.json",
+      "bytes": 407,
+      "sha256": "1e0df5679fbea0f336d584e1dd5cf6be9bf53eed501e2de66d8913cfed934ed4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDOUT.txt",
+      "bytes": 10582,
+      "sha256": "cabda355eec162387db7cf2d508c5c395423c8650ac194c022f613dd87d8e1bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/TEST-PROCESS.json",
+      "bytes": 1004,
+      "sha256": "871cd1ca0631b9b2d4e95c8702c17cb13c6ec0151b7e15cf98ec1fb5ae8846ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/PROBE-JOB.json",
+      "bytes": 1262,
+      "sha256": "b51e20d193cba338da0e6770a8130783e43c754edbe8aa086804e4f6b2a7578d"
+    }
+  ],
+  "proposed_next": "Ask critic whether a bounded target-write number guard, strict number-aware selected-item comparison, exact raw removal Undo and detached returned removal item are worth implementing in an isolated candidate; preserve existing supported behavior.",
+  "alternatives": [
+    "A targeted conservative guard/comparator/raw Undo: smaller and auditable, refuses actions when remaining unknown settings would change; does not promise full lexical preservation.",
+    "B full configuration-lexeme mutation serializer: more capable but requires a scanner and substantially broader correctness/staleness proof, not currently justified."
+  ],
+  "limits": "Injected memory only, unchanged accepted module, two literal settings/four operations. No normal supported-look corruption, actual human loss, browser/UI or full lexical fidelity claim. No product fix adopted."
+}

@@ -676,3 +676,8 @@ Critic7a00ae/exit0/PID7694 stable04:53:53,result2870/145b0669d27efbe011a3fd948d2
 ## October 5, 23:59 Pacific — saved-look number inquiry worth
 
 [Source-only worth](evidence/nonhair-2026-10-06/saved-collection-number-fidelity-worth/README.md) A for one memory-only eight-case probe of unchanged accepted SavedLooks. Root fully reads independent result/receipt and verifies nine bindings; critic stable06:57:56UTC. Add/Remove/Undo serialization and stale expected-item comparison are plausible source risks, not proved losses. Next literal probe/supervisor review before any execution or fix. No product/personal storage/browser/default/asset change; closed backup download workflow remains closed.17 scoped checked/10 broad open/full roadmap and review server/recovery retained; newer human steering wins.
+
+
+## October 6, 00:20 Pacific — saved-look numeric defect proved in isolation
+
+[Exact counterexamples and source recovery](evidence/nonhair-2026-10-06/saved-collection-number-probe/README.md): one unchanged-module memory Node run07:08:14UTC/0.073536s/exit0, parent21172/child21173 collected,10582stdout/0stderr. Eight cases prove overflow/negative-zero normalization in Add/Remove-other/Undo and stale expected-item deletion; no human or normal supported-look loss inferred. Independent critic07:17:04/root fullhandoff and19bindings agree; separate saved-raw observers verify every case. Original module/tests preserved byte-for-byte. Next one small isolated guard/comparator/raw-Undo candidate with existing13groups/96settings plus targeted regressions and full source review. Product/default/assets/frozen/unrelated/full roadmap/17checked10open/review server/recovery unchanged; closed backup route retained.

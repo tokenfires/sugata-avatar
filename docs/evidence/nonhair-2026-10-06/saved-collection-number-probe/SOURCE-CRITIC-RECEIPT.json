@@ -1,0 +1,149 @@
+{
+  "decision": "A exactunexecutedprobe/supervisor source and firstmemoryrunworth only",
+  "collected_utc": "2026-10-06T07:06:37.845205+00:00",
+  "writer_started_utc": "2026-10-06T07:06:37.796024+00:00",
+  "writer_pid": 20965,
+  "stable": true,
+  "pending_edits": false,
+  "stops_utc": {
+    "source_critic": "2026-10-06T07:15:00Z",
+    "root_gate": "2026-10-06T07:18:00Z",
+    "execution": "2026-10-06T07:20:00Z",
+    "result_review": "2026-10-06T07:28:00Z"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 7433,
+      "sha256": "5e12dd8c37935069156d4b230e22cb7fa42b934067558c59e2967a232c631dbf",
+      "version_scope": "unchangedacceptedauthority",
+      "read_scope": "priorentire115lineacceptedmodule review reused unchangedpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.selftest.mjs",
+      "bytes": 14574,
+      "sha256": "e0b5cd7ebfae82c7a598590019ae35d91d5df9bf92ea2a1f7d45dee845aed29d",
+      "version_scope": "unchangedacceptedauthority",
+      "read_scope": "priorentire137lineacceptedtests review reused unchangedpin, notrun"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "version_scope": "unchangedacceptedauthority",
+      "read_scope": "priorentire97linecanonicaloption/report owner review reused unchangedpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "version_scope": "unchangedacceptedauthority",
+      "read_scope": "priorentire74linereconstruction owner review reused unchangedpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-fidelity-worth/ROOT-CLOSE.json",
+      "bytes": 938,
+      "sha256": "68e58fd2206d9d7d6d76e8c96bc5a57674b868fc337206348167bf15b8c0235c",
+      "version_scope": "unchangedacceptedauthority",
+      "read_scope": "priorworthclosure rawhash only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/probe.mjs",
+      "bytes": 5188,
+      "sha256": "fced8be8efb3d1ededd3157b9bc39e4258639cad5663e2796cb92fbc61727a94",
+      "version_scope": "currentunexecutedsource",
+      "read_scope": "whole77line currentliteral source"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/run-probe.py",
+      "bytes": 3981,
+      "sha256": "026d372a2549ee254b0ff56f511ef2fecaa3bd9edb82e7a01e3451730266360d",
+      "version_scope": "currentunexecutedsource",
+      "read_scope": "whole82line currentliteral supervisor"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/PLAN.json",
+      "bytes": 2841,
+      "sha256": "7f446c2e2fc7be6362c04b795ce152dfdde3d0713ef40316e5b79d342f029fad",
+      "version_scope": "currentunexecutedsource",
+      "read_scope": "whole48line currentplan/all5authoritypins"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/SOURCE-INPUTS.json",
+      "bytes": 797,
+      "sha256": "4b846b7e8878b3543c277452afe8b8c13827cfc705e0ec6cb5c79559724b5704",
+      "version_scope": "currentmap/originalpre-reviewdraft",
+      "read_scope": "whole20line map/all3sourcepins"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/ROOT-AUTHORING.json",
+      "bytes": 660,
+      "sha256": "13769878599ded02dda0aa4fdabb93607f18af25f3793b3396cbf355bfd91b99",
+      "version_scope": "currentmap/originalpre-reviewdraft",
+      "read_scope": "whole7linepre-gate maskcorrection metadata"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/initial-probe.mjs.txt",
+      "bytes": 4952,
+      "sha256": "efba4e225c6b0381e48a0eda2d921927aa45d467da59e51cd774ab711f9e8b93",
+      "version_scope": "currentmap/originalpre-reviewdraft",
+      "read_scope": "wholebytes/delta to current source; prior4952byte draft retained, notevaluated"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "bytes": 121306800,
+      "sha256": "27db838bb204ef7c21df2931f5656e4c8fb32e6e947f363a402b49714d32b5b1",
+      "version_scope": "read-onlyruntimebinarymetadata",
+      "read_scope": "statregular/xaccess/mode755 andwhole121306800byte hash only; noexecution/versioncommand"
+    }
+  ],
+  "direct_input_count": 12,
+  "all5PLANpins_exact": true,
+  "all3SOURCEpins_exact": true,
+  "initial_draft_pin_exact": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/SOURCE-RESULT.json",
+    "bytes": 4547,
+    "sha256": "f99d6c469277d8d4c8a24a4ad4c0f36c4d971e3251e2f5e803eabb64541e13d4",
+    "readback": "JSONvalue+UTF8 bytes"
+  },
+  "commands_jobs": [
+    {
+      "chunk": "4a4fd2",
+      "pid": 20352,
+      "utc": "2026-10-06T07:01:32.307113Z",
+      "exit": 0,
+      "command": "python3 wholePLAN/SOURCEINPUTS/ROOTauthoring/current77probe/82supervisor literalread"
+    },
+    {
+      "chunk": "86f056",
+      "pid": 20657,
+      "utc": "2026-10-06T07:04:02.375191Z",
+      "exit": 0,
+      "command": "python3 all5+3pins, initial4952byte source/delta, Node readonlystat/rawhash and evidenceabsence check"
+    },
+    {
+      "pid": 20965,
+      "command": "python3 stdlibbytepins/stat/exclusive own2JSON handoffwriter; no targetevaluation"
+    }
+  ],
+  "node_metadata": {
+    "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "regular_file": true,
+    "xaccess": true,
+    "mode": "0o755",
+    "bytes": 121306800,
+    "sha256": "27db838bb204ef7c21df2931f5656e4c8fb32e6e947f363a402b49714d32b5b1",
+    "invoked": false
+  },
+  "oracle_scope": "Exactrawstrings/taggedvaluekind/nonfinite/negativezero/Object.is observations beforeJSONreport, eightfixedcases; aggregate not a generalpreservation proof",
+  "pre_review_correction": "Initial4952byte broad-error-mask source retained withhash; current5188byte two-clausechange read in full; no test assertion/results weakened",
+  "rejections": [
+    "No unexpectedError converted to routineAPIrefusal",
+    "No realuserstorage/browser/GPU/network or backuprescue",
+    "No actualdefect/fix/lexeme-fidelity/wholeUIclaim",
+    "No test replay or source modification"
+  ],
+  "retained_errors": "No actualtrial yet; allfirst-run evidencefiles absent; no criticobservererror",
+  "next": "root independentlyfullread/verify exactsource/runtime beforeONE memory invocation; actualoutcome separate review, no automaticfix/native"
+}

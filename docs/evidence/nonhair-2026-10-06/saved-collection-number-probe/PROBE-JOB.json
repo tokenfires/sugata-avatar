@@ -1,0 +1,10 @@
+{
+  "command": "python3 docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/run-probe.py",
+  "tool_result": {
+    "chunk_id": "3f6e89",
+    "wall_time_seconds": 0.000005917,
+    "exit_code": 0,
+    "original_token_count": 238,
+    "output": "{\"command\": [\"/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node\", \"--max-old-space-size=128\", \"/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/saved-collection-number-probe/probe.mjs\"], \"cwd\": \"/Users/robault/GitHub/sugata-avatar\", \"parent_pid\": 21172, \"child_pid\": 21173, \"start_utc\": \"2026-10-06T07:08:14.057455+00:00\", \"return_utc\": \"2026-10-06T07:08:14.131102+00:00\", \"elapsed_seconds\": 0.07353629200952128, \"exit_code\": 0, \"timeout\": false, \"child_reaped\": true, \"streams_complete\": true, \"errors\": [], \"stdout_bytes\": 10582, \"stderr_bytes\": 0, \"output_limit\": 65536, \"output_within_limit\": true, \"scope\": \"30s child wait, then independent signal/drain up to5s; permission failures may leave uncollected child identified byPID. V8 heap flag not RSS cap; output size checked after collection not streaming cap. Partial raw prefixes retained; supervisor errors never replace child streams.\"}\n"
+  }
+}
