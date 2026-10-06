@@ -1,0 +1,128 @@
+{
+  "collected_utc": "2026-10-06T08:49:09.926525+00:00",
+  "writer_pid": 31542,
+  "decision": "A exact source suitability and A one registry operation worth only; no execution/native admission",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/SOURCE-INPUTS.json",
+      "bytes": 2240,
+      "sha256": "1648b1b0004ea50b014aea08db9a0fc23f90d5aa916acd58005424004dc1f864"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/PLAN.json",
+      "bytes": 6111,
+      "sha256": "6371ed8c4ad76c2baf389d59a8c3a36c91404465ac9435e7ef5cfe93ccc9627e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/BRIEF.md",
+      "bytes": 2631,
+      "sha256": "4c1947a971c09acfe83ce6fed4f9dc3586b8f5867f0b89410f8cc92e11f87ffc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/ROOT-WORTH-GATE.json",
+      "bytes": 2242,
+      "sha256": "08740d6d2e17eb6cb8fe3323a93f00cdc930d668bdac316366e9495d67561a6e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/skirt.svg",
+      "bytes": 11999,
+      "sha256": "4f714d2a77265820f36cc63cf7e9a8b1b9408115895c37e5a0a6847003a39388"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/review.html",
+      "bytes": 1170,
+      "sha256": "20e5117550ff172be28aeed9e50cf5ac5bc97d8a416bc2ecfc084107675efac4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/publish-registry.py",
+      "bytes": 4544,
+      "sha256": "1c71cda4457f133e8189a748dfcc4b2db000439790a920e04607844f8ad183a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-primary-study/source-first.jpg",
+      "bytes": 26776,
+      "sha256": "41be8c66d7e6381eb7f989ec65665114d6c095cb014ed9f0d7e00b08ebdc109c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    }
+  ],
+  "verified_manifests": {
+    "source_inputs": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/SOURCE-INPUTS.json",
+      "bytes": 2240,
+      "sha256": "1648b1b0004ea50b014aea08db9a0fc23f90d5aa916acd58005424004dc1f864"
+    },
+    "all6rows_and_lines_verified": true,
+    "PLAN9inputs_byte_verified": true,
+    "ROOT_WORTH5inputs_byte_verified": true
+  },
+  "read_scopes": "Entire126-line SVG11999 bytes/79-line publisher4544/10-line wrapper1170/104-line PLAN6111/11-line BRIEF2631/35-line worth gate2242/45-line SOURCE-INPUTS2240. All literal elements/attrs/text/styles/path strings examined. Inert stdlib XML metadata and lexical syntax only; no target source import/execution/evaluation/rendering, coordinate/curve math, CSS resolution or font/geometry bounds. Previously actual whole unchanged source frame/Mara concept reused at fresh byte pins; no new image construction/renderer.",
+  "metadata_scope": {
+    "elements": 112,
+    "unique_nonempty_ids": 112,
+    "ordered_views": [
+      "front",
+      "rear",
+      "left-profile",
+      "inside-waist",
+      "closure",
+      "hem-and-layering"
+    ],
+    "all_used_css_classes_declared": true,
+    "literal_d_paths_checked": 69,
+    "meaning": "Source-data syntax/ownership only, not current appearance/contact/pattern correctness."
+  },
+  "jobs": [
+    {
+      "chunk": "4c71e9",
+      "pid": 31008,
+      "utc": "2026-10-06T08:42:52.355289+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full SOURCE-INPUTS/ROOT-WORTH-GATE/publisher/wrapper text read and byte hashes"
+    },
+    {
+      "chunk": "bf01a2",
+      "pid": 31025,
+      "utc": "2026-10-06T08:43:04.138146+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib entire126-line literal SVG source read and SHA"
+    },
+    {
+      "chunk": "13a8ec",
+      "pid": 31212,
+      "utc": "2026-10-06T08:45:22.761829+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib inert XML ID/view/class metadata; complete source PLAN/BRIEF reread and six pins; local links and producer-output absence"
+    },
+    {
+      "chunk": "070ae4",
+      "pid": 31406,
+      "utc": "2026-10-06T08:47:35.897665+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib inert XML/path-command arity/numeric-literal lexical syntax only, no coordinates/curves evaluated"
+    },
+    {
+      "pid": 31542,
+      "utc": "2026-10-06T08:49:09.926525+00:00",
+      "command": "python3 heredoc stdlib final6source/9PLAN/5gate hashes and exclusive two-file write/readback; tool chunk/exit separate"
+    }
+  ],
+  "observed_errors": [],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/SOURCE-RESULT.md",
+      "bytes": 4468,
+      "sha256": "bbaa60c4a08e11958c6c8683a1a4bd12343b16bd0e683861673cfddafd6bf82d"
+    }
+  ],
+  "limits": "Critic never imports/invokes publisher or other target programs, executes producer, builds geometry/normals, renders/rasterizes SVG, browses/captures/fetches, evaluates styles, or edits product/source/old/frozen/original files. No output JSON currently exists. Resource rejection and metadata checks are for exact reviewed source, not a universal sanitizer. Sequential write/partial failure and external root process collection remain explicit. Actual image later decides appearance.",
+  "stops_utc": {
+    "source_authorship": "2026-10-06T09:02:00Z",
+    "critic_source": "2026-10-06T09:10:00Z",
+    "root_source_and_registry": "2026-10-06T09:15:00Z"
+  },
+  "pending_edits": false
+}

@@ -1,0 +1,2622 @@
+{
+  "format": "sugata-original-technical-design",
+  "version": 1,
+  "design": "Mara plum midi 01",
+  "source": "skirt.svg",
+  "source_bytes": 11999,
+  "source_sha256": "4f714d2a77265820f36cc63cf7e9a8b1b9408115895c37e5a0a6847003a39388",
+  "source_xml": "<svg id=\"mara-skirt-sheet\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1440\" height=\"1040\" viewBox=\"0 0 1440 1040\" data-feature=\"sheet\">\n  <style id=\"sheet-style\">text{font-family:Arial,Helvetica,sans-serif;fill:#382e36} .title{font-size:32px;font-weight:700;letter-spacing:1px}.subtitle{font-size:17px;fill:#786b73}.view-title{font-size:20px;font-weight:700}.label{font-size:16px}.small{font-size:14px;fill:#786b73}.upper{fill:#64334f;stroke:#382632;stroke-width:2.4;stroke-linejoin:round}.band{fill:#633047;stroke:#382632;stroke-width:2.4}.shade{fill:#4b293d}.light{fill:#85556d}.line{fill:none;stroke:#392833;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.soft{fill:none;stroke:#9d7288;stroke-width:2;stroke-linecap:round}.hidden{fill:none;stroke:#ead9e3;stroke-width:1.8;stroke-dasharray:7 5}.note{fill:none;stroke:#786b73;stroke-width:1.3;stroke-linecap:round}.facing{fill:#b798aa;stroke:#624657;stroke-width:2}.stitch{fill:none;stroke:#694d5e;stroke-width:1.6;stroke-dasharray:5 4}</style>\n  <rect id=\"paper\" x=\"0\" y=\"0\" width=\"1440\" height=\"1040\" fill=\"#f7f1e6\"/>\n  <text id=\"sheet-title\" x=\"60\" y=\"65\" class=\"title\">MARA / PLUM MIDI</text>\n  <text id=\"sheet-subtitle\" x=\"60\" y=\"95\" class=\"subtitle\">Original editable artist intent · smooth waist, broad fall, continuous hem</text>\n  <text id=\"sheet-index\" x=\"1380\" y=\"65\" text-anchor=\"end\" class=\"subtitle\">WARDROBE 03</text>\n  <path id=\"row-divider\" d=\"M60 635 H1380\" fill=\"none\" stroke=\"#d7cbbf\" stroke-width=\"1.5\"/>\n\n  <g id=\"front-view\" data-view=\"front\" data-feature=\"front-silhouette\">\n    <text id=\"front-title\" x=\"60\" y=\"145\" class=\"view-title\">01 / FRONT</text>\n    <path id=\"front-body\" class=\"upper\" d=\"M182 218 C180 268 165 321 149 380 L112 578 Q274 604 435 578 L401 380 C385 321 370 268 368 218 Z\"/>\n    <path id=\"front-left-shade\" class=\"shade\" d=\"M215 276 C203 369 165 487 157 584 Q171 587 189 589 C192 487 224 370 228 281 Z\"/>\n    <path id=\"front-right-shade\" class=\"shade\" d=\"M334 276 C345 371 370 487 379 585 L398 582 C380 470 350 351 349 281 Z\"/>\n    <path id=\"front-centre-light\" class=\"light\" d=\"M269 286 C259 410 243 507 245 593 L272 594 C268 485 287 374 285 287 Z\"/>\n    <path id=\"front-band\" class=\"band\" data-feature=\"smooth-waistband\" d=\"M181 190 Q275 178 369 190 L368 218 Q275 207 182 218 Z\"/>\n    <path id=\"front-band-edge\" class=\"soft\" data-feature=\"smooth-waistband\" d=\"M189 196 Q275 186 360 196\"/>\n    <path id=\"front-left-fall\" class=\"line\" data-feature=\"broad-fall\" d=\"M215 289 C199 391 176 490 167 582\"/>\n    <path id=\"front-centre-fall\" class=\"soft\" data-feature=\"broad-fall\" d=\"M281 290 C280 415 259 516 264 588\"/>\n    <path id=\"front-right-fall\" class=\"line\" data-feature=\"broad-fall\" d=\"M338 292 C350 401 381 505 385 582\"/>\n    <path id=\"front-hem-line\" class=\"soft\" data-feature=\"turned-hem\" d=\"M118 569 Q274 594 429 569\"/>\n    <text id=\"front-band-note\" x=\"70\" y=\"208\" class=\"label\">Smooth band</text>\n    <path id=\"front-band-leader\" class=\"note\" d=\"M160 204 H174\"/>\n    <text id=\"front-clean-label\" x=\"60\" y=\"324\" class=\"label\">Clean centre front</text>\n    <text id=\"front-clean-sub\" x=\"60\" y=\"347\" class=\"small\">No seam or root gathers</text>\n    <path id=\"front-clean-leader\" class=\"note\" d=\"M192 330 L245 360\"/>\n    <text id=\"front-caption\" x=\"60\" y=\"614\" class=\"small\">Broad falls start below the band; no front pleats.</text>\n  </g>\n\n  <g id=\"rear-view\" data-view=\"rear\" data-feature=\"rear-silhouette\">\n    <text id=\"rear-title\" x=\"520\" y=\"145\" class=\"view-title\">02 / REAR</text>\n    <path id=\"rear-body\" class=\"upper\" d=\"M639 218 C637 268 622 321 606 380 L569 578 Q731 604 892 578 L858 380 C842 321 827 268 825 218 Z\"/>\n    <path id=\"rear-left-shade\" class=\"shade\" d=\"M676 276 C660 378 632 483 624 585 L647 589 C648 484 677 371 688 282 Z\"/>\n    <path id=\"rear-right-shade\" class=\"shade\" d=\"M787 276 C802 369 827 483 836 585 L854 582 C839 472 812 353 800 281 Z\"/>\n    <path id=\"rear-band\" class=\"band\" data-feature=\"smooth-waistband\" d=\"M638 190 Q732 178 826 190 L825 218 Q732 207 639 218 Z\"/>\n    <path id=\"rear-dart-left\" class=\"line\" data-feature=\"rear-darts\" d=\"M676 213 L684 284 L694 212\"/>\n    <path id=\"rear-dart-right\" class=\"line\" data-feature=\"rear-darts\" d=\"M771 212 L780 284 L790 214\"/>\n    <path id=\"rear-centre-seam\" class=\"line\" data-feature=\"centre-back-seam\" d=\"M732 187 C735 313 727 445 733 594\"/>\n    <path id=\"rear-left-fall\" class=\"soft\" data-feature=\"broad-fall\" d=\"M667 296 C651 404 631 509 634 581\"/>\n    <path id=\"rear-right-fall\" class=\"soft\" data-feature=\"broad-fall\" d=\"M797 296 C812 404 835 507 840 581\"/>\n    <path id=\"rear-hem-line\" class=\"soft\" data-feature=\"turned-hem\" d=\"M575 569 Q731 594 886 569\"/>\n    <text id=\"rear-darts-label\" x=\"864\" y=\"247\" class=\"label\">Two darts</text>\n    <path id=\"rear-darts-leader\" class=\"note\" d=\"M856 250 L789 262\"/>\n    <text id=\"rear-seam-label\" x=\"875\" y=\"405\" class=\"label\">Back seam</text>\n    <path id=\"rear-seam-leader\" class=\"note\" d=\"M866 400 L734 422\"/>\n    <text id=\"rear-caption\" x=\"520\" y=\"614\" class=\"small\">No vent; centre-back join continues to the hem.</text>\n  </g>\n\n  <g id=\"left-profile-view\" data-view=\"left-profile\" data-feature=\"profile-silhouette\">\n    <text id=\"profile-title\" x=\"1015\" y=\"145\" class=\"view-title\">03 / WEARER'S LEFT</text>\n    <path id=\"profile-body\" class=\"upper\" d=\"M1157 218 C1132 259 1139 335 1120 382 L1076 579 Q1189 601 1302 579 L1266 382 C1246 323 1256 259 1234 218 Z\"/>\n    <path id=\"profile-front-shade\" class=\"shade\" d=\"M1161 292 C1154 399 1119 500 1116 586 L1138 590 C1136 499 1173 392 1174 293 Z\"/>\n    <path id=\"profile-rear-light\" class=\"light\" d=\"M1225 306 C1241 407 1266 520 1264 585 L1279 582 C1266 483 1244 390 1240 310 Z\"/>\n    <path id=\"profile-band\" class=\"band\" data-feature=\"smooth-waistband\" d=\"M1156 190 Q1195 183 1235 190 L1234 218 Q1195 210 1157 218 Z\"/>\n    <path id=\"profile-side-seam\" class=\"line\" data-feature=\"left-side-seam\" d=\"M1195 189 C1194 310 1188 421 1196 594\"/>\n    <path id=\"profile-zip\" class=\"hidden\" data-feature=\"left-side-zip\" d=\"M1195 215 L1193 294\"/>\n    <path id=\"profile-hook\" class=\"soft\" data-feature=\"waistband-hook\" d=\"M1190 195 H1201 V202 H1197\"/>\n    <path id=\"profile-hem-line\" class=\"soft\" data-feature=\"turned-hem\" d=\"M1083 570 Q1189 590 1295 570\"/>\n    <text id=\"profile-zip-label\" x=\"1270\" y=\"255\" class=\"label\">Side zip</text>\n    <path id=\"profile-zip-leader\" class=\"note\" d=\"M1263 251 L1201 256\"/>\n    <text id=\"profile-front-direction\" x=\"1015\" y=\"360\" class=\"small\">Front</text>\n    <path id=\"profile-front-direction-line\" class=\"note\" d=\"M1056 356 H1114\"/>\n    <text id=\"profile-rear-direction\" x=\"1323\" y=\"360\" class=\"small\">Rear</text>\n    <path id=\"profile-rear-direction-line\" class=\"note\" d=\"M1274 356 H1314\"/>\n    <text id=\"profile-caption\" x=\"1015\" y=\"614\" class=\"small\">Independent side schematic; zip ends at upper hip.</text>\n  </g>\n\n  <g id=\"inside-waist-view\" data-view=\"inside-waist\" data-feature=\"inside-facing\">\n    <text id=\"inside-title\" x=\"60\" y=\"690\" class=\"view-title\">04 / INSIDE WAIST</text>\n    <text id=\"inside-subtitle\" x=\"60\" y=\"715\" class=\"small\">Band unfolded inward · rear portion shown</text>\n    <path id=\"inside-skirt-top\" class=\"upper\" d=\"M85 783 Q257 761 430 783 L447 920 Q258 943 68 920 Z\"/>\n    <path id=\"inside-facing\" class=\"facing\" d=\"M85 748 Q258 724 430 748 L430 796 Q258 773 85 796 Z\"/>\n    <path id=\"inside-top-turn\" class=\"line\" data-feature=\"band-turn\" d=\"M85 748 Q258 724 430 748\"/>\n    <path id=\"inside-lower-attachment\" class=\"stitch\" data-feature=\"band-attachment\" d=\"M91 788 Q258 766 424 788\"/>\n    <path id=\"inside-centre-back\" class=\"line\" data-feature=\"centre-back-seam\" d=\"M258 735 V933\"/>\n    <path id=\"inside-dart-left\" class=\"hidden\" data-feature=\"rear-darts\" d=\"M156 787 L172 875 L186 783\"/>\n    <path id=\"inside-dart-right\" class=\"hidden\" data-feature=\"rear-darts\" d=\"M330 783 L345 875 L359 787\"/>\n    <path id=\"inside-left-opening\" class=\"line\" data-feature=\"left-side-zip\" d=\"M85 748 L85 853\"/>\n    <text id=\"inside-facing-label\" x=\"465\" y=\"771\" class=\"label\">Facing</text>\n    <path id=\"inside-facing-leader\" class=\"note\" d=\"M457 768 L425 767\"/>\n    <text id=\"inside-back-label\" x=\"221\" y=\"967\" class=\"small\">Centre back</text>\n    <path id=\"inside-back-leader\" class=\"note\" d=\"M258 946 V935\"/>\n    <text id=\"inside-left-label\" x=\"60\" y=\"947\" class=\"small\">Left opening</text>\n    <text id=\"inside-dart-label\" x=\"332\" y=\"947\" class=\"small\">Dart take-up</text>\n  </g>\n\n  <g id=\"closure-view\" data-view=\"closure\" data-feature=\"left-side-closure\">\n    <text id=\"closure-title\" x=\"560\" y=\"690\" class=\"view-title\">05 / LEFT CLOSURE</text>\n    <text id=\"closure-subtitle\" x=\"560\" y=\"715\" class=\"small\">Original zip and hook intent · outside schematic</text>\n    <path id=\"closure-panel-left\" class=\"upper\" d=\"M590 786 H719 L716 941 H590 Z\"/>\n    <path id=\"closure-panel-right\" class=\"upper\" d=\"M723 786 H851 V941 H726 Z\"/>\n    <path id=\"closure-band-left\" class=\"band\" data-feature=\"smooth-waistband\" d=\"M590 747 H733 V790 H590 Z\"/>\n    <path id=\"closure-band-right\" class=\"band\" data-feature=\"smooth-waistband\" d=\"M735 747 H851 V790 H735 Z\"/>\n    <path id=\"closure-overlap\" class=\"facing\" data-feature=\"waistband-hook\" d=\"M718 752 H747 V783 H718 Z\"/>\n    <path id=\"closure-hook\" class=\"line\" data-feature=\"waistband-hook\" d=\"M725 766 H737 V772 H732\"/>\n    <path id=\"closure-eye\" class=\"line\" data-feature=\"waistband-hook\" d=\"M741 762 H745 V772 H741 Z\"/>\n    <path id=\"closure-concealed-zip\" class=\"hidden\" data-feature=\"left-side-zip\" d=\"M721 793 V896\"/>\n    <path id=\"closure-zip-stop\" class=\"soft\" data-feature=\"left-side-zip\" d=\"M716 897 H726\"/>\n    <path id=\"closure-seam-below\" class=\"line\" data-feature=\"left-side-seam\" d=\"M721 902 V941\"/>\n    <text id=\"closure-hook-label\" x=\"879\" y=\"765\" class=\"label\">Hook / overlap</text>\n    <path id=\"closure-hook-leader\" class=\"note\" d=\"M868 762 H749\"/>\n    <text id=\"closure-zip-label\" x=\"879\" y=\"840\" class=\"label\">Concealed zip</text>\n    <path id=\"closure-zip-leader\" class=\"note\" d=\"M869 836 H729\"/>\n    <text id=\"closure-stop-label\" x=\"879\" y=\"915\" class=\"small\">Upper-hip end</text>\n    <path id=\"closure-stop-leader\" class=\"note\" d=\"M869 909 L729 897\"/>\n  </g>\n\n  <g id=\"hem-layering-view\" data-view=\"hem-and-layering\" data-feature=\"layering-intent\">\n    <text id=\"hem-title\" x=\"1040\" y=\"690\" class=\"view-title\">06 / HEM + LAYERS</text>\n    <path id=\"layer-skirt\" class=\"upper\" d=\"M1112 739 H1202 L1254 882 Q1157 898 1059 882 Z\"/>\n    <path id=\"layer-tee\" data-feature=\"tee-waist-overlap\" d=\"M1120 719 H1194 L1202 748 H1112 Z\" fill=\"#e8e0d6\" stroke=\"#918478\" stroke-width=\"1.7\"/>\n    <path id=\"layer-cardigan-left\" data-feature=\"shorter-cardigan-hem\" d=\"M1089 718 L1120 719 L1111 839 L1073 834 Z\" fill=\"#aa7855\" stroke=\"#71523e\" stroke-width=\"1.7\"/>\n    <path id=\"layer-cardigan-right\" data-feature=\"shorter-cardigan-hem\" d=\"M1194 719 L1225 718 L1241 834 L1203 839 Z\" fill=\"#aa7855\" stroke=\"#71523e\" stroke-width=\"1.7\"/>\n    <text id=\"layer-tee-label\" x=\"1268\" y=\"746\" class=\"small\">Tee overlap</text>\n    <path id=\"layer-tee-leader\" class=\"note\" d=\"M1259 741 H1204\"/>\n    <text id=\"layer-cardigan-label\" x=\"1268\" y=\"819\" class=\"small\">Cardigan</text>\n    <path id=\"layer-cardigan-leader\" class=\"note\" d=\"M1259 815 L1239 830\"/>\n    <text id=\"layer-skirt-label\" x=\"1268\" y=\"879\" class=\"small\">Midi hem</text>\n    <path id=\"layer-skirt-leader\" class=\"note\" d=\"M1260 874 L1249 880\"/>\n    <path id=\"turned-hem-section\" class=\"facing\" data-feature=\"turned-hem\" d=\"M1074 926 H1318 V958 H1074 Z\"/>\n    <path id=\"turned-hem-fold\" class=\"line\" data-feature=\"turned-hem\" d=\"M1074 958 H1318\"/>\n    <path id=\"turned-hem-stitch\" class=\"stitch\" data-feature=\"turned-hem\" d=\"M1082 934 H1310\"/>\n    <text id=\"turned-hem-label\" x=\"1074\" y=\"984\" class=\"small\">Turned hem · inner stitch line</text>\n  </g>\n\n  <text id=\"sheet-limits\" x=\"60\" y=\"1018\" class=\"small\">Unitless original schematics, not registered projections or sewing patterns. Physical fit, cloth, 3D, motion and runtime remain open.</text>\n</svg>\n",
+  "frame": {
+    "width": 1440,
+    "height": 1040,
+    "units": "unitless"
+  },
+  "orientation": "Independent front/rear/wearer-left profile and three construction-intent insets; not registered projections. Profile front is page-left. Inside rear facing is unfolded inward.",
+  "palette": {
+    "plum": "#64334f",
+    "band": "#633047",
+    "shade": "#4b293d",
+    "highlight": "#85556d",
+    "facing": "#b798aa",
+    "ivory": "#e8e0d6",
+    "caramel": "#aa7855"
+  },
+  "views": [
+    "front",
+    "rear",
+    "left-profile",
+    "inside-waist",
+    "closure",
+    "hem-and-layering"
+  ],
+  "nodes": [
+    {
+      "id": "mara-skirt-sheet",
+      "tag": "{http://www.w3.org/2000/svg}svg",
+      "attributes": {
+        "id": "mara-skirt-sheet",
+        "width": "1440",
+        "height": "1040",
+        "viewBox": "0 0 1440 1040",
+        "data-feature": "sheet"
+      },
+      "text": "\n  ",
+      "tail": null,
+      "parent": null,
+      "ancestors": [],
+      "children": [
+        "sheet-style",
+        "paper",
+        "sheet-title",
+        "sheet-subtitle",
+        "sheet-index",
+        "row-divider",
+        "front-view",
+        "rear-view",
+        "left-profile-view",
+        "inside-waist-view",
+        "closure-view",
+        "hem-layering-view",
+        "sheet-limits"
+      ],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 0
+    },
+    {
+      "id": "sheet-style",
+      "tag": "{http://www.w3.org/2000/svg}style",
+      "attributes": {
+        "id": "sheet-style"
+      },
+      "text": "text{font-family:Arial,Helvetica,sans-serif;fill:#382e36} .title{font-size:32px;font-weight:700;letter-spacing:1px}.subtitle{font-size:17px;fill:#786b73}.view-title{font-size:20px;font-weight:700}.label{font-size:16px}.small{font-size:14px;fill:#786b73}.upper{fill:#64334f;stroke:#382632;stroke-width:2.4;stroke-linejoin:round}.band{fill:#633047;stroke:#382632;stroke-width:2.4}.shade{fill:#4b293d}.light{fill:#85556d}.line{fill:none;stroke:#392833;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.soft{fill:none;stroke:#9d7288;stroke-width:2;stroke-linecap:round}.hidden{fill:none;stroke:#ead9e3;stroke-width:1.8;stroke-dasharray:7 5}.note{fill:none;stroke:#786b73;stroke-width:1.3;stroke-linecap:round}.facing{fill:#b798aa;stroke:#624657;stroke-width:2}.stitch{fill:none;stroke:#694d5e;stroke-width:1.6;stroke-dasharray:5 4}",
+      "tail": "\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 1
+    },
+    {
+      "id": "paper",
+      "tag": "{http://www.w3.org/2000/svg}rect",
+      "attributes": {
+        "id": "paper",
+        "x": "0",
+        "y": "0",
+        "width": "1440",
+        "height": "1040",
+        "fill": "#f7f1e6"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 2
+    },
+    {
+      "id": "sheet-title",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "sheet-title",
+        "x": "60",
+        "y": "65",
+        "class": "title"
+      },
+      "text": "MARA / PLUM MIDI",
+      "tail": "\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 3
+    },
+    {
+      "id": "sheet-subtitle",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "sheet-subtitle",
+        "x": "60",
+        "y": "95",
+        "class": "subtitle"
+      },
+      "text": "Original editable artist intent · smooth waist, broad fall, continuous hem",
+      "tail": "\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 4
+    },
+    {
+      "id": "sheet-index",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "sheet-index",
+        "x": "1380",
+        "y": "65",
+        "text-anchor": "end",
+        "class": "subtitle"
+      },
+      "text": "WARDROBE 03",
+      "tail": "\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 5
+    },
+    {
+      "id": "row-divider",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "row-divider",
+        "d": "M60 635 H1380",
+        "fill": "none",
+        "stroke": "#d7cbbf",
+        "stroke-width": "1.5"
+      },
+      "text": null,
+      "tail": "\n\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 6
+    },
+    {
+      "id": "front-view",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "front-view",
+        "data-view": "front",
+        "data-feature": "front-silhouette"
+      },
+      "text": "\n    ",
+      "tail": "\n\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [
+        "front-title",
+        "front-body",
+        "front-left-shade",
+        "front-right-shade",
+        "front-centre-light",
+        "front-band",
+        "front-band-edge",
+        "front-left-fall",
+        "front-centre-fall",
+        "front-right-fall",
+        "front-hem-line",
+        "front-band-note",
+        "front-band-leader",
+        "front-clean-label",
+        "front-clean-sub",
+        "front-clean-leader",
+        "front-caption"
+      ],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 7
+    },
+    {
+      "id": "front-title",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-title",
+        "x": "60",
+        "y": "145",
+        "class": "view-title"
+      },
+      "text": "01 / FRONT",
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 8
+    },
+    {
+      "id": "front-body",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-body",
+        "class": "upper",
+        "d": "M182 218 C180 268 165 321 149 380 L112 578 Q274 604 435 578 L401 380 C385 321 370 268 368 218 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 9
+    },
+    {
+      "id": "front-left-shade",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-left-shade",
+        "class": "shade",
+        "d": "M215 276 C203 369 165 487 157 584 Q171 587 189 589 C192 487 224 370 228 281 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 10
+    },
+    {
+      "id": "front-right-shade",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-right-shade",
+        "class": "shade",
+        "d": "M334 276 C345 371 370 487 379 585 L398 582 C380 470 350 351 349 281 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 11
+    },
+    {
+      "id": "front-centre-light",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-centre-light",
+        "class": "light",
+        "d": "M269 286 C259 410 243 507 245 593 L272 594 C268 485 287 374 285 287 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 12
+    },
+    {
+      "id": "front-band",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-band",
+        "class": "band",
+        "data-feature": "smooth-waistband",
+        "d": "M181 190 Q275 178 369 190 L368 218 Q275 207 182 218 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "smooth-waistband",
+      "document_order": 13
+    },
+    {
+      "id": "front-band-edge",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-band-edge",
+        "class": "soft",
+        "data-feature": "smooth-waistband",
+        "d": "M189 196 Q275 186 360 196"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "smooth-waistband",
+      "document_order": 14
+    },
+    {
+      "id": "front-left-fall",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-left-fall",
+        "class": "line",
+        "data-feature": "broad-fall",
+        "d": "M215 289 C199 391 176 490 167 582"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "broad-fall",
+      "document_order": 15
+    },
+    {
+      "id": "front-centre-fall",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-centre-fall",
+        "class": "soft",
+        "data-feature": "broad-fall",
+        "d": "M281 290 C280 415 259 516 264 588"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "broad-fall",
+      "document_order": 16
+    },
+    {
+      "id": "front-right-fall",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-right-fall",
+        "class": "line",
+        "data-feature": "broad-fall",
+        "d": "M338 292 C350 401 381 505 385 582"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "broad-fall",
+      "document_order": 17
+    },
+    {
+      "id": "front-hem-line",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-hem-line",
+        "class": "soft",
+        "data-feature": "turned-hem",
+        "d": "M118 569 Q274 594 429 569"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "turned-hem",
+      "document_order": 18
+    },
+    {
+      "id": "front-band-note",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-band-note",
+        "x": "70",
+        "y": "208",
+        "class": "label"
+      },
+      "text": "Smooth band",
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 19
+    },
+    {
+      "id": "front-band-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-band-leader",
+        "class": "note",
+        "d": "M160 204 H174"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 20
+    },
+    {
+      "id": "front-clean-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-clean-label",
+        "x": "60",
+        "y": "324",
+        "class": "label"
+      },
+      "text": "Clean centre front",
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 21
+    },
+    {
+      "id": "front-clean-sub",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-clean-sub",
+        "x": "60",
+        "y": "347",
+        "class": "small"
+      },
+      "text": "No seam or root gathers",
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 22
+    },
+    {
+      "id": "front-clean-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "front-clean-leader",
+        "class": "note",
+        "d": "M192 330 L245 360"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 23
+    },
+    {
+      "id": "front-caption",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "front-caption",
+        "x": "60",
+        "y": "614",
+        "class": "small"
+      },
+      "text": "Broad falls start below the band; no front pleats.",
+      "tail": "\n  ",
+      "parent": "front-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "front-view"
+      ],
+      "children": [],
+      "view": "front",
+      "feature": "front-silhouette",
+      "document_order": 24
+    },
+    {
+      "id": "rear-view",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "rear-view",
+        "data-view": "rear",
+        "data-feature": "rear-silhouette"
+      },
+      "text": "\n    ",
+      "tail": "\n\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [
+        "rear-title",
+        "rear-body",
+        "rear-left-shade",
+        "rear-right-shade",
+        "rear-band",
+        "rear-dart-left",
+        "rear-dart-right",
+        "rear-centre-seam",
+        "rear-left-fall",
+        "rear-right-fall",
+        "rear-hem-line",
+        "rear-darts-label",
+        "rear-darts-leader",
+        "rear-seam-label",
+        "rear-seam-leader",
+        "rear-caption"
+      ],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 25
+    },
+    {
+      "id": "rear-title",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "rear-title",
+        "x": "520",
+        "y": "145",
+        "class": "view-title"
+      },
+      "text": "02 / REAR",
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 26
+    },
+    {
+      "id": "rear-body",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-body",
+        "class": "upper",
+        "d": "M639 218 C637 268 622 321 606 380 L569 578 Q731 604 892 578 L858 380 C842 321 827 268 825 218 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 27
+    },
+    {
+      "id": "rear-left-shade",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-left-shade",
+        "class": "shade",
+        "d": "M676 276 C660 378 632 483 624 585 L647 589 C648 484 677 371 688 282 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 28
+    },
+    {
+      "id": "rear-right-shade",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-right-shade",
+        "class": "shade",
+        "d": "M787 276 C802 369 827 483 836 585 L854 582 C839 472 812 353 800 281 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 29
+    },
+    {
+      "id": "rear-band",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-band",
+        "class": "band",
+        "data-feature": "smooth-waistband",
+        "d": "M638 190 Q732 178 826 190 L825 218 Q732 207 639 218 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "smooth-waistband",
+      "document_order": 30
+    },
+    {
+      "id": "rear-dart-left",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-dart-left",
+        "class": "line",
+        "data-feature": "rear-darts",
+        "d": "M676 213 L684 284 L694 212"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-darts",
+      "document_order": 31
+    },
+    {
+      "id": "rear-dart-right",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-dart-right",
+        "class": "line",
+        "data-feature": "rear-darts",
+        "d": "M771 212 L780 284 L790 214"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-darts",
+      "document_order": 32
+    },
+    {
+      "id": "rear-centre-seam",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-centre-seam",
+        "class": "line",
+        "data-feature": "centre-back-seam",
+        "d": "M732 187 C735 313 727 445 733 594"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "centre-back-seam",
+      "document_order": 33
+    },
+    {
+      "id": "rear-left-fall",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-left-fall",
+        "class": "soft",
+        "data-feature": "broad-fall",
+        "d": "M667 296 C651 404 631 509 634 581"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "broad-fall",
+      "document_order": 34
+    },
+    {
+      "id": "rear-right-fall",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-right-fall",
+        "class": "soft",
+        "data-feature": "broad-fall",
+        "d": "M797 296 C812 404 835 507 840 581"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "broad-fall",
+      "document_order": 35
+    },
+    {
+      "id": "rear-hem-line",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-hem-line",
+        "class": "soft",
+        "data-feature": "turned-hem",
+        "d": "M575 569 Q731 594 886 569"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "turned-hem",
+      "document_order": 36
+    },
+    {
+      "id": "rear-darts-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "rear-darts-label",
+        "x": "864",
+        "y": "247",
+        "class": "label"
+      },
+      "text": "Two darts",
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 37
+    },
+    {
+      "id": "rear-darts-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-darts-leader",
+        "class": "note",
+        "d": "M856 250 L789 262"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 38
+    },
+    {
+      "id": "rear-seam-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "rear-seam-label",
+        "x": "875",
+        "y": "405",
+        "class": "label"
+      },
+      "text": "Back seam",
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 39
+    },
+    {
+      "id": "rear-seam-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "rear-seam-leader",
+        "class": "note",
+        "d": "M866 400 L734 422"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 40
+    },
+    {
+      "id": "rear-caption",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "rear-caption",
+        "x": "520",
+        "y": "614",
+        "class": "small"
+      },
+      "text": "No vent; centre-back join continues to the hem.",
+      "tail": "\n  ",
+      "parent": "rear-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "rear-view"
+      ],
+      "children": [],
+      "view": "rear",
+      "feature": "rear-silhouette",
+      "document_order": 41
+    },
+    {
+      "id": "left-profile-view",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "left-profile-view",
+        "data-view": "left-profile",
+        "data-feature": "profile-silhouette"
+      },
+      "text": "\n    ",
+      "tail": "\n\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [
+        "profile-title",
+        "profile-body",
+        "profile-front-shade",
+        "profile-rear-light",
+        "profile-band",
+        "profile-side-seam",
+        "profile-zip",
+        "profile-hook",
+        "profile-hem-line",
+        "profile-zip-label",
+        "profile-zip-leader",
+        "profile-front-direction",
+        "profile-front-direction-line",
+        "profile-rear-direction",
+        "profile-rear-direction-line",
+        "profile-caption"
+      ],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 42
+    },
+    {
+      "id": "profile-title",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-title",
+        "x": "1015",
+        "y": "145",
+        "class": "view-title"
+      },
+      "text": "03 / WEARER'S LEFT",
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 43
+    },
+    {
+      "id": "profile-body",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-body",
+        "class": "upper",
+        "d": "M1157 218 C1132 259 1139 335 1120 382 L1076 579 Q1189 601 1302 579 L1266 382 C1246 323 1256 259 1234 218 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 44
+    },
+    {
+      "id": "profile-front-shade",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-front-shade",
+        "class": "shade",
+        "d": "M1161 292 C1154 399 1119 500 1116 586 L1138 590 C1136 499 1173 392 1174 293 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 45
+    },
+    {
+      "id": "profile-rear-light",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-rear-light",
+        "class": "light",
+        "d": "M1225 306 C1241 407 1266 520 1264 585 L1279 582 C1266 483 1244 390 1240 310 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 46
+    },
+    {
+      "id": "profile-band",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-band",
+        "class": "band",
+        "data-feature": "smooth-waistband",
+        "d": "M1156 190 Q1195 183 1235 190 L1234 218 Q1195 210 1157 218 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "smooth-waistband",
+      "document_order": 47
+    },
+    {
+      "id": "profile-side-seam",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-side-seam",
+        "class": "line",
+        "data-feature": "left-side-seam",
+        "d": "M1195 189 C1194 310 1188 421 1196 594"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "left-side-seam",
+      "document_order": 48
+    },
+    {
+      "id": "profile-zip",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-zip",
+        "class": "hidden",
+        "data-feature": "left-side-zip",
+        "d": "M1195 215 L1193 294"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "left-side-zip",
+      "document_order": 49
+    },
+    {
+      "id": "profile-hook",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-hook",
+        "class": "soft",
+        "data-feature": "waistband-hook",
+        "d": "M1190 195 H1201 V202 H1197"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "waistband-hook",
+      "document_order": 50
+    },
+    {
+      "id": "profile-hem-line",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-hem-line",
+        "class": "soft",
+        "data-feature": "turned-hem",
+        "d": "M1083 570 Q1189 590 1295 570"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "turned-hem",
+      "document_order": 51
+    },
+    {
+      "id": "profile-zip-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-zip-label",
+        "x": "1270",
+        "y": "255",
+        "class": "label"
+      },
+      "text": "Side zip",
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 52
+    },
+    {
+      "id": "profile-zip-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-zip-leader",
+        "class": "note",
+        "d": "M1263 251 L1201 256"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 53
+    },
+    {
+      "id": "profile-front-direction",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-front-direction",
+        "x": "1015",
+        "y": "360",
+        "class": "small"
+      },
+      "text": "Front",
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 54
+    },
+    {
+      "id": "profile-front-direction-line",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-front-direction-line",
+        "class": "note",
+        "d": "M1056 356 H1114"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 55
+    },
+    {
+      "id": "profile-rear-direction",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-rear-direction",
+        "x": "1323",
+        "y": "360",
+        "class": "small"
+      },
+      "text": "Rear",
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 56
+    },
+    {
+      "id": "profile-rear-direction-line",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "profile-rear-direction-line",
+        "class": "note",
+        "d": "M1274 356 H1314"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 57
+    },
+    {
+      "id": "profile-caption",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "profile-caption",
+        "x": "1015",
+        "y": "614",
+        "class": "small"
+      },
+      "text": "Independent side schematic; zip ends at upper hip.",
+      "tail": "\n  ",
+      "parent": "left-profile-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "left-profile-view"
+      ],
+      "children": [],
+      "view": "left-profile",
+      "feature": "profile-silhouette",
+      "document_order": 58
+    },
+    {
+      "id": "inside-waist-view",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "inside-waist-view",
+        "data-view": "inside-waist",
+        "data-feature": "inside-facing"
+      },
+      "text": "\n    ",
+      "tail": "\n\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [
+        "inside-title",
+        "inside-subtitle",
+        "inside-skirt-top",
+        "inside-facing",
+        "inside-top-turn",
+        "inside-lower-attachment",
+        "inside-centre-back",
+        "inside-dart-left",
+        "inside-dart-right",
+        "inside-left-opening",
+        "inside-facing-label",
+        "inside-facing-leader",
+        "inside-back-label",
+        "inside-back-leader",
+        "inside-left-label",
+        "inside-dart-label"
+      ],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 59
+    },
+    {
+      "id": "inside-title",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-title",
+        "x": "60",
+        "y": "690",
+        "class": "view-title"
+      },
+      "text": "04 / INSIDE WAIST",
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 60
+    },
+    {
+      "id": "inside-subtitle",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-subtitle",
+        "x": "60",
+        "y": "715",
+        "class": "small"
+      },
+      "text": "Band unfolded inward · rear portion shown",
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 61
+    },
+    {
+      "id": "inside-skirt-top",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-skirt-top",
+        "class": "upper",
+        "d": "M85 783 Q257 761 430 783 L447 920 Q258 943 68 920 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 62
+    },
+    {
+      "id": "inside-facing",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-facing",
+        "class": "facing",
+        "d": "M85 748 Q258 724 430 748 L430 796 Q258 773 85 796 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 63
+    },
+    {
+      "id": "inside-top-turn",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-top-turn",
+        "class": "line",
+        "data-feature": "band-turn",
+        "d": "M85 748 Q258 724 430 748"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "band-turn",
+      "document_order": 64
+    },
+    {
+      "id": "inside-lower-attachment",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-lower-attachment",
+        "class": "stitch",
+        "data-feature": "band-attachment",
+        "d": "M91 788 Q258 766 424 788"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "band-attachment",
+      "document_order": 65
+    },
+    {
+      "id": "inside-centre-back",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-centre-back",
+        "class": "line",
+        "data-feature": "centre-back-seam",
+        "d": "M258 735 V933"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "centre-back-seam",
+      "document_order": 66
+    },
+    {
+      "id": "inside-dart-left",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-dart-left",
+        "class": "hidden",
+        "data-feature": "rear-darts",
+        "d": "M156 787 L172 875 L186 783"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "rear-darts",
+      "document_order": 67
+    },
+    {
+      "id": "inside-dart-right",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-dart-right",
+        "class": "hidden",
+        "data-feature": "rear-darts",
+        "d": "M330 783 L345 875 L359 787"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "rear-darts",
+      "document_order": 68
+    },
+    {
+      "id": "inside-left-opening",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-left-opening",
+        "class": "line",
+        "data-feature": "left-side-zip",
+        "d": "M85 748 L85 853"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "left-side-zip",
+      "document_order": 69
+    },
+    {
+      "id": "inside-facing-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-facing-label",
+        "x": "465",
+        "y": "771",
+        "class": "label"
+      },
+      "text": "Facing",
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 70
+    },
+    {
+      "id": "inside-facing-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-facing-leader",
+        "class": "note",
+        "d": "M457 768 L425 767"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 71
+    },
+    {
+      "id": "inside-back-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-back-label",
+        "x": "221",
+        "y": "967",
+        "class": "small"
+      },
+      "text": "Centre back",
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 72
+    },
+    {
+      "id": "inside-back-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "inside-back-leader",
+        "class": "note",
+        "d": "M258 946 V935"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 73
+    },
+    {
+      "id": "inside-left-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-left-label",
+        "x": "60",
+        "y": "947",
+        "class": "small"
+      },
+      "text": "Left opening",
+      "tail": "\n    ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 74
+    },
+    {
+      "id": "inside-dart-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "inside-dart-label",
+        "x": "332",
+        "y": "947",
+        "class": "small"
+      },
+      "text": "Dart take-up",
+      "tail": "\n  ",
+      "parent": "inside-waist-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "inside-waist-view"
+      ],
+      "children": [],
+      "view": "inside-waist",
+      "feature": "inside-facing",
+      "document_order": 75
+    },
+    {
+      "id": "closure-view",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "closure-view",
+        "data-view": "closure",
+        "data-feature": "left-side-closure"
+      },
+      "text": "\n    ",
+      "tail": "\n\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [
+        "closure-title",
+        "closure-subtitle",
+        "closure-panel-left",
+        "closure-panel-right",
+        "closure-band-left",
+        "closure-band-right",
+        "closure-overlap",
+        "closure-hook",
+        "closure-eye",
+        "closure-concealed-zip",
+        "closure-zip-stop",
+        "closure-seam-below",
+        "closure-hook-label",
+        "closure-hook-leader",
+        "closure-zip-label",
+        "closure-zip-leader",
+        "closure-stop-label",
+        "closure-stop-leader"
+      ],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 76
+    },
+    {
+      "id": "closure-title",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "closure-title",
+        "x": "560",
+        "y": "690",
+        "class": "view-title"
+      },
+      "text": "05 / LEFT CLOSURE",
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 77
+    },
+    {
+      "id": "closure-subtitle",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "closure-subtitle",
+        "x": "560",
+        "y": "715",
+        "class": "small"
+      },
+      "text": "Original zip and hook intent · outside schematic",
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 78
+    },
+    {
+      "id": "closure-panel-left",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-panel-left",
+        "class": "upper",
+        "d": "M590 786 H719 L716 941 H590 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 79
+    },
+    {
+      "id": "closure-panel-right",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-panel-right",
+        "class": "upper",
+        "d": "M723 786 H851 V941 H726 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 80
+    },
+    {
+      "id": "closure-band-left",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-band-left",
+        "class": "band",
+        "data-feature": "smooth-waistband",
+        "d": "M590 747 H733 V790 H590 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "smooth-waistband",
+      "document_order": 81
+    },
+    {
+      "id": "closure-band-right",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-band-right",
+        "class": "band",
+        "data-feature": "smooth-waistband",
+        "d": "M735 747 H851 V790 H735 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "smooth-waistband",
+      "document_order": 82
+    },
+    {
+      "id": "closure-overlap",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-overlap",
+        "class": "facing",
+        "data-feature": "waistband-hook",
+        "d": "M718 752 H747 V783 H718 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "waistband-hook",
+      "document_order": 83
+    },
+    {
+      "id": "closure-hook",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-hook",
+        "class": "line",
+        "data-feature": "waistband-hook",
+        "d": "M725 766 H737 V772 H732"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "waistband-hook",
+      "document_order": 84
+    },
+    {
+      "id": "closure-eye",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-eye",
+        "class": "line",
+        "data-feature": "waistband-hook",
+        "d": "M741 762 H745 V772 H741 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "waistband-hook",
+      "document_order": 85
+    },
+    {
+      "id": "closure-concealed-zip",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-concealed-zip",
+        "class": "hidden",
+        "data-feature": "left-side-zip",
+        "d": "M721 793 V896"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-zip",
+      "document_order": 86
+    },
+    {
+      "id": "closure-zip-stop",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-zip-stop",
+        "class": "soft",
+        "data-feature": "left-side-zip",
+        "d": "M716 897 H726"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-zip",
+      "document_order": 87
+    },
+    {
+      "id": "closure-seam-below",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-seam-below",
+        "class": "line",
+        "data-feature": "left-side-seam",
+        "d": "M721 902 V941"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-seam",
+      "document_order": 88
+    },
+    {
+      "id": "closure-hook-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "closure-hook-label",
+        "x": "879",
+        "y": "765",
+        "class": "label"
+      },
+      "text": "Hook / overlap",
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 89
+    },
+    {
+      "id": "closure-hook-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-hook-leader",
+        "class": "note",
+        "d": "M868 762 H749"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 90
+    },
+    {
+      "id": "closure-zip-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "closure-zip-label",
+        "x": "879",
+        "y": "840",
+        "class": "label"
+      },
+      "text": "Concealed zip",
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 91
+    },
+    {
+      "id": "closure-zip-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-zip-leader",
+        "class": "note",
+        "d": "M869 836 H729"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 92
+    },
+    {
+      "id": "closure-stop-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "closure-stop-label",
+        "x": "879",
+        "y": "915",
+        "class": "small"
+      },
+      "text": "Upper-hip end",
+      "tail": "\n    ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 93
+    },
+    {
+      "id": "closure-stop-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "closure-stop-leader",
+        "class": "note",
+        "d": "M869 909 L729 897"
+      },
+      "text": null,
+      "tail": "\n  ",
+      "parent": "closure-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "closure-view"
+      ],
+      "children": [],
+      "view": "closure",
+      "feature": "left-side-closure",
+      "document_order": 94
+    },
+    {
+      "id": "hem-layering-view",
+      "tag": "{http://www.w3.org/2000/svg}g",
+      "attributes": {
+        "id": "hem-layering-view",
+        "data-view": "hem-and-layering",
+        "data-feature": "layering-intent"
+      },
+      "text": "\n    ",
+      "tail": "\n\n  ",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [
+        "hem-title",
+        "layer-skirt",
+        "layer-tee",
+        "layer-cardigan-left",
+        "layer-cardigan-right",
+        "layer-tee-label",
+        "layer-tee-leader",
+        "layer-cardigan-label",
+        "layer-cardigan-leader",
+        "layer-skirt-label",
+        "layer-skirt-leader",
+        "turned-hem-section",
+        "turned-hem-fold",
+        "turned-hem-stitch",
+        "turned-hem-label"
+      ],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 95
+    },
+    {
+      "id": "hem-title",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "hem-title",
+        "x": "1040",
+        "y": "690",
+        "class": "view-title"
+      },
+      "text": "06 / HEM + LAYERS",
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 96
+    },
+    {
+      "id": "layer-skirt",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "layer-skirt",
+        "class": "upper",
+        "d": "M1112 739 H1202 L1254 882 Q1157 898 1059 882 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 97
+    },
+    {
+      "id": "layer-tee",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "layer-tee",
+        "data-feature": "tee-waist-overlap",
+        "d": "M1120 719 H1194 L1202 748 H1112 Z",
+        "fill": "#e8e0d6",
+        "stroke": "#918478",
+        "stroke-width": "1.7"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "tee-waist-overlap",
+      "document_order": 98
+    },
+    {
+      "id": "layer-cardigan-left",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "layer-cardigan-left",
+        "data-feature": "shorter-cardigan-hem",
+        "d": "M1089 718 L1120 719 L1111 839 L1073 834 Z",
+        "fill": "#aa7855",
+        "stroke": "#71523e",
+        "stroke-width": "1.7"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "shorter-cardigan-hem",
+      "document_order": 99
+    },
+    {
+      "id": "layer-cardigan-right",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "layer-cardigan-right",
+        "data-feature": "shorter-cardigan-hem",
+        "d": "M1194 719 L1225 718 L1241 834 L1203 839 Z",
+        "fill": "#aa7855",
+        "stroke": "#71523e",
+        "stroke-width": "1.7"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "shorter-cardigan-hem",
+      "document_order": 100
+    },
+    {
+      "id": "layer-tee-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "layer-tee-label",
+        "x": "1268",
+        "y": "746",
+        "class": "small"
+      },
+      "text": "Tee overlap",
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 101
+    },
+    {
+      "id": "layer-tee-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "layer-tee-leader",
+        "class": "note",
+        "d": "M1259 741 H1204"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 102
+    },
+    {
+      "id": "layer-cardigan-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "layer-cardigan-label",
+        "x": "1268",
+        "y": "819",
+        "class": "small"
+      },
+      "text": "Cardigan",
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 103
+    },
+    {
+      "id": "layer-cardigan-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "layer-cardigan-leader",
+        "class": "note",
+        "d": "M1259 815 L1239 830"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 104
+    },
+    {
+      "id": "layer-skirt-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "layer-skirt-label",
+        "x": "1268",
+        "y": "879",
+        "class": "small"
+      },
+      "text": "Midi hem",
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 105
+    },
+    {
+      "id": "layer-skirt-leader",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "layer-skirt-leader",
+        "class": "note",
+        "d": "M1260 874 L1249 880"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 106
+    },
+    {
+      "id": "turned-hem-section",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "turned-hem-section",
+        "class": "facing",
+        "data-feature": "turned-hem",
+        "d": "M1074 926 H1318 V958 H1074 Z"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "turned-hem",
+      "document_order": 107
+    },
+    {
+      "id": "turned-hem-fold",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "turned-hem-fold",
+        "class": "line",
+        "data-feature": "turned-hem",
+        "d": "M1074 958 H1318"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "turned-hem",
+      "document_order": 108
+    },
+    {
+      "id": "turned-hem-stitch",
+      "tag": "{http://www.w3.org/2000/svg}path",
+      "attributes": {
+        "id": "turned-hem-stitch",
+        "class": "stitch",
+        "data-feature": "turned-hem",
+        "d": "M1082 934 H1310"
+      },
+      "text": null,
+      "tail": "\n    ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "turned-hem",
+      "document_order": 109
+    },
+    {
+      "id": "turned-hem-label",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "turned-hem-label",
+        "x": "1074",
+        "y": "984",
+        "class": "small"
+      },
+      "text": "Turned hem · inner stitch line",
+      "tail": "\n  ",
+      "parent": "hem-layering-view",
+      "ancestors": [
+        "mara-skirt-sheet",
+        "hem-layering-view"
+      ],
+      "children": [],
+      "view": "hem-and-layering",
+      "feature": "layering-intent",
+      "document_order": 110
+    },
+    {
+      "id": "sheet-limits",
+      "tag": "{http://www.w3.org/2000/svg}text",
+      "attributes": {
+        "id": "sheet-limits",
+        "x": "60",
+        "y": "1018",
+        "class": "small"
+      },
+      "text": "Unitless original schematics, not registered projections or sewing patterns. Physical fit, cloth, 3D, motion and runtime remain open.",
+      "tail": "\n",
+      "parent": "mara-skirt-sheet",
+      "ancestors": [
+        "mara-skirt-sheet"
+      ],
+      "children": [],
+      "view": null,
+      "feature": "sheet",
+      "document_order": 111
+    }
+  ],
+  "features": {
+    "sheet": [
+      "mara-skirt-sheet",
+      "sheet-style",
+      "paper",
+      "sheet-title",
+      "sheet-subtitle",
+      "sheet-index",
+      "row-divider",
+      "sheet-limits"
+    ],
+    "front-silhouette": [
+      "front-view",
+      "front-title",
+      "front-body",
+      "front-left-shade",
+      "front-right-shade",
+      "front-centre-light",
+      "front-band-note",
+      "front-band-leader",
+      "front-clean-label",
+      "front-clean-sub",
+      "front-clean-leader",
+      "front-caption"
+    ],
+    "smooth-waistband": [
+      "front-band",
+      "front-band-edge",
+      "rear-band",
+      "profile-band",
+      "closure-band-left",
+      "closure-band-right"
+    ],
+    "broad-fall": [
+      "front-left-fall",
+      "front-centre-fall",
+      "front-right-fall",
+      "rear-left-fall",
+      "rear-right-fall"
+    ],
+    "turned-hem": [
+      "front-hem-line",
+      "rear-hem-line",
+      "profile-hem-line",
+      "turned-hem-section",
+      "turned-hem-fold",
+      "turned-hem-stitch"
+    ],
+    "rear-silhouette": [
+      "rear-view",
+      "rear-title",
+      "rear-body",
+      "rear-left-shade",
+      "rear-right-shade",
+      "rear-darts-label",
+      "rear-darts-leader",
+      "rear-seam-label",
+      "rear-seam-leader",
+      "rear-caption"
+    ],
+    "rear-darts": [
+      "rear-dart-left",
+      "rear-dart-right",
+      "inside-dart-left",
+      "inside-dart-right"
+    ],
+    "centre-back-seam": [
+      "rear-centre-seam",
+      "inside-centre-back"
+    ],
+    "profile-silhouette": [
+      "left-profile-view",
+      "profile-title",
+      "profile-body",
+      "profile-front-shade",
+      "profile-rear-light",
+      "profile-zip-label",
+      "profile-zip-leader",
+      "profile-front-direction",
+      "profile-front-direction-line",
+      "profile-rear-direction",
+      "profile-rear-direction-line",
+      "profile-caption"
+    ],
+    "left-side-seam": [
+      "profile-side-seam",
+      "closure-seam-below"
+    ],
+    "left-side-zip": [
+      "profile-zip",
+      "inside-left-opening",
+      "closure-concealed-zip",
+      "closure-zip-stop"
+    ],
+    "waistband-hook": [
+      "profile-hook",
+      "closure-overlap",
+      "closure-hook",
+      "closure-eye"
+    ],
+    "inside-facing": [
+      "inside-waist-view",
+      "inside-title",
+      "inside-subtitle",
+      "inside-skirt-top",
+      "inside-facing",
+      "inside-facing-label",
+      "inside-facing-leader",
+      "inside-back-label",
+      "inside-back-leader",
+      "inside-left-label",
+      "inside-dart-label"
+    ],
+    "band-turn": [
+      "inside-top-turn"
+    ],
+    "band-attachment": [
+      "inside-lower-attachment"
+    ],
+    "left-side-closure": [
+      "closure-view",
+      "closure-title",
+      "closure-subtitle",
+      "closure-panel-left",
+      "closure-panel-right",
+      "closure-hook-label",
+      "closure-hook-leader",
+      "closure-zip-label",
+      "closure-zip-leader",
+      "closure-stop-label",
+      "closure-stop-leader"
+    ],
+    "layering-intent": [
+      "hem-layering-view",
+      "hem-title",
+      "layer-skirt",
+      "layer-tee-label",
+      "layer-tee-leader",
+      "layer-cardigan-label",
+      "layer-cardigan-leader",
+      "layer-skirt-label",
+      "layer-skirt-leader",
+      "turned-hem-label"
+    ],
+    "tee-waist-overlap": [
+      "layer-tee"
+    ],
+    "shorter-cardigan-hem": [
+      "layer-cardigan-left",
+      "layer-cardigan-right"
+    ]
+  },
+  "original_choices": [
+    "Smooth waistband and clean front",
+    "Two rear darts and centre-back seam",
+    "Wearer-left concealed zip and waistband hook",
+    "Inside facing and lower attachment",
+    "Continuous turned hem",
+    "Ivory tee overlap and shorter caramel cardigan"
+  ],
+  "style_scope": "Full literal CSS, attributes and ancestry retained; no computed style evaluation.",
+  "limits": "Unitless independently authored artist schematics. No traced maker pattern, sewing dimensions, measured body, physical cloth/fit, 3D surfaces, rig/morph/motion, runtime or AAA proof."
+}

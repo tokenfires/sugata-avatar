@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-06T08:42:07.755609+00:00",
+  "pid": 30861,
+  "decision": "Complete inert source handed off for independent whole review; no producer or native execution yet.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/PLAN.json",
+      "bytes": 6111,
+      "sha256": "6371ed8c4ad76c2baf389d59a8c3a36c91404465ac9435e7ef5cfe93ccc9627e",
+      "lines": 104
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/BRIEF.md",
+      "bytes": 2631,
+      "sha256": "4c1947a971c09acfe83ce6fed4f9dc3586b8f5867f0b89410f8cc92e11f87ffc",
+      "lines": 11
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/ROOT-WORTH-GATE.json",
+      "bytes": 2242,
+      "sha256": "08740d6d2e17eb6cb8fe3323a93f00cdc930d668bdac316366e9495d67561a6e",
+      "lines": 35
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/skirt.svg",
+      "bytes": 11999,
+      "sha256": "4f714d2a77265820f36cc63cf7e9a8b1b9408115895c37e5a0a6847003a39388",
+      "lines": 126
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/review.html",
+      "bytes": 1170,
+      "sha256": "20e5117550ff172be28aeed9e50cf5ac5bc97d8a416bc2ecfc084107675efac4",
+      "lines": 10
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/publish-registry.py",
+      "bytes": 4544,
+      "sha256": "1c71cda4457f133e8189a748dfcc4b2db000439790a920e04607844f8ad183a9",
+      "lines": 79
+    }
+  ],
+  "scope": "Original six-area literal SVG, static local img wrapper, stdlib registry source. Root removed an unused hidden placeholder with an invalid x coordinate during initial authorship before handoff; no rejected reviewed epoch or executed artifact.",
+  "stop": "Full source review and all IDs/attrs/feature/view/closure/inside/layer role coherence; no source/appearance promotion from counts alone. First actual error stops under PLAN."
+}

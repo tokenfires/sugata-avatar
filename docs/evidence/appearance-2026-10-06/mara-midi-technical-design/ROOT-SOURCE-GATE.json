@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-06T08:50:32.311042+00:00",
+  "pid": 31681,
+  "decision": "A one exact literal registry operation, no source correction or native admission.",
+  "root_reads": "c7fc2b entire4468-source result/6052receipt, 63f348 entire126SVG/79producer/10wrapper; independently evaluated six semantic roles and exact literal resource/output scope. f21f53 read-only XML112unique IDs/sixviews/numeric attribute check, not producer/appearance.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/SOURCE-RESULT.md",
+      "bytes": 4468,
+      "sha256": "bbaa60c4a08e11958c6c8683a1a4bd12343b16bd0e683861673cfddafd6bf82d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 6052,
+      "sha256": "d491641f28f176a6c207a2c7e6e589c780c2b22da694099f0bf754d1481678e6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/SOURCE-INPUTS.json",
+      "bytes": 2240,
+      "sha256": "1648b1b0004ea50b014aea08db9a0fc23f90d5aa916acd58005424004dc1f864"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/PLAN.json",
+      "bytes": 6111,
+      "sha256": "6371ed8c4ad76c2baf389d59a8c3a36c91404465ac9435e7ef5cfe93ccc9627e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/BRIEF.md",
+      "bytes": 2631,
+      "sha256": "4c1947a971c09acfe83ce6fed4f9dc3586b8f5867f0b89410f8cc92e11f87ffc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/ROOT-WORTH-GATE.json",
+      "bytes": 2242,
+      "sha256": "08740d6d2e17eb6cb8fe3323a93f00cdc930d668bdac316366e9495d67561a6e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/skirt.svg",
+      "bytes": 11999,
+      "sha256": "4f714d2a77265820f36cc63cf7e9a8b1b9408115895c37e5a0a6847003a39388"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/review.html",
+      "bytes": 1170,
+      "sha256": "20e5117550ff172be28aeed9e50cf5ac5bc97d8a416bc2ecfc084107675efac4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/publish-registry.py",
+      "bytes": 4544,
+      "sha256": "1c71cda4457f133e8189a748dfcc4b2db000439790a920e04607844f8ad183a9"
+    }
+  ],
+  "verified_binding_rows": 31,
+  "critic": {
+    "chunk": "c5f990",
+    "exit": 0,
+    "pid": 31542,
+    "stable_utc": "2026-10-06T08:49:09.926525+00:00"
+  },
+  "command": "python3 docs/evidence/appearance-2026-10-06/mara-midi-technical-design/publish-registry.py",
+  "output_absence": [
+    "design.json",
+    "SOURCE-RECEIPT.json"
+  ],
+  "collection": "One exec command. Expected finite local112-node XML operation; record actual tool stdout/stderr/exit and producer PID from receipt. If command yields session ID root owns collection or termination of that session; no duplicate invocation. Preserve first error/partial outputs and stop. No transactional output-pair or unconditional deadline guarantee.",
+  "limits": "Read-only source gates prove bounded literal source suitability, not coordinate/curve/font/appearance/bodyfit/pattern/3D. Registry capped512KiB; actual full JSON associations require independent comparison afterward. No native/checklist/asset/default adoption.",
+  "stops_utc": {
+    "root_registry_close": "2026-10-06T09:15:00Z"
+  }
+}

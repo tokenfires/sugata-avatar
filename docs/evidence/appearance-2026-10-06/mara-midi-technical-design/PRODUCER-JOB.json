@@ -1,0 +1,14 @@
+{
+  "tool": "functions.exec tools.exec_command",
+  "chunk": "597ce3",
+  "exit_code": 0,
+  "session_id": null,
+  "tool_wall_seconds": 0.000006584,
+  "command": "python3 docs/evidence/appearance-2026-10-06/mara-midi-technical-design/publish-registry.py",
+  "producer_pid": 31682,
+  "producer_receipt_utc": "2026-10-06T08:50:32.373592+00:00",
+  "supervisor_pid": "not reported by executor",
+  "streams": "Combined decoded executor output retained exactly as observed; separate raw stdout/stderr channels were not reported, so no zero-stderr or wire-byte claim.",
+  "output_characters": 589,
+  "owned": "One invocation returned complete exit0 without live session; no retry or native."
+}

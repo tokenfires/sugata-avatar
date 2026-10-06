@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-06T08:55:31.535361+00:00",
+  "pid": 32195,
+  "scope": "Historical unexecuted pre-review native prototype recovery only; no browser attempt or rejected actual epoch.",
+  "historical_proposal": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/PROPOSAL.json",
+    "bytes": 3037,
+    "sha256": "1fc85ce7bdee2f29aeffd4ec904f170a3be096550b8432cddc925456fe159c87"
+  },
+  "historical_row": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/CUA-COMMAND.js",
+    "bytes": 3553,
+    "sha256": "9271f716a7e8afe62e392bb116ea1c98343749a59dd702d0255c6a763668a529"
+  },
+  "resolve_historical_row_to": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/CUA-COMMAND.initial.js.txt",
+    "bytes": 3553,
+    "sha256": "9271f716a7e8afe62e392bb116ea1c98343749a59dd702d0255c6a763668a529"
+  },
+  "active_proposal": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/PROPOSAL-V2.json",
+    "bytes": 3679,
+    "sha256": "a6bb7577c798c5cca691f8339e868f88ea98c88eb6b1a4d1da08b7a0fbac241a"
+  },
+  "active_command": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/CUA-COMMAND.js",
+    "bytes": 3584,
+    "sha256": "1532bc994ebd163e97aa96ff58612f4aaaf5947bec3b2c5c7560b6562af95cb8"
+  },
+  "rule": "PROPOSAL.json pins the initial command now retained exactly in CUA-COMMAND.initial.js.txt. Its historical CUA-COMMAND.js row resolves to that snapshot. Only PROPOSAL-V2.json pins current CUA-COMMAND.js. Do not compare old prototype pin to newer live source or treat either as executed native evidence."
+}

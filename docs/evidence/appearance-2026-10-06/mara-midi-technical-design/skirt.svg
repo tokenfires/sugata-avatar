@@ -1,0 +1,126 @@
+<svg id="mara-skirt-sheet" xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040" data-feature="sheet">
+  <style id="sheet-style">text{font-family:Arial,Helvetica,sans-serif;fill:#382e36} .title{font-size:32px;font-weight:700;letter-spacing:1px}.subtitle{font-size:17px;fill:#786b73}.view-title{font-size:20px;font-weight:700}.label{font-size:16px}.small{font-size:14px;fill:#786b73}.upper{fill:#64334f;stroke:#382632;stroke-width:2.4;stroke-linejoin:round}.band{fill:#633047;stroke:#382632;stroke-width:2.4}.shade{fill:#4b293d}.light{fill:#85556d}.line{fill:none;stroke:#392833;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.soft{fill:none;stroke:#9d7288;stroke-width:2;stroke-linecap:round}.hidden{fill:none;stroke:#ead9e3;stroke-width:1.8;stroke-dasharray:7 5}.note{fill:none;stroke:#786b73;stroke-width:1.3;stroke-linecap:round}.facing{fill:#b798aa;stroke:#624657;stroke-width:2}.stitch{fill:none;stroke:#694d5e;stroke-width:1.6;stroke-dasharray:5 4}</style>
+  <rect id="paper" x="0" y="0" width="1440" height="1040" fill="#f7f1e6"/>
+  <text id="sheet-title" x="60" y="65" class="title">MARA / PLUM MIDI</text>
+  <text id="sheet-subtitle" x="60" y="95" class="subtitle">Original editable artist intent · smooth waist, broad fall, continuous hem</text>
+  <text id="sheet-index" x="1380" y="65" text-anchor="end" class="subtitle">WARDROBE 03</text>
+  <path id="row-divider" d="M60 635 H1380" fill="none" stroke="#d7cbbf" stroke-width="1.5"/>
+
+  <g id="front-view" data-view="front" data-feature="front-silhouette">
+    <text id="front-title" x="60" y="145" class="view-title">01 / FRONT</text>
+    <path id="front-body" class="upper" d="M182 218 C180 268 165 321 149 380 L112 578 Q274 604 435 578 L401 380 C385 321 370 268 368 218 Z"/>
+    <path id="front-left-shade" class="shade" d="M215 276 C203 369 165 487 157 584 Q171 587 189 589 C192 487 224 370 228 281 Z"/>
+    <path id="front-right-shade" class="shade" d="M334 276 C345 371 370 487 379 585 L398 582 C380 470 350 351 349 281 Z"/>
+    <path id="front-centre-light" class="light" d="M269 286 C259 410 243 507 245 593 L272 594 C268 485 287 374 285 287 Z"/>
+    <path id="front-band" class="band" data-feature="smooth-waistband" d="M181 190 Q275 178 369 190 L368 218 Q275 207 182 218 Z"/>
+    <path id="front-band-edge" class="soft" data-feature="smooth-waistband" d="M189 196 Q275 186 360 196"/>
+    <path id="front-left-fall" class="line" data-feature="broad-fall" d="M215 289 C199 391 176 490 167 582"/>
+    <path id="front-centre-fall" class="soft" data-feature="broad-fall" d="M281 290 C280 415 259 516 264 588"/>
+    <path id="front-right-fall" class="line" data-feature="broad-fall" d="M338 292 C350 401 381 505 385 582"/>
+    <path id="front-hem-line" class="soft" data-feature="turned-hem" d="M118 569 Q274 594 429 569"/>
+    <text id="front-band-note" x="70" y="208" class="label">Smooth band</text>
+    <path id="front-band-leader" class="note" d="M160 204 H174"/>
+    <text id="front-clean-label" x="60" y="324" class="label">Clean centre front</text>
+    <text id="front-clean-sub" x="60" y="347" class="small">No seam or root gathers</text>
+    <path id="front-clean-leader" class="note" d="M192 330 L245 360"/>
+    <text id="front-caption" x="60" y="614" class="small">Broad falls start below the band; no front pleats.</text>
+  </g>
+
+  <g id="rear-view" data-view="rear" data-feature="rear-silhouette">
+    <text id="rear-title" x="520" y="145" class="view-title">02 / REAR</text>
+    <path id="rear-body" class="upper" d="M639 218 C637 268 622 321 606 380 L569 578 Q731 604 892 578 L858 380 C842 321 827 268 825 218 Z"/>
+    <path id="rear-left-shade" class="shade" d="M676 276 C660 378 632 483 624 585 L647 589 C648 484 677 371 688 282 Z"/>
+    <path id="rear-right-shade" class="shade" d="M787 276 C802 369 827 483 836 585 L854 582 C839 472 812 353 800 281 Z"/>
+    <path id="rear-band" class="band" data-feature="smooth-waistband" d="M638 190 Q732 178 826 190 L825 218 Q732 207 639 218 Z"/>
+    <path id="rear-dart-left" class="line" data-feature="rear-darts" d="M676 213 L684 284 L694 212"/>
+    <path id="rear-dart-right" class="line" data-feature="rear-darts" d="M771 212 L780 284 L790 214"/>
+    <path id="rear-centre-seam" class="line" data-feature="centre-back-seam" d="M732 187 C735 313 727 445 733 594"/>
+    <path id="rear-left-fall" class="soft" data-feature="broad-fall" d="M667 296 C651 404 631 509 634 581"/>
+    <path id="rear-right-fall" class="soft" data-feature="broad-fall" d="M797 296 C812 404 835 507 840 581"/>
+    <path id="rear-hem-line" class="soft" data-feature="turned-hem" d="M575 569 Q731 594 886 569"/>
+    <text id="rear-darts-label" x="864" y="247" class="label">Two darts</text>
+    <path id="rear-darts-leader" class="note" d="M856 250 L789 262"/>
+    <text id="rear-seam-label" x="875" y="405" class="label">Back seam</text>
+    <path id="rear-seam-leader" class="note" d="M866 400 L734 422"/>
+    <text id="rear-caption" x="520" y="614" class="small">No vent; centre-back join continues to the hem.</text>
+  </g>
+
+  <g id="left-profile-view" data-view="left-profile" data-feature="profile-silhouette">
+    <text id="profile-title" x="1015" y="145" class="view-title">03 / WEARER'S LEFT</text>
+    <path id="profile-body" class="upper" d="M1157 218 C1132 259 1139 335 1120 382 L1076 579 Q1189 601 1302 579 L1266 382 C1246 323 1256 259 1234 218 Z"/>
+    <path id="profile-front-shade" class="shade" d="M1161 292 C1154 399 1119 500 1116 586 L1138 590 C1136 499 1173 392 1174 293 Z"/>
+    <path id="profile-rear-light" class="light" d="M1225 306 C1241 407 1266 520 1264 585 L1279 582 C1266 483 1244 390 1240 310 Z"/>
+    <path id="profile-band" class="band" data-feature="smooth-waistband" d="M1156 190 Q1195 183 1235 190 L1234 218 Q1195 210 1157 218 Z"/>
+    <path id="profile-side-seam" class="line" data-feature="left-side-seam" d="M1195 189 C1194 310 1188 421 1196 594"/>
+    <path id="profile-zip" class="hidden" data-feature="left-side-zip" d="M1195 215 L1193 294"/>
+    <path id="profile-hook" class="soft" data-feature="waistband-hook" d="M1190 195 H1201 V202 H1197"/>
+    <path id="profile-hem-line" class="soft" data-feature="turned-hem" d="M1083 570 Q1189 590 1295 570"/>
+    <text id="profile-zip-label" x="1270" y="255" class="label">Side zip</text>
+    <path id="profile-zip-leader" class="note" d="M1263 251 L1201 256"/>
+    <text id="profile-front-direction" x="1015" y="360" class="small">Front</text>
+    <path id="profile-front-direction-line" class="note" d="M1056 356 H1114"/>
+    <text id="profile-rear-direction" x="1323" y="360" class="small">Rear</text>
+    <path id="profile-rear-direction-line" class="note" d="M1274 356 H1314"/>
+    <text id="profile-caption" x="1015" y="614" class="small">Independent side schematic; zip ends at upper hip.</text>
+  </g>
+
+  <g id="inside-waist-view" data-view="inside-waist" data-feature="inside-facing">
+    <text id="inside-title" x="60" y="690" class="view-title">04 / INSIDE WAIST</text>
+    <text id="inside-subtitle" x="60" y="715" class="small">Band unfolded inward · rear portion shown</text>
+    <path id="inside-skirt-top" class="upper" d="M85 783 Q257 761 430 783 L447 920 Q258 943 68 920 Z"/>
+    <path id="inside-facing" class="facing" d="M85 748 Q258 724 430 748 L430 796 Q258 773 85 796 Z"/>
+    <path id="inside-top-turn" class="line" data-feature="band-turn" d="M85 748 Q258 724 430 748"/>
+    <path id="inside-lower-attachment" class="stitch" data-feature="band-attachment" d="M91 788 Q258 766 424 788"/>
+    <path id="inside-centre-back" class="line" data-feature="centre-back-seam" d="M258 735 V933"/>
+    <path id="inside-dart-left" class="hidden" data-feature="rear-darts" d="M156 787 L172 875 L186 783"/>
+    <path id="inside-dart-right" class="hidden" data-feature="rear-darts" d="M330 783 L345 875 L359 787"/>
+    <path id="inside-left-opening" class="line" data-feature="left-side-zip" d="M85 748 L85 853"/>
+    <text id="inside-facing-label" x="465" y="771" class="label">Facing</text>
+    <path id="inside-facing-leader" class="note" d="M457 768 L425 767"/>
+    <text id="inside-back-label" x="221" y="967" class="small">Centre back</text>
+    <path id="inside-back-leader" class="note" d="M258 946 V935"/>
+    <text id="inside-left-label" x="60" y="947" class="small">Left opening</text>
+    <text id="inside-dart-label" x="332" y="947" class="small">Dart take-up</text>
+  </g>
+
+  <g id="closure-view" data-view="closure" data-feature="left-side-closure">
+    <text id="closure-title" x="560" y="690" class="view-title">05 / LEFT CLOSURE</text>
+    <text id="closure-subtitle" x="560" y="715" class="small">Original zip and hook intent · outside schematic</text>
+    <path id="closure-panel-left" class="upper" d="M590 786 H719 L716 941 H590 Z"/>
+    <path id="closure-panel-right" class="upper" d="M723 786 H851 V941 H726 Z"/>
+    <path id="closure-band-left" class="band" data-feature="smooth-waistband" d="M590 747 H733 V790 H590 Z"/>
+    <path id="closure-band-right" class="band" data-feature="smooth-waistband" d="M735 747 H851 V790 H735 Z"/>
+    <path id="closure-overlap" class="facing" data-feature="waistband-hook" d="M718 752 H747 V783 H718 Z"/>
+    <path id="closure-hook" class="line" data-feature="waistband-hook" d="M725 766 H737 V772 H732"/>
+    <path id="closure-eye" class="line" data-feature="waistband-hook" d="M741 762 H745 V772 H741 Z"/>
+    <path id="closure-concealed-zip" class="hidden" data-feature="left-side-zip" d="M721 793 V896"/>
+    <path id="closure-zip-stop" class="soft" data-feature="left-side-zip" d="M716 897 H726"/>
+    <path id="closure-seam-below" class="line" data-feature="left-side-seam" d="M721 902 V941"/>
+    <text id="closure-hook-label" x="879" y="765" class="label">Hook / overlap</text>
+    <path id="closure-hook-leader" class="note" d="M868 762 H749"/>
+    <text id="closure-zip-label" x="879" y="840" class="label">Concealed zip</text>
+    <path id="closure-zip-leader" class="note" d="M869 836 H729"/>
+    <text id="closure-stop-label" x="879" y="915" class="small">Upper-hip end</text>
+    <path id="closure-stop-leader" class="note" d="M869 909 L729 897"/>
+  </g>
+
+  <g id="hem-layering-view" data-view="hem-and-layering" data-feature="layering-intent">
+    <text id="hem-title" x="1040" y="690" class="view-title">06 / HEM + LAYERS</text>
+    <path id="layer-skirt" class="upper" d="M1112 739 H1202 L1254 882 Q1157 898 1059 882 Z"/>
+    <path id="layer-tee" data-feature="tee-waist-overlap" d="M1120 719 H1194 L1202 748 H1112 Z" fill="#e8e0d6" stroke="#918478" stroke-width="1.7"/>
+    <path id="layer-cardigan-left" data-feature="shorter-cardigan-hem" d="M1089 718 L1120 719 L1111 839 L1073 834 Z" fill="#aa7855" stroke="#71523e" stroke-width="1.7"/>
+    <path id="layer-cardigan-right" data-feature="shorter-cardigan-hem" d="M1194 719 L1225 718 L1241 834 L1203 839 Z" fill="#aa7855" stroke="#71523e" stroke-width="1.7"/>
+    <text id="layer-tee-label" x="1268" y="746" class="small">Tee overlap</text>
+    <path id="layer-tee-leader" class="note" d="M1259 741 H1204"/>
+    <text id="layer-cardigan-label" x="1268" y="819" class="small">Cardigan</text>
+    <path id="layer-cardigan-leader" class="note" d="M1259 815 L1239 830"/>
+    <text id="layer-skirt-label" x="1268" y="879" class="small">Midi hem</text>
+    <path id="layer-skirt-leader" class="note" d="M1260 874 L1249 880"/>
+    <path id="turned-hem-section" class="facing" data-feature="turned-hem" d="M1074 926 H1318 V958 H1074 Z"/>
+    <path id="turned-hem-fold" class="line" data-feature="turned-hem" d="M1074 958 H1318"/>
+    <path id="turned-hem-stitch" class="stitch" data-feature="turned-hem" d="M1082 934 H1310"/>
+    <text id="turned-hem-label" x="1074" y="984" class="small">Turned hem · inner stitch line</text>
+  </g>
+
+  <text id="sheet-limits" x="60" y="1018" class="small">Unitless original schematics, not registered projections or sewing patterns. Physical fit, cloth, 3D, motion and runtime remain open.</text>
+</svg>
