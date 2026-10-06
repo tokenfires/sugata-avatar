@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-06T10:55:11.462030+00:00",
+  "pid": 43805,
+  "usable_improvement": "Keep saved outfit request/honour/history aligned with real outfit commits when loading requests overlap.",
+  "bounded_question": "Are production2classes/newregression exact canonical bytes whose reversible import-only projections passed the single CPU gate, with original2assertion files/assets/dependencies intact?",
+  "decision": "Adopt exactly3canonical files only after timely stable actual critic A and independent root actual handoff qualification. B/missing/late withholds.",
+  "pairs": [
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/Wardrobe.js.txt",
+        "bytes": 49992,
+        "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+      },
+      "destination": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "prior": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+        "bytes": 49156,
+        "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/WardrobeAgency.js.txt",
+        "bytes": 23800,
+        "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+      },
+      "destination": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "prior": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+        "bytes": 23344,
+        "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-completion.selftest.mjs.txt",
+        "bytes": 16920,
+        "sha256": "73f2c15e512cedbda6189ff642db5b4fbe1dc52931cf2d0424a61deea2391808"
+      },
+      "destination": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency-completion.selftest.mjs",
+      "prior": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1441,
+      "sha256": "140a0c288db052eb51656cab6173cae1dc16f94055795677e997bef59665309a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PROJECTIONS-V2.json",
+      "bytes": 3456,
+      "sha256": "02f2f8dff96f753d7ab47ed97137be8b9a4283eef2fd8228d16addee2356b61e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14730,
+      "sha256": "422bbe8d44fc1e44bbfc80eda3b598ca9e9d6c96496153976fd33b6e6c577347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ACTUAL-OBSERVATION.json",
+      "bytes": 17398,
+      "sha256": "dff66a14f2fee078169a163e6e961d3ad987a2d0463722ce3ca9c1fcf5f78bd0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/JOB.json",
+      "bytes": 1416,
+      "sha256": "1c3b4718cf62571a5fa262515ba171b5effb036eb5969e51c5f73d1a0b3944f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDOUT.txt",
+      "bytes": 30517,
+      "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDERR.txt",
+      "bytes": 4547,
+      "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/run-selftests.sh",
+      "bytes": 8425,
+      "sha256": "7add74f960c84dc30ba60bd01016744d03b60be363580b4df0cdf8d8a27ea789"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5960,
+      "sha256": "2bb0709ad54908bf78b996d421b9b91e8c1e1cef817c42128df6b0bad0f502b5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    }
+  ],
+  "checks": "Before copy all56execution pins exact; recompute all5 forward/reverse15rules. After copy exact3canonical equality, original agency/catalogue assertions unchanged, assets/dependencies/externalremaining unchanged. Original2live historical hashes bind ORIGINAL-SOURCES snapshots after adoption; never edit frozen records. New regression production dirname4levels matches repository root as exercised projection. New *.selftest.mjs enters existing runner automatically, evidence leaf zero matches. Root gitdiff/check/scope and exact readback.",
+  "consumer_scope": "Root6fa152/52addf/b3c856 actual testbed run366-384 refreshes/current wardrobe.worn, consider294 dispatches only awaiting-user. No changes needed for superseded status; this is source compatibility, no browser/UI test. Main core public API single argument retained, documented optional synchronous callback notification/no rollback on callback throw.",
+  "limits": "No repeat CPU, globalrunner/build/import/capture/source or assertion rescue. Exact3copy justified by frozen actual tested canonical/projection bindings, not a new production runtime execution. CurrentState is MemoryStore only; generic reentry/mode/multiagency/custom doubles/realstorage/appearance/fit/performance remain unqualified. Checklist17scoped10broad unchanged; full roadmap/acceptedassets preserved.",
+  "stops": {
+    "root_actual_close": "2026-10-06T11:30:00Z",
+    "exact_adoption_and_binding": "2026-10-06T11:40:00Z",
+    "checkpoint": "2026-10-06T11:45:00Z"
+  },
+  "alternatives": [
+    {
+      "choice": "A exact guarded copy after qualified actual review",
+      "tradeoff": "Delivers witnessed race fix; expands documented optional callback API within tested narrow synchronous contract."
+    },
+    {
+      "choice": "B retain isolated candidate",
+      "tradeoff": "Avoids product change if binding/review fails; witnessed saved-state/honour bug remains in current implementation."
+    }
+  ]
+}

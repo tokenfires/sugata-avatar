@@ -1,0 +1,102 @@
+{
+  "utc": "2026-10-06T11:05:33.675341+00:00",
+  "pid": 48606,
+  "decision": "A actual CPU scope; root admits guarded exact3-file adoption only, delivery still requires post-copy binding.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ACTUAL-V2-RESULT.md",
+      "bytes": 3209,
+      "sha256": "4d95f1b15f09637d0faf13217415ca7d40b457efd89bf8efd62e7efa1f5d497f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ACTUAL-V2-CRITIC-RECEIPT.json",
+      "bytes": 10913,
+      "sha256": "7aeaf6cf8ff1dea3a7ba5392790cd0cb3df530370d09861057faaaaaee25fd67"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ACTUAL-OBSERVATION.json",
+      "bytes": 17398,
+      "sha256": "dff66a14f2fee078169a163e6e961d3ad987a2d0463722ce3ca9c1fcf5f78bd0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ACTUAL-PENDING.json",
+      "bytes": 5845,
+      "sha256": "81f4a84951ff29cd5ed8f5860a04d725c864ae5ad38c60f8918a2c6e2ddcc2df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-BEFORE-AFTER.json",
+      "bytes": 4470,
+      "sha256": "0ad71b1e1013ee51f6475b25eaf0b455054d73219b425a7ab7d3d0d23220829b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-RESULT-NOTES.md",
+      "bytes": 3607,
+      "sha256": "042a5b7487af8e970122f70a5f3f56ec33570886399ac4d187c94154c25a561e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ADOPTION-PLAN.json",
+      "bytes": 6710,
+      "sha256": "8f697d8e01b48405a1da92bd5978c7008fcbffa32302543554ddcadc59f25f8d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PROJECTIONS-V2.json",
+      "bytes": 3456,
+      "sha256": "02f2f8dff96f753d7ab47ed97137be8b9a4283eef2fd8228d16addee2356b61e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1441,
+      "sha256": "140a0c288db052eb51656cab6173cae1dc16f94055795677e997bef59665309a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14730,
+      "sha256": "422bbe8d44fc1e44bbfc80eda3b598ca9e9d6c96496153976fd33b6e6c577347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/JOB.json",
+      "bytes": 1416,
+      "sha256": "1c3b4718cf62571a5fa262515ba171b5effb036eb5969e51c5f73d1a0b3944f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDOUT.txt",
+      "bytes": 30517,
+      "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDERR.txt",
+      "bytes": 4547,
+      "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a"
+    }
+  ],
+  "verified": {
+    "critic_direct_inputs": 16,
+    "critic_output": 1,
+    "execution_pins": 56,
+    "adoption_inputs": 11,
+    "canonical_adoption_pairs": 3,
+    "original_live_snapshot_pairs": 4,
+    "complete_projection_pairs": 5,
+    "literal_reversals": 15,
+    "raw_cases": 13,
+    "snapshots": 39,
+    "settlements": 27,
+    "catalogue": 12,
+    "serial": 28,
+    "known_warnings": 25,
+    "expected_store_warning": 1,
+    "owned_leaf_runner_matches": 0
+  },
+  "root_read": "04207d full stable3209/10913 actual critic pair; c6b599 full actual raw streams,6501da source deltas/regression contract,6fa152/52addf/b3c856 sourceconsumer/runner and12catalogue labels. Independent947de5 saved-data checker not target replay;30f5ef selected old/new comparison with honest metadata-reader error preserved. Fresh current16critic/1output/56gate/11adoption/3source+prior/4original/5projection pins and job/observation/stream predicates now.",
+  "critic_jobs": {
+    "actual_stable_chunk": "1218e9",
+    "exit": 0,
+    "pid": 47055,
+    "collected_utc": "2026-10-06T11:04:17.782973+00:00",
+    "independent_observer": "bc834c",
+    "independent_binding": "0502df"
+  },
+  "limits": "One finite target only; MemoryStore/injectedclock/realGLTF+bitmapstub CPU policy. Exact onApplied API sync/error-aftercommit and tested narrow schedules; no mode-switch/multiagency/rogue/customdoubles/generalreentry/realstorage/browser/render/fit/performance/AAA acceptance. Checklist17scoped10broad unchanged. Original source protocolB closed; no source/observer/assertion rescue or duplicate jobs.",
+  "historical_input_rule": "After exact2class adoption, historical old logical Wardrobe/WardrobeAgency pins in all prior evidence resolve byte-exact ORIGINAL-SOURCES.json snapshots. Frozen records remain immutable; their pre-adoption live equalities are time-scoped. No claim current live production stays old.",
+  "next": "Freeze this owned candidate/evidence leaf, then exactADOPTION-PLAN3copies and independently check every post-copy source/import/assertion/asset/dependency binding before delivery by11:40UTC/checkpoint11:45."
+}

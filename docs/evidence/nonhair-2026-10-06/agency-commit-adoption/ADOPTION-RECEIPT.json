@@ -1,0 +1,166 @@
+{
+  "started_utc": "2026-10-06T11:06:27.872487+00:00",
+  "verified_utc": "2026-10-06T11:06:27.930343+00:00",
+  "pid": 49946,
+  "decision": "Exact3canonical product adoption verified against independently qualified single actual CPU gate. No production runtime replay.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/FROZEN.json",
+      "bytes": 14044,
+      "sha256": "3004612e7002a5e2e52f2b42b82bc12134da1af54452d80f4ce7e19604125fff"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ACTUAL-CLOSE.json",
+      "bytes": 5538,
+      "sha256": "c2c722dc717d9fb88c57d8f8c5e083d5ab3d988bf166b0049e690f5c4f9b856a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ACTUAL-V2-RESULT.md",
+      "bytes": 3209,
+      "sha256": "4d95f1b15f09637d0faf13217415ca7d40b457efd89bf8efd62e7efa1f5d497f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ACTUAL-V2-CRITIC-RECEIPT.json",
+      "bytes": 10913,
+      "sha256": "7aeaf6cf8ff1dea3a7ba5392790cd0cb3df530370d09861057faaaaaee25fd67"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ADOPTION-PLAN.json",
+      "bytes": 6710,
+      "sha256": "8f697d8e01b48405a1da92bd5978c7008fcbffa32302543554ddcadc59f25f8d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14730,
+      "sha256": "422bbe8d44fc1e44bbfc80eda3b598ca9e9d6c96496153976fd33b6e6c577347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PROJECTIONS-V2.json",
+      "bytes": 3456,
+      "sha256": "02f2f8dff96f753d7ab47ed97137be8b9a4283eef2fd8228d16addee2356b61e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1441,
+      "sha256": "140a0c288db052eb51656cab6173cae1dc16f94055795677e997bef59665309a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ACTUAL-OBSERVATION.json",
+      "bytes": 17398,
+      "sha256": "dff66a14f2fee078169a163e6e961d3ad987a2d0463722ce3ca9c1fcf5f78bd0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-BEFORE-AFTER.json",
+      "bytes": 4470,
+      "sha256": "0ad71b1e1013ee51f6475b25eaf0b455054d73219b425a7ab7d3d0d23220829b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/JOB.json",
+      "bytes": 1416,
+      "sha256": "1c3b4718cf62571a5fa262515ba171b5effb036eb5969e51c5f73d1a0b3944f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDOUT.txt",
+      "bytes": 30517,
+      "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDERR.txt",
+      "bytes": 4547,
+      "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a"
+    }
+  ],
+  "copies": [
+    {
+      "canonical": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/Wardrobe.js.txt",
+        "bytes": 49992,
+        "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+      },
+      "production": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+        "bytes": 49992,
+        "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+      },
+      "before": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+        "bytes": 49156,
+        "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+      }
+    },
+    {
+      "canonical": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/WardrobeAgency.js.txt",
+        "bytes": 23800,
+        "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+      },
+      "production": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+        "bytes": 23800,
+        "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea"
+      },
+      "before": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+        "bytes": 23344,
+        "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+      }
+    },
+    {
+      "canonical": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-completion.selftest.mjs.txt",
+        "bytes": 16920,
+        "sha256": "73f2c15e512cedbda6189ff642db5b4fbe1dc52931cf2d0424a61deea2391808"
+      },
+      "production": {
+        "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/agency-completion.selftest.mjs",
+        "bytes": 16920,
+        "sha256": "73f2c15e512cedbda6189ff642db5b4fbe1dc52931cf2d0424a61deea2391808"
+      },
+      "before": null
+    }
+  ],
+  "verified": {
+    "production_canonical_equalities": 3,
+    "complete_forward_reverse_projection_pairs": 5,
+    "exact_literal_rules": 15,
+    "historic_execution_inputs": 56,
+    "original_live_assertion_files_unchanged": 2,
+    "owned_evidence_runner_matches": 0,
+    "existing_runner_discovers_production_regression_by_suffix": true,
+    "frozen_payloads_unchanged": 54
+  },
+  "historical_original_resolution": [
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeAgency.js",
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-WardrobeAgency.js.txt",
+        "bytes": 23344,
+        "sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+      },
+      "expected_bytes": 23344,
+      "expected_sha256": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069"
+    },
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-Wardrobe.js.txt",
+        "bytes": 49156,
+        "sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+      },
+      "expected_bytes": 49156,
+      "expected_sha256": "517dd2fadbc6a806273786e8fa3c8bde0ae1e4078ac74809707ea7fef7208664"
+    }
+  ],
+  "result_scope": {
+    "actual_cpu_cases": 13,
+    "catalogue_groups": 12,
+    "serial_assertions": 28,
+    "snapshots": 39,
+    "settlements": 27,
+    "known_rig_warnings": 25,
+    "expected_store_warning": 1
+  },
+  "limits": "MemoryStore/injectedclock/realrig+bitmapstub CPU policy. Optional synchronous callback notify is tested narrowly; throw rejects after commit/no rollback. No mode/multiagency/rogue/customdoubles/generalreentry/realstorage/browser/fit/appearance/performance/AAA acceptance. Existingrunner/newproductionmodule were not rerun: exact source/import equivalence to one already qualified run verified. Acceptedassets/dependencies/unchangedtests all exact othergatepins; checklist17/10 unchanged.",
+  "owned_job_state": "One candidate child43411 recorded reaped, bothpipesEOF/closed/written/errors[]; no additional target/import/test/runner/browser launched by adoption. Known reviewserverPID1023 process observed e0a0c1, retained; no endpoint/globalOS claim.",
+  "next": "Read actual gitdiff/check and scope, write concise delivery readme/journals and locally checkpoint by11:45UTC. New experiment requires fresh critic worth and explicit bounded contract."
+}

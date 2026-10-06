@@ -505,10 +505,19 @@ export class Wardrobe {
      * and there is no warning (research §2.2).
      *
      * @param {string[]} garmentIds
-     * @returns {Promise<Object>} the same shape as `stats()`
+     * @param {Object} [options]
+     * @param {function(Object): void} [options.onApplied] - Called once synchronously with the
+     *   committed stats snapshot, never for an obsolete, invalid or failed application. Its return
+     *   value is ignored. If it throws, the promise rejects with the outfit already applied.
+     * @returns {Promise<Object>} the same shape as `stats()`; a snapshot at completion, not a live view
      */
-    async dress( garmentIds ) {
+    async dress( garmentIds, { onApplied = null } = {} ) {
 
+        if ( onApplied !== null && typeof onApplied !== 'function' ) {
+
+            throw new TypeError( 'Wardrobe: onApplied must be a function or null.' );
+
+        }
         const outfit = this.validateOutfit( garmentIds );
         const token = ++ this.dressToken;
         this.loadingOutfit = outfit;
@@ -526,7 +535,11 @@ export class Wardrobe {
             const startedAt = now();
             this.#applyOutfit( outfit );
             this.lastDressMs = now() - startedAt;
-            return this.stats();
+            const stats = this.stats();
+            // Notify at the actual commit, before async callers can resume out of order.
+            // A callback error rejects after application; it does not roll the outfit back.
+            if ( onApplied !== null ) onApplied( stats );
+            return stats;
 
         } finally {
 

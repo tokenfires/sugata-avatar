@@ -286,16 +286,17 @@ export class WardrobeAgency {
         }
 
         const outfit = garmentIds ?? [ ...this.wardrobe.worn ];
-        const stats = await this.wardrobe.dress( outfit );
+        const request = Array.isArray( outfit ) ? [ ...outfit ] : outfit;
+        return this.wardrobe.dress( request, { onApplied: ( stats ) => {
 
-        this.mode = 'pinned';
-        this.pinnedOutfit = [ ...stats.worn ];
-        this.currentRequest = [ ...outfit ];
-        this.pending = null;
-        this.pendingId = null;
-        this.#persist();
+            this.mode = 'pinned';
+            this.pinnedOutfit = [ ...stats.worn ];
+            this.currentRequest = [ ...request ];
+            this.pending = null;
+            this.pendingId = null;
+            this.#persist();
 
-        return stats;
+        } } );
 
     }
 
@@ -509,27 +510,35 @@ export class WardrobeAgency {
 
     async #apply( preference ) {
 
-        const stats = await this.wardrobe.dress( preference.outfit );
+        const request = [ ...preference.outfit ];
+        let applied = false;
+        const stats = await this.wardrobe.dress( request, { onApplied: () => {
 
-        preference.honoured = true;
-        this.lastChangeAt = this.clock();
+            applied = true;
+            preference.honoured = true;
+            this.lastChangeAt = this.clock();
 
-        // 🚩 Keyed on the REQUEST that produced the outgoing outfit, not on `wardrobe.worn`.
-        //
-        // `worn` is the request plus the decency floor, and `#heldBy` is asked about a request. The
-        // first build of this keyed the two sides differently, so no key ever matched and the
-        // return period was inert while the change period covered for it — the agency oscillated
-        // between two outfits every eleven minutes and every other clause read green.
-        if ( this.currentRequest !== null ) {
+            // 🚩 Keyed on the REQUEST that produced the outgoing outfit, not on `wardrobe.worn`.
+            //
+            // `worn` is the request plus the decency floor, and `#heldBy` is asked about a request. The
+            // first build of this keyed the two sides differently, so no key ever matched and the
+            // return period was inert while the change period covered for it — the agency oscillated
+            // between two outfits every eleven minutes and every other clause read green.
+            if ( this.currentRequest !== null ) {
 
-            this.lastWornAt.set( outfitKey( this.currentRequest ), this.lastChangeAt );
+                this.lastWornAt.set( outfitKey( this.currentRequest ), this.lastChangeAt );
 
-        }
+            }
 
-        this.currentRequest = [ ...preference.outfit ];
-        this.#persist();
+            this.currentRequest = [ ...request ];
+            this.#persist();
 
-        return { applied: true, reason: 'applied', preference, stats };
+        } } );
+
+        return applied
+            ? { applied: true, reason: 'applied', preference, stats }
+            : { applied: false, status: 'superseded',
+                reason: 'a newer valid outfit request superseded this request', preference, stats };
 
     }
 

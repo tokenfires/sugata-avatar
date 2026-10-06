@@ -1,0 +1,161 @@
+{
+  "utc": "2026-10-06T10:56:33.578972+00:00",
+  "pid": 43929,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/STDOUT.txt",
+      "bytes": 40104,
+      "sha256": "2d7f9c76b9e373bc5e6fadeebf126334322696a210c997761800d1c7c3a832e6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDOUT.txt",
+      "bytes": 30517,
+      "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee"
+    }
+  ],
+  "rows": [
+    {
+      "original_case": "slow-consider-then-successful-user-pin",
+      "candidate_case": "old-consider-new-pin",
+      "original": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "currentRequest": [
+          "fedora01"
+        ],
+        "honoured": [
+          true
+        ],
+        "lastChangeAt": 1000000,
+        "lastWornAt": {
+          "shoes01": 1000000
+        },
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ]
+      },
+      "candidate": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "currentRequest": [
+          "shoes01"
+        ],
+        "honoured": [
+          false
+        ],
+        "lastChangeAt": null,
+        "lastWornAt": {},
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ]
+      }
+    },
+    {
+      "original_case": "slow-user-pin-then-successful-newer-user-pin",
+      "candidate_case": "old-pin-new-pin",
+      "original": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "currentRequest": [
+          "fedora01"
+        ],
+        "honoured": [],
+        "lastChangeAt": null,
+        "lastWornAt": {},
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ]
+      },
+      "candidate": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "currentRequest": [
+          "shoes01"
+        ],
+        "honoured": [],
+        "lastChangeAt": null,
+        "lastWornAt": {},
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ]
+      }
+    },
+    {
+      "original_case": "sequential-consider-then-user-pin-control",
+      "candidate_case": "serial-honour",
+      "original": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "currentRequest": [
+          "shoes01"
+        ],
+        "honoured": [
+          true
+        ],
+        "lastChangeAt": 1000000,
+        "lastWornAt": {},
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ]
+      },
+      "candidate": {
+        "worn": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ],
+        "mode": "pinned",
+        "currentRequest": [
+          "shoes01"
+        ],
+        "honoured": [
+          true
+        ],
+        "lastChangeAt": 1000000,
+        "lastWornAt": {},
+        "pinnedOutfit": [
+          "foundation_bra",
+          "foundation_briefs",
+          "shoes01"
+        ]
+      }
+    }
+  ],
+  "decision": "Two overlap selected raw bookkeeping faults corrected; same actually worn/newer pinned shoes in both versions. Genuine sequential honour/control fields retained.",
+  "limits": "Comparison of existing independent schedule witnesses, not another target or identical whole harness/output; profile/reason strings differ and are excluded. CPU selected values only, no pixels/fit/performance/human state-loss claim.",
+  "metadata_error": {
+    "chunk": "e0a0c1",
+    "message": "Own reader tried line JSON on original pretty-printed whole JSON and failed with JSONDecodeError. Process-only Vite observation still returned because separateps command ran; shell aggregate0 is not reader success.",
+    "correction": "8aa6a9 whole JSON parsed;34ae3a actual events schema discovered;882fa8 full selected final states read. No target or evidence edits/replays."
+  }
+}

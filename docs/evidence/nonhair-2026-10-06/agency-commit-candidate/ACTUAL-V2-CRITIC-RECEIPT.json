@@ -1,0 +1,236 @@
+{
+  "collected_utc": "2026-10-06T11:04:17.782973+00:00",
+  "writer_pid": 47055,
+  "decision": "A actual finite CPU results; conditional A exact3 canonical adoption after independent root post-copy binding/scope gate",
+  "result_words": 367,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/JOB.json",
+      "bytes": 1416,
+      "sha256": "1c3b4718cf62571a5fa262515ba171b5effb036eb5969e51c5f73d1a0b3944f9",
+      "scope": "complete parsed actual process record"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDOUT.txt",
+      "bytes": 30517,
+      "sha256": "fa96692cdceb0e0db28619ff363c8e0240079a9ffe46455b6272ad53970fc7ee",
+      "scope": "whole82 lines, recovered1\u20137 and8\u201382; strict saved-data comparison"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/STDERR.txt",
+      "bytes": 4547,
+      "sha256": "3522518dc44a3f53a18947c7e1d8abe6c3b417ba58af0a30c7223bc15c4b6d6a",
+      "scope": "whole4547 bytes/26 warning lines; no zero-stderr claim"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-SOURCE-GATE.json",
+      "bytes": 14730,
+      "sha256": "422bbe8d44fc1e44bbfc80eda3b598ca9e9d6c96496153976fd33b6e6c577347",
+      "scope": "whole protocol and all56 execution-input byte pins; no library semantic-review claim"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ADOPTION-PLAN.json",
+      "bytes": 6710,
+      "sha256": "8f697d8e01b48405a1da92bd5978c7008fcbffa32302543554ddcadc59f25f8d",
+      "scope": "whole plan; all11 inputs/three pairs freshly byte-verified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/PROJECTIONS-V2.json",
+      "bytes": 3456,
+      "sha256": "02f2f8dff96f753d7ab47ed97137be8b9a4283eef2fd8228d16addee2356b61e",
+      "scope": "whole five rulesets; every forward/reverse byte equality"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ORIGINAL-SOURCES.json",
+      "bytes": 1441,
+      "sha256": "140a0c288db052eb51656cab6173cae1dc16f94055795677e997bef59665309a",
+      "scope": "whole manifest and four snapshot/live byte equalities"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-V2-RESULT.md",
+      "bytes": 2447,
+      "sha256": "9eecb9cb2bba6cf36dae3f48b816e19d28cc9ce34e5e47a5f28c630f3d10715c",
+      "scope": "whole preserved prior independent source verdict"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/SOURCE-V2-CRITIC-RECEIPT.json",
+      "bytes": 4465,
+      "sha256": "bea8cad52ac5e96bb6fb16744d07ebd2b382c0a91b53f9c456cbb0c94458b8e1",
+      "scope": "whole preserved exact source scopes/jobs/pins; canonical full semantics reused only at unchanged hashes"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/Wardrobe.js.txt",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936",
+      "scope": "prior whole1121-line semantic review reused at unchanged pin; current514\u2013553 literal read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/WardrobeAgency.js.txt",
+      "bytes": 23800,
+      "sha256": "a464cd444da6d5c1a02e5310614d06f01061a1845baabdace84f677633cd42ea",
+      "scope": "prior whole692-line semantic review reused at unchanged pin; current281\u2013302/511\u2013544 literal read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/agency-completion.selftest.mjs.txt",
+      "bytes": 16920,
+      "sha256": "73f2c15e512cedbda6189ff642db5b4fbe1dc52931cf2d0424a61deea2391808",
+      "scope": "prior whole279-line semantic review reused at unchanged pin; current1\u201347 plus whole canonical/runtime byte reverse"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/probe-v2.mjs",
+      "bytes": 984,
+      "sha256": "383081ac1306f16fa0f5719e1c6ff7dc148e90c8c0a9bc823b801452bdc63c63",
+      "scope": "whole17-line driver; actual captured order independently checked"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ROOT-ACTUAL-OBSERVATION.json",
+      "bytes": 17398,
+      "sha256": "dff66a14f2fee078169a163e6e961d3ad987a2d0463722ce3ca9c1fcf5f78bd0",
+      "scope": "byte pin only through adoption plan; parent observation was not the independent oracle"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/wardrobe.js",
+      "bytes": 50738,
+      "sha256": "b58cac7d7e7517a022190397d80b2ac6e2e89a21e8cbed7bfb2f371ddce58207",
+      "scope": "selected286\u2013306/366\u2013389; whole byte pin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/run-selftests.sh",
+      "bytes": 8425,
+      "sha256": "7add74f960c84dc30ba60bd01016744d03b60be363580b4df0cdf8d8a27ea789",
+      "scope": "selected98\u2013110 plus actual discovery93; whole byte pin"
+    }
+  ],
+  "manifest_verified_counts": {
+    "execution_inputs": 56,
+    "adoption_input_rows": 11,
+    "canonical_source_pairs": 3,
+    "unchanged_original_live_snapshot_pairs": 4,
+    "full_projection_pairs": 5,
+    "unique_literal_forward_reverse_rules": 15,
+    "rules_per_pair": [
+      3,
+      0,
+      5,
+      5,
+      2
+    ],
+    "owned_leaf_discoverable_selftests": 0,
+    "production_new_test_absent": true
+  },
+  "independent_actual_checks": {
+    "completion_cases": 13,
+    "state_and_rawstore_snapshots": 39,
+    "settlements": 27,
+    "catalogue_source_named_groups": 12,
+    "serial_ok_rows": 28,
+    "serial_pass_line": "PASS \u2014 28 assertions.",
+    "known_rig_warning_lines": 25,
+    "expected_corrupt_store_warning_lines": 1,
+    "all_persisted_raw_fields_compared": true,
+    "expected_rejections_retained": true,
+    "target_replayed": false
+  },
+  "actual_job": {
+    "tool_chunk": "a1cbba",
+    "tool_exit": 0,
+    "supervisor_pid": 43410,
+    "child_pid": 43411,
+    "node": "v24.13.1",
+    "started_utc": "2026-10-06T10:52:18.405407+00:00",
+    "collected_utc": "2026-10-06T10:52:18.869985+00:00",
+    "parent_monotonic_seconds": 0.46479250001721084,
+    "stdout_bytes": 30517,
+    "stderr_bytes": 4547,
+    "child_returncode": 0,
+    "errors": [],
+    "both_EOF_closed_written": true,
+    "reaped": true,
+    "clock_limit": "Parent/tool/UTC scopes are distinct; no OS/GPU performance or machine process census."
+  },
+  "critic_jobs": [
+    {
+      "chunk": "4e40a1",
+      "pid": 43593,
+      "utc": "2026-10-06T10:53:20.445909Z",
+      "exit": 0,
+      "command": "python3 stdlib whole actual JOB/stderr/admission/stdout read",
+      "retained_limit": "Combined functions output budget truncated aggregate; full stdout/protocol recovered below. Not target or source failure."
+    },
+    {
+      "chunk": "c5d6dc",
+      "pid": 43697,
+      "utc": "2026-10-06T10:53:56.033633Z",
+      "exit": 0,
+      "command": "python3 stdlib full stdout lines1\u20137"
+    },
+    {
+      "chunk": "f6fe3b",
+      "pid": 43727,
+      "utc": "2026-10-06T10:54:17.520295Z",
+      "exit": 0,
+      "command": "python3 stdlib full stdout lines8\u201382"
+    },
+    {
+      "chunk": "bc834c",
+      "pid": 44152,
+      "utc": "2026-10-06T10:59:03.583687Z",
+      "exit": 0,
+      "command": "python3 bounded saved-data strictJSON observer; all13/39/27 raw/request/store outcomes,56pins,JOB/streams,source13case+12catalogue names,serial28 and26warnings; no target/verifier import or replay"
+    },
+    {
+      "chunk": "7a969e",
+      "pid": 44356,
+      "utc": "2026-10-06T11:01:23.407642Z",
+      "exit": 0,
+      "command": "python3 stdlib whole adoption/projection/original manifest and recovered entire non-row admission protocol"
+    },
+    {
+      "chunk": "0502df",
+      "pid": 44410,
+      "utc": "2026-10-06T11:01:59.367288Z",
+      "exit": 0,
+      "command": "python3 stdlib all56pins/adoption11+3/five15rule fullreversals/original4/newtestabsence/leaf0 matches; selected canonical/caller/driver/runner reads"
+    },
+    {
+      "chunk": "332439",
+      "pid": 44471,
+      "utc": "2026-10-06T11:02:23.815135Z",
+      "exit": 0,
+      "command": "python3 stdlib complete preserved source V2 result/receipt and actual runner discovery line93"
+    },
+    {
+      "pid": 47055,
+      "utc": "2026-10-06T11:04:17.782973+00:00",
+      "command": "python3 stdlib final56pin readback plus exclusive <=500word result/receipt creation; tool chunk/exit reported separately"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-commit-candidate/ACTUAL-V2-RESULT.md",
+      "bytes": 3209,
+      "sha256": "4d95f1b15f09637d0faf13217415ca7d40b457efd89bf8efd62e7efa1f5d497f",
+      "scope": "exclusive own final result; complete readback"
+    }
+  ],
+  "limits": [
+    "Saved-data/source-only independent review; no Node/helper/test/producer/import/evaluation, target replay, GLB/header/BIN/geometry/image decode, browser/network/GPU, candidate/product/frozen edits.",
+    "Known rig and expected corrupt-store warnings retained. Fixture cleanup/disposal metadata and parent reaping are not general browser/GPU retirement or all-machine census.",
+    "MemoryStore and1x1 bitmap CPU policy only; real storage/browser/mode/multiagency/rogue/generic reentry/appearance/fit/motion/performance/fullAAA unqualified.",
+    "Original proof and sourceB/V2 handoffs remain unchanged; root observation hash-only supplemental, not independent oracle."
+  ],
+  "next": {
+    "worth": "A exact ADOPTION-PLAN3 copies only, conditional independent root handoff qualification and all post-copy byte/import/assertion/assets/scope checks",
+    "alternative": "B retain isolated candidate if any binding/gate missing or late; witnessed current faults remain",
+    "redundant_run": "None proposed; exact canonical/runtime reversible bindings qualify the tested candidate scope, not a new production runtime execution",
+    "checklist": "17scoped/10broad unchanged; no extra checkbox/fullUI credit"
+  },
+  "stops": {
+    "actual_inquiry": "2026-10-06T11:20:00Z",
+    "critic_collection": "2026-10-06T11:25:00Z",
+    "root_close": "2026-10-06T11:30:00Z",
+    "root_exact_adoption_binding": "2026-10-06T11:40:00Z",
+    "root_checkpoint": "2026-10-06T11:45:00Z"
+  },
+  "pending_edits": false
+}
