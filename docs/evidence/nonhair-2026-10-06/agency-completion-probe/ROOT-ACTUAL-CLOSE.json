@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-06T10:05:36.890980+00:00",
+  "pid": 38969,
+  "decision": "Close original one-run CPU proof A. Two obsolete-completion bookkeeping defects, actual worn pin preserved. No candidate execution/adoption admitted.",
+  "root_read": "cc9698 full6028/7567 actual handoff;0c792c full root observation/erratum/job and journal tails. Original b12c61 independently verified all11 raw states; this closure recomputes every13critic/1output/23execution/7root input and stream/job/hash binding.",
+  "actual_critic": {
+    "command_chunk": "740cf2",
+    "exit": 0,
+    "pid": 38814,
+    "collected_utc": "2026-10-06T10:03:53.303482+00:00",
+    "late": {
+      "investigation_stop_utc": "2026-10-06T10:00:00Z",
+      "own_independent_predicates_reached_utc": "2026-10-06T09:53:44.105242+00:00",
+      "last_optional_comparative_read_utc": "2026-10-06T10:00:14.796181+00:00",
+      "scope": "Supplemental saved-state erratum read overran the inquiry cutoff; stopped investigation and finalized only current receipt. No target/new experiment/replay or fictitious timely collection."
+    }
+  },
+  "verified_counts": {
+    "critic_inputs": 13,
+    "critic_outputs": 1,
+    "execution_inputs": 23,
+    "root_inputs": 7,
+    "raw_cases": 3,
+    "root_raw_snapshots": 11
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ACTUAL-RESULT.md",
+      "bytes": 6028,
+      "sha256": "bd793776cd95042061af883bb85767075407b638843ae531869ca754744b7521"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ACTUAL-CRITIC-RECEIPT.json",
+      "bytes": 7567,
+      "sha256": "8254bc636302800bc51814db7e164f2bd011dd6da8c67440e516e60223503789"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-ACTUAL-OBSERVATION.json",
+      "bytes": 9852,
+      "sha256": "ead9bddf375be0ecdc1ed12a27e81a9908e613f5b47915eb7d57e0754da1c92c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-ACTUAL-ERRATUM.json",
+      "bytes": 472,
+      "sha256": "1e4d7843ed77e8453aa99f4cb6b151b7965d2d10295ebc2793f94bcc9a7718e2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/ROOT-SOURCE-GATE.json",
+      "bytes": 6578,
+      "sha256": "7ea440ce8b30ac6ab09833f64e12d26e04e544dbc03e88cbdfb28c973875e6f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/JOB.json",
+      "bytes": 1410,
+      "sha256": "30cd0125894f6dd5db959eab8c4d3142486bbb4b098a4bdce0216abd9297645c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/STDOUT.txt",
+      "bytes": 40104,
+      "sha256": "2d7f9c76b9e373bc5e6fadeebf126334322696a210c997761800d1c7c3a832e6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/STDERR.txt",
+      "bytes": 528,
+      "sha256": "18da6e1011fb802f4cb1d01376b9466c5eede6d2cfc7f2db5e6fbcb0e94380de"
+    }
+  ],
+  "actual_job": {
+    "started_utc": "2026-10-06T09:48:34.448002+00:00",
+    "collected_utc": "2026-10-06T09:48:34.578932+00:00",
+    "supervisor_pid": 37211,
+    "child_pid": 37212,
+    "argv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "--max-old-space-size=512",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-06/agency-completion-probe/probe.mjs"
+    ],
+    "cwd": "/Users/robault/GitHub/sugata-avatar",
+    "returncode": 0,
+    "elapsed_monotonic_seconds": 0.1311510419473052,
+    "stop_reason": null,
+    "collected": true,
+    "errors": [],
+    "pipes_closed": {
+      "stdout": true,
+      "stderr": true
+    },
+    "outputs": {
+      "stdout": {
+        "bytes": 40104,
+        "observed_read_bytes": 40104,
+        "eof": true,
+        "written": true,
+        "sha256": "2d7f9c76b9e373bc5e6fadeebf126334322696a210c997761800d1c7c3a832e6"
+      },
+      "stderr": {
+        "bytes": 528,
+        "observed_read_bytes": 528,
+        "eof": true,
+        "written": true,
+        "sha256": "18da6e1011fb802f4cb1d01376b9466c5eede6d2cfc7f2db5e6fbcb0e94380de"
+      }
+    },
+    "limits": "One owned CPU child;20s supervision plus at most two2s retirement waits,512MiB V8 heap not totalRSS. Errors may leave child unreaped; captured prefixes and EOF scope reported honestly. Single group kill and only-on-error direct owned-child fallback are cleanup, not a second trial. No renderer/pixels/fit/globalOS/GPU retirement or complete startup performance claim."
+  },
+  "limits": "One actual CPU invocation only; three rig fallback warnings retained. No new execution, visual/fit/AAA/human-loss or performance acceptance. Original source B preserved; V2 source A plus exact one-run evidence preserved. Source/defaultassets/originalreferences/unrelatedworktrees/Vite retained.",
+  "next": "Separate worth/source plan for actual applied outcome and current commit ownership; invalid/failed newer and truthful serial history required. No browser/capture rescue."
+}
