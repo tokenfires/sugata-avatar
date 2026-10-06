@@ -1,0 +1,41 @@
+{
+  "observer_utc": "2026-10-06T09:04:09.207580+00:00",
+  "observer_pid": 33004,
+  "tool": "mcp__cua_repl.js",
+  "title": "Inspect Mara\u2019s first whole skirt sheet",
+  "timeout_ms": 45000,
+  "tool_wall_seconds": 0.0107,
+  "tool_returned_error": "Browser is not available: 3",
+  "submitted_code_bytes": 3583,
+  "submitted_sha256": "8faec52cd6429590a003db08377c03eda08be3a7f2112ea4d8fbcbb086f9b519",
+  "saved_code_bytes": 3584,
+  "saved_sha256": "1532bc994ebd163e97aa96ff58612f4aaaf5947bec3b2c5c7560b6562af95cb8",
+  "command_relation": "Only saved terminal newline omitted from actual submission; exact text relationship, not protocol-wire identity.",
+  "actual_trace": {
+    "requested_utc": "2026-10-06T09:01:20.714Z",
+    "owner": "root",
+    "source_url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/review.html",
+    "screenshot_attempts": 0,
+    "errors": [
+      {
+        "phase": "first-whole-sheet",
+        "name": "Error",
+        "message": "Browser is not available: 3"
+      }
+    ],
+    "backend_pid": "unavailable",
+    "cleanup_requested": "2026-10-06T09:01:20.715Z",
+    "returned_utc": "2026-10-06T09:01:20.715Z",
+    "elapsed_ms": 1
+  },
+  "actual_owned_tab": null,
+  "outputs_absent": [
+    "first-sheet.jpg",
+    "first-sheet.png",
+    "first-sheet.bin",
+    "NATIVE-TRACE.json"
+  ],
+  "boundary": "First selected-browser inventory did not return; collected trace has no before_tabs, owned_tab or navigation/readiness fields and screenshot_attempts0. Current fixed code requests tabs.new only after that inventory. No owned tab/new request or frame was reached by this attempt. Final automatic trace file absent; own in-memory trace collected once without a browser API. No machine-wide tab census or OS/GPU retirement claim.",
+  "clocks": "Tool0.0107s versus collected Date1ms distinguish limited clocks. Collector0.0075s is a separate read-only operation, not a second capture. Backend PID and provider cause unknown.",
+  "classification": "B first native acquisition; source/data A retained, actual visual quality unknown. No readiness/camera/geometry/layout/material/Vite diagnosis, source correction, browser reselection, restart, retry, zoom or retake."
+}

@@ -1,0 +1,29 @@
+{
+  "observer_utc": "2026-10-06T09:04:09.207182+00:00",
+  "observer_pid": 33004,
+  "tool": "mcp__cua_repl.js",
+  "title": "Collect the stopped capture\u2019s local trace",
+  "tool_wall_seconds": 0.0075,
+  "command": "nodeRepl.write({ trace: typeof maraSkirtTrace === 'undefined' ? null : maraSkirtTrace, owned_tab: typeof maraSkirtTab === 'undefined' ? null : maraSkirtTab.id });",
+  "returned": {
+    "trace": {
+      "requested_utc": "2026-10-06T09:01:20.714Z",
+      "owner": "root",
+      "source_url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/review.html",
+      "screenshot_attempts": 0,
+      "errors": [
+        {
+          "phase": "first-whole-sheet",
+          "name": "Error",
+          "message": "Browser is not available: 3"
+        }
+      ],
+      "backend_pid": "unavailable",
+      "cleanup_requested": "2026-10-06T09:01:20.715Z",
+      "returned_utc": "2026-10-06T09:01:20.715Z",
+      "elapsed_ms": 1
+    },
+    "owned_tab": null
+  },
+  "scope": "Own in-memory trace collection only, no browser API, new tab, screenshot, capture replay or native repair. This is a saved transcription of actual collector output, not an automatically written first-call trace."
+}

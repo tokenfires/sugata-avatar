@@ -1,0 +1,132 @@
+{
+  "collected_utc": "2026-10-06T09:10:07.607685+00:00",
+  "writer_pid": 33544,
+  "decision": "B actual native acquisition; no sheet image/appearance or artist/checklist credit; preserved source/data A",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/PLAN.json",
+      "bytes": 4403,
+      "sha256": "0177bb749e1db340c5a119b034a63536510908a2a03c38820bd5a65e4af107cc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/PROPOSAL-V2.json",
+      "bytes": 3679,
+      "sha256": "a6bb7577c798c5cca691f8339e868f88ea98c88eb6b1a4d1da08b7a0fbac241a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/CUA-COMMAND.js",
+      "bytes": 3584,
+      "sha256": "1532bc994ebd163e97aa96ff58612f4aaaf5947bec3b2c5c7560b6562af95cb8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/COLLECTED-LOCAL-TRACE.json",
+      "bytes": 1267,
+      "sha256": "a02196726db7e0cc45c032bc5d69fd07784c10c1e135723ef84c1c99888bcf97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/NATIVE-JOB.json",
+      "bytes": 2267,
+      "sha256": "7848f2218ad1473753ad70e7fa0e940d9e63f30193060501be4c1b69ef8e9d4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/ROOT-NATIVE-OBSERVATION.json",
+      "bytes": 2807,
+      "sha256": "aee1bdb7decaf3183ae041b2e9ea4d7b3328acede6f9be768a477921cbc14c60"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/FROZEN.json",
+      "bytes": 4957,
+      "sha256": "dbe6b14f5dbb632c1e79d41ff52bc966fe56f2243e3096b16cabc165d7f41c60"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/ROOT-REGISTRY-CLOSE.json",
+      "bytes": 5838,
+      "sha256": "e00a7cc4d9a30a80d5837305d5f2ea6c88d5657012d3b4d96574f01d1e585a61"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/skirt.svg",
+      "bytes": 11999,
+      "sha256": "4f714d2a77265820f36cc63cf7e9a8b1b9408115895c37e5a0a6847003a39388"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/design.json",
+      "bytes": 80135,
+      "sha256": "2647e48f2dbbf449bf3f7b431c5021b3efc394aa88bf19b1335f298cf32a14a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-technical-design/review.html",
+      "bytes": 1170,
+      "sha256": "20e5117550ff172be28aeed9e50cf5ac5bc97d8a416bc2ecfc084107675efac4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 5960,
+      "sha256": "2bb0709ad54908bf78b996d421b9b91e8c1e1cef817c42128df6b0bad0f502b5"
+    }
+  ],
+  "verified_manifests": {
+    "nativePLAN_all10": true,
+    "root_actual_observation_all5": true,
+    "FROZEN_all19_current_bytepins": true,
+    "registry_close_all14": true,
+    "V2_all3": true,
+    "source_image_absence": [
+      "first-sheet.jpg",
+      "first-sheet.png",
+      "first-sheet.bin",
+      "NATIVE-TRACE.json"
+    ],
+    "current_checklist17checked10open": true
+  },
+  "read_scopes": "Entire4403-byte native PLAN/1267-byte collected local trace/2267-byte native job/2807-byte root actual observation; full42-line current3584-byte command and50-line3679-byte V2. Entire102-line FROZEN4957/99-line registry close5838 read; current linked payloads byte-hashed, not a repeated semantic/source/112-node registry oracle or a new source renderer. Current checklist raw hash/count only. Prior source/data A reused from unchanged original handoff. No image exists and no view_image call was made in this failure review.",
+  "actual_job_limits": "One root CUA capture-command attempt0.0107s, own Date1ms and a separate local-variable collector0.0075s. BackendPID/providercause unavailable; source gate is PLAN, not a guessed missing ROOT-NATIVE-GATE file. No separate raw protocol/toolwire transcript or machine-wide/GPU retirement guarantee.",
+  "jobs": [
+    {
+      "chunk": "4f9df0",
+      "pid": 33156,
+      "utc": "2026-10-06T09:05:06.858030+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full actual PLAN/localtrace/job/root observation and byte hashes; own-leaf/source inventory",
+      "note": "Nonrequired ROOT-NATIVE-GATE.json lookup absent; actual root admission is saved PLAN. No missing-gate diagnosis."
+    },
+    {
+      "chunk": "8ab5ef",
+      "pid": 33262,
+      "utc": "2026-10-06T09:06:26.633733+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib full current command/V2/frozen manifest/registry close text and hashes"
+    },
+    {
+      "chunk": "05aec1",
+      "pid": 33357,
+      "utc": "2026-10-06T09:07:40.841611+00:00",
+      "exit": 0,
+      "command": "python3 heredoc stdlib all10PLAN/5actual/19frozen/14close/3V2 pins, trace/job/submitted-newline relationship/zero reached fields/collector no-browser text/output absence/current17/10 checks"
+    },
+    {
+      "pid": 33544,
+      "utc": "2026-10-06T09:10:07.607685+00:00",
+      "command": "python3 heredoc stdlib final pins/actual-branch/output-absence checks and exclusive two-file write/readback; returned tool chunk/exit separate"
+    }
+  ],
+  "critic_observed_errors": [],
+  "retained_actual_error": "Browser is not available: 3",
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/RESULT.md",
+      "bytes": 3709,
+      "sha256": "be66a8f668bc9dcaadd3034465c7c5d06e0949a8c9b0ae4959ed5cf2c5ebf067"
+    }
+  ],
+  "limits": "Only saved source/metadata/bytes and these two handoff writes; no browser API, target/helper/source import/evaluation/replay, new capture/rasterization/network/controller or product/frozen/original edits. No appearance/pattern/physicalfit/runtime source failure is inferred. No successor or rescue admitted.",
+  "preferred_stops_utc": {
+    "critic": "2026-10-06T09:14:00Z",
+    "root": "2026-10-06T09:18:00Z"
+  },
+  "hard_stops_utc": {
+    "first_native": "2026-10-06T09:22:00Z",
+    "critic_actual": "2026-10-06T09:30:00Z",
+    "root_close": "2026-10-06T09:35:00Z"
+  },
+  "pending_edits": false
+}
