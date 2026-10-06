@@ -1,0 +1,12 @@
+{
+  "request_prepared_utc": "2026-10-06T02:30:23.255865+00:00",
+  "command": "set -o noclobber\nexec /opt/homebrew/opt/python@3.14/bin/python3.14 -I -S -B /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py > /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PARENT.stdout 2> /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PARENT.stderr",
+  "root_admission": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/ROOT-ADMISSION.json",
+    "bytes": 1656,
+    "sha256": "e4e069c7af191a2a4d5deeea41d91b050cb13f3b7f6159c8ec4a8347acba1600"
+  },
+  "attempt": 1,
+  "state": "Prepared for sole actual root exec; not yet launched",
+  "actual_PID_tool_return": "Unavailable until actual launch and collected parent output; externalrootowns futureexit/streams"
+}

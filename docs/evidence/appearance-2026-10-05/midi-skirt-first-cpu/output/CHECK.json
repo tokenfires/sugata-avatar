@@ -1,0 +1,74 @@
+{
+  "decision": "A",
+  "export_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mara-midi.mtl",
+      "bytes": 236,
+      "sha256": "a112fc38f9cef2397aff6264306596933e2d2de829bd3d16b5baa888a0a4aa7d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mara-midi.obj",
+      "bytes": 151570,
+      "sha256": "f2137828884b8a431b3ad31bc8cf7c22e67b695fed8fa91ea2ec092e0b449033"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mesh.json",
+      "bytes": 1172984,
+      "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+    }
+  ],
+  "source_hashes": {
+    "design": "8a6a09918d4eca0198e9f82014cf79c282b63c84b1266c7a6cfd1e9fa8a35e29",
+    "contract": "252ccefd46cfe5e2f76421172364d44e162b2f04d056361e459747d130c6f5b9",
+    "writer_addendum": "33dce1b13682305be6f14a7af68efbb65a0e0620ee10611f7b894c4e84edcac6"
+  },
+  "counts": {
+    "vertices": 2688,
+    "quads": 2688,
+    "triangles": 5376,
+    "material_edges": 5376,
+    "euler": 0,
+    "components": 1
+  },
+  "minimum_squared_cross_unitless": 5.3180235380484e-09,
+  "winding_minimum": {
+    "outer": 9.21784108882e-05,
+    "inner": 8.50082079528e-05,
+    "top_rim": 7.292478e-05,
+    "bottom_rim": 0.0001474193701621
+  },
+  "corresponding_sample_XZ_displacement": [
+    0.005514313493173923,
+    0.00648329
+  ],
+  "all_literal_positions_faces_materials_exports_exact": true,
+  "limits": "Artist source data only; no globalSI/continuousclearance/physicalfit/cloth/motion/appearance qualification",
+  "audit_progress": {
+    "reached_checks": [
+      "three_regular_exports_and_source_schema",
+      "all_literal_lattice_vertices_and_bounds",
+      "all_literal_faces_and_material_roles",
+      "every_triangle_area_local_winding_and_rim_row",
+      "triangles_edge_incidence_connected_graph_euler_and_vertex_links",
+      "all_corresponding_sample_displacements",
+      "complete_exact_OBJ_roundtrip",
+      "complete_exact_MTL_roundtrip",
+      "unchanged_final_three_file_envelope"
+    ],
+    "active_check": null,
+    "minimum_squared_cross_unitless": 5.3180235380484e-09,
+    "winding_minimum": {
+      "outer": 9.21784108882e-05,
+      "inner": 8.50082079528e-05,
+      "top_rim": 7.292478e-05,
+      "bottom_rim": 0.0001474193701621
+    },
+    "corresponding_sample_XZ_displacement": [
+      0.005514313493173923,
+      0.00648329
+    ]
+  },
+  "actor": "independent_checker",
+  "pid": 93506,
+  "utc": "2026-10-06T02:30:36.012247+00:00"
+}

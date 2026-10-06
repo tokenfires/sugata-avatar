@@ -1,0 +1,9 @@
+# First MIDI skirt build: saved-data gate passed
+
+The sole first build produced the complete original editable shell and OBJ/MTL exports. The actual independent checker, critic and root saved-data reviews agree on the declared finite geometry, graph, material and export checks. All three owned actors exited successfully and were collected. [Original trial receipt](RUN-RECEIPT.md) contains the exact launch, jobs, inputs, hashes and measured limits; [critic result](DATA-RESULT.md), [full receipt](DATA-RECEIPT.json) and [root close](ROOT-CLOSE.json) retain the independent handoff and verification.
+
+The critic additionally checked all oriented vertex links and both complete graphs. Root fully read their handoff, recovered the initially truncated observer code without rerunning it, and independently verified all current input bindings. The critic metadata writer's first parse failure is preserved; only that metadata writer was corrected. The target build and numerical observer were each run once.
+
+This is a finite artist-data result. Actual appearance, global nonintersection, continuous clearance, physical thickness, body fit, cloth and rig/morph/motion remain unqualified. RSS is sampled, not peak; actual sampling was slower than the requested 50 ms. Distinct timer scopes and unexercised exceptional cleanup are disclosed. All 15 scoped completed checklist rows and 10 broad outstanding goals are unchanged.
+
+Next: the independently supported [exact inert viewer proposal](NEXT-VIEWER-PROPOSAL.json) is admitted for source preparation only, with unchanged 03:20 UTC preparation, 03:40 critic and 03:50 root stops. Full viewer and lifetime source review precedes any separately admitted first native triptych. No retry or geometry/camera/material/capture rescue. Accepted assets, original references, frozen evidence, unrelated worktrees, the review server and full AAA roadmap are retained.

@@ -1,0 +1,102 @@
+{
+  "utc": "2026-10-06T02:32:36.527425+00:00",
+  "root_reads": [
+    "2c9cb3 completeCHECK/parentstreams",
+    "b62bee completePARENT"
+  ],
+  "actual_tool": {
+    "before": {
+      "current_time": "2026-10-06 02:30:35 UTC"
+    },
+    "result": {
+      "chunk_id": "98aab0",
+      "wall_time_seconds": 0.320853042,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "after": {
+      "current_time": "2026-10-06 02:30:36 UTC"
+    }
+  },
+  "owned_identities": [
+    93500,
+    93502,
+    93506
+  ],
+  "owned_numeric_ps_remaining": [],
+  "all_source_export_stream_bytes_exact": true,
+  "all_three_actors_exit0_collected": true,
+  "root_independent_saved_data_checks": "Full strictvertex/triangle/bounds/quad/edgeincidence/diagonal/area/sampledisplacement/materialcounts; no producer/checker rerun, newtrig/source construction or appearance",
+  "counts": {
+    "vertices": 2688,
+    "quads": 2688,
+    "triangles": 5376,
+    "material_edges": 5376,
+    "euler": 0,
+    "components": 1
+  },
+  "groups": [
+    {
+      "region": "outer-band",
+      "material": "band",
+      "quads": 128
+    },
+    {
+      "region": "outer-plum",
+      "material": "plum",
+      "quads": 1152
+    },
+    {
+      "region": "inside",
+      "material": "inside",
+      "quads": 1280
+    },
+    {
+      "region": "rims",
+      "material": "band",
+      "quads": 128
+    }
+  ],
+  "root_minimum_squared_cross": 5.3180235380484e-09,
+  "root_sample_displacement": [
+    0.005514313493173923,
+    0.00648329
+  ],
+  "sample_count": 7,
+  "sampled_maximum_rss_kib": 55072,
+  "actual_withinstage_sample_start_gap_ms": [
+    85.51449998049065,
+    74.10604099277407,
+    70.85662498138845,
+    73.62812501378357,
+    73.39804200455546
+  ],
+  "parent_recorded_monotonic_seconds": 0.4268879590090364,
+  "tool_recorded_wall_seconds": 0.320853042,
+  "clock_scope": "Distinctlimitedtimers/conservativeUTCbeforeafterbracket; no completewall/peak/50msexact scheduling claim",
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/CHECK.json",
+      "bytes": 2655,
+      "sha256": "796fb85236e8972ff2f824a648595ee8a2ce92c2369f5b189a337570a07def72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mara-midi.mtl",
+      "bytes": 236,
+      "sha256": "a112fc38f9cef2397aff6264306596933e2d2de829bd3d16b5baa888a0a4aa7d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mara-midi.obj",
+      "bytes": 151570,
+      "sha256": "f2137828884b8a431b3ad31bc8cf7c22e67b695fed8fa91ea2ec092e0b449033"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mesh.json",
+      "bytes": 1172984,
+      "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+    }
+  ],
+  "decision": "A collectedactualsource/data finiteartistduties; no appearance/physicalfit/globalSI/cloth/motion/runtime/AAA",
+  "next": "Criticactualdatareview+worth separately bounded completeinertviewer/lifetime preparation; nativeonlyafterfullsourcegate"
+}

@@ -1,0 +1,26 @@
+{
+  "admitted_utc": "2026-10-06T02:30:23.255756+00:00",
+  "decision": "A exactly one firstCPU command, based on complete correctedsourcecritic/rootA and worth",
+  "plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PLAN.json",
+    "bytes": 6658,
+    "sha256": "4d1c33af0f145cde2a2b165a1f0ec8905f970305ea7c7efa5698b08cf89bb0d8"
+  },
+  "source_map": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/INPUTS.json",
+    "bytes": 2353,
+    "sha256": "70e35c76fef3db80d0112cf6c831985b6c9495929c554c773ca1e0af240dc12a"
+  },
+  "root_full_review": "9e2d36/71ef12/d7526f/de0720;770154 fullbindings/history/readiness closure",
+  "source_checkpoint": {
+    "utc": "2026-10-06T02:30:23.254817+00:00",
+    "head": "322271b86e070fbb8852dd3840953c69ec3966a1",
+    "exact_committed_current_files": 59,
+    "readonly_source_snapshots": 29,
+    "tracked_clean_before_trial_leaf": true,
+    "source_checkpoint_tool": "0fa1c3/exit0;stagedcheck954754/exit0"
+  },
+  "command": "set -o noclobber\nexec /opt/homebrew/opt/python@3.14/bin/python3.14 -I -S -B /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py > /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PARENT.stdout 2> /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PARENT.stderr",
+  "no_rescue_retry": true,
+  "limits": "Source/data only; no actual numerical pass/native admission/appearance/physicalfit from thisauthorization"
+}

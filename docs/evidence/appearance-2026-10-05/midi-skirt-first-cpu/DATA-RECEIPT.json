@@ -1,0 +1,406 @@
+{
+  "collected_utc": "2026-10-06T02:47:52.790127+00:00",
+  "critic": "/root/quality_critic",
+  "decision": "A declaredfiniteartistdata/collectedjob; conditionalA inertviewerprep afterroot; no native/appearance/fit/globalproof",
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/DATA-RESULT.md",
+    "bytes": 7603,
+    "sha256": "36d266debcea99a1fdab45d07233239fae0431e9f2066acacd28c14a9d58f957"
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PLAN.json",
+      "bytes": 6658,
+      "sha256": "4d1c33af0f145cde2a2b165a1f0ec8905f970305ea7c7efa5698b08cf89bb0d8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/ROOT-ADMISSION.json",
+      "bytes": 1656,
+      "sha256": "e4e069c7af191a2a4d5deeea41d91b050cb13f3b7f6159c8ec4a8347acba1600"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/JOB.json",
+      "bytes": 962,
+      "sha256": "6a6b06348d81d949eb23a3850ce540a8fce76f2cefb8b7c5e59c3873442d48ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/TOOL-RETURN.json",
+      "bytes": 283,
+      "sha256": "277dd88f909ea6cbff357737a68908be0a1161dbd7848ad9a4aca6fe6823fd57"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PARENT.stdout",
+      "bytes": 197,
+      "sha256": "82e54e532becdbf5abc4349c657825b2fd82c56ce845370109d6d3a17dc15c0b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PARENT.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/ROOT-DATA-OBSERVATION.json",
+      "bytes": 3233,
+      "sha256": "3cdfb80d17c7c866c449e479e7489c57bb67f0cb14a8b3b2fb76975f13316fc4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/COLLECTED-RAW-FROZEN.json",
+      "bytes": 3851,
+      "sha256": "cc70a3cf911beaa775145aed686f7574388595e97f7e4c01fa450a2f7cf2540b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/CHECK.json",
+      "bytes": 2655,
+      "sha256": "796fb85236e8972ff2f824a648595ee8a2ce92c2369f5b189a337570a07def72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mara-midi.mtl",
+      "bytes": 236,
+      "sha256": "a112fc38f9cef2397aff6264306596933e2d2de829bd3d16b5baa888a0a4aa7d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mara-midi.obj",
+      "bytes": 151570,
+      "sha256": "f2137828884b8a431b3ad31bc8cf7c22e67b695fed8fa91ea2ec092e0b449033"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/output/mesh.json",
+      "bytes": 1172984,
+      "sha256": "20dc492fd50bfd2302b096713fe3cee549485f9027eac409a0d234bfe28954c4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/records/PARENT.json",
+      "bytes": 9662,
+      "sha256": "67ba04f7b72486a00e3bb5933d09cdcf349b7120f4586d3e46f4312807f81681"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/records/checker.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/records/checker.stdout",
+      "bytes": 86,
+      "sha256": "55757cc48f0d186f023e652179a11737f2172c0a04a82bd235313d404c0813b2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/records/producer.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/records/producer.stdout",
+      "bytes": 782,
+      "sha256": "a91bb4ec846b52c0d8c27b61d5440426336df1abc87f769df72cef3c06ae93fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/DESIGN.json",
+      "bytes": 2433,
+      "sha256": "8a6a09918d4eca0198e9f82014cf79c282b63c84b1266c7a6cfd1e9fa8a35e29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/CONTRACT.md",
+      "bytes": 14439,
+      "sha256": "252ccefd46cfe5e2f76421172364d44e162b2f04d056361e459747d130c6f5b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/WRITER-ADDENDUM.md",
+      "bytes": 5309,
+      "sha256": "33dce1b13682305be6f14a7af68efbb65a0e0620ee10611f7b894c4e84edcac6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+      "bytes": 5598,
+      "sha256": "22d8b5ed5fbe95785483a8857c025c7973738cb9c25989979f1e7295cbd545e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+      "bytes": 13046,
+      "sha256": "243d5b8f85643069bcd2b474ae420b9276c8fc97552a3ccee452c4d04c4f6e5b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py",
+      "bytes": 13620,
+      "sha256": "9415ef28b3b9a59af0eac2ffa70c954d77657988716bc44d5751c62b85cbe9d2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/INPUTS.json",
+      "bytes": 2353,
+      "sha256": "70e35c76fef3db80d0112cf6c831985b6c9495929c554c773ca1e0af240dc12a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/EXECUTABLE-CONTRACT.md",
+      "bytes": 10893,
+      "sha256": "8c96220fbea904d5b3a30fc38db814a545829b214544dc21e6eaa16ec051b21a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/CORRECTED-SOURCE-RESULT.md",
+      "bytes": 7107,
+      "sha256": "38d44b6eaa43c88450d83cef03b37e8efbea3ba0af83b1069e32298fd418b6c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/CORRECTED-SOURCE-RECEIPT.json",
+      "bytes": 25714,
+      "sha256": "527661ae79a688bcfc2e770ff41fc523d005ea0d115132106e1eafac2d048ed6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/ROOT-CLOSE.json",
+      "bytes": 1480,
+      "sha256": "414df2b3f4b93991127735c2b9f5acbbecbc8c4d4fc6479f7ab6293d88728fb9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/ROOT-READBACK.json",
+      "bytes": 5465,
+      "sha256": "74366ead69156b4c99d4602588d5684ba9149f8b5b39bd28d4862c3f95f646df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/DIRECT-RUNTIME.json",
+      "bytes": 796,
+      "sha256": "ec89bd9db71fe879545420f1aedeaf1471dd6228f06b34f71e34971a0cf4200b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/DATA-HANDOFF.json",
+      "bytes": 6595,
+      "sha256": "feacc1b4dfddeef993d8a47e7af6245481118f6d9df3cd32bce2d2d4d14e0847"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/NEXT-VIEWER-PROPOSAL.json",
+      "bytes": 3438,
+      "sha256": "393674719d4315b79abe18fab318c3b9655a6c4bdd1e8eb063e155b037b60fa2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu/PREVIOUS-CHECKPOINT.json",
+      "bytes": 287,
+      "sha256": "93f044b8474f2c2bdc398db71953fca56fa58325c1a9f9333fe591ebe8a78a56"
+    }
+  ],
+  "independent_observer": {
+    "exact_code": "from pathlib import Path\nfrom collections import Counter, defaultdict\nfrom fractions import Fraction\nfrom decimal import Decimal\nimport json, hashlib, os, datetime, time, signal, re\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu')\nstarted=time.monotonic()\ndef alarm(sig,frame): raise TimeoutError('critic saved-data audit 30s alarm')\nsignal.signal(signal.SIGALRM,alarm);signal.setitimer(signal.ITIMER_REAL,30)\ndef pin(q):\n q=Path(q); b=q.read_bytes(); return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ndef verify(row): assert pin(row['path'])=={k:row[k] for k in ['path','bytes','sha256']}\nh=json.loads((p/'DATA-HANDOFF.json').read_text())\nfor row in h['inputs']+h['source_pins']: verify(row)\nplan=json.loads((p/'PLAN.json').read_text())\nfor row in plan['inputs']: verify(row)\nparent=json.loads((p/'records/PARENT.json').read_text()); check=json.loads((p/'output/CHECK.json').read_text())\nfrozen=json.loads((p/'COLLECTED-RAW-FROZEN.json').read_text())\nfor row in frozen['original_readonly_raw_files']:\n verify(row);assert not Path(row['path']).stat().st_mode&0o222\nassert {q.name for q in (p/'output').iterdir()}=={'mesh.json','mara-midi.obj','mara-midi.mtl','CHECK.json'}\nassert {q.name for q in (p/'records').iterdir()}=={'PARENT.json','producer.stdout','producer.stderr','checker.stdout','checker.stderr'}\npins={r['role']:r for r in h['source_pins']}\ndesign=json.loads(Path(pins['design']['path']).read_text())\nmesh=json.loads((p/'output/mesh.json').read_text(),parse_constant=lambda x: (_ for _ in ()).throw(ValueError(x)))\ndef same(a,b):\n assert type(a) is type(b)\n if isinstance(a,dict):\n  assert set(a)==set(b)\n  for k in a:same(a[k],b[k])\n elif isinstance(a,list):\n  assert len(a)==len(b)\n  for x,y in zip(a,b):same(x,y)\n else:assert a==b\nassert set(mesh)=={'identity','frame','source_hashes','coordinate_quantum','vertices','quads','triangles','materials','excluded_claims'}\nsame(mesh['identity'],design['identity']);same(mesh['frame'],design['frame'])\nsame(mesh['materials'],design['material_palette']);same(mesh['excluded_claims'],design['claims_excluded'])\nsame(mesh['coordinate_quantum'],design['coordinate_quantum'])\nassert mesh['source_hashes']=={k:pins[k]['sha256'] for k in ['design','contract','writer_addendum']}\nV=mesh['vertices'];Q=mesh['quads'];T=mesh['triangles'];DEN=100000000\nassert type(V) is list and len(V)==2688\ncoords=[]\nfor n,v in enumerate(V):\n assert set(v)=={'id','row','angle','surface','xyz_lattice'}\n assert all(type(v[k]) is int for k in ['id','row','angle'])\n assert v['id']==n and v['row']==(n%1344)//64 and v['angle']==n%64\n assert v['surface']==('outer' if n<1344 else 'inner')\n c=v['xyz_lattice'];assert type(c) is list and len(c)==3 and all(type(x) is int for x in c)\n x,y,z=c;assert 0<=y<=DEN and abs(x)<=48000000 and abs(z)<=34000000\n u=Fraction(str(design['rows'][v['row']][0])); y_expected=(1-u)*DEN\n assert y_expected.denominator==1 and y==y_expected.numerator\n coords.append(tuple(c))\nassert len(set(coords))==2688\nassert type(Q) is list and len(Q)==2688 and type(T) is list and len(T)==5376\nqe=defaultdict(list);te=defaultdict(list);successor=defaultdict(dict);uf=list(range(len(V)))\ndef find(n):\n while uf[n]!=n: uf[n]=uf[uf[n]];n=uf[n]\n return n\ndef unite(a,b):\n a=find(a);b=find(b)\n if a!=b:uf[b]=a\ndef cross(a,b):\n return (a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0])\nminarea=None; minwind={};groups=Counter()\nfor f,q in enumerate(Q):\n assert set(q)=={'id','region','material','vertices'} and type(q['id']) is int and q['id']==f\n if f<2560:\n  j,i=divmod(f%1280,64);n=(i+1)%64;outer=f<1280;offset=0 if outer else 1344\n  base=[64*j+i,64*(j+1)+i,64*(j+1)+n,64*j+n]\n  expected=[offset+k for k in (base if outer else [base[0],base[3],base[2],base[1]])]\n  reg,mat=(('outer-band','band') if j<2 else ('outer-plum','plum')) if outer else ('inside','inside')\n else:\n  i=(f-2560)%64;n=(i+1)%64;j=0 if f<2624 else 20;a=64*j+i;b=64*j+n\n  expected=[a,b,b+1344,a+1344] if j==0 else [a,a+1344,b+1344,b]\n  reg,mat='rims','band'\n assert q['region']==reg and q['material']==mat\n vs=q['vertices'];assert type(vs) is list and len(vs)==4 and all(type(x) is int and 0<=x<2688 for x in vs) and len(set(vs))==4 and vs==expected\n groups[(reg,mat)]+=1\n for a,b in zip(vs,vs[1:]+vs[:1]):qe[tuple(sorted((a,b)))].append((a,b))\n expected_tri=[vs[:3],[vs[0],vs[2],vs[3]]]\n for half,tri in enumerate(expected_tri):\n  actual=T[2*f+half];assert type(actual) is list and len(actual)==3 and all(type(x) is int and 0<=x<2688 for x in actual) and actual==tri\n  a,b,c=[coords[x] for x in actual];N=cross(tuple(y-x for x,y in zip(a,b)),tuple(y-x for x,y in zip(a,c)))\n  area=sum(x*x for x in N);assert area>10**12;minarea=area if minarea is None else min(minarea,area)\n  if f<2560:\n   cz=(Fraction(str(design['rows'][j][3]))+Fraction(str(design['rows'][j+1][3])))/2\n   signed=Fraction(N[0]*(a[0]+b[0]+c[0]),3*DEN)+N[2]*(Fraction(a[2]+b[2]+c[2],3*DEN)-cz)\n   role='outer' if f<1280 else 'inner'\n   if role=='inner':signed=-signed\n  else:\n   assert all(coords[x][1]==(DEN if j==0 else 0) for x in vs)\n   role='top_rim' if j==0 else 'bottom_rim';signed=Fraction(N[1] if j==0 else -N[1])\n  assert signed>0\n  minwind[role]=min(minwind.get(role,signed),signed)\n  for k,v in enumerate(actual):\n   a=actual[(k+1)%3];b=actual[(k+2)%3]\n   assert a not in successor[v];successor[v][a]=b\n   te[tuple(sorted((v,a)))].append((v,a));unite(v,a)\nassert len(qe)==5376 and len(te)==8064\nfor edges in [qe,te]:\n assert all(len(v)==2 and v[0]==v[1][::-1] for v in edges.values())\nassert len({find(v) for v in range(len(V))})==1\nassert len(V)-len(qe)+len(Q)==0 and len(V)-len(te)+len(T)==0\nfor v in range(len(V)):\n s=successor[v];assert set(s)==set(s.values());first=min(s);seen=set();cur=first\n while cur not in seen:seen.add(cur);cur=s[cur]\n assert cur==first and len(seen)==len(s)\ngaps=[]\nfor a,b in zip(coords[:1344],coords[1344:]):\n assert a[1]==b[1];g=(a[0]-b[0])**2+(a[2]-b[2])**2\n assert 548000**2<=g<=652000**2;gaps.append(g)\nobj=(p/'output/mara-midi.obj').read_text().splitlines()\nassert obj[0]=='mtllib mara-midi.mtl'\nvcount=fcount=0;group=material=None;objgroups=[]\nfor line in obj[1:]:\n words=line.split();assert words\n if words[0]=='v':\n  assert fcount==0 and len(words)==4 and vcount<len(coords)\n  assert all(re.fullmatch(r'-?\\d+\\.\\d{8}',x) for x in words[1:])\n  vals=[Fraction(x)*DEN for x in words[1:]];assert all(x.denominator==1 for x in vals)\n  assert tuple(x.numerator for x in vals)==coords[vcount];vcount+=1\n elif words[0]=='g':\n  assert len(words)==2;group=words[1]\n elif words[0]=='usemtl':\n  assert len(words)==2;material=words[1];objgroups.append((group,material))\n elif words[0]=='f':\n  assert vcount==2688 and len(words)==5 and fcount<2688\n  assert all(re.fullmatch(r'[1-9]\\d*',x) for x in words[1:])\n  assert [int(x)-1 for x in words[1:]]==Q[fcount]['vertices']\n  assert (group,material)==(Q[fcount]['region'],Q[fcount]['material']);fcount+=1\n else:raise AssertionError(('unknown_OBJ',line))\nassert vcount==2688 and fcount==2688 and objgroups==[('outer-band','band'),('outer-plum','plum'),('inside','inside'),('rims','band')]\nmtl=(p/'output/mara-midi.mtl').read_text().splitlines();at=0\nfor name,mat in design['material_palette'].items():\n assert mtl[at]=='newmtl '+name;words=mtl[at+1].split();assert words[0]=='Kd' and len(words)==4\n for k,word in enumerate(words[1:]):\n  assert re.fullmatch(r'\\d+\\.\\d{8}',word)\n  num=int(mat['srgb_hex'][1+2*k:3+2*k],16)*DEN;q,rem=divmod(num,255)\n  assert Fraction(word)*DEN==q+(2*rem>=255)\n assert mtl[at+2:at+6]==['Ka 0 0 0','Ks 0 0 0','d 1','illum 1'];at+=6\nassert at==len(mtl)\nassert check['decision']=='A' and check['actor']=='independent_checker' and check['pid']==93506\nfor x in check['export_inputs']:verify(x)\nassert check['source_hashes']==mesh['source_hashes'] and check['audit_progress']['active_check'] is None and len(check['audit_progress']['reached_checks'])==9\nassert check['minimum_squared_cross_unitless']==minarea/(DEN**4)\nassert check['winding_minimum']=={k:float(v)/(DEN**2) for k,v in minwind.items()}\nassert parent['decision']=='A' and parent['all_launched_children_collected'] and parent['pid']==93500\nassert [x['role'] for x in parent['stages']]==['producer','checker']\nassert parent['stages'][1]['request_monotonic']>parent['stages'][0]['collection_monotonic']\nsamples=[];sample_gaps=[]\nfor st in parent['stages']:\n assert st['collected'] and st['exit_code']==0 and st['pipes_eof'] and not st['refusals'] and not st['signals'] and not st['samples'][-1]['owned_rows']\n assert st['pid']==st['pgid']==st['observed_pgid']\n for channel in ['stdout','stderr']:\n  verify(st[channel]);assert st[channel]['discarded_after_cap']==0 and st[channel]['observed_bytes']==st[channel]['bytes']<=16384\n for sample in st['samples']:\n  assert sample['aggregate_rss_kib']==sum(row[2] for row in sample['owned_rows'])+sample['parent_row'][2]<=524288\n  samples.append(sample)\n sample_gaps.extend(b['monotonic']-a['monotonic'] for a,b in zip(st['samples'],st['samples'][1:]))\nfor row in parent['partial_or_final_inventory']:verify(row)\nassert parent['end_monotonic']<parent['work_deadline_monotonic'] and not parent['interruption_observations']\nassert (p/'PARENT.stderr').read_bytes()==(p/'records/producer.stderr').read_bytes()==(p/'records/checker.stderr').read_bytes()==b''\ntool=json.loads((p/'TOOL-RETURN.json').read_text());assert tool['result']['exit_code']==0\nsignal.setitimer(signal.ITIMER_REAL,0)\nout={'decision':'A finite independently inspected saved graph/roles/geometry/export/collection scope','pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'elapsed_seconds':time.monotonic()-started,\n'counts':{'vertices':len(V),'quads':len(Q),'triangles':len(T),'quad_edges':len(qe),'triangle_edges':len(te),'components_union_find':1,'quad_euler':0,'triangle_euler':0,'vertex_links_all_single_oriented_cycles':len(successor)},\n'groups':{'|'.join(k):v for k,v in groups.items()},'minimum_squared_cross_lattice':str(minarea),'minimum_squared_cross_unitless':minarea/(DEN**4),'winding_minimum':{k:float(v)/(DEN**2)for k,v in minwind.items()},\n'gap_squared_lattice_min_max':[min(gaps),max(gaps)],'gap_unitless_observer':[float(Decimal(min(gaps)).sqrt()/DEN),float(Decimal(max(gaps)).sqrt()/DEN)],'OBJ_all_vertices_faces_groups':True,'MTL_all_fields_exact':True,\n'parent_pids':[parent['pid']]+[s['pid']for s in parent['stages']],'actual_samples':len(samples),'sample_max_rss_kib':max(s['aggregate_rss_kib']for s in samples),'within_stage_sample_start_gaps_seconds':[min(sample_gaps),max(sample_gaps)],'parent_internal_seconds':parent['end_monotonic']-parent['started_monotonic'],'tool_reported_seconds':tool['result']['wall_time_seconds'],\n'limits':'No trig or XZ analytic source reconstruction, producer/checker imports/rerun, new mesh/export, globalSI/clearance/physicalfit/cloth/motion/appearance. All saved integers/roles/literal faces/Y/exports inspected; XZ formula agreement remains actual pinned checker audit, not this independent oracle.',\n'bounded_observer':'30s SIGALRM cooperative guard, zero files written; no target subprocess/helper'}\nprint(json.dumps(out,indent=2))\n",
+    "code_bytes": 11171,
+    "code_sha256": "facc018e5f2ca8a4164eb59a7f6269b3aa159dc9989e0cf9ee40ef1bf98d6e40",
+    "exact_command": "python3 - <<'PY'\nfrom pathlib import Path\nfrom collections import Counter, defaultdict\nfrom fractions import Fraction\nfrom decimal import Decimal\nimport json, hashlib, os, datetime, time, signal, re\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-first-cpu')\nstarted=time.monotonic()\ndef alarm(sig,frame): raise TimeoutError('critic saved-data audit 30s alarm')\nsignal.signal(signal.SIGALRM,alarm);signal.setitimer(signal.ITIMER_REAL,30)\ndef pin(q):\n q=Path(q); b=q.read_bytes(); return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ndef verify(row): assert pin(row['path'])=={k:row[k] for k in ['path','bytes','sha256']}\nh=json.loads((p/'DATA-HANDOFF.json').read_text())\nfor row in h['inputs']+h['source_pins']: verify(row)\nplan=json.loads((p/'PLAN.json').read_text())\nfor row in plan['inputs']: verify(row)\nparent=json.loads((p/'records/PARENT.json').read_text()); check=json.loads((p/'output/CHECK.json').read_text())\nfrozen=json.loads((p/'COLLECTED-RAW-FROZEN.json').read_text())\nfor row in frozen['original_readonly_raw_files']:\n verify(row);assert not Path(row['path']).stat().st_mode&0o222\nassert {q.name for q in (p/'output').iterdir()}=={'mesh.json','mara-midi.obj','mara-midi.mtl','CHECK.json'}\nassert {q.name for q in (p/'records').iterdir()}=={'PARENT.json','producer.stdout','producer.stderr','checker.stdout','checker.stderr'}\npins={r['role']:r for r in h['source_pins']}\ndesign=json.loads(Path(pins['design']['path']).read_text())\nmesh=json.loads((p/'output/mesh.json').read_text(),parse_constant=lambda x: (_ for _ in ()).throw(ValueError(x)))\ndef same(a,b):\n assert type(a) is type(b)\n if isinstance(a,dict):\n  assert set(a)==set(b)\n  for k in a:same(a[k],b[k])\n elif isinstance(a,list):\n  assert len(a)==len(b)\n  for x,y in zip(a,b):same(x,y)\n else:assert a==b\nassert set(mesh)=={'identity','frame','source_hashes','coordinate_quantum','vertices','quads','triangles','materials','excluded_claims'}\nsame(mesh['identity'],design['identity']);same(mesh['frame'],design['frame'])\nsame(mesh['materials'],design['material_palette']);same(mesh['excluded_claims'],design['claims_excluded'])\nsame(mesh['coordinate_quantum'],design['coordinate_quantum'])\nassert mesh['source_hashes']=={k:pins[k]['sha256'] for k in ['design','contract','writer_addendum']}\nV=mesh['vertices'];Q=mesh['quads'];T=mesh['triangles'];DEN=100000000\nassert type(V) is list and len(V)==2688\ncoords=[]\nfor n,v in enumerate(V):\n assert set(v)=={'id','row','angle','surface','xyz_lattice'}\n assert all(type(v[k]) is int for k in ['id','row','angle'])\n assert v['id']==n and v['row']==(n%1344)//64 and v['angle']==n%64\n assert v['surface']==('outer' if n<1344 else 'inner')\n c=v['xyz_lattice'];assert type(c) is list and len(c)==3 and all(type(x) is int for x in c)\n x,y,z=c;assert 0<=y<=DEN and abs(x)<=48000000 and abs(z)<=34000000\n u=Fraction(str(design['rows'][v['row']][0])); y_expected=(1-u)*DEN\n assert y_expected.denominator==1 and y==y_expected.numerator\n coords.append(tuple(c))\nassert len(set(coords))==2688\nassert type(Q) is list and len(Q)==2688 and type(T) is list and len(T)==5376\nqe=defaultdict(list);te=defaultdict(list);successor=defaultdict(dict);uf=list(range(len(V)))\ndef find(n):\n while uf[n]!=n: uf[n]=uf[uf[n]];n=uf[n]\n return n\ndef unite(a,b):\n a=find(a);b=find(b)\n if a!=b:uf[b]=a\ndef cross(a,b):\n return (a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0])\nminarea=None; minwind={};groups=Counter()\nfor f,q in enumerate(Q):\n assert set(q)=={'id','region','material','vertices'} and type(q['id']) is int and q['id']==f\n if f<2560:\n  j,i=divmod(f%1280,64);n=(i+1)%64;outer=f<1280;offset=0 if outer else 1344\n  base=[64*j+i,64*(j+1)+i,64*(j+1)+n,64*j+n]\n  expected=[offset+k for k in (base if outer else [base[0],base[3],base[2],base[1]])]\n  reg,mat=(('outer-band','band') if j<2 else ('outer-plum','plum')) if outer else ('inside','inside')\n else:\n  i=(f-2560)%64;n=(i+1)%64;j=0 if f<2624 else 20;a=64*j+i;b=64*j+n\n  expected=[a,b,b+1344,a+1344] if j==0 else [a,a+1344,b+1344,b]\n  reg,mat='rims','band'\n assert q['region']==reg and q['material']==mat\n vs=q['vertices'];assert type(vs) is list and len(vs)==4 and all(type(x) is int and 0<=x<2688 for x in vs) and len(set(vs))==4 and vs==expected\n groups[(reg,mat)]+=1\n for a,b in zip(vs,vs[1:]+vs[:1]):qe[tuple(sorted((a,b)))].append((a,b))\n expected_tri=[vs[:3],[vs[0],vs[2],vs[3]]]\n for half,tri in enumerate(expected_tri):\n  actual=T[2*f+half];assert type(actual) is list and len(actual)==3 and all(type(x) is int and 0<=x<2688 for x in actual) and actual==tri\n  a,b,c=[coords[x] for x in actual];N=cross(tuple(y-x for x,y in zip(a,b)),tuple(y-x for x,y in zip(a,c)))\n  area=sum(x*x for x in N);assert area>10**12;minarea=area if minarea is None else min(minarea,area)\n  if f<2560:\n   cz=(Fraction(str(design['rows'][j][3]))+Fraction(str(design['rows'][j+1][3])))/2\n   signed=Fraction(N[0]*(a[0]+b[0]+c[0]),3*DEN)+N[2]*(Fraction(a[2]+b[2]+c[2],3*DEN)-cz)\n   role='outer' if f<1280 else 'inner'\n   if role=='inner':signed=-signed\n  else:\n   assert all(coords[x][1]==(DEN if j==0 else 0) for x in vs)\n   role='top_rim' if j==0 else 'bottom_rim';signed=Fraction(N[1] if j==0 else -N[1])\n  assert signed>0\n  minwind[role]=min(minwind.get(role,signed),signed)\n  for k,v in enumerate(actual):\n   a=actual[(k+1)%3];b=actual[(k+2)%3]\n   assert a not in successor[v];successor[v][a]=b\n   te[tuple(sorted((v,a)))].append((v,a));unite(v,a)\nassert len(qe)==5376 and len(te)==8064\nfor edges in [qe,te]:\n assert all(len(v)==2 and v[0]==v[1][::-1] for v in edges.values())\nassert len({find(v) for v in range(len(V))})==1\nassert len(V)-len(qe)+len(Q)==0 and len(V)-len(te)+len(T)==0\nfor v in range(len(V)):\n s=successor[v];assert set(s)==set(s.values());first=min(s);seen=set();cur=first\n while cur not in seen:seen.add(cur);cur=s[cur]\n assert cur==first and len(seen)==len(s)\ngaps=[]\nfor a,b in zip(coords[:1344],coords[1344:]):\n assert a[1]==b[1];g=(a[0]-b[0])**2+(a[2]-b[2])**2\n assert 548000**2<=g<=652000**2;gaps.append(g)\nobj=(p/'output/mara-midi.obj').read_text().splitlines()\nassert obj[0]=='mtllib mara-midi.mtl'\nvcount=fcount=0;group=material=None;objgroups=[]\nfor line in obj[1:]:\n words=line.split();assert words\n if words[0]=='v':\n  assert fcount==0 and len(words)==4 and vcount<len(coords)\n  assert all(re.fullmatch(r'-?\\d+\\.\\d{8}',x) for x in words[1:])\n  vals=[Fraction(x)*DEN for x in words[1:]];assert all(x.denominator==1 for x in vals)\n  assert tuple(x.numerator for x in vals)==coords[vcount];vcount+=1\n elif words[0]=='g':\n  assert len(words)==2;group=words[1]\n elif words[0]=='usemtl':\n  assert len(words)==2;material=words[1];objgroups.append((group,material))\n elif words[0]=='f':\n  assert vcount==2688 and len(words)==5 and fcount<2688\n  assert all(re.fullmatch(r'[1-9]\\d*',x) for x in words[1:])\n  assert [int(x)-1 for x in words[1:]]==Q[fcount]['vertices']\n  assert (group,material)==(Q[fcount]['region'],Q[fcount]['material']);fcount+=1\n else:raise AssertionError(('unknown_OBJ',line))\nassert vcount==2688 and fcount==2688 and objgroups==[('outer-band','band'),('outer-plum','plum'),('inside','inside'),('rims','band')]\nmtl=(p/'output/mara-midi.mtl').read_text().splitlines();at=0\nfor name,mat in design['material_palette'].items():\n assert mtl[at]=='newmtl '+name;words=mtl[at+1].split();assert words[0]=='Kd' and len(words)==4\n for k,word in enumerate(words[1:]):\n  assert re.fullmatch(r'\\d+\\.\\d{8}',word)\n  num=int(mat['srgb_hex'][1+2*k:3+2*k],16)*DEN;q,rem=divmod(num,255)\n  assert Fraction(word)*DEN==q+(2*rem>=255)\n assert mtl[at+2:at+6]==['Ka 0 0 0','Ks 0 0 0','d 1','illum 1'];at+=6\nassert at==len(mtl)\nassert check['decision']=='A' and check['actor']=='independent_checker' and check['pid']==93506\nfor x in check['export_inputs']:verify(x)\nassert check['source_hashes']==mesh['source_hashes'] and check['audit_progress']['active_check'] is None and len(check['audit_progress']['reached_checks'])==9\nassert check['minimum_squared_cross_unitless']==minarea/(DEN**4)\nassert check['winding_minimum']=={k:float(v)/(DEN**2) for k,v in minwind.items()}\nassert parent['decision']=='A' and parent['all_launched_children_collected'] and parent['pid']==93500\nassert [x['role'] for x in parent['stages']]==['producer','checker']\nassert parent['stages'][1]['request_monotonic']>parent['stages'][0]['collection_monotonic']\nsamples=[];sample_gaps=[]\nfor st in parent['stages']:\n assert st['collected'] and st['exit_code']==0 and st['pipes_eof'] and not st['refusals'] and not st['signals'] and not st['samples'][-1]['owned_rows']\n assert st['pid']==st['pgid']==st['observed_pgid']\n for channel in ['stdout','stderr']:\n  verify(st[channel]);assert st[channel]['discarded_after_cap']==0 and st[channel]['observed_bytes']==st[channel]['bytes']<=16384\n for sample in st['samples']:\n  assert sample['aggregate_rss_kib']==sum(row[2] for row in sample['owned_rows'])+sample['parent_row'][2]<=524288\n  samples.append(sample)\n sample_gaps.extend(b['monotonic']-a['monotonic'] for a,b in zip(st['samples'],st['samples'][1:]))\nfor row in parent['partial_or_final_inventory']:verify(row)\nassert parent['end_monotonic']<parent['work_deadline_monotonic'] and not parent['interruption_observations']\nassert (p/'PARENT.stderr').read_bytes()==(p/'records/producer.stderr').read_bytes()==(p/'records/checker.stderr').read_bytes()==b''\ntool=json.loads((p/'TOOL-RETURN.json').read_text());assert tool['result']['exit_code']==0\nsignal.setitimer(signal.ITIMER_REAL,0)\nout={'decision':'A finite independently inspected saved graph/roles/geometry/export/collection scope','pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'elapsed_seconds':time.monotonic()-started,\n'counts':{'vertices':len(V),'quads':len(Q),'triangles':len(T),'quad_edges':len(qe),'triangle_edges':len(te),'components_union_find':1,'quad_euler':0,'triangle_euler':0,'vertex_links_all_single_oriented_cycles':len(successor)},\n'groups':{'|'.join(k):v for k,v in groups.items()},'minimum_squared_cross_lattice':str(minarea),'minimum_squared_cross_unitless':minarea/(DEN**4),'winding_minimum':{k:float(v)/(DEN**2)for k,v in minwind.items()},\n'gap_squared_lattice_min_max':[min(gaps),max(gaps)],'gap_unitless_observer':[float(Decimal(min(gaps)).sqrt()/DEN),float(Decimal(max(gaps)).sqrt()/DEN)],'OBJ_all_vertices_faces_groups':True,'MTL_all_fields_exact':True,\n'parent_pids':[parent['pid']]+[s['pid']for s in parent['stages']],'actual_samples':len(samples),'sample_max_rss_kib':max(s['aggregate_rss_kib']for s in samples),'within_stage_sample_start_gaps_seconds':[min(sample_gaps),max(sample_gaps)],'parent_internal_seconds':parent['end_monotonic']-parent['started_monotonic'],'tool_reported_seconds':tool['result']['wall_time_seconds'],\n'limits':'No trig or XZ analytic source reconstruction, producer/checker imports/rerun, new mesh/export, globalSI/clearance/physicalfit/cloth/motion/appearance. All saved integers/roles/literal faces/Y/exports inspected; XZ formula agreement remains actual pinned checker audit, not this independent oracle.',\n'bounded_observer':'30s SIGALRM cooperative guard, zero files written; no target subprocess/helper'}\nprint(json.dumps(out,indent=2))\n\nPY",
+    "actual_tool_result": {
+      "chunk_id": "cc1c19",
+      "wall_time_seconds": 6.208e-06,
+      "exit_code": 0,
+      "original_token_count": 454,
+      "output": "{\n  \"decision\": \"A finite independently inspected saved graph/roles/geometry/export/collection scope\",\n  \"pid\": 94433,\n  \"utc\": \"2026-10-06T02:39:47.171342+00:00\",\n  \"elapsed_seconds\": 0.09047233301680535,\n  \"counts\": {\n    \"vertices\": 2688,\n    \"quads\": 2688,\n    \"triangles\": 5376,\n    \"quad_edges\": 5376,\n    \"triangle_edges\": 8064,\n    \"components_union_find\": 1,\n    \"quad_euler\": 0,\n    \"triangle_euler\": 0,\n    \"vertex_links_all_single_oriented_cycles\": 2688\n  },\n  \"groups\": {\n    \"outer-band|band\": 128,\n    \"outer-plum|plum\": 1152,\n    \"inside|inside\": 1280,\n    \"rims|band\": 128\n  },\n  \"minimum_squared_cross_lattice\": \"531802353804840000000000\",\n  \"minimum_squared_cross_unitless\": 5.3180235380484e-09,\n  \"winding_minimum\": {\n    \"outer\": 9.21784108882e-05,\n    \"inner\": 8.50082079528e-05,\n    \"top_rim\": 7.292478e-05,\n    \"bottom_rim\": 0.0001474193701621\n  },\n  \"gap_squared_lattice_min_max\": [\n    304076533010,\n    420330492241\n  ],\n  \"gap_unitless_observer\": [\n    0.005514313493173923,\n    0.00648329\n  ],\n  \"OBJ_all_vertices_faces_groups\": true,\n  \"MTL_all_fields_exact\": true,\n  \"parent_pids\": [\n    93500,\n    93502,\n    93506\n  ],\n  \"actual_samples\": 7,\n  \"sample_max_rss_kib\": 55072,\n  \"within_stage_sample_start_gaps_seconds\": [\n    0.07085662498138845,\n    0.08551449998049065\n  ],\n  \"parent_internal_seconds\": 0.4268879590090364,\n  \"tool_reported_seconds\": 0.320853042,\n  \"limits\": \"No trig or XZ analytic source reconstruction, producer/checker imports/rerun, new mesh/export, globalSI/clearance/physicalfit/cloth/motion/appearance. All saved integers/roles/literal faces/Y/exports inspected; XZ formula agreement remains actual pinned checker audit, not this independent oracle.\",\n  \"bounded_observer\": \"30s SIGALRM cooperative guard, zero files written; no target subprocess/helper\"\n}\n"
+    },
+    "complete_metrics": {
+      "decision": "A finite independently inspected saved graph/roles/geometry/export/collection scope",
+      "pid": 94433,
+      "utc": "2026-10-06T02:39:47.171342+00:00",
+      "elapsed_seconds": 0.09047233301680535,
+      "counts": {
+        "vertices": 2688,
+        "quads": 2688,
+        "triangles": 5376,
+        "quad_edges": 5376,
+        "triangle_edges": 8064,
+        "components_union_find": 1,
+        "quad_euler": 0,
+        "triangle_euler": 0,
+        "vertex_links_all_single_oriented_cycles": 2688
+      },
+      "groups": {
+        "outer-band|band": 128,
+        "outer-plum|plum": 1152,
+        "inside|inside": 1280,
+        "rims|band": 128
+      },
+      "minimum_squared_cross_lattice": "531802353804840000000000",
+      "minimum_squared_cross_unitless": 5.3180235380484e-09,
+      "winding_minimum": {
+        "outer": 9.21784108882e-05,
+        "inner": 8.50082079528e-05,
+        "top_rim": 7.292478e-05,
+        "bottom_rim": 0.0001474193701621
+      },
+      "gap_squared_lattice_min_max": [
+        304076533010,
+        420330492241
+      ],
+      "gap_unitless_observer": [
+        0.005514313493173923,
+        0.00648329
+      ],
+      "OBJ_all_vertices_faces_groups": true,
+      "MTL_all_fields_exact": true,
+      "parent_pids": [
+        93500,
+        93502,
+        93506
+      ],
+      "actual_samples": 7,
+      "sample_max_rss_kib": 55072,
+      "within_stage_sample_start_gaps_seconds": [
+        0.07085662498138845,
+        0.08551449998049065
+      ],
+      "parent_internal_seconds": 0.4268879590090364,
+      "tool_reported_seconds": 0.320853042,
+      "limits": "No trig or XZ analytic source reconstruction, producer/checker imports/rerun, new mesh/export, globalSI/clearance/physicalfit/cloth/motion/appearance. All saved integers/roles/literal faces/Y/exports inspected; XZ formula agreement remains actual pinned checker audit, not this independent oracle.",
+      "bounded_observer": "30s SIGALRM cooperative guard, zero files written; no target subprocess/helper"
+    },
+    "cooperative_alarm_seconds": 30,
+    "files_written": 0,
+    "sourceimports_replays": false,
+    "rootcomparison_read_after_own_result": true
+  },
+  "read_scopes": [
+    {
+      "paths": [
+        "DATA-HANDOFF.json",
+        "PLAN.json",
+        "ROOT-ADMISSION.json",
+        "JOB.json",
+        "TOOL-RETURN.json",
+        "records/PARENT.json",
+        "output/CHECK.json",
+        "COLLECTED-RAW-FROZEN.json",
+        "PARENT.stdout",
+        "PARENT.stderr",
+        "records/producer.stdout",
+        "records/producer.stderr",
+        "records/checker.stdout",
+        "records/checker.stderr",
+        "output/mara-midi.mtl"
+      ],
+      "scope": "Complete actual literal records/fullstreams read, no truncated or inferred jobs."
+    },
+    {
+      "paths": [
+        "output/mesh.json",
+        "output/mara-midi.obj",
+        "output/mara-midi.mtl"
+      ],
+      "scope": "Allsavedrecords once independently parsed: everylattice/role/face/triangle/material/sourceassociation/export, completegraph/links/localgeometry and roundtrip. No XZtrig analytic oracle or new source mesh."
+    },
+    {
+      "paths": [
+        "ROOT-DATA-OBSERVATION.json",
+        "NEXT-VIEWER-PROPOSAL.json",
+        "PREVIOUS-CHECKPOINT.json"
+      ],
+      "scope": "Complete rootcomparison/proposal/metadata read afterown numerical result, not algorithm source or runtime permission."
+    },
+    {
+      "paths": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/DESIGN.json",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/CONTRACT.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-artist-contract/WRITER-ADDENDUM.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/producer.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/checker.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/midi-skirt-executable-preparation/supervise.py"
+      ],
+      "scope": "Wholecurrentbytepins; original3artist and fullcorrected3actor/contract source just independently reviewed before attempt, unchanged now, never reexecuted/imported."
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "scope": "Wholebinaryhash only, no runtimeprobe bycritic."
+    }
+  ],
+  "commands": [
+    {
+      "record": "1e9a44/exit0",
+      "pid": 93884,
+      "utc": "2026-10-06T02:33:46.584135+00:00",
+      "command": "python3 quotedheredoc completeDATA-HANDOFF/PLAN/leafmetadata"
+    },
+    {
+      "record": "483630/exit0",
+      "pid": 94048,
+      "utc": "2026-10-06T02:35:27.360933+00:00",
+      "command": "python3 quotedheredoc completePARENT/CHECK/MTL"
+    },
+    {
+      "record": "e535ac/exit0",
+      "pid": 94049,
+      "utc": "2026-10-06T02:35:27.360932+00:00",
+      "command": "python3 quotedheredoc completeadmission/job/tool/sixstreams/frozenrawmap"
+    },
+    {
+      "record": "cc1c19/exit0",
+      "pid": 94433,
+      "utc": "2026-10-06T02:39:47.171342+00:00",
+      "command_reference": "Exactindependentcode/command/tooloutput embedded above; no target/helper process,30scooperativealarm"
+    },
+    {
+      "record": "30cecd/exit0",
+      "pid": 94503,
+      "utc": "2026-10-06T02:40:41.465825+00:00",
+      "command": "python3 quotedheredoc rootobserver/nextproposal/checkpoint afterown audit"
+    },
+    {
+      "record": "ae4505/exit1",
+      "pid": "Unavailable: Pythonparsefailure beforebody",
+      "error": {
+        "chunk_id": "ae4505",
+        "exit_code": 1,
+        "output": "  File \"<stdin>\", line 42\n    \n    ^\nSyntaxError: unexpected character after line continuation character\n",
+        "scope": "Metadata writer Python parse failure before execution or any file write; no numerical audit repeated."
+      },
+      "command_scope": "Metadata writer only; failed beforewritingfiles. No numerical observer/source/data rerun."
+    },
+    {
+      "pid": 95095,
+      "utc": "2026-10-06T02:47:52.790127+00:00",
+      "command_scope": "Corrected metadata writer only; exclusive2file write, storedoriginalauditcode/output, currentbytepin/deadline/fullJSONtext readback, no numerical audit repeat"
+    }
+  ],
+  "actual_job_scope": {
+    "tool": "98aab0/exit0",
+    "actors": [
+      93500,
+      93502,
+      93506
+    ],
+    "allcollected_exit0": true,
+    "stderrbytes_each": 0,
+    "sample_count": 7,
+    "maximum_sample_RSS_KiB": 55072,
+    "actual_sample_start_gaps_ms": [
+      70.85662498138845,
+      85.51449998049065
+    ],
+    "parent_internal_seconds": 0.4268879590090364,
+    "tool_reported_wall_seconds": 0.320853042,
+    "UTC_clock_values": [
+      "2026-10-06 02:30:35 UTC",
+      "2026-10-06 02:30:36 UTC"
+    ],
+    "timer_limits": "Distinctlimitedtimers/conservativeUTCbracket, no exact50ms/peak/hardOS/completewall/performancecertificate",
+    "exceptional_cleanup": "Not exercised; normalcollectedpath only",
+    "process_absence": "Rootsavednumericps remaining[] corroboration read; no freshcriticps"
+  },
+  "finite_scope_limits": [
+    "Allsavedrecord/graph/export/localpredicate audit; no independent XZtrig analytic recipe reconstruction. Actualpinned separatechecker reports that gate.",
+    "No globalSI/continuousclearance/bodyfit/anatomy/cloth/materialphysics/constantphysicalthickness/rigmorphmotion/appearance/runtime/AAA.",
+    "Owncode30scooperativealarm/internalelapsed, not hardOS/startup guarantee; execoutputcombined, no separateownobserverstderr instrumentation asserted.",
+    "No target/sourceimports/replays/newgeometry/helpers/browser/native/network/generation/capture/source/default/frozen edits; onlytwohandoffwrites."
+  ],
+  "next_worth": {
+    "choice": "ConditionalA exactNEXT-VIEWER-PROPOSAL completeinertsource/lifetime prep afterrootdataA",
+    "admitted_now": false,
+    "question": "Can one bytebound viewer implement fixed complete threeviews and explicit resource/fetch/cancellation/firstframe/finish ownership without modifying data, cameras, materials or snapshot settings?",
+    "future_usable_improvement": "One actual unchanged whole front/rightprofile/rear triptych can qualify the complete editable artist draft; onlythen consider localartistboarddelivery",
+    "alternatives": "A fixedbyte/resource/frame source can decide missingvisualutility atboundedcost; B deferretainexports/dataonly avoids runtimework but leaves art undecided.",
+    "conditions": "Full renderer/normalprecision/color/buffer/group/frame/framing/waits/cancel/Finish/dependency sourcegate then rootsolefirstnative; exactoriginalartistvalues and no rescue/retake.",
+    "proposed_stops": {
+      "source_preparation": "2026-10-06T03:20:00Z",
+      "critic": "2026-10-06T03:40:00Z",
+      "root": "2026-10-06T03:50:00Z"
+    }
+  },
+  "preserved": "All15scoped10broad/fullambition/originalaccepteddefaultfrozenunrelated/closedroutes unchanged, no data-as-appearance/checkboxpromotion or retry",
+  "stops_utc": {
+    "critic": "2026-10-06T03:20:00Z",
+    "root": "2026-10-06T03:30:00Z"
+  },
+  "pending_edits": false
+}
