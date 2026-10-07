@@ -1,0 +1,81 @@
+{
+  "collected_utc": "2026-10-07T21:20:27.200201+00:00",
+  "decision": "No-worth: close this proposed four-panel artist expression allocation. No new expression artifact delivered.",
+  "full_final_handoff_read": "300986 at21:17:21UTC; root reread whole final amended handoff after initial09dc91 read and verified exact final3780bytes/SHA.",
+  "worth_identity": {
+    "path": "docs/evidence/appearance-2026-10-07/ari-expression-worth/WORTH.md",
+    "bytes": 3780,
+    "sha256": "135397d396180dbeafabc72ca0b4e827c46e1acd5692128496ad55ebb3f1ba02"
+  },
+  "plan_identity": {
+    "path": "docs/evidence/appearance-2026-10-07/ari-expression-worth/PLAN.json",
+    "bytes": 4454,
+    "sha256": "e2e3e7ea3c62989311ab43ccaa37c28da1618212801140bf97280e503032f105"
+  },
+  "root_source_identity": {
+    "path": "docs/evidence/appearance-2026-10-07/ari-expression-worth/ROOT-SOURCE.md",
+    "bytes": 2406,
+    "sha256": "6e1e5e19adb722770845d22ca50bb3f9c0620d4dc9da239c72acd8b95a915a92"
+  },
+  "five_input_pins_match_full_critic_identities": [
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 6607,
+      "sha256": "f3c62eb599b0fef534968356392fcea0bd6250762e8d01b78d1abc1bdf0832dc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/ROOT-READBACK.json",
+      "bytes": 4119,
+      "sha256": "b10925ba30f01228cd972e45e33f68474c073bd2a0c6a61ab28cfeee4922893b"
+    }
+  ],
+  "root_actual_image_witness": "Entire unchanged concept-v1.png at original detail; right portrait has restrained closed-lip smile and readable eyes/brows, not measured neutral native baseline.",
+  "root_actual_source_witnesses": [
+    "PRODUCT-ROADMAP.md47: determination/native ambiguity open",
+    "PRODUCT-ROADMAP.md121: intended meaning, actual sequence, observed human reading",
+    "PRODUCT-ROADMAP.md134: rejected skeptical brow/squint preserved; concrete cue comparison required",
+    "PROJECT-CHECKLIST.md49: expression meanings remain open"
+  ],
+  "worth_gate": {
+    "fixed_utc": "2026-10-07T21:13:28.820157+00:00",
+    "passed": false,
+    "last_absent_file_check": "b4bf34 at21:14:09UTC",
+    "critic_reported_first_full_save": "21:14:16UTC (48seconds late); report, not independently observed first-save event",
+    "final_file_mtime_utc": "2026-10-07T21:16:13.953916+00:00",
+    "limit": "No timely full worth/read gate claimed; only stopped closeout allowed."
+  },
+  "receipt_deadline_utc": "2026-10-07T21:43:28.820157+00:00",
+  "receipt_collected_before_deadline": true,
+  "allocations": {
+    "generation_jobs": 0,
+    "reference_searches": 0,
+    "native_jobs": 0,
+    "browser_GPU_captures": 0,
+    "tests": 0
+  },
+  "preservation": {
+    "board_and_checklist_exact_HEAD": true,
+    "checklist_checked": 19,
+    "checklist_broad_open": 10,
+    "original_and_all_five_input_hashes_match": true,
+    "native_input_question_not_repeated": true,
+    "review_Vite_CUA_retained": "Read-only21:09 process check; no owned live job or service mutation.",
+    "automation": "Existing ACTIVE heartbeat unchanged; no explicit human pause."
+  },
+  "next": "Await already-requested Blender/MPFB information for Ari. Do not replay this no-worth illustration or metadata/closed routes. Later expression work needs one concrete cue or authoring choice and actual intended-versus-observed reading; no capture or new trial admitted here."
+}
