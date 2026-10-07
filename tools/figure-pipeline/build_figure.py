@@ -519,20 +519,30 @@ def attach_face_parts(basemesh, arguments):
     Returns a list of (part object, mhclo path, alpha mode) for the steps that follow, because
     both remaining jobs — binding each part to the rig and giving it the right alpha mode — need
     to know which asset a given Blender object came from.
+
+    Resolve every requested source before attaching anything. A missing source must fail the
+    complete-face build rather than quietly export whichever parts happened to be available.
     """
     if arguments.no_face_parts:
         print("Skipping face parts (--no-face-parts).")
         return []
 
-    attached = []
+    resolved = []
+    missing = []
     for asset_subdir, mhclo_filename, asset_type, alpha_mode in FACE_PART_ASSETS:
         if asset_type == "Eyes":
             mhclo_filename = arguments.eye_proxy
         asset_path = AssetService.find_asset_absolute_path(mhclo_filename, asset_subdir=asset_subdir)
         if asset_path is None:
-            print(f"  MISSING {asset_type}: {mhclo_filename} "
-                  "(install the makehuman_system_assets pack)")
+            missing.append(f"{asset_type}: {asset_subdir}/{mhclo_filename}")
             continue
+        resolved.append((asset_type, asset_path, alpha_mode, mhclo_filename))
+
+    if missing:
+        raise SystemExit("Build failed: required face assets are missing: " + ", ".join(missing))
+
+    attached = []
+    for asset_type, asset_path, alpha_mode, mhclo_filename in resolved:
         part_object = HumanService.add_mhclo_asset(asset_path, basemesh,
                                                    asset_type=asset_type,
                                                    material_type="GAMEENGINE")

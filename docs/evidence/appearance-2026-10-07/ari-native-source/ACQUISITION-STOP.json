@@ -1,0 +1,80 @@
+{
+  "stopped_utc": "2026-10-07T17:31:35.181099+00:00",
+  "status": "acquisition-held-no-instrument",
+  "first_witness": {
+    "path": "tools/figure-pipeline/build_figure.py",
+    "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2",
+    "function": "attach_face_parts",
+    "source_lines": [
+      516,
+      543
+    ],
+    "finding": "Asset lookup None prints MISSING then continue; required face asset may be omitted from attached owners. main calls this before rig, while describe_result validates included meshes and body keys, not all requested face sources."
+  },
+  "limits": "Code permits omission; no installed asset absence or existing-output defect established. Exact native-to-baseline lineage was not admitted or investigated further. No additional text records, binary/geometry/asset hash, target application, acquisition instrument or native job.",
+  "source_reads": {
+    "complete_small_files": [
+      "tools/figure-pipeline/mpfb_bridge.py",
+      "tools/figure-pipeline/build.sh"
+    ],
+    "builder_ranges": [
+      [
+        350,
+        627
+      ],
+      [
+        2019,
+        2125
+      ],
+      [
+        2439,
+        2688
+      ]
+    ],
+    "README_ranges": [
+      [
+        1,
+        47
+      ]
+    ],
+    "narrow_index_reads": "Function/constructor/export index in builder, source/face/manifest matches in README; not whole large files."
+  },
+  "commands": [
+    {
+      "command": "rg -n '^def |^class |__name__|create_human|add_builtin_rig|export_scene.gltf|save_as_mainfile|macro_detail|source.*[Hh]ash|figure_g050' tools/figure-pipeline/build_figure.py",
+      "chunk": "1e1581",
+      "exit": 0
+    },
+    {
+      "command": "cat tools/figure-pipeline/mpfb_bridge.py tools/figure-pipeline/build.sh",
+      "chunk": "6f23f3",
+      "exit": 0
+    },
+    {
+      "command": "rg -n 'source|fixture|manifest|basemesh|gender|eyes|teeth|lash|brow|blend|game_engine' tools/figure-pipeline/README.md | head -45",
+      "chunk": "0accec",
+      "exit": 0
+    },
+    {
+      "command": "sed -n '350,627p' tools/figure-pipeline/build_figure.py",
+      "chunk": "a961da",
+      "exit": 0
+    },
+    {
+      "command": "sed -n '2019,2125p' tools/figure-pipeline/build_figure.py",
+      "chunk": "2be0ef",
+      "exit": 0
+    },
+    {
+      "command": "sed -n '2439,2688p' tools/figure-pipeline/build_figure.py",
+      "chunk": "34cac3",
+      "exit": 0
+    },
+    {
+      "command": "sed -n '1,47p' tools/figure-pipeline/README.md",
+      "chunk": "c286b8",
+      "exit": 0
+    }
+  ],
+  "next": "Fresh worth for a concrete fail-fast required-face source guard and resolver tests, without reopening native acquisition."
+}

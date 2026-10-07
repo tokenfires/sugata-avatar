@@ -1,0 +1,39 @@
+{
+  "finished_utc": "2026-10-07T18:02:03.340569+00:00",
+  "entry_commit": "3b352641982b4f0e3d0790639aca92377f9e8833",
+  "root_review_sha256": "c51e5e17fb10eb4650218ce59076e9d334e14b0c302d3a7a2a6aa6d20e2f0951",
+  "links_checked": 20,
+  "window_entry_prefix_unchanged": true,
+  "sole_test_pid": 88436,
+  "test_live": false,
+  "retained_processes": [
+    "825 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort",
+    "24508 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node --experimental-vm-modules /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpALGqax/kernel.js --session-id 47120f4524e5434ea0ab625ee65e0289 --working-dir /Users/robault/GitHub/sugata-avatar",
+    "24509 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpALGqax/trusted-worker.js /Users/robault/GitHub/sugata-avatar"
+  ],
+  "automation": {
+    "version": 1,
+    "id": "advance-sugata-avatar-visual-quality",
+    "kind": "heartbeat",
+    "name": "Advance Sugata until check-in",
+    "prompt": "Continue Robert\u2019s authorized Sugata work in this chat at /Users/robault/GitHub/sugata-avatar until he checks back or gives newer steering. Robert explicitly resumed October 7 after the October 6 Mac-update pause. Read docs/WORK-WINDOW-2026-10-07.md and its latest bounded receipt first. This continuation applies to Sugata only. Then use docs/RESUME-2026-10-06.md and docs/PROGRESS-2026-10-02.md as historical recovery, then inspect current changes, recorded jobs and the latest user messages before acting. The ten-minute heartbeat is recovery: continue useful bounded work directly while active and never duplicate live jobs. If Robert pauses or stops, collect or safely stop owned work, save a recoverable checkpoint, retain the review server and pause this automation through the app API with readback. A check-in should receive a concise status and await his steering before starting another substantial slice.\n\nUse an independent quality critic agent. Every actionable finding needs an actual source/image/frame witness, an explanation and two alternatives with tradeoffs. Root must independently inspect and verify their handoff. Ask the critic whether each next experiment is worth doing. Use current online primary references and real design/image examples when they help the decision; Firecrawl is available. Plan one usable improvement and one bounded research question, with a decision and concrete stop condition before investigation. Preserve the wider AAA character, expression, wardrobe and representation roadmap. Stop repeated tweaks that do not change a decision.\n\nPreserve accepted assets, frozen evidence, original references and unrelated worktrees. Keep unqualified candidates isolated; actual rendered images qualify appearance and numerical checks support them. Root serializes native/GPU/browser captures. September 30\u2019s one-ring front proxy, local foundation offset/weight/mask tuning, repeated capture-epoch searches, and October 2\u2019s rejected seven-card fixed-root/fixed-width mesh-follow construction remain closed; choose a new explicit contract if evidence supports revisiting the underlying problem. Read the September 30 day report and pose-aware fit proposal for recovery, not older static-pass headlines.\n\nRecord a concise receipt after each coherent slice with exact inputs, commands, jobs, hashes, outputs, rejections, limits and next action. Work within existing allowance and granted credits; do not purchase capacity, change subscription/models, redeem reset credits, push, publish or resume other projects. If capacity becomes unavailable, checkpoint without aggressive retries. Stay quiet on unchanged or non-actionable scheduled states; notify on meaningful progress, completion, failure or required user action.",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7",
+    "created_at": 1788907651118,
+    "updated_at": 1791386235980
+  },
+  "latest_human_messages": [
+    {
+      "timestamp": "2026-10-07T15:13:49.274Z",
+      "text": "<external_codex_apps_open_page>{\"page_id\":null}</external_codex_apps_open_page>"
+    },
+    {
+      "timestamp": "2026-10-07T15:13:49.276Z",
+      "text": "Hi Cora, can you resume work on sugata-avatar?\n"
+    }
+  ],
+  "qualification": "source policy and injected actual-function behavior only",
+  "no_new_render_native_asset_or_test_execution": true,
+  "next_action": "Fresh bounded complete native-input lineage worth decision; full Ari recipe remains held."
+}

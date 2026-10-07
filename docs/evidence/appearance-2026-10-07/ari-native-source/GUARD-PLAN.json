@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-10-07T17:31:35.181099+00:00",
+  "kind": "fresh narrow source-guard fix after acquisition stop",
+  "usable_improvement": "Default figure builder refuses missing required face assets before attaching any part, with the complete exact missing-source list; explicit --no-face-parts diagnostic retains its opt-out.",
+  "bounded_research_question": "Can source resolution be made complete before part attachment while preserving exact successful tuple order, high/low eye override, argument opt-out and original exceptions, using actual-function injected resolver/attachment tests without Blender?",
+  "decision": "Ship only the narrow source-level guard if missing-owner cases abort before all attachments and successful/diagnostic behavior stays the same; otherwise collect failure and hold without native retry.",
+  "deadlines": {
+    "worth_utc": "2026-10-07T17:37:35.181099+00:00",
+    "edit_test_utc": "2026-10-07T17:51:35.181099+00:00",
+    "delivery_utc": "2026-10-07T18:03:35.181099+00:00"
+  },
+  "input_pin": {
+    "path": "tools/figure-pipeline/build_figure.py",
+    "bytes": 130427,
+    "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+  },
+  "frozen_source_witness": "Store the exact original attach_face_parts function/table dependency regions before edit; full original builder remains recoverable at entry commit3b35264 and is not copied wholesale.",
+  "allowed_after_worth": "Read only exact source table constants needed by attach_face_parts; change only this function to two phases: resolve all expected sources, abort on any missing, then attach in original order. Add one meaningful actual-function AST-extracted injected-resolver test with complete all-present/high-low-eye/opt-out and each declared missing owner, grouped missing owners, lookup exception and attachment exception cases. No bpy/module import or native launch.",
+  "forbidden": "No native authoring/acquisition or rig/parser/reader/geometry trial, target application, GLB/BIN/gzip/arrays or asset hash; no body/macro/rig/export/material/groom/wardrobe change, accepted asset/output edit, API call change, dependency/install/model/subscription/purchase/reset/push/publication or other project work. No source authority/form/runtime claim from stub tests.",
+  "stop_condition": "Worth refusal, scope beyond attach_face_parts, changed successful ordering/path/argument behavior, partial attachment on missing input, failed meaningful tests, review refusal or cutoff. No trial or broader rescue in this slice.",
+  "alternatives": [
+    {
+      "option": "A",
+      "description": "Resolve complete required face sources first and abort before attachments (selected nomination).",
+      "tradeoff": "A broken installation fails early instead of yielding partial native face output; retains explicit diagnostics and unchanged successful source path."
+    },
+    {
+      "option": "B",
+      "description": "Add a separate complete-source manifest/provenance authoring preflight without changing the builder.",
+      "tradeoff": "Broader ownership authority is still needed for Ari, but it would not prevent this default partial attachment path and costs more; do not substitute another metadata list for the guard."
+    }
+  ],
+  "qualification": "Source-level completeness guard only. It does not acquire Ari source, qualify installed API behavior or make a new body/anatomy/rig/fit/render/runtime result. Existing Ari recipe hold and wider roadmap remain open."
+}

@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-07T17:39:01.301551+00:00",
+  "whole_builder_reversal_exact": true,
+  "only_changed_function": "attach_face_parts",
+  "before_function_sha256": "b787889e331c4ddf2b848932a38ca7e13ffcbfcb719661bf2fa321746291f98f",
+  "after_function_sha256": "2ae80de97eedb47f833257def28113a892e726bba3a3d4c81a4570dd7e02df55",
+  "current_builder_sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065",
+  "test_sha256": "e7310ef132b1dde3b3066c76980744e907001b2bc674108602137a0d8869607d",
+  "test_syntax": "pass",
+  "planned_command": "python3 tools/figure-pipeline/face_sources.selftest.py --before-function docs/evidence/appearance-2026-10-07/ari-native-source/attach-face-parts.before.py --before-constants docs/evidence/appearance-2026-10-07/ari-native-source/FACE-SOURCES.before.json --out docs/evidence/appearance-2026-10-07/ari-native-source/GUARD-TEST.json",
+  "scope": "Static source syntax/exact reversal before independent test preflight. No test/native/API/source acquisition has run."
+}

@@ -1,0 +1,48 @@
+{
+  "collected_utc": "2026-10-07T18:02:03.231386+00:00",
+  "independent_handoff": "DELIVERY-REVIEW.md",
+  "handoff_sha256": "2c8163b13d7459a60419a44d3260faabbd5ef68580ac68ddd423b1503e96f504",
+  "read_in_full": true,
+  "reviewed_bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-native-source/GUARD-TEST.json",
+      "bytes": 23222,
+      "sha256": "32f4c7643e94e1f8d088539566e0b8c5187b52b9c0a8e0ddeb8debafe6da07ba",
+      "match": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065",
+      "match": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/face_sources.selftest.py",
+      "bytes": 9706,
+      "sha256": "e7310ef132b1dde3b3066c76980744e907001b2bc674108602137a0d8869607d",
+      "match": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-native-source/README.md",
+      "bytes": 4820,
+      "sha256": "1cb8e05bf86488679d81d593ed34647cec7376f78fb48e8501ab20691b292d75",
+      "match": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-native-source/ACQUISITION-STOP.json",
+      "bytes": 2668,
+      "sha256": "a5a42006aeed837b841e60778c21ad3b4474a0a1a29c687c7f82a8309b02ccd1",
+      "match": true
+    }
+  ],
+  "whole_builder_reversal_matches_entry": true,
+  "raw_cases_read": 13,
+  "old_controls_read": 8,
+  "decision": "pass source guard and injected actual-function behavior only",
+  "limits": [
+    "No installed Blender/API or render qualification",
+    "Attachment failure can leave earlier successful prefix; attempted calls do not prove created objects",
+    "Native source acquisition and entire Ari recipe remain held; no checklist credit"
+  ],
+  "next_worth": "Select one exact complete native neutral input and owner-to-output bundle that owns the admitted baseline, or explicitly propose a new complete authoring lineage with accepted neutral as comparison control. No native launch admitted."
+}

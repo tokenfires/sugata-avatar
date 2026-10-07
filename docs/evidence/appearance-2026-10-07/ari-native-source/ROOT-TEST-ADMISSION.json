@@ -1,0 +1,44 @@
+{
+  "created_utc": "2026-10-07T17:47:23.369788+00:00",
+  "independent_preflight_read_completely": true,
+  "preflight_sha256": "3af17b1987d0ed112482c38f1143cee891ca56504254aee9554b614355a66c26",
+  "preflight_identities_match": [
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "tools/figure-pipeline/face_sources.selftest.py",
+      "bytes": 9706,
+      "sha256": "e7310ef132b1dde3b3066c76980744e907001b2bc674108602137a0d8869607d"
+    },
+    {
+      "path": "attach-face-parts.before.py",
+      "bytes": 1333,
+      "sha256": "b787889e331c4ddf2b848932a38ca7e13ffcbfcb719661bf2fa321746291f98f"
+    },
+    {
+      "path": "FACE-SOURCES.before.json",
+      "bytes": 1725,
+      "sha256": "8e73ddb30fa7d3219fa02807cda58d713c0d4358106d5a69302800b9fba1fe57"
+    },
+    {
+      "path": "GUARD-PREFLIGHT.json",
+      "bytes": 1026,
+      "sha256": "c5a4ded79a33db6f0f3d65a06988c801ab49c3134aa6a5c7ccc2892c89f20d82"
+    },
+    {
+      "path": "GUARD-PLAN.json",
+      "bytes": 3494,
+      "sha256": "42aa3edbabd8e67e9536fcba8f5f84f23258466a1453abeab955c4351f635fb4"
+    },
+    {
+      "path": "GUARD-WORTH.md",
+      "bytes": 4046,
+      "sha256": "0c31ef21e2bc399e85317c2de8c79a912cbda15d279090b74747111afe28bc3e"
+    }
+  ],
+  "root_decision": "Admit exactly one recorded actual-function injected CPU test. Root independently inspected changed/source function and observer; whole-builder reversal and original dependencies are exact. No native/source acquisition or Ari target execution follows.",
+  "limits": "Source completeness policy only. A later attachment exception can leave a prefix; no rollback, installed API, native asset existence, source lineage, form/fit/runtime qualification."
+}

@@ -1,0 +1,1097 @@
+{
+  "started_utc": "2026-10-07T17:47:23.453234+00:00",
+  "finished_utc": "2026-10-07T17:47:23.467710+00:00",
+  "pid": 88436,
+  "argv": [
+    "tools/figure-pipeline/face_sources.selftest.py",
+    "--before-function",
+    "docs/evidence/appearance-2026-10-07/ari-native-source/attach-face-parts.before.py",
+    "--before-constants",
+    "docs/evidence/appearance-2026-10-07/ari-native-source/FACE-SOURCES.before.json",
+    "--out",
+    "docs/evidence/appearance-2026-10-07/ari-native-source/GUARD-TEST.json"
+  ],
+  "status": "pass",
+  "cases": [
+    {
+      "case": "all-present-high-poly.mhclo",
+      "options": {
+        "proxy": "high-poly.mhclo"
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [
+        [
+          "Eyes",
+          "/injected/eyes/high-poly.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Teeth",
+          "/injected/teeth/teeth_base.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Tongue",
+          "/injected/tongue/tongue01.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Eyebrows",
+          "/injected/eyebrows/eyebrow001.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Eyelashes",
+          "/injected/eyelashes/eyelashes01.mhclo",
+          "GAMEENGINE"
+        ]
+      ],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ],
+        [
+          "attach",
+          "Eyes",
+          "/injected/eyes/high-poly.mhclo"
+        ],
+        [
+          "attach",
+          "Teeth",
+          "/injected/teeth/teeth_base.mhclo"
+        ],
+        [
+          "attach",
+          "Tongue",
+          "/injected/tongue/tongue01.mhclo"
+        ],
+        [
+          "attach",
+          "Eyebrows",
+          "/injected/eyebrows/eyebrow001.mhclo"
+        ],
+        [
+          "attach",
+          "Eyelashes",
+          "/injected/eyelashes/eyelashes01.mhclo"
+        ]
+      ],
+      "result": [
+        [
+          {
+            "part": "Eyes",
+            "path": "/injected/eyes/high-poly.mhclo"
+          },
+          "/injected/eyes/high-poly.mhclo",
+          "OPAQUE"
+        ],
+        [
+          {
+            "part": "Teeth",
+            "path": "/injected/teeth/teeth_base.mhclo"
+          },
+          "/injected/teeth/teeth_base.mhclo",
+          "OPAQUE"
+        ],
+        [
+          {
+            "part": "Tongue",
+            "path": "/injected/tongue/tongue01.mhclo"
+          },
+          "/injected/tongue/tongue01.mhclo",
+          "OPAQUE"
+        ],
+        [
+          {
+            "part": "Eyebrows",
+            "path": "/injected/eyebrows/eyebrow001.mhclo"
+          },
+          "/injected/eyebrows/eyebrow001.mhclo",
+          "MASK"
+        ],
+        [
+          {
+            "part": "Eyelashes",
+            "path": "/injected/eyelashes/eyelashes01.mhclo"
+          },
+          "/injected/eyelashes/eyelashes01.mhclo",
+          "MASK"
+        ]
+      ],
+      "failure": null,
+      "stdout": "  added Eyes: high-poly.mhclo\n  added Teeth: teeth_base.mhclo\n  added Tongue: tongue01.mhclo\n  added Eyebrows: eyebrow001.mhclo\n  added Eyelashes: eyelashes01.mhclo\n"
+    },
+    {
+      "case": "all-present-low-poly.mhclo",
+      "options": {
+        "proxy": "low-poly.mhclo"
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "low-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [
+        [
+          "Eyes",
+          "/injected/eyes/low-poly.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Teeth",
+          "/injected/teeth/teeth_base.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Tongue",
+          "/injected/tongue/tongue01.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Eyebrows",
+          "/injected/eyebrows/eyebrow001.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Eyelashes",
+          "/injected/eyelashes/eyelashes01.mhclo",
+          "GAMEENGINE"
+        ]
+      ],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "low-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ],
+        [
+          "attach",
+          "Eyes",
+          "/injected/eyes/low-poly.mhclo"
+        ],
+        [
+          "attach",
+          "Teeth",
+          "/injected/teeth/teeth_base.mhclo"
+        ],
+        [
+          "attach",
+          "Tongue",
+          "/injected/tongue/tongue01.mhclo"
+        ],
+        [
+          "attach",
+          "Eyebrows",
+          "/injected/eyebrows/eyebrow001.mhclo"
+        ],
+        [
+          "attach",
+          "Eyelashes",
+          "/injected/eyelashes/eyelashes01.mhclo"
+        ]
+      ],
+      "result": [
+        [
+          {
+            "part": "Eyes",
+            "path": "/injected/eyes/low-poly.mhclo"
+          },
+          "/injected/eyes/low-poly.mhclo",
+          "OPAQUE"
+        ],
+        [
+          {
+            "part": "Teeth",
+            "path": "/injected/teeth/teeth_base.mhclo"
+          },
+          "/injected/teeth/teeth_base.mhclo",
+          "OPAQUE"
+        ],
+        [
+          {
+            "part": "Tongue",
+            "path": "/injected/tongue/tongue01.mhclo"
+          },
+          "/injected/tongue/tongue01.mhclo",
+          "OPAQUE"
+        ],
+        [
+          {
+            "part": "Eyebrows",
+            "path": "/injected/eyebrows/eyebrow001.mhclo"
+          },
+          "/injected/eyebrows/eyebrow001.mhclo",
+          "MASK"
+        ],
+        [
+          {
+            "part": "Eyelashes",
+            "path": "/injected/eyelashes/eyelashes01.mhclo"
+          },
+          "/injected/eyelashes/eyelashes01.mhclo",
+          "MASK"
+        ]
+      ],
+      "failure": null,
+      "stdout": "  added Eyes: low-poly.mhclo\n  added Teeth: teeth_base.mhclo\n  added Tongue: tongue01.mhclo\n  added Eyebrows: eyebrow001.mhclo\n  added Eyelashes: eyelashes01.mhclo\n"
+    },
+    {
+      "case": "missing-eyes",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "eyes"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Eyes: eyes/high-poly.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "missing-teeth",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "teeth"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Teeth: teeth/teeth_base.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "missing-tongue",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "tongue"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Tongue: tongue/tongue01.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "missing-eyebrows",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "eyebrows"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Eyebrows: eyebrows/eyebrow001.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "missing-eyelashes",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "eyelashes"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Eyelashes: eyelashes/eyelashes01.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "multiple-missing",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "teeth",
+          "eyelashes"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Teeth: teeth/teeth_base.mhclo, Eyelashes: eyelashes/eyelashes01.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "all-missing",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "eyes",
+          "teeth",
+          "tongue",
+          "eyebrows",
+          "eyelashes"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Eyes: eyes/high-poly.mhclo, Teeth: teeth/teeth_base.mhclo, Tongue: tongue/tongue01.mhclo, Eyebrows: eyebrows/eyebrow001.mhclo, Eyelashes: eyelashes/eyelashes01.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "low-poly-missing",
+      "options": {
+        "proxy": "low-poly.mhclo",
+        "missing": [
+          "eyes"
+        ]
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "low-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "low-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "SystemExit",
+        "message": "Build failed: required face assets are missing: Eyes: eyes/low-poly.mhclo"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "explicit-opt-out",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "missing": [
+          "eyes",
+          "teeth",
+          "tongue",
+          "eyebrows",
+          "eyelashes"
+        ],
+        "opt_out": true
+      },
+      "resolutions": [],
+      "attachments": [],
+      "events": [],
+      "result": [],
+      "failure": null,
+      "stdout": "Skipping face parts (--no-face-parts).\n"
+    },
+    {
+      "case": "lookup-exception",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "lookup_error": "eyelashes"
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "RuntimeError",
+        "message": "injected lookup failure"
+      },
+      "stdout": ""
+    },
+    {
+      "case": "attachment-exception",
+      "options": {
+        "proxy": "high-poly.mhclo",
+        "attachment_error": "Tongue"
+      },
+      "resolutions": [
+        [
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ]
+      ],
+      "attachments": [
+        [
+          "Eyes",
+          "/injected/eyes/high-poly.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Teeth",
+          "/injected/teeth/teeth_base.mhclo",
+          "GAMEENGINE"
+        ],
+        [
+          "Tongue",
+          "/injected/tongue/tongue01.mhclo",
+          "GAMEENGINE"
+        ]
+      ],
+      "events": [
+        [
+          "resolve",
+          "eyes",
+          "high-poly.mhclo"
+        ],
+        [
+          "resolve",
+          "teeth",
+          "teeth_base.mhclo"
+        ],
+        [
+          "resolve",
+          "tongue",
+          "tongue01.mhclo"
+        ],
+        [
+          "resolve",
+          "eyebrows",
+          "eyebrow001.mhclo"
+        ],
+        [
+          "resolve",
+          "eyelashes",
+          "eyelashes01.mhclo"
+        ],
+        [
+          "attach",
+          "Eyes",
+          "/injected/eyes/high-poly.mhclo"
+        ],
+        [
+          "attach",
+          "Teeth",
+          "/injected/teeth/teeth_base.mhclo"
+        ],
+        [
+          "attach",
+          "Tongue",
+          "/injected/tongue/tongue01.mhclo"
+        ]
+      ],
+      "result": null,
+      "failure": {
+        "type": "RuntimeError",
+        "message": "injected attachment failure"
+      },
+      "stdout": "  added Eyes: high-poly.mhclo\n  added Teeth: teeth_base.mhclo\n"
+    }
+  ],
+  "source_sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065",
+  "observer_sha256": "e7310ef132b1dde3b3066c76980744e907001b2bc674108602137a0d8869607d",
+  "baseline_function_sha256": "b787889e331c4ddf2b848932a38ca7e13ffcbfcb719661bf2fa321746291f98f",
+  "baseline_constants_sha256": "8e73ddb30fa7d3219fa02807cda58d713c0d4358106d5a69302800b9fba1fe57",
+  "original_red_controls": [
+    {
+      "case": "missing-eyes",
+      "missing": [
+        "eyes"
+      ],
+      "original_attached_count": 4,
+      "original_returned_incomplete_without_refusal": true
+    },
+    {
+      "case": "missing-teeth",
+      "missing": [
+        "teeth"
+      ],
+      "original_attached_count": 4,
+      "original_returned_incomplete_without_refusal": true
+    },
+    {
+      "case": "missing-tongue",
+      "missing": [
+        "tongue"
+      ],
+      "original_attached_count": 4,
+      "original_returned_incomplete_without_refusal": true
+    },
+    {
+      "case": "missing-eyebrows",
+      "missing": [
+        "eyebrows"
+      ],
+      "original_attached_count": 4,
+      "original_returned_incomplete_without_refusal": true
+    },
+    {
+      "case": "missing-eyelashes",
+      "missing": [
+        "eyelashes"
+      ],
+      "original_attached_count": 4,
+      "original_returned_incomplete_without_refusal": true
+    },
+    {
+      "case": "multiple-missing",
+      "missing": [
+        "teeth",
+        "eyelashes"
+      ],
+      "original_attached_count": 3,
+      "original_returned_incomplete_without_refusal": true
+    },
+    {
+      "case": "all-missing",
+      "missing": [
+        "eyes",
+        "teeth",
+        "tongue",
+        "eyebrows",
+        "eyelashes"
+      ],
+      "original_attached_count": 0,
+      "original_returned_incomplete_without_refusal": true
+    },
+    {
+      "case": "low-poly-missing",
+      "missing": [
+        "eyes"
+      ],
+      "original_attached_count": 4,
+      "original_returned_incomplete_without_refusal": true
+    }
+  ],
+  "limits": "AST-extracted actual function with injected source/attachment services only. No bpy, installed MPFB call, asset lookup, native build, geometry or source lineage/appearance qualification. Attachment failures propagate; native attachment rollback is not claimed."
+}

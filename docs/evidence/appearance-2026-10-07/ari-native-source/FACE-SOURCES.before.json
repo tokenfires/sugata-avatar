@@ -1,0 +1,63 @@
+{
+  "original_builder": {
+    "path": "tools/figure-pipeline/build_figure.py",
+    "bytes": 130427,
+    "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+  },
+  "entry_commit": "3b35264",
+  "function_lines": [
+    516,
+    542
+  ],
+  "function_sha256": "b787889e331c4ddf2b848932a38ca7e13ffcbfcb719661bf2fa321746291f98f",
+  "constants": {
+    "FACE_PART_ASSETS": [
+      [
+        "eyes",
+        "high-poly.mhclo",
+        "Eyes",
+        "OPAQUE"
+      ],
+      [
+        "teeth",
+        "teeth_base.mhclo",
+        "Teeth",
+        "OPAQUE"
+      ],
+      [
+        "tongue",
+        "tongue01.mhclo",
+        "Tongue",
+        "OPAQUE"
+      ],
+      [
+        "eyebrows",
+        "eyebrow001.mhclo",
+        "Eyebrows",
+        "MASK"
+      ],
+      [
+        "eyelashes",
+        "eyelashes01.mhclo",
+        "Eyelashes",
+        "MASK"
+      ]
+    ],
+    "EYE_ASSET_FILENAME": "high-poly.mhclo"
+  },
+  "source_fragments": [
+    {
+      "name": "FACE_PART_ASSETS",
+      "line_start": 128,
+      "line_end": 134,
+      "literal_source": "FACE_PART_ASSETS = [\n    (\"eyes\", \"high-poly.mhclo\", \"Eyes\", \"OPAQUE\"),\n    (\"teeth\", \"teeth_base.mhclo\", \"Teeth\", \"OPAQUE\"),\n    (\"tongue\", \"tongue01.mhclo\", \"Tongue\", \"OPAQUE\"),\n    (\"eyebrows\", \"eyebrow001.mhclo\", \"Eyebrows\", \"MASK\"),\n    (\"eyelashes\", \"eyelashes01.mhclo\", \"Eyelashes\", \"MASK\"),\n]\n"
+    },
+    {
+      "name": "EYE_ASSET_FILENAME",
+      "line_start": 138,
+      "line_end": 138,
+      "literal_source": "EYE_ASSET_FILENAME = \"high-poly.mhclo\"\n"
+    }
+  ],
+  "semantics": "Original declared required face sources, not an installed-asset resolution or source lineage qualification."
+}
