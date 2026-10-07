@@ -1,0 +1,39 @@
+{
+  "checked_utc": "2026-10-07T19:27:35.451251+00:00",
+  "input_pins_match": [
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-trouser-drawing/trouser.svg",
+      "bytes": 14858,
+      "sha256": "3c1ef27a98e6d9e031b1898669ed676c833fdefc9d36586720f9aa8ad27cd0a4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-trouser-drawing/design.json",
+      "bytes": 71588,
+      "sha256": "a9b3d190f1dd2b2365de718815ec0186cb1977f6cefac1ea2ff6af4337b3405e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-trouser-drawing/render.mjs",
+      "bytes": 1961,
+      "sha256": "9fdeae2e2d00a79b4c123342a5c2b0bcd497cb312f619a2be644a13d28bf8ca1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-trouser-drawing/CORRECTED-SOURCE-REVIEW.md",
+      "bytes": 2098,
+      "sha256": "fba808be0b00e8b1a70dfeebe5d027def4543b37b6aa659eb14cf9c8bad93835"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-trouser-drawing/DELIVERY-REVIEW.md",
+      "bytes": 3031,
+      "sha256": "9c640405850a1ef79451c2f648aa09b0360afc3731c69b6e4ec8279ce91c0a00"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-trouser-drawing/ROOT-READBACK.json",
+      "bytes": 2387,
+      "sha256": "f039b50c5f7f19f3c452bc58c1d043ae90cb48b33d419e35abb753204b73afa4"
+    }
+  ],
+  "three_source_copies_exact_and_readonly": true,
+  "prior_and_current_render_outputs_absent": true,
+  "stopped_gate_supplement": "Critic added one COMMANDS metadata paragraph to DELIVERY-REVIEW19:24:23 after root first whole read19:24:01 and before seal19:24:47. Root fully re-read current frozen handoff19:26:35/chunkb2dcec and verified its exact23-entry COMMANDS byte/hash identity before prior19:29:46 delivery cutoff. Complete source/stop decision unchanged; no old packet edit or render admission. PLAN prior gate timing refers to original review/readback; this records the additional full read.",
+  "renderer_review_reuse": "Existing exact render.mjs whole source preflight and syntax check retained. No generator run or rendering yet. Fresh worth remains required."
+}

@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" id="ari-trouser-sheet" width="1800" height="1500" viewBox="0 0 1800 1500" role="img" aria-labelledby="sheet-title sheet-description">
+  <title id="sheet-title">Ari — flat-front ink trousers, original construction proposal</title>
+  <desc id="sheet-description">Unitless authored front, right profile and rear with inside-front, exploded fly and hem proposals. No pleats or rear pockets selected. Not a pattern, registered projection or physical fit proof.</desc>
+  <style id="sheet-style">
+text{font-family:Arial,sans-serif;fill:#223844;font-size:19px}
+.title{font-size:36px;font-weight:bold}.subtitle{font-size:21px}
+.panel-title{font-size:24px;font-weight:bold}.small{font-size:17px}.tiny{font-size:16px}
+.shell{fill:#e2e8ec;stroke:#223844;stroke-width:2.6;stroke-linejoin:round}
+.waist{fill:#c4d2dc;stroke:#223844;stroke-width:2.3;stroke-linejoin:round}
+.seam{fill:none;stroke:#536f80;stroke-width:2.1;stroke-linecap:round}
+.guide{fill:none;stroke:#ad6742;stroke-width:2;stroke-dasharray:7 5}
+.zip{fill:none;stroke:#647f89;stroke-width:4;stroke-dasharray:1 7;stroke-linecap:round}
+.bag{fill:#d1e6dc;fill-opacity:.88;stroke:#35675b;stroke-width:2.2}
+.leader{fill:none;stroke:#70838d;stroke-width:1.5}
+.hidden{fill:none;stroke:#9ca9b0;stroke-width:1.8;stroke-dasharray:4 5}
+.frame{fill:#ffffff;stroke:#dde5e9;stroke-width:1.4}
+</style>
+  <rect id="paper" width="1800" height="1500" fill="#f5f7f8" />
+  <text id="heading" x="50" y="58" class="title">ARI / INK TROUSERS</text>
+  <text id="subheading" x="50" y="91" class="subtitle">Flat front · shaped waistband · fly · paired side-pocket bags</text>
+  <text id="authorship-note" x="50" y="124" class="small">ORIGINAL UNITLESS ART  /  authored alternative to the unqualified pleated prompt  /  no rear pockets selected</text>
+  <rect id="ink-swatch" x="1630" y="42" width="115" height="35" fill="#293d4b" rx="3" />
+  <text id="swatch-caption" x="1605" y="104" class="tiny">ink / matte intent</text>
+  <g id="front-frame">
+    <rect id="element-011" x="50" y="160" width="535" height="660" rx="14" class="frame" />
+    <text id="element-012" x="72" y="197" class="panel-title">01 / FRONT</text>
+    <text id="element-013" x="72" y="224" class="small">Closed intent; waist is a new authored proposal</text>
+    <g id="front-view" data-role="shell" transform="translate(96 258)">
+      <g id="front-shell-R" data-role="shell" data-side="wearer-right">
+        <path id="front-panel-R" d="M78 30 Q132 18 188 18 L188 216 Q176 235 174 262 L161 535 Q115 548 65 530 L56 208 Q52 100 78 30 Z" class="shell" />
+      </g>
+      <g id="front-shell-L" data-role="shell" data-side="wearer-left">
+        <path id="front-panel-L" d="M188 18 Q244 18 296 30 Q320 100 315 208 L306 530 Q265 548 214 535 L202 262 Q199 235 188 216 Z" class="shell" />
+      </g>
+      <g id="front-waist" data-role="waistband">
+        <path id="front-WB-R" d="M78 30 Q132 18 195 18 L195 52 Q131 48 75 61 Z" class="waist" />
+        <path id="front-WB-L" d="M178 18 Q245 18 296 30 L300 61 Q243 49 178 52 Z" class="waist" />
+        <circle id="front-top-fastening" cx="185" cy="35" r="5" fill="#223844" />
+        <path id="front-WB-L-slot-intent" d="M175 35 L195 35" class="seam" />
+      </g>
+      <g id="front-fly" data-role="fly">
+        <path id="front-F-L-overlap-fold" d="M178 54 L178 139 Q179 157 196 159" class="seam" />
+        <path id="front-F-R-hidden-underlap" d="M190 60 L190 142" class="hidden" />
+      </g>
+      <g id="front-pockets" data-role="pockets">
+        <path id="front-P-R" d="M114 65 L69 130" class="seam" />
+        <path id="front-P-L" d="M262 65 L307 130" class="seam" />
+      </g>
+      <g id="front-hems" data-role="hem">
+        <path id="front-H-R-L-turn" d="M67 514 Q115 527 163 518 M212 518 Q260 527 308 514" class="guide" />
+      </g>
+      <path id="element-032" d="M82 86 L26 70 L0 70" class="leader" />
+      <text id="element-033" x="-4" y="61" class="small">P-R</text>
+      <path id="element-034" d="M294 86 L353 70 L390 70" class="leader" />
+      <text id="element-035" x="355" y="61" class="small">P-L</text>
+      <path id="element-036" d="M183 90 L337 130 L390 130" class="leader" />
+      <text id="element-037" x="321" y="154" class="small">F-L over F-R</text>
+      <text id="front-right-label" x="103" y="579" class="small">R</text>
+      <text id="front-left-label" x="260" y="579" class="small">L</text>
+    </g>
+    <text id="element-040" x="72" y="797" class="tiny">Outer edges + inseams belong to separate front panel roles.</text>
+  </g>
+  <g id="profile-frame">
+    <rect id="element-042" x="610" y="160" width="495" height="660" rx="14" class="frame" />
+    <text id="element-043" x="632" y="197" class="panel-title">02 / AUTHORED RIGHT PROFILE</text>
+    <text id="element-044" x="632" y="224" class="small">Front is image-left; far pocket and fly layers hidden</text>
+    <g id="right-profile" data-role="shell" transform="translate(674 258)">
+      <path id="profile-near-R-shell" d="M110 30 Q161 17 226 31 Q276 71 277 147 Q271 197 257 228 L259 525 Q218 541 164 532 L146 283 Q116 236 94 179 Q82 111 110 30 Z" class="shell" />
+      <path id="profile-far-leg-hidden" d="M153 282 L137 525 Q157 539 177 533" class="hidden" />
+      <g id="profile-waist" data-role="waistband" data-side="wearer-right">
+        <path id="profile-WB-near" d="M110 30 Q160 17 226 31 L242 62 Q168 45 101 61 Z" class="waist" />
+      </g>
+      <g id="profile-pocket" data-role="pockets" data-side="wearer-right">
+        <path id="profile-P-R" d="M134 65 Q112 87 98 130" class="seam" />
+      </g>
+      <path id="profile-outer-leg-seam-R" d="M191 56 Q220 157 208 268 L211 521" class="seam" />
+      <path id="profile-H-R-turn" data-role="hem" d="M165 516 Q209 529 257 512" class="guide" />
+      <path id="element-054" d="M100 105 L35 99 L0 99" class="leader" />
+      <text id="element-055" x="-1" y="87" class="small">P-R / near</text>
+      <path id="element-056" d="M266 124 L319 102 L354 102" class="leader" />
+      <text id="element-057" x="297" y="88" class="small">seat / authored</text>
+      <text id="profile-front-direction" x="82" y="579" class="small">CF ←</text>
+    </g>
+    <text id="element-059" x="632" y="797" class="tiny">Depth and fall are artistic choices, not registered projection.</text>
+  </g>
+  <g id="rear-frame">
+    <rect id="element-061" x="1130" y="160" width="620" height="660" rx="14" class="frame" />
+    <text id="element-062" x="1152" y="197" class="panel-title">03 / REAR</text>
+    <text id="element-063" x="1152" y="224" class="small">Centre/seat seam; plain rear without pockets</text>
+    <g id="rear-view" data-role="shell" transform="translate(1240 258)">
+      <path id="rear-panel-L" d="M73 29 Q131 14 188 17 L188 226 Q174 243 172 276 L155 534 Q106 550 56 530 L46 207 Q46 100 73 29 Z" class="shell" />
+      <path id="rear-panel-R" d="M188 17 Q245 14 303 29 Q330 100 330 207 L320 530 Q270 550 221 534 L204 276 Q202 243 188 226 Z" class="shell" />
+      <g id="rear-waist" data-role="waistband">
+        <path id="rear-WB-B" d="M73 29 Q188 3 303 29 L309 61 Q188 43 67 61 Z" class="waist" />
+      </g>
+      <g id="rear-seat-seam" data-role="seat">
+        <path id="rear-centre-seat-seam" d="M188 51 L188 226" class="seam" />
+        <path id="rear-centre-attachment-intent" d="M181 55 L181 222 M195 55 L195 222" class="guide" />
+      </g>
+      <g id="rear-hems" data-role="hem">
+        <path id="rear-H-L-R-turn" d="M58 514 Q108 529 157 518 M219 518 Q270 529 318 514" class="guide" />
+      </g>
+      <path id="element-074" d="M188 157 L365 118 L414 118" class="leader" />
+      <text id="element-075" x="339" y="103" class="small">centre / seat seam</text>
+      <text id="rear-left-label" x="88" y="579" class="small">L</text>
+      <text id="rear-right-label" x="271" y="579" class="small">R</text>
+    </g>
+    <text id="element-078" x="1152" y="797" class="tiny">Garment contours + inseams; no anatomy tracing.</text>
+  </g>
+  <g id="inside-frame">
+    <rect id="element-080" x="50" y="845" width="695" height="480" rx="14" class="frame" />
+    <text id="element-081" x="72" y="882" class="panel-title">04 / INSIDE FRONT ONLY</text>
+    <text id="element-082" x="72" y="909" class="small">Back and full legs omitted; bag envelopes are proposals</text>
+    <g id="inside-front" data-role="inside" transform="translate(84 952)">
+      <path id="inside-cropped-front-shell" d="M78 30 Q188 8 296 30 Q318 116 315 210 L306 224 L290 216 L274 224 L258 216 L242 224 L226 216 L210 224 L194 216 L178 224 L162 216 L146 224 L130 216 L114 224 L98 216 L82 224 L56 210 Q54 112 78 30 Z" class="shell" />
+      <g id="inside-waist" data-role="waistband">
+        <path id="inside-WB-R" d="M78 30 Q132 18 195 18 L195 52 Q131 48 75 61 Z" class="waist" />
+        <path id="inside-WB-L" d="M178 18 Q245 18 296 30 L300 61 Q243 49 178 52 Z" class="waist" />
+      </g>
+      <g id="inside-bag-R" data-role="bags" data-side="wearer-right">
+        <path id="inside-B-R" d="M92 56 L154 56 L167 177 Q170 209 143 216 Q98 223 69 197 L69 130 L114 65 Z" class="bag" />
+        <path id="inside-P-R-mouth-correspondence" d="M114 65 L69 130" class="seam" />
+        <path id="inside-B-R-top-side-anchor" d="M92 56 L154 56 M69 130 L68 178" class="guide" />
+      </g>
+      <g id="inside-bag-L" data-role="bags" transform="translate(376 0) scale(-1 1)" data-side="wearer-left">
+        <path id="inside-B-L" d="M92 56 L154 56 L167 177 Q170 209 143 216 Q98 223 69 197 L69 130 L114 65 Z" class="bag" />
+        <path id="inside-P-L-mouth-correspondence" d="M114 65 L69 130" class="seam" />
+        <path id="inside-B-L-top-side-anchor" d="M92 56 L154 56 M69 130 L68 178" class="guide" />
+      </g>
+      <g id="inside-fly" data-role="fly">
+        <path id="inside-F-R-guard" d="M185 52 L173 52 L173 160 L188 160 Z" class="shell" />
+        <path id="inside-F-L-facing" d="M178 52 L205 52 L207 150 Q207 166 181 166 Z" class="waist" />
+        <path id="inside-Z-R-half" d="M183 59 L183 146" class="zip" />
+        <path id="inside-Z-L-half" d="M194 59 L194 146" class="zip" />
+      </g>
+      <text id="inside-B-R-label" x="112" y="248" class="small">B-R</text>
+      <text id="inside-B-L-label" x="248" y="248" class="small">B-L</text>
+      <path id="element-103" d="M146 58 L376 40 L416 40" class="leader" />
+      <text id="element-104" x="411" y="34" class="small">top anchor / waist</text>
+      <path id="element-105" d="M306 147 L375 104 L416 104" class="leader" />
+      <text id="element-106" x="411" y="96" class="small">side anchor</text>
+      <path id="element-107" d="M198 117 L375 171 L416 171" class="leader" />
+      <text id="element-108" x="411" y="163" class="small">facing / guard / zip</text>
+    </g>
+    <text id="element-109" x="72" y="1288" class="tiny">Jagged lower edge = diagram crop, not a cut-piece boundary.</text>
+  </g>
+  <g id="fly-frame">
+    <rect id="element-111" x="770" y="845" width="540" height="480" rx="14" class="frame" />
+    <text id="element-112" x="792" y="882" class="panel-title">05 / FLY LAYER ROLES</text>
+    <text id="element-113" x="792" y="909" class="small">Exploded discussion diagram; engagement unproved</text>
+    <g id="fly-detail" data-role="fly" transform="translate(796 951)">
+      <path id="detail-F-L-overlap-facing" d="M34 22 L153 22 L153 192 Q151 222 87 222 L34 211 Z" class="waist" />
+      <path id="detail-F-R-underlap-guard" d="M221 22 L321 22 L321 213 L221 213 Z" class="shell" />
+      <path id="detail-Z-L-half" d="M143 44 L143 181" class="zip" />
+      <path id="detail-Z-R-half" d="M231 44 L231 181" class="zip" />
+      <g id="detail-top-fastening" data-role="waistband">
+        <circle id="detail-WB-R-button-proposal" cx="271" cy="40" r="6" fill="#223844" />
+        <path id="detail-WB-L-slot-proposal" d="M77 40 L95 40" class="seam" />
+        <text id="element-122" x="34" y="11" class="tiny">WB-L / slot</text>
+        <text id="element-123" x="221" y="11" class="tiny">WB-R / button</text>
+      </g>
+      <path id="detail-left-overlap-direction" d="M187 64 L174 64 M174 64 L180 58 M174 64 L180 70" class="leader" />
+      <text id="element-125" x="38" y="253" class="small">F-L / left overlap</text>
+      <text id="element-126" x="217" y="253" class="small">F-R / right underlap</text>
+      <text id="element-127" x="38" y="281" class="small">Z-L</text>
+      <text id="element-128" x="222" y="281" class="small">Z-R</text>
+      <text id="element-129" x="33" y="315" class="small">Front left overlap covers right underlap.</text>
+    </g>
+    <text id="element-130" x="792" y="1288" class="tiny">Two zipper-half roles; no teeth matching or closure proof.</text>
+  </g>
+  <g id="hem-frame">
+    <rect id="element-132" x="1335" y="845" width="415" height="480" rx="14" class="frame" />
+    <text id="element-133" x="1357" y="882" class="panel-title">06 / HEM TURN INTENT</text>
+    <text id="element-134" x="1357" y="909" class="small">No depth, ease or seam allowance specified</text>
+    <g id="hem-detail" data-role="hem" transform="translate(1368 967)">
+      <path id="hem-outer-leg" d="M35 27 L294 27 L286 157 Q162 170 43 157 Z" class="shell" />
+      <path id="hem-turned-envelope" d="M43 157 Q162 170 286 157 L285 124 Q164 137 44 124 Z" class="waist" />
+      <path id="hem-turn-attachment-guide" d="M47 132 Q163 145 281 132" class="guide" />
+      <text id="element-139" x="37" y="211" class="small">H-R / H-L repeated role</text>
+      <text id="element-140" x="37" y="243" class="small">Turn envelope is schematic.</text>
+      <text id="element-141" x="37" y="275" class="small">Leg opening + drape unqualified.</text>
+    </g>
+    <text id="element-142" x="1357" y="1288" class="tiny">Pattern, fabric and physical fit remain open.</text>
+  </g>
+  <g id="legend" data-role="legend">
+    <path id="legend-attachment" d="M54 1374 L139 1374" class="guide" />
+    <text id="element-145" x="156" y="1380" class="small">proposed attachment / turn</text>
+    <path id="legend-zip" d="M547 1374 L632 1374" class="zip" />
+    <text id="element-147" x="650" y="1380" class="small">zip-half intent</text>
+    <rect id="legend-bag-swatch" x="926" y="1360" width="54" height="24" class="bag" />
+    <text id="element-149" x="996" y="1380" class="small">inside bag proposal</text>
+    <path id="legend-hidden" d="M1395 1374 L1471 1374" class="hidden" />
+    <text id="element-151" x="1484" y="1380" class="small">hidden / far role</text>
+  </g>
+  <text id="qualification-footer" x="50" y="1435" class="small">No measurements, sewing pattern, mechanical engagement, body/garment fit, 3D or runtime acceptance.</text>
+  <text id="sides-footer" x="50" y="1464" class="tiny">Wearer R/L: front + inside R is image-left; rear R is image-right. All views are authored, unregistered sketches.</text>
+</svg>

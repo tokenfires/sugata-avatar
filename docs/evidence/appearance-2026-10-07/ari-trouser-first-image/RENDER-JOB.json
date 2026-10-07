@@ -1,0 +1,18 @@
+{
+  "started_utc": "2026-10-07T19:30:49.630122+00:00",
+  "finished_utc": "2026-10-07T19:30:50.295977+00:00",
+  "wrapper_pid": 59766,
+  "child_pid": 59767,
+  "command": [
+    "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "docs/evidence/appearance-2026-10-07/ari-trouser-first-image/render.mjs"
+  ],
+  "exit_code": 0,
+  "timeout": false,
+  "stdout": "{\"output\":\"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-trouser-first-image/trouser-first.png\",\"bytes\":312560,\"info\":{\"format\":\"png\",\"width\":1800,\"height\":1500,\"channels\":4,\"premultiplied\":false,\"hasAlpha\":true,\"size\":312560}}\n",
+  "stderr": "",
+  "worth_sha256": "4b35c861020bcdd8f82f8a3f0b07490a274d195ddcaf2507d0c8d0205e394285",
+  "root_whole_worth_read": "chunk0cffea19:29UTC",
+  "attempt": 1,
+  "limit": "Sole first whole CPU source-vector image. No retry/redraw/tuning/native/browser/GPU/body operation."
+}
