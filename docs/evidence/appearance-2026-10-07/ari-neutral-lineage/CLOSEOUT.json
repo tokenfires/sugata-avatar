@@ -1,0 +1,27 @@
+{
+  "sealed_utc": "2026-10-07T18:32:06.646604+00:00",
+  "entry_commit": "67f3b8f0b5bcaa81cb29c2c07f00e9ac7325ee70",
+  "root_review_sha256": "b4afde3758a1cf7b07fabef15ce5b4ef8681f0adf3ad241727653e83c713f240",
+  "final_links": 13,
+  "latest_human_messages": [
+    {
+      "timestamp": "2026-10-07T15:13:49.276Z",
+      "text": "Hi Cora, can you resume work on sugata-avatar?\n"
+    }
+  ],
+  "retained_processes": [
+    "825 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort",
+    "24508 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node --experimental-vm-modules /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpALGqax/kernel.js --session-id 47120f4524e5434ea0ab625ee65e0289 --working-dir /Users/robault/GitHub/sugata-avatar",
+    "24509 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpALGqax/trusted-worker.js /Users/robault/GitHub/sugata-avatar"
+  ],
+  "owned_native_test_capture_jobs": [],
+  "automation": {
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7",
+    "changed": false
+  },
+  "original_location_window_copy": "WORK-WINDOW.reviewed.md retains exact reviewed bytes; links belong to original docs location, not relocated folder.",
+  "only_owned_packet_and_appended_window_changes": true,
+  "no_push_publish_purchase_reset_install_or_other_project_work": true
+}

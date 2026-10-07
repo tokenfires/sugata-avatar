@@ -1,0 +1,94 @@
+{
+  "checked_utc": "2026-10-07T18:22:25.261116+00:00",
+  "source_inputs_match": [
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "tools/figure-pipeline/build.sh",
+      "bytes": 2030,
+      "sha256": "3272ae2106d6126fc3458df79a6df847b6ba5b7050f3e28f8753c550c94ff911"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-native-source/DELIVERY-REVIEW.md",
+      "bytes": 4961,
+      "sha256": "2c8163b13d7459a60419a44d3260faabbd5ef68580ac68ddd423b1503e96f504"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md",
+      "bytes": 6735,
+      "sha256": "48c91f0c38557cf8f7db1a0ad5e49b3c88bb82286e22477f0942c256ec4e5f93"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md",
+      "bytes": 3343,
+      "sha256": "3566e145bc8840fd3c484a9a9f37a307323e0b05fb3a6f9fac400d6a00a26ec1"
+    },
+    {
+      "path": "tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37",
+      "reason": "Directly named by pinned bridge; resolve actual native tool/profile and package identity without launch."
+    },
+    {
+      "path": "tools/figure-pipeline/print_user_data_dir.py",
+      "bytes": 531,
+      "sha256": "ebbe18e1e2c9633403a1cc5f23a24f4c89a54916749b58a401f927601a0251ba",
+      "reason": "Directly named by the pinned installer, to inspect actual service/data-root resolution duty without executing it."
+    }
+  ],
+  "links_checked": [
+    {
+      "from": "docs/evidence/appearance-2026-10-07/ari-neutral-lineage/README.md",
+      "to": "WORTH.md"
+    },
+    {
+      "from": "docs/evidence/appearance-2026-10-07/ari-neutral-lineage/README.md",
+      "to": "SOURCE-DECISION.json"
+    },
+    {
+      "from": "docs/evidence/appearance-2026-10-07/ari-neutral-lineage/README.md",
+      "to": "PLAN.json"
+    },
+    {
+      "from": "docs/evidence/appearance-2026-10-07/ari-neutral-lineage/README.md",
+      "to": "RECOVERY.json"
+    },
+    {
+      "from": "docs/evidence/appearance-2026-10-07/ari-neutral-lineage/README.md",
+      "to": "ADDITIONAL-INPUTS.json"
+    },
+    {
+      "from": "docs/evidence/appearance-2026-10-07/ari-neutral-lineage/README.md",
+      "to": "../ari-body-recipe/AUTHORING-REQUEST.md"
+    },
+    {
+      "from": "docs/WORK-WINDOW-2026-10-07.md",
+      "to": "evidence/appearance-2026-10-07/ari-neutral-lineage/PLAN.json"
+    },
+    {
+      "from": "docs/WORK-WINDOW-2026-10-07.md",
+      "to": "evidence/appearance-2026-10-07/ari-neutral-lineage/WORTH.md"
+    },
+    {
+      "from": "docs/WORK-WINDOW-2026-10-07.md",
+      "to": "evidence/appearance-2026-10-07/ari-neutral-lineage/README.md"
+    },
+    {
+      "from": "docs/WORK-WINDOW-2026-10-07.md",
+      "to": "evidence/appearance-2026-10-07/ari-neutral-lineage/SOURCE-DECISION.json"
+    }
+  ],
+  "entry_window_prefix_unchanged": true,
+  "only_owned_packet_and_appended_window_changed": true,
+  "first_specific_provenance_gate_still_held": true,
+  "no_test_or_native_execution": true,
+  "commands": "Source/text pin, local-link existence, entry-prefix and Git status checks only; not a runtime or appearance test."
+}

@@ -1,0 +1,164 @@
+{
+  "stopped_utc": "2026-10-07T18:18:45.448449+00:00",
+  "status": "source-snapshot-instrument-held",
+  "decision": "Pre-bake complete-scene point is concrete and worth using for a deliberately new neutral lineage, but no snapshot instrument or native acquisition is admitted without one selected actual tool/profile and resolved service/data-input bundle.",
+  "positive_witnesses": [
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "lines": [
+        492,
+        513
+      ],
+      "finding": "Eight explicit macro arguments plus literal three race fields create a new authored neutral; these do not prove old-source equivalence."
+    },
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "lines": [
+        2583,
+        2608
+      ],
+      "finding": "Full body, face attachment, expressions and rig/part binding precede destructive helper bake; save whole scene at that boundary, with later cornea/export derivatives separate."
+    },
+    {
+      "path": "tools/figure-pipeline/build_figure.py",
+      "lines": [
+        2113,
+        2130
+      ],
+      "finding": "Bake mutates figure in place and removes helper geometry/also proxies; one-level character copy is not complete native save."
+    }
+  ],
+  "first_missing_association": {
+    "name": "One selected tool/profile with actual resolved MPFB implementations and canonical native input/dependency identities for the new complete neutral source.",
+    "sources": [
+      {
+        "path": "tools/figure-pipeline/mpfb_bridge.py",
+        "lines": [
+          26,
+          35
+        ],
+        "finding": "Resolution imports first loaded module matching logical suffix; supplied code names neither actual loaded prefix/file identities nor native profile."
+      },
+      {
+        "path": "tools/figure-pipeline/install_deps.sh",
+        "lines": [
+          95,
+          118
+        ],
+        "finding": "Version-scoped user data is queried from the running extension rather than pinned as source authority."
+      },
+      {
+        "path": "tools/figure-pipeline/print_user_data_dir.py",
+        "lines": [
+          13,
+          15
+        ],
+        "finding": "LocationService.get_user_data would return actual data directory, but code is not its result and was not executed."
+      }
+    ],
+    "limit": "Selected code gives a query duty, not a selected current tool/profile or frozen actual input bundle. This does not establish global absence, missing installed assets, source incapability or need for new geometry."
+  },
+  "alternatives": [
+    {
+      "option": "A",
+      "description": "Fresh worth for one isolated actual tool/profile/service/data admission and complete input-bundle freeze, before any human creation.",
+      "tradeoff": "Can make the selected new-neutral lineage concrete; needs a bounded observational contract and exact dependencies, not another generic owner list. No body/rig/target/reader trial."
+    },
+    {
+      "option": "B",
+      "description": "Change workstream to original garment or complete character authoring with an explicit new source contract, retaining all source and form holds.",
+      "tradeoff": "Can deliver artist-facing progress without assuming native provenance; does not supply Ari anatomy/rig/export or justify new geometry."
+    }
+  ],
+  "exact_reads": {
+    "builder_ranges": [
+      [
+        359,
+        454
+      ],
+      [
+        492,
+        583
+      ],
+      [
+        1997,
+        2026
+      ],
+      [
+        2082,
+        2211
+      ],
+      [
+        2449,
+        2476
+      ],
+      [
+        2566,
+        2696
+      ],
+      [
+        1,
+        145
+      ]
+    ],
+    "complete_small_files": [
+      "tools/figure-pipeline/mpfb_bridge.py",
+      "tools/figure-pipeline/build.sh",
+      "tools/figure-pipeline/install_deps.sh",
+      "tools/figure-pipeline/print_user_data_dir.py"
+    ],
+    "additional_sources_used": 2,
+    "official_reference_used": false
+  },
+  "commands_and_results": [
+    {
+      "command": "python3 exact worth mtime/input hash verification",
+      "chunk": "ccddf1",
+      "exit": 0,
+      "worth_saved_utc": "2026-10-07T18:12:57.922018+00:00",
+      "root_full_read_utc": "2026-10-07T18:13:17+00:00",
+      "six_input_pins_match": true
+    },
+    {
+      "command": "sed builder exact admitted ranges",
+      "chunks": [
+        "042422",
+        "e9aaba",
+        "b33fdc",
+        "3cd74f",
+        "aa5602",
+        "453c14",
+        "c46f91"
+      ],
+      "exit": 0
+    },
+    {
+      "command": "cat bridge/wrapper; pin/read installer and data-root utility",
+      "chunks": [
+        "ee2412",
+        "92167a",
+        "1d3840"
+      ],
+      "exit": 0
+    },
+    {
+      "command": "Python candidate directory checks at guessed macOS Blender support path",
+      "chunks": [
+        "b0d87f",
+        "3dca3e"
+      ],
+      "results": [
+        "empty candidate list",
+        "FileNotFoundError for guessed directory"
+      ],
+      "limit": "Guessed path results are not source-absence or profile authority; no broader path search or retry after FileNotFoundError."
+    }
+  ],
+  "jobs": {
+    "critic": "independent text worth collected",
+    "native": [],
+    "tests": [],
+    "captures": []
+  },
+  "qualification": "Research decision only; no usable native source acquired, instrument authored, binary asset/geometry read or hash, constructor/API launch, target application, asset edit, render/image or checklist credit. Entire Ari recipe remains held, and full AAA roadmap stays open."
+}

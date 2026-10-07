@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-07T18:05:56.505345+00:00",
+  "plan_sha256": "c21370ef88efaf1003a9c7407eba14fc73d63c481055a59087368c886407f464",
+  "entry_commit": "67f3b8f0b5bcaa81cb29c2c07f00e9ac7325ee70",
+  "six_input_pins_match": [
+    "tools/figure-pipeline/build_figure.py",
+    "tools/figure-pipeline/mpfb_bridge.py",
+    "tools/figure-pipeline/build.sh",
+    "docs/evidence/appearance-2026-10-07/ari-native-source/DELIVERY-REVIEW.md",
+    "docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md",
+    "docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md"
+  ],
+  "jobs": [
+    {
+      "owner": "/root/quality_critic",
+      "kind": "text-source worth only",
+      "status": "dispatched"
+    }
+  ],
+  "native_jobs": [],
+  "test_runs": 0,
+  "new_human_steering": "none; October7 resume remains latest",
+  "automation": "saved ACTIVE ten-minute current-chat heartbeat unchanged",
+  "service": "Vite825 process retained; no fresh HTTP or render claim",
+  "allowed_next": "Wait for critic worth; root independently verifies full handoff before exact source inquiry."
+}

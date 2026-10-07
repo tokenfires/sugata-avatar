@@ -1,0 +1,14 @@
+[
+  {
+    "path": "tools/figure-pipeline/install_deps.sh",
+    "bytes": 5144,
+    "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37",
+    "reason": "Directly named by pinned bridge; resolve actual native tool/profile and package identity without launch."
+  },
+  {
+    "path": "tools/figure-pipeline/print_user_data_dir.py",
+    "bytes": 531,
+    "sha256": "ebbe18e1e2c9633403a1cc5f23a24f4c89a54916749b58a401f927601a0251ba",
+    "reason": "Directly named by the pinned installer, to inspect actual service/data-root resolution duty without executing it."
+  }
+]
