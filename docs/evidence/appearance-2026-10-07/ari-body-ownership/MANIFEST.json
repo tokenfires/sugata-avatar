@@ -1,0 +1,120 @@
+{
+  "frozen_utc": "2026-10-07T16:36:16.726021+00:00",
+  "start_commit": "4b7dbc5",
+  "qualification": "Text source/control ownership decision only; no binary, geometry, body match, rig/fit/motion/runtime/appearance acceptance.",
+  "payloads": [
+    {
+      "path": "BOARD.before.html",
+      "bytes": 15320,
+      "sha256": "5b60e20821fe30f8d0b8778e9d9464832cf21b60385db18fef2521318f2c3996"
+    },
+    {
+      "path": "BOARD.delivered.html",
+      "bytes": 15473,
+      "sha256": "12161d6cd6f81f9d749559aac057b490084d329b96ee5fdf9221bfb3fc49a1e9"
+    },
+    {
+      "path": "BODY-SOURCE-CONTRACT.md",
+      "bytes": 7298,
+      "sha256": "562822c426382258b1b65b5a61a7d51b2fb5fb4462205a1637f910df15c08cad"
+    },
+    {
+      "path": "CONTROL-LEADS.json",
+      "bytes": 10038,
+      "sha256": "6ca148de5a3e69140c76cbb9e25734b234764d973d6a119f598d523f3a5bbe7a"
+    },
+    {
+      "path": "DELIVERY-REVIEW.md",
+      "bytes": 3722,
+      "sha256": "02e2590f1f166a8c82e054220dbb17458fcdb9e03b50ddd7ad256befc251b3cc"
+    },
+    {
+      "path": "OBSERVER-FAILURE.json",
+      "bytes": 696,
+      "sha256": "eb61c8cc979188fa3bdc26445330ec18611b2aca5afe1ac4d778e37cd1b120c1"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 5118,
+      "sha256": "e0d22a090407f73d7bb41c5feda799931160d5d4207816e360a105e87fd082c7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6650,
+      "sha256": "4df418de27bf5065375446dc9f1de4cd93f0d910a70a78aa17b831b5d704ea8d"
+    },
+    {
+      "path": "README.source-reviewed.md",
+      "bytes": 4679,
+      "sha256": "06a84711d8417c4386eec1b28cd4669cd5e98e26e2ad198091835fd39ae5eaac"
+    },
+    {
+      "path": "RECOVERY.json",
+      "bytes": 4440,
+      "sha256": "f48104cdabc8e1c3c15719764595cc08ed22ebf937e46b6087acb2a467f19363"
+    },
+    {
+      "path": "ROOT-DELIVERY.json",
+      "bytes": 1600,
+      "sha256": "80d7830144eef66b06640ca30d94c6fd4211ee97aebf11b9fb3becce3577a108"
+    },
+    {
+      "path": "ROOT-SOURCE.json",
+      "bytes": 2354,
+      "sha256": "b251bb67028977a0d2944fe1c8b04c5dab51119d4eb64eb16481d552a7f4466e"
+    },
+    {
+      "path": "ROOT-WORTH.md",
+      "bytes": 1854,
+      "sha256": "744503004e9f4c1708398070c57ea10f500c0b457ca71a51bdef04ac4684dcb4"
+    },
+    {
+      "path": "SOURCE-REVIEW.md",
+      "bytes": 5372,
+      "sha256": "0c7c0559c0e2c4865338c27f93e55a099610fad543027e21ca86699e8c03d831"
+    },
+    {
+      "path": "TRACED-INPUTS.json",
+      "bytes": 702,
+      "sha256": "af0d2607d7af7c13bd0312738c3c5cce699b273b8cc80dba73bb25f082dcf2a2"
+    },
+    {
+      "path": "VERIFICATION-HISTORY.json",
+      "bytes": 1080,
+      "sha256": "8ca0d7f9ccaa7ab9ad6afcb7001094f6bcc81e0340a578eab7157b56f82d8543"
+    },
+    {
+      "path": "VERIFICATION.json",
+      "bytes": 8760,
+      "sha256": "3be8301fb47b7c03b6386fd6b846a6d81388ad369125f10e08a7bfa203f652e0"
+    },
+    {
+      "path": "WORK-WINDOW.before.md",
+      "bytes": 6776,
+      "sha256": "b393f3db2a28fcd869299fa002c985ece47b7a1be742a9a7437c6a0d091701ee"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 4860,
+      "sha256": "fd27a1af367994412e5c158fdcc79f5d4cea8e99f6ad053741c3291a3704be62"
+    },
+    {
+      "path": "verify.before-link-origin.py.source",
+      "bytes": 5053,
+      "sha256": "2f7b862ed8e8de9ba83ca5be2ffd6a45e55770533b7fd5c6eed4c2c10d7b22be"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 5132,
+      "sha256": "7754278c87c7a36c7ac35b0aacb0e80c35acfb5621fb4efd02f95c788fe4cbb9"
+    }
+  ],
+  "bytes_total": 116977,
+  "preservation": "Exact local payloads with write-bit protection and subsequentGit checkpoint; neither immutable storage nor off-machine backup.",
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7"
+  }
+}

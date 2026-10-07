@@ -1,0 +1,119 @@
+{
+  "time": "2026-10-07T16:18:03.039237+00:00",
+  "pid": 34669,
+  "checks": [
+    {
+      "path": "docs/WORK-WINDOW-2026-10-07.md",
+      "bytes": 6776,
+      "sha256": "b393f3db2a28fcd869299fa002c985ece47b7a1be742a9a7437c6a0d091701ee",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-bomber-drawing/ARTIST-HANDOFF.md",
+      "bytes": 2575,
+      "sha256": "de89c9bb6f5de71228e1b0a03e9fb89637c16bc2f4e4b592abbfffc3a1301b74",
+      "match": true
+    },
+    {
+      "path": "docs/DAY-REPORT-2026-09-30.md",
+      "bytes": 8218,
+      "sha256": "e1f9fbf7b0dc6dc78f5380214e1a9604f14449ccac788bbc166c510c23e01743",
+      "match": true
+    },
+    {
+      "path": "docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "bytes": 6104,
+      "sha256": "ca4e33586c29a0393848c512082e4d3c5c556233a87e9aebc44f2156e7545477",
+      "match": true
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "match": true
+    },
+    {
+      "path": "packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e",
+      "match": true
+    },
+    {
+      "path": "packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff",
+      "match": true
+    },
+    {
+      "path": "packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d",
+      "match": true
+    },
+    {
+      "path": "packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae",
+      "match": true
+    },
+    {
+      "path": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10",
+      "match": true
+    },
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/standalone-facial-reader/README.md",
+      "bytes": 1411,
+      "sha256": "2ac539ae150240cf6b45282ec77fda55f6b625a71017d27cfa3643600ebdddc1",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/README.md",
+      "bytes": 1655,
+      "sha256": "6731d7e9c0f588d6bfbf3e292dd6f90d2ec57f5094cd653df18a69768991da3b",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/RECEIPT.md",
+      "bytes": 3819,
+      "sha256": "a0f885e06a0ec27b0758f2096f682f1d2b576b4df4d9f2d7e3861713aefa7fb9",
+      "match": true
+    }
+  ],
+  "git_status": "## codex/bob-appearance-2026-09-29\n?? docs/evidence/appearance-2026-10-07/ari-body-ownership/\n",
+  "head": "4b7dbc57d8b46969a64c4c7df89aa2fadeca80f4",
+  "automation_toml_sha256": "56e070a7adeba708a1005af85d1c18d6da679f817ff0053a2a086e08bb567be0",
+  "latest_human": "2026-10-07T15:13:49.276Z: Hi Cora, can you resume work on sugata-avatar?",
+  "recovery_reads": [
+    "Current window and latest bomber README complete",
+    "October6 checkpoint complete",
+    "October2 progress is1691lines and105k tokens: initial broad read truncated; selected body/morph/source recovery records then read. No whole progress read claimed.",
+    "September30 day report and pose-aware fit proposal complete",
+    "Current session JSONL user messages filtered; no newer human steering"
+  ],
+  "mistakes": [
+    "Initial rg assumed src/; corrected to packages/core/src without editing anything.",
+    "Earlier guessed facial worth path under appearance absent; existing reader README used."
+  ],
+  "native_or_asset_job": "none",
+  "preserved_review_server_pid": 825
+}

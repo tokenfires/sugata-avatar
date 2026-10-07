@@ -1,0 +1,21 @@
+{
+  "time": "2026-10-07T16:20:12.710711+00:00",
+  "reason": "Caller and declared text catalogue/map metadata traced from current inspected source. No bins/GLBs read or decoded.",
+  "inputs": [
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "assets/identity/catalogue.json",
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176"
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291"
+    }
+  ]
+}

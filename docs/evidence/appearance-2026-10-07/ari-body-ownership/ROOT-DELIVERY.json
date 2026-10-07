@@ -1,0 +1,41 @@
+{
+  "time": "2026-10-07T16:36:16.724881+00:00",
+  "pid": 67503,
+  "delivery_review_sha256": "02e2590f1f166a8c82e054220dbb17458fcdb9e03b50ddd7ad256befc251b3cc",
+  "whole_handoff_read": true,
+  "current_output_bindings": [
+    {
+      "path": "README.md",
+      "bytes": 6650,
+      "sha256": "4df418de27bf5065375446dc9f1de4cd93f0d910a70a78aa17b831b5d704ea8d",
+      "match": true
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-07.md",
+      "bytes": 9239,
+      "sha256": "d083fea3442bc4311a4b6253e5ca5cb70e64bf2cf6fb6e7dfd6851013b276955",
+      "match": true
+    },
+    {
+      "path": "ROOT-SOURCE.json",
+      "bytes": 2354,
+      "sha256": "b251bb67028977a0d2944fe1c8b04c5dab51119d4eb64eb16481d552a7f4466e",
+      "match": true
+    },
+    {
+      "path": "VERIFICATION.json",
+      "bytes": 8760,
+      "sha256": "3be8301fb47b7c03b6386fd6b846a6d81388ad369125f10e08a7bfa203f652e0",
+      "match": true
+    }
+  ],
+  "six_source_review_bindings_match": true,
+  "root_three_added_receipt_link_checks": [
+    "ROOT-SOURCE.json",
+    "VERIFICATION-HISTORY.json",
+    "VERIFICATION.json"
+  ],
+  "correction": "Source decision and controls unchanged. Root adopts accurate recorded32-link/final3-link coverage distinction; no broad observer rerun.",
+  "final_state": "Metadata-only source lead retained; no target job/candidate or new experiment. Review825 and managedCUA retained; existing10min recovery ACTIVE; no pushes/publication.",
+  "next_action": "Fresh worth for existing saved standaloneg050 source/frame authority; close duplicates and name missing associations before new source work."
+}

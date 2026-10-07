@@ -1,0 +1,31 @@
+{
+  "qualification": "Observer output metadata, not a claim that superseded JSON bytes are retained. Latest complete successful report is VERIFICATION.json.",
+  "runs": [
+    {
+      "chunk": "09ed56",
+      "exit_code": 1,
+      "diagnostic": "Relocated snapshot link origin; original script retained."
+    },
+    {
+      "chunk": "ae5a61",
+      "pid": 50279,
+      "completed_at": "2026-10-07T16:26:09.992039+00:00",
+      "exit_code": 0,
+      "source_pins": 19,
+      "frozen_payloads": 51,
+      "local_links": 22,
+      "output_sha256": "c9f86834d5d39fe74461d3b340b1fc81cfee519ace76276a34f5f4befe33c5f9"
+    },
+    {
+      "chunk": "56992d",
+      "pid": 56668,
+      "completed_at": "2026-10-07T16:29:54.484609+00:00",
+      "exit_code": 0,
+      "source_pins": 19,
+      "frozen_payloads": 51,
+      "local_links": 32,
+      "output_sha256": "3be8301fb47b7c03b6386fd6b846a6d81388ad369125f10e08a7bfa203f652e0",
+      "reason": "Final receipt additions and recovered reviewed-copy links changed local-link set; same19 source and51preservation checks retained."
+    }
+  ]
+}

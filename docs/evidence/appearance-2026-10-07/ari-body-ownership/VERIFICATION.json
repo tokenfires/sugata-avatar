@@ -1,0 +1,294 @@
+{
+  "started_at": "2026-10-07T16:29:54.436408+00:00",
+  "completed_at": "2026-10-07T16:29:54.484609+00:00",
+  "pid": 56668,
+  "command": "python3 docs/evidence/appearance-2026-10-07/ari-body-ownership/verify.py",
+  "observer_sha256": "7754278c87c7a36c7ac35b0aacb0e80c35acfb5621fb4efd02f95c788fe4cbb9",
+  "source_checks": [
+    {
+      "path": "docs/WORK-WINDOW-2026-10-07.md",
+      "bytes": 6776,
+      "sha256": "b393f3db2a28fcd869299fa002c985ece47b7a1be742a9a7437c6a0d091701ee",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-bomber-drawing/ARTIST-HANDOFF.md",
+      "bytes": 2575,
+      "sha256": "de89c9bb6f5de71228e1b0a03e9fb89637c16bc2f4e4b592abbfffc3a1301b74",
+      "matches": true
+    },
+    {
+      "path": "docs/DAY-REPORT-2026-09-30.md",
+      "bytes": 8218,
+      "sha256": "e1f9fbf7b0dc6dc78f5380214e1a9604f14449ccac788bbc166c510c23e01743",
+      "matches": true
+    },
+    {
+      "path": "docs/research/POSE-AWARE-FIT-NEXT-2026-09-30.md",
+      "bytes": 6104,
+      "sha256": "ca4e33586c29a0393848c512082e4d3c5c556233a87e9aebc44f2156e7545477",
+      "matches": true
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "matches": true
+    },
+    {
+      "path": "packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e",
+      "matches": true
+    },
+    {
+      "path": "packages/core/src/figure/Identity.js",
+      "bytes": 14450,
+      "sha256": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff",
+      "matches": true
+    },
+    {
+      "path": "packages/core/src/figure/IdentityTargets.js",
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d",
+      "matches": true
+    },
+    {
+      "path": "packages/core/src/figure/IdentityCatalogue.js",
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae",
+      "matches": true
+    },
+    {
+      "path": "packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10",
+      "matches": true
+    },
+    {
+      "path": "assets/wardrobe/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/standalone-facial-reader/README.md",
+      "bytes": 1411,
+      "sha256": "2ac539ae150240cf6b45282ec77fda55f6b625a71017d27cfa3643600ebdddc1",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/original-surface-ledger/README.md",
+      "bytes": 1655,
+      "sha256": "6731d7e9c0f588d6bfbf3e292dd6f90d2ec57f5094cd653df18a69768991da3b",
+      "matches": true
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-03/separates-feasibility/RECEIPT.md",
+      "bytes": 3819,
+      "sha256": "a0f885e06a0ec27b0758f2096f682f1d2b576b4df4d9f2d7e3861713aefa7fb9",
+      "matches": true
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "matches": true
+    },
+    {
+      "path": "assets/identity/catalogue.json",
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176",
+      "matches": true
+    },
+    {
+      "path": "assets/identity/figure-vertex-map.json",
+      "bytes": 1032,
+      "sha256": "7ab24d41ba251ca5d4cffa1199d1a25a9286f74f46059f5bf74c5707a99b5291",
+      "matches": true
+    }
+  ],
+  "control_sliders": 8,
+  "control_regions": 5,
+  "map_metadata_exact": true,
+  "preserved": [
+    {
+      "packet": "larger-frame-character",
+      "payloads": 26,
+      "manifest_sha256": "e53f60ee2621679ecf91bc446183474abaf00734e39f232f1137c37dae359feb"
+    },
+    {
+      "packet": "ari-bomber-drawing",
+      "payloads": 25,
+      "manifest_sha256": "d97b0b963928247a348158bbf04a959912e70bb779466768db30aaccdbeea1dc"
+    }
+  ],
+  "board_single_link_reversal": true,
+  "local_links": [
+    {
+      "from": "BODY-SOURCE-CONTRACT.md",
+      "target": "../larger-frame-character/ARTIST-HANDOFF.md"
+    },
+    {
+      "from": "BODY-SOURCE-CONTRACT.md",
+      "target": "../ari-bomber-drawing/ARTIST-HANDOFF.md"
+    },
+    {
+      "from": "BODY-SOURCE-CONTRACT.md",
+      "target": "CONTROL-LEADS.json"
+    },
+    {
+      "from": "BODY-SOURCE-CONTRACT.md",
+      "target": "README.md"
+    },
+    {
+      "from": "BODY-SOURCE-CONTRACT.md",
+      "target": "../../../research/POSE-AWARE-FIT-NEXT-2026-09-30.md"
+    },
+    {
+      "from": "README.md",
+      "target": "BODY-SOURCE-CONTRACT.md"
+    },
+    {
+      "from": "README.md",
+      "target": "CONTROL-LEADS.json"
+    },
+    {
+      "from": "README.md",
+      "target": "../../../ARTIST-WARDROBE.html"
+    },
+    {
+      "from": "README.md",
+      "target": "PLAN.json"
+    },
+    {
+      "from": "README.md",
+      "target": "RECOVERY.json"
+    },
+    {
+      "from": "README.md",
+      "target": "WORTH.md"
+    },
+    {
+      "from": "README.md",
+      "target": "ROOT-WORTH.md"
+    },
+    {
+      "from": "README.md",
+      "target": "TRACED-INPUTS.json"
+    },
+    {
+      "from": "README.md",
+      "target": "OBSERVER-FAILURE.json"
+    },
+    {
+      "from": "README.md",
+      "target": "SOURCE-REVIEW.md"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "evidence/appearance-2026-10-07/larger-frame-character/PLAN.json"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "PROJECT-CHECKLIST.md"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "evidence/appearance-2026-10-07/larger-frame-character/AUTOMATION.json"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "evidence/appearance-2026-10-07/larger-frame-character/README.md"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "ARTIST-WARDROBE.html"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "PROJECT-CHECKLIST.md"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "evidence/appearance-2026-10-07/ari-bomber-drawing/README.md"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg"
+    },
+    {
+      "from": "WORK-WINDOW.before.md",
+      "target": "evidence/appearance-2026-10-07/ari-bomber-drawing/review.html"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "BODY-SOURCE-CONTRACT.md"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "CONTROL-LEADS.json"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "../../../ARTIST-WARDROBE.html"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "PLAN.json"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "RECOVERY.json"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "WORTH.md"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "ROOT-WORTH.md"
+    },
+    {
+      "from": "README.source-reviewed.md",
+      "target": "TRACED-INPUTS.json"
+    }
+  ],
+  "http": [
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-ownership/BODY-SOURCE-CONTRACT.md",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-ownership/CONTROL-LEADS.json",
+      "status": 200
+    }
+  ],
+  "changed_tracked_paths": [
+    "docs/ARTIST-WARDROBE.html",
+    "docs/WORK-WINDOW-2026-10-07.md"
+  ],
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7"
+  },
+  "qualification": "Text source/artifact association only; no runtime, binary, geometry, fit or appearance qualification."
+}

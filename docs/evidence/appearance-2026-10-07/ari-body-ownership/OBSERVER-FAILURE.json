@@ -1,0 +1,10 @@
+{
+  "time": "2026-10-07T16:26:09.836114+00:00",
+  "command": "python3 docs/evidence/appearance-2026-10-07/ari-body-ownership/verify.py",
+  "chunk": "09ed56",
+  "exit_code": 1,
+  "observer_sha256": "2f7b862ed8e8de9ba83ca5be2ffd6a45e55770533b7fd5c6eed4c2c10d7b22be",
+  "diagnostic": "AssertionError: ('WORK-WINDOW.before.md', 'evidence/appearance-2026-10-07/larger-frame-character/PLAN.json')",
+  "reason": "Saved window snapshot moved from docs to evidence packet; local relative links must use its original docs origin. No source artifact or accepted gate changed.",
+  "correction": "Resolve WORK-WINDOW.before.md links from original docs folder; keep same existence predicate and every link."
+}

@@ -1,0 +1,344 @@
+{
+  "created_at": "2026-10-07T16:21:21.270179+00:00",
+  "decision": "Nominate existing standalone figure_g050 identity-detail source as an unqualified authoring lead. No new body geometry is yet justified or rejected. Current clothed runtime owner remains wardrobe/body/g050.",
+  "source": {
+    "path": "assets/identity/catalogue.json",
+    "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176",
+    "format": "sugata-identity-catalogue",
+    "library": {
+      "id": "mpfb-20260722",
+      "licence": "CC0 (MPFB2 LICENSE.md \u00a7D)",
+      "grouping": "targets/target.json, MPFB's own slider taxonomy \u2014 not re-derived here",
+      "fileCount": 1258,
+      "basemeshVertexCount": 19158,
+      "unitScale": 0.10000000149011612,
+      "unitScaleNote": "MakeHuman decimetres to metres. The float32 of 0.1, as MPFB stores it.",
+      "axisOrder": "xyz as written in the .target file, which is already glTF Y-up order"
+    }
+  },
+  "declared_only_sliders": [
+    {
+      "id": "torso/torso-scale-horiz-decr-incr",
+      "region": "torso",
+      "name": "torso-scale-horiz-decr-incr",
+      "label": "torso-scale-horiz-decr-incr",
+      "sided": false,
+      "range": "bipolar",
+      "kind": "shape",
+      "axis": "size",
+      "exposed": true,
+      "ends": {
+        "negative-unsided": {
+          "target": "torso-scale-horiz-decr",
+          "offset": 1420016,
+          "count": 7836
+        },
+        "positive-unsided": {
+          "target": "torso-scale-horiz-incr",
+          "offset": 1545392,
+          "count": 7196
+        }
+      }
+    },
+    {
+      "id": "torso/torso-scale-depth-decr-incr",
+      "region": "torso",
+      "name": "torso-scale-depth-decr-incr",
+      "label": "torso-scale-depth-decr-incr",
+      "sided": false,
+      "range": "bipolar",
+      "kind": "shape",
+      "axis": "size",
+      "exposed": true,
+      "ends": {
+        "negative-unsided": {
+          "target": "torso-scale-depth-decr",
+          "offset": 1332304,
+          "count": 2831
+        },
+        "positive-unsided": {
+          "target": "torso-scale-depth-incr",
+          "offset": 1377600,
+          "count": 2651
+        }
+      }
+    },
+    {
+      "id": "torso/measure-waist-circ-decr-incr",
+      "region": "torso",
+      "name": "measure-waist-circ-decr-incr",
+      "label": "measure-waist-circ-decr-incr",
+      "sided": false,
+      "range": "bipolar",
+      "kind": "measure",
+      "axis": "size",
+      "exposed": true,
+      "ends": {
+        "negative-unsided": {
+          "target": "measure-waist-circ-decr",
+          "offset": 806880,
+          "count": 1518
+        },
+        "positive-unsided": {
+          "target": "measure-waist-circ-incr",
+          "offset": 831168,
+          "count": 1518
+        }
+      }
+    },
+    {
+      "id": "hip/hip-scale-horiz-decr-incr",
+      "region": "hip",
+      "name": "hip-scale-horiz-decr-incr",
+      "label": "hip-scale-horiz-decr-incr",
+      "sided": false,
+      "range": "bipolar",
+      "kind": "shape",
+      "axis": "size",
+      "exposed": true,
+      "ends": {
+        "negative-unsided": {
+          "target": "hip-scale-horiz-decr",
+          "offset": 81312,
+          "count": 2140
+        },
+        "positive-unsided": {
+          "target": "hip-scale-horiz-incr",
+          "offset": 115552,
+          "count": 2140
+        }
+      }
+    },
+    {
+      "id": "hip/hip-scale-depth-decr-incr",
+      "region": "hip",
+      "name": "hip-scale-depth-decr-incr",
+      "label": "hip-scale-depth-decr-incr",
+      "sided": false,
+      "range": "bipolar",
+      "kind": "shape",
+      "axis": "size",
+      "exposed": true,
+      "ends": {
+        "negative-unsided": {
+          "target": "hip-scale-depth-decr",
+          "offset": 0,
+          "count": 2548
+        },
+        "positive-unsided": {
+          "target": "hip-scale-depth-incr",
+          "offset": 40768,
+          "count": 2534
+        }
+      }
+    },
+    {
+      "id": "buttocks/buttocks-volume-decr-incr",
+      "region": "buttocks",
+      "name": "buttocks-volume-decr-incr",
+      "label": "buttocks-volume-decr-incr",
+      "sided": false,
+      "range": "bipolar",
+      "kind": "shape",
+      "axis": "volume",
+      "exposed": true,
+      "ends": {
+        "negative-unsided": {
+          "target": "buttocks-volume-decr",
+          "offset": 0,
+          "count": 375
+        },
+        "positive-unsided": {
+          "target": "buttocks-volume-incr",
+          "offset": 6000,
+          "count": 1103
+        }
+      }
+    },
+    {
+      "id": "arms/upperarm-fat-decr-incr",
+      "region": "arms",
+      "name": "upperarm-fat-decr-incr",
+      "label": "upperarm-fat-decr-incr",
+      "sided": true,
+      "range": "bipolar",
+      "kind": "shape",
+      "axis": "volume",
+      "exposed": true,
+      "ends": {
+        "negative-left": {
+          "target": "l-upperarm-fat-decr",
+          "offset": 114352,
+          "count": 596
+        },
+        "negative-right": {
+          "target": "r-upperarm-fat-decr",
+          "offset": 679104,
+          "count": 596
+        },
+        "positive-left": {
+          "target": "l-upperarm-fat-incr",
+          "offset": 123888,
+          "count": 614
+        },
+        "positive-right": {
+          "target": "r-upperarm-fat-incr",
+          "offset": 688640,
+          "count": 614
+        }
+      }
+    },
+    {
+      "id": "legs/upperleg-fat-decr-incr",
+      "region": "legs",
+      "name": "upperleg-fat-decr-incr",
+      "label": "upperleg-fat-decr-incr",
+      "sided": true,
+      "range": "bipolar",
+      "kind": "shape",
+      "axis": "volume",
+      "exposed": true,
+      "ends": {
+        "negative-left": {
+          "target": "l-upperleg-fat-decr",
+          "offset": 157728,
+          "count": 447
+        },
+        "negative-right": {
+          "target": "r-upperleg-fat-decr",
+          "offset": 919936,
+          "count": 447
+        },
+        "positive-left": {
+          "target": "l-upperleg-fat-incr",
+          "offset": 164880,
+          "count": 1003
+        },
+        "positive-right": {
+          "target": "r-upperleg-fat-incr",
+          "offset": 927088,
+          "count": 1003
+        }
+      }
+    }
+  ],
+  "declared_only_regions": [
+    {
+      "id": "arms",
+      "label": "arms",
+      "sliderCount": 14,
+      "sidedCount": 11,
+      "widgetCount": 25,
+      "rawTargetCount": 50,
+      "movedVertexRecords": 50698,
+      "exposed": true,
+      "excludedBecause": null,
+      "bin": "targets/arms.bin",
+      "binBytes": 811168,
+      "binSha256": "e38d4a4b8efdd79bd93d587c573a4f788024289affab9b3dd6081a418d2e1fea"
+    },
+    {
+      "id": "buttocks",
+      "label": "buttocks",
+      "sliderCount": 1,
+      "sidedCount": 0,
+      "widgetCount": 1,
+      "rawTargetCount": 2,
+      "movedVertexRecords": 1478,
+      "exposed": true,
+      "excludedBecause": null,
+      "bin": "targets/buttocks.bin",
+      "binBytes": 23648,
+      "binSha256": "b32c22430aba4ccaa9594de4a471693eddcd71f9ff4f2a1a490d20c48462322c"
+    },
+    {
+      "id": "hip",
+      "label": "hip",
+      "sliderCount": 7,
+      "sidedCount": 0,
+      "widgetCount": 7,
+      "rawTargetCount": 14,
+      "movedVertexRecords": 31684,
+      "exposed": true,
+      "excludedBecause": null,
+      "bin": "targets/hip.bin",
+      "binBytes": 506944,
+      "binSha256": "f045dc1f07062590caf8f5930ff73dd10c3580585434b4f2f524bd9ae16984e9"
+    },
+    {
+      "id": "legs",
+      "label": "legs",
+      "sliderCount": 18,
+      "sidedCount": 11,
+      "widgetCount": 29,
+      "rawTargetCount": 58,
+      "movedVertexRecords": 74093,
+      "exposed": true,
+      "excludedBecause": null,
+      "bin": "targets/legs.bin",
+      "binBytes": 1185488,
+      "binSha256": "97030d89413b199fa9110fcbe79f88d35f387e70eba9fae05e618023048a0fd2"
+    },
+    {
+      "id": "torso",
+      "label": "torso",
+      "sliderCount": 17,
+      "sidedCount": 0,
+      "widgetCount": 17,
+      "rawTargetCount": 34,
+      "movedVertexRecords": 220274,
+      "exposed": true,
+      "excludedBecause": null,
+      "bin": "targets/torso.bin",
+      "binBytes": 3524384,
+      "binSha256": "7d50189eafb722cadafb5dae7ed5e9f35f6d7a8ef49e3332f0adfc5383b2978e"
+    }
+  ],
+  "map_metadata": {
+    "format": "sugata-identity-vertex-map",
+    "formatVersion": 1,
+    "mesh": "base.001",
+    "bin": "figure-vertex-map.bin",
+    "elementType": "uint16",
+    "positionCount": 14517,
+    "basemeshVertexCount": 19158,
+    "distinctBasemeshVertices": 13380,
+    "maxBasemeshIndex": 13379,
+    "groundingY": 0,
+    "solvedOn": "figure_g050.glb",
+    "worstMatchDistanceM": 2.407356265396403e-07,
+    "unmatched": 0,
+    "ambiguous": 0,
+    "validatedAgainst": [
+      {
+        "figure": "figure_g000.glb",
+        "worstDuplicateSpreadMm": 0
+      },
+      {
+        "figure": "figure_g025.glb",
+        "worstDuplicateSpreadMm": 0
+      },
+      {
+        "figure": "figure_g050.glb",
+        "worstDuplicateSpreadMm": 0
+      },
+      {
+        "figure": "figure_g075.glb",
+        "worstDuplicateSpreadMm": 0
+      },
+      {
+        "figure": "figure_g100.glb",
+        "worstDuplicateSpreadMm": 0
+      }
+    ],
+    "note": "0 unmatched and 0 ambiguous is the proof. maxBasemeshIndex 13379 against a 13,380-vertex shipped body settles research/identity-sculpting.md \u00a71.4's flagged assumption that the helper geometry occupies the high indices: measured, it does."
+  },
+  "no_values_selected": true,
+  "no_binary_read_or_apply": true,
+  "claims": [
+    "Exact JSON declarations only. Region bin SHA values are declared in catalogue and were not freshly verified.",
+    "Slider names/ranges/end counts do not establish visual volume, independence, body range, safe combinations, garment fit or rig behavior.",
+    "Illustrative clothed target cannot supply source correspondence, physical measurements or semantic anatomical assertions."
+  ],
+  "scope_correction": "Plan alternative B can require an authoring-responsibility contract; metadata cannot prove original new geometry necessary. Root adopts critic correction."
+}
