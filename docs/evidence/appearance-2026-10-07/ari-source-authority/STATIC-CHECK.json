@@ -1,0 +1,82 @@
+{
+  "time": "2026-10-07T16:49:20.710278+00:00",
+  "pid": 89644,
+  "command": "python3 docs/evidence/appearance-2026-10-07/ari-source-authority/verify-handoff.py",
+  "observer_sha256": "dcf3f74ab518ed3d92a3c6fb7a2d56af9eae80a0be904366f7d5f6429d14841d",
+  "plan_text_inputs": [
+    "docs/WORK-WINDOW-2026-10-07.md",
+    "docs/evidence/appearance-2026-10-07/ari-body-ownership/BODY-SOURCE-CONTRACT.md",
+    "docs/evidence/appearance-2026-10-07/ari-body-ownership/CONTROL-LEADS.json",
+    "docs/evidence/appearance-2026-10-07/ari-body-ownership/SOURCE-REVIEW.md",
+    "docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+    "docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+    "docs/evidence/wardrobe-2026-09-30/native-refit/README.md",
+    "docs/evidence/wardrobe-2026-09-30/skeleton-export-bridge/README.md",
+    "docs/evidence/wardrobe-2026-09-30/skeleton-full-influences/README.md",
+    "tools/identity-pipeline/fixtures/body100.json",
+    "assets/identity/figure-vertex-map.json"
+  ],
+  "board_only_link_replacement": true,
+  "links": [
+    {
+      "from": "README.md",
+      "target": "SOURCE-HANDOFF.md"
+    },
+    {
+      "from": "README.md",
+      "target": "PLAN.json"
+    },
+    {
+      "from": "README.md",
+      "target": "WORTH.md"
+    },
+    {
+      "from": "README.md",
+      "target": "ROOT-WORTH.json"
+    },
+    {
+      "from": "README.md",
+      "target": "SAVED-RECORD-PIN.json"
+    },
+    {
+      "from": "README.md",
+      "target": "bind-source.py"
+    },
+    {
+      "from": "README.md",
+      "target": "BINDING.json"
+    },
+    {
+      "from": "SOURCE-HANDOFF.md",
+      "target": "BINDING.json"
+    },
+    {
+      "from": "SOURCE-HANDOFF.md",
+      "target": "README.md"
+    },
+    {
+      "from": "SOURCE-HANDOFF.md",
+      "target": "../../wardrobe-2026-09-30/skeleton-export-bridge/README.md"
+    },
+    {
+      "from": "SOURCE-HANDOFF.md",
+      "target": "../../wardrobe-2026-09-30/skeleton-export-bridge/summary.json"
+    },
+    {
+      "from": "SOURCE-HANDOFF.md",
+      "target": "../ari-body-ownership/BODY-SOURCE-CONTRACT.md"
+    },
+    {
+      "from": "SOURCE-HANDOFF.md",
+      "target": "../larger-frame-character/ARTIST-HANDOFF.md"
+    },
+    {
+      "from": "SOURCE-HANDOFF.md",
+      "target": "../ari-bomber-drawing/ARTIST-HANDOFF.md"
+    }
+  ],
+  "changed_tracked_paths": [
+    "docs/ARTIST-WARDROBE.html"
+  ],
+  "scope": "Text/presentation checks only. Current GLBs and raw proof arrays were not read or decoded."
+}

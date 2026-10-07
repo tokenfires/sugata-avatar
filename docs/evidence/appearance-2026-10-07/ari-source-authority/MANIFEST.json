@@ -1,0 +1,84 @@
+{
+  "frozen_utc": "2026-10-07T16:56:20.548661+00:00",
+  "entry_commit": "87306e0",
+  "qualification": "Current standalonebyte admission tohistorical neutral sourcebaseline; no newform, target/rig/fit/runtime/appearance qualification.",
+  "payloads": [
+    {
+      "path": "BINDING.json",
+      "bytes": 4784,
+      "sha256": "bf408b5e4c5e10db4fd87ae39011da8a6aee3d876758073d0caf23fd4ce0bf4d"
+    },
+    {
+      "path": "CLOSEOUT.json",
+      "bytes": 857,
+      "sha256": "ff2160993e40bfa795fbf31949e4675cbfe003bd50eae1aa670d8a256f894376"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 4479,
+      "sha256": "ef0c695a9f4b795afa3bff1dc43c4cd3bdfd443b861c9deb3f2f7c2ed571bb14"
+    },
+    {
+      "path": "PRESENTATION.json",
+      "bytes": 953,
+      "sha256": "fc33720001cc44ea48b63b521813306e2a6d71c25391009a04f5e575aa3892ee"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3747,
+      "sha256": "6cf6ca867ad67e55455bf260c88e227dfb73a0de9485eb8ce64876352c1b10d6"
+    },
+    {
+      "path": "README.reviewed.md",
+      "bytes": 3311,
+      "sha256": "321bf8e89f7288f394c5f5fc1e1d84d378f228e8953aa8edf4222c0f7f692cc7"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 4766,
+      "sha256": "8d094d48ba36ace9f1742e7c0e3c71d38474a376808fbe680d2aa21cb776bba9"
+    },
+    {
+      "path": "ROOT-REVIEW.json",
+      "bytes": 2461,
+      "sha256": "f3aadfd2e04f1007eff0cfaff61108a64f6d1d4d713c2d9f4c6c3fd1f9dcc2bd"
+    },
+    {
+      "path": "ROOT-WORTH.json",
+      "bytes": 3685,
+      "sha256": "91ed13e98dd5dbf6b31bc3cf1d2c8fa0d3b4df6b63f2b7092d9a78849d6d41ba"
+    },
+    {
+      "path": "SAVED-RECORD-PIN.json",
+      "bytes": 344,
+      "sha256": "6f842fc0aabe61f70b0bb38285b0753a35c59b0d6a6c57e6bb1aa5edd224a1ea"
+    },
+    {
+      "path": "SOURCE-HANDOFF.md",
+      "bytes": 3343,
+      "sha256": "3566e145bc8840fd3c484a9a9f37a307323e0b05fb3a6f9fac400d6a00a26ec1"
+    },
+    {
+      "path": "STATIC-CHECK.json",
+      "bytes": 2515,
+      "sha256": "ac192646dd37ed3ab56cdf591b298ef9cc249b160042af69dda4139dfb3da66e"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 4176,
+      "sha256": "d0d1fd06775b3160bbd8c94a8b3c009ca05b8e7dbfc857a803a219bca5373b34"
+    },
+    {
+      "path": "bind-source.py",
+      "bytes": 3639,
+      "sha256": "876a0527978b114a9aa6ed31c3d6a34cfe9597688571206bdaba13a35fe82b07"
+    },
+    {
+      "path": "verify-handoff.py",
+      "bytes": 2355,
+      "sha256": "dcf3f74ab518ed3d92a3c6fb7a2d56af9eae80a0be904366f7d5f6429d14841d"
+    }
+  ],
+  "bytes_total": 45415,
+  "preservation": "Local write-bit protection and subsequentGit checkpoint, not immutable storage or off-machinebackup."
+}
