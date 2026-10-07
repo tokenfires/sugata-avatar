@@ -1,0 +1,92 @@
+{
+  "started_utc": "2026-10-07T17:09:45.522884+00:00",
+  "finished_utc": "2026-10-07T17:09:45.558459+00:00",
+  "pid": 25171,
+  "command": "python3 docs/evidence/appearance-2026-10-07/ari-body-recipe/verify-request.py",
+  "observer_sha256": "4f1bf4971307140f7e1f756da1ba2e471ccc1213b646e5bfb2ec2da0fa1ab828",
+  "status": "pass",
+  "input_pins": [
+    "docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md",
+    "docs/evidence/appearance-2026-10-07/ari-source-authority/BINDING.json",
+    "docs/evidence/appearance-2026-10-07/ari-body-ownership/CONTROL-LEADS.json",
+    "docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+    "docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+    "packages/core/src/figure/IdentityTargets.js",
+    "packages/core/src/figure/IdentityCatalogue.js",
+    "tools/identity-pipeline/build_from_blender.mjs",
+    "tools/identity-pipeline/probe.py",
+    "tools/critic/skeleton-native-oracle.py",
+    "assets/identity/figure-vertex-map.json"
+  ],
+  "controls": 8,
+  "target_requests": 10,
+  "held_non_executable": true,
+  "declarations_equal": true,
+  "board_reversal_exact": true,
+  "local_links_checked": [
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "RECIPE.json"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "../ari-source-authority/SOURCE-HANDOFF.md"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "../larger-frame-character/ARTIST-HANDOFF.md"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "../ari-bomber-drawing/ARTIST-HANDOFF.md"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/IdentityTargets.js:354"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/IdentityTargets.js:377"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "/Users/robault/GitHub/sugata-avatar/tools/critic/skeleton-native-oracle.py:73"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "/Users/robault/GitHub/sugata-avatar/tools/critic/skeleton-native-oracle.py:134"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "/Users/robault/GitHub/sugata-avatar/tools/critic/skeleton-native-oracle.py:1"
+    },
+    {
+      "document": "AUTHORING-REQUEST.md",
+      "link": "INQUIRY.json"
+    },
+    {
+      "document": "README.md",
+      "link": "AUTHORING-REQUEST.md"
+    },
+    {
+      "document": "README.md",
+      "link": "RECIPE.json"
+    },
+    {
+      "document": "README.md",
+      "link": "PLAN.json"
+    },
+    {
+      "document": "README.md",
+      "link": "ROOT-WORTH.json"
+    },
+    {
+      "document": "README.md",
+      "link": "INQUIRY.json"
+    }
+  ],
+  "changed_tracked_paths": [
+    "docs/ARTIST-WARDROBE.html"
+  ],
+  "limits": "Static text/source/image-byte association only. No geometry/binary asset, numeric-domain validation, target execution, source trial, browser, HTTP or appearance qualification."
+}

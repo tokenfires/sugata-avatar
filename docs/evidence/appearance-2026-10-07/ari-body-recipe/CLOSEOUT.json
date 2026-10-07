@@ -1,0 +1,54 @@
+{
+  "closed_utc": "2026-10-07T17:20:43.212811+00:00",
+  "writer_pid": 43733,
+  "reviewed_output_bindings_match": 8,
+  "final_receipt_added_links_verified": [
+    "WORTH.md",
+    "REVIEW.md",
+    "ROOT-REVIEW.json",
+    "STATIC-CHECK.json"
+  ],
+  "new_window_links_verified": [
+    "evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md",
+    "evidence/appearance-2026-10-07/ari-body-recipe/RECIPE.json",
+    "evidence/appearance-2026-10-07/ari-body-recipe/README.md"
+  ],
+  "prior_window_prefix_unchanged": true,
+  "board_reversal_exact": true,
+  "changed_tracked_paths": [
+    "docs/ARTIST-WARDROBE.html",
+    "docs/WORK-WINDOW-2026-10-07.md"
+  ],
+  "automation": {
+    "kind": "heartbeat",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7"
+  },
+  "latest_human_steering": {
+    "timestamp": "2026-10-07T15:13:49.276Z",
+    "text": "Hi Cora, can you resume work on sugata-avatar?\n"
+  },
+  "scoped_process_matches": [
+    "  825     1 01-03:30:06 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort",
+    "12923 12710    02:08:06 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node /Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules/@oai/cua-repl/bin/cua-repl.mjs",
+    "12924 12710    02:08:06 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl",
+    "12925 12710    02:08:06 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node ./server.mjs",
+    "12926 12710    02:08:06 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node ./server.mjs",
+    "12940 12923    02:08:06 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl",
+    "15455 12710    02:06:56 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node ./server.mjs",
+    "15456 12710    02:06:56 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node ./server.mjs",
+    "15457 12710    02:06:56 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node /Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules/@oai/cua-repl/bin/cua-repl.mjs",
+    "15459 12710    02:06:56 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl",
+    "15483 15457    02:06:56 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl",
+    "24508 15483    02:01:53 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node --experimental-vm-modules /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpALGqax/kernel.js --session-id 47120f4524e5434ea0ab625ee65e0289 --working-dir /Users/robault/GitHub/sugata-avatar",
+    "24509 15483    02:01:53 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpALGqax/trusted-worker.js /Users/robault/GitHub/sugata-avatar",
+    "74920 12710    01:31:24 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node ./server.mjs",
+    "74921 12710    01:31:24 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node /Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules/@oai/cua-repl/bin/cua-repl.mjs",
+    "74922 12710    01:31:24 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node ./server.mjs",
+    "74923 12710    01:31:24 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl",
+    "74938 74921    01:31:24 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+  ],
+  "jobs": "Critic completed and handoffs collected; sole root static command completed. No owned target/native/GPU/browser/constructor job live. Vite825 and managed CUA helpers retained; process observation only, no fresh endpoint or rendering claim.",
+  "limits": "No repeated observer, geometry/array/asset hash, old trial or network. Accepted/original/frozen inputs and unrelated worktrees preserved. Local write-bit protection and subsequent Git checkpoint only; no push/publication/purchase/reset or other-project continuation."
+}

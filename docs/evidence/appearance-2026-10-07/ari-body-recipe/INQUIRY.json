@@ -1,0 +1,69 @@
+{
+  "stopped_utc": "2026-10-07T17:05:13Z",
+  "decision": "Hold the entire eight-control/ten-target recipe; first specific complete native-to-export owner association is not supplied by the admitted witnesses.",
+  "sources_read_completely": [
+    "packages/core/src/figure/IdentityTargets.js",
+    "tools/critic/skeleton-native-oracle.py"
+  ],
+  "sources_read_as_narrow_text_matches": [
+    "tools/identity-pipeline/probe.py",
+    "tools/identity-pipeline/build_from_blender.mjs"
+  ],
+  "source_reads_not_performed": [
+    "packages/core/src/figure/IdentityCatalogue.js"
+  ],
+  "commands": [
+    {
+      "command": "cat packages/core/src/figure/IdentityTargets.js",
+      "chunk": "7594e1",
+      "exit_code": 0
+    },
+    {
+      "command": "cat tools/critic/skeleton-native-oracle.py",
+      "chunk": "4faafd",
+      "exit_code": 0
+    },
+    {
+      "command": "rg -n 'helper|proxy|rig|eyes|teeth|body|target|fit|export|refit' tools/identity-pipeline/probe.py tools/identity-pipeline/build_from_blender.mjs",
+      "chunk": "863133",
+      "exit_code": 0
+    },
+    {
+      "command": "rg -n 'BASEMESH space|FIGURE space|useVertexMap\\(|Adds a whole target|positions\\[|verticesOutsideFigure|detail_names =|def full_body|assert len\\(mesh.vertices\\)|mode in|refit_existing_armature|nativeIdentityPoseSkin|No exports' packages/core/src/figure/IdentityTargets.js tools/critic/skeleton-native-oracle.py",
+      "chunk": "eac93c",
+      "exit_code": 0,
+      "purpose": "Line references for already-read source witnesses; no further inquiry."
+    }
+  ],
+  "pid_limit": "Read-only shell commands did not return PIDs; chunk IDs and exits retained. No constructor/native/GPU job exists.",
+  "source_witnesses": [
+    {
+      "path": "packages/core/src/figure/IdentityTargets.js",
+      "lines": [
+        219,
+        241,
+        252,
+        272,
+        354,
+        378
+      ],
+      "finding": "Mapped apply writes supplied figure positions; outside-map helper records are counted without a mapped figure output. This API supplies no anatomy-owner or rig/export callback."
+    },
+    {
+      "path": "tools/critic/skeleton-native-oracle.py",
+      "lines": [
+        1,
+        73,
+        89,
+        134,
+        144,
+        155,
+        184,
+        204
+      ],
+      "finding": "Native full body/helpers and refit/fresh rig control are explicit, but cases use shoulder-distance and upperleg-height; no export. This finite oracle does not qualify the new ten-target recipe."
+    }
+  ],
+  "limits": "No additional text witness, raw offsets, arrays, GLB/BIN/gzip decode or binary asset rehash, arithmetic, target application, reader/rig trial, source construction, native/browser/GPU capture, generation, network, runtime or accepted asset edit.",
+  "receipt_correction": "Root complete-JSON read corrected doubled regexp backslashes in the recorded line-reference command and clarified binary asset rehash limits; no command, source inquiry, arithmetic or experiment was repeated."
+}

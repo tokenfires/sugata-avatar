@@ -1,0 +1,246 @@
+{
+  "format": "sugata-ari-authoring-request",
+  "format_version": 1,
+  "created_utc": "2026-10-07T17:06:19.484855+00:00",
+  "executable": false,
+  "status": "held-before-construction",
+  "input_neutral": {
+    "path": "assets/figures/figure_g050.glb",
+    "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "identity_evidence": "../ari-source-authority/BINDING.json",
+    "fresh_asset_hash": false,
+    "macro_change": false,
+    "wardrobe_body_substitution": false
+  },
+  "recipe": [
+    {
+      "slider_id": "torso/torso-scale-horiz-decr-incr",
+      "value": 0.25,
+      "sided_policy": "unsided",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-unsided": {
+          "target": "torso-scale-horiz-incr",
+          "offset": 1545392,
+          "count": 7196
+        }
+      }
+    },
+    {
+      "slider_id": "torso/torso-scale-depth-decr-incr",
+      "value": 0.25,
+      "sided_policy": "unsided",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-unsided": {
+          "target": "torso-scale-depth-incr",
+          "offset": 1377600,
+          "count": 2651
+        }
+      }
+    },
+    {
+      "slider_id": "torso/measure-waist-circ-decr-incr",
+      "value": 0.3,
+      "sided_policy": "unsided",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-unsided": {
+          "target": "measure-waist-circ-incr",
+          "offset": 831168,
+          "count": 1518
+        }
+      }
+    },
+    {
+      "slider_id": "hip/hip-scale-horiz-decr-incr",
+      "value": 0.2,
+      "sided_policy": "unsided",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-unsided": {
+          "target": "hip-scale-horiz-incr",
+          "offset": 115552,
+          "count": 2140
+        }
+      }
+    },
+    {
+      "slider_id": "hip/hip-scale-depth-decr-incr",
+      "value": 0.2,
+      "sided_policy": "unsided",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-unsided": {
+          "target": "hip-scale-depth-incr",
+          "offset": 40768,
+          "count": 2534
+        }
+      }
+    },
+    {
+      "slider_id": "buttocks/buttocks-volume-decr-incr",
+      "value": 0.15,
+      "sided_policy": "unsided",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-unsided": {
+          "target": "buttocks-volume-incr",
+          "offset": 6000,
+          "count": 1103
+        }
+      }
+    },
+    {
+      "slider_id": "arms/upperarm-fat-decr-incr",
+      "value": 0.2,
+      "sided_policy": "same positive value on left and right",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-left": {
+          "target": "l-upperarm-fat-incr",
+          "offset": 123888,
+          "count": 614
+        },
+        "positive-right": {
+          "target": "r-upperarm-fat-incr",
+          "offset": 688640,
+          "count": 614
+        }
+      }
+    },
+    {
+      "slider_id": "legs/upperleg-fat-decr-incr",
+      "value": 0.2,
+      "sided_policy": "same positive value on left and right",
+      "status": "provisional artist choice; no measured shape, safe combination or target equivalence claim",
+      "declared_positive_ends": {
+        "positive-left": {
+          "target": "l-upperleg-fat-incr",
+          "offset": 164880,
+          "count": 1003
+        },
+        "positive-right": {
+          "target": "r-upperleg-fat-incr",
+          "offset": 927088,
+          "count": 1003
+        }
+      }
+    }
+  ],
+  "expanded_request_targets": [
+    {
+      "slider_id": "torso/torso-scale-horiz-decr-incr",
+      "side": "unsided",
+      "native_target": "torso/torso-scale-horiz-incr",
+      "region": "torso",
+      "weight": 0.25,
+      "catalogue_offset": 1545392,
+      "catalogue_count": 7196,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "torso/torso-scale-depth-decr-incr",
+      "side": "unsided",
+      "native_target": "torso/torso-scale-depth-incr",
+      "region": "torso",
+      "weight": 0.25,
+      "catalogue_offset": 1377600,
+      "catalogue_count": 2651,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "torso/measure-waist-circ-decr-incr",
+      "side": "unsided",
+      "native_target": "torso/measure-waist-circ-incr",
+      "region": "torso",
+      "weight": 0.3,
+      "catalogue_offset": 831168,
+      "catalogue_count": 1518,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "hip/hip-scale-horiz-decr-incr",
+      "side": "unsided",
+      "native_target": "hip/hip-scale-horiz-incr",
+      "region": "hip",
+      "weight": 0.2,
+      "catalogue_offset": 115552,
+      "catalogue_count": 2140,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "hip/hip-scale-depth-decr-incr",
+      "side": "unsided",
+      "native_target": "hip/hip-scale-depth-incr",
+      "region": "hip",
+      "weight": 0.2,
+      "catalogue_offset": 40768,
+      "catalogue_count": 2534,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "buttocks/buttocks-volume-decr-incr",
+      "side": "unsided",
+      "native_target": "buttocks/buttocks-volume-incr",
+      "region": "buttocks",
+      "weight": 0.15,
+      "catalogue_offset": 6000,
+      "catalogue_count": 1103,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "arms/upperarm-fat-decr-incr",
+      "side": "left",
+      "native_target": "arms/l-upperarm-fat-incr",
+      "region": "arms",
+      "weight": 0.2,
+      "catalogue_offset": 123888,
+      "catalogue_count": 614,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "arms/upperarm-fat-decr-incr",
+      "side": "right",
+      "native_target": "arms/r-upperarm-fat-incr",
+      "region": "arms",
+      "weight": 0.2,
+      "catalogue_offset": 688640,
+      "catalogue_count": 614,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "legs/upperleg-fat-decr-incr",
+      "side": "left",
+      "native_target": "legs/l-upperleg-fat-incr",
+      "region": "legs",
+      "weight": 0.2,
+      "catalogue_offset": 164880,
+      "catalogue_count": 1003,
+      "execution": "held; no bytes read or offsets applied"
+    },
+    {
+      "slider_id": "legs/upperleg-fat-decr-incr",
+      "side": "right",
+      "native_target": "legs/r-upperleg-fat-incr",
+      "region": "legs",
+      "weight": 0.2,
+      "catalogue_offset": 927088,
+      "catalogue_count": 1003,
+      "execution": "held; no bytes read or offsets applied"
+    }
+  ],
+  "numeric_intent": "Fixed provisional additive coefficients selected by the artist collaborator for one future comparison. They are not body percentages, dimensions, validated effects, safe ranges or an exact image match.",
+  "editable_domain": {
+    "canonical_input": "Complete native neutral body and helper domain paired to the matched standalone export; target indices must remain in their declared source space. This native/candidate association is not admitted yet.",
+    "visible_body": "Named base.001 export association; preserve every source body vertex, seam split and source owner. No first-mesh shortcut or partial body.",
+    "helper_domain": "Retain complete native 19158-vertex body/helper source for affected helper evaluation. The body map alone does not carry helper outputs. Do not infer which helpers these eight controls move without later evidence.",
+    "auxiliary_anatomy": "All auxiliary anatomy owners must be named with their exact native object/primitive and export association, affected/unchanged policy and attachment rule. No inferred eye/teeth/other-anatomy exemption and no silent omission.",
+    "rest_bind_rig": "For each affected/rest-preserved joint, own native helper dependency, candidate rest frame, bind transforms, skin influences and exported consequences; reuse finite proof only on identical inputs. An unchanged rig requires evidence, not a default assumption.",
+    "expression": "Retain complete expression and auxiliary-anatomy responsibilities. The neutral body bridge defaults do not establish candidate expression/normal compatibility.",
+    "clothes": "Garment ease belongs to the separate bomber/tee/trouser authoring. Do not deform anatomy to trace cloth contours. No wardrobe body, foundation, garment, mask or runtime change is authorized."
+  },
+  "first_missing_association": "One candidate-specific canonical native-to-export association covering the complete body/helpers, every auxiliary anatomy owner and candidate rest/bind/rig outputs under these exact ten positive target requests. The admitted body-only mapped application and finite two-target native rig oracle do not supply it. This does not establish global absence or existing-source incapability.",
+  "release_gate": "A fresh worth/source-authoring contract must own this association before any constructor/export/application; no trial or rescue is admitted by this JSON. Later root-serialized neutral/candidate front/profile/rear actual rendered images and numerical checks qualify form. Moving/garment/runtime acceptance stays separate.",
+  "preservation": "Accepted assets, frozen neutral source proof, original Ari concept and editable bomber, prior evidence and unrelated worktrees remain unchanged. Full roadmap open."
+}
