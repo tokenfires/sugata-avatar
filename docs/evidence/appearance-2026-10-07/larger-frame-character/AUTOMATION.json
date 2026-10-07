@@ -1,0 +1,10 @@
+{
+  "verified_utc": "2026-10-07T15:17:47.188195+00:00",
+  "id": "advance-sugata-avatar-visual-quality",
+  "status": "ACTIVE",
+  "name": "Advance Sugata until check-in",
+  "rrule": "FREQ=MINUTELY;INTERVAL=10",
+  "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7",
+  "prompt_sha256": "739a47907665a03ba100f6b773a4982df9951a8fed40fb4633f8d63f48f0c00c",
+  "tool_result": "App API update returned ACTIVE; saved TOML independently asserts ACTIVE, ten-minute cadence, current chat destination. No notification delivery test."
+}

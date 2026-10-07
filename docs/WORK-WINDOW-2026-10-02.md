@@ -1,6 +1,6 @@
 # Sugata work window — October 2, 2026
 
-**Current status: PAUSED by Robert on October 6 for MacBook updates/restart. The heartbeat is verified PAUSED. Resume only on explicit human authorization; queued heartbeats do not reopen the work window. [Resume checkpoint](RESUME-2026-10-06.md).**
+**Current continuation: Robert explicitly resumed October 7. The ten-minute recovery heartbeat is ACTIVE in the resumed chat. See [current work window and Ari delivery](WORK-WINDOW-2026-10-07.md). The October 6 pause remains historical evidence.**
 
 Robert explicitly authorized picking up Sugata and continuing until he checks back, with a ten-minute wake timer, an independent quality critic, root verification of their findings, and online design/image references. This opens a new window after the completed September 30 pause; newer user steering takes precedence.
 

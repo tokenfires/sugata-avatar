@@ -1,5 +1,7 @@
 # Sugata current report — October 4
 
+**Current continuation: Robert explicitly resumed October 7. The ten-minute recovery heartbeat is ACTIVE in the resumed chat. See [current work window and Ari delivery](WORK-WINDOW-2026-10-07.md). The October 6 pause remains historical evidence.**
+
 **Customization and review improved in the October 2–4 window; complete character appearance remains unfinished.** After checking in and reviewing the project checklist, Robert gave newer readiness/resume steering. Useful bounded work continues under the October2 window and his newer directions. This is a current report, not a shutdown notice.
 
 [Overall project checklist: usable now and outstanding](PROJECT-CHECKLIST.md).

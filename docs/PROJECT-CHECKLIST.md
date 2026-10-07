@@ -1,6 +1,6 @@
 # Sugata project checklist
 
-Updated October 6, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
+Updated October 7, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
 
 ## Usable now
 
@@ -30,6 +30,8 @@ Updated October 6, 2026. **Customization is usable; complete character quality i
 - [x] Original editable Mara long-cardigan technical drawing with front, profile, rear and smaller inside-facing views; unitless artist design, with sewing, 3D, body fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md)
 
 - [x] Original editable Mara loafer technical drawing with top, profile, front, rear, outsole and inside views of one left shoe; unitless artist intent, with anatomical pairing, manufacturing, 3D fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md)
+
+- [x] Original Ari broader-frame artist discussion sheet with front, profile, rear and portrait views, short rust jacket and generous ink trousers; material, waist details, editable character, fit and motion remain open. [Character design and review limits](evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md)
 
 [Open the visual wardrobe board](ARTIST-WARDROBE.html) to inspect the retained character directions and editable drafts together.
 
