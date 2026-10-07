@@ -1,0 +1,56 @@
+{
+  "checked_utc": "2026-10-07T23:11:50.988526+00:00",
+  "actual_report_and_job_pass": true,
+  "all528_unique_prefix_and_path_records_checked": true,
+  "loaded_file_none_count": 2,
+  "selected_service_files": [
+    {
+      "module": "bl_ext.blender_org.mpfb.services.locationservice",
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py",
+      "bytes": 15297
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.humanservice",
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "bytes": 86233
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.assetservice",
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/assetservice.py",
+      "bytes": 35000
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.targetservice",
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "bytes": 62066
+    }
+  ],
+  "identities": [
+    {
+      "name": "PROFILE.json",
+      "bytes": 132873,
+      "sha256": "a1995e0742ef38f1af9f590f9383600f18a4cb65de5788a4f8a652a0fc55146d"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 1161,
+      "sha256": "9a2267060d4d96517a10a94eff0fc210108e5863e363b7bae072dc9343d676f4"
+    },
+    {
+      "name": "native.log",
+      "bytes": 133393,
+      "sha256": "ea0852ce5becf7e17356a4eb3eb3250e3f14e23e8622fd8b98847f4a48611d76"
+    },
+    {
+      "name": "profile_probe.py",
+      "bytes": 1919,
+      "sha256": "fc3b78ca809763c5f2b1679a5363eff103260a227da9b4aa2bae79ef3be07c35"
+    },
+    {
+      "name": "mpfb.manifest.toml",
+      "bytes": 434,
+      "sha256": "bda56b74520f432417be162d97f3279149a056910ed9ddc5b0de8d0d02282fd1"
+    }
+  ],
+  "limit": "Registration/profile health only; source/data/human/rig/appearance not qualified. No module import/enable or service invocation in this validation."
+}

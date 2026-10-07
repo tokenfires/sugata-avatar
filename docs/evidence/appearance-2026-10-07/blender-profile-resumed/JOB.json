@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-10-07T23:01:27.396528+00:00",
+  "wrapper_pid": 5032,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-profile-resumed/profile_probe.py",
+    "--",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-profile-resumed/PROFILE.json"
+  ],
+  "invocation_count": 1,
+  "timeout_seconds": 60,
+  "configuration_before": {
+    "platform_support.txt": {
+      "bytes": 39,
+      "mtime_ns": 1791410858974462103
+    },
+    "userpref.blend": {
+      "bytes": 183189,
+      "mtime_ns": 1791411225178403238
+    }
+  },
+  "pid": 5033,
+  "exit_code": 0,
+  "timed_out": false,
+  "finished_utc": "2026-10-07T23:01:29.284297+00:00",
+  "configuration_after": {
+    "platform_support.txt": {
+      "bytes": 39,
+      "mtime_ns": 1791410858974462103
+    },
+    "userpref.blend": {
+      "bytes": 183189,
+      "mtime_ns": 1791411225178403238
+    }
+  },
+  "configuration_metadata_unchanged": true,
+  "profile_report_exists": true
+}

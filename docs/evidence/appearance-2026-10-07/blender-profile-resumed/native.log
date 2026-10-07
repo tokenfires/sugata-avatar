@@ -1,0 +1,2160 @@
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+{
+  "observed_utc": "2026-10-07T23:01:29.151565+00:00",
+  "pid": 5033,
+  "version": [
+    5,
+    2,
+    2
+  ],
+  "version_string": "5.2.2 LTS",
+  "binary_path": "/Applications/Blender.app/Contents/MacOS/Blender",
+  "background": true,
+  "online_access": false,
+  "resource_paths": {
+    "USER": "/Users/robault/Library/Application Support/Blender/5.2",
+    "LOCAL": "/Applications/Blender.app/Contents/Resources/5.2",
+    "SYSTEM": "/Library/Application Support/Blender/5.2"
+  },
+  "user_paths": {
+    "CONFIG": "/Users/robault/Library/Application Support/Blender/5.2/config",
+    "SCRIPTS": "/Users/robault/Library/Application Support/Blender/5.2/scripts",
+    "DATAFILES": "/Users/robault/Library/Application Support/Blender/5.2/datafiles"
+  },
+  "script_paths": [
+    "/Applications/Blender.app/Contents/Resources/5.2/scripts"
+  ],
+  "configured_addons": [
+    "bl_ext.blender_org.mpfb",
+    "bl_pkg",
+    "cycles",
+    "io_anim_bvh",
+    "io_curve_svg",
+    "io_mesh_uv_layout",
+    "io_scene_fbx",
+    "io_scene_gltf2",
+    "pose_library"
+  ],
+  "already_loaded_mpfb_modules": [
+    {
+      "module": "bl_ext.blender_org.mpfb",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb._classmanager",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/_classmanager.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb._preferences",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/_preferences.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.clothes",
+      "file": null
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.clothes.mhclo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/clothes/mhclo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.clothes.vertexmatch",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/clothes/vertexmatch.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.material",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.material.enhancedskinmaterial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/enhancedskinmaterial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.material.makeskinmaterial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/makeskinmaterial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.material.mhmaterial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/mhmaterial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.material.mhmatkeys",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/mhmatkeys.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.material.mhmatkeytypes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/mhmatkeytypes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.meshcrossref",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/meshcrossref.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel",
+      "file": null
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.abstractgroupwrapper",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/abstractgroupwrapper.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbadditiverange2",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbadditiverange2.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbadditiverange3",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbadditiverange3.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbalphamixer",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbalphamixer.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbaureolae",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbaureolae.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbbody",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbbody.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbbodyconstants",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbbodyconstants.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbbodysectionsrouter",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbbodysectionsrouter.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcharacterinfo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcharacterinfo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorlayermixer",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorlayermixer.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorramp2",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorramp2.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorramp3",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorramp3.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorramp4",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorramp4.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorrouter2",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter2.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorrouter3",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter3.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorrouter4",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter4.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbcolorrouter5",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbcolorrouter5.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbears",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbears.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbeyeconstants",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbeyeconstants.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbface",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbface.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbgenitals",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbgenitals.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfblips",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfblips.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbmassadd",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbmassadd.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbnails",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbnails.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbnormalizevalue",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbnormalizevalue.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbshaderrouter2",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter2.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbshaderrouter3",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter3.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbshaderrouter4",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter4.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbshaderrouter5",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbshaderrouter5.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskin",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskin.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskincolorvariation",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskincolorvariation.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskinmastercolor",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinmastercolor.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskinnavel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinnavel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskinnormaldermal",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinnormaldermal.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskinnormalunevenness",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinnormalunevenness.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskinspot",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinspot.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbskinveins",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbskinveins.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbssscontrol",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbssscontrol.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetexture",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexture.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetextureaureolae",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureaureolae.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetexturecrotch",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturecrotch.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetextureears",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureears.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetextureeyelids",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureeyelids.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetextureface",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureface.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetexturefingernails",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturefingernails.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetexturegenitals",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturegenitals.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetextureinsidemouth",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetextureinsidemouth.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetexturelips",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturelips.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbsystemvaluetexturetoenails",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbsystemvaluetexturetoenails.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbvalueramp1",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp1.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbvalueramp2",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp2.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbvalueramp3",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp3.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbvalueramp4",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbvalueramp4.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbwithindistance",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbwithindistance.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.composites.nodewrappermpfbwithindistanceofeither",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/composites/nodewrappermpfbwithindistanceofeither.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.materials",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/materials/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.materials.abstractmaterialwrapper",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/materials/abstractmaterialwrapper.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.materials.nodewrappergameengine",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/materials/nodewrappergameengine.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.materials.nodewrapperskin",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/materials/nodewrapperskin.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.abstractnodewrapper",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/abstractnodewrapper.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeaddshader",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeaddshader.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeambientocclusion",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeambientocclusion.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeattribute",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeattribute.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebackground",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebackground.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebevel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebevel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeblackbody",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeblackbody.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebrightcontrast",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebrightcontrast.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfanisotropic",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfanisotropic.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfdiffuse",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfdiffuse.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfglass",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfglass.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfhair",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfhair.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfhairprincipled",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfhairprincipled.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfprincipled",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfprincipled.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfrefraction",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfrefraction.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdfsheen",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdfsheen.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdftoon",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdftoon.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdftranslucent",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdftranslucent.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebsdftransparent",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebsdftransparent.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodebump",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodebump.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodecameradata",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodecameradata.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeclamp",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeclamp.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodecombinecolor",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodecombinecolor.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodecombinexyz",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodecombinexyz.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodedisplacement",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodedisplacement.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeeeveespecular",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeeeveespecular.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeemission",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeemission.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodefloatcurve",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodefloatcurve.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodefresnel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodefresnel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodegamma",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodegamma.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodegroup",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodegroup.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodehairinfo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodehairinfo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeholdout",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeholdout.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodehuesaturation",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodehuesaturation.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeinvert",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeinvert.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodelayerweight",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodelayerweight.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodelightfalloff",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodelightfalloff.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodelightpath",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodelightpath.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodemapping",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemapping.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodemaprange",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemaprange.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodemath",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemath.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodemix",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemix.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodemixrgb",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemixrgb.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodemixshader",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodemixshader.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodenewgeometry",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodenewgeometry.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodenormal",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodenormal.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodenormalmap",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodenormalmap.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeobjectinfo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeobjectinfo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeoutputaov",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputaov.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeoutputlight",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputlight.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeoutputlinestyle",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputlinestyle.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeoutputmaterial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputmaterial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeoutputworld",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeoutputworld.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeparticleinfo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeparticleinfo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodepointinfo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodepointinfo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodergb",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodergb.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodergbcurve",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodergbcurve.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodergbtobw",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodergbtobw.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodescript",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodescript.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeseparatecolor",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeseparatecolor.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeseparatexyz",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeseparatexyz.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeshadertorgb",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeshadertorgb.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodesqueeze",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodesqueeze.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodesubsurfacescattering",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodesubsurfacescattering.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetangent",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetangent.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexbrick",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexbrick.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexchecker",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexchecker.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexcoord",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexcoord.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexenvironment",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexenvironment.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexgradient",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexgradient.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexies",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexies.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeteximage",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeteximage.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexmagic",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexmagic.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexnoise",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexnoise.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexsky",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexsky.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexvoronoi",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexvoronoi.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexwave",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexwave.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodetexwhitenoise",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodetexwhitenoise.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeuvalongstroke",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeuvalongstroke.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodeuvmap",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodeuvmap.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevaltorgb",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevaltorgb.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevalue",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevalue.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevectorcurve",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectorcurve.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevectordisplacement",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectordisplacement.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevectormath",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectormath.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevectorrotate",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectorrotate.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevectortransform",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevectortransform.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevertexcolor",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevertexcolor.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevolumeabsorption",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumeabsorption.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevolumeinfo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumeinfo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevolumeprincipled",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumeprincipled.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodevolumescatter",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodevolumescatter.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodewavelength",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodewavelength.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.nodemodel.v2.primitives.nodewrappershadernodewireframe",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/nodemodel/v2/primitives/nodewrappershadernodewireframe.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.objectproperties",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/objectproperties/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.primitiveprofiler",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/primitiveprofiler.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rig.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.abstractrighelper",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/abstractrighelper.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.armhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/armhelpers/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.armhelpers.armhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/armhelpers/armhelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.armhelpers.defaultarmhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/armhelpers/defaultarmhelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.eyehelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/eyehelpers/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.eyehelpers.defaulteyehelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/eyehelpers/defaulteyehelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.eyehelpers.eyehelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/eyehelpers/eyehelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.fingerhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/fingerhelpers/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.fingerhelpers.defaultfingerhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/fingerhelpers/defaultfingerhelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.fingerhelpers.fingerhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/fingerhelpers/fingerhelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.leghelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/leghelpers/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.leghelpers.defaultleghelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/leghelpers/defaultleghelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.righelpers.leghelpers.leghelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/righelpers/leghelpers/leghelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.rigifyhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/rigifyhelpers/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.rigifyhelpers.gameenginerigifyhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/rigifyhelpers/gameenginerigifyhelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.rigging.rigifyhelpers.rigifyhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/rigifyhelpers/rigifyhelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.socketobject",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/socketobject/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.socketobject._extra_vertex_groups",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/socketobject/_extra_vertex_groups.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.socketobject.socketbodyobject",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/socketobject/socketbodyobject.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.socketobject.socketmeshobject",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/socketobject/socketmeshobject.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.entities.socketobject.socketproxyobject",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/socketobject/socketproxyobject.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.animationservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/animationservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.assetservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/assetservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.blenderconfigset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/blenderconfigset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.clothesservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/clothesservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.configurationset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/configurationset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.dynamicconfigset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/dynamicconfigset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.exportservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/exportservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.faceservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/faceservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.haireditorservices",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/haireditorservices.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.humanservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.jsoncall",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/jsoncall.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.locationservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.logservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/logservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.materialservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/materialservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.meshservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/meshservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.modifierservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/modifierservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.nodeservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/nodeservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.nodetreeservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/nodetreeservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.objectservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.randomizationservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/randomizationservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.rigservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/rigservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.sceneconfigset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/sceneconfigset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.socketservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/socketservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.systemservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/systemservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.targetservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.services.uiservice",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/uiservice.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.abstractpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/abstractpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.alternativematerialpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/alternativematerialpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.assetlibrarypanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/assetlibrarypanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.assetsettingspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/assetsettingspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.installtarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/installtarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.loadlibraryclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryclothes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.loadlibraryink",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryink.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.loadlibrarymaterial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/loadlibrarymaterial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.loadlibrarypose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/loadlibrarypose.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.loadlibraryproxy",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryproxy.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.loadlibraryskin",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/loadlibraryskin.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.loadpack",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/loadpack.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetlibrary.operators.unloadlibraryclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/operators/unloadlibraryclothes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.assetspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.loadclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/loadclothes/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.loadclothes.loadclothespanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/loadclothes/loadclothespanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.loadclothes.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/loadclothes/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.loadclothes.operators.loadclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/loadclothes/operators/loadclothes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.useexpression",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/useexpression/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.apply_assets.useexpression.useexpressionpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/useexpression/useexpressionpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.createpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/createpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.makeclothespanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/makeclothespanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.bmxref",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/bmxref.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.checkclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/checkclothes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.clothescommon",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/clothescommon.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.extractclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/extractclothes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.gendelete",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/gendelete.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.genuuid",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/genuuid.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.legacyimport",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/legacyimport.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.markclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/markclothes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.writeclothes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/writeclothes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeclothes.operators.writeclotheslibrary",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeclothes/operators/writeclotheslibrary.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeexpression",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeexpression/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeexpression.makeexpressionpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeexpression/makeexpressionpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeexpression.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeexpression/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeexpression.operators.load",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeexpression/operators/load.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeexpression.operators.reset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeexpression/operators/reset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeexpression.operators.save",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeexpression/operators/save.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makepose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makepose/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makepose.makeposepanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makepose/makeposepanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makepose.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makepose/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makepose.operators.loadanimation",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makepose/operators/loadanimation.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makepose.operators.saveanimation",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makepose/operators/saveanimation.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makepose.operators.savepose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makepose/operators/savepose.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.bonespanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/bonespanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.makerigpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/makerigpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators.autotransferweights",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/autotransferweights.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators.loadrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/loadrig.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators.loadweights",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/loadweights.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators.movetocube",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/movetocube.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators.saverig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/saverig.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators.savetolibrary",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/savetolibrary.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.operators.saveweights",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/operators/saveweights.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.rigiopanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/rigiopanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makerig.weightspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makerig/weightspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin.makeskinpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/makeskinpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin.operators.creatematerial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/operators/creatematerial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin.operators.importmaterial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/operators/importmaterial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin.operators.writealternate",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/operators/writealternate.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin.operators.writelibrary",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/operators/writelibrary.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeskin.operators.writematerial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeskin/operators/writematerial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.maketargetpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/maketargetpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.createtarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/createtarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.importptarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/importptarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.importtarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/importtarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.printtarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/printtarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.symmetrizeleft",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/symmetrizeleft.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.symmetrizeright",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/symmetrizeright.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.writelibtarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/writelibtarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.writeptarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/writeptarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.maketarget.operators.writetarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/maketarget/operators/writetarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup.makeuppanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/makeuppanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup.operators.createink",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/operators/createink.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup.operators.createuvmap",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/operators/createuvmap.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup.operators.importuvmap",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/operators/importuvmap.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup.operators.writeink",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/operators/writeink.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeup.operators.writeuvmap",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeup/operators/writeuvmap.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight.makeweightpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/makeweightpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight.operators.importweights",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/operators/importweights.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight.operators.saveweights",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/operators/saveweights.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight.operators.symmetrizeleft",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/operators/symmetrizeleft.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight.operators.symmetrizeright",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/operators/symmetrizeright.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.create_assets.makeweight.operators.truncateweights",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/create_assets/makeweight/operators/truncateweights.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.developerpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/developerpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.nodedeveloperpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/nodedeveloperpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.create_groups",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/create_groups.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.destroygroups",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/destroygroups.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.exportlog",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/exportlog.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.listloglevels",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/listloglevels.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.loadnodes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/loadnodes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.loadtarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/loadtarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.replacewithskin",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/replacewithskin.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.resetloglevels",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/resetloglevels.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.rewritenodetypes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/rewritenodetypes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.savenodes",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/savenodes.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.savetarget",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/savetarget.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.setloglevel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/setloglevel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.unittests",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/unittests.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.writecomposite",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/writecomposite.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.developer.operators.writematerial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/developer/operators/writematerial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.haireditorpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/haireditorpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.hairproperties",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/hairproperties.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators.apply_fur_operator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/apply_fur_operator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators.apply_hair_operator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/apply_hair_operator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators.apply_material_operator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/apply_material_operator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators.bake_hair_operator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/bake_hair_operator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators.delete_hair_operator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/delete_hair_operator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators.generate_hair_cards_operator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/generate_hair_cards_operator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.haireditorpanel.operators.setup_hair_operator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/haireditorpanel/operators/setup_hair_operator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model._macrosubpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/_macrosubpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model._modelingicons",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/_modelingicons.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model._modelsubpanels",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/_modelsubpanels.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model.modelpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/modelpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model.operators.prunehuman",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/operators/prunehuman.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.model.operators.refithuman",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/model/operators/refithuman.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.mpfbcontext",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/mpfbcontext.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.mpfboperator",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/mpfboperator.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importer",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importer/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importer.importerpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importer/importerpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importer.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importer/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importer.operators.importhuman",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importer/operators/importhuman.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importerpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importerpresets/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importerpresets.importerpresetspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importerpresets/importerpresetspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importerpresets.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importerpresets/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importerpresets.operators.loadpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importerpresets/operators/loadpresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importerpresets.operators.overwritepresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importerpresets/operators/overwritepresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.importerpresets.operators.savenewpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/importerpresets/operators/savenewpresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newhuman",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newhuman/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newhuman.frompresetspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newhuman/frompresetspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newhuman.newhumanpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newhuman/newhumanpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newhuman.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newhuman/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newhuman.operators.createhuman",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newhuman/operators/createhuman.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newhuman.operators.humanfrommhm",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newhuman/operators/humanfrommhm.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newhuman.operators.humanfrompresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newhuman/operators/humanfrompresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.newpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/newpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.batchpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/batchpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.bodypartspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/bodypartspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.breastpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/breastpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.characterbuilder",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/characterbuilder.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.clothespanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/clothespanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.creationpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/creationpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.detailspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/detailspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.generalpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/generalpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.macrodetailspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/macrodetailspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.operators.applydetailtoall",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/operators/applydetailtoall.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.operators.createrandombatch",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/operators/createrandombatch.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.operators.createrandomhuman",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/operators/createrandomhuman.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.operators.loadpreset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/operators/loadpreset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.operators.overwritepreset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/operators/overwritepreset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.operators.savenewpreset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/operators/savenewpreset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.presetspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/presetspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.randomizepanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/randomizepanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.randomizeproperties",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/randomizeproperties.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.new_human.randomize.skinpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/new_human/randomize/skinpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai.aipanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/aipanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai.operators._openposeconstants",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/operators/_openposeconstants.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai.operators.addvisiblebones",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/operators/addvisiblebones.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai.operators.boundingbox",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/operators/boundingbox.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai.operators.saveopenpose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/operators/saveopenpose.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.ai.operators.scenesettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/ai/operators/scenesettings.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.animops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/animops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.animops.animopspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/animops/animopspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.animops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/animops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.animops.operators.makecyclic",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/animops/operators/makecyclic.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.animops.operators.mapmixamo",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/animops/operators/mapmixamo.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.animops.operators.reduceddoll",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/animops/operators/reduceddoll.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.animops.operators.repeatanim",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/animops/operators/repeatanim.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.basemeshops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/basemeshops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.basemeshops.basemeshopspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/basemeshops/basemeshopspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.basemeshops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/basemeshops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.basemeshops.operators.addcorrectivesmooth",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/basemeshops/operators/addcorrectivesmooth.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.basemeshops.operators.bakeshapekeys",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/basemeshops/operators/bakeshapekeys.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.basemeshops.operators.deletehelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/basemeshops/operators/deletehelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.bonestratpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/bonestratpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.abstract",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/abstract.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.copy_connected_strategy",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/copy_connected_strategy.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.reapply_strategy",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/reapply_strategy.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.save_strategy_vertices",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/save_strategy_vertices.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.set_bone_end_offset",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/set_bone_end_offset.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.set_bone_end_strategy",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/set_bone_end_strategy.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.set_roll_strategy",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/set_roll_strategy.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.boneops.operators.show_strategy_vertices",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/boneops/operators/show_strategy_vertices.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.exportops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/exportops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.exportops.exportopspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/exportops/exportopspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.exportops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/exportops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.exportops.operators.createexportcopy",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/exportops/operators/createexportcopy.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.faceops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/faceops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.faceops.faceopspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/faceops/faceopspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.faceops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/faceops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.faceops.operators.configurelipsync",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/faceops/operators/configurelipsync.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.faceops.operators.loadfaceshapekeys",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/faceops/operators/loadfaceshapekeys.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.matops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/matops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.matops.matopspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/matops/matopspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.matops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/matops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.matops.operators.createv2skin",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/matops/operators/createv2skin.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.matops.operators.removemakeup",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/matops/operators/removemakeup.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.matops.operators.setnormalmap",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/matops/operators/setnormalmap.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.operationspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/operationspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.poseops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/poseops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.poseops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/poseops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.poseops.operators.apply_pose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/poseops/operators/apply_pose.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.poseops.operators.copy_pose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/poseops/operators/copy_pose.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.poseops.poseopspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/poseops/poseopspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.rigops",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/rigops/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.rigops.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/rigops/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.rigops.operators.converttorigify",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/rigops/operators/converttorigify.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.rigops.rigopspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/rigops/rigopspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.sculpt",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/sculpt/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.sculpt.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/sculpt/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.sculpt.operators.setupsculpt",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/sculpt/operators/setupsculpt.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.operations.sculpt.sculptpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/operations/sculpt/sculptpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.pollstrategy",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/pollstrategy.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.enhancedsettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/enhancedsettings/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.enhancedsettings.enhancedsettingspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/enhancedsettings/enhancedsettingspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.enhancedsettings.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/enhancedsettings/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.enhancedsettings.operators._savematerial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/enhancedsettings/operators/_savematerial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.enhancedsettings.operators.applysettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/enhancedsettings/operators/applysettings.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.enhancedsettings.operators.overwritesettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/enhancedsettings/operators/overwritesettings.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.enhancedsettings.operators.savenewsettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/enhancedsettings/operators/savenewsettings.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.eyesettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/eyesettings/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.eyesettings.eyesettingspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/eyesettings/eyesettingspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.eyesettings.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/eyesettings/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.eyesettings.operators._savematerial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/eyesettings/operators/_savematerial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.eyesettings.operators.applysettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/eyesettings/operators/applysettings.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.eyesettings.operators.overwritesettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/eyesettings/operators/overwritesettings.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.eyesettings.operators.savenewsettings",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/eyesettings/operators/savenewsettings.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.humanpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/humanpresets/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.humanpresets.humanpresetspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/humanpresets/humanpresetspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.humanpresets.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/humanpresets/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.humanpresets.operators.overwritepresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/humanpresets/operators/overwritepresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.humanpresets.operators.savenewpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/humanpresets/operators/savenewpresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.makeuppresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/makeuppresets/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.makeuppresets.makeuppresetspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/makeuppresets/makeuppresetspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.makeuppresets.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/makeuppresets/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.makeuppresets.operators.genericpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/makeuppresets/operators/genericpresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.makeuppresets.operators.loadpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/makeuppresets/operators/loadpresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.makeuppresets.operators.overwritepresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/makeuppresets/operators/overwritepresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.makeuppresets.operators.savenewpresets",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/makeuppresets/operators/savenewpresets.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.presets.presetspanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/presets/presetspanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.applypose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/applypose/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.applypose.applyposepanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/applypose/applyposepanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.applypose.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/applypose/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.applypose.operators.loadmhbvh",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/applypose/operators/loadmhbvh.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.applypose.operators.loadpartial",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/applypose/operators/loadpartial.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.applypose.operators.loadpose",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/applypose/operators/loadpose.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.customrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/customrig/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.customrig.customrigpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/customrig/customrigpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.customrig.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/customrig/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.customrig.operators.addcustomrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/customrig/operators/addcustomrig.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.rigifyrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/rigifyrig/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.rigifyrig.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/rigifyrig/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.rigifyrig.operators.addrigifyrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/rigifyrig/operators/addrigifyrig.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.rigifyrig.operators.generaterigifyrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/rigifyrig/operators/generaterigifyrig.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.rigifyrig.rigifyrigpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/rigifyrig/rigifyrigpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.rigpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/rigpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.standardrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/standardrig/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.standardrig.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/standardrig/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.standardrig.operators.addhelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/standardrig/operators/addhelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.standardrig.operators.addstandardrig",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/standardrig/operators/addstandardrig.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.standardrig.operators.removehelpers",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/standardrig/operators/removehelpers.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.rigging.standardrig.standardrigpanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/rigging/standardrig/standardrigpanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.dirresources",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/dirresources/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.dirresources.dirresourcespanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/dirresources/dirresourcespanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.dirresources.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/dirresources/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.dirresources.operators.dirresource",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/dirresources/operators/dirresource.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.systempanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/systempanel.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.webresources",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/webresources/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.webresources.operators",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/webresources/operators/__init__.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.webresources.operators.webresource",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/webresources/operators/webresource.py"
+    },
+    {
+      "module": "bl_ext.blender_org.mpfb.ui.system.webresources.webresourcespanel",
+      "file": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/system/webresources/webresourcespanel.py"
+    }
+  ],
+  "unresolved_mpfb_module_names": [],
+  "limit": "Current profile observation only. No explicit addon import/enable, preference save, MPFB service/data call, human/scene/geometry/rig/target/snapshot/export/render operation. Blender startup itself is not instrumented for arbitrary internal file reads."
+}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+
+Blender quit

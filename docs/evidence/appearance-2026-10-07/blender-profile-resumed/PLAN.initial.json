@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-10-07T22:48:20.163611+00:00",
+  "human_resume": "Robert: We\u2019re back. Want to jump back in? Curious how Ari will turn out. Explicit resume after October7 ChatGPT pause.",
+  "usable_improvement": "Actual selected Blender/MPFB profile report with resolved loaded-source paths, for the native-Ari source workflow.",
+  "bounded_question": "Does the installed extension load in this actual selected profile, and which concrete implementation paths can be inspected next?",
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-readiness/profile_probe.py",
+      "bytes": 1774,
+      "sha256": "ada05d68d15d9c4c11b6995e6396236912ebb4a79ca17cc8db8003365bef8b2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-readiness/PAUSE.json",
+      "bytes": 3888,
+      "sha256": "c014fe5c431d9f9ad180e44f4342bf87914d312f7949a922f582d6f226b35ec7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    }
+  ],
+  "script_bytes": 1774,
+  "script_sha256": "ada05d68d15d9c4c11b6995e6396236912ebb4a79ca17cc8db8003365bef8b2e",
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-profile-resumed/profile_probe.py",
+    "--",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-profile-resumed/PROFILE.json"
+  ],
+  "timeout_seconds": 60,
+  "native_invocation_limit": 1,
+  "deadlines": {
+    "worth_preflight_and_root_read": "2026-10-07T23:03:20.163611+00:00",
+    "native_result_or_stop": "2026-10-07T23:13:20.163611+00:00",
+    "receipt": "2026-10-07T23:28:20.163611+00:00"
+  },
+  "decision": "One independent worth and exact script/argv preflight before first native observation. Success selects one actually loaded source package for later canonical-data inspection; absent/ambiguous/error result stops on exact prerequisite, not generic inventory or global absence.",
+  "alternatives": [
+    {
+      "option": "Observed current installed profile",
+      "tradeoff": "Can resolve real registration/source paths without manufacturing or changing setup; loaded paths do not qualify service/data/body ownership."
+    },
+    {
+      "option": "Metadata-only stop",
+      "tradeoff": "Avoids native allocation but cannot resolve actual current registration. Requires a separate concrete setup choice, not repeating expired probes."
+    }
+  ],
+  "stop": "No full worth/source preflight by15min, native error/timeout/missing/ambiguous MPI or25min result cutoff => stop without retry; no explicit import/enable/prefs save/LocationService call/constructor/target/rig/export/render. Normal Blender startup is not instrumented for arbitrary internal file reads.",
+  "holds": "Whole Ari native/body/auxiliary/helper/rest-bind/rig/export and appearance/motion gates held. No accepted/runtime/original/frozen/unrelated mutation, old source/geometry/reader/rig rescue, closed capture route, install/model/subscription/purchase/reset/push/publication or other project. FullAAA roadmap19checked/10open preserved."
+}

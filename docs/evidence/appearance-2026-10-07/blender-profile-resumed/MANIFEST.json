@@ -1,0 +1,91 @@
+{
+  "checkpoint_utc": "2026-10-07T23:25:56.159162+00:00",
+  "scope": "Actual installed-profile observation passes; canonical data/fullsource/body/appearance gates remain.",
+  "payloads": [
+    {
+      "name": "AUTOMATION-RESUME.json",
+      "bytes": 6768,
+      "sha256": "0ade40520d2fde3937d8525e0cf3fc58375db15df8df73ed930951ceb978ffdb"
+    },
+    {
+      "name": "COMMANDS.json",
+      "bytes": 35475,
+      "sha256": "e8dbfb55210715e39cd0e0e89e7287d0fd616994880f628749507bf34d993aff"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 1161,
+      "sha256": "9a2267060d4d96517a10a94eff0fc210108e5863e363b7bae072dc9343d676f4"
+    },
+    {
+      "name": "OBSERVER-CORRECTION.json",
+      "bytes": 411,
+      "sha256": "2f8078910c9d3104cc2f62145db893877fd7f5a898ca3537553e3f8f11872e44"
+    },
+    {
+      "name": "PLAN.initial.json",
+      "bytes": 3413,
+      "sha256": "cd1575f335c323e1bfa7db7ad6bdf150a747c535aa0cf767246ef160031d6ee6"
+    },
+    {
+      "name": "PLAN.json",
+      "bytes": 3599,
+      "sha256": "f0d295afe19a2903c4b4cb7ed35bf3b31eb8966e9ba01c11a33cfd290f0af2a8"
+    },
+    {
+      "name": "PRECHECK.md",
+      "bytes": 4253,
+      "sha256": "5ef6329095715956b5d8f890411553a1610462456a2a323758453a80fad58d74"
+    },
+    {
+      "name": "PROFILE.json",
+      "bytes": 132873,
+      "sha256": "a1995e0742ef38f1af9f590f9383600f18a4cb65de5788a4f8a652a0fc55146d"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3255,
+      "sha256": "0c01d5c6d2ba21866990d4da23d7e65be398764f68c0ad14bb26e9319e513825"
+    },
+    {
+      "name": "RECOVERY.json",
+      "bytes": 600,
+      "sha256": "93c138eb0412a96f69c40509dbf9b2f1c011285cb3e14f4c62399a9a37ee15c2"
+    },
+    {
+      "name": "RESULT-REVIEW.md",
+      "bytes": 3722,
+      "sha256": "8a979c4c0b747d3a19449314ffb6d25e91fb0c841268cbfef616b7a16b8a2228"
+    },
+    {
+      "name": "ROOT-PREFLIGHT.json",
+      "bytes": 638,
+      "sha256": "7804f26e9977d01ab5af172e9a1952a8346e4198fb5d78bceb4e93798d5b49bb"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 752,
+      "sha256": "89f7d7525c0959506898fc56793b3b83a2b8e03a2a2f8e6c5604b90ae1f5bac7"
+    },
+    {
+      "name": "ROOT-RESULT.json",
+      "bytes": 2046,
+      "sha256": "2b80f0714461d3387179dfe95f91e9914980b6f016c363f46bd3812f10096445"
+    },
+    {
+      "name": "mpfb.manifest.toml",
+      "bytes": 434,
+      "sha256": "bda56b74520f432417be162d97f3279149a056910ed9ddc5b0de8d0d02282fd1"
+    },
+    {
+      "name": "native.log",
+      "bytes": 133393,
+      "sha256": "ea0852ce5becf7e17356a4eb3eb3250e3f14e23e8622fd8b98847f4a48611d76"
+    },
+    {
+      "name": "profile_probe.py",
+      "bytes": 1919,
+      "sha256": "fc3b78ca809763c5f2b1679a5363eff103260a227da9b4aa2bae79ef3be07c35"
+    }
+  ]
+}
