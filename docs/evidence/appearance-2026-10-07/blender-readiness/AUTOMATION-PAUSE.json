@@ -1,0 +1,42 @@
+{
+  "checked_utc": "2026-10-07T22:18:55.818Z",
+  "before": {
+    "version": 1,
+    "id": "advance-sugata-avatar-visual-quality",
+    "kind": "heartbeat",
+    "name": "Advance Sugata until check-in",
+    "prompt": "Continue Robert’s authorized Sugata work in this chat at /Users/robault/GitHub/sugata-avatar until he checks back or gives newer steering. Robert explicitly resumed October 7 after the October 6 Mac-update pause. Read docs/WORK-WINDOW-2026-10-07.md and its latest bounded receipt first. This continuation applies to Sugata only. Then use docs/RESUME-2026-10-06.md and docs/PROGRESS-2026-10-02.md as historical recovery, then inspect current changes, recorded jobs and the latest user messages before acting. The ten-minute heartbeat is recovery: continue useful bounded work directly while active and never duplicate live jobs. If Robert pauses or stops, collect or safely stop owned work, save a recoverable checkpoint, retain the review server and pause this automation through the app API with readback. A check-in should receive a concise status and await his steering before starting another substantial slice.\n\nUse an independent quality critic agent. Every actionable finding needs an actual source/image/frame witness, an explanation and two alternatives with tradeoffs. Root must independently inspect and verify their handoff. Ask the critic whether each next experiment is worth doing. Use current online primary references and real design/image examples when they help the decision; Firecrawl is available. Plan one usable improvement and one bounded research question, with a decision and concrete stop condition before investigation. Preserve the wider AAA character, expression, wardrobe and representation roadmap. Stop repeated tweaks that do not change a decision.\n\nPreserve accepted assets, frozen evidence, original references and unrelated worktrees. Keep unqualified candidates isolated; actual rendered images qualify appearance and numerical checks support them. Root serializes native/GPU/browser captures. September 30’s one-ring front proxy, local foundation offset/weight/mask tuning, repeated capture-epoch searches, and October 2’s rejected seven-card fixed-root/fixed-width mesh-follow construction remain closed; choose a new explicit contract if evidence supports revisiting the underlying problem. Read the September 30 day report and pose-aware fit proposal for recovery, not older static-pass headlines.\n\nRecord a concise receipt after each coherent slice with exact inputs, commands, jobs, hashes, outputs, rejections, limits and next action. Work within existing allowance and granted credits; do not purchase capacity, change subscription/models, redeem reset credits, push, publish or resume other projects. If capacity becomes unavailable, checkpoint without aggressive retries. Stay quiet on unchanged or non-actionable scheduled states; notify on meaningful progress, completion, failure or required user action.",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7",
+    "created_at": 1788907651118,
+    "updated_at": 1791386235980
+  },
+  "after": {
+    "version": 1,
+    "id": "advance-sugata-avatar-visual-quality",
+    "kind": "heartbeat",
+    "name": "Advance Sugata until check-in",
+    "prompt": "Continue Robert’s authorized Sugata work in this chat at /Users/robault/GitHub/sugata-avatar until he checks back or gives newer steering. Robert explicitly resumed October 7 after the October 6 Mac-update pause. Read docs/WORK-WINDOW-2026-10-07.md and its latest bounded receipt first. This continuation applies to Sugata only. Then use docs/RESUME-2026-10-06.md and docs/PROGRESS-2026-10-02.md as historical recovery, then inspect current changes, recorded jobs and the latest user messages before acting. The ten-minute heartbeat is recovery: continue useful bounded work directly while active and never duplicate live jobs. If Robert pauses or stops, collect or safely stop owned work, save a recoverable checkpoint, retain the review server and pause this automation through the app API with readback. A check-in should receive a concise status and await his steering before starting another substantial slice.\n\nUse an independent quality critic agent. Every actionable finding needs an actual source/image/frame witness, an explanation and two alternatives with tradeoffs. Root must independently inspect and verify their handoff. Ask the critic whether each next experiment is worth doing. Use current online primary references and real design/image examples when they help the decision; Firecrawl is available. Plan one usable improvement and one bounded research question, with a decision and concrete stop condition before investigation. Preserve the wider AAA character, expression, wardrobe and representation roadmap. Stop repeated tweaks that do not change a decision.\n\nPreserve accepted assets, frozen evidence, original references and unrelated worktrees. Keep unqualified candidates isolated; actual rendered images qualify appearance and numerical checks support them. Root serializes native/GPU/browser captures. September 30’s one-ring front proxy, local foundation offset/weight/mask tuning, repeated capture-epoch searches, and October 2’s rejected seven-card fixed-root/fixed-width mesh-follow construction remain closed; choose a new explicit contract if evidence supports revisiting the underlying problem. Read the September 30 day report and pose-aware fit proposal for recovery, not older static-pass headlines.\n\nRecord a concise receipt after each coherent slice with exact inputs, commands, jobs, hashes, outputs, rejections, limits and next action. Work within existing allowance and granted credits; do not purchase capacity, change subscription/models, redeem reset credits, push, publish or resume other projects. If capacity becomes unavailable, checkpoint without aggressive retries. Stay quiet on unchanged or non-actionable scheduled states; notify on meaningful progress, completion, failure or required user action.",
+    "status": "PAUSED",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7",
+    "created_at": 1788907651118,
+    "updated_at": 1791411535733
+  },
+  "api_update_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Updated automation in the app."
+      },
+      {
+        "type": "text",
+        "text": "{\"automationId\":\"advance-sugata-avatar-visual-quality\",\"mode\":\"update\",\"status\":\"PAUSED\"}"
+      }
+    ],
+    "isError": false
+  },
+  "api_view_result": "Rendered automation card; saved-state readback supplies explicit status.",
+  "preserved_fields": true
+}

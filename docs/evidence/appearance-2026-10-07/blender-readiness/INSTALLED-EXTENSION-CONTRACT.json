@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-07T22:15:43.924989+00:00",
+  "new_human_steering": {
+    "timestamp": "2026-10-07T22:09:33.351Z",
+    "request": "I installed MPFB as an extension based on the recommendation from the MPFB webpage."
+  },
+  "material_state_change": "MPFB extension installed after initial filesystem inventory; earlier empty-candidate result cannot be reused as current absence.",
+  "earlier_worth_gate": {
+    "fixed_utc": "2026-10-07T22:10:33.351798+00:00",
+    "passed": false,
+    "root_whole_read": "9b8f68 before22:11:08 clock, after22:10:33 cutoff; do not claim timely earlier admission."
+  },
+  "fresh_contract": "One first native observed-profile/installed-registration check after user installation and independent script preflight; same exact1774-byte script, no previous native attempts. Not an extension of old absence/shim or failed geometry routes.",
+  "decision": "Does current selected profile actually load MPFB? Concrete result chooses installed-module source inspection versus exact enable/profile prerequisite. No MPFB service/data call, explicit import/enable/install/prefs save or human construction.",
+  "input_pins": [
+    {
+      "name": "profile_probe.py",
+      "bytes": 1774,
+      "sha256": "ada05d68d15d9c4c11b6995e6396236912ebb4a79ca17cc8db8003365bef8b2e"
+    },
+    {
+      "name": "PROBE-CONTRACT.json",
+      "bytes": 824,
+      "sha256": "99bf8949ec5af8b5ee23dce125cb23cd9671e6e9816c83f4d229a0bd31266ed9"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 3470,
+      "sha256": "88412f25e2eadccd3e14ff68692f9989c4b65c2accc53a327d3b434d193f92ba"
+    }
+  ],
+  "deadlines": {
+    "script_preflight_and_root_read": "2026-10-07T22:23:43.924989+00:00",
+    "native_result_or_stop": "2026-10-07T22:30:43.924989+00:00",
+    "receipt": "2026-10-07T22:40:33.351798+00:00"
+  },
+  "native_limit": 1,
+  "timeout_seconds": 60,
+  "stop": "Any preflight/source/query/identity error or cutoff: preserve diagnostic and stop; no retry or preferences/MPFB activation. Native version/loaded sources alone do not admit canonical data/human/Ari recipe or visual appearance."
+}

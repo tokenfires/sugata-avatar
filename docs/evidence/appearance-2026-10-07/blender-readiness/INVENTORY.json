@@ -1,0 +1,69 @@
+{
+  "started_utc": "2026-10-07T22:02:18.175409+00:00",
+  "pid": 84767,
+  "app": {
+    "path": "/Applications/Blender.app",
+    "exists": true,
+    "is_file": false,
+    "is_dir": true,
+    "bytes": 96,
+    "mtime_ns": 1789436988000000000,
+    "mode": "0o40755"
+  },
+  "plist_fields": {
+    "CFBundleIdentifier": "org.blenderfoundation.blender",
+    "CFBundleShortVersionString": "5.2.2",
+    "CFBundleVersion": "5.2.2",
+    "CFBundleExecutable": "Blender"
+  },
+  "executable": {
+    "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "exists": true,
+    "is_file": true,
+    "is_dir": false,
+    "bytes": 182900560,
+    "mtime_ns": 1789440360000000000,
+    "mode": "0o100755"
+  },
+  "executable_access": true,
+  "support": {
+    "path": "/Users/robault/Library/Application Support/Blender",
+    "exists": true,
+    "is_file": false,
+    "is_dir": true,
+    "bytes": 96,
+    "mtime_ns": 1791409847753392601,
+    "mode": "0o40755"
+  },
+  "support_children": [
+    "5.2"
+  ],
+  "cache": {
+    "path": "/Users/robault/Library/Caches/Blender",
+    "exists": true,
+    "is_file": false,
+    "is_dir": true,
+    "bytes": 96,
+    "mtime_ns": 1791409847998203199,
+    "mode": "0o40755"
+  },
+  "cache_children": [
+    "asset-library-indices"
+  ],
+  "selected_version": "5.2",
+  "selected_support": {
+    "path": "/Users/robault/Library/Application Support/Blender/5.2",
+    "exists": true,
+    "is_file": false,
+    "is_dir": true,
+    "bytes": 96,
+    "mtime_ns": 1791409847753426101,
+    "mode": "0o40755"
+  },
+  "selected_support_children": [
+    "config"
+  ],
+  "mpfb_candidates": [],
+  "limit": "No executable/profile/asset content read/hash, native launch, cache content read, global/fallback search, human/rig/geometry creation or preferences change.",
+  "finished_utc": "2026-10-07T22:02:18.176191+00:00"
+}

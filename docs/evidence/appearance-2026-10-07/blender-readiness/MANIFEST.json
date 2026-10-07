@@ -1,0 +1,61 @@
+{
+  "checkpoint_utc": "2026-10-07T22:25:21.773130+00:00",
+  "scope": "Human-paused partial app/extension readiness; no native invocation or source/appearance acceptance.",
+  "payloads": [
+    {
+      "name": "AUTOMATION-PAUSE.json",
+      "bytes": 6771,
+      "sha256": "3ea340cbcd6dc54394eb01efce183b936a4d19cc39bfe56ddca16bf78135ae28"
+    },
+    {
+      "name": "COMMANDS.json",
+      "bytes": 22827,
+      "sha256": "56299fa6f7c86fe813abb6cb5ee650c76c7ee90eb039202006e3ab9a2cadd8ae"
+    },
+    {
+      "name": "INSTALLED-EXTENSION-CONTRACT.json",
+      "bytes": 2103,
+      "sha256": "33b899aa400339df8fb94759b9daeab25af8cf12997b4950c081a17bfe4655b6"
+    },
+    {
+      "name": "INVENTORY.json",
+      "bytes": 1818,
+      "sha256": "15208303c25be1860fcae74df34590ea44f6a165f9efe5c38b0b6e331d46a2b2"
+    },
+    {
+      "name": "PAUSE.json",
+      "bytes": 3888,
+      "sha256": "c014fe5c431d9f9ad180e44f4342bf87914d312f7949a922f582d6f226b35ec7"
+    },
+    {
+      "name": "PLAN.json",
+      "bytes": 3933,
+      "sha256": "cf296531f687fe231359e5d05780c9c038609923c98ad0a184eb1509186265bf"
+    },
+    {
+      "name": "PROBE-CONTRACT.json",
+      "bytes": 824,
+      "sha256": "99bf8949ec5af8b5ee23dce125cb23cd9671e6e9816c83f4d229a0bd31266ed9"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3486,
+      "sha256": "480302d2b30b4ebdc902368bd88b020d326bc2b0d8f9241ec135fdb49da3b43a"
+    },
+    {
+      "name": "REFERENCES.json",
+      "bytes": 3362,
+      "sha256": "0e17a0be491c8556a61178c3e981fb6ebc1f8c1ca69f4511eba6bc5874392ea7"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 3470,
+      "sha256": "88412f25e2eadccd3e14ff68692f9989c4b65c2accc53a327d3b434d193f92ba"
+    },
+    {
+      "name": "profile_probe.py",
+      "bytes": 1774,
+      "sha256": "ada05d68d15d9c4c11b6995e6396236912ebb4a79ca17cc8db8003365bef8b2e"
+    }
+  ]
+}

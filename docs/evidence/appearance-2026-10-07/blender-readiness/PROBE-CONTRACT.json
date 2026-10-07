@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-07T22:09:33.319165+00:00",
+  "script_bytes": 1774,
+  "script_sha256": "ada05d68d15d9c4c11b6995e6396236912ebb4a79ca17cc8db8003365bef8b2e",
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-readiness/profile_probe.py",
+    "--",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/blender-readiness/PROFILE.json"
+  ],
+  "timeout_seconds": 60,
+  "max_native_invocations": 1,
+  "condition": "Independent source preflight/root full readback before execution; no factory-startup, no MPFB import/enable/install or service/data query; missing MPFB ends complete source admission."
+}
