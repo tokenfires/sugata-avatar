@@ -33,6 +33,8 @@ Updated October 7, 2026. **Customization is usable; complete character quality i
 
 - [x] Original Ari broader-frame artist discussion sheet with front, profile, rear and portrait views, short rust jacket and generous ink trousers; material, waist details, editable character, fit and motion remain open. [Character design and review limits](evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md)
 
+- [x] Original editable Ari bomber technical drawing with front, right profile, rear, inside front-panel schematic and zipper/hem details; sewing, physical dimensions, full interior, 3D fit and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-07/ari-bomber-drawing/ARTIST-HANDOFF.md)
+
 [Open the visual wardrobe board](ARTIST-WARDROBE.html) to inspect the retained character directions and editable drafts together.
 
 These references do not establish physical folding, wearable fit or finished garment appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)

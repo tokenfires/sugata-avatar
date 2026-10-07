@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-07T15:50:11.542287+00:00",
+  "association": "Exact complete SVG tree equals JSON registry; source hash/bytes and all seven pins match.",
+  "element_count": 145,
+  "features": 8,
+  "external_resources": false,
+  "pocket_mouth_graphic_operands": {
+    "R": [
+      [
+        84.0,
+        198.0
+      ],
+      [
+        106.0,
+        244.0
+      ]
+    ],
+    "L_after_declared_front_mirror": [
+      [
+        236.0,
+        198.0
+      ],
+      [
+        214.0,
+        244.0
+      ]
+    ],
+    "inside_scale": 0.75
+  },
+  "initial_checker_failure": "d492e6 exit1: literal local d-string equality for L was invalid because front-L has an explicit mirror and inside-L has expanded coordinates. No SVG/JSON change; corrected observer checks transformed graphic operands.",
+  "qualification": "Graphic association only, no pattern/3D/registered-projection/fit acceptance.",
+  "render_status": "Not rendered; independent source gate pending."
+}

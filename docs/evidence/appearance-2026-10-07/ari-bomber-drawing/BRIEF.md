@@ -1,0 +1,15 @@
+# Ari bomber: original technical art
+
+One newly authored editable short-jacket drawing. The SVG is authoritative; `design.json` records its exact complete element tree, byte hash and named roles. Coordinates are deliberate unitless drawing choices, without tracing or measuring Ari's pixels. Front panels and sleeve paths are newly authored symmetric counterparts. Profile, rear, inside, guard and bags are original design choices.
+
+The existing Ari sheet and this hour's [limited official front-photo observation](../larger-frame-character/REFERENCES.md) inform only short rust layers, collar/zip/pocket/trim vocabulary. The actual Ari jacket reads matte. No physical nylon, padding, elastic behaviour, hidden bag, guard, dimensions or worn fit is established by those images. This sheet uses flat display colours and graphic gather symbols.
+
+Front shows two open zipper halves Z-R/Z-L, two slanted pocket mouths P-R/P-L, full sleeves and gathered cuffs C-R/C-L, plus two short hem ends belonging to H. Wearer's right is image-left in front and inside; it is image-right in rear. Authored right profile places the front at image-left and shows near P-R/Z-R/C-R; far pocket/zip/cuff roles are hidden. Rear has a complete panel, collar, proposed shoulder seam, two sleeves/cuffs and short hem, without rear pockets or zip.
+
+The smaller inside is explicitly a front-panel schematic. It newly proposes inward facings F-R/F-L, a guard G-L behind the wearer's left zipper edge, and two bag envelopes B-R/B-L corresponding to the exterior pocket mouths. It omits inside sleeves and rear lining. Front/inside pocket-mouth operands correspond at the declared smaller graphic scale; the bag contours are authorship proposals, not patterns or proved sewing. Pale dotted marks mean zipper intent; brown dashed marks mean proposed attachment; solid lines mean visible edges. Wavy repeated marks mean gathered trim intent, without knit gauge or elastic ratio.
+
+The larger opening detail separates the two zipper edges, inward facings and left guard. Bottom ends are marked while joining/engagement remain unproved. The separate hem detail makes the proposed shell/trim attachment and lower open edge explicit. These details are editing responsibilities, not a technical manufacturing pack.
+
+Source review must inspect the whole SVG, complete JSON association, this brief and static viewer before the first native image. One fixed whole-sheet browser observation follows only after critic/root source acceptance. Root and critic must independently view its actual unchanged screenshot. If new roles are unreadable or incoherent, retain failure and stop; no visual tuning, retake, raster editing or source/geometry rescue. Minor wording corrections may preserve exact original evidence without altering the rendered drawing.
+
+All physical dimensions, sewing, closure mechanics, cloth/padding/elastic, 3D, coupled body/foundation coverage, rig/morph/pose/fit, moving appearance and runtime integration remain open. Accepted assets/defaults and old frozen sources are unchanged. The fresh plan's 16:22:32 UTC delivery stop applies.
