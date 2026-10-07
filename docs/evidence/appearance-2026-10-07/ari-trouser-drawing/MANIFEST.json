@@ -1,0 +1,146 @@
+{
+  "sealed_utc": "2026-10-07T19:24:47.126265+00:00",
+  "scope": "Stopped source only; no renderer/image/appearance promotion. Local write-bit preservation and Git recovery, no external backup assertion.",
+  "payloads": [
+    {
+      "name": "ARTIST-HANDOFF.md",
+      "bytes": 1446,
+      "sha256": "60646c736b844e1e0f3a54df8c2462789dbbc02f42e19cf23a7afb0d6dc92249"
+    },
+    {
+      "name": "BRIEF.md",
+      "bytes": 3424,
+      "sha256": "265f24c2dbc92e4a5ccc9bc0e48829589b63fe4f702df946e97cd540375901b5"
+    },
+    {
+      "name": "CLOSEOUT-CHECK.json",
+      "bytes": 750,
+      "sha256": "33ff50d70a4ce9b0cd50fc30dc6dd6d4d8e96b60427b99d889f26db568476470"
+    },
+    {
+      "name": "COMMANDS.empty-observer.json",
+      "bytes": 451,
+      "sha256": "1349371830b42fa68bdfd762e6ca7be41a6ede515cebf34ec99f1290635c3b58"
+    },
+    {
+      "name": "COMMANDS.json",
+      "bytes": 65881,
+      "sha256": "f8066e1a991fe7ea630770bcfdc0ae56c32bf5f0c2d56eab6345e633826242dc"
+    },
+    {
+      "name": "CORRECTED-SOURCE-REVIEW.md",
+      "bytes": 2098,
+      "sha256": "fba808be0b00e8b1a70dfeebe5d027def4543b37b6aa659eb14cf9c8bad93835"
+    },
+    {
+      "name": "DELIVERY-REVIEW.md",
+      "bytes": 3031,
+      "sha256": "9c640405850a1ef79451c2f648aa09b0360afc3731c69b6e4ec8279ce91c0a00"
+    },
+    {
+      "name": "PLAN.json",
+      "bytes": 5262,
+      "sha256": "f120403e00e5d4fffbb303116377cfb89a7999db61ef5bbcf0b78f2598cfc2bc"
+    },
+    {
+      "name": "README.md",
+      "bytes": 6132,
+      "sha256": "94ca79f6806d1118176c2cbe6c1830d9ee1ceea1372d58c96974861ca5c8dae0"
+    },
+    {
+      "name": "RECOVERY.json",
+      "bytes": 1098,
+      "sha256": "5534f991e8cf1efe0d7b39b2c1c7f0d4495c6be0dc7cc20fc90aaf7b46be53eb"
+    },
+    {
+      "name": "REFERENCE-DECISION.json",
+      "bytes": 3374,
+      "sha256": "c1165cc37a3bdba9da122fb58152cc33a2393ea0fd82dd099739a04e8a62cfb7"
+    },
+    {
+      "name": "RENDERER.json",
+      "bytes": 970,
+      "sha256": "9f6e0679aa487b0734cb34123c1b7b69571b1d1aa47d9b17ba756c4cac17a0fe"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 2387,
+      "sha256": "f039b50c5f7f19f3c452bc58c1d043ae90cb48b33d419e35abb753204b73afa4"
+    },
+    {
+      "name": "SOURCE-CHECK.json",
+      "bytes": 1118,
+      "sha256": "7c515429290362ca516a1b04d29358ce271ab872f75fe0c9cbc614b96736347d"
+    },
+    {
+      "name": "SOURCE-CHECK.preflight-input.json",
+      "bytes": 1014,
+      "sha256": "4652e33042cb11e63be293bca053806892b2cc91504fae2e71500972d94eaf2f"
+    },
+    {
+      "name": "SOURCE-REVIEW.md",
+      "bytes": 4348,
+      "sha256": "50f558763b68e5775ebfd1194f8a35a1a68d1c7379993600cd0522df31346184"
+    },
+    {
+      "name": "STOP.json",
+      "bytes": 977,
+      "sha256": "8607eb8210c3dc733d0bd1a48a99f4366e3870939092f087113fd4b9defd8170"
+    },
+    {
+      "name": "WORK-WINDOW.delivered.md",
+      "bytes": 26442,
+      "sha256": "94d5be388acd70d0d6eaac276f698b476f633abd0bbdccfbb87b3adb7c60d21f"
+    },
+    {
+      "name": "WORK-WINDOW.in-progress.md",
+      "bytes": 23830,
+      "sha256": "ace807387bdf1150fd448ceb4767e454a1d9077b642a424f8735d652eaa807df"
+    },
+    {
+      "name": "WORK-WINDOW.reviewed.md",
+      "bytes": 25892,
+      "sha256": "311d4f3cf891851523e4963d9b485dc9c3c2c66208ea51e0ceead74e1502488a"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 4656,
+      "sha256": "5a432f12654db91021fa7ffa34a41777355211e91852acdb360bf3dd55638503"
+    },
+    {
+      "name": "design.json",
+      "bytes": 71588,
+      "sha256": "a9b3d190f1dd2b2365de718815ec0186cb1977f6cefac1ea2ff6af4337b3405e"
+    },
+    {
+      "name": "design.preflight-input.json",
+      "bytes": 71552,
+      "sha256": "3cbc4da6e9a5002d1300d5b275d6c516123c2b0dc5d5e1dd89ca3415476bd9d1"
+    },
+    {
+      "name": "draw.py",
+      "bytes": 14515,
+      "sha256": "47f3911afad0e69eea248179bc8367b78ddb5bc7f81716b55f5e40d46cdd8008"
+    },
+    {
+      "name": "render.mjs",
+      "bytes": 1961,
+      "sha256": "9fdeae2e2d00a79b4c123342a5c2b0bcd497cb312f619a2be644a13d28bf8ca1"
+    },
+    {
+      "name": "review.html",
+      "bytes": 1441,
+      "sha256": "66e0f7f8ebf5744c2bfef53a53319e545ec6614e123f437f684c746b30437dc8"
+    },
+    {
+      "name": "trouser.preflight-input.svg",
+      "bytes": 14842,
+      "sha256": "6bb23083a8a091c979cd52329f8a8feb0dab505b5003abe23d5c27166f7748b6"
+    },
+    {
+      "name": "trouser.svg",
+      "bytes": 14858,
+      "sha256": "3c1ef27a98e6d9e031b1898669ed676c833fdefc9d36586720f9aa8ad27cd0a4"
+    }
+  ]
+}

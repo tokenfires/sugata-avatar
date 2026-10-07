@@ -1,0 +1,7 @@
+# Held Ari trouser artist source
+
+This is an isolated original editable drawing proposal without a qualified rendered image. Do not treat it as delivered technical art or use it as a sewing/fit/runtime authority. The first-image gate stopped on timing; no renderer attempt occurred. [Receipt](README.md) records exact identities and all limits.
+
+The authored choice is a flat-front broad leg with shaped waistband ends, left overlap/right underlap fly layers, two zipper-half roles, paired slanted side mouths and inside bags, rear centre/seat seam and hem-turn guides. It deliberately adds decisions hidden by Ari's tee/jacket. No rear pockets or pleats are selected. Elastic pull-on remains the explicit alternative with a simpler closure and more gathered top/drape. Views are unitless authored sketches without projection registration, measured pattern, material/closure/capacity, sewing or body/garment fit proof. The inside schematic omits back panels and full legs.
+
+[SVG](trouser.svg) and [JSON](design.json) retain154 unique elements/nine named role groups. The profile hem-turn now belongs explicitly to hem, preserving all drawing geometry and text. Complete structural association supports edit responsibility only. Appearance/readability must be decided from an actual whole image under a fresh bounded plan before board/checklist promotion. Original Ari, prior bomber, accepted assets and the complete wider roadmap stay preserved.

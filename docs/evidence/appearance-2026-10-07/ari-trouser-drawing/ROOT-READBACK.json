@@ -1,0 +1,69 @@
+{
+  "checked_utc": "2026-10-07T19:24:47.126265+00:00",
+  "root_full_handoff_read": "19:24:01UTC chunk3f6b95",
+  "reviewed_hashes_match": [
+    {
+      "path": "trouser.svg",
+      "bytes": 14858,
+      "sha256": "3c1ef27a98e6d9e031b1898669ed676c833fdefc9d36586720f9aa8ad27cd0a4"
+    },
+    {
+      "path": "design.json",
+      "bytes": 71588,
+      "sha256": "a9b3d190f1dd2b2365de718815ec0186cb1977f6cefac1ea2ff6af4337b3405e"
+    },
+    {
+      "path": "draw.py",
+      "bytes": 14515,
+      "sha256": "47f3911afad0e69eea248179bc8367b78ddb5bc7f81716b55f5e40d46cdd8008"
+    },
+    {
+      "path": "SOURCE-CHECK.json",
+      "bytes": 1118,
+      "sha256": "7c515429290362ca516a1b04d29358ce271ab872f75fe0c9cbc614b96736347d"
+    },
+    {
+      "path": "STOP.json",
+      "bytes": 977,
+      "sha256": "8607eb8210c3dc733d0bd1a48a99f4366e3870939092f087113fd4b9defd8170"
+    },
+    {
+      "path": "SOURCE-REVIEW.md",
+      "bytes": 4348,
+      "sha256": "50f558763b68e5775ebfd1194f8a35a1a68d1c7379993600cd0522df31346184"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6132,
+      "sha256": "94ca79f6806d1118176c2cbe6c1830d9ee1ceea1372d58c96974861ca5c8dae0"
+    },
+    {
+      "path": "ARTIST-HANDOFF.md",
+      "bytes": 1446,
+      "sha256": "60646c736b844e1e0f3a54df8c2462789dbbc02f42e19cf23a7afb0d6dc92249"
+    },
+    {
+      "path": "review.html",
+      "bytes": 1441,
+      "sha256": "66e0f7f8ebf5744c2bfef53a53319e545ec6614e123f437f684c746b30437dc8"
+    },
+    {
+      "path": "CLOSEOUT-CHECK.json",
+      "bytes": 750,
+      "sha256": "33ff50d70a4ce9b0cd50fc30dc6dd6d4d8e96b60427b99d889f26db568476470"
+    },
+    {
+      "path": "../../../WORK-WINDOW-2026-10-07.md",
+      "bytes": 25892,
+      "sha256": "311d4f3cf891851523e4963d9b485dc9c3c2c66208ea51e0ceead74e1502488a"
+    }
+  ],
+  "decision": "Independent corrected-source and stopped-delivery reviews fully read and verified. Stopped source packet only; planned usable drawing not delivered; zero rendering/appearance acceptance.",
+  "cutoff": "2026-10-07T19:29:46.679338+00:00",
+  "historical_window_prefix_exact": true,
+  "board_checklist_unchanged": {
+    "scoped_checked": 19,
+    "broad_open": 10
+  },
+  "next_worth": "Conditional one exact retained-source sole CPU first image under a fresh plan and cutoff; no redraw/retake/native route. Alternative preserve source/change workstream leaves appearance unanswered."
+}

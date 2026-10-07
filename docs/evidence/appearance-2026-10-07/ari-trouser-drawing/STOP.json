@@ -1,0 +1,16 @@
+{
+  "checked_utc": "2026-10-07T19:16:24.908310+00:00",
+  "command": "python3 stdin targeted SVG and all JSON node-field delta verification",
+  "original_sha256": "6bb23083a8a091c979cd52329f8a8feb0dab505b5003abe23d5c27166f7748b6",
+  "corrected_sha256": "3c1ef27a98e6d9e031b1898669ed676c833fdefc9d36586720f9aa8ad27cd0a4",
+  "geometry_text_layout_unchanged": true,
+  "json_all154_node_fields_delta_only_explicit_profile_hem_role": true,
+  "render_attempts": 0,
+  "earlier_observer_error": {
+    "chunk": "105381",
+    "exit": 1,
+    "cause": "Removed first data-role=hem attribute globally rather than the targeted profile-H-R-turn; this validation assertion was wrong, not evidence of geometric source alteration"
+  },
+  "deadline": "2026-10-07T19:15:46.679338+00:00",
+  "decision": "Missed complete corrected preflight readback before image cutoff. Render never started; no late render/retake admitted. Source retained isolated and unqualified; no board/checklist promotion."
+}

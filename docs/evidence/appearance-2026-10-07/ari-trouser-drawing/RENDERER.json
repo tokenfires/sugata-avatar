@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-10-07T18:49:58.577516+00:00",
+  "bundle": "26.909.12148",
+  "python_inventory": {
+    "cairosvg": null,
+    "fitz": null,
+    "PIL": "available"
+  },
+  "node": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "sharp": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs",
+  "other_svg_candidates": {
+    "@resvg/resvg-js": null,
+    "@napi-rs/canvas": "available, not selected"
+  },
+  "inventory_commands": [
+    "load_workspace_dependencies",
+    "bundled Python importlib.find_spec",
+    "bundled Node require.resolve"
+  ],
+  "inventory_chunks": [
+    "8ccb0f",
+    "06746a"
+  ],
+  "render_contract": "One CPU source-SVG to fixed1800x1500 PNG through installedSharp after independent source preflight. No native/browser/GPU, no source raster edit or original-image transformation. No install. Output must not exist; no retake or variant."
+}

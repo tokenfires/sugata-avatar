@@ -1,0 +1,33 @@
+{
+  "checked_utc": "2026-10-07T19:03:26.801849+00:00",
+  "author_command": "python3 docs/evidence/appearance-2026-10-07/ari-trouser-drawing/draw.py",
+  "author_chunk": "97943a",
+  "author_exit": 0,
+  "svg_sha256": "6bb23083a8a091c979cd52329f8a8feb0dab505b5003abe23d5c27166f7748b6",
+  "svg_bytes": 14842,
+  "complete_svg_json_tree_match": true,
+  "unique_elements": 154,
+  "nine_role_groups": {
+    "shell": 30,
+    "waistband": 17,
+    "fly": 19,
+    "pockets": 5,
+    "hem": 11,
+    "seat": 3,
+    "inside": 10,
+    "bags": 8,
+    "legend": 9
+  },
+  "html_local_links": [
+    "trouser.svg",
+    "design.json",
+    "BRIEF.md",
+    "../larger-frame-character/ARTIST-HANDOFF.md",
+    "trouser.svg"
+  ],
+  "five_input_pins_match": true,
+  "render_script_syntax_check": "node --check exits0, no renderer run",
+  "no_external_image_script_or_reference": true,
+  "first_image_exists": false,
+  "limits": "Source/association checks only; no rendering, sewing/dimensions/mechanics/pattern/fit or runtime qualification."
+}

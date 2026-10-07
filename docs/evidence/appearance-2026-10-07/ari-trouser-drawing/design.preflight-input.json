@@ -1,0 +1,2261 @@
+{
+  "title": "Ari original flat-front ink trouser construction proposal",
+  "units": "unitless SVG coordinates",
+  "viewport": [
+    1800,
+    1500
+  ],
+  "source": "trouser.svg",
+  "source_sha256": "6bb23083a8a091c979cd52329f8a8feb0dab505b5003abe23d5c27166f7748b6",
+  "elements": 154,
+  "roles": {
+    "shell": [
+      "front-view",
+      "front-shell-R",
+      "front-panel-R",
+      "front-shell-L",
+      "front-panel-L",
+      "element-032",
+      "element-033",
+      "element-034",
+      "element-035",
+      "element-036",
+      "element-037",
+      "front-right-label",
+      "front-left-label",
+      "right-profile",
+      "profile-near-R-shell",
+      "profile-far-leg-hidden",
+      "profile-outer-leg-seam-R",
+      "profile-H-R-turn",
+      "element-054",
+      "element-055",
+      "element-056",
+      "element-057",
+      "profile-front-direction",
+      "rear-view",
+      "rear-panel-L",
+      "rear-panel-R",
+      "element-074",
+      "element-075",
+      "rear-left-label",
+      "rear-right-label"
+    ],
+    "waistband": [
+      "front-waist",
+      "front-WB-R",
+      "front-WB-L",
+      "front-top-fastening",
+      "front-WB-L-slot-intent",
+      "profile-waist",
+      "profile-WB-near",
+      "rear-waist",
+      "rear-WB-B",
+      "inside-waist",
+      "inside-WB-R",
+      "inside-WB-L",
+      "detail-top-fastening",
+      "detail-WB-R-button-proposal",
+      "detail-WB-L-slot-proposal",
+      "element-122",
+      "element-123"
+    ],
+    "fly": [
+      "front-fly",
+      "front-F-L-overlap-fold",
+      "front-F-R-hidden-underlap",
+      "inside-fly",
+      "inside-F-R-guard",
+      "inside-F-L-facing",
+      "inside-Z-R-half",
+      "inside-Z-L-half",
+      "fly-detail",
+      "detail-F-L-overlap-facing",
+      "detail-F-R-underlap-guard",
+      "detail-Z-L-half",
+      "detail-Z-R-half",
+      "detail-left-overlap-direction",
+      "element-125",
+      "element-126",
+      "element-127",
+      "element-128",
+      "element-129"
+    ],
+    "pockets": [
+      "front-pockets",
+      "front-P-R",
+      "front-P-L",
+      "profile-pocket",
+      "profile-P-R"
+    ],
+    "hem": [
+      "front-hems",
+      "front-H-R-L-turn",
+      "rear-hems",
+      "rear-H-L-R-turn",
+      "hem-detail",
+      "hem-outer-leg",
+      "hem-turned-envelope",
+      "hem-turn-attachment-guide",
+      "element-139",
+      "element-140",
+      "element-141"
+    ],
+    "seat": [
+      "rear-seat-seam",
+      "rear-centre-seat-seam",
+      "rear-centre-attachment-intent"
+    ],
+    "inside": [
+      "inside-front",
+      "inside-cropped-front-shell",
+      "inside-B-R-label",
+      "inside-B-L-label",
+      "element-103",
+      "element-104",
+      "element-105",
+      "element-106",
+      "element-107",
+      "element-108"
+    ],
+    "bags": [
+      "inside-bag-R",
+      "inside-B-R",
+      "inside-P-R-mouth-correspondence",
+      "inside-B-R-top-side-anchor",
+      "inside-bag-L",
+      "inside-B-L",
+      "inside-P-L-mouth-correspondence",
+      "inside-B-L-top-side-anchor"
+    ],
+    "legend": [
+      "legend",
+      "legend-attachment",
+      "element-145",
+      "legend-zip",
+      "element-147",
+      "legend-bag-swatch",
+      "element-149",
+      "legend-hidden",
+      "element-151"
+    ]
+  },
+  "tree": {
+    "id": "ari-trouser-sheet",
+    "tag": "svg",
+    "attributes": {
+      "xmlns": "http://www.w3.org/2000/svg",
+      "id": "ari-trouser-sheet",
+      "width": "1800",
+      "height": "1500",
+      "viewBox": "0 0 1800 1500",
+      "role": "img",
+      "aria-labelledby": "sheet-title sheet-description"
+    },
+    "text": null,
+    "inherited_role": null,
+    "inherited_side": null,
+    "children": [
+      {
+        "id": "sheet-title",
+        "tag": "title",
+        "attributes": {
+          "id": "sheet-title"
+        },
+        "text": "Ari \u2014 flat-front ink trousers, original construction proposal",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "sheet-description",
+        "tag": "desc",
+        "attributes": {
+          "id": "sheet-description"
+        },
+        "text": "Unitless authored front, right profile and rear with inside-front, exploded fly and hem proposals. No pleats or rear pockets selected. Not a pattern, registered projection or physical fit proof.",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "sheet-style",
+        "tag": "style",
+        "attributes": {
+          "id": "sheet-style"
+        },
+        "text": "text{font-family:Arial,sans-serif;fill:#223844;font-size:19px}\n.title{font-size:36px;font-weight:bold}.subtitle{font-size:21px}\n.panel-title{font-size:24px;font-weight:bold}.small{font-size:17px}.tiny{font-size:16px}\n.shell{fill:#e2e8ec;stroke:#223844;stroke-width:2.6;stroke-linejoin:round}\n.waist{fill:#c4d2dc;stroke:#223844;stroke-width:2.3;stroke-linejoin:round}\n.seam{fill:none;stroke:#536f80;stroke-width:2.1;stroke-linecap:round}\n.guide{fill:none;stroke:#ad6742;stroke-width:2;stroke-dasharray:7 5}\n.zip{fill:none;stroke:#647f89;stroke-width:4;stroke-dasharray:1 7;stroke-linecap:round}\n.bag{fill:#d1e6dc;fill-opacity:.88;stroke:#35675b;stroke-width:2.2}\n.leader{fill:none;stroke:#70838d;stroke-width:1.5}\n.hidden{fill:none;stroke:#9ca9b0;stroke-width:1.8;stroke-dasharray:4 5}\n.frame{fill:#ffffff;stroke:#dde5e9;stroke-width:1.4}",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "paper",
+        "tag": "rect",
+        "attributes": {
+          "id": "paper",
+          "width": "1800",
+          "height": "1500",
+          "fill": "#f5f7f8"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "heading",
+        "tag": "text",
+        "attributes": {
+          "id": "heading",
+          "x": "50",
+          "y": "58",
+          "class": "title"
+        },
+        "text": "ARI / INK TROUSERS",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "subheading",
+        "tag": "text",
+        "attributes": {
+          "id": "subheading",
+          "x": "50",
+          "y": "91",
+          "class": "subtitle"
+        },
+        "text": "Flat front \u00b7 shaped waistband \u00b7 fly \u00b7 paired side-pocket bags",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "authorship-note",
+        "tag": "text",
+        "attributes": {
+          "id": "authorship-note",
+          "x": "50",
+          "y": "124",
+          "class": "small"
+        },
+        "text": "ORIGINAL UNITLESS ART  /  authored alternative to the unqualified pleated prompt  /  no rear pockets selected",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "ink-swatch",
+        "tag": "rect",
+        "attributes": {
+          "id": "ink-swatch",
+          "x": "1630",
+          "y": "42",
+          "width": "115",
+          "height": "35",
+          "fill": "#293d4b",
+          "rx": "3"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "swatch-caption",
+        "tag": "text",
+        "attributes": {
+          "id": "swatch-caption",
+          "x": "1605",
+          "y": "104",
+          "class": "tiny"
+        },
+        "text": "ink / matte intent",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "front-frame",
+        "tag": "g",
+        "attributes": {
+          "id": "front-frame"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": [
+          {
+            "id": "element-011",
+            "tag": "rect",
+            "attributes": {
+              "id": "element-011",
+              "x": "50",
+              "y": "160",
+              "width": "535",
+              "height": "660",
+              "rx": "14",
+              "class": "frame"
+            },
+            "text": null,
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-012",
+            "tag": "text",
+            "attributes": {
+              "id": "element-012",
+              "x": "72",
+              "y": "197",
+              "class": "panel-title"
+            },
+            "text": "01 / FRONT",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-013",
+            "tag": "text",
+            "attributes": {
+              "id": "element-013",
+              "x": "72",
+              "y": "224",
+              "class": "small"
+            },
+            "text": "Closed intent; waist is a new authored proposal",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "front-view",
+            "tag": "g",
+            "attributes": {
+              "id": "front-view",
+              "data-role": "shell",
+              "transform": "translate(96 258)"
+            },
+            "text": null,
+            "inherited_role": "shell",
+            "inherited_side": null,
+            "children": [
+              {
+                "id": "front-shell-R",
+                "tag": "g",
+                "attributes": {
+                  "id": "front-shell-R",
+                  "data-role": "shell",
+                  "data-side": "wearer-right"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": "wearer-right",
+                "children": [
+                  {
+                    "id": "front-panel-R",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-panel-R",
+                      "d": "M78 30 Q132 18 188 18 L188 216 Q176 235 174 262 L161 535 Q115 548 65 530 L56 208 Q52 100 78 30 Z",
+                      "class": "shell"
+                    },
+                    "text": null,
+                    "inherited_role": "shell",
+                    "inherited_side": "wearer-right",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "front-shell-L",
+                "tag": "g",
+                "attributes": {
+                  "id": "front-shell-L",
+                  "data-role": "shell",
+                  "data-side": "wearer-left"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": "wearer-left",
+                "children": [
+                  {
+                    "id": "front-panel-L",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-panel-L",
+                      "d": "M188 18 Q244 18 296 30 Q320 100 315 208 L306 530 Q265 548 214 535 L202 262 Q199 235 188 216 Z",
+                      "class": "shell"
+                    },
+                    "text": null,
+                    "inherited_role": "shell",
+                    "inherited_side": "wearer-left",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "front-waist",
+                "tag": "g",
+                "attributes": {
+                  "id": "front-waist",
+                  "data-role": "waistband"
+                },
+                "text": null,
+                "inherited_role": "waistband",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "front-WB-R",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-WB-R",
+                      "d": "M78 30 Q132 18 195 18 L195 52 Q131 48 75 61 Z",
+                      "class": "waist"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "front-WB-L",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-WB-L",
+                      "d": "M178 18 Q245 18 296 30 L300 61 Q243 49 178 52 Z",
+                      "class": "waist"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "front-top-fastening",
+                    "tag": "circle",
+                    "attributes": {
+                      "id": "front-top-fastening",
+                      "cx": "185",
+                      "cy": "35",
+                      "r": "5",
+                      "fill": "#223844"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "front-WB-L-slot-intent",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-WB-L-slot-intent",
+                      "d": "M175 35 L195 35",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "front-fly",
+                "tag": "g",
+                "attributes": {
+                  "id": "front-fly",
+                  "data-role": "fly"
+                },
+                "text": null,
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "front-F-L-overlap-fold",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-F-L-overlap-fold",
+                      "d": "M178 54 L178 139 Q179 157 196 159",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "fly",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "front-F-R-hidden-underlap",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-F-R-hidden-underlap",
+                      "d": "M190 60 L190 142",
+                      "class": "hidden"
+                    },
+                    "text": null,
+                    "inherited_role": "fly",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "front-pockets",
+                "tag": "g",
+                "attributes": {
+                  "id": "front-pockets",
+                  "data-role": "pockets"
+                },
+                "text": null,
+                "inherited_role": "pockets",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "front-P-R",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-P-R",
+                      "d": "M114 65 L69 130",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "pockets",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "front-P-L",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-P-L",
+                      "d": "M262 65 L307 130",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "pockets",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "front-hems",
+                "tag": "g",
+                "attributes": {
+                  "id": "front-hems",
+                  "data-role": "hem"
+                },
+                "text": null,
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "front-H-R-L-turn",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "front-H-R-L-turn",
+                      "d": "M67 514 Q115 527 163 518 M212 518 Q260 527 308 514",
+                      "class": "guide"
+                    },
+                    "text": null,
+                    "inherited_role": "hem",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "element-032",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-032",
+                  "d": "M82 86 L26 70 L0 70",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-033",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-033",
+                  "x": "-4",
+                  "y": "61",
+                  "class": "small"
+                },
+                "text": "P-R",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-034",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-034",
+                  "d": "M294 86 L353 70 L390 70",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-035",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-035",
+                  "x": "355",
+                  "y": "61",
+                  "class": "small"
+                },
+                "text": "P-L",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-036",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-036",
+                  "d": "M183 90 L337 130 L390 130",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-037",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-037",
+                  "x": "321",
+                  "y": "154",
+                  "class": "small"
+                },
+                "text": "F-L over F-R",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "front-right-label",
+                "tag": "text",
+                "attributes": {
+                  "id": "front-right-label",
+                  "x": "103",
+                  "y": "579",
+                  "class": "small"
+                },
+                "text": "R",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "front-left-label",
+                "tag": "text",
+                "attributes": {
+                  "id": "front-left-label",
+                  "x": "260",
+                  "y": "579",
+                  "class": "small"
+                },
+                "text": "L",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "element-040",
+            "tag": "text",
+            "attributes": {
+              "id": "element-040",
+              "x": "72",
+              "y": "797",
+              "class": "tiny"
+            },
+            "text": "Outer edges + inseams belong to separate front panel roles.",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "profile-frame",
+        "tag": "g",
+        "attributes": {
+          "id": "profile-frame"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": [
+          {
+            "id": "element-042",
+            "tag": "rect",
+            "attributes": {
+              "id": "element-042",
+              "x": "610",
+              "y": "160",
+              "width": "495",
+              "height": "660",
+              "rx": "14",
+              "class": "frame"
+            },
+            "text": null,
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-043",
+            "tag": "text",
+            "attributes": {
+              "id": "element-043",
+              "x": "632",
+              "y": "197",
+              "class": "panel-title"
+            },
+            "text": "02 / AUTHORED RIGHT PROFILE",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-044",
+            "tag": "text",
+            "attributes": {
+              "id": "element-044",
+              "x": "632",
+              "y": "224",
+              "class": "small"
+            },
+            "text": "Front is image-left; far pocket and fly layers hidden",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "right-profile",
+            "tag": "g",
+            "attributes": {
+              "id": "right-profile",
+              "data-role": "shell",
+              "transform": "translate(674 258)"
+            },
+            "text": null,
+            "inherited_role": "shell",
+            "inherited_side": null,
+            "children": [
+              {
+                "id": "profile-near-R-shell",
+                "tag": "path",
+                "attributes": {
+                  "id": "profile-near-R-shell",
+                  "d": "M110 30 Q161 17 226 31 Q276 71 277 147 Q271 197 257 228 L259 525 Q218 541 164 532 L146 283 Q116 236 94 179 Q82 111 110 30 Z",
+                  "class": "shell"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "profile-far-leg-hidden",
+                "tag": "path",
+                "attributes": {
+                  "id": "profile-far-leg-hidden",
+                  "d": "M153 282 L137 525 Q157 539 177 533",
+                  "class": "hidden"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "profile-waist",
+                "tag": "g",
+                "attributes": {
+                  "id": "profile-waist",
+                  "data-role": "waistband",
+                  "data-side": "wearer-right"
+                },
+                "text": null,
+                "inherited_role": "waistband",
+                "inherited_side": "wearer-right",
+                "children": [
+                  {
+                    "id": "profile-WB-near",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "profile-WB-near",
+                      "d": "M110 30 Q160 17 226 31 L242 62 Q168 45 101 61 Z",
+                      "class": "waist"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": "wearer-right",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "profile-pocket",
+                "tag": "g",
+                "attributes": {
+                  "id": "profile-pocket",
+                  "data-role": "pockets",
+                  "data-side": "wearer-right"
+                },
+                "text": null,
+                "inherited_role": "pockets",
+                "inherited_side": "wearer-right",
+                "children": [
+                  {
+                    "id": "profile-P-R",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "profile-P-R",
+                      "d": "M134 65 Q112 87 98 130",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "pockets",
+                    "inherited_side": "wearer-right",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "profile-outer-leg-seam-R",
+                "tag": "path",
+                "attributes": {
+                  "id": "profile-outer-leg-seam-R",
+                  "d": "M191 56 Q220 157 208 268 L211 521",
+                  "class": "seam"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "profile-H-R-turn",
+                "tag": "path",
+                "attributes": {
+                  "id": "profile-H-R-turn",
+                  "d": "M165 516 Q209 529 257 512",
+                  "class": "guide"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-054",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-054",
+                  "d": "M100 105 L35 99 L0 99",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-055",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-055",
+                  "x": "-1",
+                  "y": "87",
+                  "class": "small"
+                },
+                "text": "P-R / near",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-056",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-056",
+                  "d": "M266 124 L319 102 L354 102",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-057",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-057",
+                  "x": "297",
+                  "y": "88",
+                  "class": "small"
+                },
+                "text": "seat / authored",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "profile-front-direction",
+                "tag": "text",
+                "attributes": {
+                  "id": "profile-front-direction",
+                  "x": "82",
+                  "y": "579",
+                  "class": "small"
+                },
+                "text": "CF \u2190",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "element-059",
+            "tag": "text",
+            "attributes": {
+              "id": "element-059",
+              "x": "632",
+              "y": "797",
+              "class": "tiny"
+            },
+            "text": "Depth and fall are artistic choices, not registered projection.",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "rear-frame",
+        "tag": "g",
+        "attributes": {
+          "id": "rear-frame"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": [
+          {
+            "id": "element-061",
+            "tag": "rect",
+            "attributes": {
+              "id": "element-061",
+              "x": "1130",
+              "y": "160",
+              "width": "620",
+              "height": "660",
+              "rx": "14",
+              "class": "frame"
+            },
+            "text": null,
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-062",
+            "tag": "text",
+            "attributes": {
+              "id": "element-062",
+              "x": "1152",
+              "y": "197",
+              "class": "panel-title"
+            },
+            "text": "03 / REAR",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-063",
+            "tag": "text",
+            "attributes": {
+              "id": "element-063",
+              "x": "1152",
+              "y": "224",
+              "class": "small"
+            },
+            "text": "Centre/seat seam; plain rear without pockets",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "rear-view",
+            "tag": "g",
+            "attributes": {
+              "id": "rear-view",
+              "data-role": "shell",
+              "transform": "translate(1240 258)"
+            },
+            "text": null,
+            "inherited_role": "shell",
+            "inherited_side": null,
+            "children": [
+              {
+                "id": "rear-panel-L",
+                "tag": "path",
+                "attributes": {
+                  "id": "rear-panel-L",
+                  "d": "M73 29 Q131 14 188 17 L188 226 Q174 243 172 276 L155 534 Q106 550 56 530 L46 207 Q46 100 73 29 Z",
+                  "class": "shell"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "rear-panel-R",
+                "tag": "path",
+                "attributes": {
+                  "id": "rear-panel-R",
+                  "d": "M188 17 Q245 14 303 29 Q330 100 330 207 L320 530 Q270 550 221 534 L204 276 Q202 243 188 226 Z",
+                  "class": "shell"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "rear-waist",
+                "tag": "g",
+                "attributes": {
+                  "id": "rear-waist",
+                  "data-role": "waistband"
+                },
+                "text": null,
+                "inherited_role": "waistband",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "rear-WB-B",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "rear-WB-B",
+                      "d": "M73 29 Q188 3 303 29 L309 61 Q188 43 67 61 Z",
+                      "class": "waist"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "rear-seat-seam",
+                "tag": "g",
+                "attributes": {
+                  "id": "rear-seat-seam",
+                  "data-role": "seat"
+                },
+                "text": null,
+                "inherited_role": "seat",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "rear-centre-seat-seam",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "rear-centre-seat-seam",
+                      "d": "M188 51 L188 226",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "seat",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "rear-centre-attachment-intent",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "rear-centre-attachment-intent",
+                      "d": "M181 55 L181 222 M195 55 L195 222",
+                      "class": "guide"
+                    },
+                    "text": null,
+                    "inherited_role": "seat",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "rear-hems",
+                "tag": "g",
+                "attributes": {
+                  "id": "rear-hems",
+                  "data-role": "hem"
+                },
+                "text": null,
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "rear-H-L-R-turn",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "rear-H-L-R-turn",
+                      "d": "M58 514 Q108 529 157 518 M219 518 Q270 529 318 514",
+                      "class": "guide"
+                    },
+                    "text": null,
+                    "inherited_role": "hem",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "element-074",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-074",
+                  "d": "M188 157 L365 118 L414 118",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-075",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-075",
+                  "x": "339",
+                  "y": "103",
+                  "class": "small"
+                },
+                "text": "centre / seat seam",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "rear-left-label",
+                "tag": "text",
+                "attributes": {
+                  "id": "rear-left-label",
+                  "x": "88",
+                  "y": "579",
+                  "class": "small"
+                },
+                "text": "L",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "rear-right-label",
+                "tag": "text",
+                "attributes": {
+                  "id": "rear-right-label",
+                  "x": "271",
+                  "y": "579",
+                  "class": "small"
+                },
+                "text": "R",
+                "inherited_role": "shell",
+                "inherited_side": null,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "element-078",
+            "tag": "text",
+            "attributes": {
+              "id": "element-078",
+              "x": "1152",
+              "y": "797",
+              "class": "tiny"
+            },
+            "text": "Garment contours + inseams; no anatomy tracing.",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "inside-frame",
+        "tag": "g",
+        "attributes": {
+          "id": "inside-frame"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": [
+          {
+            "id": "element-080",
+            "tag": "rect",
+            "attributes": {
+              "id": "element-080",
+              "x": "50",
+              "y": "845",
+              "width": "695",
+              "height": "480",
+              "rx": "14",
+              "class": "frame"
+            },
+            "text": null,
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-081",
+            "tag": "text",
+            "attributes": {
+              "id": "element-081",
+              "x": "72",
+              "y": "882",
+              "class": "panel-title"
+            },
+            "text": "04 / INSIDE FRONT ONLY",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-082",
+            "tag": "text",
+            "attributes": {
+              "id": "element-082",
+              "x": "72",
+              "y": "909",
+              "class": "small"
+            },
+            "text": "Back and full legs omitted; bag envelopes are proposals",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "inside-front",
+            "tag": "g",
+            "attributes": {
+              "id": "inside-front",
+              "data-role": "inside",
+              "transform": "translate(84 952)"
+            },
+            "text": null,
+            "inherited_role": "inside",
+            "inherited_side": null,
+            "children": [
+              {
+                "id": "inside-cropped-front-shell",
+                "tag": "path",
+                "attributes": {
+                  "id": "inside-cropped-front-shell",
+                  "d": "M78 30 Q188 8 296 30 Q318 116 315 210 L306 224 L290 216 L274 224 L258 216 L242 224 L226 216 L210 224 L194 216 L178 224 L162 216 L146 224 L130 216 L114 224 L98 216 L82 224 L56 210 Q54 112 78 30 Z",
+                  "class": "shell"
+                },
+                "text": null,
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "inside-waist",
+                "tag": "g",
+                "attributes": {
+                  "id": "inside-waist",
+                  "data-role": "waistband"
+                },
+                "text": null,
+                "inherited_role": "waistband",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "inside-WB-R",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-WB-R",
+                      "d": "M78 30 Q132 18 195 18 L195 52 Q131 48 75 61 Z",
+                      "class": "waist"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "inside-WB-L",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-WB-L",
+                      "d": "M178 18 Q245 18 296 30 L300 61 Q243 49 178 52 Z",
+                      "class": "waist"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "inside-bag-R",
+                "tag": "g",
+                "attributes": {
+                  "id": "inside-bag-R",
+                  "data-role": "bags",
+                  "data-side": "wearer-right"
+                },
+                "text": null,
+                "inherited_role": "bags",
+                "inherited_side": "wearer-right",
+                "children": [
+                  {
+                    "id": "inside-B-R",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-B-R",
+                      "d": "M92 56 L154 56 L167 177 Q170 209 143 216 Q98 223 69 197 L69 130 L114 65 Z",
+                      "class": "bag"
+                    },
+                    "text": null,
+                    "inherited_role": "bags",
+                    "inherited_side": "wearer-right",
+                    "children": []
+                  },
+                  {
+                    "id": "inside-P-R-mouth-correspondence",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-P-R-mouth-correspondence",
+                      "d": "M114 65 L69 130",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "bags",
+                    "inherited_side": "wearer-right",
+                    "children": []
+                  },
+                  {
+                    "id": "inside-B-R-top-side-anchor",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-B-R-top-side-anchor",
+                      "d": "M92 56 L154 56 M69 130 L68 178",
+                      "class": "guide"
+                    },
+                    "text": null,
+                    "inherited_role": "bags",
+                    "inherited_side": "wearer-right",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "inside-bag-L",
+                "tag": "g",
+                "attributes": {
+                  "id": "inside-bag-L",
+                  "data-role": "bags",
+                  "transform": "translate(376 0) scale(-1 1)",
+                  "data-side": "wearer-left"
+                },
+                "text": null,
+                "inherited_role": "bags",
+                "inherited_side": "wearer-left",
+                "children": [
+                  {
+                    "id": "inside-B-L",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-B-L",
+                      "d": "M92 56 L154 56 L167 177 Q170 209 143 216 Q98 223 69 197 L69 130 L114 65 Z",
+                      "class": "bag"
+                    },
+                    "text": null,
+                    "inherited_role": "bags",
+                    "inherited_side": "wearer-left",
+                    "children": []
+                  },
+                  {
+                    "id": "inside-P-L-mouth-correspondence",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-P-L-mouth-correspondence",
+                      "d": "M114 65 L69 130",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "bags",
+                    "inherited_side": "wearer-left",
+                    "children": []
+                  },
+                  {
+                    "id": "inside-B-L-top-side-anchor",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-B-L-top-side-anchor",
+                      "d": "M92 56 L154 56 M69 130 L68 178",
+                      "class": "guide"
+                    },
+                    "text": null,
+                    "inherited_role": "bags",
+                    "inherited_side": "wearer-left",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "inside-fly",
+                "tag": "g",
+                "attributes": {
+                  "id": "inside-fly",
+                  "data-role": "fly"
+                },
+                "text": null,
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "inside-F-R-guard",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-F-R-guard",
+                      "d": "M185 52 L173 52 L173 160 L188 160 Z",
+                      "class": "shell"
+                    },
+                    "text": null,
+                    "inherited_role": "fly",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "inside-F-L-facing",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-F-L-facing",
+                      "d": "M178 52 L205 52 L207 150 Q207 166 181 166 Z",
+                      "class": "waist"
+                    },
+                    "text": null,
+                    "inherited_role": "fly",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "inside-Z-R-half",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-Z-R-half",
+                      "d": "M183 59 L183 146",
+                      "class": "zip"
+                    },
+                    "text": null,
+                    "inherited_role": "fly",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "inside-Z-L-half",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "inside-Z-L-half",
+                      "d": "M194 59 L194 146",
+                      "class": "zip"
+                    },
+                    "text": null,
+                    "inherited_role": "fly",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "inside-B-R-label",
+                "tag": "text",
+                "attributes": {
+                  "id": "inside-B-R-label",
+                  "x": "112",
+                  "y": "248",
+                  "class": "small"
+                },
+                "text": "B-R",
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "inside-B-L-label",
+                "tag": "text",
+                "attributes": {
+                  "id": "inside-B-L-label",
+                  "x": "248",
+                  "y": "248",
+                  "class": "small"
+                },
+                "text": "B-L",
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-103",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-103",
+                  "d": "M146 58 L376 40 L416 40",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-104",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-104",
+                  "x": "411",
+                  "y": "34",
+                  "class": "small"
+                },
+                "text": "top anchor / waist",
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-105",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-105",
+                  "d": "M306 147 L375 104 L416 104",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-106",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-106",
+                  "x": "411",
+                  "y": "96",
+                  "class": "small"
+                },
+                "text": "side anchor",
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-107",
+                "tag": "path",
+                "attributes": {
+                  "id": "element-107",
+                  "d": "M198 117 L375 171 L416 171",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-108",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-108",
+                  "x": "411",
+                  "y": "163",
+                  "class": "small"
+                },
+                "text": "facing / guard / zip",
+                "inherited_role": "inside",
+                "inherited_side": null,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "element-109",
+            "tag": "text",
+            "attributes": {
+              "id": "element-109",
+              "x": "72",
+              "y": "1288",
+              "class": "tiny"
+            },
+            "text": "Jagged lower edge = diagram crop, not a cut-piece boundary.",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "fly-frame",
+        "tag": "g",
+        "attributes": {
+          "id": "fly-frame"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": [
+          {
+            "id": "element-111",
+            "tag": "rect",
+            "attributes": {
+              "id": "element-111",
+              "x": "770",
+              "y": "845",
+              "width": "540",
+              "height": "480",
+              "rx": "14",
+              "class": "frame"
+            },
+            "text": null,
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-112",
+            "tag": "text",
+            "attributes": {
+              "id": "element-112",
+              "x": "792",
+              "y": "882",
+              "class": "panel-title"
+            },
+            "text": "05 / FLY LAYER ROLES",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-113",
+            "tag": "text",
+            "attributes": {
+              "id": "element-113",
+              "x": "792",
+              "y": "909",
+              "class": "small"
+            },
+            "text": "Exploded discussion diagram; engagement unproved",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "fly-detail",
+            "tag": "g",
+            "attributes": {
+              "id": "fly-detail",
+              "data-role": "fly",
+              "transform": "translate(796 951)"
+            },
+            "text": null,
+            "inherited_role": "fly",
+            "inherited_side": null,
+            "children": [
+              {
+                "id": "detail-F-L-overlap-facing",
+                "tag": "path",
+                "attributes": {
+                  "id": "detail-F-L-overlap-facing",
+                  "d": "M34 22 L153 22 L153 192 Q151 222 87 222 L34 211 Z",
+                  "class": "waist"
+                },
+                "text": null,
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "detail-F-R-underlap-guard",
+                "tag": "path",
+                "attributes": {
+                  "id": "detail-F-R-underlap-guard",
+                  "d": "M221 22 L321 22 L321 213 L221 213 Z",
+                  "class": "shell"
+                },
+                "text": null,
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "detail-Z-L-half",
+                "tag": "path",
+                "attributes": {
+                  "id": "detail-Z-L-half",
+                  "d": "M143 44 L143 181",
+                  "class": "zip"
+                },
+                "text": null,
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "detail-Z-R-half",
+                "tag": "path",
+                "attributes": {
+                  "id": "detail-Z-R-half",
+                  "d": "M231 44 L231 181",
+                  "class": "zip"
+                },
+                "text": null,
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "detail-top-fastening",
+                "tag": "g",
+                "attributes": {
+                  "id": "detail-top-fastening",
+                  "data-role": "waistband"
+                },
+                "text": null,
+                "inherited_role": "waistband",
+                "inherited_side": null,
+                "children": [
+                  {
+                    "id": "detail-WB-R-button-proposal",
+                    "tag": "circle",
+                    "attributes": {
+                      "id": "detail-WB-R-button-proposal",
+                      "cx": "271",
+                      "cy": "40",
+                      "r": "6",
+                      "fill": "#223844"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "detail-WB-L-slot-proposal",
+                    "tag": "path",
+                    "attributes": {
+                      "id": "detail-WB-L-slot-proposal",
+                      "d": "M77 40 L95 40",
+                      "class": "seam"
+                    },
+                    "text": null,
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "element-122",
+                    "tag": "text",
+                    "attributes": {
+                      "id": "element-122",
+                      "x": "34",
+                      "y": "11",
+                      "class": "tiny"
+                    },
+                    "text": "WB-L / slot",
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  },
+                  {
+                    "id": "element-123",
+                    "tag": "text",
+                    "attributes": {
+                      "id": "element-123",
+                      "x": "221",
+                      "y": "11",
+                      "class": "tiny"
+                    },
+                    "text": "WB-R / button",
+                    "inherited_role": "waistband",
+                    "inherited_side": null,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "detail-left-overlap-direction",
+                "tag": "path",
+                "attributes": {
+                  "id": "detail-left-overlap-direction",
+                  "d": "M187 64 L174 64 M174 64 L180 58 M174 64 L180 70",
+                  "class": "leader"
+                },
+                "text": null,
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-125",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-125",
+                  "x": "38",
+                  "y": "253",
+                  "class": "small"
+                },
+                "text": "F-L / left overlap",
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-126",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-126",
+                  "x": "217",
+                  "y": "253",
+                  "class": "small"
+                },
+                "text": "F-R / right underlap",
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-127",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-127",
+                  "x": "38",
+                  "y": "281",
+                  "class": "small"
+                },
+                "text": "Z-L",
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-128",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-128",
+                  "x": "222",
+                  "y": "281",
+                  "class": "small"
+                },
+                "text": "Z-R",
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-129",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-129",
+                  "x": "33",
+                  "y": "315",
+                  "class": "small"
+                },
+                "text": "Front left overlap covers right underlap.",
+                "inherited_role": "fly",
+                "inherited_side": null,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "element-130",
+            "tag": "text",
+            "attributes": {
+              "id": "element-130",
+              "x": "792",
+              "y": "1288",
+              "class": "tiny"
+            },
+            "text": "Two zipper-half roles; no teeth matching or closure proof.",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "hem-frame",
+        "tag": "g",
+        "attributes": {
+          "id": "hem-frame"
+        },
+        "text": null,
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": [
+          {
+            "id": "element-132",
+            "tag": "rect",
+            "attributes": {
+              "id": "element-132",
+              "x": "1335",
+              "y": "845",
+              "width": "415",
+              "height": "480",
+              "rx": "14",
+              "class": "frame"
+            },
+            "text": null,
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-133",
+            "tag": "text",
+            "attributes": {
+              "id": "element-133",
+              "x": "1357",
+              "y": "882",
+              "class": "panel-title"
+            },
+            "text": "06 / HEM TURN INTENT",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-134",
+            "tag": "text",
+            "attributes": {
+              "id": "element-134",
+              "x": "1357",
+              "y": "909",
+              "class": "small"
+            },
+            "text": "No depth, ease or seam allowance specified",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "hem-detail",
+            "tag": "g",
+            "attributes": {
+              "id": "hem-detail",
+              "data-role": "hem",
+              "transform": "translate(1368 967)"
+            },
+            "text": null,
+            "inherited_role": "hem",
+            "inherited_side": null,
+            "children": [
+              {
+                "id": "hem-outer-leg",
+                "tag": "path",
+                "attributes": {
+                  "id": "hem-outer-leg",
+                  "d": "M35 27 L294 27 L286 157 Q162 170 43 157 Z",
+                  "class": "shell"
+                },
+                "text": null,
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "hem-turned-envelope",
+                "tag": "path",
+                "attributes": {
+                  "id": "hem-turned-envelope",
+                  "d": "M43 157 Q162 170 286 157 L285 124 Q164 137 44 124 Z",
+                  "class": "waist"
+                },
+                "text": null,
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "hem-turn-attachment-guide",
+                "tag": "path",
+                "attributes": {
+                  "id": "hem-turn-attachment-guide",
+                  "d": "M47 132 Q163 145 281 132",
+                  "class": "guide"
+                },
+                "text": null,
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-139",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-139",
+                  "x": "37",
+                  "y": "211",
+                  "class": "small"
+                },
+                "text": "H-R / H-L repeated role",
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-140",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-140",
+                  "x": "37",
+                  "y": "243",
+                  "class": "small"
+                },
+                "text": "Turn envelope is schematic.",
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": []
+              },
+              {
+                "id": "element-141",
+                "tag": "text",
+                "attributes": {
+                  "id": "element-141",
+                  "x": "37",
+                  "y": "275",
+                  "class": "small"
+                },
+                "text": "Leg opening + drape unqualified.",
+                "inherited_role": "hem",
+                "inherited_side": null,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "element-142",
+            "tag": "text",
+            "attributes": {
+              "id": "element-142",
+              "x": "1357",
+              "y": "1288",
+              "class": "tiny"
+            },
+            "text": "Pattern, fabric and physical fit remain open.",
+            "inherited_role": null,
+            "inherited_side": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "legend",
+        "tag": "g",
+        "attributes": {
+          "id": "legend",
+          "data-role": "legend"
+        },
+        "text": null,
+        "inherited_role": "legend",
+        "inherited_side": null,
+        "children": [
+          {
+            "id": "legend-attachment",
+            "tag": "path",
+            "attributes": {
+              "id": "legend-attachment",
+              "d": "M54 1374 L139 1374",
+              "class": "guide"
+            },
+            "text": null,
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-145",
+            "tag": "text",
+            "attributes": {
+              "id": "element-145",
+              "x": "156",
+              "y": "1380",
+              "class": "small"
+            },
+            "text": "proposed attachment / turn",
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "legend-zip",
+            "tag": "path",
+            "attributes": {
+              "id": "legend-zip",
+              "d": "M547 1374 L632 1374",
+              "class": "zip"
+            },
+            "text": null,
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-147",
+            "tag": "text",
+            "attributes": {
+              "id": "element-147",
+              "x": "650",
+              "y": "1380",
+              "class": "small"
+            },
+            "text": "zip-half intent",
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "legend-bag-swatch",
+            "tag": "rect",
+            "attributes": {
+              "id": "legend-bag-swatch",
+              "x": "926",
+              "y": "1360",
+              "width": "54",
+              "height": "24",
+              "class": "bag"
+            },
+            "text": null,
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-149",
+            "tag": "text",
+            "attributes": {
+              "id": "element-149",
+              "x": "996",
+              "y": "1380",
+              "class": "small"
+            },
+            "text": "inside bag proposal",
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "legend-hidden",
+            "tag": "path",
+            "attributes": {
+              "id": "legend-hidden",
+              "d": "M1395 1374 L1471 1374",
+              "class": "hidden"
+            },
+            "text": null,
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          },
+          {
+            "id": "element-151",
+            "tag": "text",
+            "attributes": {
+              "id": "element-151",
+              "x": "1484",
+              "y": "1380",
+              "class": "small"
+            },
+            "text": "hidden / far role",
+            "inherited_role": "legend",
+            "inherited_side": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "qualification-footer",
+        "tag": "text",
+        "attributes": {
+          "id": "qualification-footer",
+          "x": "50",
+          "y": "1435",
+          "class": "small"
+        },
+        "text": "No measurements, sewing pattern, mechanical engagement, body/garment fit, 3D or runtime acceptance.",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      },
+      {
+        "id": "sides-footer",
+        "tag": "text",
+        "attributes": {
+          "id": "sides-footer",
+          "x": "50",
+          "y": "1464",
+          "class": "tiny"
+        },
+        "text": "Wearer R/L: front + inside R is image-left; rear R is image-right. All views are authored, unregistered sketches.",
+        "inherited_role": null,
+        "inherited_side": null,
+        "children": []
+      }
+    ]
+  },
+  "sides": {
+    "front_inside": "wearer-right image-left",
+    "rear": "wearer-right image-right",
+    "right_profile": "front image-left; near P-R; far pocket/fly layers hidden"
+  },
+  "choices": {
+    "flat_front": "authored alternative to unqualified pleated prompt",
+    "rear_pockets": false,
+    "pleats": false,
+    "inside": "front upper panels only; jagged edge is diagram crop",
+    "fly": "left overlap above right underlap; separated layer diagram and zip-half proposals",
+    "bags": "two proposed envelopes; mouth/top/side correspondence, capacity unproved"
+  },
+  "limits": [
+    "Not raster-traced",
+    "Not registered projections",
+    "Not cut pieces or sewing instructions",
+    "No dimensions/material calibration/zip engagement/pocket capacity/seam matching",
+    "No body/foundation/wardrobe fit, rig/motion or runtime acceptance"
+  ]
+}

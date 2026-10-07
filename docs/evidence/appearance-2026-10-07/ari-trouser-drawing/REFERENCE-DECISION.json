@@ -1,0 +1,54 @@
+{
+  "queries": [
+    {
+      "agent_hints": [
+        "All 2 web results are excerpts only (#1 \"https://threadtheory.ca/blogs/sew-alongs/tagged/jedediah-sew-along\", #2 \"https://threadtheory.ca/blogs/sew-alongs/12267753-day-3-jedediah-sew-along-guest-post-how-to-sew-back-pockets-with-no-interior-raw-edges\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://threadtheory.ca/blogs/sew-alongs/tagged/jedediah-sew-along",
+            "title": "Tagged \"Jedediah Sew-Along\" - Thread Theory",
+            "description": "Fold the pocket to the wrong side of the front pant leg, aligning with the waist and side seam edges. Baste the top and side edges to the pant ...",
+            "position": 1
+          },
+          {
+            "url": "https://threadtheory.ca/blogs/sew-alongs/12267753-day-3-jedediah-sew-along-guest-post-how-to-sew-back-pockets-with-no-interior-raw-edges",
+            "title": "Day 3: Jedediah Sew-Along | Guest Post - How to sew back pockets with",
+            "description": "1. Attach bias binding to the top edge of your back pocket piece, following the instructions included in the pattern. Alternatively, if you don' ...",
+            "position": 2
+          }
+        ]
+      },
+      "id": "01a117ae-b442-77aa-b11b-46e571d512b1",
+      "creditsUsed": 2
+    },
+    {
+      "agent_hints": [
+        "All 2 web results are excerpts only (#1 \"https://threadtheory.ca/blogs/sew-alongs?page=2\", #2 \"https://threadtheory.ca/blogs/sew-alongs/tagged/bamberton-shorts-sew-along\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://threadtheory.ca/blogs/sew-alongs?page=2",
+            "title": "Sew-Alongs – Page 2 - Thread Theory",
+            "description": "Bamberton Shorts Sew-Along: Day 5 - Front Pockets, Side Panels, Inseam ... Carmanah Sew-Along: Day 4 - Zipper and Finishing Details. Today's the ...",
+            "position": 1
+          },
+          {
+            "url": "https://threadtheory.ca/blogs/sew-alongs/tagged/bamberton-shorts-sew-along",
+            "title": "Tagged \"Bamberton Shorts Sew-Along\" - Thread Theory",
+            "description": "We will be sewing the front pockets, side panels and inseam. Let's begin with the front pockets. First, ensure that your pocket facings ae ...",
+            "position": 2
+          }
+        ]
+      },
+      "id": "01a117af-339d-76bd-9177-0483b9ad5fab",
+      "creditsUsed": 2
+    }
+  ],
+  "decision": "No primary image/reference admitted. Two narrow searches returned excerpt-only tag/archive/back-pocket or unrelated results, without a specific useful waist/fly/inside-bag image. Stop reference inquiry; draw the selected original authored contract from Ari actual whole image and independent worth. No scraping, external image download, copied diagram, purchase or claim of viewed official construction.",
+  "credits_used": 4
+}
