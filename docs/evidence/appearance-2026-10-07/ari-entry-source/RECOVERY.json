@@ -1,0 +1,20 @@
+{
+  "checked_utc": "2026-10-07T20:27:30.856811+00:00",
+  "latest_human": {
+    "timestamp": "2026-10-07T15:13:49.276Z",
+    "text": "Hi Cora, can you resume work on sugata-avatar?\n"
+  },
+  "saved_automation_path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+  "saved_automation_fields": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a116ed-8765-73f3-b541-d46f1e63c1b7"
+  },
+  "known_processes": "825 /opt/homebrew/bin/node\n24508 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node\n24509 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node",
+  "process_check_exit": 0,
+  "owned_source_pid_48467_complete": "Source command already exited 0; no live source/native job.",
+  "pending_input": "Known existing Blender installation and MPFB profile requested asynchronously; no dependent work admitted.",
+  "scope": "Recovery check only; no source/path/tool/native probe and no automation mutation."
+}

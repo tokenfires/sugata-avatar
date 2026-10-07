@@ -1,0 +1,85 @@
+{
+  "collected_utc": "2026-10-07T20:33:02.624839+00:00",
+  "hard_delivery_cutoff_utc": "2026-10-07T20:37:50.629847+00:00",
+  "before_cutoff": true,
+  "whole_final_handoff_root_read": "a440cc at2026-10-07T20:32UTC; no claimed abbreviated-only read",
+  "review_identity": {
+    "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/REVIEW.md",
+    "bytes": 3378,
+    "sha256": "d90841e317707a339292021ba9ff1f33a94639848d3862f0527da77e78454fb9"
+  },
+  "reviewed_eight_exact_identities_match": [
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/selected-entry.source.txt",
+      "bytes": 74,
+      "sha256": "a12b9bc15c1a0f62c50fac2efef8f3b89040e5bcd11c00c58d7b374e66e0b106"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/RESULT.json",
+      "bytes": 1737,
+      "sha256": "8917602f20eb148eb5875c0a3d9d9507ad7982465f4544d772127eb6dd277460"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/README.md",
+      "bytes": 3307,
+      "sha256": "b9a28c4e7d86d406d3de122806fe0d6268cfac3c32313c49874ad9a01bc0a2ca",
+      "preserved_snapshot_path": "docs/evidence/appearance-2026-10-07/ari-entry-source/README.reviewed.md"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/WORTH.md",
+      "bytes": 2566,
+      "sha256": "2b69c75e5e05f624d2965774506153523c04e5798bbeb68629261370e0294f2d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/PLAN.json",
+      "bytes": 4049,
+      "sha256": "f032ab5cd571ec2e6257d67848d13d014cfafdb5e9799645ab02879948449d6c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/CHECK.json",
+      "bytes": 369,
+      "sha256": "363f55ebbde5c5f879c1e30e9240060ae4f3a658651503822e50fba11a2106f6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/RECOVERY.json",
+      "bytes": 1109,
+      "sha256": "46a0d2b8a9b810921dea569db0af066a3b51976183745aef62053c472a36c848"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/COMMANDS.json",
+      "bytes": 16194,
+      "sha256": "3f7f92d23b3a4715293fb18cf1df5e8d9d09206a67b5bdb02dcd37764fee6ea0"
+    }
+  ],
+  "all_three_frozen_inputs_match": true,
+  "source_literal_independently_verified": true,
+  "prior_gate_reused_exact": true,
+  "zero_fresh_target_checks": true,
+  "original_location_window_snapshot": {
+    "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/WORK-WINDOW.reviewed.md",
+    "bytes": 35559,
+    "sha256": "83fe967f088357c85b566b951e930d9a5f67c3019d3f32f8b4cce636486504d3"
+  },
+  "root_support_record": {
+    "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/ROOT-CHECK.json",
+    "bytes": 514,
+    "sha256": "f97504d3eb9aa4f475e1c997f28e0e23128fcc51d51f3a4c3261dfdc137330c1"
+  },
+  "note": "Window/support identity recorded by root separately; final critic table binds eight source/receipt records. Original reviewed README/window retained before collected-status append.",
+  "required_input": "Known existing Blender installation and MPFB profile requested once asynchronously, still pending; no approval or native launch requested.",
+  "decision": "Source forwarding confirmed; actual tool/profile/MPFB/fullnative inputs and whole Ari recipe stay unqualified/held. End slice awaiting human selection; no further source/selector/default/native experiment.",
+  "preserved": "Accepted/runtime/original/frozen/unrelated assets, rejected image, full roadmap and19checked/10open checklist; Vite/CUA and ACTIVE recovery unchanged. No push/publication.",
+  "collected_status_outputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/README.md",
+      "bytes": 3980,
+      "sha256": "b4ca24a8ff057395e2e98564a60d06c2611c45b7e3ca40fcb2acb3ac61b23c3e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-entry-source/WORK-WINDOW.checkpoint.md",
+      "bytes": 36226,
+      "sha256": "da68c3d49a03dcb011390e99ba88532b8a8b55af2ff6a067a9c857405d0c2cb5"
+    }
+  ],
+  "root_readback_record_finished_utc": "2026-10-07T20:33:34.771333+00:00"
+}

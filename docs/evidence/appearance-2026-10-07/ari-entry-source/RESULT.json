@@ -1,0 +1,34 @@
+{
+  "started_utc": "2026-10-07T20:17:44.440598+00:00",
+  "pid": 48467,
+  "command": "python3 stdin: one bounded75-byte selected file read; strict74-byteUTF8/sh-or-bashshebang; static shlex literal classification; atmostone target metadata",
+  "selected_file": "/opt/homebrew/bin/blender",
+  "three_input_pins_match": true,
+  "root_full_worth_read": "chunkcbdacc20:16UTC",
+  "worth_sha256": "2b69c75e5e05f624d2965774506153523c04e5798bbeb68629261370e0294f2d",
+  "read_count": 1,
+  "target_metadata_checks": 0,
+  "source_qualified": true,
+  "target": "/Applications/Blender.app/Contents/MacOS/Blender",
+  "target_usable": false,
+  "error": null,
+  "limit": "No evaluation/execution/native/API/binarytargethash/geometry/recipe/profile/fallback/pathhunt.",
+  "source_bytes": 74,
+  "source_sha256": "a12b9bc15c1a0f62c50fac2efef8f3b89040e5bcd11c00c58d7b374e66e0b106",
+  "forwarder_arguments": [
+    "$@"
+  ],
+  "prior_target_gate_reused": {
+    "checked_utc": "2026-10-07T18:33:50.129607+00:00",
+    "source": "tools/figure-pipeline/build.sh BLENDER default",
+    "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "exists": false,
+    "is_file": false,
+    "executable": false,
+    "command_chunk": "e84d21",
+    "limit": "One exact candidate filesystem metadata check only. No binary read/hash, native launch, alternate-path hunt or assertion that Blender is globally absent. The provenance query remains unadmitted."
+  },
+  "target_availability_freshly_checked": false,
+  "finished_utc": "2026-10-07T20:17:44.441389+00:00",
+  "decision": "Stop. Request Robert's existing installation/profile selection; no fallback/recheck/native launch or global absence claim. Known-default availability is historical, not freshly checked."
+}

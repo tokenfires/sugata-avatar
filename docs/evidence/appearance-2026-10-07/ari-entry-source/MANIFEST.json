@@ -1,0 +1,76 @@
+{
+  "checkpoint_utc": "2026-10-07T20:34:05.820070+00:00",
+  "scope": "Exact qualified entry source and stopped selection; awaited human installation/profile. Local recoverable checkpoint only; no actual native/source/body/recipe admission.",
+  "payloads": [
+    {
+      "name": "CHECK.json",
+      "bytes": 369,
+      "sha256": "363f55ebbde5c5f879c1e30e9240060ae4f3a658651503822e50fba11a2106f6"
+    },
+    {
+      "name": "COMMANDS.json",
+      "bytes": 16194,
+      "sha256": "3f7f92d23b3a4715293fb18cf1df5e8d9d09206a67b5bdb02dcd37764fee6ea0"
+    },
+    {
+      "name": "PLAN.json",
+      "bytes": 4049,
+      "sha256": "f032ab5cd571ec2e6257d67848d13d014cfafdb5e9799645ab02879948449d6c"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3980,
+      "sha256": "b4ca24a8ff057395e2e98564a60d06c2611c45b7e3ca40fcb2acb3ac61b23c3e"
+    },
+    {
+      "name": "README.reviewed.md",
+      "bytes": 3307,
+      "sha256": "b9a28c4e7d86d406d3de122806fe0d6268cfac3c32313c49874ad9a01bc0a2ca"
+    },
+    {
+      "name": "RECOVERY.json",
+      "bytes": 1109,
+      "sha256": "46a0d2b8a9b810921dea569db0af066a3b51976183745aef62053c472a36c848"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 1737,
+      "sha256": "8917602f20eb148eb5875c0a3d9d9507ad7982465f4544d772127eb6dd277460"
+    },
+    {
+      "name": "REVIEW.md",
+      "bytes": 3378,
+      "sha256": "d90841e317707a339292021ba9ff1f33a94639848d3862f0527da77e78454fb9"
+    },
+    {
+      "name": "ROOT-CHECK.json",
+      "bytes": 514,
+      "sha256": "f97504d3eb9aa4f475e1c997f28e0e23128fcc51d51f3a4c3261dfdc137330c1"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 4119,
+      "sha256": "b10925ba30f01228cd972e45e33f68474c073bd2a0c6a61ab28cfeee4922893b"
+    },
+    {
+      "name": "WORK-WINDOW.checkpoint.md",
+      "bytes": 36226,
+      "sha256": "da68c3d49a03dcb011390e99ba88532b8a8b55af2ff6a067a9c857405d0c2cb5"
+    },
+    {
+      "name": "WORK-WINDOW.reviewed.md",
+      "bytes": 35559,
+      "sha256": "83fe967f088357c85b566b951e930d9a5f67c3019d3f32f8b4cce636486504d3"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 2566,
+      "sha256": "2b69c75e5e05f624d2965774506153523c04e5798bbeb68629261370e0294f2d"
+    },
+    {
+      "name": "selected-entry.source.txt",
+      "bytes": 74,
+      "sha256": "a12b9bc15c1a0f62c50fac2efef8f3b89040e5bcd11c00c58d7b374e66e0b106"
+    }
+  ]
+}

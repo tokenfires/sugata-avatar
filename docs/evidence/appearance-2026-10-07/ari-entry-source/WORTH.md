@@ -1,0 +1,12 @@
+# Independent worth: one bounded entry-source read
+
+**Decision: yes for the exact text/target ambiguity, without execution.** I read the fresh plan and three frozen source/result/readback witnesses and independently verified all three byte/hash pins. PLAN SHA-256 is `f032ab5cd571ec2e6257d67848d13d014cfafdb5e9799645ab02879948449d6c`. The first pin-check helper assumed `inputs` rather than the declared `input_pins` and stopped; the corrected metadata check passes. No selected74-byte file, target, process selector, binary or native API was read/probed by the critic.
+
+The actual prior RESULT records a74-byte regular executable at `/opt/homebrew/bin/blender`, selected through one PATH resolution. It establishes file metadata only. Its reviewed handoff explicitly leaves forwarding target/type, Blender identity/version/profile/MPFB/data and complete native association unresolved. Reading this exact small candidate as qualified shell text can change that concrete target selection, rather than repeat an owner inventory.
+
+- **One bounded source-text read:** require exactly74 bytes within a75-byte maximum, strict UTF8 and explicit sh/bash shebang, then classify only one static literal absolute forwarder. This can resolve the entry-point ambiguity cheaply; even a literal usable target supplies no profile/source/recipe approval. Do not evaluate/execute code, substitutions, other commands or dynamic targets. If it points to the already unavailable default, reuse that recorded failure without another check.
+- **Ask Robert for his known installation and intended profile now:** avoids this allocation and supplies human selection, but needs his input. This is the required endpoint if the one text/target witness is missing, nontext, ambiguous, erroneous or unusable. No fallback, path hunt or native retry can replace that input.
+
+Choose the first within this fresh scope. It admits source evidence only after strict qualification, not a working-Blender or launcher claim beforehand. Root owns the sole read and at most one permitted literal-target filesystem check; I will inspect the resulting witness without repeating either. Prior lateness/frozen bytes remain preserved, and exact same-default failure reuse prevents another no-change probe.
+
+Worth/full root read cutoff20:17:50, sole source-result cutoff20:22:50 and delivery cutoff20:37:50 UTC remain fixed. No target/binary hash, native/API, body/helper/rig/recipe/snapshot, render, drawing replay or installed dependency action follows. Full Ari source/recipe and broader roadmap stay held/open.
