@@ -1,0 +1,41 @@
+{
+  "origin": "Selected exact current chat function/custom-tool submissions19:50:45\u201320:00:10 with packet marker; no replay or comprehensive transcript assertion",
+  "entries": [
+    {
+      "timestamp": "2026-10-07T19:50:50.873Z",
+      "tool": "exec",
+      "call_id": "call_32BJytrIcr9WvvfkrOh3U5YY",
+      "arguments_or_input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,hashlib,datetime,subprocess\\nnow=datetime.datetime.now(datetime.timezone.utc);p=Path('docs/evidence/appearance-2026-10-07/ari-tool-selection');p.mkdir();sources=[]\\nfor f in ['tools/figure-pipeline/build.sh','docs/evidence/appearance-2026-10-07/ari-neutral-lineage/SOURCE-DECISION.json','docs/evidence/appearance-2026-10-07/ari-trouser-drawing/PLAN.json']:\\n b=Path(f).read_bytes();sources.append({'path':f,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\\nplan={'created_utc':now.isoformat(),'entry_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'usable_improvement':'A literal current-process native-tool selection handoff if one usable existing candidate resolves; otherwise a concrete missing-input checkpoint. No native/source/recipe or runtime acceptance.','bounded_question':'Can existing BLENDER override or a single process-PATH blender resolution select one executable candidate for a future full input/profile provenance query without another owner inventory or native launch?','decision':'If exactly one literal candidate resolves and filesystem metadata says usable, retain that nomination and require separately admitted complete profile/data query. Otherwise stop and request Robert\\\\'s existing installation/profile selection. Never infer global Blender absence.','deadlines':{k:(now+datetime.timedelta(minutes=n)).isoformat() for k,n in [('worth',3),('probe',6),('delivery',15)]},'inputs':sources,'probe_contract':'One standard-library process selection: nonempty os.environ BLENDER selects its exact literal path; otherwise shutil.which(blender) gives at most one PATH candidate. Stat/is_file/access of that selected candidate only. No fallback/path hunt, directories, binary reads/hashes or execution. Default wrapper path already unavailable; do not repeat it.','alternatives':[{'option':'One exact override-or-PATH candidate prerequisite check','tradeoff':'May supply a usable literal tool nomination cheaply; cannot prove profile/MPFB/canonical inputs/version/native ownership or release any recipe.'},{'option':'Request Robert\\\\'s known existing installation/profile now','tradeoff':'Avoids another metadata allocation and is required if the probe finds none; waits on his input rather than assuming broad absence.'}],'stop':'No worth by3min, no probe by6min, no usable candidate or any unexpected error => checkpoint without another resolver/search/native job. No final independent review/root readback by15min => preserve pending scope.','forbidden':['No native/tool/API launch or source/body/geometry/asset binary read/hash/decode','No Ari target/recipe/builder/generator/snapshot/rig/reader/arithmetic/export/capture','No drawing source or rejected image edit/retake, closed visual routes or repeated tweaks','No accepted/frozen/original/runtime/unrelated worktree mutation','No install/model/dependency/subscription change, purchase/reset, push/publication/other project'],'qualification':'Metadata-only tool nomination; whole native/profile/canonical input/auxiliary anatomy/helper/rig/export association remains missing until actually qualified. Entire Ari recipe held; fullAAA roadmap/checklist19scoped tenbroad open unchanged.'}\\n(p/'PLAN.json').open('x').write(json.dumps(plan,indent=2)+'\\\\n');print(json.dumps({'created_utc':now.isoformat(),'sha256':hashlib.sha256((p/'PLAN.json').read_bytes()).hexdigest(),'deadlines':plan['deadlines']},indent=2))\\nPY\",\"max_output_tokens\":1000}));\n"
+    },
+    {
+      "timestamp": "2026-10-07T19:52:49.975Z",
+      "tool": "exec",
+      "call_id": "call_gTciar6HsORpDIe3hjJhefcs",
+      "arguments_or_input": "text(await tools.clock__curr_time({}));text(await tools.exec_command({cmd:\"rg --files docs/evidence/appearance-2026-10-07/ari-tool-selection\",\"max_output_tokens\":400}));\n"
+    },
+    {
+      "timestamp": "2026-10-07T19:53:41.615Z",
+      "tool": "exec",
+      "call_id": "call_9q668bHpL5RD4VfROC8UsOJq",
+      "arguments_or_input": "text(await tools.exec_command({cmd:\"rg --files docs/evidence/appearance-2026-10-07/ari-tool-selection | rg 'WORTH'\",\"max_output_tokens\":400}));text(await tools.clock__curr_time({}));\n"
+    },
+    {
+      "timestamp": "2026-10-07T19:54:08.681Z",
+      "tool": "exec",
+      "call_id": "call_fd9f46c49529482ea870b35dac693350",
+      "arguments_or_input": "text(await tools.exec_command({cmd:\"cat docs/evidence/appearance-2026-10-07/ari-tool-selection/WORTH.md\",\"max_output_tokens\":2800}));text(await tools.clock__curr_time({}));\n"
+    },
+    {
+      "timestamp": "2026-10-07T19:54:43.510Z",
+      "tool": "exec",
+      "call_id": "call_0rAbx5Bb0YNBXsuoQtupMsP7",
+      "arguments_or_input": "text(await tools.exec_command({cmd:\"cat tools/figure-pipeline/build.sh; cat docs/evidence/appearance-2026-10-07/ari-tool-selection/WORTH.md\",\"max_output_tokens\":3400}));text(await tools.clock__curr_time({}));\n"
+    },
+    {
+      "timestamp": "2026-10-07T19:56:09.871Z",
+      "tool": "exec",
+      "call_id": "call_gB4EI3p7slr8eBgYXQMjxKkL",
+      "arguments_or_input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,hashlib,datetime,os,shutil\\np=Path('docs/evidence/appearance-2026-10-07/ari-tool-selection');plan=json.loads((p/'PLAN.json').read_text());now=datetime.datetime.now(datetime.timezone.utc);assert now<datetime.datetime.fromisoformat(plan['deadlines']['probe'])\\nfor x in plan['inputs']:\\n b=Path(x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256']\\nworth=(p/'WORTH.md').read_bytes();assert b'Decision: yes' in worth\\nlines=Path('tools/figure-pipeline/build.sh').read_text().splitlines();positions={k:next(i+1 for i,s in enumerate(lines) if s.startswith(prefix)) for k,prefix in [('override','BLENDER='),('executable_check','if [ ! -x')]}\\nrecord={'started_utc':now.isoformat(),'pid':os.getpid(),'command':'python3 stdin: nonempty os.environ.get(BLENDER), else one shutil.which(blender); selected candidate stat/is_file/os.access only','input_pins_match':True,'root_full_worth_read':'19:54:43UTC chunk38b0ea','worth_sha256':hashlib.sha256(worth).hexdigest(),'actual_wrapper_witness_lines':positions,'candidate':None,'candidate_usable':False,'error':None,'limits':'Metadata-only nomination. No binary read/hash/native launch, default repeat/fallback/path hunt, profile/MPFB/canonical/source/recipe acquisition or approval.'}\\ntry:\\n override=os.environ.get('BLENDER','');candidate=override if override else shutil.which('blender');record['selected_from']='BLENDER override' if override else 'single process PATH resolution';record['override_nonempty']=bool(override);record['candidate']=candidate\\n if candidate:\\n  if candidate=='/Applications/Blender.app/Contents/MacOS/Blender':record['known_default_reused_without_reprobe']='Prior18:33:50 metadata unavailable; exact default not checked again'\\n  else:\\n   q=Path(candidate);exists=q.exists();isfile=q.is_file();executable=os.access(q,os.X_OK);record.update(candidate_exists=exists,candidate_is_file=isfile,candidate_executable=executable,candidate_usable=exists and isfile and executable)\\n   if exists:\\n    st=q.stat();record['stat']={'size':st.st_size,'mtime_ns':st.st_mtime_ns,'mode':oct(st.st_mode)}\\nexcept Exception as e:record['error']=type(e).__name__+': '+str(e)\\nrecord['finished_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();record['decision']='Retain unqualified tool nomination; complete profile/data query requires fresh worth.' if record['candidate_usable'] else 'No usable current-process selection. Stop resolver; request Robert\\\\'s existing installation/profile. No global absence claim or fallback/native launch.'\\n(p/'RESULT.json').open('x').write(json.dumps(record,indent=2)+'\\\\n');print(json.dumps(record,indent=2))\\nPY\",\"max_output_tokens\":1700}));\n"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "checkpoint_utc": "2026-10-07T20:08:46.528853+00:00",
+  "scope": "Late unqualified native entry-point nomination; no contents/native/recipe/source acceptance. Local read-only/Git recovery only.",
+  "payloads": [
+    {
+      "name": "CHECK.json",
+      "bytes": 402,
+      "sha256": "f57a15ae690404f6dcb87e06c8024eb75598ee8a9eb30ca451472dae016ee378"
+    },
+    {
+      "name": "COMMANDS.json",
+      "bytes": 8301,
+      "sha256": "f968a00b369a999ce1c49f4313dfa5def8d42ad05e0ae3665143d6bc4f18547f"
+    },
+    {
+      "name": "PLAN.json",
+      "bytes": 3473,
+      "sha256": "23c0b63c2e146344e97967ff9687d7afde064c81c196d3072d40e774709dba1c"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3839,
+      "sha256": "75dc32f0241a2b9801687ce0979835c4e365921e1aeaae87a4505affcb3cfd28"
+    },
+    {
+      "name": "RECOVERY.json",
+      "bytes": 575,
+      "sha256": "340f9841658f119641a656a43fe3a8cebbe2922d8adc1f025a866de9e17bd6b9"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 1154,
+      "sha256": "4dd828b9af779056b97993649b9e0a2208e6c741c679ba4000fc75539442d98f"
+    },
+    {
+      "name": "REVIEW.md",
+      "bytes": 3227,
+      "sha256": "1a891434434e37108f7b58e9e226eccbf4e34ce799f5cef484f270aba07546f6"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 1754,
+      "sha256": "41f0c5d557063cad457d3a3d8f52df1911d3b31c9d56b06c4902c4ff7ddcb1d1"
+    },
+    {
+      "name": "WORK-WINDOW.checkpoint.md",
+      "bytes": 33426,
+      "sha256": "6a82291397037959678c4875da84d54e8792bde1263af102fa8ba32db59394b9"
+    },
+    {
+      "name": "WORK-WINDOW.reviewed.md",
+      "bytes": 32793,
+      "sha256": "6e6aa17ac06f0f3e6af19daaa4e87e58995ea59b81c9df461281392043e4bd0e"
+    },
+    {
+      "name": "WORTH.before-line-correction.md",
+      "bytes": 2423,
+      "sha256": "650224598b34c8aafb25772b2fe1701ea88c5b65d0b680fab869192a92890896"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 2579,
+      "sha256": "6b4846ae01c86be988fbfb6577e5466506de473ef9df2548d7403d4dc896ced6"
+    }
+  ]
+}

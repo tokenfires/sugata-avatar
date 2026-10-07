@@ -1,0 +1,34 @@
+{
+  "checked_utc": "2026-10-07T20:08:46.528853+00:00",
+  "root_full_current_worth_read": "20:03:57UTC chunk117cb8",
+  "root_full_review_read": "chunka52763 following20:05:32 clock; REVIEW saved20:05:01",
+  "four_review_bound_files_match": [
+    {
+      "name": "PLAN.json",
+      "bytes": 3473,
+      "sha256": "23c0b63c2e146344e97967ff9687d7afde064c81c196d3072d40e774709dba1c"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 2579,
+      "sha256": "6b4846ae01c86be988fbfb6577e5466506de473ef9df2548d7403d4dc896ced6"
+    },
+    {
+      "name": "WORTH.before-line-correction.md",
+      "bytes": 2423,
+      "sha256": "650224598b34c8aafb25772b2fe1701ea88c5b65d0b680fab869192a92890896"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 1154,
+      "sha256": "4dd828b9af779056b97993649b9e0a2208e6c741c679ba4000fc75539442d98f"
+    }
+  ],
+  "decision": "Unqualified entry-point nomination only. Final root identity sealing occurs after20:05:50 delivery cutoff; record a late checkpoint, not timely completed delivery or tool/source/recipe acceptance.",
+  "support_scope": "Reviewer reports settled README3407bytes prefixSHA5bd8e2 and CHECK402bytes prefixSHAf57a15; these reported shortened identities are not treated as complete independent bindings. Root support checks were recorded separately a3e05f.",
+  "late_written_worth": "Source-witnessed decision timely; fullfile19:54:21 late. Exact2423-byte reviewed witness reconstructed later, not saved before line edit.",
+  "probe_count": 1,
+  "candidate_contents_read": false,
+  "native_launched": false,
+  "next": "Separate fresh worth may admit one exact74-byte strict text/shebang read without evaluation/execution/fallback. Actual target/type/profile/MPFB/data/fullnative/recipe remain held."
+}

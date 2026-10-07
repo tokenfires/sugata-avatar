@@ -1,0 +1,28 @@
+{
+  "started_utc": "2026-10-07T19:56:09.932474+00:00",
+  "pid": 2170,
+  "command": "python3 stdin: nonempty os.environ.get(BLENDER), else one shutil.which(blender); selected candidate stat/is_file/os.access only",
+  "input_pins_match": true,
+  "root_full_worth_read": "19:54:43UTC chunk38b0ea",
+  "worth_sha256": "650224598b34c8aafb25772b2fe1701ea88c5b65d0b680fab869192a92890896",
+  "actual_wrapper_witness_lines": {
+    "override": 21,
+    "executable_check": 28
+  },
+  "candidate": "/opt/homebrew/bin/blender",
+  "candidate_usable": true,
+  "error": null,
+  "limits": "Metadata-only nomination. No binary read/hash/native launch, default repeat/fallback/path hunt, profile/MPFB/canonical/source/recipe acquisition or approval.",
+  "selected_from": "single process PATH resolution",
+  "override_nonempty": false,
+  "candidate_exists": true,
+  "candidate_is_file": true,
+  "candidate_executable": true,
+  "stat": {
+    "size": 74,
+    "mtime_ns": 1787926321894019355,
+    "mode": "0o100555"
+  },
+  "finished_utc": "2026-10-07T19:56:09.933801+00:00",
+  "decision": "Retain unqualified tool nomination; complete profile/data query requires fresh worth."
+}
