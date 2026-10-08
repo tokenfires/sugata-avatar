@@ -1,0 +1,47 @@
+{
+  "started_utc": "2026-10-08T12:48:15.750107+00:00",
+  "source_only": true,
+  "commands": [
+    {
+      "chunk": "404586",
+      "exit_code": 0,
+      "role": "six-source function index; output truncated, no whole-source read claimed"
+    },
+    {
+      "chunk": "44fdf8",
+      "exit_code": 0,
+      "role": "whole bridge + target ranges"
+    },
+    {
+      "chunk": "d9e8f3",
+      "exit_code": 0,
+      "role": "target method locations/human creation+asset prefix+loaded refit"
+    },
+    {
+      "chunk": "f7c862",
+      "exit_code": 0,
+      "role": "human attachment completion/Face expression interpolation/target load"
+    }
+  ],
+  "findings": [
+    {
+      "status": "source-owned target loader rule, no target application",
+      "witness": "TargetService358\u2013380,415\u2013477,778\u2013836",
+      "explanation": "load_target reads selectedfile, creates relative-key coordinates using target axes(x,-third,second) and actual General scale_factor; sets ShapeKey.value to weight. No semantic proof of this control property or tenfile domain yet."
+    },
+    {
+      "status": "first specific unowned active-body-to-anatomy fit association",
+      "witness": "HumanService607, FaceService387, HumanService1700",
+      "explanation": "Actual attachment/refit delegates to ClothesService.fit_clothes_to_human outside six nominees; selected sources do not establish whether newly active detail keys feed every fitted child Basis and scale. FaceService uses raw basemesh.data.vertices for expression offsets, so correct evaluated fitting cannot be assumed merely from order. No library defect or source incapability inferred.",
+      "alternatives": [
+        "A: one fresh narrow ClothesService fitting/body-coordinate dependency inquiry; can own evaluated all-owner basis and active detail semantics, retains existing pipeline and requires exact source binding.",
+        "B: explicitly commit details into new Basis and rebuild expressions/rig under a separate complete source contract; more invasive key/macro semantics and broader validation."
+      ]
+    }
+  ],
+  "native_jobs": 0,
+  "target_applications": 0,
+  "first_boundary_utc": "2026-10-08T12:54:58.051938+00:00",
+  "continued_source_inquiry_held": true,
+  "receipt_writer_correction": "da10e0 SyntaxError before any write/source read; corrected list delimiter, no source/native retry"
+}

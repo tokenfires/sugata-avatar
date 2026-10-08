@@ -1,0 +1,5 @@
+# Narrow fit dependency nomination
+
+Six-source inquiry stops at HumanService.add_mhclo_asset:607 and refit:1700 delegating actual child fitting to ClothesService, outside the six nominees. FaceService:378 uses raw body.data.vertices for source expression offsets; new active detail keys cannot be assumed to propagate into fitted child Basis/scales from ordering alone. No defect or global incapability is inferred.
+
+Fresh worth may admit only installed services/clothesservice.py fitting ranges and the directly named body-coordinate getter if required. Bind each before reading; no generic inventory, source import, target decode/application/math/native job. Unchanged13:10 inquiry stop/13:25close; at most two named dependencies, focused on active-evaluated body versus raw Basis, fitted child Basis/scales and expression/rest implications. Prefer source-owned active detail construction if it can be fully defined; otherwise hold and nominate explicit committed-Basis construction with all macro/expression/rig duties, no rescue operation. Original six-source PLAN/WORTH/first boundary remain exact. Root/critic must verify a fresh worth before reading additional source.

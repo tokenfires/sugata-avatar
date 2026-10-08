@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-10-08T12:43:42.973448+00:00",
+  "new_lineage": true,
+  "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+  "source_bytes": 11983694,
+  "source_sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb",
+  "requested_parameters": {
+    "gender": 0.5,
+    "age": 0.5,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "height": 0.5,
+    "proportions": 0.5,
+    "cupsize": 0.5,
+    "firmness": 0.5,
+    "skin": "young_caucasian_female.mhmat",
+    "no_face_parts": false,
+    "eye_proxy": "high-poly.mhclo",
+    "no_microsoft_visemes": false
+  },
+  "actual_macro_parameters": {
+    "gender": 0.5,
+    "age": 0.5,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "proportions": 0.5,
+    "height": 0.5,
+    "cupsize": 0.5,
+    "firmness": 0.5,
+    "race": {
+      "asian": 0.33000001311302185,
+      "caucasian": 0.33000001311302185,
+      "african": 0.33000001311302185
+    }
+  },
+  "control_scene_source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LOGGED-SOURCE-RESULT.json",
+  "original_g050_lineage_proven": false,
+  "policy": "Preserve this actual neutral configuration; selected ten detail weights are new provisional artist intent; no new macro/height/face/head parameter authoring"
+}

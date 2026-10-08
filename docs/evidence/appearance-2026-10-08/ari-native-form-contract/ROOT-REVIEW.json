@@ -1,0 +1,64 @@
+{
+  "read_utc": "2026-10-08T13:23:26.223893+00:00",
+  "whole_handoff_read_chunk": "8703f0",
+  "review_sha256": "c3c9ad531d8c7d91cfb01fc1daae75975f804f751de1e8eea3dab6924800538b",
+  "all10_stable_bindings_exact": true,
+  "all3_excerpt_sets_match_actual_sources": true,
+  "all17original_plus2extra_pins_physically_exact": true,
+  "native_control_readonly": true,
+  "bindings": [
+    {
+      "name": "CONTRACT.md",
+      "bytes": 6281,
+      "sha256": "285cede038086804a559e079181da2d14682ed81f60c63c03feb4a3595f22058"
+    },
+    {
+      "name": "SOURCE-STOP.json",
+      "bytes": 1587,
+      "sha256": "e95edc3204bd3b068512c12488b90928636cb68b065bc83ee37886e437683b4d"
+    },
+    {
+      "name": "SOURCE-STOP.initial.json",
+      "bytes": 1062,
+      "sha256": "3b3716128d68c7dda2eefa451b75b235a7560714ec1e580f7ba782dcc0e145f0"
+    },
+    {
+      "name": "INQUIRY.json",
+      "bytes": 2359,
+      "sha256": "b6d73d8a3134142e490084e551b65743bf83f298076f02552d38a1e4bd76247f"
+    },
+    {
+      "name": "INPUTS.json",
+      "bytes": 4305,
+      "sha256": "3bf03d48a13dce534544e7ee8753935e63800ba635dd3c2a9a94f994e5d4cc7b"
+    },
+    {
+      "name": "FIT-INPUTS.json",
+      "bytes": 318,
+      "sha256": "a4e880efb326450b1181c63dbe0ee0f8902c0f254d8c27b15d42a229ec0307ae"
+    },
+    {
+      "name": "RIG-NOMINEE.json",
+      "bytes": 291,
+      "sha256": "7430ba9688878bffe403e46199ec8ed05f7e81e412c86b63df59a6c9a86d0509"
+    },
+    {
+      "name": "SOURCE-WITNESSES.json",
+      "bytes": 20976,
+      "sha256": "3f477810ed5b913806914bb17911c44db446496e750f43192129f48ea3371a51"
+    },
+    {
+      "name": "FIT-SOURCE-WITNESSES.json",
+      "bytes": 12799,
+      "sha256": "75fec8f2b89ce641f5445d3853364bbe97e9139338ab6331aa1a17c05d003489"
+    },
+    {
+      "name": "RIG-SOURCE-WITNESSES.json",
+      "bytes": 15729,
+      "sha256": "e4c3bd5e14996c80f18106f01d738d8fce7f4843d4c7e9ff92f1b2663a2a3733"
+    }
+  ],
+  "decision": "Retain active-detail all-owner rebuild source nomination; no committed-Basis rewrite selected. Actual constructor held on ten-domain/scale/53strategies/trueimplementation/output/image gates.",
+  "source_limits": "Normal-path cleanup only, possible map skips/Rig fallbacks must be strictly prevalidated; no rollback claim. Final13:11:32supplementalreadlate; no timelycompleteadmission.",
+  "next_worth": "Fresh exact-input/program firstform admission rather than genericinventory; original runtime bridge/AAA duties unchanged"
+}
