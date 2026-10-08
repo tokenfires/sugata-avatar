@@ -1,0 +1,121 @@
+{
+  "created_utc": "2026-10-08T05:11:19.959725+00:00",
+  "files": [
+    {
+      "name": ".gitignore",
+      "bytes": 21,
+      "sha256": "a01835231fabd887b1587dcdbae426abeed3800a6a416e02931e31ff5a3ed938"
+    },
+    {
+      "name": "CHANGES.diff",
+      "bytes": 4057,
+      "sha256": "07de6e79fdc9fbf7f27d5ac69f49aa54a7b8d33b35a78fec3792c90d3ee4dc97"
+    },
+    {
+      "name": "EXEC-PLAN-before-timestamp-fix.json",
+      "bytes": 1837,
+      "sha256": "bfcaada3c386140d234e3e82ee14a0ba0d551e909fbe613fa892b5f8c7ba7b98"
+    },
+    {
+      "name": "EXEC-PLAN.json",
+      "bytes": 1894,
+      "sha256": "8c98000cf68d95570504b54513c85d6a436ab2506eb700242e8aed4314454911"
+    },
+    {
+      "name": "JOB-start.json",
+      "bytes": 586,
+      "sha256": "70bd94b27d16adcbb02ca44c86fa3ae76b64775107301c81db0fd062556dc7fe"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 658,
+      "sha256": "e208843fb556ec506d22f1677c403a03d1bed6f023c380cc0f8b1ede179f484c"
+    },
+    {
+      "name": "PLAN.md",
+      "bytes": 3944,
+      "sha256": "393d9f90847d948a1c15b8f4f59315ae2a4ea18e7a66f4d3b8fa3ae0c70e9939"
+    },
+    {
+      "name": "PREFLIGHT.md",
+      "bytes": 6208,
+      "sha256": "cd6ab10b39c58a3eea7db997c77e0e2e05eb69af90295c72b1c15c4b1d17e6e8"
+    },
+    {
+      "name": "README.md",
+      "bytes": 5709,
+      "sha256": "64767ad2322d77f2737a6250cb48e461143780e34615c65f0bd57ec372f116ff"
+    },
+    {
+      "name": "RESULT-REVIEW.md",
+      "bytes": 6910,
+      "sha256": "faa92ae9fa6811fa8cee0b1b590bf5883399e672abade7ecdfcc21e5253e3ddc"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 2364038,
+      "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+    },
+    {
+      "name": "ROOT-PREFLIGHT.json",
+      "bytes": 671,
+      "sha256": "54927fdec59870d46f25ca945d2a83c5a6c357f965ff2acfb26f9f3052d73720"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 2051,
+      "sha256": "dec0949bee568e781f3b05ccf8f39da8f55dc1ce8776985f469010b1e242b163"
+    },
+    {
+      "name": "ROOT-RESULT.json",
+      "bytes": 1847,
+      "sha256": "bca2347f2d53f75dbd4763968c0b16cee5da443bafa3c8df9a9bb4340e7b93e7"
+    },
+    {
+      "name": "ROOT-WORTH.json",
+      "bytes": 258,
+      "sha256": "32f072b1db99da7bf379df84b7c9a163f6387e442162101167ae1804e0c3b2b7"
+    },
+    {
+      "name": "SOURCE-PINS-before-timestamp-fix.json",
+      "bytes": 3427,
+      "sha256": "3587d13d21d46c8b3ab5b8906db338e2a66be4ef387a80913bceeb89f5332de5"
+    },
+    {
+      "name": "SOURCE-PINS.json",
+      "bytes": 3707,
+      "sha256": "d41c572d7c2c788f32a5b0c20c3276760037282651535a618f18345bf71ec651"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 3831,
+      "sha256": "511336043599325d6507d1e0c772ef8817dd3f16b83605f7f8e56967ba39577d"
+    },
+    {
+      "name": "audit_reconstruction.py",
+      "bytes": 13771,
+      "sha256": "eb20591ca14cf18d7dbb603f98166e20d76a56eafe6568c40a7bdf259d29e9e5"
+    },
+    {
+      "name": "exact_reconstruction.py",
+      "bytes": 4023,
+      "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+    },
+    {
+      "name": "native.log",
+      "bytes": 7561,
+      "sha256": "6d311a40ce4112804880cd5469639016e2ba5a115ced600530e8d74aa7754bec"
+    },
+    {
+      "name": "run_native.py",
+      "bytes": 1754,
+      "sha256": "53c5440c1ad0f881fc32dee245b1c201b45ffe7792da42c18dbf3c3f9462be50"
+    }
+  ],
+  "local_ignored_candidate": {
+    "path": "work/neutral-lossless.blend",
+    "bytes": 10811557,
+    "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba"
+  },
+  "limit": "Manifest excludes itself; candidate localonly/no offmachine backup; cold/render/GLB pending."
+}

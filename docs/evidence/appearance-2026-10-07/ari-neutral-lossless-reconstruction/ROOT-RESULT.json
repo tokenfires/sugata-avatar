@@ -1,0 +1,44 @@
+{
+  "verified_utc": "2026-10-08T05:07:14.731377+00:00",
+  "result": {
+    "bytes": 2364038,
+    "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+  },
+  "job": {
+    "started_utc": "2026-10-08T05:04:39.856087+00:00",
+    "wrapper_pid": 48581,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/audit_reconstruction.py"
+    ],
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "pid": 48582,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T05:04:45.283581+00:00"
+  },
+  "checks_passed": 218,
+  "source_subset_final_scene_shape_hash_bindings": 98,
+  "shape_error_max_m": 0,
+  "intermediate_matches_failed_control_all98_maxima_counts": true,
+  "mapping_equals_failed_control": true,
+  "extended_source_semantics_equal": true,
+  "other_six_owner_records_exact": true,
+  "removed_new_zero_user_meshes": 97,
+  "material_user_counts_equal": true,
+  "candidate": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "bytes": 10811557,
+    "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba"
+  },
+  "candidate_mode": "0444",
+  "physical_source_unchanged": true,
+  "five_exec_eleven_source_pins_match": true,
+  "limits": "Root validates stored all98rawsubset/finalscene hash associations and original owner records; no secondnative all-coordinate evaluation, candidatecold/render/GLB/motion/Ari qualification."
+}

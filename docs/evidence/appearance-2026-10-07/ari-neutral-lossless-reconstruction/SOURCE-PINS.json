@@ -1,0 +1,69 @@
+{
+  "pins": [
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/exportservice.py",
+      "bytes": 18134,
+      "sha256": "3c59c792961bcea68551d49b229e196a42fb70cd4df55e2127a6681b104f7100"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "bytes": 62066,
+      "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/faceservice.py",
+      "bytes": 42894,
+      "sha256": "389940c62dfa623409dadc5b2a38f4edeaa0fe45a8315ac887ad696a37bbd950"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/logservice.py",
+      "bytes": 16584,
+      "sha256": "98bd5ca5e3f5772e5d45c1923dfffea08ce6309444b4ccc16edafe6b1f425d3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/function_module.py",
+      "bytes": 992,
+      "sha256": "ad25e48b56faf74e12001dd994963f3b2bf5afb09db7f36cca90550778858d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+      "bytes": 4023,
+      "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+    }
+  ],
+  "source_findings": [
+    "ExportService79\u2013126 applies MASK by reconstructing everykey thenremovesMASK; currentsource hasonlybodyMASK +ARMATURE.",
+    "ExportService264\u2013271 zeroeskeys/bakesBasis beforeMASK; 289\u2013331 repeatsonekey=1/bakesMASK, dropsalloffsets atlength<=SIGNIFICANT_SHIFT_MINIMUM.",
+    "FaceService256 fixesSIGNIFICANT_SHIFT_MINIMUM=0.0001; thisquantifiespossibleloss, not actualsource/candidateerror.",
+    "TargetService129\u2013152 bakescurrentmix andremoveskeys; ObjectService198\u2013214 copiesobject/data; source point/face/corner attrs shouldbechecked rather thanassumed.",
+    "Newexact_reconstruction writes originalsource coordinates byliteral retainedPOINT IDs; doesnot editvendor threshold orsourcefile."
+  ],
+  "inherited_dependency_read_utc": "2026-10-08T04:05:14.433634+00:00",
+  "current_pin_hash_utc": "2026-10-08T05:00:51.195810+00:00",
+  "timestamp_scope": "Original ten dependency source-inspection provenance is inherited; all eleven file bytes rehashed at current_pin_hash_utc. New reconstruction module authored in this slice."
+}

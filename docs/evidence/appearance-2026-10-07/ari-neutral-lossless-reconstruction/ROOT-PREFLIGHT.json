@@ -1,0 +1,18 @@
+{
+  "read_utc": "2026-10-08T05:04:39.800381+00:00",
+  "critic_sha256": "cd6ab10b39c58a3eea7db997c77e0e2e05eb69af90295c72b1c15c4b1d17e6e8",
+  "seven_handoff_bindings_match": [
+    "PLAN.md",
+    "WORTH.md",
+    "audit_reconstruction.py",
+    "exact_reconstruction.py",
+    "CHANGES.diff",
+    "SOURCE-PINS.json",
+    "EXEC-PLAN.json"
+  ],
+  "five_exec_eleven_source_pins_match": true,
+  "source_warm_failed_control_match": true,
+  "outputs_absent": true,
+  "background_native_absent": true,
+  "decision": "Onechanged180sconstructor admitted afterrootwholehandoff/main/helper/diffread. Fullstrictchecks/bytes beforecandidate save; no retry orcold/render/GLB/Aritargets."
+}

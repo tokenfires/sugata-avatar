@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-10-08T04:58:25.467483+00:00",
+  "timeout_seconds": 180,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/audit_reconstruction.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/PLAN.md",
+      "bytes": 3944,
+      "sha256": "393d9f90847d948a1c15b8f4f59315ae2a4ea18e7a66f4d3b8fa3ae0c70e9939"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/audit_reconstruction.py",
+      "bytes": 13771,
+      "sha256": "eb20591ca14cf18d7dbb603f98166e20d76a56eafe6568c40a7bdf259d29e9e5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+      "bytes": 4023,
+      "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/SOURCE-PINS.json",
+      "bytes": 3427,
+      "sha256": "3587d13d21d46c8b3ab5b8906db338e2a66be4ef387a80913bceeb89f5332de5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/CHANGES.diff",
+      "bytes": 4057,
+      "sha256": "07de6e79fdc9fbf7f27d5ac69f49aa54a7b8d33b35a78fec3792c90d3ee4dc97"
+    }
+  ]
+}

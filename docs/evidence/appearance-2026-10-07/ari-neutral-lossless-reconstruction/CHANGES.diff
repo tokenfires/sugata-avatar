@@ -1,0 +1,54 @@
+--- docs/evidence/appearance-2026-10-07/ari-neutral-bake-first-run/audit_bake.py
++++ docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/audit_reconstruction.py
+@@ -1,4 +1,4 @@
+-"""One isolated topology-boundary audit. Never save the original or retry."""
++"""One changed lossless reconstruction audit. Never save the original or retry."""
+ import sys
+ sys.dont_write_bytecode = True
+ import os
+@@ -23,7 +23,7 @@
+ ATTRS = {"POINT": "sugata_source_point", "FACE": "sugata_source_face", "CORNER": "sugata_source_corner"}
+ report = {"started_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+           "pid": os.getpid(), "epsilon_m": EPSILON, "checks": [], "limit":
+-          "First native helper-bake boundary only. No GLB/Ari targets/appearance or cold-candidate qualification."}
++          "Exact retained-source reconstruction only. No GLB/Ari targets/appearance or cold-candidate qualification."}
+ 
+ def check(name, passed, detail=None):
+     report["checks"].append({"name": name, "pass": bool(passed), "detail": detail})
+@@ -122,6 +122,9 @@
+         require(mesh.attributes.get(name) is None, "Source provenance name collision")
+         attr = mesh.attributes.new(name=name, type="INT", domain=domain)
+         attr.data.foreach_set("value", list(range(lengths[domain])))
++    reconstruction = load(HERE / "exact_reconstruction.py", "sugata_exact_shapes")
++    key_metadata = reconstruction.snapshot(mesh.shape_keys)
++    original_mesh_pointers = {m.as_pointer() for m in bpy.data.meshes}
+     original_keys = {k.name: {"coords": coords(k.data), "value": k.value, "relative": k.relative_key.name}
+                      for k in mesh.shape_keys.key_blocks}
+     require(all(k["relative"] == "Basis" for k in original_keys.values()), "Unsupported relative-key graph")
+@@ -139,6 +142,11 @@
+     require(all(0 <= i < lengths["POINT"] for i in point) and all(0 <= i < lengths["FACE"] for i in face)
+             and all(0 <= i < lengths["CORNER"] for i in corner), "Out-of-source provenance")
+     report["mapping"] = {"points": point, "faces": face, "corners": corner}
++    require(topology(mesh) == visible_before["topology"], "Topology changed before reconstruction")
++    report["reconstruction"] = reconstruction.restore(body, original_keys, key_metadata, point)
++    report["removed_new_unused_meshes"] = reconstruction.remove_new_unused_meshes(original_mesh_pointers)
++    report["extended_key_metadata"] = {"source": key_metadata, "restored": reconstruction.snapshot(mesh.shape_keys)}
++    check("extended_key_metadata", report["extended_key_metadata"]["source"] == report["extended_key_metadata"]["restored"])
+     check("retained_topology_and_smoothing", topology(mesh) == visible_before["topology"])
+     check("retained_skin_influences", [[(g.group, g.weight) for g in v.groups] for v in mesh.vertices]
+           == [original_weights[i] for i in point])
+@@ -197,12 +205,13 @@
+           == [{k: v for k, v in m.items() if k != "users"} for m in after["materials"]])
+     report["material_user_counts"] = {"before": [(m["name"], m["users"]) for m in before["materials"]],
+                                       "after": [(m["name"], m["users"]) for m in after["materials"]]}
++    check("owner_material_user_counts", report["material_user_counts"]["before"] == report["material_user_counts"]["after"])
+     check("owner_packed_images", before["images"] == after["images"])
+     check("scene_names", before["scene_names"] == after["scene_names"])
+     check("physical_original_unchanged", hashlib.sha256(SOURCE.read_bytes()).hexdigest() == SOURCE_SHA)
+     report["passed"] = all(c["pass"] for c in report["checks"])
+     if report["passed"]:
+-        candidate = WORK / "neutral-baked.blend"
++        candidate = WORK / "neutral-lossless.blend"
+         require(not candidate.exists() and candidate != SOURCE, "Unsafe candidate destination")
+         saved = bpy.ops.wm.save_as_mainfile(filepath=str(candidate))
+         require(saved == {"FINISHED"} and candidate.is_file(), "Candidate save did not finish")
