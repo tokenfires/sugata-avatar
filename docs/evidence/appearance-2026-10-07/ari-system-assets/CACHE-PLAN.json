@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-08T00:43:30.373613+00:00",
+  "argv": [
+    "python3",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/cache_acquire.py"
+  ],
+  "worth": "Independent critic message: source-witnessed yes to exact local-cache copy over duplicate network transfer",
+  "source_metadata": {
+    "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+    "bytes": 280737770,
+    "mtime_ns": 1790126734907029249,
+    "regular": true,
+    "symlink": false
+  },
+  "decision": "One copy/hash and ZIP central-directory metadata only; localcache provenance, not currentserver byteidentity. Originalpreserved. Later textual MHClO/material/license/dependency preflight before extraction/use.",
+  "outer_process_timeout_seconds": 330,
+  "network_transfers": 0,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/PLAN.json",
+      "bytes": 1278,
+      "sha256": "bb2f0f38318ec6b47bae2bee00aeb8321d5dfd6d6ab718a05c499ff44142cdeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/OFFICIAL-MARKDOWN.json",
+      "bytes": 137119,
+      "sha256": "ef9b87c04159e024d9dfee2ed28ccb2e699f345a8acecf96a13709bb040e1ffb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ACQUIRE-PREFLIGHT.md",
+      "bytes": 6790,
+      "sha256": "015768628a68fc62e093af5d5602dc35f10c60ce87771389348d239ab3038879"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/cache_acquire.py",
+      "bytes": 5548,
+      "sha256": "0d8e1b3f34b9bef6fa0a2b63010b478477cfcf87c94cc9c8b6fc42b3e0bcc654"
+    }
+  ]
+}

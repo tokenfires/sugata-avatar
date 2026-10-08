@@ -1,0 +1,66 @@
+{
+  "created_utc": "2026-10-08T00:59:26.841910+00:00",
+  "usable_improvement": "20 complete active five-face input files isolated undercandidate/data",
+  "research_question": "Can selected members be copied exactly with CRC/hash verification and canonical contained paths, while alloriginals andinstalled data remain preserved?",
+  "decision": "One selectedextraction only after independent consumer/root acceptance and exact extractor preflight; stopon anychangedsource/path/hash/count/error. No render/native use/globalinstall.",
+  "source_archive_sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+  "destination": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/candidate/data",
+  "members": [
+    "eyebrows/eyebrow001/eyebrow001.mhclo",
+    "eyebrows/eyebrow001/eyebrow001.mhmat",
+    "eyebrows/eyebrow001/eyebrow001.obj",
+    "eyebrows/eyebrow001/eyebrow001.png",
+    "eyelashes/eyelashes01/eyelashes01.mhclo",
+    "eyelashes/eyelashes01/eyelashes01.mhmat",
+    "eyelashes/eyelashes01/eyelashes01.obj",
+    "eyelashes/eyelashes01/eyelashes01.png",
+    "eyes/high-poly/high-poly.mhclo",
+    "eyes/high-poly/high-poly.obj",
+    "eyes/materials/brown.mhmat",
+    "eyes/materials/brown_eye.png",
+    "teeth/teeth_base/teeth.mhmat",
+    "teeth/teeth_base/teeth.png",
+    "teeth/teeth_base/teeth_base.mhclo",
+    "teeth/teeth_base/teeth_base.obj",
+    "tongue/tongue01/tongue01.mhclo",
+    "tongue/tongue01/tongue01.mhmat",
+    "tongue/tongue01/tongue01.obj",
+    "tongue/tongue01/tongue01_diffuse.png"
+  ],
+  "total_selected_bytes": 4030586,
+  "bounds": "Exactly20selectedfiles; <=100MBaggregate/20MBperfile/30s+60souter; no retries. Current sliceclose01:15UTC.",
+  "limits": "Firstauditclosure_pass=false preserved; extractionselection requires separate15blockCC0 and2legacyGAMEENGINEsource adjudication, not blind auditacceptance. Fileinputfreeze only, not codec/native/anatomy/expression/rig/rest-bind/export/appearance approval.",
+  "script_identity": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/extract_selected.py",
+    "bytes": 3599,
+    "sha256": "4092a4db84d4bede9ffbf54d1de3f9f12022ee4d295290de70bce2805f42d137"
+  },
+  "consumer_gate": "ROOT-CONSUMER-REVIEW.json admit_selected_extraction=true only after rootwholecriticreview/source verification",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/CONSUMER-DECISION.json",
+      "bytes": 9491,
+      "sha256": "af194474c7ac3eb8e39e1888ed28ffdec2bc105c9b2ab72f496a4947c19f8ac1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/CONSUMER-REVIEW.md",
+      "bytes": 6564,
+      "sha256": "93fe156ce9f74ecb46bf2efb1e7009abc2f5f066c7696cd3e729441ee7a7bf9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ROOT-CONSUMER-REVIEW.json",
+      "bytes": 471,
+      "sha256": "e0f2d06d14a680f4caf17851f5e916e92ba667a55a97238f6498a5ce8f7f3f6b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/extract_selected.py",
+      "bytes": 3599,
+      "sha256": "4092a4db84d4bede9ffbf54d1de3f9f12022ee4d295290de70bce2805f42d137"
+    }
+  ]
+}

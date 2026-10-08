@@ -1,0 +1,261 @@
+{
+  "sealed_utc": "2026-10-08T01:10:05.824252+00:00",
+  "files": [
+    {
+      "name": ".gitignore",
+      "bytes": 11,
+      "sha256": "48c44c861b58bc623e9603882c09c61cb2bf31ab1c48774d6918f8807185019c"
+    },
+    {
+      "name": "ACQUIRE-PLAN.initial.json",
+      "bytes": 1749,
+      "sha256": "48fbf5908c7c743128e7e8f8fe10fee260fc5d3b8eaac36d9620182d81cc872b"
+    },
+    {
+      "name": "ACQUIRE-PLAN.json",
+      "bytes": 1943,
+      "sha256": "b31578685e8227cfceffdd8007c97739610eb450a130694db10ca3e54cda9c21"
+    },
+    {
+      "name": "ACQUIRE-PREFLIGHT.md",
+      "bytes": 6790,
+      "sha256": "015768628a68fc62e093af5d5602dc35f10c60ce87771389348d239ab3038879"
+    },
+    {
+      "name": "CACHE-PLAN.json",
+      "bytes": 1843,
+      "sha256": "f45c3bae6f3741a837bc70c9bbd3dbc0df43301e339d87388ce99ccf13c510ca"
+    },
+    {
+      "name": "CACHE-PREFLIGHT.md",
+      "bytes": 5305,
+      "sha256": "d853cf34fe56b3543f64280585f8e0c9e8b59262aafdad48f41f2455495883e2"
+    },
+    {
+      "name": "CACHE-RESULT-REVIEW.md",
+      "bytes": 5245,
+      "sha256": "a8723c1da74152851ccc01ede8b7528d113ef06d777ae3136e7a345d9c597c46"
+    },
+    {
+      "name": "CACHE-WRAPPER-start.json",
+      "bytes": 272,
+      "sha256": "01d5dc0bb5574f31a0fd02c9301121468d7e568324ebd34d933ea99ea653a2b1"
+    },
+    {
+      "name": "CACHE-WRAPPER.json",
+      "bytes": 361,
+      "sha256": "b7c9b69b80a190451df630c17e7af4a65539e1d30aa1ec34c67a25487905a99c"
+    },
+    {
+      "name": "CACHE-start.json",
+      "bytes": 535,
+      "sha256": "9e0f938cb116512db45892cb370038a055fb70a79ff39f15f7568f724481123b"
+    },
+    {
+      "name": "CACHE.json",
+      "bytes": 1405,
+      "sha256": "671348ff9a9e0d7c69545e0825d4cf48c0f71421905be7752231f550f892dc17"
+    },
+    {
+      "name": "COMMANDS.json",
+      "bytes": 2489,
+      "sha256": "a7d664082b9a2b0905d1e3340df9b936500ea91a3cac661fb0abe0c16a6ce0aa"
+    },
+    {
+      "name": "CONSUMER-ADDITIONAL.json",
+      "bytes": 569,
+      "sha256": "d4cb7d45028c316c7173dd9e893476f8bc840212efdca8406e165f007f33b623"
+    },
+    {
+      "name": "CONSUMER-DECISION.json",
+      "bytes": 9491,
+      "sha256": "af194474c7ac3eb8e39e1888ed28ffdec2bc105c9b2ab72f496a4947c19f8ac1"
+    },
+    {
+      "name": "CONSUMER-PLAN.json",
+      "bytes": 2033,
+      "sha256": "19e60a91c7f8212fc39c350652e50d68ca9d537111aec5f3122b49a632133d95"
+    },
+    {
+      "name": "CONSUMER-REVIEW.md",
+      "bytes": 6564,
+      "sha256": "93fe156ce9f74ecb46bf2efb1e7009abc2f5f066c7696cd3e729441ee7a7bf9e"
+    },
+    {
+      "name": "DEPENDENCIES.json",
+      "bytes": 9351,
+      "sha256": "2364df3f46e40b3a78d504adb80ac93e3ccb87062f27f8e2e06660c66a240f41"
+    },
+    {
+      "name": "DEPENDENCY-JOB-start.json",
+      "bytes": 270,
+      "sha256": "3f8eeec11b1546db9ea72ad43396e21467cfaac740be050111656b889e092130"
+    },
+    {
+      "name": "DEPENDENCY-JOB.json",
+      "bytes": 359,
+      "sha256": "d2e26ba15a19cc3d4c4fcdbb8ebf755752d62af5350266988cde162a075b0357"
+    },
+    {
+      "name": "DEPENDENCY-PLAN.json",
+      "bytes": 2729,
+      "sha256": "548be96e498730a5a4f1d180bc6d131fe1e8600dad9cf3256804dc91074cd6cf"
+    },
+    {
+      "name": "DEPENDENCY-PREFLIGHT.md",
+      "bytes": 7225,
+      "sha256": "cdeec94e0e7140c0037292f8304de43a2d637a0c860490f074635f75024ce1a8"
+    },
+    {
+      "name": "DEPENDENCY-RESULT-REVIEW.md",
+      "bytes": 6135,
+      "sha256": "f27248317f5d01120b42fe1e939b5cb7a5561faaf1802f9084a5492729581f15"
+    },
+    {
+      "name": "EXTRACT-JOB-start.json",
+      "bytes": 274,
+      "sha256": "a8def5e592c08c1fecab196c093adab7425fea85bd8213627eae17ed55798102"
+    },
+    {
+      "name": "EXTRACT-JOB.json",
+      "bytes": 363,
+      "sha256": "fbc04b9674e3910fd5047c636e39e09f3ea4c7041cd5914f4803c3d167d124a0"
+    },
+    {
+      "name": "EXTRACT-PLAN.json",
+      "bytes": 3634,
+      "sha256": "8689c855af9e39628eba5cb486f28ac1ec194fddbe99999f3837296cb026445a"
+    },
+    {
+      "name": "EXTRACT-PREFLIGHT.md",
+      "bytes": 4616,
+      "sha256": "5bff7e13565a4f43f9797636cb9092d1818c8936a2872a6d690786a80d3fd6e4"
+    },
+    {
+      "name": "EXTRACT-RESULT-REVIEW.md",
+      "bytes": 7336,
+      "sha256": "c0d78809643107f5dc48cd4df37ba6795fda2e350e5f759f67388d947ecad0df"
+    },
+    {
+      "name": "EXTRACTED.json",
+      "bytes": 7692,
+      "sha256": "cad117f53010c3c7d055ebd822656a93092c748c24e17ac2821380b9bed9cb61"
+    },
+    {
+      "name": "NEXT.json",
+      "bytes": 1457,
+      "sha256": "c7277b81c06bc34feb7244e83c5bc47c084a055b267a51789be9b226c17e8e8c"
+    },
+    {
+      "name": "OFFICIAL-MARKDOWN.json",
+      "bytes": 137119,
+      "sha256": "ef9b87c04159e024d9dfee2ed28ccb2e699f345a8acecf96a13709bb040e1ffb"
+    },
+    {
+      "name": "OFFICIAL-PAGE.json",
+      "bytes": 81845,
+      "sha256": "cb6963880c3238049e14ae0366a4678de5aa309f879b7e5f2712a0d18ff8d730"
+    },
+    {
+      "name": "PLAN.json",
+      "bytes": 1278,
+      "sha256": "bb2f0f38318ec6b47bae2bee00aeb8321d5dfd6d6ab718a05c499ff44142cdeb"
+    },
+    {
+      "name": "README.md",
+      "bytes": 5047,
+      "sha256": "e43e08560a2ba3da4892843074e989f48538cdae90289090fa430e45fbec8d92"
+    },
+    {
+      "name": "ROOT-CACHE-PREFLIGHT.json",
+      "bytes": 448,
+      "sha256": "4a3f39ed593e434533a17e3326a99e61bcd8e60f17d96e3813e5ffd811c58031"
+    },
+    {
+      "name": "ROOT-CACHE-RESULT.json",
+      "bytes": 395,
+      "sha256": "afe483b1499999301926a4bd1678abfeb993f5da16971db29b873ad24f793e88"
+    },
+    {
+      "name": "ROOT-CONSUMER-REVIEW.json",
+      "bytes": 471,
+      "sha256": "e0f2d06d14a680f4caf17851f5e916e92ba667a55a97238f6498a5ce8f7f3f6b"
+    },
+    {
+      "name": "ROOT-DEPENDENCY-PREFLIGHT.json",
+      "bytes": 279,
+      "sha256": "c825f27c70da3adbf35d06369d92f4ef5fa58ed379a0044bc58f4af9318e52b4"
+    },
+    {
+      "name": "ROOT-DEPENDENCY-RESULT.json",
+      "bytes": 1741,
+      "sha256": "789665fb8152a04706e549904f3e7b55771b7debb7fc65be66dd2aaab789d53f"
+    },
+    {
+      "name": "ROOT-EXTRACT-PREFLIGHT.json",
+      "bytes": 367,
+      "sha256": "d61bdc5936237f758e60be23bc92728cc2d4352183c5a7adadb2fd76b143d4bd"
+    },
+    {
+      "name": "ROOT-EXTRACT-RESULT.json",
+      "bytes": 459,
+      "sha256": "3e043ffa7b5d83bc80b485fae58d4d50863a15025f9181a898e30e0d9db543b7"
+    },
+    {
+      "name": "ROOT-FINAL-REVIEW.json",
+      "bytes": 321,
+      "sha256": "dcdac2ca7ebf91f9197b4ec5294b3204bb20f979c5c8862fa016f2bd15d4eb0f"
+    },
+    {
+      "name": "SEARCH.json",
+      "bytes": 92944,
+      "sha256": "dc2495bf37fe6795263484922774b15bb338e9cb35e8e7872ede93a5d9829eb3"
+    },
+    {
+      "name": "TEXT-WITNESSES.json",
+      "bytes": 839489,
+      "sha256": "6ebb110623d8012ffd7e99401ceb561a4d283ed4c76ca76aa433719538384068"
+    },
+    {
+      "name": "ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "name": "acquire.py",
+      "bytes": 5834,
+      "sha256": "729ba733227708a2c139b679213a7034af19c8d4fa375011dfd2c28a9a591b82"
+    },
+    {
+      "name": "cache.log",
+      "bytes": 1405,
+      "sha256": "671348ff9a9e0d7c69545e0825d4cf48c0f71421905be7752231f550f892dc17"
+    },
+    {
+      "name": "cache_acquire.py",
+      "bytes": 5548,
+      "sha256": "0d8e1b3f34b9bef6fa0a2b63010b478477cfcf87c94cc9c8b6fc42b3e0bcc654"
+    },
+    {
+      "name": "dependencies.py",
+      "bytes": 7893,
+      "sha256": "ace69b1d9a0ee11981573a4cc43fdeba92640ab2b6bccc82424b64916ec0c37f"
+    },
+    {
+      "name": "dependency.log",
+      "bytes": 9351,
+      "sha256": "2364df3f46e40b3a78d504adb80ac93e3ccb87062f27f8e2e06660c66a240f41"
+    },
+    {
+      "name": "extract.log",
+      "bytes": 7692,
+      "sha256": "cad117f53010c3c7d055ebd822656a93092c748c24e17ac2821380b9bed9cb61"
+    },
+    {
+      "name": "extract_selected.py",
+      "bytes": 3599,
+      "sha256": "4092a4db84d4bede9ffbf54d1de3f9f12022ee4d295290de70bce2805f42d137"
+    }
+  ],
+  "local_ignored_candidate_inputs": "EXTRACTED.json names20readonlylocalfiles; CACHE.json namesreadonlyarchive. Candidatebits retained onthismachine, notGit/offmachinebackup."
+}

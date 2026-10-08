@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-10-08T00:39:00.513969+00:00",
+  "argv": [
+    "python3",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/acquire.py"
+  ],
+  "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+  "download_url": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+  "page_stated_size": "267 mb",
+  "page_license": "Five named face assets CC0; verify asset header/license provenance later before use",
+  "decision": "One official transfer and central-directory metadata; no member decompression/extraction/asset use until separate exact dependency preflight. No retry.",
+  "outer_process_timeout_seconds": 330,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/PLAN.json",
+      "bytes": 1278,
+      "sha256": "bb2f0f38318ec6b47bae2bee00aeb8321d5dfd6d6ab718a05c499ff44142cdeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/OFFICIAL-PAGE.json",
+      "bytes": 81845,
+      "sha256": "cb6963880c3238049e14ae0366a4678de5aa309f879b7e5f2712a0d18ff8d730"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/OFFICIAL-MARKDOWN.json",
+      "bytes": 137119,
+      "sha256": "ef9b87c04159e024d9dfee2ed28ccb2e699f345a8acecf96a13709bb040e1ffb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/acquire.py",
+      "bytes": 5834,
+      "sha256": "729ba733227708a2c139b679213a7034af19c8d4fa375011dfd2c28a9a591b82"
+    }
+  ],
+  "amended_utc": "2026-10-08T00:41:31.377653+00:00",
+  "artifact_git_policy": "candidate/ ignored by packet .gitignore; exact archive preserved locally with hash, no off-machine backup claim."
+}

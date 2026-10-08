@@ -1,0 +1,273 @@
+{
+  "observed_utc": "2026-10-08T00:54:37.501997+00:00",
+  "archive_sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+  "elapsed_seconds": 0.10343691700836644,
+  "text_members": 15,
+  "text_bytes": 813201,
+  "references": [
+    {
+      "from": "eyes/high-poly/high-poly.mhclo",
+      "line": 22,
+      "key": "obj_file",
+      "value": "high-poly.obj",
+      "to": "eyes/high-poly/high-poly.obj",
+      "kind": "obj",
+      "present": true
+    },
+    {
+      "from": "eyes/high-poly/high-poly.mhclo",
+      "line": 27,
+      "key": "material",
+      "value": "../materials/brown.mhmat",
+      "to": "eyes/materials/brown.mhmat",
+      "kind": "mhmat",
+      "present": true
+    },
+    {
+      "from": "eyes/materials/brown.mhmat",
+      "line": 38,
+      "key": "diffusetexture",
+      "value": "brown_eye.png",
+      "to": "eyes/materials/brown_eye.png",
+      "kind": "binary",
+      "present": true
+    },
+    {
+      "from": "teeth/teeth_base/teeth_base.mhclo",
+      "line": 21,
+      "key": "obj_file",
+      "value": "teeth_base.obj",
+      "to": "teeth/teeth_base/teeth_base.obj",
+      "kind": "obj",
+      "present": true
+    },
+    {
+      "from": "teeth/teeth_base/teeth_base.mhclo",
+      "line": 26,
+      "key": "material",
+      "value": "teeth.mhmat",
+      "to": "teeth/teeth_base/teeth.mhmat",
+      "kind": "mhmat",
+      "present": true
+    },
+    {
+      "from": "teeth/teeth_base/teeth.mhmat",
+      "line": 32,
+      "key": "diffusetexture",
+      "value": "teeth.png",
+      "to": "teeth/teeth_base/teeth.png",
+      "kind": "binary",
+      "present": true
+    },
+    {
+      "from": "tongue/tongue01/tongue01.mhclo",
+      "line": 21,
+      "key": "obj_file",
+      "value": "tongue01.obj",
+      "to": "tongue/tongue01/tongue01.obj",
+      "kind": "obj",
+      "present": true
+    },
+    {
+      "from": "tongue/tongue01/tongue01.mhclo",
+      "line": 26,
+      "key": "material",
+      "value": "tongue01.mhmat",
+      "to": "tongue/tongue01/tongue01.mhmat",
+      "kind": "mhmat",
+      "present": true
+    },
+    {
+      "from": "tongue/tongue01/tongue01.mhmat",
+      "line": 37,
+      "key": "diffusetexture",
+      "value": "tongue01_diffuse.png",
+      "to": "tongue/tongue01/tongue01_diffuse.png",
+      "kind": "binary",
+      "present": true
+    },
+    {
+      "from": "eyebrows/eyebrow001/eyebrow001.mhclo",
+      "line": 19,
+      "key": "material",
+      "value": "eyebrow001.mhmat",
+      "to": "eyebrows/eyebrow001/eyebrow001.mhmat",
+      "kind": "mhmat",
+      "present": true
+    },
+    {
+      "from": "eyebrows/eyebrow001/eyebrow001.mhmat",
+      "line": 32,
+      "key": "diffusetexture",
+      "value": "eyebrow001.png",
+      "to": "eyebrows/eyebrow001/eyebrow001.png",
+      "kind": "binary",
+      "present": true
+    },
+    {
+      "from": "eyebrows/eyebrow001/eyebrow001.mhmat",
+      "line": 33,
+      "key": "bumptexture",
+      "value": "eyebrow001.png",
+      "to": "eyebrows/eyebrow001/eyebrow001.png",
+      "kind": "binary",
+      "present": true
+    },
+    {
+      "from": "eyebrows/eyebrow001/eyebrow001.mhclo",
+      "line": 21,
+      "key": "obj_file",
+      "value": "eyebrow001.obj",
+      "to": "eyebrows/eyebrow001/eyebrow001.obj",
+      "kind": "obj",
+      "present": true
+    },
+    {
+      "from": "eyelashes/eyelashes01/eyelashes01.mhclo",
+      "line": 21,
+      "key": "obj_file",
+      "value": "eyelashes01.obj",
+      "to": "eyelashes/eyelashes01/eyelashes01.obj",
+      "kind": "obj",
+      "present": true
+    },
+    {
+      "from": "eyelashes/eyelashes01/eyelashes01.mhclo",
+      "line": 26,
+      "key": "material",
+      "value": "eyelashes01.mhmat",
+      "to": "eyelashes/eyelashes01/eyelashes01.mhmat",
+      "kind": "mhmat",
+      "present": true
+    },
+    {
+      "from": "eyelashes/eyelashes01/eyelashes01.mhmat",
+      "line": 32,
+      "key": "diffusetexture",
+      "value": "eyelashes01.png",
+      "to": "eyelashes/eyelashes01/eyelashes01.png",
+      "kind": "binary",
+      "present": true
+    }
+  ],
+  "license_statements": [
+    {
+      "member": "eyes/high-poly/high-poly.mhclo",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyes/high-poly/high-poly.obj",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyes/materials/brown.mhmat",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "teeth/teeth_base/teeth_base.mhclo",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "teeth/teeth_base/teeth_base.obj",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "teeth/teeth_base/teeth.mhmat",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "tongue/tongue01/tongue01.mhclo",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "tongue/tongue01/tongue01.obj",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "tongue/tongue01/tongue01.mhmat",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyebrows/eyebrow001/eyebrow001.mhclo",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyebrows/eyebrow001/eyebrow001.mhmat",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyebrows/eyebrow001/eyebrow001.obj",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyelashes/eyelashes01/eyelashes01.mhclo",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyelashes/eyelashes01/eyelashes01.obj",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    },
+    {
+      "member": "eyelashes/eyelashes01/eyelashes01.mhmat",
+      "line": 3,
+      "statement": "# This asset was explicitly released as CC0 in september 2020. The license"
+    }
+  ],
+  "errors": [
+    "Unknown/incompatible explicit license: eyes/high-poly/high-poly.mhclo:3",
+    "Unknown/incompatible explicit license: eyes/high-poly/high-poly.obj:3",
+    "Unknown/incompatible explicit license: eyes/materials/brown.mhmat:3",
+    "Shader texture dependency needs explicit ownership: eyes/materials/brown.mhmat",
+    "Unknown/incompatible explicit license: teeth/teeth_base/teeth_base.mhclo:3",
+    "Unknown/incompatible explicit license: teeth/teeth_base/teeth_base.obj:3",
+    "Unknown/incompatible explicit license: teeth/teeth_base/teeth.mhmat:3",
+    "Unknown/incompatible explicit license: tongue/tongue01/tongue01.mhclo:3",
+    "Unknown/incompatible explicit license: tongue/tongue01/tongue01.obj:3",
+    "Unknown/incompatible explicit license: tongue/tongue01/tongue01.mhmat:3",
+    "Shader texture dependency needs explicit ownership: tongue/tongue01/tongue01.mhmat",
+    "Unknown/incompatible explicit license: eyebrows/eyebrow001/eyebrow001.mhclo:3",
+    "Unknown/incompatible explicit license: eyebrows/eyebrow001/eyebrow001.mhmat:3",
+    "Unknown/incompatible explicit license: eyebrows/eyebrow001/eyebrow001.obj:3",
+    "Unknown/incompatible explicit license: eyelashes/eyelashes01/eyelashes01.mhclo:3",
+    "Unknown/incompatible explicit license: eyelashes/eyelashes01/eyelashes01.obj:3",
+    "Unknown/incompatible explicit license: eyelashes/eyelashes01/eyelashes01.mhmat:3"
+  ],
+  "closure_members": [
+    "eyebrows/eyebrow001/eyebrow001.mhclo",
+    "eyebrows/eyebrow001/eyebrow001.mhmat",
+    "eyebrows/eyebrow001/eyebrow001.obj",
+    "eyebrows/eyebrow001/eyebrow001.png",
+    "eyelashes/eyelashes01/eyelashes01.mhclo",
+    "eyelashes/eyelashes01/eyelashes01.mhmat",
+    "eyelashes/eyelashes01/eyelashes01.obj",
+    "eyelashes/eyelashes01/eyelashes01.png",
+    "eyes/high-poly/high-poly.mhclo",
+    "eyes/high-poly/high-poly.obj",
+    "eyes/materials/brown.mhmat",
+    "eyes/materials/brown_eye.png",
+    "teeth/teeth_base/teeth.mhmat",
+    "teeth/teeth_base/teeth.png",
+    "teeth/teeth_base/teeth_base.mhclo",
+    "teeth/teeth_base/teeth_base.obj",
+    "tongue/tongue01/tongue01.mhclo",
+    "tongue/tongue01/tongue01.mhmat",
+    "tongue/tongue01/tongue01.obj",
+    "tongue/tongue01/tongue01_diffuse.png"
+  ],
+  "closure_pass": false,
+  "limit": "Five-face file-reference closure only. Local-cache origin, currentserver byteidentity unverified. Publisher CC0 rows retained; header conflicts checked, not universal license audit. Selected text ZIP CRC verified. No geometry/image decode, texture content/hash, extraction, native use, appearance or complete character qualification."
+}

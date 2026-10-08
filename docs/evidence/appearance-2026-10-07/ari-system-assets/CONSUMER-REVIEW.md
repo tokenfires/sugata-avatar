@@ -1,0 +1,32 @@
+# Independent selected consumer review: pass; exact extraction worth doing
+
+Reviewed at 2026-10-08T01:02:18.705667+00:00. CONSUMER-DECISION correctly preserves the first audit's closure_pass=false/17 errors and manually classifies15 as observer false positives. All15 exact line3–4 release blocks/individual hashes match saved TEXT-WITNESSES; the two actual legacy references match brown.mhmat43 and tongue01.mhmat41. My preserved DEPENDENCY-RESULT-REVIEW independently adjudicates the same blocks with source-witnessed alternatives. No license/parser patch, archive/text-audit rerun or result rewrite is required.
+
+The selected GAMEENGINE source call-chain supports the scoped non-consumption decision. Builder546–549 explicitly supplies material_type=GAMEENGINE and no alternative-material mapping. HumanService481–483 defaults that mapping toNone;574–589 selects the original MHMat, creates an empty material, parses it and dispatches NodeWrapperGameEngine.create_instance. MaterialService197–208 constructs the empty material without reading a shader/litsphere file. Complete AbstractMaterialWrapper59–84 dispatches the subclass setup_group_nodes with the MHMat. Complete NodeWrapperGameEngine130–163 reads only diffuseTexture (color and alpha image), normalmapTexture and Principled scalar/color values through AbstractMaterialWrapper36–54. Its assign_mhmat_image19–34 passes only the requested file_name to NodeService. No shaderParam/litsphere lookup or legacy shader/file path occurs in these consumers. The constant tree definition contains only Principled/material output/diffuse/alpha/normal nodes.
+
+MhMaterial21–86, already read/pinned in dependency preflight, parses legacy string metadata without opening the declared shader texture. The source decision is specific to this actual builder/material strategy and source version. It does not prove live Blender execution/API compatibility, image-load/format behavior or appearance; those methods were not invoked. Other material modes or alternative-material mappings need their own input contract. Original shader/shaderParam declarations remain retained unchanged in the source materials, without falsely labeling the referenced files globally absent.
+
+The exact candidate selection equals the20 stored explicit closure members and all16 supported references remain present: five MHClOs, five OBJs, five MHMats, five PNGs. Brow diffuse/bump share onePNG; the selected wrapper does not need a separate bump file. Neither selected material contains a normalmap file declaration, so no normalmap member is omitted from this retained source set. Selection is supported for these five face file inputs and this material mode only. Implicit .mhw/config, body/helper/auxiliary/macro/expression/rest-bind/rig/export responsibilities remain held. Publisher/notice evidence is not universal texture/third-party licensing or current-server-byte identity proof.
+
+No actionable consumer/source discrepancy found. Earlier alternatives remain concrete: manually interpret the exact identicalCC0 blocks rather than rerun a retuned parser; trace the exact selected consumer rather than acquire unused legacy-mode resources. Both choices preserve raw sources and narrow claims without reducing the overall project goal.
+
+Next worth: yes for extracting exactly these20 members into a new isolated candidate/data after a separate exact source/pin/archive/CRC/byte/hash preflight and root consumer gate. Actual source Mhclo43–58/92–98/147–149 and MhMaterial73–85 expect filesystem paths, so preparing preserved relative files changes a real later construction prerequisite. A: bounded selected extraction, preserve each original byte/hash/path, verify ZIP CRC/fullopaque bytes, create no existing destination and leave candidate readonly; gives usable candidate inputs without global installation/preferences, at the cost of local opaque byte reads/writes. B: keep the archive and defer native-input preparation or develop a custom virtual-archive loader; avoids extraction but cannot use the current filesystem-based consumers directly and adds unnecessary adapter work. Prefer A, subject to exact extraction preflight; no extraction, image/mesh decode or native constructor is admitted by worth alone. PNG extraction/hash would be opaque binary handling, not visual/geometry acceptance.
+
+Exact reviewed current bindings (complete bytes independently hashed; whole two additional consumer sources, relevant Human/Material/builder ranges above, complete decisions/plans and retained witness associations read):
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/CONSUMER-PLAN.json | 2033 | 19e60a91c7f8212fc39c350652e50d68ca9d537111aec5f3122b49a632133d95 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/CONSUMER-ADDITIONAL.json | 569 | d4cb7d45028c316c7173dd9e893476f8bc840212efdca8406e165f007f33b623 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/CONSUMER-DECISION.json | 9491 | af194474c7ac3eb8e39e1888ed28ffdec2bc105c9b2ab72f496a4947c19f8ac1 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/DEPENDENCIES.json | 9351 | 2364df3f46e40b3a78d504adb80ac93e3ccb87062f27f8e2e06660c66a240f41 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/TEXT-WITNESSES.json | 839489 | 6ebb110623d8012ffd7e99401ceb561a4d283ed4c76ca76aa433719538384068 |
+| MPFB/services/materialservice.py | 42038 | 336bfd58469545feaed6dc27ccb192a27637a2fe329abd1232ba345dced3c05c |
+| MPFB/services/humanservice.py | 86233 | a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207 |
+| tools/figure-pipeline/build_figure.py | 130865 | 270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065 |
+| MPFB/entities/nodemodel/v2/materials/nodewrappergameengine.py | 6342 | 1e3b7622e10b919daa87d81c44b9f75812eb0e3c3f34fae061c89f26c5f6795f |
+| MPFB/entities/nodemodel/v2/materials/abstractmaterialwrapper.py | 3345 | d4909c9dbd357159a1cc502cf7041407a0bb55841c07eeb4440b2a282031fed8 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/DEPENDENCY-RESULT-REVIEW.md | 6135 | f27248317f5d01120b42fe1e939b5cb7a5561faaf1802f9084a5492729581f15 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json | 106320 | c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a |
+
+I did not execute consumer code, open archive members, extract, decode, render or query native. Preserve all earlier handoffs/failure evidence and accepted/frozen/runtime assets; no further change to this handoff after root full read.

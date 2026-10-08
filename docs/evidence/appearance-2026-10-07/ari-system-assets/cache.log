@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-10-08T00:45:26.446315+00:00",
+  "pid": 83683,
+  "source": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+  "destination": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/candidate/makehuman_system_assets_cc0.zip",
+  "origin": "Existing named local installer cache; current server byte identity unverified",
+  "compressed_cap": 300000000,
+  "uncompressed_cap": 1000000000,
+  "seconds_cap": 300,
+  "success": true,
+  "source_before": {
+    "bytes": 280737770,
+    "mtime_ns": 1790126734907029249
+  },
+  "source_after": {
+    "bytes": 280737770,
+    "mtime_ns": 1790126734907029249
+  },
+  "bytes": 280737770,
+  "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+  "required_matches": {
+    "high-poly.mhclo": [
+      "eyes/high-poly/high-poly.mhclo"
+    ],
+    "teeth_base.mhclo": [
+      "teeth/teeth_base/teeth_base.mhclo"
+    ],
+    "tongue01.mhclo": [
+      "tongue/tongue01/tongue01.mhclo"
+    ],
+    "eyebrow001.mhclo": [
+      "eyebrows/eyebrow001/eyebrow001.mhclo"
+    ],
+    "eyelashes01.mhclo": [
+      "eyelashes/eyelashes01/eyelashes01.mhclo"
+    ]
+  },
+  "member_count": 517,
+  "total_uncompressed_bytes": 298739872,
+  "downloaded_bytes": 280737770,
+  "finished_utc": "2026-10-08T00:45:26.570961+00:00",
+  "elapsed_seconds": 0.12465550001070369
+}

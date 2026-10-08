@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-10-08T00:49:16.428543+00:00",
+  "research_calls": [
+    {
+      "operation": "Firecrawl_search",
+      "query": "site:static.makehumancommunity.org mpfb makehuman_system_assets_cc0 asset packs",
+      "credits": 2,
+      "raw": "SEARCH.json"
+    },
+    {
+      "operation": "Firecrawl_scrape live links/query",
+      "url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "credits": 5,
+      "raw": "OFFICIAL-PAGE.json"
+    },
+    {
+      "operation": "Firecrawl_scrape live Markdown",
+      "url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "credits": 1,
+      "raw": "OFFICIAL-MARKDOWN.json"
+    }
+  ],
+  "superseded": "Officialnetworkacquire.py preflight passed but zero networkarchive requests; exactinstaller cache metadata2cfa55 selected instead.",
+  "executed_argv": [
+    "python3",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/cache_acquire.py"
+  ],
+  "job": "CACHE-WRAPPER.json",
+  "worker_result": "CACHE.json",
+  "archive": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/candidate/makehuman_system_assets_cc0.zip",
+    "bytes": 280737770,
+    "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+    "git": "Ignored localcandidate; recoverable onthismachine only"
+  },
+  "root_verification": "7855fc independent hashes ofsource+copy, sourceplanned/before/aftermeta equality, exactsourcepins,5unique members; rawcontentunqueried",
+  "limits": "517 centraldirectory records only; no originalwrites/no currentserverbyteidentity/no unpack/native/appearancequalification.",
+  "additional_executed_jobs": [
+    {
+      "argv": [
+        "python3",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/dependencies.py"
+      ],
+      "job": "DEPENDENCY-JOB.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/extract_selected.py"
+      ],
+      "job": "EXTRACT-JOB.json"
+    }
+  ],
+  "final_output": "EXTRACTED.json exact20files4030586B; ROOT-EXTRACT-RESULT independently verifies actualstored hashes/modes and originalcacheSHA",
+  "audit_rejection": "DEPENDENCIES closure_pass=false preserved;15falseheaderflags and2out-of-GAMEENGINE refs adjudicated separately, no auditrerun"
+}

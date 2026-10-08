@@ -1,0 +1,26 @@
+# Independent exact-cache worth and preflight: pass
+
+At 2026-10-08T00:45:04.057923+00:00, prefer one exact local-cache copy/hash/ZIP-metadata operation over the superseded network transfer. Root's single named-file metadata witness is the installer cache makehuman_system_assets_cc0.zip, regular/non-symlink280737770 bytes, inside the300MB compressed bound. This can own the same isolated candidate metadata without another267MB download. I independently read the complete current CACHE-PLAN/cache_acquire.py and verified its four pins; I did not read/stat/hash the original archive, acquire anything or run the script. Root owns the sole invocation after full handoff/pin readback.
+
+A: copy the exact selected preserved cache once to new owned candidate/, stream a digest, record actual source metadata and central-directory/required-member results. This saves network traffic and preserves local isolation; cache origin and current-server byte identity remain unqualified. B: use the earlier official-network acquisition; stronger direct transfer provenance, but duplicates a large transfer while a named cache exists. Select A. The preserved ACQUIRE-PREFLIGHT/acquire.py is no-run, superseded source evidence; this pass admits no network transfer.
+
+Actual source witnesses: cache_acquire12–14 fixes one source and destination. Source opens only rb at39; no original write/removal/rename exists. Lines33–38 require a regular non-symlink source of exact280737770 bytes. Lines35–36/51–54 record before/after size+mtime and compare them, with exact copied count. These are metadata preservation checks, not a prior full-byte identity proof; the streamed digest owns the copied byte stream. The planned initial mtime is a supplied root metadata witness; source enforces before/after equality and expected size, not a separate expected-mtime assertion. Any mismatch between actual source_before and CACHE-PLAN.source_metadata must be reported before a later source-use gate. No current official-server-byte match follows from size or digest alone.
+
+Exclusive CACHE-start/CACHE/ZIP-MANIFEST and new candidate-directory/partial creation prevent overwriting earlier owned outputs. Shared300-second acceptance checks and300-million-byte stored cap bound copy/metadata, with outer330-second root process timeout; no retry. Final partial rename changes only the newly owned candidate file. Metadata-only ZIP checks57–100 inherit the reviewed repairs:10000 members/1GB total declared uncompressed bytes, normalized casefold duplicates and unsafe/file-parent paths rejected, no encryption/special modes/mode conflicts, exactly one non-directory regular-or-omitted-type required basename for each face source. Member metadata/CRC fields are recorded; there is no archive.open/read/extract/testzip or member decompression/CRC/content test. Original and candidate metadata/byte identities must be read back by root before any separate textual dependency plan.
+
+Primary publisher evidence remains actual OFFICIAL-MARKDOWN rows3/18/30/45/85/91: exact official mirror/267mb plus five named face assets labeled CC0. The cached archive's internal headers/licenses and five MHClO-to-geometry/material/texture closure have not been inspected. A later exact bounded textual member/dependency preflight is required; no extraction/global install/preferences/native constructor/source-body/rig/appearance acceptance is admitted by cache availability or ZIP names. Existing body/helper/auxiliary/rest-bind/expression/export and Ari recipe duties remain held.
+
+No new actionable source defect remains for this copy-and-metadata scope. The earlier directory-basename loophole and normalized alias issues, their alternatives and chosen typed repair remain preserved in ACQUIRE-PREFLIGHT; cache source retains those checks. candidate/ stays Git-ignored and locally retained; a hash in Git is no off-machine backup. Root preserves any partial/error result and stops rather than retrying. No installed asset/API absence or capability claim is inferred.
+
+Exact reviewed bindings (source/receipt text only):
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/CACHE-PLAN.json | 1843 | f45c3bae6f3741a837bc70c9bbd3dbc0df43301e339d87388ce99ccf13c510ca |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/PLAN.json | 1278 | bb2f0f38318ec6b47bae2bee00aeb8321d5dfd6d6ab718a05c499ff44142cdeb |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/OFFICIAL-MARKDOWN.json | 137119 | ef9b87c04159e024d9dfee2ed28ccb2e699f345a8acecf96a13709bb040e1ffb |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/ACQUIRE-PREFLIGHT.md | 6790 | 015768628a68fc62e093af5d5602dc35f10c60ce87771389348d239ab3038879 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/cache_acquire.py | 5548 | 0d8e1b3f34b9bef6fa0a2b63010b478477cfcf87c94cc9c8b6fc42b3e0bcc654 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/.gitignore | 11 | 48c44c861b58bc623e9603882c09c61cb2bf31ab1c48774d6918f8807185019c |
+
+Exact argv is python3 plus the owned cache_acquire.py. No network library/request, installer, Blender, binary asset parsing or unrelated/frozen/runtime mutation is called. Root should treat network source admission as superseded and preserve this handoff unchanged after full read.

@@ -1,0 +1,242 @@
+{
+  "decided_utc": "2026-10-08T00:58:26.016676+00:00",
+  "automated_first_audit": "Preserve closure_pass=false and all17 flags unchanged; no rerun/patch ofresult.",
+  "license_adjudication": {
+    "finding": "15 unknown flags are false positives: regexrequires text after trailingwordlicense, while actual block declares CC0 before it and continues nextline.",
+    "source_witnesses": {
+      "eyes/high-poly/high-poly.mhclo": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "b183cfe37120ab726f9b3f2ea6cd3a64c44ce7b4bd91a77c841cf70c04f83a0d"
+      },
+      "eyes/high-poly/high-poly.obj": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "da2493215b708a344c33dc72f2a9a5b8fa985dcc5a70ad3b208995cf871da8e1"
+      },
+      "eyes/materials/brown.mhmat": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "4abad93ce50541c08127721e77bce035640c9f16bed16cd0f5524b1cd5908465"
+      },
+      "teeth/teeth_base/teeth_base.mhclo": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "9edc3deff3bb97a95c791878064dd069a74a38f95ea6d9707a9ba68d888b3b5c"
+      },
+      "teeth/teeth_base/teeth_base.obj": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "f55198069e55d360c4b4cc7ecb1cc292b2c7665753ab8b65eabf46a8783f2875"
+      },
+      "teeth/teeth_base/teeth.mhmat": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "3baeff72d9eb06ca16c3cff7ca2ab304216717dee247e0d88f1dc33037c8320e"
+      },
+      "tongue/tongue01/tongue01.mhclo": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "61d825899cd78ff3146fa1324118060cb44b095fae1427d408c199ade74e3c9e"
+      },
+      "tongue/tongue01/tongue01.obj": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "12f4a6a9f85abae2ce3b4aa42d8119e1f679a437e0e89cb928ec68b29a7a1587"
+      },
+      "tongue/tongue01/tongue01.mhmat": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "7769df66c69b8c09a0ec713d70d8381abbb08ac82207369f5413970495cd4340"
+      },
+      "eyebrows/eyebrow001/eyebrow001.mhclo": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "54c8892c2ba577f4152d779ce1f20f7cd323beb8cbd9cb701796165c221b4f5b"
+      },
+      "eyebrows/eyebrow001/eyebrow001.mhmat": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "976e5f4f1d3922d7a11c6e2db233f8b4584b068d00619d5749687e81c92d61fc"
+      },
+      "eyebrows/eyebrow001/eyebrow001.obj": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "88b13146395133f3901715e11706cdfd293e5d6087ad7c5e01efe1485a26b513"
+      },
+      "eyelashes/eyelashes01/eyelashes01.mhclo": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "5a86b29c15649273d723084954b7fa7bf199112571d4f58539b46734d397ee6b"
+      },
+      "eyelashes/eyelashes01/eyelashes01.obj": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "f78f5b93fea1946fcae103d32c4f082dd9612a1ec2e7e2f90b03ebe59b0baf20"
+      },
+      "eyelashes/eyelashes01/eyelashes01.mhmat": {
+        "lines": [
+          3,
+          4
+        ],
+        "text": [
+          "# This asset was explicitly released as CC0 in september 2020. The license",
+          "# text for CC0 can be found in the root of this repository."
+        ],
+        "sha256": "8029c99d94f3d87a1e81825fad6b90eec773ae6955a5b2592222ef237377e190"
+      }
+    },
+    "alternatives": [
+      {
+        "choice": "Interpret actual identical2line releaseblocks with publisherCC0rows",
+        "tradeoff": "Concrete human source adjudication; correctsfalseflagswithout retry, limited tothese15exacttexts."
+      },
+      {
+        "choice": "New multilinelicenseparser/audit",
+        "tradeoff": "Couldgeneralize syntax but repeatsresolveddecision and adds reader maintenance; declined."
+      }
+    ],
+    "decision": "These15actualtextheaders explicitlydeclareCC0, corroborating publisher rows. No universallegal/source-origin/texturecopyrightclaim."
+  },
+  "shader_adjudication": {
+    "declared_legacy_paths": [
+      {
+        "member": "eyes/materials/brown.mhmat",
+        "line": 43,
+        "value": "data/litspheres/skinmat_eye.png"
+      },
+      {
+        "member": "tongue/tongue01/tongue01.mhmat",
+        "line": 41,
+        "value": "data/litspheres/lit_matte.png"
+      }
+    ],
+    "actual_call_chain": [
+      "build_figure.py546\u2013549 requests material_type=GAMEENGINE",
+      "HumanService574\u2013589 parsesMHMat andcalls NodeWrapperGameEngine.create_instance",
+      "AbstractMaterialWrapper59\u201383 dispatches setup_group_nodes withmhmat",
+      "NodeWrapperGameEngine130\u2013163 buildsPrincipled/diffuse/normal only; mhmatget_values are diffuseTexture/normalmapTexture and diffuseColor/roughness/shininess inAbstractMaterialWrapper36\u201354",
+      "AbstractMaterialWrapper19\u201334 assigns image only explicitfile_name forrequestedkey; no legacyshader/litsphere inputread"
+    ],
+    "decision": "Legacyshader/litsphere declarations remain retained inrawmaterialsources but are out of the selected GAMEENGINE consumer. They are not candidatefiledependencies for this chosen path. Other materialmodes require separate sourcecontract.",
+    "alternatives": [
+      {
+        "choice": "Qualify exactGAMEENGINE consumerand retainunuseddeclarations",
+        "tradeoff": "Minimalcomplete activeface-file list, tied totheseactualsourcepins/materialmode."
+      },
+      {
+        "choice": "Acquirebothlegacyshadertexture inputs forothermodes",
+        "tradeoff": "Broader source coverage with extraorigin/license work and no benefit forcurrentconsumer; declined."
+      }
+    ]
+  },
+  "candidate_selection": [
+    "eyebrows/eyebrow001/eyebrow001.mhclo",
+    "eyebrows/eyebrow001/eyebrow001.mhmat",
+    "eyebrows/eyebrow001/eyebrow001.obj",
+    "eyebrows/eyebrow001/eyebrow001.png",
+    "eyelashes/eyelashes01/eyelashes01.mhclo",
+    "eyelashes/eyelashes01/eyelashes01.mhmat",
+    "eyelashes/eyelashes01/eyelashes01.obj",
+    "eyelashes/eyelashes01/eyelashes01.png",
+    "eyes/high-poly/high-poly.mhclo",
+    "eyes/high-poly/high-poly.obj",
+    "eyes/materials/brown.mhmat",
+    "eyes/materials/brown_eye.png",
+    "teeth/teeth_base/teeth.mhmat",
+    "teeth/teeth_base/teeth.png",
+    "teeth/teeth_base/teeth_base.mhclo",
+    "teeth/teeth_base/teeth_base.obj",
+    "tongue/tongue01/tongue01.mhclo",
+    "tongue/tongue01/tongue01.mhmat",
+    "tongue/tongue01/tongue01.obj",
+    "tongue/tongue01/tongue01_diffuse.png"
+  ],
+  "selected_file_count": 20,
+  "all16_explicit_refs_present": true,
+  "limit": "Explicitface-asset fileinputs forGAMEENGINE only; implicit .mhw/bodyconfig/macro/expression/rig/rest-bind/export fullscene obligations remain. No native/render/assetextraction orfirstauditretry."
+}

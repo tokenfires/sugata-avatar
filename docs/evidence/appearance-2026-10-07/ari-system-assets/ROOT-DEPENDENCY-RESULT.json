@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-10-08T00:54:53.336725+00:00",
+  "job_bounds_and_log_match": true,
+  "all_text_hashes_and_reference_line_witnesses_match": true,
+  "source_pins_match": true,
+  "explicit_closure_pass": false,
+  "errors": [
+    "Unknown/incompatible explicit license: eyes/high-poly/high-poly.mhclo:3",
+    "Unknown/incompatible explicit license: eyes/high-poly/high-poly.obj:3",
+    "Unknown/incompatible explicit license: eyes/materials/brown.mhmat:3",
+    "Shader texture dependency needs explicit ownership: eyes/materials/brown.mhmat",
+    "Unknown/incompatible explicit license: teeth/teeth_base/teeth_base.mhclo:3",
+    "Unknown/incompatible explicit license: teeth/teeth_base/teeth_base.obj:3",
+    "Unknown/incompatible explicit license: teeth/teeth_base/teeth.mhmat:3",
+    "Unknown/incompatible explicit license: tongue/tongue01/tongue01.mhclo:3",
+    "Unknown/incompatible explicit license: tongue/tongue01/tongue01.obj:3",
+    "Unknown/incompatible explicit license: tongue/tongue01/tongue01.mhmat:3",
+    "Shader texture dependency needs explicit ownership: tongue/tongue01/tongue01.mhmat",
+    "Unknown/incompatible explicit license: eyebrows/eyebrow001/eyebrow001.mhclo:3",
+    "Unknown/incompatible explicit license: eyebrows/eyebrow001/eyebrow001.mhmat:3",
+    "Unknown/incompatible explicit license: eyebrows/eyebrow001/eyebrow001.obj:3",
+    "Unknown/incompatible explicit license: eyelashes/eyelashes01/eyelashes01.mhclo:3",
+    "Unknown/incompatible explicit license: eyelashes/eyelashes01/eyelashes01.obj:3",
+    "Unknown/incompatible explicit license: eyelashes/eyelashes01/eyelashes01.mhmat:3"
+  ],
+  "limit": "Explicit five-face references only; implicit .mhw/config and complete native duties still held."
+}

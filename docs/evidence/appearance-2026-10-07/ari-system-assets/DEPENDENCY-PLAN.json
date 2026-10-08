@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-10-08T00:46:43.513648+00:00",
+  "usable_improvement": "Explicit five-face asset dependency list for isolated source construction",
+  "research_question": "Do all5 actual MHClOs own present geometry/material/weight and recursively referenced material/texture/OBJ-MTL inputs, without license conflicts?",
+  "decision": "Read targeted archive text only after criticworth/preflight; stop on missing/conflicting/unknown file references, duplicates, external path escapes, bounds/errors. Later separate selected-extraction gate.",
+  "bounds": "One archive-text audit; <=50members/10MBtotal text/2MBpertext/30seconds; texture files metadataonly, no image/mesh decode. Deadline01:15UTC; no native/extraction/network.",
+  "source_archive_sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+  "pins": [
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/clothes/mhclo.py",
+      "bytes": 12931,
+      "sha256": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/mhmaterial.py",
+      "bytes": 6886,
+      "sha256": "fa069ecb9418c46b7394a7609811ae07c85b868a176d1baa998395c283a7f045"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/mhmatkeys.py",
+      "bytes": 6105,
+      "sha256": "c478310a991b4eeac09be11a5ce4d75afe8e2a7c0e134dbc6ab98f0cfcf6a4e8"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/material/mhmatkeytypes.py",
+      "bytes": 5735,
+      "sha256": "03c05280d8eb4fa86d686ca7206dce8a6c0e7529d7c441db12ce106509d88ea8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/dependencies.py",
+      "bytes": 7893,
+      "sha256": "ace69b1d9a0ee11981573a4cc43fdeba92640ab2b6bccc82424b64916ec0c37f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/CACHE.json",
+      "bytes": 1405,
+      "sha256": "671348ff9a9e0d7c69545e0825d4cf48c0f71421905be7752231f550f892dc17"
+    }
+  ],
+  "unsupported_dependencies": "Builtin litsphere, blend-material, shader textures and OBJ MTL explicitly stop with witnesses; no guessed decoding/container ownership."
+}
