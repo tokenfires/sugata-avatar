@@ -1,0 +1,11 @@
+--- run_native.old-gate.py
++++ run_native.py
+@@ -1,7 +1,7 @@
+ from pathlib import Path
+ import json,hashlib,datetime,subprocess,os,signal,sys
+ P=Path(__file__).resolve().parent;e=json.loads((P/'EXEC-PLAN.json').read_text());g=json.loads((P/'ROOT-PREFLIGHT.json').read_text());assert g['admitted'] and g['outputs_absent'] and g['owned_native_absent']
+-assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat('2026-10-08T20:00:00+00:00')
++assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat('2026-10-08T20:15:00+00:00')
+ for r in e['pins']:
+  b=Path(r['path']).read_bytes();assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']
+ assert not any((P/n).exists() for n in ['work','WARM.json','RESULT.json','JOB-start.json','JOB.json','native.log']) and not list(P.glob('*.png'))

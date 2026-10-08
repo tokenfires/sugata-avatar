@@ -1,0 +1,9 @@
+# Root original-frame review
+
+Root independently opened all three original768-square atlas PNGs, the three original v2 head views and original full concept. Retain this isolated editable artist atlas. Front: crown and temple zones leave an open forehead and ears; arrows are visible without covering facial features. Profile: crown/temple/back separation and ear boundary are clear. Rear: crown/nape separation and lower nape contour are framed with both ears visible.
+
+The lower temple and rear borders are visibly stepped source-face boundaries, not a finished hairline. Alternative A retains them as the source-index authoring domain and lets one fresh sparse curl-group/path study supply a visible boundary decision; direct progress, with actual curls/contact/persistence duties still needed. B authors a smoother boundary representation now; more control but risks another atlas-only round before seeing curls. No step-masking tweak or retake occurs here.
+
+Nine short tangent arrows communicate local flow intent, not complete curl trajectories or envelope clearance. Alternative A nominates a sparse representative group/path study across the three zones, owning actual roots/control points/envelopes and original images before density; it changes a concrete shape decision. B develops complete dense-groom transport/contact first; broader proof, considerably more work and no artist silhouette yet. Prefer A nomination after critic review; no new curl/geometry job admitted here.
+
+Actual native preservation/save/fresh-file-open guards passed in one process; root verifies physical output hashes and WARM oldseven/252 records. No independently launched coldprocess, physicalsolid/motion/fit/runtime/export/fullAAA or finalAri identity is inferred. Original face/stock skin/stubble remain unfinished and unchanged.
