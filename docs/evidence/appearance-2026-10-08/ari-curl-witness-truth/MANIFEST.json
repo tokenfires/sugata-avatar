@@ -1,0 +1,264 @@
+{
+  "sealed_utc": "2026-10-08T19:12:28.383953+00:00",
+  "status": "PAUSED_BY_ROBERT",
+  "payloads": [
+    {
+      "path": "EXEC-PLAN.json",
+      "bytes": 6000,
+      "sha256": "33280b373616d1ca0076be18bf394e927abc99b41b5839e7eb1a5df08e1dd2ee"
+    },
+    {
+      "path": "INPUTS.json",
+      "bytes": 2501,
+      "sha256": "83fa1d56e02a03e3f1710917c6767d0598639766b2112373815f8698cee674b8"
+    },
+    {
+      "path": "JOB-start.json",
+      "bytes": 325,
+      "sha256": "a15119ebd7c461d7d800d71fddb26282fedf4305697b162d0dd29d269e842dba"
+    },
+    {
+      "path": "JOB.json",
+      "bytes": 397,
+      "sha256": "beb6ac2151e72f304db185f25ccd68e1c79a9933eba91a09ad4e8212c73b8e75"
+    },
+    {
+      "path": "PAUSE.md",
+      "bytes": 2668,
+      "sha256": "c79b7fe2474bd54fcaa3de27cfe6b59ca375d63dab43838b5fe8374f97e9f09f"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 3704,
+      "sha256": "6df24472193df6f29410a76c8bbf2663a242c503d43d18d165eab822f460e284"
+    },
+    {
+      "path": "PREDICATE-CONTRACT.md",
+      "bytes": 2920,
+      "sha256": "7ca59d21e5f8be7b4b7bf1f497e59c498d45b637e1a2ac07679951005a055486"
+    },
+    {
+      "path": "PREFLIGHT.md",
+      "bytes": 7416,
+      "sha256": "91c0d5d9d7d05d3fd9ce0ee23e89ba561edd0b1c7721d5672bf8fcd3712884c9"
+    },
+    {
+      "path": "PRIMARY-RECEIPT.json",
+      "bytes": 3154,
+      "sha256": "3c3abd268758df84196d11de78a34473daf1c96037adff196cda56431230a07b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3397,
+      "sha256": "81fbcdac6898096cb89364214e11b6d878b464a86d5e0a70803978f6c8a9c5e4"
+    },
+    {
+      "path": "RECOVERY.json",
+      "bytes": 199,
+      "sha256": "a6c0565c136b1e858e2ee92de1c7380e15e6e915c2b6c2b6abd62bb545948f1f"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 1904765,
+      "sha256": "7b26f514d299dc56dbed9f3dde2ab8e67eedd75e225436c1053530f6135ea966"
+    },
+    {
+      "path": "ROOT-PAUSE-READBACK.json",
+      "bytes": 326,
+      "sha256": "05434c9da76d02898e089fda8db611f376481e4baecbe02777ac5f848bf217c8"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 338,
+      "sha256": "2d1de4cd6e803fa9bff354fce67da05d9c6a60bd2f85fba0908878a967e42eb4"
+    },
+    {
+      "path": "ROOT-PREPARED.json",
+      "bytes": 204,
+      "sha256": "360b47fdabb8707bf267650c471253c77ac5aeb794e68bcd62d85b02eab7f048"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 835,
+      "sha256": "220bc0faf9270f2dcdfea1aa61d7bd4e7cd24df5958265d3722abf74176d7289"
+    },
+    {
+      "path": "ROOT-WORTH.json",
+      "bytes": 518,
+      "sha256": "d1a889b4a1832ccf75c000a4a605b425057f85086149062167504be66d60e07f"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 5383,
+      "sha256": "88741fa75d556201e223707f379cdbcda64de1514547c9353538c8657e1c2ccb"
+    },
+    {
+      "path": "diagnose.py",
+      "bytes": 7458,
+      "sha256": "80aa980455fc8f4109a0f6edbc9b51b32a1e38585e879e0bfdbcc39cfe846dff"
+    },
+    {
+      "path": "primary-0.json",
+      "bytes": 24166,
+      "sha256": "e2d23ba01d6bd0be4c0cf19fde8ac19c30adbcc166810b72442efa201b5a6aa8"
+    },
+    {
+      "path": "primary-0.md",
+      "bytes": 9823,
+      "sha256": "480d9d1a9c3ccb3e77666deb2a5347a8a0b87571b4b344ee2eb3ca36f4bb9c82"
+    },
+    {
+      "path": "primary-1.json",
+      "bytes": 24095,
+      "sha256": "4fb116aa6880b1427d61eac1cf2b077660a2cb1ee908f5dfeeb728a38139597e"
+    },
+    {
+      "path": "primary-1.md",
+      "bytes": 10970,
+      "sha256": "87230ab70107d7619736ccaa62be6ef86060690e4650ab94c9da770a8d7ae545"
+    },
+    {
+      "path": "query.log",
+      "bytes": 815,
+      "sha256": "50f56d07716b77b805f134d0d25c9911834f2d4432751d3195aba610bdcea341"
+    },
+    {
+      "path": "run_query.py",
+      "bytes": 1557,
+      "sha256": "fc0197561768413331f35cb6921645a43366c8c07283f016ebc96400c475e26f"
+    },
+    {
+      "path": "verify_query.py",
+      "bytes": 3732,
+      "sha256": "8a863e6a984f467a636e23b6264e49bf27bc50cb78866912f30334f9adcb7fdb"
+    }
+  ],
+  "external_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/PLAN.md",
+      "bytes": 3704,
+      "sha256": "6df24472193df6f29410a76c8bbf2663a242c503d43d18d165eab822f460e284"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/MANIFEST.json",
+      "bytes": 11308,
+      "sha256": "2ef9730d7d846d67ff0232b17abbe3b6ca65c7322cbb122ae4de05a3e2b36bc6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/RESULT.json",
+      "bytes": 5050943,
+      "sha256": "e94db4300c6ea5f74ba87c8e75f4b88881184cca0c4939faa14b677d055cb54f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/RESULT-REVIEW.md",
+      "bytes": 10113,
+      "sha256": "1f910679d1531ce4b281617635cd7105724a5b9191e62f82a9215f1a4b8aaa5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/ROOT-RESULT.json",
+      "bytes": 1845,
+      "sha256": "d68350eb7bf0815acd44849906ae0fc574621c780cb1a6a8290ae65d72e212b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/ROOT-EAR-WITNESS.json",
+      "bytes": 1225,
+      "sha256": "9c0c0e6139f6d7735f7aae528097966f3fd441497417d0d6d5367ae1b2d2e1b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/ROOT-READBACK.json",
+      "bytes": 629,
+      "sha256": "7d346a14155d016fe78f030846793435466b1db886beaebcce9bb896978f8e71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/work/actual-render-geometry.npz",
+      "bytes": 10490873,
+      "sha256": "b17a67e81771eab7cbbc7bc6e46fd3cd3197b607e33f81b38885479f18dbeb46"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/work/source-skin-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/work/source-membership.npz",
+      "bytes": 192887,
+      "sha256": "4dc020e28f32f7771ca2c63274e13f033368ccc010c2c51356f0a465a27ad2db"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/INPUTS.json",
+      "bytes": 2501,
+      "sha256": "83fa1d56e02a03e3f1710917c6767d0598639766b2112373815f8698cee674b8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/WORTH.md",
+      "bytes": 5383,
+      "sha256": "88741fa75d556201e223707f379cdbcda64de1514547c9353538c8657e1c2ccb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/ROOT-WORTH.json",
+      "bytes": 518,
+      "sha256": "d1a889b4a1832ccf75c000a4a605b425057f85086149062167504be66d60e07f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/PREDICATE-CONTRACT.md",
+      "bytes": 2920,
+      "sha256": "7ca59d21e5f8be7b4b7bf1f497e59c498d45b637e1a2ac07679951005a055486"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/PRIMARY-RECEIPT.json",
+      "bytes": 3154,
+      "sha256": "3c3abd268758df84196d11de78a34473daf1c96037adff196cda56431230a07b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/primary-0.json",
+      "bytes": 24166,
+      "sha256": "e2d23ba01d6bd0be4c0cf19fde8ac19c30adbcc166810b72442efa201b5a6aa8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/primary-0.md",
+      "bytes": 9823,
+      "sha256": "480d9d1a9c3ccb3e77666deb2a5347a8a0b87571b4b344ee2eb3ca36f4bb9c82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/primary-1.json",
+      "bytes": 24095,
+      "sha256": "4fb116aa6880b1427d61eac1cf2b077660a2cb1ee908f5dfeeb728a38139597e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/primary-1.md",
+      "bytes": 10970,
+      "sha256": "87230ab70107d7619736ccaa62be6ef86060690e4650ab94c9da770a8d7ae545"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/diagnose.py",
+      "bytes": 7458,
+      "sha256": "80aa980455fc8f4109a0f6edbc9b51b32a1e38585e879e0bfdbcc39cfe846dff"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/run_query.py",
+      "bytes": 1557,
+      "sha256": "fc0197561768413331f35cb6921645a43366c8c07283f016ebc96400c475e26f"
+    },
+    {
+      "path": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    }
+  ],
+  "sole_job": {
+    "started_utc": "2026-10-08T19:03:30.281257+00:00",
+    "wrapper_pid": 45166,
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-witness-truth/diagnose.py"
+    ],
+    "timeout_seconds": 90,
+    "timed_out": false,
+    "pid": 45167,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T19:03:30.952427+00:00"
+  },
+  "independent_result_review_pending": true,
+  "no_native_render_groom_jobs": true,
+  "recipe_remains_refused": true
+}

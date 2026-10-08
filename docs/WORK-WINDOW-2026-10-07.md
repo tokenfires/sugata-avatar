@@ -1,3 +1,7 @@
+# Current status: PAUSED — October8 Codex update/restart
+
+**Robert explicitly paused ALL Sugata at19:07UTC. RecoveryautomationPAUSED viaappAPI+savedTOML; criticstopped; noownednative/query. No queuedheartbeat or oldresume authorizes work.** Read [currentrestartcheckpoint](RESUME-2026-10-08.md). Vite825 retained; re-inventoryafterrestart. The October7 resumption below is historical.
+
 # Sugata resumed — October 7, 2026
 
 **RESUMED October 7 after the ChatGPT update, by Robert’s explicit “We’re back…jump back in” message.** The October7 pause checkpoint remains historical. Fresh installed-profile bounds and preflight apply; do not run expired probes.
@@ -419,3 +423,16 @@ SoleofflineCPU native28981/wrapper28979 runs18:18:09.135752–18:18:17.074772UTC
 Root/critic independentlyreadall14000pointarrays, exacttemplates/co/radii/400roots/676patchtriangles/36296excludedrows/74boundaries andsource/evaluatedbufferhashes. Humannearesttriangle23589/vertices12062,12039,12040 mapuniquelytonativeearsparticipation[body,scalp,head,ears]=[1,0,1,1]; nearear-edge barycentric≈[.0000012,.4739,.5261], unsigneddistance14.446mm versus signedprojection−4.776mm. Thisisdeclaredrefusal, notprovenpenetration/clipping/soliddepth. Basicold7signaturematchinpartialscene;252 checkedbeforeconstruction, finalpost-contact/postsave/cold gatesunexecuted. Independentreview18:34:16, rootwhole/all20bindings/logassociation18:39:27, rootear association separatelyverified. FivereadonlylocalignoredNPZs preserved; actualchildexitswithno rollbackclaim.
 
 NextworthconditionalYES onefreshread-only exactfrozenwitness topology/orientation+incidentcrossing/eligibleoccupancy truthquestion; preferitovereditingpaths/scalpforunprovedpenetration. No fullcontactcensus/native/render/newgroom or currentgeometryresurrection. [Sealedpartialpacket](evidence/appearance-2026-10-08/ari-curl-first-study/MANIFEST.json). Noownednative, Vite825/ACTIVE10minrecovery/fullAAA/native/default/frozen/reference/unrelatedpreserved. No purchases/reset/models/subscription/install/prefs/push/publish/otherprojects. Currentreceiptclosedbefore19:10. Humansteeringwins.
+
+Firstcurlcheckpointlocale093704f postcommit28payloads/Gitbytes/5readonlyarrays/20physicalpins/clean/noownedBlender/Vite825/ACTIVE10min passes18:41:55.
+
+## Frozen ear-edge witness truth — October8, prepared
+
+[Freshreadonlyplan](evidence/appearance-2026-10-08/ari-curl-witness-truth/PLAN.md),18:45–19:25, entrye093704f: onefrozenvertex1872+atmost16incidentgroomedges againstrecordedHuman26756triangles; source topology/orientation/eligibility first, boundedpropercrossing/formalwinding versusnearest-ear-edge ambiguity. Atmost2primaryreferencepages andone90spurePythonarrayjob only aftercriticworth/code/rootadmission. All10inputpins exact; no inquiry/program/job yet. Currentgroomrecipe remainsrefusedregardless; no native/cold/render/newgroom/census/geometryresurrection. Usefuloutputis reproduciblepredicate diagnostic, notcharacterappearance. Worthpending; recover WORTH/PROGRAM/JOB/RESULT beforeacting. Accepted/frozen/native/reference/unrelated/fullAAA/Vite825/ACTIVE preserved; humansteeringwins.
+
+Root wholeworth/all10table+INPUTS matches18:47:34 beforeinquiry. Two primaryURL/resources retained: ETHwindingproject andMollerTrumboreauthorPDF (not PDFleafpagecount). Projectpage suppliesnoimplementedsolidangleformula; rootexplicitlychoosesindependentsegmentbranch B fromworth andholdsformalwinding/physicaloccupancy, withnopaper/demo/thirdrequest. [Predicatecontract](evidence/appearance-2026-10-08/ari-curl-witness-truth/PREDICATE-CONTRACT.md) freezesunitrays/interiorbarymetricsegment bands, topology eligibility, onevertex≤16incidentedges. Two purePythonmodule syntaxchecks/22physicalpins pass; codepreflightpending, noqueryJOB/RESULT. Unsupportedtopologyfirstedge/componentwitness explicit. Native/groom/renderer/currentrecipe stillclosed; hard19:25/noextension.
+
+
+## Humanpause for Codex restart — October8
+
+Robert revokes activework19:07UTC. AppAPI update/view plusTOMLreadbackconfirm PAUSED withallotherautomationfields preserved. NoownedBlender/diagnose/run_query; Vite825 retainedasprocess. Criticstops andsavesPAUSE19:08:47; rootwhole/hash verifies2668bytes/SHA c79b7fe2474bd54fcaa3de27cfe6b59ca375d63dab43838b5fe8374f97e9f09f. Queryalreadycollected; finalindependent resultchecks notdone. Pause sealscurrentqueryaspartial/unreviewedfinal, withrootreadback/limits andnofurtherexperiments. [Restartcheckpoint](RESUME-2026-10-08.md), [APIreadback](evidence/appearance-2026-10-08/pause-for-codex-update/READBACK.json). AllSugatawork remainsstoppeduntilnewhumanresume.

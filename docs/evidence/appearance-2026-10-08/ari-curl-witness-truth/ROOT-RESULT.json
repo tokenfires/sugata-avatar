@@ -1,0 +1,36 @@
+{
+  "checked_utc": "2026-10-08T19:06:57.903424+00:00",
+  "independent_vertex_union_topology": {
+    "used_vertices": 13380,
+    "triangles": 26756,
+    "edges": 40134,
+    "two_opposite_incidence": true,
+    "one_component": true
+  },
+  "actual_incident_edges": [
+    [
+      494,
+      [
+        1872,
+        1873
+      ]
+    ],
+    [
+      495,
+      [
+        1872,
+        1877
+      ]
+    ]
+  ],
+  "edge_lengths_m": [
+    2.9999539006037437e-05,
+    2.999821929475855e-05
+  ],
+  "all53512segment_triangle_boxes_independently_rechecked": true,
+  "box_candidates": 0,
+  "MTdivisions_exercised": false,
+  "result_log_job_exact": true,
+  "all22physicalpins_exact": true,
+  "classification_agreement": "No observedproperincidentedgehit; exactonepointoccupancy/closestnormaltruth/groomclearance stillunknown; recipe remainsrefused."
+}

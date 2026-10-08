@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-10-08T19:03:30.322733+00:00",
+  "completed": true,
+  "classification": "NO_OBSERVED_PROPER_INCIDENT_EDGE_HIT",
+  "physical_occupancy": "UNKNOWN",
+  "formal_winding": "UNIMPLEMENTED_UNQUALIFIED",
+  "topology": {
+    "vertices": 13380,
+    "triangles": 26756,
+    "undirected_triangle_edges": 40134,
+    "boundary_edges": 0,
+    "non_two_incidence_edges": 0,
+    "inconsistent_orientation_edges": 0,
+    "min_triangle_cross_norm": 1.7412600607914935e-07,
+    "self_intersection_free_unproved": true,
+    "connected_faces": 26756,
+    "total_faces": 26756
+  },
+  "pairs_tested": 0,
+  "finished_utc": "2026-10-08T19:03:30.800734+00:00",
+  "limits": "Onevertex/incidentedges only; no formalwinding/solidoccupancy/globalselfintersection/groomclearance/appearance/native/retry/recipeacceptance"
+}

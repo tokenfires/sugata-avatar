@@ -1,0 +1,26 @@
+{
+  "sealed_utc": "2026-10-08T19:13:48.949936+00:00",
+  "status": "PAUSED_BY_ROBERT",
+  "payloads": [
+    {
+      "path": "AUTOMATION.json",
+      "bytes": 3475,
+      "sha256": "b29bcaf12a08737276bfb3d6e1636f275635173e28979144592ed95d8b52e8c3"
+    },
+    {
+      "path": "READBACK.json",
+      "bytes": 458,
+      "sha256": "717c1d6d2106c2ee529ae7050b92601d8412ac3231191f95f71a299ff9879a08"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1656,
+      "sha256": "4db6604bd9f84017a1a821bcdc924256e3911734715bc3626819d26fd6d393f7"
+    }
+  ],
+  "automation_readback": "PAUSED",
+  "critic": "stopped with incomplete resultreview checkpoint",
+  "no_live_owned_jobs": true,
+  "review_server": "retained825",
+  "human_resume_required": true
+}
