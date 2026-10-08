@@ -1,0 +1,11 @@
+00:02.046  blend            | Read blend: "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/ari-skin-palette.blend"
+/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-material-namespace/observe.py:41: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  name=text(mat.name);check(isinstance(mat.users,int) and mat.users>=0,'Unsupported material user count');row={'name':name,'users':mat.users,'fake_user':bool(mat.use_fake_user),'use_nodes':bool(mat.use_nodes),'owners':owners[name]}
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+SUGATA_NAMESPACE {"started_utc": "2026-10-08T23:39:05.643492+00:00", "witness_complete": true, "classification": "Recorded material-name set difference", "candidate_qualification": false, "source_mutations": false, "observed_counts": {"materials": 7, "objects": 7}, "difference": {"expected": ["AriPaletteSkin", "Human.body", "Human.eyebrow001", "Human.eyelashes01", "Human.high-poly", "Human.teeth_base", "Human.tongue01", "Material"], "observed": ["AriPaletteSkin", "Human.body", "Human.eyebrow001", "Human.eyelashes01", "Human.high-poly", "Human.teeth_base", "Human.tongue01"], "missing": ["Material"], "unexpected": []}, "missing_presave_roles": {"Material": {"users": 0, "fake_user": false}}, "original_body_present": true, "clone_present": true, "limits": "Actual loaded names/roles/users only; no serialization/addon/orphan mechanism proof, fullsource/cold/geometry/materialstate/artist/render/runtime qualification. No shader/slot/retention/save/pixels/geometry edit or lookup.", "finished_utc": "2026-10-08T23:39:08.098979+00:00"}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+
+Blender quit

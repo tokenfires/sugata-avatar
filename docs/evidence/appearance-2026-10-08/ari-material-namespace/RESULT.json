@@ -1,0 +1,46 @@
+{
+  "started_utc": "2026-10-08T23:39:05.643492+00:00",
+  "witness_complete": true,
+  "classification": "Recorded material-name set difference",
+  "candidate_qualification": false,
+  "source_mutations": false,
+  "observed_counts": {
+    "materials": 7,
+    "objects": 7
+  },
+  "difference": {
+    "expected": [
+      "AriPaletteSkin",
+      "Human.body",
+      "Human.eyebrow001",
+      "Human.eyelashes01",
+      "Human.high-poly",
+      "Human.teeth_base",
+      "Human.tongue01",
+      "Material"
+    ],
+    "observed": [
+      "AriPaletteSkin",
+      "Human.body",
+      "Human.eyebrow001",
+      "Human.eyelashes01",
+      "Human.high-poly",
+      "Human.teeth_base",
+      "Human.tongue01"
+    ],
+    "missing": [
+      "Material"
+    ],
+    "unexpected": []
+  },
+  "missing_presave_roles": {
+    "Material": {
+      "users": 0,
+      "fake_user": false
+    }
+  },
+  "original_body_present": true,
+  "clone_present": true,
+  "limits": "Actual loaded names/roles/users only; no serialization/addon/orphan mechanism proof, fullsource/cold/geometry/materialstate/artist/render/runtime qualification. No shader/slot/retention/save/pixels/geometry edit or lookup.",
+  "finished_utc": "2026-10-08T23:39:08.098979+00:00"
+}

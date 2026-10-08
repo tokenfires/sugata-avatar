@@ -1,0 +1,463 @@
+{
+  "materials": [
+    {
+      "name": "AriPaletteSkin",
+      "users": 1,
+      "fake_user": false,
+      "use_nodes": true,
+      "owners": [
+        {
+          "object": "Human",
+          "index": 0,
+          "link": "DATA"
+        }
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "DiffuseTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AlphaMapTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AriWarmPalette",
+          "type": "MIX_RGB"
+        }
+      ],
+      "links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "AlphaMapTexture",
+          "from_socket": "Alpha",
+          "to_node": "Principled BSDF",
+          "to_socket": "Alpha"
+        },
+        {
+          "from_node": "DiffuseTexture",
+          "from_socket": "Color",
+          "to_node": "AriWarmPalette",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "AriWarmPalette",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        }
+      ]
+    },
+    {
+      "name": "Human.body",
+      "users": 1,
+      "fake_user": true,
+      "use_nodes": true,
+      "owners": [],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "DiffuseTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AlphaMapTexture",
+          "type": "TEX_IMAGE"
+        }
+      ],
+      "links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "DiffuseTexture",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "AlphaMapTexture",
+          "from_socket": "Alpha",
+          "to_node": "Principled BSDF",
+          "to_socket": "Alpha"
+        }
+      ]
+    },
+    {
+      "name": "Human.eyebrow001",
+      "users": 1,
+      "fake_user": false,
+      "use_nodes": true,
+      "owners": [
+        {
+          "object": "Human.eyebrow001",
+          "index": 0,
+          "link": "DATA"
+        }
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "DiffuseTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AlphaMapTexture",
+          "type": "TEX_IMAGE"
+        }
+      ],
+      "links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "DiffuseTexture",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "AlphaMapTexture",
+          "from_socket": "Alpha",
+          "to_node": "Principled BSDF",
+          "to_socket": "Alpha"
+        }
+      ]
+    },
+    {
+      "name": "Human.eyelashes01",
+      "users": 1,
+      "fake_user": false,
+      "use_nodes": true,
+      "owners": [
+        {
+          "object": "Human.eyelashes01",
+          "index": 0,
+          "link": "DATA"
+        }
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "DiffuseTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AlphaMapTexture",
+          "type": "TEX_IMAGE"
+        }
+      ],
+      "links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "DiffuseTexture",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "AlphaMapTexture",
+          "from_socket": "Alpha",
+          "to_node": "Principled BSDF",
+          "to_socket": "Alpha"
+        }
+      ]
+    },
+    {
+      "name": "Human.high-poly",
+      "users": 1,
+      "fake_user": false,
+      "use_nodes": true,
+      "owners": [
+        {
+          "object": "Human.high-poly",
+          "index": 0,
+          "link": "DATA"
+        }
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "DiffuseTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AlphaMapTexture",
+          "type": "TEX_IMAGE"
+        }
+      ],
+      "links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "DiffuseTexture",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "AlphaMapTexture",
+          "from_socket": "Alpha",
+          "to_node": "Principled BSDF",
+          "to_socket": "Alpha"
+        }
+      ]
+    },
+    {
+      "name": "Human.teeth_base",
+      "users": 1,
+      "fake_user": false,
+      "use_nodes": true,
+      "owners": [
+        {
+          "object": "Human.teeth_base",
+          "index": 0,
+          "link": "DATA"
+        }
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "DiffuseTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AlphaMapTexture",
+          "type": "TEX_IMAGE"
+        }
+      ],
+      "links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "DiffuseTexture",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "AlphaMapTexture",
+          "from_socket": "Alpha",
+          "to_node": "Principled BSDF",
+          "to_socket": "Alpha"
+        }
+      ]
+    },
+    {
+      "name": "Human.tongue01",
+      "users": 1,
+      "fake_user": false,
+      "use_nodes": true,
+      "owners": [
+        {
+          "object": "Human.tongue01",
+          "index": 0,
+          "link": "DATA"
+        }
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "DiffuseTexture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "AlphaMapTexture",
+          "type": "TEX_IMAGE"
+        }
+      ],
+      "links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "DiffuseTexture",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "AlphaMapTexture",
+          "from_socket": "Alpha",
+          "to_node": "Principled BSDF",
+          "to_socket": "Alpha"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Human",
+      "type": "MESH",
+      "slots": [
+        {
+          "index": 0,
+          "material": "AriPaletteSkin",
+          "link": "DATA"
+        }
+      ]
+    },
+    {
+      "name": "Human.eyebrow001",
+      "type": "MESH",
+      "slots": [
+        {
+          "index": 0,
+          "material": "Human.eyebrow001",
+          "link": "DATA"
+        }
+      ]
+    },
+    {
+      "name": "Human.eyelashes01",
+      "type": "MESH",
+      "slots": [
+        {
+          "index": 0,
+          "material": "Human.eyelashes01",
+          "link": "DATA"
+        }
+      ]
+    },
+    {
+      "name": "Human.high-poly",
+      "type": "MESH",
+      "slots": [
+        {
+          "index": 0,
+          "material": "Human.high-poly",
+          "link": "DATA"
+        }
+      ]
+    },
+    {
+      "name": "Human.rig",
+      "type": "ARMATURE",
+      "slots": []
+    },
+    {
+      "name": "Human.teeth_base",
+      "type": "MESH",
+      "slots": [
+        {
+          "index": 0,
+          "material": "Human.teeth_base",
+          "link": "DATA"
+        }
+      ]
+    },
+    {
+      "name": "Human.tongue01",
+      "type": "MESH",
+      "slots": [
+        {
+          "index": 0,
+          "material": "Human.tongue01",
+          "link": "DATA"
+        }
+      ]
+    }
+  ],
+  "difference": {
+    "expected": [
+      "AriPaletteSkin",
+      "Human.body",
+      "Human.eyebrow001",
+      "Human.eyelashes01",
+      "Human.high-poly",
+      "Human.teeth_base",
+      "Human.tongue01",
+      "Material"
+    ],
+    "observed": [
+      "AriPaletteSkin",
+      "Human.body",
+      "Human.eyebrow001",
+      "Human.eyelashes01",
+      "Human.high-poly",
+      "Human.teeth_base",
+      "Human.tongue01"
+    ],
+    "missing": [
+      "Material"
+    ],
+    "unexpected": []
+  }
+}

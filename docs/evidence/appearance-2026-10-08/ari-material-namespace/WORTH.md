@@ -1,0 +1,15 @@
+# Compact saved-material namespace worth
+
+**YES to A, conditional on bounded read-only observer preflight before one90s process.** The question changes the next preservation decision: what actual missing/unexpected material names caused the saved-file guard? Palette/geometry/source are frozen; this is not a palette retry. One exact candidate open in the same declared environment, launch-before23:50/receipt00:05, stop first complete witness/unsupported field/budget. No factory/pref fallback or second process.
+
+Actual failure witness: the previous job saved/opened its candidate, then RuntimeError('Exactly one additive material') occurred with no namespace list. Original Human.body and clonedAriPaletteSkin lookups and nativeDATA routing had already passed; no body-retention loss is established. Bounded BEFORE/WARM summaries contain seven originals including Materialusers0/fakeFalse and Human.bodyusers1/fakeFalse→true. UnassignedMaterial is a concrete lead only. Cold names/owners/users/fake flags are the specific missing evidence.
+
+A: emit observed namespace and exact expected/observed/missing/unexpected sets BEFORE any expected-set assertion, with actual slot owners and retention metadata (preferred). A complete difference can nominate an ownership/retention contract; it cannot prove addon/orphan mechanics by itself. B: stop/source-only persistence design; avoids another load, leaves the cause unresolved. Do not remove expected names or add retention flags based on the lead. Any future change needs separately owned source responsibilities.
+
+Prospective observer must cap collections BEFORE getters/iteration:64materials/64objects/16slots per object/32nodes/64links/512chars per field and<=2MiB serializedoutput. Names/users/fake/slots and optional bounded node/link endpoints only; no genericRNA/Image.pixels/geometry/render/save/mutation. Root owns exact binary/saved-file pre/post identity/readonly and startup-environment behavior; ordinary startup side effects are not a general write-free proof. Unsupported bounds/field produceUNKNOWN with available count/witness, not a guessed namespace diagnosis. Preserve rawGiB files and summary identities; no pixel decode/hash or source/palette/color edit.
+
+Full correct-source/material/artist outcomes, independent cold preservation, motion/export/runtime/AAA remain open. This witness would not qualify the saved candidate or create a palette image. Broader ambition/default/frozen/refused/unrelated work remains unchanged.
+
+Allfive small/non-native INPUTS pins match; two native/binary pins are root-owned. Exact bindings: PLAN.md 2829bytes/SHA256 `e0befe8108ae4e2e3aca1baf61b965a54c7ac1385a03dde73892ff8284ec1e55`; INPUTS.json 1583bytes/SHA256 `cde25d681e83d01aa0e2408316cc057f3c7e0a864630291ab20a055891afb75d` (seven named inputs). Earlier small failure/summaries were actually reviewed; no giant originals were parsed.
+
+Saved 2026-10-08T23:30:25.991881+00:00. Only WORTH.md was written. No code/native/source-name query/palette/geometry/network/browser/capture operation occurred. Stable for root whole-read before code; worth is not execution admission.
