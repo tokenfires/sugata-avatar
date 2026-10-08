@@ -1,0 +1,18 @@
+{
+  "admitted": true,
+  "read_utc": "2026-10-08T12:14:07.005752+00:00",
+  "whole_source_read_chunk": "46e9d3; final witness/source-scope deltas becb1f/b842bf/505170",
+  "whole_handoff_read_chunks": [
+    "f99139",
+    "c328e9"
+  ],
+  "preflight_sha256": "a75373ea2df54b5cd8917585f7f02664d4f365e9490875979537b74718386886",
+  "scope_addendum_sha256": "3c5aae77b4bbcb3cfb5f0b8206a5219459a5aa9288a132da6b07681630892528",
+  "all12_original_preflight_bindings_exact": "b0e7fa; three preserved historical stages",
+  "all3_current_addendum_bindings_exact": true,
+  "all23_execution_pins_including_Node_exact": true,
+  "outputs_absent": true,
+  "owned_consumer_job_absent": true,
+  "candidate_readonly": true,
+  "limit": "One headless actual load/refusal witness only; CPU consumption observed/source-bound; actual WebGPU/images/material/Figure/motion/world-position qualification held"
+}

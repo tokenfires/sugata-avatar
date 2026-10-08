@@ -1,0 +1,4787 @@
+{
+  "started_utc": "2026-10-08T12:14:07.152Z",
+  "pid": 919,
+  "node": "v24.13.1",
+  "three_revision": "185",
+  "loads": 1,
+  "checks": [
+    {
+      "label": "Exact package export/core/loader/utilities import paths",
+      "pass": true
+    },
+    {
+      "label": "Actual package CPU four-field method",
+      "pass": true
+    },
+    {
+      "label": "GLB header",
+      "pass": true
+    },
+    {
+      "label": "JSON chunk",
+      "pass": true
+    },
+    {
+      "label": "Single BIN chunk",
+      "pass": true
+    },
+    {
+      "label": "Exact frozen GLB JSON",
+      "pass": true
+    },
+    {
+      "label": "Embedded-only resources",
+      "pass": true
+    },
+    {
+      "label": "Neutral single scene",
+      "pass": true
+    },
+    {
+      "label": "One actual neutral load",
+      "pass": true
+    },
+    {
+      "label": "Complete166 node association",
+      "pass": true
+    },
+    {
+      "label": "Node parent:0",
+      "pass": true,
+      "source_name": "index_03_l",
+      "consumer_name": "index_03_l"
+    },
+    {
+      "label": "Node parent:1",
+      "pass": true,
+      "source_name": "index_02_l",
+      "consumer_name": "index_02_l"
+    },
+    {
+      "label": "Node parent:2",
+      "pass": true,
+      "source_name": "index_01_l",
+      "consumer_name": "index_01_l"
+    },
+    {
+      "label": "Node parent:3",
+      "pass": true,
+      "source_name": "middle_03_l",
+      "consumer_name": "middle_03_l"
+    },
+    {
+      "label": "Node parent:4",
+      "pass": true,
+      "source_name": "middle_02_l",
+      "consumer_name": "middle_02_l"
+    },
+    {
+      "label": "Node parent:5",
+      "pass": true,
+      "source_name": "middle_01_l",
+      "consumer_name": "middle_01_l"
+    },
+    {
+      "label": "Node parent:6",
+      "pass": true,
+      "source_name": "pinky_03_l",
+      "consumer_name": "pinky_03_l"
+    },
+    {
+      "label": "Node parent:7",
+      "pass": true,
+      "source_name": "pinky_02_l",
+      "consumer_name": "pinky_02_l"
+    },
+    {
+      "label": "Node parent:8",
+      "pass": true,
+      "source_name": "pinky_01_l",
+      "consumer_name": "pinky_01_l"
+    },
+    {
+      "label": "Node parent:9",
+      "pass": true,
+      "source_name": "ring_03_l",
+      "consumer_name": "ring_03_l"
+    },
+    {
+      "label": "Node parent:10",
+      "pass": true,
+      "source_name": "ring_02_l",
+      "consumer_name": "ring_02_l"
+    },
+    {
+      "label": "Node parent:11",
+      "pass": true,
+      "source_name": "ring_01_l",
+      "consumer_name": "ring_01_l"
+    },
+    {
+      "label": "Node parent:12",
+      "pass": true,
+      "source_name": "thumb_03_l",
+      "consumer_name": "thumb_03_l"
+    },
+    {
+      "label": "Node parent:13",
+      "pass": true,
+      "source_name": "thumb_02_l",
+      "consumer_name": "thumb_02_l"
+    },
+    {
+      "label": "Node parent:14",
+      "pass": true,
+      "source_name": "thumb_01_l",
+      "consumer_name": "thumb_01_l"
+    },
+    {
+      "label": "Node parent:15",
+      "pass": true,
+      "source_name": "hand_l",
+      "consumer_name": "hand_l"
+    },
+    {
+      "label": "Node parent:16",
+      "pass": true,
+      "source_name": "lowerarm_l",
+      "consumer_name": "lowerarm_l"
+    },
+    {
+      "label": "Node parent:17",
+      "pass": true,
+      "source_name": "upperarm_l",
+      "consumer_name": "upperarm_l"
+    },
+    {
+      "label": "Node parent:18",
+      "pass": true,
+      "source_name": "clavicle_l",
+      "consumer_name": "clavicle_l"
+    },
+    {
+      "label": "Node parent:19",
+      "pass": true,
+      "source_name": "index_03_r",
+      "consumer_name": "index_03_r"
+    },
+    {
+      "label": "Node parent:20",
+      "pass": true,
+      "source_name": "index_02_r",
+      "consumer_name": "index_02_r"
+    },
+    {
+      "label": "Node parent:21",
+      "pass": true,
+      "source_name": "index_01_r",
+      "consumer_name": "index_01_r"
+    },
+    {
+      "label": "Node parent:22",
+      "pass": true,
+      "source_name": "middle_03_r",
+      "consumer_name": "middle_03_r"
+    },
+    {
+      "label": "Node parent:23",
+      "pass": true,
+      "source_name": "middle_02_r",
+      "consumer_name": "middle_02_r"
+    },
+    {
+      "label": "Node parent:24",
+      "pass": true,
+      "source_name": "middle_01_r",
+      "consumer_name": "middle_01_r"
+    },
+    {
+      "label": "Node parent:25",
+      "pass": true,
+      "source_name": "pinky_03_r",
+      "consumer_name": "pinky_03_r"
+    },
+    {
+      "label": "Node parent:26",
+      "pass": true,
+      "source_name": "pinky_02_r",
+      "consumer_name": "pinky_02_r"
+    },
+    {
+      "label": "Node parent:27",
+      "pass": true,
+      "source_name": "pinky_01_r",
+      "consumer_name": "pinky_01_r"
+    },
+    {
+      "label": "Node parent:28",
+      "pass": true,
+      "source_name": "ring_03_r",
+      "consumer_name": "ring_03_r"
+    },
+    {
+      "label": "Node parent:29",
+      "pass": true,
+      "source_name": "ring_02_r",
+      "consumer_name": "ring_02_r"
+    },
+    {
+      "label": "Node parent:30",
+      "pass": true,
+      "source_name": "ring_01_r",
+      "consumer_name": "ring_01_r"
+    },
+    {
+      "label": "Node parent:31",
+      "pass": true,
+      "source_name": "thumb_03_r",
+      "consumer_name": "thumb_03_r"
+    },
+    {
+      "label": "Node parent:32",
+      "pass": true,
+      "source_name": "thumb_02_r",
+      "consumer_name": "thumb_02_r"
+    },
+    {
+      "label": "Node parent:33",
+      "pass": true,
+      "source_name": "thumb_01_r",
+      "consumer_name": "thumb_01_r"
+    },
+    {
+      "label": "Node parent:34",
+      "pass": true,
+      "source_name": "hand_r",
+      "consumer_name": "hand_r"
+    },
+    {
+      "label": "Node parent:35",
+      "pass": true,
+      "source_name": "lowerarm_r",
+      "consumer_name": "lowerarm_r"
+    },
+    {
+      "label": "Node parent:36",
+      "pass": true,
+      "source_name": "upperarm_r",
+      "consumer_name": "upperarm_r"
+    },
+    {
+      "label": "Node parent:37",
+      "pass": true,
+      "source_name": "clavicle_r",
+      "consumer_name": "clavicle_r"
+    },
+    {
+      "label": "Node parent:38",
+      "pass": true,
+      "source_name": "head",
+      "consumer_name": "head"
+    },
+    {
+      "label": "Node parent:39",
+      "pass": true,
+      "source_name": "neck_01",
+      "consumer_name": "neck_01"
+    },
+    {
+      "label": "Node parent:40",
+      "pass": true,
+      "source_name": "spine_03",
+      "consumer_name": "spine_03"
+    },
+    {
+      "label": "Node parent:41",
+      "pass": true,
+      "source_name": "spine_02",
+      "consumer_name": "spine_02"
+    },
+    {
+      "label": "Node parent:42",
+      "pass": true,
+      "source_name": "spine_01",
+      "consumer_name": "spine_01"
+    },
+    {
+      "label": "Node parent:43",
+      "pass": true,
+      "source_name": "ball_l",
+      "consumer_name": "ball_l"
+    },
+    {
+      "label": "Node parent:44",
+      "pass": true,
+      "source_name": "foot_l",
+      "consumer_name": "foot_l"
+    },
+    {
+      "label": "Node parent:45",
+      "pass": true,
+      "source_name": "calf_l",
+      "consumer_name": "calf_l"
+    },
+    {
+      "label": "Node parent:46",
+      "pass": true,
+      "source_name": "thigh_l",
+      "consumer_name": "thigh_l"
+    },
+    {
+      "label": "Node parent:47",
+      "pass": true,
+      "source_name": "ball_r",
+      "consumer_name": "ball_r"
+    },
+    {
+      "label": "Node parent:48",
+      "pass": true,
+      "source_name": "foot_r",
+      "consumer_name": "foot_r"
+    },
+    {
+      "label": "Node parent:49",
+      "pass": true,
+      "source_name": "calf_r",
+      "consumer_name": "calf_r"
+    },
+    {
+      "label": "Node parent:50",
+      "pass": true,
+      "source_name": "thigh_r",
+      "consumer_name": "thigh_r"
+    },
+    {
+      "label": "Node parent:51",
+      "pass": true,
+      "source_name": "pelvis",
+      "consumer_name": "pelvis"
+    },
+    {
+      "label": "Node parent:52",
+      "pass": true,
+      "source_name": "Root",
+      "consumer_name": "Root"
+    },
+    {
+      "label": "Node parent:53",
+      "pass": true,
+      "source_name": "Human",
+      "consumer_name": "Human"
+    },
+    {
+      "label": "Node parent:54",
+      "pass": true,
+      "source_name": "Human.eyebrow001",
+      "consumer_name": "Humaneyebrow001"
+    },
+    {
+      "label": "Node parent:55",
+      "pass": true,
+      "source_name": "Human.eyelashes01",
+      "consumer_name": "Humaneyelashes01"
+    },
+    {
+      "label": "Node parent:56",
+      "pass": true,
+      "source_name": "Human.high-poly",
+      "consumer_name": "Humanhigh-poly"
+    },
+    {
+      "label": "Node parent:57",
+      "pass": true,
+      "source_name": "Human.teeth_base",
+      "consumer_name": "Humanteeth_base"
+    },
+    {
+      "label": "Node parent:58",
+      "pass": true,
+      "source_name": "Human.tongue01",
+      "consumer_name": "Humantongue01"
+    },
+    {
+      "label": "Node parent:59",
+      "pass": true,
+      "source_name": "Human.rig",
+      "consumer_name": "Humanrig"
+    },
+    {
+      "label": "Node parent:60",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__Root",
+      "consumer_name": "SUGATA_REST_U__Root"
+    },
+    {
+      "label": "Static helper role/TRS:60",
+      "pass": true
+    },
+    {
+      "label": "Node parent:61",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__Root",
+      "consumer_name": "SUGATA_REST_V__Root"
+    },
+    {
+      "label": "Static helper role/TRS:61",
+      "pass": true
+    },
+    {
+      "label": "Node parent:62",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__pelvis",
+      "consumer_name": "SUGATA_REST_U__pelvis"
+    },
+    {
+      "label": "Static helper role/TRS:62",
+      "pass": true
+    },
+    {
+      "label": "Node parent:63",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__pelvis",
+      "consumer_name": "SUGATA_REST_V__pelvis"
+    },
+    {
+      "label": "Static helper role/TRS:63",
+      "pass": true
+    },
+    {
+      "label": "Node parent:64",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__spine_01",
+      "consumer_name": "SUGATA_REST_U__spine_01"
+    },
+    {
+      "label": "Static helper role/TRS:64",
+      "pass": true
+    },
+    {
+      "label": "Node parent:65",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__spine_01",
+      "consumer_name": "SUGATA_REST_V__spine_01"
+    },
+    {
+      "label": "Static helper role/TRS:65",
+      "pass": true
+    },
+    {
+      "label": "Node parent:66",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__spine_02",
+      "consumer_name": "SUGATA_REST_U__spine_02"
+    },
+    {
+      "label": "Static helper role/TRS:66",
+      "pass": true
+    },
+    {
+      "label": "Node parent:67",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__spine_02",
+      "consumer_name": "SUGATA_REST_V__spine_02"
+    },
+    {
+      "label": "Static helper role/TRS:67",
+      "pass": true
+    },
+    {
+      "label": "Node parent:68",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__spine_03",
+      "consumer_name": "SUGATA_REST_U__spine_03"
+    },
+    {
+      "label": "Static helper role/TRS:68",
+      "pass": true
+    },
+    {
+      "label": "Node parent:69",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__spine_03",
+      "consumer_name": "SUGATA_REST_V__spine_03"
+    },
+    {
+      "label": "Static helper role/TRS:69",
+      "pass": true
+    },
+    {
+      "label": "Node parent:70",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__clavicle_l",
+      "consumer_name": "SUGATA_REST_U__clavicle_l"
+    },
+    {
+      "label": "Static helper role/TRS:70",
+      "pass": true
+    },
+    {
+      "label": "Node parent:71",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__clavicle_l",
+      "consumer_name": "SUGATA_REST_V__clavicle_l"
+    },
+    {
+      "label": "Static helper role/TRS:71",
+      "pass": true
+    },
+    {
+      "label": "Node parent:72",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__upperarm_l",
+      "consumer_name": "SUGATA_REST_U__upperarm_l"
+    },
+    {
+      "label": "Static helper role/TRS:72",
+      "pass": true
+    },
+    {
+      "label": "Node parent:73",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__upperarm_l",
+      "consumer_name": "SUGATA_REST_V__upperarm_l"
+    },
+    {
+      "label": "Static helper role/TRS:73",
+      "pass": true
+    },
+    {
+      "label": "Node parent:74",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__lowerarm_l",
+      "consumer_name": "SUGATA_REST_U__lowerarm_l"
+    },
+    {
+      "label": "Static helper role/TRS:74",
+      "pass": true
+    },
+    {
+      "label": "Node parent:75",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__lowerarm_l",
+      "consumer_name": "SUGATA_REST_V__lowerarm_l"
+    },
+    {
+      "label": "Static helper role/TRS:75",
+      "pass": true
+    },
+    {
+      "label": "Node parent:76",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__hand_l",
+      "consumer_name": "SUGATA_REST_U__hand_l"
+    },
+    {
+      "label": "Static helper role/TRS:76",
+      "pass": true
+    },
+    {
+      "label": "Node parent:77",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__hand_l",
+      "consumer_name": "SUGATA_REST_V__hand_l"
+    },
+    {
+      "label": "Static helper role/TRS:77",
+      "pass": true
+    },
+    {
+      "label": "Node parent:78",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__index_01_l",
+      "consumer_name": "SUGATA_REST_U__index_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:78",
+      "pass": true
+    },
+    {
+      "label": "Node parent:79",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__index_01_l",
+      "consumer_name": "SUGATA_REST_V__index_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:79",
+      "pass": true
+    },
+    {
+      "label": "Node parent:80",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__index_02_l",
+      "consumer_name": "SUGATA_REST_U__index_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:80",
+      "pass": true
+    },
+    {
+      "label": "Node parent:81",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__index_02_l",
+      "consumer_name": "SUGATA_REST_V__index_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:81",
+      "pass": true
+    },
+    {
+      "label": "Node parent:82",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__index_03_l",
+      "consumer_name": "SUGATA_REST_U__index_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:82",
+      "pass": true
+    },
+    {
+      "label": "Node parent:83",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__index_03_l",
+      "consumer_name": "SUGATA_REST_V__index_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:83",
+      "pass": true
+    },
+    {
+      "label": "Node parent:84",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__middle_01_l",
+      "consumer_name": "SUGATA_REST_U__middle_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:84",
+      "pass": true
+    },
+    {
+      "label": "Node parent:85",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__middle_01_l",
+      "consumer_name": "SUGATA_REST_V__middle_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:85",
+      "pass": true
+    },
+    {
+      "label": "Node parent:86",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__middle_02_l",
+      "consumer_name": "SUGATA_REST_U__middle_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:86",
+      "pass": true
+    },
+    {
+      "label": "Node parent:87",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__middle_02_l",
+      "consumer_name": "SUGATA_REST_V__middle_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:87",
+      "pass": true
+    },
+    {
+      "label": "Node parent:88",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__middle_03_l",
+      "consumer_name": "SUGATA_REST_U__middle_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:88",
+      "pass": true
+    },
+    {
+      "label": "Node parent:89",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__middle_03_l",
+      "consumer_name": "SUGATA_REST_V__middle_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:89",
+      "pass": true
+    },
+    {
+      "label": "Node parent:90",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__pinky_01_l",
+      "consumer_name": "SUGATA_REST_U__pinky_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:90",
+      "pass": true
+    },
+    {
+      "label": "Node parent:91",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__pinky_01_l",
+      "consumer_name": "SUGATA_REST_V__pinky_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:91",
+      "pass": true
+    },
+    {
+      "label": "Node parent:92",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__pinky_02_l",
+      "consumer_name": "SUGATA_REST_U__pinky_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:92",
+      "pass": true
+    },
+    {
+      "label": "Node parent:93",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__pinky_02_l",
+      "consumer_name": "SUGATA_REST_V__pinky_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:93",
+      "pass": true
+    },
+    {
+      "label": "Node parent:94",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__pinky_03_l",
+      "consumer_name": "SUGATA_REST_U__pinky_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:94",
+      "pass": true
+    },
+    {
+      "label": "Node parent:95",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__pinky_03_l",
+      "consumer_name": "SUGATA_REST_V__pinky_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:95",
+      "pass": true
+    },
+    {
+      "label": "Node parent:96",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ring_01_l",
+      "consumer_name": "SUGATA_REST_U__ring_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:96",
+      "pass": true
+    },
+    {
+      "label": "Node parent:97",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ring_01_l",
+      "consumer_name": "SUGATA_REST_V__ring_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:97",
+      "pass": true
+    },
+    {
+      "label": "Node parent:98",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ring_02_l",
+      "consumer_name": "SUGATA_REST_U__ring_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:98",
+      "pass": true
+    },
+    {
+      "label": "Node parent:99",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ring_02_l",
+      "consumer_name": "SUGATA_REST_V__ring_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:99",
+      "pass": true
+    },
+    {
+      "label": "Node parent:100",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ring_03_l",
+      "consumer_name": "SUGATA_REST_U__ring_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:100",
+      "pass": true
+    },
+    {
+      "label": "Node parent:101",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ring_03_l",
+      "consumer_name": "SUGATA_REST_V__ring_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:101",
+      "pass": true
+    },
+    {
+      "label": "Node parent:102",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thumb_01_l",
+      "consumer_name": "SUGATA_REST_U__thumb_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:102",
+      "pass": true
+    },
+    {
+      "label": "Node parent:103",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thumb_01_l",
+      "consumer_name": "SUGATA_REST_V__thumb_01_l"
+    },
+    {
+      "label": "Static helper role/TRS:103",
+      "pass": true
+    },
+    {
+      "label": "Node parent:104",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thumb_02_l",
+      "consumer_name": "SUGATA_REST_U__thumb_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:104",
+      "pass": true
+    },
+    {
+      "label": "Node parent:105",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thumb_02_l",
+      "consumer_name": "SUGATA_REST_V__thumb_02_l"
+    },
+    {
+      "label": "Static helper role/TRS:105",
+      "pass": true
+    },
+    {
+      "label": "Node parent:106",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thumb_03_l",
+      "consumer_name": "SUGATA_REST_U__thumb_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:106",
+      "pass": true
+    },
+    {
+      "label": "Node parent:107",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thumb_03_l",
+      "consumer_name": "SUGATA_REST_V__thumb_03_l"
+    },
+    {
+      "label": "Static helper role/TRS:107",
+      "pass": true
+    },
+    {
+      "label": "Node parent:108",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__clavicle_r",
+      "consumer_name": "SUGATA_REST_U__clavicle_r"
+    },
+    {
+      "label": "Static helper role/TRS:108",
+      "pass": true
+    },
+    {
+      "label": "Node parent:109",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__clavicle_r",
+      "consumer_name": "SUGATA_REST_V__clavicle_r"
+    },
+    {
+      "label": "Static helper role/TRS:109",
+      "pass": true
+    },
+    {
+      "label": "Node parent:110",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__upperarm_r",
+      "consumer_name": "SUGATA_REST_U__upperarm_r"
+    },
+    {
+      "label": "Static helper role/TRS:110",
+      "pass": true
+    },
+    {
+      "label": "Node parent:111",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__upperarm_r",
+      "consumer_name": "SUGATA_REST_V__upperarm_r"
+    },
+    {
+      "label": "Static helper role/TRS:111",
+      "pass": true
+    },
+    {
+      "label": "Node parent:112",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__lowerarm_r",
+      "consumer_name": "SUGATA_REST_U__lowerarm_r"
+    },
+    {
+      "label": "Static helper role/TRS:112",
+      "pass": true
+    },
+    {
+      "label": "Node parent:113",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__lowerarm_r",
+      "consumer_name": "SUGATA_REST_V__lowerarm_r"
+    },
+    {
+      "label": "Static helper role/TRS:113",
+      "pass": true
+    },
+    {
+      "label": "Node parent:114",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__hand_r",
+      "consumer_name": "SUGATA_REST_U__hand_r"
+    },
+    {
+      "label": "Static helper role/TRS:114",
+      "pass": true
+    },
+    {
+      "label": "Node parent:115",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__hand_r",
+      "consumer_name": "SUGATA_REST_V__hand_r"
+    },
+    {
+      "label": "Static helper role/TRS:115",
+      "pass": true
+    },
+    {
+      "label": "Node parent:116",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__index_01_r",
+      "consumer_name": "SUGATA_REST_U__index_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:116",
+      "pass": true
+    },
+    {
+      "label": "Node parent:117",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__index_01_r",
+      "consumer_name": "SUGATA_REST_V__index_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:117",
+      "pass": true
+    },
+    {
+      "label": "Node parent:118",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__index_02_r",
+      "consumer_name": "SUGATA_REST_U__index_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:118",
+      "pass": true
+    },
+    {
+      "label": "Node parent:119",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__index_02_r",
+      "consumer_name": "SUGATA_REST_V__index_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:119",
+      "pass": true
+    },
+    {
+      "label": "Node parent:120",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__index_03_r",
+      "consumer_name": "SUGATA_REST_U__index_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:120",
+      "pass": true
+    },
+    {
+      "label": "Node parent:121",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__index_03_r",
+      "consumer_name": "SUGATA_REST_V__index_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:121",
+      "pass": true
+    },
+    {
+      "label": "Node parent:122",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__middle_01_r",
+      "consumer_name": "SUGATA_REST_U__middle_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:122",
+      "pass": true
+    },
+    {
+      "label": "Node parent:123",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__middle_01_r",
+      "consumer_name": "SUGATA_REST_V__middle_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:123",
+      "pass": true
+    },
+    {
+      "label": "Node parent:124",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__middle_02_r",
+      "consumer_name": "SUGATA_REST_U__middle_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:124",
+      "pass": true
+    },
+    {
+      "label": "Node parent:125",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__middle_02_r",
+      "consumer_name": "SUGATA_REST_V__middle_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:125",
+      "pass": true
+    },
+    {
+      "label": "Node parent:126",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__middle_03_r",
+      "consumer_name": "SUGATA_REST_U__middle_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:126",
+      "pass": true
+    },
+    {
+      "label": "Node parent:127",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__middle_03_r",
+      "consumer_name": "SUGATA_REST_V__middle_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:127",
+      "pass": true
+    },
+    {
+      "label": "Node parent:128",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__pinky_01_r",
+      "consumer_name": "SUGATA_REST_U__pinky_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:128",
+      "pass": true
+    },
+    {
+      "label": "Node parent:129",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__pinky_01_r",
+      "consumer_name": "SUGATA_REST_V__pinky_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:129",
+      "pass": true
+    },
+    {
+      "label": "Node parent:130",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__pinky_02_r",
+      "consumer_name": "SUGATA_REST_U__pinky_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:130",
+      "pass": true
+    },
+    {
+      "label": "Node parent:131",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__pinky_02_r",
+      "consumer_name": "SUGATA_REST_V__pinky_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:131",
+      "pass": true
+    },
+    {
+      "label": "Node parent:132",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__pinky_03_r",
+      "consumer_name": "SUGATA_REST_U__pinky_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:132",
+      "pass": true
+    },
+    {
+      "label": "Node parent:133",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__pinky_03_r",
+      "consumer_name": "SUGATA_REST_V__pinky_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:133",
+      "pass": true
+    },
+    {
+      "label": "Node parent:134",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ring_01_r",
+      "consumer_name": "SUGATA_REST_U__ring_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:134",
+      "pass": true
+    },
+    {
+      "label": "Node parent:135",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ring_01_r",
+      "consumer_name": "SUGATA_REST_V__ring_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:135",
+      "pass": true
+    },
+    {
+      "label": "Node parent:136",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ring_02_r",
+      "consumer_name": "SUGATA_REST_U__ring_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:136",
+      "pass": true
+    },
+    {
+      "label": "Node parent:137",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ring_02_r",
+      "consumer_name": "SUGATA_REST_V__ring_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:137",
+      "pass": true
+    },
+    {
+      "label": "Node parent:138",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ring_03_r",
+      "consumer_name": "SUGATA_REST_U__ring_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:138",
+      "pass": true
+    },
+    {
+      "label": "Node parent:139",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ring_03_r",
+      "consumer_name": "SUGATA_REST_V__ring_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:139",
+      "pass": true
+    },
+    {
+      "label": "Node parent:140",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thumb_01_r",
+      "consumer_name": "SUGATA_REST_U__thumb_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:140",
+      "pass": true
+    },
+    {
+      "label": "Node parent:141",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thumb_01_r",
+      "consumer_name": "SUGATA_REST_V__thumb_01_r"
+    },
+    {
+      "label": "Static helper role/TRS:141",
+      "pass": true
+    },
+    {
+      "label": "Node parent:142",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thumb_02_r",
+      "consumer_name": "SUGATA_REST_U__thumb_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:142",
+      "pass": true
+    },
+    {
+      "label": "Node parent:143",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thumb_02_r",
+      "consumer_name": "SUGATA_REST_V__thumb_02_r"
+    },
+    {
+      "label": "Static helper role/TRS:143",
+      "pass": true
+    },
+    {
+      "label": "Node parent:144",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thumb_03_r",
+      "consumer_name": "SUGATA_REST_U__thumb_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:144",
+      "pass": true
+    },
+    {
+      "label": "Node parent:145",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thumb_03_r",
+      "consumer_name": "SUGATA_REST_V__thumb_03_r"
+    },
+    {
+      "label": "Static helper role/TRS:145",
+      "pass": true
+    },
+    {
+      "label": "Node parent:146",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__neck_01",
+      "consumer_name": "SUGATA_REST_U__neck_01"
+    },
+    {
+      "label": "Static helper role/TRS:146",
+      "pass": true
+    },
+    {
+      "label": "Node parent:147",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__neck_01",
+      "consumer_name": "SUGATA_REST_V__neck_01"
+    },
+    {
+      "label": "Static helper role/TRS:147",
+      "pass": true
+    },
+    {
+      "label": "Node parent:148",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__head",
+      "consumer_name": "SUGATA_REST_U__head"
+    },
+    {
+      "label": "Static helper role/TRS:148",
+      "pass": true
+    },
+    {
+      "label": "Node parent:149",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__head",
+      "consumer_name": "SUGATA_REST_V__head"
+    },
+    {
+      "label": "Static helper role/TRS:149",
+      "pass": true
+    },
+    {
+      "label": "Node parent:150",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thigh_l",
+      "consumer_name": "SUGATA_REST_U__thigh_l"
+    },
+    {
+      "label": "Static helper role/TRS:150",
+      "pass": true
+    },
+    {
+      "label": "Node parent:151",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thigh_l",
+      "consumer_name": "SUGATA_REST_V__thigh_l"
+    },
+    {
+      "label": "Static helper role/TRS:151",
+      "pass": true
+    },
+    {
+      "label": "Node parent:152",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__calf_l",
+      "consumer_name": "SUGATA_REST_U__calf_l"
+    },
+    {
+      "label": "Static helper role/TRS:152",
+      "pass": true
+    },
+    {
+      "label": "Node parent:153",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__calf_l",
+      "consumer_name": "SUGATA_REST_V__calf_l"
+    },
+    {
+      "label": "Static helper role/TRS:153",
+      "pass": true
+    },
+    {
+      "label": "Node parent:154",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__foot_l",
+      "consumer_name": "SUGATA_REST_U__foot_l"
+    },
+    {
+      "label": "Static helper role/TRS:154",
+      "pass": true
+    },
+    {
+      "label": "Node parent:155",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__foot_l",
+      "consumer_name": "SUGATA_REST_V__foot_l"
+    },
+    {
+      "label": "Static helper role/TRS:155",
+      "pass": true
+    },
+    {
+      "label": "Node parent:156",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ball_l",
+      "consumer_name": "SUGATA_REST_U__ball_l"
+    },
+    {
+      "label": "Static helper role/TRS:156",
+      "pass": true
+    },
+    {
+      "label": "Node parent:157",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ball_l",
+      "consumer_name": "SUGATA_REST_V__ball_l"
+    },
+    {
+      "label": "Static helper role/TRS:157",
+      "pass": true
+    },
+    {
+      "label": "Node parent:158",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__thigh_r",
+      "consumer_name": "SUGATA_REST_U__thigh_r"
+    },
+    {
+      "label": "Static helper role/TRS:158",
+      "pass": true
+    },
+    {
+      "label": "Node parent:159",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__thigh_r",
+      "consumer_name": "SUGATA_REST_V__thigh_r"
+    },
+    {
+      "label": "Static helper role/TRS:159",
+      "pass": true
+    },
+    {
+      "label": "Node parent:160",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__calf_r",
+      "consumer_name": "SUGATA_REST_U__calf_r"
+    },
+    {
+      "label": "Static helper role/TRS:160",
+      "pass": true
+    },
+    {
+      "label": "Node parent:161",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__calf_r",
+      "consumer_name": "SUGATA_REST_V__calf_r"
+    },
+    {
+      "label": "Static helper role/TRS:161",
+      "pass": true
+    },
+    {
+      "label": "Node parent:162",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__foot_r",
+      "consumer_name": "SUGATA_REST_U__foot_r"
+    },
+    {
+      "label": "Static helper role/TRS:162",
+      "pass": true
+    },
+    {
+      "label": "Node parent:163",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__foot_r",
+      "consumer_name": "SUGATA_REST_V__foot_r"
+    },
+    {
+      "label": "Static helper role/TRS:163",
+      "pass": true
+    },
+    {
+      "label": "Node parent:164",
+      "pass": true,
+      "source_name": "SUGATA_REST_U__ball_r",
+      "consumer_name": "SUGATA_REST_U__ball_r"
+    },
+    {
+      "label": "Static helper role/TRS:164",
+      "pass": true
+    },
+    {
+      "label": "Node parent:165",
+      "pass": true,
+      "source_name": "SUGATA_REST_V__ball_r",
+      "consumer_name": "SUGATA_REST_V__ball_r"
+    },
+    {
+      "label": "Static helper role/TRS:165",
+      "pass": true
+    },
+    {
+      "label": "53 Bones/106 non-Bone helpers",
+      "pass": true
+    },
+    {
+      "label": "Raw joint world:Root",
+      "pass": true,
+      "max_coefficient": 2.220446049250313e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:pelvis",
+      "pass": true,
+      "max_coefficient": 4.996003610813204e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:spine_01",
+      "pass": true,
+      "max_coefficient": 9.992007221626409e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:spine_02",
+      "pass": true,
+      "max_coefficient": 9.992007221626409e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:spine_03",
+      "pass": true,
+      "max_coefficient": 9.992007221626409e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:clavicle_l",
+      "pass": true,
+      "max_coefficient": 1.5543122344752192e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:upperarm_l",
+      "pass": true,
+      "max_coefficient": 1.6653345369377348e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:lowerarm_l",
+      "pass": true,
+      "max_coefficient": 1.7763568394002505e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:hand_l",
+      "pass": true,
+      "max_coefficient": 3.1086244689504383e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:index_01_l",
+      "pass": true,
+      "max_coefficient": 2.6645352591003757e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:index_02_l",
+      "pass": true,
+      "max_coefficient": 5.995204332975845e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:index_03_l",
+      "pass": true,
+      "max_coefficient": 5.218048215738236e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:middle_01_l",
+      "pass": true,
+      "max_coefficient": 2.4424906541753444e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:middle_02_l",
+      "pass": true,
+      "max_coefficient": 2.4424906541753444e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:middle_03_l",
+      "pass": true,
+      "max_coefficient": 3.1086244689504383e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:pinky_01_l",
+      "pass": true,
+      "max_coefficient": 2.4424906541753444e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:pinky_02_l",
+      "pass": true,
+      "max_coefficient": 2.1094237467877974e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:pinky_03_l",
+      "pass": true,
+      "max_coefficient": 1.7763568394002505e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ring_01_l",
+      "pass": true,
+      "max_coefficient": 2.4424906541753444e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ring_02_l",
+      "pass": true,
+      "max_coefficient": 2.886579864025407e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ring_03_l",
+      "pass": true,
+      "max_coefficient": 2.9976021664879227e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thumb_01_l",
+      "pass": true,
+      "max_coefficient": 3.1086244689504383e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thumb_02_l",
+      "pass": true,
+      "max_coefficient": 2.9976021664879227e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thumb_03_l",
+      "pass": true,
+      "max_coefficient": 2.7755575615628914e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:clavicle_r",
+      "pass": true,
+      "max_coefficient": 1.4432899320127035e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:upperarm_r",
+      "pass": true,
+      "max_coefficient": 1.4432899320127035e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:lowerarm_r",
+      "pass": true,
+      "max_coefficient": 1.4432899320127035e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:hand_r",
+      "pass": true,
+      "max_coefficient": 2.55351295663786e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:index_01_r",
+      "pass": true,
+      "max_coefficient": 2.55351295663786e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:index_02_r",
+      "pass": true,
+      "max_coefficient": 5.329070518200751e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:index_03_r",
+      "pass": true,
+      "max_coefficient": 4.773959005888173e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:middle_01_r",
+      "pass": true,
+      "max_coefficient": 1.6653345369377348e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:middle_02_r",
+      "pass": true,
+      "max_coefficient": 1.7763568394002505e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:middle_03_r",
+      "pass": true,
+      "max_coefficient": 2.220446049250313e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:pinky_01_r",
+      "pass": true,
+      "max_coefficient": 1.887379141862766e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:pinky_02_r",
+      "pass": true,
+      "max_coefficient": 1.887379141862766e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:pinky_03_r",
+      "pass": true,
+      "max_coefficient": 1.887379141862766e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ring_01_r",
+      "pass": true,
+      "max_coefficient": 1.7208456881689926e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ring_02_r",
+      "pass": true,
+      "max_coefficient": 2.1094237467877974e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ring_03_r",
+      "pass": true,
+      "max_coefficient": 2.220446049250313e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thumb_01_r",
+      "pass": true,
+      "max_coefficient": 2.55351295663786e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thumb_02_r",
+      "pass": true,
+      "max_coefficient": 2.6645352591003757e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thumb_03_r",
+      "pass": true,
+      "max_coefficient": 2.4424906541753444e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:neck_01",
+      "pass": true,
+      "max_coefficient": 8.881784197001252e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:head",
+      "pass": true,
+      "max_coefficient": 8.881784197001252e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thigh_l",
+      "pass": true,
+      "max_coefficient": 8.881784197001252e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:calf_l",
+      "pass": true,
+      "max_coefficient": 1.3253287356462806e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:foot_l",
+      "pass": true,
+      "max_coefficient": 1.3322676295501878e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ball_l",
+      "pass": true,
+      "max_coefficient": 2.1094237467877974e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:thigh_r",
+      "pass": true,
+      "max_coefficient": 5.551115123125783e-16,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:calf_r",
+      "pass": true,
+      "max_coefficient": 1.3183898417423734e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:foot_r",
+      "pass": true,
+      "max_coefficient": 1.8110513089197866e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Raw joint world:ball_r",
+      "pass": true,
+      "max_coefficient": 1.6653345369377348e-15,
+      "bound": 0.000001
+    },
+    {
+      "label": "Mesh skeleton:Human",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:0",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:1",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:2",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:3",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:4",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:5",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:6",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:7",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:8",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:9",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:10",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:11",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:12",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:13",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:14",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:15",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:16",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:17",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:18",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:19",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:20",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:21",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:22",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:23",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:24",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:25",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:26",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:27",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:28",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:29",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:30",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:31",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:32",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:33",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:34",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:35",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:36",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:37",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:38",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:39",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:40",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:41",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:42",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:43",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:44",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:45",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:46",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:47",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:48",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:49",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:50",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:51",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human:52",
+      "pass": true
+    },
+    {
+      "label": "Exact morph names/defaults:Human",
+      "pass": true
+    },
+    {
+      "label": "Mesh skeleton:Human.eyebrow001",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:0",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:1",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:2",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:3",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:4",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:5",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:6",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:7",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:8",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:9",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:10",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:11",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:12",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:13",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:14",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:15",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:16",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:17",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:18",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:19",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:20",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:21",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:22",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:23",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:24",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:25",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:26",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:27",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:28",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:29",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:30",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:31",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:32",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:33",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:34",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:35",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:36",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:37",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:38",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:39",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:40",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:41",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:42",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:43",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:44",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:45",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:46",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:47",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:48",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:49",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:50",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:51",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyebrow001:52",
+      "pass": true
+    },
+    {
+      "label": "Exact morph names/defaults:Human.eyebrow001",
+      "pass": true
+    },
+    {
+      "label": "Mesh skeleton:Human.eyelashes01",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:0",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:1",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:2",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:3",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:4",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:5",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:6",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:7",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:8",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:9",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:10",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:11",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:12",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:13",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:14",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:15",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:16",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:17",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:18",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:19",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:20",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:21",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:22",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:23",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:24",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:25",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:26",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:27",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:28",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:29",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:30",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:31",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:32",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:33",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:34",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:35",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:36",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:37",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:38",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:39",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:40",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:41",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:42",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:43",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:44",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:45",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:46",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:47",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:48",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:49",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:50",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:51",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.eyelashes01:52",
+      "pass": true
+    },
+    {
+      "label": "Exact morph names/defaults:Human.eyelashes01",
+      "pass": true
+    },
+    {
+      "label": "Mesh skeleton:Human.high-poly",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:0",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:1",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:2",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:3",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:4",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:5",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:6",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:7",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:8",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:9",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:10",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:11",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:12",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:13",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:14",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:15",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:16",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:17",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:18",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:19",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:20",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:21",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:22",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:23",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:24",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:25",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:26",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:27",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:28",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:29",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:30",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:31",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:32",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:33",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:34",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:35",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:36",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:37",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:38",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:39",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:40",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:41",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:42",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:43",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:44",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:45",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:46",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:47",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:48",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:49",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:50",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:51",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.high-poly:52",
+      "pass": true
+    },
+    {
+      "label": "Exact morph names/defaults:Human.high-poly",
+      "pass": true
+    },
+    {
+      "label": "Mesh skeleton:Human.teeth_base",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:0",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:1",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:2",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:3",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:4",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:5",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:6",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:7",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:8",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:9",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:10",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:11",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:12",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:13",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:14",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:15",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:16",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:17",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:18",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:19",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:20",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:21",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:22",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:23",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:24",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:25",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:26",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:27",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:28",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:29",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:30",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:31",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:32",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:33",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:34",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:35",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:36",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:37",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:38",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:39",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:40",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:41",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:42",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:43",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:44",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:45",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:46",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:47",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:48",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:49",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:50",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:51",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.teeth_base:52",
+      "pass": true
+    },
+    {
+      "label": "Exact morph names/defaults:Human.teeth_base",
+      "pass": true
+    },
+    {
+      "label": "Mesh skeleton:Human.tongue01",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:0",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:1",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:2",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:3",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:4",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:5",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:6",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:7",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:8",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:9",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:10",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:11",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:12",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:13",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:14",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:15",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:16",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:17",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:18",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:19",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:20",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:21",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:22",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:23",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:24",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:25",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:26",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:27",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:28",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:29",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:30",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:31",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:32",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:33",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:34",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:35",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:36",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:37",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:38",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:39",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:40",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:41",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:42",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:43",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:44",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:45",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:46",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:47",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:48",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:49",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:50",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:51",
+      "pass": true
+    },
+    {
+      "label": "Exact IBM:Human.tongue01:52",
+      "pass": true
+    },
+    {
+      "label": "Exact morph names/defaults:Human.tongue01",
+      "pass": true
+    },
+    {
+      "label": "Six owners/236 eligible owner-key morphs",
+      "pass": true
+    },
+    {
+      "label": "Single primitive consumer ownership:Human",
+      "pass": true
+    },
+    {
+      "label": "Exact retained secondary attributes",
+      "pass": true
+    },
+    {
+      "label": "Exact witness point and primary joint association",
+      "pass": true
+    },
+    {
+      "label": "Observed set0-only Float32 normalization",
+      "pass": true
+    }
+  ],
+  "intercepted_textures": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "scope": "Headless actual GLTFLoader geometry/graph/morph witness; textures replaced with empty Texture via plugin; no material/image/render/motion/Figure acceptance",
+  "resolved_imports": {
+    "three": "file:///Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.module.js",
+    "loader": "file:///Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+    "core": "file:///Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.core.js",
+    "buffer_utils": "file:///Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+    "skeleton_utils": "file:///Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/utils/SkeletonUtils.js"
+  },
+  "actual_CPU_skin_method": "applyBoneTransform( index, target ) {\n\n\t\tconst skeleton = this.skeleton;\n\t\tconst geometry = this.geometry;\n\n\t\t_skinIndex.fromBufferAttribute( geometry.attributes.skinIndex, index );\n\t\t_skinWeight.fromBufferAttribute( geometry.attributes.skinWeight, index );\n\n\t\tif ( target.isVector4 ) {\n\n\t\t\t_baseVector.copy( target );\n\t\t\ttarget.set( 0, 0, 0, 0 );\n\n\t\t} else {\n\n\t\t\t_baseVector.set( ...target, 1 );\n\t\t\ttarget.set( 0, 0, 0 );\n\n\t\t}\n\n\t\t_baseVector.applyMatrix4( this.bindMatrix );\n\n\t\tfor ( let i = 0; i < 4; i ++ ) {\n\n\t\t\tconst weight = _skinWeight.getComponent( i );\n\n\t\t\tif ( weight !== 0 ) {\n\n\t\t\t\tconst boneIndex = _skinIndex.getComponent( i );\n\n\t\t\t\t_matrix4.multiplyMatrices( skeleton.bones[ boneIndex ].matrixWorld, skeleton.boneInverses[ boneIndex ] );\n\n\t\t\t\ttarget.addScaledVector( _vector4.copy( _baseVector ).applyMatrix4( _matrix4 ), weight );\n\n\t\t\t}\n\n\t\t}\n\n\t\tif ( target.isVector4 ) {\n\n\t\t\t// ensure the homogenous coordinate remains unchanged after vector operations\n\t\t\ttarget.w = _baseVector.w;\n\n\t\t}\n\n\t\treturn target.applyMatrix4( this.bindMatrixInverse );\n\n\t}",
+  "joints": [
+    {
+      "node": 52,
+      "name": "Root",
+      "world_max_coefficient": 2.220446049250313e-16,
+      "matrixWorld": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -2.220446049250313e-16,
+        -1,
+        0,
+        0,
+        1,
+        -2.220446049250313e-16,
+        0,
+        0,
+        -0.000562518835067749,
+        6.100162863731384e-8,
+        1
+      ]
+    },
+    {
+      "node": 51,
+      "name": "pelvis",
+      "world_max_coefficient": 4.996003610813204e-16,
+      "matrixWorld": [
+        1.0000000000000002,
+        4.3140830754274083e-32,
+        1.942890293094024e-16,
+        0,
+        4.440892212393712e-16,
+        0.8994863033294678,
+        -0.4369490146636968,
+        0,
+        -1.3877788163730348e-16,
+        0.4369490146636967,
+        0.899486303329468,
+        0,
+        0,
+        0.8738863468170166,
+        0.013216622173785969,
+        1
+      ]
+    },
+    {
+      "node": 42,
+      "name": "spine_01",
+      "world_max_coefficient": 9.992007221626409e-16,
+      "matrixWorld": [
+        1.0000000000000002,
+        4.3140830754274083e-32,
+        1.942890293094024e-16,
+        0,
+        2.5725089255127076e-16,
+        0.9736990928649911,
+        0.22783765196800215,
+        0,
+        -3.876809081164522e-16,
+        -0.22783765196800193,
+        0.9736990928649912,
+        0,
+        3.921730574742787e-17,
+        0.953319549560547,
+        -0.025370135903358702,
+        1
+      ]
+    },
+    {
+      "node": 41,
+      "name": "spine_02",
+      "world_max_coefficient": 9.992007221626409e-16,
+      "matrixWorld": [
+        1.0000000000000002,
+        4.3140830754274083e-32,
+        1.942890293094024e-16,
+        0,
+        3.30979680073562e-16,
+        0.9997057318687447,
+        0.02425388991832725,
+        0,
+        -3.269968412063561e-16,
+        -0.024253889918327054,
+        0.9997057318687449,
+        0,
+        5.672747532364663e-17,
+        1.0195958614349367,
+        -0.009862005710602039,
+        1
+      ]
+    },
+    {
+      "node": 40,
+      "name": "spine_03",
+      "world_max_coefficient": 9.992007221626409e-16,
+      "matrixWorld": [
+        1.0000000000000002,
+        2.217694535978297e-16,
+        1.8270684989588504e-16,
+        0,
+        1.3915568075021687e-16,
+        0.9973285794258128,
+        -0.07304504513740559,
+        0,
+        -2.967420862220228e-16,
+        0.07304504513740576,
+        0.9973285198211677,
+        0,
+        8.163563025191102e-17,
+        1.094829559326172,
+        -0.008036758750677352,
+        1
+      ]
+    },
+    {
+      "node": 18,
+      "name": "clavicle_l",
+      "world_max_coefficient": 1.5543122344752192e-15,
+      "matrixWorld": [
+        -0.1487667262554167,
+        -0.9867277741432205,
+        0.06509036570787449,
+        0,
+        0.9884598851203921,
+        -0.15028309822082567,
+        -0.019029781222343202,
+        0,
+        0.02855920232832406,
+        0.061508208513260235,
+        0.9976977705955511,
+        0,
+        0.02277444116771232,
+        1.3424876928329472,
+        0.022098848596214977,
+        1
+      ]
+    },
+    {
+      "node": 17,
+      "name": "upperarm_l",
+      "world_max_coefficient": 1.6653345369377348e-15,
+      "matrixWorld": [
+        -0.7453822493553166,
+        -0.6651282906532303,
+        0.044828318059444726,
+        0,
+        0.6659038066864018,
+        -0.7460303902626054,
+        0.0032760966569184893,
+        0,
+        0.03126427531242344,
+        0.03229328617453592,
+        0.9989891648292551,
+        0,
+        0.1700163483619691,
+        1.3201013803482058,
+        0.019264154136180645,
+        1
+      ]
+    },
+    {
+      "node": 16,
+      "name": "lowerarm_l",
+      "world_max_coefficient": 1.7763568394002505e-15,
+      "matrixWorld": [
+        -0.7406026721000675,
+        -0.6705179810524005,
+        0.04374002665281307,
+        0,
+        0.5112643837928779,
+        -0.5200704932212838,
+        0.6842041015625,
+        0,
+        -0.436023443937302,
+        0.5290861725807201,
+        0.7279774546623234,
+        0,
+        0.33116674423217785,
+        1.1395601034164422,
+        0.020056977868079917,
+        1
+      ]
+    },
+    {
+      "node": 15,
+      "name": "hand_l",
+      "world_max_coefficient": 3.1086244689504383e-15,
+      "matrixWorld": [
+        -0.1325414478778837,
+        -0.8710183501243622,
+        -0.47303217649459883,
+        0,
+        0.32871323823928844,
+        -0.48886102437973145,
+        0.8080606460571298,
+        0,
+        -0.9350830316543589,
+        -0.04839032888412552,
+        0.35110965371131964,
+        0,
+        0.4530949890613558,
+        1.0155317783355704,
+        0.18322852253913866,
+        1
+      ]
+    },
+    {
+      "node": 2,
+      "name": "index_01_l",
+      "world_max_coefficient": 2.6645352591003757e-15,
+      "matrixWorld": [
+        0.7421504259109506,
+        -0.47930333018303134,
+        -0.4684878885746012,
+        0,
+        0.12969015538692463,
+        -0.5830845832824726,
+        0.8019926548004161,
+        0,
+        -0.6575659513473521,
+        -0.6559575796127346,
+        -0.37057554721832275,
+        0,
+        0.4807718396186831,
+        0.9749302864074697,
+        0.27753996849060053,
+        1
+      ]
+    },
+    {
+      "node": 1,
+      "name": "index_02_l",
+      "world_max_coefficient": 5.995204332975845e-15,
+      "matrixWorld": [
+        0.746648967266085,
+        -0.4838613867759731,
+        -0.4565011560916919,
+        0,
+        -0.024085871875284826,
+        -0.705456793308262,
+        0.7083432674407973,
+        0,
+        -0.6647818684577889,
+        -0.5178885459899962,
+        -0.5383827686309828,
+        0,
+        0.4841209948062899,
+        0.959872543811797,
+        0.29825085401535023,
+        1
+      ]
+    },
+    {
+      "node": 0,
+      "name": "index_03_l",
+      "world_max_coefficient": 5.218048215738236e-15,
+      "matrixWorld": [
+        0.744526922702792,
+        -0.5104141831398041,
+        -0.4302985072135945,
+        0,
+        -0.13486912846564988,
+        -0.7462612986564685,
+        0.6518465876579298,
+        0,
+        -0.6538269519805859,
+        -0.42728331685066745,
+        -0.6244506835937519,
+        0,
+        0.4835651814937594,
+        0.9435932040214526,
+        0.314596801996231,
+        1
+      ]
+    },
+    {
+      "node": 5,
+      "name": "middle_01_l",
+      "world_max_coefficient": 2.4424906541753444e-15,
+      "matrixWorld": [
+        0.5736101269721995,
+        -0.40283170342445507,
+        -0.7132304906845106,
+        0,
+        0.21414284408092527,
+        -0.766691625118258,
+        0.6052489280700697,
+        0,
+        -0.7906416654586804,
+        -0.49991017580032593,
+        -0.3535185456275942,
+        0,
+        0.49698570370674156,
+        0.9640042185783375,
+        0.25972598791122425,
+        1
+      ]
+    },
+    {
+      "node": 4,
+      "name": "middle_02_l",
+      "world_max_coefficient": 2.4424906541753444e-15,
+      "matrixWorld": [
+        0.585860192775727,
+        -0.45911252498626853,
+        -0.6678197383880626,
+        0,
+        0.09668925404548634,
+        -0.7785650491714502,
+        0.6200702190399182,
+        0,
+        -0.8046235442161568,
+        -0.4278455078601856,
+        -0.41173896193504367,
+        0,
+        0.5042244195938113,
+        0.9380875825881946,
+        0.2801853418350218,
+        1
+      ]
+    },
+    {
+      "node": 3,
+      "name": "middle_03_l",
+      "world_max_coefficient": 3.1086244689504383e-15,
+      "matrixWorld": [
+        0.5868159532547007,
+        -0.44896495342254794,
+        -0.6738523840904252,
+        0,
+        -0.005943901836872323,
+        -0.8345699906349213,
+        0.5508692264556898,
+        0,
+        -0.809698462486268,
+        -0.31925362348556663,
+        -0.4924075603485113,
+        0,
+        0.5068921446800233,
+        0.9166064262390123,
+        0.2972935140132903,
+        1
+      ]
+    },
+    {
+      "node": 8,
+      "name": "pinky_01_l",
+      "world_max_coefficient": 2.4424906541753444e-15,
+      "matrixWorld": [
+        0.26413908600807257,
+        -0.27984100580215543,
+        -0.9229946136474623,
+        0,
+        0.27689546346664473,
+        -0.894694030284884,
+        0.3505012691020969,
+        0,
+        -0.9238827824592596,
+        -0.3481541275978106,
+        -0.15883693099021898,
+        0,
+        0.5060591697692873,
+        0.9477356672286976,
+        0.22328534722328172,
+        1
+      ]
+    },
+    {
+      "node": 7,
+      "name": "pinky_02_l",
+      "world_max_coefficient": 2.1094237467877974e-15,
+      "matrixWorld": [
+        0.27579995989799616,
+        -0.3241394162178052,
+        -0.904913067817689,
+        0,
+        0.11096563935279832,
+        -0.9243953824043295,
+        0.36493790149688765,
+        0,
+        -0.9547885060310369,
+        -0.20106407999992484,
+        -0.21897977590560969,
+        0,
+        0.511956870555878,
+        0.9286792278289783,
+        0.23075081408023818,
+        1
+      ]
+    },
+    {
+      "node": 6,
+      "name": "pinky_03_l",
+      "world_max_coefficient": 1.7763568394002505e-15,
+      "matrixWorld": [
+        0.2725802958011643,
+        -0.30326497554779175,
+        -0.9130880832672131,
+        0,
+        0.13382536172866802,
+        -0.9278494715690631,
+        0.3481177687644963,
+        0,
+        -0.9527806043624885,
+        -0.21708437800407537,
+        -0.21232886612415397,
+        0,
+        0.5136874914169314,
+        0.9142623543739306,
+        0.23644238710403423,
+        1
+      ]
+    },
+    {
+      "node": 11,
+      "name": "ring_01_l",
+      "world_max_coefficient": 2.4424906541753444e-15,
+      "matrixWorld": [
+        0.4712530672550212,
+        -0.2987020015716563,
+        -0.8298779129982004,
+        0,
+        0.3133272528648381,
+        -0.8228374123573328,
+        0.4740931093692779,
+        0,
+        -0.8244674801826486,
+        -0.4834411442279837,
+        -0.29417306184768677,
+        0,
+        0.504531800746918,
+        0.9563678503036488,
+        0.24263653159141535,
+        1
+      ]
+    },
+    {
+      "node": 10,
+      "name": "ring_02_l",
+      "world_max_coefficient": 2.886579864025407e-15,
+      "matrixWorld": [
+        0.49279892444610723,
+        -0.37058955430984597,
+        -0.7872815728187571,
+        0,
+        0.17150431871414276,
+        -0.8456568717956572,
+        0.505420863628387,
+        0,
+        -0.8530741333961496,
+        -0.3840930461883566,
+        -0.3531809747219089,
+        0,
+        0.5138360261917116,
+        0.9319337606430043,
+        0.2567147016525268,
+        1
+      ]
+    },
+    {
+      "node": 9,
+      "name": "ring_03_l",
+      "world_max_coefficient": 2.9976021664879227e-15,
+      "matrixWorld": [
+        0.48748245835304405,
+        -0.3271625041961683,
+        -0.80952149629593,
+        0,
+        0.09275404363870711,
+        -0.9024956822395355,
+        0.42059233784675526,
+        0,
+        -0.8681920170784017,
+        -0.2801176905632041,
+        -0.40960502624511785,
+        0,
+        0.5180871486663821,
+        0.9109722375869739,
+        0.26924270391464233,
+        1
+      ]
+    },
+    {
+      "node": 14,
+      "name": "thumb_01_l",
+      "world_max_coefficient": 3.1086244689504383e-15,
+      "matrixWorld": [
+        0.7048282027244573,
+        0.026999987661839506,
+        0.7088637351989748,
+        0,
+        -0.6752430200576791,
+        -0.2807108163833633,
+        0.6820906400680558,
+        0,
+        0.21740230917930714,
+        -0.9594123959541352,
+        -0.17962139844894476,
+        0,
+        0.45406475663185136,
+        1.007927417755126,
+        0.2270327210426329,
+        1
+      ]
+    },
+    {
+      "node": 13,
+      "name": "thumb_02_l",
+      "world_max_coefficient": 2.9976021664879227e-15,
+      "matrixWorld": [
+        0.902857005596162,
+        0.11855652183294446,
+        0.4132716059684751,
+        0,
+        -0.3417246341705329,
+        -0.3854389786720293,
+        0.8571233153343222,
+        0,
+        0.26090866327285883,
+        -0.9150851368904144,
+        -0.30748260021209806,
+        0,
+        0.4332714378833773,
+        0.999283254146575,
+        0.24803690612316118,
+        1
+      ]
+    },
+    {
+      "node": 12,
+      "name": "thumb_03_l",
+      "world_max_coefficient": 2.7755575615628914e-15,
+      "matrixWorld": [
+        0.9248253107070936,
+        0.14006379246711922,
+        0.35366645455360407,
+        0,
+        -0.196912169456482,
+        -0.6191998720169095,
+        0.7601423859596272,
+        0,
+        0.32545876502990934,
+        -0.7726404666900659,
+        -0.5450714826583882,
+        0,
+        0.42089807987213157,
+        0.9853270649909964,
+        0.27907210588455195,
+        1
+      ]
+    },
+    {
+      "node": 37,
+      "name": "clavicle_r",
+      "world_max_coefficient": 1.4432899320127035e-15,
+      "matrixWorld": [
+        -0.14876672625541634,
+        0.9867277741432204,
+        -0.06509036570787455,
+        0,
+        -0.9884598851203922,
+        -0.1502830982208259,
+        -0.019029781222343577,
+        0,
+        -0.02855920232832465,
+        0.06150820851326022,
+        0.9976977705955511,
+        0,
+        -0.02277444116771211,
+        1.3424876928329472,
+        0.02209884859621497,
+        1
+      ]
+    },
+    {
+      "node": 36,
+      "name": "upperarm_r",
+      "world_max_coefficient": 1.4432899320127035e-15,
+      "matrixWorld": [
+        -0.7453822493553168,
+        0.6651282906532294,
+        -0.04482831805944491,
+        0,
+        -0.665903806686402,
+        -0.7460303902626052,
+        0.0032760966569184233,
+        0,
+        -0.03126427531242411,
+        0.03229328617453649,
+        0.9989891648292549,
+        0,
+        -0.1700163483619689,
+        1.3201013803482058,
+        0.019264154136180583,
+        1
+      ]
+    },
+    {
+      "node": 35,
+      "name": "lowerarm_r",
+      "world_max_coefficient": 1.4432899320127035e-15,
+      "matrixWorld": [
+        -0.7406026721000676,
+        0.6705179810523993,
+        -0.0437400266528134,
+        0,
+        -0.5112643837928783,
+        -0.5200704932212834,
+        0.6842041015624993,
+        0,
+        0.43602344393730125,
+        0.5290861725807204,
+        0.7279774546623232,
+        0,
+        -0.33116674423217773,
+        1.1395601034164424,
+        0.020056977868079837,
+        1
+      ]
+    },
+    {
+      "node": 34,
+      "name": "hand_r",
+      "world_max_coefficient": 2.55351295663786e-15,
+      "matrixWorld": [
+        -0.13254144787788433,
+        0.8710183501243617,
+        0.4730321764945986,
+        0,
+        -0.328713238239289,
+        -0.48886102437973084,
+        0.808060646057129,
+        0,
+        0.9350830316543585,
+        -0.04839032888412451,
+        0.35110965371131986,
+        0,
+        -0.4530949890613558,
+        1.0155317783355708,
+        0.1832285225391384,
+        1
+      ]
+    },
+    {
+      "node": 21,
+      "name": "index_01_r",
+      "world_max_coefficient": 2.55351295663786e-15,
+      "matrixWorld": [
+        0.7421504259109499,
+        0.47930333018303173,
+        0.46848788857460133,
+        0,
+        -0.1296901553869252,
+        -0.5830845832824717,
+        0.8019926548004155,
+        0,
+        0.6575659513473525,
+        -0.6559575796127338,
+        -0.37057554721832237,
+        0,
+        -0.48077183961868314,
+        0.9749302864074701,
+        0.2775399684906002,
+        1
+      ]
+    },
+    {
+      "node": 20,
+      "name": "index_02_r",
+      "world_max_coefficient": 5.329070518200751e-15,
+      "matrixWorld": [
+        0.7466489672660844,
+        0.48386138677597346,
+        0.45650115609169195,
+        0,
+        0.024085871875284395,
+        -0.7054567933082609,
+        0.7083432674407968,
+        0,
+        0.6647818684577895,
+        -0.5178885459899956,
+        -0.5383827686309823,
+        0,
+        -0.48412099480628995,
+        0.9598725438117975,
+        0.2982508540153499,
+        1
+      ]
+    },
+    {
+      "node": 19,
+      "name": "index_03_r",
+      "world_max_coefficient": 4.773959005888173e-15,
+      "matrixWorld": [
+        0.7445269227027914,
+        0.5104141831398045,
+        0.43029850721359464,
+        0,
+        0.13486912846564958,
+        -0.7462612986564673,
+        0.6518465876579292,
+        0,
+        0.6538269519805866,
+        -0.427283316850667,
+        -0.6244506835937513,
+        0,
+        -0.48356518149375943,
+        0.9435932040214532,
+        0.3145968019962307,
+        1
+      ]
+    },
+    {
+      "node": 24,
+      "name": "middle_01_r",
+      "world_max_coefficient": 1.6653345369377348e-15,
+      "matrixWorld": [
+        0.5736101269721988,
+        0.40283170342445507,
+        0.7132304906845099,
+        0,
+        -0.21414284408092563,
+        -0.7666916251182573,
+        0.6052489280700686,
+        0,
+        0.7906416654586805,
+        -0.4999101758003247,
+        -0.35351854562759377,
+        0,
+        -0.4969857037067416,
+        0.964004218578338,
+        0.2597259879112239,
+        1
+      ]
+    },
+    {
+      "node": 23,
+      "name": "middle_02_r",
+      "world_max_coefficient": 1.7763568394002505e-15,
+      "matrixWorld": [
+        0.5858601927757265,
+        0.45911252498626853,
+        0.6678197383880622,
+        0,
+        -0.09668925404548673,
+        -0.7785650491714495,
+        0.6200702190399173,
+        0,
+        0.804623544216157,
+        -0.4278455078601846,
+        -0.41173896193504317,
+        0,
+        -0.5042244195938114,
+        0.938087582588195,
+        0.2801853418350215,
+        1
+      ]
+    },
+    {
+      "node": 22,
+      "name": "middle_03_r",
+      "world_max_coefficient": 2.220446049250313e-15,
+      "matrixWorld": [
+        0.5868159532547003,
+        0.4489649534225484,
+        0.673852384090425,
+        0,
+        0.005943901836872212,
+        -0.8345699906349204,
+        0.5508692264556889,
+        0,
+        0.8096984624862685,
+        -0.3192536234855654,
+        -0.4924075603485111,
+        0,
+        -0.5068921446800234,
+        0.9166064262390128,
+        0.2972935140132899,
+        1
+      ]
+    },
+    {
+      "node": 27,
+      "name": "pinky_01_r",
+      "world_max_coefficient": 1.887379141862766e-15,
+      "matrixWorld": [
+        0.2641390860080721,
+        0.27984100580215604,
+        0.9229946136474624,
+        0,
+        -0.2768954634666444,
+        -0.8946940302848835,
+        0.3505012691020963,
+        0,
+        0.9238827824592601,
+        -0.3481541275978104,
+        -0.15883693099021898,
+        0,
+        -0.5060591697692873,
+        0.9477356672286981,
+        0.22328534722328142,
+        1
+      ]
+    },
+    {
+      "node": 26,
+      "name": "pinky_02_r",
+      "world_max_coefficient": 1.887379141862766e-15,
+      "matrixWorld": [
+        0.2757999598979951,
+        0.32413941621780507,
+        0.9049130678176897,
+        0,
+        -0.11096563935279859,
+        -0.9243953824043293,
+        0.3649379014968863,
+        0,
+        0.9547885060310375,
+        -0.20106407999992507,
+        -0.21897977590560908,
+        0,
+        -0.511956870555878,
+        0.9286792278289787,
+        0.23075081408023787,
+        1
+      ]
+    },
+    {
+      "node": 25,
+      "name": "pinky_03_r",
+      "world_max_coefficient": 1.887379141862766e-15,
+      "matrixWorld": [
+        0.27258029580116305,
+        0.30326497554779164,
+        0.9130880832672138,
+        0,
+        -0.1338253617286683,
+        -0.9278494715690628,
+        0.34811776876449496,
+        0,
+        0.952780604362489,
+        -0.21708437800407554,
+        -0.21232886612415328,
+        0,
+        -0.5136874914169314,
+        0.914262354373931,
+        0.23644238710403392,
+        1
+      ]
+    },
+    {
+      "node": 30,
+      "name": "ring_01_r",
+      "world_max_coefficient": 1.7208456881689926e-15,
+      "matrixWorld": [
+        0.47125306725502014,
+        0.298702001571657,
+        0.8298779129982001,
+        0,
+        -0.31332725286483826,
+        -0.822837412357332,
+        0.4740931093692773,
+        0,
+        0.8244674801826488,
+        -0.4834411442279827,
+        -0.2941730618476862,
+        0,
+        -0.5045318007469181,
+        0.9563678503036493,
+        0.24263653159141502,
+        1
+      ]
+    },
+    {
+      "node": 29,
+      "name": "ring_02_r",
+      "world_max_coefficient": 2.1094237467877974e-15,
+      "matrixWorld": [
+        0.49279892444610623,
+        0.37058955430984675,
+        0.7872815728187569,
+        0,
+        -0.171504318714143,
+        -0.8456568717956564,
+        0.5054208636283865,
+        0,
+        0.8530741333961498,
+        -0.3840930461883557,
+        -0.35318097472190824,
+        0,
+        -0.5138360261917118,
+        0.9319337606430048,
+        0.25671470165252647,
+        1
+      ]
+    },
+    {
+      "node": 28,
+      "name": "ring_03_r",
+      "world_max_coefficient": 2.220446049250313e-15,
+      "matrixWorld": [
+        0.48748245835304305,
+        0.32716250419616877,
+        0.8095214962959297,
+        0,
+        -0.09275404363870739,
+        -0.9024956822395347,
+        0.4205923378467548,
+        0,
+        0.8681920170784012,
+        -0.280117690563203,
+        -0.40960502624511685,
+        0,
+        -0.5180871486663822,
+        0.9109722375869744,
+        0.26924270391464195,
+        1
+      ]
+    },
+    {
+      "node": 33,
+      "name": "thumb_01_r",
+      "world_max_coefficient": 2.55351295663786e-15,
+      "matrixWorld": [
+        0.7048282027244577,
+        -0.026999987661839513,
+        -0.708863735198974,
+        0,
+        0.6752430200576789,
+        -0.2807108163833618,
+        0.6820906400680552,
+        0,
+        -0.21740230917930628,
+        -0.9594123959541346,
+        -0.17962139844894448,
+        0,
+        -0.4540647566318514,
+        1.0079274177551265,
+        0.2270327210426326,
+        1
+      ]
+    },
+    {
+      "node": 32,
+      "name": "thumb_02_r",
+      "world_max_coefficient": 2.6645352591003757e-15,
+      "matrixWorld": [
+        0.9028570055961622,
+        -0.1185565218329439,
+        -0.4132716059684746,
+        0,
+        0.3417246341705326,
+        -0.3854389786720279,
+        0.8571233153343214,
+        0,
+        -0.26090866327285794,
+        -0.915085136890414,
+        -0.30748260021209767,
+        0,
+        -0.43327143788337735,
+        0.9992832541465755,
+        0.24803690612316087,
+        1
+      ]
+    },
+    {
+      "node": 31,
+      "name": "thumb_03_r",
+      "world_max_coefficient": 2.4424906541753444e-15,
+      "matrixWorld": [
+        0.9248253107070938,
+        -0.1400637924671182,
+        -0.35366645455360335,
+        0,
+        0.19691216945648216,
+        -0.6191998720169081,
+        0.7601423859596265,
+        0,
+        -0.3254587650299077,
+        -0.7726404666900659,
+        -0.5450714826583875,
+        0,
+        -0.4208980798721317,
+        0.9853270649909969,
+        0.2790721058845516,
+        1
+      ]
+    },
+    {
+      "node": 39,
+      "name": "neck_01",
+      "world_max_coefficient": 8.881784197001252e-16,
+      "matrixWorld": [
+        1,
+        1.2163785348479515e-16,
+        2.6873870832446214e-16,
+        0,
+        3.3120237500743137e-16,
+        0.9331914782524118,
+        0.3593793511390688,
+        0,
+        -2.325826460637607e-16,
+        -0.359379380941391,
+        0.9331914782524112,
+        0,
+        1.1493944554404069e-16,
+        1.4136316776275644,
+        0.005130210891365703,
+        1
+      ]
+    },
+    {
+      "node": 38,
+      "name": "head",
+      "world_max_coefficient": 8.881784197001252e-16,
+      "matrixWorld": [
+        1.0000000000000002,
+        1.3942140720605342e-16,
+        4.740739626284166e-17,
+        0,
+        3.9682414401708306e-16,
+        0.9989004135131845,
+        -0.046881943941116305,
+        0,
+        1.4254421543622315e-16,
+        0.04688191413879418,
+        0.9989004135131844,
+        0,
+        1.507665811081703e-16,
+        1.5145777463912973,
+        0.044005334377288444,
+        1
+      ]
+    },
+    {
+      "node": 46,
+      "name": "thigh_l",
+      "world_max_coefficient": 8.881784197001252e-16,
+      "matrixWorld": [
+        0.891656994819642,
+        0.056722521781921165,
+        -0.44914308190345725,
+        0,
+        0.10430160164833072,
+        -0.9911685585975647,
+        0.08188754320144684,
+        0,
+        -0.4405283927917477,
+        -0.11985987424850503,
+        -0.8896968364715585,
+        0,
+        0.10147152841091159,
+        0.8656399250030519,
+        0.0050040679052470415,
+        1
+      ]
+    },
+    {
+      "node": 45,
+      "name": "calf_l",
+      "world_max_coefficient": 1.3253287356462806e-15,
+      "matrixWorld": [
+        0.995559334754945,
+        0.09408757090568505,
+        0.00221350789070145,
+        0,
+        0.09410724788904301,
+        -0.9948908686637882,
+        -0.0365351811051382,
+        0,
+        -0.00123155117034905,
+        0.03658331185579215,
+        -0.9993276596069346,
+        0,
+        0.14264009892940527,
+        0.47441878914833074,
+        0.03732565045356745,
+        1
+      ]
+    },
+    {
+      "node": 44,
+      "name": "foot_l",
+      "world_max_coefficient": 1.3322676295501878e-15,
+      "matrixWorld": [
+        0.9957831501960768,
+        0.09170844405889425,
+        0.0011402349919081775,
+        0,
+        0.04114000126719504,
+        -0.4577772319316858,
+        0.8881132006645204,
+        0,
+        0.08197282999754033,
+        -0.8843237161636359,
+        -0.4596184492111218,
+        0,
+        0.1809729039669042,
+        0.06916874647140497,
+        0.02244373410940111,
+        1
+      ]
+    },
+    {
+      "node": 43,
+      "name": "ball_l",
+      "world_max_coefficient": 2.1094237467877974e-15,
+      "matrixWorld": [
+        0.993735969066622,
+        0.09347537159919608,
+        0.06120780110359168,
+        0,
+        -0.06585044413805013,
+        0.0473701953887948,
+        0.9967024326324473,
+        0,
+        0.09026931226253561,
+        -0.9944934844970711,
+        0.053230464458464195,
+        0,
+        0.1863856613636022,
+        0.008939359337091453,
+        0.13929209113120974,
+        1
+      ]
+    },
+    {
+      "node": 50,
+      "name": "thigh_r",
+      "world_max_coefficient": 5.551115123125783e-16,
+      "matrixWorld": [
+        0.891656994819641,
+        -0.05672252178192108,
+        0.4491430819034581,
+        0,
+        -0.10430160164833087,
+        -0.9911685585975647,
+        0.08188754320144676,
+        0,
+        0.4405283927917486,
+        -0.11985987424850472,
+        -0.8896968364715574,
+        0,
+        -0.10147152841091159,
+        0.8656399250030519,
+        0.0050040679052470016,
+        1
+      ]
+    },
+    {
+      "node": 49,
+      "name": "calf_r",
+      "world_max_coefficient": 1.3183898417423734e-15,
+      "matrixWorld": [
+        0.9955593347549444,
+        -0.09408757090568486,
+        -0.00221350789070018,
+        0,
+        -0.09410724788904305,
+        -0.9948908686637882,
+        -0.03653518110513819,
+        0,
+        0.001231551170350299,
+        0.03658331185579239,
+        -0.9993276596069339,
+        0,
+        -0.14264009892940532,
+        0.47441878914833074,
+        0.03732565045356738,
+        1
+      ]
+    },
+    {
+      "node": 48,
+      "name": "foot_r",
+      "world_max_coefficient": 1.8110513089197866e-15,
+      "matrixWorld": [
+        0.9957831501960763,
+        -0.09170844405889472,
+        -0.0011402349919067897,
+        0,
+        -0.04114000126719656,
+        -0.4577772319316862,
+        0.8881132006645196,
+        0,
+        -0.08197282999754017,
+        -0.884323716163636,
+        -0.4596184492111214,
+        0,
+        -0.18097290396690427,
+        0.06916874647140497,
+        0.022443734109401044,
+        1
+      ]
+    },
+    {
+      "node": 47,
+      "name": "ball_r",
+      "world_max_coefficient": 1.6653345369377348e-15,
+      "matrixWorld": [
+        0.9937359690666215,
+        -0.0934753715991973,
+        -0.06120780110359039,
+        0,
+        0.0658504441380485,
+        0.04737019538879451,
+        0.9967024326324465,
+        0,
+        -0.09026931226253669,
+        -0.9944934844970713,
+        0.05323046445846429,
+        0,
+        -0.1863856613636025,
+        0.008939359337091404,
+        0.13929209113120958,
+        1
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "node": 53,
+      "owner": "Human",
+      "consumer_name": "Human",
+      "morphs": 97,
+      "defaults": [
+        0.16500000655651093,
+        0.16500000655651093,
+        0.16500000655651093,
+        0.16500000655651093,
+        0.16500000655651093,
+        0.16500000655651093,
+        0.5,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attributes": [
+        "_sugata_native_vertex",
+        "_sugata_native_corner",
+        "_sugata_native_face",
+        "position",
+        "normal",
+        "uv",
+        "skinIndex",
+        "joints_1",
+        "skinWeight",
+        "weights_1"
+      ]
+    },
+    {
+      "node": 54,
+      "owner": "Human.eyebrow001",
+      "consumer_name": "Humaneyebrow001",
+      "morphs": 49,
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attributes": [
+        "_sugata_native_vertex",
+        "_sugata_native_corner",
+        "_sugata_native_face",
+        "position",
+        "normal",
+        "uv",
+        "skinIndex",
+        "skinWeight"
+      ]
+    },
+    {
+      "node": 55,
+      "owner": "Human.eyelashes01",
+      "consumer_name": "Humaneyelashes01",
+      "morphs": 27,
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attributes": [
+        "_sugata_native_vertex",
+        "_sugata_native_corner",
+        "_sugata_native_face",
+        "position",
+        "normal",
+        "uv",
+        "skinIndex",
+        "skinWeight"
+      ]
+    },
+    {
+      "node": 56,
+      "owner": "Human.high-poly",
+      "consumer_name": "Humanhigh-poly",
+      "morphs": 8,
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attributes": [
+        "_sugata_native_vertex",
+        "_sugata_native_corner",
+        "_sugata_native_face",
+        "position",
+        "normal",
+        "uv",
+        "skinIndex",
+        "skinWeight"
+      ]
+    },
+    {
+      "node": 57,
+      "owner": "Human.teeth_base",
+      "consumer_name": "Humanteeth_base",
+      "morphs": 27,
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attributes": [
+        "_sugata_native_vertex",
+        "_sugata_native_corner",
+        "_sugata_native_face",
+        "position",
+        "normal",
+        "uv",
+        "skinIndex",
+        "skinWeight"
+      ]
+    },
+    {
+      "node": 58,
+      "owner": "Human.tongue01",
+      "consumer_name": "Humantongue01",
+      "morphs": 28,
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attributes": [
+        "_sugata_native_vertex",
+        "_sugata_native_corner",
+        "_sugata_native_face",
+        "position",
+        "normal",
+        "uv",
+        "skinIndex",
+        "skinWeight"
+      ]
+    }
+  ],
+  "first_influence_witness": {
+    "owner": "Human",
+    "node": 53,
+    "split_vertex": 2997,
+    "native_vertex": 750,
+    "source_set0": {
+      "joints": [
+        43,
+        44,
+        4,
+        24
+      ],
+      "weights": [
+        0.4802999496459961,
+        0.4648999869823456,
+        0.048799995332956314,
+        0.004999999888241291
+      ]
+    },
+    "source_secondary": {
+      "set": 1,
+      "joints": [
+        25,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        0.0010000000474974513,
+        0,
+        0,
+        0
+      ],
+      "joint_names": [
+        "upperarm_r",
+        "Root",
+        "Root",
+        "Root"
+      ]
+    },
+    "consumer_set0": {
+      "joints": [
+        43,
+        44,
+        4,
+        24
+      ],
+      "weights": [
+        0.4807807505130768,
+        0.46536538004875183,
+        0.048848848789930344,
+        0.005005005281418562
+      ]
+    },
+    "consumer_secondary_names": [
+      "joints_1",
+      "weights_1"
+    ],
+    "consumer_CPU_and_stock_WebGL_shader_consumed_attributes": [
+      "skinIndex",
+      "skinWeight"
+    ],
+    "scope": "Set1 retained exactly as generic attributes; actual imported CPU method and pinned stock WebGL shader source consume only four set0 fields. Application WebGPU shader behavior is unqualified; no pose/render defect inferred."
+  },
+  "decision": "REFUSE_COMPLETE_INFLUENCE_CONSUMER_ASSOCIATION",
+  "complete_positive_influences_pass": false,
+  "stopped_at_first_mismatch": true,
+  "completed": true,
+  "physical_pins_unchanged": true,
+  "finished_utc": "2026-10-08T12:14:07.210Z"
+}

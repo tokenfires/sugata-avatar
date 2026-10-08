@@ -1,0 +1,32 @@
+00:00.977  blend            | Read blend: "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend"
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+INFO Draco is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.dylib
+INFO MeshOptimizer is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.dylib
+04:37:28 | INFO: Starting glTF 2.0 export
+04:37:28 | INFO: Extracting primitive: base.001
+04:37:28 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+04:37:28 | INFO: Primitives created: 1
+04:37:29 | INFO: Extracting primitive: eyebrow001
+04:37:29 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+04:37:29 | INFO: Primitives created: 1
+04:37:29 | INFO: Extracting primitive: eyelashes01
+04:37:29 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+04:37:29 | INFO: Primitives created: 1
+04:37:29 | INFO: Extracting primitive: high-poly
+04:37:29 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+04:37:29 | INFO: Primitives created: 1
+04:37:29 | INFO: Extracting primitive: teeth_base
+04:37:29 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+04:37:29 | INFO: Primitives created: 1
+04:37:29 | INFO: Extracting primitive: tongue01
+04:37:29 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+04:37:29 | INFO: Primitives created: 1
+04:37:29 | INFO: Finished glTF 2.0 export in 0.335003137588501 s
+
+SUGATA_RESULT {"passed": true, "checks": 551, "exports": 1, "exception": null}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+
+Blender quit

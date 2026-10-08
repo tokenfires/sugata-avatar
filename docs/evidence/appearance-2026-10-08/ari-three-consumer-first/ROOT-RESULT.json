@@ -1,0 +1,105 @@
+{
+  "verified_utc": "2026-10-08T12:15:50.659624+00:00",
+  "result_sha256": "f6275f6bfc2fe20da924caa082e8bf03a123d7e243db6102bcffff881a02a9f3",
+  "job": {
+    "started_utc": "2026-10-08T12:14:07.118818+00:00",
+    "wrapper_pid": 917,
+    "argv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/consumer_once.mjs"
+    ],
+    "timeout_seconds": 90,
+    "timed_out": false,
+    "pid": 919,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T12:14:07.261296+00:00"
+  },
+  "actual671_observer_flags": true,
+  "all53_recorded_Bone_world_maxima_recomputed": true,
+  "max_world_coefficient": 5.995204332975845e-15,
+  "six_recorded_morph_default_arrays_match_frozen_GLTF": true,
+  "all236_eligible_owner_key_defaults": true,
+  "first_witness_original_GLB_bytes_independently_decoded": {
+    "owner": "Human",
+    "node": 53,
+    "split_vertex": 2997,
+    "native_vertex": 750,
+    "source_set0": {
+      "joints": [
+        43,
+        44,
+        4,
+        24
+      ],
+      "weights": [
+        0.4802999496459961,
+        0.4648999869823456,
+        0.048799995332956314,
+        0.004999999888241291
+      ]
+    },
+    "source_secondary": {
+      "set": 1,
+      "joints": [
+        25,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        0.0010000000474974513,
+        0,
+        0,
+        0
+      ],
+      "joint_names": [
+        "upperarm_r",
+        "Root",
+        "Root",
+        "Root"
+      ]
+    },
+    "consumer_set0": {
+      "joints": [
+        43,
+        44,
+        4,
+        24
+      ],
+      "weights": [
+        0.4807807505130768,
+        0.46536538004875183,
+        0.048848848789930344,
+        0.005005005281418562
+      ]
+    },
+    "consumer_secondary_names": [
+      "joints_1",
+      "weights_1"
+    ],
+    "consumer_CPU_and_stock_WebGL_shader_consumed_attributes": [
+      "skinIndex",
+      "skinWeight"
+    ],
+    "scope": "Set1 retained exactly as generic attributes; actual imported CPU method and pinned stock WebGL shader source consume only four set0 fields. Application WebGPU shader behavior is unqualified; no pose/render defect inferred."
+  },
+  "normalized_four_set0_Float32_weights_independently_recomputed": [
+    0.4807807505130768,
+    0.46536538004875183,
+    0.048848848789930344,
+    0.005005005281418562
+  ],
+  "actual_imported_CPU_method_source": "applyBoneTransform( index, target ) {\n\n\t\tconst skeleton = this.skeleton;\n\t\tconst geometry = this.geometry;\n\n\t\t_skinIndex.fromBufferAttribute( geometry.attributes.skinIndex, index );\n\t\t_skinWeight.fromBufferAttribute( geometry.attributes.skinWeight, index );\n\n\t\tif ( target.isVector4 ) {\n\n\t\t\t_baseVector.copy( target );\n\t\t\ttarget.set( 0, 0, 0, 0 );\n\n\t\t} else {\n\n\t\t\t_baseVector.set( ...target, 1 );\n\t\t\ttarget.set( 0, 0, 0 );\n\n\t\t}\n\n\t\t_baseVector.applyMatrix4( this.bindMatrix );\n\n\t\tfor ( let i = 0; i < 4; i ++ ) {\n\n\t\t\tconst weight = _skinWeight.getComponent( i );\n\n\t\t\tif ( weight !== 0 ) {\n\n\t\t\t\tconst boneIndex = _skinIndex.getComponent( i );\n\n\t\t\t\t_matrix4.multiplyMatrices( skeleton.bones[ boneIndex ].matrixWorld, skeleton.boneInverses[ boneIndex ] );\n\n\t\t\t\ttarget.addScaledVector( _vector4.copy( _baseVector ).applyMatrix4( _matrix4 ), weight );\n\n\t\t\t}\n\n\t\t}\n\n\t\tif ( target.isVector4 ) {\n\n\t\t\t// ensure the homogenous coordinate remains unchanged after vector operations\n\t\t\ttarget.w = _baseVector.w;\n\n\t\t}\n\n\t\treturn target.applyMatrix4( this.bindMatrixInverse );\n\n\t}",
+  "actual_texture_bypass_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "all23_execution_pins_physically_match": true,
+  "actual_log_result_job_agree": true,
+  "decision": "REFUSE_COMPLETE_INFLUENCE_CONSUMER_ASSOCIATION",
+  "limits": "Reader validates stored actual consumer records/sourcebytes; no second load, full world positions, motion/images/material/Figure/WebGPU/performance/Ari acceptance"
+}

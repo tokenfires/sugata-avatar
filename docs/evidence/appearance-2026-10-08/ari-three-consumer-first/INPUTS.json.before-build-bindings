@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-10-08T11:58:46.765177+00:00",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/work/candidate.glb",
+      "bytes": 26851380,
+      "sha256": "62c3c58ef118738ce3d3640879f81ceb23a4d70ffc19f9b5ea372bce758301bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/NATIVE.json",
+      "bytes": 329425,
+      "sha256": "91d553bc4cd007126c09006e318dd11644eb7620561891f20d54023b82e25855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/GLB-DOCUMENT.json",
+      "bytes": 260643,
+      "sha256": "6c56d646bb31bd3f3a46d5085cc54cbd53a3e67432dcf9c4561f1d3b6561ede0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/RESULT.json",
+      "bytes": 1394674,
+      "sha256": "30afce7aed8de4ea6f376cdc90c0c26f91cd47574d79ea7b398c6009221d5763"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/Object3D.js",
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/Skeleton.js",
+      "bytes": 7906,
+      "sha256": "37eaa7755b39775411fe32bafbf9a0273bdad6bb7976114ed63f8700f4b4b0e9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/skinning_vertex.glsl.js",
+      "bytes": 400,
+      "sha256": "4422467001348636551ce64f1e6631d8a5032b7ac2788596c2dc5269618c7602"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    }
+  ],
+  "preparation_correction": "Initial inventory776461 exited1 before writing/any load: Object3D mistakenly under src/objects; actual src/core path corrected. No runtime retry."
+}

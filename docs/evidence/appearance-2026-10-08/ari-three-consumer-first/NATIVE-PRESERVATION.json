@@ -1,0 +1,17 @@
+{
+  "verified_utc": "2026-10-08T12:19:33.456192+00:00",
+  "both_native_sources_byteexact_readonly": true,
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+      "bytes": 10811557,
+      "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "bytes": 11983694,
+      "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+    }
+  ],
+  "note": "Consumer process does not load/write either native source; root physical post-process readback"
+}

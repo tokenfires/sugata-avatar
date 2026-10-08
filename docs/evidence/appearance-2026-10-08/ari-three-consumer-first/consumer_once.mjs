@@ -1,0 +1,152 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { Texture, REVISION, SkinnedMesh } from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+const here = path.dirname(fileURLToPath(import.meta.url));
+const inputs = JSON.parse(fs.readFileSync(path.join(here, 'INPUTS.json')));
+const report = { started_utc:new Date().toISOString(), pid:process.pid, node:process.version,
+ three_revision:REVISION, loads:0, checks:[], intercepted_textures:[],
+ scope:'Headless actual GLTFLoader geometry/graph/morph witness; textures replaced with empty Texture via plugin; no material/image/render/motion/Figure acceptance' };
+const sha = b => crypto.createHash('sha256').update(b).digest('hex');
+const require = (condition, label, witness={}) => {
+ report.checks.push({label,pass:!!condition,...witness});
+ if (!condition) throw new Error(label);
+};
+const pinRead = pin => {
+ const b=fs.readFileSync(pin.path);
+ if(b.length!==pin.bytes || sha(b)!==pin.sha256) throw new Error('Changed pin '+pin.path);
+ return b;
+};
+const row = (attribute,index) => Array.from({length:attribute.itemSize},(_,k)=>attribute.getComponent(index,k));
+const maxDiff=(a,b)=>Math.max(...a.map((x,i)=>Math.abs(x-b[i])));
+try {
+ for(const pin of inputs.files) pinRead(pin);
+ const namedPin = suffix => inputs.files.find(pin=>pin.path.endsWith(suffix)).path;
+ const threeURL=import.meta.resolve('three'), loaderURL=import.meta.resolve('three/examples/jsm/loaders/GLTFLoader.js');
+ report.resolved_imports={three:threeURL,loader:loaderURL,core:new URL('./three.core.js',threeURL).href,
+  buffer_utils:new URL('../utils/BufferGeometryUtils.js',loaderURL).href,skeleton_utils:new URL('../utils/SkeletonUtils.js',loaderURL).href};
+ require(fileURLToPath(threeURL)===namedPin('/build/three.module.js') && fileURLToPath(loaderURL)===namedPin('/examples/jsm/loaders/GLTFLoader.js') &&
+  fileURLToPath(report.resolved_imports.core)===namedPin('/build/three.core.js') && fileURLToPath(report.resolved_imports.buffer_utils)===namedPin('/examples/jsm/utils/BufferGeometryUtils.js') && fileURLToPath(report.resolved_imports.skeleton_utils)===namedPin('/examples/jsm/utils/SkeletonUtils.js'),'Exact package export/core/loader/utilities import paths');
+ report.actual_CPU_skin_method=SkinnedMesh.prototype.applyBoneTransform.toString();
+ require(report.actual_CPU_skin_method.includes('geometry.attributes.skinIndex') && report.actual_CPU_skin_method.includes('geometry.attributes.skinWeight') && report.actual_CPU_skin_method.includes('i < 4'),'Actual package CPU four-field method');
+ const buf=pinRead(inputs.files[0]);
+ require(buf.readUInt32LE(0)===0x46546c67 && buf.readUInt32LE(4)===2 && buf.readUInt32LE(8)===buf.length,'GLB header');
+ const jl=buf.readUInt32LE(12);
+ require(buf.readUInt32LE(16)===0x4e4f534a,'JSON chunk');
+ const doc=JSON.parse(buf.subarray(20,20+jl).toString());
+ const bp=20+jl;
+ require(buf.readUInt32LE(bp+4)===0x004e4942 && bp+8+buf.readUInt32LE(bp)===buf.length,'Single BIN chunk');
+ const bin=buf.subarray(bp+8);
+ const frozen=JSON.parse(pinRead(inputs.files[2]));
+ require(JSON.stringify(doc)===JSON.stringify(frozen),'Exact frozen GLB JSON');
+ const native=JSON.parse(pinRead(inputs.files[1]));
+ require(doc.buffers.length===1 && doc.buffers.every(b=>b.uri===undefined) && (doc.images||[]).every(i=>i.uri===undefined && Number.isInteger(i.bufferView)),'Embedded-only resources');
+ require((doc.animations||[]).length===0 && doc.scenes.length===1,'Neutral single scene');
+ // Only dense candidate skin/identity/IBM accessors; explicit bounded byte reads preserve pre-normalization values.
+ const dense = (id,index) => {
+  const a=doc.accessors[id],v=doc.bufferViews[a.bufferView];
+  const size={SCALAR:1,VEC4:4,MAT4:16}[a.type], component={5121:1,5123:2,5126:4}[a.componentType];
+  if(a.sparse || a.normalized || !size || !component || v.buffer!==0 || index<0 || index>=a.count) throw new Error('Unsupported dense accessor '+id);
+  const stride=v.byteStride||size*component, offset=(a.byteOffset||0)+index*stride;
+  if(offset+size*component>v.byteLength || (v.byteOffset||0)+offset+size*component>bin.length) throw new Error('Accessor bounds');
+  return Array.from({length:size},(_,k)=>{
+   const pos=(v.byteOffset||0)+offset+k*component;
+   return a.componentType===5126?bin.readFloatLE(pos):a.componentType===5123?bin.readUInt16LE(pos):bin.readUInt8(pos);
+  });
+ };
+ // Guard all required dense encoding before the sole load.
+ for(const mesh of doc.meshes) for(const primitive of mesh.primitives) {
+  for(const [name,id] of Object.entries(primitive.attributes)) if(name.startsWith('JOINTS_')||name.startsWith('WEIGHTS_')||name==='_SUGATA_NATIVE_VERTEX') dense(id,0);
+ }
+ dense(doc.skins[0].inverseBindMatrices,0);
+ const loader=new GLTFLoader();
+ loader.register(()=>({name:'SUGATA_NUMERIC_TEXTURE_BYPASS',loadTexture(index){
+  if(!Number.isInteger(index)||!doc.textures[index]) throw new Error('Invalid texture request');
+  report.intercepted_textures.push(index);
+  const texture=new Texture();texture.userData.sugata_numeric_texture_bypass=index;
+  return Promise.resolve(texture);
+ }}));
+ report.loads++;
+ const gltf=await loader.parseAsync(buf.buffer.slice(buf.byteOffset,buf.byteOffset+buf.byteLength),'');
+ require(report.loads===1 && gltf.scenes.length===1 && gltf.animations.length===0,'One actual neutral load');
+ gltf.scene.updateMatrixWorld(true);
+ const byNode=new Map();
+ gltf.scene.traverse(obj=>{
+  const association=gltf.parser.associations.get(obj);
+  if(association && Number.isInteger(association.nodes)) {
+   if(byNode.has(association.nodes)) throw new Error('Duplicate node association');
+   byNode.set(association.nodes,obj);
+  }
+ });
+ require(byNode.size===166 && doc.nodes.length===166,'Complete166 node association');
+ const parents=new Map();doc.nodes.forEach((n,i)=>(n.children||[]).forEach(c=>parents.set(c,i)));
+ for(let i=0;i<doc.nodes.length;i++) {
+  const obj=byNode.get(i),n=doc.nodes[i];
+  require(!!obj && obj.parent===(parents.has(i)?byNode.get(parents.get(i)):gltf.scene),'Node parent:'+i,{source_name:n.name,consumer_name:obj?.name});
+  if(n.extras?.sugata_static_helper) {
+   require(!obj.isBone && obj.userData.sugata_static_helper===true && obj.userData.sugata_native_joint===n.extras.sugata_native_joint && obj.userData.sugata_rest_factor_role===n.extras.sugata_rest_factor_role && maxDiff(obj.position.toArray(),n.translation)===0 && maxDiff(obj.quaternion.toArray(),n.rotation)===0 && maxDiff(obj.scale.toArray(),n.scale)===0,'Static helper role/TRS:'+i);
+  }
+ }
+ const skin=doc.skins[0];
+ require(skin.joints.length===53 && [...byNode.values()].filter(o=>o.isBone).length===53 && doc.nodes.filter(n=>n.extras?.sugata_static_helper).length===106,'53 Bones/106 non-Bone helpers');
+ report.joints=[];
+ for(const id of skin.joints) {
+  const obj=byNode.get(id),name=doc.nodes[id].name;
+  const expected=native.bones[name].global.flatMap((_,col)=>native.bones[name].global.map(r=>r[col]));
+  const max=maxDiff(obj.matrixWorld.elements,expected);
+  report.joints.push({node:id,name,world_max_coefficient:max,matrixWorld:obj.matrixWorld.toArray()});
+  require(obj.isBone && obj.name===name && Number.isFinite(max) && max<=1e-6,'Raw joint world:'+name,{max_coefficient:max,bound:1e-6});
+ }
+ report.meshes=[];
+ for(let id=0;id<doc.nodes.length;id++) {
+  const n=doc.nodes[id];if(n.mesh===undefined) continue;
+  const obj=byNode.get(id),m=doc.meshes[n.mesh];
+  require(obj.isSkinnedMesh && obj.skeleton.bones.length===53 && obj.skeleton.bones.every((bone,j)=>bone===byNode.get(skin.joints[j])),'Mesh skeleton:'+n.name);
+  obj.skeleton.update();
+  for(let j=0;j<53;j++) require(maxDiff(obj.skeleton.boneInverses[j].elements,dense(skin.inverseBindMatrices,j))===0,'Exact IBM:'+n.name+':'+j);
+  const names=m.extras.targetNames,defaults=n.weights||m.weights||names.map(()=>0);
+  require(names.length===obj.morphTargetInfluences.length && names.every((name,j)=>obj.morphTargetDictionary[name]===j && obj.morphTargetInfluences[j]===defaults[j]),'Exact morph names/defaults:'+n.name);
+  report.meshes.push({node:id,owner:n.name,consumer_name:obj.name,morphs:names.length,defaults:obj.morphTargetInfluences.slice(),attributes:Object.keys(obj.geometry.attributes)});
+ }
+ require(report.meshes.length===6 && report.meshes.reduce((n,m)=>n+m.morphs,0)===236,'Six owners/236 eligible owner-key morphs');
+ // First positive secondary influence is enough to refuse complete consumer skin association.
+ outer: for(const m of report.meshes) {
+  const obj=byNode.get(m.node),mesh=doc.meshes[doc.nodes[m.node].mesh];
+  require(mesh.primitives.length===1,'Single primitive consumer ownership:'+m.owner);
+  const attrs=mesh.primitives[0].attributes;
+  const sets=Object.keys(attrs).filter(k=>k.startsWith('WEIGHTS_')).map(k=>Number(k.split('_')[1])).sort((a,b)=>a-b);
+  for(const set of sets.filter(s=>s>0)) for(let i=0;i<obj.geometry.attributes.position.count;i++) {
+   const extraWeights=dense(attrs['WEIGHTS_'+set],i);
+   if(!extraWeights.some(w=>w>0)) continue;
+   const extraJoints=dense(attrs['JOINTS_'+set],i),originalWeights=dense(attrs.WEIGHTS_0,i),originalJoints=dense(attrs.JOINTS_0,i);
+   const genericW=obj.geometry.attributes['weights_'+set],genericJ=obj.geometry.attributes['joints_'+set];
+   require(genericW && genericJ && maxDiff(row(genericW,i),extraWeights)===0 && maxDiff(row(genericJ,i),extraJoints)===0,'Exact retained secondary attributes');
+   const nativePoint=dense(attrs._SUGATA_NATIVE_VERTEX,i)[0];
+   const consumedJoints=row(obj.geometry.attributes.skinIndex,i),consumedWeights=row(obj.geometry.attributes.skinWeight,i);
+   require(obj.geometry.attributes._sugata_native_vertex.getX(i)===nativePoint && maxDiff(consumedJoints,originalJoints)===0,'Exact witness point and primary joint association');
+   const sum0=originalWeights.reduce((n,w)=>n+Math.abs(w),0);
+   require(sum0>0 && maxDiff(consumedWeights,originalWeights.map(w=>Math.fround(w*(1/sum0))))===0,'Observed set0-only Float32 normalization');
+   report.first_influence_witness={owner:m.owner,node:m.node,split_vertex:i,native_vertex:nativePoint,
+    source_set0:{joints:originalJoints,weights:originalWeights},source_secondary:{set,joints:extraJoints,weights:extraWeights,joint_names:extraJoints.map(j=>doc.nodes[skin.joints[j]].name)},
+    consumer_set0:{joints:consumedJoints,weights:consumedWeights},
+    consumer_secondary_names:['joints_'+set,'weights_'+set],consumer_CPU_and_stock_WebGL_shader_consumed_attributes:['skinIndex','skinWeight'],
+    scope:'Set1 retained exactly as generic attributes; actual imported CPU method and pinned stock WebGL shader source consume only four set0 fields. Application WebGPU shader behavior is unqualified; no pose/render defect inferred.'};
+   report.decision='REFUSE_COMPLETE_INFLUENCE_CONSUMER_ASSOCIATION';
+   report.complete_positive_influences_pass=false;
+   report.stopped_at_first_mismatch=true;
+   break outer;
+  }
+ }
+ if(!report.first_influence_witness) throw new Error('Expected observed risk absent; no complete skin/world acceptance by this observer');
+ report.completed=true;
+} catch(error) {
+ report.completed=false;report.decision='STOP_OPERATION_OR_ASSOCIATION_FAILURE';report.exception={message:error.message,stack:error.stack};process.exitCode=1;
+} finally {
+ report.physical_pins_unchanged=inputs.files.every(pin=>{try{return sha(fs.readFileSync(pin.path))===pin.sha256}catch{return false}});
+ if(!report.physical_pins_unchanged) process.exitCode=1;
+ report.finished_utc=new Date().toISOString();
+ fs.writeFileSync(path.join(here,'RESULT.json'),JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+ console.log(JSON.stringify({completed:report.completed,decision:report.decision,loads:report.loads,checks:report.checks.length,pins_unchanged:report.physical_pins_unchanged}));
+}
