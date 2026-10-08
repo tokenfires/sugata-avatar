@@ -1,0 +1,236 @@
+{
+  "created_utc": "2026-10-08T14:56:44.226525+00:00",
+  "files": [
+    {
+      "name": ".gitignore",
+      "bytes": 19,
+      "sha256": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a"
+    },
+    {
+      "name": "CHECK-IN-HOLD.json",
+      "bytes": 800,
+      "sha256": "2f342b741cd1822df77cd12c6c6753e8e3dc7b0343e8adabfc974312b933fee6"
+    },
+    {
+      "name": "CONTROL-DIFFERENCES.json",
+      "bytes": 5763,
+      "sha256": "f7be1d7ea9dd5d91ed8171f02c8b8c3d7d562e69107b186ab549f5d6cf26405b"
+    },
+    {
+      "name": "DISPATCH-PLAN.md",
+      "bytes": 772,
+      "sha256": "fe80554a1daa23c7dfbbd92e2eb137101d89ff775fd76bffdbf8f736d3b0d78c"
+    },
+    {
+      "name": "DISPATCH-WORTH.md",
+      "bytes": 1736,
+      "sha256": "d7457698a52cc05c98d90561f7ff8bbbe2f04fec57d76c32f31a8824908536a8"
+    },
+    {
+      "name": "EXEC-PLAN.before-review.json",
+      "bytes": 10668,
+      "sha256": "b7b087626f3a131676a334eecfdb447ff723964043fa3fc9251812e2faffa28f"
+    },
+    {
+      "name": "EXEC-PLAN.before-rig-bind.json",
+      "bytes": 10668,
+      "sha256": "898551ef319767c10ced233fabe3175f9569d79c439832449f4b912f51f52d6c"
+    },
+    {
+      "name": "EXEC-PLAN.json",
+      "bytes": 11005,
+      "sha256": "2e2d0a381901239074db67eb2c380c842935effb478053695bc174d98a4f9eeb"
+    },
+    {
+      "name": "EXEC-PLAN.json.before-finite",
+      "bytes": 11005,
+      "sha256": "a82a40b041afc755c92ab2fb6f9f7212aeb72e503ddc8e5acc9ed2bcebeddda8"
+    },
+    {
+      "name": "GETTER-PIN.json",
+      "bytes": 226,
+      "sha256": "f9a921a22a969eb72bb87e54629c98d9b7163786c0b2b2d4e886c34b6b566c9d"
+    },
+    {
+      "name": "INPUT-RESULT.json",
+      "bytes": 1747962,
+      "sha256": "e9bb99faefb8994af92801313be4cae82bbb9bda7b5989349df8912101631e2b"
+    },
+    {
+      "name": "INPUT-RESULT.json.initial",
+      "bytes": 1747962,
+      "sha256": "e9bb99faefb8994af92801313be4cae82bbb9bda7b5989349df8912101631e2b"
+    },
+    {
+      "name": "JOB-start.json",
+      "bytes": 427,
+      "sha256": "098b6b4ef16e4791b22d4645aa082e5626da088c8c78681060e6e092653054c8"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 499,
+      "sha256": "808da4d1de1ae59012fe4d0aecc7a3cf3da9b59281799ab758d7e278db10336e"
+    },
+    {
+      "name": "MANIFEST.json",
+      "bytes": 367,
+      "sha256": "3830c163ce53c8938694402150526e4df07c9ce55b94f0f4c67b7bebf497f047"
+    },
+    {
+      "name": "PLAN.md",
+      "bytes": 3836,
+      "sha256": "0b06912fa1260b42bc43445da1e75b1653611ac26c7eb9d4af09fcd3b05c0732"
+    },
+    {
+      "name": "PREFLIGHT.md",
+      "bytes": 5491,
+      "sha256": "e58daa180dcd025b3d8205c6448879919a262c2702006180d9a57906fe3f9515"
+    },
+    {
+      "name": "README.md",
+      "bytes": 6165,
+      "sha256": "882e96de2505486bb5136e8d5b98a423e88818a98ec87c05518d76d428f19fcd"
+    },
+    {
+      "name": "README.reviewed.md",
+      "bytes": 5456,
+      "sha256": "68dc2684a2cbd9d88f40b6b3386f6272dd328c2f18e8068c909f153308119329"
+    },
+    {
+      "name": "RESULT-REVIEW.md",
+      "bytes": 7233,
+      "sha256": "2896b1f31f395e272f7884af98059dda06d3acc8b1bc3e8811cb6945c48511b3"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 1683911,
+      "sha256": "bf18239272c055e6c3f3ec976a927c69ccf5b604f42975da388e080d9fbe42f7"
+    },
+    {
+      "name": "RESUME-INPUTS.json",
+      "bytes": 2903,
+      "sha256": "3f9e914d646bf2bb5949e7aff520a06f24462871c606221b6a49fb8c0da48700"
+    },
+    {
+      "name": "RESUME.md",
+      "bytes": 721,
+      "sha256": "e4b393ecf684a21e337803a978504a58b4e9a8eb37174c866eb34f49d95efe0a"
+    },
+    {
+      "name": "RIG-LEGACY-PLAN.md",
+      "bytes": 1193,
+      "sha256": "a81a6ba57cd8c23e1fd5247586ee4466a4d1b894f7e1acb46ba37a10b58a236a"
+    },
+    {
+      "name": "RIG-LEGACY-WORTH.md",
+      "bytes": 3548,
+      "sha256": "2ff14295d4fb3568d6b369e5f70e4fec91ed03989a57abe2b6fa132ab2c8d38f"
+    },
+    {
+      "name": "RIG-RESULT.json",
+      "bytes": 36908,
+      "sha256": "102d6be3422db4a55fd33f54444ca67cd363d4bfe54f926800e1131a641dcaec"
+    },
+    {
+      "name": "ROOT-LATE-PREFLIGHT.json",
+      "bytes": 248,
+      "sha256": "67af1d9c9825f221e3348cdfbc57caeb4980fe06cd393ea24bfeafc8fa97aff0"
+    },
+    {
+      "name": "ROOT-LEGACY-WORTH.json",
+      "bytes": 204,
+      "sha256": "dfe43f8eb1d4130273b19896a1ce5f0ce3dc5d9de0fb857721489c0082e2ac7d"
+    },
+    {
+      "name": "ROOT-PREFLIGHT.json",
+      "bytes": 625,
+      "sha256": "a6fc15efd60bfa4030e6913deda00742f509fd08e76f0d32306006d650b4065d"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 2820,
+      "sha256": "b0310df21e1eb3781d43ab0e0fdff4768d84703c46155bce0a0fce4c467da059"
+    },
+    {
+      "name": "ROOT-RESULT.json",
+      "bytes": 1400,
+      "sha256": "5371d6fa361b8c2b2f31fbee97e86eaa0fe358f8e5db8529103bbda4d67fcc4f"
+    },
+    {
+      "name": "ROOT-WORTH.json",
+      "bytes": 426,
+      "sha256": "77bf2b07fa0b51dfe902643bfba26ea436ab81f6bdb9cdf2dd021d81b472e61f"
+    },
+    {
+      "name": "UPGRADE-PIN.json",
+      "bytes": 346,
+      "sha256": "77e21af6736ae05637dfc2121ae14bb22c0e445df345c70b0a683176c69810ee"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 4368,
+      "sha256": "17c9dd01e1f11e5e2147b7bbfe327ed881435b0f1f5d7134f1705c4d52eb91d6"
+    },
+    {
+      "name": "ari_checks.py",
+      "bytes": 10683,
+      "sha256": "af2fe051061cbcc4906ee724bbb6d0a3c3ea324e350829f95f7e05ec824d060a"
+    },
+    {
+      "name": "ari_checks.py.before-finite",
+      "bytes": 10557,
+      "sha256": "b73b5f85baed8833d38847772a8ec0b984617d6e941db3fe5f3b5eeabc1af7b2"
+    },
+    {
+      "name": "ari_source.before-review.py",
+      "bytes": 12920,
+      "sha256": "3ca969d92c6a9a6b236701e423f0dfd22d56f3b6946a1ed617ab0fd229198a62"
+    },
+    {
+      "name": "ari_source.before-rig-bind.py",
+      "bytes": 13095,
+      "sha256": "93ff79d947827bd577bc4ee2a53ab3726e1aec8fd004ecaa5279ec23a2a287f9"
+    },
+    {
+      "name": "ari_source.inherited.py",
+      "bytes": 12357,
+      "sha256": "7e8a5cbf1075979939167550402c1abbcca6e31aa4979178e6af8301af639856"
+    },
+    {
+      "name": "ari_source.py",
+      "bytes": 14367,
+      "sha256": "8b2466f6c159ebb7769c0599ddc257b702a233df5c5b57b1728de79512a4d8c5"
+    },
+    {
+      "name": "ari_source.py.before-finite",
+      "bytes": 13935,
+      "sha256": "09543077ad4d7c36cdc5ff21cb51cb1f3c49ec20a253760a8a6c72078381d14b"
+    },
+    {
+      "name": "legacy_rig_once.py",
+      "bytes": 2226,
+      "sha256": "73dd075c8de862091c4db6aa30f82efdfb7c7146fcb6f0ee6850e1a5c6d11b94"
+    },
+    {
+      "name": "native.log",
+      "bytes": 833530,
+      "sha256": "97b0fc9c9b5ecbbb2a07aa4dc234877b86a1b8e472b1903eeecc9d10a5ff94e3"
+    },
+    {
+      "name": "run_native.py",
+      "bytes": 1686,
+      "sha256": "8ae71e2561b38a27deff5a148f552e7b71033537f96153b504d24461fa8f0ccc"
+    },
+    {
+      "name": "validate_inputs.py",
+      "bytes": 3390,
+      "sha256": "4e39c2a63af24a1f53ac9fa4cef07b0194b3f5cd81b9d53bde313709e23bd3ec"
+    },
+    {
+      "name": "validate_inputs.py.initial",
+      "bytes": 3390,
+      "sha256": "4e39c2a63af24a1f53ac9fa4cef07b0194b3f5cd81b9d53bde313709e23bd3ec"
+    }
+  ],
+  "scope": "All current packet payloads except localignoredwork; originalcheck-inMANIFEST preserved separately without overwrite"
+}

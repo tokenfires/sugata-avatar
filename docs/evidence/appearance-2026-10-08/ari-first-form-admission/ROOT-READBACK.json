@@ -1,0 +1,83 @@
+{
+  "read_utc": "2026-10-08T14:56:44.226525+00:00",
+  "whole_handoff_chunk": "b7b179",
+  "review_sha256": "2896b1f31f395e272f7884af98059dda06d3acc8b1bc3e8811cb6945c48511b3",
+  "all14_bindings_before_final_receipt_append_exact": true,
+  "bindings": [
+    {
+      "name": "RESULT.json",
+      "bytes": 1683911,
+      "sha256": "bf18239272c055e6c3f3ec976a927c69ccf5b604f42975da388e080d9fbe42f7"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 499,
+      "sha256": "808da4d1de1ae59012fe4d0aecc7a3cf3da9b59281799ab758d7e278db10336e"
+    },
+    {
+      "name": "native.log",
+      "bytes": 833530,
+      "sha256": "97b0fc9c9b5ecbbb2a07aa4dc234877b86a1b8e472b1903eeecc9d10a5ff94e3"
+    },
+    {
+      "name": "ROOT-RESULT.json",
+      "bytes": 1400,
+      "sha256": "5371d6fa361b8c2b2f31fbee97e86eaa0fe358f8e5db8529103bbda4d67fcc4f"
+    },
+    {
+      "name": "README.md",
+      "bytes": 5456,
+      "sha256": "68dc2684a2cbd9d88f40b6b3386f6272dd328c2f18e8068c909f153308119329"
+    },
+    {
+      "name": "CONTROL-DIFFERENCES.json",
+      "bytes": 5763,
+      "sha256": "f7be1d7ea9dd5d91ed8171f02c8b8c3d7d562e69107b186ab549f5d6cf26405b"
+    },
+    {
+      "name": "ari_source.py",
+      "bytes": 14367,
+      "sha256": "8b2466f6c159ebb7769c0599ddc257b702a233df5c5b57b1728de79512a4d8c5"
+    },
+    {
+      "name": "ari_checks.py",
+      "bytes": 10683,
+      "sha256": "af2fe051061cbcc4906ee724bbb6d0a3c3ea324e350829f95f7e05ec824d060a"
+    },
+    {
+      "name": "EXEC-PLAN.json",
+      "bytes": 11005,
+      "sha256": "2e2d0a381901239074db67eb2c380c842935effb478053695bc174d98a4f9eeb"
+    },
+    {
+      "name": "INPUT-RESULT.json",
+      "bytes": 1747962,
+      "sha256": "e9bb99faefb8994af92801313be4cae82bbb9bda7b5989349df8912101631e2b"
+    },
+    {
+      "name": "RIG-RESULT.json",
+      "bytes": 36908,
+      "sha256": "102d6be3422db4a55fd33f54444ca67cd363d4bfe54f926800e1131a641dcaec"
+    },
+    {
+      "name": "PREFLIGHT.md",
+      "bytes": 5491,
+      "sha256": "e58daa180dcd025b3d8205c6448879919a262c2702006180d9a57906fe3f9515"
+    },
+    {
+      "name": "DISPATCH-PLAN.md",
+      "bytes": 772,
+      "sha256": "fe80554a1daa23c7dfbbd92e2eb137101d89ff775fd76bffdbf8f736d3b0d78c"
+    },
+    {
+      "name": "DISPATCH-WORTH.md",
+      "bytes": 1736,
+      "sha256": "d7457698a52cc05c98d90561f7ff8bbbe2f04fec57d76c32f31a8824908536a8"
+    }
+  ],
+  "all53_recorded_matrices_finite_invertible_and_unposed_independently_checked": true,
+  "252_native_key_semantics_count": true,
+  "root_result": "3a029e savedbytes/6731flags/106norms/98keys/445expressions/41pins; d2a25653rest differences",
+  "decision": "Retain exact first nativeAri source, nextcold persistence then shared-frame fixed neutral/candidate images afterfreshpreflight",
+  "limits": "No secondNative/load/render/cold/appearance/motion/GLB/fit acceptance"
+}

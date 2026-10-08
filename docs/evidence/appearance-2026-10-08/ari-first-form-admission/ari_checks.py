@@ -1,0 +1,123 @@
+"""Candidate-only guards and independent native associations; no exporter/renderer."""
+from pathlib import Path
+from array import array
+import json,hashlib,math,copy,sys
+import numpy as np
+import bpy
+from mathutils import Vector
+STATE={}
+def require(ok,label):
+ STATE['report'].setdefault('checks',[]).append({'label':label,'pass':bool(ok)})
+ if not ok:raise RuntimeError(label)
+def coords(points):
+ a=np.empty(len(points)*3,dtype=np.float32);points.foreach_get('co',a);require(np.isfinite(a).all(),'Finite native coordinates');return a.reshape(-1,3)
+def coordhash(points):return hashlib.sha256(coords(points).tobytes()).hexdigest()
+def mixed(body):
+ keys=body.data.shape_keys.key_blocks;base=coords(keys[0].data).astype(np.float64);result=base.copy()
+ for key in list(keys)[1:]:
+  if not key.mute and key.value:
+   require(not key.vertex_group,'No weighted-group shape mix')
+   result+=(coords(key.data).astype(np.float64)-coords(key.relative_key.data).astype(np.float64))*key.value
+ require(np.isfinite(result).all(),"Finite mixed body coordinates")
+ return result
+
+def prepare(body,builder,target,report,here,control_here):
+ STATE.update(report=report,body=body,builder=builder,here=here)
+ original=json.loads((control_here/'COLD-RESULT.json').read_text())['scene'];STATE['control']=original
+ controlbody=next(o for o in original['objects'] if o['name']=='Human')['mesh'];STATE['controlbody']=controlbody
+ require(body.mode=='OBJECT' and len(body.data.vertices)==19158 and body.data.shape_keys.use_relative and not body.show_only_shape_key,'Full relative OBJECT body/helper domain')
+ require(coordhash(body.data.vertices)==controlbody['coordinates_sha256'],'Recreated raw body equals new neutral')
+ require(len(body.data.polygons)==controlbody['polygons'] and len(body.data.edges)==controlbody['edges'],'Recreated topology cardinality')
+ keys=body.data.shape_keys.key_blocks;originalkeys={r['name']:r for r in controlbody['shape_keys']}
+ for key in keys:
+  e=originalkeys[key.name]
+  require(coordhash(key.data)==e['coordinates_sha256'] and key.value==e['value'] and key.relative_key.name==e['relative_key'],'Control Basis/macro:'+key.name)
+ general=sys.modules["bl_ext.blender_org.mpfb.entities.objectproperties"].GeneralObjectProperties;scale=general.get_value('scale_factor',entity_reference=body)
+ report['observed_scale']={'full_name':general.get_fullname_key_from_shortname_key('scale_factor'),'value':scale}
+ require(scale==float(np.float32(.1)),'Actual General scale0.1 before target application')
+ data=json.loads((here/'INPUT-RESULT.json').read_text());rigdata=json.loads((here/'RIG-RESULT.json').read_text());require(len(data['targets'])==10 and rigdata['passed'],'Admitted exact input records')
+ STATE['rigdata']=rigdata['document'];STATE['scale']=scale;STATE['targets']=data['targets']
+ basis=coords(keys['Basis'].data).astype(np.float64);report['applied_targets']=[]
+ for rec in data['targets']:
+  f=rec['file'];blob=Path(f['path']).read_bytes();require(hashlib.sha256(blob).hexdigest()==f['sha256'],'Target physical identity:'+rec['request'])
+  require(rec['request'] not in keys,'Exclusive new target name')
+  key=target.load_target(body,f['path'],weight=rec['weight'],name=rec['request'])
+  expected=basis.copy()
+  for i,x,y,z in rec['rows']:expected[i]+=np.asarray([x,y,z])*scale
+  err=float(np.linalg.norm(coords(key.data).astype(np.float64)-expected,axis=1).max())
+  require(err<=1e-6 and key.value==float(np.float32(rec['weight'])) and key.relative_key==keys['Basis'] and not key.mute and not key.vertex_group,'Interpreted target coordinates/default:'+rec['request'])
+  report['applied_targets'].append({'name':key.name,'requested_weight':rec['weight'],'actual_weight':key.value,'rows':rec['row_count'],'max_coordinate_error_m':err})
+ STATE['mixed_before_anatomy']=mixed(body)
+ # Prevalidate all five actual MHCLO maps before any child fit can skip an index.
+ for subdir,filename,atype,alpha in builder.FACE_PART_ASSETS:
+  if atype=='Eyes':filename='high-poly.mhclo'
+  path=builder.AssetService.find_asset_absolute_path(filename,asset_subdir=subdir);require(bool(path),'Required anatomy source:'+filename)
+  mh=builder.Mhclo();mh.load(path)
+  require(set(mh.verts)==set(range(len(mh.verts))),'Dense anatomy mapping:'+filename)
+  for entry in mh.verts.values():
+   require(len(entry['verts'])==len(entry['weights'])==len(entry['offsets'])==3 and all(isinstance(i,int) and 0<=i<19158 for i in entry['verts']) and all(math.isfinite(v) for v in list(entry['weights'])+list(entry['offsets'])),'Finite/full anatomy mapping:'+filename)
+  for axis in [mh.x_scale,mh.y_scale,mh.z_scale]:
+   if axis:require(len(axis)==3 and all(isinstance(i,int) and 0<=i<19158 for i in axis[:2]) and math.isfinite(axis[2]) and axis[2]!=0,'Anatomy scale domain:'+filename)
+ original_fit=builder.ClothesService.fit_clothes_to_human
+ def checked_fit(child,basemesh,mhclo=None,set_parent=True):
+  require(basemesh==body and mhclo is not None,'Explicit anatomy-only fit mapping')
+  before=set(body.data.shape_keys.key_blocks.keys());mix=mixed(body)
+  original_fit(child,basemesh,mhclo,set_parent)
+  require(set(body.data.shape_keys.key_blocks.keys())==before and body.mode=='OBJECT','Normal-path fitter temporary cleanup')
+  axes=[]
+  for axis,index in [(mhclo.x_scale,0),(mhclo.z_scale,1),(mhclo.y_scale,2)]:
+   axes.append(abs(mix[axis[0],index]-mix[axis[1],index])/axis[2] if axis else scale)
+  expected=np.zeros((len(child.data.vertices),3))
+  require(set(mhclo.verts)==set(range(len(child.data.vertices))),'Complete actual child mapping')
+  for i,e in mhclo.verts.items():expected[i]=sum((mix[v]*w for v,w in zip(e['verts'],e['weights'])),start=np.zeros(3))+np.asarray(e['offsets'])*axes
+  err=float(np.linalg.norm(coords(child.data.vertices).astype(np.float64)-expected,axis=1).max());require(err<=1e-6,'Actual anatomy Basis fits active mix:'+child.name)
+  report.setdefault('anatomy_fit',[]).append({'owner':child.name,'vertices':len(child.data.vertices),'max_fit_error_m':err})
+ builder.ClothesService.fit_clothes_to_human=checked_fit
+ def no_fallback(child,rig):
+  require(builder.count_weighted_vertices(child,rig)==len(child.data.vertices),'No rigid skin fallback:'+child.name);return 0
+ builder.bind_unweighted_vertices_to_fallback_bone=no_fallback
+ # Prevalidate the literal strategy domains against actual full helper memberships.
+ groups={g.index:g.name for g in body.vertex_groups};cubes={}
+ for v in body.data.vertices:
+  for m in v.groups:
+   name=groups[m.group]
+   if 'joint' in name:cubes.setdefault(name,[]).append(v.index)
+ for name,b in STATE['rigdata'].items():
+  for part in ['head','tail']:
+   e=b[part]
+   if e['strategy']=='CUBE':require(bool(cubes.get(e['cube_name'])),'Nonempty actual helper cube:'+name+':'+part)
+   else:require(bool(e['vertex_indices']) and all(0<=i<19158 for i in e['vertex_indices']),'Actual MEAN helper domain')
+ STATE['cubes']=cubes
+
+def finish(body,rig,parts,builder,report,capture_scene):
+ require(len(rig.data.bones)==53 and set(rig.data.bones.keys())==set(STATE['rigdata']),'All53 exact rig identities')
+ mix=mixed(body);cubes=STATE['cubes'];report['rig_endpoint_witnesses']=[]
+ require(rig.data.pose_position=='POSE','Default rig pose mode')
+ for pose in rig.pose.bones:require(np.max(np.abs(np.asarray(pose.matrix_basis)-np.eye(4)))<=1e-9,'Unposed fresh rig:'+pose.name)
+ for name,b in STATE['rigdata'].items():
+  actual=rig.data.bones[name];require((actual.parent.name if actual.parent else '')==(b.get('parent') or ''),'Actual native parent:'+name)
+  for part in ['head','tail']:
+   e=b[part];indices=cubes[e['cube_name']] if e['strategy']=='CUBE' else e['vertex_indices'];expected=mix[indices].mean(axis=0)
+   if 'offset' in e:expected+=np.asarray(e['offset']) # Legacy header has no scale_factor; relative_scale=1.
+   observed=np.asarray(getattr(actual,part+'_local'));err=float(np.linalg.norm(observed-expected));require(err<=1e-6,'Actual mixed helper endpoint:'+name+':'+part)
+   report['rig_endpoint_witnesses'].append({'bone':name,'endpoint':part,'strategy':e['strategy'],'expected':expected.tolist(),'actual':observed.tolist(),'error_m':err})
+ require(not any(k.name.startswith(('temporary_fitting_key.','temporary_fit_rig_key.')) for k in body.data.shape_keys.key_blocks),'No native temporary keys remain')
+ scene=capture_scene();control=STATE['control'];originalkeys={k['name']:k for k in STATE['controlbody']['shape_keys']};actualbody=next(o for o in scene['objects'] if o['name']==body.name)['mesh']
+ currentkeys={k['name']:k for k in actualbody['shape_keys']};newnames={r['request'] for r in STATE['targets']}
+ require(set(currentkeys)==set(originalkeys)|newnames,'Complete original+ten native shape keys')
+ for name,e in originalkeys.items():require(currentkeys[name]==e,'Preserved original body key:'+name)
+ require([k['name'] for k in actualbody['shape_keys'] if k['name'] not in newnames]==[k['name'] for k in STATE['controlbody']['shape_keys']],'Original key subsequence order')
+ require(target_macro(builder,body)==json.loads((STATE['here'].parent/'ari-native-form-contract/CONTROL.json').read_text())['actual_macro_parameters'],'All macro parameters unchanged')
+ for key in ['vertex_group_names','influences_sha256','uvs','loop_indices_sha256','polygon_smoothing']:
+  require(actualbody[key]==STATE['controlbody'][key],'Body topology/UV/weight preservation:'+key)
+ require(scene['materials']==control['materials'] and scene['images']==control['images'],'Complete original material/image ownership')
+ require(set(o['name'] for o in scene['objects'])==set(o['name'] for o in control['objects']),'Complete seven-owner identity')
+ for owner in [body]+[p[0] for p in parts]:
+  require(np.max(np.abs(np.asarray(owner.matrix_world)-np.eye(4)))<=1e-9,'Owner identity frame:'+owner.name)
+  for key in owner.data.shape_keys.key_blocks if owner.data.shape_keys else []:
+   require(key.relative_key==owner.data.shape_keys.key_blocks[0] and not key.mute and not key.vertex_group and key.interpolation=='KEY_LINEAR','Expanded native key semantics:'+owner.name+'/'+key.name)
+ report['full_native_key_metadata']={o.name:[{'name':k.name,'relative':k.relative_key.name,'value':k.value,'min':k.slider_min,'max':k.slider_max,'mute':k.mute,'vertex_group':k.vertex_group,'interpolation':k.interpolation} for k in o.data.shape_keys.key_blocks] for o in [body]+[p[0] for p in parts]}
+ report['body_new_mixed_coordinate_sha256']=hashlib.sha256(mix.astype(np.float32).tobytes()).hexdigest()
+ report['body_macro_basis_control_only']='Raw Basis and original98 keycoords/defaults remain exact; ten active details change evaluated form'
+
+def target_macro(builder,body):return builder.TargetService.get_macro_info_dict_from_basemesh(body)

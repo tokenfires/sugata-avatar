@@ -1,0 +1,3 @@
+# Explicit resume
+
+Robert asks Please continue after the check-in hold. Resume at13:41UTC from clean82a53795. Original unadmitted PLAN/check-in payloads stay untouched; its14:30source/14:35native launch/15:02close bounds remain, with at most one native240s process and no retry. Actual original builder is build_figure.py, nominated by frozen SOURCE-PINS/function_module expected hash; no constructor functions imported. RESUME-INPUTS pins selected files. One small scale-definition JSON was prematurely read while locating nominees and is recorded, not presented as worth-admitted investigation. Ask critic worth before any tenfile/rig/getter/builder investigation or program execution. No native job or Ari target yet.

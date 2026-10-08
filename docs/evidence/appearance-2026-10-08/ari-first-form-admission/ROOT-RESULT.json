@@ -1,0 +1,33 @@
+{
+  "verified_utc": "2026-10-08T14:36:16.750208+00:00",
+  "actual_job": {
+    "started_utc": "2026-10-08T14:33:43.155568+00:00",
+    "wrapper_pid": 25965,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/ari_source.py"
+    ],
+    "timeout_seconds": 240,
+    "timed_out": false,
+    "pid": 25969,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T14:33:53.145169+00:00"
+  },
+  "all6731_stored_flags_pass": true,
+  "saved_candidate_bytes_sha_mode_exact": true,
+  "all106_endpoint_norms_independently_recomputed": true,
+  "target_file_count_values_native_record_match": true,
+  "original98_body_keys_and_macro_defaults_exact": true,
+  "fivefits445expression_witnesses_stored_bounds_pass": true,
+  "bodyUV_topology_weights_materials_images_and7owners_exact": true,
+  "all41physical_execution_pins_match": true,
+  "candidate_sha256": "ca0df89ab0183b7a7441b58885d3a81f4a84cb0836fb0852bec182fcb1a7e249",
+  "candidate_bytes": 12197114,
+  "max_endpoint_error_m": 1.120808008339205e-07,
+  "limits": "Actual instrument arrays/hashes/witnesses read, no independent second nativecapture. Native firstform only; cold/image/export/motion/fit/material/fineanatomy appearance held."
+}

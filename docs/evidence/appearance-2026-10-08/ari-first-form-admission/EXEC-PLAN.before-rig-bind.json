@@ -1,0 +1,220 @@
+{
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/ari_source.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-PINS.json",
+      "bytes": 3105,
+      "sha256": "290f6c086c83dbc7d068abca6630a335a66146149e44b07852084b59fa6b3ffd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-ADDITIONAL.json",
+      "bytes": 919,
+      "sha256": "5e0b566bcbd64901bb56c87284f96125cd0d6c4a228149eef4d1d0e828f2075e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/INPUTS.json",
+      "bytes": 760639,
+      "sha256": "b15f76537b65e86c6f453cae3a36c1e9e25dce28243bfed2cd1cc1e88eae8da9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/EXPRESSION-PATHS.json",
+      "bytes": 15293,
+      "sha256": "853b323487e621d3edb4d8fd6e3bf375ee21b7b7abe8ba7142dba825e6587d17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/EXPRESSION-REQUESTS.json",
+      "bytes": 2140,
+      "sha256": "4a0a092d517f2e291c7287b24c30385d5422de4bf07953d5d8fa8b5c094f2036"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SKIN-WITNESS.json",
+      "bytes": 1842,
+      "sha256": "186cec1bb663c79cc5717e2d6acfe2108d6346ded71fe0adabfb3753463265d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/function_module.py",
+      "bytes": 992,
+      "sha256": "ad25e48b56faf74e12001dd994963f3b2bf5afb09db7f36cca90550778858d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LAUNCH-FAILURE.json",
+      "bytes": 1843,
+      "sha256": "75aa8f419713200a8b90cd65b4195356bd2b07175932e8756fc03506822ff817"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source_logged.py",
+      "bytes": 12357,
+      "sha256": "7e8a5cbf1075979939167550402c1abbcca6e31aa4979178e6af8301af639856"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/GUARDED-FAILURE.json",
+      "bytes": 1256,
+      "sha256": "e330d8b2dcdeec335b1f689aecb84c563ae17d41512fce71c640ac05aa697728"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/logservice.py",
+      "bytes": 16584,
+      "sha256": "98bd5ca5e3f5772e5d45c1923dfffea08ce6309444b4ccc16edafe6b1f425d3b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/faceservice.py",
+      "bytes": 42894,
+      "sha256": "389940c62dfa623409dadc5b2a38f4edeaa0fe45a8315ac887ad696a37bbd950"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "bytes": 62066,
+      "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/clothesservice.py",
+      "bytes": 40732,
+      "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py",
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/rigservice.py",
+      "bytes": 77405,
+      "sha256": "c3a1ef529cd5b68bf82272f08bc93f0f9a6974ac6e4b141e31345bff81209948"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/clothes/mhclo.py",
+      "bytes": 12931,
+      "sha256": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/ari_source.py",
+      "bytes": 13095,
+      "sha256": "93ff79d947827bd577bc4ee2a53ab3726e1aec8fd004ecaa5279ec23a2a287f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/ari_checks.py",
+      "bytes": 10557,
+      "sha256": "b73b5f85baed8833d38847772a8ec0b984617d6e941db3fe5f3b5eeabc1af7b2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/INPUT-RESULT.json",
+      "bytes": 1747962,
+      "sha256": "e9bb99faefb8994af92801313be4cae82bbb9bda7b5989349df8912101631e2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/RIG-RESULT.json",
+      "bytes": 36908,
+      "sha256": "102d6be3422db4a55fd33f54444ca67cd363d4bfe54f926800e1131a641dcaec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-native-form-contract/CONTROL.json",
+      "bytes": 1364,
+      "sha256": "8ed0437673787ec2832e58190ccd583c324c8e471db027bdc79f2cc6f7a86b3c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/WORTH.md",
+      "bytes": 4368,
+      "sha256": "17c9dd01e1f11e5e2147b7bbfe327ed881435b0f1f5d7134f1705c4d52eb91d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/RIG-LEGACY-WORTH.md",
+      "bytes": 3548,
+      "sha256": "2ff14295d4fb3568d6b369e5f70e4fec91ed03989a57abe2b6fa132ab2c8d38f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json",
+      "bytes": 635270,
+      "sha256": "381b890fba742144626dc49e0188fbb12c02631e5ff046c8317118762b0e85cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "bytes": 11983694,
+      "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/objectproperties/__init__.py",
+      "bytes": 1680,
+      "sha256": "ada0453e4460d3a5d5d3949648f97fa3c5ca5e212dd6123464d31d31f34f4d7c"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/objectproperties/generalproperties/scale_factor.json",
+      "bytes": 205,
+      "sha256": "c2f487607cf591753dacf06458fe2e0b0ef483d93fb3770f88d140d97f8d4b6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-native-form-contract/TARGET-NOMINEES.json",
+      "bytes": 5860,
+      "sha256": "ec74dd6bf1c1bf09e3610a26ae1058f364214725fa5aab21f919c3e1a1be4cb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LOGGED-SOURCE-RESULT.json",
+      "bytes": 952573,
+      "sha256": "3cc2c2be835b034b81c4c855d4433244a132ce9b0546469d7d4246b055fea7c9"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/blenderconfigset.py",
+      "bytes": 20303,
+      "sha256": "29ed9eb7b29fe1988eee16b42665a699ef8f1587b05b570fd066457a52c80565"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/rigifyhelpers/rigifyhelpers.py",
+      "bytes": 21107,
+      "sha256": "d39cd2c9bda3034c8a3c27f71a5aebd72087ea14308849dafb6fc4270ad92dde",
+      "role": "Existing native legacy100 upgrade import; no selected rigify fields or new rollstrategy"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/run_native.py",
+      "bytes": 1686,
+      "sha256": "8ae71e2561b38a27deff5a148f552e7b71033537f96153b504d24461fa8f0ccc"
+    }
+  ],
+  "timeout_seconds": 240,
+  "admission_gate": "2026-10-08T14:30:00Z",
+  "launch_gate": "2026-10-08T14:35:00Z",
+  "close": "2026-10-08T15:02:00Z",
+  "legacy_upgrade": "flat100 -> currentcollections; no rigifyfields/rollstrategies; exactimport helper pinned",
+  "failure_policy": "No saved candidate unless complete numerical source gates pass; partial memory/log/source report retained; no exception rollback claim"
+}

@@ -1,0 +1,16 @@
+{
+  "admitted": true,
+  "admitted_utc": "2026-10-08T14:33:43.119554+00:00",
+  "old14_30_source_gate_passed": false,
+  "whole_source_review": "Root authored/inspected full source/checks/runner and corrected explicit load/KITtags/Rigidentity/finiteguards; peer wholepreflight dc8265",
+  "whole_handoff_chunks": [
+    "dc8265",
+    "d29a1d"
+  ],
+  "all8late_preflight_and5dispatch_bindings_exact": true,
+  "all41physical_execution_pins_exact": true,
+  "outputs_absent": true,
+  "owned_native_absent": true,
+  "native_attempts": 0,
+  "limits": "One fullowner nativefirstform orrefusal; no render/cold/export/motion acceptance"
+}
