@@ -1,0 +1,388 @@
+{
+  "started_utc": "2026-10-08T09:23:59.627796+00:00",
+  "pid": 64834,
+  "checks": [],
+  "export_calls": 0,
+  "passed": false,
+  "scope": "Numerical neutral GLB only; materials/images/shaders/appearance/motion/Ari held",
+  "RNA": [
+    {
+      "name": "export_format",
+      "value": "GLB",
+      "present": true,
+      "type": "ENUM",
+      "readonly": false,
+      "observed_RNA_ids": [],
+      "module": {
+        "name": "io_scene_gltf2",
+        "file": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+        "sha256": "73d98cf870d69f2aedb0a13798e389688a225efb4c155c5980bbb7ca0436421b"
+      },
+      "callback": {
+        "name": "get_format_items",
+        "defined_line": 139,
+        "registered_operator": "EXPORT_SCENE_OT_gltf",
+        "registered_class_object_matches": true,
+        "annotation_object_matches": true,
+        "context": "actual bpy.context; no import/enable/preference mutation",
+        "allow_embedded_format_before": false,
+        "explicit_observer_calls": 1,
+        "allow_embedded_format_after": false,
+        "returned_ids": [
+          "GLB",
+          "GLTF_SEPARATE"
+        ]
+      },
+      "accepted": true
+    },
+    {
+      "name": "use_selection",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "use_visible",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "use_renderable",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_apply",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_morph",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_morph_normal",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_morph_tangent",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_morph_animation",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_morph_reset_sk_data",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_try_sparse_sk",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_extras",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_attributes",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_skins",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_all_influences",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_def_bones",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_leaf_bone",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_armature_object_remove",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_hierarchy_flatten_bones",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_hierarchy_flatten_objs",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_rest_position_armature",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_current_frame",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_animations",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_yup",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_materials",
+      "value": "EXPORT",
+      "present": true,
+      "type": "ENUM",
+      "readonly": false,
+      "observed_RNA_ids": [
+        "EXPORT",
+        "PLACEHOLDER",
+        "VIEWPORT",
+        "NONE"
+      ],
+      "accepted": true
+    },
+    {
+      "name": "export_image_format",
+      "value": "AUTO",
+      "present": true,
+      "type": "ENUM",
+      "readonly": false,
+      "observed_RNA_ids": [
+        "AUTO",
+        "JPEG",
+        "WEBP",
+        "NONE"
+      ],
+      "accepted": true
+    },
+    {
+      "name": "export_shared_accessors",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_normals",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_tangents",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_draco_mesh_compression_enable",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_cameras",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_lights",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_texcoords",
+      "value": true,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_use_gltfpack",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_meshopt_compression_enable",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_vertex_color",
+      "value": "NONE",
+      "present": true,
+      "type": "ENUM",
+      "readonly": false,
+      "observed_RNA_ids": [
+        "MATERIAL",
+        "ACTIVE",
+        "NAME",
+        "NONE"
+      ],
+      "accepted": true
+    },
+    {
+      "name": "export_all_vertex_colors",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_active_vertex_color_when_no_material",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "use_mesh_edges",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "use_mesh_vertices",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "will_save_settings",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    },
+    {
+      "name": "export_hierarchy_full_collections",
+      "value": false,
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false,
+      "accepted": true
+    }
+  ],
+  "exception": "RuntimeError('Unrepresentable bone shear')",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py\", line 452, in <module>\n    run()\n    ~~~^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py\", line 389, in run\n    capture_native(meshes,rig,decoder)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py\", line 116, in capture_native\n    require(np.max(np.abs(matrix(Matrix.LocRotScale(t,q,s))-matrix(local_v))) <= 1e-6,\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            \"Unrepresentable bone shear\")\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py\", line 34, in require\n    raise RuntimeError(message)\nRuntimeError: Unrepresentable bone shear\n",
+  "finished_utc": "2026-10-08T09:24:00.162968+00:00"
+}

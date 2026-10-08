@@ -1,0 +1,172 @@
+{
+  "created_utc": "2026-10-08T09:40:13.102612+00:00",
+  "files": [
+    {
+      "name": ".gitignore",
+      "bytes": 19,
+      "sha256": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a"
+    },
+    {
+      "name": "CHANGES.diff",
+      "bytes": 1767,
+      "sha256": "d4f4a59ffa022867b9f11c08174abaec01a443a77df918af7dbf77d3dfd541db"
+    },
+    {
+      "name": "COLD-RESULT.json",
+      "bytes": 1573743,
+      "sha256": "b1020f28e3d4ac11fd458f4c54aa4081af97f76521f5e46b176a5a501d02a238"
+    },
+    {
+      "name": "EXEC-PLAN-before-registered-class-identity.json",
+      "bytes": 2281,
+      "sha256": "1ee5a44fd4a3bd08be58d30d4465b4d90d3a7a34ee60e8313d33434827d33d1f"
+    },
+    {
+      "name": "EXEC-PLAN-inherited.json",
+      "bytes": 1966,
+      "sha256": "f5e9de9c997f3f3f5b9708ecba1d7394f1da753c4dd7455d291cb8b1b6d80be7"
+    },
+    {
+      "name": "EXEC-PLAN.json",
+      "bytes": 2281,
+      "sha256": "e1bdafa8c8d676ff3eedf0cd028d02a65eacae57e3ad61253f2efef81c562c01"
+    },
+    {
+      "name": "INHERITANCE.json",
+      "bytes": 686,
+      "sha256": "29c7977fcf2e37556f22219465c12b96569bc617e1f917b153e19ecb2081dd6f"
+    },
+    {
+      "name": "JOB-start.json",
+      "bytes": 577,
+      "sha256": "5e8489c63f1f67387c8559559b9ae8659da18d4f8b19acc25a021d395a96a5c4"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 649,
+      "sha256": "ce320a690970de26554991ce9e623c1c5f775247fc5db1d2cd93d140d10d3ad5"
+    },
+    {
+      "name": "PLAN-before-callback-count-clarification.md",
+      "bytes": 2990,
+      "sha256": "275b8e49f6d7a33793d497eb5e9dd8fbe50561589ccbe290043331c94c283061"
+    },
+    {
+      "name": "PLAN.md",
+      "bytes": 3078,
+      "sha256": "b3f56a287841ad06d3c0b0b4eae2461e092f022f9b2c765fa4c8cff423fb357d"
+    },
+    {
+      "name": "PREFLIGHT.md",
+      "bytes": 5804,
+      "sha256": "37eaecb583bc8a12aa908adccbcfc972bdb8fb27ab9954271ae7b5ca90673bb8"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3307,
+      "sha256": "1ea7ba7ea6f0e19c530298cdd551ad5082d10e81ffcaac5fa0045d488d10596d"
+    },
+    {
+      "name": "RESULT-REVIEW.md",
+      "bytes": 4356,
+      "sha256": "811ac0e5f884125c0ff532274832715d52017e55d4afaf1f70b3c0e2d11afeb5"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 9665,
+      "sha256": "f764543fd05f7b7471f0ffd52d650b7d1aec9f03f657c4dbf3f6bf8c291340d9"
+    },
+    {
+      "name": "ROOT-PREFLIGHT.json",
+      "bytes": 532,
+      "sha256": "990d9e562f0c163d9ca2ca4c275334deaed6e3d4aaf540fe8b476060da9f9280"
+    },
+    {
+      "name": "ROOT-PREPARED.json",
+      "bytes": 511,
+      "sha256": "1e13be29f55fbfe4347ecfe898a59a1ac2bec372ee4b3d2afaca01f6b687b356"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 563,
+      "sha256": "e1d61955ea7d32955bf354dd6899e01388b914b5e7a1263f25dff143e939cd72"
+    },
+    {
+      "name": "ROOT-RESULT.json",
+      "bytes": 2350,
+      "sha256": "3c57b7d27b5aae0a556c998b1baf2718ade9d3d32f9d6c3fd20c2322c3638c23"
+    },
+    {
+      "name": "ROOT-WORTH.json",
+      "bytes": 263,
+      "sha256": "6f683cc43e98bedd104593b7e265c9dde75275e82bb6cb669ba6980a00893a48"
+    },
+    {
+      "name": "RUN-PLAN-before-registered-class-identity.json",
+      "bytes": 10754,
+      "sha256": "0b830f997ec246dac0593ff284fa90daa21dd9701c35e180e669b0b0abba250a"
+    },
+    {
+      "name": "RUN-PLAN-inherited.json",
+      "bytes": 9965,
+      "sha256": "c94841e5de9fa8a46973678cc0f9384f4195750e8a270c2708fa7ad9a216f588"
+    },
+    {
+      "name": "RUN-PLAN.json",
+      "bytes": 10754,
+      "sha256": "a143760f4b7d0b208ae049eb26e2a91f673d1b26910d82920ac10c3ece2e630f"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 3017,
+      "sha256": "066a4220e1ff0d17b1d6cb22b398c5e252d685fbb0c2b8a7dbe2a1bde2141ae5"
+    },
+    {
+      "name": "export_once-inherited.py",
+      "bytes": 28517,
+      "sha256": "03d87a9aba48b85889df060ef49d237eb951eba2462575c848cb8166f47210f0"
+    },
+    {
+      "name": "export_once.py",
+      "bytes": 27936,
+      "sha256": "0cddaa29d620a83c7a116c91e9c917b4593970a552d66787173a1aa5b20eb6f1"
+    },
+    {
+      "name": "glb_numeric-inherited.py",
+      "bytes": 8670,
+      "sha256": "d1302c603e61c0c5818e26797ae289ce5f06767fafa4127fdf591bde6c959025"
+    },
+    {
+      "name": "glb_numeric.py",
+      "bytes": 8670,
+      "sha256": "d1302c603e61c0c5818e26797ae289ce5f06767fafa4127fdf591bde6c959025"
+    },
+    {
+      "name": "native.log",
+      "bytes": 1320,
+      "sha256": "c97f3dc53daf5d7f11b25444c387220952b72e7bcb0a92ac685e76bc00ceb9c7"
+    },
+    {
+      "name": "rna_values-before-registered-class-identity.py",
+      "bytes": 5315,
+      "sha256": "ecbceb21b813d39827e262dd7bb5290d4412a88d0189534187b77eeb9d25dd98"
+    },
+    {
+      "name": "rna_values.py",
+      "bytes": 5470,
+      "sha256": "9738a963c83f78ba95f71d954b73464a9e73283b8735ca8987089b8be3a2123b"
+    },
+    {
+      "name": "run_native-inherited.py",
+      "bytes": 2024,
+      "sha256": "0c3711f2497e31f00340d09bb25b49ee512cc29de678927b608d807c4cd7a4ef"
+    },
+    {
+      "name": "run_native.py",
+      "bytes": 2024,
+      "sha256": "79aefd6da3a2e0e0e0e6ba33543cfbb08470332232fecc982f96cd0c55580e59"
+    }
+  ],
+  "protection": "Local readonly/Git only; no immutable/off-machine backup claim",
+  "work": "Empty/no GLB or native-array NPZ"
+}

@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-10-08T09:09:08.205078+00:00",
+  "timeout_seconds": 180,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/PLAN.md",
+      "bytes": 3078,
+      "sha256": "b3f56a287841ad06d3c0b0b4eae2461e092f022f9b2c765fa4c8cff423fb357d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/WORTH.md",
+      "bytes": 3017,
+      "sha256": "066a4220e1ff0d17b1d6cb22b398c5e252d685fbb0c2b8a7dbe2a1bde2141ae5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/RUN-PLAN.json",
+      "bytes": 10754,
+      "sha256": "0b830f997ec246dac0593ff284fa90daa21dd9701c35e180e669b0b0abba250a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py",
+      "bytes": 27936,
+      "sha256": "0cddaa29d620a83c7a116c91e9c917b4593970a552d66787173a1aa5b20eb6f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/glb_numeric.py",
+      "bytes": 8670,
+      "sha256": "d1302c603e61c0c5818e26797ae289ce5f06767fafa4127fdf591bde6c959025"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/rna_values.py",
+      "bytes": 5315,
+      "sha256": "ecbceb21b813d39827e262dd7bb5290d4412a88d0189534187b77eeb9d25dd98"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/run_native.py",
+      "bytes": 2024,
+      "sha256": "79aefd6da3a2e0e0e0e6ba33543cfbb08470332232fecc982f96cd0c55580e59"
+    }
+  ]
+}

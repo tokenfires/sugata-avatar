@@ -1,0 +1,61 @@
+{
+  "verified_utc": "2026-10-08T09:33:34.630060+00:00",
+  "job": {
+    "started_utc": "2026-10-08T09:23:58.992199+00:00",
+    "wrapper_pid": 64833,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py"
+    ],
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "pid": 64834,
+    "exit_code": 1,
+    "finished_utc": "2026-10-08T09:24:00.233902+00:00"
+  },
+  "zero_exports": true,
+  "cold_three_exact_comparisons": true,
+  "all42_actual_RNA_options_accepted": true,
+  "format_record": {
+    "name": "export_format",
+    "value": "GLB",
+    "present": true,
+    "type": "ENUM",
+    "readonly": false,
+    "observed_RNA_ids": [],
+    "module": {
+      "name": "io_scene_gltf2",
+      "file": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+      "sha256": "73d98cf870d69f2aedb0a13798e389688a225efb4c155c5980bbb7ca0436421b"
+    },
+    "callback": {
+      "name": "get_format_items",
+      "defined_line": 139,
+      "registered_operator": "EXPORT_SCENE_OT_gltf",
+      "registered_class_object_matches": true,
+      "annotation_object_matches": true,
+      "context": "actual bpy.context; no import/enable/preference mutation",
+      "allow_embedded_format_before": false,
+      "explicit_observer_calls": 1,
+      "allow_embedded_format_after": false,
+      "returned_ids": [
+        "GLB",
+        "GLTF_SEPARATE"
+      ]
+    },
+    "accepted": true
+  },
+  "pins_and_native_files_unchanged": true,
+  "no_GLB_NAT_NPZ": true,
+  "raw_log_RESULT_exact": true,
+  "no_live_native": true,
+  "classification": "Input bone TRS projection guard refusal; observed failing predicate but no bone/error fields were recorded",
+  "limit": "No actual shear, precise failing bone/residual, output conversion loss or format incapability established. No after-owner capture; no model mutator/export branch reached.",
+  "next": "Worth-reviewed narrow roundtrip witness from collected bone matrices before any further export"
+}

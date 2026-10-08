@@ -1,0 +1,24 @@
+{
+  "verified_utc": "2026-10-08T09:14:00.287344+00:00",
+  "parent_checkpoint": "6c187d95f1af3aed1a21ba3124d53e2d6e470a72",
+  "unchanged_functions": [
+    "require",
+    "identity",
+    "pin_matches",
+    "module",
+    "check",
+    "array",
+    "matrix",
+    "swizzle_positions",
+    "compare",
+    "cyclic",
+    "capture_native",
+    "audit"
+  ],
+  "AST_equal_all_unchanged_functions": true,
+  "kwargs_42_equal": true,
+  "decoder_byte_equal": true,
+  "main_diff": "CHANGES.diff",
+  "changed": "RNA helper wiring/early observations only; wrapper new deadline",
+  "plan_clarification": "One explicit callback probe; normal operator callback activity not measured or counted as a probe"
+}

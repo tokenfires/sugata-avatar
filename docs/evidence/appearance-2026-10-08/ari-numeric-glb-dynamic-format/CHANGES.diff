@@ -1,0 +1,35 @@
+--- inherited/export_once.py
++++ current/export_once.py
+@@ -372,7 +372,7 @@
+     require(not OUT.exists() and all(not (HERE/n).exists() for n in
+             ["RESULT.json","COLD-RESULT.json","NATIVE.json","GLB-DOCUMENT.json"]),"First-output directory/record collision")
+     OUT.mkdir()
+-    for name in ("scene_helper","metadata_helper","cold_guard","decoder"):
++    for name in ("scene_helper","metadata_helper","cold_guard","decoder","rna_helper"):
+         MODULES[name]=module("sugata_numeric_"+name,PLAN[name]["path"])
+     decoder=MODULES["decoder"]
+     before=MODULES["scene_helper"].capture_scene()
+@@ -383,21 +383,9 @@
+     rig=bpy.data.objects["Human.rig"]
+     require(rig.type=="ARMATURE","Rig type")
+     # Every operator literal is checked against the actual registered RNA before mutation/export.
+-    props=bpy.ops.export_scene.gltf.get_rna_type().properties
+     options=PLAN["kwargs"]
+-    rna=[]
+-    for name,value in options.items():
+-        require(name in props and not props[name].is_readonly,"Missing/read-only RNA: "+name)
+-        p=props[name]
+-        if type(value) is bool:
+-            require(p.type=="BOOLEAN","RNA boolean type: "+name)
+-        elif type(value) is str:
+-            require(p.type=="ENUM" and value in p.enum_items.keys(),"RNA enum/value: "+name)
+-        else:
+-            raise RuntimeError("Unexpected planned option type")
+-        rna.append({"name":name,"type":p.type,"value":value})
+-    require("filepath" in props and props["filepath"].type=="STRING","Filepath RNA")
+-    REPORT["RNA"]=rna
++    REPORT["RNA"]=[]
++    MODULES["rna_helper"].validate(bpy,options,REPORT["RNA"],PLAN["format_source"])
+     capture_native(meshes,rig,decoder)
+     for o in before["objects"]:
+         if o["type"]=="MESH":
