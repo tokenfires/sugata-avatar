@@ -1,0 +1,42 @@
+{
+  "verified_utc": "2026-10-08T04:27:53.111191+00:00",
+  "job": {
+    "started_utc": "2026-10-08T04:26:00.615796+00:00",
+    "wrapper_pid": 45298,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-bake-first-run/audit_bake.py"
+    ],
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "pid": 45299,
+    "exit_code": 1,
+    "finished_utc": "2026-10-08T04:26:05.708048+00:00"
+  },
+  "result": {
+    "bytes": 2251410,
+    "sha256": "9db34e9de09e36b429dbd50d70ca2f4ca3c19976f026fe1ed39bc74bac669179"
+  },
+  "checks": 216,
+  "passes": 139,
+  "shape_coordinate_failures": 77,
+  "vertex_key_records_over_epsilon": 1451,
+  "shape_keys": 98,
+  "retained_points": 13380,
+  "retained_corners": 53512,
+  "all_available_max_witness_norms_verified": 85,
+  "six_other_owner_records_exact": true,
+  "warm_source_signature_equal": true,
+  "nine_basis_macro_coordinate_checks_pass": true,
+  "current_visible_world_error_m": 0.0,
+  "seven_worth_bindings_and_four_exec_ten_source_pins_match": true,
+  "physical_source_unchanged": true,
+  "candidate_absent": true,
+  "limits": "Root verifies runtime instrument/source, captured witness arithmetic and owner records; no second native evaluation or independently reconstructed all-vertex arrays, no expression-render/GLB/motion/appearance qualification."
+}
