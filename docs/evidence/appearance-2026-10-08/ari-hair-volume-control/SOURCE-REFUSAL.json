@@ -1,0 +1,95 @@
+{
+  "utc": "2026-10-08T21:30:55.775366+00:00",
+  "mass_sha256": "b45101d3377ed344aca9e6163c98a7d29c6bad1a28d75ea2d0fbd745502338aa",
+  "author_command": "python3 docs/evidence/appearance-2026-10-08/ari-hair-volume-control/author_mass.py",
+  "author_chunk": "7bbd26",
+  "source_triangles": 406,
+  "vertices": 238,
+  "source_components": 1,
+  "closed_authored_edge_incidence": true,
+  "boundary_edges": 68,
+  "mass_vertices": 476,
+  "mass_faces": 880,
+  "outer_forehead_aabb_refused": true,
+  "outer_forehead_witnesses": [
+    {
+      "mass_face": 128,
+      "source_triangle": 1373,
+      "indices": [
+        50,
+        5,
+        4
+      ],
+      "points": [
+        [
+          -0.061010584235191345,
+          -0.09404793381690979,
+          1.603700876235962
+        ],
+        [
+          -0.06192725524306297,
+          -0.09176202863454819,
+          1.588307499885559
+        ],
+        [
+          -0.057757552713155746,
+          -0.10024558007717133,
+          1.5987569093704224
+        ]
+      ],
+      "min": [
+        -0.06192725524306297,
+        -0.10024558007717133,
+        1.588307499885559
+      ],
+      "max": [
+        -0.057757552713155746,
+        -0.09176202863454819,
+        1.603700876235962
+      ],
+      "classification": "ConservativeforeheadAABB overlap, not actual imageblockage/penetration"
+    },
+    {
+      "mass_face": 532,
+      "source_triangle": 14616,
+      "indices": [
+        169,
+        131,
+        132
+      ],
+      "points": [
+        [
+          0.061010584235191345,
+          -0.09404793381690979,
+          1.603700876235962
+        ],
+        [
+          0.057757552713155746,
+          -0.10024558007717133,
+          1.5987569093704224
+        ],
+        [
+          0.06192725524306297,
+          -0.09176202863454819,
+          1.588307499885559
+        ]
+      ],
+      "min": [
+        0.057757552713155746,
+        -0.10024558007717133,
+        1.588307499885559
+      ],
+      "max": [
+        0.06192725524306297,
+        -0.09176202863454819,
+        1.603700876235962
+      ],
+      "classification": "ConservativeforeheadAABB overlap, not actual imageblockage/penetration"
+    }
+  ],
+  "outer_ear_overlaps": 0,
+  "native_attempts": 0,
+  "current_original_dispatch": "held; no code/native/firstimages admitted by strict envelope contract",
+  "limits": "Sourceauthored-preview only, no native/evaluated/sourcepreservation/appearance clearance conclusion",
+  "next": "critic worth pending exact-geometry diagnosticfirstimages withknownforeheadrefusal retained vs separateboundaryredesign nomination"
+}

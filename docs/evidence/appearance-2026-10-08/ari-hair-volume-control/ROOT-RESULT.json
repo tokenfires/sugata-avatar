@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-08T21:53:19.547297+00:00",
+  "stored_receipt_verified": true,
+  "execution_passed": true,
+  "strict_forehead_passed": false,
+  "candidate_promotion": false,
+  "geometry_hashes": 6,
+  "pins": 28,
+  "forehead_outer_polygons": [
+    128,
+    532
+  ],
+  "edge_role_counts": {
+    "outer": 643,
+    "base_or_wall": 711
+  },
+  "hit_counts": {
+    "base_or_wall": 101
+  },
+  "all_hit_witnesses_bound": 101,
+  "BVH_not_rerun": true,
+  "limits": "Stored verification only; observed BVH rays not occupancy or clearance; same-process saved reopen only; actual image review separate."
+}

@@ -1,0 +1,412 @@
+{
+  "sealed_utc": "2026-10-08T22:05:55.767258+00:00",
+  "payloads": [
+    {
+      "path": ".gitignore",
+      "bytes": 6,
+      "sha256": "61f65dd9598c7421870bf4918332637f83f34abe1f9fc7cc095852ef7a1b44f7"
+    },
+    {
+      "path": "CLEANUP.json",
+      "bytes": 859312,
+      "sha256": "433a557e3ff7a7081a5b7420d5b608f0e1dbae4af76972b6596d77eff04de335"
+    },
+    {
+      "path": "CONTACT.json",
+      "bytes": 118912,
+      "sha256": "f465a5bd1bf3eebd1a929a32d88ccc35e9aec86bcd592ce21ddbc7fa2754062f"
+    },
+    {
+      "path": "DIAGNOSTIC-DISPATCH.md",
+      "bytes": 2378,
+      "sha256": "ee414fb5109ffb277f67e962335e2aa9210ad5f9b7097e29180a298a2413c222"
+    },
+    {
+      "path": "DIAGNOSTIC-WORTH.md",
+      "bytes": 3591,
+      "sha256": "66d6ae3f663aae8b16e2a36d13010364c9c4570b30f19c216523695dfbac73ca"
+    },
+    {
+      "path": "ENVELOPE.json",
+      "bytes": 4749,
+      "sha256": "4b8ac38da2c6730223bbf7aae600a0e83c03425e770c23dd93e07cc2208ae0ce"
+    },
+    {
+      "path": "EVALUATED-ROLES.json",
+      "bytes": 21312,
+      "sha256": "8b9a3595a74951bf0826d9223cec370942d7de417766c86a40e098d3542a1d4a"
+    },
+    {
+      "path": "EXEC-PLAN.json",
+      "bytes": 7957,
+      "sha256": "41811b71f50f7167257f531f848fcd44c4045f548382a21266322233116c4f31"
+    },
+    {
+      "path": "GEOMETRY.json",
+      "bytes": 1114,
+      "sha256": "934fa5ba04fa80b435a18a17ff876d104f9e048bdd01cc8b3fc6b9566f6b85a0"
+    },
+    {
+      "path": "HTTP.json",
+      "bytes": 761,
+      "sha256": "bccb423d905aea48f92feb040e75d7b108c27a6d8802404ed60cbc08722a2159"
+    },
+    {
+      "path": "INPUTS.json",
+      "bytes": 3947,
+      "sha256": "cc4bbfe782488521aa90cd6b184c089a227da73aac5849ff0673eabdd437fe1c"
+    },
+    {
+      "path": "JOB-start.json",
+      "bytes": 422,
+      "sha256": "4adbc2ff1be51196ec7c20253a5cc675f494825c763914a7ee3d050aac8a9eba"
+    },
+    {
+      "path": "JOB.json",
+      "bytes": 494,
+      "sha256": "2cb0c0a6aff755963e585675e47762d5ad673949c33d362feb43af1642e7caab"
+    },
+    {
+      "path": "MASS.json",
+      "bytes": 258602,
+      "sha256": "b45101d3377ed344aca9e6163c98a7d29c6bad1a28d75ea2d0fbd745502338aa"
+    },
+    {
+      "path": "NATIVE.json",
+      "bytes": 116546,
+      "sha256": "8b22b5c298e63c2afc26733ef0ec9b171c1bb541283dc92c357cb551ab5f82d1"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 3305,
+      "sha256": "8bfbb15c71156ef7bff61f555fa55cc61c692a230611d8a3ee24af0d6832f7ec"
+    },
+    {
+      "path": "PREFLIGHT.md",
+      "bytes": 7116,
+      "sha256": "0f5405bd77c2c00a35840b3185e4c2622400307315f0318173121971b2d98003"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7166,
+      "sha256": "96a2a086d947eaa6cfbfd85852ae3ba9f254c99be6faa5b97039b7ec6a2d0d1c"
+    },
+    {
+      "path": "README.reviewed.md",
+      "bytes": 5883,
+      "sha256": "7308e27c7626ea1885185243c9daa9bdc8a05250bac79ebc266cb2d558623e48"
+    },
+    {
+      "path": "RECOVERY.json",
+      "bytes": 207,
+      "sha256": "fc70b665b81a0ed2c94ef6a34969bd6a3d16122ec07866cf15e2de9e2c76d1c4"
+    },
+    {
+      "path": "REFERENCE-LIMIT.json",
+      "bytes": 287,
+      "sha256": "ce54dad307e2842b18e9f5e6d375130fcd6d749ba91df5b8f50bd10e59da5782"
+    },
+    {
+      "path": "REOPEN.json",
+      "bytes": 878871,
+      "sha256": "dc6141bd29d1516702ce4db7359f42f21a0dc73a2a962ef21661a11a93422731"
+    },
+    {
+      "path": "RESULT-CORRECTION.md",
+      "bytes": 1459,
+      "sha256": "07a69315d000d56d8c4cc0d5d2ab35cfd5dc58528c33be5a41db47964d5270ff"
+    },
+    {
+      "path": "RESULT-REVIEW.md",
+      "bytes": 9738,
+      "sha256": "25c64206ec0ccc3da4cab74cf8e2d51cda6070f3837ad0e3eda1870054499ccf"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 2579932,
+      "sha256": "fc0dae636baf7f575ee5efd73e2f17f9f1db8afb4c5845e139351bd16f2e0b65"
+    },
+    {
+      "path": "ROLE-TRANSPORT.json",
+      "bytes": 81077,
+      "sha256": "f55c19bf70e30917fd7f13c8cd6a4e77d525eaa7ab7b029503f4636232692784"
+    },
+    {
+      "path": "ROOT-DIAGNOSTIC-WORTH.json",
+      "bytes": 359,
+      "sha256": "04a8c587f232bf0a6293d0340d3f45a60a8bea3ddef32792d9c2415164b9b9a4"
+    },
+    {
+      "path": "ROOT-HANDOFF.json",
+      "bytes": 840,
+      "sha256": "c34742132f8899d0c53b151015bc6a78a8bf798e401ba29cecfdce1e7cb345e0"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 569,
+      "sha256": "4383bbabd1c69357a3be5d78efda3fcae9eaf561f1c2f3e909c985c631434c07"
+    },
+    {
+      "path": "ROOT-PREPARED.json",
+      "bytes": 417,
+      "sha256": "1aa34112c9bb78ce6394681b31259417a6591edb45e60a8beded52555dc65627"
+    },
+    {
+      "path": "ROOT-READBACK.json",
+      "bytes": 1311,
+      "sha256": "cf0ecf9ca94fb3ef1a76537f8d4362c42c7bb9d99ffb25b2e71b500e7fe3fc79"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 595,
+      "sha256": "97fc9024f24609b0748f43cea5cb9354be64c767ae8ddf3b5be604f25d05f32e"
+    },
+    {
+      "path": "ROOT-SUPPLEMENT.json",
+      "bytes": 684,
+      "sha256": "35d16f19ce3d96f9bc718283c2d0eccd9ecd98a156a5bec40bc4bf87d5f6dc04"
+    },
+    {
+      "path": "ROOT-WORTH.json",
+      "bytes": 477,
+      "sha256": "b0e00a7b34cdc530e0aa30ecd0a61bfc440cf51045d3635bd0f5b76c4f003365"
+    },
+    {
+      "path": "SOURCE-CORRECTIONS.md",
+      "bytes": 1523,
+      "sha256": "88915f5326045c5614c31e063516d7c120ef53521bafb9caf183c92567c6bba3"
+    },
+    {
+      "path": "SOURCE-REFUSAL.json",
+      "bytes": 2570,
+      "sha256": "cfc01da8bd2382a1295862a59cb08e9dbdecf1640788269739fcd4b916f94d44"
+    },
+    {
+      "path": "WARM.json",
+      "bytes": 862020,
+      "sha256": "c7188e1134b25426d3dc239f93c39e7c80b6e441a26487b4a1842132d70e6c8b"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 5075,
+      "sha256": "9e6165d9065d32b6e8558feae7ee525b5561560fa3533c6a0dce30bbe3381f26"
+    },
+    {
+      "path": "author_mass.py",
+      "bytes": 5039,
+      "sha256": "281d566cb0a98b744e8dd0744a5c56ff4363b7ffcaa4698d7356e0827ac09efd"
+    },
+    {
+      "path": "mass_lib.py",
+      "bytes": 6926,
+      "sha256": "e9828005c98d67c0d926937b4cc36f6b015c1eb2155d21ba5617228d81d95a97"
+    },
+    {
+      "path": "native.log",
+      "bytes": 87254,
+      "sha256": "f449cf7795c46b388fc5e7811ee6b042e5e4dff0e07063b56f25117a40594ae0"
+    },
+    {
+      "path": "review.html",
+      "bytes": 1824,
+      "sha256": "d094919f34e066b4b132958ecf5cbffe1bf36f93dccdf372e22b257ae4f063ae"
+    },
+    {
+      "path": "run_native.py",
+      "bytes": 1631,
+      "sha256": "e16affda0a7eeb548373d3a2d62fd819d2a0516a17a122a8990233eca5886eb3"
+    },
+    {
+      "path": "seal_packet.py",
+      "bytes": 1436,
+      "sha256": "25b3bbab47c1045bd60bb054ad07023646e5f42ff4f6f94498c45b3f45cb8421"
+    },
+    {
+      "path": "verify_result.py",
+      "bytes": 6338,
+      "sha256": "fe23935e05c5b87c04dfd65e6d774e4298001ab0c31fcce73b1e98163cbfdca3"
+    },
+    {
+      "path": "verify_supplement.py",
+      "bytes": 3517,
+      "sha256": "5b68e8992cbc6fa2708cb628c1a006071d898a25ede42afc4536b1f1b4c56c9f"
+    },
+    {
+      "path": "volume-front.png",
+      "bytes": 441432,
+      "sha256": "0cc70ddc1042681980aaca1705660dd27d5979b8b29c003c695a30d21df8059f"
+    },
+    {
+      "path": "volume-profile.png",
+      "bytes": 427439,
+      "sha256": "16d0d84e858a4a90b58384390538403291ce1628c9b247aebdef902cacf4b9ea"
+    },
+    {
+      "path": "volume-rear.png",
+      "bytes": 428604,
+      "sha256": "830a9990b8c3a2f6db88cbed4bcc3e0337ab6c0b5656d3c8916c9f7334eea165"
+    },
+    {
+      "path": "volume.py",
+      "bytes": 16127,
+      "sha256": "200c92470fe6f98fdd492348c9f0e9a66d549d2e441d09ef4392d821d8ffe4b0"
+    }
+  ],
+  "external_or_execution_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/PLAN.md",
+      "bytes": 3305,
+      "sha256": "8bfbb15c71156ef7bff61f555fa55cc61c692a230611d8a3ee24af0d6832f7ec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/PARTITION.json",
+      "bytes": 955734,
+      "sha256": "04b7f099ac1dc825cb9ac924f33eaf10a6b217529cd360a6fa0e8a11e8b5929f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/LANDMARKS.json",
+      "bytes": 1899,
+      "sha256": "486c94b42d4058009e00a6ef6f084a8aec763e98f20c10da0bbc91c93473cc64"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/RESULT-REVIEW.md",
+      "bytes": 9578,
+      "sha256": "26ae558e014444149217ff4a314b96d89f8b9fbb7a3bd34f11ee1889b73b1215"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/atlas-front.png",
+      "bytes": 443117,
+      "sha256": "68b592dd98485efb87fab72b7b892edf61be31f79bd823a0cc914716d6be1751"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/atlas-profile.png",
+      "bytes": 430808,
+      "sha256": "1e0aebc4987060544dcef257fe583ab5493a7f056c93c9afccb5c63f98f86a9a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/atlas-rear.png",
+      "bytes": 440432,
+      "sha256": "875a911ec5e94785173663231b6829282b8fb534ece2a17707b7a0d528f0e274"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/RESULT-REVIEW.md",
+      "bytes": 9807,
+      "sha256": "1c52ef1361a1d26dfa5695732f75092c0321cfec718b35e50d25a2b462aaf13c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/groups-front.png",
+      "bytes": 442294,
+      "sha256": "35d4ccfbb96471647c1a68785b037f66e43f398013b578e5c916f59c2f4ada95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/groups-profile.png",
+      "bytes": 450162,
+      "sha256": "b7746499f97d7defaecb9e0ee74279b532c090c8996a6a07a5770f501c906374"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/groups-rear.png",
+      "bytes": 479866,
+      "sha256": "de1203b1f8a746666c8051a2187ccb2a9745b41a4bb4a7e920b1e4d242716083"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/work/ari-middle-volume.blend",
+      "bytes": 12197092,
+      "sha256": "8d28c905e95f92c1c689df495ee30a4cf4bbe55e069b4cc8ae345c59d3f069a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/RESULT.json",
+      "bytes": 1682947,
+      "sha256": "dee83ac4f1f85871340fdcf3321595ed11aa2a3064fb0e52b0572f649a5deab8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/cold_views.py",
+      "bytes": 11143,
+      "sha256": "2be4976ad807f1d24883a1752d04953c7374ea1634f2fd003b747d643887a825"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/WORTH.md",
+      "bytes": 5075,
+      "sha256": "9e6165d9065d32b6e8558feae7ee525b5561560fa3533c6a0dce30bbe3381f26"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/ROOT-WORTH.json",
+      "bytes": 477,
+      "sha256": "b0e00a7b34cdc530e0aa30ecd0a61bfc440cf51045d3635bd0f5b76c4f003365"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/MASS.json",
+      "bytes": 258602,
+      "sha256": "b45101d3377ed344aca9e6163c98a7d29c6bad1a28d75ea2d0fbd745502338aa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/author_mass.py",
+      "bytes": 5039,
+      "sha256": "281d566cb0a98b744e8dd0744a5c56ff4363b7ffcaa4698d7356e0827ac09efd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/SOURCE-REFUSAL.json",
+      "bytes": 2570,
+      "sha256": "cfc01da8bd2382a1295862a59cb08e9dbdecf1640788269739fcd4b916f94d44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/DIAGNOSTIC-DISPATCH.md",
+      "bytes": 2378,
+      "sha256": "ee414fb5109ffb277f67e962335e2aa9210ad5f9b7097e29180a298a2413c222"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/DIAGNOSTIC-WORTH.md",
+      "bytes": 3591,
+      "sha256": "66d6ae3f663aae8b16e2a36d13010364c9c4570b30f19c216523695dfbac73ca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/ROOT-DIAGNOSTIC-WORTH.json",
+      "bytes": 359,
+      "sha256": "04a8c587f232bf0a6293d0340d3f45a60a8bea3ddef32792d9c2415164b9b9a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/mass_lib.py",
+      "bytes": 6926,
+      "sha256": "e9828005c98d67c0d926937b4cc36f6b015c1eb2155d21ba5617228d81d95a97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/volume.py",
+      "bytes": 16127,
+      "sha256": "200c92470fe6f98fdd492348c9f0e9a66d549d2e441d09ef4392d821d8ffe4b0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-hair-volume-control/run_native.py",
+      "bytes": 1631,
+      "sha256": "e16affda0a7eeb548373d3a2d62fd819d2a0516a17a122a8990233eca5886eb3"
+    }
+  ],
+  "local_ignored_readonly_outputs": [
+    {
+      "path": "work/actual-static-geometry.npz",
+      "bytes": 366347,
+      "sha256": "3faa79339add025f85a2b81f1779d99111da0d93d272e0ac580651c2f86cf806"
+    },
+    {
+      "path": "work/ari-hair-volume-control.blend",
+      "bytes": 12216021,
+      "sha256": "966ed84442580f3f2056e6f14618e9f74172864bac72f965cbb8a7b63287ea63"
+    }
+  ],
+  "strict_forehead_passed": false,
+  "candidate_promotion": false,
+  "limits": "One exact-geometry diagnostic only; temporary mass direction retained, provisional contour not final hairline. No current recipe tuning/retry or next construction admitted."
+}
