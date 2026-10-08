@@ -1,6 +1,6 @@
-# Current status: PAUSED — October8 Codex update/restart
+# Current status: RESUMED — October 8 after the Codex update
 
-**Robert explicitly paused ALL Sugata at19:07UTC. RecoveryautomationPAUSED viaappAPI+savedTOML; criticstopped; noownednative/query. No queuedheartbeat or oldresume authorizes work.** Read [currentrestartcheckpoint](RESUME-2026-10-08.md). Vite825 retained; re-inventoryafterrestart. The October7 resumption below is historical.
+**Robert explicitly resumed with “let's resume, We're back up.”** This revokes the19:07 pause. Recovery automation is ACTIVE every ten minutes through the app API and saved-TOML readback. Vite825 and loopback HTTP200 are freshly verified; no owned native/query job exists. Read the latest receipt below and [fresh recovery plan](evidence/appearance-2026-10-08/resume-after-codex-update/PLAN.md). Older pauses and expired slice bounds remain historical.
 
 # Sugata resumed — October 7, 2026
 
@@ -436,3 +436,10 @@ Root wholeworth/all10table+INPUTS matches18:47:34 beforeinquiry. Two primaryURL/
 ## Humanpause for Codex restart — October8
 
 Robert revokes activework19:07UTC. AppAPI update/view plusTOMLreadbackconfirm PAUSED withallotherautomationfields preserved. NoownedBlender/diagnose/run_query; Vite825 retainedasprocess. Criticstops andsavesPAUSE19:08:47; rootwhole/hash verifies2668bytes/SHA c79b7fe2474bd54fcaa3de27cfe6b59ca375d63dab43838b5fe8374f97e9f09f. Queryalreadycollected; finalindependent resultchecks notdone. Pause sealscurrentqueryaspartial/unreviewedfinal, withrootreadback/limits andnofurtherexperiments. [Restartcheckpoint](RESUME-2026-10-08.md), [APIreadback](evidence/appearance-2026-10-08/pause-for-codex-update/READBACK.json). AllSugatawork remainsstoppeduntilnewhumanresume.
+
+
+## Human resume after Codex update — October 8
+
+Starting37cf3617 is clean. Fresh19:17–19:45 closure plan admits only interrupted independent stored-result receipt verification, not anotherquery/native/groom/image. All26truth/28firstcurl/3pause payloads,22+20pins and5readonlyNPZs exact. Vite825HTTP200; noownednative/query, unrelatedprocesses untouched. AutomationACTIVE10min viaAPI/view/TOML; name/kind/cadence/destination preserved, promptupdatedtoOct8humanresume/currentcheckpoint. [Recovery evidence](evidence/appearance-2026-10-08/resume-after-codex-update/RECOVERY.json). Criticfinishesbounded review innewfolder, oldsealedpartialpacket untouched; rootactualhandoff checks required. Refusedgroomrecipe staysclosed; no source/numeric transfer to appearance, no repeatedunchangedpointprobe. Fullroadmap/accepted/frozen/native/references/unrelatedwork andstandingallowance boundariespreserved. Humansteeringwins.
+
+Interruptedresult review saves19:21:25UTC. Root whole/all17bindings/current22physicalpins and independent max-axis box gaps confirm19:24:09. [Completed recovery closure](evidence/appearance-2026-10-08/resume-after-codex-update/README.md). Both PASS narrow no-observed-hit receipt, occupancyUNKNOWN/windingunimplemented/oldgroomrefused. Closeunchangedtruthquery line; no rerun/new native/image/reference job. Nextworth only new authored temple/ear/nape boundaries and curl-flow/envelope contract, with actual first-image/source/contact ownership before any original construction. No next coefficients/program/geometry job admitted. Old sealed pause/query/failure evidence unchanged. RecoveryACTIVE10min/Vite825/fullAAA/accepted/defaults/native/frozen/references/unrelated preserved; humansteeringwins.

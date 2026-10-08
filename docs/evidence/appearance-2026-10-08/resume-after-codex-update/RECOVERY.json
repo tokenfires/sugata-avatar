@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-10-08T19:17:26.063846+00:00",
+  "starting_commit": "37cf3617",
+  "starting_checkout_clean": true,
+  "sealed_packets_exact": {
+    "ari-curl-witness-truth": {
+      "payloads": 26,
+      "external_pins": 22,
+      "readonly_arrays": 0
+    },
+    "ari-curl-first-study": {
+      "payloads": 28,
+      "external_pins": 20,
+      "readonly_arrays": 5
+    },
+    "pause-for-codex-update": {
+      "payloads": 3,
+      "external_pins": 0,
+      "readonly_arrays": 0
+    }
+  },
+  "review_server_pid": 825,
+  "loopback_HTTP_status": 200,
+  "owned_native_query_absent": true,
+  "unrelated_processes_untouched": true,
+  "scope": "Recovery only; no existing query rerun."
+}

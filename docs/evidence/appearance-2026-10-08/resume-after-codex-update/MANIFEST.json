@@ -1,0 +1,45 @@
+{
+  "sealed_utc": "2026-10-08T19:27:28.191651+00:00",
+  "payloads": [
+    {
+      "path": "AUTOMATION-READBACK.json",
+      "bytes": 293,
+      "sha256": "572413db2d0eef89119fe7f07400fd5c89e0657e5bfd249f89dadd978748e03c"
+    },
+    {
+      "path": "AUTOMATION.json",
+      "bytes": 6413,
+      "sha256": "a3eec672b1c99544ec85ee8dc61194eae4eba2efaa18d92c9c138a80c8740869"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 1907,
+      "sha256": "ec13ac848f961a234f6497e9a028b07a8107802ae1a14c8f81318956cb9f57fb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3243,
+      "sha256": "39a2ef2cbc878f6483e8f91088aa8f2d61a06cc2478c2487567554f66c979cb9"
+    },
+    {
+      "path": "RECOVERY.json",
+      "bytes": 688,
+      "sha256": "733347fc164fab16ca6ea61af97eca76382dc1df14e7edc463b31aed0a9ebaf9"
+    },
+    {
+      "path": "RESULT-REVIEW.md",
+      "bytes": 8479,
+      "sha256": "fd6d956c4ed899dc0800545167cc964dace55fa3d6af095231d6b26e907dc32b"
+    },
+    {
+      "path": "ROOT-REVIEW.json",
+      "bytes": 779,
+      "sha256": "a23a53985d14e97e0bfb7f67df74a999ae9bbf88cc1e97624d6c4d64bae7f7ba"
+    }
+  ],
+  "authority": "ExplicitOctober8humanresume",
+  "decision": "Closeunchangedtruthline; nominatefreshboundary/curl-flowcontract only.",
+  "existing_groom_recipe": "REFUSED",
+  "new_native_query_render_jobs": 0,
+  "automation": "ACTIVE10minutes"
+}

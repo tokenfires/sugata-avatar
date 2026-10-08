@@ -1,0 +1,9 @@
+# Resume after the Codex update
+
+Robert explicitly resumed October8 with “let's resume, we're back up.” This revokes the19:07 pause. Starting checkpoint37cf3617 is clean; Vite825 is still present and loopback root returnsHTTP200. No owned Blender or frozen-witness query is running. Other processes/worktrees remain untouched.
+
+Fresh bounded slice19:17–19:45UTC: finish the interrupted independent result receipt for the already-completed ear-edge query. Usable improvement: a reliable reviewed recovery handoff. Bounded question: do the stored job/log/topology/adjacency/box records support their narrow no-observed-hit claim, or must that claim be refused? Root verifies the critic's exact handoff. No diagnostic rerun, new occupancy calculation, reference query, native/groom/cold/render or recipe rescue. Stop at first association/predicate mismatch, complete receipt or19:45. No expired original deadline is extended.
+
+The failed original curl recipe stays closed; no saved candidate or images exist. Occupancy/winding remain unknown/unimplemented. Two choices after this receipt: A stop the unchanged truth-query line and nominate a separate decision-changing authored scalp/path experiment; B propose one genuinely necessary new predicate question under a fresh contract. Their worth must be assessed from actual evidence before action. Do not use numerical/source success as appearance approval. Preserve the wider AAA/body/face/skin/representation/expression/wardrobe/coupled fit/material/export/CPU+actualWebGPU/motion/performance/VTuber/Mii roadmap.
+
+Restore the existing ten-minute heartbeat through app API with exact readback under the new human resume. Preserve cadence/destination/other fields. Recovery continues only within Sugata until Robert checks in or newer steering; no purchase/reset/model/subscription/install/prefs/push/publish/otherproject work. Human pause/check-in wins.
