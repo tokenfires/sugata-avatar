@@ -1,0 +1,11 @@
+# Ari’s first original short-curl study
+
+Use the exact isolated v2 head and the original Ari concept as the design reference. Preserve the stock face, skin, scalp texture, body, anatomy, expressions and rig for this first study; those unfinished owners must remain visible in the assessment. The curls add one recognizable identity cue, not finished character approval.
+
+The concept portrait shows distinct tight curl groups across a compact rounded crown, with finer strands inside those groups. The profile and rear show short sides/nape and crown volume that follows the skull rather than forming a flat cap. The v2 head profile exposes the corresponding unfilled crown, temple and nape. These are visual relationships, not measured hair lengths or a traced anatomical hairline.
+
+Author curl paths with a coherent root-to-tip direction and variation within deliberate groups. Keep the forehead readable, retain the ear outline and avoid a lump that repeats the ear shape. Give the top more visible curl structure than the sides/nape; preserve restrained asymmetry and controlled flyaways. Do not substitute one uniform ring, a smooth shell, a pile of disconnected bead shapes or the closed bob/card candidates for this original study.
+
+Review one fixed original front/profile/rear set against the unchanged head and concept. A useful result has readable curl groups and a connected compact silhouette while leaving crown/forehead/ears fully framed. Refuse visible scalp disconnection, face/ear blockage, ear-shaped side mass, regular wire/rope repetition or flat helmet appearance. Do not repair a refusal through repeated parameter tweaks in the same packet.
+
+Alternative A develops one owned native curl path/radius study: direct editability and clear authoring choices, with density/material/render cost still to qualify. B develops modern strand-native surface/attribute workflows: a richer groom foundation, with broader attachment/modifier/material responsibilities. The first native trial must freeze its scalp face ledger/exclusions, path count/grouping, seed, lengths, coil/taper/radius values, material and render budget before construction. This brief alone is not that numerical recipe.
