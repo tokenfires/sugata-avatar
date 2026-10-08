@@ -1,0 +1,416 @@
+{
+  "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF/main/specification/2.0/Specification.adoc",
+  "metadata": {
+    "scrapeId": "01a11b09-fcc6-74b3-989f-94ce2dcb0e95",
+    "sourceURL": "https://raw.githubusercontent.com/KhronosGroup/glTF/main/specification/2.0/Specification.adoc",
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF/main/specification/2.0/Specification.adoc",
+    "statusCode": 200,
+    "contentType": "text/plain; charset=utf-8",
+    "timezone": "America/New_York",
+    "proxyUsed": "basic",
+    "indexId": "c89175ca-ec97-4b92-950c-bea95ea39d44",
+    "creditsUsed": 1,
+    "concurrencyLimited": false
+  },
+  "excerpts": [
+    {
+      "start": 810,
+      "end": 847,
+      "lines": [
+        {
+          "line": 810,
+          "text": "[[transformations]]"
+        },
+        {
+          "line": 811,
+          "text": "=== Transformations"
+        },
+        {
+          "line": 812,
+          "text": ""
+        },
+        {
+          "line": 813,
+          "text": "By default, a node's local space transform is identity."
+        },
+        {
+          "line": 814,
+          "text": ""
+        },
+        {
+          "line": 815,
+          "text": "Any node **MAY** define a local space transform either by supplying a precomputed transformation matrix in the `matrix` property, or any of `translation`, `rotation`, and `scale`  properties (also known as _TRS properties_). _Translation_ and _scale_ are 3D vectors in the local coordinate system; _rotation_ is a quaternion value stored in XYZW order where W is the scalar. If defined, the rotation quaternion **MUST** be unit."
+        },
+        {
+          "line": 816,
+          "text": ""
+        },
+        {
+          "line": 817,
+          "text": "When the `matrix` property is not defined, the local transform is computed from the TRS properties as follows, where"
+        },
+        {
+          "line": 818,
+          "text": ""
+        },
+        {
+          "line": 819,
+          "text": "- stem:[t_x], stem:[t_y], and stem:[t_z] are the translation vector components;"
+        },
+        {
+          "line": 820,
+          "text": "- stem:[r_x], stem:[r_y], stem:[r_z], and stem:[r_w] are the rotation quaternion components;"
+        },
+        {
+          "line": 821,
+          "text": "- stem:[s_x], stem:[s_y], and stem:[s_z] are the scale vector components."
+        },
+        {
+          "line": 822,
+          "text": ""
+        },
+        {
+          "line": 823,
+          "text": "[stem]"
+        },
+        {
+          "line": 824,
+          "text": "+++++"
+        },
+        {
+          "line": 825,
+          "text": "((s_x * (1 - 2(r_y^2 + r_z^2)), s_y * 2(r_xr_y - r_zr_w),     s_z * 2(r_xr_z + r_yr_w),     t_x),"
+        },
+        {
+          "line": 826,
+          "text": " (s_x * 2(r_xr_y + r_zr_w),     s_y * (1 - 2(r_x^2 + r_z^2)), s_z * 2(r_yr_z - r_xr_w),     t_y),"
+        },
+        {
+          "line": 827,
+          "text": " (s_x * 2(r_xr_z - r_yr_w),     s_y * 2(r_yr_z + r_xr_w),     s_z * (1 - 2(r_x^2 + r_y^2)), t_z),"
+        },
+        {
+          "line": 828,
+          "text": " (0, 0, 0, 1))"
+        },
+        {
+          "line": 829,
+          "text": "+++++"
+        },
+        {
+          "line": 830,
+          "text": ""
+        },
+        {
+          "line": 831,
+          "text": "When the `matrix` property is defined, it **MUST** be decomposable to TRS properties, i.e., the specified matrix **MUST** conform to the following conditions:"
+        },
+        {
+          "line": 832,
+          "text": ""
+        },
+        {
+          "line": 833,
+          "text": "- the last row is stem:[(0, 0, 0, 1)];"
+        },
+        {
+          "line": 834,
+          "text": "- none of the first three columns is all-zeros;"
+        },
+        {
+          "line": 835,
+          "text": "- the absolute value of the determinant of the upper-left 3x3 matrix formed by dividing each matrix element by the length of its column is close to positive one."
+        },
+        {
+          "line": 836,
+          "text": ""
+        },
+        {
+          "line": 837,
+          "text": "[NOTE]"
+        },
+        {
+          "line": 838,
+          "text": ".Implementation Note"
+        },
+        {
+          "line": 839,
+          "text": "===="
+        },
+        {
+          "line": 840,
+          "text": "These conditions ensure that the matrix has the following properties:"
+        },
+        {
+          "line": 841,
+          "text": ""
+        },
+        {
+          "line": 842,
+          "text": "- the matrix does not contain shear or perspective transforms;"
+        },
+        {
+          "line": 843,
+          "text": "- decomposing the matrix into TRS properties and composing them back would produce nearly the same matrix, subject to floating-point precision."
+        },
+        {
+          "line": 844,
+          "text": ""
+        },
+        {
+          "line": 845,
+          "text": "The `matrix` property cannot represent zero scale; assets would need to use the explicit `scale` property for that."
+        },
+        {
+          "line": 846,
+          "text": "===="
+        },
+        {
+          "line": 847,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "start": 1955,
+      "end": 1997,
+      "lines": [
+        {
+          "line": 1955,
+          "text": "[[skins-overview]]"
+        },
+        {
+          "line": 1956,
+          "text": "==== Overview"
+        },
+        {
+          "line": 1957,
+          "text": ""
+        },
+        {
+          "line": 1958,
+          "text": "glTF 2.0 meshes support Linear Blend Skinning via skin objects, joint hierarchies, and designated vertex attributes."
+        },
+        {
+          "line": 1959,
+          "text": ""
+        },
+        {
+          "line": 1960,
+          "text": "Skins are stored in the `skins` array of the asset. Each skin is defined by a **REQUIRED** `joints` property that lists the indices of nodes used as joints to pose the skin and an **OPTIONAL** `inverseBindMatrices` property that points to an accessor with inverse bind matrices data used to bring coordinates being skinned into the same space as each joint."
+        },
+        {
+          "line": 1961,
+          "text": ""
+        },
+        {
+          "line": 1962,
+          "text": "The order of joints is defined by the `skin.joints` array and it **MUST** match the order of `inverseBindMatrices` accessor elements (when the latter is present). The `skeleton` property (if present) points to the node that is the common root of a joints hierarchy or to a direct or indirect parent node of the common root."
+        },
+        {
+          "line": 1963,
+          "text": ""
+        },
+        {
+          "line": 1964,
+          "text": "[NOTE]"
+        },
+        {
+          "line": 1965,
+          "text": ".Implementation Note"
+        },
+        {
+          "line": 1966,
+          "text": "===="
+        },
+        {
+          "line": 1967,
+          "text": "Although the `skeleton` property is not needed for computing skinning transforms, it may be used to provide a specific \"`pivot point`\" for the skinned geometry."
+        },
+        {
+          "line": 1968,
+          "text": "===="
+        },
+        {
+          "line": 1969,
+          "text": ""
+        },
+        {
+          "line": 1970,
+          "text": "An accessor referenced by `inverseBindMatrices` **MUST** have floating-point components of `\"MAT4\"` type. The number of elements of the accessor referenced by `inverseBindMatrices` **MUST** be greater than or equal to the number of `joints` elements. The fourth row of each matrix **MUST** be set to `[0.0, 0.0, 0.0, 1.0]`. The accessed matrices **MUST NOT** contain infinite or NaN values."
+        },
+        {
+          "line": 1971,
+          "text": ""
+        },
+        {
+          "line": 1972,
+          "text": "[NOTE]"
+        },
+        {
+          "line": 1973,
+          "text": ".Implementation Note"
+        },
+        {
+          "line": 1974,
+          "text": "===="
+        },
+        {
+          "line": 1975,
+          "text": "The matrix defining how to pose the skin's geometry for use with the joints (also known as \"`Bind Shape Matrix`\") should be premultiplied to mesh data or to Inverse Bind Matrices."
+        },
+        {
+          "line": 1976,
+          "text": "===="
+        },
+        {
+          "line": 1977,
+          "text": ""
+        },
+        {
+          "line": 1978,
+          "text": "[[joint-hierarchy]]"
+        },
+        {
+          "line": 1979,
+          "text": "==== Joint Hierarchy"
+        },
+        {
+          "line": 1980,
+          "text": ""
+        },
+        {
+          "line": 1981,
+          "text": "The joint hierarchy used for controlling skinned mesh pose is simply the node hierarchy, with each node designated as a _joint_ by a reference from the `skin.joints` array. Each skin's joints **MUST** have a common parent node (direct or indirect) called _common root_, which may or may not be a joint node itself. When a skin is referenced by a node within a scene, the common root **MUST** belong to the same scene."
+        },
+        {
+          "line": 1982,
+          "text": ""
+        },
+        {
+          "line": 1983,
+          "text": "[NOTE]"
+        },
+        {
+          "line": 1984,
+          "text": ".Implementation Note"
+        },
+        {
+          "line": 1985,
+          "text": "===="
+        },
+        {
+          "line": 1986,
+          "text": "A node object does not specify whether it is a joint. Client implementations may need to traverse the `skins` array first, marking each joint node."
+        },
+        {
+          "line": 1987,
+          "text": "===="
+        },
+        {
+          "line": 1988,
+          "text": ""
+        },
+        {
+          "line": 1989,
+          "text": "A joint node **MAY** have other nodes attached to it, even a complete node sub graph with meshes."
+        },
+        {
+          "line": 1990,
+          "text": ""
+        },
+        {
+          "line": 1991,
+          "text": "[NOTE]"
+        },
+        {
+          "line": 1992,
+          "text": ".Implementation Note"
+        },
+        {
+          "line": 1993,
+          "text": "===="
+        },
+        {
+          "line": 1994,
+          "text": "It's common to have an entire geometry attached to a joint node without having it being skinned (e.g., a sword attached to a hand). Note that the node transform is the local transform of the node relative to the joint, like any other node in the glTF node hierarchy as described in the <<transformations,Transformations>> section."
+        },
+        {
+          "line": 1995,
+          "text": "===="
+        },
+        {
+          "line": 1996,
+          "text": ""
+        },
+        {
+          "line": 1997,
+          "text": "Only the joint transforms are applied to the skinned mesh; the transform of the skinned mesh node **MUST** be ignored."
+        }
+      ]
+    },
+    {
+      "start": 3039,
+      "end": 3052,
+      "lines": [
+        {
+          "line": 3039,
+          "text": "_Channels_ connect the output values of the key frame animation to a specific node in the hierarchy. A channel's `sampler` property contains the index of one of the samplers present in the containing animation's `samplers` array. The `target` property is an object that identifies which node to animate using its `node` property, and which property of the node to animate using `path`. Non-animated properties **MUST** keep their values during animation."
+        },
+        {
+          "line": 3040,
+          "text": ""
+        },
+        {
+          "line": 3041,
+          "text": "When the `node` property is not defined, the animation channel is ignored unless target information is provided by other means, such as extensions."
+        },
+        {
+          "line": 3042,
+          "text": ""
+        },
+        {
+          "line": 3043,
+          "text": "When the `node` property is defined, valid values for the `path` property include `\"translation\"`, `\"rotation\"`, `\"scale\"`, and `\"weights\"`."
+        },
+        {
+          "line": 3044,
+          "text": ""
+        },
+        {
+          "line": 3045,
+          "text": "If the node has the `matrix` property defined, its TRS properties **MUST NOT** be targeted, i.e., the `path` property of an animation channel target that points to such a node **MUST NOT** be any of `\"translation\"`, `\"rotation\"`, or `\"scale\"`."
+        },
+        {
+          "line": 3046,
+          "text": ""
+        },
+        {
+          "line": 3047,
+          "text": "[NOTE]"
+        },
+        {
+          "line": 3048,
+          "text": ".Rationale"
+        },
+        {
+          "line": 3049,
+          "text": "===="
+        },
+        {
+          "line": 3050,
+          "text": "Since matrix decomposition is generally ambiguous, animating only one property could result in non-portable implementation-dependent results. Note that `matrix` property presence does not affect the `\"weights\"` path."
+        },
+        {
+          "line": 3051,
+          "text": "===="
+        },
+        {
+          "line": 3052,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "limit": "Raw source sections actuallyread; no full-spec semantic audit or generated authority"
+}

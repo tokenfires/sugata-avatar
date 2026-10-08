@@ -1,0 +1,71 @@
+{
+  "verified_utc": "2026-10-08T10:51:01.888001+00:00",
+  "all53_factor_rotations_products_ancestry_metric_records_verified": true,
+  "unit_quaternion_squared_norm_max": 4.440892098500626e-16,
+  "all_pins_unchanged": true,
+  "summary": {
+    "local_metric": {
+      "worst_bone": "index_02_l",
+      "max_abs": 6.9111383282915995e-15,
+      "element": [
+        0,
+        2
+      ],
+      "pass": true,
+      "failed_bones": []
+    },
+    "legacy_local_metric": {
+      "worst_bone": "index_01_l",
+      "max_abs": 1.875983756394195e-07,
+      "element": [
+        0,
+        3
+      ],
+      "pass": true,
+      "failed_bones": []
+    },
+    "global_metric": {
+      "worst_bone": "index_02_l",
+      "max_abs": 5.995204332975845e-15,
+      "element": [
+        1,
+        2
+      ],
+      "pass": true,
+      "failed_bones": []
+    },
+    "rest_action_metric": {
+      "worst_bone": "index_03_l",
+      "max_abs": 8.659739592076221e-15,
+      "element": [
+        1,
+        3
+      ],
+      "pass": true,
+      "failed_bones": []
+    },
+    "float32_inverse_metric": {
+      "worst_bone": "clavicle_r",
+      "max_abs": 5.157293103685845e-08,
+      "element": [
+        1,
+        3
+      ],
+      "pass": true,
+      "failed_bones": []
+    }
+  },
+  "actual_command_chunk": "085d49",
+  "execution": {
+    "started_utc": "2026-10-08T10:45:25.954213+00:00",
+    "finished_utc": "2026-10-08T10:45:25.990350+00:00",
+    "exit_code": 0,
+    "node": {
+      "path": "/Users/robault/.brv-cli/bin/node",
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    },
+    "numpy": "2.4.6"
+  },
+  "limits": "Pure mathematical nomination, not Bone/Object3D/GLB/consumer/animation/appearance acceptance; processPIDsnotcaptured"
+}

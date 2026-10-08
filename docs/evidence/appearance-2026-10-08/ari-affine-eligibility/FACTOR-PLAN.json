@@ -1,0 +1,75 @@
+{
+  "input": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/RESULT.json",
+    "bytes": 250689,
+    "sha256": "fffac2efb0a424753afc90ee05680ee36fe7ea3fd4d81989abc0a4c0ed03d3c0"
+  },
+  "node": {
+    "path": "/Users/robault/.brv-cli/bin/node",
+    "bytes": 119127632,
+    "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+  },
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-affine-eligibility/factor_once.py",
+      "bytes": 2610,
+      "sha256": "3ffc46ac52b3a63b397d5a07f2675d53b14b51abaf2f7088f605e9e38d68d947"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-affine-eligibility/factor_math.mjs",
+      "bytes": 3549,
+      "sha256": "16cbb956530b961f4a80a7889eec0fdc3e576dfec658502cf40e20a98b312ba7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-affine-eligibility/FACTOR-CONTRACT.md",
+      "bytes": 3209,
+      "sha256": "862a281987c85cf8dc76b69188c7d9b9914bff2deb73efb7f9c9efb060bba6f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-affine-eligibility/FACTOR-WORTH.md",
+      "bytes": 4526,
+      "sha256": "b2ceff39823fcf0a067f28bc6e27654b5be770b794d2761e0b06938ce7939410"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/RESULT.json",
+      "bytes": 250689,
+      "sha256": "fffac2efb0a424753afc90ee05680ee36fe7ea3fd4d81989abc0a4c0ed03d3c0"
+    },
+    {
+      "path": "/Users/robault/.brv-cli/bin/node",
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Matrix4.js",
+      "bytes": 34258,
+      "sha256": "11d813da5b4a03de3e75dcb9780657a9cc276f682c30aa876c461d6429dcf39c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Quaternion.js",
+      "bytes": 20970,
+      "sha256": "27de8858ac6ec90f0b830c8e1bc5c2c6d8f1328a9b9903fd73b24e0d25389d29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector3.js",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/MathUtils.js",
+      "bytes": 21991,
+      "sha256": "e329b0574b9b1ed34c169c11abfd3cfb3cf5ea61b062e17a72d400a8515b1f16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/utils.js",
+      "bytes": 12516,
+      "sha256": "28f06d2e36ee99dcf3bad7dc10b13ed8715a5b8ed3468b1c7386384b0699e52a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/constants.js",
+      "bytes": 32951,
+      "sha256": "3444ef8433dedd2d8b391bc1139b5f3c9f433ea3487473b366e624814d73d26e"
+    }
+  ],
+  "limit": "One SVD per53 exactrawlocals; one Three math reconstruction; no native/rig/load/export/motion or actualIBM proof"
+}
