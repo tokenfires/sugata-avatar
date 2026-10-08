@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-10-08T04:07:56.376524+00:00",
+  "timeout_seconds": 180,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-bake-association/audit_bake.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-bake-association/PLAN.md",
+      "bytes": 3210,
+      "sha256": "5f23d66492faaacfeb0e71b707cace403b95a6b80921ffa668a128ce7db19b86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-bake-association/CONTRACT.md",
+      "bytes": 3384,
+      "sha256": "22c08d3bba47356d9878582eb58c0f944333251eb435476b9631e053dca83da4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-bake-association/audit_bake.py",
+      "bytes": 12877,
+      "sha256": "0e5ddf15575b8136db5935fe5130106b5c5113d4e0054d6868221518d54ef675"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-bake-association/SOURCE-PINS.json",
+      "bytes": 3024,
+      "sha256": "37795929defcf5831efd65b735d980edb37fb7668c6d8b9f8c8b75ac9f4c1549"
+    }
+  ]
+}

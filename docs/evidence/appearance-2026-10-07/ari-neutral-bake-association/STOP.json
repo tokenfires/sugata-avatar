@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-10-08T04:18:17.964847+00:00",
+  "preflight_gate_utc": "2026-10-08T04:16:00Z",
+  "critic_saved_utc": "2026-10-08T04:16:21.080134+00:00",
+  "root_whole_read_utc": "2026-10-08T04:16:39Z",
+  "preflight_sha256": "30fde23f918869f321fd4473dd8785938bf470e5d22fd5ceac2b2d8e1c35376b",
+  "five_review_and_ten_source_pins_verified": true,
+  "physical_source_sha_unchanged": true,
+  "native_jobs": 0,
+  "work_result_candidate_absent": true,
+  "decision": "STOP current execution allocation: stable preflight and root read arrived after fixed gate. Source-ready instrument retained, no observed live bake loss."
+}
