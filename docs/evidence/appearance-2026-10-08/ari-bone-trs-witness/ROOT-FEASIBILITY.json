@@ -1,0 +1,29 @@
+{
+  "verified_utc": "2026-10-08T10:10:33.454277+00:00",
+  "all53_chain_and_metric_records_recomputed": true,
+  "rawglobal_failed_bones": [
+    "thigh_l",
+    "foot_l",
+    "thigh_r",
+    "foot_r"
+  ],
+  "worst_rawglobal": {
+    "worst_bone": "foot_l",
+    "max_abs": 1.0791046086700007e-06,
+    "element": [
+      2,
+      1
+    ],
+    "actual": 0.8881121215599116,
+    "expected": 0.8881132006645203,
+    "pass": false,
+    "failed_bones": [
+      "thigh_l",
+      "foot_l",
+      "thigh_r",
+      "foot_r"
+    ]
+  },
+  "decision": "Projected-local stock nomination refused with unchanged raw-global1e-6; exact-affine representation needs fresh explicit contract",
+  "limit": "Pure prediction from frozen exactmathutils TRS/source swizzle and tested decoder. NumPy64 raw inverse and castFP32 inverse are not actual exporter IBM bytes. No native/export/point or image proof."
+}

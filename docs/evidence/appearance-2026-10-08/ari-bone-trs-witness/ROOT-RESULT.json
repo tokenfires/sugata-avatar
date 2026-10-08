@@ -1,0 +1,80 @@
+{
+  "verified_utc": "2026-10-08T10:01:11.009419+00:00",
+  "all53_input_and_residual_records_exact": true,
+  "failed_bones": [
+    "thigh_l",
+    "thigh_r"
+  ],
+  "first_failed": "thigh_l",
+  "max_abs_matrix_element_residual": 1.0728836059570312e-06,
+  "bound": 1e-06,
+  "fraction_above_bound": 0.07288360595703125,
+  "joint_witnesses": [
+    {
+      "bone": "thigh_l",
+      "max_abs_residual": 1.0728836059570312e-06,
+      "worst_element": [
+        0,
+        1
+      ],
+      "local_at_worst": 0.44052839279174805,
+      "reconstructed_at_worst": 0.440529465675354,
+      "quaternion_wxyz": [
+        0.16709932684898376,
+        -0.9580745100975037,
+        -0.21390390396118164,
+        -0.09174012392759323
+      ],
+      "scale": [
+        0.9999995231628418,
+        0.9999960660934448,
+        0.9999997615814209
+      ]
+    },
+    {
+      "bone": "thigh_r",
+      "max_abs_residual": 1.0728836059570312e-06,
+      "worst_element": [
+        0,
+        1
+      ],
+      "local_at_worst": -0.44052839279174805,
+      "reconstructed_at_worst": -0.440529465675354,
+      "quaternion_wxyz": [
+        0.16709932684898376,
+        -0.9580745100975037,
+        0.21390390396118164,
+        0.09174012392759323
+      ],
+      "scale": [
+        0.9999995231628418,
+        0.9999960660934448,
+        0.9999997615814209
+      ]
+    }
+  ],
+  "raw_log_result_exact": true,
+  "job": {
+    "started_utc": "2026-10-08T09:58:34.056305+00:00",
+    "wrapper_pid": 66963,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--factory-startup",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/witness.py"
+    ],
+    "timeout_seconds": 60,
+    "timed_out": false,
+    "pid": 66964,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T09:58:35.737541+00:00"
+  },
+  "factory_state_unchanged": true,
+  "all_input_binary_script_native_pins_unchanged": true,
+  "no_live_job": true,
+  "limit": "Residual is a dimensionless rotational matrix coefficient, not a point-distance/micrometre or visible/shear/format-defect claim. No actual exporter was called."
+}

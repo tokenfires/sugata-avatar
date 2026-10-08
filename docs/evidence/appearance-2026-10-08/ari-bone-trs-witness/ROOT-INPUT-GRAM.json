@@ -1,0 +1,281 @@
+{
+  "observed_utc": "2026-10-08T09:53:03.824203+00:00",
+  "input": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/COLD-RESULT.json",
+    "bytes": 1573743,
+    "sha256": "b1020f28e3d4ac11fd458f4c54aa4081af97f76521f5e46b176a5a501d02a238"
+  },
+  "records": [
+    {
+      "bone": "Root",
+      "rest_3x3_Gram_max": 0.0,
+      "determinant": 1.0
+    },
+    {
+      "bone": "pelvis",
+      "rest_3x3_Gram_max": 5.1292886382725555e-08,
+      "determinant": 1.0000000512928864
+    },
+    {
+      "bone": "spine_01",
+      "rest_3x3_Gram_max": 8.089960257251505e-08,
+      "determinant": 0.9999999191003974
+    },
+    {
+      "bone": "spine_02",
+      "rest_3x3_Gram_max": 1.9849260879389874e-07,
+      "determinant": 0.9999998015073913
+    },
+    {
+      "bone": "spine_03",
+      "rest_3x3_Gram_max": 2.449321945263705e-07,
+      "determinant": 0.9999998145132177
+    },
+    {
+      "bone": "clavicle_l",
+      "rest_3x3_Gram_max": 2.7079652742401095e-07,
+      "determinant": 0.9999999053471209
+    },
+    {
+      "bone": "upperarm_l",
+      "rest_3x3_Gram_max": 3.3731098780798163e-07,
+      "determinant": 0.9999997686172142
+    },
+    {
+      "bone": "lowerarm_l",
+      "rest_3x3_Gram_max": 2.0382430587773115e-07,
+      "determinant": 0.9999997537965407
+    },
+    {
+      "bone": "hand_l",
+      "rest_3x3_Gram_max": 4.981423771255322e-07,
+      "determinant": 0.9999995162312381
+    },
+    {
+      "bone": "index_01_l",
+      "rest_3x3_Gram_max": 6.139802051219334e-07,
+      "determinant": 0.9999993937920866
+    },
+    {
+      "bone": "index_02_l",
+      "rest_3x3_Gram_max": 5.157433768943065e-07,
+      "determinant": 0.999999456339733
+    },
+    {
+      "bone": "index_03_l",
+      "rest_3x3_Gram_max": 6.277641650953569e-07,
+      "determinant": 0.9999993680262578
+    },
+    {
+      "bone": "middle_01_l",
+      "rest_3x3_Gram_max": 5.293724940624855e-07,
+      "determinant": 0.9999994758245488
+    },
+    {
+      "bone": "middle_02_l",
+      "rest_3x3_Gram_max": 5.75820577886077e-07,
+      "determinant": 0.9999994512584973
+    },
+    {
+      "bone": "middle_03_l",
+      "rest_3x3_Gram_max": 6.961066976174379e-07,
+      "determinant": 0.9999992567916393
+    },
+    {
+      "bone": "pinky_01_l",
+      "rest_3x3_Gram_max": 4.978922332199431e-07,
+      "determinant": 0.9999995051000948
+    },
+    {
+      "bone": "pinky_02_l",
+      "rest_3x3_Gram_max": 3.606670260225542e-07,
+      "determinant": 0.9999997525900571
+    },
+    {
+      "bone": "pinky_03_l",
+      "rest_3x3_Gram_max": 4.891423577291221e-07,
+      "determinant": 0.9999997078661073
+    },
+    {
+      "bone": "ring_01_l",
+      "rest_3x3_Gram_max": 3.4908583668169513e-07,
+      "determinant": 0.9999995483322789
+    },
+    {
+      "bone": "ring_02_l",
+      "rest_3x3_Gram_max": 4.7445632134213156e-07,
+      "determinant": 0.9999994721238896
+    },
+    {
+      "bone": "ring_03_l",
+      "rest_3x3_Gram_max": 4.956809673828388e-07,
+      "determinant": 0.9999993823285711
+    },
+    {
+      "bone": "thumb_01_l",
+      "rest_3x3_Gram_max": 6.601603246281229e-07,
+      "determinant": 0.9999993429685998
+    },
+    {
+      "bone": "thumb_02_l",
+      "rest_3x3_Gram_max": 6.904315839051378e-07,
+      "determinant": 0.99999941952658
+    },
+    {
+      "bone": "thumb_03_l",
+      "rest_3x3_Gram_max": 6.6908179618963e-07,
+      "determinant": 0.9999993164943999
+    },
+    {
+      "bone": "clavicle_r",
+      "rest_3x3_Gram_max": 2.7079652742401095e-07,
+      "determinant": 0.9999999053471209
+    },
+    {
+      "bone": "upperarm_r",
+      "rest_3x3_Gram_max": 3.3731098780798163e-07,
+      "determinant": 0.9999997686172142
+    },
+    {
+      "bone": "lowerarm_r",
+      "rest_3x3_Gram_max": 2.0382430587773115e-07,
+      "determinant": 0.9999997537965407
+    },
+    {
+      "bone": "hand_r",
+      "rest_3x3_Gram_max": 4.981423771255322e-07,
+      "determinant": 0.9999995162312381
+    },
+    {
+      "bone": "index_01_r",
+      "rest_3x3_Gram_max": 6.139802051219334e-07,
+      "determinant": 0.9999993937920866
+    },
+    {
+      "bone": "index_02_r",
+      "rest_3x3_Gram_max": 5.157433768943065e-07,
+      "determinant": 0.999999456339733
+    },
+    {
+      "bone": "index_03_r",
+      "rest_3x3_Gram_max": 6.277641650953569e-07,
+      "determinant": 0.9999993680262578
+    },
+    {
+      "bone": "middle_01_r",
+      "rest_3x3_Gram_max": 5.293724940624855e-07,
+      "determinant": 0.9999994758245488
+    },
+    {
+      "bone": "middle_02_r",
+      "rest_3x3_Gram_max": 5.75820577886077e-07,
+      "determinant": 0.9999994512584973
+    },
+    {
+      "bone": "middle_03_r",
+      "rest_3x3_Gram_max": 6.961066976174379e-07,
+      "determinant": 0.9999992567916393
+    },
+    {
+      "bone": "pinky_01_r",
+      "rest_3x3_Gram_max": 4.978922332199431e-07,
+      "determinant": 0.9999995051000948
+    },
+    {
+      "bone": "pinky_02_r",
+      "rest_3x3_Gram_max": 3.606670260225542e-07,
+      "determinant": 0.9999997525900571
+    },
+    {
+      "bone": "pinky_03_r",
+      "rest_3x3_Gram_max": 4.891423577291221e-07,
+      "determinant": 0.9999997078661073
+    },
+    {
+      "bone": "ring_01_r",
+      "rest_3x3_Gram_max": 3.4908583668169513e-07,
+      "determinant": 0.9999995483322789
+    },
+    {
+      "bone": "ring_02_r",
+      "rest_3x3_Gram_max": 4.7445632134213156e-07,
+      "determinant": 0.9999994721238896
+    },
+    {
+      "bone": "ring_03_r",
+      "rest_3x3_Gram_max": 4.956809673828388e-07,
+      "determinant": 0.9999993823285711
+    },
+    {
+      "bone": "thumb_01_r",
+      "rest_3x3_Gram_max": 6.601603246281229e-07,
+      "determinant": 0.9999993429685998
+    },
+    {
+      "bone": "thumb_02_r",
+      "rest_3x3_Gram_max": 6.904315839051378e-07,
+      "determinant": 0.99999941952658
+    },
+    {
+      "bone": "thumb_03_r",
+      "rest_3x3_Gram_max": 6.6908179618963e-07,
+      "determinant": 0.9999993164943999
+    },
+    {
+      "bone": "neck_01",
+      "rest_3x3_Gram_max": 1.468919421654391e-07,
+      "determinant": 0.9999998638183971
+    },
+    {
+      "bone": "head",
+      "rest_3x3_Gram_max": 5.000987357561826e-08,
+      "determinant": 0.9999999513873163
+    },
+    {
+      "bone": "thigh_l",
+      "rest_3x3_Gram_max": 7.884861954465805e-06,
+      "determinant": 0.9999953847102264
+    },
+    {
+      "bone": "calf_l",
+      "rest_3x3_Gram_max": 4.3733199053264116e-06,
+      "determinant": 0.999995110205954
+    },
+    {
+      "bone": "foot_l",
+      "rest_3x3_Gram_max": 4.1789380400558684e-06,
+      "determinant": 0.9999952353506284
+    },
+    {
+      "bone": "ball_l",
+      "rest_3x3_Gram_max": 4.783771681005078e-06,
+      "determinant": 0.9999952468104708
+    },
+    {
+      "bone": "thigh_r",
+      "rest_3x3_Gram_max": 7.884861954465805e-06,
+      "determinant": 0.9999953847102264
+    },
+    {
+      "bone": "calf_r",
+      "rest_3x3_Gram_max": 4.3733199053264116e-06,
+      "determinant": 0.999995110205954
+    },
+    {
+      "bone": "foot_r",
+      "rest_3x3_Gram_max": 4.1789380400558684e-06,
+      "determinant": 0.9999952353506284
+    },
+    {
+      "bone": "ball_r",
+      "rest_3x3_Gram_max": 4.783771681005078e-06,
+      "determinant": 0.9999952468104708
+    }
+  ],
+  "max_record": {
+    "bone": "thigh_l",
+    "rest_3x3_Gram_max": 7.884861954465805e-06,
+    "determinant": 0.9999953847102264
+  },
+  "limit": "Pure float64 algebra on stored rest matrices only; no mathutils decomposition or local reconstruction, no shear/projection cause claim"
+}

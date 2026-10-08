@@ -1,0 +1,57 @@
+{
+  "binary": {
+    "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "bytes": 182900560,
+    "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+  },
+  "expected_version": [
+    5,
+    2,
+    2
+  ],
+  "expected_build_hash": "d13f752e3b9c",
+  "input": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/COLD-RESULT.json",
+    "bytes": 1573743,
+    "sha256": "b1020f28e3d4ac11fd458f4c54aa4081af97f76521f5e46b176a5a501d02a238"
+  },
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/PLAN.md",
+      "bytes": 2936,
+      "sha256": "22336886505b9226810f2b4654cb03fedeeb26f06673e97ef082f81adf521e4f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/WORTH.md",
+      "bytes": 2772,
+      "sha256": "b2458c0b6ddf93309d73ad7ef285f7153696a5c00cfae337f8944bd2ffaa0c00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/witness.py",
+      "bytes": 6150,
+      "sha256": "9433b62209d1597de7a5d34c476d83337ea337b8995b0148e98c9da105920b8e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/COLD-RESULT.json",
+      "bytes": 1573743,
+      "sha256": "b1020f28e3d4ac11fd458f4c54aa4081af97f76521f5e46b176a5a501d02a238"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-dynamic-format/export_once.py",
+      "bytes": 27936,
+      "sha256": "0cddaa29d620a83c7a116c91e9c917b4593970a552d66787173a1aa5b20eb6f1"
+    }
+  ],
+  "physical_native_guards": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+      "bytes": 10811557,
+      "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "bytes": 11983694,
+      "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+    }
+  ]
+}

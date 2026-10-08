@@ -1,0 +1,40 @@
+{
+  "timeout_seconds": 60,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--factory-startup",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/witness.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/PLAN.md",
+      "bytes": 2936,
+      "sha256": "22336886505b9226810f2b4654cb03fedeeb26f06673e97ef082f81adf521e4f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/WORTH.md",
+      "bytes": 2772,
+      "sha256": "b2458c0b6ddf93309d73ad7ef285f7153696a5c00cfae337f8944bd2ffaa0c00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/RUN-PLAN.json",
+      "bytes": 2349,
+      "sha256": "fdb6ec9ca167f006946e082409a04fde1dadefd1cd1746baabc819ea9379094f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/witness.py",
+      "bytes": 6150,
+      "sha256": "9433b62209d1597de7a5d34c476d83337ea337b8995b0148e98c9da105920b8e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/run_native.py",
+      "bytes": 2022,
+      "sha256": "5b1b9ac247926b178a206cca9882ade51ca3bcb84c381b314ed3f220115e4948"
+    }
+  ]
+}
